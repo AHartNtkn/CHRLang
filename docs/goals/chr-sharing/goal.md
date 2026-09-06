@@ -28,6 +28,8 @@ The identifiers below record the owner's current decisions and provide a referen
 
 Future interests include coinductive streams, stream calculus, and representations of real numbers. They do not change the finite-tree target or require corecursive evaluation in the initial implementation.
 
+Early intended programs are relational addition and subtraction, followed by program synthesis through relational SK and lambda evaluators. The same definition should support forward evaluation and backward synthesis, including constrained partial-program answers and further-solution enumeration. [The intended-program record](notes/intended-programs.md) captures the supplied examples and their implications for candidate language costs. They are application targets, not evidence of sharing or an exhaustive workload set.
+
 ## Joint language and execution research
 
 The research team must actively discover language-design choices that could enable better compilation, sharing, scheduling, or simpler execution. Investigate in both directions: identify execution costs imposed by language features, and identify the language properties required by promising execution mechanisms. Do not wait for the owner to suggest possibilities or for implementation work to encounter a bottleneck.
@@ -48,7 +50,7 @@ These questions must not silently become assumptions. Researchers should first d
 - **O04 — Conditional execution (research).** How are choice identity, variable bindings, constraint occurrence identity, consumption, pending matches, propagation history, and failure represented together?
 - **O05 — Sharing and separation (research).** Which operations can execute once for several alternatives, what forces separation, and how can common work be recognized without spending more than it saves? May separated work safely be combined again?
 - **O06 — Scheduling and quiescence (research).** What is the schedulable unit? How is enabled work detected under partial choice information? Which fairness guarantees are possible without forcing eager enumeration? What overhead do they introduce?
-- **O07 — Cost and workloads (research with owner review).** Which workload families reflect the intended use, and what relative runtime/memory results would justify added complexity? No numerical success threshold, target platform, or implementation language is selected.
+- **O07 — Cost and workloads (research with owner review).** Relational arithmetic and evaluator-based program synthesis are owner-supplied application targets. Determine representative workload families around these and other justified uses, and what relative runtime/memory results would justify added complexity. No numerical success threshold, target platform, or implementation language is selected.
 
 - **O08 — Language and execution opportunities (research).** Which changes to the current language model would enable materially better execution? Discover alternatives systematically, establish which language properties each mechanism actually requires, and assess the benefits and programming costs.
 
