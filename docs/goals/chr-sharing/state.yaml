@@ -61,7 +61,7 @@ visual_board:
     status: live
     url: http://goalbuddy.localhost:41737/chr-sharing/
     command: node /home/ahart/.codex/plugins/cache/goalbuddy/goalbuddy/0.4.3/skills/goal-prep/surfaces/local-goal-board/scripts/local-goal-board.mjs --goal docs/goals/chr-sharing
-active_task: T016
+active_task: T017
 tasks:
   - id: T001
     type: pm
@@ -432,7 +432,7 @@ tasks:
   - id: T016
     type: pm
     assignee: PM
-    status: active
+    status: done
     objective: Develop finite local-net and named-superposition service constructions, assess language costs and source gaps, and continue remaining independent analytical questions from the direction audit.
     inputs:
       - notes/T015-direction-audit.md
@@ -451,6 +451,56 @@ tasks:
       - Concrete service encodings or precise counterexamples
       - Evidence-backed restriction and cost comparisons
       - Updated remaining-question dispositions
+    receipt:
+      result: done
+      harness: codex
+      summary: Developed finite net service compilation, named-superposition service distinctions, composed source simulation, asynchronous symbolic scheduling, exact solver projection, state-reuse criteria, language opportunities and broader cost questions. Goal still requires substantive coverage and proof review.
+      evidence:
+        - notes/T016-asynchronous-symbolic-scheduler.md
+        - notes/T016-comparative-cost-questions.md
+        - notes/T016-compiler-source-assessment.md
+        - notes/T016-composed-machine-argument.md
+        - notes/T016-exact-solver-projection.md
+        - notes/T016-finite-net-service-encoding.md
+        - notes/T016-language-opportunities.md
+        - notes/T016-net-locality-and-equality.md
+        - notes/T016-observation-and-state-reuse.md
+        - notes/T016-superposition-services.md
+      limitations:
+        - Paper algorithms and proofs, not implemented or independently certified.
+        - Detailed rwlog translation and native HVM label correspondence remain to be reviewed.
+        - No performance ranking or architecture adoption.
+      spawned_tasks:
+        - T017
+  - id: T017
+    type: pm
+    assignee: PM
+    status: active
+    objective: Adversarially review the new constructions and audit every remaining research direction against the universal stopping rule; pursue any remaining useful analysis or sources.
+    inputs:
+      - notes/T015-direction-audit.md
+      - notes/T016-asynchronous-symbolic-scheduler.md
+      - notes/T016-comparative-cost-questions.md
+      - notes/T016-compiler-source-assessment.md
+      - notes/T016-composed-machine-argument.md
+      - notes/T016-exact-solver-projection.md
+      - notes/T016-finite-net-service-encoding.md
+      - notes/T016-language-opportunities.md
+      - notes/T016-net-locality-and-equality.md
+      - notes/T016-observation-and-state-reuse.md
+      - notes/T016-superposition-services.md
+    constraints:
+      - Research and review only; no prototype implementation.
+      - Require evidence for each closed, empirical-dependent or owner-dependent disposition.
+      - A missing reviewer or experiment result does not block independent research.
+    allowed_files:
+      - docs/goals/chr-sharing/goal.md
+      - docs/goals/chr-sharing/state.yaml
+      - docs/goals/chr-sharing/notes/T017-*.md
+    expected_output:
+      - Substantive counterexample review
+      - Direction-by-direction audit with evidence and exact dependencies
+      - Continued independent research if any actionable question remains
     receipt: null
 checks:
   dirty_fingerprint: initial_task_owned_documents

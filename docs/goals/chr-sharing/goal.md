@@ -20,6 +20,8 @@ Independent research remains on named-superposition/relation-graph mechanisms, l
 
 The expanded [direction audit](notes/T015-direction-audit.md) and [source investigation](notes/T015-source-expansion.md) are now accompanied by a [relation-graph construction](notes/T015-relation-graph-construction.md), [pruning-predicate certificates](notes/T015-solver-certificates.md), and [symbolic scheduling analysis](notes/T015-symbolic-scheduling.md). These advance several alternatives independently; the audit still contains actionable research.
 
+The next analytical pass adds [finite net services](notes/T016-finite-net-service-encoding.md), [named-superposition obligations](notes/T016-superposition-services.md), [composed source simulation](notes/T016-composed-machine-argument.md), [asynchronous symbolic scheduling](notes/T016-asynchronous-symbolic-scheduler.md), [exact solver projection](notes/T016-exact-solver-projection.md), and [state-reuse criteria](notes/T016-observation-and-state-reuse.md). [Language opportunities](notes/T016-language-opportunities.md) and [comparative cost questions](notes/T016-comparative-cost-questions.md) connect these constructions to decisions and future evaluation. Substantive review and the full direction audit remain active.
+
 ## Purpose and authority
 
 The owner wants reusable CHR rulesets, separate queries selecting returned variables, finite-tree unification, and explicit disjunction. The central requirement is that an early choice must not force the entire constraint store or the subsequent common computation to split. Computation that carries a choice without distinguishing its alternatives should remain shared.
