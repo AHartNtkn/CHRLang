@@ -2,13 +2,13 @@
 
 Investigate language design and execution architecture together to develop a small, efficient CHR variant with shared computation across explicit alternatives. Discover which semantic choices enable useful execution mechanisms, and assess their costs before recommending a design.
 
-The current deliverable is this research charter, an investigation protocol, and a prepared task record. No evaluator architecture has been selected, and no implementation or performance result is claimed.
+The latest findings are in [the second research checkpoint](notes/T006-transfer-findings.md), with [the initial opportunity map](notes/T003-research-findings.md) and [review](notes/T007-review.md). Coverage and the project-specific semantic specification remain open. No evaluator architecture has been selected, and no implementation or performance result is claimed.
 
 ## Purpose and authority
 
 The owner wants reusable CHR rulesets, separate queries selecting returned variables, finite-tree unification, and explicit disjunction. The central requirement is that an early choice must not force the entire constraint store or the subsequent common computation to split. Computation that carries a choice without distinguishing its alternatives should remain shared.
 
-The owner approved preparing a reviewable charter and investigation protocol after requesting proper research management. This authorizes the present preparation milestone. The subsequent investigation described here is prepared work, not work already performed. Starting that investigation is a separate phase boundary.
+The owner approved this charter and authorized research execution on 2026-09-06, including subagents. Investigation proceeds through the coverage checkpoints and phase reviews below. Candidate semantic changes require an explicit recommendation before adoption; prototypes follow the M2 review.
 
 This is an existing-plan research project. Its intended beneficiary is the language's designer and eventual implementers. The principal risk is selecting an architecture through familiar examples or apparent compactness without establishing semantic correctness, candidate coverage, or net benefit.
 

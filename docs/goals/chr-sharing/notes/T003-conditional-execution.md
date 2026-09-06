@@ -1,0 +1,57 @@
+# Conditional execution and search-state evidence
+
+Conditional execution provides a serious candidate mechanism for sharing after choices, but it does not by itself supply CHR occurrence identity, conditional consumption, or propagation history. Search-state copying and recomputation provide important controls rather than evidence of the required shared computation.
+
+Research date: 2026-09-06. PM research scope: variational execution, assumption contexts, and search-state maintenance. No experiments were run. Source evidence and proposed transfers are distinguished below.
+
+## Inspected sources
+
+**V1 — Nguyen, Kästner, Nguyen, Exploring Variability-Aware Execution for Testing Plugin-Based Web Applications (ICSE 2014).** [Author PDF](https://www.cs.cmu.edu/~ckaestne/pdf/icse14_varex.pdf), §§3.1–3.2, especially 3.2.1–3.2.2. Describes conditional values, context-dependent updates, late splitting, and merging execution again. Empirical subject is a PHP/plugin configuration space. This establishes a mechanism family with sharing beyond a prefix; it does not establish a CHR implementation. Finite predetermined configuration options differ from recursively created logic-program choices. Relevant: C02–C04. Backward reference [28] led to V3.
+
+**V2 — Wong, Meinicke, Lazarek, Kästner, Faster Variational Execution with Transparent Bytecode Transformation (2018).** [Author PDF](https://chupanw.github.io/vbc/varexc-extended.pdf), §2 pp.5–6 (finite configuration assumption), §4 pp.9–14 (environment boundary and context transfer), §§4.3/5 (correctness and optimization). Conditional execution can rejoin contexts; instruction ordering affects sharing. External operations require special treatment; pure calls can be repeated over alternatives. The model assumes known finite configuration options. Transfer to dynamic choices, partial first-order values, and an unordered CHR agenda is unproved. Relevant: C01–C04, C06.
+
+**V3 — Erwig and Walkingshaw, The Choice Calculus: A Representation for Software Variation (TOSEM 2011).** [Author PDF](https://eric.walkingshaw.net/files/pubs/2011/tosem11-choice-calculus.pdf), syntax/semantics and transformation sections; [author project page](https://eric.walkingshaw.net/projects/choice-calculus.html) identifies versions. Supplies formal selection and variation transformations. A representation theory is useful for correlation and normalization, but not a CHR evaluator or proof that normalization is cheap. The author page identifies the later Formula Choice Calculus as a concrete next reference for Boolean contexts. Relevant: C01–C03. No claim about the later calculus is established here.
+
+**V4 — de Kleer, An assumption-based TMS (Artificial Intelligence 28, 1986, pp.127–162).** [Author PDF](https://dekleer.org/Publications/An%20Assumption-Based%20TMS.pdf), §4 context/label algorithms, §4.9 retracting justifications, §6 implementation. Associates derived information with supporting assumption environments and tracks inconsistent environments. This permits reuse across contexts. Retraction has distinct costs and treatment; its data model is not CHR's consumable multiset. The 1986 implementation advice is not a modern benchmark. Relevant: C01–C04, C06. Backward/adjacent author references identify Extending the ATMS and Problem Solving with the ATMS; only the latter's publisher abstract was screened in this pass.
+
+**V5 — Schulte, Comparing Trailing and Copying for Constraint Programming (ICLP 1999, pp.275–289).** [Author PDF](https://www.ps.uni-saarland.de/Publications/documents/Schulte_99a.pdf), §§3–9, especially §§7–8 recomputation. Evaluates copying, trailing, and adaptive recomputation in constraint search. Results depend on workloads and system implementation; they do not imply a modern speed ranking. The paper motivates a stronger control than naive whole-store copying and shows why storage, recomputation, and execution sharing must be measured separately. Relevant: C02, C04. Backward references concern Oz/Mozart and constraint-search implementation, not a proof of post-choice CHR sharing.
+
+## Proposed language/execution opportunities
+
+These are our research inferences, not the cited authors' CHR conclusions.
+
+**Conditional facts versus consumable resources.** Persistent information whose meaning accumulates may fit assumption-support propagation better than arbitrary consumable occurrences. Investigate separate persistence semantics or a compiler-established persistent subset. A global set/fact interpretation would change programs that count duplicate resources or consume tokens; a per-predicate discipline introduces interfaces between the two kinds. The CHR researcher supplies a more direct persistence semantics to compare. Required evidence: a denotation including multiplicity, justified updates, and conditional failure; no automatic identification of an ATMS datum with a CHR occurrence.
+
+**Predictable observation of choice-dependent values.** If operations declare or expose which arguments they inspect, a compiler might keep unaffected arguments and work shared. This could be an inferred property, an optional mode contract, or a restricted language fragment. Cost: restrictions on relational use and delayed failure; a demand-driven fragment must still account for work required to establish quiescence before reporting an answer. V2 motivates inspecting the boundary of opaque operations; it does not prove this optimization for CHR.
+
+**Bounded versus dynamically generated choices.** A finite configuration discipline could make conditional-value techniques easier to apply, but would constrain recursive search. Compare that semantic restriction with maintaining a finite set of live dynamic choice identities at each step. The latter is a representation hypothesis, not a result established by V1/V2. The distinction matters even though all ordinary terms are finite trees.
+
+**Support-aware answer handling.** Representation normalization that coalesces equal conditional values can be useful without discarding successful derivation multiplicity. Keep the questions separate: equal values, equivalent whole residual answers, and distinct successful alternatives. A conditional-value representation needs an explicit account of choice provenance if duplicate answers remain observable before deduplication. Neither V1 nor V3 establishes that account for S08.
+
+## Search record and coverage limits
+
+Search engine: web search tool. No domain restriction. Initial three-query batch:
+
+- `constraint handling rules disjunction lazy clause generation shared search persistent constraints`
+- `variational execution choice context sharing computation conditional values Varex paper`
+- `logic programming copying trailing recomputation search spaces Schulte paper`
+
+The engine returned a merged result set, so per-query first-20 coverage cannot be reconstructed. Selected V1, V2, V5 and the Gecode state-maintenance lead. Screened additional results: Lazy Clause Generation in Retrospect (2026) and Parallelising Lazy Clause Generation with Trail Sharing (2025), retained as adjacent inference-reuse leads; Compiling CHR with Lazy Search, handed to CHR scope; Optimizing CHR in HAL, covered by CHR scope; Programming Constraint Services, retained as V5-related; Schulte/Stuckey propagation equivalence, retained for a later cost-model pass. SICStus old manual, SCIP handler docs, generic encyclopedia entries, book retailer, discussion threads, quantum variational optimization, and unrelated application results were excluded from supporting evidence due to duplication, indirectness, or topic mismatch. The full ranked per-query ledger remains a retrieval gap, not completed screening.
+
+Individual follow-up query: `de Kleer assumption based truth maintenance system 1986 environments labels pdf`. Selected V4 via author host; publisher variants and ResearchGate mirrors were duplicates. Author bibliography selected as source locator. General Labeling Algorithm (1988), Foundations of ATMS, Extending/Problem Solving with ATMS retained as expansion leads. Environmental-system application, biographies, encyclopedia reason-maintenance entries, and possibilistic extension excluded from this tranche as indirect. Author PDF initially failed at www host; non-www host succeeded. No access blocker remains for V4.
+
+Backward-citation query from V1[28]: `"choice calculus" Erwig Walkingshaw 2011 pdf`. All 13 returned entries were screened: author PDF (selected); author choice-calculus page (version locator); author publications page (duplicate locator); ResearchGate 2011 mirror (duplicate); GTTSE book (adjacent tutorial); Tufts PDF (mirror); author variational-programming page (adjacent); Erwig bibliography (duplicate locator); Mendeley record (secondary duplicate); Oregon project page (duplicate locator); ResearchGate TOSEM entry (duplicate); ResearchGate tutorial (adjacent); DBLP author page (secondary locator). V3 was inspected; Formula Choice Calculus remains a named expansion lead.
+
+A Gecode PDF fetch failed; its search excerpt is not used to claim a hybrid implementation result. Revisit through an author mirror if the next pass needs that comparison.
+
+This pass identifies mechanisms and transfer gaps. It does not meet the protocol's two-round no-new-family stopping condition. Citation expansion has produced new leads, so coverage must remain open.
+
+## Cross-scope expansion: context-dependent rewriting
+
+The CHR researcher identified ACD term rewriting as an adjacent family. Individual query `Duck Stuckey Brand ACD term rewriting Cadmium demand driven normalization 2009` returned 18 entries: Monash records and duplicate URLs for ACDTR, Cadmium, and demand-driven normalization (selected as locators); author PDFs for ICLP06, ICLP08, ICLP09 (selected); arXiv ACDTR (alternate); ResearchGate Cadmium (mirror); author indexes/DBLP/RankMe (locators only). Inspected the ICLP08 and ICLP09 author PDFs.
+
+**V6 — De Koninck, Duck, Stuckey, Demand-driven Normalisation for ACD Term Rewriting (ICLP 2009).** [Author PDF](https://www.comp.nus.edu.sg/~gregory/papers/iclp09.pdf), §§2–4. Normalization can depend on conjunctive context. Its sharing mechanism can rewrite shared occurrences together when appropriate, but copies before context-dependent rewriting. Nonlinear matching also complicates laziness. This is directly relevant evidence about the boundary of reusable work, not a solution for CHR disjunction. C01/C03/C06.
+
+**V7 — Duck, De Koninck, Stuckey, Cadmium: An Implementation of ACD Term Rewriting (ICLP 2008).** [Author PDF](https://www.comp.nus.edu.sg/~gregory/papers/iclp08.pdf), normalization/event mechanism and conclusion. Context changes can require renewed normalization. This is a source for dependency invalidation costs; its language and evaluation strategy differ from the selected baseline. No benchmark numbers transferred.
+
+**Opportunity inferred:** expose or infer a computation's relevant context so reuse can be justified across alternatives that agree on that context. Language-wide locality restrictions, explicit region interfaces, and static dependency analysis are different ways to obtain this information, with different programming costs. Identical term structure or argument bindings alone do not establish reusable results when rules consult surrounding constraints. This opportunity links conditional execution, memoized expression evaluation, and CHR joins; it deserves a direct semantic investigation before a prototype.

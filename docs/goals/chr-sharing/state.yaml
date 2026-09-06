@@ -11,12 +11,12 @@ goal:
     final_proof: M1 review verifies semantic and mechanism coverage, independent opportunity discovery, language costs, evidence limits, and justified next steps; no implementation completion is claimed.
   intake:
     original_request: This is a research project that needs proper management.
-    interpreted_outcome: Prepare the charter and investigation protocol, with an executable research task record.
+    interpreted_outcome: Execute M1 joint language and architecture investigation and return reviewed findings and research gaps.
     input_shape: existing_plan
     audience: Project owner and future implementers
     authority: approved
     proof_type: artifact
-    completion_proof: Preparation audit against conversation requirements; research remains unperformed.
+    completion_proof: Reviewed source-backed dossier, coverage record, language-design tradeoffs, and justified next steps.
     likely_misfire: Mistaking plausible examples, compact representation, or completed paperwork for evidence supporting an architecture.
     blind_spots_considered:
       - Nonconfluent schedules cannot be validated against one fixed result.
@@ -28,7 +28,7 @@ goal:
       - Survey mechanisms before candidate selection.
       - Design evaluations before measurements.
       - Review at M1-M4 boundaries.
-  execution_started: false
+  execution_started: true
   preparation_status: reviewed
 rules:
   pm_owns_state: true
@@ -60,7 +60,7 @@ visual_board:
     status: live
     url: http://goalbuddy.localhost:41737/chr-sharing/
     command: node /home/ahart/.codex/plugins/cache/goalbuddy/goalbuddy/0.4.3/skills/goal-prep/surfaces/local-goal-board/scripts/local-goal-board.mjs --goal docs/goals/chr-sharing
-active_task: T003
+active_task: T008
 tasks:
   - id: T001
     type: pm
@@ -110,7 +110,7 @@ tasks:
   - id: T003
     type: scout
     assignee: Scout
-    status: active
+    status: done
     objective: Discover and investigate language-design and execution opportunities together, with semantic and literature evidence.
     inputs:
       - goal.md
@@ -118,7 +118,7 @@ tasks:
     constraints:
       - No evaluator implementation or experiments.
       - Actively investigate candidate language changes; retain explicit baseline/candidate distinctions and bring reasoned proposals to the owner.
-      - Selected as next task; do not dispatch until research execution is started.
+      - Execution authorized on 2026-09-06; parallel read-only research scopes cover CHR, interaction nets, functional logic, and conditional stores.
       - Follow protocol search and coverage rules; do not select architecture from seed references.
       - Start with the bounded retrieval and citation pass in protocol section 2, then report a coverage checkpoint.
     expected_output:
@@ -126,11 +126,23 @@ tasks:
       - Semantic dossier and unresolved owner decisions
       - Mechanism coverage and candidate inclusion/exclusion rationale
       - Language-choice/execution-opportunity map and owner-facing proposals with expressiveness, programming, and implementation tradeoffs
-    receipt: null
+    receipt:
+      result: done
+      summary: Completed first bounded four-stream research pass; inspected primary semantics/mechanisms and pinned HVM4 source, with six language-design opportunities and explicit transfer gaps.
+      evidence:
+        - notes/T003-research-findings.md
+        - notes/T003-chr-semantics.md
+        - notes/T003-interaction-nets.md
+        - notes/T003-functional-logic.md
+        - notes/T003-conditional-execution.md
+      limitations:
+        - Coverage not saturated; first-20 attribution incomplete for merged queries.
+        - No complete reference oracle, CHR sharing proof, or project benchmark.
+      harness: codex
   - id: T004
     type: judge
     assignee: Judge
-    status: queued
+    status: done
     objective: Review M1 evidence and define the justified next investigation.
     inputs:
       - T003 receipt and dossier
@@ -144,7 +156,14 @@ tasks:
       - Evidence gaps and decision request
       - M2 scope if justified
       - Audit active opportunity discovery beyond supplied examples and validity of semantic/performance comparisons
-    receipt: null
+    receipt:
+      result: done
+      decision: checkpoint_reviewable
+      full_outcome_complete: false
+      summary: Cross-stream review found no substantive transfer overclaim; coverage remains open. Next-pass priorities need explicit rationale and must retain competing mechanisms.
+      limitations:
+        - Reviewer authored interaction-net evidence; not independent verification of that stream.
+        - M1 coverage stopping condition unmet.
   - id: T005
     type: pm
     assignee: PM
@@ -164,13 +183,89 @@ tasks:
         - notes/investigation-protocol.md
       limitations:
         - Research findings and candidate recommendations remain future work.
+  - id: T006
+    type: scout
+    assignee: Scout
+    status: done
+    objective: Resolve priority transfer and coverage gaps across competing mechanisms in a second bounded pass.
+    inputs:
+      - T003 evidence
+      - T004 review
+    constraints:
+      - Read-only research; no prototype.
+      - Trace exact sources and assumptions; retain conditional execution, memoized graph sharing, and local-net candidates.
+    expected_output:
+      - Targeted semantic and scheduling findings
+      - Citation-expansion and unresolved-gap record
+    receipt:
+      result: done
+      summary: Resolved token-aware disjunction reference and investigated fairness, context dependencies, compiler reuse, richer nets, and learned consequences.
+      evidence:
+        - notes/T006-transfer-findings.md
+        - notes/T006-source-record.md
+      limitations:
+        - Coverage not saturated; ranked retrieval remains incomplete in the CHR stream.
+        - No project semantics proof, implementation, or performance measurements.
+  - id: T007
+    type: judge
+    assignee: Judge
+    status: done
+    objective: Audit M1 dossier and justify the next phase or precise remaining research.
+    inputs:
+      - T003 and T006 evidence
+    constraints:
+      - No architecture adoption or prototype authorization by default.
+    expected_output:
+      - Claim/evidence assessment
+      - Coverage verdict and next-step rationale
+    receipt:
+      result: done
+      decision: checkpoint_reviewable
+      summary: 'Cross-stream review found one scope correction: candidates may explicitly exclude the common case under stated language restrictions and reformulation costs. Incorporated.'
+      evidence:
+        - notes/T007-review.md
+      full_outcome_complete: false
+      limitations:
+        - Reviewer authored functional-logic evidence; not independent source certification of that stream.
+        - M1 stopping condition remains unmet.
+  - id: T008
+    type: scout
+    assignee: Scout
+    status: active
+    objective: Specify comparable baseline and candidate semantics and eligibility conditions.
+    inputs:
+      - T006 findings and T007 review
+    constraints:
+      - No architecture selection or prototype.
+      - Treat excluded programs and reformulation costs explicitly; allow multi-step correspondence.
+      - Do not invent owner decisions on query operations or residual-answer interface.
+    expected_output:
+      - Duplicate-preserving reference adaptation and unresolved semantic choices
+      - Candidate-specific semantics, enabling properties and shared-work obligations
+      - Expressibility and correctness analysis of the common conditional-lifetime case
+    receipt: null
+  - id: T009
+    type: scout
+    assignee: Scout
+    status: queued
+    objective: Complete targeted forward-citation and coverage expansion with attributable result logs.
+    inputs:
+      - T003 and T006 source records
+    constraints:
+      - Checkpoint each bounded round.
+      - Do not infer saturation from repeated retrieval of familiar families.
+    expected_output:
+      - Forward-citation ledger and coverage verdict
+      - Inclusion or exclusion reasons for remaining relevant mechanism leads
+    receipt: null
 checks:
   dirty_fingerprint: initial_task_owned_documents
   last_verification:
     result: passed
-    task: T005
+    task: T007
     commands:
-      - Independent semantic and research-responsibility review
-      - GoalBuddy check-goal-state.mjs
-      - Local Markdown link resolution
-      - git diff --check
+      - 'GoalBuddy state checker: passed; optional specialized-agent availability warnings remain.'
+      - 'Markdown local-link validation: passed.'
+      - 'git diff --check: passed.'
+    limitations:
+      - These checks validate document consistency, not research completeness or evaluator behavior.
