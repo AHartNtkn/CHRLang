@@ -6,11 +6,19 @@ The latest dossier contains [proposed reference and candidate contracts](notes/T
 
 The subsequent [conditional-kernel analysis](notes/T011-conditional-kernel.md) gives local preservation arguments, while [local compilation and solver contracts](notes/T011-local-compilation-and-solvers.md) identify sufficient source properties and backend obligations. [Its review](notes/T011-review-and-next.md) records remaining matching, wake-up and scheduling work. The active objective is to continue the needed research until implementation or direction clarification is genuinely required, or relevant research directions are exhausted.
 
+## Controlling completion rule
+
+Thoroughly investigate all relevant language-design and execution directions, including alternatives to the most-developed candidate. Continue every research question that can make meaningful progress without implementation or an owner decision. Stop only after a direction-by-direction evidence audit shows that every remaining relevant question requires specific implementation results unavailable through reasonable further analysis or sources, requires a specific owner decision, or is sufficiently investigated to close. Candidate or milestone readiness is not goal completion.
+
+The audit must distinguish a specific empirical dependency from an unanswered analytical question. A decision blocks only questions whose consequences have already been researched enough for an informed choice. New relevant directions discovered during source work join this audit.
+
 ## Current outcome
 
 The research objective remains active. [The scope audit](notes/T014-implementation-gate.md) distinguishes readiness of one conditional-execution experiment from completion of the broader investigation. [The experiment registration](notes/T013-experiment-registration.md) is a scoped proposal, not an implementation dependency for every research direction.
 
 Independent research remains on named-superposition/relation-graph mechanisms, local-net equality and choice services, compact scheduling, solver-fragment certification, and candidate-specific source gaps. The stopping condition must be assessed across these directions, not only against prerequisites of the most-developed candidate. No architecture or language restriction has been adopted.
+
+The expanded [direction audit](notes/T015-direction-audit.md) and [source investigation](notes/T015-source-expansion.md) are now accompanied by a [relation-graph construction](notes/T015-relation-graph-construction.md), [pruning-predicate certificates](notes/T015-solver-certificates.md), and [symbolic scheduling analysis](notes/T015-symbolic-scheduling.md). These advance several alternatives independently; the audit still contains actionable research.
 
 ## Purpose and authority
 

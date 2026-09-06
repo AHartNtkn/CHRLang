@@ -8,16 +8,16 @@ goal:
   oracle:
     signal: Reviewed dossier maps C01-C06 to evidence or gaps and explains actively discovered language/execution proposals and their tradeoffs.
     cadence: At each research receipt and M1 review.
-    final_proof: M1 review verifies semantic and mechanism coverage, independent opportunity discovery, language costs, evidence limits, and justified next steps; no implementation completion is claimed.
+    final_proof: Direction-by-direction audit of every live question, supported disposition and evidence; no independent analytical or source work remains actionable.
   intake:
     original_request: This is a research project that needs proper management.
-    interpreted_outcome: Thoroughly complete all needed research passes until implementation, direction clarification are needed, or until all relevant research directions are exhausted.
+    interpreted_outcome: Thoroughly investigate all relevant language-design and execution directions, including alternatives to the most-developed candidate. Continue every research question that can make meaningful progress without implementation or an owner decision. Stop only after a direction-by-direction evidence audit shows that every remaining relevant question requires specific implementation results unavailable through reasonable further analysis or sources, requires a specific owner decision, or is sufficiently investigated to close. Candidate or milestone readiness is not goal completion.
     input_shape: existing_plan
     audience: Project owner and future implementers
     authority: approved
     proof_type: artifact
     completion_proof: Reviewed source-backed dossier, coverage record, language-design tradeoffs, and justified next steps.
-    likely_misfire: Mistaking plausible examples, compact representation, or completed paperwork for evidence supporting an architecture.
+    likely_misfire: Treating readiness of the most-developed experiment as a dependency or stopping condition for independent research on other directions.
     blind_spots_considered:
       - Nonconfluent schedules cannot be validated against one fixed result.
       - Query operations and residual-answer projection remain open.
@@ -28,7 +28,7 @@ goal:
       - Survey mechanisms before candidate selection.
       - Design evaluations before measurements.
       - Review at M1-M4 boundaries.
-    latest_objective: Thoroughly complete all needed research passes until implementation, direction clarification are needed, or until all relevant research directions are exhausted.
+    latest_objective: Thoroughly investigate all relevant language-design and execution directions, including alternatives to the most-developed candidate. Continue every research question that can make meaningful progress without implementation or an owner decision. Stop only after a direction-by-direction evidence audit shows that every remaining relevant question requires specific implementation results unavailable through reasonable further analysis or sources, requires a specific owner decision, or is sufficiently investigated to close. Candidate or milestone readiness is not goal completion.
   execution_started: true
   preparation_status: reviewed
 rules:
@@ -61,7 +61,7 @@ visual_board:
     status: live
     url: http://goalbuddy.localhost:41737/chr-sharing/
     command: node /home/ahart/.codex/plugins/cache/goalbuddy/goalbuddy/0.4.3/skills/goal-prep/surfaces/local-goal-board/scripts/local-goal-board.mjs --goal docs/goals/chr-sharing
-active_task: T015
+active_task: T016
 tasks:
   - id: T001
     type: pm
@@ -395,9 +395,9 @@ tasks:
       limitations:
         - No project-wide implementation dependency or research exhaustion established.
   - id: T015
-    type: scout
-    assignee: Scout
-    status: active
+    type: pm
+    assignee: PM
+    status: done
     objective: Audit and pursue independent research across every live mechanism and language-design direction.
     inputs:
       - notes/T014-implementation-gate.md
@@ -405,9 +405,52 @@ tasks:
     constraints:
       - Do not infer global completion from readiness of one experiment.
       - Do not implement a prototype under this research correction.
+      - 'PM fallback: dedicated GoalBuddy agents are bundled_not_installed; research notes and control files only.'
     expected_output:
       - Direction-by-direction dependency audit with evidence
       - Concrete progress on independently actionable analytical/source questions
+    receipt:
+      result: done
+      harness: codex
+      summary: Expanded the direction audit and sources; derived contextual relation-graph operations, concrete pruning-predicate certificates and a symbolic finite-round fairness construction. Whole-goal research remains incomplete.
+      evidence:
+        - notes/T015-direction-audit.md
+        - notes/T015-source-expansion.md
+        - notes/T015-relation-graph-construction.md
+        - notes/T015-solver-certificates.md
+        - notes/T015-symbolic-scheduling.md
+      limitations:
+        - No implementation or measured cost result.
+        - Local simulation arguments are not yet a whole-machine preservation proof.
+        - Net services, asynchronous symbolic scheduling, exact solver projection and further compiler analysis remain actionable.
+      spawned_tasks:
+        - T016
+    allowed_files:
+      - docs/goals/chr-sharing/goal.md
+      - docs/goals/chr-sharing/state.yaml
+      - docs/goals/chr-sharing/notes/T015-*.md
+  - id: T016
+    type: pm
+    assignee: PM
+    status: active
+    objective: Develop finite local-net and named-superposition service constructions, assess language costs and source gaps, and continue remaining independent analytical questions from the direction audit.
+    inputs:
+      - notes/T015-direction-audit.md
+      - notes/T015-relation-graph-construction.md
+      - notes/T015-source-expansion.md
+      - notes/T011-local-compilation-and-solvers.md
+    constraints:
+      - Research only; no evaluator implementation or benchmarks.
+      - Do not infer whole-goal closure from a candidate-specific empirical dependency.
+      - PM fallback for bundled_not_installed dedicated agents.
+    allowed_files:
+      - docs/goals/chr-sharing/goal.md
+      - docs/goals/chr-sharing/state.yaml
+      - docs/goals/chr-sharing/notes/T016-*.md
+    expected_output:
+      - Concrete service encodings or precise counterexamples
+      - Evidence-backed restriction and cost comparisons
+      - Updated remaining-question dispositions
     receipt: null
 checks:
   dirty_fingerprint: initial_task_owned_documents
