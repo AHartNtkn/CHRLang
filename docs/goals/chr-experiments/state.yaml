@@ -59,7 +59,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T003
+active_task: T002
 tasks:
   - id: T001
     type: pm
@@ -107,24 +107,49 @@ tasks:
   - id: T002
     type: pm
     assignee: PM
-    status: queued
-    objective: E01 persistent storage control
+    status: active
+    objective: 'E01 first probe: independent indexed scalar CHR control with persistent branch state and shared immutable
+      terms, checked on E00 and compared with copying using actual work/storage counters.'
     inputs:
       - docs/experiments/sequence.md
     expected_output:
       - Registered executable comparison and evidence-backed receipt; refine scope before activation.
     receipt: null
+    allowed_files:
+      - Cargo.toml
+      - Cargo.lock
+      - research/chr-persistent/
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    verify:
+      - cargo test --workspace --all-targets
+      - cargo clippy --workspace --all-targets -- -D warnings
+      - cargo fmt --all -- --check
+    stop_if:
+      - If state projection differs, minimize and repair before affected measurements.
   - id: T003
     type: pm
     assignee: PM
-    status: active
+    status: done
     objective: 'E14 first probe: independent structural alpha-equivalence observer and exact experimental answer deduplication,
       validated against hand-derived graphs and reference observations.'
     inputs:
       - docs/experiments/sequence.md
     expected_output:
       - Registered executable comparison and evidence-backed receipt; refine scope before activation.
-    receipt: null
+    receipt:
+      result: done
+      harness: codex
+      summary: Independent exact answer observer passes 4096 graph comparisons and 13 registered cost probes with deterministic
+        non-time replay. E14 broader cost questions remain open.
+      evidence:
+        - docs/experiments/results/E14.md
+        - docs/experiments/results/E14-observer.tsv
+      commands:
+        - cmd: cargo test --workspace --all-targets
+          status: pass
+        - cmd: cargo clippy --workspace --all-targets -- -D warnings
+          status: pass
     allowed_files:
       - Cargo.toml
       - Cargo.lock
@@ -281,8 +306,8 @@ checks:
   dirty_fingerprint: clean_at_start
   last_verification:
     result: passed
-    task: T001
+    task: T003
     commands:
-      - workspace tests 42 pass
-      - Clippy and format pass
-      - E00 batch and replay 64 cases pass
+      - 49 workspace tests
+      - E14 13 probes and deterministic replay
+      - Clippy and format
