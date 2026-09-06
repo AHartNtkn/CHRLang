@@ -182,3 +182,7 @@ Each candidate has both an opportunity case and a nearby case challenging eligib
 The first review pass identified two additional gaps and assigned them explicitly: reference tests do not establish candidate subscription/race correctness, and application success on ground SK witnesses does not establish unbounded or nonground synthesis coverage. E00/E03 and E17 now own those obligations. This is a local planning review, not an independent review or validation of unimplemented algorithms.
 
 Before each execution receipt, update the affected question's disposition with its evidence and limits. Before an overall recommendation, re-audit every direction above. Any direction still awaiting a buildable experiment remains unfinished; one engine's production readiness or one successful synthesis result cannot close it.
+
+## Live experimental evidence
+
+[E00 v1](results/E00.md) validates 64 registered scalar observations and records remaining transition, generation and synthesis obligations. [E02 initial inventory](results/E02-initial-inventory.md) identifies concrete compiler opportunities and the norm/var occurrence-reintroduction boundary. Neither direction is closed. E14's independent observer is being built before E01 so new engines can be compared without importing reference normalization; the storage-control investigation remains queued.

@@ -59,12 +59,12 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T001
+active_task: T003
 tasks:
   - id: T001
     type: pm
     assignee: PM
-    status: active
+    status: done
     objective: 'Operationalize E00/E02: executable semantic/application cases, independent expected observations, literal
       lambda translation, source-property inventory and reference measurement receipt.'
     inputs:
@@ -88,7 +88,22 @@ tasks:
       - Frozen case contract and independent expected observations
       - Runnable reference validation
       - Explicit candidate-only obligations and language-property inventory
-    receipt: null
+    receipt:
+      result: done
+      harness: codex
+      summary: Operationalized E00 v1 with 64 passing registered cases and deterministic replay; translated literal lambda
+        theory; recorded E02 source-property inventory. E00/E02 broader questions remain open.
+      evidence:
+        - docs/experiments/results/E00.md
+        - docs/experiments/results/E00-reference.tsv
+        - docs/experiments/results/E02-initial-inventory.md
+      commands:
+        - cmd: cargo test --workspace --all-targets
+          status: pass
+        - cmd: cargo clippy --workspace --all-targets -- -D warnings
+          status: pass
+        - cmd: cargo fmt --all -- --check
+          status: pass
   - id: T002
     type: pm
     assignee: PM
@@ -102,13 +117,26 @@ tasks:
   - id: T003
     type: pm
     assignee: PM
-    status: queued
-    objective: E14 independent exact answer comparison
+    status: active
+    objective: 'E14 first probe: independent structural alpha-equivalence observer and exact experimental answer deduplication,
+      validated against hand-derived graphs and reference observations.'
     inputs:
       - docs/experiments/sequence.md
     expected_output:
       - Registered executable comparison and evidence-backed receipt; refine scope before activation.
     receipt: null
+    allowed_files:
+      - Cargo.toml
+      - Cargo.lock
+      - research/chr-observe/
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    verify:
+      - cargo test --workspace --all-targets
+      - cargo clippy --workspace --all-targets -- -D warnings
+      - cargo fmt --all -- --check
+    stop_if:
+      - Observation contract would require adopting logical projection; retain full residual comparison.
   - id: T004
     type: pm
     assignee: PM
@@ -252,6 +280,9 @@ tasks:
 checks:
   dirty_fingerprint: clean_at_start
   last_verification:
-    result: unknown
-    task: null
-    commands: []
+    result: passed
+    task: T001
+    commands:
+      - workspace tests 42 pass
+      - Clippy and format pass
+      - E00 batch and replay 64 cases pass
