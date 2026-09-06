@@ -3,12 +3,12 @@ goal:
   title: CHR shared-execution research
   slug: chr-sharing
   kind: existing_plan
-  tranche: 'M1: establish semantic and literature evidence for candidate/evaluation review; prototype work requires M2 review.'
+  tranche: 'M1: jointly investigate language design and execution architecture; review evidence and tradeoffs before prototypes.'
   status: active
   oracle:
-    signal: Reviewed semantic and literature dossier maps C01-C05 to evidence or explicit gaps and justifies the next research decision.
+    signal: Reviewed dossier maps C01-C06 to evidence or gaps and explains actively discovered language/execution proposals and their tradeoffs.
     cadence: At each research receipt and M1 review.
-    final_proof: M1 review receipt identifies coverage, contradictions, candidate rationale, remaining gaps, and a justified next step; it does not claim language implementation is complete.
+    final_proof: M1 review verifies semantic and mechanism coverage, independent opportunity discovery, language costs, evidence limits, and justified next steps; no implementation completion is claimed.
   intake:
     original_request: This is a research project that needs proper management.
     interpreted_outcome: Prepare the charter and investigation protocol, with an executable research task record.
@@ -22,8 +22,9 @@ goal:
       - Nonconfluent schedules cannot be validated against one fixed result.
       - Query operations and residual-answer projection remain open.
       - Storage sharing does not establish shared computation or net speed.
+      - A survey confined to a fixed language or owner-supplied examples misses language/architecture opportunities.
     existing_plan_facts:
-      - Preserve S01-S09 from the conversation.
+      - Use S01-S09 as the current baseline; proactively investigate language-design changes with explicit semantics and owner-facing tradeoff reports.
       - Survey mechanisms before candidate selection.
       - Design evaluations before measurements.
       - Review at M1-M4 boundaries.
@@ -110,13 +111,13 @@ tasks:
     type: scout
     assignee: Scout
     status: active
-    objective: Establish semantic reference and literature coverage for shared CHR execution.
+    objective: Discover and investigate language-design and execution opportunities together, with semantic and literature evidence.
     inputs:
       - goal.md
       - notes/investigation-protocol.md
     constraints:
       - No evaluator implementation or experiments.
-      - Preserve S01-S09; escalate only material semantic choices.
+      - Actively investigate candidate language changes; retain explicit baseline/candidate distinctions and bring reasoned proposals to the owner.
       - Selected as next task; do not dispatch until research execution is started.
       - Follow protocol search and coverage rules; do not select architecture from seed references.
       - Start with the bounded retrieval and citation pass in protocol section 2, then report a coverage checkpoint.
@@ -124,6 +125,7 @@ tasks:
       - Source ledger with queries, locators, assumptions, and limitations
       - Semantic dossier and unresolved owner decisions
       - Mechanism coverage and candidate inclusion/exclusion rationale
+      - Language-choice/execution-opportunity map and owner-facing proposals with expressiveness, programming, and implementation tradeoffs
     receipt: null
   - id: T004
     type: judge
@@ -132,22 +134,43 @@ tasks:
     objective: Review M1 evidence and define the justified next investigation.
     inputs:
       - T003 receipt and dossier
-      - C01-C05 evidence mapping
+      - C01-C06 evidence mapping
     constraints:
       - No evaluator implementation or experiments.
-      - Preserve S01-S09; escalate only material semantic choices.
+      - Actively investigate candidate language changes; retain explicit baseline/candidate distinctions and bring reasoned proposals to the owner.
       - Do not activate prototype work; M2 requires a reviewed evaluation design.
     expected_output:
       - Coverage and semantic review
       - Evidence gaps and decision request
       - M2 scope if justified
+      - Audit active opportunity discovery beyond supplied examples and validity of semantic/performance comparisons
     receipt: null
+  - id: T005
+    type: pm
+    assignee: PM
+    status: done
+    objective: Make joint language and architecture discovery an explicit research responsibility.
+    inputs:
+      - Owner clarification on active language-design investigation
+    constraints:
+      - No baseline semantic changes adopted.
+    expected_output:
+      - Consistent charter, protocol, and M1 task obligations
+    receipt:
+      result: done
+      summary: Added proactive opportunity discovery, candidate semantic comparisons, programming-cost evaluation, and review requirements.
+      evidence:
+        - goal.md
+        - notes/investigation-protocol.md
+      limitations:
+        - Research findings and candidate recommendations remain future work.
 checks:
   dirty_fingerprint: initial_task_owned_documents
   last_verification:
     result: passed
-    task: T002
+    task: T005
     commands:
+      - Independent semantic and research-responsibility review
       - GoalBuddy check-goal-state.mjs
       - Local Markdown link resolution
-      - Live browser task rendering
+      - git diff --check

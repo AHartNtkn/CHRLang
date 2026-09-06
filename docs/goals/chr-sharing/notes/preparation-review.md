@@ -24,3 +24,9 @@ The task-record checker, local link checks, and live board inspection validate t
 ## Current boundary
 
 Preparation is complete. T003 is selected as the next research task but has not been dispatched; the board's active designation means selected next work. The execution_started field is false. Research execution, architecture selection, and implementation remain unperformed.
+
+## Joint-design research review — 2026-09-06
+
+An independent read-only review checked the charter, protocol, and research tasks against the owner’s direction to actively discover language-design opportunities. It found the responsibility consistently expressed through bidirectional investigation, explicit candidate semantics, owner-facing tradeoffs, M1 deliverables, and review criteria. No candidate semantic changes have been adopted.
+
+The PM verified that C06 and O08 connect this responsibility to evidence and task outputs. The protocol distinguishes language-wide restrictions from inferred/local properties and requires cross-language evaluation to account for expressiveness and reformulation costs. Board validation and document-link checks pass for this revision.
