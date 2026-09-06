@@ -2,6 +2,8 @@
 
 A research project exploring CHR with finite-tree unification, explicit disjunction and shared execution. The first executable component is a **reference interpreter**: a direct implementation intended to make the specified behavior easy to inspect and compare. It copies branch state and repeats work. It is not the chosen architecture for an optimized engine.
 
+The next investigations are organized in the [experimental sequence](docs/experiments/sequence.md), with a [direction-by-direction coverage audit](docs/experiments/coverage.md). The plan separates semantic checks, credible controls, independent mechanism probes, and complete application comparisons.
+
 ## Run the demonstrations
 
 Use Rust with edition 2024 support. There are no external crate dependencies.
