@@ -1,0 +1,153 @@
+version: 2
+goal:
+  title: CHR shared-execution research
+  slug: chr-sharing
+  kind: existing_plan
+  tranche: 'M1: establish semantic and literature evidence for candidate/evaluation review; prototype work requires M2 review.'
+  status: active
+  oracle:
+    signal: Reviewed semantic and literature dossier maps C01-C05 to evidence or explicit gaps and justifies the next research decision.
+    cadence: At each research receipt and M1 review.
+    final_proof: M1 review receipt identifies coverage, contradictions, candidate rationale, remaining gaps, and a justified next step; it does not claim language implementation is complete.
+  intake:
+    original_request: This is a research project that needs proper management.
+    interpreted_outcome: Prepare the charter and investigation protocol, with an executable research task record.
+    input_shape: existing_plan
+    audience: Project owner and future implementers
+    authority: approved
+    proof_type: artifact
+    completion_proof: Preparation audit against conversation requirements; research remains unperformed.
+    likely_misfire: Mistaking plausible examples, compact representation, or completed paperwork for evidence supporting an architecture.
+    blind_spots_considered:
+      - Nonconfluent schedules cannot be validated against one fixed result.
+      - Query operations and residual-answer projection remain open.
+      - Storage sharing does not establish shared computation or net speed.
+    existing_plan_facts:
+      - Preserve S01-S09 from the conversation.
+      - Survey mechanisms before candidate selection.
+      - Design evaluations before measurements.
+      - Review at M1-M4 boundaries.
+  execution_started: false
+  preparation_status: reviewed
+rules:
+  pm_owns_state: true
+  one_active_task: true
+  max_write_workers: 1
+  no_implementation_without_worker_or_pm_task: true
+  no_completion_without_judge_or_pm_audit: true
+  planning_is_not_completion: true
+  queued_required_worker_blocks_completion: true
+  continuous_until_full_outcome: true
+  missing_input_or_credentials_do_not_stop_goal: true
+  exact_human_approval_can_terminal_wait: true
+  preserve_and_validate_existing_plan: true
+  intake_misfire_must_be_audited: true
+  goal_pressure_requires_oracle: true
+  no_completion_on_weak_proof: true
+  slice_policy:
+    max_consecutive_tiny_tasks: 2
+    prefer_vertical_slices: true
+    judge_picks_largest_safe_slice: true
+    worker_completes_whole_slice: true
+agents:
+  scout: bundled_not_installed
+  worker: bundled_not_installed
+  judge: bundled_not_installed
+visual_board:
+  selected: local
+  local:
+    status: live
+    url: http://goalbuddy.localhost:41737/chr-sharing/
+    command: node /home/ahart/.codex/plugins/cache/goalbuddy/goalbuddy/0.4.3/skills/goal-prep/surfaces/local-goal-board/scripts/local-goal-board.mjs --goal docs/goals/chr-sharing
+active_task: T003
+tasks:
+  - id: T001
+    type: pm
+    assignee: PM
+    status: done
+    objective: Prepare research charter and investigation protocol.
+    inputs:
+      - Owner conversation decisions
+    constraints:
+      - No evaluator implementation or experiments.
+      - Preserve S01-S09; escalate only material semantic choices.
+    expected_output:
+      - goal.md
+      - notes/investigation-protocol.md
+    receipt:
+      result: done
+      summary: Drafted contract S01-S09, open questions O01-O07, claims C01-C05, milestones, and investigation protocol.
+      evidence:
+        - goal.md
+        - notes/investigation-protocol.md
+      limitations:
+        - No literature dossier or architecture result.
+  - id: T002
+    type: judge
+    assignee: Judge
+    status: done
+    objective: Audit preparation against owner decisions and experimental validity.
+    inputs:
+      - goal.md
+      - notes/investigation-protocol.md
+      - Owner conversation
+    constraints:
+      - No evaluator implementation or experiments.
+      - Preserve S01-S09; escalate only material semantic choices.
+    expected_output:
+      - Substantive issues and corrections
+      - Preparation review receipt
+    receipt:
+      result: done
+      decision: preparation_reviewable
+      summary: Independent review and PM audit completed; explicit-alternative preservation and bounded search checkpoints incorporated.
+      note: notes/preparation-review.md
+      full_outcome_complete: false
+      limitations:
+        - Research has not started.
+        - No feasibility or performance conclusion.
+  - id: T003
+    type: scout
+    assignee: Scout
+    status: active
+    objective: Establish semantic reference and literature coverage for shared CHR execution.
+    inputs:
+      - goal.md
+      - notes/investigation-protocol.md
+    constraints:
+      - No evaluator implementation or experiments.
+      - Preserve S01-S09; escalate only material semantic choices.
+      - Selected as next task; do not dispatch until research execution is started.
+      - Follow protocol search and coverage rules; do not select architecture from seed references.
+      - Start with the bounded retrieval and citation pass in protocol section 2, then report a coverage checkpoint.
+    expected_output:
+      - Source ledger with queries, locators, assumptions, and limitations
+      - Semantic dossier and unresolved owner decisions
+      - Mechanism coverage and candidate inclusion/exclusion rationale
+    receipt: null
+  - id: T004
+    type: judge
+    assignee: Judge
+    status: queued
+    objective: Review M1 evidence and define the justified next investigation.
+    inputs:
+      - T003 receipt and dossier
+      - C01-C05 evidence mapping
+    constraints:
+      - No evaluator implementation or experiments.
+      - Preserve S01-S09; escalate only material semantic choices.
+      - Do not activate prototype work; M2 requires a reviewed evaluation design.
+    expected_output:
+      - Coverage and semantic review
+      - Evidence gaps and decision request
+      - M2 scope if justified
+    receipt: null
+checks:
+  dirty_fingerprint: initial_task_owned_documents
+  last_verification:
+    result: passed
+    task: T002
+    commands:
+      - GoalBuddy check-goal-state.mjs
+      - Local Markdown link resolution
+      - Live browser task rendering
