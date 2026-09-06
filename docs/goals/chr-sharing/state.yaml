@@ -4,11 +4,11 @@ goal:
   slug: chr-sharing
   kind: existing_plan
   tranche: Joint language and execution research across all live directions; experiment readiness does not close the broader objective.
-  status: active
+  status: done
   oracle:
     signal: Reviewed dossier maps C01-C06 to evidence or gaps and explains actively discovered language/execution proposals and their tradeoffs.
     cadence: At each research receipt and M1 review.
-    final_proof: Direction-by-direction audit of every live question, supported disposition and evidence; no independent analytical or source work remains actionable.
+    final_proof: notes/T018-final-direction-audit.md covers 17 directions with evidence and exact remaining dependencies; notes/T018-review-receipt.md records the substantive PM review.
   intake:
     original_request: This is a research project that needs proper management.
     interpreted_outcome: Thoroughly investigate all relevant language-design and execution directions, including alternatives to the most-developed candidate. Continue every research question that can make meaningful progress without implementation or an owner decision. Stop only after a direction-by-direction evidence audit shows that every remaining relevant question requires specific implementation results unavailable through reasonable further analysis or sources, requires a specific owner decision, or is sufficiently investigated to close. Candidate or milestone readiness is not goal completion.
@@ -61,7 +61,7 @@ visual_board:
     status: live
     url: http://goalbuddy.localhost:41737/chr-sharing/
     command: node /home/ahart/.codex/plugins/cache/goalbuddy/goalbuddy/0.4.3/skills/goal-prep/surfaces/local-goal-board/scripts/local-goal-board.mjs --goal docs/goals/chr-sharing
-active_task: T018
+active_task: null
 tasks:
   - id: T001
     type: pm
@@ -519,7 +519,7 @@ tasks:
   - id: T018
     type: pm
     assignee: PM
-    status: active
+    status: done
     objective: Resolve rwlog operational translation, remaining named-superposition correspondence and encapsulated-search findings, then perform the universal direction audit and continue any independently actionable research.
     inputs:
       - notes/T017-review-progress.md
@@ -538,14 +538,35 @@ tasks:
       - Source-grounded translations and correspondence arguments
       - Direction-specific dispositions with evidence
       - Continue if any relevant analytical work remains
-    receipt: null
+    receipt:
+      result: done
+      harness: codex
+      decision: complete
+      full_outcome_complete: true
+      summary: Completed source-grounded rwlog translations, backend and search-interface boundaries, specialization, cross-region composition and learning, whole-evaluator symbolic compilation, comparative portfolio and a 17-direction terminal research audit.
+      evidence:
+        - notes/T018-backend-boundaries.md
+        - notes/T018-bounded-symbolic-compilation.md
+        - notes/T018-composition-and-learning.md
+        - notes/T018-evaluation-portfolio.md
+        - notes/T018-final-direction-audit.md
+        - notes/T018-review-receipt.md
+        - notes/T018-rwlog-translation.md
+        - notes/T018-specialization.md
+      limitations:
+        - Paper constructions and source inspection, not implemented or machine-checked results.
+        - PM fallback review; no independent reviewer in this session.
+        - No architecture choice, semantic adoption or prototype authorization.
+        - Remaining implementation results and owner choices are listed individually in the audit.
+      spawned_tasks: []
 checks:
   dirty_fingerprint: initial_task_owned_documents
   last_verification:
     result: passed
-    task: T014
+    task: T018
     commands:
-      - 'Scope audit: independent actionable research identified in existing notes.'
-      - 'Board schema, local links and git diff --check: passed.'
+      - 'Substantive PM review: notes/T018-review-receipt.md.'
+      - 'T018 local evidence links: resolved.'
+      - 'git diff --check: passed.'
     limitations:
-      - Research remains incomplete; checks do not establish a stopping condition.
+      - Document checks do not establish executable correctness or performance.
