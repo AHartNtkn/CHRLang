@@ -2,7 +2,7 @@
 
 Investigate language design and execution architecture together to develop a small, efficient CHR variant with shared computation across explicit alternatives. Discover which semantic choices enable useful execution mechanisms, and assess their costs before recommending a design.
 
-The latest findings are in [the second research checkpoint](notes/T006-transfer-findings.md), with [the initial opportunity map](notes/T003-research-findings.md) and [review](notes/T007-review.md). Coverage and the project-specific semantic specification remain open. No evaluator architecture has been selected, and no implementation or performance result is claimed.
+The latest dossier contains [proposed reference and candidate contracts](notes/T008-reference-and-candidates.md), [worked obligations](notes/T008-worked-obligations.md), [coverage evidence](notes/T009-coverage.md), and [review](notes/T010-comparison-review.md). It builds on [the initial opportunity map](notes/T003-research-findings.md). Representation proofs, exact eligibility conditions and broader source coverage remain open. No evaluator architecture has been selected, and no implementation or performance result is claimed.
 
 ## Purpose and authority
 

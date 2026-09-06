@@ -60,7 +60,7 @@ visual_board:
     status: live
     url: http://goalbuddy.localhost:41737/chr-sharing/
     command: node /home/ahart/.codex/plugins/cache/goalbuddy/goalbuddy/0.4.3/skills/goal-prep/surfaces/local-goal-board/scripts/local-goal-board.mjs --goal docs/goals/chr-sharing
-active_task: T008
+active_task: T011
 tasks:
   - id: T001
     type: pm
@@ -231,7 +231,7 @@ tasks:
   - id: T008
     type: scout
     assignee: Scout
-    status: active
+    status: done
     objective: Specify comparable baseline and candidate semantics and eligibility conditions.
     inputs:
       - T006 findings and T007 review
@@ -244,11 +244,19 @@ tasks:
       - Duplicate-preserving reference adaptation and unresolved semantic choices
       - Candidate-specific semantics, enabling properties and shared-work obligations
       - Expressibility and correctness analysis of the common conditional-lifetime case
-    receipt: null
+    receipt:
+      result: done
+      summary: Drafted baseline reference adaptation, candidate contracts, programming costs, shared-work obligations and hand-derived counterexample traces.
+      evidence:
+        - notes/T008-reference-and-candidates.md
+        - notes/T008-worked-obligations.md
+      limitations:
+        - Proposed specification, not a full formalization or representation proof.
+        - Owner choices on additional primitives and answer/query interfaces remain open.
   - id: T009
     type: scout
     assignee: Scout
-    status: queued
+    status: done
     objective: Complete targeted forward-citation and coverage expansion with attributable result logs.
     inputs:
       - T003 and T006 source records
@@ -258,15 +266,65 @@ tasks:
     expected_output:
       - Forward-citation ledger and coverage verdict
       - Inclusion or exclusion reasons for remaining relevant mechanism leads
+    receipt:
+      result: done
+      summary: Completed two bounded forward/author expansion rounds with ranked ledgers and primary-source analysis; assessed sampled-family stability and remaining global coverage gaps.
+      evidence:
+        - notes/T009-coverage.md
+      limitations:
+        - Global saturation remains unestablished.
+        - No CHR transfer theorem or project measurement obtained.
+  - id: T010
+    type: judge
+    assignee: Judge
+    status: done
+    objective: Review comparative reference, eligibility costs and coverage verdict.
+    inputs:
+      - T008 and T009 artifacts
+      - Owner intended programs
+    constraints:
+      - Distinguish proposed semantics, proof obligations and proven claims.
+    expected_output:
+      - Substantive corrections and next-work rationale
+    receipt:
+      result: done
+      decision: comparative_checkpoint_reviewable
+      full_outcome_complete: false
+      summary: Corrected identity freshness, substitution composition and liveness scope. Comparison is reviewable; M1 proof/eligibility and broader coverage gaps remain.
+      evidence:
+        - notes/T010-comparison-review.md
+      limitations:
+        - Reviewer contributed candidate analysis; not fully independent authorship.
+  - id: T011
+    type: scout
+    assignee: Scout
+    status: active
+    objective: Resolve specific representation and eligibility obligations and source gaps needed for M1 closure.
+    inputs:
+      - notes/T008-reference-and-candidates.md
+      - notes/T008-worked-obligations.md
+      - notes/T009-coverage.md
+      - notes/T010-comparison-review.md
+    constraints:
+      - No prototype or architecture adoption.
+      - Produce proof arguments, counterexamples or precise unresolved obligations.
+      - Do not require baseline expressibility from a candidate that declares a semantic restriction.
+    expected_output:
+      - Conditional substitution and occurrence-update analysis
+      - Sufficient dependency and local-net eligibility conditions
+      - Declared interfaces for solver reuse
+      - Source-gap disposition and M1 gate review
     receipt: null
 checks:
   dirty_fingerprint: initial_task_owned_documents
   last_verification:
     result: passed
-    task: T007
+    task: T010
     commands:
-      - 'GoalBuddy state checker: passed; optional specialized-agent availability warnings remain.'
-      - 'Markdown local-link validation: passed.'
+      - 'Cross-agent specification review and PM hand-trace audit: required corrections incorporated.'
+      - 'GoalBuddy schema checker: passed; optional dedicated-agent warnings remain.'
+      - 'Local Markdown links and new-file whitespace: passed.'
       - 'git diff --check: passed.'
     limitations:
-      - These checks validate document consistency, not research completeness or evaluator behavior.
+      - No implementation, formal proof checker or performance experiment run.
+      - Global source coverage remains open.
