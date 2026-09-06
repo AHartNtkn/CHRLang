@@ -1,6 +1,6 @@
 # Cost model and research boundary
 
-The construction now identifies what work is saved and what work may replace it. Actual representations determine the balance, so a bounded implementation is the next source of evidence. These cost expressions are accounting models, not measured bounds on a production evaluator.
+The construction now identifies what work is saved and what work may replace it. Actual representations determine the measured balance, so this candidate has questions for a bounded implementation. Independent research on competing mechanisms remains available. These cost expressions are accounting models, not measured bounds on a production evaluator.
 
 ## Separate semantic work from bookkeeping
 
@@ -46,8 +46,8 @@ Béchet's uninspected total-correctness conditions prohibit relying on those beh
 
 Relation-graph and net backends remain live alternatives, with equality/dependency/service engineering explicitly identified. The scalar/conditional services and R-controller probe provide reusable correctness questions, but their results will not be called net compilation evidence. Tabled and learned solver interfaces likewise have an independent scope and must preserve their declared residual meaning.
 
-## Why implementation is now needed
+## Scope of the implementation dependency
 
-The pending question is no longer just whether applicability or fair work discovery can be defined. The dossier now supplies finite tuple scans, conditional witness construction, race-safe dependency registration, supported commits, a resumable FIFO scheduler and quiescence certificates. Their costs and implementation fidelity depend on actual data structures and workloads.
+The conditional construction has reached questions about executable fidelity and measured costs. That does not establish that implementation blocks the broader research objective. The pending relation-graph, local-net, solver-certification and compact-scheduling questions have not been shown to depend on this experiment.
 
-Further theoretical refinements are possible, but none identified by the review is a prerequisite for challenging this specified construction. The appropriate research stopping point is an implementation gate with a frozen experiment contract, not a claim that every research direction is exhausted. The broader language project continues through experiment review and later owner decisions.
+Readiness to test one candidate cannot establish that independent research is exhausted or blocked. Each remaining direction needs its own question, evidence, next analytical/source step and justified disposition. The experiment can remain specified while that work continues.

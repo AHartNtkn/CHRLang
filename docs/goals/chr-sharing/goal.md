@@ -8,9 +8,9 @@ The subsequent [conditional-kernel analysis](notes/T011-conditional-kernel.md) g
 
 ## Current outcome
 
-The active research objective has reached its implementation-needed stopping point. [The implementation-gate audit](notes/T014-implementation-gate.md) maps the requirements to evidence and records the final reviews. [The bounded experiment registration](notes/T013-experiment-registration.md) is ready for a separate implementation task; no prototype or production architecture has been adopted.
+The research objective remains active. [The scope audit](notes/T014-implementation-gate.md) distinguishes readiness of one conditional-execution experiment from completion of the broader investigation. [The experiment registration](notes/T013-experiment-registration.md) is a scoped proposal, not an implementation dependency for every research direction.
 
-M1 closes through its documented inconclusive-review route, with source-coverage gaps retained and no identified dependency blocking the registered probe. [Matching/wake-up](notes/T012-matching-and-wakeup.md), [scheduling](notes/T012-scheduler.md), and [cost analysis](notes/T012-cost-and-boundary.md) explain why executable evidence is now required. The broader language project and competing architecture investigations remain open beyond this research goal.
+Independent research remains on named-superposition/relation-graph mechanisms, local-net equality and choice services, compact scheduling, solver-fragment certification, and candidate-specific source gaps. The stopping condition must be assessed across these directions, not only against prerequisites of the most-developed candidate. No architecture or language restriction has been adopted.
 
 ## Purpose and authority
 

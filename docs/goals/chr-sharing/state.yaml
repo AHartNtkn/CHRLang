@@ -3,15 +3,15 @@ goal:
   title: CHR shared-execution research
   slug: chr-sharing
   kind: existing_plan
-  tranche: 'Research through the reviewed implementation gate: M1 inconclusive closure and M2 bounded experiment registration; no prototype or production adoption.'
-  status: done
+  tranche: Joint language and execution research across all live directions; experiment readiness does not close the broader objective.
+  status: active
   oracle:
     signal: Reviewed dossier maps C01-C06 to evidence or gaps and explains actively discovered language/execution proposals and their tradeoffs.
     cadence: At each research receipt and M1 review.
     final_proof: M1 review verifies semantic and mechanism coverage, independent opportunity discovery, language costs, evidence limits, and justified next steps; no implementation completion is claimed.
   intake:
     original_request: This is a research project that needs proper management.
-    interpreted_outcome: Complete the needed research through a verified stopping condition; reached implementation needed with a reviewed experiment specification.
+    interpreted_outcome: Thoroughly complete all needed research passes until implementation, direction clarification are needed, or until all relevant research directions are exhausted.
     input_shape: existing_plan
     audience: Project owner and future implementers
     authority: approved
@@ -61,7 +61,7 @@ visual_board:
     status: live
     url: http://goalbuddy.localhost:41737/chr-sharing/
     command: node /home/ahart/.codex/plugins/cache/goalbuddy/goalbuddy/0.4.3/skills/goal-prep/surfaces/local-goal-board/scripts/local-goal-board.mjs --goal docs/goals/chr-sharing
-active_task: null
+active_task: T015
 tasks:
   - id: T001
     type: pm
@@ -387,24 +387,35 @@ tasks:
       - Requirement-by-requirement completion audit and gate verdict
     receipt:
       result: done
-      decision: complete
-      stopping_condition: implementation_needed
-      full_outcome_complete: true
-      summary: Two final cross-reviews confirmed no identified source or intent dependency blocks the specified probe after corrections. Research goal stops at implementation needed; M1 closes via its inconclusive-review rule with broader coverage gaps retained.
+      decision: research_incomplete
+      full_outcome_complete: false
+      summary: Scope audit establishes that readiness of T013 does not imply implementation blocks independent research. The broader objective remains active.
       evidence:
         - notes/T014-implementation-gate.md
       limitations:
-        - Broader literature exhaustion not established.
-        - Research goal completion is not language-project completion or implementation authorization.
+        - No project-wide implementation dependency or research exhaustion established.
+  - id: T015
+    type: scout
+    assignee: Scout
+    status: active
+    objective: Audit and pursue independent research across every live mechanism and language-design direction.
+    inputs:
+      - notes/T014-implementation-gate.md
+      - T008-T013 evidence and source gaps
+    constraints:
+      - Do not infer global completion from readiness of one experiment.
+      - Do not implement a prototype under this research correction.
+    expected_output:
+      - Direction-by-direction dependency audit with evidence
+      - Concrete progress on independently actionable analytical/source questions
+    receipt: null
 checks:
   dirty_fingerprint: initial_task_owned_documents
   last_verification:
     result: passed
     task: T014
     commands:
-      - 'Two final substantive gate reviews: implementation-needed stopping condition approved after corrections.'
-      - 'Requirement-by-requirement audit: T014-implementation-gate.md.'
-      - 'Artifact/local-link/new-file-whitespace validation: passed.'
-      - 'GoalBuddy schema and completed-task validation: passed; optional dedicated-agent warnings remain.'
+      - 'Scope audit: independent actionable research identified in existing notes.'
+      - 'Board schema, local links and git diff --check: passed.'
     limitations:
-      - No prototype or measured results; broader coverage is not claimed exhausted.
+      - Research remains incomplete; checks do not establish a stopping condition.

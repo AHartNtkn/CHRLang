@@ -110,4 +110,4 @@ After these questions are answered, stop this batch. The next review may authori
 
 No evaluator files exist for this experiment yet. Proposed isolated ownership is `research/prototypes/conditional_chr/` for the IR, independent scalar engine, storage-sharing control, conditional engine, generator, trace oracle and runner; results go in a versioned subdirectory with their manifest. A future implementation task must read this registration and preserve the research documents as its contract.
 
-The current goal stops at the need for implementation once this registration and the research closure audit pass review. That stopping point is distinct from approval to build the prototype or adoption of its language/architecture choices.
+This registration establishes readiness of a scoped experiment only. It does not establish completion of the broader research goal or block independent research on other mechanisms. Implementation and any language/architecture adoption remain separate scope decisions.
