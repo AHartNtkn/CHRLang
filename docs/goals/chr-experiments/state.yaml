@@ -1,0 +1,257 @@
+version: 2
+goal:
+  title: CHR experimental investigation
+  slug: chr-experiments
+  kind: existing_plan
+  tranche: Continuous investigation across all relevant language and execution directions.
+  status: active
+  oracle:
+    signal: Reproducible experiments and a direction-by-direction audit justify all closures or exact owner/external dependencies.
+    cadence: After each experimental package and at cross-family review.
+    final_proof: Every relevant question has evidence, limits, plausible follow-ups and justified disposition; no feasible
+      materially useful work remains.
+  intake:
+    original_request: Run experiments until all reasonably useful learning for the CHR project is exhausted.
+    interpreted_outcome: Implement and investigate the experimental portfolio, expand it when evidence warrants, and support
+      language/execution decisions without prematurely selecting one architecture.
+    input_shape: existing_plan
+    audience: Project owner
+    authority: approved
+    proof_type: metric
+    completion_proof: Receipt-backed comparative findings and full question audit.
+    likely_misfire: Finishing one mature candidate or the initial list while independent useful investigations remain.
+    blind_spots_considered:
+      - Reference agreement alone is not correctness.
+      - Weak copying baselines can exaggerate benefits.
+      - Nonground synthesis and active failure must remain observable.
+    existing_plan_facts:
+      - docs/experiments/sequence.md
+      - docs/experiments/coverage.md
+      - Experiments and further authoritative source research are authorized.
+      - Language adoption remains owner-dependent.
+rules:
+  pm_owns_state: true
+  one_active_task: true
+  max_write_workers: 1
+  no_implementation_without_worker_or_pm_task: true
+  no_completion_without_judge_or_pm_audit: true
+  planning_is_not_completion: true
+  queued_required_worker_blocks_completion: true
+  continuous_until_full_outcome: true
+  missing_input_or_credentials_do_not_stop_goal: true
+  exact_human_approval_can_terminal_wait: true
+  preserve_and_validate_existing_plan: true
+  intake_misfire_must_be_audited: true
+  goal_pressure_requires_oracle: true
+  no_completion_on_weak_proof: true
+  slice_policy:
+    max_consecutive_tiny_tasks: 2
+    prefer_vertical_slices: true
+    judge_picks_largest_safe_slice: true
+    worker_completes_whole_slice: true
+agents:
+  scout: missing
+  worker: missing
+  judge: missing
+visual_board:
+  selected: none
+  local:
+    status: not_requested
+    url: null
+    command: null
+active_task: T001
+tasks:
+  - id: T001
+    type: pm
+    assignee: PM
+    status: active
+    objective: 'Operationalize E00/E02: executable semantic/application cases, independent expected observations, literal
+      lambda translation, source-property inventory and reference measurement receipt.'
+    inputs:
+      - docs/experiments/sequence.md
+      - docs/experiments/coverage.md
+      - docs/goals/chr-sharing/notes/T013-experiment-registration.md
+    allowed_files:
+      - Cargo.toml
+      - Cargo.lock
+      - crates/chr-programs/
+      - research/chr-cases/
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    verify:
+      - cargo test --workspace --all-targets
+      - cargo clippy --workspace --all-targets -- -D warnings
+      - cargo fmt --all -- --check
+    stop_if:
+      - A proposed case requires changing adopted source semantics; keep other cases moving.
+    expected_output:
+      - Frozen case contract and independent expected observations
+      - Runnable reference validation
+      - Explicit candidate-only obligations and language-property inventory
+    receipt: null
+  - id: T002
+    type: pm
+    assignee: PM
+    status: queued
+    objective: E01 persistent storage control
+    inputs:
+      - docs/experiments/sequence.md
+    expected_output:
+      - Registered executable comparison and evidence-backed receipt; refine scope before activation.
+    receipt: null
+  - id: T003
+    type: pm
+    assignee: PM
+    status: queued
+    objective: E14 independent exact answer comparison
+    inputs:
+      - docs/experiments/sequence.md
+    expected_output:
+      - Registered executable comparison and evidence-backed receipt; refine scope before activation.
+    receipt: null
+  - id: T004
+    type: pm
+    assignee: PM
+    status: queued
+    objective: E03 conditional finite-support first probe
+    inputs:
+      - docs/experiments/sequence.md
+    expected_output:
+      - Registered executable comparison and evidence-backed receipt; refine scope before activation.
+    receipt: null
+  - id: T005
+    type: pm
+    assignee: PM
+    status: queued
+    objective: E04 relation graph first probe
+    inputs:
+      - docs/experiments/sequence.md
+    expected_output:
+      - Registered executable comparison and evidence-backed receipt; refine scope before activation.
+    receipt: null
+  - id: T006
+    type: pm
+    assignee: PM
+    status: queued
+    objective: E05 named family first probe
+    inputs:
+      - docs/experiments/sequence.md
+    expected_output:
+      - Registered executable comparison and evidence-backed receipt; refine scope before activation.
+    receipt: null
+  - id: T007
+    type: pm
+    assignee: PM
+    status: queued
+    objective: E07 delayed splitting first probe
+    inputs:
+      - docs/experiments/sequence.md
+    expected_output:
+      - Registered executable comparison and evidence-backed receipt; refine scope before activation.
+    receipt: null
+  - id: T008
+    type: pm
+    assignee: PM
+    status: queued
+    objective: E08 independent factors first probe
+    inputs:
+      - docs/experiments/sequence.md
+    expected_output:
+      - Registered executable comparison and evidence-backed receipt; refine scope before activation.
+    receipt: null
+  - id: T009
+    type: pm
+    assignee: PM
+    status: queued
+    objective: E10 structural solver first probe
+    inputs:
+      - docs/experiments/sequence.md
+    expected_output:
+      - Registered executable comparison and evidence-backed receipt; refine scope before activation.
+    receipt: null
+  - id: T010
+    type: pm
+    assignee: PM
+    status: queued
+    objective: E11 whole-evaluator symbolic first probe
+    inputs:
+      - docs/experiments/sequence.md
+    expected_output:
+      - Registered executable comparison and evidence-backed receipt; refine scope before activation.
+    receipt: null
+  - id: T011
+    type: pm
+    assignee: PM
+    status: queued
+    objective: E12 exact reuse first probe
+    inputs:
+      - docs/experiments/sequence.md
+    expected_output:
+      - Registered executable comparison and evidence-backed receipt; refine scope before activation.
+    receipt: null
+  - id: T012
+    type: pm
+    assignee: PM
+    status: queued
+    objective: E13 specialization first probe
+    inputs:
+      - docs/experiments/sequence.md
+    expected_output:
+      - Registered executable comparison and evidence-backed receipt; refine scope before activation.
+    receipt: null
+  - id: T013
+    type: pm
+    assignee: PM
+    status: queued
+    objective: E06 backend service probes
+    inputs:
+      - docs/experiments/sequence.md
+    expected_output:
+      - Registered executable comparison and evidence-backed receipt; refine scope before activation.
+    receipt: null
+  - id: T014
+    type: pm
+    assignee: PM
+    status: queued
+    objective: E09 scheduling probes
+    inputs:
+      - docs/experiments/sequence.md
+    expected_output:
+      - Registered executable comparison and evidence-backed receipt; refine scope before activation.
+    receipt: null
+  - id: T015
+    type: pm
+    assignee: PM
+    status: queued
+    objective: E15 composition
+    inputs:
+      - docs/experiments/sequence.md
+    expected_output:
+      - Registered executable comparison and evidence-backed receipt; refine scope before activation.
+    receipt: null
+  - id: T016
+    type: pm
+    assignee: PM
+    status: queued
+    objective: E16 parallel comparison
+    inputs:
+      - docs/experiments/sequence.md
+    expected_output:
+      - Registered executable comparison and evidence-backed receipt; refine scope before activation.
+    receipt: null
+  - id: T017
+    type: pm
+    assignee: PM
+    status: queued
+    objective: E17 application and final direction audit
+    inputs:
+      - docs/experiments/sequence.md
+    expected_output:
+      - Registered executable comparison and evidence-backed receipt; refine scope before activation.
+    receipt: null
+checks:
+  dirty_fingerprint: clean_at_start
+  last_verification:
+    result: unknown
+    task: null
+    commands: []

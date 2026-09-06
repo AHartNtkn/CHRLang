@@ -146,3 +146,113 @@ pub fn typing() -> Vec<Rule> {
         ]),
     )]
 }
+
+/// Literal named-term relation from the pinned rwlog lambda notebook.
+pub fn lambda() -> Vec<Rule> {
+    fn app(x: Term, y: Term) -> Term {
+        t("app", [x, y])
+    }
+    fn lam(x: Term, y: Term) -> Term {
+        t("lam", [x, y])
+    }
+    let step = choices(vec![
+        and([eq(v(0), app(lam(v(2), v(2)), v(3))), eq(v(1), v(3))]),
+        and([
+            eq(v(0), app(lam(v(2), v(3)), v(4))),
+            call("neq", [v(2), v(3)]),
+            eq(v(1), v(3)),
+        ]),
+        and([
+            eq(v(0), app(lam(v(2), lam(v(2), v(3))), v(4))),
+            eq(v(1), lam(v(2), v(3))),
+        ]),
+        and([
+            eq(v(0), app(lam(v(2), lam(v(3), v(4))), v(5))),
+            call("neq", [v(2), v(3)]),
+            eq(v(1), lam(v(3), app(lam(v(2), v(4)), v(5)))),
+        ]),
+        and([
+            eq(v(0), app(lam(v(2), app(v(3), v(4))), v(5))),
+            eq(
+                v(1),
+                app(app(lam(v(2), v(3)), v(5)), app(lam(v(2), v(4)), v(5))),
+            ),
+        ]),
+        and([
+            eq(v(0), lam(v(2), v(3))),
+            call("step", [v(3), v(4)]),
+            eq(v(1), lam(v(2), v(4))),
+        ]),
+        and([
+            eq(v(0), app(v(2), v(3))),
+            call("step", [v(2), v(4)]),
+            eq(v(1), app(v(4), v(3))),
+        ]),
+        and([
+            eq(v(0), app(v(2), v(3))),
+            call("norm", [v(2)]),
+            call("step", [v(3), v(4)]),
+            eq(v(1), app(v(2), v(4))),
+        ]),
+    ]);
+    vec![
+        Rule::simplify("neq-equal", [c("neq", [v(0), v(0)])], Goal::Fail),
+        Rule::simplify(
+            "neq-lam-left",
+            [c("neq", [lam(v(0), v(1)), v(2)])],
+            Goal::Fail,
+        ),
+        Rule::simplify(
+            "neq-lam-right",
+            [c("neq", [v(2), lam(v(0), v(1))])],
+            Goal::Fail,
+        ),
+        Rule::simplify(
+            "neq-app-left",
+            [c("neq", [app(v(0), v(1)), v(2)])],
+            Goal::Fail,
+        ),
+        Rule::simplify(
+            "neq-app-right",
+            [c("neq", [v(2), app(v(0), v(1))])],
+            Goal::Fail,
+        ),
+        Rule::simplify("var-app", [c("var", [app(v(0), v(1))])], Goal::Fail),
+        Rule::simplify("var-lam", [c("var", [lam(v(0), v(1))])], Goal::Fail),
+        Rule::simplify(
+            "norm-redex",
+            [c("norm", [app(lam(v(0), v(1)), v(2))])],
+            Goal::Fail,
+        ),
+        Rule::simplify(
+            "norm-spine",
+            [c("norm", [app(app(v(0), v(1)), v(2))])],
+            and([call("norm", [app(v(0), v(1))]), call("norm", [v(2)])]),
+        ),
+        // Literal notebook rules consume and reintroduce var, including its occurrence identity.
+        Rule::simplify(
+            "norm-app-var",
+            [c("norm", [app(v(0), v(1))]), c("var", [v(0)])],
+            and([call("var", [v(0)]), call("norm", [v(1)])]),
+        ),
+        Rule::simplify(
+            "norm-lam",
+            [c("norm", [lam(v(0), v(1))])],
+            call("norm", [v(1)]),
+        ),
+        Rule::simplify(
+            "norm-var",
+            [c("norm", [v(0)]), c("var", [v(0)])],
+            call("var", [v(0)]),
+        ),
+        Rule::simplify("lambda-step", [c("step", [v(0), v(1)])], step),
+        Rule::simplify(
+            "lambda-equality",
+            [c("lamEq", [v(0), v(1)])],
+            or(
+                and([eq(v(0), v(1)), call("norm", [v(0)])]),
+                and([call("step", [v(0), v(2)]), call("lamEq", [v(2), v(1)])]),
+            ),
+        ),
+    ]
+}
