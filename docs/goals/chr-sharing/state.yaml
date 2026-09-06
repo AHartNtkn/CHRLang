@@ -60,7 +60,7 @@ visual_board:
     status: live
     url: http://goalbuddy.localhost:41737/chr-sharing/
     command: node /home/ahart/.codex/plugins/cache/goalbuddy/goalbuddy/0.4.3/skills/goal-prep/surfaces/local-goal-board/scripts/local-goal-board.mjs --goal docs/goals/chr-sharing
-active_task: T011
+active_task: T012
 tasks:
   - id: T001
     type: pm
@@ -298,7 +298,7 @@ tasks:
   - id: T011
     type: scout
     assignee: Scout
-    status: active
+    status: done
     objective: Resolve specific representation and eligibility obligations and source gaps needed for M1 closure.
     inputs:
       - notes/T008-reference-and-candidates.md
@@ -314,17 +314,43 @@ tasks:
       - Sufficient dependency and local-net eligibility conditions
       - Declared interfaces for solver reuse
       - Source-gap disposition and M1 gate review
+    receipt:
+      result: done
+      summary: Constructed and reviewed conditional reachability, binding and occurrence-update arguments; derived commuting expansion and solver-interface contracts; recovered full CW447 and inspected full TCLP theory.
+      evidence:
+        - notes/T011-conditional-kernel.md
+        - notes/T011-local-compilation-and-solvers.md
+        - notes/T011-source-resolution.md
+        - notes/T011-unification-source.md
+        - notes/T011-review-and-next.md
+      limitations:
+        - Local written arguments, not mechanically checked proofs or implemented services.
+        - Matching witnesses, wake-up, scheduler and cost constructions remain.
+        - Global literature exhaustion not claimed.
+  - id: T012
+    type: scout
+    assignee: Scout
+    status: active
+    objective: Derive conditional matching, wake-up, scheduler and cost constructions until remaining uncertainty requires a bounded experiment.
+    inputs:
+      - T011 artifacts and review
+    constraints:
+      - No implementation or architecture adoption.
+      - State source restrictions separately from backend choices.
+      - Keep the full research goal active until its stopping condition is evidenced.
+    expected_output:
+      - Constructive matching/wake-up and scheduling contracts
+      - Cost models and falsifiable adverse cases
+      - Disposition of remaining source claims and implementation-needed audit
     receipt: null
 checks:
   dirty_fingerprint: initial_task_owned_documents
   last_verification:
     result: passed
-    task: T010
+    task: T011
     commands:
-      - 'Cross-agent specification review and PM hand-trace audit: required corrections incorporated.'
-      - 'GoalBuddy schema checker: passed; optional dedicated-agent warnings remain.'
-      - 'Local Markdown links and new-file whitespace: passed.'
-      - 'git diff --check: passed.'
+      - 'Adversarial kernel review: premises corrected; local argument scope retained.'
+      - 'GoalBuddy schema validation: passed with optional-agent warnings.'
+      - 'Markdown local links and new-file whitespace: passed.'
     limitations:
-      - No implementation, formal proof checker or performance experiment run.
-      - Global source coverage remains open.
+      - No evaluator, performance test or machine-checked proof.

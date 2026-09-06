@@ -4,6 +4,8 @@ Investigate language design and execution architecture together to develop a sma
 
 The latest dossier contains [proposed reference and candidate contracts](notes/T008-reference-and-candidates.md), [worked obligations](notes/T008-worked-obligations.md), [coverage evidence](notes/T009-coverage.md), and [review](notes/T010-comparison-review.md). It builds on [the initial opportunity map](notes/T003-research-findings.md). Representation proofs, exact eligibility conditions and broader source coverage remain open. No evaluator architecture has been selected, and no implementation or performance result is claimed.
 
+The subsequent [conditional-kernel analysis](notes/T011-conditional-kernel.md) gives local preservation arguments, while [local compilation and solver contracts](notes/T011-local-compilation-and-solvers.md) identify sufficient source properties and backend obligations. [Its review](notes/T011-review-and-next.md) records remaining matching, wake-up and scheduling work. The active objective is to continue the needed research until implementation or direction clarification is genuinely required, or relevant research directions are exhausted.
+
 ## Purpose and authority
 
 The owner wants reusable CHR rulesets, separate queries selecting returned variables, finite-tree unification, and explicit disjunction. The central requirement is that an early choice must not force the entire constraint store or the subsequent common computation to split. Computation that carries a choice without distinguishing its alternatives should remain shared.
