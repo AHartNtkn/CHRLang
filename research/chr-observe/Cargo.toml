@@ -1,0 +1,10 @@
+[package]
+name = "chr-observe"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+chr-syntax = { path = "../../crates/chr-syntax" }
+
+[dev-dependencies]
+chr-reference = { path = "../../crates/chr-reference" }
