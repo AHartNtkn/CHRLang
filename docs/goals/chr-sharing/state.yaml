@@ -3,15 +3,15 @@ goal:
   title: CHR shared-execution research
   slug: chr-sharing
   kind: existing_plan
-  tranche: 'M1: jointly investigate language design and execution architecture; review evidence and tradeoffs before prototypes.'
-  status: active
+  tranche: 'Research through the reviewed implementation gate: M1 inconclusive closure and M2 bounded experiment registration; no prototype or production adoption.'
+  status: done
   oracle:
     signal: Reviewed dossier maps C01-C06 to evidence or gaps and explains actively discovered language/execution proposals and their tradeoffs.
     cadence: At each research receipt and M1 review.
     final_proof: M1 review verifies semantic and mechanism coverage, independent opportunity discovery, language costs, evidence limits, and justified next steps; no implementation completion is claimed.
   intake:
     original_request: This is a research project that needs proper management.
-    interpreted_outcome: Execute M1 joint language and architecture investigation and return reviewed findings and research gaps.
+    interpreted_outcome: Complete the needed research through a verified stopping condition; reached implementation needed with a reviewed experiment specification.
     input_shape: existing_plan
     audience: Project owner and future implementers
     authority: approved
@@ -28,6 +28,7 @@ goal:
       - Survey mechanisms before candidate selection.
       - Design evaluations before measurements.
       - Review at M1-M4 boundaries.
+    latest_objective: Thoroughly complete all needed research passes until implementation, direction clarification are needed, or until all relevant research directions are exhausted.
   execution_started: true
   preparation_status: reviewed
 rules:
@@ -60,7 +61,7 @@ visual_board:
     status: live
     url: http://goalbuddy.localhost:41737/chr-sharing/
     command: node /home/ahart/.codex/plugins/cache/goalbuddy/goalbuddy/0.4.3/skills/goal-prep/surfaces/local-goal-board/scripts/local-goal-board.mjs --goal docs/goals/chr-sharing
-active_task: T012
+active_task: null
 tasks:
   - id: T001
     type: pm
@@ -330,7 +331,7 @@ tasks:
   - id: T012
     type: scout
     assignee: Scout
-    status: active
+    status: done
     objective: Derive conditional matching, wake-up, scheduler and cost constructions until remaining uncertainty requires a bounded experiment.
     inputs:
       - T011 artifacts and review
@@ -342,15 +343,68 @@ tasks:
       - Constructive matching/wake-up and scheduling contracts
       - Cost models and falsifiable adverse cases
       - Disposition of remaining source claims and implementation-needed audit
-    receipt: null
+    receipt:
+      result: done
+      summary: Specified constructive matching/wake-up, finite-service scheduling, atomic source visibility and operation cost models; reviews identify implementation as next evidence source.
+      evidence:
+        - notes/T012-matching-and-wakeup.md
+        - notes/T012-scheduler.md
+        - notes/T012-cost-and-boundary.md
+      limitations:
+        - Written sufficiency arguments and algorithm contracts, not executed implementation or performance evidence.
+  - id: T013
+    type: pm
+    assignee: PM
+    status: done
+    objective: Prepare a decision-enabling bounded experiment before implementation or measurement.
+    inputs:
+      - T012 constructions
+      - Owner workloads and investigation protocol
+    constraints:
+      - No prototype or architecture adoption.
+      - Register semantics, independent controls, workload matrix, oracles, limits and decisions.
+    expected_output:
+      - Reviewed experiment preregistration
+    receipt:
+      result: done
+      summary: Registered conditional execution and local-controller correctness/operation-count probes, independent scalar and storage-sharing controls, exact support backends, scope, grouping, manifests, resource accounting and stop rules.
+      evidence:
+        - notes/T013-experiment-registration.md
+      limitations:
+        - No experiment executed; production speed and net-architecture conclusions excluded.
+  - id: T014
+    type: judge
+    assignee: Judge
+    status: done
+    objective: Audit the full research objective and verify the implementation-needed stopping condition.
+    inputs:
+      - T013 registration
+      - C01-C06 artifacts and source dispositions
+    constraints:
+      - Do not equate documented gaps with research exhaustion.
+      - Do not claim implementation or architecture selection.
+    expected_output:
+      - Requirement-by-requirement completion audit and gate verdict
+    receipt:
+      result: done
+      decision: complete
+      stopping_condition: implementation_needed
+      full_outcome_complete: true
+      summary: Two final cross-reviews confirmed no identified source or intent dependency blocks the specified probe after corrections. Research goal stops at implementation needed; M1 closes via its inconclusive-review rule with broader coverage gaps retained.
+      evidence:
+        - notes/T014-implementation-gate.md
+      limitations:
+        - Broader literature exhaustion not established.
+        - Research goal completion is not language-project completion or implementation authorization.
 checks:
   dirty_fingerprint: initial_task_owned_documents
   last_verification:
     result: passed
-    task: T011
+    task: T014
     commands:
-      - 'Adversarial kernel review: premises corrected; local argument scope retained.'
-      - 'GoalBuddy schema validation: passed with optional-agent warnings.'
-      - 'Markdown local links and new-file whitespace: passed.'
+      - 'Two final substantive gate reviews: implementation-needed stopping condition approved after corrections.'
+      - 'Requirement-by-requirement audit: T014-implementation-gate.md.'
+      - 'Artifact/local-link/new-file-whitespace validation: passed.'
+      - 'GoalBuddy schema and completed-task validation: passed; optional dedicated-agent warnings remain.'
     limitations:
-      - No evaluator, performance test or machine-checked proof.
+      - No prototype or measured results; broader coverage is not claimed exhausted.

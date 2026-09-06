@@ -6,6 +6,12 @@ The latest dossier contains [proposed reference and candidate contracts](notes/T
 
 The subsequent [conditional-kernel analysis](notes/T011-conditional-kernel.md) gives local preservation arguments, while [local compilation and solver contracts](notes/T011-local-compilation-and-solvers.md) identify sufficient source properties and backend obligations. [Its review](notes/T011-review-and-next.md) records remaining matching, wake-up and scheduling work. The active objective is to continue the needed research until implementation or direction clarification is genuinely required, or relevant research directions are exhausted.
 
+## Current outcome
+
+The active research objective has reached its implementation-needed stopping point. [The implementation-gate audit](notes/T014-implementation-gate.md) maps the requirements to evidence and records the final reviews. [The bounded experiment registration](notes/T013-experiment-registration.md) is ready for a separate implementation task; no prototype or production architecture has been adopted.
+
+M1 closes through its documented inconclusive-review route, with source-coverage gaps retained and no identified dependency blocking the registered probe. [Matching/wake-up](notes/T012-matching-and-wakeup.md), [scheduling](notes/T012-scheduler.md), and [cost analysis](notes/T012-cost-and-boundary.md) explain why executable evidence is now required. The broader language project and competing architecture investigations remain open beyond this research goal.
+
 ## Purpose and authority
 
 The owner wants reusable CHR rulesets, separate queries selecting returned variables, finite-tree unification, and explicit disjunction. The central requirement is that an early choice must not force the entire constraint store or the subsequent common computation to split. Computation that carries a choice without distinguishing its alternatives should remain shared.
