@@ -22,6 +22,8 @@ The expanded [direction audit](notes/T015-direction-audit.md) and [source invest
 
 The next analytical pass adds [finite net services](notes/T016-finite-net-service-encoding.md), [named-superposition obligations](notes/T016-superposition-services.md), [composed source simulation](notes/T016-composed-machine-argument.md), [asynchronous symbolic scheduling](notes/T016-asynchronous-symbolic-scheduler.md), [exact solver projection](notes/T016-exact-solver-projection.md), and [state-reuse criteria](notes/T016-observation-and-state-reuse.md). [Language opportunities](notes/T016-language-opportunities.md) and [comparative cost questions](notes/T016-comparative-cost-questions.md) connect these constructions to decisions and future evaluation. Substantive review and the full direction audit remain active.
 
+The coverage review adds [Andorra and independent product search](notes/T017-andorra-and-decomposition.md), [temporary decomposition and reunion](notes/T017-temporary-decomposition.md), and [equality-constrained program spaces](notes/T017-equality-constrained-program-spaces.md). These are additional researched directions. Operational workload translation, backend correspondence and the terminal evidence audit remain active.
+
 ## Purpose and authority
 
 The owner wants reusable CHR rulesets, separate queries selecting returned variables, finite-tree unification, and explicit disjunction. The central requirement is that an early choice must not force the entire constraint store or the subsequent common computation to split. Computation that carries a choice without distinguishing its alternatives should remain shared.

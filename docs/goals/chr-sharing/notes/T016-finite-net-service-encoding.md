@@ -16,6 +16,8 @@ No instruction relies on infinitely many numeric agent labels. A counter can use
 
 For each control location q create a controller agent C_q. Its principal port connects to the next inspected data constructor. Its auxiliary ports hold the finite environment, continuation, and required channel endpoints. For each data constructor F that q can inspect, emit one rule for the pair `(C_q,F)`.
 
+The compiler distinguishes duplicable encoded data from linear channel endpoints and control continuations. An instruction that copies or discards a channel endpoint or active continuation is rejected unless a separately specified protocol implements that action. Only immutable encoded data may receive the fan/eraser treatment below.
+
 The right-hand side is the finite instruction graph. It routes F's fields and the saved environment to the successor controller or output data. An external wire used once is routed once; a value used several times passes through an explicit finite fan tree; an unused data value connects to an eraser. There is at most one rule per controller/constructor pair because the instruction's tag cases are disjoint. Missing cases must be deliberately represented as a service error or impossible typed input; they cannot silently stand for CHR failure.
 
 Nested case analysis introduces fresh intermediate controller types. These remember the first result in an auxiliary field while their principal port inspects the next operand. Since the service program and data signature are finite, this transformation introduces finitely many agent types and finite right-hand sides. No rule has to match an arbitrary whole binding table or rewrite distant cells at once.

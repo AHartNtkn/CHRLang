@@ -61,7 +61,7 @@ visual_board:
     status: live
     url: http://goalbuddy.localhost:41737/chr-sharing/
     command: node /home/ahart/.codex/plugins/cache/goalbuddy/goalbuddy/0.4.3/skills/goal-prep/surfaces/local-goal-board/scripts/local-goal-board.mjs --goal docs/goals/chr-sharing
-active_task: T017
+active_task: T018
 tasks:
   - id: T001
     type: pm
@@ -475,7 +475,7 @@ tasks:
   - id: T017
     type: pm
     assignee: PM
-    status: active
+    status: done
     objective: Adversarially review the new constructions and audit every remaining research direction against the universal stopping rule; pursue any remaining useful analysis or sources.
     inputs:
       - notes/T015-direction-audit.md
@@ -497,10 +497,47 @@ tasks:
       - docs/goals/chr-sharing/goal.md
       - docs/goals/chr-sharing/state.yaml
       - docs/goals/chr-sharing/notes/T017-*.md
+      - docs/goals/chr-sharing/notes/T016-finite-net-service-encoding.md
     expected_output:
       - Substantive counterexample review
       - Direction-by-direction audit with evidence and exact dependencies
       - Continued independent research if any actionable question remains
+    receipt:
+      result: done
+      harness: codex
+      summary: Coverage review found and investigated Andorra delay, persistent and temporary AND decomposition, and equality-constrained program spaces; corrected finite-net endpoint linearity. Independent research remains active.
+      evidence:
+        - notes/T017-review-progress.md
+        - notes/T017-andorra-and-decomposition.md
+        - notes/T017-temporary-decomposition.md
+        - notes/T017-equality-constrained-program-spaces.md
+      limitations:
+        - No evaluator implementation or performance ranking.
+        - Detailed rwlog translation, native label correspondence and final comprehensive audit remain actionable.
+      spawned_tasks:
+        - T018
+  - id: T018
+    type: pm
+    assignee: PM
+    status: active
+    objective: Resolve rwlog operational translation, remaining named-superposition correspondence and encapsulated-search findings, then perform the universal direction audit and continue any independently actionable research.
+    inputs:
+      - notes/T017-review-progress.md
+      - notes/T017-andorra-and-decomposition.md
+      - notes/T017-equality-constrained-program-spaces.md
+      - notes/T016-superposition-services.md
+    constraints:
+      - Research only; no evaluator implementation or benchmarks.
+      - PM fallback for bundled_not_installed dedicated agents.
+      - Candidate readiness is not goal completion.
+    allowed_files:
+      - docs/goals/chr-sharing/goal.md
+      - docs/goals/chr-sharing/state.yaml
+      - docs/goals/chr-sharing/notes/T018-*.md
+    expected_output:
+      - Source-grounded translations and correspondence arguments
+      - Direction-specific dispositions with evidence
+      - Continue if any relevant analytical work remains
     receipt: null
 checks:
   dirty_fingerprint: initial_task_owned_documents
