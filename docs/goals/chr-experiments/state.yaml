@@ -59,7 +59,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T016
+active_task: T018
 tasks:
   - id: T001
     type: pm
@@ -618,7 +618,7 @@ tasks:
   - id: T016
     type: pm
     assignee: PM
-    status: active
+    status: queued
     objective: E16 parallel comparison
     inputs:
       - docs/experiments/sequence.md
@@ -651,6 +651,31 @@ tasks:
     expected_output:
       - Registered executable comparison and evidence-backed receipt; refine scope before activation.
     receipt: null
+  - id: T018
+    type: pm
+    assignee: PM
+    status: active
+    objective: Audit shared architectural assumptions and run independent boundary-changing contrasts, beginning with constructor relationalization.
+    inputs:
+      - docs/experiments/sequence.md
+      - docs/experiments/coverage.md
+      - docs/experiments/architecture-assumptions.md
+    expected_output:
+      - An evidence-linked assumption inventory with independent entries and architecture-neutral correspondence; executable constructor-relational and competent fine-grained controls without requiring a unifier service boundary.
+    receipt: null
+    allowed_files:
+      - research/
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+      - Cargo.toml
+      - Cargo.lock
+    verify:
+      - Focused semantic tests and independently checked generated cases
+      - Reproducible registered experiment audit
+      - Relevant workspace tests, Clippy and formatting for Rust changes
+    stop_if:
+      - Keep changed source contracts experimental; do not make reference internal boundaries mandatory for candidate eligibility.
+
 checks:
   dirty_fingerprint: clean_at_start
   last_verification:

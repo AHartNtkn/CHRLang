@@ -39,9 +39,11 @@ accepted work and answers agree with the matched controls. Unused quantum slots
 are not avoided-computation counts. Stop-time actual snapshots describe received
 replies; joined snapshots supply complete physical accounting.
 
-The next experiment is a separately registered randomized repeated comparison of
+A proposed follow-up is a separately registered randomized repeated comparison of
 all 79 cells, preserving overhead, imbalance, product-heavy, duplicate, prefix,
 refutation and application controls. Primary cold wall includes the reported
 nonallocating diagnostic gaps; operational phase sums are descriptive. These
 results do not settle warm pools, larger worker counts, finer certificates,
 connected synthesis, temporary reunion, or representation/reclamation costs.
+
+A [supplementary lifecycle audit](E16-regions-pilot-lifecycle-audit.json) also passes all158records, checking complete owner-state preservation, transport/quantum bounds and allocation phase continuity. It is post-run validation, not another cost batch. The architectural assumption audit now takes priority over the queued repeated comparison.

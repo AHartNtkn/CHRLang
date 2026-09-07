@@ -12,6 +12,35 @@ The reference interpreter at commit `0c43a41` provides executable arithmetic, SK
 
 The initial experimental language retains the reference's equality-entailment guards, RHS-only binding equations, explicit OR, finite terms, identified multiset resources, ordinary committed CHR, and full residual observations. Changes to these are separately described candidate languages. Surface restrictions may be investigated without adopting them. Performance comparisons must identify their accepted program subset and their observation contract.
 
+## Architectural assumptions and correspondence
+
+Every experiment must identify whether it holds an implementation boundary fixed
+to isolate a mechanism, or questions that boundary. The former is a control, not
+an eligibility requirement for the latter. A reference constrains source behavior
+and trusted observations; its term representation, solved substitutions, request
+boundaries, source-step queue, matching algorithm, token tables and output
+materialization order are not universal candidate interfaces.
+
+Before extending a mature comparison, consult the [architectural assumption
+register](architecture-assumptions.md). Record the assumptions shared by its
+controls, the architecture that changes each relevant assumption, and the
+observation-level correspondence needed to compare them. Several engines sharing
+a boundary do not constitute evidence about whether that boundary should exist.
+Open architectural contrasts receive independent entry probes; they do not wait
+for refinements of the boundary they question.
+
+Matched-policy tests may require equal traces or counts only where the particular
+ablation predicts equality; shared physical work is measured separately from
+represented logical effects. Architecture tests instead need an explicit source correspondence
+appropriate to their representation, such as event linearization, stuttering,
+constraint-store denotation or a certified relational-fragment argument, plus
+independent positive and adverse observations. Endpoint agreement alone is not
+proof. Unsolved internal equations and transient graphs are permitted when the
+correspondence accounts for them; no partial inconsistent state may become a
+trusted answer. Source-contract changes remain experimental and need the owner's
+decision for adoption. Physical branch identities or raw-enumeration work are
+not imposed merely because a control exposes them as diagnostics.
+
 ## Why this order
 
 Three questions determine dependencies. Can the result be interpreted correctly? Can a cheaper experiment distinguish the competing explanations? Does the next experiment need a particular measured result, or just an available implementation service?
@@ -117,7 +146,7 @@ Exercise duplicated references to one choice versus independent recursive choice
 
 **Dependencies:** E00 contracts and E02 restriction examples. E05's validated service can supply a control but is not required to begin finite controller encoding. **Decision enabled:** whether local rewriting or a concrete HVM backend pays for its service and compilation costs.
 
-Keep three subexperiments distinct. **E06a:** implement the [finite controller/data net encoding](../goals/chr-sharing/notes/T016-finite-net-service-encoding.md), compare a direct controller for the same operations, and measure active pairs, fan/eraser work, environment scans, emitted agents/rules and request latency. Include global restricted and regional source variants from E02. Compare richer multiport/additive/fusion proposals analytically against these same operation contracts at the start of E06a; this analysis does not wait for net timing results. For each proposal name the service traffic it could avoid and any extra alias, resource or endpoint obligations. A distinct mechanism with a concrete protocol receives an operation-level implementation probe; establish its correspondence before executing it. If a proposal supplies no distinct mechanism for these operations, document that specific analytical disposition and what new evidence would reopen it. Do not close a distinct but unimplemented protocol merely because the ordinary net is ready.
+Keep three subexperiments distinct. **E06a:** implement the [finite controller/data net encoding](../goals/chr-sharing/notes/T016-finite-net-service-encoding.md), compare a direct controller for the same operations, and measure active pairs, fan/eraser work, environment scans, emitted agents/rules and request latency. Include global restricted and regional source variants from E02. For the fixed-service contrast, compare richer multiport/additive/fusion proposals analytically against these operation contracts at the start of E06a; this analysis does not wait for net timing results. For each fixed-service proposal name the service traffic it could avoid and any extra alias, resource or endpoint obligations. Separately investigate proposals that change or eliminate the service boundary under E18 and the architectural assumption register; inability to fit this interface is not adverse evidence about those proposals. A distinct mechanism with a concrete protocol receives an operation-level implementation probe; establish its correspondence before executing it. If a proposal supplies no distinct mechanism for these operations, document that specific analytical disposition and what new evidence would reopen it. Do not close a distinct but unimplemented protocol merely because the ordinary net is ready.
 
 **E06b:** generate an encoded CHR machine on a pinned functional backend and validate finite continuation boundaries, including normalization between returns. Charge interpretation, compilation and normalization. **E06c:** specify and test native source-choice integration with generated graphs and label traces. Establish source birth versus administrative label invariants, duplicated binders, recursive fresh choices, label exhaustion/reuse, branch-local effects, off-output failure and collapse yields. Ground result agreement alone cannot establish correspondence.
 
@@ -240,6 +269,32 @@ Run controlled grids for causal explanations and application cases for relevance
 Present tradeoffs across first-answer latency, continued enumeration, total work, memory, compilation and programming burden. Do not average them into an invented utility score. A recommendation can identify a Pareto frontier and ask the owner to resolve a concrete taste tradeoff after showing examples and evidence.
 
 **Follow-up:** a synthetic advantage absent in applications prompts reuse-frequency and bottleneck analysis. A promising application result without semantic coverage remains unvalidated. Before concluding, audit every E-number and every owner decision in the companion document: resolved within stated bounds, contradicted with evidence, specific external/owner dependency, or unfinished. Readiness to build one production engine is not an experiment-program completion condition.
+
+### E18 — Architectural boundary contrasts
+
+**Dependencies:** source observations and independent semantic checks, not mature
+service interfaces. The [assumption register](architecture-assumptions.md) assigns
+contrasts across E03/E04/E06/E09/E11/E12/E14 as well as this entry. E18 does not own
+all architectural alternatives or replace those families.
+
+First derive and test constructor relations over node identities on a generic
+relational rewrite substrate with explicit identity fusion. Compare both a
+transactional graph unifier and elementary worklist/conditional-edge controls;
+whole-request reuse alone is insufficient. Test partial overlap, constructor
+consistency, branch-local fusion, pure head queries, occurs checking and answer
+reconstruction. Do not recreate a callable unifier as an obligatory interface.
+
+At the same time register independent contrasts for maintained partial matching,
+supported event/effect graphs, direct derivation compilation, ownership-based
+propagation and graph-aware observation. Before further regional repetitions,
+complete the assumption inventory and prioritize the first executable contrast
+by its ability to change the architectural search. The regional pilot remains
+valid bounded evidence; its planned repetitions are queued, not a dependency.
+
+**Follow-up:** record which assumptions actually changed, what remained common,
+and whether a result distinguishes the architecture from a faster implementation
+of the same decomposition. Newly discovered shared assumptions extend the
+register. No architecture is selected merely by finishing a semantic prototype.
 
 ## Measurement and interpretation rules
 

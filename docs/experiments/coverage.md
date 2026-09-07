@@ -2,7 +2,11 @@
 
 The [sequence](sequence.md) assigns the outstanding questions from all seventeen research directions to experiments or specific owner decisions. No experimental family is considered resolved by this planning document. The coverage check below concerns the research dossier's known questions; new evidence can add questions.
 
-The numbered directions follow [T018's disposition audit](../goals/chr-sharing/notes/T018-final-direction-audit.md). E00–E17 refer to work packages in the sequence. D1–D6 are owner decisions defined afterward. A dependency on an experimental artifact is distinct from a decision to adopt the language feature being tested.
+The numbered directions follow [T018's disposition audit](../goals/chr-sharing/notes/T018-final-direction-audit.md). E00–E18 refer to work packages in the sequence. D1–D6 are owner decisions defined afterward. A dependency on an experimental artifact is distinct from a decision to adopt the language feature being tested.
+
+## Architectural coverage
+
+The [architectural assumption register](architecture-assumptions.md) is a required cross-cutting part of this audit. It tracks contrasts that change shared implementation boundaries, their independent entries and correspondence obligations. Existing service and trace comparisons are bounded evidence for their declared controls, not coverage of boundary elimination. E18 begins the constructor-relational contrast; other contrasts retain assignments across the portfolio.
 
 ## Direction-by-direction coverage
 
