@@ -1,0 +1,888 @@
+{
+  "purpose": "finite semantic gate, not comparative costs",
+  "sha256": {
+    "docs/experiments/registrations/E18-relational-gate.md": "49a79978cf07da018f7035c609eacc8b279e6ecc08f117f541603792737477bd",
+    "research/chr-relational/audit_gate.py": "3433ec00e9f28111c392499940d7935644ce96a895d563500b7e9845c8b7e8d3",
+    "research/chr-relational/gate.py": "3fb2b6e4f58a54fd90adfb3d720ce73b7735f5da0949b4ce0d273dfdf0e0ab91",
+    "research/chr-relational/kernel.py": "219928448bdcc3f3e826d0f3b4dbeccd371023ef1ca72efaa510d74facf93279",
+    "research/chr-relational/oracle.py": "702c5f20ab31ef4b9df2ba0a5fc6fb7a9290f77ce2f87289a498f0af8c596649",
+    "research/chr-relational/run_gate.py": "bcf777aa72e6c72cce664f229fd37e9f234914f8ce0d7520cf42f29e880bfbdb",
+    "research/chr-relational/test_generated.py": "58063245952f2569f41e1972a692a65bf825d18fa22a6b6fc84fc2060cabef94",
+    "research/chr-relational/test_kernel.py": "5fa9cb333db87b21fc3e5dfbdbb8bfc7c55e69e735e66caf2c283ba85c075753",
+    "research/chr-relational/test_recording.py": "e9c4ecb0ceb386014b7e3a91bbfd6acd85e507b20929e5fbf8eb80d4150aa01c",
+    "research/chr-relational/test_semantics.py": "09c4fcfaba6160199f1a7cff74b3dce5fa714d230c9449db1ce428a0d1532a55",
+    "research/chr-relational/test_transport.py": "2dd550ef2827211fb60b7f704351697007314e98b7ae2b5ff2a889c5a0c0f6f4",
+    "research/chr-relational/theory.py": "24b17994229264ffbb3070974730c94080f7542c7f8dc855be06301a7b322c35"
+  },
+  "order": [
+    {
+      "phase": "gate",
+      "offset": 0
+    },
+    {
+      "phase": "gate",
+      "offset": 4
+    },
+    {
+      "phase": "gate",
+      "offset": 8
+    },
+    {
+      "phase": "gate",
+      "offset": 12
+    },
+    {
+      "phase": "gate",
+      "offset": 16
+    },
+    {
+      "phase": "gate",
+      "offset": 20
+    },
+    {
+      "phase": "gate",
+      "offset": 24
+    },
+    {
+      "phase": "gate",
+      "offset": 28
+    },
+    {
+      "phase": "gate",
+      "offset": 32
+    },
+    {
+      "phase": "gate",
+      "offset": 36
+    },
+    {
+      "phase": "gate",
+      "offset": 40
+    },
+    {
+      "phase": "gate",
+      "offset": 44
+    },
+    {
+      "phase": "gate",
+      "offset": 48
+    },
+    {
+      "phase": "gate",
+      "offset": 52
+    },
+    {
+      "phase": "gate",
+      "offset": 56
+    },
+    {
+      "phase": "gate",
+      "offset": 60
+    },
+    {
+      "phase": "gate",
+      "offset": 64
+    },
+    {
+      "phase": "gate",
+      "offset": 68
+    },
+    {
+      "phase": "gate",
+      "offset": 72
+    },
+    {
+      "phase": "gate",
+      "offset": 76
+    },
+    {
+      "phase": "gate",
+      "offset": 80
+    },
+    {
+      "phase": "gate",
+      "offset": 84
+    },
+    {
+      "phase": "gate",
+      "offset": 88
+    },
+    {
+      "phase": "gate",
+      "offset": 92
+    },
+    {
+      "phase": "gate",
+      "offset": 96
+    },
+    {
+      "phase": "gate",
+      "offset": 100
+    },
+    {
+      "phase": "gate",
+      "offset": 104
+    },
+    {
+      "phase": "gate",
+      "offset": 108
+    },
+    {
+      "phase": "gate",
+      "offset": 112
+    },
+    {
+      "phase": "gate",
+      "offset": 116
+    },
+    {
+      "phase": "gate",
+      "offset": 120
+    },
+    {
+      "phase": "gate",
+      "offset": 124
+    },
+    {
+      "phase": "gate",
+      "offset": 128
+    },
+    {
+      "phase": "gate",
+      "offset": 132
+    },
+    {
+      "phase": "gate",
+      "offset": 136
+    },
+    {
+      "phase": "gate",
+      "offset": 140
+    },
+    {
+      "phase": "gate",
+      "offset": 144
+    },
+    {
+      "phase": "gate",
+      "offset": 148
+    },
+    {
+      "phase": "gate",
+      "offset": 152
+    },
+    {
+      "phase": "gate",
+      "offset": 156
+    },
+    {
+      "phase": "gate",
+      "offset": 160
+    },
+    {
+      "phase": "gate",
+      "offset": 164
+    },
+    {
+      "phase": "gate",
+      "offset": 168
+    },
+    {
+      "phase": "gate",
+      "offset": 172
+    },
+    {
+      "phase": "gate",
+      "offset": 176
+    },
+    {
+      "phase": "gate",
+      "offset": 180
+    },
+    {
+      "phase": "gate",
+      "offset": 184
+    },
+    {
+      "phase": "gate",
+      "offset": 188
+    },
+    {
+      "phase": "gate",
+      "offset": 192
+    },
+    {
+      "phase": "gate",
+      "offset": 196
+    },
+    {
+      "phase": "gate",
+      "offset": 200
+    },
+    {
+      "phase": "gate",
+      "offset": 204
+    },
+    {
+      "phase": "gate",
+      "offset": 208
+    },
+    {
+      "phase": "gate",
+      "offset": 212
+    },
+    {
+      "phase": "gate",
+      "offset": 216
+    },
+    {
+      "phase": "gate",
+      "offset": 220
+    },
+    {
+      "phase": "gate",
+      "offset": 224
+    },
+    {
+      "phase": "gate",
+      "offset": 228
+    },
+    {
+      "phase": "gate",
+      "offset": 232
+    },
+    {
+      "phase": "gate",
+      "offset": 236
+    },
+    {
+      "phase": "gate",
+      "offset": 240
+    },
+    {
+      "phase": "gate",
+      "offset": 244
+    },
+    {
+      "phase": "gate",
+      "offset": 248
+    },
+    {
+      "phase": "gate",
+      "offset": 252
+    },
+    {
+      "phase": "gate",
+      "offset": 256
+    },
+    {
+      "phase": "gate",
+      "offset": 260
+    },
+    {
+      "phase": "gate",
+      "offset": 264
+    },
+    {
+      "phase": "gate",
+      "offset": 268
+    },
+    {
+      "phase": "gate",
+      "offset": 272
+    },
+    {
+      "phase": "gate",
+      "offset": 276
+    },
+    {
+      "phase": "gate",
+      "offset": 280
+    },
+    {
+      "phase": "gate",
+      "offset": 284
+    },
+    {
+      "phase": "gate",
+      "offset": 288
+    },
+    {
+      "phase": "gate",
+      "offset": 292
+    },
+    {
+      "phase": "gate",
+      "offset": 296
+    },
+    {
+      "phase": "gate",
+      "offset": 300
+    },
+    {
+      "phase": "gate",
+      "offset": 304
+    },
+    {
+      "phase": "gate",
+      "offset": 308
+    },
+    {
+      "phase": "gate",
+      "offset": 312
+    },
+    {
+      "phase": "gate",
+      "offset": 316
+    },
+    {
+      "phase": "gate",
+      "offset": 320
+    },
+    {
+      "phase": "gate",
+      "offset": 324
+    },
+    {
+      "phase": "gate",
+      "offset": 328
+    },
+    {
+      "phase": "gate",
+      "offset": 332
+    },
+    {
+      "phase": "gate",
+      "offset": 336
+    },
+    {
+      "phase": "gate",
+      "offset": 340
+    },
+    {
+      "phase": "gate",
+      "offset": 344
+    },
+    {
+      "phase": "gate",
+      "offset": 348
+    },
+    {
+      "phase": "gate",
+      "offset": 352
+    },
+    {
+      "phase": "gate",
+      "offset": 356
+    },
+    {
+      "phase": "gate",
+      "offset": 360
+    },
+    {
+      "phase": "gate",
+      "offset": 364
+    },
+    {
+      "phase": "gate",
+      "offset": 368
+    },
+    {
+      "phase": "gate",
+      "offset": 372
+    },
+    {
+      "phase": "gate",
+      "offset": 376
+    },
+    {
+      "phase": "gate",
+      "offset": 380
+    },
+    {
+      "phase": "gate",
+      "offset": 384
+    },
+    {
+      "phase": "gate",
+      "offset": 388
+    },
+    {
+      "phase": "gate",
+      "offset": 392
+    },
+    {
+      "phase": "gate",
+      "offset": 396
+    },
+    {
+      "phase": "gate",
+      "offset": 400
+    },
+    {
+      "phase": "gate",
+      "offset": 404
+    },
+    {
+      "phase": "gate",
+      "offset": 408
+    },
+    {
+      "phase": "gate",
+      "offset": 412
+    },
+    {
+      "phase": "gate",
+      "offset": 416
+    },
+    {
+      "phase": "gate",
+      "offset": 420
+    },
+    {
+      "phase": "gate",
+      "offset": 424
+    },
+    {
+      "phase": "gate",
+      "offset": 428
+    },
+    {
+      "phase": "replay",
+      "offset": 0
+    },
+    {
+      "phase": "replay",
+      "offset": 4
+    },
+    {
+      "phase": "replay",
+      "offset": 8
+    },
+    {
+      "phase": "replay",
+      "offset": 12
+    },
+    {
+      "phase": "replay",
+      "offset": 16
+    },
+    {
+      "phase": "replay",
+      "offset": 20
+    },
+    {
+      "phase": "replay",
+      "offset": 24
+    },
+    {
+      "phase": "replay",
+      "offset": 28
+    },
+    {
+      "phase": "replay",
+      "offset": 32
+    },
+    {
+      "phase": "replay",
+      "offset": 36
+    },
+    {
+      "phase": "replay",
+      "offset": 40
+    },
+    {
+      "phase": "replay",
+      "offset": 44
+    },
+    {
+      "phase": "replay",
+      "offset": 48
+    },
+    {
+      "phase": "replay",
+      "offset": 52
+    },
+    {
+      "phase": "replay",
+      "offset": 56
+    },
+    {
+      "phase": "replay",
+      "offset": 60
+    },
+    {
+      "phase": "replay",
+      "offset": 64
+    },
+    {
+      "phase": "replay",
+      "offset": 68
+    },
+    {
+      "phase": "replay",
+      "offset": 72
+    },
+    {
+      "phase": "replay",
+      "offset": 76
+    },
+    {
+      "phase": "replay",
+      "offset": 80
+    },
+    {
+      "phase": "replay",
+      "offset": 84
+    },
+    {
+      "phase": "replay",
+      "offset": 88
+    },
+    {
+      "phase": "replay",
+      "offset": 92
+    },
+    {
+      "phase": "replay",
+      "offset": 96
+    },
+    {
+      "phase": "replay",
+      "offset": 100
+    },
+    {
+      "phase": "replay",
+      "offset": 104
+    },
+    {
+      "phase": "replay",
+      "offset": 108
+    },
+    {
+      "phase": "replay",
+      "offset": 112
+    },
+    {
+      "phase": "replay",
+      "offset": 116
+    },
+    {
+      "phase": "replay",
+      "offset": 120
+    },
+    {
+      "phase": "replay",
+      "offset": 124
+    },
+    {
+      "phase": "replay",
+      "offset": 128
+    },
+    {
+      "phase": "replay",
+      "offset": 132
+    },
+    {
+      "phase": "replay",
+      "offset": 136
+    },
+    {
+      "phase": "replay",
+      "offset": 140
+    },
+    {
+      "phase": "replay",
+      "offset": 144
+    },
+    {
+      "phase": "replay",
+      "offset": 148
+    },
+    {
+      "phase": "replay",
+      "offset": 152
+    },
+    {
+      "phase": "replay",
+      "offset": 156
+    },
+    {
+      "phase": "replay",
+      "offset": 160
+    },
+    {
+      "phase": "replay",
+      "offset": 164
+    },
+    {
+      "phase": "replay",
+      "offset": 168
+    },
+    {
+      "phase": "replay",
+      "offset": 172
+    },
+    {
+      "phase": "replay",
+      "offset": 176
+    },
+    {
+      "phase": "replay",
+      "offset": 180
+    },
+    {
+      "phase": "replay",
+      "offset": 184
+    },
+    {
+      "phase": "replay",
+      "offset": 188
+    },
+    {
+      "phase": "replay",
+      "offset": 192
+    },
+    {
+      "phase": "replay",
+      "offset": 196
+    },
+    {
+      "phase": "replay",
+      "offset": 200
+    },
+    {
+      "phase": "replay",
+      "offset": 204
+    },
+    {
+      "phase": "replay",
+      "offset": 208
+    },
+    {
+      "phase": "replay",
+      "offset": 212
+    },
+    {
+      "phase": "replay",
+      "offset": 216
+    },
+    {
+      "phase": "replay",
+      "offset": 220
+    },
+    {
+      "phase": "replay",
+      "offset": 224
+    },
+    {
+      "phase": "replay",
+      "offset": 228
+    },
+    {
+      "phase": "replay",
+      "offset": 232
+    },
+    {
+      "phase": "replay",
+      "offset": 236
+    },
+    {
+      "phase": "replay",
+      "offset": 240
+    },
+    {
+      "phase": "replay",
+      "offset": 244
+    },
+    {
+      "phase": "replay",
+      "offset": 248
+    },
+    {
+      "phase": "replay",
+      "offset": 252
+    },
+    {
+      "phase": "replay",
+      "offset": 256
+    },
+    {
+      "phase": "replay",
+      "offset": 260
+    },
+    {
+      "phase": "replay",
+      "offset": 264
+    },
+    {
+      "phase": "replay",
+      "offset": 268
+    },
+    {
+      "phase": "replay",
+      "offset": 272
+    },
+    {
+      "phase": "replay",
+      "offset": 276
+    },
+    {
+      "phase": "replay",
+      "offset": 280
+    },
+    {
+      "phase": "replay",
+      "offset": 284
+    },
+    {
+      "phase": "replay",
+      "offset": 288
+    },
+    {
+      "phase": "replay",
+      "offset": 292
+    },
+    {
+      "phase": "replay",
+      "offset": 296
+    },
+    {
+      "phase": "replay",
+      "offset": 300
+    },
+    {
+      "phase": "replay",
+      "offset": 304
+    },
+    {
+      "phase": "replay",
+      "offset": 308
+    },
+    {
+      "phase": "replay",
+      "offset": 312
+    },
+    {
+      "phase": "replay",
+      "offset": 316
+    },
+    {
+      "phase": "replay",
+      "offset": 320
+    },
+    {
+      "phase": "replay",
+      "offset": 324
+    },
+    {
+      "phase": "replay",
+      "offset": 328
+    },
+    {
+      "phase": "replay",
+      "offset": 332
+    },
+    {
+      "phase": "replay",
+      "offset": 336
+    },
+    {
+      "phase": "replay",
+      "offset": 340
+    },
+    {
+      "phase": "replay",
+      "offset": 344
+    },
+    {
+      "phase": "replay",
+      "offset": 348
+    },
+    {
+      "phase": "replay",
+      "offset": 352
+    },
+    {
+      "phase": "replay",
+      "offset": 356
+    },
+    {
+      "phase": "replay",
+      "offset": 360
+    },
+    {
+      "phase": "replay",
+      "offset": 364
+    },
+    {
+      "phase": "replay",
+      "offset": 368
+    },
+    {
+      "phase": "replay",
+      "offset": 372
+    },
+    {
+      "phase": "replay",
+      "offset": 376
+    },
+    {
+      "phase": "replay",
+      "offset": 380
+    },
+    {
+      "phase": "replay",
+      "offset": 384
+    },
+    {
+      "phase": "replay",
+      "offset": 388
+    },
+    {
+      "phase": "replay",
+      "offset": 392
+    },
+    {
+      "phase": "replay",
+      "offset": 396
+    },
+    {
+      "phase": "replay",
+      "offset": 400
+    },
+    {
+      "phase": "replay",
+      "offset": 404
+    },
+    {
+      "phase": "replay",
+      "offset": 408
+    },
+    {
+      "phase": "replay",
+      "offset": 412
+    },
+    {
+      "phase": "replay",
+      "offset": 416
+    },
+    {
+      "phase": "replay",
+      "offset": 420
+    },
+    {
+      "phase": "replay",
+      "offset": 424
+    },
+    {
+      "phase": "replay",
+      "offset": 428
+    }
+  ],
+  "timeout_seconds": 30,
+  "address_space_bytes": 1073741824,
+  "python": "3.11.0rc1 (main, Jun 29 2026, 00:05:30) [GCC 11.4.0]",
+  "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+  "created_utc": "2026-09-07T15:52:52Z"
+}

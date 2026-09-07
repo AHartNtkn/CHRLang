@@ -59,7 +59,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T018
+active_task: T019
 tasks:
   - id: T001
     type: pm
@@ -654,14 +654,14 @@ tasks:
   - id: T018
     type: pm
     assignee: PM
-    status: active
-    objective: Audit shared architectural assumptions and run independent boundary-changing contrasts, beginning with constructor relationalization.
+    status: queued
+    objective: Continue constructor relationalization through full source effects and competent equality representations; keep the cross-portfolio architectural assumption register current.
     inputs:
       - docs/experiments/sequence.md
       - docs/experiments/coverage.md
       - docs/experiments/architecture-assumptions.md
     expected_output:
-      - An evidence-linked assumption inventory with independent entries and architecture-neutral correspondence; executable constructor-relational and competent fine-grained controls without requiring a unifier service boundary.
+      - Assumption audit and finite generic relational gate are committed evidence:432recipes, exact replay and16tests. Continue supported CHR consumption, propagation, freshness and dynamic choice births without a required unifier boundary. A3 and A6 have independent entries and do not depend on this succeeding.
     receipt: null
     allowed_files:
       - research/
@@ -675,6 +675,52 @@ tasks:
       - Relevant workspace tests, Clippy and formatting for Rust changes
     stop_if:
       - Keep changed source contracts experimental; do not make reference internal boundaries mandatory for candidate eligibility.
+
+  - id: T019
+    type: pm
+    assignee: PM
+    status: active
+    objective: A3 maintained partial joins through actual source updates, independently of constructor relationalization.
+    inputs:
+      - docs/experiments/architecture-assumptions.md
+      - docs/goals/chr-experiments/notes/T018-independent-entries.md
+      - docs/experiments/results/E09-prefix.md
+    expected_output:
+      - A registered supported-store gate and integrated source comparison of recomputation, full invalidation and maintained delta joins with honest administration costs.
+    receipt: null
+    allowed_files:
+      - research/chr-scheduling/
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    verify:
+      - PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s research/chr-scheduling -v
+      - Registered independent projected-match and source-observation gate with replay
+    stop_if:
+      - Preserve nonbinding matching, occurrence multiplicity and declared selection; no constructor-relational engine dependency.
+  - id: T020
+    type: pm
+    assignee: PM
+    status: queued
+    objective: A6 exact graph observation before export with a competent eager control and retention accounting.
+    inputs:
+      - docs/experiments/architecture-assumptions.md
+      - docs/goals/chr-experiments/notes/T018-independent-entries.md
+    expected_output:
+      - Independent joint-alpha and residual-multiset gate on shared completion views, followed by registered lifecycle costs through actual source completion.
+    receipt: null
+    allowed_files:
+      - research/chr-persistent/
+      - research/chr-observe/
+      - research/chr-observe-graph/
+      - Cargo.toml
+      - Cargo.lock
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    verify:
+      - Focused graph-view and exhaustive variable-permutation oracle tests
+      - Relevant workspace tests, Clippy and formatting
+    stop_if:
+      - Preserve ordinary full answer delivery, joint aliases and residual multiplicity; account for retained arena and binding memory.
 
 checks:
   dirty_fingerprint: clean_at_start
