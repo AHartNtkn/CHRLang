@@ -560,8 +560,9 @@ tasks:
       - docs/experiments/results/E09-service-gate.md
       - docs/experiments/results/E09-source-gate.md
       - docs/experiments/results/E09-observer-gate.md
+      - docs/experiments/results/E09-policy-work.md
     expected_output:
-      - Compare per-alternative, sealed-round and asynchronous policies with charged selector/support/observer boundaries; whole-request unification yields are validated.
+      - Continue key/traversal ablations, preparation/runtime/storage measurement, mixed scans/wake-ups, heterogeneous supports and second-service integration; first direct-policy comparison is recorded.
     receipt: null
     allowed_files:
       - research/chr-nets/
@@ -612,7 +613,8 @@ checks:
       - Nineteen net/control/service tests pass
       - 288 whole-service quantum configurations and exact replay pass
       - Partial build/readback publication checks and interleaved small-request tests pass
-      - Six source/observer tests and 192 state/answer conformance configurations with exact replay pass
+      - Eleven source/observer/policy tests and 192 source conformance configurations with exact replay pass
       - 14271 exact observer configurations and replay pass
+      - 930 integrated policy conformance configurations and 180 controlled work configurations replay exactly
     evidence:
       - docs/experiments/results/E09-service-gate.md
