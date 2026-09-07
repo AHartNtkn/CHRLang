@@ -527,8 +527,10 @@ tasks:
       - docs/experiments/sequence.md
       - docs/experiments/results/E06-data-gate.md
       - docs/experiments/results/E06-lookup.md
+      - docs/experiments/results/E06-lookup-preserving.md
+      - docs/experiments/results/E06-hvm-boundary.md
     expected_output:
-      - Continue preserving-prefix lookup, complete binding service, richer protocols, encoded backend and native choice correspondence; first data gate and lookup costs are recorded.
+      - Continue complete binding service, richer protocols, general encoded machine and native choice correspondence; preserving lookup and backend boundary gates are recorded.
     receipt: null
     allowed_files:
       - Cargo.toml
@@ -537,6 +539,7 @@ tasks:
       - docs/experiments/
       - docs/goals/chr-experiments/
     verify:
+      - PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s research/chr-hvm -v
       - PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s research/chr-nets -v
       - cargo test --workspace --all-targets
       - cargo clippy --workspace --all-targets -- -D warnings
