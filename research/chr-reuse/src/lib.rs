@@ -172,5 +172,6 @@ fn solve(left: &Term, right: &Term, stats: &mut Stats) -> Option<Substitution> {
     )
 }
 pub mod continuations;
+pub mod equation_search;
 pub mod failure;
 pub mod failure_search;

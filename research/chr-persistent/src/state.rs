@@ -321,6 +321,41 @@ impl State {
 }
 
 impl State {
+    pub(crate) fn complete_equation(
+        &mut self,
+        solution: Option<std::collections::BTreeMap<Var, Source>>,
+        arena: &mut Arena,
+        stats: &mut Stats,
+    ) -> bool {
+        assert!(matches!(self.pending.pop(), Some(Work::Equal(..))));
+        let Some(solution) = solution else {
+            return false;
+        };
+        fn import(t: &Source, next: u64, arena: &mut Arena, stats: &mut Stats) -> Term {
+            match t {
+                Source::Var(Var(id)) => {
+                    assert!(*id < next, "result introduced a fresh hole");
+                    Term::Var(*id)
+                }
+                Source::App(n, args) => {
+                    let args = args.iter().map(|t| import(t, next, arena, stats)).collect();
+                    arena.make(n, args, stats)
+                }
+            }
+        }
+        for (Var(id), t) in solution {
+            assert!(
+                id < self.next_var && self.bindings.get(&id, &mut stats.storage).is_none(),
+                "result overwrote a resolved binding"
+            );
+            if t == Source::Var(Var(id)) {
+                continue;
+            }
+            let value = import(&t, self.next_var, arena, stats);
+            self.bindings.insert(id, value, &mut stats.storage);
+        }
+        true
+    }
     pub(crate) fn has_pending_equation(&self) -> bool {
         self.pending
             .0

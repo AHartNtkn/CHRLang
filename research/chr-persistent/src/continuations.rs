@@ -1,6 +1,7 @@
 //! Experimental source-step interface. Cursors belong to their creating machine.
 use crate::{Search, Snapshot, Stats, state, terms};
-use chr_syntax::{Answer, Query, Rule, Term};
+use chr_syntax::{Answer, Query, Rule, Term, Var};
+use std::collections::BTreeMap;
 
 #[derive(Clone)]
 pub struct Cursor(pub(crate) state::State);
@@ -63,6 +64,29 @@ impl Machine {
     }
     pub fn has_pending_equation(&self, cursor: &Cursor) -> bool {
         cursor.0.has_pending_equation()
+    }
+    /// Complete the next equation using a validated most-general solution over
+    /// its resolved input holes. Identity rows are allowed; no fresh IDs occur.
+    pub fn complete_equation(
+        &mut self,
+        mut cursor: Cursor,
+        solution: Option<BTreeMap<Var, Term>>,
+    ) -> Step {
+        assert!(
+            cursor.0.has_pending_equation(),
+            "expected an active equation"
+        );
+        self.stats.steps += 1;
+        self.stats.equations += 1;
+        if cursor
+            .0
+            .complete_equation(solution, &mut self.arena, &mut self.stats)
+        {
+            Step::Continue(cursor)
+        } else {
+            self.stats.failed += 1;
+            Step::Failed
+        }
     }
     pub fn pending_head(
         &mut self,
