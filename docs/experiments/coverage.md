@@ -196,3 +196,5 @@ Before each execution receipt, update the affected question's disposition with i
 [E05](results/E05.md) records 240 v1 and 360 v2 passing service runs and exact replay. Named demand, eager projection and exact supported partitions distinguish unification work from construction/extraction cost. Dynamic births/effects, larger graphs and resumable observation remain open; this is not a full CHR engine. E07 delayed splitting is active.
 
 [E07](results/E07.md) records 930 passing quota runs and exact replay. Certified ancestor lifting trades duplicated work for speculation; unbounded preference hides a finite refutation. Full child boxes, broader certificates and adaptive preference remain open. E08 permanent factor inference/product observation is active.
+
+[E08](results/E08.md) records 206 passing factor/scalar runs and exact replay. Permanent independence avoids product recomputation; small and connected application cases expose overhead and certificate limits. Ownership refinement, temporary reunion and long-stream storage remain open. E10 structural solving is active.

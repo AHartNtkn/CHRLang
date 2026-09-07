@@ -59,7 +59,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T008
+active_task: T009
 tasks:
   - id: T001
     type: pm
@@ -336,7 +336,7 @@ tasks:
   - id: T008
     type: pm
     assignee: PM
-    status: active
+    status: done
     objective: 'E08 first probe: conservative permanent region inference, independent factor evaluation and fair incremental
       product observation, with scalar controls and explicit coupling barriers.'
     inputs:
@@ -345,7 +345,21 @@ tasks:
       - docs/goals/chr-sharing/notes/T017-andorra-and-decomposition.md
     expected_output:
       - Registered executable comparison and evidence-backed receipt; refine scope before activation.
-    receipt: null
+    receipt:
+      result: done
+      harness: codex
+      summary: 206 factor/scalar runs and exact replay pass. Permanent region products reduce repeated computation; small/connected
+        cases expose inference/cache costs. Finer certificates and temporary reunion remain open.
+      evidence:
+        - docs/experiments/results/E08.md
+        - docs/experiments/results/E08-factors.tsv
+      commands:
+        - cmd: cargo test --workspace --all-targets
+          status: pass
+        - cmd: cargo clippy --workspace --all-targets -- -D warnings
+          status: pass
+        - cmd: 206 runs and exact non-time replay
+          status: pass
     allowed_files:
       - Cargo.toml
       - Cargo.lock
@@ -362,13 +376,29 @@ tasks:
   - id: T009
     type: pm
     assignee: PM
-    status: queued
-    objective: E10 structural solver first probe
+    status: active
+    objective: 'E10 first structural-solver probe: closed structural operations, regular membership with explicit hole equations,
+      and equality-constrained finite skeletons; independent denotation and source-boundary checks.'
     inputs:
       - docs/experiments/sequence.md
+      - docs/goals/chr-sharing/notes/T017-equality-constrained-program-spaces.md
+      - docs/goals/chr-sharing/notes/T016-exact-solver-projection.md
     expected_output:
       - Registered executable comparison and evidence-backed receipt; refine scope before activation.
     receipt: null
+    allowed_files:
+      - Cargo.toml
+      - Cargo.lock
+      - research/chr-structural/
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    verify:
+      - cargo test --workspace --all-targets
+      - cargo clippy --workspace --all-targets -- -D warnings
+      - cargo fmt --all -- --check
+    stop_if:
+      - Do not replace host residual occurrence semantics with language membership or create implicit source choices; declare
+        exact solver domain and refuse uncertified interactions.
   - id: T010
     type: pm
     assignee: PM
