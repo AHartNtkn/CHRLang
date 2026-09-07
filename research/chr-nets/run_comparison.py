@@ -12,7 +12,7 @@ p.add_argument('output', type=Path)
 p.add_argument('--seed', type=int, required=True)
 a = p.parse_args()
 jobs = list(itertools.product([0, 1, 4, 16, 64], [0, 8, 64],
-                              ['first', 'last', 'absent'], ['net', 'borrowed', 'copied']))
+                              ['first', 'last', 'absent'], ['net', 'preserving', 'borrowed', 'copied']))
 random.Random(a.seed).shuffle(jobs)
 with a.output.open('w') as out:
     for v, depth, position, mode in jobs:

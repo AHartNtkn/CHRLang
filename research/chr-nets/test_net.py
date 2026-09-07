@@ -89,7 +89,7 @@ class Services(unittest.TestCase):
                 self.assertEqual(net.live, 2)
 
     def test_preserved_table_lookup_and_first_match(self):
-        from net import lookup
+        from net import lookup, lookup_preserving
         zero, one, two = tree('Z'), tree('S', tree('Z')), tree('S', tree('S', tree('Z')))
         tables = [[], [(zero, tree('Ref', one))],
                   [(zero, tree('Ref', one)), (one, tree('App', zero, tree('Nil')))],
@@ -101,10 +101,30 @@ class Services(unittest.TestCase):
             for key in (zero, one, two):
                 expected = next((tree('Some', value) for k, value in entries if k == key), tree('None'))
                 for newest in (False, True):
-                    net, kept, result = lookup(table, key)
-                    self.finish(net, newest)
-                    self.assertEqual(read(net, kept), table)
-                    self.assertEqual(read(net, result), expected)
+                    for service in (lookup, lookup_preserving):
+                        net, kept, result = service(table, key)
+                        self.finish(net, newest)
+                        self.assertEqual(read(net, kept), table)
+                        self.assertEqual(read(net, result), expected)
+
+    def test_preserving_lookup_yields_and_untouched_payload(self):
+        from net import lookup_preserving
+        from measure import workload
+        for position in ('first', 'last', 'absent'):
+            table, key, expected = workload(8, 4, position)
+            traces = []
+            for quantum in (1, 3, 16):
+                net, kept, result = lookup_preserving(table, key)
+                original_payloads = {n for n, tag in enumerate(net.nodes) if tag == 'Ref'}
+                self.finish(net, quantum=quantum)
+                self.assertEqual(read(net, kept), table)
+                self.assertEqual(read(net, result), expected)
+                surviving = sum(net.nodes[n] == 'Ref' for n in original_payloads)
+                # Only the selected value is copied for its two outputs.
+                self.assertEqual(surviving, 8 if position == 'absent' else 7)
+                traces.append((net.interactions, net.by_rule))
+            self.assertEqual(traces[0], traces[1])
+            self.assertEqual(traces[0], traces[2])
 
     def test_direct_controls_and_measured_interface(self):
         from measure import direct, materialize, workload, measure
@@ -114,7 +134,7 @@ class Services(unittest.TestCase):
                     table, key, expected = workload(v, depth, position)
                     self.assertEqual(direct(table, key)[0], expected)
                     self.assertEqual(materialize(table), table)
-        for mode in ('net', 'borrowed', 'copied'):
+        for mode in ('net', 'preserving', 'borrowed', 'copied'):
             self.assertTrue(measure(1, 0, 'last', mode)['passed'])
 
     def test_rule_interface_validation(self):

@@ -153,7 +153,7 @@ DATA = {'Z': 0, 'S': 1, 'Nil': 0, 'Cons': 2, 'Ref': 1, 'App': 2,
 
 
 def data_system():
-    arities = dict(DATA, Eq=2, And=2, Dup=2, Erase=0, Out=0, Look=2, Entry=3, Decide=4)
+    arities = dict(DATA, Eq=2, And=2, Dup=2, Erase=0, Out=0, Look=2, Entry=3, Decide=4, Keep=2, KeepEntry=3, KeepDecide=5, Restore=3, Unpack=2)
     arities.update({'Match' + tag: arity + 1 for tag, arity in DATA.items()})
     rules = []
     for tag, arity in DATA.items():
@@ -216,6 +216,27 @@ def data_system():
         Rule('Decide', 'F', ('Look', 'Erase'),
              ((2, (0, 0)), (0, (0, 1)), (3, (0, 2)), (1, (1, 0)))),
     ])
+    rules.extend([
+        Rule('Keep', 'Nil', ('Erase', 'Pair', 'Nil', 'None'),
+             ((0, (0, 0)), (1, (1, 0)), ((1, 1), (2, 0)), ((1, 2), (3, 0)))),
+        Rule('Keep', 'Cons', ('KeepEntry',),
+             ((2, (0, 0)), (0, (0, 1)), (3, (0, 2)), (1, (0, 3)))),
+        Rule('KeepEntry', 'Pair', ('Dup', 'Dup', 'Eq', 'KeepDecide'),
+             ((0, (0, 0)), (3, (1, 0)), ((0, 1), (2, 1)),
+              ((0, 2), (3, 4)), ((1, 1), (2, 0)), ((1, 2), (3, 1)),
+              ((2, 2), (3, 0)), (4, (3, 2)), (1, (3, 3)), (2, (3, 5)))),
+        Rule('KeepDecide', 'T', ('Dup', 'Pair', 'Cons', 'Pair', 'Some', 'Erase'),
+             ((1, (0, 0)), (0, (3, 1)), (2, (2, 2)), ((2, 1), (3, 0)),
+              ((0, 1), (3, 2)), ((0, 2), (4, 1)), ((1, 1), (2, 0)),
+              ((1, 2), (4, 0)), (4, (1, 0)), (3, (5, 0)))),
+        Rule('KeepDecide', 'F', ('Keep', 'Restore'),
+             ((2, (0, 0)), (3, (0, 1)), ((0, 2), (1, 0)),
+              (0, (1, 1)), (1, (1, 2)), (4, (1, 3)))),
+        Rule('Restore', 'Pair', ('Pair', 'Cons', 'Pair'),
+             ((2, (0, 0)), ((0, 1), (1, 0)), ((0, 2), 4),
+              ((1, 1), (2, 0)), ((1, 2), 3), ((2, 1), 0), ((2, 2), 1))),
+        Rule('Unpack', 'Pair', (), ((0, 2), (1, 3))),
+    ])
     return System(arities, rules)
 
 
@@ -262,4 +283,16 @@ def lookup(table, key):
     net.connect((dup, 2), (look, 0))
     net.connect((look, 1), (encode(net, key), 0))
     net.connect((look, 2), (result, 0))
+    return net, kept, result
+
+
+def lookup_preserving(table, key):
+    net = Net(data_system())
+    kept, result = net.node('Out'), net.node('Out')
+    keep, unpack = net.node('Keep'), net.node('Unpack')
+    net.connect((keep, 0), (encode(net, table), 0))
+    net.connect((keep, 1), (encode(net, key), 0))
+    net.connect((keep, 2), (unpack, 0))
+    net.connect((unpack, 1), (kept, 0))
+    net.connect((unpack, 2), (result, 0))
     return net, kept, result

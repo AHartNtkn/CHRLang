@@ -73,18 +73,26 @@ def measure(v, depth, position, mode):
         result[name] = dict(us=elapsed, baseline=baseline, current=current, peak=peak)
         return value
 
-    if mode == 'net':
+    if mode in ('net', 'preserving'):
         system = phase('compile', data_system)
 
         def construct():
             net = Net(system)
             kept, output = net.node('Out'), net.node('Out')
-            dup, look = net.node('Dup'), net.node('Look')
-            net.connect((dup, 0), (encode(net, table), 0))
-            net.connect((dup, 1), (kept, 0))
-            net.connect((dup, 2), (look, 0))
-            net.connect((look, 1), (encode(net, key), 0))
-            net.connect((look, 2), (output, 0))
+            if mode == 'net':
+                dup, look = net.node('Dup'), net.node('Look')
+                net.connect((dup, 0), (encode(net, table), 0))
+                net.connect((dup, 1), (kept, 0))
+                net.connect((dup, 2), (look, 0))
+                net.connect((look, 1), (encode(net, key), 0))
+                net.connect((look, 2), (output, 0))
+            else:
+                keep, unpack = net.node('Keep'), net.node('Unpack')
+                net.connect((keep, 0), (encode(net, table), 0))
+                net.connect((keep, 1), (encode(net, key), 0))
+                net.connect((keep, 2), (unpack, 0))
+                net.connect((unpack, 1), (kept, 0))
+                net.connect((unpack, 2), (output, 0))
             return net, kept, output
 
         net, kept, output = phase('initialize', construct)
@@ -98,7 +106,7 @@ def measure(v, depth, position, mode):
                       created=net.created, live=net.live, peak_live=net.peak_live,
                       retained_slots=len(net.nodes), rules=len(system.rules),
                       agent_types=len(system.arities),
-                      entries=net.by_rule.get('Entry/Pair', 0))
+                      entries=net.by_rule.get('Entry/Pair', 0) + net.by_rule.get('KeepEntry/Pair', 0))
     else:
         phase('compile', lambda: None)
         data, query = phase('initialize', lambda: (materialize(table), materialize(key))
@@ -118,6 +126,6 @@ if __name__ == '__main__':
     p.add_argument('v', type=int, choices=[0, 1, 4, 16, 64])
     p.add_argument('depth', type=int, choices=[0, 8, 64])
     p.add_argument('position', choices=['first', 'last', 'absent'])
-    p.add_argument('mode', choices=['net', 'borrowed', 'copied'])
+    p.add_argument('mode', choices=['net', 'preserving', 'borrowed', 'copied'])
     a = p.parse_args()
     print(json.dumps(measure(a.v, a.depth, a.position, a.mode), sort_keys=True))
