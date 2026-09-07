@@ -1,0 +1,145 @@
+import unittest
+from net import DATA, Net, Rule, System, compare, data_system, encode, read
+
+
+def tree(tag, *children):
+    return tag, children
+
+
+def examples():
+    atoms = [tree(n) for n, a in DATA.items() if a == 0]
+    values = atoms[:]
+    for tag, arity in DATA.items():
+        if arity == 1:
+            values.extend(tree(tag, x) for x in atoms)
+        elif arity == 2:
+            values.extend(tree(tag, x, y) for x in atoms for y in atoms)
+    # Ref IDs are ordinary encoded data. Copying must retain their values.
+    values.extend([tree('Ref', tree('S', tree('S', tree('Z')))),
+                   tree('App', tree('S', tree('Z')),
+                        tree('Cons', tree('Ref', tree('Z')), tree('Nil')))])
+    return values
+
+
+class Services(unittest.TestCase):
+    def finish(self, net, newest=False, quantum=1):
+        for _ in range(10000):
+            net.check()
+            if net.advance(quantum, newest) == 'quiescent':
+                net.check()
+                return
+        self.fail('finite data service did not finish')
+
+    def test_generated_comparisons_and_alternative_reduction_orders(self):
+        for a in examples():
+            for b in examples():
+                for newest in (False, True):
+                    net, out = compare(a, b)
+                    self.finish(net, newest)
+                    self.assertEqual(read(net, out), tree('T' if a == b else 'F'))
+                    self.assertEqual(net.live, 2)  # output plus Boolean, all garbage charged
+
+    def test_copy_and_erasure(self):
+        for value in examples():
+            for newest in (False, True):
+                net = Net(data_system())
+                dup, a, b = net.node('Dup'), net.node('Out'), net.node('Out')
+                net.connect((dup, 0), (encode(net, value), 0))
+                net.connect((dup, 1), (a, 0))
+                net.connect((dup, 2), (b, 0))
+                self.finish(net, newest)
+                self.assertEqual(read(net, a), value)
+                self.assertEqual(read(net, b), value)
+                self.assertNotEqual(net.ports[(a, 0)], net.ports[(b, 0)])
+                # An entirely erased request has no source meaning; this tests
+                # only explicit data reclamation, not CHR failure.
+                net = Net(data_system())
+                eraser = net.node('Erase')
+                net.connect((eraser, 0), (encode(net, value), 0))
+                self.finish(net, newest)
+                self.assertEqual(net.live, 0)
+
+    def test_finite_yields_and_exact_replay(self):
+        value = tree('Z')
+        for _ in range(64):
+            value = tree('S', value)
+        results = []
+        for quantum in (1, 3, 16):
+            net, out = compare(value, value)
+            self.assertEqual(net.advance(0), 'more')
+            with self.assertRaisesRegex(ValueError, 'not quiescent'):
+                read(net, out)
+            self.finish(net, quantum=quantum)
+            results.append((read(net, out), net.interactions, net.by_rule))
+        self.assertEqual(results[0], results[1])
+        self.assertEqual(results[0], results[2])
+        self.assertEqual(results[0][1], 130)  # two inspections per unary node
+
+    def test_composition_copy_then_compare(self):
+        for value in examples():
+            for newest in (False, True):
+                net = Net(data_system())
+                dup, eq, out = net.node('Dup'), net.node('Eq'), net.node('Out')
+                net.connect((dup, 0), (encode(net, value), 0))
+                net.connect((dup, 1), (eq, 0))
+                net.connect((dup, 2), (eq, 1))
+                net.connect((eq, 2), (out, 0))
+                self.finish(net, newest)
+                self.assertEqual(read(net, out), tree('T'))
+                self.assertEqual(net.live, 2)
+
+    def test_preserved_table_lookup_and_first_match(self):
+        from net import lookup
+        zero, one, two = tree('Z'), tree('S', tree('Z')), tree('S', tree('S', tree('Z')))
+        tables = [[], [(zero, tree('Ref', one))],
+                  [(zero, tree('Ref', one)), (one, tree('App', zero, tree('Nil')))],
+                  [(zero, tree('Ref', one)), (zero, tree('Ref', two))]]
+        for entries in tables:
+            table = tree('Nil')
+            for key, value in reversed(entries):
+                table = tree('Cons', tree('Pair', key, value), table)
+            for key in (zero, one, two):
+                expected = next((tree('Some', value) for k, value in entries if k == key), tree('None'))
+                for newest in (False, True):
+                    net, kept, result = lookup(table, key)
+                    self.finish(net, newest)
+                    self.assertEqual(read(net, kept), table)
+                    self.assertEqual(read(net, result), expected)
+
+    def test_direct_controls_and_measured_interface(self):
+        from measure import direct, materialize, workload, measure
+        for v in (0, 1, 4, 16, 64):
+            for depth in (0, 8, 64):
+                for position in ('first', 'last', 'absent'):
+                    table, key, expected = workload(v, depth, position)
+                    self.assertEqual(direct(table, key)[0], expected)
+                    self.assertEqual(materialize(table), table)
+        for mode in ('net', 'borrowed', 'copied'):
+            self.assertTrue(measure(1, 0, 'last', mode)['passed'])
+
+    def test_rule_interface_validation(self):
+        with self.assertRaisesRegex(ValueError, 'every interface'):
+            System({'C': 1, 'Z': 0}, [Rule('C', 'Z', (), ())])
+        valid = Rule('C', 'Z', ('Z',), ((0, (0, 0)),))
+        with self.assertRaisesRegex(ValueError, 'overlapping'):
+            System({'C': 1, 'Z': 0}, [valid, valid])
+        with self.assertRaisesRegex(ValueError, 'every interface'):
+            System({'C': 1, 'Z': 0}, [Rule('C', 'Z', ('Z',),
+                                                ((0, (0, 0)), (0, (0, 0))))])
+
+    def test_internal_interface_wire(self):
+        # Both auxiliary ports can already be connected inside the redex.
+        # The rewrite must connect the two new Z nodes, not stale agent ports.
+        rule = Rule('C', 'D', ('Z', 'Z'), ((0, (0, 0)), (1, (1, 0))))
+        net = Net(System({'C': 1, 'D': 1, 'Z': 0}, [rule]))
+        c, d = net.node('C'), net.node('D')
+        net.connect((c, 0), (d, 0))
+        net.connect((c, 1), (d, 1))
+        net.check()
+        self.assertTrue(net.step())
+        net.check()
+        self.assertEqual(net.ports[(2, 0)], (3, 0))
+
+
+if __name__ == '__main__':
+    unittest.main()
