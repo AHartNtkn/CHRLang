@@ -12,6 +12,15 @@ from check_net_source import vocabulary
 from check_cases import freeze, equivalent
 
 
+def validate_output(serialized, oracle):
+    """Check delivered data only after timed search release."""
+    answers = json.loads(serialized)
+    for key, expected in oracle.items():
+        assert len(answers) == len(expected), key
+        assert all(any(equivalent(a,b) for b in expected) for a in answers), key
+        assert all(any(equivalent(a,b) for a in answers) for b in expected), key
+
+
 def measure(request):
     resource.setrlimit(resource.RLIMIT_AS, (1024**3, 1024**3))
     assert request['service'] in ('direct', 'scan', 'count')
@@ -63,13 +72,7 @@ def measure(request):
         output = json.dumps(search.answers, separators=(',', ':'))
         serialized = time.perf_counter_ns()
         checkpoint(f'{index}.serialized')
-        assert search.actions < 20_000_000, 'action cap'
-        assert search.exhausted != case['prefix'], 'exhaustion'
-        assert search.raw == case['raw'], 'raw multiplicity'
-        for key in ('expected', 'reference'):
-            if key in oracle:
-                assert len(search.answers) == len(oracle[key]), key
-                assert all(any(equivalent(a,b) for b in oracle[key]) for a in search.answers), key
+        exhausted, total_actions = search.exhausted, search.actions
         queries.append(dict(actions=dict(search.counts), raw=search.raw,
                             unique=len(search.answers), source_jobs=search.source_jobs,
                             answer_actions=search.answer_actions,
@@ -78,13 +81,23 @@ def measure(request):
                                             serialize=serialized-serialization,
                                             first_answer=first)))
         outputs.append(output)
-        checkpoint(f'{index}.validated')
         release_start = time.perf_counter_ns()
         search = None
+        dropped = time.perf_counter_ns()
         gc.collect()
-        queries[-1]['timings_ns']['release'] = time.perf_counter_ns()-release_start
+        collected = time.perf_counter_ns()
+        queries[-1]['timings_ns'].update(release=collected-release_start,
+                                           drop=dropped-release_start, collect=collected-dropped)
         # Includes immutable prepared data, outputs, and measurement metadata.
         checkpoint(f'{index}.released')
+        assert total_actions < 20_000_000, 'action cap'
+        assert exhausted != case['prefix'], 'exhaustion'
+        assert queries[-1]['raw'] == case['raw'], 'raw multiplicity'
+        validate_output(output, oracle)
+        # The independent comparator creates recursive closure cycles. Collect
+        # them outside measurement before the next query can inherit that work.
+        gc.collect()
+        checkpoint(f'{index}.validated')
     if traced:
         tracemalloc.stop()
     return dict(status='pass', id=case['id'], service=request['service'],

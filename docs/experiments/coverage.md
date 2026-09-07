@@ -68,7 +68,7 @@ The numbered directions follow [T018's disposition audit](../goals/chr-sharing/n
 
 **Assignment:** E09 compares three schedulers on equivalent finite services; E07 varies splitting preference; E06 supplies backend yield evidence; E14 accounts for output work. E15 requires a second service organization before generalizing scheduler results. D4 covers stronger user-facing order or latency promises.
 
-**Evidence/disposition:** [rounds](../goals/chr-sharing/notes/T015-symbolic-scheduling.md), [asynchronous jobs](../goals/chr-sharing/notes/T016-asynchronous-symbolic-scheduler.md), and [search encapsulation](../goals/chr-sharing/notes/T018-backend-boundaries.md) state finite-service premises. Timing tests do not replace that argument, and fairness does not imply a practical latency bound. [E03](results/E03.md) exposes repeated group-preview cost; [E07](results/E07.md) exposes unbounded-preference starvation; [E08](results/E08.md) checks a finite product prefix with an infinite producer. None closes resumable-service or latency questions.
+**Evidence/disposition:** [rounds](../goals/chr-sharing/notes/T015-symbolic-scheduling.md), [asynchronous jobs](../goals/chr-sharing/notes/T016-asynchronous-symbolic-scheduler.md), and [search encapsulation](../goals/chr-sharing/notes/T018-backend-boundaries.md) state finite-service premises. Timing tests do not replace that argument, and fairness does not imply a practical latency bound. [E03](results/E03.md) exposes repeated group-preview cost; [E07](results/E07.md) exposes unbounded-preference starvation; [E08](results/E08.md) checks a finite product prefix with an infinite producer. [E09 service](results/E09-service-gate.md), [source](results/E09-source-gate.md), and [observer](results/E09-observer-gate.md) gates establish bounded resumable protocols. [E15 policies](results/E15-policies.md) extends them to net equality, and [E15 diagnostic timing](results/E15-cost-diagnostic.md) has complete observations, but a validation/collection attribution defect requires the [corrected cost comparison](results/E15-costs.md) before confirmation. Heterogeneous operation scheduling, broader collapse and longer synthesis remain active; these finite checks are not a general fairness theorem.
 
 ### 9. Logical structural solvers and exact projection
 
@@ -88,11 +88,11 @@ The numbered directions follow [T018's disposition audit](../goals/chr-sharing/n
 
 ### 11. Tabling, learned failure and reconvergence
 
-**Remaining:** exact keys, generalization, caller pruning, complete-state equivalence, event-dependent contradiction certificates and retention cost.
+**Remaining:** exact keys, generalization, caller pruning, complete-state equivalence, event-dependent contradiction certificates, in-flight operation sharing versus completed memoization, and retention cost.
 
 **Assignment:** E12 isolates exact tables, state merge and failure learning before stronger variants. E10 supplies the exact logical interface where needed. E15 measures interactions with solving and contextual execution; E14 remains a separate final-answer operation.
 
-**Evidence/disposition:** [state reuse](../goals/chr-sharing/notes/T016-observation-and-state-reuse.md) and [learning](../goals/chr-sharing/notes/T018-composition-and-learning.md) provide sufficient certificates. Output equality and table-hit counts alone answer none of these cost or continuation questions.
+**Evidence/disposition:** [state reuse](../goals/chr-sharing/notes/T016-observation-and-state-reuse.md) and [learning](../goals/chr-sharing/notes/T018-composition-and-learning.md) provide sufficient certificates. Output equality and table-hit counts alone answer none of these cost or continuation questions. [E12 equations](results/E12-equations.md) already shows that memo hits can lose to shared-arena direct execution. The [E15 operation-sharing proposal](../goals/chr-experiments/notes/T015-inflight-equality.md) separates projection, representation, active sharing and completed reuse, with caller-patch and delivery/reclamation obligations. Its semantic gate remains unimplemented; no owner decision blocks it.
 
 ### 12. Answers, residuals and deduplication
 
@@ -124,7 +124,7 @@ The numbered directions follow [T018's disposition audit](../goals/chr-sharing/n
 
 **Assignment:** E01 supplies persistent/trailing/replay controls; every mechanism counts administration; E14 accounts for output; E15 measures whole-engine costs; E16 measures sequential versus parallel behavior; E17 compares complete application costs.
 
-**Evidence/disposition:** [cost questions](../goals/chr-sharing/notes/T016-comparative-cost-questions.md) and the [portfolio](../goals/chr-sharing/notes/T018-evaluation-portfolio.md) distinguish the work units. The copying reference's speed is not an architectural baseline result. Hardware restrictions, if encountered, must name the exact remaining measurement. [E01](results/E01.md) establishes a persistent/copy control with identical execution work and measured allocation differences. Subsequent receipts separate event, service, cache, projection and output costs. Trailing/replay, reclamation, composition and physical parallelism remain active.
+**Evidence/disposition:** [cost questions](../goals/chr-sharing/notes/T016-comparative-cost-questions.md) and the [portfolio](../goals/chr-sharing/notes/T018-evaluation-portfolio.md) distinguish the work units. The copying reference's speed is not an architectural baseline result. Hardware restrictions, if encountered, must name the exact remaining measurement. [E01](results/E01.md) establishes a persistent/copy control with identical execution work and measured allocation differences. Subsequent receipts separate event, service, cache, projection and output costs. [E15 diagnostic costs](results/E15-cost-diagnostic.md) contain 810 complete timing sessions and an interrupted allocation batch. Validator garbage entered timed release, so [corrected complete batches](results/E15-costs.md) are required before release-inclusive confirmation. Trailing/replay, reclamation, richer composition and physical parallelism remain active.
 
 ### 16. Arithmetic, SK, typing and lambda demonstrations
 
@@ -132,7 +132,7 @@ The numbered directions follow [T018's disposition audit](../goals/chr-sharing/n
 
 **Assignment:** E00 registers these modes with independent witnesses and the pinned literal lambda translation. Every relevant mechanism uses application probes; E17 evaluates whole sessions and complete candidates. D5 concerns an additional conventional capture-avoiding lambda demo, not the supplied relation.
 
-**Evidence/disposition:** [rwlog translation](../goals/chr-sharing/notes/T018-rwlog-translation.md), [intended programs](../goals/chr-sharing/notes/intended-programs.md), current `chr-programs` and its executable tests define present coverage. The unbounded duplication search remains open; ground evaluation or a finite candidate grammar does not close it. [E00](results/E00.md) validates arithmetic modes, ground/residual SK cases, a typing prefix and literal lambda cases. [E04](results/E04.md) and [E08](results/E08.md) include adverse connected/application results. Full synthesis streams and session comparisons remain active.
+**Evidence/disposition:** [rwlog translation](../goals/chr-sharing/notes/T018-rwlog-translation.md), [intended programs](../goals/chr-sharing/notes/intended-programs.md), current `chr-programs` and its executable tests define present coverage. The unbounded duplication search remains open; ground evaluation or a finite candidate grammar does not close it. [E00](results/E00.md) validates arithmetic modes, ground/residual SK cases, a typing prefix and literal lambda cases. [E04](results/E04.md) and [E08](results/E08.md) include adverse connected/application results. [E15 timing](results/E15-costs.md) includes three identical queries per prepared backend; it does not simulate varied notebook work or full synthesis streams. Those application/session questions remain active.
 
 ### 17. Query interface, streams and future features
 
