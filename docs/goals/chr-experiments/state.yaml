@@ -59,7 +59,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T010
+active_task: T011
 tasks:
   - id: T001
     type: pm
@@ -412,15 +412,28 @@ tasks:
   - id: T010
     type: pm
     assignee: PM
-    status: active
+    status: done
     objective: E11 whole-evaluator symbolic first probe
     inputs:
       - docs/experiments/sequence.md
       - docs/experiments/registrations/E11.md
     expected_output:
-      - Complete finite transition encoding and equal-bound direct control, independently checked witnesses, frozen comparative
-        matrix and measured receipt. Equality circuit is a correctness gate only.
-    receipt: null
+      - Complete finite transition encoding and equal-bound direct control, independently checked witnesses, frozen
+        comparative matrix and measured receipt. Equality circuit is a correctness gate only.
+    receipt:
+      result: done
+      harness: codex
+      summary: 'E11 first comparison: independently bounded arena control and two symbolic representations; 48 registered
+        runs, exact semantic/counter repetition, independent model replay. Direct is cheaper on completed pairs;
+        symbolic decomposition times out. Prefix-extension gate passes. E11 refinements remain open.'
+      evidence:
+        - docs/experiments/results/E11-matched.md
+        - docs/experiments/results/E11-term-encoding.md
+      commands:
+        - 47 Python tests pass
+        - cargo test --workspace --all-targets
+        - cargo clippy --workspace --all-targets -- -D warnings
+        - cargo fmt --all -- --check
     allowed_files:
       - Cargo.toml
       - Cargo.lock
@@ -433,18 +446,34 @@ tasks:
       - cargo fmt --all -- --check
       - /tmp/chr-symbolic-venv/bin/python -m unittest discover -s research/chr-symbolic
     stop_if:
-      - Keep fixed committed policy, explicit OR, full residual endpoints and exact bounds explicit; experimental encoding
-        does not adopt production semantics.
+      - Keep fixed committed policy, explicit OR, full residual endpoints and exact bounds explicit; experimental
+        encoding does not adopt production semantics.
   - id: T011
     type: pm
     assignee: PM
-    status: queued
-    objective: E12 exact reuse first probe
+    status: active
+    objective: 'E12 first exact-reuse probes: operation tables, full-state reconvergence with lineage, and provenance-checked
+      finite failure certificates as separate ablations.'
     inputs:
       - docs/experiments/sequence.md
+      - docs/goals/chr-sharing/notes/T016-observation-and-state-reuse.md
+      - docs/goals/chr-sharing/notes/T018-composition-and-learning.md
     expected_output:
       - Registered executable comparison and evidence-backed receipt; refine scope before activation.
     receipt: null
+    allowed_files:
+      - Cargo.toml
+      - Cargo.lock
+      - research/chr-reuse/
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    verify:
+      - cargo test --workspace --all-targets
+      - cargo clippy --workspace --all-targets -- -D warnings
+      - cargo fmt --all -- --check
+    stop_if:
+      - Keep source/event provenance, full residuals, rule policy and lineage explicit; refuse a reuse key that
+        erases relevant dependencies.
   - id: T012
     type: pm
     assignee: PM
@@ -509,8 +538,8 @@ checks:
   dirty_fingerprint: clean_at_start
   last_verification:
     result: passed
-    task: T002
+    task: T010
     commands:
-      - 56 workspace tests
-      - 278 isolated runs and exact non-time replay
-      - Clippy and formatting
+      - 47 Python tests
+      - workspace tests, Clippy and formatting
+      - 48 registered runs; all completed semantic/counter repeats agree
