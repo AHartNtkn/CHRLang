@@ -3,11 +3,15 @@ import z3
 from heap import Encoding,Heap,select
 from matching import applications
 from projection import ConcreteHeap
+from terms import TermStore
+from term_matching import TermView
+from copy import copy
 
 
 class Bounded:
-    def __init__(self,rules,constraints,outputs,*,transitions,nodes,occurrences,pending,service):
+    def __init__(self,rules,constraints,outputs,*,transitions,nodes,occurrences,pending,service,representation="heap"):
         if min(occurrences,pending)<1 or transitions<0:raise ValueError('invalid machine bounds')
+        self.representation=representation
         self.rules=rules;self.constraints=constraints;self.query_outputs=outputs;self.e=Encoding()
         signature=[]
         def scan(t):
@@ -25,7 +29,7 @@ class Bounded:
             for c in r.kept+r.removed:scan(c)
             for a,b in r.guards:scan(a);scan(b)
             scan_goal(r.body)
-        self.h=Heap(self.e,nodes,signature)
+        self.h={"heap":Heap,"terms":TermStore}[representation](self.e,nodes,signature)
         self.goals=[('true',)]
         bindings={}
         initial=[self.goal(('post',c),bindings,True) for c in constraints]
@@ -33,7 +37,7 @@ class Bounded:
         self.queue=[z3.IntVal(i) for i in initial[:pending]]+[z3.IntVal(0)]*max(0,pending-len(initial))
         self.length=z3.IntVal(min(len(initial),pending))
         if len(initial)>pending:self.h.cutoff=z3.BoolVal(True)
-        self.roots=[z3.IntVal(0)]*occurrences;self.alive=[z3.BoolVal(False)]*occurrences
+        self.roots=[z3.IntVal(0) if representation=="heap" else self.h.invalid]*occurrences;self.alive=[z3.BoolVal(False)]*occurrences
         self.next_occ=z3.IntVal(0);self.history={};self.done=z3.BoolVal(False)
         self.choices=[];self.events=[];self.states=[]
         self.capture()
@@ -43,7 +47,7 @@ class Bounded:
     def capture(self):
         from types import SimpleNamespace
         h=self.h
-        heap=SimpleNamespace(e=h.e,n=h.n,signature=h.signature,ids=h.ids,tags=h.tags,
+        heap=copy(h) if self.representation=="terms" else SimpleNamespace(e=h.e,n=h.n,signature=h.signature,ids=h.ids,tags=h.tags,
                              children=list(h.children),sub=h.sub,variables=h.variables)
         self.states.append((heap,list(self.queue),self.length,list(self.roots),list(self.alive),
                             dict(self.history),self.next_occ))
@@ -83,7 +87,8 @@ class Bounded:
         pending_guard=self.e.bind(z3.And(active,old_length>0))
         rule_guard=self.e.bind(z3.And(active,old_length==0))
         # Read enabling conditions from the state before this transition.
-        candidates=applications(self.h,self.rules,self.roots,self.alive,self.history)
+        view=TermView(self.h) if self.representation=="terms" else None
+        candidates=applications(self.h,self.rules,self.roots,self.alive,self.history,view)
         goals=list(self.goals)
         for index,g in enumerate(goals):
             guard=self.e.bind(z3.And(pending_guard,front==index))
@@ -144,8 +149,10 @@ class Bounded:
             if status==z3.unsat:break
             if status!=z3.sat:raise RuntimeError(f'bounded solver returned {status}: {solver.reason_unknown()}')
             model=solver.model();self.models+=1
-            concrete=ConcreteHeap(self.h,model)
-            term=lambda h:concrete.term(model.eval(h).as_long())
+            if self.representation=="terms":term=self.h.decoder(model)
+            else:
+                concrete=ConcreteHeap(self.h,model)
+                term=lambda h:concrete.term(model.eval(h).as_long())
             answer={'outputs':[term(h) for h in self.outputs],
                     'residual':[term(h) for h,a in zip(self.roots,self.alive) if z3.is_true(model.eval(a))]}
             self.verify(model,answer)
@@ -174,8 +181,10 @@ class Bounded:
         states=[];actions=[]
         for tick,state in enumerate(self.states):
             heap,queue,length,roots,alive,history,next_occ=state
-            concrete=ConcreteHeap(heap,model)
-            def term(handle):return concrete.term(handle if isinstance(handle,int) else model.eval(handle).as_long())
+            if self.representation=="terms":term=heap.decoder(model)
+            else:
+                concrete=ConcreteHeap(heap,model)
+                def term(handle):return concrete.term(handle if isinstance(handle,int) else model.eval(handle).as_long())
             def goal(index):
                 g=self.goals[index];kind=g[0]
                 if kind=='post':return (kind,term(g[1]))
@@ -183,10 +192,15 @@ class Bounded:
                 if kind in ('and','or'):return (kind,*(goal(i) for i in g[1:]))
                 return g
             substitution={}
-            for i,tag in enumerate(heap.tags):
-                if model.eval(tag).as_long()==1:
-                    var=model.eval(heap.ids[i]).as_long();value=term(i)
+            if self.representation=="terms":
+                for var in range(model.eval(heap.variables).as_long()):
+                    value=term(z3.Select(heap.sub,var))
                     if value!=var:substitution[var]=value
+            else:
+                for i,tag in enumerate(heap.tags):
+                    if model.eval(tag).as_long()==1:
+                        var=model.eval(heap.ids[i]).as_long();value=term(i)
+                        if value!=var:substitution[var]=value
             states.append({'pending':[goal(model.eval(g).as_long()) for g in queue[:model.eval(length).as_long()]],
                            'store':[(i,term(root)) for i,(root,a) in enumerate(zip(roots,alive)) if z3.is_true(model.eval(a))],
                            'substitution':substitution,'history':sorted(k for k,v in history.items() if z3.is_true(model.eval(v))),

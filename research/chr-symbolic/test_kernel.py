@@ -2,9 +2,10 @@ import unittest
 from kernel import Circuit
 
 class KernelTests(unittest.TestCase):
+    representation="heap"
     def test_symbolic_pairs_match_independent_unifier(self):
         nodes=[('var',()),('var',()),('z',()),('s',(0,)),('s',(2,)),('a',(0,1)),('k',()),('a',(1,0)),('s',(1,)),('a',(0,0)),('a',(2,4))]
-        circuit=Circuit(nodes,12)
+        circuit=Circuit(nodes,12,representation=self.representation)
         # Independent nested-tree Robinson procedure; no slot-vector algorithm.
         def tree(i):
             name,args=nodes[i]
@@ -36,20 +37,29 @@ class KernelTests(unittest.TestCase):
                     self.assertEqual(result['status'],'failed' if expected is None else 'done')
                     if expected is not None:self.assertEqual(result['variables'],expected)
     def test_cutoff_is_not_failure_or_answer(self):
-        c=Circuit([('var',()),('z',())],0)
+        c=Circuit([('var',()),('z',())],0,representation=self.representation)
         self.assertEqual(c.solve([(0,1)])['status'],'cutoff')
 
 
 class SequenceTests(unittest.TestCase):
+    representation="heap"
     def test_bindings_flow_and_late_occurs_failure(self):
         nodes=[('var',()),('var',()),('z',()),('s',(0,))]
-        c=Circuit(nodes,4,equations=2)
+        c=Circuit(nodes,4,equations=2,representation=self.representation)
         self.assertEqual(c.solve([(0,1),(1,2)]),{'status':'done','variables':[('z',()),('z',())]})
         self.assertEqual(c.solve([(0,1),(1,3)])['status'],'failed')
 
     def test_cutoff_prevents_following_equation(self):
         nodes=[('var',()),('z',()),('s',(0,)),('s',(1,))]
-        c=Circuit(nodes,1,equations=2)
+        c=Circuit(nodes,1,equations=2,representation=self.representation)
         self.assertEqual(c.solve([(2,3),(0,1)]),{'status':'cutoff','variables':[0]})
+
+class DirectTermSequenceTests(SequenceTests):
+    representation="terms"
+
+
+class DirectTermKernelTests(KernelTests):
+    representation="terms"
+
 
 if __name__=='__main__':unittest.main()

@@ -8,6 +8,7 @@ import sys
 parser=argparse.ArgumentParser()
 parser.add_argument('manifest',type=Path)
 parser.add_argument('output',type=Path)
+parser.add_argument('--representation',choices=['heap','terms'],default='heap')
 parser.add_argument('--case',action='append',default=[])
 parser.add_argument('--bounds',type=Path)
 parser.add_argument('--all',action='store_true',help='Use every case in the supplied registry manifest')
@@ -19,7 +20,7 @@ bounds={} if args.bounds is None else {r['case']:r['bounds'] for r in map(json.l
 with args.output.open('w') as output:
     for case in cases:
         try:
-            run=subprocess.run([sys.executable,str(Path(__file__).with_name('probe.py')),str(args.manifest),case,*[part for key,value in bounds.get(case,{}).items() for part in ['--'+key,str(value)]]],capture_output=True,text=True,timeout=60)
+            run=subprocess.run([sys.executable,str(Path(__file__).with_name('probe.py')),str(args.manifest),case,'--representation',args.representation,*[part for key,value in bounds.get(case,{}).items() for part in ['--'+key,str(value)]]],capture_output=True,text=True,timeout=60)
             row=run.stdout.strip() if run.stdout.strip() else json.dumps({'case':case,'error':run.stderr})
         except subprocess.TimeoutExpired as error:
             stderr=error.stderr or b''

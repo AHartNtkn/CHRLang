@@ -1,23 +1,25 @@
 """Fixed-arena harness for the E11 symbolic heap equation service."""
 import z3
-from heap import Encoding,Heap
+from heap import Encoding,Heap,select
+from terms import TermStore
 
 
 class Circuit:
-    def __init__(self,nodes,steps,equations=1):
+    def __init__(self,nodes,steps,equations=1,representation="heap"):
         if not nodes or steps<0 or equations<1:raise ValueError('invalid circuit bounds')
         for i,(name,args) in enumerate(nodes):
             if name=='var' and args:raise ValueError('variable has children')
             if any(c<0 or c>=i for c in args):raise ValueError('constructor arena must be topological')
         self.e=Encoding();self.solver=self.e.solver
-        self.heap=Heap(self.e,len(nodes),[(name,len(args)) for name,args in nodes if name!='var'])
+        store={"heap":Heap,"terms":TermStore}[representation]
+        self.heap=store(self.e,len(nodes),[(name,len(args)) for name,args in nodes if name!='var'])
+        handles=[]
         for name,args in nodes:
-            if name=='var':self.heap.variable()
-            else:self.heap.app(name,list(args))
+            handles.append(self.heap.variable() if name=='var' else self.heap.app(name,[handles[i] for i in args]))
         self.operands=[(z3.Int(f'left{i}'),z3.Int(f'right{i}')) for i in range(equations)]
         for left,right in self.operands:
             self.solver.add(left>=0,left<len(nodes),right>=0,right<len(nodes))
-            self.heap.unify(left,right,steps)
+            self.heap.unify(select(handles,left),select(handles,right),steps)
 
     def solve(self,equations):
         if len(equations)!=len(self.operands):raise ValueError('equation count differs from circuit')

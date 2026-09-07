@@ -99,7 +99,7 @@ class Application:
     selected: object
 
 
-def applications(heap,rules,roots,alive,history):
+def applications(heap,rules,roots,alive,history,view=None):
     """One-hot committed selection over fixed occurrence slots.
 
     Slot indices are monotone occurrence identities. Inactive slots cannot match;
@@ -107,7 +107,7 @@ def applications(heap,rules,roots,alive,history):
     enabling predicates, not a table of concrete reachable stores.
     """
     if len(roots)!=len(alive):raise ValueError('occurrence vectors differ')
-    view=View(heap)
+    if view is None:view=View(heap)
     found=z3.BoolVal(False)
     result=[]
     for ri,rule in enumerate(rules):
