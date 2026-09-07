@@ -19,3 +19,7 @@ cargo run --quiet -p chr-symbolic-fixtures --example export_cases | /tmp/chr-sym
 ```
 
 The exporter calls the Rust reference through its public interface and includes the independent registered expected answers. The Python checker compares full residual alpha equivalence, raw completion counts and exhaustion. Its observer does not import the reference canonicalizer. Current validation covers 2,771 direct transitions across the registry. The symbolic whole-machine circuit is still to be implemented; these checks do not transfer correctness automatically to it.
+
+`heap.py` now owns the symbolic equality implementation. It adds guarded finite-slot allocation, explicit variable identities, substitutions and constructor children. The fixed-arena `Circuit` is a test harness over this service. Guarded allocations update the actual branch's counters, so fresh variables retain distinct identities even when alternatives allocate different numbers of nodes. Inactive equations neither bind nor spend their service bound. Active allocation overflow propagates cutoff; it cannot produce a successful endpoint.
+
+The heap is a component of the pending whole-machine implementation. It has no rule scheduler or answer enumeration of its own. Constructor references must point to allocated slots; substitution edges may point forward, with occurs checks maintaining finite-tree validity. Building fresh constructors after earlier bindings and branch-local occurs failure are covered by executable checks.
