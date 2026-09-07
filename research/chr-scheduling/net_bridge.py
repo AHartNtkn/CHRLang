@@ -4,7 +4,7 @@ import sys
 from types import MappingProxyType
 from source import equal
 sys.path.append(str(Path(__file__).resolve().parents[1] / 'chr-nets'))
-from net import data_system
+from net import data_system, controller_deltas
 from service import UnificationJob
 
 
@@ -126,10 +126,14 @@ class Codec:
 
 
 class NetEquality:
-    def __init__(self, names):
+    def __init__(self, names, status="scan"):
+        if status not in ("scan", "count"):
+            raise ValueError("unknown status mode")
+        self.status = status
         # Explicit preparation: callers retain one service for all its requests.
         self.codec = Codec(names)
         self.system = data_system()
+        self.deltas = controller_deltas(self.system) if status == "count" else None
 
     def solve(self, initial, equations):
         entries = []
@@ -145,7 +149,7 @@ class NetEquality:
             right = yield from self.codec.encode(right)
             pending.append(('Pair', (left, right)))
         equations = yield from listing(pending)
-        job = UnificationJob(table, equations, self.system)
+        job = UnificationJob(table, equations, self.system, self.status, self.deltas)
         while not job.done:
             before = dict(job.counts)
             job.advance(1)

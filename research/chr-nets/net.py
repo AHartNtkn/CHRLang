@@ -1,6 +1,7 @@
 """Finite active-pair graph interpreter; data services, not a CHR engine."""
 from collections import deque
 from dataclasses import dataclass
+from types import MappingProxyType
 
 
 @dataclass(frozen=True)
@@ -36,7 +37,10 @@ class System:
 
 
 class Net:
-    def __init__(self, system):
+    def __init__(self, system, deltas=None):
+        self.deltas = deltas
+        self.controller_count = None if deltas is None else 0
+        self.maintenance_actions = 0
         self.system = system
         self.nodes = []
         self.ports = {}
@@ -48,6 +52,13 @@ class Net:
         self.peak_live = 0
 
     def node(self, tag):
+        result = self._allocate(tag)
+        if self.deltas is not None:
+            self.controller_count += int(tag not in DATA and tag != 'Out')
+            self.maintenance_actions += 1
+        return result
+
+    def _allocate(self, tag):
         self.system.arities[tag]
         n = len(self.nodes)
         self.nodes.append(tag)
@@ -94,7 +105,7 @@ class Net:
                     edge(i, index[q])
             else:
                 edge(i, ('port', q))
-        created = [self.node(tag) for tag in rule.nodes]
+        created = [self._allocate(tag) for tag in rule.nodes]
 
         def actual(p):
             return p if isinstance(p, int) else ('port', (created[p[0]], p[1]))
@@ -121,6 +132,9 @@ class Net:
                 previous, current = current, y if x == previous else x
             seen.update((start, current))
             self.connect(start[1], current[1])
+        if self.deltas is not None:
+            self.controller_count += self.deltas[frozenset((rule.left, rule.right))]
+            self.maintenance_actions += 1
         self.interactions += 1
         name = rule.left + '/' + rule.right
         self.by_rule[name] = self.by_rule.get(name, 0) + 1
@@ -140,6 +154,9 @@ class Net:
         assert set(self.ports) == expected
         assert all(self.ports[q] == p for p, q in self.ports.items())
         assert self.live == sum(tag is not None for tag in self.nodes)
+        if self.deltas is not None:
+            assert self.controller_count == sum(tag is not None and tag not in DATA and tag != 'Out'
+                                                for tag in self.nodes)
         # Every reducible active pair has exactly one queue entry.
         actual = {tuple(sorted((a[0], b[0]))) for a, b in self.ports.items()
                   if a[1] == b[1] == 0 and frozenset((self.nodes[a[0]], self.nodes[b[0]]))
@@ -150,6 +167,15 @@ class Net:
 
 DATA = {'Z': 0, 'S': 1, 'Nil': 0, 'Cons': 2, 'Ref': 1, 'App': 2,
         'T': 0, 'F': 0, 'Pair': 2, 'Some': 1, 'None': 0}
+
+
+def controller_deltas(system):
+    """Compile exact rewrite deltas once for a prepared status-count service."""
+    def controller(tag):
+        return int(tag not in DATA and tag != 'Out')
+    return MappingProxyType({key: sum(controller(t) for t in rule.nodes)
+                             - controller(rule.left) - controller(rule.right)
+                             for key, rule in system.rules.items()})
 
 
 def data_system():

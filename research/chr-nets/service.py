@@ -7,13 +7,29 @@ from net import DATA, Net
 
 
 class UnificationJob:
-    def __init__(self, table, equations, system):
-        self.net = Net(system)
+    def __init__(self, table, equations, system, status='scan', deltas=None):
+        if status not in ('scan', 'count') or (status == 'count') != (deltas is not None):
+            raise ValueError('status mode requires matching prepared metadata')
+        self.status = status
+        self.net = Net(system, deltas=deltas)
         self.phase = 'build'
         self.done = False
-        self.counts = dict(build=0, reduce=0, scan=0, read=0, publish=0)
+        self.counts = dict(build=0, reduce=0, read=0, publish=0)
+        self.counts.update(dict(scan=0) if status == 'scan' else dict(maintain=0, status=0))
         self._result = None
-        self._iterator = self._work(table, equations)
+        self._iterator = self._charged(table, equations)
+
+    def _charged(self, table, equations):
+        work = self._work(table, equations)
+        while True:
+            before = self.net.maintenance_actions
+            try:
+                action = next(work)
+            except StopIteration as done:
+                return done.value
+            yield action
+            for _ in range(self.net.maintenance_actions-before):
+                yield 'maintain'
 
     def _build(self, data, destination):
         pending = [(data, destination)]
@@ -67,10 +83,15 @@ class UnificationJob:
             self.net.step()
             yield 'reduce'
         self.phase = 'scan'
-        for tag in self.net.nodes:
-            if tag is not None and tag not in DATA and tag != 'Out':
+        if self.status == 'scan':
+            for tag in self.net.nodes:
+                if tag is not None and tag not in DATA and tag != 'Out':
+                    raise ValueError('stuck service controller')
+                yield 'scan'
+        else:
+            yield 'status'
+            if self.net.controller_count != 0:
                 raise ValueError('stuck service controller')
-            yield 'scan'
         self.phase = 'read'
         before = yield from self._read(original)
         after = yield from self._read(result)

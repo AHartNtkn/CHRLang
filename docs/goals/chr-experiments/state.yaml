@@ -460,6 +460,7 @@ tasks:
       - docs/goals/chr-sharing/notes/T018-composition-and-learning.md
       - docs/experiments/results/E15-source-net.md
       - docs/experiments/results/E15-policies.md
+      - docs/experiments/results/E15-status.md
     expected_output:
       - Registered executable comparison and evidence-backed receipt; refine scope before activation.
     receipt:
@@ -596,8 +597,9 @@ tasks:
       - docs/goals/chr-sharing/notes/T018-composition-and-learning.md
       - docs/experiments/results/E15-source-net.md
       - docs/experiments/results/E15-policies.md
+      - docs/experiments/results/E15-status.md
     expected_output:
-      - Measure prepared-service time/storage with a controller-status maintenance control; continue heterogeneous operation sharing and other E15 interactions. Direct/net policy composition is validated with source and observer costs retained.
+      - Measure complete policy time/storage with direct, scan-net and counted-net services, including cold preparation/output and repeated-query reuse. Continue heterogeneous operation sharing and other E15 interactions; counted status is independently validated with charged maintenance.
     receipt: null
     allowed_files:
       - research/chr-scheduling/
@@ -635,7 +637,7 @@ checks:
     result: passed
     task: T015
     commands:
-      - Nineteen net/control/service tests pass
+      - Twenty-two net/control/service/status tests pass
       - 288 whole-service quantum configurations and exact replay pass
       - Partial build/readback publication checks and interleaved small-request tests pass
       - Twenty-five source/observer/policy/key/protocol/selector/boundary tests and 192 source conformance configurations with exact replay pass
@@ -649,5 +651,6 @@ checks:
       - 732 early-guard configurations and the prior 570-row prefix control replay exactly
       - 1296 net boundary configurations and 64 composed source cases replay exactly; direct source baseline also replays
       - 980 direct/net policy configurations pass and replay exactly
+      - Counted status passes 1296 boundary configurations and 64 source cases with exact replay; scan boundary control also replays
     evidence:
       - docs/experiments/results/E09-service-gate.md

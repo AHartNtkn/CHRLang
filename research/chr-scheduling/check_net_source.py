@@ -87,7 +87,7 @@ if __name__ == '__main__':
     cases = [freeze(json.loads(line)) for line in sys.stdin]
     assert len(cases) == 64
     for case in cases:
-        service = NetEquality(vocabulary(case))
+        service = NetEquality(vocabulary(case), status=sys.argv[1] if len(sys.argv)>1 else 'scan')
         try:
             row = check(case, 8, equality=service, comparer=projected)
         except Exception as error:

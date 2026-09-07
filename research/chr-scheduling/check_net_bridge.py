@@ -12,7 +12,7 @@ from machine import resolve
 if __name__ == '__main__':
     cases = [freeze(json.loads(line)) for line in sys.stdin]
     assert len(cases) == 432
-    service = NetEquality(('a','b','f','p'))
+    service = NetEquality(('a','b','f','p'), status=sys.argv[1] if len(sys.argv)>1 else 'scan')
     for case in cases:
         previous = None
         for quantum in (1,8,64):
