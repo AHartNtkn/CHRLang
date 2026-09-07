@@ -1,0 +1,65 @@
+case	eligible	reason
+A01-disconnected-failure	true	certified
+A02-pending-failure	true	certified
+A03-raw-duplicates	true	certified
+A04-alpha-residual	true	certified
+C01-correlation	true	certified
+C02-independent	true	certified
+C03-inactive-label	true	certified
+C04-recursive-fresh	true	certified
+G01-suspended	true	certified
+G02-recheck	true	certified
+H01-distinct-resources	false	pair is not single-head simplification
+H02-repeated-head-alias	false	same is not single-head simplification
+H03-constructor-wakeup	true	certified
+H04-inherited-history	false	emit is not single-head simplification
+H05-conditional-history	false	emit is not single-head simplification
+H06-conditional-consumption	false	consume is not single-head simplification
+M01-committed	false	potential overlap: first and second
+M02-nonbinding	true	certified
+S01-finite-sibling	true	certified
+U01-clash	true	certified
+U02-self	true	certified
+U03-alias	true	certified
+U04-occurs	true	certified
+U05-conditional-occurs	true	certified
+U06-union-cycle	true	certified
+V01-fresh	true	certified
+app-add-decompose	true	certified
+app-add-failure	true	certified
+app-add-forward	true	certified
+app-add-left	true	certified
+app-add-repeated	true	certified
+app-add-right	true	certified
+app-infer-identity	true	certified
+app-lambda-identity	false	potential overlap: neq-equal and neq-lam-left
+app-lambda-norm-residual	false	potential overlap: neq-equal and neq-lam-left
+app-sk-duplication	true	certified
+app-sk-identity	true	certified
+app-sk-ignored-hole	true	certified
+app-sub	true	certified
+app-type-synthesis-prefix	true	certified
+carry-k0-w0-n0	true	certified
+carry-k0-w0-n3	true	certified
+carry-k0-w1-n0	true	certified
+carry-k0-w1-n3	true	certified
+carry-k0-w4-n0	true	certified
+carry-k0-w4-n3	true	certified
+carry-k1-w0-n0	true	certified
+carry-k1-w0-n3	true	certified
+carry-k1-w1-n0	true	certified
+carry-k1-w1-n3	true	certified
+carry-k1-w4-n0	true	certified
+carry-k1-w4-n3	true	certified
+carry-k2-w0-n0	true	certified
+carry-k2-w0-n3	true	certified
+carry-k2-w1-n0	true	certified
+carry-k2-w1-n3	true	certified
+carry-k2-w4-n0	true	certified
+carry-k2-w4-n3	true	certified
+carry-k3-w0-n0	true	certified
+carry-k3-w0-n3	true	certified
+carry-k3-w1-n0	true	certified
+carry-k3-w1-n3	true	certified
+carry-k3-w4-n0	true	certified
+carry-k3-w4-n3	true	certified
