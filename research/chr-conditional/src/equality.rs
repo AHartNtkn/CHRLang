@@ -45,10 +45,26 @@ pub(crate) fn deref(
     current
 }
 pub(crate) fn resolved(term: &Term, ticket: u64, bindings: &Bindings, stats: &mut Stats) -> Term {
-    match deref(term, ticket, bindings, &Delta::new(), stats) {
-        Term::Var(v) => Term::Var(v),
+    let mut current = term;
+    while let Term::Var(var) = current {
+        let target = bindings.get(var).and_then(|edges| {
+            edges.iter().find(|e| {
+                stats.binding_scans += 1;
+                stats.support_reads += 1;
+                e.support.contains(&ticket)
+            })
+        });
+        if let Some(edge) = target {
+            current = &edge.target;
+        } else {
+            break;
+        }
+    }
+    stats.term_copies += 1;
+    match current {
+        Term::Var(v) => Term::Var(*v),
         Term::App(n, args) => Term::App(
-            n,
+            n.clone(),
             args.iter()
                 .map(|t| resolved(t, ticket, bindings, stats))
                 .collect(),
@@ -117,4 +133,19 @@ pub(crate) fn unify(
         }
     }
     Some(local)
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn observation_copies_each_ground_node_once() {
+        let mut term = Term::App("z".into(), vec![]);
+        for _ in 0..128 {
+            term = Term::App("s".into(), vec![term]);
+        }
+        let mut stats = Stats::default();
+        assert_eq!(resolved(&term, 0, &Bindings::new(), &mut stats), term);
+        assert_eq!(stats.term_copies, 129);
+    }
 }
