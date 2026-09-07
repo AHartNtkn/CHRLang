@@ -194,3 +194,5 @@ Before each execution receipt, update the affected question's disposition with i
 [E04](results/E04.md) records 447 passing graph runs and exact replay. Local dispatch and cached expansion are distinct gains; sparse reuse increases retained cache memory. Eight E00 programs require broader or mixed-region support. Regional compilation, wake-up, cache policy and synthesis remain open. E05 frozen named-family equality is active.
 
 [E05](results/E05.md) records 240 v1 and 360 v2 passing service runs and exact replay. Named demand, eager projection and exact supported partitions distinguish unification work from construction/extraction cost. Dynamic births/effects, larger graphs and resumable observation remain open; this is not a full CHR engine. E07 delayed splitting is active.
+
+[E07](results/E07.md) records 930 passing quota runs and exact replay. Certified ancestor lifting trades duplicated work for speculation; unbounded preference hides a finite refutation. Full child boxes, broader certificates and adaptive preference remain open. E08 permanent factor inference/product observation is active.

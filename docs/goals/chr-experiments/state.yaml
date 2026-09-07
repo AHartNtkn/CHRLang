@@ -59,7 +59,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T007
+active_task: T008
 tasks:
   - id: T001
     type: pm
@@ -296,7 +296,7 @@ tasks:
   - id: T007
     type: pm
     assignee: PM
-    status: active
+    status: done
     objective: 'E07 first probe: resource-aware delayed explicit splitting, with a checked commuting boundary, finite preference
       quotas and opposing opaque/speculative workloads.'
     inputs:
@@ -304,7 +304,21 @@ tasks:
       - docs/goals/chr-sharing/notes/T017-andorra-and-decomposition.md
     expected_output:
       - Registered executable comparison and evidence-backed receipt; refine scope before activation.
-    receipt: null
+    receipt:
+      result: done
+      harness: codex
+      summary: 930 delayed-split runs and exact replay pass. Certified ancestor work saves duplication but wastes work before
+        refutation; unbounded preference hides finite refutation. Broader child boxes/adaptive policy remain open.
+      evidence:
+        - docs/experiments/results/E07.md
+        - docs/experiments/results/E07-boxes.tsv
+      commands:
+        - cmd: cargo test --workspace --all-targets
+          status: pass
+        - cmd: cargo clippy --workspace --all-targets -- -D warnings
+          status: pass
+        - cmd: 930 runs and exact non-time replay
+          status: pass
     allowed_files:
       - Cargo.toml
       - Cargo.lock
@@ -322,13 +336,29 @@ tasks:
   - id: T008
     type: pm
     assignee: PM
-    status: queued
-    objective: E08 independent factors first probe
+    status: active
+    objective: 'E08 first probe: conservative permanent region inference, independent factor evaluation and fair incremental
+      product observation, with scalar controls and explicit coupling barriers.'
     inputs:
       - docs/experiments/sequence.md
+      - docs/experiments/registrations/E08.md
+      - docs/goals/chr-sharing/notes/T017-andorra-and-decomposition.md
     expected_output:
       - Registered executable comparison and evidence-backed receipt; refine scope before activation.
     receipt: null
+    allowed_files:
+      - Cargo.toml
+      - Cargo.lock
+      - research/chr-factors/
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    verify:
+      - cargo test --workspace --all-targets
+      - cargo clippy --workspace --all-targets -- -D warnings
+      - cargo fmt --all -- --check
+    stop_if:
+      - Require persistent rule/resource and variable independence, not only current disconnection; do not claim temporary
+        reunion from this certificate.
   - id: T009
     type: pm
     assignee: PM
