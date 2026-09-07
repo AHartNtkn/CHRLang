@@ -1,0 +1,10 @@
+[package]
+name = "chr-factors"
+version.workspace = true
+edition.workspace = true
+[dependencies]
+chr-syntax = { path = "../../crates/chr-syntax" }
+chr-observe = { path = "../chr-observe" }
+chr-persistent = { path = "../chr-persistent" }
+[dev-dependencies]
+chr-cases = { path = "../chr-cases" }
