@@ -3,6 +3,11 @@ import z3
 
 
 def select(values,index):
+    # The selector is total: indices outside the vector use its final cell.
+    if isinstance(index,int):return values[index] if 0<=index<len(values) else values[-1]
+    if z3.is_int_value(index):
+        i=index.as_long()
+        return values[i] if 0<=i<len(values) else values[-1]
     result=values[-1]
     for i in reversed(range(len(values)-1)):
         result=z3.If(index==i,values[i],result)
