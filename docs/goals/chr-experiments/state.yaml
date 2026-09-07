@@ -59,7 +59,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T013
+active_task: T014
 tasks:
   - id: T001
     type: pm
@@ -521,7 +521,7 @@ tasks:
   - id: T013
     type: pm
     assignee: PM
-    status: active
+    status: queued
     objective: E06 backend service probes
     inputs:
       - docs/experiments/sequence.md
@@ -552,13 +552,24 @@ tasks:
   - id: T014
     type: pm
     assignee: PM
-    status: queued
+    status: active
     objective: E09 scheduling probes
     inputs:
       - docs/experiments/sequence.md
+      - docs/experiments/registrations/E09.md
+      - docs/experiments/results/E09-service-gate.md
     expected_output:
-      - Registered executable comparison and evidence-backed receipt; refine scope before activation.
+      - Compare per-alternative, sealed-round and asynchronous policies with charged selector/support/observer boundaries; whole-request unification yields are validated.
     receipt: null
+    allowed_files:
+      - research/chr-nets/
+      - research/chr-scheduling/
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    verify:
+      - PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s research/chr-nets -v
+    stop_if:
+      - Charge construction and observation as well as reduction; preserve sealed job inputs and source-alternative identity.
   - id: T015
     type: pm
     assignee: PM
@@ -593,11 +604,10 @@ checks:
   dirty_fingerprint: clean_at_start
   last_verification:
     result: passed
-    task: T013
+    task: T014
     commands:
-      - Pinned baseline and instrumented HVM compile
-      - Twenty-one native probe predictions and baseline/instrumented observations agree
-      - Numeric events, nineteen graph traces and Itrs/Heap counters replay exactly
-      - Backend decoder tests and diff checks pass
+      - Nineteen net/control/service tests pass
+      - 288 whole-service quantum configurations and exact replay pass
+      - Partial build/readback publication checks and interleaved small-request tests pass
     evidence:
-      - docs/experiments/results/E06-native.md
+      - docs/experiments/results/E09-service-gate.md
