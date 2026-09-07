@@ -12,7 +12,7 @@ The numbered directions follow [T018's disposition audit](../goals/chr-sharing/n
 
 **Assignment:** E00 supplies independent expected observations and transition checks, including nonconfluent committed schedules and before-dedup lineage. Every candidate consumes those obligations; E15 checks composition. D1 covers a new primitive API. Current equality-entailment guards allow the experiments to proceed without that choice.
 
-**Evidence/disposition:** [reference specification](../goals/chr-sharing/notes/T008-reference-and-candidates.md), [composed simulation](../goals/chr-sharing/notes/T016-composed-machine-argument.md), and the executable [implementation record](../implementation/reference-interpreter.md) supply the starting contract. Existing tests do not discharge conditional transitions or prove general fairness. Those questions remain experimentally active.
+**Evidence/disposition:** [reference specification](../goals/chr-sharing/notes/T008-reference-and-candidates.md), [composed simulation](../goals/chr-sharing/notes/T016-composed-machine-argument.md), and the executable [implementation record](../implementation/reference-interpreter.md) supply the starting contract. Existing tests do not discharge conditional transitions or prove general fairness. Those questions remain experimentally active. [E00](results/E00.md) now supplies 64 executable observations and replay. Generated/coupled transition validation remains active.
 
 ### 2. Conditional multiset execution
 
@@ -20,7 +20,7 @@ The numbered directions follow [T018's disposition audit](../goals/chr-sharing/n
 
 **Assignment:** E03 tests finite supports before incremental discovery and BDD refinements; E00 supplies adversarial semantic cases; E01 supplies storage controls; E09 tests compact scheduling separately. E03 requires no favorable graph or net result.
 
-**Evidence/disposition:** [kernel](../goals/chr-sharing/notes/T011-conditional-kernel.md), [matching/wake-up](../goals/chr-sharing/notes/T012-matching-and-wakeup.md), and [T013](../goals/chr-sharing/notes/T013-experiment-registration.md) are constructive inputs. Their specific runtime and guard assumptions require registration reconciliation. No measured advantage is established.
+**Evidence/disposition:** [kernel](../goals/chr-sharing/notes/T011-conditional-kernel.md), [matching/wake-up](../goals/chr-sharing/notes/T012-matching-and-wakeup.md), and [T013](../goals/chr-sharing/notes/T013-experiment-registration.md) are constructive inputs. [E03 v2](results/E03.md) reconciles the registered guards/runtime and demonstrates bounded common expansion with substantial support/matching costs and an adverse grouping case. General projection, incremental services and compressed supports remain active.
 
 ### 3. Contextual relation graphs and cached expansion
 
@@ -28,7 +28,7 @@ The numbered directions follow [T018's disposition audit](../goals/chr-sharing/n
 
 **Assignment:** E04 separates dispatch from cached expansion. E02 tests closure and reformulation costs. E05 supplies a contrasting equality representation; E15 checks relation/solver interfaces. These do not require E03's success or optimized support backend.
 
-**Evidence/disposition:** [relation construction](../goals/chr-sharing/notes/T015-relation-graph-construction.md) and [composition](../goals/chr-sharing/notes/T018-composition-and-learning.md) establish the operation contracts. Empirical reuse frequency remains open, especially on synthesis.
+**Evidence/disposition:** [relation construction](../goals/chr-sharing/notes/T015-relation-graph-construction.md) and [composition](../goals/chr-sharing/notes/T018-composition-and-learning.md) establish the operation contracts. Empirical reuse frequency remains open, especially on synthesis. [E04](results/E04.md) separates measured local dispatch from asynchronous event reuse and exposes cache retention under sparse reuse. Mixed-region interfaces and wider synthesis remain active.
 
 ### 4. Named superpositions and HVM-inspired execution
 
@@ -36,7 +36,7 @@ The numbered directions follow [T018's disposition audit](../goals/chr-sharing/n
 
 **Assignment:** E05 tests first-order native families. E06b tests encoded-machine backend execution. E06c tests native compiler correspondence, including graph/label traces. E09 tests finite service; E15 tests active effects. These are three distinct paths, not a chain requiring an encoded machine to be fast first.
 
-**Evidence/disposition:** [family services and backend boundaries](../goals/chr-sharing/notes/T018-backend-boundaries.md) provide independent contracts. Native correspondence is an implementation/proof task in E06c; neither a backend name nor scalar ground examples close it.
+**Evidence/disposition:** [family services and backend boundaries](../goals/chr-sharing/notes/T018-backend-boundaries.md) provide independent contracts. Native correspondence is an implementation/proof task in E06c; neither a backend name nor scalar ground examples close it. [E05](results/E05.md) measures frozen named equality against eager and exact-partition controls with assignment-level reference checks. Dynamic births/effects and backend correspondence remain active.
 
 ### 5. Ordinary interaction nets and richer local calculi
 
@@ -52,7 +52,7 @@ The numbered directions follow [T018's disposition audit](../goals/chr-sharing/n
 
 **Assignment:** E07 compares early, late and bounded adaptive preference with both opaque continuations and early-failing producers. E09 and E15 test scheduler interaction. E07 can use simple boxes independently of the conditional engine.
 
-**Evidence/disposition:** [Andorra construction](../goals/chr-sharing/notes/T017-andorra-and-decomposition.md) supplies the lifting certificate and deterministic-first counterpressure. A single favorable carry example cannot choose a policy.
+**Evidence/disposition:** [Andorra construction](../goals/chr-sharing/notes/T017-andorra-and-decomposition.md) supplies the lifting certificate and deterministic-first counterpressure. A single favorable carry example cannot choose a policy. [E07](results/E07.md) measures certified ancestor lifting across quotas, including wasted speculative work and unbounded-preference refutation starvation. Full child boxes, promotion and adaptive policy remain active.
 
 ### 7. AND decomposition and reunion
 
@@ -60,7 +60,7 @@ The numbered directions follow [T018's disposition audit](../goals/chr-sharing/n
 
 **Assignment:** E08 has separate persistent, inferred and temporary-reunion comparisons. E02 tests expressibility and certificates; E15 checks cross-region effects; E17 measures occurrence in intended applications. D3 covers user-visible factored answers; internal factoring does not need that choice.
 
-**Evidence/disposition:** [persistent decomposition](../goals/chr-sharing/notes/T017-andorra-and-decomposition.md) and [temporary protocol](../goals/chr-sharing/notes/T017-temporary-decomposition.md) have different completion obligations. Success of persistent products cannot close reunion.
+**Evidence/disposition:** [persistent decomposition](../goals/chr-sharing/notes/T017-andorra-and-decomposition.md) and [temporary protocol](../goals/chr-sharing/notes/T017-temporary-decomposition.md) have different completion obligations. Success of persistent products cannot close reunion. [E08](results/E08.md) measures conservative permanent inference and incremental products, with negative small/connected cases. Finer ownership, stream storage and temporary reunion remain active.
 
 ### 8. Fair symbolic scheduling and encapsulation
 
@@ -68,7 +68,7 @@ The numbered directions follow [T018's disposition audit](../goals/chr-sharing/n
 
 **Assignment:** E09 compares three schedulers on equivalent finite services; E07 varies splitting preference; E06 supplies backend yield evidence; E14 accounts for output work. E15 requires a second service organization before generalizing scheduler results. D4 covers stronger user-facing order or latency promises.
 
-**Evidence/disposition:** [rounds](../goals/chr-sharing/notes/T015-symbolic-scheduling.md), [asynchronous jobs](../goals/chr-sharing/notes/T016-asynchronous-symbolic-scheduler.md), and [search encapsulation](../goals/chr-sharing/notes/T018-backend-boundaries.md) state finite-service premises. Timing tests do not replace that argument, and fairness does not imply a practical latency bound.
+**Evidence/disposition:** [rounds](../goals/chr-sharing/notes/T015-symbolic-scheduling.md), [asynchronous jobs](../goals/chr-sharing/notes/T016-asynchronous-symbolic-scheduler.md), and [search encapsulation](../goals/chr-sharing/notes/T018-backend-boundaries.md) state finite-service premises. Timing tests do not replace that argument, and fairness does not imply a practical latency bound. [E03](results/E03.md) exposes repeated group-preview cost; [E07](results/E07.md) exposes unbounded-preference starvation; [E08](results/E08.md) checks a finite product prefix with an infinite producer. None closes resumable-service or latency questions.
 
 ### 9. Logical structural solvers and exact projection
 
@@ -76,7 +76,7 @@ The numbered directions follow [T018's disposition audit](../goals/chr-sharing/n
 
 **Assignment:** E10 compares direct rules, exact operation reuse and logical interfaces with separately declared observations. E12 tests certificates and caller filtering; E15 tests composition. D2 and D3 concern adoption of closed logical regions and formula observations, respectively.
 
-**Evidence/disposition:** [predicate certificates](../goals/chr-sharing/notes/T015-solver-certificates.md) and [exact projection](../goals/chr-sharing/notes/T016-exact-solver-projection.md) distinguish semantic formulas from CHR resources. Baseline-preserving operation reuse can proceed while adoption decisions remain open.
+**Evidence/disposition:** [predicate certificates](../goals/chr-sharing/notes/T015-solver-certificates.md) and [exact projection](../goals/chr-sharing/notes/T016-exact-solver-projection.md) distinguish semantic formulas from CHR resources. Baseline-preserving operation reuse can proceed while adoption decisions remain open. The current implementation work is registered in [E10](registrations/E10.md). Closure and formula-observation adoption are not dependencies for baseline-preserving operation experiments.
 
 ### 10. Equality-constrained term spaces and whole-evaluator compilation
 
@@ -100,7 +100,7 @@ The numbered directions follow [T018's disposition audit](../goals/chr-sharing/n
 
 **Assignment:** E00 specifies independent observations; E14 compares exact normalization and retention; E15 verifies global completion; E10 tests logical projection under its own interface. D3 is required to adopt a different displayed/projected answer contract.
 
-**Evidence/disposition:** the [reference implementation](../implementation/reference-interpreter.md) tests exact structural answers; [observation analysis](../goals/chr-sharing/notes/T016-observation-and-state-reuse.md) explains stronger obligations. Full residual answers remain the executable comparison default without requiring a new owner decision.
+**Evidence/disposition:** the [reference implementation](../implementation/reference-interpreter.md) tests exact structural answers; [observation analysis](../goals/chr-sharing/notes/T016-observation-and-state-reuse.md) explains stronger obligations. Full residual answers remain the executable comparison default without requiring a new owner decision. [E14](results/E14.md) supplies an independently checked exact observer. [E01](results/E01.md), [E03](results/E03.md), [E05](results/E05.md) and [E08](results/E08.md) expose materialization/retention costs. Symmetric negatives, stream storage, shared exact outputs and global composed quiescence remain active.
 
 ### 13. Language restrictions, inference and compiler regions
 
@@ -108,7 +108,7 @@ The numbered directions follow [T018's disposition audit](../goals/chr-sharing/n
 
 **Assignment:** E02 inventories and pairs programs; E04/E06 measure nonoverlap/locality; E05/E06 measure ownership/disjointness; E10 measures logical regions; E09 measures finite services; E11 measures local bounds; E13 measures static specialization; E15 validates linking and cross-region effects. D2 governs adoption.
 
-**Evidence/disposition:** [language opportunities](../goals/chr-sharing/notes/T016-language-opportunities.md) identifies independent properties, rather than a mandatory bundle. Every benefit claim must name the service avoided and an affected real program. Experimental evaluation of a restricted language is permitted without changing the project's chosen language.
+**Evidence/disposition:** [language opportunities](../goals/chr-sharing/notes/T016-language-opportunities.md) identifies independent properties, rather than a mandatory bundle. Every benefit claim must name the service avoided and an affected real program. Experimental evaluation of a restricted language is permitted without changing the project's chosen language. [E02](results/E02-initial-inventory.md), [E04](results/E04.md), [E07](results/E07.md) and [E08](results/E08.md) now provide concrete certificate evidence and coverage limits. The relation certificate accepts 56 of 64 E00 cases; permanent factoring keeps same-predicate invocations together. Broader inference and reformulation comparisons remain active.
 
 ### 14. Partial evaluation and specialization
 
@@ -124,7 +124,7 @@ The numbered directions follow [T018's disposition audit](../goals/chr-sharing/n
 
 **Assignment:** E01 supplies persistent/trailing/replay controls; every mechanism counts administration; E14 accounts for output; E15 measures whole-engine costs; E16 measures sequential versus parallel behavior; E17 compares complete application costs.
 
-**Evidence/disposition:** [cost questions](../goals/chr-sharing/notes/T016-comparative-cost-questions.md) and the [portfolio](../goals/chr-sharing/notes/T018-evaluation-portfolio.md) distinguish the work units. The copying reference's speed is not an architectural baseline result. Hardware restrictions, if encountered, must name the exact remaining measurement.
+**Evidence/disposition:** [cost questions](../goals/chr-sharing/notes/T016-comparative-cost-questions.md) and the [portfolio](../goals/chr-sharing/notes/T018-evaluation-portfolio.md) distinguish the work units. The copying reference's speed is not an architectural baseline result. Hardware restrictions, if encountered, must name the exact remaining measurement. [E01](results/E01.md) establishes a persistent/copy control with identical execution work and measured allocation differences. Subsequent receipts separate event, service, cache, projection and output costs. Trailing/replay, reclamation, composition and physical parallelism remain active.
 
 ### 16. Arithmetic, SK, typing and lambda demonstrations
 
@@ -132,7 +132,7 @@ The numbered directions follow [T018's disposition audit](../goals/chr-sharing/n
 
 **Assignment:** E00 registers these modes with independent witnesses and the pinned literal lambda translation. Every relevant mechanism uses application probes; E17 evaluates whole sessions and complete candidates. D5 concerns an additional conventional capture-avoiding lambda demo, not the supplied relation.
 
-**Evidence/disposition:** [rwlog translation](../goals/chr-sharing/notes/T018-rwlog-translation.md), [intended programs](../goals/chr-sharing/notes/intended-programs.md), current `chr-programs` and its executable tests define present coverage. The unbounded duplication search remains open; ground evaluation or a finite candidate grammar does not close it.
+**Evidence/disposition:** [rwlog translation](../goals/chr-sharing/notes/T018-rwlog-translation.md), [intended programs](../goals/chr-sharing/notes/intended-programs.md), current `chr-programs` and its executable tests define present coverage. The unbounded duplication search remains open; ground evaluation or a finite candidate grammar does not close it. [E00](results/E00.md) validates arithmetic modes, ground/residual SK cases, a typing prefix and literal lambda cases. [E04](results/E04.md) and [E08](results/E08.md) include adverse connected/application results. Full synthesis streams and session comparisons remain active.
 
 ### 17. Query interface, streams and future features
 
@@ -185,9 +185,9 @@ Before each execution receipt, update the affected question's disposition with i
 
 ## Live experimental evidence
 
-[E00 v1](results/E00.md) validates 64 registered scalar observations and records remaining transition, generation and synthesis obligations. [E02 initial inventory](results/E02-initial-inventory.md) identifies concrete compiler opportunities and the norm/var occurrence-reintroduction boundary. Neither direction is closed. E14's independent observer is being built before E01 so new engines can be compared without importing reference normalization; the storage-control investigation remains queued.
+[E00 v1](results/E00.md) validates 64 registered scalar observations and records remaining transition, generation and synthesis obligations. [E02 initial inventory](results/E02-initial-inventory.md) identifies concrete compiler opportunities and the norm/var occurrence-reintroduction boundary. Neither direction is closed. [E14](results/E14.md) supplies the independent observer used by subsequent controls and candidates; its broader observation-cost questions remain open.
 
-[E01 v2](results/E01.md) now supplies an independent persistent/copy snapshot control: 278 isolated runs passed with deterministic replay. It exposes output materialization as a major retained-memory cost in large residual answers, adding a concrete E14/E15 follow-up. Trail/replay, reclamation and broader timing remain open. E03's first finite-support probe is active.
+[E01 v2](results/E01.md) now supplies an independent persistent/copy snapshot control: 278 isolated runs passed with deterministic replay. It exposes output materialization as a major retained-memory cost in large residual answers, adding a concrete E14/E15 follow-up. Trail/replay, reclamation and broader timing remain open. E03's first finite-support results are recorded below; its broader refinements remain open.
 
 [E03 v2](results/E03.md) completes the first finite-support probe, with 314 passing isolated runs and exact replay. Common expansion is preserved, but eager grouping is adverse under constructor discrimination; answer-resolution copying was repaired and remeasured. Support/indexing/wake-up/projection and output questions remain open. E04 occurrence-local dispatch/cache is active, independently of E03 refinements.
 
