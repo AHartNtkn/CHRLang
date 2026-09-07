@@ -59,7 +59,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T006
+active_task: T007
 tasks:
   - id: T001
     type: pm
@@ -256,7 +256,7 @@ tasks:
   - id: T006
     type: pm
     assignee: PM
-    status: active
+    status: done
     objective: 'E05 first probe: frozen first-order named-family equality service with correlated restriction, finite occurs
       checks, independent projected expectations and eager/demand-driven distribution controls.'
     inputs:
@@ -265,7 +265,21 @@ tasks:
       - docs/goals/chr-sharing/notes/T018-backend-boundaries.md
     expected_output:
       - Registered executable comparison and evidence-backed receipt; refine scope before activation.
-    receipt: null
+    receipt:
+      result: done
+      harness: codex
+      summary: 240 v1 and 360 v2 family runs pass with exact non-time replay. Named, eager and exact supported partitions
+        distinguish service work from projection/storage costs; dynamic CHR effects remain open.
+      evidence:
+        - docs/experiments/results/E05.md
+        - docs/experiments/results/E05-family-v2.tsv
+      commands:
+        - cmd: cargo test --workspace --all-targets
+          status: pass
+        - cmd: cargo clippy --workspace --all-targets -- -D warnings
+          status: pass
+        - cmd: 360 v2 runs and deterministic non-time replay
+          status: pass
     allowed_files:
       - Cargo.toml
       - Cargo.lock
@@ -282,13 +296,29 @@ tasks:
   - id: T007
     type: pm
     assignee: PM
-    status: queued
-    objective: E07 delayed splitting first probe
+    status: active
+    objective: 'E07 first probe: resource-aware delayed explicit splitting, with a checked commuting boundary, finite preference
+      quotas and opposing opaque/speculative workloads.'
     inputs:
       - docs/experiments/sequence.md
+      - docs/goals/chr-sharing/notes/T017-andorra-and-decomposition.md
     expected_output:
       - Registered executable comparison and evidence-backed receipt; refine scope before activation.
     receipt: null
+    allowed_files:
+      - Cargo.toml
+      - Cargo.lock
+      - research/chr-boxes/
+      - research/chr-persistent/
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    verify:
+      - cargo test --workspace --all-targets
+      - cargo clippy --workspace --all-targets -- -D warnings
+      - cargo fmt --all -- --check
+    stop_if:
+      - A lifting operation must have a sound resource/variable/commutation certificate; do not change committed behavior
+        without explicit experimental semantics.
   - id: T008
     type: pm
     assignee: PM
