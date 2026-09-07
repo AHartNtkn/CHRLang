@@ -32,5 +32,30 @@ class NetBoundary(unittest.TestCase):
         self.assertGreater(job.counts['codec.decode'], 0)
 
 
+class NetPolicies(unittest.TestCase):
+    def test_private_failure_and_recursive_sibling(self):
+        from scheduler import Search
+        from source import Rule
+        service = NetEquality(('a','f'))
+        for policy in ('fifo','round','async'):
+            rules = (Rule((), (('start', (0,)),),
+                          ('or', ('eq', 0, ('f', (0,))), ('eq', 0, ('a', ())))),)
+            search = Search(rules, (('start', (0,)),), (0,), policy, equality=service)
+            while not search.exhausted and search.actions < 100000:
+                search.advance(8)
+            self.assertTrue(search.exhausted)
+            self.assertEqual(search.failed, 1)
+            self.assertEqual(search.answers, [{'outputs': [('a', ())], 'residual': []}])
+            self.assertGreater(search.counts['source.net.reduce'], 0)
+            rules = (Rule((), (('start', (0,)),),
+                          ('or', ('post', ('spin', ())), ('eq', 0, ('a', ())))),
+                     Rule((), (('spin', ()),), ('post', ('spin', ()))))
+            search = Search(rules, (('start', (0,)),), (0,), policy, equality=service)
+            while not search.answers and search.actions < 100000:
+                search.advance(8)
+            self.assertEqual(search.answers, [{'outputs': [('a', ())], 'residual': []}])
+            self.assertFalse(search.exhausted)
+
+
 if __name__ == '__main__':
     unittest.main()

@@ -136,7 +136,7 @@ def observe(answer, accepted):
 
 
 class Search:
-    def __init__(self, rules, constraints, outputs, policy, grouping=True, batch_size=8, compare_mode="reverse", selector="scan"):
+    def __init__(self, rules, constraints, outputs, policy, grouping=True, batch_size=8, compare_mode="reverse", selector="scan", equality=None):
         if policy not in ('fifo', 'round', 'async'):
             raise ValueError('unknown policy')
         if batch_size <= 0:
@@ -146,6 +146,7 @@ class Search:
         if selector not in ("scan", "predicate", "prefix", "guard-prefix"):
             raise ValueError("unknown selector")
         self.selector = selector
+        self.equality = equality
         self.compare_mode = compare_mode
         self.policy = policy
         self.grouping = grouping and policy != 'fifo'
@@ -222,7 +223,7 @@ class Search:
             elif kind == 'group':
                 for state, owned in job.observe():
                     self.counts['source_admit'] += 1
-                    self.jobs.append(('source', StepJob(state, self.rules, self.selector), owned))
+                    self.jobs.append(('source', StepJob(state, self.rules, self.selector, self.equality), owned))
                     self.source_jobs += 1
             else:
                 event = job.observe()
