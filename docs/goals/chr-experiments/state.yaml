@@ -416,8 +416,10 @@ tasks:
     objective: E11 whole-evaluator symbolic first probe
     inputs:
       - docs/experiments/sequence.md
+      - docs/experiments/registrations/E11.md
     expected_output:
-      - Registered executable comparison and evidence-backed receipt; refine scope before activation.
+      - Complete finite transition encoding and equal-bound direct control, independently checked witnesses, frozen comparative
+        matrix and measured receipt. Equality circuit is a correctness gate only.
     receipt: null
     allowed_files:
       - Cargo.toml
@@ -429,6 +431,7 @@ tasks:
       - cargo test --workspace --all-targets
       - cargo clippy --workspace --all-targets -- -D warnings
       - cargo fmt --all -- --check
+      - /tmp/chr-symbolic-venv/bin/python -m unittest discover -s research/chr-symbolic
     stop_if:
       - Keep fixed committed policy, explicit OR, full residual endpoints and exact bounds explicit; experimental encoding
         does not adopt production semantics.
