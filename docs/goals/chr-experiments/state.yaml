@@ -542,7 +542,9 @@ checks:
     task: T011
     commands:
       - Workspace tests, Clippy and formatting pass
-      - E12 continuation gate includes all 64 E00 and 40 duplicate workloads
-      - 208 registered configurations and exact non-time replay pass
+      - Failure proof checkers agree on 52416 small path/input checks
+      - All E00 and generated failure workloads preserve source observations
+      - Corrected 200-run projection and 300-run native matrices replay exactly
     evidence:
       - docs/experiments/results/E12-continuations.md
+      - docs/experiments/results/E12-failure-native.md
