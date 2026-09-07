@@ -1,5 +1,7 @@
 # Experimental sequence for CHR language and execution design
 
+**Execution is stopped.** The [research framing audit and proposed sequence](research-framing-review.md) is under owner review. The experiment assignments and follow-ups below do not authorize resuming implementation or runs.
+
 Investigate the independent mechanisms before choosing an engine. Start by making comparisons trustworthy, then test each mechanism's distinctive claim, and finally compare useful combinations on the intended synthesis workloads.
 
 This is a dependency-driven sequence with coverage obligations, not a ranking of architectures. Completing the conditional-store experiment does not complete this investigation. The companion [coverage audit](coverage.md) maps all seventeen research directions and eleven portfolio comparisons to specific work below.

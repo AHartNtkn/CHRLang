@@ -5,6 +5,8 @@ goal:
   kind: existing_plan
   tranche: Continuous investigation across all relevant language and execution directions.
   status: active
+  execution_hold: Experiments stopped by owner. Only research framing audit and proposal are authorized; resumption requires owner approval.
+  review_proposal: docs/experiments/research-framing-review.md
   oracle:
     signal: Reproducible experiments and a direction-by-direction audit justify all closures or exact owner/external dependencies.
     cadence: After each experimental package and at cross-family review.
@@ -59,7 +61,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T021
+active_task: T022
 tasks:
   - id: T001
     type: pm
@@ -725,7 +727,7 @@ tasks:
   - id: T021
     type: pm
     assignee: PM
-    status: active
+    status: queued
     objective: Investigate distributed named choice directly as graph rewriting, separating answer validity from reclamation.
     inputs:
       - docs/goals/chr-experiments/notes/T021-distributed-choice-entry.md
@@ -745,6 +747,26 @@ tasks:
       - Charged validity, sharing and observation accounting
     stop_if:
       - Source contract adoption remains with the owner; failure validity does not require immediate physical reclamation.
+
+  - id: T022
+    type: pm
+    assignee: PM
+    status: active
+    objective: Review the research framing audit and proposed sequence with the owner; experimental execution is stopped pending approval.
+    inputs:
+      - docs/experiments/sequence.md
+      - docs/experiments/coverage.md
+      - docs/experiments/architecture-assumptions.md
+    expected_output:
+      - Evidence-backed audit and revised research proposal, followed by an owner decision before experimental execution resumes.
+    receipt: null
+    allowed_files:
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    verify:
+      - Local evidence links and documentation consistency
+    stop_if:
+      - No experimental implementation or runs are authorized during owner review.
 
 checks:
   dirty_fingerprint: clean_at_start
