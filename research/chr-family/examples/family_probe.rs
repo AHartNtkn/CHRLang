@@ -117,7 +117,7 @@ fn main() {
         }
         return;
     }
-    assert_eq!(args.len(), 2, "family_probe CASE Eager|Named");
+    assert_eq!(args.len(), 2, "family_probe CASE Eager|Named|Partitioned");
     assert!(names().contains(&args[0]));
     let parts = args[0].split('-').collect::<Vec<_>>();
     let family = parts[0];
@@ -126,6 +126,7 @@ fn main() {
     let mode = match args[1].as_str() {
         "Eager" => Mode::Eager,
         "Named" => Mode::Named,
+        "Partitioned" => Mode::Partitioned,
         _ => panic!("unknown mode"),
     };
     let (expected, raw) = expected(family, k, w);
@@ -154,7 +155,7 @@ fn main() {
                 .any(|a| chr_observe::equivalent(a, e, &mut Default::default()))
         });
     println!(
-        "case\tmode\tpass\tsteps\tpairs\troot_reads\toutput_root_reads\tabsence_visits\toccurs_visits\tsplits\tcopied_entries\tcompleted_regions\tfailed_regions\teager_projection_visits\toutput_projection_visits\teager_nodes\tbindings\traw\tanswers\tmax_frontier\tretained_regions\tobserver_pairs\tobserver_scans\tobserver_backtracks\tallocation_calls\tconstruct_requested\tsolve_requested\tobserve_requested\trequested_bytes\tbaseline_live\tpeak_live\tfinal_live\tconstruct_us\tsolve_us\tobserve_us"
+        "case\tmode\tpass\tsteps\tpairs\troot_reads\toutput_root_reads\tabsence_visits\toccurs_visits\tsplits\tcopied_entries\tcompleted_regions\tfailed_regions\teager_projection_visits\toutput_projection_visits\teager_nodes\tprojection_cache_hits\tinterning_lookups\tpartition_groups\tbindings\traw\tanswers\tmax_frontier\tretained_regions\tobserver_pairs\tobserver_scans\tobserver_backtracks\tallocation_calls\tconstruct_requested\tsolve_requested\tobserve_requested\trequested_bytes\tbaseline_live\tpeak_live\tfinal_live\tconstruct_us\tsolve_us\tobserve_us"
     );
     let mut row = vec![args[0].clone(), format!("{mode:?}"), pass.to_string()];
     row.extend(
@@ -172,6 +173,9 @@ fn main() {
             before_projection,
             stats.projection_visits - before_projection,
             stats.eager_nodes,
+            stats.projection_cache_hits,
+            stats.interning_lookups,
+            stats.partition_groups,
             stats.bindings,
             stats.raw_answers,
             answers.len() as u64,

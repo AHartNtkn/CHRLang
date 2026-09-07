@@ -31,6 +31,7 @@ pub struct Request {
 pub enum Mode {
     Eager,
     Named,
+    Partitioned,
 }
 #[derive(Default, Debug)]
 pub struct Stats {
@@ -50,10 +51,14 @@ pub struct Stats {
     pub observer_pairs: u64,
     pub observer_scans: u64,
     pub observer_backtracks: u64,
+    pub projection_cache_hits: u64,
+    pub interning_lookups: u64,
+    pub partition_groups: u64,
     pub max_frontier: usize,
 }
 #[derive(Clone, Default)]
 struct Context {
+    support: Option<Vec<u64>>,
     decisions: BTreeMap<u32, bool>,
     bindings: BTreeMap<u64, Value>,
     work: Vec<(Value, Value)>,
@@ -230,6 +235,79 @@ fn source(v: &Value, c: &Context, s: &mut Stats) -> Term {
         Root::Need(_) => unreachable!(),
     }
 }
+#[derive(PartialEq, Eq, PartialOrd, Ord)]
+enum InternKey {
+    Var(u64),
+    App(String, Vec<usize>),
+}
+#[derive(Default)]
+struct Projector {
+    memo: BTreeMap<(usize, u64), Value>,
+    masks: BTreeMap<usize, u64>,
+    intern: BTreeMap<InternKey, Value>,
+    ids: BTreeMap<usize, usize>,
+}
+impl Projector {
+    fn identify(&mut self, v: &Value) -> usize {
+        let next = self.ids.len();
+        *self.ids.entry(Rc::as_ptr(&v.0) as usize).or_insert(next)
+    }
+
+    fn mask(&mut self, v: &Value) -> u64 {
+        let id = Rc::as_ptr(&v.0) as usize;
+        if let Some(mask) = self.masks.get(&id) {
+            return *mask;
+        }
+        let mask = match v.0.as_ref() {
+            Node::Var(_) => 0,
+            Node::App(_, args) => args.iter().fold(0, |m, a| m | self.mask(a)),
+            Node::Choice(d, a, b) => (1 << d) | self.mask(a) | self.mask(b),
+        };
+        self.masks.insert(id, mask);
+        mask
+    }
+    fn project(&mut self, v: &Value, bits: u64, s: &mut Stats) -> Value {
+        s.projection_visits += 1;
+        let key = (Rc::as_ptr(&v.0) as usize, bits & self.mask(v));
+        if let Some(value) = self.memo.get(&key) {
+            s.projection_cache_hits += 1;
+            return value.clone();
+        }
+        let value = match v.0.as_ref() {
+            Node::Choice(d, a, b) => {
+                self.project(if bits & (1 << d) == 0 { a } else { b }, bits, s)
+            }
+            Node::Var(id) => {
+                s.interning_lookups += 1;
+                self.intern
+                    .entry(InternKey::Var(*id))
+                    .or_insert_with(|| {
+                        s.eager_nodes += 1;
+                        Value::var(*id)
+                    })
+                    .clone()
+            }
+            Node::App(n, args) => {
+                let args = args
+                    .iter()
+                    .map(|a| self.project(a, bits, s))
+                    .collect::<Vec<_>>();
+                let ik = InternKey::App(n.clone(), args.iter().map(|a| self.identify(a)).collect());
+                s.interning_lookups += 1;
+                self.intern
+                    .entry(ik)
+                    .or_insert_with(|| {
+                        s.eager_nodes += 1;
+                        Value::app(n, args)
+                    })
+                    .clone()
+            }
+        };
+        self.identify(&value);
+        self.memo.insert(key, value.clone());
+        value
+    }
+}
 pub struct Solver {
     request: Request,
     frontier: VecDeque<Context>,
@@ -265,6 +343,35 @@ impl Solver {
         let mut stats = Stats::default();
         let mut frontier = VecDeque::new();
         match mode {
+            Mode::Partitioned => {
+                let mut projector = Projector::default();
+                let mut groups: BTreeMap<Vec<(usize, usize)>, Context> = BTreeMap::new();
+                for bits in 0..1u64 << request.labels {
+                    let work = request
+                        .equations
+                        .iter()
+                        .rev()
+                        .map(|(a, b)| {
+                            (
+                                projector.project(a, bits, &mut stats),
+                                projector.project(b, bits, &mut stats),
+                            )
+                        })
+                        .collect::<Vec<_>>();
+                    let key = work
+                        .iter()
+                        .map(|(a, b)| (projector.identify(a), projector.identify(b)))
+                        .collect();
+                    let c = groups.entry(key).or_insert_with(|| Context {
+                        work,
+                        support: Some(vec![]),
+                        ..Default::default()
+                    });
+                    c.support.as_mut().unwrap().push(bits);
+                }
+                stats.partition_groups = groups.len() as u64;
+                frontier.extend(groups.into_values());
+            }
             Mode::Named => frontier.push_back(Context {
                 work: request.equations.iter().rev().cloned().collect(),
                 ..Default::default()
@@ -350,7 +457,11 @@ impl Solver {
         let mut assigned = BTreeSet::new();
         for region in &self.solutions {
             for bits in 0..1u64 << self.request.labels {
-                if region
+                if let Some(support) = &region.support {
+                    if !support.contains(&bits) {
+                        continue;
+                    }
+                } else if region
                     .decisions
                     .iter()
                     .any(|(d, b)| *b != (bits & (1 << d) != 0))

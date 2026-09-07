@@ -7,7 +7,7 @@ fn b() -> Value {
 }
 fn run(request: Request) -> Vec<chr_syntax::Answer> {
     let mut results = vec![];
-    for mode in [Mode::Eager, Mode::Named] {
+    for mode in [Mode::Eager, Mode::Named, Mode::Partitioned] {
         let mut s = Solver::new(request.clone(), mode).unwrap();
         s.advance(10000);
         assert!(s.exhausted());
@@ -15,7 +15,13 @@ fn run(request: Request) -> Vec<chr_syntax::Answer> {
         results.push(answers);
     }
     assert_eq!(results[0].len(), results[1].len());
+    assert_eq!(results[0].len(), results[2].len());
     for e in &results[0] {
+        assert!(
+            results[2]
+                .iter()
+                .any(|a| chr_observe::equivalent(a, e, &mut Default::default()))
+        );
         assert!(
             results[1]
                 .iter()
@@ -150,7 +156,7 @@ fn generated_requests_agree_per_assignment_with_independent_reference_unificatio
                     expected.push((bits, answer));
                 }
             }
-            for mode in [Mode::Eager, Mode::Named] {
+            for mode in [Mode::Eager, Mode::Named, Mode::Partitioned] {
                 let mut s = Solver::new(request.clone(), mode).unwrap();
                 s.advance(10000);
                 assert!(s.exhausted(), "{i} {j} {mode:?}");

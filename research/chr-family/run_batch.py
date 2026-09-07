@@ -14,7 +14,7 @@ failed = False
 with args.output.open('w', newline='') as output:
     writer = None
     for case in cases:
-        for mode in ['Eager', 'Named']:
+        for mode in ['Eager', 'Named', 'Partitioned']:
             try:
                 run = subprocess.run([binary, case, mode], capture_output=True, text=True, timeout=60)
             except subprocess.TimeoutExpired:
