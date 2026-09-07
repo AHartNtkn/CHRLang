@@ -2,7 +2,7 @@ use crate::{Stats, map::Map};
 use chr_syntax::{Term as Source, Var};
 use std::collections::{BTreeMap, HashMap, HashSet};
 #[derive(Clone, Copy, Debug, Hash, PartialEq, Eq)]
-pub(crate) enum Term {
+pub enum Term {
     Var(u64),
     Node(usize),
 }

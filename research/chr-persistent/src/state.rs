@@ -58,7 +58,7 @@ pub(crate) enum Event {
     Continue,
     Split(Box<State>),
     Failed,
-    Answer(Answer),
+    Complete,
 }
 fn work(
     source: &Goal,
@@ -206,6 +206,15 @@ impl State {
                 return Event::Continue;
             }
         }
+        Event::Complete
+    }
+    pub(crate) fn export_answer(
+        &self,
+        arena: &Arena,
+        stats: &mut Stats,
+        export: &mut crate::EagerExportStats,
+    ) -> Answer {
+        let before = (stats.dereferences, stats.storage.visits);
         let outputs = self
             .outputs
             .iter()
@@ -223,7 +232,32 @@ impl State {
                     .collect(),
             })
             .collect();
-        Event::Answer(Answer { outputs, residual })
+        export.answers += 1;
+        export.dereferences += stats.dereferences - before.0;
+        export.storage_visits += stats.storage.visits - before.1;
+        Answer { outputs, residual }
+    }
+    pub(crate) fn into_observation(
+        self,
+        owner: Rc<()>,
+        stats: &mut crate::observation::CaptureStats,
+    ) -> crate::observation::CompletedAnswer {
+        let mut storage = crate::Storage::default();
+        let residual = self
+            .store
+            .entries(&mut storage)
+            .into_iter()
+            .map(|((pred, _), args)| (pred, args))
+            .collect::<Vec<_>>();
+        stats.snapshots += 1;
+        stats.residual_occurrences += residual.len() as u64;
+        stats.store_visits += storage.visits;
+        crate::observation::CompletedAnswer {
+            owner,
+            outputs: self.outputs,
+            bindings: self.bindings,
+            residual,
+        }
     }
     #[allow(clippy::too_many_arguments)]
     fn find(

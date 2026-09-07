@@ -59,7 +59,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T019
+active_task: T020
 tasks:
   - id: T001
     type: pm
@@ -679,7 +679,7 @@ tasks:
   - id: T019
     type: pm
     assignee: PM
-    status: active
+    status: queued
     objective: A3 maintained partial joins through actual source updates, independently of constructor relationalization.
     inputs:
       - docs/experiments/architecture-assumptions.md
@@ -700,13 +700,13 @@ tasks:
   - id: T020
     type: pm
     assignee: PM
-    status: queued
+    status: active
     objective: A6 exact graph observation before export with a competent eager control and retention accounting.
     inputs:
       - docs/experiments/architecture-assumptions.md
       - docs/goals/chr-experiments/notes/T018-independent-entries.md
     expected_output:
-      - Independent joint-alpha and residual-multiset gate on shared completion views, followed by registered lifecycle costs through actual source completion.
+      - Independent graph gate passes4290comparisons and exact replay; actual completion gate passes64case contracts in128children with separate source/export accounting. Continue three-control lifecycle costs including retention and actual duplicate delivery; A6 remains open.
     receipt: null
     allowed_files:
       - research/chr-persistent/

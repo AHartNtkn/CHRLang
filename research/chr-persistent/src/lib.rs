@@ -29,6 +29,14 @@ pub struct Stats {
     pub pending_allocations: u64,
     pub storage: Storage,
 }
+/// Contribution already included in historical eager `Stats` totals. Export
+/// affects only dereferences and storage visits; all other source fields are unchanged.
+#[derive(Default, Debug, Clone, Copy)]
+pub struct EagerExportStats {
+    pub answers: u64,
+    pub dereferences: u64,
+    pub storage_visits: u64,
+}
 pub struct Batch {
     pub answers: Vec<Answer>,
     pub exhausted: bool,
@@ -40,6 +48,7 @@ pub struct Search {
     seen: chr_observe::AnswerSet,
     mode: Snapshot,
     stats: Stats,
+    eager_export: EagerExportStats,
 }
 impl Search {
     pub fn new(rules: Vec<Rule>, query: Query, mode: Snapshot) -> Result<Self, String> {
@@ -71,6 +80,7 @@ impl Search {
             seen: chr_observe::AnswerSet::default(),
             mode,
             stats,
+            eager_export: EagerExportStats::default(),
         })
     }
     pub fn advance(&mut self, budget: usize) -> Batch {
@@ -88,7 +98,9 @@ impl Search {
                     self.frontier.push_back(*sibling);
                 }
                 state::Event::Failed => self.stats.failed += 1,
-                state::Event::Answer(answer) => {
+                state::Event::Complete => {
+                    let answer =
+                        branch.export_answer(&self.arena, &mut self.stats, &mut self.eager_export);
                     self.stats.completed += 1;
                     if self.seen.insert(answer.clone()) {
                         answers.push(answer);
@@ -107,6 +119,9 @@ impl Search {
     pub fn stats(&self) -> &Stats {
         &self.stats
     }
+    pub fn eager_export_stats(&self) -> &EagerExportStats {
+        &self.eager_export
+    }
     pub fn observation_stats(&self) -> &chr_observe::Stats {
         &self.seen.stats
     }
@@ -115,3 +130,5 @@ impl Search {
     }
 }
 pub mod continuations;
+
+pub mod observation;

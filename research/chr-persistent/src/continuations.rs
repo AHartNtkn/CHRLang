@@ -38,6 +38,8 @@ pub struct Machine {
     rules: Vec<Rule>,
     arena: terms::Arena,
     stats: Stats,
+    owner: std::rc::Rc<()>,
+    eager_export: crate::EagerExportStats,
 }
 impl Machine {
     pub fn new(rules: Vec<Rule>, query: Query) -> Result<(Self, Cursor), String> {
@@ -48,12 +50,17 @@ impl Machine {
                 rules: search.rules,
                 arena: search.arena,
                 stats: search.stats,
+                owner: std::rc::Rc::new(()),
+                eager_export: search.eager_export,
             },
             cursor,
         ))
     }
     pub fn key(&mut self, cursor: &Cursor) -> StateKey {
         cursor.0.key(&self.arena, &mut self.stats)
+    }
+    pub fn eager_export_stats(&self) -> &crate::EagerExportStats {
+        &self.eager_export
     }
     pub fn stats(&self) -> &Stats {
         &self.stats
@@ -98,27 +105,73 @@ impl Machine {
             .0
             .pending_head(&self.arena, &mut self.stats, left, path)
     }
-    pub fn step(&mut self, mut cursor: Cursor) -> Step {
+    fn transition(&mut self, cursor: &mut Cursor) -> state::Event {
         self.stats.steps += 1;
-        match cursor.0.step(
+        let event = cursor.0.step(
             &self.rules,
             &mut self.arena,
             Snapshot::Persistent,
             &mut self.stats,
-        ) {
+        );
+        match &event {
+            state::Event::Split(_) => self.stats.splits += 1,
+            state::Event::Failed => self.stats.failed += 1,
+            state::Event::Complete => self.stats.completed += 1,
+            state::Event::Continue => {}
+        }
+        event
+    }
+    pub fn step(&mut self, mut cursor: Cursor) -> Step {
+        match self.transition(&mut cursor) {
             state::Event::Continue => Step::Continue(cursor),
-            state::Event::Split(sibling) => {
-                self.stats.splits += 1;
-                Step::Split(cursor, Cursor(*sibling))
-            }
-            state::Event::Failed => {
-                self.stats.failed += 1;
-                Step::Failed
-            }
-            state::Event::Answer(answer) => {
-                self.stats.completed += 1;
-                Step::Answer(answer)
+            state::Event::Split(sibling) => Step::Split(cursor, Cursor(*sibling)),
+            state::Event::Failed => Step::Failed,
+            state::Event::Complete => Step::Answer(cursor.0.export_answer(
+                &self.arena,
+                &mut self.stats,
+                &mut self.eager_export,
+            )),
+        }
+    }
+    /// Same source transition as `step`, capturing roots before tree export.
+    pub fn step_borrowed(
+        &mut self,
+        mut cursor: Cursor,
+        stats: &mut crate::observation::CaptureStats,
+    ) -> BorrowedStep {
+        match self.transition(&mut cursor) {
+            state::Event::Continue => BorrowedStep::Continue(cursor),
+            state::Event::Split(sibling) => BorrowedStep::Split(cursor, Cursor(*sibling)),
+            state::Event::Failed => BorrowedStep::Failed,
+            state::Event::Complete => {
+                BorrowedStep::Answer(cursor.0.into_observation(self.owner.clone(), stats))
             }
         }
     }
+    pub fn answer_view<'a>(
+        &'a self,
+        answer: &'a crate::observation::CompletedAnswer,
+    ) -> Result<crate::observation::View<'a>, String> {
+        if !std::rc::Rc::ptr_eq(&self.owner, &answer.owner) {
+            return Err("answer belongs to another machine".into());
+        }
+        Ok(crate::observation::View {
+            arena: &self.arena,
+            answer,
+        })
+    }
+    pub fn export_answer(
+        &self,
+        answer: &crate::observation::CompletedAnswer,
+        stats: &mut chr_observe::graph::Stats,
+    ) -> Result<Answer, String> {
+        Ok(self.answer_view(answer)?.export(stats))
+    }
+}
+/// Completed answers retain immutable bindings and roots, not execution state.
+pub enum BorrowedStep {
+    Continue(Cursor),
+    Split(Cursor, Cursor),
+    Failed,
+    Answer(crate::observation::CompletedAnswer),
 }
