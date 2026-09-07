@@ -144,3 +144,58 @@ fn equations_cannot_create_cyclic_compile_time_terms() {
     assert!(a.exhausted);
     assert!(a.answers.is_empty());
 }
+
+#[path = "../examples/support/cases.rs"]
+mod measured_cases;
+#[test]
+fn registered_cost_workloads_preserve_observations_on_scalar_and_reference() {
+    for case in measured_cases::cases() {
+        if case.id.starts_with("specialize-") {
+            let expected = run(case.rules.clone(), case.query.clone());
+            assert!(expected.exhausted);
+            assert_eq!(expected.answers.len(), case.expected.len());
+            assert!(case.expected.iter().all(|e| {
+                expected
+                    .answers
+                    .iter()
+                    .any(|a| chr_observe::equivalent(a, e, &mut chr_observe::Stats::default()))
+            }));
+        }
+        for budget in [0, 1, 2, 4, 8, 16] {
+            let p = specialize(&case.rules, &case.query, budget).unwrap();
+            assert!(p.stats.expansions <= budget);
+            let mut s =
+                chr_persistent::Search::new(p.rules, p.query, chr_persistent::Snapshot::Persistent)
+                    .unwrap();
+            let mut actual = vec![];
+            let mut exhausted = false;
+            for _ in 0..case.budget {
+                let b = s.advance(1);
+                actual.extend(b.answers);
+                exhausted = b.exhausted;
+                if exhausted || case.answer_limit.is_some_and(|n| actual.len() >= n) {
+                    break;
+                }
+            }
+            assert_eq!(exhausted, case.exhausted, "{} {budget}", case.id);
+            assert_eq!(
+                s.stats().completed,
+                case.raw_answers,
+                "{} {budget}",
+                case.id
+            );
+            assert_eq!(actual.len(), case.expected.len(), "{} {budget}", case.id);
+            assert!(
+                case.expected
+                    .iter()
+                    .all(|e| actual.iter().any(|a| chr_observe::equivalent(
+                        a,
+                        e,
+                        &mut chr_observe::Stats::default()
+                    ))),
+                "{} {budget}",
+                case.id
+            );
+        }
+    }
+}
