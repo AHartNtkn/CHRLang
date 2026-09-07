@@ -186,3 +186,5 @@ Before each execution receipt, update the affected question's disposition with i
 ## Live experimental evidence
 
 [E00 v1](results/E00.md) validates 64 registered scalar observations and records remaining transition, generation and synthesis obligations. [E02 initial inventory](results/E02-initial-inventory.md) identifies concrete compiler opportunities and the norm/var occurrence-reintroduction boundary. Neither direction is closed. E14's independent observer is being built before E01 so new engines can be compared without importing reference normalization; the storage-control investigation remains queued.
+
+[E01 v2](results/E01.md) now supplies an independent persistent/copy snapshot control: 278 isolated runs passed with deterministic replay. It exposes output materialization as a major retained-memory cost in large residual answers, adding a concrete E14/E15 follow-up. Trail/replay, reclamation and broader timing remain open. E03's first finite-support probe is active.

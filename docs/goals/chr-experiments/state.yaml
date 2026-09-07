@@ -59,7 +59,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T002
+active_task: T004
 tasks:
   - id: T001
     type: pm
@@ -107,14 +107,29 @@ tasks:
   - id: T002
     type: pm
     assignee: PM
-    status: active
+    status: done
     objective: 'E01 first probe: independent indexed scalar CHR control with persistent branch state and shared immutable
       terms, checked on E00 and compared with copying using actual work/storage counters.'
     inputs:
       - docs/experiments/sequence.md
     expected_output:
       - Registered executable comparison and evidence-backed receipt; refine scope before activation.
-    receipt: null
+    receipt:
+      result: done
+      harness: codex
+      summary: Independent indexed scalar control passes 278 isolated runs and exact non-time replay. Snapshot sharing saves
+        allocation but not source work; output retention dominates the largest carry case. E01 trail/replay and broader costs
+        remain open.
+      evidence:
+        - docs/experiments/results/E01.md
+        - docs/experiments/results/E01-storage-isolated.tsv
+      commands:
+        - cmd: cargo test --workspace --all-targets
+          status: pass
+        - cmd: cargo clippy --workspace --all-targets -- -D warnings
+          status: pass
+        - cmd: 'isolated batch and replay: all 278 cases and deterministic non-time fields'
+          status: pass
     allowed_files:
       - Cargo.toml
       - Cargo.lock
@@ -165,13 +180,26 @@ tasks:
   - id: T004
     type: pm
     assignee: PM
-    status: queued
-    objective: E03 conditional finite-support first probe
+    status: active
+    objective: 'E03 first probe: finite-support conditional store with grouped versus singleton source expansion, independent
+      contextual equality, explicit lineage and full-residual observations; validate and count actual shared work and bookkeeping.'
     inputs:
       - docs/experiments/sequence.md
     expected_output:
       - Registered executable comparison and evidence-backed receipt; refine scope before activation.
     receipt: null
+    allowed_files:
+      - Cargo.toml
+      - Cargo.lock
+      - research/chr-conditional/
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    verify:
+      - cargo test --workspace --all-targets
+      - cargo clippy --workspace --all-targets -- -D warnings
+      - cargo fmt --all -- --check
+    stop_if:
+      - Repair semantic or projection discrepancies before affected measurements; do not adopt a source-language change.
   - id: T005
     type: pm
     assignee: PM
@@ -306,8 +334,8 @@ checks:
   dirty_fingerprint: clean_at_start
   last_verification:
     result: passed
-    task: T003
+    task: T002
     commands:
-      - 49 workspace tests
-      - E14 13 probes and deterministic replay
-      - Clippy and format
+      - 56 workspace tests
+      - 278 isolated runs and exact non-time replay
+      - Clippy and formatting
