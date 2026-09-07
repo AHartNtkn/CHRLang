@@ -1,90 +1,25 @@
-# Architectural assumption register
+# Architectural assumptions to test
 
-This register complements the direction audit. It distinguishes source obligations
-from shared implementation choices and gives each relevant architectural contrast
-an independent investigation entry. All entries below remain open. Mentioning an
-alternative, implementing several engines with the same boundary, or validating
-one interface does not investigate whether the boundary should exist.
+This register identifies implementation choices that must not silently become architectural requirements. The [sequence](sequence.md) governs selection and comparison; the [question map](coverage.md) owns priorities and dispositions. An entry here is not an instruction to implement another prototype.
 
-The current omission is supported by the document structure: E06 compared richer
-graph targets through fixed operation contracts; T015's relation graph and E15/E16
-interfaces retained transactional equality; E11 encoded evaluator microsteps.
-Those are legitimate bounded controls. The inference that the reference's internal
-decomposition migrated into portfolio assumptions is a causal hypothesis, not
-privileged evidence about reasoning. The sequence now makes the distinction
-explicit and uses this register before extending mature comparisons.
-
-## Assumptions, contrasts and evidence
-
-| ID / shared assumption | Existing evidence and its boundary | Distinguishing investigation / assignment | Dependency and current disposition |
+| Assumption to challenge | Evidence and its boundary | Architectural contrast | Question / stage |
 |---|---|---|---|
-| A1. Constructors and unification form a privileged subsystem | [T015 graph](../goals/chr-sharing/notes/T015-relation-graph-construction.md) keeps immutable constructors and private complete equations; [E06 richer targets](results/E06-directions-initial.md) keeps a transactional request; E15/E16 exercise that interface. [T011](../goals/chr-sharing/notes/T011-conditional-kernel.md) already supports elementary conditional equations, so whole-term reuse is not the strongest existing alternative. | E18/E06: constructor relations over identities, consistency rules and conditional fusion integrated with program rewriting; compare the same representation behind a service boundary, a fine-grained shared worklist, and the competent arena control. | [First finite gate](results/E18-relational-gate.md) passes432recipes/replay and16tests. [Local substitution-stable eligibility](results/E18-source-interleaving.md) permits partial-equality/source interleaving in the current positive fragment. Full source effects, efficient classes and partial-sharing controls remain feasible; no broker/parallel dependency. Open. |
-| A2. A complete source transition/state is the unit of execution and sharing | [E04](results/E04.md) shares expansion construction while still committing projected applications; E09 groups whole states. | E03/E04: supported dependency/event graphs sharing matching, body construction and effects separately. Probe two consumers with partially overlapping demand, conditional consumption, fresh locals and failed support. | Requires occurrence/effect correspondence, not a successful unifier service. Open independent entry. |
-| A3. Matching enumerates complete tuples through a request | E09 scan/prefix/guard probes improve transient enumeration; [T012](../goals/chr-sharing/notes/T012-matching-and-wakeup.md) analyzes maintained subscriptions. | E03/E09: persistent partial-join relations with delta updates on introduction, consumption and aliasing. Compare full scan and current prefix controls, charging retained intermediates and invalidation. | [Integrated finite source gate](results/E09-maintained-gate.md) passes80 children under T019, independently of A1; larger sizing and real costs remain open. [Matching alternatives](results/A3-matching-directions.md) add seed-ordered recomputation, lazy search, multiway/hybrid joins and sensitivity traces. All remain open. |
-| A4. Symbolic compilation must encode interpreter states and microsteps | [E11 registration](registrations/E11.md) encodes pending/substitution vectors, first-enabled selection and Robinson steps. | E11/E13: directly compile bounded derivations or candidate relations for a certified fragment, against trace encoding. Test addition and SK typing, nonground answers, explicit-choice duplication and rejected resource-sensitive inputs. | Needs an explicit fragment/correspondence, not a faster trace solver. Experimental restriction does not imply adoption. Open. |
-| A5. Histories and consumption require per-alternative tables and a central commit | Current candidate gates inspect tokens/occurrences and owner commits; those tests establish their constructions. | E03/E04/E16: unique supported activation edges or local ownership, propagation diamonds, late partners/aliases and a conditional consumer. Compare logical firings rather than identical containers. | Exactly-once and legal consumption argument required; local finite probe feasible. Distributed completion is a separate follow-up. Open. |
-| A6. Exact observation follows complete physical answer construction | E08/E10 export and E14 comparison expose costs but usually materialize ordinary answers first. | E14: exact joint-alpha/full-multiset checks on shared graphs before exporting only new answers. Include different sharing topology, repeated aliases, duplicate residual occurrences and mostly-distinct controls. | [Borrowed comparator and actual completion gate](results/E14-graph-gate.md) pass independent checks. Retention, final exported bytes and real lifecycle costs remain open under T020. |
-| A7. Search needs explicit complete branch snapshots and physical raw lineage enumeration | E00 lineage counts and current scheduling controls aid diagnosis; T011 already permits conditioned objects. | E03/E05/E07/E12: symbolic derivation/choice support and multiplicity, shared partial stores, demand-driven enumeration. Probe nested births, duplicate lineages, failure and infinite duplicate streams. | Preserve explicit source-choice correlation and required answer coverage; raw diagnostic counts do not by themselves require physical enumeration. Open. |
-| A8. Fresh IDs, global rescans and normalized stores are necessary for completion | Current interfaces expose fresh numeric IDs, solved substitutions and complete-store checks; E09 has partial resumable services. | E01/E09/E16: safe reclamation, dependency-certified quiescence and local completion with unsolved obligations. Probe stale histories/subscriptions, pending clashes/cycles and divergent irrelevant-to-output active constraints. | Trustworthy answers still require all active obligations to be accounted for. No permission to ignore a loop simply because output is ground. Open. |
+| A1. Constructors and equality require a privileged service | [E18](results/E18-relational-gate.md) establishes a finite integrated monotone fragment; [E15](results/E15-costs.md) compares complete equality requests | Dedicated representation versus integrated constructor/identity relations or local graph execution, including application effects | Q2; R00/R02 |
+| A2. The unit of computation must be a complete source step or state | E04 shares expansion construction; E09/E15 share whole-state jobs | Generated operations, incremental dependencies or local rewrites that avoid complete-state interfaces | Q1/Q2/Q3; R01–R03 |
+| A3. Matching is a repeated request to enumerate tuples | [Maintained sizing](results/E09-maintained-sizing.md) still repeatedly discovers cached extensions | Compiled access plans, changed-occurrence activation, maintained joins and cheap recomputation | Q1; R01 |
+| A4. Compilation means unfolding syntax or encoding interpreter microsteps | [E13](results/E13-costs.md) tests single-entry unfolding; [E11](results/E11-matched.md) tests bounded traces | Generated rule execution and direct relational/derivation compilation | Q1/Q4; R01/R04 |
+| A5. Source consumption and propagation need central per-branch tables | Existing protocols validate their own occurrence/history machinery | Ownership, supported activations or local effects with a legal firing/consumption argument | Q2/Q7; R02/R05 |
+| A6. Observation requires constructing every complete physical answer first | [E14](results/E14-graph-costs.md) separates clone, comparison and export effects with mixed costs | Exact graph/stream observation versus competent eager delivery, including ownership and retention | Q9; R05/R06 when consequential |
+| A7. Search requires physical complete branch snapshots and raw-lineage enumeration | Current diagnostic counters expose those objects; factoring and conditional probes already use other organizations | Explicit state versus symbolic/support/demand-driven execution; retain required observations without prescribing diagnostic objects | Q3; R03 |
+| A8. Completion, failure and identity lifetime share one global mechanism | E06 gives off-output failure/label hazards; E09 gives finite-service protocols | Independent choices for validity, completion, work suppression and reclamation | Q7/Q10; R02/R03/R05 |
+| A9. A competent scalar control is already a competent compiled architecture | Persistent execution still selects rules generically; specialization has a narrow entry representation | Generated and interpreted paths with comparable indexes, plus activation and static-information contrasts | Q1; R00/R01 |
+| A10. Local component gains must precede integrated architectural experiments | Component results often retain common service boundaries | A minimal complete path that exercises an eliminated boundary, with ablations where meaningful | Q2/Q8; R02/R05 |
+| A11. Named examples define the evaluation domain | Existing cases cover useful behaviors, not a workload distribution | Select by computational contrasts, including ordinary no-OR execution; present regime-dependent tradeoffs | Q11; all selected experiments |
 
-A8 has three separate subquestions and dispositions: A8a identity reclamation,
-A8b dependency-certified completion, and A8c unsolved-store normalization. Evidence
-for one does not discharge the others; each remains open.
+A8 separates identity lifetime, publication/completion and normalization of unfinished obligations. Evidence for one does not settle another. In particular, invalidating an interpretation does not require immediately reclaiming all affected graph nodes, and a completed-looking output does not discharge active off-output work.
 
-These entries are contrasts, not selected architectures. A1 can inform A2/A3/A5,
-but none of those depends on A1 succeeding. Likewise source layout, alias indexing,
-choice support, scheduling and observation can vary independently; no one graph
-representation supplies all answers. E17's independent application oracles remain
-necessary across the alternatives.
+All these assumptions have unresolved architectural consequences. They enter R00 screening; no fixed A-number ordering grants priority. A known component tradeoff can be adequate evidence until a selected architecture makes its uncertainty consequential.
 
-## Correspondence independent of representation
+For integrated constructor representations, the finite-tree comparison must distinguish projected cycles from cycles in the union of incompatible alternatives. Unknown head arguments must not acquire structure solely to match a rule. Descriptor/value columns, occurrence identities, alias updates and residual extraction need an explicit interpretation. These are semantic obligations, not requirements to imitate a transactional unifier.
 
-An architectural candidate must explain the denotation of unfinished internal
-state, not require every microstate to be a solved reference substitution.
-Constructor relations may express an unsolved equation theory; event nodes may
-express partially realized source effects. The argument must connect trusted
-observations and progress to permitted source behavior, accounting for transient
-states, failures and the scheduling assumptions under which obligations complete.
-
-Preserve finite free constructors, pure/nonbinding head and guard tests,
-multiset user resources, fresh-variable relationships, propagation behavior,
-explicit disjunction correlation, selected outputs and full residual aliases.
-Different coherent permitted schedules for a nonconfluent program are not
-necessarily a mismatch. A matched-policy ablation may impose one schedule to
-isolate cost, but that is local to the comparison. Changed language contracts need
-separate experimental descriptions and owner adoption decisions.
-
-For A1 specifically: repeated constructor descriptions must retain their meaning;
-root equality requires corresponding children equal, incompatible constructors
-refute, and positive constructor cycles refute only in the affected context.
-Congruence closure alone is insufficient. Unknown source head arguments must not
-acquire structure merely to make a rule match. A cycle in the union of incompatible
-contexts is not proof of a projected finite-tree violation. Internal descriptors
-need not be consumable source occurrences. Lowering, equality/alias maintenance,
-matching indexes, occurrence ownership, support operations, cycle detection and
-reification all count toward costs.
-
-## Next selection and closure discipline
-
-E18 first establishes an executable integrated relational store and adverse
-correspondence cases, alongside authoritative source assessment. It must actually
-permit constructor consistency and program rules to use one substrate; an
-encoded unifier called through the current API would not answer A1. The first
-semantic prototype may use explicit finite support sets, with their costs clearly
-recorded, before a representation comparison. A competent fine-grained control is
-required before partial-sharing or performance conclusions.
-
-Each result updates the relevant A-entry as well as its E-family. Before closure,
-state which assumptions the tested controls share and whether a feasible contrast
-could materially change the conclusion. No entry is closed by this audit. The
-regional repeated-cost proposal is queued because an untested architectural
-contrast now has greater decision value, not because its evidence is invalid.
-
-
-The [distributed-choice entry](../goals/chr-experiments/notes/T021-distributed-choice-entry.md)
-records the user's paired-wire proposal directly. Matching interfaces, named local
-correlation and independent-name distribution are investigated without mandatory
-store/unifier APIs. Answer validity, work suppression and reclamation remain
-separate obligations; local connections, global compatibility and lazy invalidation
-are competing mechanisms. This expands A2/A5/A7/A8 investigation without closing
-any other architectural contrast.
+For compiled/local alternatives, the correspondence may use constraint denotation, legal event ordering or another justified account of unfinished state. A scalar microstep API is not mandatory. Experimental restrictions remain explicit; the source contract and implementation boundaries are different objects.

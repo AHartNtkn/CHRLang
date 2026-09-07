@@ -2,7 +2,7 @@
 
 The investigation does not yet support an architecture choice. Its main weakness is the connection between experimental results and architectural decisions. The sequence permits extensive refinement of particular mechanisms before establishing whether their organization of computation is worth pursuing.
 
-Experiments are stopped. This document proposes a research redesign for review; it does not authorize implementation or runs, select an architecture, or adopt language changes.
+This audit describes the research framing at commit fbdf2d9. The owner subsequently authorized redesigning the program. The current [sequence](sequence.md) and [coverage map](coverage.md) govern future selection; experimental execution remains stopped. The proposal below records the rationale for that redesign.
 
 ## Findings supported by the repository
 

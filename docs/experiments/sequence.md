@@ -1,341 +1,139 @@
 # Experimental sequence for CHR language and execution design
 
-**Execution is stopped.** The [research framing audit and proposed sequence](research-framing-review.md) is under owner review. The experiment assignments and follow-ups below do not authorize resuming implementation or runs.
+Choose an architecture through evidence about total efficiency, necessary implementation complexity, and language-design tradeoffs. Investigate ways to avoid, compile, reorganize, or cheaply repeat work across the language. Sharing and the supplied programs are useful possibilities and examples; neither defines the optimization objective.
 
-Investigate the independent mechanisms before choosing an engine. Start by making comparisons trustworthy, then test each mechanism's distinctive claim, and finally compare useful combinations on the intended synthesis workloads.
+**Current authority:** redesigning this research program is authorized. Experimental implementation and runs remain stopped pending authorization to resume. This document governs future work selection; completed E00–E18 results remain evidence with their stated limits. The [coverage map](coverage.md) records current questions and dispositions. The [framing audit](research-framing-review.md) explains the redesign.
 
-This is a dependency-driven sequence with coverage obligations, not a ranking of architectures. Completing the conditional-store experiment does not complete this investigation. The companion [coverage audit](coverage.md) maps all seventeen research directions and eleven portfolio comparisons to specific work below.
+## Priorities and work selection
 
-## Scope and present evidence
+1. Resolve uncertainties that can change the organization of the implementation or a consequential language choice. Consider coherent compiled, interpreted, relational, graph and solver-based organizations without requiring existing subsystem interfaces.
+2. Establish whether the expected advantage survives a complete execution path and its necessary machinery. Compare preparation, execution, observation, memory and implementation complexity. Use component ablations to explain differences where appropriate.
+3. Broaden evidence where a candidate's apparent advantage may depend on a narrow computational regime. Ordinary CHR without explicit OR has first-class coverage alongside search. No invented workload weighting determines an overall winner.
+4. Refine a component or repeat a measurement when doing so resolves an uncertainty that affects a surviving decision. A feasible improvement, an unfinished prototype, a new suggestion, or a completed milestone does not by itself justify priority.
 
-The user authorized implementation and experimental investigation. This document is the rolling research program; the [coverage audit](coverage.md) links completed measurements and their remaining questions. It does not adopt a language restriction. The source inputs are the [research disposition audit](../goals/chr-sharing/notes/T018-final-direction-audit.md), [evaluation portfolio](../goals/chr-sharing/notes/T018-evaluation-portfolio.md), [comparative cost questions](../goals/chr-sharing/notes/T016-comparative-cost-questions.md), and [investigation protocol](../goals/chr-sharing/notes/investigation-protocol.md). Mechanism-specific constructions are linked with their experiments.
+Select the next task by a written qualitative comparison with the strongest ready alternative task. Identify the affected decision, the plausible outcomes, existing evidence, dependencies, anticipated implementation/measurement cost, and why this task has greater likely information value. Do not invent numerical utility scores or precise effort estimates. Repair a defect before using affected evidence; unrelated decisions can continue independently.
 
-The reference interpreter at commit `0c43a41` provides executable arithmetic, SK evaluation and typing, resumable explicit search, finite-tree equality, and conservative residual answers. Its 33 passing tests establish tested behavior, not a general correctness proof. Its copying, exhaustive matching and factorial answer canonicalization deliberately favor inspectability. It is not a sufficient performance baseline. Unrestricted duplication synthesis produced no answer within 50,000 reference steps; that observation supplies neither failure nor a reason to restrict the source language.
+A new architectural direction enters on the same terms. It need not resemble a current candidate or wait for one to succeed. A difficult candidate does not block another's analysis or experiments. The sequence below has evidence dependencies, not a requirement to finish every candidate at each stage.
 
-The initial experimental language retains the reference's equality-entailment guards, RHS-only binding equations, explicit OR, finite terms, identified multiset resources, ordinary committed CHR, and full residual observations. Changes to these are separately described candidate languages. Surface restrictions may be investigated without adopting them. Performance comparisons must identify their accepted program subset and their observation contract.
+## Semantic and comparison boundaries
 
-## Architectural assumptions and correspondence
+Each comparison states its language fragment, observable behavior and scheduling assumptions. Current experimental semantics include finite-tree equality on rule bodies, nonbinding heads/guards, explicit OR, multiset occurrences, propagation behavior, and selected variables with residual relationships. The implemented equality-entailment guard fragment is narrower than an unrestricted catalogue of pure guards. State that limit rather than treating a prototype as the language specification.
 
-Every experiment must identify whether it holds an implementation boundary fixed
-to isolate a mechanism, or questions that boundary. The former is a control, not
-an eligibility requirement for the latter. A reference constrains source behavior
-and trusted observations; its term representation, solved substitutions, request
-boundaries, source-step queue, matching algorithm, token tables and output
-materialization order are not universal candidate interfaces.
+Investigate semantic changes where they could enable useful optimization. For each, compare inference under the existing contract, an optional declaration and a mandatory restriction where these are meaningful alternatives. Show eliminated work and a concrete exclusion or reformulation. Adoption remains the owner's decision. A restriction is neither automatically unacceptable nor justified merely because it simplifies the implementation.
 
-Before extending a mature comparison, consult the [architectural assumption
-register](architecture-assumptions.md). Record the assumptions shared by its
-controls, the architecture that changes each relevant assumption, and the
-observation-level correspondence needed to compare them. Several engines sharing
-a boundary do not constitute evidence about whether that boundary should exist.
-Open architectural contrasts receive independent entry probes; they do not wait
-for refinements of the boundary they question.
+The reference remains independent and favors inspectability. Candidates may share suitable syntax and fixtures, not its execution algorithms as their correctness justification. Validate observations and relevant progress through independent expectations, arguments and adverse cases. A matched-policy ablation may demand equal logical traces; an architectural comparison need not reproduce reference microsteps, module boundaries, physical branch objects or diagnostic enumeration. Different permitted CHR schedules do not become implicit source disjunction.
 
-Matched-policy tests may require equal traces or counts only where the particular
-ablation predicts equality; shared physical work is measured separately from
-represented logical effects. Architecture tests instead need an explicit source correspondence
-appropriate to their representation, such as event linearization, stuttering,
-constraint-store denotation or a certified relational-fragment argument, plus
-independent positive and adverse observations. Endpoint agreement alone is not
-proof. Unsolved internal equations and transient graphs are permitted when the
-correspondence accounts for them; no partial inconsistent state may become a
-trusted answer. Source-contract changes remain experimental and need the owner's
-decision for adoption. Physical branch identities or raw-enumeration work are
-not imposed merely because a control exposes them as diagnostics.
+## R00 — Architecture sketches and selection of discriminating experiments
 
-## Why this order
+**First work after execution is authorized.** Produce a compact comparison of coherent candidates, drawing on completed evidence and targeted authoritative research. This is not a request to implement every candidate.
 
-Three questions determine dependencies. Can the result be interpreted correctly? Can a cheaper experiment distinguish the competing explanations? Does the next experiment need a particular measured result, or just an available implementation service?
+Starting organizations to assess include generated rule/occurrence execution with explicit search state; integrated relation or graph rewriting that can eliminate privileged data/control services; conditional or demand-driven execution; and direct compilation of a suitable relation or derivation into a solver. These overlap and can combine. Interpretive execution remains a candidate/control. Add a materially different organization when its mechanism warrants it; this starting set is not exhaustive.
 
-The first pass establishes observations and competent controls because an answer mismatch or a weak baseline can invalidate every later performance conclusion. Language-property analysis starts alongside that work because it changes which programs each candidate can accept. It is not postponed until an engine has been built.
+For each candidate, describe an entire path from a query to a trustworthy answer: rule activation, matching, representation/equality, explicit choices, suspension, consumption/history, completion, observation and lifetime. Identify what is static, what runtime state remains, and the invariants needed to maintain it. Provide a favorable case and a case likely to defeat its advantage. Compare necessary mechanisms and coupling qualitatively; source-line counts are not a simplicity score.
 
-The next pass tests distinct mechanisms in isolation. Conditional membership, cached occurrence expansion, named families, delayed distribution, independent products and symbolic compilation save different work; none needs a positive result from another to merit its own probe. Simple service implementations suffice for early correctness and operation accounting. More elaborate condition representations, compilers and scheduling policies follow their own service-level tests.
+Trace small programs analytically to separate unavoidable semantic work from costs of an implementation choice. Reuse established algorithms and counterexamples. Do not build a prototype merely to rediscover a result already supported by analysis. Conversely, do not treat a hand trace or operation-count prediction as a measured performance result.
 
-Integration follows mechanism tests because combining changes early would make a speed difference difficult to explain. Application cases run throughout for semantic coverage and reuse-frequency observations; the final application comparison measures complete implementations with their construction, scheduling and output costs included. Parallel execution follows a correct sequential composition because parallelism can otherwise obscure both semantic defects and the source of savings.
+**Output:** a candidate comparison and a selected first set of decision briefs under R01–R04 or a justified new question. Each selected brief contains competing predictions and an implementation-independent observation contract. Coverage of other candidates records why their next question is lower priority or dependent, without declaring them disproved.
 
-These are qualitative information and dependency judgments. There is no evidence for numerical expected-value scores, development-time estimates or a universal speed threshold. The plan does not invent them.
+**Exit:** enough specificity to select a discriminating experiment. A catalogue of architecture names is insufficient. No fixed number of prototypes or compulsory implementation for every name is required.
 
-## Execution order and independent paths
+## R01 — Work that compilation and activation can eliminate
 
-A dependency below means a required artifact or fact. It never means that its predecessor must be fast or beat another candidate. Every experiment can stop its affected measurements on a correctness defect while independent work continues.
+**Decision:** whether generic runtime selection is an appropriate core, or generated execution/activation should determine the architecture; which static information is worth obtaining.
 
-1. **Establish comparisons:** E00 registers semantic cases and observations. E02 can analyze source eligibility immediately using existing programs and translations. E01 builds competent scalar storage controls; E14 checks observation cost and stronger exact canonicalization. E00's completed case subsets can be consumed incrementally; the lambda case need not delay an arithmetic mechanism probe.
-2. **First distinguishing probes:** run the minimal correct variants of E03, E04, E05, E07, E08, E10, E11, E12 and E13. In a single execution slot, visit them in that listed order once their stated dependencies exist. The first three distinguish representations of correlated work; delayed splitting and decomposition then challenge the assumed unit of execution; solvers, whole-machine compilation and reuse challenge whether executing those events is necessary; specialization checks compilation as a competing explanation. This tie-break order is organizational, not a performance ranking. Do not finish all refinements of E03 before giving the other ready families their first probe.
-3. **Representation and control refinements:** E06 starts as soon as the operation contracts from E00/E02 exist, independently of conditional-store results. E09 starts when finite, resumable service operations exist. Complete the registered refinements within each first-probe experiment: incremental matching, symbolic conditions, reunion, solver generalization and compilation reuse. Interleave these with E06 and E09; no whole-stage barrier applies.
-4. **Composition:** E15 selects contrasting combinations from measured mechanisms and validates shared-variable effects and global completion. E16 examines parallel execution on a valid sequential composition. E17 runs complete application comparisons and produces the direction-by-direction decision audit. E17 also receives application results from earlier passes; it is not the first time real programs are run.
+**Initial contrast:** generic selection, changed-occurrence/variable activation with competent indexes, and generated rule/occurrence execution. Separate generation from lookup effects with a matched-index comparison where possible. Compare compiled join planning with maintained intermediate matches or cheap recomputation when matching is consequential. Do not require every contrast to preserve an interpretation loop.
 
-When several tasks are ready, first repair a defect that invalidates already-collected evidence, then give an untested family its first distinguishing probe, then run a refinement that separates competing explanations, then broaden a measured parameter range. Within a tier use the order above. Record an evidence-based departure and its reason before executing it.
+**Discriminating cases:** deterministic single-head rewriting with no OR; selective and unselective multihead joins; arrivals and aliases that enable work; consumption and propagation; known versus unknown arguments. Vary rule/store size, update density and match selectivity independently. Include cases where maintaining an index or intermediate match costs more than rediscovery. Check changes of legal scheduling separately from a same-policy ablation.
 
-After each complete pass through the ready families, list every unvisited family with its exact dependency and the task producing it. A lack of time or an unfinished prototype is unfinished work, not a finding against that family. New mechanisms or counterexamples add a question and dependency entry before the next selection; the present list is coverage of this dossier, not a claim to cover all future research.
+**Predictions and actions:** if dispatch removal materially improves complete execution with modest machinery, carry generated execution into later comparisons. If lookup dominates after compilation, compare access/activation organizations before expanding code-generation tuning. If both are minor beside binding, storage or output, prioritize the consequential representation question. If static information pays only under a restriction, bring its source and compilation costs into R05 rather than silently imposing it.
 
-## Experiment contracts
+**Evidence/dependency:** E04 separates local dispatch from caching; E09 exposes repeated discovery; E13 measures bounded unfolding, not general generated rule execution. See [coverage](coverage.md). R00 supplies candidate-specific premises; this experiment does not depend on a sharing engine or an E18 extension.
 
-Each E-number below defines a bounded work package with a scientific outcome. Before its comparative run, create `docs/experiments/registrations/E<number>.md` containing exact IR cases and configurations, parameter values, hypotheses, expected observations, bounds, environment and analysis. Store the receipt at `docs/experiments/results/E<number>.md`, linking raw results and the code revision. Do not create empty directories or a generic experiment framework in anticipation of these tasks.
+## R02 — Representation and elimination of subsystem boundaries
 
-A registration must distinguish semantic absence, exhaustion, a tested finite prefix, timeout and an unrun case. Freeze it before comparative execution. Pilot runs may select feasible resource ranges; label them exploratory and freeze a new comparative batch before using those ranges to support conclusions. Preserve unfavorable pilot observations in the receipt.
+**Decision:** whether terms, equality, matching and source effects should share a substrate, and what representation minimizes total work and necessary machinery.
 
-Use the Rust source AST and reusable programs where their semantics match. Keep the reference runtime private and independent. Experimental implementations belong in isolated crates under `research/`; they may share syntax, input construction and result serialization, but may not call the reference unifier, matcher, scheduler or canonicalizer as their algorithm. A candidate must supply its own answer representation and state projection. A read-only reference trace hook may be added if required for checking transitions; it must not expose reusable execution services. Sharing services between experimental variants is permitted only when it is recorded as a controlled factor.
+**Contrasts:** a competent dedicated representation; integrated constructor/identity relations; direct local graph organization where coherent. Compare complete paths, allowing a candidate to eliminate a unifier request, solved-store barrier or central commit. A same-representation boundary ablation is useful only if both versions are credible. An intentionally inefficient adapter is not an architectural control.
 
-### E00 — Establish the semantic and measurement contract
+**Discriminating cases:** constructor-heavy deterministic rewriting, alias-heavy updates, equality enabling matches, clashes and finite-tree cycles, repeated and mostly distinct structures, consuming multihead rules and propagation. Add explicit alternatives to test context-local updates and failure when needed for the architectural claim. Start with the smallest fragment exercising the claimed eliminated boundary; the fragment must include application effects, not only isolated equation success.
 
-**Dependencies:** existing reference and semantic constructions. **Decision enabled:** which comparisons are meaningful, and which observations remain unverified.
+**Predictions and actions:** if eliminated interfaces reduce total work/complexity, test how the advantage survives resource-sensitive source effects. If equality transport, fusion, indexing or validity machinery outweighs the benefit, distinguish inherent obligations from a repairable representation. Implement the repair only if the result could change the architecture comparison. Retain a dedicated representation if the integrated design has no supported advantage in the tested regimes; do not infer a universal impossibility.
 
-Create a concrete case registry from the 24 semantic IDs and scheduler cases in [T013](../goals/chr-sharing/notes/T013-experiment-registration.md), plus the current equality guards. Include correlated and independent dynamic choices, distinct duplicate occurrences, conditional consumption/history, suspended matching, branch-local cycles, disconnected failure, active work with ground outputs, and nonground residual aliases. Conditional subscription races and stale commits are candidate obligations, not behavior already demonstrated by scalar tests.
+**Evidence/dependency:** E18 establishes finite monotone feasibility, E06/E15 expose service overhead, and E12 demonstrates the significance of representation costs. Full integration is not a prerequisite for R01 or R03. The direct named-choice proposal is an eligible candidate here and in R03, without automatic priority.
 
-For each finite case write the expected answer and residual multiset independently of the reference, including alternative multiplicity before final deduplication. Where histories or intermediate source steps matter, specify the finite transition trace or projection obligation. Validate both implementations against it. A discrepancy with the reference is investigated on both sides; matching the reference is not the sole justification. For nonconfluent cases use the same committed selector or validate legal transitions with an explicitly different selector. Exploring legal CHR schedules in a test oracle must not become implicit source search.
+## R03 — Search state, recomputation and scheduling
 
-Add application registrations for all-direction addition/subtraction, repeated-variable queries, SK identity/duplication, residual holes, SK typing and type-directed synthesis, and the [literal lambda relation](../goals/chr-sharing/notes/T018-rwlog-translation.md). Preserve the notebook's supplied rewrite semantics and residual behavior; conventional capture-avoiding substitution is a separate demo choice. Include a finite ground SK grammar and bounded evaluation separately: finite program size does not ensure terminating evaluation. Use hand-derived witnesses and small complete enumerations, not just matching prefixes of differently ordered answer streams.
+**Decision:** how to represent and service explicit alternatives economically, including when recomputing work is preferable to retaining or sharing it.
 
-Define counters at actual operation boundaries: source expansions, projected transitions, matching/guards, equality/dereferencing/occurs visits, support operations, history, cache construction, allocation/copy/reclamation, queue service and output. Document that different engine microsteps are not interchangeable units. Establish a small independently counted trace per counter family. Record first answer, subsequent answer gaps, finite all-answer cost and retained/peak memory separately.
+**Contrasts selected by R00:** credible copying/persistence/trailing/replay organizations; supported or named-choice execution; delayed splitting, factoring or tabling where they alter the decision. No obligation to implement every combination. A cheap independent-branch design can win. A shared design must execute directly in its own organization rather than pay an unnecessary whole-state interface.
 
-**Follow-up:** semantic uncertainty creates a minimized case and an analysis task before affected measurement; unrelated cases remain available. Agreement permits bounded conformance claims only. A case requiring a new language feature goes into the decision queue, with baseline cases continuing.
+**Discriminating cases:** shallow cheap choices, deep restoration paths, wide frontiers, low reuse, repeated work after a choice, immediate discrimination, early/late failure, reconvergence, independent and coupled computations. Include finite siblings beside divergent work, dynamic choice births and joint nonground observations. Retain no-OR overhead controls. Use both complete finite answer sets and sound finite prefixes; do not force equal answer order across different permitted policies.
 
-### E01 — Establish competent storage and recomputation controls
+**Predictions and actions:** map where saved computation exceeds support, key, restoration, switching and retention costs. If low reuse favors duplication, keep it as positive evidence. If a benefit requires a particular schedule, compare the joint design and its progress obligations. If preparation or answer extraction dominates, quantify the bound on possible search improvements before initiating another search refinement.
 
-**Dependencies:** E00's scalar cases and counters. **Decision enabled:** how much apparent improvement comes from avoiding allocation/copies rather than shared execution.
+**Evidence/dependency:** E01/E03–E08/E09/E12/E14/E15 provide bounded mechanisms and adverse cases. R01's completion is not required: use a credible available control, then reassess any ranking sensitive to code generation or activation.
 
-Compare the copying reference with three independently executing scalar variants: immutable constructor sharing plus persistent branch state; checkpointed trailing with restoration; and replay from recorded checkpoints. Fair FIFO or equivalent finite service must include restore/replay costs. Trailing a single depth-first branch without servicing alternatives is not an equivalent control. Use the same source selector, indexing opportunities and output observations.
+## R04 — Solving or specializing away execution
 
-Build and validate the persistent control first so that initial mechanism comparisons can distinguish storage from computation sharing. Trailing and replay remain required independent control investigations before a whole-system recommendation; they do not block first conformance probes or explicitly limited comparisons against the persistent control.
+**Decision:** whether direct compilation, specialization or logical solving avoids enough runtime work to justify its preparation, code/data growth and semantic premises.
 
-Use no-OR cases, B=1, W=0, the carry family, long aliases, large unrelated stores, early/late failures, deep recursion and large frontiers. Vary checkpoint interval in a frozen grid rather than selecting its best value separately for every published case. Measure restored/replayed operations, snapshot cost, allocation and retained memory in addition to total runtime.
+**Contrasts:** competent incremental execution; generated specialized code; direct relational/derivation solving on a stated fragment. The E11 interpreter-trace encoding is evidence about that encoding, not a compulsory solver design. Exact structural solving, tables and failure learning may be candidate components where their effects change this decision.
 
-**Follow-up:** retain a measured frontier of controls when latency and memory disagree; do not choose one universal baseline by aggregate rank. If indexing or representation explains the difference, align that factor before attributing a later gain to execution sharing. High restoration cost motivates a storage refinement, not abandoning fairness. These controls remain useful even if no shared mechanism wins.
+**Discriminating cases:** varied known input/output shapes and unknown arguments; selective and unselective constraints; early contradiction; repeated and distinct queries over one ruleset; unbounded recursion alongside explicitly bounded solver instances. Include resource-sensitive near misses for a proposed logical region. Do not equate multiset residuals with formulas without an experimental semantic change.
 
-### E02 — Measure language properties and reformulation costs
+**Predictions and actions:** compare total cold cost and measured reuse/amortization, including compilation, validation of certificates, solving and answer recovery. If preparation dominates, identify whether a plausible reuse regime can reverse the result before extending bounds. If compact solving avoids large execution, test witness validity and the cost of obtaining further answers. If the benefit depends on lost modes or changed observations, expose that tradeoff under R05.
 
-**Dependencies:** existing programs and research translations; E00 for executable equivalence checks. **Decision enabled:** whether a global restriction, declaration or inferred region buys enough to justify its programming cost.
+**Dependency:** a precise fragment and independent denotation, not the maturity of graph or conditional engines. Source analysis may resolve candidate eligibility without running a solver.
 
-For each application and synthetic join case, identify closed single-headed regions, nonoverlap, immutable data versus writable handles, uniqueness/disjointness for occurs checks, finite services, structural solver closure, local commutation, and bounds suitable for symbolic compilation. Distinguish necessary conditions from sufficient certificates and mere implementation conveniences using [language opportunities](../goals/chr-sharing/notes/T016-language-opportunities.md).
+## R05 — Interactions and language-design tradeoffs
 
-Prepare paired source forms for unrestricted CHR, global restrictions where expressible, and inferred/declared regions. Include an external head interaction that invalidates local compilation, S's repeated argument, unknown-input addition, norm/var joins, and an alias export that invalidates uniqueness. For each pair record what is accepted, rejected, inferred or explicitly annotated; source size and required reformulation; preserved relational modes, residuals and finite-answer behavior; and which runtime service becomes unnecessary. A faster restricted program has no score for a workload it cannot express.
+**Decision:** which coherent combinations and language properties earn their complexity in a complete architecture.
 
-Measure certificate/inference cost and precision when the consuming compiler is built. Global versus regional nonoverlap must have a comparison in E04/E06; ownership and cycle-check certificates in E05/E06; solver restrictions in E10; static information in E13. Do not substitute one bundle of restrictions for these individual ablations.
+Investigate interactions as soon as they are decision-critical; do not wait for every component to be perfected. Examples include compilation with binding-aware activation, integrated equality with destructive effects, storage with finite-service scheduling, and static restrictions with simpler representations. Select combinations from evidence, not the full Cartesian product.
 
-**Follow-up:** successful certificates support optimization without requiring language adoption. Low precision calls for a concrete missed case and analysis, not an immediate annotation mandate. A beneficial global restriction produces an owner-facing tradeoff with excluded/reformulated examples. Adoption requires the owner's decision; evaluating the restricted candidate does not.
+Use neither/each/both ablations when semantically coherent. Otherwise compare complete organizations and state what causal attribution is unavailable. Record required invariants, mutable structures, lifetime ownership, analyses, coordination and exception paths. Identify machinery made unnecessary as well as machinery introduced. Ordinary runtime representation choices remain reversible; language adoption is separate.
 
-### E03 — Conditional multiset execution
+For each proposed language change, give the executable/analytical correspondence for accepted programs, excluded or reformulated examples, inference/declaration alternatives and measured or justified savings. Correctness, expressiveness and simplicity are separate dimensions; no invented scalar score trades them away.
 
-**Dependencies:** E00; E01 for performance interpretation. **Decision enabled:** whether supported bindings, occurrences and histories save net work and whether incremental discovery is worthwhile.
+**Exit:** a supported combination or a concrete unresolved tradeoff. A local improvement disappearing in composition is evidence requiring explanation, not permission to report only its local advantage.
 
-Use [T013's registration](../goals/chr-sharing/notes/T013-experiment-registration.md) as the detailed starting specification, with the reconciliation below. First validate extensional finite supports and complete scans. Then compare incremental discovery against complete scans on the same stable snapshot, including read/subscribe races and alias redirection. Only then compare finite sets with fixed-order BDDs and grouped versus singleton work. The first correct variant is sufficient for this family's first distinguishing probe; its refinements do not block other families.
+## R06 — Generalization, lifetime and parallel cost
 
-Run the registered B/W/store-size grid, conditional cycles, joins, history, alternating support updates, early discrimination and failure. Preserve the legal setup prefix and charge it separately and in total. Include natural source executions without the prefix driver to measure how often compatible work actually becomes available together. W expansions after staged setup establish capacity, not automatic W-work execution on normal queries.
+**Decision:** whether a surviving architectural conclusion holds beyond its discovery cases and which implementation costs can reverse it.
 
-**Follow-up:** projection, lineage or wake-up defects require repairing that operation. W expansions accompanied by B×W bookkeeping trigger a cost decomposition, not a sharing-speed claim. Favorable total costs lead to E15 composition; unfavorable results lead to a named bottleneck comparison with E04/E05/E07, not closure of those alternatives.
+Use held-out programs and parameter regions chosen for contrasting computational characteristics. Test long-lived preparation and changing queries, cold starts, answer streams, allocation/reclamation, and memory retention where relevant. Observation policy comparisons use exact answers and credible eager controls; more E14 repetitions require a consequential remaining uncertainty.
 
-### E04 — Occurrence-local relation graphs and cached expansion
+Parallelism receives an independent early feasibility assessment in R00. Implement and time it when coordination or available parallel work can distinguish a candidate, including during R01–R05 if necessary. It does not universally wait for a complete sequential engine. Use serial, one-worker and multiworker controls with comparable representations; charge preparation, transfer, synchronization and shutdown. Hardware limitations identify an exact missing measurement rather than an architectural rejection.
 
-**Dependencies:** E00 and E02's closed-region examples; E01 for performance comparison. **Decision enabled:** whether provenance-based expansion reuse and local dispatch offer a distinct advantage over general matching.
+Broader validation includes ordinary rewriting, incremental joins, binding-heavy programs, explicit search and output-heavy cases. Supplied arithmetic, SK, typing and lambda examples remain useful tests. Domain labels do not determine priority or benchmark weights. A range of regimes supports conditional recommendations, not an invented universal workload distribution.
 
-Implement the [contextual relation construction](../goals/chr-sharing/notes/T015-relation-graph-construction.md) with a simple contextual equality service. It need not wait for E03's optimized store. Compare general matching, local dispatch without cached expansion, and local dispatch with cached expansion on identical storage and contextual commit services. When comparing against E03, report service differences rather than attributing them to the graph.
+**Exit:** documented applicability and limits of the surviving comparisons. Repetitions are justified by decision-relevant uncertainty; observation-count targets are not research outcomes.
 
-Use the carry family, two identical but distinct calls, fresh body variables, binding wake-ups, SK eval/fold with no_c, and a newly linked rule that invalidates region closure. Count reusable expansions, contextual commits/lookups, freshening, partner lookup, interface traffic and retained nodes. Distinguish provenance reuse from coincident equal calls, which belong to E12.
+## R07 — Architecture recommendation and research closure
 
-**Follow-up:** a local-dispatch gain alone supports compilation, not cross-choice reuse. Reuse erased by contextual commit work directs comparison to E05's services. Poor region coverage is an E02 language finding. Favorable results become one E15 composition candidate without excluding general CHR engines.
+Compare viable architectures on total runtime, preparation/reuse, memory/lifetime, progress, accepted language and necessary implementation complexity. Include contrary evidence and the best plausible alternative. State concrete owner decisions about language or cost tradeoffs only after explaining their consequences.
 
-### E05 — Named families and contextual equality services
+For each relevant unresolved question, identify evidence, remaining uncertainty, plausible follow-ups, cost, and whether it can materially change a project decision. A bounded conclusion can be sufficient without claiming universal optimality. A feasible investigation with material decision value must continue once execution is authorized; merely feasible tuning does not make it mandatory. Specific owner or unavailable-external dependencies must name the exact unblock, with unaffected work continuing.
 
-**Dependencies:** E00 operation contracts; E02 for optional certificate variants. **Decision enabled:** whether named decision families carry opaque values economically and where equality forces distribution.
+Production readiness, a successful demo, a completed matrix, a timeout or an administrative limit does not establish closure. The final audit concerns questions and decisions, not completing every R-stage or E-family by name.
 
-Build the first-order family service in [backend boundaries](../goals/chr-sharing/notes/T018-backend-boundaries.md), independently of HVM integration. Compare projected scalar equations, explicit supported partitions, and named decision families. Start with exact finite representations; compare representation refinements only after projected results agree. All operands and effect services must be restricted consistently when a choice is inspected.
+## Registration and measurement requirements
 
-Exercise duplicated references to one choice versus independent recursive choices, same-handle equality, shared constructors, alternating contextual bindings, alias depths, deep occurs failures and apparent union-graph cycles with finite projections. Include failure outside outputs and unused labels. Measure field reads that remain shared, forced partitions, dereference/occurs work, support algebra, distribution, label retention/reclamation and effect publication. Compare certified fresh/disjoint cycle-check paths with full checks on the same finite-tree cases, including a near miss that invalidates the certificate.
+Before comparative runs, write `docs/experiments/registrations/Rxx-<question>.md` and record its selection in the coverage map. Include:
 
-**Follow-up:** excess distribution motivates a representation or service comparison, not source-visible superposition terms. Invalid correlation stops affected services. Benefit supports a native-family E15 candidate and informs E06; native HVM remains a separate compiler question regardless of this result.
+- Architectural decision, alternatives, discriminating predictions and action for each plausible outcome.
+- Accepted semantics, eligibility/correspondence, independent oracle, correctness and adverse controls.
+- Exact workloads, configurations, seeds, bounds and observation endpoints; explain why they expose the claimed difference.
+- Preparation, runtime, memory, lifetime, scheduling and extraction measurements; distinguish physical work from logical effects and bytes from node counts.
+- Compiler/runtime revisions, source freeze, environment, isolation, repetition and analysis protocol; distinguish exploration from confirmation.
+- Known confounds, conditions invalidating the comparison, and what result would justify further implementation or measurement.
 
-### E06 — Local nets and concrete backend correspondence
+Use release/native measurements where appropriate to the claim. Cross-language or differently instrumented prototypes do not give unqualified architecture rankings. Timed runs exclude independent oracle work or disclose a boundary that prevents the proposed comparison. Keep warm-up, randomized repetition, memory instrumentation and lifecycle accounting explicit. Do not prescribe a universal repetition count before workload variability and the decision are known.
 
-**Dependencies:** E00 contracts and E02 restriction examples. E05's validated service can supply a control but is not required to begin finite controller encoding. **Decision enabled:** whether local rewriting or a concrete HVM backend pays for its service and compilation costs.
+Preserve every unfavorable result and cutoff. Investigate defects, invalid comparisons and consequential inconclusive outcomes. Repair the cause and repeat affected checks; do not weaken semantics or choose favorable cases. Freeze a fresh confirmatory test when exploration changes a policy. Tests validate the claim, not only labels or scaffolding.
 
-Keep three subexperiments distinct. **E06a:** implement the [finite controller/data net encoding](../goals/chr-sharing/notes/T016-finite-net-service-encoding.md), compare a direct controller for the same operations, and measure active pairs, fan/eraser work, environment scans, emitted agents/rules and request latency. Include global restricted and regional source variants from E02. For the fixed-service contrast, compare richer multiport/additive/fusion proposals analytically against these operation contracts at the start of E06a; this analysis does not wait for net timing results. For each fixed-service proposal name the service traffic it could avoid and any extra alias, resource or endpoint obligations. Separately investigate proposals that change or eliminate the service boundary under E18 and the architectural assumption register; inability to fit this interface is not adverse evidence about those proposals. A distinct mechanism with a concrete protocol receives an operation-level implementation probe; establish its correspondence before executing it. If a proposal supplies no distinct mechanism for these operations, document that specific analytical disposition and what new evidence would reopen it. Do not close a distinct but unimplemented protocol merely because the ordinary net is ready.
+Keep durable results in `docs/experiments/results/`, with reproducible inputs and command/source records. Update the question disposition and actual next selection after a result. No report's follow-up paragraph independently authorizes or prioritizes another experiment.
 
-**E06b:** generate an encoded CHR machine on a pinned functional backend and validate finite continuation boundaries, including normalization between returns. Charge interpretation, compilation and normalization. **E06c:** specify and test native source-choice integration with generated graphs and label traces. Establish source birth versus administrative label invariants, duplicated binders, recursive fresh choices, label exhaustion/reuse, branch-local effects, off-output failure and collapse yields. Ground result agreement alone cannot establish correspondence.
+## Immediate handoff
 
-E06b and E06c are separate paths; neither a slow encoded machine nor a successful first-order family service answers the native compiler question. If the native invariant cannot be maintained, provide a concrete counterexample and investigate whether a compiler repair is possible. A specific missing implementation/proof obligation is unfinished work, not an empirical rejection of the family.
-
-**Follow-up:** valid but costly encodings identify which service to change and which proposed source restriction would avoid it. Successful net services proceed to E15. Full-access gaps for source leads are recorded; consult authoritative sources for a new concrete protocol when needed, without claiming support from an uninspected theorem.
-
-### E07 — Delayed splitting
-
-**Dependencies:** E00; E01 for storage comparison. **Decision enabled:** when executing common surrounding work before distribution helps and when it causes speculation or starvation.
-
-Implement resource-aware boxes from [the Andorra construction](../goals/chr-sharing/notes/T017-andorra-and-decomposition.md) with simple finite child contexts. Compare early splitting, late splitting with finite service, and bounded adaptive preference under equivalent committed behavior or a separately proved commuting reorder. A conditional-store implementation is not a prerequisite.
-
-Pair long opaque continuations with early-failing producers, immediate discrimination, a common ground occurrence consumed in one arm, history changes and an infinite deterministic producer beside a finite answer. Record shared work, speculation later discarded, copied/distributed state, promotion, queue growth and finite-answer latency. Sweep registered preference quotas; unlimited deterministic-first execution is an adverse policy, not the fair default.
-
-**Follow-up:** opposite results on the paired workloads motivate a policy criterion and held-out test, not a universal preference inferred from the winning case. No productive quota closes only that tested control strategy. Useful boxes become a contrasting E15 composition to supported or graph representations.
-
-### E08 — Independent factors and temporary reunion
-
-**Dependencies:** E00 and E02's independence examples. **Decision enabled:** whether solving independent factors once outweighs dependency analysis, caching and later joins.
-
-First compare no factoring with explicitly certified persistent components and fair product enumeration. Then add inferred persistent certificates. Finally compare [temporary decomposition and reunion](../goals/chr-sharing/notes/T017-temporary-decomposition.md) using a conservative interaction graph and materialized finite products at reunion; compact reunion is a separate refinement if materialization dominates.
-
-Use independent finite products, one infinite answer stream, empty factors, shared ground parameters, ground multihead joins, late body introductions and late alias exports. Preserve fresh namespaces, occurrence histories and lineage when combining states. Provisional local completion is never a global answer. Measure factor expansions reused, inference precision, graph maintenance, false dependencies, reunion size/conflicts, cached partial answers and time to each product answer.
-
-**Follow-up:** savings only with declared independence become an E02 programming tradeoff. A false dependency is a precision question; an unsound certificate is a correctness defect. Expensive reunion directs a bounded compact-join experiment. Persistent success never closes the temporary-reunion question.
-
-### E09 — Search scheduling and finite service
-
-**Dependencies:** E00's event obligations and a validated finite-service implementation from E03, E05, E06 or E07. One service is sufficient to begin; do not wait for all engines. **Decision enabled:** which schedules preserve sharing and offer useful progress and latency.
-
-Compare per-alternative FIFO, [sealed symbolic rounds](../goals/chr-sharing/notes/T015-symbolic-scheduling.md), and [asynchronous sealed jobs](../goals/chr-sharing/notes/T016-asynchronous-symbolic-scheduler.md) on the same service operations. Include service quantum and grouping as explicit factors. Distinguish a scheduler refinement preserving a fixed source selector from one choosing a different permitted schedule.
-
-Use a divergent sibling, huge finite equality and tuple scans, wake-up waiting on a producer, nested choice inside shared work, completed support beside unfinished support, and duplicate-heavy output. Count scheduler/support operations, fragmentation, queue retention, source progress and output latency. Backend reduction/collapse and canonicalization must be included in the yield analysis. State finite-service assumptions in the liveness argument; finite timing tests challenge it but do not prove general fairness.
-
-**Follow-up:** latency dominated by an atomic operation creates a concrete resumable-service task; changing queue order cannot establish isolation. Good source-step counts with poor wall latency require cost attribution. Repeat promising policies on a second structurally different service in E15 before generalizing them.
-
-### E10 — Structural solvers and equality-constrained term spaces
-
-**Dependencies:** E00 residual semantics and E02 declared domains/closure. **Decision enabled:** whether logical solving or correlated candidate spaces remove enough search to justify their construction and interface costs.
-
-Compare direct no_c/var/neq/norm processing, exact operation memoization that preserves occurrences, regular membership plus explicit repeated-hole equations, and [equality-constrained tree automata](../goals/chr-sharing/notes/T017-equality-constrained-program-spaces.md). Separately implement the [exact logical projection procedure](../goals/chr-sharing/notes/T016-exact-solver-projection.md) under its declared domain and formula interface. Formula equivalence cannot be checked by pretending residual multisets are interchangeable.
-
-Use repeated and independent holes, `a(H,H)`, intersecting normal/neutral constraints, residual unknowns later bound, companion var occurrences, constructors outside a purported closed signature, and finite versus unbounded supplies of represented names. Include an external consumer invalidating solver closure. For small finite domains compare denotations exhaustively; for infinite regular domains validate the stated exact procedure and symbolic witnesses rather than treating finite enumeration as proof.
-
-Measure construction/intersection, projection/entailment, filtering, retained residuals, partial answers and total evaluator work. Preserve explicit source provenance for generation; automaton alternatives do not introduce implicit CHR search.
-
-**Follow-up:** exact operation reuse can proceed without a new language interface. A formula or automaton observation benefit produces an owner decision with a concrete before/after answer. Poor intersection scaling directs a representation probe; success on structural spaces does not close E11's whole-evaluator question.
-
-### E11 — Whole-evaluator symbolic compilation
-
-**Dependencies:** E00 transition and endpoint contracts. E10 is relevant comparison evidence, not a prerequisite. **Decision enabled:** whether factoring bounded execution witnesses can compete with incremental execution of the complete language subset.
-
-Implement a factored finite transition encoding from [bounded symbolic compilation](../goals/chr-sharing/notes/T018-bounded-symbolic-compilation.md), including pending goals, substitutions, histories, explicit choices, policy and quiescence. Start with small inspectable instances. Compare direct execution at exactly the same transition, node, identity and choice bounds. Bounds form a recorded dominating sequence; increasing program-size alone is insufficient.
-
-Decode nonground endpoints with residual holes and check witnesses against independent transitions. Include finite arithmetic failures, duplicated occurrences, propagation tokens and SK holes. Compare recompiling each bound with exact reuse of compatible subrelations. Measure encoding size, construction, solver work, cross-bound reuse and first/subsequent symbolic answers. Use an existing solver only after selecting and documenting the concrete encoding it supports; no backend brand is assumed by this plan.
-
-**Follow-up:** a large encoding must be attributed to particular state fields before redesign. Bounded unsatisfiability stays bounded. Favorable results require an increasing-bound, fairly serviced application run; unfavorable structural-solver results in E10 do not reject this direction, nor vice versa.
-
-### E12 — Tabling, reconvergence and learned failure
-
-**Dependencies:** E00; E10's exact logical interface only for generalized solver tables. **Decision enabled:** what can be reused between independently reached calls/states, and at what certificate cost.
-
-Run three separate ablations: no reuse versus exact operation/call tables; no merge versus whole-state structural equivalence retaining lineage; no learning versus finite constructor-clash/occurs witnesses with provenance. Add generalized solver tables and minimized assumptions only after exact versions supply measured controls. Use the contracts in [state reuse](../goals/chr-sharing/notes/T016-observation-and-state-reuse.md) and [composition and learning](../goals/chr-sharing/notes/T018-composition-and-learning.md).
-
-Pair identical subproblems with stronger caller restrictions. Pair reconvergent states with near matches differing in one history token, occurrence multiplicity, alias or policy age. Pair a reusable contradiction with a context lacking the committed event that justified it. Measure key construction, projection/freshening/filtering, entailment, witness retention, hits that actually avoid work, lost pruning and subsequent transitions shared. Equal displayed outputs are never a continuation key.
-
-**Follow-up:** many hits without avoided work do not support benefit. Generalization that loses pruning is compared with exact keys under the same queries. Successful failure witnesses may combine with E03/E05 without state merging; a state-merge failure does not close table or learning questions.
-
-### E13 — Finite specialization
-
-**Dependencies:** E00 and E02's closed relation contract. **Decision enabled:** whether compilation avoids runtime work more cheaply, and how it interacts with sharing.
-
-Implement [bounded unfolding](../goals/chr-sharing/notes/T018-specialization.md) with fresh variables, explicit OR, proved equation clashes and residual recursive calls. Compare no specialization and fixed unfolding/variant budgets. Test known input shapes, known output shapes and unknown arguments; `add(X,Y,s(B))` must retain its zero arm. Include an unused active failing call and an external consumer of an intermediate predicate to challenge eligibility.
-
-Measure compilation, variant/code growth, runtime matching/equality and duplicated or retained continuations. Initially run on competent scalar execution. Apply equivalent specialization to E04 or another valid shared engine in E15; a tuned compiled engine versus an uncompiled reference is not an isolated sharing comparison.
-
-**Follow-up:** savings due only to dispatch become compilation evidence. Code growth motivates a bounded variant-policy comparison. Lost modes or effects require repair, not changing the expected program. More general functional-logic specialization requires its fragment premises to be checked before it becomes a new candidate.
-
-### E14 — Trustworthy answer extraction and deduplication costs
-
-**Dependencies:** E00 answer definitions. **Decision enabled:** how much runtime and retained memory are observation costs, and whether faster exact normalization helps.
-
-Compare the reference's exhaustive alpha canonicalization with an independent exact implementation using structural partitioning and search over unresolved symmetries. Candidate fingerprints may reject inequality or select comparison buckets; they may not remove an answer on a collision. Retain full residual multisets and output aliases. Test symmetric residual graphs, disconnected components, multiple variable permutations, multiplicity, equal outputs with different residuals and different programs with equal evaluation results.
-
-Separate raw completion events from recognized answers in experimental traces so that final dedup cannot mask lost or duplicated source alternatives. Measure normalization, key retention, first-answer delay, duplicate density and extraction cost as output count grows. If answer keys dominate an unbounded stream, compare exact retention/recomputation strategies with explicit guarantees; resource exhaustion is not permission for approximate deduplication.
-
-**Follow-up:** observation bottlenecks can be improved in experimental output services without changing the reference algorithm. Logical projection is E10 plus an owner interface decision. Equal final answers never justify merging execution states without E12's stronger certificate.
-
-### E15 — Compose mechanisms and test their interactions
-
-**Dependencies:** two or more validated mechanisms with first-probe results; E02 boundaries and E00 global observations. **Decision enabled:** whether local benefits survive a complete engine and which combinations interfere.
-
-Select combinations by measured explanations rather than taking every Cartesian product. The initial interaction obligations are local expansion × contextual equality; late splitting × fair scheduling; specialization × dynamic sharing; structural solving × tables/learning; and factoring × cross-region wake-up/reunion. For each pair run neither, each alone and both where those configurations have coherent semantics. Record when a dependency makes an ablation impossible and narrow the causal claim.
-
-At least one composition must challenge the most-developed representation with a distinct organization of computation, such as boxes, occurrence graphs or bounded symbolic compilation. A mechanism's negative synthetic result does not exclude an application composition unless the measured limitation applies there; explain any exclusion precisely.
-
-Use shared writable variables across eval/fold and no_c/typing regions, external linked rules, competing consumers, pending publication, failures and delayed wake-ups. Validate the [global effects and completion interface](../goals/chr-sharing/notes/T018-composition-and-learning.md). Measure total interface traffic, conflicting/stale proposals, memory retained by caches/labels, compilation and output in addition to local counts. Search policies must be recorded separately from source semantics.
-
-**Follow-up:** loss of a local gain triggers attribution to the interface, interference or workload reuse frequency. It does not justify reporting only isolated wins. Select complete comparison candidates for E17 with the reasons and contrary evidence attached; leave untested combinations explicitly untested.
-
-### E16 — Parallel execution and whole-system storage
-
-**Dependencies:** a validated sequential composition and actual host capabilities recorded before running. The existing E12 owned-equation integration and E08 certified permanent factors supply independent entry points, as detailed in the [source audit](../goals/chr-experiments/notes/T016-parallel-entry.md); neither waits for the E15 broker or native nets. Establish the relevant finite-service and owner-scheduling premises before making fairness claims; the first bounded finite-work comparison does not establish a general bounded-service guarantee. **Decision enabled:** whether commuting work produces useful parallelism after synchronization and memory costs.
-
-Compare serial execution, the parallel implementation with one worker, and its available worker-count sweep on the same queries and semantics. Include disjoint certified operations, highly contended aliases/consumers, small versus large service tasks, and allocation-heavy frontiers. Validate committed effects and quiescence under forced interleavings before interpreting timings.
-
-Measure useful work, scheduling, contention, synchronization, bandwidth pressure where observable, allocation/reclamation and retained/peak memory. Fair service and answer validity remain requirements. No speedup follows merely from active-pair parallelism or disjoint syntax. If the available host cannot distinguish scaling, collect correctness and work evidence and state the exact machine capability needed for the timing question.
-
-**Follow-up:** a correct parallel slowdown is a result about that granularity/storage regime. Revise the measured bottleneck or keep sequential execution as the supported choice; do not impose source ownership restrictions without the E02 tradeoff. Recheck whole-system memory after each composition, not just isolated services.
-
-### E17 — Application evaluation and final decision audit
-
-**Dependencies:** E00 application cases, E01 controls and E14 observation accounting support independent application workload/oracle development now. Complete E15 candidates are required only for their own comparative claims; E16 only for parallel claims. Unrestricted synthesis, bounded independent oracles and resumed-session probes do not depend on either family succeeding. See [application entry](../goals/chr-experiments/notes/T017-application-entry.md). **Decision enabled:** which language/execution choices are supported for this project's exploratory use, with what uncertainty.
-
-Compare forward evaluation, missing-input arithmetic, fixed-result SK synthesis including duplication, nonground ignored/repeated holes, type-directed SK synthesis, and the literal lambda relation. Use the same relation for checking and synthesis. Include repeated requests for more answers and changed queries/rulesets: report cold construction and warm reuse separately so exploratory-session benefit is visible. No particular notebook UI is needed to replay those sessions.
-
-Run controlled grids for causal explanations and application cases for relevance; neither substitutes for the other. Report finite complete result sets where available. For unbounded searches validate every returned answer and report finite progress/latency without requiring the same order or interpreting a timeout as failure. If policies differ, include aligned-policy measurements where possible and state which result is policy-sensitive. Compilation, setup, service administration, memory retention and answer extraction belong in total cost.
-
-Present tradeoffs across first-answer latency, continued enumeration, total work, memory, compilation and programming burden. Do not average them into an invented utility score. A recommendation can identify a Pareto frontier and ask the owner to resolve a concrete taste tradeoff after showing examples and evidence.
-
-**Follow-up:** a synthetic advantage absent in applications prompts reuse-frequency and bottleneck analysis. A promising application result without semantic coverage remains unvalidated. Before concluding, audit every E-number and every owner decision in the companion document: resolved within stated bounds, contradicted with evidence, specific external/owner dependency, or unfinished. Readiness to build one production engine is not an experiment-program completion condition.
-
-### E18 — Architectural boundary contrasts
-
-**Dependencies:** source observations and independent semantic checks, not mature
-service interfaces. The [assumption register](architecture-assumptions.md) assigns
-contrasts across E03/E04/E06/E09/E11/E12/E14 as well as this entry. E18 does not own
-all architectural alternatives or replace those families.
-
-First derive and test constructor relations over node identities on a generic
-relational rewrite substrate with explicit identity fusion. Compare both a
-transactional graph unifier and elementary worklist/conditional-edge controls;
-whole-request reuse alone is insufficient. Test partial overlap, constructor
-consistency, branch-local fusion, pure head queries, occurs checking and answer
-reconstruction. Do not recreate a callable unifier as an obligatory interface.
-
-At the same time register independent contrasts for maintained partial matching,
-supported event/effect graphs, direct derivation compilation, ownership-based
-propagation and graph-aware observation. Before further regional repetitions,
-complete the assumption inventory and prioritize the first executable contrast
-by its ability to change the architectural search. The regional pilot remains
-valid bounded evidence; its planned repetitions are queued, not a dependency.
-
-**Follow-up:** record which assumptions actually changed, what remained common,
-and whether a result distinguishes the architecture from a faster implementation
-of the same decomposition. Newly discovered shared assumptions extend the
-register. No architecture is selected merely by finishing a semantic prototype.
-
-### E06d — Direct distributed-choice graph rewriting
-
-The [direct graph entry](../goals/chr-experiments/notes/T021-distributed-choice-entry.md)
-and [semantic gate](registrations/E06-distributed-graph-gate.md) investigate one
-graph with correlated connectors on matched alternative interfaces. This is an
-independent architectural entry, not an extension that must first succeed as an
-incumbent interpreter service. Compare local validity connections, global
-compatibility checks and lazy invalidation while separating physical reclamation.
-The first fragment must distinguish activation, completion and failure, preserve
-joint nonground interfaces and dynamic choice identity, and count actual shared
-rewrites. Follow with CHR correspondence and lifecycle costs; finite projection
-agreement alone does not establish either.
-
-[Local completion source analysis](results/E06-local-completion-entry.md) supplies
-an acknowledgement-based follow-up for dynamically spawned obligations. Its
-ordinary distributed termination theorem is not a theorem about named choices;
-that lifting remains a concrete implementation and proof question.
-
-## Measurement and interpretation rules
-
-Correctness runs use deterministic seeds and replay of counterexamples. Use both handwritten semantic cases and the bounded generated-case method in T013; freeze generator and bounds before execution. A generated prefix is not a termination or completeness proof. Minimize discrepancies and preserve the original input and revisions.
-
-For performance runs record compiler/runtime/backend revisions, build flags, CPU, OS, memory availability and resource ceilings. Use release builds, a fixed workload order randomized with a recorded seed, one warm-up and at least five fresh-process measurements per timed configuration initially; retain all observations and report median and range. Warm-cache session experiments are separate recorded sequences. When variation prevents distinguishing configurations, either register further repetitions or report the result as inconclusive. Hardware counters are optional diagnostics, not invented portable metrics.
-
-Set wall-time, memory and service limits in each registration from the available host and a bounded pilot. This plan does not silently import T013's Python host assumptions or its process limits into Rust experiments. Resource ceilings constrain measurement, not source semantics. All configurations in a comparison receive the same declared ceilings; include timeouts and censored memory results. Report the cost of constructing a prepared shared state both separately and in end-to-end totals.
-
-A smaller event count supports a mechanism claim. A faster timed run supports a bounded implementation claim. Neither establishes a universal architecture winner. An improvement must exceed the observed measurement ambiguity before being described as a timed benefit; no post hoc speed threshold selects an architecture. A null result with little reuse opportunity does not refute a reuse mechanism, but it does constrain relevance to that workload.
-
-Stop affected comparative execution on a semantic discrepancy or invalid measurement. Repair/re-register the affected variant and repeat the affected comparison; continue independent experiments. An administrative budget expiring creates an unrun suffix, never an exclusion decision. Do not tune a candidate on its evaluation cases without labeling the tuning and reserving independently frozen cases for the resulting policy.
-
-## Reconcile the existing conditional registration before executing it
-
-T013 remains detailed evidence for E03; it is not an authority over every other experiment. Its Python prototype layout, always-true guard subset, explicit per-leaf scheduling, capped grouping, environment and resource limits must be explicitly reconciled with the Rust reference and this scope in the E03 registration. Use the shared AST where equivalent, state guard coverage, preserve its exact support/lineage and transition obligations, and either retain its registered grids or explain the revision before runs. Do not pool runs across materially different registrations.
-
-The reference implementation does not discharge T013's conditional projection, incremental matching, race, BDD, local-controller or generated-prefix obligations. Its existing counters also do not measure bytes, Boolean operations or scheduler microsteps. E00 and the candidate registrations must supply those missing measurements. T013's finite ground SK generator is a bounded correctness workload; the unbounded synthesis question remains in E17.
-
-## Completion and the immediate next task
-
-This planning task is complete when every research direction has a concrete experiment or explicit owner decision, dependencies permit independent progress, and each experiment has a stated observation and interpretation. That is distinct from executing this plan.
-
-The first execution task is E00's concrete semantic/application registry and operation-observation contract, together with E02's source-property inventory. It produces checkable inputs and eligibility cases, not a new engine. E01 and E14 then establish credible controls and output accounting while the ready mechanism registrations are prepared. No additional question of taste is required to begin these baseline-preserving tasks.
+The next eligible research task is R00. Its deliverable is the coherent candidate comparison and a justified choice of initial R01–R04 experiments, including the strongest competing task. No prototype is selected by this plan alone. Existing unfinished work is an available research lead; it must satisfy the same selection rule as a new approach. Execution remains stopped until authorized.

@@ -5,10 +5,12 @@ goal:
   kind: existing_plan
   tranche: Continuous investigation across all relevant language and execution directions.
   status: active
-  execution_hold: Experiments stopped by owner. Only research framing audit and proposal are authorized; resumption requires owner approval.
-  review_proposal: docs/experiments/research-framing-review.md
+  execution_hold: Experiments stopped by owner. Research-program redesign is authorized; experimental implementation and runs require authorization to resume.
+  governing_sequence: docs/experiments/sequence.md
+  question_map: docs/experiments/coverage.md
+  next_eligible_research: R00
   oracle:
-    signal: Reproducible experiments and a direction-by-direction audit justify all closures or exact owner/external dependencies.
+    signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
     final_proof: Every relevant question has evidence, limits, plausible follow-ups and justified disposition; no feasible
       materially useful work remains.
@@ -21,7 +23,7 @@ goal:
     authority: approved
     proof_type: metric
     completion_proof: Receipt-backed comparative findings and full question audit.
-    likely_misfire: Finishing one mature candidate or the initial list while independent useful investigations remain.
+    likely_misfire: Refining named mechanisms without evidence that the results can change an architectural decision.
     blind_spots_considered:
       - Reference agreement alone is not correctness.
       - Weak copying baselines can exaggerate benefits.
@@ -29,7 +31,7 @@ goal:
     existing_plan_facts:
       - docs/experiments/sequence.md
       - docs/experiments/coverage.md
-      - Experiments and further authoritative source research are authorized.
+      - Experimental execution is stopped; the current authorization is research-program redesign.
       - Language adoption remains owner-dependent.
 rules:
   pm_owns_state: true
@@ -523,242 +525,17 @@ tasks:
       - cargo fmt --all -- --check
     stop_if:
       - Require an explicit closed-relation or source-step preservation argument before inlining; retain explicit choices, active failure and all relational modes.
-  - id: T013
-    type: pm
-    assignee: PM
-    status: queued
-    objective: E06 backend service probes
-    inputs:
-      - docs/experiments/sequence.md
-      - docs/experiments/results/E06-data-gate.md
-      - docs/experiments/results/E06-lookup.md
-      - docs/experiments/results/E06-lookup-preserving.md
-      - docs/experiments/results/E06-hvm-boundary.md
-      - docs/experiments/results/E06-unification.md
-      - docs/experiments/results/E06-unification-costs.md
-      - docs/experiments/results/E06-native.md
-    expected_output:
-      - Continue native allocator/state correspondence, general encoded machine, routed/shared stores and richer protocols; full-service costs and native provenance counterexamples are recorded.
-    receipt: null
-    allowed_files:
-      - Cargo.toml
-      - Cargo.lock
-      - research/
-      - docs/experiments/
-      - docs/goals/chr-experiments/
-    verify:
-      - PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s research/chr-hvm -v
-      - PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s research/chr-nets -v
-      - cargo test --workspace --all-targets
-      - cargo clippy --workspace --all-targets -- -D warnings
-      - cargo fmt --all -- --check
-    stop_if:
-      - Keep direct service, encoded backend and native choice correspondence independent; charge administrative work.
-  - id: T014
-    type: pm
-    assignee: PM
-    status: queued
-    objective: E09 scheduling probes
-    inputs:
-      - docs/experiments/sequence.md
-      - docs/experiments/registrations/E09.md
-      - docs/experiments/results/E09-service-gate.md
-      - docs/experiments/results/E09-source-gate.md
-      - docs/experiments/results/E09-observer-gate.md
-      - docs/experiments/results/E09-policy-work.md
-      - docs/experiments/results/E09-keys.md
-      - docs/experiments/results/E09-costs.md
-      - docs/experiments/results/E09-mixed.md
-      - docs/experiments/results/E09-selector.md
-      - docs/experiments/results/E09-prefix.md
-      - docs/experiments/results/E09-guards.md
-    expected_output:
-      - Continue static guard-dependency schedules, trails, maintained indexes/wakeups, measured selector costs and cached keys; guard placement has opposed evidence. Second-service composition proceeds under T015 without closing E09.
-    receipt: null
-    allowed_files:
-      - research/chr-nets/
-      - research/chr-scheduling/
-      - docs/experiments/
-      - docs/goals/chr-experiments/
-    verify:
-      - PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s research/chr-nets -v
-      - PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s research/chr-scheduling -v
-    stop_if:
-      - Charge construction and observation as well as reduction; preserve sealed job inputs and source-alternative identity.
-  - id: T015
-    type: pm
-    assignee: PM
-    status: queued
-    objective: E15 composition, starting with net equality behind the sealed source/scheduler boundary
-    inputs:
-      - docs/experiments/sequence.md
-      - docs/experiments/results/E06-unification.md
-      - docs/experiments/results/E09-service-gate.md
-      - docs/experiments/results/E09-costs.md
-      - docs/experiments/results/E09-guards.md
-      - docs/goals/chr-sharing/notes/T018-composition-and-learning.md
-      - docs/experiments/results/E15-source-net.md
-      - docs/experiments/results/E15-policies.md
-      - docs/experiments/results/E15-status.md
-      - docs/experiments/results/E15-costs.md
-      - docs/experiments/results/E15-cost-audit-v2.json
-      - docs/goals/chr-experiments/notes/T015-inflight-equality.md
-      - docs/goals/chr-experiments/notes/T015-temporary-reunion.md
-    expected_output:
-      - Continue active equality sharing, representation controls, temporary reunion and other independent compositions. The 1080-session corrected cost comparison is complete with 3240 checked query observations. Direct beats both Python net services on cold timing and traced peak in all 45 matched pairs; counted action savings do not establish a runtime gain. E16 takes the next slot as an untested family, not as a dependency of these refinements.
-    receipt: null
-    allowed_files:
-      - research/chr-scheduling/
-      - research/chr-nets/
-      - docs/experiments/
-      - docs/goals/chr-experiments/
-    verify:
-      - PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s research/chr-scheduling -v
-      - PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s research/chr-nets -v
-    stop_if:
-      - Preserve independent reference and fixed source policy; declare service-specific costs and refuse partial failure publication or silent backend fallback.
-  - id: T016
-    type: pm
-    assignee: PM
-    status: queued
-    objective: E16 parallel comparison
-    inputs:
-      - docs/experiments/sequence.md
-      - docs/experiments/registrations/E16.md
-      - docs/goals/chr-experiments/notes/T016-parallel-entry.md
-      - docs/experiments/results/E12-equations.md
-      - docs/experiments/results/E08.md
-    expected_output:
-      - The 512-observation owned-equation gate and replay pass with nine focused tests and independent reference checks. The 116-run lifecycle and 60-run distinct-hole pilots pass; distinct pair counts match predictions. The 1092-run cold comparison passes: Shared separates favorably from both workers across all 17 cases; three two-worker gains over one worker and both admission gains remain contrary evidence to rejecting parallel work. The regional protocol passes 721 finite configurations and replay plus13 focused tests, including forced cancellation and source-accounting checks. Regional lifecycle pilot passes158 observations with complete accounting. A balanced Q64 two-worker signal warrants randomized repetitions of all79cells; fine-grained overhead and prefix/refutation surplus remain explicit. Keep representation/lifecycle questions open. Continue separate allocator instrumentation, full lifecycle accounting and competent Shared/Owned controls. Certified-region workers remain an independent next entry; no net/broker dependency is required.
-    receipt: null
-    allowed_files:
-      - Cargo.lock
-      - research/chr-reuse/
-      - research/chr-factors/
-      - docs/experiments/
-      - docs/goals/chr-experiments/
-    verify:
-      - cargo test -p chr-reuse
-      - cargo clippy --workspace --all-targets -- -D warnings
-      - cargo fmt --all -- --check
-    stop_if:
-      - Preserve independent reference, owner-local source commits, complete request accounting and honest atomic-service limits; physical speedup needs separate uninstrumented timing.
-  - id: T017
-    type: pm
-    assignee: PM
-    status: queued
-    objective: E17 application and final direction audit
-    inputs:
-      - docs/experiments/sequence.md
-    expected_output:
-      - Registered executable comparison and evidence-backed receipt; refine scope before activation.
-    receipt: null
-  - id: T018
-    type: pm
-    assignee: PM
-    status: queued
-    objective: Continue constructor relationalization through full source effects and competent equality representations; keep the cross-portfolio architectural assumption register current.
-    inputs:
-      - docs/experiments/sequence.md
-      - docs/experiments/coverage.md
-      - docs/experiments/architecture-assumptions.md
-    expected_output:
-      - Assumption audit and finite generic relational gate are committed evidence:432recipes, exact replay and16tests. Continue supported CHR consumption, propagation, freshness and dynamic choice births without a required unifier boundary. A3 and A6 have independent entries and do not depend on this succeeding.
-    receipt: null
-    allowed_files:
-      - research/
-      - docs/experiments/
-      - docs/goals/chr-experiments/
-      - Cargo.toml
-      - Cargo.lock
-    verify:
-      - Focused semantic tests and independently checked generated cases
-      - Reproducible registered experiment audit
-      - Relevant workspace tests, Clippy and formatting for Rust changes
-    stop_if:
-      - Keep changed source contracts experimental; do not make reference internal boundaries mandatory for candidate eligibility.
-
-  - id: T019
-    type: pm
-    assignee: PM
-    status: queued
-    objective: A3 maintained partial joins through actual source updates, independently of constructor relationalization.
-    inputs:
-      - docs/experiments/architecture-assumptions.md
-      - docs/goals/chr-experiments/notes/T018-independent-entries.md
-      - docs/experiments/results/E09-prefix.md
-    expected_output:
-      - The supported-store and actual-source gate passes80 isolated children with exact seeded replay and40 tests. Selective maintenance lowers counted work on small cases; full invalidation exposes representation overhead. Sizing retains24 outcomes (11checked completions,13work cutoffs). Revisited cached extension tests dominate larger selective action totals. Continue checkpointed cutoff attribution, update-driven discovery, alternative joins and real lifecycle costs; no A3 closure follows.
-    receipt: null
-    allowed_files:
-      - research/chr-scheduling/
-      - docs/experiments/
-      - docs/goals/chr-experiments/
-    verify:
-      - PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s research/chr-scheduling -v
-      - Registered independent projected-match and source-observation gate with replay
-    stop_if:
-      - Preserve nonbinding matching, occurrence multiplicity and declared selection; no constructor-relational engine dependency.
-  - id: T020
-    type: pm
-    assignee: PM
-    status: queued
-    objective: A6 exact graph observation before export with a competent eager control and retention accounting.
-    inputs:
-      - docs/experiments/architecture-assumptions.md
-      - docs/goals/chr-experiments/notes/T018-independent-entries.md
-    expected_output:
-      - Independent graph gate passes4290comparisons and exact replay; actual completion gate passes64case contracts in128children with separate source/export accounting. V2 adds17154cross-view comparisons;128four-control lifecycle pilot children pass. Same-comparator controls separate mapping and export savings; distinct streams increase graph allocation traffic. Repeated costs pass768children; graph/matched-eager cold ranges2lower13overlap1higher, allocationprofilesrepeat exactly. Continue larger sweeps, cross-query retention, applications and mapping-sensitive reuse; A6 remains open.
-    receipt: null
-    allowed_files:
-      - research/chr-persistent/
-      - research/chr-observe/
-      - research/chr-observe-graph/
-      - Cargo.toml
-      - Cargo.lock
-      - docs/experiments/
-      - docs/goals/chr-experiments/
-    verify:
-      - Focused graph-view and exhaustive variable-permutation oracle tests
-      - Relevant workspace tests, Clippy and formatting
-    stop_if:
-      - Preserve ordinary full answer delivery, joint aliases and residual multiplicity; account for retained arena and binding memory.
-
-  - id: T021
-    type: pm
-    assignee: PM
-    status: queued
-    objective: Investigate distributed named choice directly as graph rewriting, separating answer validity from reclamation.
-    inputs:
-      - docs/goals/chr-experiments/notes/T021-distributed-choice-entry.md
-      - docs/experiments/architecture-assumptions.md
-      - docs/experiments/results/E06-native.md
-    expected_output:
-      - Direct graph semantic probes and independent observations for paired interfaces, correlated/independent names, dynamic identities and partial/disconnected failure; no mandatory store-service boundary.
-    receipt: null
-    allowed_files:
-      - research/
-      - docs/experiments/
-      - docs/goals/chr-experiments/
-      - Cargo.toml
-      - Cargo.lock
-    verify:
-      - Registered graph/projection semantic gates and focused regression tests
-      - Charged validity, sharing and observation accounting
-    stop_if:
-      - Source contract adoption remains with the owner; failure validity does not require immediate physical reclamation.
-
   - id: T022
     type: pm
     assignee: PM
     status: active
-    objective: Review the research framing audit and proposed sequence with the owner; experimental execution is stopped pending approval.
+    objective: Redesign the governing sequence, question map and research state around architectural decisions; hold experimental execution pending authorization.
     inputs:
       - docs/experiments/sequence.md
       - docs/experiments/coverage.md
       - docs/experiments/architecture-assumptions.md
     expected_output:
-      - Evidence-backed audit and revised research proposal, followed by an owner decision before experimental execution resumes.
+      - A consistent architecture-led sequence, bounded completed-evidence ledger and justified future selection process, with experimental execution stopped.
     receipt: null
     allowed_files:
       - docs/experiments/
@@ -769,29 +546,16 @@ tasks:
       - No experimental implementation or runs are authorized during owner review.
 
 checks:
-  dirty_fingerprint: clean_at_start
+  dirty_fingerprint: preexisting_unfinished_experimental_files_preserved
   last_verification:
     result: passed
-    task: T015
+    task: T022
     commands:
-      - Twenty-two net/control/service/status tests pass
-      - 288 whole-service quantum configurations and exact replay pass
-      - Partial build/readback publication checks and interleaved small-request tests pass
-      - Twenty-five source/observer/policy/key/protocol/selector/boundary tests and 192 source conformance configurations with exact replay pass
-      - 14271 exact observer configurations and replay pass
-      - 930 integrated policy conformance configurations and 180 controlled work configurations replay exactly
-      - 750 key-ablation configurations replay exactly; prior 180-row baseline also replays
-      - 225 cost configurations pass 1350 confirmatory timing/warm-up and 450 separate memory runs with exact semantic/action agreement
-      - 324 mixed-scan/binding configurations and exact replay agree with independent control answers and represented steps
-      - 624 predicate-selector configurations replay exactly; prior 324-row full-scan matrix also replays
-      - 570 distinct-prefix configurations and the prior 624-row selector control replay exactly
-      - 732 early-guard configurations and the prior 570-row prefix control replay exactly
-      - 1296 net boundary configurations and 64 composed source cases replay exactly; direct source baseline also replays
-      - 980 direct/net policy configurations pass and replay exactly
-      - Counted status passes 1296 boundary configurations and 64 source cases with exact replay; scan boundary control also replays
-      - Corrected cost matrix passes 810 timing and 270 allocation sessions with 3240 observations and exact engine-work agreement; all frozen source/harness/oracle/fixture hashes match tested revision 049f53f
-      - Independent numerical timing-report audit agrees with the v2 raw data
+      - Documentation whitespace check passes
+      - All 69 local document links resolve
+      - Goal state validation passes with one active planning and review task
+      - Manual consistency review confirms R00 is the next eligible task and experimental execution remains stopped
     evidence:
-      - docs/experiments/results/E09-service-gate.md
-      - docs/experiments/results/E15-costs.md
-      - docs/experiments/results/E15-cost-audit-v2.json
+      - docs/experiments/sequence.md
+      - docs/experiments/coverage.md
+      - docs/experiments/architecture-assumptions.md
