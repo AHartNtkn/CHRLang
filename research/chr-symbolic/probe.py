@@ -23,5 +23,5 @@ observed=time.monotonic()
 status=run.boundary_status()
 expected=case['expected']
 full_equal=len(answers)==len(expected) and all(any(equivalent(a,b) for b in expected) for a in answers)
-result={'case':case['id'],'bounds':bounds,'answers':len(answers),'models':run.models,'expected_answers':len(expected),'full_equal':full_equal,**status,'formula_bindings':run.e.serial,'assertions':len(run.e.solver.assertions()),'build_seconds':built-start,'observe_seconds':observed-built,'boundary_seconds':time.monotonic()-observed}
+result={'case':case['id'],'bounds':bounds,'answers':len(answers),'models':run.models,'expected_answers':len(expected),'full_equal':full_equal,**status,'formula_bindings':run.e.serial,'prune_checks':run.e.prune_checks,'pruned':run.e.pruned,'prune_seconds':run.e.prune_seconds,'assertions':len(run.e.solver.assertions()),'build_seconds':built-start,'observe_seconds':observed-built,'boundary_seconds':time.monotonic()-observed}
 print(json.dumps(result),flush=True)

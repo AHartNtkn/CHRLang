@@ -13,6 +13,22 @@ class Encoding:
     def __init__(self):
         self.solver=z3.Solver()
         self.serial=0
+        self.prune_checks=0;self.pruned=0;self.prune_seconds=0.0
+
+    def impossible(self,expression):
+        """A construction optimization: unknown keeps the guarded relation."""
+        import time
+        expression=z3.simplify(expression)
+        if z3.is_false(expression):return True
+        if z3.is_true(expression):return False
+        start=time.monotonic();self.prune_checks+=1
+        self.solver.push();self.solver.add(expression)
+        result=self.solver.check()
+        self.solver.pop();self.prune_seconds+=time.monotonic()-start
+        if result==z3.unsat:
+            self.pruned+=1
+            return True
+        return False
 
     def bind(self,expression):
         if isinstance(expression,bool):return z3.BoolVal(expression)

@@ -75,7 +75,7 @@ class Bounded:
     def step(self,tick,service):
         events=[]
         active=self.e.bind(z3.And(self.h.active(),z3.Not(self.done)))
-        if z3.is_false(z3.simplify(active)):
+        if self.e.impossible(active):
             self.events.append([])
             return
         old_length=self.length;front=self.queue[0]
@@ -86,6 +86,7 @@ class Bounded:
         goals=list(self.goals)
         for index,g in enumerate(goals):
             guard=self.e.bind(z3.And(pending_guard,front==index))
+            if self.e.impossible(guard):continue
             kind=g[0]
             if kind!='or':events.append((guard,(kind,)))
             if kind=='and':self.replace_front(list(g[1:]),guard)
@@ -110,6 +111,7 @@ class Bounded:
         for application in candidates:
             guard=self.e.bind(z3.And(rule_guard,application.selected))
             selected.append(application.selected)
+            if self.e.impossible(guard):continue
             events.append((guard,('apply',application.rule,application.occurrences)))
             rule=self.rules[application.rule]
             bindings=dict(application.bindings)
