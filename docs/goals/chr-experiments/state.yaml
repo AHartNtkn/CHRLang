@@ -59,7 +59,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T011
+active_task: T012
 tasks:
   - id: T001
     type: pm
@@ -451,7 +451,7 @@ tasks:
   - id: T011
     type: pm
     assignee: PM
-    status: active
+    status: done
     objective: 'E12 first exact-reuse probes: operation tables, full-state reconvergence with lineage, and provenance-checked
       finite failure certificates as separate ablations.'
     inputs:
@@ -460,7 +460,19 @@ tasks:
       - docs/goals/chr-sharing/notes/T018-composition-and-learning.md
     expected_output:
       - Registered executable comparison and evidence-backed receipt; refine scope before activation.
-    receipt: null
+    receipt:
+      result: done
+      harness: codex
+      summary: First E12 comparisons cover exact state reconvergence, structural failure certificates and integrated equation tables. All registered configurations replay exactly; costs distinguish work avoided from projection, keys and retention. Broader reuse refinements remain open.
+      evidence:
+        - docs/experiments/results/E12-continuations.md
+        - docs/experiments/results/E12-failure-native.md
+        - docs/experiments/results/E12-equations.md
+      commands:
+        - Workspace tests, Clippy and formatting pass
+        - 208 continuation configurations and replay
+        - 300 selective failure configurations and replay
+        - 336 equation configurations and replay
     allowed_files:
       - Cargo.toml
       - Cargo.lock
@@ -478,13 +490,25 @@ tasks:
   - id: T012
     type: pm
     assignee: PM
-    status: queued
+    status: active
     objective: E13 specialization first probe
     inputs:
       - docs/experiments/sequence.md
     expected_output:
       - Registered executable comparison and evidence-backed receipt; refine scope before activation.
     receipt: null
+    allowed_files:
+      - Cargo.toml
+      - Cargo.lock
+      - research/chr-specialize/
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    verify:
+      - cargo test --workspace --all-targets
+      - cargo clippy --workspace --all-targets -- -D warnings
+      - cargo fmt --all -- --check
+    stop_if:
+      - Require an explicit closed-relation or source-step preservation argument before inlining; retain explicit choices, active failure and all relational modes.
   - id: T013
     type: pm
     assignee: PM
@@ -542,9 +566,7 @@ checks:
     task: T011
     commands:
       - Workspace tests, Clippy and formatting pass
-      - Failure proof checkers agree on 52416 small path/input checks
-      - All E00 and generated failure workloads preserve source observations
-      - Corrected 200-run projection and 300-run native matrices replay exactly
+      - E12 full registry, independent workload and boundary checks pass
+      - 336 equation configurations and exact non-time replay pass
     evidence:
-      - docs/experiments/results/E12-continuations.md
-      - docs/experiments/results/E12-failure-native.md
+      - docs/experiments/results/E12-equations.md
