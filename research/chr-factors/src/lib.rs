@@ -1,6 +1,7 @@
 //! Permanent independent regions with incremental fair product observation.
 use chr_syntax::{Answer, Constraint, Goal, Query, Rule, Term, Var};
 use std::collections::{BTreeMap, BTreeSet, VecDeque};
+pub mod parallel_regions;
 mod partition;
 #[derive(Clone, Copy, Debug)]
 pub enum Mode {

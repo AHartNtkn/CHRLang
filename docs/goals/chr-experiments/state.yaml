@@ -627,9 +627,10 @@ tasks:
       - docs/experiments/results/E12-equations.md
       - docs/experiments/results/E08.md
     expected_output:
-      - The 512-observation owned-equation gate and replay pass with nine focused tests and independent reference checks. The 116-run lifecycle and 60-run distinct-hole pilots pass; distinct pair counts match predictions. The 1092-run cold comparison passes: Shared separates favorably from both workers across all 17 cases; three two-worker gains over one worker and both admission gains remain contrary evidence to rejecting parallel work. Continue certified coarse-region protocol and representation/lifecycle questions. Continue separate allocator instrumentation, full lifecycle accounting and competent Shared/Owned controls. Certified-region workers remain an independent next entry; no net/broker dependency is required.
+      - The 512-observation owned-equation gate and replay pass with nine focused tests and independent reference checks. The 116-run lifecycle and 60-run distinct-hole pilots pass; distinct pair counts match predictions. The 1092-run cold comparison passes: Shared separates favorably from both workers across all 17 cases; three two-worker gains over one worker and both admission gains remain contrary evidence to rejecting parallel work. The regional protocol passes 721 finite configurations and replay plus13 focused tests, including forced cancellation and source-accounting checks. Pilot/register regional costs while keeping representation/lifecycle questions open. Continue separate allocator instrumentation, full lifecycle accounting and competent Shared/Owned controls. Certified-region workers remain an independent next entry; no net/broker dependency is required.
     receipt: null
     allowed_files:
+      - Cargo.lock
       - research/chr-reuse/
       - research/chr-factors/
       - docs/experiments/

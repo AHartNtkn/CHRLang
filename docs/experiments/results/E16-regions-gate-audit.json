@@ -1,0 +1,27 @@
+{
+  "status": "pass",
+  "rows_per_run": 721,
+  "cases": 103,
+  "configurations_per_case": 7,
+  "independent_reference_cases": 62,
+  "replay": "all logical and deterministic fields exact",
+  "variable_columns": [
+    "actual_source_steps",
+    "cancelled_requests",
+    "owner_buffered_peak",
+    "unserved_quantum_slots"
+  ],
+  "changed_rows": {
+    "actual_source_steps": 0,
+    "cancelled_requests": 0,
+    "owner_buffered_peak": 20,
+    "unserved_quantum_slots": 0
+  },
+  "max_outstanding": 4,
+  "max_unaccepted_at_shutdown": 0,
+  "sha256": {
+    "E16-regions-gate.tsv": "3a9493957f5dfb4488b03de659897852e938523288aaa1ec8e0fdc71a048e2b0",
+    "E16-regions-gate-replay.tsv": "5d271faac2e6b6029fb2ece1e2c9dca0e71c85ea130571495de5e1570790697c",
+    "E16-regions-gate-manifest.json": "7ab74fdae154c1bf50cbc63e545b3c83a8bf6567f6b2c2a4432c2a14f887e7cb"
+  }
+}
