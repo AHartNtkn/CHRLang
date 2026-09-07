@@ -10,9 +10,11 @@ import time
 parser=argparse.ArgumentParser()
 parser.add_argument('manifest',type=Path)
 parser.add_argument('output',type=Path)
+parser.add_argument('--case',action='append',default=[])
 args=parser.parse_args()
 bounds={r['case']:r['bounds'] for r in map(json.loads,Path('docs/experiments/results/E11-derived-bounds.jsonl').read_text().splitlines())}
 cases=['U05-conditional-occurs','H05-conditional-history','app-add-forward','app-add-decompose','app-type-synthesis-prefix','carry-k1-w0-n0']
+if args.case:cases=args.case
 jobs=[(case,engine,repeat) for case in cases for engine in ['direct','terms'] for repeat in range(3)]
 random.Random(1101).shuffle(jobs)
 with args.output.open('w') as output:

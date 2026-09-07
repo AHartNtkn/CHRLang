@@ -40,9 +40,15 @@ class Bounded:
         self.roots=[z3.IntVal(0) if representation=="heap" else self.h.invalid]*occurrences;self.alive=[z3.BoolVal(False)]*occurrences
         self.next_occ=z3.IntVal(0);self.history={};self.done=z3.BoolVal(False)
         self.choices=[];self.events=[];self.states=[]
+        self.service=service
         self.capture()
-        for tick in range(transitions):
-            self.step(tick,service);self.capture()
+        self.extend(transitions)
+
+    def extend(self,transitions):
+        """Extend a compatible prefix; all resource/service bounds stay fixed."""
+        if transitions<len(self.events):raise ValueError('cannot shrink a transition prefix')
+        for tick in range(len(self.events),transitions):
+            self.step(tick,self.service);self.capture()
 
     def capture(self):
         from types import SimpleNamespace
