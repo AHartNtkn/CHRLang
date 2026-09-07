@@ -2,7 +2,7 @@
 
 Choose an architecture through evidence about total efficiency, necessary implementation complexity, and language-design tradeoffs. Investigate ways to avoid, compile, reorganize, or cheaply repeat work across the language. Sharing and the supplied programs are useful possibilities and examples; neither defines the optimization objective.
 
-**Current authority:** redesigning this research program is authorized. Experimental implementation and runs remain stopped pending authorization to resume. This document governs future work selection; completed E00–E18 results remain evidence with their stated limits. The [coverage map](coverage.md) records current questions and dispositions. The [framing audit](research-framing-review.md) explains the redesign.
+**Current authority:** the redesigned experimental investigation, including implementation and runs, is authorized. Work begins with R00 selection. This document governs future work selection; completed E00–E18 results remain evidence with their stated limits. The [coverage map](coverage.md) records current questions and dispositions. The [framing audit](research-framing-review.md) explains the redesign.
 
 ## Priorities and work selection
 
@@ -136,4 +136,4 @@ Keep durable results in `docs/experiments/results/`, with reproducible inputs an
 
 ## Immediate handoff
 
-The next eligible research task is R00. Its deliverable is the coherent candidate comparison and a justified choice of initial R01–R04 experiments, including the strongest competing task. No prototype is selected by this plan alone. Existing unfinished work is an available research lead; it must satisfy the same selection rule as a new approach. Execution remains stopped until authorized.
+[R00's first selection](results/R00-architecture-selection.md) assigns bounded R01 activation/code-generation implementation and independent R04 finite-consistency analysis. Their current status and subsequent selection rationale live in the [coverage map](coverage.md). No other prototype is selected automatically by this plan. Implementation and comparative execution follow the relevant decision brief and prospective registration.

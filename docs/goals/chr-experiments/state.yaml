@@ -5,10 +5,10 @@ goal:
   kind: existing_plan
   tranche: Continuous investigation across all relevant language and execution directions.
   status: active
-  execution_hold: Experiments stopped by owner. Research-program redesign is authorized; experimental implementation and runs require authorization to resume.
+  execution_authority: Redesigned goal authorizes implementation and experiments selected under R00 and the governing sequence.
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
-  next_eligible_research: R00
+  current_research: R01 implementation and independent R04 eligibility analysis
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -31,7 +31,7 @@ goal:
     existing_plan_facts:
       - docs/experiments/sequence.md
       - docs/experiments/coverage.md
-      - Experimental execution is stopped; the current authorization is research-program redesign.
+      - Redesigned experimental execution is authorized; selection follows architectural decision value.
       - Language adoption remains owner-dependent.
 rules:
   pm_owns_state: true
@@ -63,7 +63,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T022
+active_task: T024
 tasks:
   - id: T001
     type: pm
@@ -528,22 +528,53 @@ tasks:
   - id: T022
     type: pm
     assignee: PM
+    status: done
+    objective: Redesign the experimental program around architectural decisions.
+    receipt:
+      result: done
+      harness: codex
+      summary: Governing sequence, question map and state migrated to architecture-led selection; validated and committed at 0dd574f.
+      evidence:
+        - docs/experiments/sequence.md
+        - docs/experiments/coverage.md
+  - id: T023
+    type: pm
+    assignee: PM
+    status: done
+    objective: R00 coherent architecture comparison and first experiment selection.
+    receipt:
+      result: done
+      harness: codex
+      summary: Compared complete compiled, integrated, conditional and solver paths; independent review supports R01 entry with R04 analysis proceeding independently. No performance conclusion or production adoption.
+      evidence:
+        - docs/experiments/results/R00-architecture-selection.md
+        - docs/experiments/registrations/R01-activation-codegen-gate.md
+  - id: T024
+    type: pm
+    assignee: PM
     status: active
-    objective: Redesign the governing sequence, question map and research state around architectural decisions; hold experimental execution pending authorization.
+    objective: Implement and independently validate R01 four-cell activation/code-generation entry while advancing R04 finite-consistency analysis.
     inputs:
-      - docs/experiments/sequence.md
-      - docs/experiments/coverage.md
-      - docs/experiments/architecture-assumptions.md
+      - docs/experiments/results/R00-architecture-selection.md
+      - docs/experiments/registrations/R01-activation-codegen-gate.md
     expected_output:
-      - A consistent architecture-led sequence, bounded completed-evidence ledger and justified future selection process, with experimental execution stopped.
+      - Genuine generated rule execution and competent activation with independent source observations; exact comparative gate registration before matrix execution.
+      - Independent finite-consistency fragment and oracle design for R04.
     receipt: null
     allowed_files:
+      - research/chr-compiled/
+      - research/chr-persistent/
+      - Cargo.toml
+      - Cargo.lock
       - docs/experiments/
       - docs/goals/chr-experiments/
     verify:
-      - Local evidence links and documentation consistency
+      - Focused source behavior and code-generation tests
+      - Independent terminal enabledness, occurrence identity and alias wakeup checks
+      - Relevant Rust formatting, tests and Clippy
     stop_if:
-      - No experimental implementation or runs are authorized during owner review.
+      - No generated comparative matrix or cost run before registration and freeze.
+      - Preserve reference independence and do not require incumbent order across architectures.
 
 checks:
   dirty_fingerprint: preexisting_unfinished_experimental_files_preserved
