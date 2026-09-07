@@ -558,6 +558,7 @@ tasks:
       - docs/experiments/sequence.md
       - docs/experiments/registrations/E09.md
       - docs/experiments/results/E09-service-gate.md
+      - docs/experiments/results/E09-source-gate.md
     expected_output:
       - Compare per-alternative, sealed-round and asynchronous policies with charged selector/support/observer boundaries; whole-request unification yields are validated.
     receipt: null
@@ -568,6 +569,7 @@ tasks:
       - docs/goals/chr-experiments/
     verify:
       - PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s research/chr-nets -v
+      - PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s research/chr-scheduling -v
     stop_if:
       - Charge construction and observation as well as reduction; preserve sealed job inputs and source-alternative identity.
   - id: T015
@@ -609,5 +611,6 @@ checks:
       - Nineteen net/control/service tests pass
       - 288 whole-service quantum configurations and exact replay pass
       - Partial build/readback publication checks and interleaved small-request tests pass
+      - Three source-step tests and 192 state/answer conformance configurations with exact replay pass
     evidence:
       - docs/experiments/results/E09-service-gate.md
