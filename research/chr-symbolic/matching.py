@@ -5,6 +5,7 @@ constructors with explicit IDs, not unconstrained solver-selected ground terms.
 """
 import z3
 from heap import select
+from projection import ConcreteHeap
 
 _SORTS={}
 
@@ -26,6 +27,22 @@ class View:
         self.h=heap;self.sort=tree_sort(heap.signature)
         self.hole=self.sort.constructor(0)
         self.next_var=heap.variables
+        concrete=ConcreteHeap.static(heap)
+        if concrete is not None:
+            memo={}
+            def encode(term):
+                key=id(term) # ConcreteHeap retains the immutable input objects.
+                if key in memo:return memo[key]
+                if term is None:value=self.hole(0)
+                elif isinstance(term,int):value=self.hole(term)
+                else:
+                    name,args=term
+                    index=heap.signature.index((name,len(args)))+1
+                    value=self.sort.constructor(index)(*[encode(t) for t in args])
+                memo[key]=value
+                return value
+            self.values=[encode(concrete.term(i)) for i in range(heap.n)]
+            return
         values=[self.hole(i) for i in heap.ids]
         # A valid allocated heap has no cycle after combining constructor and
         # substitution edges. n rounds cover every path from an allocated root.

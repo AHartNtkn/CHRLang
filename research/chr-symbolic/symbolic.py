@@ -1,7 +1,8 @@
 """Factored bounded CHR transitions. Experimental fixed committed policy."""
 import z3
 from heap import Encoding,Heap,select
-from matching import applications,View
+from matching import applications
+from projection import ConcreteHeap
 
 
 class Bounded:
@@ -135,23 +136,19 @@ class Bounded:
 
     def answers(self,limit=None):
         from check_cases import equivalent
-        view=View(self.h)
-        state_views=[View(state[0]) for state in self.states]
         solver=self.e.solver
         solver.push();solver.add(self.done,z3.Not(self.h.failed),z3.Not(self.h.cutoff))
         answers=[];self.models=0
-        def decode(value):
-            index=next(i for i in range(view.sort.num_constructors()) if value.decl()==view.sort.constructor(i))
-            if index==0:return value.arg(0).as_long()
-            return (self.h.signature[index-1][0],tuple(decode(c) for c in value.children()))
         while True:
             status=solver.check()
             if status==z3.unsat:break
             if status!=z3.sat:raise RuntimeError(f'bounded solver returned {status}: {solver.reason_unknown()}')
             model=solver.model();self.models+=1
-            answer={'outputs':[decode(model.eval(select(view.values,h))) for h in self.outputs],
-                    'residual':[decode(model.eval(select(view.values,h))) for h,a in zip(self.roots,self.alive) if z3.is_true(model.eval(a))]}
-            self.verify(model,state_views,decode,answer)
+            concrete=ConcreteHeap(self.h,model)
+            term=lambda h:concrete.term(model.eval(h).as_long())
+            answer={'outputs':[term(h) for h in self.outputs],
+                    'residual':[term(h) for h,a in zip(self.roots,self.alive) if z3.is_true(model.eval(a))]}
+            self.verify(model,answer)
             if not any(equivalent(answer,a) for a in answers):answers.append(answer)
             if limit is not None and len(answers)>=limit:break
             bits=[bit for _,bit in self.choices]
@@ -172,12 +169,13 @@ class Bounded:
             self.e.solver.pop()
         return result
 
-    def verify(self,model,views,decode,answer):
+    def verify(self,model,answer):
         from machine import verify_witness
         states=[];actions=[]
-        for tick,(state,view) in enumerate(zip(self.states,views)):
+        for tick,state in enumerate(self.states):
             heap,queue,length,roots,alive,history,next_occ=state
-            def term(handle):return decode(model.eval(select(view.values,handle)))
+            concrete=ConcreteHeap(heap,model)
+            def term(handle):return concrete.term(handle if isinstance(handle,int) else model.eval(handle).as_long())
             def goal(index):
                 g=self.goals[index];kind=g[0]
                 if kind=='post':return (kind,term(g[1]))
