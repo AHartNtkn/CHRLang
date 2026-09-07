@@ -159,6 +159,22 @@ class Search:
         return answers
 
 
+def normalized_snapshot(state):
+    state=deepcopy(state)
+    subst=state['substitution']
+    def goal(g):
+        kind=g[0]
+        if kind=='post':return (kind,resolve(g[1],subst))
+        if kind=='eq':return (kind,resolve(g[1],subst),resolve(g[2],subst))
+        if kind in ('and','or'):return (kind,*(goal(c) for c in g[1:]))
+        return g
+    state['pending']=[goal(g) for g in state['pending']]
+    state['store']=[(i,resolve(c,subst)) for i,c in state['store']]
+    state['outputs']=[resolve(t,subst) for t in state['outputs']]
+    state['substitution']={v:resolve(v,subst) for v in range(state['next_var']) if resolve(v,subst)!=v}
+    return state
+
+
 def verify_witness(rules,constraints,outputs,states,actions):
     """Replay every decoded state under the committed policy; require an answer.
 
@@ -167,7 +183,7 @@ def verify_witness(rules,constraints,outputs,states,actions):
     """
     if len(states)!=len(actions)+1:raise ValueError('witness state/action lengths')
     branch=Branch(constraints,outputs)
-    if states[0]!=branch.snapshot():raise ValueError('initial state differs')
+    if normalized_snapshot(states[0])!=normalized_snapshot(branch.snapshot()):raise ValueError('initial state differs')
     answer=None
     for index,action in enumerate(actions):
         if answer is not None:raise ValueError('transition after endpoint')
@@ -178,6 +194,6 @@ def verify_witness(rules,constraints,outputs,states,actions):
         elif branch.trace[-1]!=action:raise ValueError('action violates committed transition')
         if outcome[0]=='failed':raise ValueError('failed witness has no answer')
         if outcome[0]=='answer':answer=outcome[1]
-        if states[index+1]!=branch.snapshot():raise ValueError(f'state differs after transition {index}')
+        if normalized_snapshot(states[index+1])!=normalized_snapshot(branch.snapshot()):raise ValueError(f'state differs after transition {index}')
     if answer is None:raise ValueError('witness endpoint is not quiescent')
     return answer
