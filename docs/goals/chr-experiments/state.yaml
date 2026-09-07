@@ -59,7 +59,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T014
+active_task: T015
 tasks:
   - id: T001
     type: pm
@@ -552,7 +552,7 @@ tasks:
   - id: T014
     type: pm
     assignee: PM
-    status: active
+    status: queued
     objective: E09 scheduling probes
     inputs:
       - docs/experiments/sequence.md
@@ -566,8 +566,9 @@ tasks:
       - docs/experiments/results/E09-mixed.md
       - docs/experiments/results/E09-selector.md
       - docs/experiments/results/E09-prefix.md
+      - docs/experiments/results/E09-guards.md
     expected_output:
-      - Investigate certified early pure-guard placement with no-pruning controls next; continue trails, maintained indexes/wakeups, measured selector costs, heterogeneous supports, cached keys, longer synthesis and second-service integration. Distinct-prefix matching is validated.
+      - Continue static guard-dependency schedules, trails, maintained indexes/wakeups, measured selector costs and cached keys; guard placement has opposed evidence. Second-service composition proceeds under T015 without closing E09.
     receipt: null
     allowed_files:
       - research/chr-nets/
@@ -582,13 +583,28 @@ tasks:
   - id: T015
     type: pm
     assignee: PM
-    status: queued
-    objective: E15 composition
+    status: active
+    objective: E15 composition, starting with net equality behind the sealed source/scheduler boundary
     inputs:
       - docs/experiments/sequence.md
+      - docs/experiments/results/E06-unification.md
+      - docs/experiments/results/E09-service-gate.md
+      - docs/experiments/results/E09-costs.md
+      - docs/experiments/results/E09-guards.md
+      - docs/goals/chr-sharing/notes/T018-composition-and-learning.md
     expected_output:
-      - Registered executable comparison and evidence-backed receipt; refine scope before activation.
+      - Register and validate resumable source/net codecs and transactional projected-state correspondence, then compare scheduler/observer behavior with charged interfaces. Continue heterogeneous sharing and other E15 interactions independently.
     receipt: null
+    allowed_files:
+      - research/chr-scheduling/
+      - research/chr-nets/
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    verify:
+      - PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s research/chr-scheduling -v
+      - PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s research/chr-nets -v
+    stop_if:
+      - Preserve independent reference and fixed source policy; declare service-specific costs and refuse partial failure publication or silent backend fallback.
   - id: T016
     type: pm
     assignee: PM
@@ -618,7 +634,7 @@ checks:
       - Nineteen net/control/service tests pass
       - 288 whole-service quantum configurations and exact replay pass
       - Partial build/readback publication checks and interleaved small-request tests pass
-      - Nineteen source/observer/policy/key/protocol/selector tests and 192 source conformance configurations with exact replay pass
+      - Twenty-one source/observer/policy/key/protocol/selector tests and 192 source conformance configurations with exact replay pass
       - 14271 exact observer configurations and replay pass
       - 930 integrated policy conformance configurations and 180 controlled work configurations replay exactly
       - 750 key-ablation configurations replay exactly; prior 180-row baseline also replays
@@ -626,5 +642,6 @@ checks:
       - 324 mixed-scan/binding configurations and exact replay agree with independent control answers and represented steps
       - 624 predicate-selector configurations replay exactly; prior 324-row full-scan matrix also replays
       - 570 distinct-prefix configurations and the prior 624-row selector control replay exactly
+      - 732 early-guard configurations and the prior 570-row prefix control replay exactly
     evidence:
       - docs/experiments/results/E09-service-gate.md

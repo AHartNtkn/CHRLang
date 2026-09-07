@@ -51,5 +51,26 @@ class PrefixSelection(unittest.TestCase):
         self.assertEqual(job.action, ('apply', 0, (1,0)))
 
 
+class EarlyGuards(unittest.TestCase):
+    def test_later_head_variable_is_deferred(self):
+        state = replace(initial((), ()), store=((0, ('p', (('a', ()),))),
+                                               (1, ('q', (('a', ()),)))), next_occurrence=2)
+        rules = (Rule((), (('p', (0,)), ('q', (1,))), ('true',), ((0,1),)),)
+        a = finish(StepJob(state, rules, 'prefix'))
+        b = finish(StepJob(state, rules, 'guard-prefix'))
+        self.assertEqual(a, b)
+        self.assertEqual(b[0], 'continue')
+
+    def test_fresh_guard_local_and_store_variable_are_not_bound_early(self):
+        state = replace(initial((), (0,)), store=((0, ('p', (0,))),), next_occurrence=1)
+        rules = (Rule((), (('p', (1,)),), ('post', ('fresh', (2,))), ((2,2),)),)
+        self.assertEqual(finish(StepJob(state, rules, 'prefix')),
+                         finish(StepJob(state, rules, 'guard-prefix')))
+        reject = (Rule((), (('p', (1,)),), ('true',), ((1, ('a', ())),)),)
+        result = finish(StepJob(state, reject, 'guard-prefix'))
+        self.assertEqual(result, ('answer', {'outputs': [0], 'residual': [('p', (0,))]}))
+        self.assertEqual(state.sub, ())
+
+
 if __name__ == '__main__':
     unittest.main()

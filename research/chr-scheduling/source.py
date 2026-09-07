@@ -189,7 +189,36 @@ def match(pattern, value, bindings):
     return True
 
 
-def prefix_matches(heads, pools, sub):
+def prefix_guards(guards, bindings, sub):
+    for a, b in guards:
+        pending = [a, b]
+        ready = True
+        while pending:
+            term = pending.pop()
+            yield 'guard_dependency'
+            if isinstance(term, int):
+                if term not in bindings:
+                    ready = False
+                    break
+            else:
+                for child in term[1]:
+                    yield 'guard_dependency'
+                    pending.append(child)
+        if not ready:
+            continue
+        yield 'guard_early'
+        # All rule variables are mapped: this renaming allocates no fresh IDs.
+        rename = Rename(0, bindings)
+        a = yield from rename.term(a)
+        b = yield from rename.term(b)
+        a = yield from resolve(a, sub)
+        b = yield from resolve(b, sub)
+        if not (yield from equal(a, b)):
+            return False
+    return True
+
+
+def prefix_matches(heads, pools, sub, guards=()):
     """Yield charged actions or complete (occurrences, pattern bindings)."""
     stack = [(0, 0, (), {}, frozenset())]
     while stack:
@@ -212,6 +241,8 @@ def prefix_matches(heads, pools, sub):
         value = yield from resolve(occurrence[1], sub)
         if not (yield from match(heads[depth], value, child)):
             continue
+        if guards and not (yield from prefix_guards(guards, child, sub)):
+            continue
         for _ in selected:
             yield 'prefix_copy'
         for _ in used:
@@ -221,7 +252,7 @@ def prefix_matches(heads, pools, sub):
 
 class StepJob:
     def __init__(self, state, rules, selector="scan"):
-        if selector not in ("scan", "predicate", "prefix"):
+        if selector not in ("scan", "predicate", "prefix", "guard-prefix"):
             raise ValueError("unknown selector")
         self.selector = selector
         self.state, self.rules = state, rules
@@ -292,7 +323,7 @@ class StepJob:
             heads = rule.kept + rule.removed
             if not heads:
                 raise ValueError('empty rule head')
-            if self.selector in ('predicate', 'prefix'):
+            if self.selector in ('predicate', 'prefix', 'guard-prefix'):
                 pools = []
                 for head in heads:
                     pool = []
@@ -306,7 +337,8 @@ class StepJob:
                                 head[0] == root[0] and len(head[1]) == len(root[1])):
                             pool.append(occurrence)
                     pools.append(pool)
-                selections = (prefix_matches(heads, pools, sub) if self.selector == 'prefix'
+                selections = (prefix_matches(heads, pools, sub, rule.guards if self.selector == 'guard-prefix' else ())
+                              if self.selector in ('prefix', 'guard-prefix')
                               else ((item, None) for item in product(*pools)))
             else:
                 selections = ((item, None) for item in permutations(s.store, len(heads)))
