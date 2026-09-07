@@ -59,7 +59,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T009
+active_task: T010
 tasks:
   - id: T001
     type: pm
@@ -376,7 +376,7 @@ tasks:
   - id: T009
     type: pm
     assignee: PM
-    status: active
+    status: done
     objective: 'E10 first structural-solver probe: closed structural operations, regular membership with explicit hole equations,
       and equality-constrained finite skeletons; independent denotation and source-boundary checks.'
     inputs:
@@ -385,7 +385,17 @@ tasks:
       - docs/goals/chr-sharing/notes/T016-exact-solver-projection.md
     expected_output:
       - Registered executable comparison and evidence-backed receipt; refine scope before activation.
-    receipt: null
+    receipt:
+      result: done
+      harness: codex
+      summary: 'First structural probes: 150 operation and 270 space configurations pass with exact non-time replay. Selectivity
+        and identity reuse help; unshared inputs and nondeterministic overlap expose costs. Broader E10 remains open.'
+      evidence:
+        - docs/experiments/results/E10.md
+      commands:
+        - cargo test --workspace --all-targets
+        - cargo clippy --workspace --all-targets -- -D warnings
+        - cargo fmt --all -- --check
     allowed_files:
       - Cargo.toml
       - Cargo.lock
@@ -402,13 +412,26 @@ tasks:
   - id: T010
     type: pm
     assignee: PM
-    status: queued
+    status: active
     objective: E11 whole-evaluator symbolic first probe
     inputs:
       - docs/experiments/sequence.md
     expected_output:
       - Registered executable comparison and evidence-backed receipt; refine scope before activation.
     receipt: null
+    allowed_files:
+      - Cargo.toml
+      - Cargo.lock
+      - research/chr-symbolic/
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    verify:
+      - cargo test --workspace --all-targets
+      - cargo clippy --workspace --all-targets -- -D warnings
+      - cargo fmt --all -- --check
+    stop_if:
+      - Keep fixed committed policy, explicit OR, full residual endpoints and exact bounds explicit; experimental encoding
+        does not adopt production semantics.
   - id: T011
     type: pm
     assignee: PM
