@@ -79,3 +79,12 @@ state which assumptions the tested controls share and whether a feasible contras
 could materially change the conclusion. No entry is closed by this audit. The
 regional repeated-cost proposal is queued because an untested architectural
 contrast now has greater decision value, not because its evidence is invalid.
+
+
+The [distributed-choice entry](../goals/chr-experiments/notes/T021-distributed-choice-entry.md)
+records the user's paired-wire proposal directly. Matching interfaces, named local
+correlation and independent-name distribution are investigated without mandatory
+store/unifier APIs. Answer validity, work suppression and reclamation remain
+separate obligations; local connections, global compatibility and lazy invalidation
+are competing mechanisms. This expands A2/A5/A7/A8 investigation without closing
+any other architectural contrast.

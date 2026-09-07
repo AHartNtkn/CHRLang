@@ -59,7 +59,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T020
+active_task: T021
 tasks:
   - id: T001
     type: pm
@@ -700,13 +700,13 @@ tasks:
   - id: T020
     type: pm
     assignee: PM
-    status: active
+    status: queued
     objective: A6 exact graph observation before export with a competent eager control and retention accounting.
     inputs:
       - docs/experiments/architecture-assumptions.md
       - docs/goals/chr-experiments/notes/T018-independent-entries.md
     expected_output:
-      - Independent graph gate passes4290comparisons and exact replay; actual completion gate passes64case contracts in128children with separate source/export accounting. V2 adds17154cross-view comparisons;128four-control lifecycle pilot children pass. Same-comparator controls separate mapping and export savings; distinct streams increase graph allocation traffic. Continue randomized repetitions, cross-query retention and traversal costs; A6 remains open.
+      - Independent graph gate passes4290comparisons and exact replay; actual completion gate passes64case contracts in128children with separate source/export accounting. V2 adds17154cross-view comparisons;128four-control lifecycle pilot children pass. Same-comparator controls separate mapping and export savings; distinct streams increase graph allocation traffic. Repeated costs pass768children; graph/matched-eager cold ranges2lower13overlap1higher, allocationprofilesrepeat exactly. Continue larger sweeps, cross-query retention, applications and mapping-sensitive reuse; A6 remains open.
     receipt: null
     allowed_files:
       - research/chr-persistent/
@@ -721,6 +721,30 @@ tasks:
       - Relevant workspace tests, Clippy and formatting
     stop_if:
       - Preserve ordinary full answer delivery, joint aliases and residual multiplicity; account for retained arena and binding memory.
+
+  - id: T021
+    type: pm
+    assignee: PM
+    status: active
+    objective: Investigate distributed named choice directly as graph rewriting, separating answer validity from reclamation.
+    inputs:
+      - docs/goals/chr-experiments/notes/T021-distributed-choice-entry.md
+      - docs/experiments/architecture-assumptions.md
+      - docs/experiments/results/E06-native.md
+    expected_output:
+      - Direct graph semantic probes and independent observations for paired interfaces, correlated/independent names, dynamic identities and partial/disconnected failure; no mandatory store-service boundary.
+    receipt: null
+    allowed_files:
+      - research/
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+      - Cargo.toml
+      - Cargo.lock
+    verify:
+      - Registered graph/projection semantic gates and focused regression tests
+      - Charged validity, sharing and observation accounting
+    stop_if:
+      - Source contract adoption remains with the owner; failure validity does not require immediate physical reclamation.
 
 checks:
   dirty_fingerprint: clean_at_start
