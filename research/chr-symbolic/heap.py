@@ -111,13 +111,16 @@ class Heap:
         length=z3.IntVal(1)
         for _ in range(steps):
             active=z3.And(entry,z3.Not(self.failed),length>0)
+            if self.e.impossible(active):break
             a=self.deref(select(xs,length-1));b=self.deref(select(ys,length-1))
             ta=select(self.tags,a);tb=select(self.tags,b)
             same=a==b;va=ta==1;vb=tb==1
             bind_a=z3.And(z3.Not(same),va)
             bind_b=z3.And(z3.Not(same),z3.Not(va),vb)
             constructor=z3.And(z3.Not(same),z3.Not(va),z3.Not(vb))
-            bad=z3.Or(z3.And(bind_a,self.occurs(a,b)),z3.And(bind_b,self.occurs(b,a)),z3.And(constructor,ta!=tb))
+            occurs_a=z3.BoolVal(False) if z3.is_false(z3.simplify(bind_a)) else self.occurs(a,b)
+            occurs_b=z3.BoolVal(False) if z3.is_false(z3.simplify(bind_b)) else self.occurs(b,a)
+            bad=z3.Or(z3.And(bind_a,occurs_a),z3.And(bind_b,occurs_b),z3.And(constructor,ta!=tb))
             success=z3.And(active,z3.Not(bad))
             target=z3.If(bind_a,a,b);value=z3.If(bind_a,b,a)
             self.sub=[self.e.bind(z3.If(z3.And(success,z3.Or(bind_a,bind_b),target==i),value,old)) for i,old in enumerate(self.sub)]
