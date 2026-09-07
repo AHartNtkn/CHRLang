@@ -52,6 +52,10 @@ impl Machine {
     pub fn stats(&self) -> &Stats {
         &self.stats
     }
+    /// Only the next pending equation, resolved under this cursor's environment.
+    pub fn pending_equation(&mut self, cursor: &Cursor) -> Option<(Term, Term)> {
+        cursor.0.pending_equation(&self.arena, &mut self.stats)
+    }
     pub fn step(&mut self, mut cursor: Cursor) -> Step {
         self.stats.steps += 1;
         match cursor.0.step(

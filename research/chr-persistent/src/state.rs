@@ -321,6 +321,19 @@ impl State {
 }
 
 impl State {
+    pub(crate) fn pending_equation(
+        &self,
+        arena: &Arena,
+        stats: &mut Stats,
+    ) -> Option<(Source, Source)> {
+        match &self.pending.0.as_ref()?.0 {
+            Work::Equal(a, b) => Some((
+                arena.export(*a, &self.bindings, stats),
+                arena.export(*b, &self.bindings, stats),
+            )),
+            _ => None,
+        }
+    }
     pub(crate) fn key(&self, arena: &Arena, stats: &mut Stats) -> crate::continuations::StateKey {
         use crate::continuations::{StateKey, WorkKey};
         fn work_key(w: &Work, arena: &Arena, bindings: &Bindings, stats: &mut Stats) -> WorkKey {
