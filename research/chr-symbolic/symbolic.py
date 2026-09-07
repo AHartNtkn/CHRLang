@@ -75,6 +75,9 @@ class Bounded:
     def step(self,tick,service):
         events=[]
         active=self.e.bind(z3.And(self.h.active(),z3.Not(self.done)))
+        if z3.is_false(z3.simplify(active)):
+            self.events.append([])
+            return
         old_length=self.length;front=self.queue[0]
         pending_guard=self.e.bind(z3.And(active,old_length>0))
         rule_guard=self.e.bind(z3.And(active,old_length==0))

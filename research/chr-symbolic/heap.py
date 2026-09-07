@@ -43,6 +43,7 @@ class Heap:
 
     def allocate(self,tag,args,guard):
         active=self.active(guard)
+        if z3.is_false(z3.simplify(active)):return z3.IntVal(0)
         fits=self.count<self.n
         valid=z3.And(*[z3.And(c>=0,c<self.count) for c in args])
         self.e.solver.add(z3.Implies(active,valid))
@@ -82,6 +83,7 @@ class Heap:
     def unify(self,left,right,steps,guard=True):
         if steps<0:raise ValueError('negative service bound')
         entry=self.active(guard)
+        if z3.is_false(z3.simplify(entry)):return
         self.e.solver.add(z3.Implies(entry,z3.And(left>=0,left<self.count,right>=0,right<self.count)))
         capacity=1+steps*max(self.arity-1,0)
         xs=[left]+[z3.IntVal(0)]*(capacity-1);ys=[right]+[z3.IntVal(0)]*(capacity-1)
