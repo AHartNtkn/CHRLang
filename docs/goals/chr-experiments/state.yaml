@@ -525,8 +525,10 @@ tasks:
     objective: E06 backend service probes
     inputs:
       - docs/experiments/sequence.md
+      - docs/experiments/results/E06-data-gate.md
+      - docs/experiments/results/E06-lookup.md
     expected_output:
-      - Registered executable comparison and evidence-backed receipt; refine scope before activation.
+      - Continue preserving-prefix lookup, complete binding service, richer protocols, encoded backend and native choice correspondence; first data gate and lookup costs are recorded.
     receipt: null
     allowed_files:
       - Cargo.toml
@@ -535,6 +537,7 @@ tasks:
       - docs/experiments/
       - docs/goals/chr-experiments/
     verify:
+      - PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s research/chr-nets -v
       - cargo test --workspace --all-targets
       - cargo clippy --workspace --all-targets -- -D warnings
       - cargo fmt --all -- --check
