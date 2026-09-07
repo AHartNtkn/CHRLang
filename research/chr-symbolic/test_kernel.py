@@ -31,12 +31,25 @@ class KernelTests(unittest.TestCase):
         for a in range(len(nodes)):
             for b in range(len(nodes)):
                 with self.subTest(a=a,b=b):
-                    result=circuit.solve(a,b)
+                    result=circuit.solve([(a,b)])
                     expected=unify(a,b)
                     self.assertEqual(result['status'],'failed' if expected is None else 'done')
                     if expected is not None:self.assertEqual(result['variables'],expected)
     def test_cutoff_is_not_failure_or_answer(self):
         c=Circuit([('var',()),('z',())],0)
-        self.assertEqual(c.solve(0,1)['status'],'cutoff')
+        self.assertEqual(c.solve([(0,1)])['status'],'cutoff')
+
+
+class SequenceTests(unittest.TestCase):
+    def test_bindings_flow_and_late_occurs_failure(self):
+        nodes=[('var',()),('var',()),('z',()),('s',(0,))]
+        c=Circuit(nodes,4,equations=2)
+        self.assertEqual(c.solve([(0,1),(1,2)]),{'status':'done','variables':[('z',()),('z',())]})
+        self.assertEqual(c.solve([(0,1),(1,3)])['status'],'failed')
+
+    def test_cutoff_prevents_following_equation(self):
+        nodes=[('var',()),('z',()),('s',(0,)),('s',(1,))]
+        c=Circuit(nodes,1,equations=2)
+        self.assertEqual(c.solve([(2,3),(0,1)]),{'status':'cutoff','variables':[0]})
 
 if __name__=='__main__':unittest.main()

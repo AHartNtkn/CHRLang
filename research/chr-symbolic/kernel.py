@@ -13,8 +13,8 @@ def select(values, index):
 
 
 class Circuit:
-    def __init__(self,nodes,steps):
-        if not nodes or steps<0:raise ValueError('nonempty arena and nonnegative bound required')
+    def __init__(self,nodes,steps,equations=1):
+        if not nodes or steps<0 or equations<1:raise ValueError('nonempty arena and nonnegative bound required')
         for i,(name,args) in enumerate(nodes):
             if name=='var' and args:raise ValueError('variable has children')
             if any(c<0 or c>=i for c in args):raise ValueError('constructor arena must be acyclic and topological')
@@ -22,16 +22,14 @@ class Circuit:
         self.solver=z3.Solver()
         self.serial=0
         n=len(nodes)
-        self.left=z3.Int('left');self.right=z3.Int('right')
-        self.solver.add(self.left>=0,self.left<n,self.right>=0,self.right<n)
+        self.operands=[(z3.Int(f'left{i}'),z3.Int(f'right{i}')) for i in range(equations)]
+        for left,right in self.operands:self.solver.add(left>=0,left<n,right>=0,right<n)
         sub=list(map(z3.IntVal,range(n)))
         # At most maxarity-1 extra pairs per decomposition. Capacity covers every
         # registered microstep, independently of shape/sharing.
         arity=max(len(args) for _,args in nodes)
         capacity=1+steps*max(arity-1,0)
-        xs=[self.left]+[z3.IntVal(0)]*(capacity-1)
-        ys=[self.right]+[z3.IntVal(0)]*(capacity-1)
-        length=z3.IntVal(1);failed=z3.BoolVal(False)
+        failed=z3.BoolVal(False);cutoff=z3.BoolVal(False)
         tags={key:i for i,key in enumerate(sorted(set((name,len(args)) for name,args in nodes)))}
         labels=[z3.IntVal(tags[(name,len(args))]) for name,args in nodes]
         sizes=[z3.IntVal(len(args)) for _,args in nodes]
@@ -46,34 +44,39 @@ class Circuit:
             for _ in range(n):
                 reachable=[self.bind(z3.Or(z3.IntVal(i)==v,z3.If(sub[i]!=i,select(reachable,sub[i]),z3.Or(*[reachable[c] for c in args])))) for i,(_,args) in enumerate(nodes)]
             return select(reachable,x)
-        for _ in range(steps):
-            active=z3.And(z3.Not(failed),length>0)
-            a=deref(select(xs,length-1));b=deref(select(ys,length-1))
-            same=a==b;va=select(variables,a);vb=select(variables,b)
-            bind_a=z3.And(z3.Not(same),va)
-            bind_b=z3.And(z3.Not(same),z3.Not(va),vb)
-            cycle=z3.Or(z3.And(bind_a,occurs(a,b)),z3.And(bind_b,occurs(b,a)))
-            constructor=z3.And(z3.Not(same),z3.Not(va),z3.Not(vb))
-            clash=z3.And(constructor,select(labels,a)!=select(labels,b))
-            bad=z3.Or(cycle,clash)
-            success=z3.And(active,z3.Not(bad))
-            target=z3.If(bind_a,a,b);value=z3.If(bind_a,b,a)
-            sub=[self.bind(z3.If(z3.And(success,z3.Or(bind_a,bind_b),target==i),value,old)) for i,old in enumerate(sub)]
-            push=z3.If(constructor,select(sizes,a),0)
-            new_x=[];new_y=[]
-            for slot in range(capacity):
-                x=xs[slot];y=ys[slot]
-                # Reverse push gives the leftmost constructor child first.
-                for child in range(arity):
-                    at=z3.And(success,constructor,child<push,slot==length-1+push-1-child)
-                    ac=select([z3.IntVal(args[child] if child<len(args) else 0) for _,args in nodes],a)
-                    bc=select([z3.IntVal(args[child] if child<len(args) else 0) for _,args in nodes],b)
-                    x=z3.If(at,ac,x);y=z3.If(at,bc,y)
-                new_x.append(self.bind(x));new_y.append(self.bind(y))
-            xs,ys=new_x,new_y
-            length=self.bind(z3.If(success,length-1+push,length))
-            failed=self.bind(z3.Or(failed,z3.And(active,bad)))
-        self.sub=sub;self.failed=failed;self.length=length
+        for left,right in self.operands:
+            xs=[left]+[z3.IntVal(0)]*(capacity-1)
+            ys=[right]+[z3.IntVal(0)]*(capacity-1)
+            length=z3.IntVal(1)
+            for _ in range(steps):
+                active=z3.And(z3.Not(failed),z3.Not(cutoff),length>0)
+                a=deref(select(xs,length-1));b=deref(select(ys,length-1))
+                same=a==b;va=select(variables,a);vb=select(variables,b)
+                bind_a=z3.And(z3.Not(same),va)
+                bind_b=z3.And(z3.Not(same),z3.Not(va),vb)
+                cycle=z3.Or(z3.And(bind_a,occurs(a,b)),z3.And(bind_b,occurs(b,a)))
+                constructor=z3.And(z3.Not(same),z3.Not(va),z3.Not(vb))
+                clash=z3.And(constructor,select(labels,a)!=select(labels,b))
+                bad=z3.Or(cycle,clash)
+                success=z3.And(active,z3.Not(bad))
+                target=z3.If(bind_a,a,b);value=z3.If(bind_a,b,a)
+                sub=[self.bind(z3.If(z3.And(success,z3.Or(bind_a,bind_b),target==i),value,old)) for i,old in enumerate(sub)]
+                push=z3.If(constructor,select(sizes,a),0)
+                new_x=[];new_y=[]
+                for slot in range(capacity):
+                    x=xs[slot];y=ys[slot]
+                    # Reverse push gives the leftmost constructor child first.
+                    for child in range(arity):
+                        at=z3.And(success,constructor,child<push,slot==length-1+push-1-child)
+                        ac=select([z3.IntVal(args[child] if child<len(args) else 0) for _,args in nodes],a)
+                        bc=select([z3.IntVal(args[child] if child<len(args) else 0) for _,args in nodes],b)
+                        x=z3.If(at,ac,x);y=z3.If(at,bc,y)
+                    new_x.append(self.bind(x));new_y.append(self.bind(y))
+                xs,ys=new_x,new_y
+                length=self.bind(z3.If(success,length-1+push,length))
+                failed=self.bind(z3.Or(failed,z3.And(active,bad)))
+            cutoff=self.bind(z3.Or(cutoff,z3.And(z3.Not(failed),length>0)))
+        self.sub=sub;self.failed=failed;self.cutoff=cutoff
 
     def bind(self,expression):
         expression=z3.simplify(expression)
@@ -83,16 +86,18 @@ class Circuit:
         self.solver.add(value==expression)
         return value
 
-    def solve(self,left,right):
-        if not 0<=left<len(self.nodes) or not 0<=right<len(self.nodes):raise ValueError('operand outside arena')
-        self.solver.push();self.solver.add(self.left==left,self.right==right)
+    def solve(self,equations):
+        if len(equations)!=len(self.operands):raise ValueError('equation count differs from circuit')
+        if any(not 0<=i<len(self.nodes) for pair in equations for i in pair):raise ValueError('operand outside arena')
+        self.solver.push()
+        for (left,right),(a,b) in zip(self.operands,equations):self.solver.add(left==a,right==b)
         status=self.solver.check()
         if status!=z3.sat:
             self.solver.pop()
             raise RuntimeError(f'deterministic circuit has no model: {status}')
         model=self.solver.model()
         failure=z3.is_true(model.eval(self.failed))
-        done=model.eval(self.length).as_long()==0
+        done=z3.is_false(model.eval(self.cutoff))
         sub=[model.eval(x).as_long() for x in self.sub]
         def decode(i):
             if sub[i]!=i:return decode(sub[i])
