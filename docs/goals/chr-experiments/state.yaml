@@ -539,8 +539,10 @@ checks:
   dirty_fingerprint: clean_at_start
   last_verification:
     result: passed
-    task: T010
+    task: T011
     commands:
-      - 47 Python tests
-      - workspace tests, Clippy and formatting
-      - 48 registered runs; all completed semantic/counter repeats agree
+      - Workspace tests, Clippy and formatting pass
+      - E12 continuation gate includes all 64 E00 and 40 duplicate workloads
+      - 208 registered configurations and exact non-time replay pass
+    evidence:
+      - docs/experiments/results/E12-continuations.md
