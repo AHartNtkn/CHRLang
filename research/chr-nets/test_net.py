@@ -137,6 +137,125 @@ class Services(unittest.TestCase):
         for mode in ('net', 'preserving', 'borrowed', 'copied'):
             self.assertTrue(measure(1, 0, 'last', mode)['passed'])
 
+    def test_dereference_aliases_preserves_table_and_yields(self):
+        from net import dereference
+        from measure import nat
+        ref = lambda n: tree('Ref', nat(n))
+        app = tree('App', nat(0), tree('Cons', ref(3), tree('Nil')))
+        table = tree('Nil')
+        for key, value in reversed([(0, ref(1)), (1, ref(2)), (2, app)]):
+            table = tree('Cons', tree('Pair', nat(key), value), table)
+        for operand, expected in [(ref(0), app), (ref(1), app), (ref(2), app),
+                                  (ref(3), ref(3)), (app, app)]:
+            for newest in (False, True):
+                for quantum in (1, 7):
+                    net, kept, result = dereference(table, operand)
+                    self.finish(net, newest, quantum)
+                    self.assertEqual(read(net, kept), table)
+                    self.assertEqual(read(net, result), expected)
+
+    def test_cyclic_dereference_cannot_publish_an_answer(self):
+        from net import dereference
+        from measure import nat
+        ref = tree('Ref', nat(0))
+        table = tree('Cons', tree('Pair', nat(0), ref), tree('Nil'))
+        net, kept, result = dereference(table, ref)
+        self.assertEqual(net.advance(300), 'more')
+        net.check()
+        with self.assertRaisesRegex(ValueError, 'not quiescent'):
+            read(net, result)
+
+    def test_occurs_follows_aliases_and_constructor_children(self):
+        from net import occurs
+        from measure import nat
+        ref = lambda n: tree('Ref', nat(n))
+        def app(*args):
+            children = tree('Nil')
+            for arg in reversed(args):
+                children = tree('Cons', arg, children)
+            return tree('App', nat(0), children)
+        tables = [[], [(0, ref(1))], [(0, app(ref(1), ref(2)))],
+                  [(0, ref(1)), (1, app(ref(2)))]]
+        operands = [ref(0), ref(1), ref(2), ref(3), app(), app(ref(0)),
+                    app(app(ref(0)), ref(3)), app(ref(2), ref(2))]
+        def oracle(term, target, env):
+            if term[0] == 'Ref':
+                ident = term[1][0]
+                if ident in env:
+                    return oracle(env[ident], target, env)
+                return ident == target
+            children = term[1][1]
+            while children[0] == 'Cons':
+                child, children = children[1]
+                if oracle(child, target, env):
+                    return True
+            return False
+        for entries in tables:
+            table = tree('Nil')
+            for key, value in reversed(entries):
+                table = tree('Cons', tree('Pair', nat(key), value), table)
+            env = {nat(k): value for k, value in entries}
+            for target in (2, 3):
+                for operand in operands:
+                    expected = oracle(operand, nat(target), env)
+                    for newest in (False, True):
+                        net, kept, result = occurs(table, nat(target), operand)
+                        self.finish(net, newest, 3)
+                        self.assertEqual(read(net, kept), table)
+                        self.assertEqual(read(net, result), tree('T' if expected else 'F'))
+
+    def test_transactional_unification_and_occurs_failures(self):
+        from net import unification
+        from measure import nat
+        ref = lambda n: tree('Ref', nat(n))
+        def app(tag, *args):
+            children = tree('Nil')
+            for arg in reversed(args):
+                children = tree('Cons', arg, children)
+            return tree('App', nat(tag), children)
+        a, b = app(0), app(1)
+        cases = [([], [], [ref(0), ref(1), ref(2)]),
+                 ([], [(ref(0), a)], [a, ref(1), ref(2)]),
+                 ([], [(ref(0), ref(1))], [ref(1), ref(1), ref(2)]),
+                 ([], [(app(2, ref(0)), app(2, a))], [a, ref(1), ref(2)]),
+                 ([], [(ref(0), app(2, ref(0)))], None),
+                 ([], [(ref(0), ref(1)), (ref(1), app(2, ref(0)))], None),
+                 ([], [(ref(0), a), (ref(0), b)], None),
+                 ([], [(app(2, a), app(2))], None),
+                 ([], [(app(2), app(2, a))], None),
+                 ([], [(a, b)], None),
+                 ([], [(a, ref(0))], [a, ref(1), ref(2)]),
+                 ([(0, ref(1))], [(ref(1), a)], [a, a, ref(2)]),
+                 ([], [(app(2, ref(0), ref(0)), app(2, a, b))], None)]
+        def listing(items):
+            value = tree('Nil')
+            for item in reversed(items):
+                value = tree('Cons', item, value)
+            return value
+        def project(term, env):
+            if term[0] == 'Ref' and term[1][0] in env:
+                return project(env[term[1][0]], env)
+            return tree(term[0], *(project(c, env) for c in term[1]))
+        for bindings, equations, expected in cases:
+            table = listing([tree('Pair', nat(k), v) for k, v in bindings])
+            pending = listing([tree('Pair', x, y) for x, y in equations])
+            for newest in (False, True):
+                net, original, result = unification(table, pending)
+                self.finish(net, newest, 7)
+                self.assertEqual(read(net, original), table)
+                answer = read(net, result)
+                if expected is None:
+                    self.assertEqual(answer, tree('None'))
+                else:
+                    self.assertEqual(answer[0], 'Some')
+                    entries, env = answer[1][0], {}
+                    while entries[0] == 'Cons':
+                        entry, entries = entries[1]
+                        key, value = entry[1]
+                        self.assertNotIn(key, env)
+                        env[key] = value
+                    self.assertEqual([project(ref(i), env) for i in range(3)], expected)
+
     def test_rule_interface_validation(self):
         with self.assertRaisesRegex(ValueError, 'every interface'):
             System({'C': 1, 'Z': 0}, [Rule('C', 'Z', (), ())])

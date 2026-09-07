@@ -529,8 +529,9 @@ tasks:
       - docs/experiments/results/E06-lookup.md
       - docs/experiments/results/E06-lookup-preserving.md
       - docs/experiments/results/E06-hvm-boundary.md
+      - docs/experiments/results/E06-unification.md
     expected_output:
-      - Continue complete binding service, richer protocols, general encoded machine and native choice correspondence; preserving lookup and backend boundary gates are recorded.
+      - Continue full binding-service cost controls and source effects, richer protocols, general encoded machine and native choice correspondence; finite-tree service and backend boundary gates are recorded.
     receipt: null
     allowed_files:
       - Cargo.toml
@@ -590,10 +591,10 @@ checks:
   dirty_fingerprint: clean_at_start
   last_verification:
     result: passed
-    task: T012
+    task: T013
     commands:
-      - Workspace tests, Clippy and formatting pass
-      - E13 independent arithmetic and all-budget checks pass
-      - 900 specialization configurations and exact non-time replay pass
+      - Thirteen net service tests pass
+      - 864 independent reference comparisons and exact replay pass
+      - chr-cases tests and Clippy pass; workspace formatting passes
     evidence:
-      - docs/experiments/results/E13-costs.md
+      - docs/experiments/results/E06-unification.md

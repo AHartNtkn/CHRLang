@@ -153,7 +153,7 @@ DATA = {'Z': 0, 'S': 1, 'Nil': 0, 'Cons': 2, 'Ref': 1, 'App': 2,
 
 
 def data_system():
-    arities = dict(DATA, Eq=2, And=2, Dup=2, Erase=0, Out=0, Look=2, Entry=3, Decide=4, Keep=2, KeepEntry=3, KeepDecide=5, Restore=3, Unpack=2)
+    arities = dict(DATA, Eq=2, And=2, Dup=2, Erase=0, Out=0, Look=2, Entry=3, Decide=4, Keep=2, KeepEntry=3, KeepDecide=5, Restore=3, Unpack=2, Deref=2, DerefLookup=2, DerefOption=3, Occurs=3, OccursAfter=3, OccursRoot=4, OccursDecide=4, Append=2)
     arities.update({'Match' + tag: arity + 1 for tag, arity in DATA.items()})
     rules = []
     for tag, arity in DATA.items():
@@ -237,6 +237,43 @@ def data_system():
               ((1, 1), (2, 0)), ((1, 2), 3), ((2, 1), 0), ((2, 2), 1))),
         Rule('Unpack', 'Pair', (), ((0, 2), (1, 3))),
     ])
+    rules.extend([
+        Rule('Deref', 'App', ('Pair', 'App'),
+             ((0, (0, 1)), (1, (0, 0)), (2, (1, 1)), (3, (1, 2)), ((0, 2), (1, 0)))),
+        Rule('Deref', 'Ref', ('Dup', 'Keep', 'DerefLookup'),
+             ((0, (1, 0)), (2, (0, 0)), ((0, 1), (1, 1)),
+              ((0, 2), (2, 1)), ((1, 2), (2, 0)), (1, (2, 2)))),
+        Rule('DerefLookup', 'Pair', ('DerefOption',),
+             ((3, (0, 0)), (0, (0, 1)), (2, (0, 2)), (1, (0, 3)))),
+        Rule('DerefOption', 'None', ('Pair', 'Ref'),
+             ((0, (1, 1)), (1, (0, 1)), (2, (0, 0)), ((1, 0), (0, 2)))),
+        Rule('DerefOption', 'Some', ('Erase', 'Deref'),
+             ((0, (0, 0)), (3, (1, 0)), (1, (1, 1)), (2, (1, 2)))),
+    ])
+    rules.extend([
+        Rule('Occurs', 'Nil', ('Erase', 'Pair', 'F'),
+             ((0, (0, 0)), (1, (1, 1)), (2, (1, 0)), ((1, 2), (2, 0)))),
+        Rule('Occurs', 'Cons', ('Deref', 'OccursAfter'),
+             ((3, (0, 0)), (1, (0, 1)), ((0, 2), (1, 0)),
+              (0, (1, 1)), (4, (1, 2)), (2, (1, 3)))),
+        Rule('OccursAfter', 'Pair', ('OccursRoot',),
+             ((4, (0, 0)), (0, (0, 1)), (1, (0, 2)), (3, (0, 3)), (2, (0, 4)))),
+        Rule('OccursRoot', 'Ref', ('Dup', 'Eq', 'OccursDecide'),
+             ((0, (0, 0)), ((0, 1), (1, 1)), ((0, 2), (2, 1)),
+              (4, (1, 0)), ((1, 2), (2, 0)), (1, (2, 2)), (2, (2, 3)), (3, (2, 4)))),
+        Rule('OccursDecide', 'T', ('Erase', 'Erase', 'Pair', 'T'),
+             ((0, (0, 0)), (1, (1, 0)), (2, (2, 1)), (3, (2, 0)), ((2, 2), (3, 0)))),
+        Rule('OccursDecide', 'F', ('Occurs',),
+             ((1, (0, 0)), (0, (0, 1)), (2, (0, 2)), (3, (0, 3)))),
+        Rule('OccursRoot', 'App', ('Erase', 'Append', 'Occurs'),
+             ((4, (0, 0)), (5, (1, 0)), (1, (1, 1)), ((1, 2), (2, 0)),
+              (0, (2, 1)), (2, (2, 2)), (3, (2, 3)))),
+        Rule('Append', 'Nil', (), ((0, 1),)),
+        Rule('Append', 'Cons', ('Cons', 'Append'),
+             ((2, (0, 1)), (1, (0, 0)), (3, (1, 0)), (0, (1, 1)), ((1, 2), (0, 2)))),
+    ])
+    from unification_rules import install
+    install(arities, rules, Rule)
     return System(arities, rules)
 
 
@@ -296,3 +333,41 @@ def lookup_preserving(table, key):
     net.connect((unpack, 1), (kept, 0))
     net.connect((unpack, 2), (result, 0))
     return net, kept, result
+
+
+def dereference(table, operand):
+    net = Net(data_system())
+    kept, result = net.node('Out'), net.node('Out')
+    deref, unpack = net.node('Deref'), net.node('Unpack')
+    net.connect((deref, 0), (encode(net, operand), 0))
+    net.connect((deref, 1), (encode(net, table), 0))
+    net.connect((deref, 2), (unpack, 0))
+    net.connect((unpack, 1), (kept, 0))
+    net.connect((unpack, 2), (result, 0))
+    return net, kept, result
+
+
+def occurs(table, target, operand):
+    net = Net(data_system())
+    kept, result = net.node('Out'), net.node('Out')
+    controller, unpack = net.node('Occurs'), net.node('Unpack')
+    pending = ('Cons', (operand, ('Nil', ())))
+    net.connect((controller, 0), (encode(net, pending), 0))
+    net.connect((controller, 1), (encode(net, target), 0))
+    net.connect((controller, 2), (encode(net, table), 0))
+    net.connect((controller, 3), (unpack, 0))
+    net.connect((unpack, 1), (kept, 0))
+    net.connect((unpack, 2), (result, 0))
+    return net, kept, result
+
+
+def unification(table, equations):
+    net = Net(data_system())
+    original, result = net.node('Out'), net.node('Out')
+    dup, controller = net.node('Dup'), net.node('U')
+    net.connect((dup, 0), (encode(net, table), 0))
+    net.connect((dup, 1), (original, 0))
+    net.connect((dup, 2), (controller, 1))
+    net.connect((controller, 0), (encode(net, equations), 0))
+    net.connect((controller, 2), (result, 0))
+    return net, original, result
