@@ -4,6 +4,11 @@ use chr_syntax::{Answer, Query, Rule, Term};
 
 #[derive(Clone)]
 pub struct Cursor(pub(crate) state::State);
+#[derive(Clone, Debug, PartialEq, Eq)]
+pub enum TermHead {
+    Variable(u64),
+    Constructor(String, usize),
+}
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord)]
 pub(crate) enum WorkKey {
     Insert(String, Vec<Term>),
@@ -55,6 +60,19 @@ impl Machine {
     /// Only the next pending equation, resolved under this cursor's environment.
     pub fn pending_equation(&mut self, cursor: &Cursor) -> Option<(Term, Term)> {
         cursor.0.pending_equation(&self.arena, &mut self.stats)
+    }
+    pub fn has_pending_equation(&self, cursor: &Cursor) -> bool {
+        cursor.0.has_pending_equation()
+    }
+    pub fn pending_head(
+        &mut self,
+        cursor: &Cursor,
+        left: bool,
+        path: &[usize],
+    ) -> Option<TermHead> {
+        cursor
+            .0
+            .pending_head(&self.arena, &mut self.stats, left, path)
     }
     pub fn step(&mut self, mut cursor: Cursor) -> Step {
         self.stats.steps += 1;

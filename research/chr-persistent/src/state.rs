@@ -321,6 +321,37 @@ impl State {
 }
 
 impl State {
+    pub(crate) fn has_pending_equation(&self) -> bool {
+        self.pending
+            .0
+            .as_ref()
+            .is_some_and(|n| matches!(n.0, Work::Equal(..)))
+    }
+    pub(crate) fn pending_head(
+        &self,
+        arena: &Arena,
+        stats: &mut Stats,
+        left: bool,
+        path: &[usize],
+    ) -> Option<crate::continuations::TermHead> {
+        use crate::continuations::TermHead;
+        let Work::Equal(a, b) = &self.pending.0.as_ref()?.0 else {
+            return None;
+        };
+        let mut term = if left { *a } else { *b };
+        for &index in path {
+            let Term::Node(id) = deref(term, &self.bindings, stats) else {
+                return None;
+            };
+            term = *arena.nodes[id].args.get(index)?;
+        }
+        Some(match deref(term, &self.bindings, stats) {
+            Term::Var(v) => TermHead::Variable(v),
+            Term::Node(id) => {
+                TermHead::Constructor(arena.nodes[id].name.clone(), arena.nodes[id].args.len())
+            }
+        })
+    }
     pub(crate) fn pending_equation(
         &self,
         arena: &Arena,

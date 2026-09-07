@@ -120,6 +120,29 @@ fn all_small_path_certificates_are_sound_against_independent_execution() {
             assert!(result.exhausted);
             let failed = result.answers.is_empty();
             for proof in &proofs {
+                let by_path = chr_reuse::failure::verify_paths(
+                    proof,
+                    |left, path| {
+                        let mut term = if left { a } else { b };
+                        for &index in path {
+                            let Term::App(_, args) = term else {
+                                return None;
+                            };
+                            term = args.get(index)?;
+                        }
+                        Some(match term {
+                            Term::Var(v) => chr_persistent::continuations::TermHead::Variable(v.0),
+                            Term::App(n, args) => {
+                                chr_persistent::continuations::TermHead::Constructor(
+                                    n.clone(),
+                                    args.len(),
+                                )
+                            }
+                        })
+                    },
+                    &mut Stats::default(),
+                );
+                assert_eq!(by_path, verify(proof, a, b, &mut Stats::default()));
                 if verify(proof, a, b, &mut Stats::default()) {
                     assert!(failed, "{proof:?}: {a:?} = {b:?}");
                 }
@@ -137,4 +160,58 @@ fn all_small_path_certificates_are_sound_against_independent_execution() {
         &atom("a"),
         &mut Stats::default()
     ));
+}
+
+#[test]
+fn path_observation_checker_agrees_with_owned_checker() {
+    use chr_persistent::continuations::TermHead;
+    use chr_reuse::failure::verify_paths;
+    use chr_syntax::Term;
+    let inputs = [
+        v(0),
+        v(1),
+        atom("a"),
+        atom("b"),
+        t("f", [v(0)]),
+        t("p", [v(0), atom("a")]),
+        t("p", [v(1), atom("b")]),
+    ];
+    let paths = [vec![], vec![0], vec![1], vec![0, 0], vec![1, 0]];
+    let mut proofs = vec![];
+    for path in &paths {
+        proofs.push(Certificate::Clash { pair: path.clone() });
+        for occurrence in &paths {
+            for variable_on_left in [true, false] {
+                proofs.push(Certificate::Occurs {
+                    pair: path.clone(),
+                    variable_on_left,
+                    occurrence: occurrence.clone(),
+                });
+            }
+        }
+    }
+    for a in &inputs {
+        for b in &inputs {
+            for proof in &proofs {
+                let actual = verify_paths(
+                    proof,
+                    |left, path| {
+                        let mut term = if left { a } else { b };
+                        for &index in path {
+                            let Term::App(_, args) = term else {
+                                return None;
+                            };
+                            term = args.get(index)?;
+                        }
+                        Some(match term {
+                            Term::Var(v) => TermHead::Variable(v.0),
+                            Term::App(n, args) => TermHead::Constructor(n.clone(), args.len()),
+                        })
+                    },
+                    &mut Stats::default(),
+                );
+                assert_eq!(actual, verify(proof, a, b, &mut Stats::default()));
+            }
+        }
+    }
 }

@@ -3,7 +3,7 @@ use chr_reuse::failure_search::{Mode, Search};
 fn learning_preserves_registered_prefixes_answers_and_failure_counts() {
     for case in chr_cases::registry() {
         let mut expected = None;
-        for mode in [Mode::Direct, Mode::Learn] {
+        for mode in [Mode::Direct, Mode::Learn, Mode::Native] {
             let mut search = Search::new(case.rules.clone(), case.query.clone(), mode).unwrap();
             let mut answers = vec![];
             let mut exhausted = false;
@@ -76,6 +76,12 @@ fn learned_failure_never_prunes_an_unposted_equation() {
     assert_eq!(actual.answers.len(), 1);
     assert_eq!(search.stats().failed, 2);
     assert!(search.proof_stats().hits > 0);
+    let mut native = Search::new(rules.clone(), query.clone(), Mode::Native).unwrap();
+    let n = native.advance(100);
+    assert!(n.exhausted);
+    assert_eq!(n.answers, actual.answers);
+    assert_eq!(native.stats().failed, 2);
+    assert!(native.proof_stats().hits > 0);
     let mut reference = chr_reference::Search::new(rules, query).unwrap();
     let expected = reference.advance(100);
     assert!(expected.exhausted);
@@ -95,7 +101,7 @@ fn registered_structural_failure_grid_matches_independent_execution() {
         let expected = reference.advance(case.budget);
         assert!(expected.exhausted);
         assert!(expected.answers.is_empty());
-        for mode in [Mode::Direct, Mode::Learn] {
+        for mode in [Mode::Direct, Mode::Learn, Mode::Native] {
             let mut search = Search::new(case.rules.clone(), case.query.clone(), mode).unwrap();
             let actual = search.advance(case.budget);
             assert!(actual.exhausted);

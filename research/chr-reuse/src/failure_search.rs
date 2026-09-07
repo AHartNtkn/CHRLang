@@ -7,6 +7,7 @@ use std::collections::VecDeque;
 pub enum Mode {
     Direct,
     Learn,
+    Native,
 }
 #[derive(Default, Debug)]
 pub struct Stats {
@@ -15,6 +16,7 @@ pub struct Stats {
     pub completed: u64,
     pub failed: u64,
     pub projected_equations: u64,
+    pub head_reads: u64,
     pub max_frontier: usize,
 }
 pub struct Batch {
@@ -74,6 +76,20 @@ impl Search {
                     continue;
                 }
             }
+            let native_equation =
+                matches!(self.mode, Mode::Native) && self.machine.has_pending_equation(&cursor);
+            if native_equation {
+                let machine = &mut self.machine;
+                let reads = &mut self.stats.head_reads;
+                if self.learner.proves_failure_paths(|left, path| {
+                    *reads += 1;
+                    machine.pending_head(&cursor, left, path)
+                }) {
+                    self.stats.failed += 1;
+                    continue;
+                }
+            }
+            let saved = native_equation.then(|| cursor.clone());
             self.stats.executed += 1;
             match self.machine.step(cursor) {
                 Step::Continue(c) => self.frontier.push_back(c),
@@ -83,6 +99,15 @@ impl Search {
                 }
                 Step::Failed => {
                     self.stats.failed += 1;
+                    let equation = equation.or_else(|| {
+                        saved.and_then(|c| {
+                            let input = self.machine.pending_equation(&c);
+                            if input.is_some() {
+                                self.stats.projected_equations += 1;
+                            }
+                            input
+                        })
+                    });
                     if let Some((a, b)) = equation {
                         self.learner.learn(&a, &b);
                     }

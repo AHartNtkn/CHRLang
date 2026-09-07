@@ -4,7 +4,7 @@ from pathlib import Path
 p=argparse.ArgumentParser();p.add_argument('output',type=Path);p.add_argument('--seed',type=int,required=True);a=p.parse_args()
 exe='target/release/examples/failure_probe'
 cases=subprocess.check_output([exe,'--list'],text=True).splitlines()
-jobs=[(case,mode) for case in cases for mode in ['Direct','Learn']]
+jobs=[(case,mode) for case in cases for mode in ['Direct','Learn','Native']]
 random.Random(a.seed).shuffle(jobs)
 with a.output.open('w') as out:
  for case,mode in jobs:

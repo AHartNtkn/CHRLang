@@ -17,6 +17,7 @@ fn main() {
     let mode = match args[1].as_str() {
         "Direct" => Mode::Direct,
         "Learn" => Mode::Learn,
+        "Native" => Mode::Native,
         _ => panic!("unknown mode"),
     };
     let case = cases::cases()
@@ -50,14 +51,15 @@ fn main() {
     let c = search.source_stats();
     let p = search.proof_stats();
     println!(
-        "case\tmode\tpass\tlogical_steps\texecuted\tprojected_equations\tproof_checks\tcheck_nodes\tdiscovery_nodes\tlearned\thits\traw\tfailed\tanswers\tmax_frontier\tapplications\tpairs\toccurs\tallocation_calls\trequested_bytes\tbaseline_live\tpeak_live\tfinal_live\telapsed_us"
+        "case\tmode\tpass\tlogical_steps\texecuted\tprojected_equations\thead_reads\tproof_checks\tcheck_nodes\tdiscovery_nodes\tlearned\thits\traw\tfailed\tanswers\tmax_frontier\tapplications\tpairs\toccurs\tallocation_calls\trequested_bytes\tbaseline_live\tpeak_live\tfinal_live\telapsed_us"
     );
     println!(
-        "{}\t{mode:?}\t{pass}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{elapsed}",
+        "{}\t{mode:?}\t{pass}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{elapsed}",
         case.id,
         s.logical_steps,
         s.executed,
         s.projected_equations,
+        s.head_reads,
         p.checks,
         p.check_nodes,
         p.discovery_nodes,

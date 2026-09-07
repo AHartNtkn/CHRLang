@@ -71,3 +71,37 @@ fn keys_preserve_aliases_resource_multiplicity_and_occurrence_order() {
     assert_ne!(keys[2], keys[3]);
     assert_ne!(keys[4], keys[5]);
 }
+
+#[test]
+fn equation_path_reads_follow_current_bindings_and_reject_other_events() {
+    use chr_persistent::continuations::TermHead;
+    use chr_syntax::{and, eq, t};
+    let (mut machine, mut cursor) = Machine::new(
+        vec![Rule::simplify(
+            "bind",
+            [c("start", [v(0), v(1)])],
+            and([
+                eq(v(0), t("f", [v(1)])),
+                eq(v(1), atom("z")),
+                eq(v(0), t("f", [atom("z")])),
+            ]),
+        )],
+        query(vec![c("start", [v(0), v(1)])], &[0, 1]),
+    )
+    .unwrap();
+    assert!(!machine.has_pending_equation(&cursor));
+    assert!(machine.pending_head(&cursor, true, &[]).is_none());
+    for _ in 0..5 {
+        cursor = next(&mut machine, cursor);
+    }
+    assert!(machine.has_pending_equation(&cursor));
+    assert_eq!(
+        machine.pending_head(&cursor, true, &[]),
+        Some(TermHead::Constructor("f".into(), 1))
+    );
+    assert_eq!(
+        machine.pending_head(&cursor, true, &[0]),
+        Some(TermHead::Constructor("z".into(), 0))
+    );
+    assert!(machine.pending_head(&cursor, true, &[0, 0]).is_none());
+}

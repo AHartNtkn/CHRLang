@@ -149,3 +149,65 @@ impl Learner {
         }
     }
 }
+
+/// A second checker over observations from the current source equation. The
+/// reader must reject a path crossing a variable or an out-of-range child.
+pub fn verify_paths(
+    proof: &Certificate,
+    mut read: impl FnMut(bool, &[usize]) -> Option<chr_persistent::continuations::TermHead>,
+    stats: &mut Stats,
+) -> bool {
+    use chr_persistent::continuations::TermHead::{Constructor, Variable};
+    stats.checks += 1;
+    let pair = match proof {
+        Certificate::Clash { pair } | Certificate::Occurs { pair, .. } => pair,
+    };
+    for (depth, &index) in pair.iter().enumerate() {
+        stats.check_nodes += 1;
+        let (Some(Constructor(a, n)), Some(Constructor(b, m))) =
+            (read(true, &pair[..depth]), read(false, &pair[..depth]))
+        else {
+            return false;
+        };
+        if a != b || n != m || index >= n {
+            return false;
+        }
+    }
+    stats.check_nodes += 1;
+    let (a, b) = (read(true, pair), read(false, pair));
+    match proof {
+        Certificate::Clash { .. } => {
+            matches!((a,b),(Some(Constructor(a,n)),Some(Constructor(b,m))) if a!=b || n!=m)
+        }
+        Certificate::Occurs {
+            variable_on_left,
+            occurrence,
+            ..
+        } => {
+            if occurrence.is_empty() {
+                return false;
+            }
+            let Some(Variable(v)) = (if *variable_on_left { a } else { b }) else {
+                return false;
+            };
+            let mut full = pair.clone();
+            full.extend(occurrence);
+            stats.check_nodes += occurrence.len() as u64;
+            matches!(read(!*variable_on_left,&full),Some(Variable(w)) if v==w)
+        }
+    }
+}
+impl Learner {
+    pub fn proves_failure_paths(
+        &mut self,
+        mut read: impl FnMut(bool, &[usize]) -> Option<chr_persistent::continuations::TermHead>,
+    ) -> bool {
+        for proof in &self.certificates {
+            if verify_paths(proof, &mut read, &mut self.stats) {
+                self.stats.hits += 1;
+                return true;
+            }
+        }
+        false
+    }
+}
