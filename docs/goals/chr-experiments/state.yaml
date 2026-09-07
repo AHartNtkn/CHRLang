@@ -627,7 +627,7 @@ tasks:
       - docs/experiments/results/E12-equations.md
       - docs/experiments/results/E08.md
     expected_output:
-      - Implement the registered 512-observation owned-equation gate with FIFO commits, inline/one/two-worker controls, forced-order and actual-overlap tests, and complete prefix drain/join. Then pilot/register costs with separate allocator instrumentation. Certified-region workers remain an independent next entry; no net/broker dependency is required.
+      - The 512-observation owned-equation gate and replay pass with nine focused tests and independent reference checks. Pilot/register costs with separate allocator instrumentation, full lifecycle accounting and competent Shared/Owned controls. Certified-region workers remain an independent next entry; no net/broker dependency is required.
     receipt: null
     allowed_files:
       - research/chr-reuse/

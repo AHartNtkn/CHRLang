@@ -1,0 +1,33 @@
+{
+  "rows_per_run": 512,
+  "cases": 64,
+  "configurations": {
+    "Owned/0": 64,
+    "Shared/0": 64,
+    "Inline/1": 64,
+    "Inline/4": 64,
+    "Threads(1)/1": 64,
+    "Threads(1)/4": 64,
+    "Threads(2)/1": 64,
+    "Threads(2)/4": 64
+  },
+  "status": "all pass",
+  "independent_reference": "answers, raw completions, failed branches and exhaustion checked",
+  "deterministic_replay": "all fields except declared scheduling-dependent columns identical",
+  "new_driver_aggregate_work": "identical at matched case and outstanding limit",
+  "variable_columns": [
+    "owner_buffered_peak",
+    "worker_completion"
+  ],
+  "changed_rows": {
+    "owner_buffered_peak": 9,
+    "worker_completion": 43
+  },
+  "max_outstanding": 4,
+  "max_uncommitted_at_shutdown": 1,
+  "sha256": {
+    "E16-gate-v2.tsv": "4e37c4fa5c3bb9c22a46286e8eecab9b5e5063eb22d51c0c3792d52ee8e308e3",
+    "E16-gate-v2-replay.tsv": "af50786b78bd192067f24b3c6178d94ffce67131e3859ec0706488be1980b461",
+    "E16-gate-v2-manifest.json": "f1ea06c8bd0263f22d19ee2e78cfff59acc8f10ca3aa538ca4a7c3be8841df7a"
+  }
+}

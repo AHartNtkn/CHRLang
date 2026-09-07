@@ -1,0 +1,32 @@
+{
+  "rows_per_run": 512,
+  "cases": 64,
+  "configurations": {
+    "Owned/0": 64,
+    "Shared/0": 64,
+    "Inline/1": 64,
+    "Inline/4": 64,
+    "Threads(1)/1": 64,
+    "Threads(1)/4": 64,
+    "Threads(2)/1": 64,
+    "Threads(2)/4": 64
+  },
+  "status": "all pass",
+  "deterministic_replay": "all fields except declared scheduling-dependent columns identical",
+  "new_driver_aggregate_work": "identical at matched case and outstanding limit",
+  "variable_columns": [
+    "owner_buffered_peak",
+    "worker_completion"
+  ],
+  "changed_rows": {
+    "owner_buffered_peak": 13,
+    "worker_completion": 35
+  },
+  "max_outstanding": 4,
+  "max_uncommitted_at_shutdown": 1,
+  "sha256": {
+    "E16-gate.tsv": "848c4b5cc49a22ce37c892a16c59882de9cdb3f313990bed8d0fe68c0ded324a",
+    "E16-gate-replay.tsv": "e4d6d2fcd0d56a07d53f082fa04e9b7437ace4b29b01f74ec47401a887f4993f",
+    "E16-gate-manifest.json": "e3ce16c23f91603da057c524dd96ae0194f81fb88f3f0bc8019f8e79768a456b"
+  }
+}
