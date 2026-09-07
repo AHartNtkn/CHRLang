@@ -1,0 +1,9 @@
+[package]
+name = "chr-reuse"
+version.workspace = true
+edition.workspace = true
+[dependencies]
+chr-syntax = { path = "../../crates/chr-syntax" }
+[dev-dependencies]
+chr-reference = { path = "../../crates/chr-reference" }
+chr-observe = { path = "../chr-observe" }
