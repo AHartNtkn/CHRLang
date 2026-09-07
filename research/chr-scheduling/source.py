@@ -189,9 +189,39 @@ def match(pattern, value, bindings):
     return True
 
 
+def prefix_matches(heads, pools, sub):
+    """Yield charged actions or complete (occurrences, pattern bindings)."""
+    stack = [(0, 0, (), {}, frozenset())]
+    while stack:
+        depth, cursor, selected, bindings, used = stack.pop()
+        yield 'prefix_visit'
+        if depth == len(heads):
+            yield selected, bindings
+            continue
+        if cursor == len(pools[depth]):
+            continue
+        stack.append((depth, cursor+1, selected, bindings, used))
+        occurrence = pools[depth][cursor]
+        yield 'prefix_candidate'
+        if occurrence[0] in used:
+            continue
+        child = {}
+        for k, v in bindings.items():
+            yield 'prefix_copy'
+            child[k] = v
+        value = yield from resolve(occurrence[1], sub)
+        if not (yield from match(heads[depth], value, child)):
+            continue
+        for _ in selected:
+            yield 'prefix_copy'
+        for _ in used:
+            yield 'prefix_copy'
+        stack.append((depth+1, 0, selected+(occurrence,), child, used | {occurrence[0]}))
+
+
 class StepJob:
     def __init__(self, state, rules, selector="scan"):
-        if selector not in ("scan", "predicate"):
+        if selector not in ("scan", "predicate", "prefix"):
             raise ValueError("unknown selector")
         self.selector = selector
         self.state, self.rules = state, rules
@@ -262,7 +292,7 @@ class StepJob:
             heads = rule.kept + rule.removed
             if not heads:
                 raise ValueError('empty rule head')
-            if self.selector == 'predicate':
+            if self.selector in ('predicate', 'prefix'):
                 pools = []
                 for head in heads:
                     pool = []
@@ -276,10 +306,15 @@ class StepJob:
                                 head[0] == root[0] and len(head[1]) == len(root[1])):
                             pool.append(occurrence)
                     pools.append(pool)
-                selections = product(*pools)
+                selections = (prefix_matches(heads, pools, sub) if self.selector == 'prefix'
+                              else ((item, None) for item in product(*pools)))
             else:
-                selections = permutations(s.store, len(heads))
-            for selected in selections:
+                selections = ((item, None) for item in permutations(s.store, len(heads)))
+            for entry in selections:
+                if isinstance(entry, str):
+                    yield entry
+                    continue
+                selected, bindings = entry
                 yield 'tuple'
                 if self.selector == 'predicate':
                     seen = set()
@@ -294,15 +329,16 @@ class StepJob:
                 token = (index, ids)
                 if token in s.history:
                     continue
-                bindings = {}
-                matches = True
-                for h, (_, t) in zip(heads, selected):
-                    value = yield from resolve(t, sub)
-                    if not (yield from match(h, value, bindings)):
-                        matches = False
-                        break
-                if not matches:
-                    continue
+                if bindings is None:
+                    bindings = {}
+                    matches = True
+                    for h, (_, t) in zip(heads, selected):
+                        value = yield from resolve(t, sub)
+                        if not (yield from match(h, value, bindings)):
+                            matches = False
+                            break
+                    if not matches:
+                        continue
                 rename = Rename(s.next_var, bindings)
                 guarded = True
                 for a, b in rule.guards:

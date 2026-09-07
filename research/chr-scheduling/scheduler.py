@@ -143,7 +143,7 @@ class Search:
             raise ValueError('positive batch size required')
         if compare_mode not in ("reverse", "forward", "identity"):
             raise ValueError("unknown comparison mode")
-        if selector not in ("scan", "predicate"):
+        if selector not in ("scan", "predicate", "prefix"):
             raise ValueError("unknown selector")
         self.selector = selector
         self.compare_mode = compare_mode

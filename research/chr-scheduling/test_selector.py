@@ -29,5 +29,27 @@ class PredicateSelection(unittest.TestCase):
         self.assertEqual(job.action, ('apply', 0, (1, 2)))
 
 
+class PrefixSelection(unittest.TestCase):
+    def test_failed_prefix_rolls_back_and_keeps_order(self):
+        state = replace(initial((), ()), store=(
+            (0, ('p', (('a', ()), ('b', ())))),
+            (1, ('p', (('c', ()), ('c', ())))),
+            (2, ('q', (('c', ()),)))), next_occurrence=3)
+        rules = (Rule((), (('p', (0,0)), ('q', (0,))), ('true',)),)
+        jobs = [StepJob(state, rules, mode) for mode in ('scan','predicate','prefix')]
+        results = [finish(j) for j in jobs]
+        self.assertEqual(results[0], results[2])
+        self.assertEqual(results[1], results[2])
+        self.assertEqual(jobs[2].action, ('apply', 0, (1,2)))
+
+    def test_history_exclusion_does_not_stop_prefix_search(self):
+        state = replace(initial((), ()), store=((0, ('p', ())), (1, ('p', ()))),
+                        history=frozenset({(0, (0,1))}), next_occurrence=2)
+        rules = (Rule((('p', ()), ('p', ())), (), ('true',)),)
+        job = StepJob(state, rules, 'prefix')
+        finish(job)
+        self.assertEqual(job.action, ('apply', 0, (1,0)))
+
+
 if __name__ == '__main__':
     unittest.main()
