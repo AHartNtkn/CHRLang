@@ -59,7 +59,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T004
+active_task: T005
 tasks:
   - id: T001
     type: pm
@@ -180,14 +180,28 @@ tasks:
   - id: T004
     type: pm
     assignee: PM
-    status: active
+    status: done
     objective: 'E03 first probe: finite-support conditional store with grouped versus singleton source expansion, independent
       contextual equality, explicit lineage and full-residual observations; validate and count actual shared work and bookkeeping.'
     inputs:
       - docs/experiments/sequence.md
     expected_output:
       - Registered executable comparison and evidence-backed receipt; refine scope before activation.
-    receipt: null
+    receipt:
+      result: done
+      harness: codex
+      summary: E03 v1/v2 each pass 314 isolated cases and exact non-time replay. Sharing reduces expansions; discriminating
+        cases expose eager grouping cost. Quadratic resolution repaired. Broader E03 remains open.
+      evidence:
+        - docs/experiments/results/E03.md
+        - docs/experiments/results/E03-conditional-v2.tsv
+      commands:
+        - cmd: cargo test --workspace --all-targets
+          status: pass
+        - cmd: cargo clippy --workspace --all-targets -- -D warnings
+          status: pass
+        - cmd: 314 v2 runs and deterministic non-time replay
+          status: pass
     allowed_files:
       - Cargo.toml
       - Cargo.lock
@@ -203,13 +217,28 @@ tasks:
   - id: T005
     type: pm
     assignee: PM
-    status: queued
-    objective: E04 relation graph first probe
+    status: active
+    objective: 'E04 first probe: closed single-head relation runtime comparing general/local dispatch and provenance-cached
+      expansion on identical contextual state services.'
     inputs:
       - docs/experiments/sequence.md
+      - docs/experiments/registrations/E04.md
+      - docs/goals/chr-sharing/notes/T015-relation-graph-construction.md
     expected_output:
       - Registered executable comparison and evidence-backed receipt; refine scope before activation.
     receipt: null
+    allowed_files:
+      - Cargo.toml
+      - Cargo.lock
+      - research/chr-graph/
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    verify:
+      - cargo test --workspace --all-targets
+      - cargo clippy --workspace --all-targets -- -D warnings
+      - cargo fmt --all -- --check
+    stop_if:
+      - Repair semantic discrepancies before affected measurements; experimental fragment rejection is not a language adoption.
   - id: T006
     type: pm
     assignee: PM
