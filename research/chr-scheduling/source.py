@@ -251,10 +251,11 @@ def prefix_matches(heads, pools, sub, guards=()):
 
 
 class StepJob:
-    def __init__(self, state, rules, selector="scan"):
+    def __init__(self, state, rules, selector="scan", equality=None):
         if selector not in ("scan", "predicate", "prefix", "guard-prefix"):
             raise ValueError("unknown selector")
         self.selector = selector
+        self.equality = equality
         self.state, self.rules = state, rules
         self.done = False
         self.counts = Counter()
@@ -300,8 +301,19 @@ class StepJob:
                     yield 'copy'
                 s = replace(s, store=s.store + ((s.next_occurrence, g[1]),), next_occurrence=s.next_occurrence+1)
             elif kind == 'eq':
-                if not (yield from unify(g[1], g[2], sub)):
-                    return ('failed',)
+                if self.equality is None:
+                    if not (yield from unify(g[1], g[2], sub)):
+                        return ('failed',)
+                else:
+                    for _ in sub:
+                        yield 'copy'
+                    result = yield from self.equality.solve(tuple(sub.items()), ((g[1], g[2]),))
+                    if result is None:
+                        return ('failed',)
+                    sub = {}
+                    for key, value in result:
+                        yield 'copy'
+                        sub[key] = value
                 for _ in sub:
                     yield 'copy'
                 s = replace(s, sub=tuple(sub.items()))

@@ -21,12 +21,12 @@ def compare(state, branch):
     assert state.history == branch.history, 'history'
 
 
-def check(case, quantum, selector="scan"):
+def check(case, quantum, selector="scan", equality=None, comparer=compare):
     rules = tuple(Rule(**r) for r in case['rules'])
     controls = tuple(ControlRule(**r) for r in case['rules'])
     state = initial(case['constraints'], case['outputs'])
     branch = Branch(case['constraints'], case['outputs'])
-    compare(state, branch)
+    comparer(state, branch)
     queue = deque([(state, branch)])
     counts = Counter()
     answers = []
@@ -35,7 +35,7 @@ def check(case, quantum, selector="scan"):
         if not queue:
             break
         state, branch = queue.popleft()
-        job = StepJob(state, rules, selector)
+        job = StepJob(state, rules, selector, equality)
         total = 0
         while not job.done:
             total += job.advance(quantum)
@@ -48,13 +48,13 @@ def check(case, quantum, selector="scan"):
         assert job.action == branch.trace[-1]
         steps += 1
         if event[0] == 'continue':
-            compare(event[1], branch)
+            comparer(event[1], branch)
             queue.append((event[1], branch))
         elif event[0] == 'split':
             for child, goal in zip(event[1:], control[1:]):
                 sibling = copy.deepcopy(branch)
                 sibling.pending.appendleft(goal)
-                compare(child, sibling)
+                comparer(child, sibling)
                 queue.append((child, sibling))
         elif event[0] == 'answer':
             assert equivalent(event[1], control[1])

@@ -458,6 +458,7 @@ tasks:
       - docs/experiments/sequence.md
       - docs/goals/chr-sharing/notes/T016-observation-and-state-reuse.md
       - docs/goals/chr-sharing/notes/T018-composition-and-learning.md
+      - docs/experiments/results/E15-source-net.md
     expected_output:
       - Registered executable comparison and evidence-backed receipt; refine scope before activation.
     receipt:
@@ -592,8 +593,9 @@ tasks:
       - docs/experiments/results/E09-costs.md
       - docs/experiments/results/E09-guards.md
       - docs/goals/chr-sharing/notes/T018-composition-and-learning.md
+      - docs/experiments/results/E15-source-net.md
     expected_output:
-      - Register and validate resumable source/net codecs and transactional projected-state correspondence, then compare scheduler/observer behavior with charged interfaces. Continue heterogeneous sharing and other E15 interactions independently.
+      - Integrate the validated prepared net equality service into the policy scheduler, register run bounds from observed source costs and compare source/observer behavior with charged interfaces. Continue heterogeneous sharing and other E15 interactions independently.
     receipt: null
     allowed_files:
       - research/chr-scheduling/
@@ -629,12 +631,12 @@ checks:
   dirty_fingerprint: clean_at_start
   last_verification:
     result: passed
-    task: T014
+    task: T015
     commands:
       - Nineteen net/control/service tests pass
       - 288 whole-service quantum configurations and exact replay pass
       - Partial build/readback publication checks and interleaved small-request tests pass
-      - Twenty-one source/observer/policy/key/protocol/selector tests and 192 source conformance configurations with exact replay pass
+      - Twenty-four source/observer/policy/key/protocol/selector/boundary tests and 192 source conformance configurations with exact replay pass
       - 14271 exact observer configurations and replay pass
       - 930 integrated policy conformance configurations and 180 controlled work configurations replay exactly
       - 750 key-ablation configurations replay exactly; prior 180-row baseline also replays
@@ -643,5 +645,6 @@ checks:
       - 624 predicate-selector configurations replay exactly; prior 324-row full-scan matrix also replays
       - 570 distinct-prefix configurations and the prior 624-row selector control replay exactly
       - 732 early-guard configurations and the prior 570-row prefix control replay exactly
+      - 1296 net boundary configurations and 64 composed source cases replay exactly; direct source baseline also replays
     evidence:
       - docs/experiments/results/E09-service-gate.md
