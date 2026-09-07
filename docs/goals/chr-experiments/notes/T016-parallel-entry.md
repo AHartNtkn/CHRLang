@@ -2,8 +2,10 @@
 
 Read-only source inspection identifies two feasible parallel experiments that do
 not depend on net services, native choices or the E15 operation broker. These are
-proposals, not implemented or benchmarked parallel engines. No owner decision is
-needed to investigate them under explicit experimental contracts.
+independent experimental boundaries. The owned-equation protocol now passes its
+[semantic gate](../../../experiments/results/E16-gate.md); certified regions remain
+a separate implementation opportunity. No owner decision is needed to investigate
+their costs under explicit experimental contracts.
 
 ## Owned equation workers with one source-state owner
 
@@ -15,7 +17,7 @@ has [E12 evidence](../../../experiments/results/E12-equations.md): 336 configura
 and replay, all 64 reference cases, and an alias/wakeup check.
 
 Owned term/substitution fields are String, Vec, integers and BTreeMap, supporting
-thread transfer by inspection; this is not a new compiled Send check. Cursors contain
+thread transfer; the implemented worker gate now compiles and exercises that boundary. Cursors contain
 Rc state and remain on one owner. The mutable interned arena also remains there.
 Changing Rc to Arc alone would not establish a concurrent source engine.
 
