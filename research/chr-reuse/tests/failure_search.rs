@@ -105,3 +105,27 @@ fn registered_structural_failure_grid_matches_independent_execution() {
         }
     }
 }
+
+#[test]
+fn failure_workloads_exercise_the_registered_unification_work() {
+    for case in measured_cases::cases()
+        .into_iter()
+        .filter(|c| c.id.starts_with("failure-"))
+    {
+        let parts = case.id.split('-').collect::<Vec<_>>();
+        let k = parts[2][1..].parse::<u32>().unwrap();
+        let depth = parts[3][1..].parse::<u64>().unwrap();
+        let mut search = Search::new(case.rules, case.query, Mode::Direct).unwrap();
+        assert!(search.advance(case.budget).exhausted);
+        let repetitions = 1u64 << k;
+        match parts[1] {
+            "early" => assert_eq!(search.source_stats().pairs, 2 * repetitions),
+            "late" => assert_eq!(search.source_stats().pairs, (depth + 3) * repetitions),
+            "occurs" => assert_eq!(
+                search.source_stats().occurs_visits,
+                (depth + 3) * repetitions
+            ),
+            _ => panic!("registered family"),
+        }
+    }
+}

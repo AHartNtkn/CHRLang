@@ -9,14 +9,14 @@ pub fn cases() -> Vec<chr_cases::Case> {
                 }
                 let equation = match kind {
                     "early" => eq(
-                        t("pair", [atom("a"), chain(depth, atom("z"))]),
-                        t("pair", [atom("b"), chain(depth, atom("z"))]),
+                        t("pair", [chain(depth, atom("z")), atom("a")]),
+                        t("pair", [chain(depth, atom("z")), atom("b")]),
                     ),
                     "late" => eq(
-                        t("pair", [chain(depth, v(0)), atom("a")]),
-                        t("pair", [chain(depth, v(1)), atom("b")]),
+                        t("pair", [atom("a"), chain(depth, v(0))]),
+                        t("pair", [atom("b"), chain(depth, v(1))]),
                     ),
-                    _ => eq(v(0), t("pair", [chain(depth, atom("z")), v(0)])),
+                    _ => eq(v(0), t("pair", [v(0), chain(depth, atom("z"))])),
                 };
                 let mut goals = (0..k)
                     .map(|_| or(Goal::True, Goal::True))
