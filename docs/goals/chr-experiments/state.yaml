@@ -59,7 +59,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T005
+active_task: T006
 tasks:
   - id: T001
     type: pm
@@ -217,7 +217,7 @@ tasks:
   - id: T005
     type: pm
     assignee: PM
-    status: active
+    status: done
     objective: 'E04 first probe: closed single-head relation runtime comparing general/local dispatch and provenance-cached
       expansion on identical contextual state services.'
     inputs:
@@ -226,7 +226,21 @@ tasks:
       - docs/goals/chr-sharing/notes/T015-relation-graph-construction.md
     expected_output:
       - Registered executable comparison and evidence-backed receipt; refine scope before activation.
-    receipt: null
+    receipt:
+      result: done
+      harness: codex
+      summary: 447 graph runs and exact non-time replay pass. Dispatch and asynchronous provenance reuse isolated; sparse
+        reuse exposes retained cache cost. Regional compilation and other E04 questions remain open.
+      evidence:
+        - docs/experiments/results/E04.md
+        - docs/experiments/results/E04-graph.tsv
+      commands:
+        - cmd: cargo test --workspace --all-targets
+          status: pass
+        - cmd: cargo clippy --workspace --all-targets -- -D warnings
+          status: pass
+        - cmd: 447 runs and deterministic non-time replay
+          status: pass
     allowed_files:
       - Cargo.toml
       - Cargo.lock
@@ -242,13 +256,29 @@ tasks:
   - id: T006
     type: pm
     assignee: PM
-    status: queued
-    objective: E05 named family first probe
+    status: active
+    objective: 'E05 first probe: frozen first-order named-family equality service with correlated restriction, finite occurs
+      checks, independent projected expectations and eager/demand-driven distribution controls.'
     inputs:
       - docs/experiments/sequence.md
+      - docs/experiments/registrations/E05.md
+      - docs/goals/chr-sharing/notes/T018-backend-boundaries.md
     expected_output:
       - Registered executable comparison and evidence-backed receipt; refine scope before activation.
     receipt: null
+    allowed_files:
+      - Cargo.toml
+      - Cargo.lock
+      - research/chr-family/
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    verify:
+      - cargo test --workspace --all-targets
+      - cargo clippy --workspace --all-targets -- -D warnings
+      - cargo fmt --all -- --check
+    stop_if:
+      - Repair inconsistent operand restriction or projected unification before measurement; keep dynamic-source and complete-engine
+        claims out of this frozen service probe.
   - id: T007
     type: pm
     assignee: PM
