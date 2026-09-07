@@ -8,7 +8,7 @@ goal:
   execution_authority: Redesigned goal authorizes implementation and experiments selected under R00 and the governing sequence.
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
-  current_research: R01 implementation and independent R04 eligibility analysis
+  current_research: R01 prepared-plan and resumable traversal implementation; R04 source gate passed; R02 integration entry analyzed
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -559,9 +559,11 @@ tasks:
       - docs/experiments/registrations/R01-activation-codegen-gate.md
     expected_output:
       - Genuine generated rule execution and competent activation with independent source observations; exact comparative gate registration before matrix execution.
-      - Independent finite-consistency fragment and oracle design for R04.
+      - Independent finite-consistency fragment, assignment oracle and registered source correspondence gate for R04.
+      - R02 complete consuming class/index entry analysis.
     receipt: null
     allowed_files:
+      - research/chr-direct-solver/
       - research/chr-compiled/
       - research/chr-persistent/
       - Cargo.toml
@@ -580,13 +582,14 @@ checks:
   dirty_fingerprint: preexisting_unfinished_experimental_files_preserved
   last_verification:
     result: passed
-    task: T022
+    task: T024
+    scope: R04 oracle and source correspondence only; R01 implementation remains in progress.
     commands:
-      - Documentation whitespace check passes
-      - All 69 local document links resolve
-      - Goal state validation passes with one active planning and review task
-      - Manual consistency review confirms R00 is the next eligible task and experimental execution remains stopped
+      - Twelve independent oracle tests pass
+      - R04 registered source gate passes 338 queries under six rule orders
+      - R04 package formatting and Clippy pass
+      - Documentation links and goal-state structure validated
     evidence:
-      - docs/experiments/sequence.md
-      - docs/experiments/coverage.md
-      - docs/experiments/architecture-assumptions.md
+      - docs/experiments/results/R04-finite-consistency-entry.md
+      - docs/experiments/results/R04-source-correspondence-gate.md
+      - research/chr-direct-solver/results/source-gate.json

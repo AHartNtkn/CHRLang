@@ -1,0 +1,71 @@
+{
+  "status": "passed",
+  "queries": 338,
+  "orders": [
+    {
+      "order": [
+        "choose",
+        "given",
+        "forbid"
+      ],
+      "checked": 338
+    },
+    {
+      "order": [
+        "choose",
+        "forbid",
+        "given"
+      ],
+      "checked": 338
+    },
+    {
+      "order": [
+        "given",
+        "choose",
+        "forbid"
+      ],
+      "checked": 338
+    },
+    {
+      "order": [
+        "given",
+        "forbid",
+        "choose"
+      ],
+      "checked": 338
+    },
+    {
+      "order": [
+        "forbid",
+        "choose",
+        "given"
+      ],
+      "checked": 338
+    },
+    {
+      "order": [
+        "forbid",
+        "given",
+        "choose"
+      ],
+      "checked": 338
+    }
+  ],
+  "source_hashes": {
+    "research/chr-direct-solver/source_gate.py": "4c1a533b2aa73adfb51fe0d35af4bb2b45e0220d4491ae7701620532421167e1",
+    "research/chr-direct-solver/oracle.py": "149fd0b13f8185ed08a3489f8d6e8a4d1cf7d57d16c51d62177233af4f392415",
+    "research/chr-direct-solver/src/main.rs": "a546cd1cdd154d9d33d7963b5c4d002b7656b3129dec6a8eb708db5c3e77fa25",
+    "crates/chr-reference/src/answer.rs": "0a11f37265bf8f3a8e7bbece81f21fb6d4a56a3a293edd4bc1cf3cbf17778fee",
+    "crates/chr-reference/src/branch.rs": "c404c1c5741e0e7ebec9103def2c5256341aa24caa4a482def1feac166aa80a1",
+    "crates/chr-reference/src/instantiate.rs": "94b1e25543ab6e11de34b2b3381b61b4dcf90c0550055f6c6d0808cb0a312777",
+    "crates/chr-reference/src/lib.rs": "f6a0125683605ddea8a44362bb1d03ba816f0ffef53f717c3aafd8734d38da5e",
+    "crates/chr-reference/src/matching.rs": "c69b54d5ee2d3f56ef05e823dea8cdfdd58c8ca12a5b703e9d7bc47479707d17",
+    "crates/chr-reference/src/unify.rs": "8b7e79dcf2fc43ddbc4d1d7f8381f6d266113799a8d3ad9e4c818a41679686f5",
+    "crates/chr-syntax/src/lib.rs": "9b380518e3071aeea80b8644aa5cf12f91d919f0bffdedd5c17122e27dffd48e"
+  },
+  "failures": [],
+  "revision": "841e83d911500482c3ef34077ae66aa0a40d1c99",
+  "binary_sha256": "e3892aa701e61b9d3d179cc3f292c54f0185a984e4ed6524d2c1743e7c035cc2",
+  "source_input_sha256": "7cc0547ddaf61d1c8503bb02bb5c81097daf50e546a5149797b1c5b59c9680df",
+  "command": "cargo build -p chr-direct-solver && PYTHONDONTWRITEBYTECODE=1 python research/chr-direct-solver/source_gate.py --receipt research/chr-direct-solver/results/source-gate.json"
+}
