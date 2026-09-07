@@ -25,9 +25,12 @@ language: internal deterministic comparisons can be isolated from occurrence rac
 
 The inspected Matsuoka 1999 institutional abstract explicitly includes first-order
 unification variables and reports nonconfluence for its extension. That supplies
-a lead, not a finite-tree transactional service implementation. The 2001 abstract
-endpoint could not be retrieved in this follow-up; prior inspected notes distinguish
-its additive proposal. Do not infer that either system supplies this project's
+a lead, not a finite-tree transactional service implementation. A 2026-09-07
+follow-up retrieved the indexed [2001 conference abstract](https://contraintes.inria.fr/jfplc2001/resumes.html),
+which claims local confluence and an encoding of additive proof nets and lists
+guarded unification as a keyword. Direct page retrieval still failed; the full rule
+system was not obtained. The abstract does not specify its unification protocol or
+the restrictions securing the claim. Do not infer that either system supplies this project's
 search semantics or occurs check. [Institutional record](https://ipsj.ixsq.nii.ac.jp/records/17012)
 
 The Uppsala project description identifies fusion as a calculus unifying names
@@ -50,3 +53,10 @@ mechanisms. Inspect a concrete rule system when identifying such a mechanism;
 this assessment does not close the broader direction. Likewise none of the first
 ordinary-net data tests settles sharing across alternatives, HVM normalization,
 dynamic label correspondence, or realistic synthesis.
+
+The 2026-09-07 source follow-up searched the exact 2001 title, author with JFPLC,
+and author with guarded unification. The 1999 publisher record identifies its item
+as a one-page presentation abstract (p. 72), so it does not supply the full
+2001 construction. Detailed assessment of that particular calculus still
+needs its rules; routed-cell and multiport probes above remain independently feasible.
+The keyword does not justify binding CHR guards or changing the source contract.

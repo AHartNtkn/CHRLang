@@ -1,0 +1,25 @@
+{
+  "allocation_sessions": 270,
+  "checks": [
+    "All registered configurations, repetitions and warmup order",
+    "Bidirectional expected/reference answer equivalence and raw multiplicity",
+    "Exact query work across timing, allocation and diagnostic batches",
+    "Three fresh queries per prepared session",
+    "All 17 allocation phase checkpoints and release=drop+collect",
+    "All frozen source/harness/oracle/fixture hashes match manifest",
+    "Independent numerical timing-report review"
+  ],
+  "code_revision": "049f53f",
+  "configurations": 135,
+  "files": {
+    "E15-cost-manifest-v2.json": "1103cb3bcb8979013b922fd0f2ca7ab737e5705ca9298b7b3f918e7c74473ba2",
+    "E15-cost-memory-v2.jsonl": "57a67e26a6b28e30ea94b546bd54cffeaf7460bdf32b03d3feee2f13a7b43910",
+    "E15-cost-summary-v2.json": "304457f53b5903f37c4bef4540b037b6432a901ffa693267b8c666171ef11846",
+    "E15-cost-time-v2.jsonl": "8afbae65217c9caa1c6d8e2e5da34de800edb32701441ff76e6388c1e17c5135"
+  },
+  "measured_timing_sessions": 675,
+  "protocol": "release-before-validation-v2",
+  "query_observations": 3240,
+  "timing_sessions": 810,
+  "warmup_sessions": 135
+}

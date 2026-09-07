@@ -221,7 +221,7 @@ Use shared writable variables across eval/fold and no_c/typing regions, external
 
 ### E16 — Parallel execution and whole-system storage
 
-**Dependencies:** a correct sequential E15 composition, finite service from E09, and actual host capabilities recorded before running. **Decision enabled:** whether commuting work produces useful parallelism after synchronization and memory costs.
+**Dependencies:** a validated sequential composition and actual host capabilities recorded before running. The existing E12 owned-equation integration and E08 certified permanent factors supply independent entry points, as detailed in the [source audit](../goals/chr-experiments/notes/T016-parallel-entry.md); neither waits for the E15 broker or native nets. Establish the relevant finite-service and owner-scheduling premises before making fairness claims; the first bounded finite-work comparison does not establish a general bounded-service guarantee. **Decision enabled:** whether commuting work produces useful parallelism after synchronization and memory costs.
 
 Compare serial execution, the parallel implementation with one worker, and its available worker-count sweep on the same queries and semantics. Include disjoint certified operations, highly contended aliases/consumers, small versus large service tasks, and allocation-heavy frontiers. Validate committed effects and quiescence under forced interleavings before interpreting timings.
 

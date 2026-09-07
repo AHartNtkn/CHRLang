@@ -144,3 +144,52 @@ measured time difference to this path absent a timing ablation. A broker that ad
 an owned service by a larger quantum changes this interface cost even without reuse.
 Projected no-reuse and sharing controls must use the same service advance and reporting
 protocol. Keep scheduling, projection, representation and computation reuse identifiable.
+
+Within one frozen caller, identical raw operands are a reflexive equation even when
+nonground. A competent direct control can recognize `t = t` before resolution;
+this does not require proving t ground. This differs from using a syntax pointer
+to identify nonreflexive operations across different caller substitutions. Include
+that fast path in the representation-matched control rather than making it pay
+projection just to discover a tautology. Verify DAG topology at the actual service
+input: memoization scoped separately to each operand traversal may reconstruct two
+roots during variable renaming and fail to preserve the intended shared pair.
+
+## Concrete suspension boundary
+
+Source inspection identifies an explicit suspended request as the smallest clean
+integration. The current nested `yield from equality.solve(...)` gives each caller
+its own advancing service. In a separate brokered mode, StepJob can yield an immutable
+request containing its frozen substitution and equation. Encountering that request
+consumes a charged action and ends the current advance. A blocked source job cannot
+publish a source observation or be repeatedly advanced while awaiting a reply.
+
+Delivery records a complete result without executing the source generator. On its
+next ordinary service turn, the source job resumes with that reply and charges
+installation. Use a sentinel distinct from None, which denotes unification failure.
+Reject duplicate delivery. Preserve the current full-substitution boundary initially;
+a delta-installation interface is a separate optimization/control.
+
+The scheduler parks each caller with its original support. Projection, admission,
+one solver per active operation, and caller-local patching receive explicit service
+positions. Completion ends active lookup before bounded fan-out starts. Admit at
+most a fixed number of deliveries per charged step; enqueue resumed source jobs at
+the ordinary queue tail. Exhaustion and any round barrier must account for all parked
+callers, submissions, services and deliveries. No source job is runnable merely
+because another caller shares its operation.
+
+Resumable admission creates a registry race: an entry can complete during comparison,
+or two submissions can both miss before either inserts. An initial serialized FIFO
+admission coordinator can compare a finite snapshot of stable entry identities,
+then revalidate running status at its join point. Never reuse an entry identity while
+a comparison or delivery retains it. Each admission must be a finite scheduled job;
+an unbounded arrival stream cannot extend one indivisible service turn. This is a
+simple control, whose lookup and queue costs need measurement, not an adopted index.
+
+Protocol tests must force two arrivals before service execution, a second arrival
+after completion, an arrival during delivery, and completion during admission
+comparison. Compare active-only and completed-only physical solve counts in each
+case. Check that waiter count does not multiply solver service opportunities; large
+patch fan-out must coexist with unrelated small work. Assert that blocked callers
+are never polled and that observation/exhaustion cannot bypass pending delivery.
+These tests distinguish actual active sharing from a completed cache hit or an
+accidental favorable source arrival order.

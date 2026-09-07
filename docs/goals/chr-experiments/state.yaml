@@ -59,7 +59,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T015
+active_task: T016
 tasks:
   - id: T001
     type: pm
@@ -586,7 +586,7 @@ tasks:
   - id: T015
     type: pm
     assignee: PM
-    status: active
+    status: queued
     objective: E15 composition, starting with net equality behind the sealed source/scheduler boundary
     inputs:
       - docs/experiments/sequence.md
@@ -598,8 +598,12 @@ tasks:
       - docs/experiments/results/E15-source-net.md
       - docs/experiments/results/E15-policies.md
       - docs/experiments/results/E15-status.md
+      - docs/experiments/results/E15-costs.md
+      - docs/experiments/results/E15-cost-audit-v2.json
+      - docs/goals/chr-experiments/notes/T015-inflight-equality.md
+      - docs/goals/chr-experiments/notes/T015-temporary-reunion.md
     expected_output:
-      - Run registered v2 release-before-validation session costs. Preserve 810 diagnostic timing and 138 allocation sessions; 28 scheduling and 22 net tests pass, and the independent correction review is clean. Complete both v2 batches and their combined audit before interpreting corrected totals. Measure cold preparation/output and repeated-query reuse. Continue heterogeneous operation sharing and other E15 interactions; counted status is independently validated with charged maintenance.
+      - Continue active equality sharing, representation controls, temporary reunion and other independent compositions. The 1080-session corrected cost comparison is complete with 3240 checked query observations. Direct beats both Python net services on cold timing and traced peak in all 45 matched pairs; counted action savings do not establish a runtime gain. E16 takes the next slot as an untested family, not as a dependency of these refinements.
     receipt: null
     allowed_files:
       - research/chr-scheduling/
@@ -614,13 +618,27 @@ tasks:
   - id: T016
     type: pm
     assignee: PM
-    status: queued
+    status: active
     objective: E16 parallel comparison
     inputs:
       - docs/experiments/sequence.md
+      - docs/experiments/registrations/E16.md
+      - docs/goals/chr-experiments/notes/T016-parallel-entry.md
+      - docs/experiments/results/E12-equations.md
+      - docs/experiments/results/E08.md
     expected_output:
-      - Registered executable comparison and evidence-backed receipt; refine scope before activation.
+      - Implement the registered 512-observation owned-equation gate with FIFO commits, inline/one/two-worker controls, forced-order and actual-overlap tests, and complete prefix drain/join. Then pilot/register costs with separate allocator instrumentation. Certified-region workers remain an independent next entry; no net/broker dependency is required.
     receipt: null
+    allowed_files:
+      - research/chr-reuse/
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    verify:
+      - cargo test -p chr-reuse
+      - cargo clippy --workspace --all-targets -- -D warnings
+      - cargo fmt --all -- --check
+    stop_if:
+      - Preserve independent reference, owner-local source commits, complete request accounting and honest atomic-service limits; physical speedup needs separate uninstrumented timing.
   - id: T017
     type: pm
     assignee: PM
@@ -652,5 +670,9 @@ checks:
       - 1296 net boundary configurations and 64 composed source cases replay exactly; direct source baseline also replays
       - 980 direct/net policy configurations pass and replay exactly
       - Counted status passes 1296 boundary configurations and 64 source cases with exact replay; scan boundary control also replays
+      - Corrected cost matrix passes 810 timing and 270 allocation sessions with 3240 observations and exact engine-work agreement; all frozen source/harness/oracle/fixture hashes match tested revision 049f53f
+      - Independent numerical timing-report audit agrees with the v2 raw data
     evidence:
       - docs/experiments/results/E09-service-gate.md
+      - docs/experiments/results/E15-costs.md
+      - docs/experiments/results/E15-cost-audit-v2.json
