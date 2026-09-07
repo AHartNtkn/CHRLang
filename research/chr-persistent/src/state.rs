@@ -319,3 +319,73 @@ impl State {
         }
     }
 }
+
+impl State {
+    pub(crate) fn key(&self, arena: &Arena, stats: &mut Stats) -> crate::continuations::StateKey {
+        use crate::continuations::{StateKey, WorkKey};
+        fn work_key(w: &Work, arena: &Arena, bindings: &Bindings, stats: &mut Stats) -> WorkKey {
+            match w {
+                Work::Insert(p, args) => WorkKey::Insert(
+                    arena.predicates[*p].0.clone(),
+                    args.iter()
+                        .map(|&t| arena.export(t, bindings, stats))
+                        .collect(),
+                ),
+                Work::Equal(a, b) => WorkKey::Equal(
+                    arena.export(*a, bindings, stats),
+                    arena.export(*b, bindings, stats),
+                ),
+                Work::And(gs) => WorkKey::And(
+                    gs.iter()
+                        .map(|g| work_key(g, arena, bindings, stats))
+                        .collect(),
+                ),
+                Work::Or(a, b) => WorkKey::Or(
+                    Box::new(work_key(a, arena, bindings, stats)),
+                    Box::new(work_key(b, arena, bindings, stats)),
+                ),
+                Work::True => WorkKey::True,
+                Work::Fail => WorkKey::Fail,
+            }
+        }
+        let mut pending = self.pending.clone();
+        let mut goals = vec![];
+        while let Some(w) = pending.pop() {
+            goals.push(work_key(&w, arena, &self.bindings, stats));
+        }
+        let mut store = self
+            .store
+            .entries(&mut stats.storage)
+            .into_iter()
+            .map(|((p, id), args)| {
+                (
+                    arena.predicates[p].0.clone(),
+                    id,
+                    args.iter()
+                        .map(|&t| arena.export(t, &self.bindings, stats))
+                        .collect(),
+                )
+            })
+            .collect::<Vec<_>>();
+        // Predicate IDs are arena intern indices, not source-visible identities.
+        // Within each matching predicate, occurrence IDs preserve selection order.
+        store.sort();
+        StateKey {
+            pending: goals,
+            store,
+            outputs: self
+                .outputs
+                .iter()
+                .map(|(n, t)| (n.clone(), arena.export(*t, &self.bindings, stats)))
+                .collect(),
+            history: self
+                .history
+                .entries(&mut stats.storage)
+                .into_iter()
+                .map(|(t, ())| t)
+                .collect(),
+            next_var: self.next_var,
+            next_occ: self.next_occ,
+        }
+    }
+}

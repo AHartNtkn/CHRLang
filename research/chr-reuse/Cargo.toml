@@ -4,6 +4,8 @@ version.workspace = true
 edition.workspace = true
 [dependencies]
 chr-syntax = { path = "../../crates/chr-syntax" }
+chr-persistent = { path = "../chr-persistent" }
+chr-observe = { path = "../chr-observe" }
 [dev-dependencies]
 chr-reference = { path = "../../crates/chr-reference" }
-chr-observe = { path = "../chr-observe" }
+chr-cases = { path = "../chr-cases" }
