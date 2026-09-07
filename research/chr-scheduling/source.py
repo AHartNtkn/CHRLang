@@ -252,7 +252,7 @@ def prefix_matches(heads, pools, sub, guards=()):
 
 class StepJob:
     def __init__(self, state, rules, selector="scan", equality=None):
-        if selector not in ("scan", "predicate", "prefix", "guard-prefix"):
+        if not hasattr(selector, "candidates") and selector not in ("scan", "predicate", "prefix", "guard-prefix"):
             raise ValueError("unknown selector")
         self.selector = selector
         self.equality = equality
@@ -335,7 +335,9 @@ class StepJob:
             heads = rule.kept + rule.removed
             if not heads:
                 raise ValueError('empty rule head')
-            if self.selector in ('predicate', 'prefix', 'guard-prefix'):
+            if hasattr(self.selector, 'candidates'):
+                selections = self.selector.candidates(index, s)
+            elif self.selector in ('predicate', 'prefix', 'guard-prefix'):
                 pools = []
                 for head in heads:
                     pool = []

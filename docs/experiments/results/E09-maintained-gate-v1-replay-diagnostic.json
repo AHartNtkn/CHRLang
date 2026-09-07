@@ -1,0 +1,91 @@
+{
+  "all_children_semantically_pass": true,
+  "exact_replay": false,
+  "differences": [
+    {
+      "cell": {
+        "branches": 1,
+        "consuming": true,
+        "kind": "source",
+        "mode": "selective",
+        "n": 4,
+        "quantum": 1,
+        "rounds": 1
+      },
+      "counts": {
+        "maintain.descendant_index_visit": [
+          50,
+          48
+        ],
+        "maintain.invalidation_visit": [
+          229,
+          227
+        ]
+      }
+    },
+    {
+      "cell": {
+        "branches": 1,
+        "consuming": true,
+        "kind": "source",
+        "mode": "selective",
+        "n": 4,
+        "quantum": 8,
+        "rounds": 1
+      },
+      "counts": {
+        "maintain.descendant_index_visit": [
+          52,
+          49
+        ],
+        "maintain.invalidation_visit": [
+          231,
+          228
+        ]
+      }
+    },
+    {
+      "cell": {
+        "branches": 2,
+        "consuming": true,
+        "kind": "source",
+        "mode": "selective",
+        "n": 4,
+        "quantum": 1,
+        "rounds": 1
+      },
+      "counts": {
+        "maintain.descendant_index_visit": [
+          98,
+          100
+        ],
+        "maintain.invalidation_visit": [
+          456,
+          458
+        ]
+      }
+    },
+    {
+      "cell": {
+        "branches": 2,
+        "consuming": true,
+        "kind": "source",
+        "mode": "selective",
+        "n": 4,
+        "quantum": 8,
+        "rounds": 1
+      },
+      "counts": {
+        "maintain.descendant_index_visit": [
+          102,
+          96
+        ],
+        "maintain.invalidation_visit": [
+          460,
+          454
+        ]
+      }
+    }
+  ],
+  "frozen_inputs_archive": "E09-maintained-gate-v1-inputs.tar.gz"
+}
