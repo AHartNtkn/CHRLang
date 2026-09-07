@@ -563,8 +563,9 @@ tasks:
       - docs/experiments/results/E09-policy-work.md
       - docs/experiments/results/E09-keys.md
       - docs/experiments/results/E09-costs.md
+      - docs/experiments/results/E09-mixed.md
     expected_output:
-      - Continue batch sensitivity, cached key costs, mixed scans/wake-ups, heterogeneous supports, longer synthesis and second-service integration; integrated time/storage and adverse application results are recorded.
+      - Implement yielding predicate-filtered selection and matched-predicate rejection controls next; continue indexed wakeups, heterogeneous supports, cached keys, longer synthesis and second-service integration. Mixed-scan/binding evidence is recorded.
     receipt: null
     allowed_files:
       - research/chr-nets/
@@ -620,5 +621,6 @@ checks:
       - 930 integrated policy conformance configurations and 180 controlled work configurations replay exactly
       - 750 key-ablation configurations replay exactly; prior 180-row baseline also replays
       - 225 cost configurations pass 1350 confirmatory timing/warm-up and 450 separate memory runs with exact semantic/action agreement
+      - 324 mixed-scan/binding configurations and exact replay agree with independent control answers and represented steps
     evidence:
       - docs/experiments/results/E09-service-gate.md
