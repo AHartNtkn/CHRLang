@@ -562,8 +562,9 @@ tasks:
       - docs/experiments/results/E09-observer-gate.md
       - docs/experiments/results/E09-policy-work.md
       - docs/experiments/results/E09-keys.md
+      - docs/experiments/results/E09-costs.md
     expected_output:
-      - Continue preparation/runtime/storage measurement, batch sensitivity, cached key costs, mixed scans/wake-ups, heterogeneous supports and second-service integration; direct policies and traversal ablations are recorded.
+      - Continue batch sensitivity, cached key costs, mixed scans/wake-ups, heterogeneous supports, longer synthesis and second-service integration; integrated time/storage and adverse application results are recorded.
     receipt: null
     allowed_files:
       - research/chr-nets/
@@ -614,9 +615,10 @@ checks:
       - Nineteen net/control/service tests pass
       - 288 whole-service quantum configurations and exact replay pass
       - Partial build/readback publication checks and interleaved small-request tests pass
-      - Thirteen source/observer/policy/key tests and 192 source conformance configurations with exact replay pass
+      - Fifteen source/observer/policy/key/protocol tests and 192 source conformance configurations with exact replay pass
       - 14271 exact observer configurations and replay pass
       - 930 integrated policy conformance configurations and 180 controlled work configurations replay exactly
       - 750 key-ablation configurations replay exactly; prior 180-row baseline also replays
+      - 225 cost configurations pass 1350 confirmatory timing/warm-up and 450 separate memory runs with exact semantic/action agreement
     evidence:
       - docs/experiments/results/E09-service-gate.md
