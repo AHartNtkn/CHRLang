@@ -8,9 +8,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'chr-symbolic'))
 from check_cases import equivalent, freeze
 
 
-def check(case, policy, grouping, quantum):
+def check(case, policy, grouping, quantum, compare_mode="reverse"):
     rules = tuple(Rule(**r) for r in case['rules'])
-    search = Search(rules, case['constraints'], case['outputs'], policy, grouping)
+    search = Search(rules, case['constraints'], case['outputs'], policy, grouping, compare_mode=compare_mode)
     while not search.exhausted and search.actions < 5_000_000:
         search.advance(quantum)
     assert search.exhausted, (case['id'], policy, grouping, quantum, 'action cap')

@@ -8,8 +8,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'chr-symbolic'))
 from check_cases import equivalent
 
 
-def run(case, policy, grouping, quantum):
-    search = Search(case['rules'], case['constraints'], case['outputs'], policy, grouping)
+def run(case, policy, grouping, quantum, compare_mode="reverse"):
+    search = Search(case['rules'], case['constraints'], case['outputs'], policy, grouping, compare_mode=compare_mode)
     while not search.exhausted and search.actions < 5_000_000:
         search.advance(quantum)
         if case['prefix'] and search.answers:

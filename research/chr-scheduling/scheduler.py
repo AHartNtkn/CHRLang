@@ -43,7 +43,9 @@ class Support:
                 todo.append((node.left, suffix))
 
 
-def state_equal(a, b):
+def state_equal(a, b, mode="reverse"):
+    if mode not in ("reverse", "forward", "identity"):
+        raise ValueError("unknown comparison mode")
     fields = ('pending', 'outputs', 'next_var', 'next_occurrence', 'store', 'sub')
     todo = []
     for field in fields:
@@ -52,12 +54,18 @@ def state_equal(a, b):
     while todo:
         x, y = todo.pop()
         yield 'compare'
+        if mode == 'identity':
+            yield 'identity'
+            if x is y:
+                continue
         if type(x) is not type(y):
             return False
         if isinstance(x, tuple):
             if len(x) != len(y):
                 return False
-            for pair in zip(x, y):
+            indices = range(len(x)) if mode == 'reverse' else range(len(x)-1, -1, -1)
+            for i in indices:
+                pair = (x[i], y[i])
                 yield 'compare'
                 todo.append(pair)
         elif x != y:
@@ -95,14 +103,14 @@ class Job:
         return self.result
 
 
-def group_batch(entries, grouping):
+def group_batch(entries, grouping, compare_mode="reverse"):
     groups = []
     for state, support in entries:
         yield 'entry'
         joined = False
         if grouping:
             for i, (old, owned) in enumerate(groups):
-                if (yield from state_equal(state, old)):
+                if (yield from state_equal(state, old, compare_mode)):
                     yield 'union'
                     groups[i] = (old, Support.union(owned, support))
                     joined = True
@@ -128,11 +136,14 @@ def observe(answer, accepted):
 
 
 class Search:
-    def __init__(self, rules, constraints, outputs, policy, grouping=True, batch_size=8):
+    def __init__(self, rules, constraints, outputs, policy, grouping=True, batch_size=8, compare_mode="reverse"):
         if policy not in ('fifo', 'round', 'async'):
             raise ValueError('unknown policy')
         if batch_size <= 0:
             raise ValueError('positive batch size required')
+        if compare_mode not in ("reverse", "forward", "identity"):
+            raise ValueError("unknown comparison mode")
+        self.compare_mode = compare_mode
         self.policy = policy
         self.grouping = grouping and policy != 'fifo'
         self.batch_size = 1 if policy == 'fifo' else batch_size
@@ -168,7 +179,7 @@ class Search:
             for _ in range(min(self.batch_size, len(self.ready))):
                 entries.append(self.ready.popleft())
                 self.counts['admit'] += 1
-            self.jobs.append(('group', Job(group_batch(entries, self.grouping)), None))
+            self.jobs.append(('group', Job(group_batch(entries, self.grouping, self.compare_mode)), None))
 
     def _advance(self, job, quantum, prefix):
         before = job.counts.copy()
