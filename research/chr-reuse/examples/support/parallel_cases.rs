@@ -17,6 +17,7 @@ pub fn ids() -> Vec<String> {
     ]
     .into_iter()
     .map(str::to_owned)
+    .chain(distinct_ids())
     .collect()
 }
 fn tree(depth: usize, leaf: Term) -> Term {
@@ -35,7 +36,76 @@ fn choices(mut goals: Vec<Goal>) -> Goal {
     let right = goals.split_off(goals.len() / 2);
     or(choices(goals), choices(right))
 }
+fn distinct_tree(depth: usize, next: &mut u64) -> Term {
+    if depth == 0 {
+        let result = v(*next);
+        *next += 1;
+        result
+    } else {
+        t(
+            "node",
+            [
+                distinct_tree(depth - 1, next),
+                distinct_tree(depth - 1, next),
+            ],
+        )
+    }
+}
+fn distinct_case(id: &str) -> Case {
+    let parts = id.split('-').collect::<Vec<_>>();
+    assert_eq!(parts.len(), 4);
+    let chain = match parts[1] {
+        "chain" => true,
+        "wide" => false,
+        _ => panic!("shape"),
+    };
+    assert_eq!(parts[2], "d");
+    let depth: usize = parts[3].parse().unwrap();
+    assert!([4, 6, 8].contains(&depth));
+    let mut goals = Vec::new();
+    let mut expected = Vec::new();
+    let mut next = 1;
+    for i in 0..8 {
+        if !chain {
+            next = 1;
+        }
+        let equation = eq(distinct_tree(depth, &mut next), tree(depth, atom("a")));
+        let tag = atom(&format!("answer{i}"));
+        if chain {
+            goals.push(equation);
+        } else {
+            goals.push(and([eq(v(0), tag.clone()), equation]));
+            expected.push(answer(vec![tag, atom("a")], vec![]));
+        }
+    }
+    let body = if chain {
+        goals.insert(0, eq(v(0), atom("chain")));
+        expected.push(answer(vec![atom("chain"), atom("a")], vec![]));
+        and(goals)
+    } else {
+        choices(goals)
+    };
+    Case {
+        id: id.into(),
+        rules: vec![Rule::simplify("start", [c("start", [v(0), v(1)])], body)],
+        query: query(vec![c("start", [v(0), v(1)])], &[0, 1]),
+        raw_answers: expected.len() as u64,
+        expected,
+        exhausted: true,
+        budget: 100_000,
+        answer_limit: None,
+    }
+}
+pub fn distinct_ids() -> Vec<String> {
+    [4, 6, 8]
+        .into_iter()
+        .flat_map(|d| ["wide", "chain"].map(|s| format!("distinct-{s}-d-{d}")))
+        .collect()
+}
 pub fn case(id: &str) -> Case {
+    if id.starts_with("distinct-") {
+        return distinct_case(id);
+    }
     if id.starts_with("app-") {
         // These unchanged E00 fixtures are selected before measurement. Registry
         // construction affects process RSS; the pilot must report this limitation.
