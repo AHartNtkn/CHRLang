@@ -59,7 +59,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T012
+active_task: T013
 tasks:
   - id: T001
     type: pm
@@ -490,13 +490,22 @@ tasks:
   - id: T012
     type: pm
     assignee: PM
-    status: active
+    status: done
     objective: E13 specialization first probe
     inputs:
       - docs/experiments/sequence.md
     expected_output:
       - Registered executable comparison and evidence-backed receipt; refine scope before activation.
-    receipt: null
+    receipt:
+      result: done
+      harness: codex
+      summary: First specialization gate and two 900-row cost batches pass; dispatch savings do not repay allocation cost within three searches on terminating cases. Broader specialization remains open.
+      evidence:
+        - docs/experiments/results/E13-initial-gate.md
+        - docs/experiments/results/E13-costs.md
+      commands:
+        - Workspace tests, Clippy and formatting pass
+        - 900 configurations and exact non-time replay pass
     allowed_files:
       - Cargo.toml
       - Cargo.lock
@@ -512,13 +521,25 @@ tasks:
   - id: T013
     type: pm
     assignee: PM
-    status: queued
+    status: active
     objective: E06 backend service probes
     inputs:
       - docs/experiments/sequence.md
     expected_output:
       - Registered executable comparison and evidence-backed receipt; refine scope before activation.
     receipt: null
+    allowed_files:
+      - Cargo.toml
+      - Cargo.lock
+      - research/
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    verify:
+      - cargo test --workspace --all-targets
+      - cargo clippy --workspace --all-targets -- -D warnings
+      - cargo fmt --all -- --check
+    stop_if:
+      - Keep direct service, encoded backend and native choice correspondence independent; charge administrative work.
   - id: T014
     type: pm
     assignee: PM
@@ -563,10 +584,10 @@ checks:
   dirty_fingerprint: clean_at_start
   last_verification:
     result: passed
-    task: T011
+    task: T012
     commands:
       - Workspace tests, Clippy and formatting pass
-      - E12 full registry, independent workload and boundary checks pass
-      - 336 equation configurations and exact non-time replay pass
+      - E13 independent arithmetic and all-budget checks pass
+      - 900 specialization configurations and exact non-time replay pass
     evidence:
-      - docs/experiments/results/E12-equations.md
+      - docs/experiments/results/E13-costs.md
