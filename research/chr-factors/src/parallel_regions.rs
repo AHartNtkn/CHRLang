@@ -618,8 +618,8 @@ impl Search {
     pub fn source_applications(&self) -> u64 {
         self.factors.iter().map(|f| f.source.applications).sum()
     }
-    pub fn source_stats(&self) -> Vec<&SourceStats> {
-        self.factors.iter().map(|f| &f.source).collect()
+    pub fn source_stats(&self) -> impl Iterator<Item = &SourceStats> {
+        self.factors.iter().map(|f| &f.source)
     }
     pub fn actual_source_stats(&self) -> &[SourceStats] {
         &self.reservations.actual_source

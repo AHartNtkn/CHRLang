@@ -35,7 +35,7 @@ fn shutdown_checked(search: &mut Search) {
     assert_eq!(transport.buffered, 0);
     assert_eq!(
         transport.accepted_source_steps,
-        search.source_stats().iter().map(|s| s.steps).sum::<u64>()
+        search.source_stats().map(|s| s.steps).sum::<u64>()
     );
     assert_eq!(
         transport.actual_source_steps,

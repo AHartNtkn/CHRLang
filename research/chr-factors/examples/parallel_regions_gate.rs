@@ -169,8 +169,8 @@ fn baseline(case: &Case) -> Observation {
         search.factor_count(),
         &result,
         &parallel::TransportStats {
-            actual_source_steps: search.source_stats().iter().map(|s| s.steps).sum(),
-            accepted_source_steps: search.source_stats().iter().map(|s| s.steps).sum(),
+            actual_source_steps: search.source_stats().map(|s| s.steps).sum(),
+            accepted_source_steps: search.source_stats().map(|s| s.steps).sum(),
             ..Default::default()
         },
     );
@@ -222,7 +222,7 @@ fn candidate(case: &Case, mode: parallel::Mode, q: usize, control: &Observation)
     assert_eq!(transport.buffered, 0);
     assert_eq!(
         transport.accepted_source_steps,
-        search.source_stats().iter().map(|s| s.steps).sum::<u64>()
+        search.source_stats().map(|s| s.steps).sum::<u64>()
     );
     assert_eq!(
         transport.actual_source_steps,

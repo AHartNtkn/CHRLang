@@ -231,7 +231,7 @@ Measure useful work, scheduling, contention, synchronization, bandwidth pressure
 
 ### E17 — Application evaluation and final decision audit
 
-**Dependencies:** E00 application cases, E01 controls, E14 observation accounting and the complete candidates produced by E15; E16 only for parallel claims. **Decision enabled:** which language/execution choices are supported for this project's exploratory use, with what uncertainty.
+**Dependencies:** E00 application cases, E01 controls and E14 observation accounting support independent application workload/oracle development now. Complete E15 candidates are required only for their own comparative claims; E16 only for parallel claims. Unrestricted synthesis, bounded independent oracles and resumed-session probes do not depend on either family succeeding. See [application entry](../goals/chr-experiments/notes/T017-application-entry.md). **Decision enabled:** which language/execution choices are supported for this project's exploratory use, with what uncertainty.
 
 Compare forward evaluation, missing-input arithmetic, fixed-result SK synthesis including duplication, nonground ignored/repeated holes, type-directed SK synthesis, and the literal lambda relation. Use the same relation for checking and synthesis. Include repeated requests for more answers and changed queries/rulesets: report cold construction and warm reuse separately so exploratory-session benefit is visible. No particular notebook UI is needed to replay those sessions.
 

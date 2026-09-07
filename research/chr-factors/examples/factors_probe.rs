@@ -37,8 +37,7 @@ fn main() {
                 .any(|a| chr_observe::equivalent(a, e, &mut Default::default()))
         });
     let stats = s.stats();
-    let source = s.source_stats();
-    let sum = |f: fn(&chr_persistent::Stats) -> u64| source.iter().map(|s| f(s)).sum::<u64>();
+    let sum = |f: fn(&chr_persistent::Stats) -> u64| s.source_stats().map(f).sum::<u64>();
     let observer = s.observation_stats();
     let regional = s.regional_observation_stats();
     println!(

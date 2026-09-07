@@ -137,8 +137,8 @@ impl Search {
             .map(|f| f.search.stats().applications)
             .sum()
     }
-    pub fn source_stats(&self) -> Vec<&chr_persistent::Stats> {
-        self.factors.iter().map(|f| f.search.stats()).collect()
+    pub fn source_stats(&self) -> impl Iterator<Item = &chr_persistent::Stats> {
+        self.factors.iter().map(|f| f.search.stats())
     }
     pub fn regional_observation_stats(&self) -> chr_observe::Stats {
         let mut total = chr_observe::Stats::default();
