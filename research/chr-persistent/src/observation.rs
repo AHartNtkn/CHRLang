@@ -43,6 +43,12 @@ impl AnswerView for View<'_> {
     fn residual_arg(&self, i: usize, j: usize) -> Handle {
         self.answer.residual[i].1[j]
     }
+    fn constructor_child(&self, h: Handle, i: usize) -> Handle {
+        let Handle::Node(n) = h else {
+            panic!("normalized constructor handle required")
+        };
+        self.arena.nodes[n].args[i]
+    }
     fn resolve(&self, mut h: Handle, stats: &mut Stats) -> TermView<'_, Handle, u64> {
         while let Handle::Var(v) = h {
             stats.dereferences += 1;
@@ -58,7 +64,7 @@ impl AnswerView for View<'_> {
             Handle::Var(v) => TermView::Variable(v),
             Handle::Node(n) => {
                 let n = &self.arena.nodes[n];
-                TermView::Constructor(&n.name, &n.args)
+                TermView::Constructor(&n.name, h, n.args.len())
             }
         }
     }
@@ -67,9 +73,11 @@ impl View<'_> {
     fn term(&self, h: Handle, stats: &mut Stats) -> chr_syntax::Term {
         match self.resolve(h, stats) {
             TermView::Variable(v) => chr_syntax::Term::Var(chr_syntax::Var(v)),
-            TermView::Constructor(n, args) => chr_syntax::Term::App(
+            TermView::Constructor(n, h, arity) => chr_syntax::Term::App(
                 n.to_owned(),
-                args.iter().map(|&h| self.term(h, stats)).collect(),
+                (0..arity)
+                    .map(|i| self.term(self.constructor_child(h, i), stats))
+                    .collect(),
             ),
         }
     }

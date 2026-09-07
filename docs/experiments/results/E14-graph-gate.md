@@ -74,3 +74,15 @@ separate feasible follow-ups; neither is required before this first cost contras
 Workspace all-target tests, all-target Clippy with warnings denied, and formatting
 checks pass. Independent read-only review found no material semantic blocker and
 identified the export-counter scope qualification above.
+
+## Current v2 gate: shared comparator for trees and graphs
+
+The child-access interface now supports an allocation-free view of ordinary trees,
+allowing export policy to be compared using the same rollback algorithm. V2 adds
+tree/graph, graph/tree and tree/tree checks to every template and directed-graph
+case:17,154 comparisons per pass,1,569positive and15,585negative. All observations
+and counters replay exactly. The64-case source gate also passes128children with
+identical deterministic records to v1. [Comparator audit](E14-graph-gate-v2-audit.json)
+and [source audit](E14-graph-source-gate-v2-audit.json) accompany versioned raw,
+manifest and frozen-input files. Workspace tests, Clippy and formatting pass.
+The [four-control pilot](E14-graph-cost-pilot.md) now tests the resulting cost contrast.

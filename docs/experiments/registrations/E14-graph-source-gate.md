@@ -36,3 +36,13 @@ registry, including its intentionally incomplete answer prefixes. It does not cl
 A6 retention/traversal/cost questions, establish general fairness or expand the
 registry's current synthesis scope. Costs need their separate three-control
 lifecycle protocol with actual delivery export only for recognized new answers.
+
+
+## V2 child-access interface gate
+
+Repeat the full128-child protocol after the borrowed comparator's constructor
+access interface changes to support an allocation-free ordinary-tree view. The
+source algorithms and workload contracts are unchanged. Freeze the new sources,
+require exact per-version replay, and compare deterministic SOURCE rows with v1
+as an additional expected invariant. A failure requires investigation, not ignoring
+the additional control. This precedes every observation-cost run.

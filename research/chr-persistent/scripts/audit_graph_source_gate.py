@@ -19,6 +19,8 @@ def main():
         assert int(fields[3])>=int(fields[4]) and fields[5] in ('true','false')
         parsed.append(fields)
     assert parsed[:64]==parsed[64:]
+    previous=[json.loads(s) for s in (OUT/'E14-graph-source-gate-v1.jsonl').read_text().splitlines()]
+    assert [next(s for s in r['stdout'].splitlines() if s.startswith('SOURCE\t')).split('\t') for r in previous]==parsed
     assert len({f[2] for f in parsed[:64]})==64
     result=dict(passed=True,isolated_children=128,registry_cases=64,exact_semantic_and_counter_replay=True,
                 raw_completions=sum(int(f[3]) for f in parsed[:64]),unique_observations=sum(int(f[4]) for f in parsed[:64]),

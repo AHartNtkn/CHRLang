@@ -29,10 +29,16 @@ impl AnswerView for View {
     fn residual_arg(&self, i: usize, j: usize) -> usize {
         self.residual[i][j]
     }
+    fn constructor_child(&self, h: usize, i: usize) -> usize {
+        let N::F(_, a) = &self.nodes[h] else {
+            panic!("constructor")
+        };
+        a[i]
+    }
     fn resolve(&self, h: usize, _: &mut Stats) -> TermView<'_, usize, u64> {
         match &self.nodes[h] {
             N::V(v) => TermView::Variable(*v),
-            N::F(n, a) => TermView::Constructor(n, a),
+            N::F(n, a) => TermView::Constructor(n, h, a.len()),
         }
     }
 }
@@ -72,4 +78,38 @@ fn rollback_and_joint_aliases_preserve_residual_multisets() {
     assert!(stats.backtracks > 0);
     b.residual[1] = vec![1, 1];
     assert!(!equivalent(&a, &b, &mut Stats::default()));
+}
+
+#[test]
+fn borrowed_tree_control_uses_the_same_joint_mapping_and_backtracking() {
+    use chr_observe::graph::TreeView;
+    use chr_syntax::{Answer, c, t, v};
+    let a = Answer {
+        outputs: vec![("out".into(), t("f", [v(0)]))],
+        residual: vec![
+            c("p", [v(1), v(2)]),
+            c("p", [v(0), v(1)]),
+            c("p", [v(2), v(2)]),
+        ],
+    };
+    let b = Answer {
+        outputs: vec![("out".into(), t("f", [v(9)]))],
+        residual: vec![
+            c("p", [v(9), v(8)]),
+            c("p", [v(7), v(7)]),
+            c("p", [v(8), v(7)]),
+        ],
+    };
+    let mut stats = Stats::default();
+    assert!(equivalent(&TreeView(&a), &TreeView(&b), &mut stats));
+    assert!(stats.backtracks > 0);
+    assert_eq!(stats.dereferences, 0);
+    assert_eq!(stats.binding_visits, 0);
+    let mut bad = b.clone();
+    bad.outputs[0].1 = t("f", [v(8)]);
+    assert!(!equivalent(
+        &TreeView(&a),
+        &TreeView(&bad),
+        &mut Stats::default()
+    ));
 }

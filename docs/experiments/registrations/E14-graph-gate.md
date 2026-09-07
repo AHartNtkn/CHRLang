@@ -64,3 +64,20 @@ before cloning, and graph comparison before export. It includes preparation,
 retention, dedup, output materialization and destruction. Avoided tree construction
 does not imply avoided traversal or lower total memory. Any mismatch is minimized
 and repaired before affected comparative costs; bounds do not close A6.
+
+
+## V2 representation-matched comparator control
+
+Before cost runs, read-only review identified that eager and graph comparators
+use different residual mapping strategies. The borrowed view interface now exposes
+constructor name, normalized handle and arity plus child access, allowing an
+allocation-free view of ordinary owned trees to use the same comparator. No
+child-reference arrays are constructed. This interface change needs renewed gates.
+
+Repeat each of the192 template and4,096 graph pair cases for four view pairs:
+DAG/DAG, tree/DAG, DAG/tree, tree/tree, in that order. Add the same two common-root
+binding cases. The three group counts are768,2,16,384:17,154 comparisons per pass.
+Expected results come from the unchanged independent fixture oracle; graph/tree
+adapter agreement alone is not sufficient. Record and exactly replay all result
+and counter rows in six fresh children at the same bounds. V1 inputs/evidence
+remain available. No comparative cost result preceded this change.

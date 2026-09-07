@@ -3,7 +3,7 @@ import hashlib,json,os,platform,resource,signal,subprocess,sys,tarfile,time
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[3]
 OUT=ROOT/'docs/experiments/results'
-PREFIX='E14-graph-gate-v1'
+PREFIX='E14-graph-gate-v2'
 GROUPS=['targeted_templates','common_roots_different_environments','all_directed_graph_pairs']
 def digest(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def bound():resource.setrlimit(resource.RLIMIT_AS,(1073741824,1073741824))

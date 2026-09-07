@@ -1,0 +1,586 @@
+{
+  "sha256": {
+    "Cargo.toml": "dbb5ebeeee0a5206a92da6e3fbf6c405e3cfdcfd7a39ce67cc2bd4e02d9e0357",
+    "Cargo.lock": "29293f7f80744ba4bf62a9c91d853d4dfeaabffcb9ab4d69c4dc94e3b6acc5ab",
+    "docs/experiments/registrations/E14-graph-source-gate.md": "323590a87d9aefb49451b1849314c79bf4888beb03f9113d5bebdcc6925bf0ae",
+    "research/chr-persistent/examples/batch.rs": "4da34d803cb402b4eb067deedca901f6bbc6c328aff1bbed9639f2f4e1530f89",
+    "research/chr-persistent/examples/graph_cost.rs": "001581c8fa724f19a2f61e19a7825e59230a54d23ce6343e19d0dbd053bec02b",
+    "research/chr-persistent/examples/graph_memory.rs": "9b3efc867879583b9fc1183cb4f5829b59024fc7612b7f3844134dae624b9082",
+    "research/chr-persistent/examples/support/allocator.rs": "408fa1dd9d23d6ea88ca01098a64b571f505fa4a5e90f6e902eb468ae3cb7179",
+    "research/chr-persistent/examples/support/graph_cost.rs": "fbda8bed77191bfd368cb022ce1bdd5d1ad1dad044d459e0df40e51c867b3c84",
+    "research/chr-persistent/examples/support/graph_cost_cases.rs": "d358f146e2b42cbd2f4d5fb1dbb4cdb87edf9323714560f0cb88531511ec946f",
+    "research/chr-persistent/examples/support/graph_session.rs": "3fe0d73b4253997aee731b8b0d0e9130d25b727420aee578a2d2cfd962eb398c",
+    "research/chr-persistent/src/continuations.rs": "28f88c507ff4030be6f7a2fc45fb747f873b5fb371cf7dc5e91d36c28180c14c",
+    "research/chr-persistent/src/lib.rs": "1733c209fed1929168cd9584597591732f8808387cceaada5ad84ad54ff78f69",
+    "research/chr-persistent/src/map.rs": "f03c7f3565c6265f3861be66bfff2b1b4f7989b9fece019edfd37a29e5bc7807",
+    "research/chr-persistent/src/observation.rs": "50a708aba0396acd1a466450b4803b98146c5e9d9e16a76b9b78de96c63c8ae3",
+    "research/chr-persistent/src/state.rs": "35a4184b9b508b441803df10ab454be92d95eebfa727a141682a3c4af69e2ce0",
+    "research/chr-persistent/src/terms.rs": "ad5ecb45e3171d288fd41ad86ff04352109921457aecf20b0d8dbb80b18fbda6",
+    "research/chr-persistent/tests/borrowed_observation.rs": "904a65c22e720ee037ca548296d7ddc008cb773215068f8cb518b1df9497b989",
+    "research/chr-persistent/tests/conformance.rs": "75b9cc79bde65aae7abdea3ee982a39ad4560073727147ba07e9c443f2d14a9c",
+    "research/chr-persistent/tests/continuation_keys.rs": "d6e95034ef4011f86ebaf7085c02332b8399059216e0436c347fdf444880f66b",
+    "research/chr-persistent/tests/graph_cost_cases.rs": "2c948f837e26616d960cdb55bc324338e85257bee67e9c090344169843b68781",
+    "research/chr-persistent/tests/graph_registry.rs": "75b82f61f59b623f1e5a28e7803ca7b94d81352812663e0ab70fd8c13158ae82",
+    "research/chr-persistent/Cargo.toml": "03760081d016b74653689534d13f88f8a8dc7385dde717b76a35706966b123b0",
+    "research/chr-observe/examples/probe.rs": "d3ad3153734e3aeaa05b727fce95d76066629320934de421459022f49b5cf818",
+    "research/chr-observe/src/graph.rs": "4bd5d9b47ec2ab1b667e9de25ab0868f056568fff2942b08c6bdf5d0c07e2144",
+    "research/chr-observe/src/lib.rs": "df9275c19a75f80a77e6329638ec6295951f2a2c052ac3f3795caebdf41f5c76",
+    "research/chr-observe/tests/alpha.rs": "0382762ed3dbf5a6269c0de612e5037abdbb315b890bc4cc86a09f8d61352d6c",
+    "research/chr-observe/tests/graph_hand.rs": "bed44bbf0c454376f53fd9c5e829f59b4ff5887830f3aedd34ac94aea4de30aa",
+    "research/chr-observe/tests/graph_oracle.rs": "dbc208d01b0ba863e5ce571cdd51e277ffef57c9cec428c38b4ce03cd478b903",
+    "research/chr-observe/Cargo.toml": "d82667f3d698a5c46e47193e69a7e2a2f198a85ac1f77fb5b1dca1436f6d5227",
+    "research/chr-cases/examples/net_unification_cases.rs": "44299a0bc4da22b6f83409d8c8d92cce1074ccbf90efaa4bac65f1bf4e350404",
+    "research/chr-cases/examples/reference_batch.rs": "2f61d649fb087b46d1762866428741ece213a8facd33673eafbc641d858d0fed",
+    "research/chr-cases/src/lib.rs": "a3fae53c97b11e19c3624bd4608beb0bb6915be56b2c60f9e959da8d3a6adca0",
+    "research/chr-cases/tests/lambda.rs": "85acb529b756438c94bb21a35a8a8e88fed641a3be05ff702917555b558e352a",
+    "research/chr-cases/tests/registry.rs": "a47fff109c7dda281713e86bc7ef4747989f0b7f01c2f90d20b4bd5d49215e0b",
+    "research/chr-cases/Cargo.toml": "039dfd83b0bb2fefce6cb3fac5ce3bd88058f73bf3454f19ad031d3dff92e116",
+    "crates/chr-syntax/src/lib.rs": "9b380518e3071aeea80b8644aa5cf12f91d919f0bffdedd5c17122e27dffd48e",
+    "crates/chr-syntax/Cargo.toml": "d29d87af16b9999f3d3c25edb6d8a0c76bc6061f76c0e0daff8427ede4d4f8f1",
+    "crates/chr-reference/examples/explore.rs": "b882cd93c913ab551cb0be90a4821a0f76f484d2a371cf2fb3f33f64993eff75",
+    "crates/chr-reference/src/answer.rs": "0a11f37265bf8f3a8e7bbece81f21fb6d4a56a3a293edd4bc1cf3cbf17778fee",
+    "crates/chr-reference/src/branch.rs": "c404c1c5741e0e7ebec9103def2c5256341aa24caa4a482def1feac166aa80a1",
+    "crates/chr-reference/src/instantiate.rs": "94b1e25543ab6e11de34b2b3381b61b4dcf90c0550055f6c6d0808cb0a312777",
+    "crates/chr-reference/src/lib.rs": "f6a0125683605ddea8a44362bb1d03ba816f0ffef53f717c3aafd8734d38da5e",
+    "crates/chr-reference/src/matching.rs": "c69b54d5ee2d3f56ef05e823dea8cdfdd58c8ca12a5b703e9d7bc47479707d17",
+    "crates/chr-reference/src/unify.rs": "8b7e79dcf2fc43ddbc4d1d7f8381f6d266113799a8d3ad9e4c818a41679686f5",
+    "crates/chr-reference/tests/demos.rs": "15b22cc657a20ae7755372fbccdd96cd3c3baebd7a515a07c4bf8c5ad7232317",
+    "crates/chr-reference/tests/semantics.rs": "583f58910b31916e1f4d31857f530df35e3d7b7978172faf2eb9596ab0a5087f",
+    "crates/chr-reference/Cargo.toml": "8a9571e1d7b927e36baccc5853506eb044422acd8e7818164b9c0462b6dc1c1e",
+    "crates/chr-programs/src/lib.rs": "866b239958f5cd4871c7922009a434d94a3bf07659756b0d673f3affe3eee90e",
+    "crates/chr-programs/Cargo.toml": "aede4caf451e5bc9d9cc8d37c8954e8d52c5cd876bbb37190684b4179042ffc5",
+    "research/chr-persistent/scripts/audit_graph_source_gate.py": "610c78f789142cde8ead29347c24b9dcf67950151f3676e7d98b5f9d90379c90",
+    "research/chr-persistent/scripts/run_graph_source_gate.py": "af91421fd846f7220ad099933a17a04d10f6a08e1f2ce2db600ca72e92f02d5b"
+  },
+  "binary": "/home/ahart/Documents/CHRLang/target/release/deps/graph_registry-8c0ef38f4954b686",
+  "binary_sha256": "4ee7c33ce5a0ff4cbafcc8231147441a2080c2f939e6e441a531dd374c0f0065",
+  "order": [
+    {
+      "phase": "gate",
+      "index": 0
+    },
+    {
+      "phase": "gate",
+      "index": 1
+    },
+    {
+      "phase": "gate",
+      "index": 2
+    },
+    {
+      "phase": "gate",
+      "index": 3
+    },
+    {
+      "phase": "gate",
+      "index": 4
+    },
+    {
+      "phase": "gate",
+      "index": 5
+    },
+    {
+      "phase": "gate",
+      "index": 6
+    },
+    {
+      "phase": "gate",
+      "index": 7
+    },
+    {
+      "phase": "gate",
+      "index": 8
+    },
+    {
+      "phase": "gate",
+      "index": 9
+    },
+    {
+      "phase": "gate",
+      "index": 10
+    },
+    {
+      "phase": "gate",
+      "index": 11
+    },
+    {
+      "phase": "gate",
+      "index": 12
+    },
+    {
+      "phase": "gate",
+      "index": 13
+    },
+    {
+      "phase": "gate",
+      "index": 14
+    },
+    {
+      "phase": "gate",
+      "index": 15
+    },
+    {
+      "phase": "gate",
+      "index": 16
+    },
+    {
+      "phase": "gate",
+      "index": 17
+    },
+    {
+      "phase": "gate",
+      "index": 18
+    },
+    {
+      "phase": "gate",
+      "index": 19
+    },
+    {
+      "phase": "gate",
+      "index": 20
+    },
+    {
+      "phase": "gate",
+      "index": 21
+    },
+    {
+      "phase": "gate",
+      "index": 22
+    },
+    {
+      "phase": "gate",
+      "index": 23
+    },
+    {
+      "phase": "gate",
+      "index": 24
+    },
+    {
+      "phase": "gate",
+      "index": 25
+    },
+    {
+      "phase": "gate",
+      "index": 26
+    },
+    {
+      "phase": "gate",
+      "index": 27
+    },
+    {
+      "phase": "gate",
+      "index": 28
+    },
+    {
+      "phase": "gate",
+      "index": 29
+    },
+    {
+      "phase": "gate",
+      "index": 30
+    },
+    {
+      "phase": "gate",
+      "index": 31
+    },
+    {
+      "phase": "gate",
+      "index": 32
+    },
+    {
+      "phase": "gate",
+      "index": 33
+    },
+    {
+      "phase": "gate",
+      "index": 34
+    },
+    {
+      "phase": "gate",
+      "index": 35
+    },
+    {
+      "phase": "gate",
+      "index": 36
+    },
+    {
+      "phase": "gate",
+      "index": 37
+    },
+    {
+      "phase": "gate",
+      "index": 38
+    },
+    {
+      "phase": "gate",
+      "index": 39
+    },
+    {
+      "phase": "gate",
+      "index": 40
+    },
+    {
+      "phase": "gate",
+      "index": 41
+    },
+    {
+      "phase": "gate",
+      "index": 42
+    },
+    {
+      "phase": "gate",
+      "index": 43
+    },
+    {
+      "phase": "gate",
+      "index": 44
+    },
+    {
+      "phase": "gate",
+      "index": 45
+    },
+    {
+      "phase": "gate",
+      "index": 46
+    },
+    {
+      "phase": "gate",
+      "index": 47
+    },
+    {
+      "phase": "gate",
+      "index": 48
+    },
+    {
+      "phase": "gate",
+      "index": 49
+    },
+    {
+      "phase": "gate",
+      "index": 50
+    },
+    {
+      "phase": "gate",
+      "index": 51
+    },
+    {
+      "phase": "gate",
+      "index": 52
+    },
+    {
+      "phase": "gate",
+      "index": 53
+    },
+    {
+      "phase": "gate",
+      "index": 54
+    },
+    {
+      "phase": "gate",
+      "index": 55
+    },
+    {
+      "phase": "gate",
+      "index": 56
+    },
+    {
+      "phase": "gate",
+      "index": 57
+    },
+    {
+      "phase": "gate",
+      "index": 58
+    },
+    {
+      "phase": "gate",
+      "index": 59
+    },
+    {
+      "phase": "gate",
+      "index": 60
+    },
+    {
+      "phase": "gate",
+      "index": 61
+    },
+    {
+      "phase": "gate",
+      "index": 62
+    },
+    {
+      "phase": "gate",
+      "index": 63
+    },
+    {
+      "phase": "replay",
+      "index": 0
+    },
+    {
+      "phase": "replay",
+      "index": 1
+    },
+    {
+      "phase": "replay",
+      "index": 2
+    },
+    {
+      "phase": "replay",
+      "index": 3
+    },
+    {
+      "phase": "replay",
+      "index": 4
+    },
+    {
+      "phase": "replay",
+      "index": 5
+    },
+    {
+      "phase": "replay",
+      "index": 6
+    },
+    {
+      "phase": "replay",
+      "index": 7
+    },
+    {
+      "phase": "replay",
+      "index": 8
+    },
+    {
+      "phase": "replay",
+      "index": 9
+    },
+    {
+      "phase": "replay",
+      "index": 10
+    },
+    {
+      "phase": "replay",
+      "index": 11
+    },
+    {
+      "phase": "replay",
+      "index": 12
+    },
+    {
+      "phase": "replay",
+      "index": 13
+    },
+    {
+      "phase": "replay",
+      "index": 14
+    },
+    {
+      "phase": "replay",
+      "index": 15
+    },
+    {
+      "phase": "replay",
+      "index": 16
+    },
+    {
+      "phase": "replay",
+      "index": 17
+    },
+    {
+      "phase": "replay",
+      "index": 18
+    },
+    {
+      "phase": "replay",
+      "index": 19
+    },
+    {
+      "phase": "replay",
+      "index": 20
+    },
+    {
+      "phase": "replay",
+      "index": 21
+    },
+    {
+      "phase": "replay",
+      "index": 22
+    },
+    {
+      "phase": "replay",
+      "index": 23
+    },
+    {
+      "phase": "replay",
+      "index": 24
+    },
+    {
+      "phase": "replay",
+      "index": 25
+    },
+    {
+      "phase": "replay",
+      "index": 26
+    },
+    {
+      "phase": "replay",
+      "index": 27
+    },
+    {
+      "phase": "replay",
+      "index": 28
+    },
+    {
+      "phase": "replay",
+      "index": 29
+    },
+    {
+      "phase": "replay",
+      "index": 30
+    },
+    {
+      "phase": "replay",
+      "index": 31
+    },
+    {
+      "phase": "replay",
+      "index": 32
+    },
+    {
+      "phase": "replay",
+      "index": 33
+    },
+    {
+      "phase": "replay",
+      "index": 34
+    },
+    {
+      "phase": "replay",
+      "index": 35
+    },
+    {
+      "phase": "replay",
+      "index": 36
+    },
+    {
+      "phase": "replay",
+      "index": 37
+    },
+    {
+      "phase": "replay",
+      "index": 38
+    },
+    {
+      "phase": "replay",
+      "index": 39
+    },
+    {
+      "phase": "replay",
+      "index": 40
+    },
+    {
+      "phase": "replay",
+      "index": 41
+    },
+    {
+      "phase": "replay",
+      "index": 42
+    },
+    {
+      "phase": "replay",
+      "index": 43
+    },
+    {
+      "phase": "replay",
+      "index": 44
+    },
+    {
+      "phase": "replay",
+      "index": 45
+    },
+    {
+      "phase": "replay",
+      "index": 46
+    },
+    {
+      "phase": "replay",
+      "index": 47
+    },
+    {
+      "phase": "replay",
+      "index": 48
+    },
+    {
+      "phase": "replay",
+      "index": 49
+    },
+    {
+      "phase": "replay",
+      "index": 50
+    },
+    {
+      "phase": "replay",
+      "index": 51
+    },
+    {
+      "phase": "replay",
+      "index": 52
+    },
+    {
+      "phase": "replay",
+      "index": 53
+    },
+    {
+      "phase": "replay",
+      "index": 54
+    },
+    {
+      "phase": "replay",
+      "index": 55
+    },
+    {
+      "phase": "replay",
+      "index": 56
+    },
+    {
+      "phase": "replay",
+      "index": 57
+    },
+    {
+      "phase": "replay",
+      "index": 58
+    },
+    {
+      "phase": "replay",
+      "index": 59
+    },
+    {
+      "phase": "replay",
+      "index": 60
+    },
+    {
+      "phase": "replay",
+      "index": 61
+    },
+    {
+      "phase": "replay",
+      "index": 62
+    },
+    {
+      "phase": "replay",
+      "index": 63
+    }
+  ],
+  "build_command": [
+    "cargo",
+    "test",
+    "-p",
+    "chr-persistent",
+    "--test",
+    "graph_registry",
+    "--release",
+    "--no-run",
+    "--message-format=json"
+  ],
+  "timeout_seconds": 30,
+  "address_space_bytes": 1073741824,
+  "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+  "compiler": "rustc 1.97.1 (8bab26f4f 2026-07-14)\nbinary: rustc\ncommit-hash: 8bab26f4f68e0e26f0bb7960be334d5b520ea452\ncommit-date: 2026-07-14\nhost: x86_64-unknown-linux-gnu\nrelease: 1.97.1\nLLVM version: 22.1.6\n"
+}

@@ -36,6 +36,12 @@ impl AnswerView for Dag {
     fn residual_arg(&self, i: usize, j: usize) -> usize {
         self.residual[i].1[j]
     }
+    fn constructor_child(&self, h: usize, i: usize) -> usize {
+        match &self.nodes[h] {
+            Node::Constructor(_, args) => args[i],
+            Node::Variable(_) => panic!("constructor handle required"),
+        }
+    }
     fn resolve(&self, mut h: usize, stats: &mut Stats) -> TermView<'_, usize, Var> {
         loop {
             stats.dereferences += 1;
@@ -48,7 +54,7 @@ impl AnswerView for Dag {
                         return TermView::Variable(*v);
                     }
                 }
-                Node::Constructor(name, args) => return TermView::Constructor(name, args),
+                Node::Constructor(name, args) => return TermView::Constructor(name, h, args.len()),
             }
         }
     }
@@ -298,7 +304,7 @@ fn templates() -> Vec<(Answer, Answer, bool)> {
         ),
     ]
 }
-fn record(id: &str, left: &Dag, right: &Dag, wanted: bool) {
+fn record<L: AnswerView, R: AnswerView>(id: &str, left: &L, right: &R, wanted: bool) {
     let mut stats = Stats::default();
     let actual = equivalent(left, right, &mut stats);
     println!(
@@ -311,6 +317,13 @@ fn record(id: &str, left: &Dag, right: &Dag, wanted: bool) {
         stats.binding_visits
     );
     assert_eq!(actual, wanted, "{id}");
+}
+fn representations(id: &str, left: &Dag, right: &Dag, a: &Answer, b: &Answer, wanted: bool) {
+    use chr_observe::graph::TreeView;
+    record(id, left, right, wanted);
+    record(&format!("{id}-tree-left"), &TreeView(a), right, wanted);
+    record(&format!("{id}-tree-right"), left, &TreeView(b), wanted);
+    record(&format!("{id}-trees"), &TreeView(a), &TreeView(b), wanted);
 }
 #[test]
 fn targeted_templates() {
@@ -327,9 +340,9 @@ fn targeted_templates() {
                         u8::from(reverse)
                     );
                     if reverse {
-                        record(&id, &right, &left, manual)
+                        representations(&id, &right, &left, &b, &a, manual)
                     } else {
-                        record(&id, &left, &right, manual)
+                        representations(&id, &left, &right, &a, &b, manual)
                     }
                 }
             }
@@ -388,10 +401,12 @@ fn all_directed_graph_pairs() {
                 })
             });
             assert_eq!(oracle(&left, &right), expected);
-            record(
+            representations(
                 &format!("graph-{a}-{b}"),
                 &graph(&left, a & 1 != 0, a & 2 != 0),
                 &graph(&right, b & 1 != 0, b & 2 != 0),
+                &left,
+                &right,
                 expected,
             );
         }

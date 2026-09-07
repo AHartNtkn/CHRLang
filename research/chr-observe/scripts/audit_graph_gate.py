@@ -14,6 +14,8 @@ def main():
     expected={groups[0]:[f'target-{i}-{layout}-{alias}-{rev}' for i in range(12) for layout in range(4) for alias in range(2) for rev in range(2)],
               groups[1]:['same-root-equal','same-root-unequal'],
               groups[2]:[f'graph-{a}-{b}' for a in range(64) for b in range(64)]}
+    for group in (groups[0],groups[2]):
+        expected[group]=[base+suffix for base in expected[group] for suffix in ('','-tree-left','-tree-right','-trees')]
     parsed=[]
     for row in rows:
         assert row['exit']==0 and not row['stderr'] and row['wall_seconds']<30

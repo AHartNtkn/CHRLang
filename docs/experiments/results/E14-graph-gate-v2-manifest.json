@@ -1,0 +1,70 @@
+{
+  "sha256": {
+    "Cargo.toml": "dbb5ebeeee0a5206a92da6e3fbf6c405e3cfdcfd7a39ce67cc2bd4e02d9e0357",
+    "Cargo.lock": "29293f7f80744ba4bf62a9c91d853d4dfeaabffcb9ab4d69c4dc94e3b6acc5ab",
+    "docs/experiments/registrations/E14-graph-gate.md": "6f4facce35ac8f76c349f5d9eed34e9bb74d7bbe2aab23432099d2ff3acb613f",
+    "research/chr-observe/examples/probe.rs": "d3ad3153734e3aeaa05b727fce95d76066629320934de421459022f49b5cf818",
+    "research/chr-observe/src/graph.rs": "4bd5d9b47ec2ab1b667e9de25ab0868f056568fff2942b08c6bdf5d0c07e2144",
+    "research/chr-observe/src/lib.rs": "df9275c19a75f80a77e6329638ec6295951f2a2c052ac3f3795caebdf41f5c76",
+    "research/chr-observe/tests/alpha.rs": "0382762ed3dbf5a6269c0de612e5037abdbb315b890bc4cc86a09f8d61352d6c",
+    "research/chr-observe/tests/graph_hand.rs": "bed44bbf0c454376f53fd9c5e829f59b4ff5887830f3aedd34ac94aea4de30aa",
+    "research/chr-observe/tests/graph_oracle.rs": "dbc208d01b0ba863e5ce571cdd51e277ffef57c9cec428c38b4ce03cd478b903",
+    "research/chr-observe/Cargo.toml": "d82667f3d698a5c46e47193e69a7e2a2f198a85ac1f77fb5b1dca1436f6d5227",
+    "crates/chr-syntax/src/lib.rs": "9b380518e3071aeea80b8644aa5cf12f91d919f0bffdedd5c17122e27dffd48e",
+    "crates/chr-syntax/Cargo.toml": "d29d87af16b9999f3d3c25edb6d8a0c76bc6061f76c0e0daff8427ede4d4f8f1",
+    "crates/chr-reference/examples/explore.rs": "b882cd93c913ab551cb0be90a4821a0f76f484d2a371cf2fb3f33f64993eff75",
+    "crates/chr-reference/src/answer.rs": "0a11f37265bf8f3a8e7bbece81f21fb6d4a56a3a293edd4bc1cf3cbf17778fee",
+    "crates/chr-reference/src/branch.rs": "c404c1c5741e0e7ebec9103def2c5256341aa24caa4a482def1feac166aa80a1",
+    "crates/chr-reference/src/instantiate.rs": "94b1e25543ab6e11de34b2b3381b61b4dcf90c0550055f6c6d0808cb0a312777",
+    "crates/chr-reference/src/lib.rs": "f6a0125683605ddea8a44362bb1d03ba816f0ffef53f717c3aafd8734d38da5e",
+    "crates/chr-reference/src/matching.rs": "c69b54d5ee2d3f56ef05e823dea8cdfdd58c8ca12a5b703e9d7bc47479707d17",
+    "crates/chr-reference/src/unify.rs": "8b7e79dcf2fc43ddbc4d1d7f8381f6d266113799a8d3ad9e4c818a41679686f5",
+    "crates/chr-reference/tests/demos.rs": "15b22cc657a20ae7755372fbccdd96cd3c3baebd7a515a07c4bf8c5ad7232317",
+    "crates/chr-reference/tests/semantics.rs": "583f58910b31916e1f4d31857f530df35e3d7b7978172faf2eb9596ab0a5087f",
+    "crates/chr-reference/Cargo.toml": "8a9571e1d7b927e36baccc5853506eb044422acd8e7818164b9c0462b6dc1c1e",
+    "research/chr-observe/scripts/audit_graph_gate.py": "2210afac3e237d14e57b858fb00b66f970108b162661f243bd64c4d73cff2097",
+    "research/chr-observe/scripts/run_graph_gate.py": "0b082b0cb56a2ec7d2ecced1a809197b82237b6871ddeca60dbe6c220733b405"
+  },
+  "binary": "/home/ahart/Documents/CHRLang/target/debug/deps/graph_oracle-dad6f222c4b1a59c",
+  "binary_sha256": "b4b4f26566a08cec6dd0ee0e61a9047fb14c4e9928f1d37b4ec2e8ff65aa49d9",
+  "order": [
+    {
+      "phase": "gate",
+      "group": "targeted_templates"
+    },
+    {
+      "phase": "gate",
+      "group": "common_roots_different_environments"
+    },
+    {
+      "phase": "gate",
+      "group": "all_directed_graph_pairs"
+    },
+    {
+      "phase": "replay",
+      "group": "targeted_templates"
+    },
+    {
+      "phase": "replay",
+      "group": "common_roots_different_environments"
+    },
+    {
+      "phase": "replay",
+      "group": "all_directed_graph_pairs"
+    }
+  ],
+  "timeout_seconds": 30,
+  "address_space_bytes": 1073741824,
+  "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+  "compiler": "rustc 1.97.1 (8bab26f4f 2026-07-14)\nbinary: rustc\ncommit-hash: 8bab26f4f68e0e26f0bb7960be334d5b520ea452\ncommit-date: 2026-07-14\nhost: x86_64-unknown-linux-gnu\nrelease: 1.97.1\nLLVM version: 22.1.6\n",
+  "build_command": [
+    "cargo",
+    "test",
+    "-p",
+    "chr-observe",
+    "--test",
+    "graph_oracle",
+    "--no-run",
+    "--message-format=json"
+  ]
+}
