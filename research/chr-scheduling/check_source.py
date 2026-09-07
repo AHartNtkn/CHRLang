@@ -21,7 +21,7 @@ def compare(state, branch):
     assert state.history == branch.history, 'history'
 
 
-def check(case, quantum):
+def check(case, quantum, selector="scan"):
     rules = tuple(Rule(**r) for r in case['rules'])
     controls = tuple(ControlRule(**r) for r in case['rules'])
     state = initial(case['constraints'], case['outputs'])
@@ -35,7 +35,7 @@ def check(case, quantum):
         if not queue:
             break
         state, branch = queue.popleft()
-        job = StepJob(state, rules)
+        job = StepJob(state, rules, selector)
         total = 0
         while not job.done:
             total += job.advance(quantum)

@@ -7,7 +7,7 @@ This version uses direct unification, not the interaction-net service.
 """
 from collections import Counter
 from dataclasses import dataclass, replace
-from itertools import permutations
+from itertools import permutations, product
 
 
 @dataclass(frozen=True)
@@ -190,7 +190,10 @@ def match(pattern, value, bindings):
 
 
 class StepJob:
-    def __init__(self, state, rules):
+    def __init__(self, state, rules, selector="scan"):
+        if selector not in ("scan", "predicate"):
+            raise ValueError("unknown selector")
+        self.selector = selector
         self.state, self.rules = state, rules
         self.done = False
         self.counts = Counter()
@@ -259,8 +262,34 @@ class StepJob:
             heads = rule.kept + rule.removed
             if not heads:
                 raise ValueError('empty rule head')
-            for selected in permutations(s.store, len(heads)):
+            if self.selector == 'predicate':
+                pools = []
+                for head in heads:
+                    pool = []
+                    for occurrence in s.store:
+                        yield 'index_visit'
+                        root = occurrence[1]
+                        while isinstance(root, int) and root in sub:
+                            yield 'index_deref'
+                            root = sub[root]
+                        if isinstance(head, int) or (not isinstance(root, int) and
+                                head[0] == root[0] and len(head[1]) == len(root[1])):
+                            pool.append(occurrence)
+                    pools.append(pool)
+                selections = product(*pools)
+            else:
+                selections = permutations(s.store, len(heads))
+            for selected in selections:
                 yield 'tuple'
+                if self.selector == 'predicate':
+                    seen = set()
+                    for occurrence in selected:
+                        yield 'index_distinct'
+                        if occurrence[0] in seen:
+                            break
+                        seen.add(occurrence[0])
+                    if len(seen) != len(heads):
+                        continue
                 ids = tuple(o[0] for o in selected)
                 token = (index, ids)
                 if token in s.history:

@@ -30,9 +30,9 @@ def control(case):
     return search.steps
 
 
-def run(case, policy, grouping, batch, quantum):
+def run(case, policy, grouping, batch, quantum, selector="scan"):
     search = Search(case['rules'], case['constraints'], case['outputs'], policy, grouping,
-                    batch_size=batch, compare_mode='identity')
+                    batch_size=batch, compare_mode='identity', selector=selector)
     while not search.exhausted and search.actions < 5_000_000:
         search.advance(quantum)
     assert search.exhausted, (case['id'], 'action cap')

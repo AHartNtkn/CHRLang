@@ -564,8 +564,9 @@ tasks:
       - docs/experiments/results/E09-keys.md
       - docs/experiments/results/E09-costs.md
       - docs/experiments/results/E09-mixed.md
+      - docs/experiments/results/E09-selector.md
     expected_output:
-      - Implement yielding predicate-filtered selection and matched-predicate rejection controls next; continue indexed wakeups, heterogeneous supports, cached keys, longer synthesis and second-service integration. Mixed-scan/binding evidence is recorded.
+      - Implement distinct-prefix matching with rollback/order validation next; continue guarded join placement, maintained indexes/wakeups, heterogeneous supports, cached keys, longer synthesis and second-service integration. Predicate filtering and opposed controls are recorded.
     receipt: null
     allowed_files:
       - research/chr-nets/
@@ -616,11 +617,12 @@ checks:
       - Nineteen net/control/service tests pass
       - 288 whole-service quantum configurations and exact replay pass
       - Partial build/readback publication checks and interleaved small-request tests pass
-      - Fifteen source/observer/policy/key/protocol tests and 192 source conformance configurations with exact replay pass
+      - Seventeen source/observer/policy/key/protocol/selector tests and 192 source conformance configurations with exact replay pass
       - 14271 exact observer configurations and replay pass
       - 930 integrated policy conformance configurations and 180 controlled work configurations replay exactly
       - 750 key-ablation configurations replay exactly; prior 180-row baseline also replays
       - 225 cost configurations pass 1350 confirmatory timing/warm-up and 450 separate memory runs with exact semantic/action agreement
       - 324 mixed-scan/binding configurations and exact replay agree with independent control answers and represented steps
+      - 624 predicate-selector configurations replay exactly; prior 324-row full-scan matrix also replays
     evidence:
       - docs/experiments/results/E09-service-gate.md
