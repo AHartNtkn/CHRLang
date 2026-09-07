@@ -42,6 +42,14 @@ The [architectural assumption register](architecture-assumptions.md) is a requir
 
 **Evidence/disposition:** [family services and backend boundaries](../goals/chr-sharing/notes/T018-backend-boundaries.md) provide independent contracts. Native correspondence is an implementation/proof task in E06c; neither a backend name nor scalar ground examples close it. [E05](results/E05.md) measures frozen named equality against eager and exact-partition controls with assignment-level reference checks. Dynamic births/effects and backend correspondence remain active.
 
+The [direct distributed graph gate](registrations/E06-distributed-graph-gate.md)
+is now an independent active entry: matched interfaces, local versus global/lazy
+validity, dynamic births, off-output failure and unfinished work. Neither native
+HVM limitations nor existing store APIs delimit this candidate. Local completion
+signals have an [authoritative protocol entry](results/E06-local-completion-entry.md);
+the interpretation-sensitive lifting remains open. No direct-graph result is
+claimed before its registered gate.
+
 ### 5. Ordinary interaction nets and richer local calculi
 
 **Remaining:** emitted agents/rules, service and fan traffic, equality lookups, local dispatch restrictions, and whether richer interactions materially change the service cost.

@@ -296,6 +296,24 @@ and whether a result distinguishes the architecture from a faster implementation
 of the same decomposition. Newly discovered shared assumptions extend the
 register. No architecture is selected merely by finishing a semantic prototype.
 
+### E06d — Direct distributed-choice graph rewriting
+
+The [direct graph entry](../goals/chr-experiments/notes/T021-distributed-choice-entry.md)
+and [semantic gate](registrations/E06-distributed-graph-gate.md) investigate one
+graph with correlated connectors on matched alternative interfaces. This is an
+independent architectural entry, not an extension that must first succeed as an
+incumbent interpreter service. Compare local validity connections, global
+compatibility checks and lazy invalidation while separating physical reclamation.
+The first fragment must distinguish activation, completion and failure, preserve
+joint nonground interfaces and dynamic choice identity, and count actual shared
+rewrites. Follow with CHR correspondence and lifecycle costs; finite projection
+agreement alone does not establish either.
+
+[Local completion source analysis](results/E06-local-completion-entry.md) supplies
+an acknowledgement-based follow-up for dynamically spawned obligations. Its
+ordinary distributed termination theorem is not a theorem about named choices;
+that lifting remains a concrete implementation and proof question.
+
 ## Measurement and interpretation rules
 
 Correctness runs use deterministic seeds and replay of counterexamples. Use both handwritten semantic cases and the bounded generated-case method in T013; freeze generator and bounds before execution. A generated prefix is not a termination or completeness proof. Minimize discrepancies and preserve the original input and revisions.
