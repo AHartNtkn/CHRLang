@@ -134,7 +134,7 @@ class Bounded:
         state_views=[View(state[0]) for state in self.states]
         solver=self.e.solver
         solver.push();solver.add(self.done,z3.Not(self.h.failed),z3.Not(self.h.cutoff))
-        answers=[]
+        answers=[];self.models=0
         def decode(value):
             index=next(i for i in range(view.sort.num_constructors()) if value.decl()==view.sort.constructor(i))
             if index==0:return value.arg(0).as_long()
@@ -143,7 +143,7 @@ class Bounded:
             status=solver.check()
             if status==z3.unsat:break
             if status!=z3.sat:raise RuntimeError(f'bounded solver returned {status}: {solver.reason_unknown()}')
-            model=solver.model()
+            model=solver.model();self.models+=1
             answer={'outputs':[decode(model.eval(select(view.values,h))) for h in self.outputs],
                     'residual':[decode(model.eval(select(view.values,h))) for h,a in zip(self.roots,self.alive) if z3.is_true(model.eval(a))]}
             self.verify(model,state_views,decode,answer)
@@ -154,6 +154,18 @@ class Bounded:
         solver.pop()
         return answers
 
+
+    def boundary_status(self):
+        """Existence of resource-cutoff or still-active paths at these bounds."""
+        result={}
+        for name,predicate in [('resource_cutoff',self.h.cutoff),
+                               ('transition_cutoff',z3.And(z3.Not(self.done),z3.Not(self.h.failed),z3.Not(self.h.cutoff)))]:
+            self.e.solver.push();self.e.solver.add(predicate)
+            status=self.e.solver.check()
+            if status==z3.unknown:raise RuntimeError(self.e.solver.reason_unknown())
+            result[name]=status==z3.sat
+            self.e.solver.pop()
+        return result
 
     def verify(self,model,views,decode,answer):
         from machine import verify_witness

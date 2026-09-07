@@ -27,3 +27,10 @@ class SymbolicTests(unittest.TestCase):
         rule=Rule((),(('p',(0,1)),),('and',('eq',0,('z',())),('post',('no_c',(1,)))))
         run=Bounded([rule],[('p',(0,1))],[0,1],transitions=8,nodes=6,occurrences=2,pending=3,service=2)
         self.assertEqual(run.answers(),[{'outputs':[('z',()),1],'residual':[('no_c',(1,))]}])
+
+    def test_resource_and_transition_cutoffs_are_distinct(self):
+        for nodes,expected in [(1,{'resource_cutoff':True,'transition_cutoff':False}),
+                               (2,{'resource_cutoff':False,'transition_cutoff':True})]:
+            run=Bounded([],[('p',(0,))],[0],transitions=0,nodes=nodes,occurrences=1,pending=1,service=1)
+            self.assertEqual(run.answers(),[])
+            self.assertEqual(run.boundary_status(),expected)
