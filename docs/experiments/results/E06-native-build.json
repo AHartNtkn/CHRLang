@@ -1,0 +1,28 @@
+{
+  "revision": "6defdfc7dae2a3cca5dd6e74ed0612385b5646a8",
+  "compiler": "Ubuntu clang version 14.0.0-1ubuntu1.1\nTarget: x86_64-pc-linux-gnu\nThread model: posix\nInstalledDir: /usr/bin\n",
+  "source_sha256": "3d2724d0716b5d6b1c07a3b0b3c5cb89f848487a43d364ea689658f9aeb75fe7",
+  "instrumented_sha256": "a5b64a125b0fb6c2d15722f702eedbca95fc83dd24abdea9344b82f5c8691565",
+  "commands": [
+    [
+      "clang",
+      "-O2",
+      "-o",
+      "/tmp/chr-hvm-native-e06/baseline",
+      "/tmp/chr-hvm4-research-20260906/src/hvm.c"
+    ],
+    [
+      "clang",
+      "-O2",
+      "-o",
+      "/tmp/chr-hvm-native-e06/trace",
+      "/tmp/chr-hvm-native-e06/hvm-trace.c"
+    ]
+  ],
+  "hooks": {
+    "fn Term wnf_dup_lam(u32 lab, u64 loc, u8 side, Term lam) {": "fprintf(stderr,\"{\\\"event\\\":\\\"dup_lam\\\",\\\"label\\\":%u,\\\"introduces_sup\\\":%s}\\n\",lab,(term_ext(lam)&LAM_ERA_MASK)?\"false\":\"true\");",
+    "fn Term wnf_dup_sup(u32 lab, u64 loc, u8 side, Term sup) {": "fprintf(stderr,\"{\\\"event\\\":\\\"dup_sup\\\",\\\"dup_label\\\":%u,\\\"sup_label\\\":%u}\\n\",lab,term_ext(sup));",
+    "fn Term wnf_dsu_num(Term lab_num, Term a, Term b) {": "fprintf(stderr,\"{\\\"event\\\":\\\"dsu_num\\\",\\\"requested\\\":%u,\\\"effective\\\":%u}\\n\",(u32)term_val(lab_num),(u32)term_val(lab_num)&EXT_MASK);",
+    "fn Term wnf_ddu_num(Term lab_num, Term val, Term bod) {": "fprintf(stderr,\"{\\\"event\\\":\\\"ddu_num\\\",\\\"requested\\\":%u,\\\"effective\\\":%u}\\n\",(u32)term_val(lab_num),(u32)term_val(lab_num)&EXT_MASK);"
+  }
+}

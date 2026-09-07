@@ -531,8 +531,9 @@ tasks:
       - docs/experiments/results/E06-hvm-boundary.md
       - docs/experiments/results/E06-unification.md
       - docs/experiments/results/E06-unification-costs.md
+      - docs/experiments/results/E06-native.md
     expected_output:
-      - Continue source effects, routed/shared stores and richer protocols, general encoded machine and native choice correspondence; full-service costs and backend boundary gates are recorded.
+      - Continue native allocator/state correspondence, general encoded machine, routed/shared stores and richer protocols; full-service costs and native provenance counterexamples are recorded.
     receipt: null
     allowed_files:
       - Cargo.toml
@@ -594,8 +595,9 @@ checks:
     result: passed
     task: T013
     commands:
-      - Sixteen net/control tests pass
-      - 432 reference requests pass all direct controls; 384 full-cost configurations replay exactly
-      - chr-cases tests and Clippy pass; workspace formatting passes
+      - Pinned baseline and instrumented HVM compile
+      - Twenty-one native probe predictions and baseline/instrumented observations agree
+      - Numeric events, nineteen graph traces and Itrs/Heap counters replay exactly
+      - Backend decoder tests and diff checks pass
     evidence:
-      - docs/experiments/results/E06-unification-costs.md
+      - docs/experiments/results/E06-native.md
