@@ -98,3 +98,8 @@ The [R04 lifecycle pilot](R04-lifecycle-pilot.md) establishes a viable native fi
 ## Conditional implementation entry after T034
 
 [The reviewed protocol](R03-conditional-protocol.md) selects direct symbolic activation with supported occurrence/history ownership and causal source births. Completion and invalidation are local to support so a divergent alternative cannot continually restart a finite sibling's proof. T035 establishes executable projection, resource and progress gates before any cost claim. The initial serial owner and decision-DAG representation are implementation choices; their costs and limits remain part of the comparison.
+
+
+## Current evidence update during T035
+
+The [direct conditional runtime gate](R03-conditional-runtime.md) now checks complete source execution, resource effects, raw multiplicity and bounded publication beside divergent activity. Direct tuple/dependency activation and supported consumption are executable; their total cost is unresolved. The selected next work establishes true reusable preparation and registers a bounded lifecycle comparison against competent global source search. That comparison has more current decision value than further queue tuning because it tests whether shared physical execution pays for support, completion and retention machinery. T035 remains active; no efficiency ranking follows from its semantic gate.

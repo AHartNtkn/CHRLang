@@ -57,6 +57,19 @@ impl Store {
             version: 0,
         }
     }
+    pub fn variable_count(&self) -> usize {
+        self.bindings.len()
+    }
+    /// Explicit supported source failure, serviced by the same serial writer owner.
+    pub fn fail(&self, region: Support) -> FailureJob {
+        FailureJob {
+            identity: self.identity,
+            version: self.version,
+            region,
+            job: None,
+            done: false,
+        }
+    }
     pub fn fresh_variable(&mut self) -> Term {
         let term = Term(self.nodes.len());
         let variable = self.bindings.len();
@@ -723,6 +736,42 @@ impl DemandJob {
             }
         }
         DemandStatus::Pending
+    }
+}
+
+/// An unfinished failure job remains a caller-owned obligation until completion.
+pub struct FailureJob {
+    identity: u64,
+    version: u64,
+    region: Support,
+    job: Option<Job>,
+    done: bool,
+}
+impl FailureJob {
+    pub fn tick(&mut self, store: &mut Store, arena: &mut Arena) -> UnifyStatus {
+        if self.identity != store.identity || self.version != store.version {
+            return UnifyStatus::Stale;
+        }
+        if self.done {
+            return UnifyStatus::Complete {
+                failed: store.failed,
+            };
+        }
+        let job = self
+            .job
+            .get_or_insert_with(|| arena.job(Operation::Or(store.failed, self.region)));
+        match job.tick(arena) {
+            Status::Pending => UnifyStatus::Pending,
+            Status::Complete(failed) => {
+                if failed != store.failed {
+                    store.failed = failed;
+                    store.changed();
+                    self.version = store.version;
+                }
+                self.done = true;
+                UnifyStatus::Complete { failed }
+            }
+        }
     }
 }
 
