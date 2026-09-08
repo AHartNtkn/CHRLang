@@ -1,0 +1,12 @@
+   Compiling chr-relational v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-relational)
+error[E0433]: cannot find module or crate `chr_observe` in this scope
+   --> research/chr-relational/tests/../../chr-direct-conditional/tests/runtime_support/mod.rs:272:27
+    |
+272 |             .position(|a| chr_observe::equivalent(a, &wanted, &mut Default::default()))
+    |                           ^^^^^^^^^^^ use of unresolved module or unlinked crate `chr_observe`
+    |
+    = help: if you wanted to use a crate named `chr_observe`, use `cargo add chr_observe` to add it to your `Cargo.toml`
+
+For more information about this error, try `rustc --explain E0433`.
+error: could not compile `chr-relational` (test "source") due to 1 previous error
+warning: build failed, waiting for other jobs to finish...

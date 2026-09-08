@@ -5,7 +5,7 @@ use chr_syntax::{Term, Var};
 use std::collections::{BTreeSet, VecDeque};
 #[derive(Default, Clone)]
 pub struct Store {
-    view: View,
+    pub(crate) view: View,
     parents: Vec<Value>,
     ranks: Vec<usize>,
     equations: VecDeque<(Value, Value)>,

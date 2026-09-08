@@ -5,3 +5,7 @@ edition.workspace = true
 
 [dependencies]
 chr-syntax = { path = "../../crates/chr-syntax" }
+
+[dev-dependencies]
+chr-observe = { path = "../chr-observe" }
+chr-integrated = { path = "../chr-integrated", default-features = false }

@@ -1,0 +1,65 @@
+{
+  "commands": [
+    {
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-relational"
+      ],
+      "exit_code": 0,
+      "log": "tests.log",
+      "timeout_seconds": 60
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-relational"
+      ],
+      "exit_code": 0,
+      "log": "replay.log",
+      "timeout_seconds": 60
+    },
+    {
+      "command": [
+        "cargo",
+        "clippy",
+        "-p",
+        "chr-relational",
+        "--all-targets",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit_code": 0,
+      "log": "clippy.log",
+      "timeout_seconds": 60
+    },
+    {
+      "command": [
+        "cargo",
+        "fmt",
+        "-p",
+        "chr-relational",
+        "--",
+        "--check"
+      ],
+      "exit_code": 0,
+      "log": "fmt.log",
+      "timeout_seconds": 60
+    }
+  ],
+  "sha256": {
+    "research/chr-relational/src/execute.rs": "62fc6ea11127360f8d74897afe1426f3eb6bccb002e017934b272fc8fa057f3f",
+    "research/chr-relational/src/lib.rs": "83e1c1eefeb3ed3ee85f18c2a4f61b4bb274ee61482eb0701aeeabd325ecf36a",
+    "research/chr-relational/src/store.rs": "b1f5efced54149c2a33971a14e861f0df8e37fb8bddbe457fde99f7801ecbf09",
+    "research/chr-relational/tests/head_plan.rs": "321535af163089d2f89224d5ad5def1c46aada18932d34d22d49d08ef1a895d6",
+    "research/chr-relational/tests/source.rs": "cedd8622c4f0606782b49d9775940d2e91267da477fd89ae5dae0b810897353d",
+    "research/chr-relational/tests/store.rs": "5674be19768ee805ebb7540203fc4e0270a763c83f968901b6228a0a0e0d0cc4",
+    "research/chr-relational/Cargo.toml": "a256065b95686bff1876f72d807c7203a0009882dc26ef70d9609d294128c97b",
+    "Cargo.lock": "e92a1cc970827851154f620ef3462ace6a83729a15ff9ea17175020183d9fd7f",
+    "research/chr-direct-conditional/tests/runtime_support/mod.rs": "03633e8d666fadcdd08ddfe4900aa8116b32e434fb0a5dcb1c5faa23ff5976b2"
+  }
+}

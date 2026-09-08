@@ -268,3 +268,7 @@ The [relational head-plan gate](S02-relational-head-plan.md) validates construct
 ## S02 mutable equality/resource owner
 
 The [mutable owner gate](S02-relational-owner.md) passes 1,296 independent ordered equation cases, checking exports and repaired joins after each update. Directed cases establish consuming interleaving and copied-context isolation. These are correctness capabilities, with full source execution, shared contexts and comparative costs still unresolved. T063 remains active.
+
+## S02 complete source gate
+
+The [relational source gate](S02-relational-source.md) passes 46 independently checked finite configurations, including 36 comparisons with the no-choice integrated control, and finite-sibling publication beside ongoing work. This supplies a complete path for a bounded lifecycle comparison; it does not establish a cost advantage or settle shared contextual integration. T063 remains active for prospective cost registration, with S01 and S06 reassessed after the pilot.
