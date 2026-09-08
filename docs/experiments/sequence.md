@@ -200,8 +200,10 @@ If a pilot reaches a bound, inspect progress and the responsible cost. Choose a 
 
 All new results link raw inputs, commands, freezes, validation and unfavorable outcomes. Correct consequential defects and rerun affected comparisons. Preserve reference independence. No new architecture adopts implementation interfaces merely because they make cross-engine testing easier.
 
-## Immediate next work
+## Entry order and current progress
 
-Complete S00's contract ledger and four candidate sketches, mapping every review entry to the stages below. Then register S01's weakly keyed/update-heavy join comparison, alongside the early feasibility screens for integration, direct graphs, direct compilation and reusable parallel work. This is the initial selection because it tests a missing ordinary-computation contrast and establishes credible discovery costs for later comparisons; it does not make all other work depend on its completion.
+The sequence starts with S00's contract ledger and four candidate sketches, then S01's weakly keyed/update-heavy join comparison alongside early feasibility screens for integration, direct graphs, direct compilation and reusable parallel work. This order tests a missing ordinary-computation contrast and establishes credible discovery controls; it does not make every other investigation depend on completing S01.
 
-The current task delivers this sequence. It runs no new comparative experiments and does not create or rewrite the research goal.
+The [coverage map](coverage.md) records progress and remaining obligations. The contract audit, initial direct/retained matching correctness tests and first-cycle feasibility assessment are recorded. The [first-cycle assessment](results/S00-first-cycle-feasibility.md) selects direct-graph implementation next because its organization remains untested and an independent compound source oracle is now available. S01 still requires selective and consuming extensions and lifecycle measurements. No comparative lifecycle timing has run under this sequence.
+
+These entry results do not resolve the architecture choice. Every stage retains its evidence requirements above, and each subsequent selection must reassess the strongest ready alternative.
