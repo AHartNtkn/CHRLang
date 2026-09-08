@@ -1,0 +1,56 @@
+{
+  "commands": [
+    {
+      "name": "tests",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-relational"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "replay",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-relational"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "clippy",
+      "command": [
+        "cargo",
+        "clippy",
+        "-p",
+        "chr-relational",
+        "--all-targets",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "fmt",
+      "command": [
+        "cargo",
+        "fmt",
+        "-p",
+        "chr-relational",
+        "--",
+        "--check"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "sha256": {
+    "research/chr-relational/src/lib.rs": "55276c529cd1b03911d19611aeeea0e1c6b269a03e911bf8f1a7589c12cc3afd",
+    "research/chr-relational/tests/head_plan.rs": "321535af163089d2f89224d5ad5def1c46aada18932d34d22d49d08ef1a895d6",
+    "research/chr-relational/Cargo.toml": "9afe4c9507629754cb2987baa54ea915066b54de7faf1a9db860b97239d449a3",
+    "docs/experiments/registrations/S02-relational-head-gate.md": "37d23c0b820ca8976b0fbe05251c8c91d1eac65c3a0994dce66899ae0e889f3d"
+  }
+}

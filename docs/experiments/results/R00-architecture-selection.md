@@ -263,3 +263,8 @@ The [first S03 lifecycle pilot](S03-lifecycle-pilot.md) completes 210 registered
 ## Renewed S03 context repair and next boundary
 
 The [paired context repair](S03-context-repair.md) completes 252 processes and removes about 30% of the graph's discrimination lifecycle cost without changing semantics. The graph remains favorable on opaque work and unfavorable against compiled controls after discrimination; graphless word compilation remains distinct. T062's bounded trial is complete, while S03's broader obligations remain open. T063 selects S02 relational execution: assess a shared constructor/source join plan and choice-local equality, rather than assuming the current integrated control exports solved terms during matching.
+
+
+## S02 relational head-plan gate
+
+The [relational head-plan gate](S02-relational-head-plan.md) validates constructor-first joins and complete candidate tuples/bindings against an independent exhaustive matcher. This tests a remaining recursive-pattern boundary in the integrated control without inventing a solved-term export step. T063 remains active for actual equality/key maintenance, compatible contexts, resource commits and full source observation; snapshot correctness does not establish those runtime obligations or performance.

@@ -1,0 +1,97 @@
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 3 tests
+test duplicate_constructor_proofs_do_not_duplicate_resources ... FAILED
+test plans_match_exhaustive_heads_across_unknown_and_equal_value_snapshots ... FAILED
+test selective_constructor_can_drive_the_source_join ... FAILED
+
+failures:
+
+---- duplicate_constructor_proofs_do_not_duplicate_resources stdout ----
+
+thread 'duplicate_constructor_proofs_do_not_duplicate_resources' (168) panicked at research/chr-relational/src/lib.rs:18:106:
+not yet implemented
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- plans_match_exhaustive_heads_across_unknown_and_equal_value_snapshots stdout ----
+
+thread 'plans_match_exhaustive_heads_across_unknown_and_equal_value_snapshots' (169) panicked at research/chr-relational/src/lib.rs:19:94:
+not yet implemented
+
+---- selective_constructor_can_drive_the_source_join stdout ----
+
+thread 'selective_constructor_can_drive_the_source_join' (170) panicked at research/chr-relational/src/lib.rs:18:106:
+not yet implemented
+
+
+failures:
+    duplicate_constructor_proofs_do_not_duplicate_resources
+    plans_match_exhaustive_heads_across_unknown_and_equal_value_snapshots
+    selective_constructor_can_drive_the_source_join
+
+test result: FAILED. 0 passed; 3 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Compiling chr-relational v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-relational)
+warning: unused import: `Term`
+ --> research/chr-relational/src/lib.rs:3:29
+  |
+3 | use chr_syntax::{Constraint,Term,Var};
+  |                             ^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: fields `values` and `occurrence` are never read
+  --> research/chr-relational/src/lib.rs:12:15
+   |
+12 | struct Fact { values:Vec<Value>, occurrence:Option<Occurrence> }
+   |        ----   ^^^^^^             ^^^^^^^^^^
+   |        |
+   |        fields in this struct
+   |
+   = note: `Fact` has a derived impl for the trait `Clone`, but this is intentionally ignored during dead code analysis
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: fields `rows` and `columns` are never read
+  --> research/chr-relational/src/lib.rs:14:16
+   |
+14 | struct Table { rows:Vec<Fact>, columns:Vec<BTreeMap<Value,Vec<usize>>> }
+   |        -----   ^^^^            ^^^^^^^
+   |        |
+   |        fields in this struct
+
+warning: fields `tables` and `occurrences` are never read
+  --> research/chr-relational/src/lib.rs:16:19
+   |
+16 | pub struct View { tables:BTreeMap<Relation,Table>, occurrences:BTreeSet<Occurrence> }
+   |            ----   ^^^^^^                           ^^^^^^^^^^^
+   |            |
+   |            fields in this struct
+
+warning: fields `relation`, `slots`, and `head` are never read
+  --> research/chr-relational/src/lib.rs:22:15
+   |
+22 | struct Atom { relation:Relation,slots:Vec<usize>,head:Option<usize> }
+   |        ----   ^^^^^^^^          ^^^^^            ^^^^
+   |        |
+   |        fields in this struct
+   |
+   = note: `Atom` has a derived impl for the trait `Clone`, but this is intentionally ignored during dead code analysis
+
+warning: fields `atoms`, `variables`, `slots`, `kept`, and `heads` are never read
+  --> research/chr-relational/src/lib.rs:23:23
+   |
+23 | pub struct HeadPlan { atoms:Vec<Atom>, variables:BTreeMap<Var,usize>, slots:usize, kept:usize, heads:usize }
+   |            --------   ^^^^^            ^^^^^^^^^                      ^^^^^        ^^^^        ^^^^^
+   |            |
+   |            fields in this struct
+
+warning: `chr-relational` (lib) generated 6 warnings (1 duplicate)
+warning: `chr-relational` (lib test) generated 6 warnings (5 duplicates) (run `cargo fix --lib -p chr-relational --tests` to apply 1 suggestion)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.38s
+     Running unittests src/lib.rs (target/debug/deps/chr_relational-b3549fd30631ee36)
+     Running tests/head_plan.rs (target/debug/deps/head_plan-2f19741ac2dfbb1f)
+error: test failed, to rerun pass `-p chr-relational --test head_plan`
