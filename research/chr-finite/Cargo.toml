@@ -5,3 +5,21 @@ edition.workspace = true
 
 [dependencies]
 chr-syntax = { path = "../../crates/chr-syntax" }
+
+[features]
+experiment = ["dep:chr-compiled", "dep:chr-persistent"]
+
+[[bin]]
+name = "chr-finite-cost"
+path = "experiments/cost.rs"
+required-features = ["experiment"]
+
+[dependencies.chr-compiled]
+path = "../chr-compiled"
+default-features = false
+optional = true
+
+[dependencies.chr-persistent]
+path = "../chr-persistent"
+default-features = false
+optional = true

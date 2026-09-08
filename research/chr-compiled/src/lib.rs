@@ -1072,6 +1072,53 @@ pub struct PreparedRuleset {
     predicates: Arc<Vec<(String, usize)>>,
     code: Option<Compiled>,
 }
+/// A posted query topology with no source applications or choices executed.
+/// Source-variable identities belong to this template; each start owns its engine.
+pub struct PreparedQuery {
+    engine: Engine,
+    scope: BTreeMap<u64, Term>,
+}
+impl PreparedQuery {
+    pub fn start(&self, extra: Vec<Constraint>) -> Result<SearchEngine, String> {
+        fn lower(
+            core: &mut Core,
+            term: &Source,
+            scope: &BTreeMap<u64, Term>,
+        ) -> Result<Term, String> {
+            match term {
+                Source::Var(Var(var)) => scope.get(var).copied().ok_or_else(|| {
+                    format!("query addition refers to undeclared source variable {var}")
+                }),
+                Source::App(name, args) => {
+                    let args = args
+                        .iter()
+                        .map(|term| lower(core, term, scope))
+                        .collect::<Result<Vec<_>, _>>()?;
+                    Ok(core.arena.make(name, args, &mut core.stats.kernel))
+                }
+            }
+        }
+        let mut engine = self.engine.fork_clone();
+        for constraint in extra {
+            let pred = engine
+                .core
+                .predicate(&constraint.name, constraint.args.len());
+            let args = constraint
+                .args
+                .iter()
+                .map(|term| lower(&mut engine.core, term, &self.scope))
+                .collect::<Result<Vec<_>, _>>()?;
+            engine.core.insert(pred, args);
+        }
+        Ok(engine.into_search())
+    }
+    pub fn retention(&self) -> Retention {
+        self.engine.retention()
+    }
+    pub fn stats(&self) -> &Stats {
+        self.engine.stats()
+    }
+}
 impl PreparedRuleset {
     pub fn bundled(id: usize, execution: Execution) -> Result<Self, String> {
         let rules = fixtures::programs()
@@ -1168,7 +1215,31 @@ impl PreparedRuleset {
     ) -> Result<SearchEngine, String> {
         self.start(query, policy, access).map(Engine::into_search)
     }
+    pub fn prepare_query(
+        &self,
+        query: Query,
+        policy: Policy,
+        access: Access,
+    ) -> Result<PreparedQuery, String> {
+        let (mut engine, scope) = self.start_with_scope(query, policy, access)?;
+        while let Some(work) = engine.core.pending.pop() {
+            let Work::Insert(pred, args) = work else {
+                unreachable!("query setup contains only initial constraints");
+            };
+            engine.core.insert(pred, args);
+        }
+        Ok(PreparedQuery { engine, scope })
+    }
     pub fn start(&self, query: Query, policy: Policy, access: Access) -> Result<Engine, String> {
+        self.start_with_scope(query, policy, access)
+            .map(|(engine, _)| engine)
+    }
+    fn start_with_scope(
+        &self,
+        query: Query,
+        policy: Policy,
+        access: Access,
+    ) -> Result<(Engine, BTreeMap<u64, Term>), String> {
         let mut arena = Arena::default();
         for (name, arity) in self.predicates.iter() {
             arena.predicate(name, *arity);
@@ -1234,17 +1305,20 @@ impl PreparedRuleset {
             );
             core.outputs.push((name, value));
         }
-        Ok(Engine {
-            core,
-            code: self.code,
-            done: false,
-            failed: false,
-            trace: vec![],
-            trace_enabled: false,
-            audit_enabled: false,
-            audit: vec![],
-            search: None,
-        })
+        Ok((
+            Engine {
+                core,
+                code: self.code,
+                done: false,
+                failed: false,
+                trace: vec![],
+                trace_enabled: false,
+                audit_enabled: false,
+                audit: vec![],
+                search: None,
+            },
+            scope,
+        ))
     }
 }
 impl Engine {

@@ -8,7 +8,7 @@ goal:
   execution_authority: Redesigned goal authorizes implementation and experiments selected under R00 and the governing sequence.
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
-  current_research: R04 finite native and Boolean gates pass; matched cold/reuse lifecycle comparison selected
+  current_research: R04 lifecycle evidence complete; source-search scheduling and retention diagnosis selected
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -63,7 +63,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T032
+active_task: T033
 tasks:
   - id: T001
     type: pm
@@ -811,7 +811,7 @@ tasks:
   - id: T032
     type: pm
     assignee: PM
-    status: active
+    status: done
     objective: Measure a prospectively registered R04 full-path finite-solving comparison with matched cold/reuse input boundaries and credible compiled source execution.
     inputs:
       - docs/experiments/results/R04-finite-backend-semantic-gate.md
@@ -836,19 +836,46 @@ tasks:
     stop_if:
       - Do not impose workload weights or infer solver superiority from unmatched inference/setup.
       - UNKNOWN and cutoff are not UNSAT or exhausted answer sets.
+    receipt:
+      result: done
+      summary: All 720 processes and 1800 query lifecycles pass; native finite lowering has lower complete lifecycle in every registered cold/reuse cell. Active source scheduling exposes major frontier costs.
+      evidence:
+        - docs/experiments/results/R04-lifecycle-pilot.md
+      validation: Workspace tests, Clippy, formatting, counter-free template tests, full observations and independent source/data audit pass.
+  - id: T033
+    type: pm
+    assignee: PM
+    status: active
+    objective: Diagnose source failure scheduling, frontier retention and observation cost before selecting the next search architecture contrast.
+    inputs:
+      - docs/experiments/results/R04-lifecycle-pilot.md
+    allowed_files:
+      - research/chr-compiled/
+      - research/chr-finite/
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    expected_output:
+      - Independent causal diagnostics on cold chain, contradiction and weak controls.
+      - Evidence-backed selection between scheduling, storage and conditional execution with prospective registration before comparative changes.
+    verify:
+      - Source branch and fairness gates preserved
+      - Diagnostics separate from primary timing and full answers checked
+      - Relevant tests, Clippy, formatting and source freeze
+    stop_if:
+      - Do not attribute a joint scheduling/access contrast to indexing alone.
+      - Do not adopt a universal search policy or language contract.
     receipt: null
 
 checks:
   dirty_fingerprint: preexisting_unfinished_experimental_files_preserved
   last_verification:
     result: passed
-    task: T031
-    scope: Finite backend source, inference and query-lifetime gates.
+    task: T032
+    scope: Matched finite-solving lifecycle and compiled query reuse.
     commands:
-      - Workspace all-target tests and Clippy pass
-      - Final package tests, Clippy and formatting pass
-      - 344 source queries on three backends preserve full raw observations
-      - 512 tables with seven supplied-value configurations validate both Boolean encodings and native results
-      - 25088 table/domain cases independently validate native AC and support unit propagation
+      - Workspace all-target tests, Clippy and formatting pass
+      - Runner and counter-free query-template tests pass
+      - 720 processes validate 1800 complete queries and 194616 raw answers
+      - Independent audit recomputes 120 lifecycle summaries and verifies frozen sources
     evidence:
-      - docs/experiments/results/R04-finite-backend-semantic-gate.md
+      - docs/experiments/results/R04-lifecycle-pilot.md
