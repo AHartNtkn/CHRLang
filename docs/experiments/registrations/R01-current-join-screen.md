@@ -37,6 +37,13 @@ binding and consumed-partner replacement so a future maintenance interpretation
 cannot assume all partners remain immutable. Small gates retain source trace/audit
 correspondence; screen counts run without trace retention.
 
+Retain cumulative counter snapshots immediately after each acknowledgement commit
+(application count3*r). The first interval includes setup; differences between
+later snapshots describe subsequent request service. The final difference includes
+cleanup entry and disposal of source tables. These are service boundaries, not
+claims of isolated per-rule runtime. Do not attribute aggregate cleanup discovery
+to repeated request joins.
+
 Use existing engine metrics for applications, candidate visits, cursor steps,
 history checks and access/activation counters. Counters are enabled deliberately.
 No primary timing, heap or total-lifecycle claim is made by this work screen.

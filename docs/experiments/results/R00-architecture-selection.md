@@ -207,3 +207,18 @@ The strongest remaining sharing question is substantive equation/constructor
 pre-discrimination work, with an observable result and competent lowering control.
 Assess it against a current maintained-join bottleneck screen before expanding
 implementation. Goal closure remains unsupported.
+
+
+## T056 source gate and T057 selection
+
+[Substantive equation entry](R05-substantive-work-entry.md) validates current
+Conditional/Specialized full aliases and clash exhaustion, plus16versus1 failed
+lineages for post-choice versus naive pre-choice failure. This is not a timing
+result. E12 gives actual-boundary cache/replay precedent with adverse owned-term
+costs; an efficient new cache needs more machinery and a separate justification.
+T057 instead selects the [current join work screen](../registrations/R01-current-join-screen.md).
+Its existing Global/Active and Scan/Indexed controls can identify or defer a broad
+ordinary-CHR retained-join opportunity without implementing maintenance. Current
+active nonfirst-head prebinding may already avoid historical repeated-prefix work.
+The equation-sharing question remains plausible and is reassessed after this
+lower-cost screen; neither prototype becomes an automatic work queue.
