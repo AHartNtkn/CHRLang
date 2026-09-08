@@ -1,0 +1,65 @@
+{
+  "scope": "S04 source/restoration correctness; no comparative measurements",
+  "commands": [
+    {
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-restoration"
+      ],
+      "exit_code": 0,
+      "log": "debug.log"
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-restoration",
+        "--release"
+      ],
+      "exit_code": 0,
+      "log": "release.log"
+    },
+    {
+      "command": [
+        "cargo",
+        "clippy",
+        "-p",
+        "chr-restoration",
+        "--all-targets",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit_code": 0,
+      "log": "clippy.log"
+    },
+    {
+      "command": [
+        "cargo",
+        "fmt",
+        "-p",
+        "chr-restoration",
+        "--check"
+      ],
+      "exit_code": 0,
+      "log": "format.log"
+    }
+  ],
+  "source_sha256": {
+    "research/chr-restoration/src/lib.rs": "b16ac0ca04a69dc00f92b37d9edf2beefe40aef007af11d304e3afb797171cb9",
+    "research/chr-restoration/tests/source.rs": "7a4983934c59c86d56e1df310ce721caafef0bf06f9fc6937edcc321c195a82b",
+    "research/chr-restoration/Cargo.toml": "489a75b8ffd1a13c677b996208fe43d8efca42abbb65abd4964220461f45e9dc",
+    "research/chr-restoration/experiments/check_mutations.py": "62214021cd2ec51e88e1d3a5df620157c472b6fe7d2a18735dc55c1d057a9634",
+    "research/chr-direct-conditional/tests/runtime_support/mod.rs": "03633e8d666fadcdd08ddfe4900aa8116b32e434fb0a5dcb1c5faa23ff5976b2",
+    "research/chr-observe/src/lib.rs": "e36516971166df34ee2ba001cc5967975c54a260bebe9b59ba3ce38671ec916c",
+    "research/chr-compiled/src/lib.rs": "0d1ce9187c1e7208cb2ea8ecccc982ddaf7b220a07c55641be03e6de00149a94",
+    "research/chr-compiled/src/search.rs": "70a0263fec741196612ff84a8cc73099e341540a5b974f947848d9e067ddf633",
+    "Cargo.toml": "2a40b31dec44673fec8e093f99867e207e6f152b3cc19791b96555e6505b1853",
+    "Cargo.lock": "74e6afa051ef9cd7bb73509e081332fe311d6e3b22658e210efc10e4b42a2162"
+  },
+  "mutation_evidence": "mutations.json",
+  "toolchain": "rustc 1.97.1 (8bab26f4f 2026-07-14)"
+}

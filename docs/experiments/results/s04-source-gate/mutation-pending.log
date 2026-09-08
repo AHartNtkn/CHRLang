@@ -1,0 +1,39 @@
+
+running 4 tests
+test unsupported_rules_and_exhausted_initial_identity_are_explicit_errors ... ok
+test nested_choices_restore_pending_tails_and_failed_branches ... FAILED
+test fair_finite_sibling_and_cancelled_query_reuse ... FAILED
+test complete_source_modes_preserve_rollback_and_multiplicity ... FAILED
+
+failures:
+
+---- nested_choices_restore_pending_tails_and_failed_branches stdout ----
+
+thread 'nested_choices_restore_pending_tails_and_failed_branches' (298) panicked at research/chr-restoration/tests/../../chr-direct-conditional/tests/runtime_support/mod.rs:273:32:
+missing full observation Answer { outputs: [("x", App("leaf", []))], residual: [Constraint { name: "after", args: [App("leaf", [])] }] }; remaining [Answer { outputs: [("x", App("leaf", []))], residual: [] }]
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- fair_finite_sibling_and_cancelled_query_reuse stdout ----
+
+thread 'fair_finite_sibling_and_cancelled_query_reuse' (297) panicked at research/chr-restoration/tests/source.rs:229:9:
+assertion `left == right` failed
+  left: []
+ right: [Answer { outputs: [("x", App("finite", []))], residual: [] }]
+
+---- complete_source_modes_preserve_rollback_and_multiplicity stdout ----
+
+thread 'complete_source_modes_preserve_rollback_and_multiplicity' (296) panicked at research/chr-restoration/tests/../../chr-direct-conditional/tests/runtime_support/mod.rs:273:32:
+missing full observation Answer { outputs: [("x", App("b", [])), ("y", Var(Var(51)))], residual: [Constraint { name: "tail", args: [App("b", []), Var(Var(52)), Var(Var(52))] }] }; remaining [Answer { outputs: [("x", App("b", [])), ("y", Var(Var(51)))], residual: [] }, Answer { outputs: [("x", App("a", [])), ("y", Var(Var(51)))], residual: [Constraint { name: "tail", args: [App("a", []), Var(Var(52)), Var(Var(52))] }] }]
+
+
+failures:
+    complete_source_modes_preserve_rollback_and_multiplicity
+    fair_finite_sibling_and_cancelled_query_reuse
+    nested_choices_restore_pending_tails_and_failed_branches
+
+test result: FAILED. 1 passed; 3 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Compiling chr-restoration v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-restoration)
+    Finished `release` profile [optimized] target(s) in 1.58s
+     Running tests/source.rs (target/release/deps/source-b1349ebedf5157c8)
+error: test failed, to rerun pass `-p chr-restoration --test source`

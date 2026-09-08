@@ -1,0 +1,70 @@
+{
+  "source_sha256": "b16ac0ca04a69dc00f92b37d9edf2beefe40aef007af11d304e3afb797171cb9",
+  "restored_exactly": true,
+  "records": [
+    {
+      "mutation": "binding",
+      "omitted_inverse": "Self::Binding(..)",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-restoration",
+        "--release",
+        "--test",
+        "source"
+      ],
+      "exit_code": 101,
+      "runtime_failure": true,
+      "mutated_source_sha256": "791b6a2fe0f0fb8ec687ce29daa636423b8d675658e7eae27a784e915758bf9a"
+    },
+    {
+      "mutation": "resource",
+      "omitted_inverse": "Self::Live(..)",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-restoration",
+        "--release",
+        "--test",
+        "source"
+      ],
+      "exit_code": 101,
+      "runtime_failure": true,
+      "mutated_source_sha256": "cc152a46b9c233a5525662f393f383fcb36545d2e5debeefd8f16ed335094e4e"
+    },
+    {
+      "mutation": "history",
+      "omitted_inverse": "Self::History(..)",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-restoration",
+        "--release",
+        "--test",
+        "source"
+      ],
+      "exit_code": 101,
+      "runtime_failure": true,
+      "mutated_source_sha256": "8cf6ecbe2d1e57440027e4419a91608859558d5177cab96d4b98b57092e0b9bc"
+    },
+    {
+      "mutation": "pending",
+      "omitted_inverse": "Self::Push(..) | Self::Pop(..)",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-restoration",
+        "--release",
+        "--test",
+        "source"
+      ],
+      "exit_code": 101,
+      "runtime_failure": true,
+      "mutated_source_sha256": "9e4dbff7b980d653b9953a203bb129b04740b4a2299e0f3ce7c3343fab8a03c9"
+    }
+  ]
+}

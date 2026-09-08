@@ -204,7 +204,7 @@ All new results link raw inputs, commands, freezes, validation and unfavorable o
 
 S00's contract audit and first-cycle feasibility assessment are recorded. Bounded S01 discovery, S02 relational integration, S03 direct graph and S06 finite-table compilation comparisons have produced evidence. Each leaves distinct mechanisms unresolved; the [coverage map](coverage.md) links the results and their remaining scope.
 
-The current task is [S04 restoration/replay](results/S04-restoration-entry.md). Complete its independent semantic gate, then register the precise lifecycle comparison. Its copying control isolates storage organization; existing compiled/persistent executors remain the architectural controls. This does not propose another production baseline.
+The current task is [S04 restoration/replay](results/S04-restoration-entry.md). Its [independent source/restoration gate](results/S04-restoration-source-gate.md) now passes for copying, trailing, root replay and three checkpoint intervals. Register the precise lifecycle comparison next. Its copying control isolates storage organization; existing compiled/persistent executors remain the architectural controls. This does not propose another production baseline.
 
 After that bounded trial, compare S05 stable-identity operation/failure reuse against the strongest ready unresolved investigation. S05 is the provisional next contrast because it tests whether economical recognition can substitute for direct sharing; it has not received that comparison. Continuing S04 refinement requires a specific unresolved result that could change the restoration decision more than this alternative.
 

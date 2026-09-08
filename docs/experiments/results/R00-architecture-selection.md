@@ -300,3 +300,7 @@ The [224-process initial pilot](S01-selective-lifecycle.md) exposed a shared qua
 ## S01 request crossover and S04 selection
 
 The [288-process crossover](S01-request-crossover.md) establishes a practical retention benefit at N32/R64 stable selective requests (paired ratio 0.779), and a strong dense-consuming loss at the same size (5.619). This supports a source-dependent tradeoff without inventing workload weights or automatic routing. T065's bounded comparison is complete; broader S01 remains open. [S04 restoration/replay](S04-restoration-entry.md) is selected next, with S05 stable-identity reuse the strongest ready alternative.
+
+## S04 source restoration gate
+
+The [S04 restoration gate](S04-restoration-source-gate.md) establishes independent complete-answer agreement for copying, reversible paths, root replay and three periodic checkpoint intervals, with finite-sibling publication. Existing compiled Global controls pass the finite gate. Diagnostic omissions of binding, resource, history and pending restoration all cause release-mode semantic failures. These are viable candidates for the next prospective lifecycle comparison; no comparative S04 costs have run. T066 remains active, and S05 stable-identity reuse remains the strongest ready alternative to reassess after the bounded comparison.

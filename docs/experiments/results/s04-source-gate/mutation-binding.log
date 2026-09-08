@@ -1,0 +1,27 @@
+
+running 4 tests
+test complete_source_modes_preserve_rollback_and_multiplicity ... FAILED
+test unsupported_rules_and_exhausted_initial_identity_are_explicit_errors ... ok
+test fair_finite_sibling_and_cancelled_query_reuse ... ok
+test nested_choices_restore_pending_tails_and_failed_branches ... ok
+
+failures:
+
+---- complete_source_modes_preserve_rollback_and_multiplicity stdout ----
+
+thread 'complete_source_modes_preserve_rollback_and_multiplicity' (74) panicked at research/chr-restoration/tests/../../chr-direct-conditional/tests/runtime_support/mod.rs:268:5:
+assertion `left == right` failed: raw multiplicity differs
+  left: 1
+ right: 2
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    complete_source_modes_preserve_rollback_and_multiplicity
+
+test result: FAILED. 3 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Compiling chr-restoration v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-restoration)
+    Finished `release` profile [optimized] target(s) in 1.54s
+     Running tests/source.rs (target/release/deps/source-b1349ebedf5157c8)
+error: test failed, to rerun pass `-p chr-restoration --test source`
