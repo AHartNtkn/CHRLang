@@ -1,0 +1,85 @@
+{
+  "commands": [
+    {
+      "name": "default",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-direct-conditional",
+        "--test",
+        "direct_graph_entry",
+        "--",
+        "--nocapture",
+        "--test-threads=1"
+      ],
+      "exit": 0
+    },
+    {
+      "name": "replay",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-direct-conditional",
+        "--test",
+        "direct_graph_entry",
+        "--",
+        "--nocapture",
+        "--test-threads=1"
+      ],
+      "exit": 0
+    },
+    {
+      "name": "off",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-direct-conditional",
+        "--no-default-features",
+        "--test",
+        "direct_graph_entry",
+        "--",
+        "--nocapture",
+        "--test-threads=1"
+      ],
+      "exit": 0
+    },
+    {
+      "name": "clippy",
+      "command": [
+        "cargo",
+        "clippy",
+        "-p",
+        "chr-direct-conditional",
+        "--test",
+        "direct_graph_entry",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit": 0
+    },
+    {
+      "name": "clippy-off",
+      "command": [
+        "cargo",
+        "clippy",
+        "-p",
+        "chr-direct-conditional",
+        "--no-default-features",
+        "--test",
+        "direct_graph_entry",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit": 0
+    }
+  ],
+  "source_sha256": {
+    "research/chr-direct-conditional/tests/direct_graph_entry.rs": "7fc27dbfc38e63ecee24dce04c240ec28ff8bbe3f0aa132609954799bf90746b",
+    "docs/experiments/registrations/S03-dynamic-resource-source-gate.md": "e72f4bce98f9e35e66ef739868d4abcaf4340c7aa2e5b7c1c14ec2921140c9ff"
+  }
+}

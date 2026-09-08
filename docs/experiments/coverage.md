@@ -1,12 +1,12 @@
 # Unanswered architecture questions and experimental ownership
 
-The research remains unresolved at the architecture level. The [new experimental sequence](sequence.md) governs the next investigation; the [design-disposition review](results/R07-design-disposition-review.md) explains the evidence and gaps behind every earlier decision. No new comparative runs have been performed under this sequence.
+The research remains unresolved at the architecture level. The [new experimental sequence](sequence.md) governs the next investigation; the [design-disposition review](results/R07-design-disposition-review.md) explains the evidence and gaps behind every earlier decision. No new comparative lifecycle timing has run under this sequence.
 
 Existing E/R results remain evidence within their recorded boundaries. Their package completion does not resolve the broader questions below. The earlier R07 recommendation and closure assessments are records under review, not the current research disposition.
 
 ## Coverage of every reviewed decision
 
-Entry numbers refer to the [57-entry review](results/R07-design-disposition-review.md). S00 is active: the [contract audit and four candidate sketches](results/S00-contracts-and-candidates.md) include a six-case probe with exact replay. The [S01 semantic gate is registered](registrations/S01-update-discovery-gate.md); the [source/control gate](results/S01-source-control-gate.md) now validates Global controls and establishes an Active-policy mismatch. The [direct/retained lowerings](results/S01-lowered-discovery-gate.md) now pass the six-rule source gate with exact diagnostic replay. Remaining work includes the alternative consuming source, selective-update contrast, lifecycle registration and first-cycle feasibility assessments. Other stages remain planned; no new comparative timing has run.
+Entry numbers refer to the [57-entry review](results/R07-design-disposition-review.md). S00 contract and first-cycle entry assessment is recorded: the [contract audit and four candidate sketches](results/S00-contracts-and-candidates.md) include a six-case probe with exact replay. The [S01 semantic gate is registered](registrations/S01-update-discovery-gate.md); the [source/control gate](results/S01-source-control-gate.md) now validates Global controls and establishes an Active-policy mismatch. The [direct/retained lowerings](results/S01-lowered-discovery-gate.md) now pass the six-rule source gate with exact diagnostic replay. S01 remains open for the alternative consuming source, selective-update contrast and lifecycle measurement. The [first-cycle assessment](results/S00-first-cycle-feasibility.md) selects S03 direct-graph implementation next; its independent compound source gate passes against the existing comparators. Other stages remain planned; no new comparative timing has run.
 
 | Owner stage | Review entries | Existing evidence to retain | Required investigation |
 |---|---|---|---|

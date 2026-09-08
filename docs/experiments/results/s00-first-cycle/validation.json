@@ -1,0 +1,74 @@
+[
+  {
+    "name": "integrated-interleaving",
+    "command": [
+      "cargo",
+      "test",
+      "-p",
+      "chr-integrated",
+      "--test",
+      "semantic",
+      "source_effects_run_during_pending_equality_but_never_publish_failure",
+      "--",
+      "--exact"
+    ],
+    "exit": 0
+  },
+  {
+    "name": "integrated-progress",
+    "command": [
+      "cargo",
+      "test",
+      "-p",
+      "chr-integrated",
+      "--test",
+      "semantic",
+      "pending_contradiction_receives_service_beside_recursive_source_work",
+      "--",
+      "--exact"
+    ],
+    "exit": 0
+  },
+  {
+    "name": "recursive-boundary",
+    "command": [
+      "cargo",
+      "test",
+      "-p",
+      "chr-compiled",
+      "--test",
+      "recursive_relations",
+      "unknown_control_and_context_are_explicitly_unsupported",
+      "--",
+      "--exact"
+    ],
+    "exit": 0
+  },
+  {
+    "name": "worker-overlap",
+    "command": [
+      "cargo",
+      "test",
+      "-p",
+      "chr-factors",
+      "--test",
+      "parallel_region_transport",
+      "real_regional_workers_overlap_service",
+      "--",
+      "--exact"
+    ],
+    "exit": 0
+  },
+  {
+    "name": "conditional-births",
+    "command": [
+      "cargo",
+      "test",
+      "-p",
+      "chr-direct-conditional",
+      "--test",
+      "births"
+    ],
+    "exit": 0
+  }
+]

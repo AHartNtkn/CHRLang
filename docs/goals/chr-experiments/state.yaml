@@ -63,12 +63,32 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T061
+active_task: T062
 tasks:
-  - id: T061
+  - id: T062
     type: pm
     assignee: PM
     status: active
+    objective: Implement and independently gate direct named-choice or derivation graph execution, including dynamic provenance, conflicting consumption, late contexts and complete publication; compare against credible compiled and Conditional controls before cost conclusions.
+    inputs:
+      - docs/experiments/results/S00-first-cycle-feasibility.md
+      - docs/experiments/registrations/S03-dynamic-resource-source-gate.md
+    allowed_files:
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+      - research/chr-direct-choice/
+      - research/chr-direct-conditional/tests/
+      - Cargo.toml
+      - Cargo.lock
+    verify:
+      - Explicit graph-to-source interpretation and independent complete observations
+      - Dynamic and independent births, raw multiplicity and finite sibling progress
+      - Conflicting consumers, late contexts, aliases, cycles and disconnected failure
+      - Separate source lowering from graph sharing before comparative registration
+  - id: T061
+    type: pm
+    assignee: PM
+    status: complete
     objective: Establish S00 comparison contracts and coherent candidates, validate policy/accounting distinctions, S01 source controls and initial discovery lowerings, and register the first discriminating follow-up.
     inputs:
       - docs/experiments/sequence.md
@@ -79,6 +99,7 @@ tasks:
       - research/chr-cases/examples/
       - research/chr-compiled/tests/
       - research/chr-compiled/src/
+      - research/chr-direct-conditional/tests/
     verify:
       - Independently predicted contract probe and reference semantic tests
       - Source-linked contract ledger and complete candidate responsibilities
@@ -1746,13 +1767,13 @@ checks:
   last_verification:
     result: passed
     task: T061
-    scope: S01 six-rule direct/retained lowerings, semantic oracle, replayed work diagnostics and compiled-package regression tests; architecture comparison unfinished.
+    scope: First-cycle prerequisite checks and S03 compound source/comparator gate; no graph implementation or architecture timing conclusion.
     commands:
-      - cargo test -p chr-compiled --test update_join_gate -- --nocapture --test-threads=1 (two fresh processes)
-      - cargo test -p chr-compiled --no-default-features --test update_join_gate -- --nocapture --test-threads=1
-      - cargo test -p chr-compiled --tests
-      - cargo clippy -p chr-compiled --test update_join_gate -- -D warnings
-      - cargo clippy -p chr-compiled --no-default-features --test update_join_gate -- -D warnings
+      - Targeted integration, recursive-admission, birth and worker-overlap checks
+      - cargo test -p chr-direct-conditional --test direct_graph_entry -- --nocapture --test-threads=1
+      - cargo test -p chr-direct-conditional --no-default-features --test direct_graph_entry -- --nocapture --test-threads=1
+      - Focused strict Clippy with default and disabled counters
     evidence:
-      - docs/experiments/results/S01-lowered-discovery-gate.md
-      - docs/experiments/results/s01-lowered-gate/validation.json
+      - docs/experiments/results/S00-first-cycle-feasibility.md
+      - docs/experiments/results/s00-first-cycle/validation.json
+      - docs/experiments/results/s03-source-gate/validation.json
