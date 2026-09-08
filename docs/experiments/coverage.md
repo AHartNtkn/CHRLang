@@ -2,7 +2,7 @@
 
 Future work is selected by its ability to change an architectural or language-design decision under the [sequence](sequence.md). A completed experimental package is evidence for its stated claim; it does not establish that its entire mechanism is resolved or that its follow-ups deserve execution.
 
-**Current selection:** [State-preservation evidence](results/R03-state-preservation.md) completes T050 with288 processes. Substantial split traffic warrants copied-owner attribution, while the no-choice control exposes exact repeated closed-subtree occurs traversal. T051 selects these bounded causal gates before choosing one snapshot intervention. Carrier contraction remains the strongest alternative; the goal remains active.
+**Current selection:** [State-preservation evidence](results/R03-state-preservation.md) completes T050 with288 processes. Substantial split traffic warrants copied-owner attribution, while the no-choice control exposes exact repeated closed-subtree occurs traversal. T051 has validated the [closed occurs gate](results/R01-closed-occurs.md); [fork-owner attribution](results/R03-fork-owner-design.md) is next before choosing one snapshot intervention. Carrier contraction remains the strongest alternative; the goal remains active.
 
 ## Question map
 

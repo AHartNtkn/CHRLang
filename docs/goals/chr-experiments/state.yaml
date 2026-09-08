@@ -8,7 +8,7 @@ goal:
   execution_authority: Redesigned goal authorizes implementation and experiments selected under R00 and the governing sequence.
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
-  current_research: State-preservation cost screen complete; closed occurs traversal and fork-owner attribution selected
+  current_research: Closed-subtree occurs gate validated; diagnostic fork-owner implementation next
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -1455,19 +1455,25 @@ tasks:
       - Do not equate inclusive split-service fractions with an achievable speedup.
       - Do not presume arena sharing or whole-state copy-on-write wins before owner evidence.
       - Reassess value against carrier contraction before expanding representation work.
-    receipt: null
+    receipt:
+      summary: Immutable closed-subtree occurs guard passes regression/adverse gates and workspace320 tests; fork attribution design reviewed, implementation pending.
+      evidence:
+        - docs/experiments/results/R01-closed-occurs.md
+        - docs/experiments/results/R03-fork-owner-design.md
+      validation: Exact RED/GREEN visits, default/off semantics, cycle/rollback/notification witnesses and independent review; no timing claim.
 
 
 checks:
   dirty_fingerprint: preexisting_unfinished_experimental_files_preserved
   last_verification:
     result: passed
-    task: T050
-    scope: All288 cost processes,9120 complete observations, allocation restoration, exact manifest and frozen source/binaries.
+    task: T051
+    scope: Closed occurs shortcut and updated affected work expectation; fork-owner measurement design.
     commands:
-      - analyze_state_preservation.py --output docs/experiments/results/r03-state-preservation
-      - Independent full result/manifest/source audit
-      - Source inspection of fork ownership and exact133376 occurs-visit recurrence
+      - cargo test --workspace --all-targets
+      - Persistent and compiled state-preservation tests in default and counter-free configurations
+      - Persistent/compiled/boxes and reuse failure-test strict Clippy; cargo fmt --all -- --check
+      - Independent immutable-closedness proof and diagnostic allocation-boundary review
     evidence:
-      - docs/experiments/results/R03-state-preservation.md
-      - docs/experiments/results/r03-state-preservation/audit.json
+      - docs/experiments/results/R01-closed-occurs.md
+      - docs/experiments/results/r01-closed-occurs/t051-workspace-green.log

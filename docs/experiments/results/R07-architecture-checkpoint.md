@@ -58,7 +58,7 @@ Direct distributed choice graphs, net encodings and trace-solver tuning have no 
 
 [State-preservation evidence](R03-state-preservation.md) validates all 288 processes and 9,120 answers. At n512/a64 mostly-failing, split-producing service accounts for about 84% of requested traffic; no-choice construction and all-success cleanup also remain material. Exact source inspection accounts for 133,376 repeated occurs visits through closed keys.
 
-T051 establishes sound immutable-subtree occurs handling and attributes actual fork allocations by owner with post-fork interning behavior. Arena copy-on-write is a possible outcome of that evidence, not a selected design. Include mutation and disposal before any comparison. The concrete carrier-contraction gate remains the strongest alternative, but current measured general state costs and the precise common traversal recurrence give these gates greater immediate value. The goal remains active.
+T051 has validated [immutable-subtree occurs handling](R01-closed-occurs.md), with no new timing claim. [Fork allocation attribution](R03-fork-owner-design.md) and post-fork interning diagnostics are next. Arena copy-on-write is a possible outcome of that evidence, not a selected design. Include mutation and disposal before any comparison. The concrete carrier-contraction gate remains the strongest alternative, but current measured general state costs and the precise common traversal recurrence give these gates greater immediate value. The goal remains active.
 
 ## Review
 

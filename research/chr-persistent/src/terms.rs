@@ -176,7 +176,11 @@ impl Arena {
                         }
                         match deref(t, &trial, stats) {
                             Term::Var(id) if id == var => return false,
-                            Term::Node(id) if seen.insert(id) => stack.extend(&self.nodes[id].args),
+                            // Structural closedness is immutable and independent of
+                            // trial bindings: this subtree cannot contain `var`.
+                            Term::Node(id) if !self.is_closed(id) && seen.insert(id) => {
+                                stack.extend(&self.nodes[id].args)
+                            }
                             _ => {}
                         }
                     }

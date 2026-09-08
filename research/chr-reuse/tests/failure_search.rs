@@ -113,7 +113,7 @@ fn registered_structural_failure_grid_matches_independent_execution() {
 }
 
 #[test]
-fn failure_workloads_exercise_the_registered_unification_work() {
+fn failure_workloads_account_for_current_unification_work() {
     for case in measured_cases::cases()
         .into_iter()
         .filter(|c| c.id.starts_with("failure-"))
@@ -127,10 +127,9 @@ fn failure_workloads_exercise_the_registered_unification_work() {
         match parts[1] {
             "early" => assert_eq!(search.source_stats().pairs, 2 * repetitions),
             "late" => assert_eq!(search.source_stats().pairs, (depth + 3) * repetitions),
-            "occurs" => assert_eq!(
-                search.source_stats().occurs_visits,
-                (depth + 3) * repetitions
-            ),
+            // pair(X, closed_chain): visit pair, the closed child once,
+            // then X. The cycle still fails without descending the chain.
+            "occurs" => assert_eq!(search.source_stats().occurs_visits, 3 * repetitions),
             _ => panic!("registered family"),
         }
     }
