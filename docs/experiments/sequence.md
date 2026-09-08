@@ -6,6 +6,12 @@ The outcome is evidence for choosing the CHR language's architecture: total effi
 
 This is the governing sequence for the renewed investigation. Existing E/R measurements retain their stated scope. The [coverage map](coverage.md) tracks all 57 reviewed decisions. The [remaining investigations](remaining-investigations.md) give distinct mechanisms their own comparisons and specify the next selection cycle. Experimental implementation and runs are already authorized; this document defines the work and its gates, not results from new runs. S-numbers distinguish this sequence from completed experimental receipts.
 
+## Read the sequence at two levels
+
+The [ordered investigation cycle](remaining-investigations.md#execution-order) gives the next twelve steps from the current worktree. Start there for the practical order and why each comparison matters. The stage specifications below define the required depth, controls and exit evidence; the [named-mechanism comparisons](remaining-investigations.md#distinctions-that-must-not-disappear-inside-a-stage) account for alternatives grouped within review entries.
+
+The sequence reuses existing trustworthy controls and measurements. It requires new implementations where the missing architectural mechanism needs one; it does not require another production baseline. Exact sizes and repetitions are registered after correctness and exploratory sizing, before comparative confirmation. The common measurement rules below constrain those registrations now.
+
 ## What changes in research selection
 
 **Decision value remains the first priority, but an untested alternative cannot be dismissed by assuming the incumbent recommendation.** A statement such as “this would only strengthen the explicit design” must be supported by the actual comparison. A candidate may replace subsystem boundaries, source scheduling where permitted, physical branch objects or an entire interpretation loop.

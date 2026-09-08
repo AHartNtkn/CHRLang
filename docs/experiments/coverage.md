@@ -4,6 +4,12 @@ The architecture decision remains open. The [experimental sequence](sequence.md)
 
 Existing measurements count within their demonstrated scope. Completion of a bounded trial does not resolve its whole stage. The earlier R07 closure assessments do not govern current research status.
 
+## How unanswered variants remain accountable
+
+The [ordered cycle](remaining-investigations.md#execution-order) assigns the next comparisons from the current worktree. The [named-mechanism ledger](remaining-investigations.md#distinctions-that-must-not-disappear-inside-a-stage) expands grouped entries for compressed supports, integrated representations, distributed resource ownership, call-level reuse, finer independence, solver learning and exact observation indexing. S06-D separately owns projection and richer structural theories within entry 34.
+
+The stage assignments below cover all 57 entries. They must be read together with these mechanism-level obligations and the [required decision record](remaining-investigations.md#evidence-required-before-a-question-can-leave-the-sequence). Coverage means every question has an investigation; resolution requires the linked evidence and its scope. Review breadth after every four completed experimental packages, as specified by the ordered cycle.
+
 ## Current evidence and next work
 
 | Stage | Evidence now available | Still required |
