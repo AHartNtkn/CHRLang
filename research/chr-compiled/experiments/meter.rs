@@ -60,12 +60,12 @@ pub struct Start {
 }
 #[derive(Clone, Copy)]
 pub struct Reading {
-    live_start: usize,
-    live_end: usize,
-    peak_live: usize,
-    allocation_calls: usize,
-    requested_bytes: usize,
-    deallocation_calls: usize,
+    pub live_start: usize,
+    pub live_end: usize,
+    pub peak_live: usize,
+    pub allocation_calls: usize,
+    pub requested_bytes: usize,
+    pub deallocation_calls: usize,
 }
 pub fn begin() -> Start {
     let live = LIVE.load(Relaxed);

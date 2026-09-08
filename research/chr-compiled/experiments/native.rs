@@ -4,7 +4,7 @@ use chr_syntax::Answer;
 use std::time::Instant;
 #[cfg(feature = "alloc-meter")]
 #[path = "meter.rs"]
-mod meter;
+pub mod meter;
 #[cfg(feature = "alloc-meter")]
 use meter::{begin as memory_begin, end as memory_end};
 #[cfg(not(feature = "alloc-meter"))]

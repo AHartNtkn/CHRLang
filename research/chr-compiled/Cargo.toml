@@ -25,3 +25,8 @@ chr-syntax = { path = "../../crates/chr-syntax" }
 
 [dev-dependencies]
 chr-cases = { path = "../chr-cases" }
+
+[[bin]]
+name = "chr-state-preservation-cost"
+path = "experiments/state_preservation.rs"
+required-features = ["experiment"]
