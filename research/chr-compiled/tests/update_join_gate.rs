@@ -73,6 +73,32 @@ fn execute_source(
 }
 fn check(case: &Case) {
     let expected = case.expected();
+    for mode in [
+        chr_compiled::update_join::Mode::Direct,
+        chr_compiled::update_join::Mode::Retained,
+    ] {
+        for first in [false, true] {
+            let prepared = chr_compiled::update_join::Prepared::new(&rules()).unwrap();
+            let mut engine = prepared.start(case.query(first), mode).unwrap();
+            assert!(!engine.advance(0));
+            assert!(engine.observe().is_err());
+            assert!(engine.advance(2_000_000));
+            assert!(equivalent(&engine.observe().unwrap(), &expected));
+            if chr_compiled::COLLECT_METRICS {
+                assert_eq!(
+                    engine.stats().emitted as usize,
+                    expected
+                        .residual
+                        .iter()
+                        .filter(|r| r.name == "receipt")
+                        .count()
+                );
+            } else {
+                assert_eq!(engine.stats().emitted, 0);
+                assert_eq!(engine.stats().constructed_pairs, 0);
+            }
+        }
+    }
     for access in [Access::Scan, Access::Indexed] {
         for first in [false, true] {
             assert!(equivalent(
@@ -205,5 +231,156 @@ fn unique_consumed_partner_preserves_kept_resource() {
             &execute_source(source.clone(), query.clone(), Policy::Global, access, 1),
             &expected
         ));
+    }
+}
+
+#[test]
+fn lowerings_reject_source_changes_and_preserve_blocked_replacement() {
+    use chr_compiled::update_join::{Mode, Prepared};
+    let mut wrong = rules();
+    wrong.swap(0, 1);
+    assert!(Prepared::new(&wrong).is_err());
+    let mut wrong = rules();
+    wrong[0].body = chr_syntax::Goal::True;
+    assert!(Prepared::new(&wrong).is_err());
+    let prepared = Prepared::new(&rules()).unwrap();
+    let mut blocked = Case::grid(2, 0, 1);
+    blocked
+        .events
+        .push(Event::Replace(atom("k0"), atom("missing"), atom("new")));
+    for mode in [Mode::Direct, Mode::Retained] {
+        let query = blocked.query(false);
+        let mut engine = prepared.start(query.clone(), mode).unwrap();
+        assert!(engine.advance(100));
+        assert!(equivalent(
+            &engine.observe().unwrap(),
+            &execute(&blocked, Policy::Global, Access::Indexed, false, 4096)
+        ));
+        let mut bad = query;
+        bad.constraints.push(c("external", []));
+        assert!(prepared.start(bad, mode).is_err());
+    }
+}
+#[test]
+fn retained_updates_are_incident_and_repeated_requests_do_not_rebuild_pairs() {
+    use chr_compiled::update_join::{Mode, Prepared};
+    let n = 8;
+    let rounds = 4;
+    let base = Case::grid(n, rounds, 1);
+    let prepared = Prepared::new(&rules()).unwrap();
+    for mode in [Mode::Direct, Mode::Retained] {
+        let mut engine = prepared.start(base.query(false), mode).unwrap();
+        assert_eq!(
+            engine.retained_pairs(),
+            if mode == Mode::Retained { n * n } else { 0 }
+        );
+        let mut steps = 0;
+        while !engine.advance(1) {
+            steps += 1;
+            assert!(steps < 2000);
+        }
+        assert!(equivalent(&engine.observe().unwrap(), &base.expected()));
+        if chr_compiled::COLLECT_METRICS {
+            println!(
+                "mode={mode:?} n={n} rounds={rounds} stats={:?}",
+                engine.stats()
+            );
+            assert_eq!(
+                engine.stats().constructed_pairs,
+                if mode == Mode::Retained {
+                    (n * n) as u64
+                } else {
+                    0
+                }
+            );
+            assert_eq!(
+                engine.stats().direct_pairs,
+                if mode == Mode::Direct {
+                    (n * n * rounds) as u64
+                } else {
+                    0
+                }
+            );
+            assert_eq!(
+                engine.stats().retained_visits,
+                if mode == Mode::Retained {
+                    (n * n * rounds) as u64
+                } else {
+                    0
+                }
+            );
+        }
+    }
+    let mut changed = Case::grid(n, 1, 1);
+    changed.events.extend([
+        Event::Replace(atom("k0"), atom("r0"), atom("new")),
+        Event::Request(atom("k0"), atom("later")),
+    ]);
+    let mut engine = prepared
+        .start(changed.query(false), Mode::Retained)
+        .unwrap();
+    assert!(engine.advance(2000));
+    assert!(equivalent(&engine.observe().unwrap(), &changed.expected()));
+    assert_eq!(engine.retained_pairs(), n * n);
+    if chr_compiled::COLLECT_METRICS {
+        assert_eq!(engine.stats().constructed_pairs, (n * n + n) as u64);
+        assert_eq!(engine.stats().invalidated_pairs, n as u64);
+    }
+}
+
+#[test]
+fn sparse_replacement_and_broad_binding_have_distinct_maintenance() {
+    use chr_compiled::update_join::{Mode, Prepared};
+    let prepared = Prepared::new(&rules()).unwrap();
+    let mut sparse = Case::grid(8, 1, 8);
+    sparse.events.extend([
+        Event::Replace(atom("k0"), atom("r0"), atom("r0")),
+        Event::Request(atom("k0"), atom("again")),
+    ]);
+    let mut engine = prepared.start(sparse.query(false), Mode::Retained).unwrap();
+    assert!(engine.advance(2000));
+    assert!(equivalent(&engine.observe().unwrap(), &sparse.expected()));
+    if chr_compiled::COLLECT_METRICS {
+        assert_eq!(engine.stats().constructed_pairs, 9);
+        assert_eq!(engine.stats().invalidated_pairs, 1);
+        println!("sparse replacement stats={:?}", engine.stats());
+    }
+    let mut broad = Case::grid(8, 1, 1);
+    for (key, _) in broad.left.iter_mut().chain(broad.right.iter_mut()) {
+        *key = v(100);
+    }
+    broad.events.extend([
+        Event::Bind(Var(100), atom("k0")),
+        Event::Request(atom("k0"), atom("later")),
+    ]);
+    let mut engine = prepared.start(broad.query(false), Mode::Retained).unwrap();
+    assert!(engine.advance(2000));
+    assert!(equivalent(&engine.observe().unwrap(), &broad.expected()));
+    if chr_compiled::COLLECT_METRICS {
+        assert_eq!(engine.stats().constructed_pairs, 128);
+        assert_eq!(engine.stats().invalidated_pairs, 64);
+        println!("broad binding stats={:?}", engine.stats());
+    }
+}
+
+#[test]
+fn prepared_reuse_cancellation_and_output_roots() {
+    use chr_compiled::update_join::{Mode, Prepared};
+    let prepared = Prepared::new(&rules()).unwrap();
+    for mode in [Mode::Direct, Mode::Retained] {
+        let case = Case::grid(2, 2, 1);
+        let mut first = prepared.start(case.query(false), mode).unwrap();
+        assert!(!first.advance(2));
+        assert!(first.observe().is_err());
+        drop(first);
+        let mut query = case.query(false);
+        query.outputs.push(("unused".into(), Var(500)));
+        let mut expected = case.expected();
+        expected.outputs.push(("unused".into(), v(500)));
+        let mut second = prepared.start(query.clone(), mode).unwrap();
+        assert!(second.advance(100));
+        assert!(equivalent(&second.observe().unwrap(), &expected));
+        query.outputs.push(("unused".into(), Var(501)));
+        assert!(prepared.start(query, mode).is_err());
     }
 }

@@ -1643,3 +1643,6 @@ impl Engine {
     }
 }
 include!(concat!(env!("OUT_DIR"), "/generated.rs"));
+
+/// Checked experimental lowering for the registered S01 update-join source.
+pub mod update_join;

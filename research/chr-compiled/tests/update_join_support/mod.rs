@@ -1,4 +1,4 @@
-use chr_syntax::{Answer, Constraint, Query, Rule, Term, Var, and, atom, c, eq, t, v};
+use chr_syntax::{Answer, Constraint, Query, Term, Var, atom, c, t};
 use std::collections::{BTreeMap, BTreeSet};
 
 #[derive(Clone, Debug)]
@@ -13,46 +13,7 @@ pub struct Case {
     pub right: Vec<(Term, Term)>,
     pub events: Vec<Event>,
 }
-pub fn rules() -> Vec<Rule> {
-    vec![
-        Rule::propagate(
-            "join",
-            [
-                c("left", [v(0), v(1)]),
-                c("right", [v(0), v(2)]),
-                c("request", [v(0), v(3)]),
-            ],
-            c("receipt", [v(3), v(1), v(2)]).into(),
-        ),
-        Rule::simplify(
-            "ack",
-            [c("request", [v(0), v(1)]), c("wait", [v(2)])],
-            c("drive", [v(2)]).into(),
-        ),
-        Rule::simplify(
-            "issue",
-            [c("drive", [t("cons", [t("req", [v(0), v(1)]), v(2)])])],
-            and([c("request", [v(0), v(1)]).into(), c("wait", [v(2)]).into()]),
-        ),
-        Rule::simplify(
-            "replace",
-            [
-                c(
-                    "drive",
-                    [t("cons", [t("replace", [v(0), v(1), v(2)]), v(3)])],
-                ),
-                c("right", [v(0), v(1)]),
-            ],
-            and([c("right", [v(0), v(2)]).into(), c("drive", [v(3)]).into()]),
-        ),
-        Rule::simplify(
-            "bind",
-            [c("drive", [t("cons", [t("bind", [v(0), v(1)]), v(2)])])],
-            and([eq(v(0), v(1)), c("drive", [v(2)]).into()]),
-        ),
-        Rule::simplify("done", [c("drive", [atom("nil")])], c("done", []).into()),
-    ]
-}
+pub use chr_compiled::update_join::source_rules as rules;
 impl Case {
     pub fn grid(n: usize, rounds: usize, groups: usize) -> Self {
         Self {

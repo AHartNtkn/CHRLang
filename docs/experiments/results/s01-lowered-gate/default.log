@@ -1,0 +1,23 @@
+
+running 9 tests
+test active_policy_propagation_completion_screen ... Active Scan: receipts=1, complete_expected=false
+Active Indexed: receipts=1, complete_expected=false
+ok
+test bounded_resume_and_oracle_mutations ... ok
+test global_cartesian_grid_and_adverse_empty_requests ... ok
+test lowerings_reject_source_changes_and_preserve_blocked_replacement ... ok
+test prepared_reuse_cancellation_and_output_roots ... ok
+test retained_updates_are_incident_and_repeated_requests_do_not_rebuild_pairs ... mode=Direct n=8 rounds=4 stats=Stats { constructed_pairs: 0, invalidated_pairs: 0, direct_pairs: 256, retained_visits: 0, emitted: 256, key_updates: 16 }
+mode=Retained n=8 rounds=4 stats=Stats { constructed_pairs: 64, invalidated_pairs: 0, direct_pairs: 0, retained_visits: 256, emitted: 256, key_updates: 16 }
+ok
+test source_mutation_bindings_duplicates_and_joint_aliases ... ok
+test sparse_replacement_and_broad_binding_have_distinct_maintenance ... sparse replacement stats=Stats { constructed_pairs: 9, invalidated_pairs: 1, direct_pairs: 0, retained_visits: 2, emitted: 2, key_updates: 18 }
+broad binding stats=Stats { constructed_pairs: 128, invalidated_pairs: 64, direct_pairs: 0, retained_visits: 64, emitted: 64, key_updates: 48 }
+ok
+test unique_consumed_partner_preserves_kept_resource ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.63s
+
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.18s
+     Running tests/update_join_gate.rs (target/debug/deps/update_join_gate-dece1629ae44cd64)

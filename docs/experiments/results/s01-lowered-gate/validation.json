@@ -1,0 +1,97 @@
+{
+  "commands": [
+    {
+      "name": "default",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-compiled",
+        "--test",
+        "update_join_gate",
+        "--",
+        "--nocapture",
+        "--test-threads=1"
+      ],
+      "exit": 0
+    },
+    {
+      "name": "replay",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-compiled",
+        "--test",
+        "update_join_gate",
+        "--",
+        "--nocapture",
+        "--test-threads=1"
+      ],
+      "exit": 0
+    },
+    {
+      "name": "off",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-compiled",
+        "--no-default-features",
+        "--test",
+        "update_join_gate",
+        "--",
+        "--nocapture",
+        "--test-threads=1"
+      ],
+      "exit": 0
+    },
+    {
+      "name": "clippy",
+      "command": [
+        "cargo",
+        "clippy",
+        "-p",
+        "chr-compiled",
+        "--test",
+        "update_join_gate",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit": 0
+    },
+    {
+      "name": "clippy-off",
+      "command": [
+        "cargo",
+        "clippy",
+        "-p",
+        "chr-compiled",
+        "--no-default-features",
+        "--test",
+        "update_join_gate",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit": 0
+    },
+    {
+      "name": "package",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-compiled",
+        "--tests"
+      ],
+      "exit": 0
+    }
+  ],
+  "source_sha256": {
+    "research/chr-compiled/src/update_join.rs": "c23aba8dc9dc85d73ab2abd68124e7799e4ec0fc7db05f800b9cc895c57481ee",
+    "research/chr-compiled/tests/update_join_gate.rs": "bc38414c4e19e9dbbb7828383a898d46114da99ea7322a60c159386366bc2a34",
+    "research/chr-compiled/tests/update_join_support/mod.rs": "2a6b560ca56220932f7802a7f9399b10df1fe303fd70db9e6a5002ea667f3fb8"
+  }
+}
