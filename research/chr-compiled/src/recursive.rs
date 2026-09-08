@@ -3,6 +3,8 @@
 //! Preparation owns reusable equation templates. Execution uses no CHR occurrence
 //! store or selector. It is synchronous: the ground spine bounds iterations, not
 //! the size of unification or exported terms. Arena/bindings belong to one query.
+mod native;
+
 use chr_persistent::{
     Stats,
     kernel::{Arena, Bindings, Scope, Term},

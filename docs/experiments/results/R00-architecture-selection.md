@@ -172,3 +172,8 @@ The [conditional lifecycle pilot](R03-conditional-lifecycle.md) validates all 25
 ## Update after T045
 
 [Finite recursive correspondence](R05-finite-recursive-gate.md) establishes a source-derived sealed certificate with unknown payloads, complete alias/failure observations and no occurrence store or rule selector. The 168-case matrix, mathematical expectations and contextual gates pass in both counter configurations. T046 selects native generation and compilation-lifecycle entry ahead of further executor tuning. The direct loop still interprets equation templates and uses finite-tree services; no native generation or speed claim follows. R04 remains the bounded alternative if artifact integration requires broad infrastructure.
+
+
+## Entry update during T046
+
+[Native recursive artifacts](R05-recursive-native-entry.md) validate 182 outcomes across seven separately compiled modules. Body operations are generated statements, with no compiled-engine runtime dependency. T046 continues with equivalent executable sessions and prospective compilation-lifecycle registration; debug correctness compilation is not timing evidence.
