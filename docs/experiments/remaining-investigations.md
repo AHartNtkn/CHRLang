@@ -6,7 +6,7 @@ Read the **decision** column first. The other columns explain what would make th
 
 ## Execution order
 
-**The next cycle tests distinct architectural mechanisms before another round of tuning measured ones.** The order below carries forward the existing bounded comparisons. The [regional source gate](results/S09-regional-source-gate.md) now validates the complete coordinator; the [allocation diagnostic](results/S09-worker-meter-diagnostic.md) establishes cross-thread transfer accounting, while concurrent regional/cancellation accounting and lifecycle measurement remain outstanding. The active task remains T069.
+**The next cycle tests distinct architectural mechanisms before another round of tuning measured ones.** The order below carries forward the existing bounded comparisons. The [regional source gate](results/S09-regional-source-gate.md) now validates the complete coordinator; the [allocation diagnostic](results/S09-worker-meter-diagnostic.md) establishes cross-thread transfer accounting, and the [concurrent accounting gate](results/S09-concurrent-meter.md) now passes. [Native sizing](results/S09-native-sizing.md) is complete; prospective comparative lifecycle measurement remains outstanding. The active task remains T069.
 
 | Order | Investigation | Why it comes here; what it must deliver |
 |---|---|---|
