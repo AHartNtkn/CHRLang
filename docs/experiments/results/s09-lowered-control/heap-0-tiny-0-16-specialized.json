@@ -1,0 +1,22 @@
+{
+  "command": [
+    "/home/ahart/Documents/CHRLang/target/release/examples/worker_lowered_allocation",
+    "specialized",
+    "0",
+    "16",
+    "tiny"
+  ],
+  "allocation": true,
+  "block": 0,
+  "cell": [
+    "tiny",
+    0,
+    16,
+    "specialized"
+  ],
+  "exit_code": 0,
+  "cutoff": false,
+  "stdout": "{\"mode\":\"specialized\",\"depth\":0,\"queries\":16,\"family\":\"tiny\"}\n{\"prepare_ns\":50572,\"shutdown_ns\":2721,\"lifecycle_ns\":215961}\n{\"query\":0,\"setup_ns\":5906,\"execute_observe_ns\":18926,\"first_observation_ns\":16142,\"dispose_ns\":850}\n{\"query\":1,\"setup_ns\":3046,\"execute_observe_ns\":9138,\"first_observation_ns\":7736,\"dispose_ns\":221}\n{\"query\":2,\"setup_ns\":2661,\"execute_observe_ns\":8168,\"first_observation_ns\":6828,\"dispose_ns\":151}\n{\"query\":3,\"setup_ns\":2143,\"execute_observe_ns\":5076,\"first_observation_ns\":4055,\"dispose_ns\":158}\n{\"query\":4,\"setup_ns\":2053,\"execute_observe_ns\":6417,\"first_observation_ns\":5228,\"dispose_ns\":132}\n{\"query\":5,\"setup_ns\":2310,\"execute_observe_ns\":8601,\"first_observation_ns\":7320,\"dispose_ns\":630}\n{\"query\":6,\"setup_ns\":1850,\"execute_observe_ns\":4983,\"first_observation_ns\":3937,\"dispose_ns\":441}\n{\"query\":7,\"setup_ns\":1911,\"execute_observe_ns\":6607,\"first_observation_ns\":5403,\"dispose_ns\":491}\n{\"query\":8,\"setup_ns\":2467,\"execute_observe_ns\":7752,\"first_observation_ns\":6502,\"dispose_ns\":475}\n{\"query\":9,\"setup_ns\":1671,\"execute_observe_ns\":4908,\"first_observation_ns\":3836,\"dispose_ns\":493}\n{\"query\":10,\"setup_ns\":1880,\"execute_observe_ns\":6615,\"first_observation_ns\":5380,\"dispose_ns\":491}\n{\"query\":11,\"setup_ns\":2227,\"execute_observe_ns\":7540,\"first_observation_ns\":6267,\"dispose_ns\":526}\n{\"query\":12,\"setup_ns\":1630,\"execute_observe_ns\":4992,\"first_observation_ns\":3936,\"dispose_ns\":482}\n{\"query\":13,\"setup_ns\":1804,\"execute_observe_ns\":6265,\"first_observation_ns\":5048,\"dispose_ns\":144}\n{\"query\":14,\"setup_ns\":2290,\"execute_observe_ns\":7507,\"first_observation_ns\":6243,\"dispose_ns\":559}\n{\"query\":15,\"setup_ns\":1652,\"execute_observe_ns\":4962,\"first_observation_ns\":3908,\"dispose_ns\":466}\n{\"allocation\":{\"live_start\":3067,\"live_end\":3067,\"peak_live\":18126,\"allocation_calls\":2241,\"requested_bytes\":208174,\"deallocation_calls\":2219}}\n",
+  "stderr": "",
+  "process_cpu_seconds": 0.002011999999997016
+}

@@ -1,0 +1,23 @@
+{
+  "command": [
+    "/home/ahart/Documents/CHRLang/target/release/examples/worker_allocation",
+    "4",
+    "64",
+    "16",
+    "128",
+    "skew"
+  ],
+  "allocation": true,
+  "block": 1,
+  "cell": [
+    "skew",
+    64,
+    16,
+    "workers4"
+  ],
+  "exit_code": 0,
+  "cutoff": false,
+  "stdout": "{\"workers\":4,\"depth\":64,\"queries\":16,\"quantum\":128,\"family\":\"skew\"}\n{\"live_start\":7671,\"live_end\":7671,\"peak_live\":241709,\"allocation_calls\":425311,\"requested_bytes\":20306250,\"deallocation_calls\":424395}\n",
+  "stderr": "",
+  "process_cpu_seconds": 0.1286040000000015
+}

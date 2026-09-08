@@ -1,0 +1,9 @@
+# Combine available lowering with certified independent regions
+
+The unpartitioned contracted control improves on Specialized but has high multi-region peak retention and loses two large skewed wall comparisons to four workers. It does not settle whether useful independent work remains after both contraction and factoring.
+
+Integrate the existing checked serial compiler with the existing independence certificate and complete product semantics. Reuse prepared rules across queries. Establish source correctness against independent complete observations, including shared variables preventing separation, independent unknown scopes, raw multiplicity, changed queries and cancellation. Finite answers beside continuing source work must remain serviceable wherever the supported source contract allows continuing work; do not replace the runtime with eager full enumeration of every regional answer.
+
+Measure preparation, query certification/setup, source service, product/observation and disposal. Compare persistent factored inline, four workers and the contracted factored serial path on the same source families. Keep unpartitioned contraction as an attribution control. Inspect immutable arena sharing versus copying if branch storage remains consequential. Exact comparative configurations, repetitions and bounds will be prospectively registered after the source gate and sizing.
+
+The architectural decision is whether to parallelize substantive remaining work or remove/avoid it through available analysis and independent execution first. This does not presume that every future workload has these properties. The experiment is selected before marginal timing refinements and before broader generated multihead access because the current result exposed a concrete, potentially reversible organization cost.

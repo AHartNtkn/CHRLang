@@ -1,0 +1,21 @@
+{
+  "command": [
+    "cargo",
+    "clippy",
+    "-p",
+    "chr-factors",
+    "--no-default-features",
+    "--features",
+    "worker-lowering",
+    "--example",
+    "worker_lowered_cost",
+    "--example",
+    "worker_lowered_allocation",
+    "--",
+    "-D",
+    "warnings"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.01s\n"
+}
