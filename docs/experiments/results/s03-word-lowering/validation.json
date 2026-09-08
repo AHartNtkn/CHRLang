@@ -1,0 +1,123 @@
+{
+  "commands": [
+    {
+      "name": "default",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-direct-conditional",
+        "--test",
+        "direct_graph_entry",
+        "--",
+        "--nocapture"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "replay",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-direct-conditional",
+        "--test",
+        "direct_graph_entry",
+        "--",
+        "--nocapture"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "off",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-direct-conditional",
+        "--no-default-features",
+        "--test",
+        "direct_graph_entry",
+        "--",
+        "--nocapture"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "graph",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-direct-choice"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "clippy-graph",
+      "command": [
+        "cargo",
+        "clippy",
+        "-p",
+        "chr-direct-choice",
+        "--all-targets",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "clippy",
+      "command": [
+        "cargo",
+        "clippy",
+        "-p",
+        "chr-direct-conditional",
+        "--test",
+        "direct_graph_entry",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "clippy-off",
+      "command": [
+        "cargo",
+        "clippy",
+        "-p",
+        "chr-direct-conditional",
+        "--no-default-features",
+        "--test",
+        "direct_graph_entry",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "fmt",
+      "command": [
+        "cargo",
+        "fmt",
+        "-p",
+        "chr-direct-choice",
+        "-p",
+        "chr-direct-conditional",
+        "--",
+        "--check"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "sha256": {
+    "research/chr-direct-choice/src/words.rs": "02ec5f43700a78a311142e1ee08c10bfb32bfdd06133106532e22763b9e5c4e1",
+    "research/chr-direct-choice/src/lib.rs": "6907c5528e9c0bab06613d5a1b97a42203d99e759e431c7dcf02dc14c1d2686d",
+    "research/chr-direct-conditional/tests/direct_graph_entry.rs": "bad98cbe5d89792be56f1a6f11f1ccc49787c22b11cda80d723d04e38bb7f618",
+    "docs/experiments/registrations/S03-word-lowering-gate.md": "e46d48e481fcd546b1bfd961e8a4e89285452f9a0a0d0e50c351ac633ab007f8",
+    "docs/experiments/registrations/S03-common-work-gate.md": "34d25a521fc255e00803cee95294160e47496ac4b7d81b45e0ad154f2c32ddec"
+  }
+}

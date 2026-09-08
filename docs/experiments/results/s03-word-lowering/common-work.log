@@ -1,0 +1,21 @@
+
+running 1 test
+common-work family=plain depth=0 expected_raw=1
+common-work family=plain depth=1 expected_raw=1
+common-work family=plain depth=8 expected_raw=1
+common-work family=plain depth=32 expected_raw=1
+common-work family=shared depth=0 expected_raw=16
+common-work family=shared depth=1 expected_raw=16
+common-work family=shared depth=8 expected_raw=16
+common-work family=shared depth=32 expected_raw=16
+common-work family=discriminate depth=0 expected_raw=16
+common-work family=discriminate depth=1 expected_raw=16
+common-work family=discriminate depth=8 expected_raw=16
+common-work family=discriminate depth=32 expected_raw=16
+test common_work_discrimination_and_no_choice_have_independent_complete_answers ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 13 filtered out; finished in 0.42s
+
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.33s
+     Running tests/direct_graph_entry.rs (target/debug/deps/direct_graph_entry-3daf60ba41bb91ed)

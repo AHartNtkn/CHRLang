@@ -1,0 +1,7 @@
+# S03 common-work and discrimination source gate
+
+Before a cost pilot, check an ordinary-work contrast independent of word enumeration. Four source choices bind four fields independently to a or b. A unary-depth work loop carries their pack opaquely to a result. The discrimination variant instead requires one of sixteen ground pack patterns before entering the same work loop. The no-choice control carries four unknown fields through the loop. Query outputs expose every field, jointly aliased with the result pack.
+
+Use depths 0,1,8,32 in all three families. Expected answers are one unknown pack for no-choice and the sixteen independent four-field Boolean packs otherwise. Compare complete answers against the independent owned scalar, compiled Global scan/index, Conditional and direct graph. These controls share neither an equality implementation nor the candidate result generator. Use 2,000,000 candidate steps and 200,000 scalar transitions, 60 seconds per process. A cutoff requires diagnosis.
+
+This establishes a favorable opportunity for common execution, immediate-discrimination counterpressure and ordinary overhead on identical recursive work. It is not a general compiler test: source-specific countdown elimination remains a distinct possible optimization and must not be credited to graph organization. This gate supplies no timing, work-count or architecture ranking. Register lifecycle endpoints, exact cost configurations, process order and repetitions separately before comparative runs.

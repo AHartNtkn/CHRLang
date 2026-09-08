@@ -4,6 +4,7 @@
 //! pending source effects. Recursive traversal is bounded only by the input graph.
 pub mod engine;
 mod equality;
+pub mod words;
 
 use chr_syntax::{Term, Var};
 use std::collections::{BTreeMap, BTreeSet};

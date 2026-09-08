@@ -146,11 +146,16 @@ fn dynamic_births_resources_and_complete_observations() {
         let rules = source(alphabet, reject);
         let prepared = PreparedRuleset::new(rules.clone()).unwrap();
         let compiled = chr_compiled::PreparedRuleset::new(rules.clone(), None).unwrap();
+        let lowered = chr_direct_choice::words::Prepared::new(&rules).unwrap();
         let direct = chr_direct_choice::engine::PreparedRuleset::new(rules.clone()).unwrap();
         for (depth, two) in cases {
             for first in [false, true] {
                 let input = query(depth, two, first);
                 let oracle = expected(depth, two, alphabet, reject);
+                runtime_support::same_raw(
+                    lowered.start(input.clone()).unwrap().collect(),
+                    oracle.clone(),
+                );
                 for access in [chr_compiled::Access::Scan, chr_compiled::Access::Indexed] {
                     runtime_support::same_raw(
                         run_compiled(
@@ -731,5 +736,201 @@ fn active_nonchoice_trace_explains_missing_token_observation() {
             );
         }
         println!("Active no-choice token_first={first} rule_trace={trace:?}");
+    }
+}
+
+#[test]
+fn word_lowering_handles_asymmetric_queries_and_rejects_uncertified_inputs() {
+    for alphabet in [Alphabet::Binary, Alphabet::Duplicate, Alphabet::Nested] {
+        for reject in [false, true] {
+            let rules = source(alphabet, reject);
+            let prepared = chr_direct_choice::words::Prepared::new(&rules).unwrap();
+            for (left, right) in [(0, 2), (1, 2), (2, 1), (2, 0)] {
+                for reverse in [false, true] {
+                    let depth = |n| (0..n).fold(atom("z"), |x, _| t("s", [x]));
+                    let mut constraints = vec![
+                        c("build", [depth(left), v(100)]),
+                        c("build", [depth(right), v(101)]),
+                        c(
+                            "task",
+                            if reverse {
+                                [v(101), v(100)]
+                            } else {
+                                [v(100), v(101)]
+                            },
+                        ),
+                        c("token", [v(200)]),
+                    ];
+                    // Vary insertion order independently of the task's argument order.
+                    if reverse {
+                        constraints.reverse();
+                    }
+                    let input = Query {
+                        constraints,
+                        outputs: vec![],
+                    };
+                    let (first, second) = if reverse {
+                        (right, left)
+                    } else {
+                        (left, right)
+                    };
+                    let mut expected = Vec::new();
+                    for x in words(first, alphabet) {
+                        if reject && matches!(&x,Term::App(n,xs) if n=="cons" && xs[0]==atom("b")) {
+                            continue;
+                        }
+                        for y in words(second, alphabet) {
+                            expected.push(Answer {
+                                outputs: vec![],
+                                residual: vec![
+                                    c("seen", [v(900)]),
+                                    c("out", [x.clone(), x.clone(), y.clone(), y, v(900), v(900)]),
+                                ],
+                            });
+                        }
+                    }
+                    let actual: Vec<_> = prepared
+                        .start(input.clone())
+                        .unwrap()
+                        .take(100_001)
+                        .collect();
+                    assert!(actual.len() <= 100_000);
+                    runtime_support::same_raw(actual, expected.clone());
+                    check_all_source_engines(rules.clone(), input, expected);
+                }
+            }
+            // A canceled iterator cannot affect a subsequent query on the preparation.
+            let input = query(2, false, false);
+            let mut partial = prepared.start(input.clone()).unwrap();
+            assert!(partial.next().is_some());
+            drop(partial);
+            runtime_support::same_raw(
+                prepared.start(input).unwrap().collect(),
+                expected(2, false, alphabet, reject),
+            );
+            let mut changed = rules.clone();
+            changed[0].body = Goal::True;
+            assert!(chr_direct_choice::words::Prepared::new(&changed).is_err());
+            let mut changed = rules.clone();
+            changed.swap(0, 1);
+            assert!(chr_direct_choice::words::Prepared::new(&changed).is_err());
+            let mut changed = rules.clone();
+            changed.push(Rule::simplify("extra", [c("out", [v(0)])], Goal::Fail));
+            assert!(chr_direct_choice::words::Prepared::new(&changed).is_err());
+            let valid = query(1, false, false);
+            let mut invalids = Vec::new();
+            let mut q = valid.clone();
+            q.constraints.push(c("extra", []));
+            invalids.push(q);
+            let mut q = valid.clone();
+            q.constraints.push(c("build", [atom("z"), v(100)]));
+            invalids.push(q);
+            let mut q = valid.clone();
+            q.constraints.push(c("build", [atom("z"), v(102)]));
+            invalids.push(q);
+            let mut q = valid.clone();
+            q.constraints[0].args[0] = v(300);
+            invalids.push(q);
+            let mut q = valid.clone();
+            q.constraints[2].args[0] = v(100);
+            invalids.push(q);
+            let mut q = valid.clone();
+            q.constraints.pop();
+            invalids.push(q);
+            let mut q = valid.clone();
+            q.outputs.push(("x".into(), chr_syntax::Var(100)));
+            invalids.push(q);
+            let mut q = valid.clone();
+            q.constraints.push(c("token", [v(201)]));
+            invalids.push(q);
+            let mut q = valid;
+            q.constraints.push(c("task", [v(100), v(100)]));
+            invalids.push(q);
+            for q in invalids {
+                assert!(prepared.start(q).is_err());
+            }
+        }
+    }
+}
+
+#[test]
+fn common_work_discrimination_and_no_choice_have_independent_complete_answers() {
+    for family in ["plain", "shared", "discriminate"] {
+        let mut rules = vec![Rule::simplify(
+            "choose",
+            [c("choose", [v(0)])],
+            or(eq(v(0), atom("a")), eq(v(0), atom("b"))),
+        )];
+        if family == "discriminate" {
+            for bits in 0..16 {
+                let fields = (0..4)
+                    .map(|i| atom(if bits & (1 << i) == 0 { "a" } else { "b" }))
+                    .collect::<Vec<_>>();
+                let pack = t("pack", fields);
+                rules.push(Rule::simplify(
+                    &format!("gate{bits}"),
+                    [c("gate", [v(0), pack.clone()])],
+                    c("work", [v(0), pack]).into(),
+                ));
+            }
+        }
+        rules.push(Rule::simplify(
+            "step",
+            [c("work", [t("s", [v(0)]), v(1)])],
+            c("work", [v(0), v(1)]).into(),
+        ));
+        rules.push(Rule::simplify(
+            "base",
+            [c("work", [atom("z"), v(0)])],
+            c("result", [v(0)]).into(),
+        ));
+        for n in [0, 1, 8, 32] {
+            let depth = (0..n).fold(atom("z"), |x, _| t("s", [x]));
+            let mut constraints = Vec::new();
+            if family != "plain" {
+                constraints.extend((0..4).map(|i| c("choose", [v(i)])));
+            }
+            constraints.push(c(
+                if family == "discriminate" {
+                    "gate"
+                } else {
+                    "work"
+                },
+                [depth, t("pack", (0..4).map(v).collect::<Vec<_>>())],
+            ));
+            let input = Query {
+                constraints,
+                outputs: (0..4)
+                    .map(|i| (format!("o{i}"), chr_syntax::Var(i)))
+                    .collect(),
+            };
+            let values: Vec<Vec<Term>> = if family == "plain" {
+                vec![(900..904).map(v).collect()]
+            } else {
+                (0..16)
+                    .map(|bits| {
+                        (0..4)
+                            .map(|i| atom(if bits & (1 << i) == 0 { "a" } else { "b" }))
+                            .collect()
+                    })
+                    .collect()
+            };
+            let expected: Vec<_> = values
+                .into_iter()
+                .map(|fields| Answer {
+                    outputs: fields
+                        .iter()
+                        .enumerate()
+                        .map(|(i, t)| (format!("o{i}"), t.clone()))
+                        .collect(),
+                    residual: vec![c("result", [t("pack", fields)])],
+                })
+                .collect();
+            println!(
+                "common-work family={family} depth={n} expected_raw={}",
+                expected.len()
+            );
+            check_all_source_engines(rules.clone(), input, expected);
+        }
     }
 }

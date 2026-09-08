@@ -1,0 +1,122 @@
+
+running 14 tests
+common-work family=plain depth=0 expected_raw=1
+active first difference actual=[Answer { outputs: [], residual: [Constraint { name: "out", args: [App("nil", []), App("nil", []), App("nil", []), App("nil", []), Var(Var(1)), Var(Var(1))] }] }] expected=[Answer { outputs: [], residual: [Constraint { name: "seen", args: [Var(Var(900))] }, Constraint { name: "out", args: [App("nil", []), App("nil", []), App("nil", []), App("nil", []), Var(Var(900)), Var(Var(900))] }] }]
+active alphabet=Binary reject=false depth=0 two=false token_first=false access=Scan expected_raw=1 actual_raw=1 agrees=false
+Active no-choice token_first=false rule_trace=["base", "use"]
+active alphabet=Binary reject=false depth=0 two=false token_first=false access=Indexed expected_raw=1 actual_raw=1 agrees=false
+Active no-choice token_first=true rule_trace=["watch", "base", "use"]
+active alphabet=Binary reject=false depth=0 two=false token_first=true access=Scan expected_raw=1 actual_raw=1 agrees=true
+active alphabet=Binary reject=false depth=0 two=false token_first=true access=Indexed expected_raw=1 actual_raw=1 agrees=true
+common-work family=plain depth=1 expected_raw=1
+active alphabet=Binary reject=false depth=1 two=false token_first=false access=Scan expected_raw=2 actual_raw=2 agrees=false
+active alphabet=Binary reject=false depth=1 two=false token_first=false access=Indexed expected_raw=2 actual_raw=2 agrees=false
+alphabet=Binary reject=false depth=0 two=false token_first=false raw=1
+common-work family=plain depth=8 expected_raw=1
+active alphabet=Binary reject=false depth=1 two=false token_first=true access=Scan expected_raw=2 actual_raw=2 agrees=true
+active alphabet=Binary reject=false depth=1 two=false token_first=true access=Indexed expected_raw=2 actual_raw=2 agrees=true
+alphabet=Binary reject=false depth=0 two=false token_first=true raw=1
+active alphabet=Binary reject=false depth=2 two=false token_first=false access=Scan expected_raw=4 actual_raw=4 agrees=false
+active alphabet=Binary reject=false depth=2 two=false token_first=false access=Indexed expected_raw=4 actual_raw=4 agrees=false
+common-work family=plain depth=32 expected_raw=1
+active alphabet=Binary reject=false depth=2 two=false token_first=true access=Scan expected_raw=4 actual_raw=4 agrees=true
+test active_nonchoice_trace_explains_missing_token_observation ... ok
+test oracle_preserves_correlation_aliases_and_raw_multiplicity ... ok
+test mixed_kept_consumed_heads_preserve_joint_output_identity ... ok
+test effectful_choices_competing_consumers_and_late_arrivals ... ok
+test disconnected_failure_prevents_early_answer_publication ... ok
+test nonbinding_heads_and_guards_wait_for_real_aliases ... ok
+test propagation_respects_occurrence_identity_and_fresh_application_unknowns ... ok
+active alphabet=Binary reject=false depth=2 two=false token_first=true access=Indexed expected_raw=4 actual_raw=4 agrees=true
+alphabet=Binary reject=false depth=1 two=false token_first=false raw=2
+active alphabet=Binary reject=false depth=3 two=false token_first=false access=Scan expected_raw=8 actual_raw=8 agrees=false
+active alphabet=Binary reject=false depth=3 two=false token_first=false access=Indexed expected_raw=8 actual_raw=8 agrees=false
+alphabet=Binary reject=false depth=1 two=false token_first=true raw=2
+common-work family=shared depth=0 expected_raw=16
+active alphabet=Binary reject=false depth=3 two=false token_first=true access=Scan expected_raw=8 actual_raw=8 agrees=true
+active alphabet=Binary reject=false depth=3 two=false token_first=true access=Indexed expected_raw=8 actual_raw=8 agrees=true
+active alphabet=Binary reject=false depth=1 two=true token_first=false access=Scan expected_raw=4 actual_raw=4 agrees=false
+active alphabet=Binary reject=false depth=1 two=true token_first=false access=Indexed expected_raw=4 actual_raw=4 agrees=false
+common-work family=shared depth=1 expected_raw=16
+test finite_sibling_is_observed_without_claiming_global_completion ... ok
+active alphabet=Binary reject=false depth=1 two=true token_first=true access=Scan expected_raw=4 actual_raw=4 agrees=true
+alphabet=Binary reject=false depth=2 two=false token_first=false raw=4
+active alphabet=Binary reject=false depth=1 two=true token_first=true access=Indexed expected_raw=4 actual_raw=4 agrees=true
+active alphabet=Binary reject=false depth=2 two=true token_first=false access=Scan expected_raw=16 actual_raw=16 agrees=false
+common-work family=shared depth=8 expected_raw=16
+alphabet=Binary reject=false depth=2 two=false token_first=true raw=4
+active alphabet=Binary reject=false depth=2 two=true token_first=false access=Indexed expected_raw=16 actual_raw=16 agrees=false
+active alphabet=Binary reject=false depth=2 two=true token_first=true access=Scan expected_raw=16 actual_raw=16 agrees=true
+active alphabet=Binary reject=false depth=2 two=true token_first=true access=Indexed expected_raw=16 actual_raw=16 agrees=true
+active alphabet=Nested reject=false depth=1 two=false token_first=false access=Scan expected_raw=3 actual_raw=3 agrees=false
+active alphabet=Nested reject=false depth=1 two=false token_first=false access=Indexed expected_raw=3 actual_raw=3 agrees=false
+active alphabet=Nested reject=false depth=1 two=false token_first=true access=Scan expected_raw=3 actual_raw=3 agrees=true
+common-work family=shared depth=32 expected_raw=16
+active alphabet=Nested reject=false depth=1 two=false token_first=true access=Indexed expected_raw=3 actual_raw=3 agrees=true
+active alphabet=Nested reject=false depth=2 two=false token_first=false access=Scan expected_raw=9 actual_raw=9 agrees=false
+alphabet=Binary reject=false depth=3 two=false token_first=false raw=8
+active alphabet=Nested reject=false depth=2 two=false token_first=false access=Indexed expected_raw=9 actual_raw=9 agrees=false
+active alphabet=Nested reject=false depth=2 two=false token_first=true access=Scan expected_raw=9 actual_raw=9 agrees=true
+active alphabet=Nested reject=false depth=2 two=false token_first=true access=Indexed expected_raw=9 actual_raw=9 agrees=true
+alphabet=Binary reject=false depth=3 two=false token_first=true raw=8
+alphabet=Binary reject=false depth=1 two=true token_first=false raw=4
+alphabet=Binary reject=false depth=1 two=true token_first=true raw=4
+active alphabet=Nested reject=false depth=2 two=true token_first=false access=Scan expected_raw=81 actual_raw=81 agrees=false
+alphabet=Binary reject=false depth=2 two=true token_first=false raw=16
+common-work family=discriminate depth=0 expected_raw=16
+active alphabet=Nested reject=false depth=2 two=true token_first=false access=Indexed expected_raw=81 actual_raw=81 agrees=false
+alphabet=Binary reject=false depth=2 two=true token_first=true raw=16
+alphabet=Nested reject=false depth=1 two=false token_first=false raw=3
+alphabet=Nested reject=false depth=1 two=false token_first=true raw=3
+active alphabet=Nested reject=false depth=2 two=true token_first=true access=Scan expected_raw=81 actual_raw=81 agrees=true
+test compiled_global_controls_publish_finite_sibling_without_exhaustion ... ok
+alphabet=Nested reject=false depth=2 two=false token_first=false raw=9
+common-work family=discriminate depth=1 expected_raw=16
+active alphabet=Nested reject=false depth=2 two=true token_first=true access=Indexed expected_raw=81 actual_raw=81 agrees=true
+active alphabet=Duplicate reject=false depth=1 two=false token_first=false access=Scan expected_raw=2 actual_raw=2 agrees=false
+active alphabet=Duplicate reject=false depth=1 two=false token_first=false access=Indexed expected_raw=2 actual_raw=2 agrees=false
+active alphabet=Duplicate reject=false depth=1 two=false token_first=true access=Scan expected_raw=2 actual_raw=2 agrees=true
+active alphabet=Duplicate reject=false depth=1 two=false token_first=true access=Indexed expected_raw=2 actual_raw=2 agrees=true
+alphabet=Nested reject=false depth=2 two=false token_first=true raw=9
+active alphabet=Duplicate reject=false depth=2 two=false token_first=false access=Scan expected_raw=4 actual_raw=4 agrees=false
+active alphabet=Duplicate reject=false depth=2 two=false token_first=false access=Indexed expected_raw=4 actual_raw=4 agrees=false
+active alphabet=Duplicate reject=false depth=2 two=false token_first=true access=Scan expected_raw=4 actual_raw=4 agrees=true
+active alphabet=Duplicate reject=false depth=2 two=false token_first=true access=Indexed expected_raw=4 actual_raw=4 agrees=true
+active alphabet=Duplicate reject=false depth=3 two=false token_first=false access=Scan expected_raw=8 actual_raw=8 agrees=false
+active alphabet=Duplicate reject=false depth=3 two=false token_first=false access=Indexed expected_raw=8 actual_raw=8 agrees=false
+active alphabet=Duplicate reject=false depth=3 two=false token_first=true access=Scan expected_raw=8 actual_raw=8 agrees=true
+active alphabet=Duplicate reject=false depth=3 two=false token_first=true access=Indexed expected_raw=8 actual_raw=8 agrees=true
+active alphabet=Binary reject=true depth=1 two=false token_first=false access=Scan expected_raw=1 actual_raw=1 agrees=false
+active alphabet=Binary reject=true depth=1 two=false token_first=false access=Indexed expected_raw=1 actual_raw=1 agrees=false
+active alphabet=Binary reject=true depth=1 two=false token_first=true access=Scan expected_raw=1 actual_raw=1 agrees=true
+active alphabet=Binary reject=true depth=1 two=false token_first=true access=Indexed expected_raw=1 actual_raw=1 agrees=true
+active alphabet=Binary reject=true depth=2 two=false token_first=false access=Scan expected_raw=2 actual_raw=2 agrees=false
+active alphabet=Binary reject=true depth=2 two=false token_first=false access=Indexed expected_raw=2 actual_raw=2 agrees=false
+active alphabet=Binary reject=true depth=2 two=false token_first=true access=Scan expected_raw=2 actual_raw=2 agrees=true
+active alphabet=Binary reject=true depth=2 two=false token_first=true access=Indexed expected_raw=2 actual_raw=2 agrees=true
+active agreements=28/56; this is a diagnostic, not admission of mismatched cases
+test active_policy_word_screen_records_complete_answer_agreement ... ok
+common-work family=discriminate depth=8 expected_raw=16
+alphabet=Nested reject=false depth=2 two=true token_first=false raw=81
+alphabet=Nested reject=false depth=2 two=true token_first=true raw=81
+alphabet=Duplicate reject=false depth=1 two=false token_first=false raw=2
+alphabet=Duplicate reject=false depth=1 two=false token_first=true raw=2
+alphabet=Duplicate reject=false depth=2 two=false token_first=false raw=4
+alphabet=Duplicate reject=false depth=2 two=false token_first=true raw=4
+alphabet=Duplicate reject=false depth=3 two=false token_first=false raw=8
+alphabet=Duplicate reject=false depth=3 two=false token_first=true raw=8
+alphabet=Binary reject=true depth=1 two=false token_first=false raw=1
+alphabet=Binary reject=true depth=1 two=false token_first=true raw=1
+alphabet=Binary reject=true depth=2 two=false token_first=false raw=2
+alphabet=Binary reject=true depth=2 two=false token_first=true raw=2
+test dynamic_births_resources_and_complete_observations ... ok
+common-work family=discriminate depth=32 expected_raw=16
+test word_lowering_handles_asymmetric_queries_and_rejects_uncertified_inputs ... ok
+test direct_graph_publishes_finite_sibling_without_claiming_exhaustion ... ok
+test common_work_discrimination_and_no_choice_have_independent_complete_answers ... ok
+
+test result: ok. 14 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.57s
+
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.64s
+     Running tests/direct_graph_entry.rs (target/debug/deps/direct_graph_entry-8c0dd575e30323bf)

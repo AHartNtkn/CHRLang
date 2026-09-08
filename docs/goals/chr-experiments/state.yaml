@@ -8,7 +8,7 @@ goal:
   execution_authority: Redesigned goal authorizes implementation and experiments selected under R00 and the governing sequence.
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
-  current_research: S00 contracts and first-cycle feasibility assessed; S01 direct/retained source gates pass with selective/consuming and lifecycle work open; S03 direct graph passes kernel/equality checks, 40 finite source configurations and finite-sibling publication; compiled Global controls pass the source gate and Active is admitted only on verified token-first words; graphless lowering control, substantive-work cases and lifecycle comparison remain open. Architecture questions remain unresolved.
+  current_research: S00 contracts and first-cycle feasibility assessed; S01 direct/retained source gates pass with selective/consuming and lifecycle work open; S03 direct graph passes kernel/equality checks, 40 finite source configurations and finite-sibling publication; compiled Global controls pass the source gate and Active is admitted only on verified token-first words; graphless word lowering and common-work gates pass, and the 30-cell lifecycle pilot is registered; runner validation, freeze and comparative runs remain open. Architecture questions remain unresolved.
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -77,12 +77,15 @@ tasks:
       - docs/experiments/results/S03-graph-equality.md
       - docs/experiments/results/S03-source-executor.md
       - docs/experiments/results/S03-compiled-control-gate.md
+      - docs/experiments/results/S03-word-lowering-gate.md
+      - docs/experiments/registrations/S03-lifecycle-pilot.md
     allowed_files:
       - docs/experiments/
       - docs/goals/chr-experiments/
       - research/chr-direct-choice/
       - research/chr-direct-conditional/tests/
       - research/chr-direct-conditional/Cargo.toml
+      - research/chr-direct-conditional/examples/s03_lifecycle.rs
       - Cargo.toml
       - Cargo.lock
     verify:

@@ -1,0 +1,11 @@
+# S03 graphless word lowering: prospective gate
+
+Implement a checked direct compiler for exactly the word-source schema already used in the compound gate. Admission compares the complete ordered rule AST, including the token observation, consuming use rule and optional first-b rejection. Binary a/b, duplicate a/a and nested a/(b/c) sources are separate admitted schemas. This intentionally narrow certificate is not a general eligibility analysis.
+
+Queries must have one task, one token carrying a distinct unknown, and exactly one build per distinct task output variable. Build depths must be closed unary naturals. Task outputs may be correlated (one build) or independent (two builds); input order is irrelevant. No extra residual input, selected output, unknown depth, shared token/output handle or repeated build is admitted. Unsupported inputs return an error, not an empty answer set.
+
+The executable lowers this closed source to a mixed-radix iterator over letter positions. A repeated task result uses the same constructed word; independent task results use separate digits. Equal letters remain separate digits, preserving raw multiplicity. First-b rejection can restrict the first digit directly. Each yielded answer materializes seen(H) and out(X,X,Y,Y,H,H) with joint identity, rather than returning only words. There is no term-choice graph or CHR matching loop in this control.
+
+Before implementation, add the compiler to all 28 existing word configurations, with preparation reused across changing queries. Compare full raw answers against the independent mathematical oracle, scalar source executor, Global controls, Conditional and graph. Add unequal-depth and reversed-task-order cases, source-mutation and query-admission negative cases, and cancellation/fresh-query reuse. Per process: 60 seconds; finite enumeration tests: 100,000 answers maximum. Run default/replay/metrics-off shared gates and strict Clippy. These tests provide semantic evidence, not timing.
+
+This control isolates the benefit available from this source lowering. It must not be labeled a baseline for general CHR or credited as a general compiler. A broader compilation architecture and native compilation lifetime remain separate questions. Comparative timings require their own prospective registration.
