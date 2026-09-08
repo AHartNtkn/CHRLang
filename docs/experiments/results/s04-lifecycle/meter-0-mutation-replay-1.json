@@ -1,0 +1,11 @@
+{
+  "command": [
+    "/home/ahart/Documents/CHRLang/target/s04-lifecycle/meter/release/examples/lifecycle",
+    "replay",
+    "mutation",
+    "1"
+  ],
+  "exit_code": 0,
+  "stdout": "{\"family\":\"mutation\",\"mode\":\"replay\",\"reuse\":1,\"meter\":true,\"cow\":false,\"preparation\":{\"ns\":31223,\"memory\":{\"live_start\":197576,\"live_end\":209039,\"peak_live\":209039,\"allocation_calls\":275,\"requested_bytes\":11463,\"deallocation_calls\":0}},\"prepared_disposal\":{\"ns\":11255,\"memory\":{\"live_start\":209039,\"live_end\":197576,\"peak_live\":209039,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":275}},\"queries\":[{\"setup\":{\"ns\":37027,\"memory\":{\"live_start\":209039,\"live_end\":233354,\"peak_live\":237685,\"allocation_calls\":561,\"requested_bytes\":28851,\"deallocation_calls\":22}},\"execution_observation\":{\"ns\":34249630470,\"memory\":{\"live_start\":233354,\"live_end\":368460,\"peak_live\":411843,\"allocation_calls\":604173394,\"requested_bytes\":24145137804,\"deallocation_calls\":604019066}},\"engine_disposal\":{\"ns\":637,\"memory\":{\"live_start\":368460,\"live_end\":368103,\"peak_live\":368460,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":3}},\"answer_disposal\":{\"ns\":58785,\"memory\":{\"live_start\":368103,\"live_end\":209039,\"peak_live\":368103,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":3201}},\"first_ns\":34082363910,\"count\":8}],\"cancellation\":{\"setup\":{\"ns\":76486,\"memory\":{\"live_start\":209039,\"live_end\":233354,\"peak_live\":237685,\"allocation_calls\":561,\"requested_bytes\":28851,\"deallocation_calls\":22}},\"execution_observation\":{\"ns\":33117257970,\"memory\":{\"live_start\":233354,\"live_end\":253717,\"peak_live\":272670,\"allocation_calls\":601129380,\"requested_bytes\":24021512352,\"deallocation_calls\":600977982}},\"engine_disposal\":{\"ns\":12255,\"memory\":{\"live_start\":253717,\"live_end\":229066,\"peak_live\":253717,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":546}},\"answer_disposal\":{\"ns\":6784,\"memory\":{\"live_start\":229066,\"live_end\":209039,\"peak_live\":229066,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":401}}}}\n",
+  "stderr": ""
+}

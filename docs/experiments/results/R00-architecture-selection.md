@@ -304,3 +304,7 @@ The [288-process crossover](S01-request-crossover.md) establishes a practical re
 ## S04 source restoration gate
 
 The [S04 restoration gate](S04-restoration-source-gate.md) establishes independent complete-answer agreement for copying, reversible paths, root replay and three periodic checkpoint intervals, with finite-sibling publication. Existing compiled Global controls pass the finite gate. Diagnostic omissions of binding, resource, history and pending restoration all cause release-mode semantic failures. These are viable candidates for the next prospective lifecycle comparison; no comparative S04 costs have run. T066 remains active, and S05 stable-identity reuse remains the strongest ready alternative to reassess after the bounded comparison.
+
+## S04 lifecycle and attribution update
+
+The [1,008-process S04 pilot](S04-lifecycle-pilot.md) passes full answers, exact allocation replay and disposal checks. Copying wins the retained-store runtime/traffic/peak comparison against existing indexed execution; mutation favors indexed runtime and traffic while copying uses lower peak heap. The tested trail has substantial runtime and retention costs. A [registered matcher diagnostic and correction](S04-matcher-copy-gate.md) identifies and eliminates 36,864 rejected-partner frame copies on mutation without changing source work or answers. Paired costs, including all-compatible and long-alias overhead, remain necessary before interpreting the corrected organization. T066 stays active; no architecture or general state policy is selected.

@@ -1,5 +1,7 @@
 # S04: restoration and replay preserve complete source answers
 
+> This records an earlier gate or checkpoint. The [complete lifecycle report](S04-lifecycle-pilot.md) and [matcher correction gate](S04-matcher-copy-gate.md) give the subsequent evidence.
+
 Copying, reversible changes and replay now pass the same independent source tests, including a finite answer beside ongoing work. Periodic checkpoints also pass. This establishes viable alternatives for a cost comparison; it does not establish which state organization is more efficient.
 
 ## What was compared

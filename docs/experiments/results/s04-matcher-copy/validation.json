@@ -1,0 +1,96 @@
+{
+  "commands": [
+    {
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-restoration"
+      ],
+      "exit_code": 0,
+      "receipt": "debug-tests.json"
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-restoration",
+        "--release"
+      ],
+      "exit_code": 0,
+      "receipt": "release-tests.json"
+    },
+    {
+      "command": [
+        "cargo",
+        "clippy",
+        "-p",
+        "chr-restoration",
+        "--all-targets",
+        "--all-features",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit_code": 0,
+      "receipt": "clippy.json"
+    },
+    {
+      "command": [
+        "cargo",
+        "run",
+        "-p",
+        "chr-restoration",
+        "--release",
+        "--example",
+        "lifecycle",
+        "--",
+        "gate"
+      ],
+      "exit_code": 0,
+      "receipt": "source-gate.json"
+    },
+    {
+      "command": [
+        "cargo",
+        "run",
+        "-p",
+        "chr-restoration",
+        "--release",
+        "--features",
+        "arena-cow",
+        "--example",
+        "lifecycle",
+        "--",
+        "gate"
+      ],
+      "exit_code": 0,
+      "receipt": "cow-source-gate.json"
+    },
+    {
+      "command": [
+        "cargo",
+        "fmt",
+        "-p",
+        "chr-restoration",
+        "--check"
+      ],
+      "exit_code": 0,
+      "receipt": "format.json"
+    }
+  ],
+  "source_sha256": {
+    "research/chr-restoration/src/lib.rs": "61792e5a857793725ce51ff4548e37a67b3f0b191cefb9706d42091c026e60aa",
+    "research/chr-restoration/tests/source.rs": "0e217e249ea8c55dab5870a40f5b51d23b3e27bfc43cd448ea70a12490acd44b",
+    "research/chr-restoration/examples/lifecycle.rs": "f938de4121c56d39196c570a81221e4831dae233c8decb2b05b1647cda19cdad"
+  },
+  "root_projection_now_observed_after_correction": {
+    "family": "mutation",
+    "mode": "replay",
+    "actual_source_steps": 799623,
+    "projected_root_steps": 799623,
+    "service_steps": 2404
+  },
+  "paired_cost_comparison": "not yet run"
+}

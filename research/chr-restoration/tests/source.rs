@@ -260,3 +260,33 @@ fn unsupported_rules_and_exhausted_initial_identity_are_explicit_errors() {
         assert!(p.start(&q, mode).is_err());
     }
 }
+
+#[test]
+fn all_compatible_partners_preserve_large_values_and_joint_unknowns() {
+    for depth in [0, 64] {
+        let key = (0..depth).fold(atom("key"), |t0, _| t("f", [t0]));
+        let rules = vec![Rule {
+            name: "take".into(),
+            kept: vec![c("tag", [v(0)])],
+            removed: vec![c("item", [v(0), v(1)])],
+            guards: vec![],
+            body: c("seen", [v(1)]).into(),
+        }];
+        let mut constraints = vec![c("tag", [key.clone()])];
+        let mut residual = constraints.clone();
+        for i in 0..4 {
+            constraints.push(c("item", [key.clone(), v(50 + i % 2)]));
+            residual.push(c("seen", [v(50 + i % 2)]));
+        }
+        let q = Query {
+            constraints,
+            outputs: vec![("x".into(), Var(50)), ("y".into(), Var(51))],
+        };
+        let expected = vec![Answer {
+            outputs: vec![("x".into(), v(50)), ("y".into(), v(51))],
+            residual,
+        }];
+        oracle::same_raw(oracle::run(&rules, &q, 100000), expected.clone());
+        compare(&rules, &q, &expected);
+    }
+}

@@ -1,5 +1,7 @@
 # S04 measurement review while the frozen pilot runs
 
+> This records an earlier gate or checkpoint. The [complete lifecycle report](S04-lifecycle-pilot.md) and [matcher correction gate](S04-matcher-copy-gate.md) give the subsequent evidence.
+
 The total-lifecycle endpoint includes the costs needed to compare these implementations. Individual execution phases do not have identical setup boundaries. A matcher cost in the restoration implementation also warrants a causal check before interpreting an architectural loss.
 
 This is a source and measurement review, not the final pilot result. The matrix continues using its frozen binaries and registration.

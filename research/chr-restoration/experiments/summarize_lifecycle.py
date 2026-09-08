@@ -5,12 +5,15 @@ import hashlib
 import json
 from pathlib import Path
 import statistics as st
+import subprocess
 from collections import defaultdict
 ROOT=Path(__file__).resolve().parents[3]
 OUT=ROOT/'docs/experiments/results/s04-lifecycle'
 order=json.loads((OUT/'order.json').read_text())
 freeze=json.loads((OUT/'freeze.json').read_text())
-for f,h in freeze['sources'].items(): assert hashlib.sha256((ROOT/f).read_bytes()).hexdigest()==h,f
+for f,h in freeze['sources'].items():
+    source=subprocess.check_output(['git','show',f"{freeze['source_commit']}:{f}"],cwd=ROOT)
+    assert hashlib.sha256(source).hexdigest()==h,f
 for b in freeze['binaries'].values(): assert hashlib.sha256(Path(b['path']).read_bytes()).hexdigest()==b['sha256']
 
 def phases(value):

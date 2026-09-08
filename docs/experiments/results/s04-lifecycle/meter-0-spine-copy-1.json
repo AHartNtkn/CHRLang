@@ -1,0 +1,11 @@
+{
+  "command": [
+    "/home/ahart/Documents/CHRLang/target/s04-lifecycle/meter/release/examples/lifecycle",
+    "copy",
+    "spine",
+    "1"
+  ],
+  "exit_code": 0,
+  "stdout": "{\"family\":\"spine\",\"mode\":\"copy\",\"reuse\":1,\"meter\":true,\"cow\":false,\"preparation\":{\"ns\":10998,\"memory\":{\"live_start\":20983,\"live_end\":25875,\"peak_live\":25875,\"allocation_calls\":84,\"requested_bytes\":4892,\"deallocation_calls\":0}},\"prepared_disposal\":{\"ns\":1768,\"memory\":{\"live_start\":25875,\"live_end\":20983,\"peak_live\":25875,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":84}},\"queries\":[{\"setup\":{\"ns\":3278,\"memory\":{\"live_start\":25875,\"live_end\":28007,\"peak_live\":28106,\"allocation_calls\":55,\"requested_bytes\":2380,\"deallocation_calls\":2}},\"execution_observation\":{\"ns\":330905,\"memory\":{\"live_start\":28007,\"live_end\":39166,\"peak_live\":41448,\"allocation_calls\":6042,\"requested_bytes\":225081,\"deallocation_calls\":5798}},\"engine_disposal\":{\"ns\":163,\"memory\":{\"live_start\":39166,\"live_end\":38681,\"peak_live\":39166,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":3}},\"answer_disposal\":{\"ns\":4545,\"memory\":{\"live_start\":38681,\"live_end\":25875,\"peak_live\":38681,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":292}},\"first_ns\":56126,\"count\":7}],\"cancellation\":{\"setup\":{\"ns\":2226,\"memory\":{\"live_start\":25875,\"live_end\":28007,\"peak_live\":28106,\"allocation_calls\":55,\"requested_bytes\":2380,\"deallocation_calls\":2}},\"execution_observation\":{\"ns\":48928,\"memory\":{\"live_start\":28007,\"live_end\":31060,\"peak_live\":31319,\"allocation_calls\":901,\"requested_bytes\":33871,\"deallocation_calls\":842}},\"engine_disposal\":{\"ns\":2079,\"memory\":{\"live_start\":31060,\"live_end\":27553,\"peak_live\":31060,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":77}},\"answer_disposal\":{\"ns\":689,\"memory\":{\"live_start\":27553,\"live_end\":25875,\"peak_live\":27553,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":34}}}}\n",
+  "stderr": ""
+}

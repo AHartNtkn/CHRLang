@@ -1,0 +1,12 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "-p",
+    "chr-restoration",
+    "--release"
+  ],
+  "exit_code": 0,
+  "stdout": "\nrunning 3 tests\ntest tests::change_sequence_restores_all_mutable_state_then_redoes_it ... ok\ntest tests::lone_branch_releases_obsolete_checkpoint_and_trail_history ... ok\ntest tests::root_precheck_preserves_full_matching_with_aliases_and_pattern_scopes ... ok\n\ntest result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s\n\n\nrunning 5 tests\ntest unsupported_rules_and_exhausted_initial_identity_are_explicit_errors ... ok\ntest fair_finite_sibling_and_cancelled_query_reuse ... ok\ntest all_compatible_partners_preserve_large_values_and_joint_unknowns ... ok\ntest nested_choices_restore_pending_tails_and_failed_branches ... ok\ntest complete_source_modes_preserve_rollback_and_multiplicity ... ok\n\ntest result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n",
+  "stderr": "   Compiling chr-restoration v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-restoration)\n    Finished `release` profile [optimized] target(s) in 1.23s\n     Running unittests src/lib.rs (target/release/deps/chr_restoration-41e1c717ce6d91d9)\n     Running tests/source.rs (target/release/deps/source-b1349ebedf5157c8)\n   Doc-tests chr_restoration\n"
+}

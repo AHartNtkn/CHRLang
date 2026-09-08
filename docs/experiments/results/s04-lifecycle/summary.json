@@ -1,0 +1,4178 @@
+[
+  {
+    "family": "deep",
+    "mode": "checkpoint1",
+    "reuse": 1,
+    "total_ns": 2242604,
+    "execution_ns": 2209314,
+    "setup_ns": 2022,
+    "preparation_ns": 7577,
+    "disposal_ns": 33704,
+    "first_cold_ns": 2100096,
+    "cancel_ns": 2258706,
+    "requested_bytes": 3332458,
+    "peak_increment_bytes": 140562,
+    "vs_copy": {
+      "median": 1.1718864799051039,
+      "minimum": 1.083053357719375,
+      "maximum": 1.304056378005477
+    },
+    "vs_indexed": {
+      "median": 1.1589873121860914,
+      "minimum": 1.060153993522873,
+      "maximum": 1.3730532288858854
+    },
+    "vs_indexed-cow": {
+      "median": 1.2294663586160262,
+      "minimum": 1.1840598900588393,
+      "maximum": 1.5005478603472335
+    }
+  },
+  {
+    "family": "deep",
+    "mode": "checkpoint1",
+    "reuse": 8,
+    "total_ns": 18609581,
+    "execution_ns": 18290965,
+    "setup_ns": 18159,
+    "preparation_ns": 69911,
+    "disposal_ns": 222726,
+    "first_cold_ns": 2165702,
+    "cancel_ns": 2207135,
+    "requested_bytes": 26625427,
+    "peak_increment_bytes": 140562,
+    "vs_copy": {
+      "median": 1.1463587803424078,
+      "minimum": 0.9992549405203297,
+      "maximum": 1.2007329411451992
+    },
+    "vs_indexed": {
+      "median": 1.048522842302368,
+      "minimum": 0.9590266497060825,
+      "maximum": 1.1463586865450146
+    },
+    "vs_indexed-cow": {
+      "median": 1.1368986283293292,
+      "minimum": 0.7528565202230397,
+      "maximum": 1.2384012511411067
+    }
+  },
+  {
+    "family": "deep",
+    "mode": "checkpoint16",
+    "reuse": 1,
+    "total_ns": 14917755,
+    "execution_ns": 14823916,
+    "setup_ns": 2541,
+    "preparation_ns": 66909,
+    "disposal_ns": 25386,
+    "first_cold_ns": 14468962,
+    "cancel_ns": 14407165,
+    "requested_bytes": 22487117,
+    "peak_increment_bytes": 141588,
+    "vs_copy": {
+      "median": 7.6355447908991625,
+      "minimum": 7.134554297211731,
+      "maximum": 8.04450375924966
+    },
+    "vs_indexed": {
+      "median": 7.512039340991661,
+      "minimum": 7.025839860215611,
+      "maximum": 7.987276064201348
+    },
+    "vs_indexed-cow": {
+      "median": 8.209568516958138,
+      "minimum": 7.811402174430983,
+      "maximum": 8.472989406063338
+    }
+  },
+  {
+    "family": "deep",
+    "mode": "checkpoint16",
+    "reuse": 8,
+    "total_ns": 120139473,
+    "execution_ns": 119836580,
+    "setup_ns": 24662,
+    "preparation_ns": 66096,
+    "disposal_ns": 207203,
+    "first_cold_ns": 14539872,
+    "cancel_ns": 14415723,
+    "requested_bytes": 179862699,
+    "peak_increment_bytes": 141588,
+    "vs_copy": {
+      "median": 7.263058666309954,
+      "minimum": 6.532170389292631,
+      "maximum": 7.496225539666338
+    },
+    "vs_indexed": {
+      "median": 6.798449193867674,
+      "minimum": 6.144217023732459,
+      "maximum": 7.1567648135822575
+    },
+    "vs_indexed-cow": {
+      "median": 7.079834134912768,
+      "minimum": 4.82334234340625,
+      "maximum": 7.7903632406420975
+    }
+  },
+  {
+    "family": "deep",
+    "mode": "checkpoint4",
+    "reuse": 1,
+    "total_ns": 5297189,
+    "execution_ns": 5262579,
+    "setup_ns": 2004,
+    "preparation_ns": 6969,
+    "disposal_ns": 25195,
+    "first_cold_ns": 5010602,
+    "cancel_ns": 5123437,
+    "requested_bytes": 7837525,
+    "peak_increment_bytes": 141393,
+    "vs_copy": {
+      "median": 2.6544780627064135,
+      "minimum": 2.5708421136336526,
+      "maximum": 2.768078613345039
+    },
+    "vs_indexed": {
+      "median": 2.635594404294255,
+      "minimum": 2.4963245371525997,
+      "maximum": 2.7971319991150034
+    },
+    "vs_indexed-cow": {
+      "median": 2.8106011663521584,
+      "minimum": 2.775439706221943,
+      "maximum": 3.0369281187241683
+    }
+  },
+  {
+    "family": "deep",
+    "mode": "checkpoint4",
+    "reuse": 8,
+    "total_ns": 43666169,
+    "execution_ns": 43364013,
+    "setup_ns": 20074,
+    "preparation_ns": 69201,
+    "disposal_ns": 221122,
+    "first_cold_ns": 5161211,
+    "cancel_ns": 5187210,
+    "requested_bytes": 62665963,
+    "peak_increment_bytes": 141393,
+    "vs_copy": {
+      "median": 2.6704522231247667,
+      "minimum": 2.2930966196858806,
+      "maximum": 2.8542367596766267
+    },
+    "vs_indexed": {
+      "median": 2.425154895012679,
+      "minimum": 2.386572905556487,
+      "maximum": 2.61585261932248
+    },
+    "vs_indexed-cow": {
+      "median": 2.6117621867310983,
+      "minimum": 1.8744836185936413,
+      "maximum": 2.8643294499907515
+    }
+  },
+  {
+    "family": "deep",
+    "mode": "copy",
+    "reuse": 1,
+    "total_ns": 1969929,
+    "execution_ns": 1874300,
+    "setup_ns": 2195,
+    "preparation_ns": 63465,
+    "disposal_ns": 32202,
+    "first_cold_ns": 1830024,
+    "cancel_ns": 1909598,
+    "requested_bytes": 2762660,
+    "peak_increment_bytes": 144874,
+    "vs_copy": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    },
+    "vs_indexed": {
+      "median": 0.9928861124612552,
+      "minimum": 0.9277807344332092,
+      "maximum": 1.0529094079398142
+    },
+    "vs_indexed-cow": {
+      "median": 1.0532643976107292,
+      "minimum": 1.0315163155632099,
+      "maximum": 1.1506771376267377
+    }
+  },
+  {
+    "family": "deep",
+    "mode": "copy",
+    "reuse": 8,
+    "total_ns": 16516206,
+    "execution_ns": 16194111,
+    "setup_ns": 17858,
+    "preparation_ns": 70609,
+    "disposal_ns": 230916,
+    "first_cold_ns": 1856173,
+    "cancel_ns": 1939952,
+    "requested_bytes": 22067043,
+    "peak_increment_bytes": 144874,
+    "vs_copy": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    },
+    "vs_indexed": {
+      "median": 0.9547157800565336,
+      "minimum": 0.8365850780325766,
+      "maximum": 1.0407642159811876
+    },
+    "vs_indexed-cow": {
+      "median": 1.0249265710670818,
+      "minimum": 0.6567372563746298,
+      "maximum": 1.072600897026768
+    }
+  },
+  {
+    "family": "deep",
+    "mode": "indexed",
+    "reuse": 1,
+    "total_ns": 1968837,
+    "execution_ns": 1858374,
+    "setup_ns": 9457,
+    "preparation_ns": 23953,
+    "disposal_ns": 78790,
+    "first_cold_ns": 1621270,
+    "cancel_ns": 1984853,
+    "requested_bytes": 2597228,
+    "peak_increment_bytes": 1267537,
+    "vs_copy": {
+      "median": 1.0071648575294403,
+      "minimum": 0.9497493254967301,
+      "maximum": 1.0778408764985947
+    },
+    "vs_indexed": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    },
+    "vs_indexed-cow": {
+      "median": 1.0928548353255023,
+      "minimum": 1.0391809656549915,
+      "maximum": 1.11687537592933
+    }
+  },
+  {
+    "family": "deep",
+    "mode": "indexed",
+    "reuse": 8,
+    "total_ns": 17743675,
+    "execution_ns": 16535062,
+    "setup_ns": 460276,
+    "preparation_ns": 28617,
+    "disposal_ns": 704283,
+    "first_cold_ns": 1691671,
+    "cancel_ns": 2052737,
+    "requested_bytes": 20674070,
+    "peak_increment_bytes": 1267537,
+    "vs_copy": {
+      "median": 1.0474321477547852,
+      "minimum": 0.9608324197207752,
+      "maximum": 1.1953356882144388
+    },
+    "vs_indexed": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    },
+    "vs_indexed-cow": {
+      "median": 1.018079971807206,
+      "minimum": 0.7850214803246305,
+      "maximum": 1.1810913421988973
+    }
+  },
+  {
+    "family": "deep",
+    "mode": "indexed-cow",
+    "reuse": 1,
+    "total_ns": 1822390,
+    "execution_ns": 1715514,
+    "setup_ns": 8292,
+    "preparation_ns": 20630,
+    "disposal_ns": 78635,
+    "first_cold_ns": 1528207,
+    "cancel_ns": 1822135,
+    "requested_bytes": 2317284,
+    "peak_increment_bytes": 997489,
+    "vs_copy": {
+      "median": 0.9494292242939604,
+      "minimum": 0.8690535053668415,
+      "maximum": 0.9694466145734186
+    },
+    "vs_indexed": {
+      "median": 0.9150346118038213,
+      "minimum": 0.895355042784357,
+      "maximum": 0.9622963016549327
+    },
+    "vs_indexed-cow": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    }
+  },
+  {
+    "family": "deep",
+    "mode": "indexed-cow",
+    "reuse": 8,
+    "total_ns": 16368725,
+    "execution_ns": 15235889,
+    "setup_ns": 482778,
+    "preparation_ns": 25776,
+    "disposal_ns": 696979,
+    "first_cold_ns": 1616944,
+    "cancel_ns": 1919358,
+    "requested_bytes": 18433230,
+    "peak_increment_bytes": 997489,
+    "vs_copy": {
+      "median": 0.9756796518201981,
+      "minimum": 0.932313223652883,
+      "maximum": 1.5226789561479652
+    },
+    "vs_indexed": {
+      "median": 0.9822411084513214,
+      "minimum": 0.8466745663703279,
+      "maximum": 1.2738504933476078
+    },
+    "vs_indexed-cow": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    }
+  },
+  {
+    "family": "deep",
+    "mode": "replay",
+    "reuse": 1,
+    "total_ns": 87776902,
+    "execution_ns": 87678745,
+    "setup_ns": 3719,
+    "preparation_ns": 67984,
+    "disposal_ns": 29567,
+    "first_cold_ns": 82586008,
+    "cancel_ns": 83357348,
+    "requested_bytes": 131162301,
+    "peak_increment_bytes": 142279,
+    "vs_copy": {
+      "median": 45.26179711019553,
+      "minimum": 43.624956264164446,
+      "maximum": 45.55512254502573
+    },
+    "vs_indexed": {
+      "median": 44.81990587144424,
+      "minimum": 42.26516505201882,
+      "maximum": 47.77431956022769
+    },
+    "vs_indexed-cow": {
+      "median": 47.67263946804914,
+      "minimum": 46.57599306405325,
+      "maximum": 52.210396135780556
+    }
+  },
+  {
+    "family": "deep",
+    "mode": "replay",
+    "reuse": 8,
+    "total_ns": 718004806,
+    "execution_ns": 717664807,
+    "setup_ns": 34168,
+    "preparation_ns": 63976,
+    "disposal_ns": 263307,
+    "first_cold_ns": 84272818,
+    "cancel_ns": 84338430,
+    "requested_bytes": 1049264171,
+    "peak_increment_bytes": 142279,
+    "vs_copy": {
+      "median": 44.80064569902329,
+      "minimum": 38.64715263165362,
+      "maximum": 45.384642007333966
+    },
+    "vs_indexed": {
+      "median": 41.21578576444042,
+      "minimum": 37.790671580292695,
+      "maximum": 44.19196663076295
+    },
+    "vs_indexed-cow": {
+      "median": 44.77612086463668,
+      "minimum": 29.666488946423314,
+      "maximum": 48.67960772830514
+    }
+  },
+  {
+    "family": "deep",
+    "mode": "trail",
+    "reuse": 1,
+    "total_ns": 4850312,
+    "execution_ns": 4728407,
+    "setup_ns": 2545,
+    "preparation_ns": 8631,
+    "disposal_ns": 110651,
+    "first_cold_ns": 3952210,
+    "cancel_ns": 4342590,
+    "requested_bytes": 3568140,
+    "peak_increment_bytes": 1639223,
+    "vs_copy": {
+      "median": 2.43169605582283,
+      "minimum": 2.336546861636261,
+      "maximum": 2.5345602951397055
+    },
+    "vs_indexed": {
+      "median": 2.410764854463311,
+      "minimum": 2.3253486367725253,
+      "maximum": 2.56116270363234
+    },
+    "vs_indexed-cow": {
+      "median": 2.658478221772088,
+      "minimum": 2.5573656035162853,
+      "maximum": 2.6886110546783497
+    }
+  },
+  {
+    "family": "deep",
+    "mode": "trail",
+    "reuse": 8,
+    "total_ns": 38628363,
+    "execution_ns": 37894959,
+    "setup_ns": 31839,
+    "preparation_ns": 10225,
+    "disposal_ns": 690652,
+    "first_cold_ns": 3829880,
+    "cancel_ns": 4287923,
+    "requested_bytes": 28510883,
+    "peak_increment_bytes": 1639223,
+    "vs_copy": {
+      "median": 2.350351058754468,
+      "minimum": 2.0917528917286,
+      "maximum": 2.654937864082747
+    },
+    "vs_indexed": {
+      "median": 2.221081400195307,
+      "minimum": 2.074951555086186,
+      "maximum": 2.3667205785242365
+    },
+    "vs_indexed-cow": {
+      "median": 2.3980052203210698,
+      "minimum": 1.743596608702823,
+      "maximum": 2.4507073171944325
+    }
+  },
+  {
+    "family": "early",
+    "mode": "checkpoint1",
+    "reuse": 1,
+    "total_ns": 1767144,
+    "execution_ns": 1743595,
+    "setup_ns": 10341,
+    "preparation_ns": 9759,
+    "disposal_ns": 3566,
+    "first_cold_ns": 1763571,
+    "cancel_ns": 1803371,
+    "requested_bytes": 3362070,
+    "peak_increment_bytes": 35279,
+    "vs_copy": {
+      "median": 1.2219556942516971,
+      "minimum": 0.6156859225769087,
+      "maximum": 1.3191424064763269
+    },
+    "vs_indexed": {
+      "median": 3.670058130478938,
+      "minimum": 2.6993029888891966,
+      "maximum": 4.110871775430374
+    },
+    "vs_indexed-cow": {
+      "median": 4.222352634324466,
+      "minimum": 3.1426995285450103,
+      "maximum": 4.338806937596983
+    }
+  },
+  {
+    "family": "early",
+    "mode": "checkpoint1",
+    "reuse": 8,
+    "total_ns": 15007265,
+    "execution_ns": 14864690,
+    "setup_ns": 119073,
+    "preparation_ns": 8804,
+    "disposal_ns": 16362,
+    "first_cold_ns": 1863017,
+    "cancel_ns": 1859339,
+    "requested_bytes": 26854280,
+    "peak_increment_bytes": 35279,
+    "vs_copy": {
+      "median": 1.2158372065105645,
+      "minimum": 1.066238478387258,
+      "maximum": 1.381272848158447
+    },
+    "vs_indexed": {
+      "median": 4.085661662374323,
+      "minimum": 3.882104053194602,
+      "maximum": 4.358318805376491
+    },
+    "vs_indexed-cow": {
+      "median": 4.711066515871822,
+      "minimum": 4.37335868289628,
+      "maximum": 4.766968386158597
+    }
+  },
+  {
+    "family": "early",
+    "mode": "checkpoint16",
+    "reuse": 1,
+    "total_ns": 12643531,
+    "execution_ns": 12614783,
+    "setup_ns": 11602,
+    "preparation_ns": 11439,
+    "disposal_ns": 3953,
+    "first_cold_ns": 12639399,
+    "cancel_ns": 12517252,
+    "requested_bytes": 22952845,
+    "peak_increment_bytes": 36207,
+    "vs_copy": {
+      "median": 8.73928872103327,
+      "minimum": 4.262674097867122,
+      "maximum": 9.265854175868704
+    },
+    "vs_indexed": {
+      "median": 26.286421891452388,
+      "minimum": 19.58186826343404,
+      "maximum": 27.89371182318705
+    },
+    "vs_indexed-cow": {
+      "median": 29.233270644006993,
+      "minimum": 20.820313567792855,
+      "maximum": 31.076267898882364
+    }
+  },
+  {
+    "family": "early",
+    "mode": "checkpoint16",
+    "reuse": 8,
+    "total_ns": 97933857,
+    "execution_ns": 97779153,
+    "setup_ns": 131856,
+    "preparation_ns": 9801,
+    "disposal_ns": 17547,
+    "first_cold_ns": 12508825,
+    "cancel_ns": 12312647,
+    "requested_bytes": 183580480,
+    "peak_increment_bytes": 36207,
+    "vs_copy": {
+      "median": 8.018632934392592,
+      "minimum": 7.210015501996772,
+      "maximum": 8.841688110460723
+    },
+    "vs_indexed": {
+      "median": 26.490855158642677,
+      "minimum": 25.915034832440977,
+      "maximum": 29.47140511842935
+    },
+    "vs_indexed-cow": {
+      "median": 30.380165892158438,
+      "minimum": 29.477141654152817,
+      "maximum": 32.23473609179659
+    }
+  },
+  {
+    "family": "early",
+    "mode": "checkpoint4",
+    "reuse": 1,
+    "total_ns": 3963867,
+    "execution_ns": 3939351,
+    "setup_ns": 10606,
+    "preparation_ns": 10201,
+    "disposal_ns": 3743,
+    "first_cold_ns": 3959974,
+    "cancel_ns": 3938224,
+    "requested_bytes": 7177494,
+    "peak_increment_bytes": 35863,
+    "vs_copy": {
+      "median": 2.7184633653730508,
+      "minimum": 1.3237916737282198,
+      "maximum": 3.0274369592338024
+    },
+    "vs_indexed": {
+      "median": 8.453685698758555,
+      "minimum": 6.060970146944081,
+      "maximum": 8.662511515807767
+    },
+    "vs_indexed-cow": {
+      "median": 9.355043847800092,
+      "minimum": 6.476414900151333,
+      "maximum": 9.732344188878631
+    }
+  },
+  {
+    "family": "early",
+    "mode": "checkpoint4",
+    "reuse": 8,
+    "total_ns": 32942384,
+    "execution_ns": 32782988,
+    "setup_ns": 131598,
+    "preparation_ns": 9110,
+    "disposal_ns": 18032,
+    "first_cold_ns": 4074864,
+    "cancel_ns": 4150190,
+    "requested_bytes": 57377672,
+    "peak_increment_bytes": 35863,
+    "vs_copy": {
+      "median": 2.74964334605047,
+      "minimum": 2.1610223999910194,
+      "maximum": 2.8664377569024246
+    },
+    "vs_indexed": {
+      "median": 8.833318957843804,
+      "minimum": 8.48019160976438,
+      "maximum": 9.334889324630169
+    },
+    "vs_indexed-cow": {
+      "median": 9.849120833748168,
+      "minimum": 9.553303853014508,
+      "maximum": 10.763809674117205
+    }
+  },
+  {
+    "family": "early",
+    "mode": "copy",
+    "reuse": 1,
+    "total_ns": 1446746,
+    "execution_ns": 1422975,
+    "setup_ns": 10149,
+    "preparation_ns": 10118,
+    "disposal_ns": 3719,
+    "first_cold_ns": 1443116,
+    "cancel_ns": 1394263,
+    "requested_bytes": 2588338,
+    "peak_increment_bytes": 32775,
+    "vs_copy": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    },
+    "vs_indexed": {
+      "median": 3.1163214488807705,
+      "minimum": 2.2090023407454225,
+      "maximum": 6.543712041496204
+    },
+    "vs_indexed-cow": {
+      "median": 3.4716012216069814,
+      "minimum": 2.3823807900617355,
+      "maximum": 6.857965205135949
+    }
+  },
+  {
+    "family": "early",
+    "mode": "copy",
+    "reuse": 8,
+    "total_ns": 12187023,
+    "execution_ns": 12027510,
+    "setup_ns": 132482,
+    "preparation_ns": 8966,
+    "disposal_ns": 17872,
+    "first_cold_ns": 1495878,
+    "cancel_ns": 1520050,
+    "requested_bytes": 20664424,
+    "peak_increment_bytes": 32775,
+    "vs_copy": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    },
+    "vs_indexed": {
+      "median": 3.2318519932854404,
+      "minimum": 3.053450035841837,
+      "maximum": 4.087564736895144
+    },
+    "vs_indexed-cow": {
+      "median": 3.746661075532877,
+      "minimum": 3.4360141991680577,
+      "maximum": 4.4708275707409175
+    }
+  },
+  {
+    "family": "early",
+    "mode": "indexed",
+    "reuse": 1,
+    "total_ns": 471064,
+    "execution_ns": 417908,
+    "setup_ns": 26360,
+    "preparation_ns": 23192,
+    "disposal_ns": 3938,
+    "first_cold_ns": 467113,
+    "cancel_ns": 457681,
+    "requested_bytes": 644000,
+    "peak_increment_bytes": 161914,
+    "vs_copy": {
+      "median": 0.3208911585032895,
+      "minimum": 0.15281846047910025,
+      "maximum": 0.4526930467907755
+    },
+    "vs_indexed": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    },
+    "vs_indexed-cow": {
+      "median": 1.1066230968551272,
+      "minimum": 0.7644849317188923,
+      "maximum": 1.5715697342518424
+    }
+  },
+  {
+    "family": "early",
+    "mode": "indexed",
+    "reuse": 8,
+    "total_ns": 3721731,
+    "execution_ns": 3432157,
+    "setup_ns": 250680,
+    "preparation_ns": 21900,
+    "disposal_ns": 16591,
+    "first_cold_ns": 479349,
+    "cancel_ns": 459788,
+    "requested_bytes": 5032160,
+    "peak_increment_bytes": 161914,
+    "vs_copy": {
+      "median": 0.3094201102270833,
+      "minimum": 0.24464444341977218,
+      "maximum": 0.3274983996010597
+    },
+    "vs_indexed": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    },
+    "vs_indexed-cow": {
+      "median": 1.1265433957900797,
+      "minimum": 1.0937631226696838,
+      "maximum": 1.1592922829749053
+    }
+  },
+  {
+    "family": "early",
+    "mode": "indexed-cow",
+    "reuse": 1,
+    "total_ns": 425677,
+    "execution_ns": 372353,
+    "setup_ns": 26722,
+    "preparation_ns": 22190,
+    "disposal_ns": 3744,
+    "first_cold_ns": 421789,
+    "cancel_ns": 400792,
+    "requested_bytes": 586984,
+    "peak_increment_bytes": 146940,
+    "vs_copy": {
+      "median": 0.2880515174888395,
+      "minimum": 0.14581584625875577,
+      "maximum": 0.4197481797081174
+    },
+    "vs_indexed": {
+      "median": 0.9036500348148022,
+      "minimum": 0.6363064763881174,
+      "maximum": 1.3080702555530666
+    },
+    "vs_indexed-cow": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    }
+  },
+  {
+    "family": "early",
+    "mode": "indexed-cow",
+    "reuse": 8,
+    "total_ns": 3252769,
+    "execution_ns": 2955550,
+    "setup_ns": 238736,
+    "preparation_ns": 21439,
+    "disposal_ns": 27610,
+    "first_cold_ns": 433056,
+    "cancel_ns": 392802,
+    "requested_bytes": 4574744,
+    "peak_increment_bytes": 146940,
+    "vs_copy": {
+      "median": 0.2669043128908512,
+      "minimum": 0.22367223610779455,
+      "maximum": 0.2910348857819401
+    },
+    "vs_indexed": {
+      "median": 0.8876710863842658,
+      "minimum": 0.8625952356327783,
+      "maximum": 0.9142747449367057
+    },
+    "vs_indexed-cow": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    }
+  },
+  {
+    "family": "early",
+    "mode": "replay",
+    "reuse": 1,
+    "total_ns": 204625490,
+    "execution_ns": 204593574,
+    "setup_ns": 14753,
+    "preparation_ns": 11987,
+    "disposal_ns": 5216,
+    "first_cold_ns": 204620088,
+    "cancel_ns": 204747956,
+    "requested_bytes": 370792722,
+    "peak_increment_bytes": 35756,
+    "vs_copy": {
+      "median": 141.43843494296857,
+      "minimum": 71.42257757588779,
+      "maximum": 154.9587670169586
+    },
+    "vs_indexed": {
+      "median": 440.76762850890043,
+      "minimum": 313.6153407600826,
+      "maximum": 467.3687809180336
+    },
+    "vs_indexed-cow": {
+      "median": 489.8135518765615,
+      "minimum": 336.9602103845248,
+      "maximum": 521.5174446583253
+    }
+  },
+  {
+    "family": "early",
+    "mode": "replay",
+    "reuse": 8,
+    "total_ns": 1658699719,
+    "execution_ns": 1658507128,
+    "setup_ns": 159152,
+    "preparation_ns": 10649,
+    "disposal_ns": 22727,
+    "first_cold_ns": 204232272,
+    "cancel_ns": 206055740,
+    "requested_bytes": 2966299496,
+    "peak_increment_bytes": 35756,
+    "vs_copy": {
+      "median": 137.61259406829708,
+      "minimum": 110.17190910866466,
+      "maximum": 148.45291372672853
+    },
+    "vs_indexed": {
+      "median": 448.67398623655055,
+      "minimum": 431.0176173398884,
+      "maximum": 453.2935547397043
+    },
+    "vs_indexed-cow": {
+      "median": 510.08631947290985,
+      "minimum": 485.56005028342696,
+      "maximum": 517.3538995085028
+    }
+  },
+  {
+    "family": "early",
+    "mode": "trail",
+    "reuse": 1,
+    "total_ns": 1359069,
+    "execution_ns": 1331628,
+    "setup_ns": 9611,
+    "preparation_ns": 11737,
+    "disposal_ns": 6390,
+    "first_cold_ns": 1352533,
+    "cancel_ns": 1360887,
+    "requested_bytes": 2600202,
+    "peak_increment_bytes": 32607,
+    "vs_copy": {
+      "median": 0.9408187463959732,
+      "minimum": 0.5052451215232138,
+      "maximum": 1.0187223606276214
+    },
+    "vs_indexed": {
+      "median": 2.844636822172783,
+      "minimum": 2.078270813005879,
+      "maximum": 3.3061785856186665
+    },
+    "vs_indexed-cow": {
+      "median": 3.2661475092990098,
+      "minimum": 2.2560578590377576,
+      "maximum": 3.464953463470884
+    }
+  },
+  {
+    "family": "early",
+    "mode": "trail",
+    "reuse": 8,
+    "total_ns": 11904224,
+    "execution_ns": 11695313,
+    "setup_ns": 147447,
+    "preparation_ns": 11916,
+    "disposal_ns": 48703,
+    "first_cold_ns": 1439577,
+    "cancel_ns": 1484832,
+    "requested_bytes": 20759336,
+    "peak_increment_bytes": 32607,
+    "vs_copy": {
+      "median": 1.013361036165753,
+      "minimum": 0.7820815986630443,
+      "maximum": 1.3588354737797599
+    },
+    "vs_indexed": {
+      "median": 3.220061819479222,
+      "minimum": 3.0942472922010396,
+      "maximum": 4.190792671474645
+    },
+    "vs_indexed-cow": {
+      "median": 3.712966630714614,
+      "minimum": 3.481922909149183,
+      "maximum": 4.7211098071752255
+    }
+  },
+  {
+    "family": "late",
+    "mode": "checkpoint1",
+    "reuse": 1,
+    "total_ns": 3236890,
+    "execution_ns": 3210088,
+    "setup_ns": 10804,
+    "preparation_ns": 11974,
+    "disposal_ns": 4024,
+    "first_cold_ns": 3232703,
+    "cancel_ns": 3117412,
+    "requested_bytes": 5818264,
+    "peak_increment_bytes": 36253,
+    "vs_copy": {
+      "median": 1.3123939759704637,
+      "minimum": 1.2332334368873152,
+      "maximum": 1.6731961503513628
+    },
+    "vs_indexed": {
+      "median": 4.210993968850335,
+      "minimum": 3.9831725833504437,
+      "maximum": 5.369072713533174
+    },
+    "vs_indexed-cow": {
+      "median": 4.313064581561779,
+      "minimum": 3.3076462283400234,
+      "maximum": 4.655911177024671
+    }
+  },
+  {
+    "family": "late",
+    "mode": "checkpoint1",
+    "reuse": 8,
+    "total_ns": 25562983,
+    "execution_ns": 25402369,
+    "setup_ns": 129457,
+    "preparation_ns": 9849,
+    "disposal_ns": 17067,
+    "first_cold_ns": 3186934,
+    "cancel_ns": 3147838,
+    "requested_bytes": 46497014,
+    "peak_increment_bytes": 36253,
+    "vs_copy": {
+      "median": 1.338657510670745,
+      "minimum": 1.2375135086663858,
+      "maximum": 1.514724889017818
+    },
+    "vs_indexed": {
+      "median": 4.108684481570232,
+      "minimum": 3.925387490807665,
+      "maximum": 4.719151600704498
+    },
+    "vs_indexed-cow": {
+      "median": 4.037843719473844,
+      "minimum": 3.7353231738009915,
+      "maximum": 5.161935846567925
+    }
+  },
+  {
+    "family": "late",
+    "mode": "checkpoint16",
+    "reuse": 1,
+    "total_ns": 20370071,
+    "execution_ns": 20340769,
+    "setup_ns": 12828,
+    "preparation_ns": 12687,
+    "disposal_ns": 4384,
+    "first_cold_ns": 20365471,
+    "cancel_ns": 20385544,
+    "requested_bytes": 38635386,
+    "peak_increment_bytes": 37445,
+    "vs_copy": {
+      "median": 8.521383945094895,
+      "minimum": 7.939933737643434,
+      "maximum": 9.801529007210204
+    },
+    "vs_indexed": {
+      "median": 27.15915314935749,
+      "minimum": 24.559388509614443,
+      "maximum": 28.810956674392127
+    },
+    "vs_indexed-cow": {
+      "median": 27.875799386039418,
+      "minimum": 16.84543886878505,
+      "maximum": 31.622565341746856
+    }
+  },
+  {
+    "family": "late",
+    "mode": "checkpoint16",
+    "reuse": 8,
+    "total_ns": 165662451,
+    "execution_ns": 165476622,
+    "setup_ns": 153091,
+    "preparation_ns": 12204,
+    "disposal_ns": 21570,
+    "first_cold_ns": 20594705,
+    "cancel_ns": 21530941,
+    "requested_bytes": 309033990,
+    "peak_increment_bytes": 37445,
+    "vs_copy": {
+      "median": 8.684715226165626,
+      "minimum": 8.128738300697826,
+      "maximum": 16.556085824288974
+    },
+    "vs_indexed": {
+      "median": 27.211892593332994,
+      "minimum": 24.92408486262517,
+      "maximum": 50.601393439755036
+    },
+    "vs_indexed-cow": {
+      "median": 29.015515933345874,
+      "minimum": 25.32001167480034,
+      "maximum": 46.19727641607009
+    }
+  },
+  {
+    "family": "late",
+    "mode": "checkpoint4",
+    "reuse": 1,
+    "total_ns": 6612856,
+    "execution_ns": 6585344,
+    "setup_ns": 11287,
+    "preparation_ns": 12618,
+    "disposal_ns": 4034,
+    "first_cold_ns": 6608675,
+    "cancel_ns": 6688974,
+    "requested_bytes": 12201156,
+    "peak_increment_bytes": 37542,
+    "vs_copy": {
+      "median": 2.8938950169956805,
+      "minimum": 2.525987553710532,
+      "maximum": 3.0304936217415417
+    },
+    "vs_indexed": {
+      "median": 8.890781535125347,
+      "minimum": 8.625227013722297,
+      "maximum": 8.982693523545942
+    },
+    "vs_indexed-cow": {
+      "median": 8.86832618829462,
+      "minimum": 5.533836835288283,
+      "maximum": 9.777248274302206
+    }
+  },
+  {
+    "family": "late",
+    "mode": "checkpoint4",
+    "reuse": 8,
+    "total_ns": 52507226,
+    "execution_ns": 52342512,
+    "setup_ns": 137255,
+    "preparation_ns": 9634,
+    "disposal_ns": 17834,
+    "first_cold_ns": 6553900,
+    "cancel_ns": 6601784,
+    "requested_bytes": 97560150,
+    "peak_increment_bytes": 37542,
+    "vs_copy": {
+      "median": 2.653554654818786,
+      "minimum": 2.5638119577731886,
+      "maximum": 2.849561815775814
+    },
+    "vs_indexed": {
+      "median": 8.51765924232652,
+      "minimum": 7.987600515547052,
+      "maximum": 8.928556440783819
+    },
+    "vs_indexed-cow": {
+      "median": 8.487651142301747,
+      "minimum": 7.776320604770232,
+      "maximum": 9.520347428271602
+    }
+  },
+  {
+    "family": "late",
+    "mode": "copy",
+    "reuse": 1,
+    "total_ns": 2276861,
+    "execution_ns": 2249873,
+    "setup_ns": 10640,
+    "preparation_ns": 12272,
+    "disposal_ns": 3942,
+    "first_cold_ns": 2272800,
+    "cancel_ns": 2319823,
+    "requested_bytes": 4306876,
+    "peak_increment_bytes": 33749,
+    "vs_copy": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    },
+    "vs_indexed": {
+      "median": 3.0722543433366774,
+      "minimum": 2.9394349242039888,
+      "maximum": 3.414596006639989
+    },
+    "vs_indexed-cow": {
+      "median": 3.2262890125086248,
+      "minimum": 1.976843078228117,
+      "maximum": 3.5108352672868692
+    }
+  },
+  {
+    "family": "late",
+    "mode": "copy",
+    "reuse": 8,
+    "total_ns": 19130342,
+    "execution_ns": 18963477,
+    "setup_ns": 138525,
+    "preparation_ns": 10337,
+    "disposal_ns": 17902,
+    "first_cold_ns": 2380291,
+    "cancel_ns": 2435323,
+    "requested_bytes": 34405910,
+    "peak_increment_bytes": 33749,
+    "vs_copy": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    },
+    "vs_indexed": {
+      "median": 3.1155173027918637,
+      "minimum": 3.0385195890985854,
+      "maximum": 3.3201128333524066
+    },
+    "vs_indexed-cow": {
+      "median": 3.2628683979581377,
+      "minimum": 2.790350141112179,
+      "maximum": 3.4078372145287985
+    }
+  },
+  {
+    "family": "late",
+    "mode": "indexed",
+    "reuse": 1,
+    "total_ns": 750026,
+    "execution_ns": 692011,
+    "setup_ns": 27032,
+    "preparation_ns": 26890,
+    "disposal_ns": 4167,
+    "first_cold_ns": 745799,
+    "cancel_ns": 737377,
+    "requested_bytes": 889819,
+    "peak_increment_bytes": 236190,
+    "vs_copy": {
+      "median": 0.3254938843747982,
+      "minimum": 0.29286041395685175,
+      "maximum": 0.3402014420410427
+    },
+    "vs_indexed": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    },
+    "vs_indexed-cow": {
+      "median": 1.0281846697119468,
+      "minimum": 0.6160553981701232,
+      "maximum": 1.0975881744966058
+    }
+  },
+  {
+    "family": "late",
+    "mode": "indexed",
+    "reuse": 8,
+    "total_ns": 6259187,
+    "execution_ns": 5927922,
+    "setup_ns": 283779,
+    "preparation_ns": 28677,
+    "disposal_ns": 18809,
+    "first_cold_ns": 803383,
+    "cancel_ns": 770726,
+    "requested_bytes": 6985076,
+    "peak_increment_bytes": 236190,
+    "vs_copy": {
+      "median": 0.3209739837117529,
+      "minimum": 0.3011945828932185,
+      "maximum": 0.32910763635940965
+    },
+    "vs_indexed": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    },
+    "vs_indexed-cow": {
+      "median": 1.0158853099063583,
+      "minimum": 0.9129645109688848,
+      "maximum": 1.093827086588472
+    }
+  },
+  {
+    "family": "late",
+    "mode": "indexed-cow",
+    "reuse": 1,
+    "total_ns": 747605,
+    "execution_ns": 690598,
+    "setup_ns": 26749,
+    "preparation_ns": 27671,
+    "disposal_ns": 4161,
+    "first_cold_ns": 743298,
+    "cancel_ns": 707269,
+    "requested_bytes": 894073,
+    "peak_increment_bytes": 229104,
+    "vs_copy": {
+      "median": 0.30995363283416527,
+      "minimum": 0.2848325039108963,
+      "maximum": 0.5058570460212348
+    },
+    "vs_indexed": {
+      "median": 0.9725879304154156,
+      "minimum": 0.9110885332366455,
+      "maximum": 1.6232306428452896
+    },
+    "vs_indexed-cow": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    }
+  },
+  {
+    "family": "late",
+    "mode": "indexed-cow",
+    "reuse": 8,
+    "total_ns": 5980288,
+    "execution_ns": 5656080,
+    "setup_ns": 278054,
+    "preparation_ns": 27768,
+    "disposal_ns": 20085,
+    "first_cold_ns": 774831,
+    "cancel_ns": 744432,
+    "requested_bytes": 7017820,
+    "peak_increment_bytes": 229104,
+    "vs_copy": {
+      "median": 0.3064788027080061,
+      "minimum": 0.29344124647053305,
+      "maximum": 0.3583779631331212
+    },
+    "vs_indexed": {
+      "median": 0.9843630872978933,
+      "minimum": 0.9142212807317576,
+      "maximum": 1.0953328283689239
+    },
+    "vs_indexed-cow": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    }
+  },
+  {
+    "family": "late",
+    "mode": "replay",
+    "reuse": 1,
+    "total_ns": 381533879,
+    "execution_ns": 381500578,
+    "setup_ns": 14344,
+    "preparation_ns": 14064,
+    "disposal_ns": 5260,
+    "first_cold_ns": 381528320,
+    "cancel_ns": 374790770,
+    "requested_bytes": 681405604,
+    "peak_increment_bytes": 36730,
+    "vs_copy": {
+      "median": 163.0663666056059,
+      "minimum": 144.8179827318592,
+      "maximum": 174.29653209895972
+    },
+    "vs_indexed": {
+      "median": 502.8439931188203,
+      "minimum": 488.7165404932629,
+      "maximum": 535.4832777695495
+    },
+    "vs_indexed-cow": {
+      "median": 508.43208111235214,
+      "minimum": 322.3566181161006,
+      "maximum": 551.9156204638699
+    }
+  },
+  {
+    "family": "late",
+    "mode": "replay",
+    "reuse": 8,
+    "total_ns": 3080134909,
+    "execution_ns": 3079925269,
+    "setup_ns": 173661,
+    "preparation_ns": 11707,
+    "disposal_ns": 23516,
+    "first_cold_ns": 382140769,
+    "cancel_ns": 384555895,
+    "requested_bytes": 5451195734,
+    "peak_increment_bytes": 36730,
+    "vs_copy": {
+      "median": 162.09004639150737,
+      "minimum": 150.83717655794095,
+      "maximum": 172.14395075264
+    },
+    "vs_indexed": {
+      "median": 505.51322879473,
+      "minimum": 469.93583347053635,
+      "maximum": 539.3801151199093
+    },
+    "vs_indexed-cow": {
+      "median": 514.0285436086021,
+      "minimum": 461.51563771488264,
+      "maximum": 575.1306077191433
+    }
+  },
+  {
+    "family": "late",
+    "mode": "trail",
+    "reuse": 1,
+    "total_ns": 5195684,
+    "execution_ns": 5156893,
+    "setup_ns": 11637,
+    "preparation_ns": 18522,
+    "disposal_ns": 8283,
+    "first_cold_ns": 5186699,
+    "cancel_ns": 5086649,
+    "requested_bytes": 5160372,
+    "peak_increment_bytes": 176859,
+    "vs_copy": {
+      "median": 2.281950457230371,
+      "minimum": 2.1021785912368274,
+      "maximum": 4.010072320150202
+    },
+    "vs_indexed": {
+      "median": 6.927338518931344,
+      "minimum": 6.179217167995471,
+      "maximum": 13.692776930722436
+    },
+    "vs_indexed-cow": {
+      "median": 6.782235691238236,
+      "minimum": 4.521906052584665,
+      "maximum": 14.078703325954214
+    }
+  },
+  {
+    "family": "late",
+    "mode": "trail",
+    "reuse": 8,
+    "total_ns": 39280670,
+    "execution_ns": 39040558,
+    "setup_ns": 177857,
+    "preparation_ns": 17294,
+    "disposal_ns": 46400,
+    "first_cold_ns": 5044818,
+    "cancel_ns": 5063256,
+    "requested_bytes": 41233878,
+    "peak_increment_bytes": 176859,
+    "vs_copy": {
+      "median": 2.0562538536506696,
+      "minimum": 1.9851249563803015,
+      "maximum": 2.2248354354752795
+    },
+    "vs_indexed": {
+      "median": 6.620369386631203,
+      "minimum": 6.0318410667700215,
+      "maximum": 6.931513295087703
+    },
+    "vs_indexed-cow": {
+      "median": 6.546581422514367,
+      "minimum": 6.044162299499131,
+      "maximum": 7.581876993215042
+    }
+  },
+  {
+    "family": "linear",
+    "mode": "checkpoint1",
+    "reuse": 1,
+    "total_ns": 125777,
+    "execution_ns": 104221,
+    "setup_ns": 9605,
+    "preparation_ns": 8825,
+    "disposal_ns": 3126,
+    "first_cold_ns": 122539,
+    "cancel_ns": 118832,
+    "requested_bytes": 140671,
+    "peak_increment_bytes": 29311,
+    "vs_copy": {
+      "median": 1.3079018790229497,
+      "minimum": 1.158559128517907,
+      "maximum": 1.3595150786030747
+    },
+    "vs_indexed": {
+      "median": 0.9285793386538306,
+      "minimum": 0.910563896008788,
+      "maximum": 0.9931887097017514
+    },
+    "vs_indexed-cow": {
+      "median": 0.9584328284975958,
+      "minimum": 0.2428014918227727,
+      "maximum": 0.995599343682185
+    }
+  },
+  {
+    "family": "linear",
+    "mode": "checkpoint1",
+    "reuse": 8,
+    "total_ns": 959530,
+    "execution_ns": 831056,
+    "setup_ns": 105361,
+    "preparation_ns": 8344,
+    "disposal_ns": 13816,
+    "first_cold_ns": 121863,
+    "cancel_ns": 118045,
+    "requested_bytes": 1086329,
+    "peak_increment_bytes": 29311,
+    "vs_copy": {
+      "median": 1.3959064227161087,
+      "minimum": 1.3587241330098474,
+      "maximum": 1.9733732708109173
+    },
+    "vs_indexed": {
+      "median": 1.0504088290751339,
+      "minimum": 0.8263409183258837,
+      "maximum": 1.1447256771116021
+    },
+    "vs_indexed-cow": {
+      "median": 1.0849620258790718,
+      "minimum": 1.0557454563828024,
+      "maximum": 1.4540647337529469
+    }
+  },
+  {
+    "family": "linear",
+    "mode": "checkpoint16",
+    "reuse": 1,
+    "total_ns": 646328,
+    "execution_ns": 619268,
+    "setup_ns": 11937,
+    "preparation_ns": 9385,
+    "disposal_ns": 3597,
+    "first_cold_ns": 642399,
+    "cancel_ns": 584795,
+    "requested_bytes": 555046,
+    "peak_increment_bytes": 29639,
+    "vs_copy": {
+      "median": 6.720891782004222,
+      "minimum": 5.221238351390257,
+      "maximum": 10.621791006415515
+    },
+    "vs_indexed": {
+      "median": 4.771673889450797,
+      "minimum": 4.158590673887791,
+      "maximum": 8.496508915510221
+    },
+    "vs_indexed-cow": {
+      "median": 4.168684264251095,
+      "minimum": 1.2476796441863698,
+      "maximum": 8.787012201105624
+    }
+  },
+  {
+    "family": "linear",
+    "mode": "checkpoint16",
+    "reuse": 8,
+    "total_ns": 4731684,
+    "execution_ns": 4599731,
+    "setup_ns": 105381,
+    "preparation_ns": 8741,
+    "disposal_ns": 14389,
+    "first_cold_ns": 590259,
+    "cancel_ns": 588550,
+    "requested_bytes": 4401329,
+    "peak_increment_bytes": 29639,
+    "vs_copy": {
+      "median": 6.757288425859854,
+      "minimum": 6.398226697889593,
+      "maximum": 7.084425240754483
+    },
+    "vs_indexed": {
+      "median": 5.223956247400341,
+      "minimum": 2.827451777135072,
+      "maximum": 5.541756808064438
+    },
+    "vs_indexed-cow": {
+      "median": 5.110992692375936,
+      "minimum": 4.97299309409915,
+      "maximum": 5.6564188265599675
+    }
+  },
+  {
+    "family": "linear",
+    "mode": "checkpoint4",
+    "reuse": 1,
+    "total_ns": 237479,
+    "execution_ns": 215716,
+    "setup_ns": 9689,
+    "preparation_ns": 9166,
+    "disposal_ns": 3173,
+    "first_cold_ns": 234188,
+    "cancel_ns": 228485,
+    "requested_bytes": 230594,
+    "peak_increment_bytes": 29335,
+    "vs_copy": {
+      "median": 2.462968305650579,
+      "minimum": 2.2073641942571407,
+      "maximum": 2.7471051627008456
+    },
+    "vs_indexed": {
+      "median": 1.799193452733958,
+      "minimum": 1.6832098695884854,
+      "maximum": 1.9501074189190186
+    },
+    "vs_indexed-cow": {
+      "median": 1.7623796813682866,
+      "minimum": 0.5099068769014563,
+      "maximum": 1.99718267217237
+    }
+  },
+  {
+    "family": "linear",
+    "mode": "checkpoint4",
+    "reuse": 8,
+    "total_ns": 1840406,
+    "execution_ns": 1712550,
+    "setup_ns": 104758,
+    "preparation_ns": 8701,
+    "disposal_ns": 14397,
+    "first_cold_ns": 228856,
+    "cancel_ns": 235278,
+    "requested_bytes": 1805713,
+    "peak_increment_bytes": 29335,
+    "vs_copy": {
+      "median": 2.745237217042228,
+      "minimum": 2.620480391510772,
+      "maximum": 2.8006655612033757
+    },
+    "vs_indexed": {
+      "median": 2.0305261984909015,
+      "minimum": 1.1727657336807134,
+      "maximum": 2.224344420406738
+    },
+    "vs_indexed-cow": {
+      "median": 2.073986675321397,
+      "minimum": 2.051444780377637,
+      "maximum": 2.1337233528343083
+    }
+  },
+  {
+    "family": "linear",
+    "mode": "copy",
+    "reuse": 1,
+    "total_ns": 97052,
+    "execution_ns": 74309,
+    "setup_ns": 10002,
+    "preparation_ns": 9380,
+    "disposal_ns": 3297,
+    "first_cold_ns": 93640,
+    "cancel_ns": 89187,
+    "requested_bytes": 82039,
+    "peak_increment_bytes": 27839,
+    "vs_copy": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    },
+    "vs_indexed": {
+      "median": 0.7099763013931237,
+      "minimum": 0.6834070360251246,
+      "maximum": 0.7999130194124857
+    },
+    "vs_indexed-cow": {
+      "median": 0.7270135484033741,
+      "minimum": 0.1856419779778543,
+      "maximum": 0.8272627653658696
+    }
+  },
+  {
+    "family": "linear",
+    "mode": "copy",
+    "reuse": 8,
+    "total_ns": 699486,
+    "execution_ns": 564793,
+    "setup_ns": 106537,
+    "preparation_ns": 8346,
+    "disposal_ns": 14974,
+    "first_cold_ns": 89174,
+    "cancel_ns": 83761,
+    "requested_bytes": 617273,
+    "peak_increment_bytes": 27839,
+    "vs_copy": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    },
+    "vs_indexed": {
+      "median": 0.7730846928789489,
+      "minimum": 0.41874536893180675,
+      "maximum": 0.794383330912575
+    },
+    "vs_indexed-cow": {
+      "median": 0.7772455289431138,
+      "minimum": 0.7326354331050998,
+      "maximum": 0.7984301667862
+    }
+  },
+  {
+    "family": "linear",
+    "mode": "indexed",
+    "reuse": 1,
+    "total_ns": 132574,
+    "execution_ns": 80952,
+    "setup_ns": 29092,
+    "preparation_ns": 18636,
+    "disposal_ns": 3576,
+    "first_cold_ns": 129048,
+    "cancel_ns": 111747,
+    "requested_bytes": 169335,
+    "peak_increment_bytes": 93113,
+    "vs_copy": {
+      "median": 1.4084977175122444,
+      "minimum": 1.2501359219462045,
+      "maximum": 1.4632568107818489
+    },
+    "vs_indexed": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    },
+    "vs_indexed-cow": {
+      "median": 1.002427166113434,
+      "minimum": 0.2614763022562661,
+      "maximum": 1.0620400817445568
+    }
+  },
+  {
+    "family": "linear",
+    "mode": "indexed",
+    "reuse": 8,
+    "total_ns": 906369,
+    "execution_ns": 613658,
+    "setup_ns": 258355,
+    "preparation_ns": 18997,
+    "disposal_ns": 15520,
+    "first_cold_ns": 130657,
+    "cancel_ns": 107632,
+    "requested_bytes": 1241322,
+    "peak_increment_bytes": 93113,
+    "vs_copy": {
+      "median": 1.293519337805052,
+      "minimum": 1.2588380962767884,
+      "maximum": 2.38808611197525
+    },
+    "vs_indexed": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    },
+    "vs_indexed-cow": {
+      "median": 1.0214035538486503,
+      "minimum": 0.9222693938749443,
+      "maximum": 1.7596426626177402
+    }
+  },
+  {
+    "family": "linear",
+    "mode": "indexed-cow",
+    "reuse": 1,
+    "total_ns": 132253,
+    "execution_ns": 80378,
+    "setup_ns": 28497,
+    "preparation_ns": 19014,
+    "disposal_ns": 3329,
+    "first_cold_ns": 128824,
+    "cancel_ns": 111508,
+    "requested_bytes": 169543,
+    "peak_increment_bytes": 93137,
+    "vs_copy": {
+      "median": 1.3754901847374692,
+      "minimum": 1.2088057650675657,
+      "maximum": 5.386712697702954
+    },
+    "vs_indexed": {
+      "median": 0.9975787107577655,
+      "minimum": 0.9415840486522441,
+      "maximum": 3.824438357782519
+    },
+    "vs_indexed-cow": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    }
+  },
+  {
+    "family": "linear",
+    "mode": "indexed-cow",
+    "reuse": 8,
+    "total_ns": 887376,
+    "execution_ns": 600611,
+    "setup_ns": 253897,
+    "preparation_ns": 18667,
+    "disposal_ns": 14220,
+    "first_cold_ns": 125821,
+    "cancel_ns": 103968,
+    "requested_bytes": 1241698,
+    "peak_increment_bytes": 93137,
+    "vs_copy": {
+      "median": 1.2865947281289405,
+      "minimum": 1.2524576870951012,
+      "maximum": 1.364935348215059
+    },
+    "vs_indexed": {
+      "median": 0.9790449585102756,
+      "minimum": 0.5682972010421398,
+      "maximum": 1.084281888395394
+    },
+    "vs_indexed-cow": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    }
+  },
+  {
+    "family": "linear",
+    "mode": "replay",
+    "reuse": 1,
+    "total_ns": 1349330,
+    "execution_ns": 1326977,
+    "setup_ns": 10267,
+    "preparation_ns": 9100,
+    "disposal_ns": 3085,
+    "first_cold_ns": 1346083,
+    "cancel_ns": 1348003,
+    "requested_bytes": 1287254,
+    "peak_increment_bytes": 30391,
+    "vs_copy": {
+      "median": 14.031112543804008,
+      "minimum": 12.90618607470263,
+      "maximum": 15.295313891748702
+    },
+    "vs_indexed": {
+      "median": 10.279466562070994,
+      "minimum": 9.761365236740557,
+      "maximum": 10.592598742735143
+    },
+    "vs_indexed-cow": {
+      "median": 10.304416534974632,
+      "minimum": 2.604763485861659,
+      "maximum": 11.119900426383644
+    }
+  },
+  {
+    "family": "linear",
+    "mode": "replay",
+    "reuse": 8,
+    "total_ns": 11404954,
+    "execution_ns": 11263276,
+    "setup_ns": 116346,
+    "preparation_ns": 9419,
+    "disposal_ns": 15843,
+    "first_cold_ns": 1406323,
+    "cancel_ns": 1404742,
+    "requested_bytes": 10258993,
+    "peak_increment_bytes": 30391,
+    "vs_copy": {
+      "median": 16.399720589872167,
+      "minimum": 15.814007421150277,
+      "maximum": 17.00167764244724
+    },
+    "vs_indexed": {
+      "median": 12.330380660853592,
+      "minimum": 6.867307048784569,
+      "maximum": 13.505849316709094
+    },
+    "vs_indexed-cow": {
+      "median": 12.487237653486234,
+      "minimum": 12.084006460336854,
+      "maximum": 13.145661396904487
+    }
+  },
+  {
+    "family": "linear",
+    "mode": "trail",
+    "reuse": 1,
+    "total_ns": 91649,
+    "execution_ns": 66590,
+    "setup_ns": 9377,
+    "preparation_ns": 9547,
+    "disposal_ns": 5408,
+    "first_cold_ns": 86329,
+    "cancel_ns": 84807,
+    "requested_bytes": 84063,
+    "peak_increment_bytes": 27983,
+    "vs_copy": {
+      "median": 0.9231857081951189,
+      "minimum": 0.8894423819986362,
+      "maximum": 1.0659955487779746
+    },
+    "vs_indexed": {
+      "median": 0.7084194487606922,
+      "minimum": 0.6554399746033621,
+      "maximum": 0.7285088584063318
+    },
+    "vs_indexed-cow": {
+      "median": 0.7101389004408217,
+      "minimum": 0.1713820209102281,
+      "maximum": 0.7494766281770305
+    }
+  },
+  {
+    "family": "linear",
+    "mode": "trail",
+    "reuse": 8,
+    "total_ns": 737799,
+    "execution_ns": 570529,
+    "setup_ns": 116113,
+    "preparation_ns": 9910,
+    "disposal_ns": 33775,
+    "first_cold_ns": 91091,
+    "cancel_ns": 89221,
+    "requested_bytes": 633465,
+    "peak_increment_bytes": 27983,
+    "vs_copy": {
+      "median": 1.0528524663152397,
+      "minimum": 1.0320996427005762,
+      "maximum": 1.193357113300208
+    },
+    "vs_indexed": {
+      "median": 0.7987938687223416,
+      "minimum": 0.4408770944379377,
+      "maximum": 0.9479829986316345
+    },
+    "vs_indexed-cow": {
+      "median": 0.8218722047213471,
+      "minimum": 0.7757861443439457,
+      "maximum": 0.8742957055517497
+    }
+  },
+  {
+    "family": "mutation",
+    "mode": "checkpoint1",
+    "reuse": 1,
+    "total_ns": 67038319,
+    "execution_ns": 66925590,
+    "setup_ns": 22469,
+    "preparation_ns": 24029,
+    "disposal_ns": 66237,
+    "first_cold_ns": 66789027,
+    "cancel_ns": 67788828,
+    "requested_bytes": 117747131,
+    "peak_increment_bytes": 213289,
+    "vs_copy": {
+      "median": 1.1135853121898882,
+      "minimum": 1.0247413612727678,
+      "maximum": 1.1295327473063912
+    },
+    "vs_indexed": {
+      "median": 24.651277040737156,
+      "minimum": 23.498184784024446,
+      "maximum": 27.587755007937606
+    },
+    "vs_indexed-cow": {
+      "median": 26.023145267098155,
+      "minimum": 25.149835100131043,
+      "maximum": 27.58803083133184
+    }
+  },
+  {
+    "family": "mutation",
+    "mode": "checkpoint1",
+    "reuse": 8,
+    "total_ns": 544733403,
+    "execution_ns": 543966214,
+    "setup_ns": 446122,
+    "preparation_ns": 25433,
+    "disposal_ns": 296727,
+    "first_cold_ns": 67765033,
+    "cancel_ns": 67102750,
+    "requested_bytes": 941896807,
+    "peak_increment_bytes": 213289,
+    "vs_copy": {
+      "median": 1.1260278243348676,
+      "minimum": 1.071271861031816,
+      "maximum": 1.1286010544068834
+    },
+    "vs_indexed": {
+      "median": 25.93731723063155,
+      "minimum": 24.73808969444043,
+      "maximum": 26.75107346531444
+    },
+    "vs_indexed-cow": {
+      "median": 26.14625630088815,
+      "minimum": 25.490167659213046,
+      "maximum": 27.968467542159715
+    }
+  },
+  {
+    "family": "mutation",
+    "mode": "checkpoint16",
+    "reuse": 1,
+    "total_ns": 509570510,
+    "execution_ns": 509455738,
+    "setup_ns": 22626,
+    "preparation_ns": 23896,
+    "disposal_ns": 69615,
+    "first_cold_ns": 509299380,
+    "cancel_ns": 511211064,
+    "requested_bytes": 891613114,
+    "peak_increment_bytes": 213841,
+    "vs_copy": {
+      "median": 8.074105847560688,
+      "minimum": 7.8161965475957444,
+      "maximum": 8.567172559500069
+    },
+    "vs_indexed": {
+      "median": 189.48129657665618,
+      "minimum": 175.58476279868538,
+      "maximum": 194.23146915553681
+    },
+    "vs_indexed-cow": {
+      "median": 199.79352414348264,
+      "minimum": 180.82312640546243,
+      "maximum": 206.14519351705428
+    }
+  },
+  {
+    "family": "mutation",
+    "mode": "checkpoint16",
+    "reuse": 8,
+    "total_ns": 4106021869,
+    "execution_ns": 4105229124,
+    "setup_ns": 411479,
+    "preparation_ns": 27151,
+    "disposal_ns": 356644,
+    "first_cold_ns": 502821961,
+    "cancel_ns": 510766627,
+    "requested_bytes": 7132824671,
+    "peak_increment_bytes": 213841,
+    "vs_copy": {
+      "median": 8.526372256268148,
+      "minimum": 7.439047754920947,
+      "maximum": 8.795577104937898
+    },
+    "vs_indexed": {
+      "median": 197.64419906294236,
+      "minimum": 182.08159987874842,
+      "maximum": 201.4077826149128
+    },
+    "vs_indexed-cow": {
+      "median": 198.65366436524155,
+      "minimum": 190.36781170057725,
+      "maximum": 203.67634340086667
+    }
+  },
+  {
+    "family": "mutation",
+    "mode": "checkpoint4",
+    "reuse": 1,
+    "total_ns": 160639001,
+    "execution_ns": 160526950,
+    "setup_ns": 22869,
+    "preparation_ns": 19187,
+    "disposal_ns": 70597,
+    "first_cold_ns": 160364955,
+    "cancel_ns": 160621498,
+    "requested_bytes": 276001338,
+    "peak_increment_bytes": 213817,
+    "vs_copy": {
+      "median": 2.623147506899481,
+      "minimum": 2.4080112828452123,
+      "maximum": 2.9832428884602322
+    },
+    "vs_indexed": {
+      "median": 59.790238474003516,
+      "minimum": 55.35202750803374,
+      "maximum": 71.76517870997392
+    },
+    "vs_indexed-cow": {
+      "median": 63.622883119988565,
+      "minimum": 55.796697084014816,
+      "maximum": 75.75898269297389
+    }
+  },
+  {
+    "family": "mutation",
+    "mode": "checkpoint4",
+    "reuse": 8,
+    "total_ns": 1262022981,
+    "execution_ns": 1261228133,
+    "setup_ns": 460178,
+    "preparation_ns": 24997,
+    "disposal_ns": 309685,
+    "first_cold_ns": 157190039,
+    "cancel_ns": 157345075,
+    "requested_bytes": 2207930463,
+    "peak_increment_bytes": 213817,
+    "vs_copy": {
+      "median": 2.6157752144647506,
+      "minimum": 2.4168382972025046,
+      "maximum": 2.6790540266305047
+    },
+    "vs_indexed": {
+      "median": 60.16271068530398,
+      "minimum": 58.13875123768013,
+      "maximum": 60.61095587529849
+    },
+    "vs_indexed-cow": {
+      "median": 60.73804545931614,
+      "minimum": 58.65017004986475,
+      "maximum": 63.26068261043481
+    }
+  },
+  {
+    "family": "mutation",
+    "mode": "copy",
+    "reuse": 1,
+    "total_ns": 61239027,
+    "execution_ns": 61128695,
+    "setup_ns": 23509,
+    "preparation_ns": 23357,
+    "disposal_ns": 65415,
+    "first_cold_ns": 61017049,
+    "cancel_ns": 60781768,
+    "requested_bytes": 104345307,
+    "peak_increment_bytes": 206657,
+    "vs_copy": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    },
+    "vs_indexed": {
+      "median": 23.358784911831055,
+      "minimum": 21.101378158279392,
+      "maximum": 24.671111808259063
+    },
+    "vs_indexed-cow": {
+      "median": 24.02973862498532,
+      "minimum": 23.02326579429543,
+      "maximum": 25.394842299306056
+    }
+  },
+  {
+    "family": "mutation",
+    "mode": "copy",
+    "reuse": 8,
+    "total_ns": 483421512,
+    "execution_ns": 482589128,
+    "setup_ns": 481865,
+    "preparation_ns": 24203,
+    "disposal_ns": 323428,
+    "first_cold_ns": 59488097,
+    "cancel_ns": 63200141,
+    "requested_bytes": 834682215,
+    "peak_increment_bytes": 206657,
+    "vs_copy": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    },
+    "vs_indexed": {
+      "median": 23.034348414926995,
+      "minimum": 21.95372022023406,
+      "maximum": 24.651275720992214
+    },
+    "vs_indexed-cow": {
+      "median": 23.88780800077481,
+      "minimum": 22.585631618613863,
+      "maximum": 25.590346771822848
+    }
+  },
+  {
+    "family": "mutation",
+    "mode": "indexed",
+    "reuse": 1,
+    "total_ns": 2707499,
+    "execution_ns": 2575713,
+    "setup_ns": 55144,
+    "preparation_ns": 52069,
+    "disposal_ns": 30206,
+    "first_cold_ns": 2396864,
+    "cancel_ns": 2505708,
+    "requested_bytes": 3369216,
+    "peak_increment_bytes": 1235630,
+    "vs_copy": {
+      "median": 0.042810445995994734,
+      "minimum": 0.04053323610917419,
+      "maximum": 0.047390269606994245
+    },
+    "vs_indexed": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    },
+    "vs_indexed-cow": {
+      "median": 1.0544234589541908,
+      "minimum": 0.9332074684444506,
+      "maximum": 1.1740494461550037
+    }
+  },
+  {
+    "family": "mutation",
+    "mode": "indexed",
+    "reuse": 8,
+    "total_ns": 21182649,
+    "execution_ns": 20125714,
+    "setup_ns": 771752,
+    "preparation_ns": 44552,
+    "disposal_ns": 232069,
+    "first_cold_ns": 2299235,
+    "cancel_ns": 2463992,
+    "requested_bytes": 26757966,
+    "peak_increment_bytes": 1235630,
+    "vs_copy": {
+      "median": 0.04341342685222074,
+      "minimum": 0.04056585189822176,
+      "maximum": 0.04555036640570517
+    },
+    "vs_indexed": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    },
+    "vs_indexed-cow": {
+      "median": 1.0080555389903565,
+      "minimum": 0.9844242019841614,
+      "maximum": 1.0880984070644282
+    }
+  },
+  {
+    "family": "mutation",
+    "mode": "indexed-cow",
+    "reuse": 1,
+    "total_ns": 2567753,
+    "execution_ns": 2436839,
+    "setup_ns": 52175,
+    "preparation_ns": 49419,
+    "disposal_ns": 29895,
+    "first_cold_ns": 2286899,
+    "cancel_ns": 2399172,
+    "requested_bytes": 3255456,
+    "peak_increment_bytes": 1122806,
+    "vs_copy": {
+      "median": 0.04161510100489538,
+      "minimum": 0.0393780748158978,
+      "maximum": 0.043434324606015456
+    },
+    "vs_indexed": {
+      "median": 0.948385576504368,
+      "minimum": 0.8517528825340249,
+      "maximum": 1.071573078671225
+    },
+    "vs_indexed-cow": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    }
+  },
+  {
+    "family": "mutation",
+    "mode": "indexed-cow",
+    "reuse": 8,
+    "total_ns": 20560148,
+    "execution_ns": 19501476,
+    "setup_ns": 788571,
+    "preparation_ns": 45289,
+    "disposal_ns": 220809,
+    "first_cold_ns": 2264854,
+    "cancel_ns": 2412020,
+    "requested_bytes": 25846598,
+    "peak_increment_bytes": 1122806,
+    "vs_copy": {
+      "median": 0.04186235924064546,
+      "minimum": 0.039077235213595664,
+      "maximum": 0.04427593688262647
+    },
+    "vs_indexed": {
+      "median": 0.9920088341576647,
+      "minimum": 0.9190345225280605,
+      "maximum": 1.0158222420623597
+    },
+    "vs_indexed-cow": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    }
+  },
+  {
+    "family": "mutation",
+    "mode": "replay",
+    "reuse": 1,
+    "total_ns": 14206025340,
+    "execution_ns": 14205930537,
+    "setup_ns": 22385,
+    "preparation_ns": 21605,
+    "disposal_ns": 39799,
+    "first_cold_ns": 14133637708,
+    "cancel_ns": 14224538696,
+    "requested_bytes": 24145178118,
+    "peak_increment_bytes": 214267,
+    "vs_copy": {
+      "median": 223.03885033966984,
+      "minimum": 213.92369823261484,
+      "maximum": 242.13813070789834
+    },
+    "vs_indexed": {
+      "median": 5180.668598990125,
+      "minimum": 4706.427125005254,
+      "maximum": 5973.816895737407
+    },
+    "vs_indexed-cow": {
+      "median": 5525.578159481306,
+      "minimum": 5329.477231212839,
+      "maximum": 5574.810542221792
+    }
+  },
+  {
+    "family": "mutation",
+    "mode": "replay",
+    "reuse": 8,
+    "total_ns": 112947982396,
+    "execution_ns": 112947181169,
+    "setup_ns": 467142,
+    "preparation_ns": 24732,
+    "disposal_ns": 282634,
+    "first_cold_ns": 13868516569,
+    "cancel_ns": 14283030112,
+    "requested_bytes": 193161344703,
+    "peak_increment_bytes": 214267,
+    "vs_copy": {
+      "median": 224.14052503108303,
+      "minimum": 211.92544401810963,
+      "maximum": 255.31624401300687
+    },
+    "vs_indexed": {
+      "median": 5274.930558494114,
+      "minimum": 4920.718376548766,
+      "maximum": 5776.2782856538515
+    },
+    "vs_indexed-cow": {
+      "median": 5488.722834724835,
+      "minimum": 5142.860961754186,
+      "maximum": 5766.4786335259
+    }
+  },
+  {
+    "family": "mutation",
+    "mode": "trail",
+    "reuse": 1,
+    "total_ns": 108486394,
+    "execution_ns": 108390453,
+    "setup_ns": 21464,
+    "preparation_ns": 16440,
+    "disposal_ns": 47263,
+    "first_cold_ns": 105480906,
+    "cancel_ns": 109770112,
+    "requested_bytes": 127139683,
+    "peak_increment_bytes": 4224347,
+    "vs_copy": {
+      "median": 1.7911570393060803,
+      "minimum": 1.6313702735067592,
+      "maximum": 1.9002721947901775
+    },
+    "vs_indexed": {
+      "median": 39.56293483659735,
+      "minimum": 38.934025789298495,
+      "maximum": 44.18983558287058
+    },
+    "vs_indexed-cow": {
+      "median": 41.42839082747994,
+      "minimum": 40.69933376026099,
+      "maximum": 45.71047141451053
+    }
+  },
+  {
+    "family": "mutation",
+    "mode": "trail",
+    "reuse": 8,
+    "total_ns": 877780841,
+    "execution_ns": 876654267,
+    "setup_ns": 285154,
+    "preparation_ns": 17005,
+    "disposal_ns": 824986,
+    "first_cold_ns": 105741317,
+    "cancel_ns": 107001686,
+    "requested_bytes": 1017037223,
+    "peak_increment_bytes": 4224347,
+    "vs_copy": {
+      "median": 1.795219225119367,
+      "minimum": 1.7246572447092365,
+      "maximum": 1.8651247131593955
+    },
+    "vs_indexed": {
+      "median": 42.19660767103459,
+      "minimum": 39.86284126717919,
+      "maximum": 43.54680276206464
+    },
+    "vs_indexed-cow": {
+      "median": 42.125019694190954,
+      "minimum": 41.68481538542684,
+      "maximum": 45.52854079649621
+    }
+  },
+  {
+    "family": "retained",
+    "mode": "checkpoint1",
+    "reuse": 1,
+    "total_ns": 816220,
+    "execution_ns": 754980,
+    "setup_ns": 22239,
+    "preparation_ns": 11460,
+    "disposal_ns": 26521,
+    "first_cold_ns": 653581,
+    "cancel_ns": 691817,
+    "requested_bytes": 819855,
+    "peak_increment_bytes": 191061,
+    "vs_copy": {
+      "median": 1.656219200097095,
+      "minimum": 1.2007561547910643,
+      "maximum": 1.746082822338823
+    },
+    "vs_indexed": {
+      "median": 1.0744020313361775,
+      "minimum": 0.9697976297835633,
+      "maximum": 1.1149322405873296
+    },
+    "vs_indexed-cow": {
+      "median": 1.061937461456596,
+      "minimum": 0.9896648868215023,
+      "maximum": 1.2864332984500424
+    }
+  },
+  {
+    "family": "retained",
+    "mode": "checkpoint1",
+    "reuse": 8,
+    "total_ns": 6768732,
+    "execution_ns": 6187757,
+    "setup_ns": 398112,
+    "preparation_ns": 11959,
+    "disposal_ns": 216926,
+    "first_cold_ns": 707978,
+    "cancel_ns": 716925,
+    "requested_bytes": 6524603,
+    "peak_increment_bytes": 191061,
+    "vs_copy": {
+      "median": 1.7121433382040119,
+      "minimum": 1.5890102005648263,
+      "maximum": 1.7731725823303792
+    },
+    "vs_indexed": {
+      "median": 1.0846914064740296,
+      "minimum": 0.8911991868659991,
+      "maximum": 1.1623051557115027
+    },
+    "vs_indexed-cow": {
+      "median": 1.0817831006752558,
+      "minimum": 1.0400794480676483,
+      "maximum": 1.2920298667816925
+    }
+  },
+  {
+    "family": "retained",
+    "mode": "checkpoint16",
+    "reuse": 1,
+    "total_ns": 3075689,
+    "execution_ns": 3011670,
+    "setup_ns": 22603,
+    "preparation_ns": 11822,
+    "disposal_ns": 26280,
+    "first_cold_ns": 2906876,
+    "cancel_ns": 2894996,
+    "requested_bytes": 2381174,
+    "peak_increment_bytes": 191613,
+    "vs_copy": {
+      "median": 6.274430522938637,
+      "minimum": 4.309866054681466,
+      "maximum": 6.541645466008894
+    },
+    "vs_indexed": {
+      "median": 3.8563440424274416,
+      "minimum": 3.549308506876354,
+      "maximum": 4.333274827947979
+    },
+    "vs_indexed-cow": {
+      "median": 4.137074115978037,
+      "minimum": 3.8116050449250207,
+      "maximum": 4.640984263821056
+    }
+  },
+  {
+    "family": "retained",
+    "mode": "checkpoint16",
+    "reuse": 8,
+    "total_ns": 24085734,
+    "execution_ns": 23491148,
+    "setup_ns": 368682,
+    "preparation_ns": 10399,
+    "disposal_ns": 208338,
+    "first_cold_ns": 2785745,
+    "cancel_ns": 2890315,
+    "requested_bytes": 19015155,
+    "peak_increment_bytes": 191613,
+    "vs_copy": {
+      "median": 6.077781149583324,
+      "minimum": 5.526113335235736,
+      "maximum": 6.3275724644094735
+    },
+    "vs_indexed": {
+      "median": 3.7514557790051346,
+      "minimum": 3.173601447597775,
+      "maximum": 3.8032375135576855
+    },
+    "vs_indexed-cow": {
+      "median": 3.899829576334851,
+      "minimum": 3.7102136049866226,
+      "maximum": 4.170155218332778
+    }
+  },
+  {
+    "family": "retained",
+    "mode": "checkpoint4",
+    "reuse": 1,
+    "total_ns": 1354425,
+    "execution_ns": 1296256,
+    "setup_ns": 21836,
+    "preparation_ns": 11332,
+    "disposal_ns": 26771,
+    "first_cold_ns": 1192739,
+    "cancel_ns": 1329400,
+    "requested_bytes": 1167002,
+    "peak_increment_bytes": 191589,
+    "vs_copy": {
+      "median": 2.5880847876391804,
+      "minimum": 2.4499514482104194,
+      "maximum": 3.0320915370498636
+    },
+    "vs_indexed": {
+      "median": 1.7754384116217063,
+      "minimum": 1.5670282190917684,
+      "maximum": 2.2753729447398108
+    },
+    "vs_indexed-cow": {
+      "median": 1.8580062750670954,
+      "minimum": 1.706465398852466,
+      "maximum": 2.24897542849857
+    }
+  },
+  {
+    "family": "retained",
+    "mode": "checkpoint4",
+    "reuse": 8,
+    "total_ns": 10687326,
+    "execution_ns": 9923625,
+    "setup_ns": 406043,
+    "preparation_ns": 11397,
+    "disposal_ns": 208162,
+    "first_cold_ns": 1144967,
+    "cancel_ns": 1213834,
+    "requested_bytes": 9301779,
+    "peak_increment_bytes": 191589,
+    "vs_copy": {
+      "median": 2.6941182229888767,
+      "minimum": 2.4652593697822804,
+      "maximum": 2.944307472832625
+    },
+    "vs_indexed": {
+      "median": 1.6912215193659292,
+      "minimum": 1.3826450862195845,
+      "maximum": 1.8252189413477167
+    },
+    "vs_indexed-cow": {
+      "median": 1.8146449414780408,
+      "minimum": 1.6384123770189256,
+      "maximum": 2.0289313645806915
+    }
+  },
+  {
+    "family": "retained",
+    "mode": "copy",
+    "reuse": 1,
+    "total_ns": 497407,
+    "execution_ns": 437068,
+    "setup_ns": 21035,
+    "preparation_ns": 12283,
+    "disposal_ns": 27508,
+    "first_cold_ns": 361053,
+    "cancel_ns": 382015,
+    "requested_bytes": 412963,
+    "peak_increment_bytes": 189133,
+    "vs_copy": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    },
+    "vs_indexed": {
+      "median": 0.6396160300386413,
+      "minimum": 0.5855490805363864,
+      "maximum": 0.8947712048356121
+    },
+    "vs_indexed-cow": {
+      "median": 0.7094521230072952,
+      "minimum": 0.6194888613781169,
+      "maximum": 0.8843906043865972
+    }
+  },
+  {
+    "family": "retained",
+    "mode": "copy",
+    "reuse": 8,
+    "total_ns": 4010969,
+    "execution_ns": 3434374,
+    "setup_ns": 364510,
+    "preparation_ns": 10629,
+    "disposal_ns": 201456,
+    "first_cold_ns": 352899,
+    "cancel_ns": 395883,
+    "requested_bytes": 3269467,
+    "peak_increment_bytes": 189133,
+    "vs_copy": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    },
+    "vs_indexed": {
+      "median": 0.6120964525131924,
+      "minimum": 0.5608517720963749,
+      "maximum": 0.6788597249870018
+    },
+    "vs_indexed-cow": {
+      "median": 0.6624318111664422,
+      "minimum": 0.6104552818985568,
+      "maximum": 0.7546271611446936
+    }
+  },
+  {
+    "family": "retained",
+    "mode": "indexed",
+    "reuse": 1,
+    "total_ns": 777665,
+    "execution_ns": 671882,
+    "setup_ns": 52595,
+    "preparation_ns": 24293,
+    "disposal_ns": 28895,
+    "first_cold_ns": 547960,
+    "cancel_ns": 643072,
+    "requested_bytes": 1467580,
+    "peak_increment_bytes": 1095873,
+    "vs_copy": {
+      "median": 1.5634379894130963,
+      "minimum": 1.1176041367845768,
+      "maximum": 1.7077987708288431
+    },
+    "vs_indexed": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    },
+    "vs_indexed-cow": {
+      "median": 1.0579623160037075,
+      "minimum": 0.954722301317119,
+      "maximum": 1.1659390152117135
+    }
+  },
+  {
+    "family": "retained",
+    "mode": "indexed",
+    "reuse": 8,
+    "total_ns": 6679757,
+    "execution_ns": 5708465,
+    "setup_ns": 707592,
+    "preparation_ns": 23304,
+    "disposal_ns": 242057,
+    "first_cold_ns": 550616,
+    "cancel_ns": 683406,
+    "requested_bytes": 11636886,
+    "peak_increment_bytes": 1095873,
+    "vs_copy": {
+      "median": 1.6337294488378808,
+      "minimum": 1.4730583700765973,
+      "maximum": 1.7830023007008762
+    },
+    "vs_indexed": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    },
+    "vs_indexed-cow": {
+      "median": 1.0788815392306033,
+      "minimum": 0.9973187712363022,
+      "maximum": 1.1849840521971244
+    }
+  },
+  {
+    "family": "retained",
+    "mode": "indexed-cow",
+    "reuse": 1,
+    "total_ns": 768614,
+    "execution_ns": 657075,
+    "setup_ns": 60014,
+    "preparation_ns": 22465,
+    "disposal_ns": 28664,
+    "first_cold_ns": 539786,
+    "cancel_ns": 619325,
+    "requested_bytes": 1369308,
+    "peak_increment_bytes": 998537,
+    "vs_copy": {
+      "median": 1.4095383854249417,
+      "minimum": 1.1307220984031012,
+      "maximum": 1.6142340279943
+    },
+    "vs_indexed": {
+      "median": 0.9452132508626098,
+      "minimum": 0.857677791851247,
+      "maximum": 1.0474249932366895
+    },
+    "vs_indexed-cow": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    }
+  },
+  {
+    "family": "retained",
+    "mode": "indexed-cow",
+    "reuse": 8,
+    "total_ns": 6224012,
+    "execution_ns": 5246523,
+    "setup_ns": 710082,
+    "preparation_ns": 26411,
+    "disposal_ns": 240996,
+    "first_cold_ns": 526830,
+    "cancel_ns": 627304,
+    "requested_bytes": 10849422,
+    "peak_increment_bytes": 998537,
+    "vs_copy": {
+      "median": 1.5095893390734834,
+      "minimum": 1.3251577089845274,
+      "maximum": 1.63812162766441
+    },
+    "vs_indexed": {
+      "median": 0.9268858198400011,
+      "minimum": 0.8438932137068524,
+      "maximum": 1.002688437078522
+    },
+    "vs_indexed-cow": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    }
+  },
+  {
+    "family": "retained",
+    "mode": "replay",
+    "reuse": 1,
+    "total_ns": 7303951,
+    "execution_ns": 7240843,
+    "setup_ns": 23713,
+    "preparation_ns": 11919,
+    "disposal_ns": 27766,
+    "first_cold_ns": 6733086,
+    "cancel_ns": 6715109,
+    "requested_bytes": 5515174,
+    "peak_increment_bytes": 191409,
+    "vs_copy": {
+      "median": 14.576556019517216,
+      "minimum": 10.057064677714765,
+      "maximum": 16.305030729278926
+    },
+    "vs_indexed": {
+      "median": 9.379540034749734,
+      "minimum": 8.998771878788517,
+      "maximum": 9.750579665199632
+    },
+    "vs_indexed-cow": {
+      "median": 10.100784921216206,
+      "minimum": 8.894373508679259,
+      "maximum": 10.870514523543223
+    }
+  },
+  {
+    "family": "retained",
+    "mode": "replay",
+    "reuse": 8,
+    "total_ns": 58465945,
+    "execution_ns": 57846391,
+    "setup_ns": 392710,
+    "preparation_ns": 12814,
+    "disposal_ns": 214030,
+    "first_cold_ns": 6671709,
+    "cancel_ns": 6747483,
+    "requested_bytes": 44087155,
+    "peak_increment_bytes": 191409,
+    "vs_copy": {
+      "median": 13.735591840205952,
+      "minimum": 13.228363447593601,
+      "maximum": 15.776813034456262
+    },
+    "vs_indexed": {
+      "median": 8.980203172061499,
+      "minimum": 7.703631024372016,
+      "maximum": 9.386498311758682
+    },
+    "vs_indexed-cow": {
+      "median": 9.723615563179454,
+      "minimum": 8.167833866644216,
+      "maximum": 9.982482355047791
+    }
+  },
+  {
+    "family": "retained",
+    "mode": "trail",
+    "reuse": 1,
+    "total_ns": 865665,
+    "execution_ns": 743970,
+    "setup_ns": 21800,
+    "preparation_ns": 17020,
+    "disposal_ns": 72476,
+    "first_cold_ns": 597145,
+    "cancel_ns": 595812,
+    "requested_bytes": 473387,
+    "peak_increment_bytes": 205828,
+    "vs_copy": {
+      "median": 1.6849079325381429,
+      "minimum": 1.5659037970232987,
+      "maximum": 1.9404122413435954
+    },
+    "vs_indexed": {
+      "median": 1.081451373446913,
+      "minimum": 1.0606975866530741,
+      "maximum": 1.444471940786919
+    },
+    "vs_indexed-cow": {
+      "median": 1.2565256242259957,
+      "minimum": 1.0324857440197959,
+      "maximum": 1.4277140411181686
+    }
+  },
+  {
+    "family": "retained",
+    "mode": "trail",
+    "reuse": 8,
+    "total_ns": 6698610,
+    "execution_ns": 5910171,
+    "setup_ns": 427732,
+    "preparation_ns": 16857,
+    "disposal_ns": 355012,
+    "first_cold_ns": 548282,
+    "cancel_ns": 655268,
+    "requested_bytes": 3752859,
+    "peak_increment_bytes": 205828,
+    "vs_copy": {
+      "median": 1.6119138523901055,
+      "minimum": 1.501514791323106,
+      "maximum": 1.7782433621401712
+    },
+    "vs_indexed": {
+      "median": 1.019317918301519,
+      "minimum": 0.8826269688477391,
+      "maximum": 1.0579752881758138
+    },
+    "vs_indexed-cow": {
+      "median": 1.0677830126830548,
+      "minimum": 1.0391842110844258,
+      "maximum": 1.1330838443929225
+    }
+  },
+  {
+    "family": "small",
+    "mode": "checkpoint1",
+    "reuse": 1,
+    "total_ns": 198304,
+    "execution_ns": 182076,
+    "setup_ns": 2311,
+    "preparation_ns": 9790,
+    "disposal_ns": 4107,
+    "first_cold_ns": 182238,
+    "cancel_ns": 166915,
+    "requested_bytes": 286013,
+    "peak_increment_bytes": 21411,
+    "vs_copy": {
+      "median": 1.2192466524840446,
+      "minimum": 1.1997555955749937,
+      "maximum": 1.8081421951076435
+    },
+    "vs_indexed": {
+      "median": 0.7843466085505109,
+      "minimum": 0.7142585698501728,
+      "maximum": 1.2572255985642615
+    },
+    "vs_indexed-cow": {
+      "median": 0.8945473455051847,
+      "minimum": 0.8357853019138223,
+      "maximum": 1.2942253349624833
+    }
+  },
+  {
+    "family": "small",
+    "mode": "checkpoint1",
+    "reuse": 8,
+    "total_ns": 1401680,
+    "execution_ns": 1363380,
+    "setup_ns": 8977,
+    "preparation_ns": 8907,
+    "disposal_ns": 20445,
+    "first_cold_ns": 182071,
+    "cancel_ns": 172734,
+    "requested_bytes": 2253867,
+    "peak_increment_bytes": 21411,
+    "vs_copy": {
+      "median": 1.2285561150959816,
+      "minimum": 1.162811726671882,
+      "maximum": 1.3719590174905336
+    },
+    "vs_indexed": {
+      "median": 0.7992919917976885,
+      "minimum": 0.7280810085639725,
+      "maximum": 0.8778475550393782
+    },
+    "vs_indexed-cow": {
+      "median": 0.812466048942632,
+      "minimum": 0.794017564143452,
+      "maximum": 0.9360568938283912
+    }
+  },
+  {
+    "family": "small",
+    "mode": "checkpoint16",
+    "reuse": 1,
+    "total_ns": 1169338,
+    "execution_ns": 1153317,
+    "setup_ns": 2279,
+    "preparation_ns": 10231,
+    "disposal_ns": 3963,
+    "first_cold_ns": 1141141,
+    "cancel_ns": 1129130,
+    "requested_bytes": 1847332,
+    "peak_increment_bytes": 21963,
+    "vs_copy": {
+      "median": 7.316593667876361,
+      "minimum": 6.835405177447609,
+      "maximum": 8.697187295155235
+    },
+    "vs_indexed": {
+      "median": 4.738017577056633,
+      "minimum": 4.167043076886567,
+      "maximum": 5.135488433957086
+    },
+    "vs_indexed-cow": {
+      "median": 5.030622142164334,
+      "minimum": 4.636513266469214,
+      "maximum": 6.431756986034541
+    }
+  },
+  {
+    "family": "small",
+    "mode": "checkpoint16",
+    "reuse": 8,
+    "total_ns": 9287546,
+    "execution_ns": 9246719,
+    "setup_ns": 9628,
+    "preparation_ns": 9010,
+    "disposal_ns": 21234,
+    "first_cold_ns": 1137589,
+    "cancel_ns": 1141466,
+    "requested_bytes": 14744419,
+    "peak_increment_bytes": 21963,
+    "vs_copy": {
+      "median": 7.905448014741018,
+      "minimum": 7.704802380575118,
+      "maximum": 8.423147864449804
+    },
+    "vs_indexed": {
+      "median": 5.246787930137786,
+      "minimum": 4.890689895982652,
+      "maximum": 5.425539930177783
+    },
+    "vs_indexed-cow": {
+      "median": 5.45523922644912,
+      "minimum": 5.261168491945567,
+      "maximum": 5.619375160583612
+    }
+  },
+  {
+    "family": "small",
+    "mode": "checkpoint4",
+    "reuse": 1,
+    "total_ns": 415745,
+    "execution_ns": 400069,
+    "setup_ns": 2196,
+    "preparation_ns": 9738,
+    "disposal_ns": 3848,
+    "first_cold_ns": 391027,
+    "cancel_ns": 382427,
+    "requested_bytes": 633160,
+    "peak_increment_bytes": 21939,
+    "vs_copy": {
+      "median": 2.6316067343227547,
+      "minimum": 2.4774745247601455,
+      "maximum": 2.781873357527218
+    },
+    "vs_indexed": {
+      "median": 1.6084595395270285,
+      "minimum": 1.462891545915818,
+      "maximum": 1.8297915731941101
+    },
+    "vs_indexed-cow": {
+      "median": 1.8836417381519224,
+      "minimum": 1.7896728821838954,
+      "maximum": 2.002360109637365
+    }
+  },
+  {
+    "family": "small",
+    "mode": "checkpoint4",
+    "reuse": 8,
+    "total_ns": 3278252,
+    "execution_ns": 3237379,
+    "setup_ns": 9867,
+    "preparation_ns": 9534,
+    "disposal_ns": 21305,
+    "first_cold_ns": 388138,
+    "cancel_ns": 381627,
+    "requested_bytes": 5031043,
+    "peak_increment_bytes": 21939,
+    "vs_copy": {
+      "median": 2.8119213144696737,
+      "minimum": 2.6497523865446806,
+      "maximum": 2.8616451186862935
+    },
+    "vs_indexed": {
+      "median": 1.825044744340726,
+      "minimum": 1.6954432489118099,
+      "maximum": 1.8977716217356693
+    },
+    "vs_indexed-cow": {
+      "median": 1.8924569048873936,
+      "minimum": 1.8078666758575346,
+      "maximum": 1.9546456307855047
+    }
+  },
+  {
+    "family": "small",
+    "mode": "copy",
+    "reuse": 1,
+    "total_ns": 159820,
+    "execution_ns": 143857,
+    "setup_ns": 2221,
+    "preparation_ns": 9502,
+    "disposal_ns": 3584,
+    "first_cold_ns": 146096,
+    "cancel_ns": 131035,
+    "requested_bytes": 225777,
+    "peak_increment_bytes": 21691,
+    "vs_copy": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    },
+    "vs_indexed": {
+      "median": 0.614438595659253,
+      "minimum": 0.5904769277324644,
+      "maximum": 0.6953134559693274
+    },
+    "vs_indexed-cow": {
+      "median": 0.715776302585226,
+      "minimum": 0.6783084756653038,
+      "maximum": 0.7790867227547641
+    }
+  },
+  {
+    "family": "small",
+    "mode": "copy",
+    "reuse": 8,
+    "total_ns": 1158055,
+    "execution_ns": 1113505,
+    "setup_ns": 9130,
+    "preparation_ns": 9014,
+    "disposal_ns": 26514,
+    "first_cold_ns": 154803,
+    "cancel_ns": 135495,
+    "requested_bytes": 1771979,
+    "peak_increment_bytes": 21691,
+    "vs_copy": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    },
+    "vs_indexed": {
+      "median": 0.6420629765913236,
+      "minimum": 0.6186480370072828,
+      "maximum": 0.6873786817452949
+    },
+    "vs_indexed-cow": {
+      "median": 0.6828427559945868,
+      "minimum": 0.6613178176880896,
+      "maximum": 0.6900607298001229
+    }
+  },
+  {
+    "family": "small",
+    "mode": "indexed",
+    "reuse": 1,
+    "total_ns": 252827,
+    "execution_ns": 211669,
+    "setup_ns": 6565,
+    "preparation_ns": 30464,
+    "disposal_ns": 4260,
+    "first_cold_ns": 224664,
+    "cancel_ns": 217502,
+    "requested_bytes": 285026,
+    "peak_increment_bytes": 126943,
+    "vs_copy": {
+      "median": 1.6275019295086184,
+      "minimum": 1.438200269842201,
+      "maximum": 1.6935462725701687
+    },
+    "vs_indexed": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    },
+    "vs_indexed-cow": {
+      "median": 1.112662667728747,
+      "minimum": 1.0294296715247249,
+      "maximum": 1.2679651445379245
+    }
+  },
+  {
+    "family": "small",
+    "mode": "indexed",
+    "reuse": 8,
+    "total_ns": 1778517,
+    "execution_ns": 1576562,
+    "setup_ns": 147150,
+    "preparation_ns": 28809,
+    "disposal_ns": 20842,
+    "first_cold_ns": 216482,
+    "cancel_ns": 211228,
+    "requested_bytes": 2176454,
+    "peak_increment_bytes": 126943,
+    "vs_copy": {
+      "median": 1.5574796187578732,
+      "minimum": 1.4548021731790417,
+      "maximum": 1.6164279851876875
+    },
+    "vs_indexed": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    },
+    "vs_indexed-cow": {
+      "median": 1.0663091654750942,
+      "minimum": 0.993401125360491,
+      "maximum": 1.1154334751279578
+    }
+  },
+  {
+    "family": "small",
+    "mode": "indexed-cow",
+    "reuse": 1,
+    "total_ns": 227227,
+    "execution_ns": 192232,
+    "setup_ns": 6312,
+    "preparation_ns": 24699,
+    "disposal_ns": 3960,
+    "first_cold_ns": 207658,
+    "cancel_ns": 200501,
+    "requested_bytes": 264434,
+    "peak_increment_bytes": 107287,
+    "vs_copy": {
+      "median": 1.3970845310025224,
+      "minimum": 1.2835541548752252,
+      "maximum": 1.4742554986050735
+    },
+    "vs_indexed": {
+      "median": 0.898744991634596,
+      "minimum": 0.7886652123741326,
+      "maximum": 0.9714116735326508
+    },
+    "vs_indexed-cow": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    }
+  },
+  {
+    "family": "small",
+    "mode": "indexed-cow",
+    "reuse": 8,
+    "total_ns": 1707399,
+    "execution_ns": 1522070,
+    "setup_ns": 136572,
+    "preparation_ns": 24993,
+    "disposal_ns": 22769,
+    "first_cold_ns": 207603,
+    "cancel_ns": 200661,
+    "requested_bytes": 2010430,
+    "peak_increment_bytes": 107287,
+    "vs_copy": {
+      "median": 1.4644660007316934,
+      "minimum": 1.449147816728611,
+      "maximum": 1.512132250565869
+    },
+    "vs_indexed": {
+      "median": 0.9378143153767696,
+      "minimum": 0.8965124521525448,
+      "maximum": 1.0066427090437555
+    },
+    "vs_indexed-cow": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    }
+  },
+  {
+    "family": "small",
+    "mode": "replay",
+    "reuse": 1,
+    "total_ns": 3186607,
+    "execution_ns": 3169704,
+    "setup_ns": 2355,
+    "preparation_ns": 10285,
+    "disposal_ns": 4187,
+    "first_cold_ns": 2972802,
+    "cancel_ns": 3031905,
+    "requested_bytes": 4981332,
+    "peak_increment_bytes": 22373,
+    "vs_copy": {
+      "median": 19.440842146240186,
+      "minimum": 18.989374888266493,
+      "maximum": 20.725528719809788
+    },
+    "vs_indexed": {
+      "median": 11.85164954692339,
+      "minimum": 11.212787743583608,
+      "maximum": 13.763421299506465
+    },
+    "vs_indexed-cow": {
+      "median": 14.168474267407342,
+      "minimum": 13.186888001865976,
+      "maximum": 14.95884590137648
+    }
+  },
+  {
+    "family": "small",
+    "mode": "replay",
+    "reuse": 8,
+    "total_ns": 25967312,
+    "execution_ns": 25923333,
+    "setup_ns": 11777,
+    "preparation_ns": 9462,
+    "disposal_ns": 23266,
+    "first_cold_ns": 2901525,
+    "cancel_ns": 3028886,
+    "requested_bytes": 39816419,
+    "peak_increment_bytes": 22373,
+    "vs_copy": {
+      "median": 22.56659132632665,
+      "minimum": 21.5420744419179,
+      "maximum": 24.036665795165547
+    },
+    "vs_indexed": {
+      "median": 14.645606960880409,
+      "minimum": 13.960777425977557,
+      "maximum": 15.433053187774846
+    },
+    "vs_indexed-cow": {
+      "median": 15.572318479746093,
+      "minimum": 14.709849481759768,
+      "maximum": 16.528992002364053
+    }
+  },
+  {
+    "family": "small",
+    "mode": "trail",
+    "reuse": 1,
+    "total_ns": 387604,
+    "execution_ns": 374688,
+    "setup_ns": 2360,
+    "preparation_ns": 5647,
+    "disposal_ns": 4605,
+    "first_cold_ns": 333547,
+    "cancel_ns": 366227,
+    "requested_bytes": 301657,
+    "peak_increment_bytes": 141152,
+    "vs_copy": {
+      "median": 2.280970258696545,
+      "minimum": 2.2387959866220735,
+      "maximum": 2.995939181579277
+    },
+    "vs_indexed": {
+      "median": 1.5330799321275022,
+      "minimum": 1.33209356988536,
+      "maximum": 1.9400848463729594
+    },
+    "vs_indexed-cow": {
+      "median": 1.7058008071223931,
+      "minimum": 1.6326644580766791,
+      "maximum": 2.053695967333774
+    }
+  },
+  {
+    "family": "small",
+    "mode": "trail",
+    "reuse": 8,
+    "total_ns": 2997315,
+    "execution_ns": 2954090,
+    "setup_ns": 10025,
+    "preparation_ns": 5522,
+    "disposal_ns": 26846,
+    "first_cold_ns": 343628,
+    "cancel_ns": 329679,
+    "requested_bytes": 2379019,
+    "peak_increment_bytes": 141152,
+    "vs_copy": {
+      "median": 2.58345845261749,
+      "minimum": 2.4205345343501823,
+      "maximum": 2.6385422108621785
+    },
+    "vs_indexed": {
+      "median": 1.6638238373405898,
+      "minimum": 1.5982515004016824,
+      "maximum": 1.6882704214519588
+    },
+    "vs_indexed-cow": {
+      "median": 1.7473255677876955,
+      "minimum": 1.6528444724157523,
+      "maximum": 1.8002182241947238
+    }
+  },
+  {
+    "family": "spine",
+    "mode": "checkpoint1",
+    "reuse": 1,
+    "total_ns": 203830,
+    "execution_ns": 187911,
+    "setup_ns": 2576,
+    "preparation_ns": 9261,
+    "disposal_ns": 3684,
+    "first_cold_ns": 45699,
+    "cancel_ns": 34694,
+    "requested_bytes": 286262,
+    "peak_increment_bytes": 20476,
+    "vs_copy": {
+      "median": 1.0858539321341292,
+      "minimum": 0.5529369436748199,
+      "maximum": 1.2375938582590407
+    },
+    "vs_indexed": {
+      "median": 0.9567821552124748,
+      "minimum": 0.8160695083659513,
+      "maximum": 1.6243093687662424
+    },
+    "vs_indexed-cow": {
+      "median": 0.8655863293160412,
+      "minimum": 0.3410074079250821,
+      "maximum": 0.9024384480326292
+    }
+  },
+  {
+    "family": "spine",
+    "mode": "checkpoint1",
+    "reuse": 8,
+    "total_ns": 1494250,
+    "execution_ns": 1454448,
+    "setup_ns": 10476,
+    "preparation_ns": 8154,
+    "disposal_ns": 20610,
+    "first_cold_ns": 45875,
+    "cancel_ns": 32834,
+    "requested_bytes": 2255852,
+    "peak_increment_bytes": 20476,
+    "vs_copy": {
+      "median": 1.156103576977117,
+      "minimum": 1.098950377581881,
+      "maximum": 1.2933110033574298
+    },
+    "vs_indexed": {
+      "median": 0.867633793164407,
+      "minimum": 0.8497546864113148,
+      "maximum": 0.8967723516054077
+    },
+    "vs_indexed-cow": {
+      "median": 0.9316925127598807,
+      "minimum": 0.9300002489543916,
+      "maximum": 1.0420307993618196
+    }
+  },
+  {
+    "family": "spine",
+    "mode": "checkpoint16",
+    "reuse": 1,
+    "total_ns": 1227827,
+    "execution_ns": 1211870,
+    "setup_ns": 2443,
+    "preparation_ns": 9570,
+    "disposal_ns": 4020,
+    "first_cold_ns": 204758,
+    "cancel_ns": 203607,
+    "requested_bytes": 1896481,
+    "peak_increment_bytes": 21896,
+    "vs_copy": {
+      "median": 6.508836938083121,
+      "minimum": 3.405432510071221,
+      "maximum": 11.646983166061458
+    },
+    "vs_indexed": {
+      "median": 5.763444847608631,
+      "minimum": 4.980162561513498,
+      "maximum": 10.383559057438765
+    },
+    "vs_indexed-cow": {
+      "median": 5.21410129011984,
+      "minimum": 2.100199175344189,
+      "maximum": 9.482085635707618
+    }
+  },
+  {
+    "family": "spine",
+    "mode": "checkpoint16",
+    "reuse": 8,
+    "total_ns": 10574116,
+    "execution_ns": 10528446,
+    "setup_ns": 16294,
+    "preparation_ns": 9015,
+    "disposal_ns": 24159,
+    "first_cold_ns": 205500,
+    "cancel_ns": 211638,
+    "requested_bytes": 15137604,
+    "peak_increment_bytes": 21896,
+    "vs_copy": {
+      "median": 8.155509844889673,
+      "minimum": 7.642947574178417,
+      "maximum": 9.57295111099828
+    },
+    "vs_indexed": {
+      "median": 5.904367779041766,
+      "minimum": 5.654005164686256,
+      "maximum": 6.946867171257915
+    },
+    "vs_indexed-cow": {
+      "median": 6.53911957230892,
+      "minimum": 6.163925167135141,
+      "maximum": 7.713001646587167
+    }
+  },
+  {
+    "family": "spine",
+    "mode": "checkpoint4",
+    "reuse": 1,
+    "total_ns": 431951,
+    "execution_ns": 415418,
+    "setup_ns": 2607,
+    "preparation_ns": 9925,
+    "disposal_ns": 3829,
+    "first_cold_ns": 74847,
+    "cancel_ns": 60884,
+    "requested_bytes": 624487,
+    "peak_increment_bytes": 21413,
+    "vs_copy": {
+      "median": 2.134934266327396,
+      "minimum": 1.2237057560356501,
+      "maximum": 2.590057632764255
+    },
+    "vs_indexed": {
+      "median": 1.8904415664884504,
+      "minimum": 1.8553400768850805,
+      "maximum": 1.9465482386339197
+    },
+    "vs_indexed-cow": {
+      "median": 1.7102538622909607,
+      "minimum": 0.7546841148927249,
+      "maximum": 1.9629022393983162
+    }
+  },
+  {
+    "family": "spine",
+    "mode": "checkpoint4",
+    "reuse": 8,
+    "total_ns": 3354680,
+    "execution_ns": 3316273,
+    "setup_ns": 10776,
+    "preparation_ns": 8509,
+    "disposal_ns": 20067,
+    "first_cold_ns": 73380,
+    "cancel_ns": 62526,
+    "requested_bytes": 4961652,
+    "peak_increment_bytes": 21413,
+    "vs_copy": {
+      "median": 2.58261635717835,
+      "minimum": 2.536208459962491,
+      "maximum": 2.893185102298556
+    },
+    "vs_indexed": {
+      "median": 1.928148928936536,
+      "minimum": 1.778270116004788,
+      "maximum": 2.140284667927713
+    },
+    "vs_indexed-cow": {
+      "median": 2.0745614713166836,
+      "minimum": 2.0401930641306514,
+      "maximum": 2.3333113687039173
+    }
+  },
+  {
+    "family": "spine",
+    "mode": "copy",
+    "reuse": 1,
+    "total_ns": 193597,
+    "execution_ns": 177679,
+    "setup_ns": 2783,
+    "preparation_ns": 9932,
+    "disposal_ns": 3958,
+    "first_cold_ns": 42059,
+    "cancel_ns": 29918,
+    "requested_bytes": 232353,
+    "peak_increment_bytes": 20465,
+    "vs_copy": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    },
+    "vs_indexed": {
+      "median": 0.8915234880475977,
+      "minimum": 0.7515463030667986,
+      "maximum": 1.5161651955415243
+    },
+    "vs_indexed-cow": {
+      "median": 0.7578604485736469,
+      "minimum": 0.6167202459990216,
+      "maximum": 0.8141237520921117
+    }
+  },
+  {
+    "family": "spine",
+    "mode": "copy",
+    "reuse": 8,
+    "total_ns": 1292488,
+    "execution_ns": 1249365,
+    "setup_ns": 10598,
+    "preparation_ns": 8527,
+    "disposal_ns": 20364,
+    "first_cold_ns": 40109,
+    "cancel_ns": 26396,
+    "requested_bytes": 1824580,
+    "peak_increment_bytes": 20465,
+    "vs_copy": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    },
+    "vs_indexed": {
+      "median": 0.7397676236571643,
+      "minimum": 0.6933926559639487,
+      "maximum": 0.7895113472489445
+    },
+    "vs_indexed-cow": {
+      "median": 0.8057078279367547,
+      "minimum": 0.8018038965897882,
+      "maximum": 0.8468928791765432
+    }
+  },
+  {
+    "family": "spine",
+    "mode": "indexed",
+    "reuse": 1,
+    "total_ns": 232490,
+    "execution_ns": 196499,
+    "setup_ns": 7796,
+    "preparation_ns": 23107,
+    "disposal_ns": 4093,
+    "first_cold_ns": 79469,
+    "cancel_ns": 70122,
+    "requested_bytes": 256447,
+    "peak_increment_bytes": 72783,
+    "vs_copy": {
+      "median": 1.1216754391855246,
+      "minimum": 0.6595587360405228,
+      "maximum": 1.330590006123839
+    },
+    "vs_indexed": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    },
+    "vs_indexed-cow": {
+      "median": 0.9046848591399768,
+      "minimum": 0.406763225941715,
+      "maximum": 1.008401538908624
+    }
+  },
+  {
+    "family": "spine",
+    "mode": "indexed",
+    "reuse": 8,
+    "total_ns": 1737182,
+    "execution_ns": 1575389,
+    "setup_ns": 102416,
+    "preparation_ns": 23122,
+    "disposal_ns": 35581,
+    "first_cold_ns": 80795,
+    "cancel_ns": 62875,
+    "requested_bytes": 1947808,
+    "peak_increment_bytes": 72783,
+    "vs_copy": {
+      "median": 1.3517758388185923,
+      "minimum": 1.2666062412965997,
+      "maximum": 1.4421842968754959
+    },
+    "vs_indexed": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    },
+    "vs_indexed-cow": {
+      "median": 1.090187395942568,
+      "minimum": 1.0581096893049193,
+      "maximum": 1.1619791773200516
+    }
+  },
+  {
+    "family": "spine",
+    "mode": "indexed-cow",
+    "reuse": 1,
+    "total_ns": 237798,
+    "execution_ns": 199144,
+    "setup_ns": 8668,
+    "preparation_ns": 27720,
+    "disposal_ns": 7982,
+    "first_cold_ns": 86164,
+    "cancel_ns": 63797,
+    "requested_bytes": 260366,
+    "peak_increment_bytes": 66317,
+    "vs_copy": {
+      "median": 1.319504140745277,
+      "minimum": 1.2283144883443442,
+      "maximum": 1.621480738612863
+    },
+    "vs_indexed": {
+      "median": 1.1053572853541873,
+      "minimum": 0.9916684588584456,
+      "maximum": 2.4584326611257867
+    },
+    "vs_indexed-cow": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    }
+  },
+  {
+    "family": "spine",
+    "mode": "indexed-cow",
+    "reuse": 8,
+    "total_ns": 1593471,
+    "execution_ns": 1460721,
+    "setup_ns": 95894,
+    "preparation_ns": 19867,
+    "disposal_ns": 23784,
+    "first_cold_ns": 69997,
+    "cancel_ns": 58182,
+    "requested_bytes": 1977872,
+    "peak_increment_bytes": 66317,
+    "vs_copy": {
+      "median": 1.2411446995132045,
+      "minimum": 1.1807868794130458,
+      "maximum": 1.2471877528323003
+    },
+    "vs_indexed": {
+      "median": 0.9172734923571624,
+      "minimum": 0.8606006196310378,
+      "maximum": 0.9450816017542641
+    },
+    "vs_indexed-cow": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    }
+  },
+  {
+    "family": "spine",
+    "mode": "replay",
+    "reuse": 1,
+    "total_ns": 5316650,
+    "execution_ns": 5299458,
+    "setup_ns": 2711,
+    "preparation_ns": 9839,
+    "disposal_ns": 4002,
+    "first_cold_ns": 208597,
+    "cancel_ns": 205063,
+    "requested_bytes": 8006672,
+    "peak_increment_bytes": 22190,
+    "vs_copy": {
+      "median": 27.088916667097113,
+      "minimum": 15.074042596590234,
+      "maximum": 30.428325330372523
+    },
+    "vs_indexed": {
+      "median": 22.868295410555294,
+      "minimum": 22.14643721476239,
+      "maximum": 25.227350178607473
+    },
+    "vs_indexed-cow": {
+      "median": 22.053730477127647,
+      "minimum": 9.296467258368859,
+      "maximum": 23.060424284220982
+    }
+  },
+  {
+    "family": "spine",
+    "mode": "replay",
+    "reuse": 8,
+    "total_ns": 43515445,
+    "execution_ns": 43471488,
+    "setup_ns": 14484,
+    "preparation_ns": 9190,
+    "disposal_ns": 23146,
+    "first_cold_ns": 212720,
+    "cancel_ns": 202652,
+    "requested_bytes": 64019132,
+    "peak_increment_bytes": 22190,
+    "vs_copy": {
+      "median": 33.861234554836116,
+      "minimum": 33.01140643882928,
+      "maximum": 67.70963649222828
+    },
+    "vs_indexed": {
+      "median": 25.6438244888788,
+      "minimum": 23.836558011195606,
+      "maximum": 48.895447788501755
+    },
+    "vs_indexed-cow": {
+      "median": 27.697584067990753,
+      "minimum": 27.133979162517427,
+      "maximum": 54.28985037614676
+    }
+  },
+  {
+    "family": "spine",
+    "mode": "trail",
+    "reuse": 1,
+    "total_ns": 325854,
+    "execution_ns": 288823,
+    "setup_ns": 2731,
+    "preparation_ns": 28496,
+    "disposal_ns": 4396,
+    "first_cold_ns": 79189,
+    "cancel_ns": 45020,
+    "requested_bytes": 278073,
+    "peak_increment_bytes": 103142,
+    "vs_copy": {
+      "median": 1.5916931721798133,
+      "minimum": 0.9306686384162545,
+      "maximum": 1.8742266507179772
+    },
+    "vs_indexed": {
+      "median": 1.4094124494806066,
+      "minimum": 1.3859581219083752,
+      "maximum": 1.492399368187407
+    },
+    "vs_indexed-cow": {
+      "median": 1.2750741033284922,
+      "minimum": 0.573962191627647,
+      "maximum": 1.4204022502418099
+    }
+  },
+  {
+    "family": "spine",
+    "mode": "trail",
+    "reuse": 8,
+    "total_ns": 2249278,
+    "execution_ns": 2186245,
+    "setup_ns": 11187,
+    "preparation_ns": 27544,
+    "disposal_ns": 23931,
+    "first_cold_ns": 74394,
+    "cancel_ns": 48764,
+    "requested_bytes": 2190340,
+    "peak_increment_bytes": 103142,
+    "vs_copy": {
+      "median": 1.752969484834445,
+      "minimum": 1.7208700260133172,
+      "maximum": 1.8532430326787763
+    },
+    "vs_indexed": {
+      "median": 1.2730439297667142,
+      "minimum": 1.2154961669131108,
+      "maximum": 1.4631564035099403
+    },
+    "vs_indexed-cow": {
+      "median": 1.4123812360653725,
+      "minimum": 1.3878564467128678,
+      "maximum": 1.5694983277591974
+    }
+  },
+  {
+    "family": "work",
+    "mode": "checkpoint1",
+    "reuse": 1,
+    "total_ns": 2413371,
+    "execution_ns": 2393293,
+    "setup_ns": 2148,
+    "preparation_ns": 13020,
+    "disposal_ns": 4578,
+    "first_cold_ns": 2397401,
+    "cancel_ns": 2469105,
+    "requested_bytes": 3090623,
+    "peak_increment_bytes": 32911,
+    "vs_copy": {
+      "median": 1.078586138656341,
+      "minimum": 0.967550381952718,
+      "maximum": 1.1669279595084172
+    },
+    "vs_indexed": {
+      "median": 2.3977489091209785,
+      "minimum": 2.281195956969629,
+      "maximum": 2.5978905521948277
+    },
+    "vs_indexed-cow": {
+      "median": 2.4248742750894228,
+      "minimum": 2.3193848856631574,
+      "maximum": 2.546562576982423
+    }
+  },
+  {
+    "family": "work",
+    "mode": "checkpoint1",
+    "reuse": 8,
+    "total_ns": 19235002,
+    "execution_ns": 19197683,
+    "setup_ns": 9519,
+    "preparation_ns": 5534,
+    "disposal_ns": 21011,
+    "first_cold_ns": 2385744,
+    "cancel_ns": 2396600,
+    "requested_bytes": 24680457,
+    "peak_increment_bytes": 32911,
+    "vs_copy": {
+      "median": 1.0533360962315435,
+      "minimum": 0.9148190355482267,
+      "maximum": 1.0687794362301577
+    },
+    "vs_indexed": {
+      "median": 2.31975191220439,
+      "minimum": 2.210353970311278,
+      "maximum": 2.4030314453356465
+    },
+    "vs_indexed-cow": {
+      "median": 2.423083270158073,
+      "minimum": 2.1720844736081335,
+      "maximum": 2.540984746608358
+    }
+  },
+  {
+    "family": "work",
+    "mode": "checkpoint16",
+    "reuse": 1,
+    "total_ns": 19751157,
+    "execution_ns": 19727756,
+    "setup_ns": 3590,
+    "preparation_ns": 15222,
+    "disposal_ns": 5943,
+    "first_cold_ns": 19700695,
+    "cancel_ns": 20034556,
+    "requested_bytes": 24127140,
+    "peak_increment_bytes": 31199,
+    "vs_copy": {
+      "median": 8.827206493583109,
+      "minimum": 7.836625965255714,
+      "maximum": 9.248921066074795
+    },
+    "vs_indexed": {
+      "median": 19.420447461824534,
+      "minimum": 18.80036608593596,
+      "maximum": 20.654829482711254
+    },
+    "vs_indexed-cow": {
+      "median": 19.279243548836373,
+      "minimum": 18.893273074558888,
+      "maximum": 21.125785800498665
+    }
+  },
+  {
+    "family": "work",
+    "mode": "checkpoint16",
+    "reuse": 8,
+    "total_ns": 156819121,
+    "execution_ns": 156767785,
+    "setup_ns": 16334,
+    "preparation_ns": 15169,
+    "disposal_ns": 22916,
+    "first_cold_ns": 19955686,
+    "cancel_ns": 19356191,
+    "requested_bytes": 192972593,
+    "peak_increment_bytes": 31199,
+    "vs_copy": {
+      "median": 8.4773274593718,
+      "minimum": 7.444992141904955,
+      "maximum": 8.670277164583428
+    },
+    "vs_indexed": {
+      "median": 18.897750413662447,
+      "minimum": 17.532049899410804,
+      "maximum": 19.77078781017315
+    },
+    "vs_indexed-cow": {
+      "median": 19.61137252599098,
+      "minimum": 17.676886038860545,
+      "maximum": 20.712217942715345
+    }
+  },
+  {
+    "family": "work",
+    "mode": "checkpoint4",
+    "reuse": 1,
+    "total_ns": 6340928,
+    "execution_ns": 6318855,
+    "setup_ns": 2454,
+    "preparation_ns": 14478,
+    "disposal_ns": 5219,
+    "first_cold_ns": 6316124,
+    "cancel_ns": 6402041,
+    "requested_bytes": 7630780,
+    "peak_increment_bytes": 34431,
+    "vs_copy": {
+      "median": 2.843998561165277,
+      "minimum": 2.4436794600257614,
+      "maximum": 3.030499220638205
+    },
+    "vs_indexed": {
+      "median": 6.12752945297471,
+      "minimum": 5.854700941508648,
+      "maximum": 6.805874779816959
+    },
+    "vs_indexed-cow": {
+      "median": 6.352611990953639,
+      "minimum": 5.891451697407993,
+      "maximum": 6.5357657116293835
+    }
+  },
+  {
+    "family": "work",
+    "mode": "checkpoint4",
+    "reuse": 8,
+    "total_ns": 49974358,
+    "execution_ns": 49934089,
+    "setup_ns": 12001,
+    "preparation_ns": 6191,
+    "disposal_ns": 22478,
+    "first_cold_ns": 6025445,
+    "cancel_ns": 6304951,
+    "requested_bytes": 61001713,
+    "peak_increment_bytes": 34431,
+    "vs_copy": {
+      "median": 2.620947647641535,
+      "minimum": 2.3196148894938866,
+      "maximum": 2.8431603199185447
+    },
+    "vs_indexed": {
+      "median": 5.904585468914128,
+      "minimum": 5.723749475666663,
+      "maximum": 6.483243652812833
+    },
+    "vs_indexed-cow": {
+      "median": 6.295399959235266,
+      "minimum": 5.507536780977167,
+      "maximum": 6.581967438677293
+    }
+  },
+  {
+    "family": "work",
+    "mode": "copy",
+    "reuse": 1,
+    "total_ns": 2237532,
+    "execution_ns": 2217466,
+    "setup_ns": 1976,
+    "preparation_ns": 13585,
+    "disposal_ns": 4656,
+    "first_cold_ns": 2218249,
+    "cancel_ns": 2224962,
+    "requested_bytes": 2744787,
+    "peak_increment_bytes": 32302,
+    "vs_copy": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    },
+    "vs_indexed": {
+      "median": 2.152460756805945,
+      "minimum": 2.0586159998301095,
+      "maximum": 2.4781643972707883
+    },
+    "vs_indexed-cow": {
+      "median": 2.283779802158617,
+      "minimum": 2.136702207741572,
+      "maximum": 2.410893815568546
+    }
+  },
+  {
+    "family": "work",
+    "mode": "copy",
+    "reuse": 8,
+    "total_ns": 18086979,
+    "execution_ns": 18041592,
+    "setup_ns": 10785,
+    "preparation_ns": 12951,
+    "disposal_ns": 22462,
+    "first_cold_ns": 2212643,
+    "cancel_ns": 2257074,
+    "requested_bytes": 21913769,
+    "peak_increment_bytes": 32302,
+    "vs_copy": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    },
+    "vs_indexed": {
+      "median": 2.2802947858383784,
+      "minimum": 2.068110496313185,
+      "maximum": 2.5455024864935405
+    },
+    "vs_indexed-cow": {
+      "median": 2.37433239712427,
+      "minimum": 2.2671499731552385,
+      "maximum": 2.4938134412706447
+    }
+  },
+  {
+    "family": "work",
+    "mode": "indexed",
+    "reuse": 1,
+    "total_ns": 1028586,
+    "execution_ns": 967779,
+    "setup_ns": 6199,
+    "preparation_ns": 46619,
+    "disposal_ns": 4889,
+    "first_cold_ns": 994403,
+    "cancel_ns": 1009414,
+    "requested_bytes": 1107578,
+    "peak_increment_bytes": 243485,
+    "vs_copy": {
+      "median": 0.4645845443816167,
+      "minimum": 0.40352448009555125,
+      "maximum": 0.48576325069003967
+    },
+    "vs_indexed": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    },
+    "vs_indexed-cow": {
+      "median": 0.9926788216628127,
+      "minimum": 0.9334012447294087,
+      "maximum": 1.1163278495221034
+    }
+  },
+  {
+    "family": "work",
+    "mode": "indexed",
+    "reuse": 8,
+    "total_ns": 8398574,
+    "execution_ns": 8078004,
+    "setup_ns": 265062,
+    "preparation_ns": 48023,
+    "disposal_ns": 24436,
+    "first_cold_ns": 1007994,
+    "cancel_ns": 1045507,
+    "requested_bytes": 8736290,
+    "peak_increment_bytes": 243485,
+    "vs_copy": {
+      "median": 0.4385397915262687,
+      "minimum": 0.3928497439330777,
+      "maximum": 0.48353315830208166
+    },
+    "vs_indexed": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    },
+    "vs_indexed-cow": {
+      "median": 1.037762278403921,
+      "minimum": 0.9327558742222799,
+      "maximum": 1.1046197919151552
+    }
+  },
+  {
+    "family": "work",
+    "mode": "indexed-cow",
+    "reuse": 1,
+    "total_ns": 994433,
+    "execution_ns": 940350,
+    "setup_ns": 6283,
+    "preparation_ns": 42835,
+    "disposal_ns": 4976,
+    "first_cold_ns": 962169,
+    "cancel_ns": 970340,
+    "requested_bytes": 1055470,
+    "peak_increment_bytes": 192313,
+    "vs_copy": {
+      "median": 0.4378705858834574,
+      "minimum": 0.4147839251743139,
+      "maximum": 0.4680109359071469
+    },
+    "vs_indexed": {
+      "median": 1.007375173296156,
+      "minimum": 0.8957941884439208,
+      "maximum": 1.0713506175898644
+    },
+    "vs_indexed-cow": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    }
+  },
+  {
+    "family": "work",
+    "mode": "indexed-cow",
+    "reuse": 8,
+    "total_ns": 7938234,
+    "execution_ns": 7654233,
+    "setup_ns": 219065,
+    "preparation_ns": 41496,
+    "disposal_ns": 23440,
+    "first_cold_ns": 957853,
+    "cancel_ns": 983450,
+    "requested_bytes": 8318138,
+    "peak_increment_bytes": 192313,
+    "vs_copy": {
+      "median": 0.421171021046242,
+      "minimum": 0.40099230497790617,
+      "maximum": 0.44108242147222393
+    },
+    "vs_indexed": {
+      "median": 0.9636118221005302,
+      "minimum": 0.9052888671008069,
+      "maximum": 1.0720918813122322
+    },
+    "vs_indexed-cow": {
+      "median": 1.0,
+      "minimum": 1.0,
+      "maximum": 1.0
+    }
+  },
+  {
+    "family": "work",
+    "mode": "replay",
+    "reuse": 1,
+    "total_ns": 324870906,
+    "execution_ns": 324842674,
+    "setup_ns": 4181,
+    "preparation_ns": 16591,
+    "disposal_ns": 5880,
+    "first_cold_ns": 321630405,
+    "cancel_ns": 316758333,
+    "requested_bytes": 388106252,
+    "peak_increment_bytes": 28001,
+    "vs_copy": {
+      "median": 145.191624522018,
+      "minimum": 130.88935028467316,
+      "maximum": 158.86674632285334
+    },
+    "vs_indexed": {
+      "median": 327.04562582117705,
+      "minimum": 309.2321104768541,
+      "maximum": 341.64153177369224
+    },
+    "vs_indexed-cow": {
+      "median": 318.8886310088261,
+      "minimum": 312.2191611518065,
+      "maximum": 365.0901401685651
+    }
+  },
+  {
+    "family": "work",
+    "mode": "replay",
+    "reuse": 8,
+    "total_ns": 2677574471,
+    "execution_ns": 2677501888,
+    "setup_ns": 30243,
+    "preparation_ns": 15845,
+    "disposal_ns": 28214,
+    "first_cold_ns": 334115268,
+    "cancel_ns": 331874198,
+    "requested_bytes": 3104805489,
+    "peak_increment_bytes": 28001,
+    "vs_copy": {
+      "median": 136.693681781057,
+      "minimum": 124.52402438495596,
+      "maximum": 148.77755321156934
+    },
+    "vs_indexed": {
+      "median": 315.930734087209,
+      "minimum": 298.5181295495602,
+      "maximum": 338.23068990123375
+    },
+    "vs_indexed-cow": {
+      "median": 329.7490341459365,
+      "minimum": 295.66142531749347,
+      "maximum": 343.38110780788
+    }
+  },
+  {
+    "family": "work",
+    "mode": "trail",
+    "reuse": 1,
+    "total_ns": 9337435,
+    "execution_ns": 9161917,
+    "setup_ns": 3563,
+    "preparation_ns": 151696,
+    "disposal_ns": 6949,
+    "first_cold_ns": 8715847,
+    "cancel_ns": 9841451,
+    "requested_bytes": 4701691,
+    "peak_increment_bytes": 1523458,
+    "vs_copy": {
+      "median": 4.1730956250011175,
+      "minimum": 3.806262253523175,
+      "maximum": 9.11794040716516
+    },
+    "vs_indexed": {
+      "median": 9.432543603356812,
+      "minimum": 8.626409331433758,
+      "maximum": 19.62600890931823
+    },
+    "vs_indexed-cow": {
+      "median": 9.17649412745102,
+      "minimum": 8.973798727946166,
+      "maximum": 19.482323398045885
+    }
+  },
+  {
+    "family": "work",
+    "mode": "trail",
+    "reuse": 8,
+    "total_ns": 79394957,
+    "execution_ns": 78696597,
+    "setup_ns": 24800,
+    "preparation_ns": 647661,
+    "disposal_ns": 34454,
+    "first_cold_ns": 9327606,
+    "cancel_ns": 9660550,
+    "requested_bytes": 37569001,
+    "peak_increment_bytes": 1523458,
+    "vs_copy": {
+      "median": 4.324227185097065,
+      "minimum": 3.627549963419011,
+      "maximum": 4.696349097610752
+    },
+    "vs_indexed": {
+      "median": 9.666194531838649,
+      "minimum": 9.233937451762644,
+      "maximum": 10.00962661973358
+    },
+    "vs_indexed-cow": {
+      "median": 10.162048507280726,
+      "minimum": 8.613009400332718,
+      "maximum": 10.647327730575844
+    }
+  }
+]

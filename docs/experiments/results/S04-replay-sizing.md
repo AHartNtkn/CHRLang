@@ -1,5 +1,7 @@
 # S04 sizing: root replay repeats substantial source work
 
+> This records an earlier gate or checkpoint. The [complete lifecycle report](S04-lifecycle-pilot.md) and [matcher correction gate](S04-matcher-copy-gate.md) give the subsequent evidence.
+
 Root replay exceeds the allocation gate's initial 60-second limit on the mutation workload. The other configurations pass that gate. A separate work-count investigation identifies repeated source prefixes as a consequential cost, so the pilot now gives this case a larger explicit limit rather than shrinking its workload.
 
 This is sizing and diagnosis. It is not a comparative timing result, and the cutoff does not reject checkpointed replay or establish an architectural winner.
