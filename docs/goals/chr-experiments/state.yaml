@@ -8,7 +8,7 @@ goal:
   execution_authority: Redesigned goal authorizes implementation and experiments selected under R00 and the governing sequence.
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
-  current_research: Recursive lifecycle runner validated and registered; comparative pilot ready
+  current_research: Recursive lifecycle pilot complete; updated architecture decision checkpoint selected
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -63,7 +63,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T046
+active_task: T047
 tasks:
   - id: T001
     type: pm
@@ -1264,7 +1264,7 @@ tasks:
   - id: T046
     type: pm
     assignee: PM
-    status: active
+    status: done
     objective: Establish generated native execution and credible compilation-lifecycle accounting for the certified finite recursive fragment.
     inputs:
       - docs/experiments/results/R05-finite-recursive-gate.md
@@ -1295,6 +1295,36 @@ tasks:
       - docs/experiments/results/R05-recursive-session-gate.md
       - docs/experiments/registrations/R05-recursive-lifecycle.md
       - docs/experiments/results/r05-recursive-runner/README.md
+    receipt:
+      result: done
+      summary: All 67 build/preparation stages, 324 sessions and 62316 responses validate; checked Direct captures most Specialized gains and native compilation is not recovered versus Direct within measured reuse.
+      evidence:
+        - docs/experiments/results/R05-recursive-lifecycle.md
+      validation: Live source/artifact audit, exact manifests, full mathematical observations, compiler/child limits and independent runner/result review.
+
+  - id: T047
+    type: pm
+    assignee: PM
+    status: active
+    objective: Update architecture recommendations and all question dispositions using current lifecycle evidence and identify the next decision-critical uncertainty or closure gap.
+    inputs:
+      - docs/experiments/results/R05-recursive-lifecycle.md
+      - docs/experiments/results/R07-architecture-checkpoint.md
+      - docs/experiments/coverage.md
+    allowed_files:
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    expected_output:
+      - Evidence-backed bounded recommendations separating checked lowering, native compilation, storage/sharing, parallelism and language restrictions.
+      - Explicit applicability and current-control audit across Q1–Q12.
+      - Justified next investigation relative to the strongest ready alternative, or exact final closure gaps.
+    verify:
+      - Do not propagate timing ratios across sessions or changed serial implementations
+      - Distinguish mechanism evidence from current complete-path comparisons
+      - Preserve contrary regimes and necessary ownership/progress responsibilities
+      - No invented workload weights or automatic implementation queue for every uncertainty
+    stop_if:
+      - A checkpoint is not final closure without an evidence-backed disposition for every relevant unresolved direction.
     receipt: null
 
 
@@ -1303,12 +1333,11 @@ checks:
   last_verification:
     result: passed
     task: T046
-    scope: Installed-control packages and registered lifecycle runner readiness; comparative pilot pending.
+    scope: Registered recursive compilation and session lifecycle comparison.
     commands:
-      - 60 package all-target tests in each parent feature configuration
-      - 42 full responses across three external counter-free executable sessions
-      - Strict Clippy in both feature modes and cargo fmt --all --check
-      - Independent protocol review and artifact dependency/hash audit
-      - Exact manifest, mathematical oracle, child-failure and audit-mutation runner checks
+      - All 67 build/preparation stages and 324 sessions complete
+      - Full replay audit validates 36396 successes and 25920 finite failures
+      - Live source, artifact, exact build-order and session manifest audit
+      - Independent result interpretation and next-selection review
     evidence:
-      - docs/experiments/results/R05-recursive-session-gate.md
+      - docs/experiments/results/R05-recursive-lifecycle.md

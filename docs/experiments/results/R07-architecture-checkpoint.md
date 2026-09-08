@@ -105,3 +105,8 @@ Root audited Q1/Q2/Q4/Q5/Q8/Q12 against receipts and current controls. Independe
 ## Session update during T046
 
 [Shared executable sessions](R05-recursive-session-gate.md) validate 42 complete responses across native, direct and Specialized, preserving unsupported-versus-ordinary-residual behavior. All 60 package tests pass in both configurations. The remaining T046 entry is a reviewable measurement runner and prospective compilation-lifecycle registration, with bundled phases named accurately and external execution caps. No comparative timings have run.
+
+
+## Update after T046
+
+[Recursive lifecycle evidence](R05-recursive-lifecycle.md) validates all 324 sessions and 62,316 full responses. Checked Direct captures most benefit over Specialized; Native has three separated Direct gains but does not recover its per-source compilation cost within measured reuse. T047 selects a decision checkpoint: distinguish lowering from code generation, retain unresolved current parallel benefit, and reassess conditional/explicit recommendations whose controls precede serial changes. No cross-session ratios or universal architecture winner follow.

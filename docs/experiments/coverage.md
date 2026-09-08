@@ -2,7 +2,7 @@
 
 Future work is selected by its ability to change an architectural or language-design decision under the [sequence](sequence.md). A completed experimental package is evidence for its stated claim; it does not establish that its entire mechanism is resolved or that its follow-ups deserve execution.
 
-**Current selection:** [Finite recursive correspondence](results/R05-finite-recursive-gate.md) completes T045: a source-derived sealed certificate preserves nonground answers without an occurrence store or selector. [T046 native artifacts](results/R05-recursive-native-entry.md) validate 182 full outcomes without compiled-engine dependencies; [shared sessions](results/R05-recursive-session-gate.md) validate 42 responses; the [registered lifecycle runner](registrations/R05-recursive-lifecycle.md) is validated and the comparative pilot is ready, comparing the direct equation loop with corrected Specialized and charging preparation/loading. This can change Q1/Q4/Q5/Q8; further executor tuning has lower current value. R04 remains the alternative if artifact integration requires broad infrastructure.
+**Current selection:** [Recursive lifecycle evidence](results/R05-recursive-lifecycle.md) completes T046 with all 324 sessions and 62,316 responses validated. Checked Direct captures most Specialized session savings; native compilation does not repay its added cost over Direct within measured reuse. T047 selects an updated R07 decision checkpoint, including current controls, conditional evidence limits and unresolved worker benefit, before further tuning or another compiler entry.
 
 ## Question map
 

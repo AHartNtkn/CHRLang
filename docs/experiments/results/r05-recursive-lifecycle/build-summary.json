@@ -1,0 +1,882 @@
+[
+  {
+    "group": "build-native-add-clean",
+    "complete": true,
+    "samples": [
+      {
+        "label": "build-native-add-clean-0",
+        "command": [
+          "cargo",
+          "build",
+          "--offline",
+          "--locked",
+          "--release",
+          "--manifest-path",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/add-0/native/Cargo.toml",
+          "--target-dir",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-add-clean-0"
+        ],
+        "fresh_target": "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-add-clean-0",
+        "artifact": "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-add-clean-0/release/session",
+        "status": "complete",
+        "exit": 0,
+        "wall_ns": 2174648092,
+        "first_response_ns": null,
+        "peak_rss_kib": 186748,
+        "cwd": "/home/ahart/Documents/CHRLang",
+        "stdout": "",
+        "stderr": "   Compiling chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax)\n   Compiling chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe)\n   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)\n   Compiling session v0.0.0 (/tmp/chr-recursive-lifecycle-ptakpll0/add-0/native)\nwarning: method `answer` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:193:8\n    |\n110 | impl<'a> Decoder<'a> {\n    | -------------------- method in this implementation\n...\n193 |     fn answer(&mut self) -> Result<Answer, String> {\n    |        ^^^^^^\n    |\n    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default\n\nwarning: function `encode_query` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:213:8\n    |\n213 | pub fn encode_query(q: &Query) -> Result<Vec<u8>, String> {\n    |        ^^^^^^^^^^^^\n\nwarning: function `decode_response` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:262:8\n    |\n262 | pub fn decode_response(bytes: &[u8]) -> Result<Response, String> {\n    |        ^^^^^^^^^^^^^^^\n\nwarning: `session` (bin \"session\") generated 3 warnings\n    Finished `release` profile [optimized] target(s) in 2.16s\n"
+      },
+      {
+        "label": "build-native-add-clean-1",
+        "command": [
+          "cargo",
+          "build",
+          "--offline",
+          "--locked",
+          "--release",
+          "--manifest-path",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/add-1/native/Cargo.toml",
+          "--target-dir",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-add-clean-1"
+        ],
+        "fresh_target": "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-add-clean-1",
+        "artifact": "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-add-clean-1/release/session",
+        "status": "complete",
+        "exit": 0,
+        "wall_ns": 2195649229,
+        "first_response_ns": null,
+        "peak_rss_kib": 186484,
+        "cwd": "/home/ahart/Documents/CHRLang",
+        "stdout": "",
+        "stderr": "   Compiling chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax)\n   Compiling chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe)\n   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)\n   Compiling session v0.0.0 (/tmp/chr-recursive-lifecycle-ptakpll0/add-1/native)\nwarning: method `answer` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:193:8\n    |\n110 | impl<'a> Decoder<'a> {\n    | -------------------- method in this implementation\n...\n193 |     fn answer(&mut self) -> Result<Answer, String> {\n    |        ^^^^^^\n    |\n    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default\n\nwarning: function `encode_query` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:213:8\n    |\n213 | pub fn encode_query(q: &Query) -> Result<Vec<u8>, String> {\n    |        ^^^^^^^^^^^^\n\nwarning: function `decode_response` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:262:8\n    |\n262 | pub fn decode_response(bytes: &[u8]) -> Result<Response, String> {\n    |        ^^^^^^^^^^^^^^^\n\nwarning: `session` (bin \"session\") generated 3 warnings\n    Finished `release` profile [optimized] target(s) in 2.18s\n"
+      },
+      {
+        "label": "build-native-add-clean-2",
+        "command": [
+          "cargo",
+          "build",
+          "--offline",
+          "--locked",
+          "--release",
+          "--manifest-path",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/add-2/native/Cargo.toml",
+          "--target-dir",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-add-clean-2"
+        ],
+        "fresh_target": "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-add-clean-2",
+        "artifact": "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-add-clean-2/release/session",
+        "status": "complete",
+        "exit": 0,
+        "wall_ns": 2206222057,
+        "first_response_ns": null,
+        "peak_rss_kib": 185988,
+        "cwd": "/home/ahart/Documents/CHRLang",
+        "stdout": "",
+        "stderr": "   Compiling chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax)\n   Compiling chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe)\n   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)\n   Compiling session v0.0.0 (/tmp/chr-recursive-lifecycle-ptakpll0/add-2/native)\nwarning: method `answer` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:193:8\n    |\n110 | impl<'a> Decoder<'a> {\n    | -------------------- method in this implementation\n...\n193 |     fn answer(&mut self) -> Result<Answer, String> {\n    |        ^^^^^^\n    |\n    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default\n\nwarning: function `encode_query` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:213:8\n    |\n213 | pub fn encode_query(q: &Query) -> Result<Vec<u8>, String> {\n    |        ^^^^^^^^^^^^\n\nwarning: function `decode_response` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:262:8\n    |\n262 | pub fn decode_response(bytes: &[u8]) -> Result<Response, String> {\n    |        ^^^^^^^^^^^^^^^\n\nwarning: `session` (bin \"session\") generated 3 warnings\n    Finished `release` profile [optimized] target(s) in 2.19s\n"
+      }
+    ],
+    "wall_ns": {
+      "min": 2174648092,
+      "median": 2195649229,
+      "max": 2206222057
+    },
+    "peak_rss_kib": {
+      "min": 185988,
+      "median": 186484,
+      "max": 186748
+    }
+  },
+  {
+    "group": "build-native-add-seeded",
+    "complete": true,
+    "samples": [
+      {
+        "label": "build-native-add-seeded-1",
+        "command": [
+          "cargo",
+          "build",
+          "--offline",
+          "--locked",
+          "--release",
+          "--manifest-path",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/add-1/native/Cargo.toml",
+          "--target-dir",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-add-seeded-1"
+        ],
+        "fresh_target": null,
+        "artifact": "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-add-seeded-1/release/session",
+        "status": "complete",
+        "exit": 0,
+        "wall_ns": 492330956,
+        "first_response_ns": null,
+        "peak_rss_kib": 161624,
+        "cwd": "/home/ahart/Documents/CHRLang",
+        "stdout": "",
+        "stderr": "   Compiling session v0.0.0 (/tmp/chr-recursive-lifecycle-ptakpll0/add-1/native)\nwarning: method `answer` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:193:8\n    |\n110 | impl<'a> Decoder<'a> {\n    | -------------------- method in this implementation\n...\n193 |     fn answer(&mut self) -> Result<Answer, String> {\n    |        ^^^^^^\n    |\n    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default\n\nwarning: function `encode_query` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:213:8\n    |\n213 | pub fn encode_query(q: &Query) -> Result<Vec<u8>, String> {\n    |        ^^^^^^^^^^^^\n\nwarning: function `decode_response` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:262:8\n    |\n262 | pub fn decode_response(bytes: &[u8]) -> Result<Response, String> {\n    |        ^^^^^^^^^^^^^^^\n\nwarning: `session` (bin \"session\") generated 3 warnings\n    Finished `release` profile [optimized] target(s) in 0.48s\n"
+      },
+      {
+        "label": "build-native-add-seeded-0",
+        "command": [
+          "cargo",
+          "build",
+          "--offline",
+          "--locked",
+          "--release",
+          "--manifest-path",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/add-0/native/Cargo.toml",
+          "--target-dir",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-add-seeded-0"
+        ],
+        "fresh_target": null,
+        "artifact": "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-add-seeded-0/release/session",
+        "status": "complete",
+        "exit": 0,
+        "wall_ns": 501107710,
+        "first_response_ns": null,
+        "peak_rss_kib": 161688,
+        "cwd": "/home/ahart/Documents/CHRLang",
+        "stdout": "",
+        "stderr": "   Compiling session v0.0.0 (/tmp/chr-recursive-lifecycle-ptakpll0/add-0/native)\nwarning: method `answer` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:193:8\n    |\n110 | impl<'a> Decoder<'a> {\n    | -------------------- method in this implementation\n...\n193 |     fn answer(&mut self) -> Result<Answer, String> {\n    |        ^^^^^^\n    |\n    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default\n\nwarning: function `encode_query` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:213:8\n    |\n213 | pub fn encode_query(q: &Query) -> Result<Vec<u8>, String> {\n    |        ^^^^^^^^^^^^\n\nwarning: function `decode_response` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:262:8\n    |\n262 | pub fn decode_response(bytes: &[u8]) -> Result<Response, String> {\n    |        ^^^^^^^^^^^^^^^\n\nwarning: `session` (bin \"session\") generated 3 warnings\n    Finished `release` profile [optimized] target(s) in 0.49s\n"
+      },
+      {
+        "label": "build-native-add-seeded-2",
+        "command": [
+          "cargo",
+          "build",
+          "--offline",
+          "--locked",
+          "--release",
+          "--manifest-path",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/add-2/native/Cargo.toml",
+          "--target-dir",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-add-seeded-2"
+        ],
+        "fresh_target": null,
+        "artifact": "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-add-seeded-2/release/session",
+        "status": "complete",
+        "exit": 0,
+        "wall_ns": 496534194,
+        "first_response_ns": null,
+        "peak_rss_kib": 161628,
+        "cwd": "/home/ahart/Documents/CHRLang",
+        "stdout": "",
+        "stderr": "   Compiling session v0.0.0 (/tmp/chr-recursive-lifecycle-ptakpll0/add-2/native)\nwarning: method `answer` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:193:8\n    |\n110 | impl<'a> Decoder<'a> {\n    | -------------------- method in this implementation\n...\n193 |     fn answer(&mut self) -> Result<Answer, String> {\n    |        ^^^^^^\n    |\n    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default\n\nwarning: function `encode_query` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:213:8\n    |\n213 | pub fn encode_query(q: &Query) -> Result<Vec<u8>, String> {\n    |        ^^^^^^^^^^^^\n\nwarning: function `decode_response` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:262:8\n    |\n262 | pub fn decode_response(bytes: &[u8]) -> Result<Response, String> {\n    |        ^^^^^^^^^^^^^^^\n\nwarning: `session` (bin \"session\") generated 3 warnings\n    Finished `release` profile [optimized] target(s) in 0.48s\n"
+      }
+    ],
+    "wall_ns": {
+      "min": 492330956,
+      "median": 496534194,
+      "max": 501107710
+    },
+    "peak_rss_kib": {
+      "min": 161624,
+      "median": 161628,
+      "max": 161688
+    }
+  },
+  {
+    "group": "build-native-fresh-clean",
+    "complete": true,
+    "samples": [
+      {
+        "label": "build-native-fresh-clean-0",
+        "command": [
+          "cargo",
+          "build",
+          "--offline",
+          "--locked",
+          "--release",
+          "--manifest-path",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/fresh-0/native/Cargo.toml",
+          "--target-dir",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-fresh-clean-0"
+        ],
+        "fresh_target": "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-fresh-clean-0",
+        "artifact": "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-fresh-clean-0/release/session",
+        "status": "complete",
+        "exit": 0,
+        "wall_ns": 2203931236,
+        "first_response_ns": null,
+        "peak_rss_kib": 186872,
+        "cwd": "/home/ahart/Documents/CHRLang",
+        "stdout": "",
+        "stderr": "   Compiling chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax)\n   Compiling chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe)\n   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)\n   Compiling session v0.0.0 (/tmp/chr-recursive-lifecycle-ptakpll0/fresh-0/native)\nwarning: method `answer` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:193:8\n    |\n110 | impl<'a> Decoder<'a> {\n    | -------------------- method in this implementation\n...\n193 |     fn answer(&mut self) -> Result<Answer, String> {\n    |        ^^^^^^\n    |\n    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default\n\nwarning: function `encode_query` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:213:8\n    |\n213 | pub fn encode_query(q: &Query) -> Result<Vec<u8>, String> {\n    |        ^^^^^^^^^^^^\n\nwarning: function `decode_response` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:262:8\n    |\n262 | pub fn decode_response(bytes: &[u8]) -> Result<Response, String> {\n    |        ^^^^^^^^^^^^^^^\n\nwarning: `session` (bin \"session\") generated 3 warnings\n    Finished `release` profile [optimized] target(s) in 2.19s\n"
+      },
+      {
+        "label": "build-native-fresh-clean-2",
+        "command": [
+          "cargo",
+          "build",
+          "--offline",
+          "--locked",
+          "--release",
+          "--manifest-path",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/fresh-2/native/Cargo.toml",
+          "--target-dir",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-fresh-clean-2"
+        ],
+        "fresh_target": "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-fresh-clean-2",
+        "artifact": "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-fresh-clean-2/release/session",
+        "status": "complete",
+        "exit": 0,
+        "wall_ns": 2205207604,
+        "first_response_ns": null,
+        "peak_rss_kib": 186404,
+        "cwd": "/home/ahart/Documents/CHRLang",
+        "stdout": "",
+        "stderr": "   Compiling chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax)\n   Compiling chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe)\n   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)\n   Compiling session v0.0.0 (/tmp/chr-recursive-lifecycle-ptakpll0/fresh-2/native)\nwarning: method `answer` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:193:8\n    |\n110 | impl<'a> Decoder<'a> {\n    | -------------------- method in this implementation\n...\n193 |     fn answer(&mut self) -> Result<Answer, String> {\n    |        ^^^^^^\n    |\n    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default\n\nwarning: function `encode_query` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:213:8\n    |\n213 | pub fn encode_query(q: &Query) -> Result<Vec<u8>, String> {\n    |        ^^^^^^^^^^^^\n\nwarning: function `decode_response` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:262:8\n    |\n262 | pub fn decode_response(bytes: &[u8]) -> Result<Response, String> {\n    |        ^^^^^^^^^^^^^^^\n\nwarning: `session` (bin \"session\") generated 3 warnings\n    Finished `release` profile [optimized] target(s) in 2.19s\n"
+      },
+      {
+        "label": "build-native-fresh-clean-1",
+        "command": [
+          "cargo",
+          "build",
+          "--offline",
+          "--locked",
+          "--release",
+          "--manifest-path",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/fresh-1/native/Cargo.toml",
+          "--target-dir",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-fresh-clean-1"
+        ],
+        "fresh_target": "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-fresh-clean-1",
+        "artifact": "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-fresh-clean-1/release/session",
+        "status": "complete",
+        "exit": 0,
+        "wall_ns": 2212101495,
+        "first_response_ns": null,
+        "peak_rss_kib": 186088,
+        "cwd": "/home/ahart/Documents/CHRLang",
+        "stdout": "",
+        "stderr": "   Compiling chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax)\n   Compiling chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe)\n   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)\n   Compiling session v0.0.0 (/tmp/chr-recursive-lifecycle-ptakpll0/fresh-1/native)\nwarning: method `answer` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:193:8\n    |\n110 | impl<'a> Decoder<'a> {\n    | -------------------- method in this implementation\n...\n193 |     fn answer(&mut self) -> Result<Answer, String> {\n    |        ^^^^^^\n    |\n    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default\n\nwarning: function `encode_query` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:213:8\n    |\n213 | pub fn encode_query(q: &Query) -> Result<Vec<u8>, String> {\n    |        ^^^^^^^^^^^^\n\nwarning: function `decode_response` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:262:8\n    |\n262 | pub fn decode_response(bytes: &[u8]) -> Result<Response, String> {\n    |        ^^^^^^^^^^^^^^^\n\nwarning: `session` (bin \"session\") generated 3 warnings\n    Finished `release` profile [optimized] target(s) in 2.20s\n"
+      }
+    ],
+    "wall_ns": {
+      "min": 2203931236,
+      "median": 2205207604,
+      "max": 2212101495
+    },
+    "peak_rss_kib": {
+      "min": 186088,
+      "median": 186404,
+      "max": 186872
+    }
+  },
+  {
+    "group": "build-native-fresh-seeded",
+    "complete": true,
+    "samples": [
+      {
+        "label": "build-native-fresh-seeded-2",
+        "command": [
+          "cargo",
+          "build",
+          "--offline",
+          "--locked",
+          "--release",
+          "--manifest-path",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/fresh-2/native/Cargo.toml",
+          "--target-dir",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-fresh-seeded-2"
+        ],
+        "fresh_target": null,
+        "artifact": "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-fresh-seeded-2/release/session",
+        "status": "complete",
+        "exit": 0,
+        "wall_ns": 508313443,
+        "first_response_ns": null,
+        "peak_rss_kib": 161644,
+        "cwd": "/home/ahart/Documents/CHRLang",
+        "stdout": "",
+        "stderr": "   Compiling session v0.0.0 (/tmp/chr-recursive-lifecycle-ptakpll0/fresh-2/native)\nwarning: method `answer` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:193:8\n    |\n110 | impl<'a> Decoder<'a> {\n    | -------------------- method in this implementation\n...\n193 |     fn answer(&mut self) -> Result<Answer, String> {\n    |        ^^^^^^\n    |\n    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default\n\nwarning: function `encode_query` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:213:8\n    |\n213 | pub fn encode_query(q: &Query) -> Result<Vec<u8>, String> {\n    |        ^^^^^^^^^^^^\n\nwarning: function `decode_response` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:262:8\n    |\n262 | pub fn decode_response(bytes: &[u8]) -> Result<Response, String> {\n    |        ^^^^^^^^^^^^^^^\n\nwarning: `session` (bin \"session\") generated 3 warnings\n    Finished `release` profile [optimized] target(s) in 0.50s\n"
+      },
+      {
+        "label": "build-native-fresh-seeded-1",
+        "command": [
+          "cargo",
+          "build",
+          "--offline",
+          "--locked",
+          "--release",
+          "--manifest-path",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/fresh-1/native/Cargo.toml",
+          "--target-dir",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-fresh-seeded-1"
+        ],
+        "fresh_target": null,
+        "artifact": "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-fresh-seeded-1/release/session",
+        "status": "complete",
+        "exit": 0,
+        "wall_ns": 504868345,
+        "first_response_ns": null,
+        "peak_rss_kib": 161708,
+        "cwd": "/home/ahart/Documents/CHRLang",
+        "stdout": "",
+        "stderr": "   Compiling session v0.0.0 (/tmp/chr-recursive-lifecycle-ptakpll0/fresh-1/native)\nwarning: method `answer` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:193:8\n    |\n110 | impl<'a> Decoder<'a> {\n    | -------------------- method in this implementation\n...\n193 |     fn answer(&mut self) -> Result<Answer, String> {\n    |        ^^^^^^\n    |\n    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default\n\nwarning: function `encode_query` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:213:8\n    |\n213 | pub fn encode_query(q: &Query) -> Result<Vec<u8>, String> {\n    |        ^^^^^^^^^^^^\n\nwarning: function `decode_response` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:262:8\n    |\n262 | pub fn decode_response(bytes: &[u8]) -> Result<Response, String> {\n    |        ^^^^^^^^^^^^^^^\n\nwarning: `session` (bin \"session\") generated 3 warnings\n    Finished `release` profile [optimized] target(s) in 0.49s\n"
+      },
+      {
+        "label": "build-native-fresh-seeded-0",
+        "command": [
+          "cargo",
+          "build",
+          "--offline",
+          "--locked",
+          "--release",
+          "--manifest-path",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/fresh-0/native/Cargo.toml",
+          "--target-dir",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-fresh-seeded-0"
+        ],
+        "fresh_target": null,
+        "artifact": "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-fresh-seeded-0/release/session",
+        "status": "complete",
+        "exit": 0,
+        "wall_ns": 509838599,
+        "first_response_ns": null,
+        "peak_rss_kib": 161696,
+        "cwd": "/home/ahart/Documents/CHRLang",
+        "stdout": "",
+        "stderr": "   Compiling session v0.0.0 (/tmp/chr-recursive-lifecycle-ptakpll0/fresh-0/native)\nwarning: method `answer` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:193:8\n    |\n110 | impl<'a> Decoder<'a> {\n    | -------------------- method in this implementation\n...\n193 |     fn answer(&mut self) -> Result<Answer, String> {\n    |        ^^^^^^\n    |\n    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default\n\nwarning: function `encode_query` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:213:8\n    |\n213 | pub fn encode_query(q: &Query) -> Result<Vec<u8>, String> {\n    |        ^^^^^^^^^^^^\n\nwarning: function `decode_response` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:262:8\n    |\n262 | pub fn decode_response(bytes: &[u8]) -> Result<Response, String> {\n    |        ^^^^^^^^^^^^^^^\n\nwarning: `session` (bin \"session\") generated 3 warnings\n    Finished `release` profile [optimized] target(s) in 0.50s\n"
+      }
+    ],
+    "wall_ns": {
+      "min": 504868345,
+      "median": 508313443,
+      "max": 509838599
+    },
+    "peak_rss_kib": {
+      "min": 161644,
+      "median": 161696,
+      "max": 161708
+    }
+  },
+  {
+    "group": "generate-add",
+    "complete": true,
+    "samples": [
+      {
+        "label": "generate-add-1",
+        "command": [
+          "/tmp/chr-recursive-lifecycle-ptakpll0/emitter-target/release/examples/recursive_session_packages",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/add-1",
+          "add"
+        ],
+        "package_dir": "/tmp/chr-recursive-lifecycle-ptakpll0/add-1",
+        "status": "complete",
+        "exit": 0,
+        "wall_ns": 2695169,
+        "first_response_ns": null,
+        "peak_rss_kib": 2176,
+        "cwd": "/home/ahart/Documents/CHRLang",
+        "stdout": "{\"fixture_ns\":1861,\"certificate_ns\":3866,\"emit_ns\":7544,\"package_write_ns\":218229,\"total_ns\":243525}\n",
+        "stderr": "",
+        "phases": {
+          "fixture_ns": 1861,
+          "certificate_ns": 3866,
+          "emit_ns": 7544,
+          "package_write_ns": 218229,
+          "total_ns": 243525
+        }
+      },
+      {
+        "label": "generate-add-2",
+        "command": [
+          "/tmp/chr-recursive-lifecycle-ptakpll0/emitter-target/release/examples/recursive_session_packages",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/add-2",
+          "add"
+        ],
+        "package_dir": "/tmp/chr-recursive-lifecycle-ptakpll0/add-2",
+        "status": "complete",
+        "exit": 0,
+        "wall_ns": 3126703,
+        "first_response_ns": null,
+        "peak_rss_kib": 2048,
+        "cwd": "/home/ahart/Documents/CHRLang",
+        "stdout": "{\"fixture_ns\":1945,\"certificate_ns\":4126,\"emit_ns\":10394,\"package_write_ns\":257204,\"total_ns\":291295}\n",
+        "stderr": "",
+        "phases": {
+          "fixture_ns": 1945,
+          "certificate_ns": 4126,
+          "emit_ns": 10394,
+          "package_write_ns": 257204,
+          "total_ns": 291295
+        }
+      },
+      {
+        "label": "generate-add-0",
+        "command": [
+          "/tmp/chr-recursive-lifecycle-ptakpll0/emitter-target/release/examples/recursive_session_packages",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/add-0",
+          "add"
+        ],
+        "package_dir": "/tmp/chr-recursive-lifecycle-ptakpll0/add-0",
+        "status": "complete",
+        "exit": 0,
+        "wall_ns": 2701415,
+        "first_response_ns": null,
+        "peak_rss_kib": 2048,
+        "cwd": "/home/ahart/Documents/CHRLang",
+        "stdout": "{\"fixture_ns\":2091,\"certificate_ns\":4647,\"emit_ns\":8657,\"package_write_ns\":228972,\"total_ns\":263982}\n",
+        "stderr": "",
+        "phases": {
+          "fixture_ns": 2091,
+          "certificate_ns": 4647,
+          "emit_ns": 8657,
+          "package_write_ns": 228972,
+          "total_ns": 263982
+        }
+      }
+    ],
+    "wall_ns": {
+      "min": 2695169,
+      "median": 2701415,
+      "max": 3126703
+    },
+    "peak_rss_kib": {
+      "min": 2048,
+      "median": 2048,
+      "max": 2176
+    }
+  },
+  {
+    "group": "generate-fresh",
+    "complete": true,
+    "samples": [
+      {
+        "label": "generate-fresh-0",
+        "command": [
+          "/tmp/chr-recursive-lifecycle-ptakpll0/emitter-target/release/examples/recursive_session_packages",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/fresh-0",
+          "fresh"
+        ],
+        "package_dir": "/tmp/chr-recursive-lifecycle-ptakpll0/fresh-0",
+        "status": "complete",
+        "exit": 0,
+        "wall_ns": 2637903,
+        "first_response_ns": null,
+        "peak_rss_kib": 2176,
+        "cwd": "/home/ahart/Documents/CHRLang",
+        "stdout": "{\"fixture_ns\":2390,\"certificate_ns\":4281,\"emit_ns\":10024,\"package_write_ns\":244469,\"total_ns\":271259}\n",
+        "stderr": "",
+        "phases": {
+          "fixture_ns": 2390,
+          "certificate_ns": 4281,
+          "emit_ns": 10024,
+          "package_write_ns": 244469,
+          "total_ns": 271259
+        }
+      },
+      {
+        "label": "generate-fresh-1",
+        "command": [
+          "/tmp/chr-recursive-lifecycle-ptakpll0/emitter-target/release/examples/recursive_session_packages",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/fresh-1",
+          "fresh"
+        ],
+        "package_dir": "/tmp/chr-recursive-lifecycle-ptakpll0/fresh-1",
+        "status": "complete",
+        "exit": 0,
+        "wall_ns": 2972334,
+        "first_response_ns": null,
+        "peak_rss_kib": 2176,
+        "cwd": "/home/ahart/Documents/CHRLang",
+        "stdout": "{\"fixture_ns\":2421,\"certificate_ns\":4002,\"emit_ns\":13450,\"package_write_ns\":273561,\"total_ns\":304987}\n",
+        "stderr": "",
+        "phases": {
+          "fixture_ns": 2421,
+          "certificate_ns": 4002,
+          "emit_ns": 13450,
+          "package_write_ns": 273561,
+          "total_ns": 304987
+        }
+      },
+      {
+        "label": "generate-fresh-2",
+        "command": [
+          "/tmp/chr-recursive-lifecycle-ptakpll0/emitter-target/release/examples/recursive_session_packages",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/fresh-2",
+          "fresh"
+        ],
+        "package_dir": "/tmp/chr-recursive-lifecycle-ptakpll0/fresh-2",
+        "status": "complete",
+        "exit": 0,
+        "wall_ns": 2807463,
+        "first_response_ns": null,
+        "peak_rss_kib": 2176,
+        "cwd": "/home/ahart/Documents/CHRLang",
+        "stdout": "{\"fixture_ns\":1829,\"certificate_ns\":3749,\"emit_ns\":9333,\"package_write_ns\":225165,\"total_ns\":250543}\n",
+        "stderr": "",
+        "phases": {
+          "fixture_ns": 1829,
+          "certificate_ns": 3749,
+          "emit_ns": 9333,
+          "package_write_ns": 225165,
+          "total_ns": 250543
+        }
+      }
+    ],
+    "wall_ns": {
+      "min": 2637903,
+      "median": 2807463,
+      "max": 2972334
+    },
+    "peak_rss_kib": {
+      "min": 2176,
+      "median": 2176,
+      "max": 2176
+    }
+  },
+  {
+    "group": "install-direct",
+    "complete": true,
+    "samples": [
+      {
+        "label": "install-direct-2",
+        "command": [
+          "cargo",
+          "build",
+          "--offline",
+          "--locked",
+          "--release",
+          "--manifest-path",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/add-2/direct/Cargo.toml",
+          "--target-dir",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/target-direct-2"
+        ],
+        "fresh_target": "/tmp/chr-recursive-lifecycle-ptakpll0/target-direct-2",
+        "artifact": "/tmp/chr-recursive-lifecycle-ptakpll0/target-direct-2/release/session",
+        "status": "complete",
+        "exit": 0,
+        "wall_ns": 7863853727,
+        "first_response_ns": null,
+        "peak_rss_kib": 284148,
+        "cwd": "/home/ahart/Documents/CHRLang",
+        "stdout": "",
+        "stderr": "   Compiling chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax)\n   Compiling chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe)\n   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)\n   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)\n   Compiling session v0.0.0 (/tmp/chr-recursive-lifecycle-ptakpll0/add-2/direct)\nwarning: method `answer` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:193:8\n    |\n110 | impl<'a> Decoder<'a> {\n    | -------------------- method in this implementation\n...\n193 |     fn answer(&mut self) -> Result<Answer, String> {\n    |        ^^^^^^\n    |\n    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default\n\nwarning: function `encode_query` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:213:8\n    |\n213 | pub fn encode_query(q: &Query) -> Result<Vec<u8>, String> {\n    |        ^^^^^^^^^^^^\n\nwarning: function `decode_response` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:262:8\n    |\n262 | pub fn decode_response(bytes: &[u8]) -> Result<Response, String> {\n    |        ^^^^^^^^^^^^^^^\n\nwarning: `session` (bin \"session\") generated 3 warnings\n    Finished `release` profile [optimized] target(s) in 7.85s\n"
+      },
+      {
+        "label": "install-direct-1",
+        "command": [
+          "cargo",
+          "build",
+          "--offline",
+          "--locked",
+          "--release",
+          "--manifest-path",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/add-1/direct/Cargo.toml",
+          "--target-dir",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/target-direct-1"
+        ],
+        "fresh_target": "/tmp/chr-recursive-lifecycle-ptakpll0/target-direct-1",
+        "artifact": "/tmp/chr-recursive-lifecycle-ptakpll0/target-direct-1/release/session",
+        "status": "complete",
+        "exit": 0,
+        "wall_ns": 7993989210,
+        "first_response_ns": null,
+        "peak_rss_kib": 284196,
+        "cwd": "/home/ahart/Documents/CHRLang",
+        "stdout": "",
+        "stderr": "   Compiling chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax)\n   Compiling chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe)\n   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)\n   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)\n   Compiling session v0.0.0 (/tmp/chr-recursive-lifecycle-ptakpll0/add-1/direct)\nwarning: method `answer` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:193:8\n    |\n110 | impl<'a> Decoder<'a> {\n    | -------------------- method in this implementation\n...\n193 |     fn answer(&mut self) -> Result<Answer, String> {\n    |        ^^^^^^\n    |\n    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default\n\nwarning: function `encode_query` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:213:8\n    |\n213 | pub fn encode_query(q: &Query) -> Result<Vec<u8>, String> {\n    |        ^^^^^^^^^^^^\n\nwarning: function `decode_response` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:262:8\n    |\n262 | pub fn decode_response(bytes: &[u8]) -> Result<Response, String> {\n    |        ^^^^^^^^^^^^^^^\n\nwarning: `session` (bin \"session\") generated 3 warnings\n    Finished `release` profile [optimized] target(s) in 7.98s\n"
+      },
+      {
+        "label": "install-direct-0",
+        "command": [
+          "cargo",
+          "build",
+          "--offline",
+          "--locked",
+          "--release",
+          "--manifest-path",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/add-0/direct/Cargo.toml",
+          "--target-dir",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/target-direct-0"
+        ],
+        "fresh_target": "/tmp/chr-recursive-lifecycle-ptakpll0/target-direct-0",
+        "artifact": "/tmp/chr-recursive-lifecycle-ptakpll0/target-direct-0/release/session",
+        "status": "complete",
+        "exit": 0,
+        "wall_ns": 7966224728,
+        "first_response_ns": null,
+        "peak_rss_kib": 284296,
+        "cwd": "/home/ahart/Documents/CHRLang",
+        "stdout": "",
+        "stderr": "   Compiling chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax)\n   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)\n   Compiling chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe)\n   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)\n   Compiling session v0.0.0 (/tmp/chr-recursive-lifecycle-ptakpll0/add-0/direct)\nwarning: method `answer` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:193:8\n    |\n110 | impl<'a> Decoder<'a> {\n    | -------------------- method in this implementation\n...\n193 |     fn answer(&mut self) -> Result<Answer, String> {\n    |        ^^^^^^\n    |\n    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default\n\nwarning: function `encode_query` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:213:8\n    |\n213 | pub fn encode_query(q: &Query) -> Result<Vec<u8>, String> {\n    |        ^^^^^^^^^^^^\n\nwarning: function `decode_response` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:262:8\n    |\n262 | pub fn decode_response(bytes: &[u8]) -> Result<Response, String> {\n    |        ^^^^^^^^^^^^^^^\n\nwarning: `session` (bin \"session\") generated 3 warnings\n    Finished `release` profile [optimized] target(s) in 7.95s\n"
+      }
+    ],
+    "wall_ns": {
+      "min": 7863853727,
+      "median": 7966224728,
+      "max": 7993989210
+    },
+    "peak_rss_kib": {
+      "min": 284148,
+      "median": 284196,
+      "max": 284296
+    }
+  },
+  {
+    "group": "install-specialized",
+    "complete": true,
+    "samples": [
+      {
+        "label": "install-specialized-1",
+        "command": [
+          "cargo",
+          "build",
+          "--offline",
+          "--locked",
+          "--release",
+          "--manifest-path",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/add-1/specialized/Cargo.toml",
+          "--target-dir",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/target-specialized-1"
+        ],
+        "fresh_target": "/tmp/chr-recursive-lifecycle-ptakpll0/target-specialized-1",
+        "artifact": "/tmp/chr-recursive-lifecycle-ptakpll0/target-specialized-1/release/session",
+        "status": "complete",
+        "exit": 0,
+        "wall_ns": 8244720480,
+        "first_response_ns": null,
+        "peak_rss_kib": 284408,
+        "cwd": "/home/ahart/Documents/CHRLang",
+        "stdout": "",
+        "stderr": "   Compiling chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax)\n   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)\n   Compiling chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe)\n   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)\n   Compiling session v0.0.0 (/tmp/chr-recursive-lifecycle-ptakpll0/add-1/specialized)\nwarning: variant `Unsupported` is never constructed\n  --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:29:5\n   |\n26 | pub enum Response {\n   |          -------- variant in this enum\n...\n29 |     Unsupported(String),\n   |     ^^^^^^^^^^^\n   |\n   = note: `Response` has derived impls for the traits `Debug` and `Clone`, but these are intentionally ignored during dead code analysis\n   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default\n\nwarning: method `answer` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:193:8\n    |\n110 | impl<'a> Decoder<'a> {\n    | -------------------- method in this implementation\n...\n193 |     fn answer(&mut self) -> Result<Answer, String> {\n    |        ^^^^^^\n\nwarning: function `encode_query` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:213:8\n    |\n213 | pub fn encode_query(q: &Query) -> Result<Vec<u8>, String> {\n    |        ^^^^^^^^^^^^\n\nwarning: function `decode_response` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:262:8\n    |\n262 | pub fn decode_response(bytes: &[u8]) -> Result<Response, String> {\n    |        ^^^^^^^^^^^^^^^\n\nwarning: `session` (bin \"session\") generated 4 warnings\n    Finished `release` profile [optimized] target(s) in 8.23s\n"
+      },
+      {
+        "label": "install-specialized-0",
+        "command": [
+          "cargo",
+          "build",
+          "--offline",
+          "--locked",
+          "--release",
+          "--manifest-path",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/add-0/specialized/Cargo.toml",
+          "--target-dir",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/target-specialized-0"
+        ],
+        "fresh_target": "/tmp/chr-recursive-lifecycle-ptakpll0/target-specialized-0",
+        "artifact": "/tmp/chr-recursive-lifecycle-ptakpll0/target-specialized-0/release/session",
+        "status": "complete",
+        "exit": 0,
+        "wall_ns": 8309741548,
+        "first_response_ns": null,
+        "peak_rss_kib": 287248,
+        "cwd": "/home/ahart/Documents/CHRLang",
+        "stdout": "",
+        "stderr": "   Compiling chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax)\n   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)\n   Compiling chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe)\n   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)\n   Compiling session v0.0.0 (/tmp/chr-recursive-lifecycle-ptakpll0/add-0/specialized)\nwarning: variant `Unsupported` is never constructed\n  --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:29:5\n   |\n26 | pub enum Response {\n   |          -------- variant in this enum\n...\n29 |     Unsupported(String),\n   |     ^^^^^^^^^^^\n   |\n   = note: `Response` has derived impls for the traits `Debug` and `Clone`, but these are intentionally ignored during dead code analysis\n   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default\n\nwarning: method `answer` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:193:8\n    |\n110 | impl<'a> Decoder<'a> {\n    | -------------------- method in this implementation\n...\n193 |     fn answer(&mut self) -> Result<Answer, String> {\n    |        ^^^^^^\n\nwarning: function `encode_query` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:213:8\n    |\n213 | pub fn encode_query(q: &Query) -> Result<Vec<u8>, String> {\n    |        ^^^^^^^^^^^^\n\nwarning: function `decode_response` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:262:8\n    |\n262 | pub fn decode_response(bytes: &[u8]) -> Result<Response, String> {\n    |        ^^^^^^^^^^^^^^^\n\nwarning: `session` (bin \"session\") generated 4 warnings\n    Finished `release` profile [optimized] target(s) in 8.30s\n"
+      },
+      {
+        "label": "install-specialized-2",
+        "command": [
+          "cargo",
+          "build",
+          "--offline",
+          "--locked",
+          "--release",
+          "--manifest-path",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/add-2/specialized/Cargo.toml",
+          "--target-dir",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/target-specialized-2"
+        ],
+        "fresh_target": "/tmp/chr-recursive-lifecycle-ptakpll0/target-specialized-2",
+        "artifact": "/tmp/chr-recursive-lifecycle-ptakpll0/target-specialized-2/release/session",
+        "status": "complete",
+        "exit": 0,
+        "wall_ns": 8334042203,
+        "first_response_ns": null,
+        "peak_rss_kib": 286420,
+        "cwd": "/home/ahart/Documents/CHRLang",
+        "stdout": "",
+        "stderr": "   Compiling chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax)\n   Compiling chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe)\n   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)\n   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)\n   Compiling session v0.0.0 (/tmp/chr-recursive-lifecycle-ptakpll0/add-2/specialized)\nwarning: variant `Unsupported` is never constructed\n  --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:29:5\n   |\n26 | pub enum Response {\n   |          -------- variant in this enum\n...\n29 |     Unsupported(String),\n   |     ^^^^^^^^^^^\n   |\n   = note: `Response` has derived impls for the traits `Debug` and `Clone`, but these are intentionally ignored during dead code analysis\n   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default\n\nwarning: method `answer` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:193:8\n    |\n110 | impl<'a> Decoder<'a> {\n    | -------------------- method in this implementation\n...\n193 |     fn answer(&mut self) -> Result<Answer, String> {\n    |        ^^^^^^\n\nwarning: function `encode_query` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:213:8\n    |\n213 | pub fn encode_query(q: &Query) -> Result<Vec<u8>, String> {\n    |        ^^^^^^^^^^^^\n\nwarning: function `decode_response` is never used\n   --> /home/ahart/Documents/CHRLang/research/chr-compiled/src/recursive/session.rs:262:8\n    |\n262 | pub fn decode_response(bytes: &[u8]) -> Result<Response, String> {\n    |        ^^^^^^^^^^^^^^^\n\nwarning: `session` (bin \"session\") generated 4 warnings\n    Finished `release` profile [optimized] target(s) in 8.32s\n"
+      }
+    ],
+    "wall_ns": {
+      "min": 8244720480,
+      "median": 8309741548,
+      "max": 8334042203
+    },
+    "peak_rss_kib": {
+      "min": 284408,
+      "median": 286420,
+      "max": 287248
+    }
+  },
+  {
+    "group": "prereq-native-add",
+    "complete": true,
+    "samples": [
+      {
+        "label": "prereq-native-add-1",
+        "command": [
+          "cargo",
+          "build",
+          "--offline",
+          "--locked",
+          "--release",
+          "--manifest-path",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/add-1/native-prereq/Cargo.toml",
+          "--target-dir",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-add-seeded-1"
+        ],
+        "fresh_target": "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-add-seeded-1",
+        "artifact": "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-add-seeded-1/release/prereq",
+        "status": "complete",
+        "exit": 0,
+        "wall_ns": 1750960272,
+        "first_response_ns": null,
+        "peak_rss_kib": 185996,
+        "cwd": "/home/ahart/Documents/CHRLang",
+        "stdout": "",
+        "stderr": "   Compiling chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax)\n   Compiling chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe)\n   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)\n   Compiling prereq v0.0.0 (/tmp/chr-recursive-lifecycle-ptakpll0/add-1/native-prereq)\n    Finished `release` profile [optimized] target(s) in 1.74s\n"
+      },
+      {
+        "label": "prereq-native-add-0",
+        "command": [
+          "cargo",
+          "build",
+          "--offline",
+          "--locked",
+          "--release",
+          "--manifest-path",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/add-0/native-prereq/Cargo.toml",
+          "--target-dir",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-add-seeded-0"
+        ],
+        "fresh_target": "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-add-seeded-0",
+        "artifact": "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-add-seeded-0/release/prereq",
+        "status": "complete",
+        "exit": 0,
+        "wall_ns": 1759740003,
+        "first_response_ns": null,
+        "peak_rss_kib": 186472,
+        "cwd": "/home/ahart/Documents/CHRLang",
+        "stdout": "",
+        "stderr": "   Compiling chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax)\n   Compiling chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe)\n   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)\n   Compiling prereq v0.0.0 (/tmp/chr-recursive-lifecycle-ptakpll0/add-0/native-prereq)\n    Finished `release` profile [optimized] target(s) in 1.75s\n"
+      },
+      {
+        "label": "prereq-native-add-2",
+        "command": [
+          "cargo",
+          "build",
+          "--offline",
+          "--locked",
+          "--release",
+          "--manifest-path",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/add-2/native-prereq/Cargo.toml",
+          "--target-dir",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-add-seeded-2"
+        ],
+        "fresh_target": "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-add-seeded-2",
+        "artifact": "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-add-seeded-2/release/prereq",
+        "status": "complete",
+        "exit": 0,
+        "wall_ns": 1766984643,
+        "first_response_ns": null,
+        "peak_rss_kib": 186364,
+        "cwd": "/home/ahart/Documents/CHRLang",
+        "stdout": "",
+        "stderr": "   Compiling chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax)\n   Compiling chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe)\n   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)\n   Compiling prereq v0.0.0 (/tmp/chr-recursive-lifecycle-ptakpll0/add-2/native-prereq)\n    Finished `release` profile [optimized] target(s) in 1.76s\n"
+      }
+    ],
+    "wall_ns": {
+      "min": 1750960272,
+      "median": 1759740003,
+      "max": 1766984643
+    },
+    "peak_rss_kib": {
+      "min": 185996,
+      "median": 186364,
+      "max": 186472
+    }
+  },
+  {
+    "group": "prereq-native-fresh",
+    "complete": true,
+    "samples": [
+      {
+        "label": "prereq-native-fresh-2",
+        "command": [
+          "cargo",
+          "build",
+          "--offline",
+          "--locked",
+          "--release",
+          "--manifest-path",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/fresh-2/native-prereq/Cargo.toml",
+          "--target-dir",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-fresh-seeded-2"
+        ],
+        "fresh_target": "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-fresh-seeded-2",
+        "artifact": "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-fresh-seeded-2/release/prereq",
+        "status": "complete",
+        "exit": 0,
+        "wall_ns": 1762484008,
+        "first_response_ns": null,
+        "peak_rss_kib": 186120,
+        "cwd": "/home/ahart/Documents/CHRLang",
+        "stdout": "",
+        "stderr": "   Compiling chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax)\n   Compiling chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe)\n   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)\n   Compiling prereq v0.0.0 (/tmp/chr-recursive-lifecycle-ptakpll0/fresh-2/native-prereq)\n    Finished `release` profile [optimized] target(s) in 1.75s\n"
+      },
+      {
+        "label": "prereq-native-fresh-1",
+        "command": [
+          "cargo",
+          "build",
+          "--offline",
+          "--locked",
+          "--release",
+          "--manifest-path",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/fresh-1/native-prereq/Cargo.toml",
+          "--target-dir",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-fresh-seeded-1"
+        ],
+        "fresh_target": "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-fresh-seeded-1",
+        "artifact": "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-fresh-seeded-1/release/prereq",
+        "status": "complete",
+        "exit": 0,
+        "wall_ns": 1755318555,
+        "first_response_ns": null,
+        "peak_rss_kib": 186260,
+        "cwd": "/home/ahart/Documents/CHRLang",
+        "stdout": "",
+        "stderr": "   Compiling chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax)\n   Compiling chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe)\n   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)\n   Compiling prereq v0.0.0 (/tmp/chr-recursive-lifecycle-ptakpll0/fresh-1/native-prereq)\n    Finished `release` profile [optimized] target(s) in 1.74s\n"
+      },
+      {
+        "label": "prereq-native-fresh-0",
+        "command": [
+          "cargo",
+          "build",
+          "--offline",
+          "--locked",
+          "--release",
+          "--manifest-path",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/fresh-0/native-prereq/Cargo.toml",
+          "--target-dir",
+          "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-fresh-seeded-0"
+        ],
+        "fresh_target": "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-fresh-seeded-0",
+        "artifact": "/tmp/chr-recursive-lifecycle-ptakpll0/target-native-fresh-seeded-0/release/prereq",
+        "status": "complete",
+        "exit": 0,
+        "wall_ns": 1754252922,
+        "first_response_ns": null,
+        "peak_rss_kib": 186352,
+        "cwd": "/home/ahart/Documents/CHRLang",
+        "stdout": "",
+        "stderr": "   Compiling chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax)\n   Compiling chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe)\n   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)\n   Compiling prereq v0.0.0 (/tmp/chr-recursive-lifecycle-ptakpll0/fresh-0/native-prereq)\n    Finished `release` profile [optimized] target(s) in 1.74s\n"
+      }
+    ],
+    "wall_ns": {
+      "min": 1754252922,
+      "median": 1755318555,
+      "max": 1762484008
+    },
+    "peak_rss_kib": {
+      "min": 186120,
+      "median": 186260,
+      "max": 186352
+    }
+  }
+]
