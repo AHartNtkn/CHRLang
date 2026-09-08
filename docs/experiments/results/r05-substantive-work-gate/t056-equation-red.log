@@ -1,0 +1,24 @@
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.49s
+     Running tests/equation_mixed.rs (target/debug/deps/equation_mixed-ccdb793ac44ae529)
+
+running 4 tests
+test full_oracle_rejects_alias_tuple_and_multiplicity_mutations ... ok
+
+thread 'naive_hoist_does_not_preserve_failed_source_tree' (131) panicked at research/chr-direct-conditional/tests/equation_mixed.rs:114:5:
+assertion `left == right` failed
+  left: (0, 1)
+ right: (0, 16)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test naive_hoist_does_not_preserve_failed_source_tree ... FAILED
+test specialized_source_replay_conserves_success_and_failed_lineages ... ok
+test conditional_equation_placements_complete_and_preserve_joint_aliases ... ok
+
+failures:
+
+failures:
+    naive_hoist_does_not_preserve_failed_source_tree
+
+test result: FAILED. 3 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.09s
+
+error: test failed, to rerun pass `-p chr-direct-conditional --test equation_mixed`
