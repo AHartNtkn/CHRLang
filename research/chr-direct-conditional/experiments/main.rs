@@ -148,19 +148,30 @@ struct Work {
     applications: u64,
     choices: u64,
     candidates: u64,
+    specialized_applications: u64,
+    cursor_steps: u64,
+    history_checks: u64,
 }
 impl Work {
     fn add(&mut self, stats: &chr_compiled::Stats) {
         if cfg!(feature = "metrics") {
             self.applications += stats.applications;
-            self.candidates += stats.candidate_visits;
+            self.candidates += stats.candidate_visits + stats.specialized_candidates;
+            self.specialized_applications += stats.specialized_applications;
+            self.cursor_steps += stats.cursor_steps;
+            self.history_checks += stats.history_checks;
         }
     }
     fn json(&self) -> String {
         if cfg!(feature = "metrics") {
             format!(
-                "{{\"applications\":{},\"choices\":{},\"candidates\":{}}}",
-                self.applications, self.choices, self.candidates
+                "{{\"applications\":{},\"choices\":{},\"candidates\":{},\"specialized_applications\":{},\"cursor_steps\":{},\"history_checks\":{}}}",
+                self.applications,
+                self.choices,
+                self.candidates,
+                self.specialized_applications,
+                self.cursor_steps,
+                self.history_checks
             )
         } else {
             "null".into()
@@ -235,7 +246,7 @@ fn main() {
     assert_eq!(args.len(), 5, "backend family size queries");
     let backend = args[1].as_str();
     let family = args[2].as_str();
-    assert!(["conditional", "explicit"].contains(&backend));
+    assert!(["conditional", "explicit", "specialized"].contains(&backend));
     assert!(["plain", "shared", "discriminate", "output"].contains(&family));
     let n: usize = args[3].parse().unwrap();
     let queries: usize = args[4].parse().unwrap();
@@ -245,6 +256,11 @@ fn main() {
     let (prepared, preparation) = measure(|| match backend {
         "conditional" => Prepared::Conditional(
             chr_direct_conditional::engine::PreparedRuleset::new(source.clone()).unwrap(),
+        ),
+        "specialized" => Prepared::Explicit(
+            chr_compiled::PreparedRuleset::new(source.clone(), None)
+                .unwrap()
+                .specialize_inferred(),
         ),
         _ => Prepared::Explicit(chr_compiled::PreparedRuleset::new(source.clone(), None).unwrap()),
     });
@@ -301,10 +317,15 @@ fn main() {
 mod tests {
     use super::*;
     #[test]
-    fn both_full_paths_match_independent_workload_answers() {
+    fn full_paths_match_independent_workload_answers() {
         for family in ["plain", "shared", "discriminate", "output"] {
             let source = rules(family);
             let prepared = [
+                Prepared::Explicit(
+                    chr_compiled::PreparedRuleset::new(source.clone(), None)
+                        .unwrap()
+                        .specialize_inferred(),
+                ),
                 Prepared::Conditional(
                     chr_direct_conditional::engine::PreparedRuleset::new(source.clone()).unwrap(),
                 ),

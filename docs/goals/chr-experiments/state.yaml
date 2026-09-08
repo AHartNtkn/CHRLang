@@ -8,7 +8,7 @@ goal:
   execution_authority: Redesigned goal authorizes implementation and experiments selected under R00 and the governing sequence.
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
-  current_research: Region boundary witnesses pass; scheduling-preserving specialization and eager evaluation have separate contracts
+  current_research: Scheduling-preserving specialization passes semantics and lifecycle pilot; cross-architecture evidence checkpoint selected
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -63,7 +63,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T037
+active_task: T038
 tasks:
   - id: T001
     type: pm
@@ -971,7 +971,7 @@ tasks:
   - id: T037
     type: pm
     assignee: PM
-    status: active
+    status: done
     objective: Establish a sound inferred or checked-declared relation-region eligibility and source correspondence gate, exposing interference and language tradeoffs before choosing specialized execution.
     inputs:
       - docs/goals/chr-experiments/notes/T037-region-eligibility.md
@@ -996,7 +996,39 @@ tasks:
       - Do not infer independence from predicate uniqueness alone.
     progress_evidence:
       - docs/experiments/results/R05-region-boundaries.md
+    receipt:
+      result: done
+      summary: Checked single-head specialization preserves full observations/traces, bypasses tuple cursor/history, and validates all 256 pilot processes; no mandatory language restriction required.
+      evidence:
+        - docs/experiments/results/R05-region-boundaries.md
+        - docs/experiments/results/R05-single-head-lifecycle.md
+      validation: Forty compiled-package tests both modes, full runner checks, workspace tests/Clippy and source freeze pass.
+  - id: T038
+    type: pm
+    assignee: PM
+    status: active
+    objective: Consolidate viable architectural evidence, necessary responsibilities and unresolved decisions into an R07 checkpoint that selects the next materially useful investigation without premature closure.
+    inputs:
+      - docs/experiments/sequence.md
+      - docs/experiments/coverage.md
+      - docs/experiments/results/R05-single-head-lifecycle.md
+      - docs/experiments/results/R03-conditional-maintenance.md
+      - docs/experiments/results/R04-lifecycle-pilot.md
+      - docs/experiments/results/R02-congruence-witness-pilot.md
+    allowed_files:
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    expected_output:
+      - Evidence-backed comparison of viable organizations, contrary evidence, responsibility and language tradeoffs.
+      - Per-question uncertainty and next-investigation disposition against strongest ready alternatives.
+    verify:
+      - No cross-session transitive ranking or workload weights
+      - Stronger controls, mixed phases, ongoing streams, actual compilation and eager-region eligibility examined
+      - Every relevant question remains explicit; checkpoint is not automatic final closure
+    stop_if:
+      - Do not mark goal complete from a document or completed matrix alone.
     receipt: null
+
 
 
 
@@ -1005,11 +1037,10 @@ checks:
   last_verification:
     result: passed
     task: T037
-    scope: Region boundary examples and counterexamples; general eligibility and specialized execution remain unfinished.
+    scope: Scheduling-preserving specialization and prospectively registered lifecycle pilot.
     commands:
-      - Eight boundary tests pass in both feature modes
-      - Finite complete cases agree with independent scalar source execution
-      - Recursive prefix and analytical divergence witness checks pass
-      - Workspace tests, Clippy and formatting pass
+      - All 256 process outcomes and 14240 raw observations independently validated
+      - Forty compiled-package tests pass in both feature modes
+      - Workspace tests, Clippy, runner checks, formatting and source freeze pass
     evidence:
-      - docs/experiments/results/R05-region-boundaries.md
+      - docs/experiments/results/R05-single-head-lifecycle.md

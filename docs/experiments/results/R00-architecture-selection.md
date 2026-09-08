@@ -118,3 +118,8 @@ The [conditional lifecycle pilot](R03-conditional-lifecycle.md) validates all 25
 ## Current evidence update during T037
 
 [Region boundary tests](R05-region-boundaries.md) distinguish specialization preserving source arbitration from eager relation execution. Unique predicate definitions alone fail contextual correspondence; logical finite-answer equivalence does not settle exhaustion or raw multiplicity. The next gate therefore targets actual scheduling-preserving specialization, while stronger eager-region certificates remain separate work. No general eligibility or new performance claim follows from the passing boundary examples.
+
+
+## Current evidence update after T037
+
+[Checked single-head specialization](R05-single-head-lifecycle.md) preserves source order and full observations while eliminating generic cursor/history work. Its registered pilot supports bounded lifecycle savings without mandatory language restrictions. T038 selects an R07 comparison checkpoint: reconcile viable paths, strengthened controls, responsibility costs and consequential uncertainty before another experiment. Separate-session output ratios cannot select conditional versus specialized execution, and the checkpoint cannot stand in for final goal closure.

@@ -13,6 +13,7 @@ pub const COLLECT_METRICS: bool = cfg!(feature = "metrics");
 pub mod experiment;
 pub mod fixtures;
 pub mod generate;
+pub mod regions;
 pub mod search;
 pub mod search_fixtures;
 pub use search::{CompletedBranch, SearchEngine, SearchEvent, SearchStats};
@@ -56,6 +57,11 @@ pub struct Stats {
     pub binding_slot_copies: u64,
     pub rule_dispatches: u64,
     pub cursor_steps: u64,
+    pub specialized_rule_dispatches: u64,
+    pub specialized_candidates: u64,
+    pub specialized_applications: u64,
+    /// Flat compiled head and guard operations, excluding the shared body kernel.
+    pub specialized_head_instructions: u64,
     pub cursor_pool_entries: u64,
     pub max_cursor_pool_entries: usize,
     pub max_cursor_frames: usize,
@@ -233,6 +239,7 @@ struct SearchCursor {
     calls: Vec<(usize, Option<(usize, u64)>)>,
     call: usize,
     cursor: Option<Cursor>,
+    direct: Option<regions::DirectCursor>,
 }
 
 /// Predicate, argument position, canonical ground term node.
@@ -241,6 +248,7 @@ type IndexKey = (usize, usize, usize);
 /// Public only so generated Rust uses shared primitive operations, not an AST evaluator.
 pub struct Core {
     rules: Arc<Vec<Prepared>>,
+    regions: Option<Arc<Vec<Option<regions::Plan>>>>,
     arena: Arena,
     bindings: Bindings,
     store: BTreeMap<u64, Occurrence>,
@@ -316,6 +324,7 @@ impl Core {
     fn fork_clone(&self) -> Self {
         Self {
             rules: self.rules.clone(),
+            regions: self.regions.clone(),
             arena: self.arena.clone(),
             bindings: self.bindings.clone(),
             store: self.store.clone(),
@@ -395,42 +404,47 @@ impl Core {
             }
         }
     }
-    fn pool(&mut self, rule: usize, head: usize, frame: &Frame) -> Vec<u64> {
+    fn best_key(&mut self, rule: usize, head: usize, frame: &Frame) -> Option<IndexKey> {
+        if self.access != Access::Indexed {
+            return None;
+        }
         let program = self.rules.clone();
         let desc = &program[rule].heads[head];
         let pred = desc.pred;
-        if self.access == Access::Indexed {
-            let mut best = None;
-            for (arg, t) in desc.args.iter().enumerate() {
-                if let Some(key) = self.template_key(t, frame) {
-                    if COLLECT_METRICS {
-                        self.stats.index_lookups += 1;
-                    }
-                    let size = self.index.get(&(pred, arg, key)).map_or(0, BTreeSet::len);
-                    if best.is_none_or(|(_, n)| size < n) {
-                        best = Some(((pred, arg, key), size));
-                    }
-                    if size == 0 {
-                        break;
-                    }
-                }
-            }
-            if let Some((key, _)) = best {
+        let mut best = None;
+        for (arg, t) in desc.args.iter().enumerate() {
+            if let Some(key) = self.template_key(t, frame) {
                 if COLLECT_METRICS {
                     self.stats.index_lookups += 1;
                 }
-                let ids: Vec<_> = self
-                    .index
-                    .get(&key)
-                    .into_iter()
-                    .flatten()
-                    .copied()
-                    .collect();
-                if COLLECT_METRICS {
-                    self.stats.index_bucket_entries += ids.len() as u64;
+                let size = self.index.get(&(pred, arg, key)).map_or(0, BTreeSet::len);
+                if best.is_none_or(|(_, n)| size < n) {
+                    best = Some(((pred, arg, key), size));
                 }
-                return ids;
+                if size == 0 {
+                    break;
+                }
             }
+        }
+        best.map(|(key, _)| key)
+    }
+    fn pool(&mut self, rule: usize, head: usize, frame: &Frame) -> Vec<u64> {
+        let pred = self.rules[rule].heads[head].pred;
+        if let Some(key) = self.best_key(rule, head, frame) {
+            if COLLECT_METRICS {
+                self.stats.index_lookups += 1;
+            }
+            let ids: Vec<_> = self
+                .index
+                .get(&key)
+                .into_iter()
+                .flatten()
+                .copied()
+                .collect();
+            if COLLECT_METRICS {
+                self.stats.index_bucket_entries += ids.len() as u64;
+            }
+            return ids;
         }
         let ids: Vec<_> = self
             .pools
@@ -807,12 +821,35 @@ impl Core {
             calls,
             call: 0,
             cursor: None,
+            direct: None,
         }
     }
     fn search_tick(&mut self, code: Option<Compiled>, search: &mut SearchCursor) -> Selection {
         let Some(&(rule, at)) = search.calls.get(search.call) else {
             return Selection::Done;
         };
+        if self
+            .regions
+            .as_ref()
+            .is_some_and(|plans| plans[rule].is_some())
+        {
+            debug_assert!(at.is_none(), "Global policy has no anchor");
+            if search.direct.is_none() {
+                if COLLECT_METRICS {
+                    self.stats.rule_dispatches += 1;
+                    self.stats.specialized_rule_dispatches += 1;
+                }
+                search.direct = Some(regions::DirectCursor::new(self, rule));
+            }
+            return match search.direct.as_mut().unwrap().tick(self, rule) {
+                Selection::Done => {
+                    search.call += 1;
+                    search.direct = None;
+                    Selection::Yield
+                }
+                event => event,
+            };
+        }
         if search.cursor.is_none() {
             if COLLECT_METRICS {
                 self.stats.rule_dispatches += 1;
@@ -1068,6 +1105,7 @@ pub struct PreparationStats {
 #[derive(Clone)]
 pub struct PreparedRuleset {
     rules: Arc<Vec<Prepared>>,
+    regions: Option<Arc<Vec<Option<regions::Plan>>>>,
     dispatch: Arc<BTreeMap<usize, Vec<(usize, usize)>>>,
     predicates: Arc<Vec<(String, usize)>>,
     code: Option<Compiled>,
@@ -1194,6 +1232,7 @@ impl PreparedRuleset {
         }
         Ok(Self {
             rules: Arc::new(prepared),
+            regions: None,
             dispatch: Arc::new(dispatch),
             predicates: Arc::new(arena.predicates),
             code,
@@ -1240,12 +1279,16 @@ impl PreparedRuleset {
         policy: Policy,
         access: Access,
     ) -> Result<(Engine, BTreeMap<u64, Term>), String> {
+        if self.regions.is_some() && policy != Policy::Global {
+            return Err("sealed specialization requires Global source policy".into());
+        }
         let mut arena = Arena::default();
         for (name, arity) in self.predicates.iter() {
             arena.predicate(name, *arity);
         }
         let mut core = Core {
             rules: self.rules.clone(),
+            regions: self.regions.clone(),
             arena,
             bindings: Bindings::default(),
             store: BTreeMap::new(),
@@ -1412,7 +1455,18 @@ impl Engine {
                 for id in app.ids.iter().skip(kept) {
                     self.core.remove(*id)
                 }
-                self.core.history.insert((app.rule, app.ids.clone()));
+                if self
+                    .core
+                    .regions
+                    .as_ref()
+                    .is_some_and(|plans| plans[app.rule].is_some())
+                {
+                    if COLLECT_METRICS {
+                        self.core.stats.specialized_applications += 1;
+                    }
+                } else {
+                    self.core.history.insert((app.rule, app.ids.clone()));
+                }
                 if self.trace_enabled {
                     self.trace.push((app.rule, app.ids));
                 }

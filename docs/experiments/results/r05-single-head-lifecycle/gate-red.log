@@ -1,0 +1,50 @@
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+error[E0599]: no method named `specialize_inferred` found for struct `PreparedRuleset` in the current scope
+  --> research/chr-compiled/tests/single_head_regions.rs:34:93
+   |
+34 | fn specialize(rules:Vec<Rule>)->PreparedRuleset { PreparedRuleset::new(rules,None).unwrap().specialize_inferred() }
+   |                                                                                             ^^^^^^^^^^^^^^^^^^^ method not found in `PreparedRuleset`
+
+error[E0599]: no method named `region_eligibility` found for struct `PreparedRuleset` in the current scope
+  --> research/chr-compiled/tests/single_head_regions.rs:62:19
+   |
+62 |     let reports=p.region_eligibility();
+   |                   ^^^^^^^^^^^^^^^^^^ method not found in `PreparedRuleset`
+
+error[E0599]: no method named `specialize_checked` found for struct `PreparedRuleset` in the current scope
+  --> research/chr-compiled/tests/single_head_regions.rs:64:149
+   |
+64 | ...=pred).unwrap().eligible);assert!(p.specialize_checked(&[pred]).is_err());}
+   |                                        ^^^^^^^^^^^^^^^^^^ method not found in `PreparedRuleset`
+
+error[E0599]: no method named `specialize_checked` found for struct `PreparedRuleset` in the current scope
+  --> research/chr-compiled/tests/single_head_regions.rs:65:15
+   |
+65 |     assert!(p.specialize_checked(&[("absent".into(),1)]).is_err());
+   |               ^^^^^^^^^^^^^^^^^^ method not found in `PreparedRuleset`
+
+error[E0599]: no method named `specialize_checked` found for struct `PreparedRuleset` in the current scope
+  --> research/chr-compiled/tests/single_head_regions.rs:66:18
+   |
+66 |     let chosen=p.specialize_checked(&[("p".into(),1)]).unwrap();
+   |                  ^^^^^^^^^^^^^^^^^^ method not found in `PreparedRuleset`
+
+error[E0609]: no field `specialized_applications` on type `&chr_compiled::Stats`
+  --> research/chr-compiled/tests/single_head_regions.rs:79:58
+   |
+79 |         if cfg!(feature="metrics") {assert_eq!(e.stats().specialized_applications,2);assert!(e.stats().specialized_candidates>=2);}
+   |                                                          ^^^^^^^^^^^^^^^^^^^^^^^^ unknown field
+   |
+   = note: available fields are: `kernel`, `predicate_dictionary_entries`, `predicate_setup_lookups`, `key_visits`, `key_template_visits` ... and 37 others
+
+error[E0609]: no field `specialized_candidates` on type `&chr_compiled::Stats`
+  --> research/chr-compiled/tests/single_head_regions.rs:79:104
+   |
+79 |         if cfg!(feature="metrics") {assert_eq!(e.stats().specialized_applications,2);assert!(e.stats().specialized_candidates>=2);}
+   |                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^ unknown field
+   |
+   = note: available fields are: `kernel`, `predicate_dictionary_entries`, `predicate_setup_lookups`, `key_visits`, `key_template_visits` ... and 37 others
+
+Some errors have detailed explanations: E0599, E0609.
+For more information about an error, try `rustc --explain E0599`.
+error: could not compile `chr-compiled` (test "single_head_regions") due to 7 previous errors
