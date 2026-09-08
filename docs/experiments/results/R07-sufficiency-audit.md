@@ -1,4 +1,9 @@
-# Architecture evidence sufficiency audit
+# T049 evidence sufficiency audit (historical checkpoint)
+
+The final assessment is [current sufficiency](R07-sufficiency-current.md) and the
+[full-objective closure audit](R07-closure-audit.md). This record explains the
+follow-up selection that led to the subsequent evidence.
+
 
 T049 checks the full research objective against current evidence through `c19341d`. Completion is not established by the number of experiments. This audit asks whether a feasible further investigation could materially change the supported implementation or language recommendation relative to its cost. The audit finds a concrete remaining storage question and selects T050; the full goal is not complete.
 

@@ -1,148 +1,144 @@
-# Architecture checkpoint: checked lowering and bounded sharing
+# Architecture decision evidence
 
-Use competent explicit source execution as the general baseline, with selective access and checked specialization. Prefer direct execution of independently certified fragments when it avoids general CHR machinery. Native compilation has not earned its extra preparation over the checked recursive loop at measured reuse. Conditional has bounded short-unknown latency and peak-heap advantages; current evidence does not establish a substantive common-equation advantage.
+Use competent explicit CHR execution as the general baseline, with selective
+access, binding-aware activation where its scheduling contract applies, and
+source-derived specialization. Add independently checked direct execution for
+certified fragments. Keep Conditional as a separate bounded option for common
+failure and lower peak heap; the evidence does not support making it the general
+runtime. No workload weights or universal winner are inferred.
 
-Updated through T057: [arena ownership](R03-arena-ownership.md) is a bounded storage option; [carrier costs](R05-carrier-prefix-cost.md) favor ground lowering and leave long-unknown timings overlapping; [current keyed joins](R01-current-join-screen.md) supply no retained-join justification. [T058 assessment](R07-sufficiency-current.md) selects the substantive common-equation lifecycle comparison as the concrete remaining experiment. No workload weights, mandatory restrictions or automatic mixed-engine routing follow.
+This recommendation includes current source lowering, storage and substantive
+operation controls through T059. It is about supported architecture choices, not
+proof that the prototypes are optimal or a production implementation is finished.
 
-## Recommendations and their evidence
+## Coherent alternatives
 
-**Separate checked lowering from native compilation.** The [recursive lifecycle pilot](R05-recursive-lifecycle.md) validates 324 sessions and 62,316 complete responses. Direct avoids occurrence selection and history while retaining term construction, finite-tree equality and joint observation. It beats Specialized with separated session ranges in all eight nonzero-depth repeated-query cells. Native improves Direct in three cells, but even the lowest seeded compilation time exceeds the highest measured Direct session time. Keep native generation available for a separately motivated reuse/deployment regime; do not make it the default requirement for this fragment.
+| Organization | Supported role | Necessary and chosen responsibilities | Contrary evidence / boundary |
+|---|---|---|---|
+| Explicit dedicated terms/equality plus selective CHR execution | General baseline | Finite-tree equality, branch-local bindings, source matching/effects, activation/index validity, source history and full observation; copying/COW is a storage choice | Index maintenance and poor keys can cost; unconstrained joins are not solved by one policy. Full branch ownership remains consequential. |
+| Checked direct finite/recursive execution | Avoid general CHR machinery inside a proved fragment | Certificate preparation, direct equation/constructor or finite-domain service, exact observation and admission boundary | Does not authorize arbitrary eager contextual execution. Preparation must be amortized; unsupported sources retain ordinary execution. |
+| Native generated recursive execution | Deployment/reuse option | Code generation, compilation/artifact ownership plus semantic services that remain | Measured native gains do not recover compilation versus the checked direct loop at registered reuse. |
+| Conditional supported execution | Common pre-discrimination failure and lower peak-heap option | Support representation, scoped equality/effects, birth/history ownership, completion and answer enumeration | Loses all T059 successful and post-discrimination cells; ongoing history and publication costs constrain streams. No automatic mixed-engine routing is established. |
+| Integrated constructor/equality/source substrate | Demonstrated capability, not current default | Integrated representation, validity and source-consumption correspondence | Current bounded comparison has contrary dedicated-control costs and higher ownership; further syntax coverage alone would not establish value. |
 
-The [finite-domain solver](R04-lifecycle-pilot.md) is another successful form of checked lowering. Its trailed relation algorithm had the lowest lifecycle in all 20 registered cold/reuse cells. That result concerns exact finite-domain normalization, propagation, search and residual recovery. It is distinct from compiling recursive source bodies into Rust. Neither result authorizes eager execution inside arbitrary surrounding CHR. The [sealed recursive certificate](R05-finite-recursive-gate.md) admits unknown payloads and result aliases, but requires a finite ground control and a sealed entry.
+## Evidence that changes the choice
 
-**Use selective access and specialization as implementation choices, not universal policies.** [R01 access evidence](R01-native-pilot.md) and [anchor-aware enumeration](R01-anchor-pilot.md) establish that useful keys and activation can matter more than dispatch alone, with adverse maintenance and collision cases. [Scheduling-preserving specialization](R05-single-head-lifecycle.md) eliminates selected matching/history machinery without changing source order. The [immutable-subtree intervention](R01-closed-subtree-lifecycle.md) then resolves substantial carry-heavy costs in that serial control. Its added metadata is charged, and all Inline timing changes remain unresolved. These facts support competent controls; they do not prove optimal join planning or universal indexing.
+**Direct lowering earns more than code generation alone.** The
+[recursive lifecycle comparison](R05-recursive-lifecycle.md) validates324 sessions
+and62,316 observations. Direct beats Specialized in all eight nonzero-depth reuse
+cells with separated ranges. Native improves Direct in three cells, but measured
+compilation is not recovered within the registered reuse. The
+[finite-domain comparison](R04-lifecycle-pilot.md) favors a dedicated trailed solver
+in all20 cells of its independently certified closed relation fragment. These are
+different facilities, not a universal solver or compiler ranking.
 
-**Do not select integrated constructor/equality execution as the default from its current evidence.** [R02](R02-congruence-witness-pilot.md) demonstrates real overlap of pending equality and consuming source execution. Its corrected nested case still loses to competent indexed execution and uses more requested heap; the larger batch difference overlaps. Retain the capability as bounded evidence. A new search/guard interaction would need a concrete expected benefit before paying for broader integration. The earlier numerical ratios are not current rankings after subsequent serial changes.
+**Competent ordinary execution avoids substantial work without retained joins.**
+[Access](R01-native-pilot.md), [nonfirst anchoring](R01-anchor-pilot.md) and
+[immutable-subtree costs](R01-closed-subtree-lifecycle.md) establish useful mechanisms
+and adverse regimes. The [current join screen](R01-current-join-screen.md) validates
+32 processes: Active+Indexed takes7 candidate visits and10 cursor steps per
+subsequent keyed request at both table sizes. Counts include producer service and
+are not timing estimates. This family does not justify a maintained-join backend.
 
-**Keep conditional sharing as a bounded option.** [Current carrier costs](R05-carrier-prefix-cost.md) favor lowering on ground controls, leave long unknown-prefix timings overlapping Conditional, and favor Conditional on short unknown endpoints. Conditional retains lower peak requested heap. Earlier pure-countdown pre-heavy comparisons do not establish substantive opaque-work preference against the current lowering control. [T056](R05-substantive-work-entry.md) validates a real equality/alias source case but supplies no lifecycle comparison. E12's adverse owned-term table does not settle efficient common-equation sharing. T058 selects its lifecycle comparison using existing dedicated controls; a new cache is a possible follow-up if the result warrants it.
+**Pure carrier work need not be executed repeatedly.**
+[Carrier costs](R05-carrier-cost.md) favor certified lowering in14 ground cells.
+The [known-prefix comparison](R05-carrier-prefix-cost.md) validates192 processes:
+ground controls favor Carrier; long unknown timings overlap Conditional; short
+unknown cases favor Conditional. Lowering preserves actual tails, aliases, IDs and
+ordinary arbitration under its singleton/source certificate. It does not establish
+arbitrary contextual contraction or mandatory source restrictions.
 
-**Use explicit execution as the current low-sharing stream control.** [Restricted publication](R06-restricted-publication.md) validates a substantial conditional traversal improvement while retaining large historical state and ongoing alias cutoffs. Whole-query disposal succeeds, but does not prove bounded within-query space. [Strict publication priority](R06-publication-flow-gate.md) can defer a finite sibling behind an exponentially sized raw-answer region; it is not an unqualified scheduling improvement. There is no present basis to expand conditional lifetime machinery automatically. This recommendation rests on concrete retention and progress evidence as well as the historical complete-path comparison, not a new timing ratio against the corrected serial engine.
+**Substantive shared equality does not imply a general shared-runtime win.**
+[T059](R05-equation-cost.md) validates576 processes and72 cells. Conditional wins
+all six common clashes before discrimination; ordinary and COW Specialized win the
+other18 cases, including every successful query. At depth64 cold, before-clash
+medians are0.231ms Conditional and0.701ms Specialized; before-success instead favors
+Specialized,0.992ms versus1.150ms. These figures belong to this freeze only.
+Conditional performs one common substantive equation before discrimination, but
+shared equation work does not offset the remaining complete-path costs. Its failure API exposes
+query exhaustion rather than one event per failed explicit leaf; the comparison
+preserves and reports that distinction.
 
-**Do not expand workers from the current comparison.** The [paired worker controls](R01-closed-subtree-lifecycle.md) leave Threads2 overlapping both Inline and Threads1. The earlier [R08 capacity benefit](R08-regional-lifecycle.md) versus one worker remains evidence at its freeze, not a current complete worker advantage. Permanent factoring can reduce source applications independently of concurrency. Its unique-answer product endpoint must not be conflated with raw stream multiplicity.
+**Ownership is a separate tradeoff.** [Arena COW](R03-arena-ownership.md) has eight
+separated read-choice benefits, one no-choice regression and23 overlaps including
+all insertion cells. T059 COW/ordinary timing ranges overlap in all24 pairs. At
+T059 depth64 cold before-clash, Conditional requested peak is90,340 bytes versus
+738,905 ordinary Explicit, but lower peak is not generally lower traffic: after-clash
+Conditional allocates17,398,205 requested bytes versus1,235,390. Requested heap is
+not RSS. Choose storage from mutation/lifetime evidence, not a universal sharing rule.
 
-## Responsibilities and complexity
+**Capability is not default preference.** [Integrated congruence](R02-congruence-witness-pilot.md)
+permits real interleaving of equality and consuming source effects, with contrary
+cost evidence. [Stream lifetime](R06-streaming-lifetime.md),
+[restricted publication](R06-restricted-publication.md) and
+[finite-sibling publication](R06-publication-flow-gate.md) expose retention and
+progress costs. Use explicit execution as the supported low-sharing stream control.
+Current [worker comparisons](R01-closed-subtree-lifecycle.md) leave concurrency
+benefits unresolved; factoring and concurrency are distinct decisions.
 
-| Organization | Responsibilities retained | What evidence shows can be avoided; present cost |
-|---|---|---|
-| Explicit source execution | Nonbinding matching/guards, finite-tree equations, resource identities, arbitration, alternatives, completion and full residuals | Access plans and immutable metadata avoid repeated discovery. Current branch cloning, lineage and index organization are implementation choices, not lower bounds on explicit search. |
-| Checked recursive execution | Source certificate, domain admission, fresh variables, ordered equations, term ownership, full joint export | No source occurrence store, general selection or history inside the sealed query. Direct retains templates; Native replaces them with statements and adds artifact/compiler/dependency ownership. |
-| Finite-domain lowering | Exact fragment recognition, normalized relations, domain propagation, trail restoration and answer recovery | Avoids ordinary source matching/history. Enumeration and answer recovery can dominate; the tested Boolean encodings do not establish a universal solver ordering. |
-| Conditional execution | Support-local resources/equality, correlated births, raw completion, finite-sibling service and trustworthy observation | Sharing avoids some repeated physical work. Support/history retention, production attribution and publication are real costs; the current full historical retention policy is not proved necessary. |
-| Integrated equality/source | Class/descriptor consistency, parent incidence, occurs checks, resource effects, matching and publication | Some service separation is avoidable. Congruence and activation ownership still require invariants; tested heap and lifecycle counterpressure remain. |
-| Permanent regions/workers | Independence certificate, work ownership, transport, joining, cancellation and owner observation | Factoring can avoid repeated work. Concurrency adds lifecycle costs and has no resolved current net benefit in the bounded comparison. |
+## Why further implementation is not presently selected
 
-Complexity means semantic obligations, state ownership and coupled invariants, not source-line or feature counts. Independent reference execution remains the correctness control. Tested prototypes are evidence sources, not automatically the production architecture. No integrated hybrid or general source-to-capsule dispatch is established here.
+The [all-question sufficiency assessment](R07-sufficiency-current.md) accounts for
+every Q1–Q12 direction, including the completed substantive comparison. Plausible
+extensions are retained with their reopening conditions:
 
-## All question dispositions
+- Maintained weakly keyed/many-to-many joins need a concrete surviving update cost.
+  Current keyed requests do not supply it; porting the historical retained-prefix
+  mechanism would add validity and storage before establishing a benefit.
+- Shared-representation equation or clash reuse is credible. [E12](E12-equations.md)
+  and [selective failure checking](E12-failure-native.md) establish source-boundary
+  precedent and checking/interface costs. A cache could narrow the common-failure
+  exception, but needs valid identities, dependencies and deferred effect ownership.
+  It would mainly strengthen the general explicit recommendation; no supplied
+  workload distribution makes eliminating that exception necessary now.
+- Broader contextual lowering, multiple carriers, integrated search or direct
+  choice graphs need new correspondence and a decision-changing source regime.
+  Demonstrated capability or prototype availability alone is not enough.
+- Warm worker pools, larger compilation reuse and additional application suites
+  need deployment or computational requirements. Another favorable cell would
+  not supply missing workload weights or establish a general ranking.
+- General reclamation, tables, replay and new publication policies need a surviving
+  lifetime/recomputation case. Their semantic and ownership obligations are real;
+  the supported low-sharing control does not currently require those expansions.
 
-These are bounded recommendations and explicit next-work priorities. They are not a claim that every possible extension must be implemented before closure.
+These are bounded cost/value judgments, not impossibility claims. Reopen them when
+an actual architecture or workload decision changes their premises. Do not repeat
+measurements merely to separate overlapping ranges or erase contrary evidence.
 
-| Question | Current disposition | Further investigation and why it is or is not selected |
-|---|---|---|
-| Q1 execution/access | Selective access and inferred source-preserving specialization are supported. Corrected structural maintenance strengthens the explicit control. | Maintained joins/adaptive indexing could help a different update/selectivity regime, but presently refine an access policy. T049 finds greater immediate value in the live-state storage screen. |
-| Q2 representation | Dedicated execution is the supported baseline; integrated equality has bounded capability and contrary cost evidence. | OR/nonmonotone-guard integration needs a concrete interaction with expected architectural benefit. No such new case is established by a larger same-boundary sweep. |
-| Q3 search storage | Ground pure-carrier cells favor contraction; long unknown timings overlap; short unknown and peak heap favor Conditional. | T048 supplies the current comparison; T050 finds consequential split traffic; T052 resolves a bounded arena ownership option; insertion pairs overlap and one no-choice pair favors cloning. Explicit cloning is a chosen organization; this will not rank every trail/replay/persistence design. |
-| Q4 avoiding execution | Certified finite-domain and recursive direct execution are supported in distinct fragments. Native generation is not preferred at measured reuse. | Larger learning endpoints or very high compilation reuse need an independently motivated regime. Another compiler sweep is not selected without a distinct decision-changing regime. |
-| Q5 static/language | Sufficient inferred properties earn bounded gains without mandatory restrictions. Bounded source-derived carrier contraction is supported. | Contextual eligibility is the strongest semantic alternative: it could broaden direct lowering, but requires termination/effect correspondence. T049 identifies a concrete pure-carrier certificate as the strongest alternative to the storage screen. |
-| Q6 retain/recompute | Small immutable facts can avoid consequential work; support/history retention can dominate. | Current mixed evidence bounds when physical sharing earns bookkeeping. Tables, replay, reunion and broad reclamation need a specific retained/recomputed cost that could change the surviving choice, not automatic implementation. |
-| Q7 completion/failure | Raw multiplicity, finite-sibling progress, branch-wide failure and unsupported admission remain distinct obligations. | Existing adverse gates reject blanket eager execution and strict global publication priority as an unqualified improvement. Support-local throttling is substantial scheduling work; low-sharing stream evidence does not currently justify that expansion. |
-| Q8 complexity | Checked direct lowering eliminates more responsibilities than native emission alone; other organizations retain explicit ownership costs. | Use these responsibilities in the recommendation and investigate measured causes. Another catalogue or a feature/line-count score would not change the decision. |
-| Q9 observation/lifetime | Full aliases/residuals, raw versus unique endpoints, consumer retention and runtime history are separated by evidence. | Broad observer or reclamation redesign has no selected benefit over the present explicit stream control. Reopen for a surviving workload where extraction/retention can reverse the architecture preference. |
-| Q10 parallelism | Current worker benefit is unresolved; permanent factoring remains a distinct capability. | Warm pools, connected regions and larger worker counts change deployment/ownership assumptions. Do not expand them merely to seek a favorable cell. |
-| Q11 generalization | Finite mixed phases, ongoing streams, independent products and sealed relations give distinct applicability boundaries. | Current mixed-phase evidence covers the corrected control. Larger supplied examples or application labels alone do not establish decision value or workload weights. |
-| Q12 overall choice | Explicit baseline plus independently checked direct paths is supported; conditional finite preference has current bounded evidence. | T052 supplies complete storage evidence; T053 establishes bounded carrier eligibility; T054 establishes ground complete-cost gains; T055 establishes the prefix cost boundary. Do not close the goal solely because this checkpoint or the initial sequence is complete. |
+## Language and adoption decisions remaining with the owner
 
-Direct distributed choice graphs, net encodings and trace-solver tuning have no automatic priority. Their existing evidence does not show a new responsibility boundary likely to outperform the surviving direct/dedicated controls without a substantial semantic gate. This is a present cost/value disposition, not a universal impossibility claim. Likewise, proof of arbitrary contextual lowering is not a prerequisite for recommending the already certified sealed facility.
+1. Whether to adopt the explicit baseline with optional checked finite/recursive
+   facilities. Each certificate's source and observation boundary is explicit;
+   broad eager contextual execution has not been justified.
+2. Whether common-failure or peak-heap requirements justify supporting a separate
+   Conditional mode alongside its support/history machinery. No transparent
+   regional routing or interoperability policy is established by these experiments.
+3. Whether the intended mutation/lifetime pattern warrants arena COW. The evidence
+   supports a selectable representation, not an unmeasured adaptive policy.
+4. Whether native artifacts or a different deployment/reuse regime are required.
+   Such a requirement can reopen compilation or worker measurements; it is not
+   inferred from examples.
 
-## Selected T054 and alternatives
+The experimental source contracts continue to preserve nonbinding matching,
+finite-tree equality, aliases, raw successful multiplicity, branch-wide failure,
+and stated source/progress obligations. API compression, answer quotienting or
+stronger language restrictions would be separate owner-adopted changes, not
+unannounced performance controls. The objective here is evidence for those choices;
+choosing a production workload distribution or implementing the chosen product is
+not silently made a prerequisite for completing that evidence.
 
-[Carrier eligibility](R05-carrier-eligibility.md) passes 13 independent and adverse
-gates. A finite single-carrier interval can avoid intermediate selection and
-occurrence maintenance while retaining exact identities and ordinary terminal
-arbitration. This does not establish its economics or arbitrary contextual
-lowering. Existing broader counterexamples remain applicable.
+## Measurement and reproducibility limits
 
-T054 isolates the incumbent from candidate-only job storage/checks before a
-prospectively registered complete-path comparison. Certificate preparation,
-resumable inspection, output and disposal must be charged. This can determine
-whether valid source lowering changes the remaining bounded sharing preference.
-Further storage tuning has lower current decision value after the completed
-arena comparison. The goal remains active.
+Registrations precede comparative runs; original raw results, hashes, commands,
+failures and validation receipts remain authoritative. Current native lifecycle
+runs separate counter-free ordinary-allocator timing from work/allocation builds,
+charge preparation/query/service/observation/disposal, and validate full answers
+outside intervals. Compilation was measured in the recursive artifact experiment;
+it is not credibly isolated in every later prototype comparison. No claim of
+complete architectural lifecycle superiority bridges that gap.
 
-## Review
-
-Root reviewed access, current serial/native evidence, the mixed source/runner and the all-question map. Independent read-only review audited conditional lifetime/observation and selected the same current mixed comparison. A second independent review found no mandatory new cost experiment in the representation/compilation/parallel questions and identified contextual eligibility as the strongest semantic alternative. The selection above addresses both findings without converting every open extension into a queue.
-
-Independent T048 audit verifies exact manifest, all endpoints, allocation restoration, seed and frozen sources/binaries, and supports a sufficiency audit next.
-
-
-## T052 ownership disposition and next gate
-
-[Arena ownership](R03-arena-ownership.md) validates all 512 processes and 21,440
-answers. Lookup-before-detachment sharing improves all eight read-preserving
-choice pairs, with all insertion pairs overlapping and one no-choice regression.
-Retain this serial option with its mutation boundary and overhead; no universal
-time/memory policy follows. Other mutable source state remains substantial.
-
-The T053 pure-carrier gate now passes; T054 selects the fair complete-cost comparison. It could avoid repeated
-computation in the remaining positive conditional countdown regime, which is a
-different opportunity from sharing immutable storage. Independent review favors
-this semantic question over further storage refinement. Ordinary source priority,
-one live carrier, finite controls, opaque payloads, observer exclusion and finite
-service must be justified rather than inferred from purity. The earlier contextual
-counterexamples remain active requirements. The goal remains active.
-
-
-## T054 result and T055 selection
-
-[Complete carrier costs](R05-carrier-cost.md) validate640 processes and25600 answers.
-Carrier beats Conditional with separated ranges in all14 ground cells; Conditional
-wins both unknown-tail cells. COW versus Carrier overlaps throughout. These results
-qualify the countdown sharing recommendation without ranking arbitrary shared work.
-Independent review supports known-prefix contraction to the actual tail under the
-existing certificate. T055 selects that semantic gate and, if valid, a separately
-registered narrow comparison. The strongest broader alternative is substantive
-noncontractible equation/constructor prework, which pure carriers do not represent.
-Resolving this concrete competent-control boundary has lower entry cost and direct
-consequence for the current contrary result. Goal closure remains unsupported.
-
-
-## T055 bounded disposition
-
-[Known-prefix costs](R05-carrier-prefix-cost.md) validate192 processes and7680
-answers. Long unknown timing ranges overlap Conditional; ground controls favor
-Carrier; short unknown controls favor Conditional. Conditional has substantially
-lower peak requested heap, including about98KB versus438KB long unknown cold.
-Independent review finds this pure-carrier investigation sufficient. Do not repeat
-for a separated winner. A substantive equation/constructor prework fixture can
-ask a different sharing question; it needs an observable result and a competent
-lowering/control assessment, with maintained joins as the strongest ready alternative.
-The full goal remains active.
-
-
-## T056 source gate and T057 selection
-
-[Substantive equation entry](R05-substantive-work-entry.md) validates current
-Conditional/Specialized full aliases and clash exhaustion, plus16versus1 failed
-lineages for post-choice versus naive pre-choice failure. This is not a timing
-result. E12 gives actual-boundary cache/replay precedent with adverse owned-term
-costs; an efficient new cache needs more machinery and a separate justification.
-T057 instead selects the [current join work screen](../registrations/R01-current-join-screen.md).
-Its existing Global/Active and Scan/Indexed controls can identify or defer a broad
-ordinary-CHR retained-join opportunity without implementing maintenance. Current
-active nonfirst-head prebinding may already avoid historical repeated-prefix work.
-The equation-sharing question remains plausible and is reassessed after this
-lower-cost screen; neither prototype becomes an automatic work queue.
-
-
-## T057 work result and T058 audit
-
-[Current keyed joins](R01-current-join-screen.md) validate32 processes with exact
-repeated endpoints and counts. Active+Indexed uses7 candidates and10 cursor steps
-per subsequent request at N16 and N128. This family supplies no maintained-state
-justification. No timing or all-join claim follows. T058 now reassesses all relevant
-questions, especially whether substantive shared-operation costs need a new control
-before a bounded architecture comparison. Preserve both the value of competent
-current primitives and the possibility of decision-changing reuse; do not demand
-every imaginable optimization before measuring or assume a current prototype is
-the final control. Goal closure requires the full evidence/value audit.
+Earlier Python/instrumented and component probes retain only their stated scope.
+No cross-freeze numerical ranking, aggregate score, confidence interval from a
+handful of repetitions, RSS claim from requested allocation, or universal
+application distribution is inferred. Reference algorithms remain independent.
+The [closure audit](R07-closure-audit.md) records objective-level verification.

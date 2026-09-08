@@ -4,11 +4,11 @@ goal:
   slug: chr-experiments
   kind: existing_plan
   tranche: Continuous investigation across all relevant language and execution directions.
-  status: active
+  status: complete
   execution_authority: Redesigned goal authorizes implementation and experiments selected under R00 and the governing sequence.
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
-  current_research: Sufficiency audit selects current substantive equality lifecycle comparison with competent existing controls
+  current_research: Evidence portfolio complete; final recommendations and all-question reopening conditions validated
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -63,7 +63,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T059
+active_task: null
 tasks:
   - id: T001
     type: pm
@@ -1672,7 +1672,7 @@ tasks:
   - id: T059
     type: pm
     assignee: PM
-    status: active
+    status: complete
     objective: Compare complete substantive equation lifecycle across current Conditional and ordinary/COW Specialized controls with preserved failure and full-answer endpoints.
     inputs:
       - docs/experiments/results/R07-sufficiency-current.md
@@ -1689,18 +1689,51 @@ tasks:
       - Register exact workloads, controls, resource bounds and interpretation before comparisons
     stop_if:
       - No intrinsic sharing necessity claim or presumed cache benefit.
-    receipt: null
+    receipt:
+      summary: All576processes and72cells pass. Conditional wins6 common-clash cells; explicit wins18others; COW overlaps24pairs. New cache has insufficient current decision value.
+      evidence:
+        - docs/experiments/results/R05-equation-cost.md
+        - docs/experiments/results/r05-equation-cost/audit.json
+      validation: Independent endpoint, work, phase, allocation, freeze and interpretation audits;75package tests and strict feature validation.
+
+  - id: T060
+    type: pm
+    assignee: PM
+    status: complete
+    objective: Deliver coherent final architecture recommendations and verify full-objective closure with justified dispositions for every relevant unresolved direction.
+    inputs:
+      - docs/experiments/sequence.md
+      - docs/experiments/coverage.md
+      - docs/experiments/results/R07-sufficiency-current.md
+      - docs/experiments/results/R05-equation-cost.md
+    allowed_files:
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    verify:
+      - Directly audit every objective requirement against authoritative evidence
+      - Independent adversarial closure review and current workspace validation
+      - Preserve contrary evidence, measurement limits and explicit owner decisions
+      - No completion while materially useful authorized investigation remains
+    receipt:
+      summary: Broad objective audited against final evidence; all relevant directions have bounded cost-value dispositions. Independent final reviews find no remaining investigation justified now.
+      evidence:
+        - docs/experiments/results/R07-architecture-checkpoint.md
+        - docs/experiments/results/R07-sufficiency-current.md
+        - docs/experiments/results/R07-closure-audit.md
+        - docs/experiments/results/r07-closure/
+      validation: 329workspace tests with1ignored, strict workspace Clippy, formatting,74local artifactlinks and independent fullobjective readback.
 
 checks:
-  dirty_fingerprint: preexisting_unfinished_experimental_files_preserved
+  dirty_fingerprint: unrelated_untracked_files_preserved
   last_verification:
     result: passed
-    task: T057
-    scope: Registered current ordinary-CHR work screen and semantic gates; no timing comparison.
+    task: T060
+    scope: Full-objective evidence closure and current workspace validation.
     commands:
-      - Four source gates and runner test in default and counter-free modes
-      - Strict Clippy both modes and cargo fmt check
-      - Independent32run full endpoint, phase, repetition and freeze audit
+      - cargo test --workspace --all-targets
+      - cargo clippy --workspace --all-targets -- -D warnings
+      - cargo fmt --all -- --check
+      - Independent full-objective, sharing and non-sharing closure reviews
     evidence:
-      - docs/experiments/results/R01-current-join-entry.md
-      - docs/experiments/results/r01-current-join-screen/audit.json
+      - docs/experiments/results/R07-closure-audit.md
+      - docs/experiments/results/r07-closure/
