@@ -4,7 +4,7 @@ import argparse
 import hashlib
 import json
 import os
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 import random
 import subprocess
 import tarfile
@@ -64,7 +64,12 @@ def main():
         subprocess.run(['git', 'archive', '--format=tar', commits['baseline']], cwd=ROOT, stdout=stream, check=True)
     roots['baseline'].mkdir()
     with tarfile.open(archive) as stream:
-        stream.extractall(roots['baseline'], filter='data')
+        members = stream.getmembers()
+        for member in members:
+            path = PurePosixPath(member.name)
+            assert not path.is_absolute() and '..' not in path.parts
+            assert member.isfile() or member.isdir(), ('unexpected archive entry', member.name)
+        stream.extractall(roots['baseline'], members=members)
     sources = {}
     frozen = {str(archive): digest(archive)}
     for version, root in roots.items():
