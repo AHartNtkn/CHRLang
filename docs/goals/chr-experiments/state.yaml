@@ -8,7 +8,7 @@ goal:
   execution_authority: Redesigned goal authorizes implementation and experiments selected under R00 and the governing sequence.
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
-  current_research: Renewed sequence S00-S11 planned; next work is the S00 contract ledger and coherent candidate sketches. Architecture-level questions remain unresolved.
+  current_research: S00 contract ledger and candidate sketches evidenced by six-case probe; S01 gate registered; next are implementation and first-cycle feasibility assessments. Architecture questions remain unresolved.
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -63,8 +63,24 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: null
+active_task: T061
 tasks:
+  - id: T061
+    type: pm
+    assignee: PM
+    status: active
+    objective: Establish S00 comparison contracts and coherent candidates, validate policy/accounting distinctions, and register the first discriminating follow-up.
+    inputs:
+      - docs/experiments/sequence.md
+      - docs/experiments/results/R07-design-disposition-review.md
+    allowed_files:
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+      - research/chr-cases/examples/
+    verify:
+      - Independently predicted contract probe and reference semantic tests
+      - Source-linked contract ledger and complete candidate responsibilities
+      - Explicit coverage and next-experiment rationale
   - id: T001
     type: pm
     assignee: PM
@@ -1727,13 +1743,12 @@ checks:
   dirty_fingerprint: unrelated_untracked_files_preserved
   last_verification:
     result: passed
-    task: T060
-    scope: Full-objective evidence closure and current workspace validation.
+    task: T061
+    scope: S00 semantic contract probe, independent reference suite and documentation links; architecture goal remains active.
     commands:
-      - cargo test --workspace --all-targets
-      - cargo clippy --workspace --all-targets -- -D warnings
-      - cargo fmt --all -- --check
-      - Independent full-objective, sharing and non-sharing closure reviews
+      - timeout 60s target/release/examples/contract_probe (two independent processes)
+      - cargo test -p chr-reference
+      - cargo clippy -p chr-cases --example contract_probe -- -D warnings
     evidence:
-      - docs/experiments/results/R07-closure-audit.md
-      - docs/experiments/results/r07-closure/
+      - docs/experiments/results/S00-contracts-and-candidates.md
+      - docs/experiments/results/s00-contract/

@@ -6,7 +6,7 @@ Existing E/R results remain evidence within their recorded boundaries. Their pac
 
 ## Coverage of every reviewed decision
 
-Entry numbers refer to the [57-entry review](results/R07-design-disposition-review.md). All stages are planned. S00's contract and candidate work is the next action; a concrete prospective registration is required before comparative execution.
+Entry numbers refer to the [57-entry review](results/R07-design-disposition-review.md). S00 is active: the [contract audit and four candidate sketches](results/S00-contracts-and-candidates.md) include a six-case probe with exact replay. The [S01 semantic gate is registered](registrations/S01-update-discovery-gate.md); next are its implementation and first-cycle feasibility assessments. Other stages remain planned; no new comparative timing has run.
 
 | Owner stage | Review entries | Existing evidence to retain | Required investigation |
 |---|---|---|---|

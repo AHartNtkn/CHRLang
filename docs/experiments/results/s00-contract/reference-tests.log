@@ -1,0 +1,56 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.01s
+     Running unittests src/lib.rs (target/debug/deps/chr_reference-658bf0d99b83d46f)
+
+running 4 tests
+test unify::tests::aliases_propagate_through_nested_terms ... ok
+test unify::tests::failed_equation_does_not_publish_partial_bindings ... ok
+test unify::tests::indirect_occurs_cycle_fails_but_self_equality_succeeds ... ok
+test unify::tests::same_constructor_decomposes_and_arity_mismatch_fails ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/demos.rs (target/debug/deps/demos-56e687f767cfc4ef)
+
+running 7 tests
+test addition_enumerates_all_decompositions_of_a_known_sum ... ok
+test sk_evaluator_runs_backwards_with_the_constant_restriction ... ok
+test arithmetic_runs_in_each_direction_and_subtraction_reuses_addition ... ok
+test type_directed_synthesis_can_resume ... ok
+test typing_infers_k_s_and_identity ... ok
+test no_c_keeps_unused_holes_and_rejects_hidden_constants ... ok
+test sk_identity_and_duplication_evaluate_forward ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/semantics.rs (target/debug/deps/semantics-86baed2b24955fd3)
+
+running 21 tests
+test active_failure_prevents_publishing_even_a_ground_output ... ok
+test empty_query_returns_one_answer_with_unused_output_variables ... ok
+test constructor_heads_do_not_instantiate_store_variables ... ok
+test alpha_equivalent_residual_answers_deduplicate_but_multiplicity_does_not ... ok
+test answer_aliases_are_not_erased_by_deduplication ... ok
+test malformed_rule_sets_are_rejected ... ok
+test fresh_body_variables_are_separate_per_application ... ok
+test occurs_failure_is_isolated_to_its_alternative ... ok
+test independently_executed_choices_produce_all_four_combinations ... ok
+test ordinary_competing_rules_commit_instead_of_creating_search ... ok
+test guard_waits_without_binding_then_rechecks_after_aliasing ... ok
+test ordered_propagation_tuples_are_distinct ... ok
+test propagation_fires_once_per_occurrence_and_history_survives_binding ... ok
+test post_split_matching_and_history_are_branch_local ... ok
+test repeated_head_variables_need_entailed_equality ... ok
+test propagation_history_is_inherited_at_a_split ... ok
+test rule_heads_require_distinct_occurrences ... ok
+test simpagation_keeps_one_resource_and_consumes_each_partner ... ok
+test simplification_resolves_outputs_and_entire_residual_store ... ok
+test finite_answer_survives_an_infinite_sibling_and_search_can_resume ... ok
+test residual_alpha_dedup_handles_permutations_and_preserves_cross_constraint_aliases ... ok
+
+test result: ok. 21 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests chr_reference
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
