@@ -17,11 +17,13 @@
 //! Each tick services one Boolean step, matching step, guard field, dependency or
 //! selected head. Tuple/frame copies are bounded by prepared rule size. Hash/tree
 //! lookup, allocation and destruction costs are not hard real-time bounds.
+use crate::engine::PreparedRuleset;
 use crate::equality::{Change, DemandJob, DemandStatus, Store, Term};
 use crate::matching::{MatchJob, MatchStatus, Matched, Node, Pattern, Plan};
 use crate::support::{Arena, Job, Operation, Status, Support};
 use chr_syntax::{Goal, Guard, Rule, Term as Source, Var};
 use std::collections::{BTreeMap, BTreeSet};
+use std::sync::Arc;
 use std::sync::atomic::{AtomicU64, Ordering};
 static NEXT: AtomicU64 = AtomicU64::new(1);
 #[derive(Debug)]
@@ -38,8 +40,8 @@ pub struct BodyObligation {
     pub support: Support,
     pub slots: Vec<Option<Term>>,
 }
-struct Prepared {
-    source: Rule,
+pub(crate) struct Prepared {
+    pub(crate) source: Rule,
     variables: Vec<Var>,
     heads: Plan,
     guards: Plan,
@@ -48,7 +50,7 @@ pub struct Resources {
     identity: u64,
     equality: u64,
     version: u64,
-    rules: Vec<Prepared>,
+    pub(crate) rules: Arc<Vec<Prepared>>,
     occurrences: Vec<Occurrence>,
     history: BTreeMap<(usize, Vec<u64>), Support>,
     pending: BTreeMap<u64, BodyObligation>,
@@ -99,60 +101,65 @@ fn pattern(t: &Source, vs: &[Var]) -> Pattern {
         },
     }
 }
-impl Resources {
-    pub fn new(rules: Vec<Rule>, store: &Store) -> Result<Self, String> {
-        let mut prepared = vec![];
-        for rule in rules {
-            if rule.kept.is_empty() && rule.removed.is_empty() {
-                return Err("empty source head".into());
-            }
-            let mut vs = BTreeSet::new();
-            for h in rule.kept.iter().chain(&rule.removed) {
-                for a in &h.args {
-                    vars(a, &mut vs)
-                }
-            }
-            for Guard::Equal(a, b) in &rule.guards {
-                vars(a, &mut vs);
-                vars(b, &mut vs)
-            }
-            goal_vars(&rule.body, &mut vs);
-            let variables: Vec<_> = vs.into_iter().collect();
-            let heads = Plan::new(
-                rule.kept
-                    .iter()
-                    .chain(&rule.removed)
-                    .flat_map(|h| h.args.iter().map(|a| pattern(a, &variables)))
-                    .collect(),
-                variables.len(),
-            )?;
-            let guards = Plan::new(
-                rule.guards
-                    .iter()
-                    .flat_map(|Guard::Equal(a, b)| [pattern(a, &variables), pattern(b, &variables)])
-                    .collect(),
-                variables.len(),
-            )?;
-            prepared.push(Prepared {
-                source: rule,
-                variables,
-                heads,
-                guards,
-            });
+pub(crate) fn compile(rules: Vec<Rule>) -> Result<Vec<Prepared>, String> {
+    let mut prepared = vec![];
+    for rule in rules {
+        if rule.kept.is_empty() && rule.removed.is_empty() {
+            return Err("empty source head".into());
         }
-        Ok(Self {
+        let mut vs = BTreeSet::new();
+        for h in rule.kept.iter().chain(&rule.removed) {
+            for a in &h.args {
+                vars(a, &mut vs)
+            }
+        }
+        for Guard::Equal(a, b) in &rule.guards {
+            vars(a, &mut vs);
+            vars(b, &mut vs)
+        }
+        goal_vars(&rule.body, &mut vs);
+        let variables: Vec<_> = vs.into_iter().collect();
+        let heads = Plan::new(
+            rule.kept
+                .iter()
+                .chain(&rule.removed)
+                .flat_map(|h| h.args.iter().map(|a| pattern(a, &variables)))
+                .collect(),
+            variables.len(),
+        )?;
+        let guards = Plan::new(
+            rule.guards
+                .iter()
+                .flat_map(|Guard::Equal(a, b)| [pattern(a, &variables), pattern(b, &variables)])
+                .collect(),
+            variables.len(),
+        )?;
+        prepared.push(Prepared {
+            source: rule,
+            variables,
+            heads,
+            guards,
+        });
+    }
+    Ok(prepared)
+}
+impl Resources {
+    /// Allocate query-owned mutable resources while retaining the compiled owner.
+    /// Preparation and validation happen only in PreparedRuleset::new.
+    pub fn new(prepared: &PreparedRuleset, store: &Store) -> Self {
+        Self {
             identity: NEXT
                 .fetch_update(Ordering::Relaxed, Ordering::Relaxed, |n| n.checked_add(1))
                 .expect("resource identity overflow"),
             equality: store.identity(),
             version: 0,
-            rules: prepared,
+            rules: Arc::clone(&prepared.rules),
             occurrences: vec![],
             history: BTreeMap::new(),
             pending: BTreeMap::new(),
             busy: Support::FALSE,
             next_body: 0,
-        })
+        }
     }
     pub fn insert(
         &mut self,
@@ -724,7 +731,7 @@ mod tests {
         let store = Store::new();
         let mut arena = Arena::new();
         let rule = Rule::propagate("visit", [chr_syntax::c("p", [])], Goal::True);
-        let mut resources = Resources::new(vec![rule], &store).unwrap();
+        let mut resources = Resources::new(&PreparedRuleset::new(vec![rule]).unwrap(), &store);
         let id = resources
             .insert("p", vec![], Support::TRUE, &store)
             .unwrap();

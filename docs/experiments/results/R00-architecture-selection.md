@@ -103,3 +103,8 @@ The [R04 lifecycle pilot](R04-lifecycle-pilot.md) establishes a viable native fi
 ## Current evidence update during T035
 
 The [direct conditional runtime gate](R03-conditional-runtime.md) now checks complete source execution, resource effects, raw multiplicity and bounded publication beside divergent activity. Direct tuple/dependency activation and supported consumption are executable; their total cost is unresolved. The selected next work establishes true reusable preparation and registers a bounded lifecycle comparison against competent global source search. That comparison has more current decision value than further queue tuning because it tests whether shared physical execution pays for support, completion and retention machinery. T035 remains active; no efficiency ranking follows from its semantic gate.
+
+
+## Current evidence update after T035
+
+The [conditional lifecycle pilot](R03-conditional-lifecycle.md) validates all 256 processes. Opaque shared work pays for support machinery in these cases, while ordinary and immediately discriminating work is substantially slower; recursive output shows narrower gains. T036 selects causal maintenance diagnosis because allocation traffic grows much faster than retained requested heap, and lower-priority candidate deferral may be avoidable under monotone liveness. This distinction can change how much complexity/cost is inherent before wider architecture recommendations. No universal winner or language adoption follows.

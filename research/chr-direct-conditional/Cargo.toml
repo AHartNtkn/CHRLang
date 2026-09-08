@@ -5,10 +5,20 @@ edition.workspace = true
 
 [features]
 default = ["metrics"]
-metrics = []
+metrics = ["chr-compiled?/metrics"]
+experiment = ["dep:chr-compiled", "dep:chr-observe"]
+alloc-meter = ["experiment"]
+
+[[bin]]
+name = "chr-conditional-cost"
+path = "experiments/main.rs"
+required-features = ["experiment"]
 
 [dependencies]
 chr-syntax = { path = "../../crates/chr-syntax" }
+
+chr-compiled = { path = "../chr-compiled", default-features = false, optional = true }
+chr-observe = { path = "../chr-observe", optional = true }
 
 [dev-dependencies]
 chr-observe = { path = "../chr-observe" }

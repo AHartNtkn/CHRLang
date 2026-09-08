@@ -8,7 +8,7 @@ goal:
   execution_authority: Redesigned goal authorizes implementation and experiments selected under R00 and the governing sequence.
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
-  current_research: Conditional full runtime gate passes; reusable preparation and prospective lifecycle cost registration remain active
+  current_research: Conditional lifecycle pilot validates regime-dependent savings; adverse maintenance growth is selected for diagnosis
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -63,7 +63,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T035
+active_task: T036
 tasks:
   - id: T001
     type: pm
@@ -905,7 +905,7 @@ tasks:
   - id: T035
     type: pm
     assignee: PM
-    status: active
+    status: done
     objective: Implement the selected direct conditional activation path and independently validate source resources, contextual equality, raw birth multiplicity and support-local progress before cost comparison.
     inputs:
       - docs/experiments/results/R03-conditional-protocol.md
@@ -934,18 +934,46 @@ tasks:
       - docs/experiments/results/R03-conditional-equality.md
       - docs/experiments/results/R03-conditional-resources.md
       - docs/experiments/results/R03-conditional-runtime.md
+    receipt:
+      result: done
+      summary: Full runtime and true shared preparation pass independent gates; all 256 pilot processes validate. Opaque sharing wins, ordinary/discriminating workloads lose, output gains are bounded.
+      evidence:
+        - docs/experiments/results/R03-conditional-runtime.md
+        - docs/experiments/results/R03-conditional-lifecycle.md
+      validation: Workspace tests and Clippy, 44 package tests plus runner gate counter-free, allocation Clippy, formatting and frozen-source checks pass.
+  - id: T036
+    type: pm
+    assignee: PM
+    status: active
+    objective: Diagnose conditional maintenance growth on ordinary and discriminating work, distinguishing avoidable deferred dead candidates from necessary support costs before further architecture conclusions.
+    inputs:
+      - docs/experiments/results/R03-conditional-lifecycle.md
+    allowed_files:
+      - research/
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    expected_output:
+      - Exact causal work evidence and invariant-based disposition of deferred candidate maintenance.
+      - Independently validated correction and prospectively registered rerun if consequential.
+    verify:
+      - Preserve ordered source semantics, all matching frames and finite sibling progress
+      - Diagnostics separate from primary timing and full answers checked
+      - Preserve pilot results and freeze any changed runtime comparison
+    stop_if:
+      - Do not attribute all overhead to one mechanism without discriminating evidence.
+      - No workload weights or universal architecture winner.
     receipt: null
+
 
 checks:
   dirty_fingerprint: preexisting_unfinished_experimental_files_preserved
   last_verification:
     result: passed
     task: T035
-    scope: Full conditional runtime finite source gate and bounded divergent sibling witnesses; comparative costs remain unmeasured.
+    scope: Shared preparation ownership and registered conditional lifecycle pilot.
     commands:
-      - Twenty-five hand cases and 192 finite configurations match independent full observations and projected rule sequences
-      - Recursive query reuse, supported physical consumption and finite sibling witnesses pass
-      - Forty-three package tests pass in both feature modes
-      - Workspace tests, Clippy, formatting and independent reviews pass
+      - All 256 process outcomes and 14240 complete raw observations validated
+      - Forty-four package tests and matched runner gate pass counter-free
+      - Workspace tests, Clippy, formatting and frozen-source verification pass
     evidence:
-      - docs/experiments/results/R03-conditional-runtime.md
+      - docs/experiments/results/R03-conditional-lifecycle.md

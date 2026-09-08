@@ -43,16 +43,16 @@ pub enum Event {
     Answer(Answer),
     Exhausted,
 }
+/// Immutable source and lowered matching plans, prepared once and shared by all queries.
+/// Query engines retain this allocation after the public prepared handle is dropped.
 #[derive(Clone)]
 pub struct PreparedRuleset {
-    rules: Arc<Vec<Rule>>,
+    pub(crate) rules: Arc<Vec<crate::resources::Prepared>>,
 }
 impl PreparedRuleset {
     pub fn new(rules: Vec<Rule>) -> Result<Self, String> {
-        let store = Store::new();
-        Resources::new(rules.clone(), &store)?;
         Ok(Self {
-            rules: Arc::new(rules),
+            rules: Arc::new(crate::resources::compile(rules)?),
         })
     }
     /// Input preparation lowers a finite owned query. Subsequent tick work is
@@ -79,9 +79,8 @@ impl PreparedRuleset {
                 )
             })
             .collect();
-        let resources = Resources::new((*self.rules).clone(), &store)?;
+        let resources = Resources::new(self, &store);
         let mut e = Engine {
-            rules: Arc::clone(&self.rules),
             store,
             resources,
             arena: Arena::new(),
@@ -216,7 +215,6 @@ enum BodyState {
     Ack(BodyAckJob),
 }
 pub struct Engine {
-    rules: Arc<Vec<Rule>>,
     store: Store,
     resources: Resources,
     arena: Arena,
@@ -311,10 +309,10 @@ impl Engine {
     }
     fn discovery_tick(&mut self) {
         let mut d = self.discoveries.pop_front().unwrap();
-        if d.rule >= self.rules.len() {
+        if d.rule >= self.resources.rules.len() {
             return;
         }
-        let rule = &self.rules[d.rule];
+        let rule = &self.resources.rules[d.rule].source;
         let heads: Vec<_> = rule.kept.iter().chain(&rule.removed).collect();
         if d.anchor >= heads.len() {
             d.rule += 1;
@@ -1129,6 +1127,34 @@ impl TermExport {
 mod tests {
     use super::*;
     use chr_syntax::{Goal, Query, Rule, c, or};
+    #[test]
+    fn starts_share_compiled_rules_and_own_independent_query_state() {
+        let prepared =
+            PreparedRuleset::new(vec![Rule::simplify("erase", [c("p", [])], Goal::True)]).unwrap();
+        let input = Query {
+            constraints: vec![c("p", [])],
+            outputs: vec![],
+        };
+        let mut first = prepared.start(input.clone()).unwrap();
+        let mut second = prepared.start(input).unwrap();
+        assert!(Arc::ptr_eq(&prepared.rules, &first.resources.rules));
+        assert!(Arc::ptr_eq(&first.resources.rules, &second.resources.rules));
+        drop(prepared);
+        for engine in [&mut first, &mut second] {
+            let mut count = 0;
+            for _ in 0..1000 {
+                match engine.tick() {
+                    Event::Answer(answer) => {
+                        assert!(answer.residual.is_empty());
+                        count += 1;
+                    }
+                    Event::Exhausted => break,
+                    Event::Progress => (),
+                }
+            }
+            assert_eq!(count, 1);
+        }
+    }
     #[test]
     fn finite_sibling_is_published_beside_symbolic_rewrite_loop() {
         let prepared = PreparedRuleset::new(vec![

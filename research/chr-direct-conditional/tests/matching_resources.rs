@@ -1,4 +1,5 @@
 //! Independent projected nonbinding matching and source-resource expectations.
+use chr_direct_conditional::engine::PreparedRuleset;
 use chr_syntax::{Term as Source, Var};
 use std::collections::BTreeMap;
 #[derive(Clone, Debug, PartialEq, Eq)]
@@ -263,7 +264,8 @@ fn propagation_resource_truth_masks_preserve_exact_effects_and_pending_body() {
                         let mut rule =
                             Rule::propagate("seen", [c("p", [v(0)]), c("q", [v(1)])], Goal::True);
                         rule.guards = vec![Guard::Equal(v(0), atom("a"))];
-                        let mut resources = Resources::new(vec![rule], &store).unwrap();
+                        let mut resources =
+                            Resources::new(&PreparedRuleset::new(vec![rule]).unwrap(), &store);
                         let p = resources
                             .insert("p", vec![x], masks[live_a as usize], &store)
                             .unwrap();
@@ -344,7 +346,7 @@ fn two_birth_consumption_intersects_crossing_supports() {
             let sb = mask(b);
             let store = Store::new();
             let rule = Rule::simplify("consume", [c("p", []), c("q", [])], Goal::True);
-            let mut resources = Resources::new(vec![rule], &store).unwrap();
+            let mut resources = Resources::new(&PreparedRuleset::new(vec![rule]).unwrap(), &store);
             let p = resources.insert("p", vec![], sa, &store).unwrap();
             let q = resources.insert("q", vec![], sb, &store).unwrap();
             let token = authorize(&resources, &store, &mut arena, 0, vec![p, q], Support::TRUE);
@@ -375,9 +377,9 @@ fn tokens_reject_foreign_and_stale_owners_without_partial_effects() {
     let x = store.fresh_variable();
     let a = store.constructor("a", vec![]);
     let rule = Rule::propagate("seen", [c("p", [v(0)])], Goal::True);
-    let mut first = Resources::new(vec![rule.clone()], &store).unwrap();
+    let mut first = Resources::new(&PreparedRuleset::new(vec![rule.clone()]).unwrap(), &store);
     let p = first.insert("p", vec![x], Support::TRUE, &store).unwrap();
-    let mut second = Resources::new(vec![rule], &store).unwrap();
+    let mut second = Resources::new(&PreparedRuleset::new(vec![rule]).unwrap(), &store);
     second.insert("p", vec![x], Support::TRUE, &store).unwrap();
     let foreign = authorize(&first, &store, &mut arena, 0, vec![p], Support::TRUE).unwrap();
     assert!(second.commit(foreign, &store).is_err());
@@ -402,7 +404,7 @@ fn occurrence_identity_and_body_readiness_are_preserved() {
     let mut arena = Arena::new();
     let store = Store::new();
     let rule = Rule::simplify("two", [c("p", []), c("p", [])], Goal::True);
-    let mut resources = Resources::new(vec![rule], &store).unwrap();
+    let mut resources = Resources::new(&PreparedRuleset::new(vec![rule]).unwrap(), &store);
     let first = resources
         .insert("p", vec![], Support::TRUE, &store)
         .unwrap();
@@ -439,7 +441,7 @@ fn occurrence_identity_and_body_readiness_are_preserved() {
     assert_eq!(resources.occurrence(second).unwrap().live, Support::FALSE);
     assert!(resources.pending_bodies().contains_key(&body));
     let rule = Rule::propagate("one", [c("p", [])], Goal::True);
-    let mut resources = Resources::new(vec![rule], &store).unwrap();
+    let mut resources = Resources::new(&PreparedRuleset::new(vec![rule]).unwrap(), &store);
     let first = resources
         .insert("p", vec![], Support::TRUE, &store)
         .unwrap();
@@ -493,7 +495,7 @@ fn simpagation_keeps_only_declared_kept_occurrence() {
         guards: vec![],
         body: Goal::True,
     };
-    let mut resources = Resources::new(vec![rule], &store).unwrap();
+    let mut resources = Resources::new(&PreparedRuleset::new(vec![rule]).unwrap(), &store);
     let kept = resources
         .insert("keep", vec![], Support::TRUE, &store)
         .unwrap();
@@ -527,7 +529,7 @@ fn guard_locals_are_rigid_fresh_identities_without_head_bindings() {
         let store = Store::new();
         let mut rule = Rule::propagate("local", [c("p", [])], Goal::True);
         rule.guards = vec![Guard::Equal(left, right)];
-        let mut resources = Resources::new(vec![rule], &store).unwrap();
+        let mut resources = Resources::new(&PreparedRuleset::new(vec![rule]).unwrap(), &store);
         let p = resources
             .insert("p", vec![], Support::TRUE, &store)
             .unwrap();
@@ -540,7 +542,7 @@ fn guard_locals_are_rigid_fresh_identities_without_head_bindings() {
     let query = store.fresh_variable();
     let mut rule = Rule::propagate("namespaces", [c("p", [v(0)])], Goal::True);
     rule.guards = vec![Guard::Equal(v(0), v(1))];
-    let mut resources = Resources::new(vec![rule], &store).unwrap();
+    let mut resources = Resources::new(&PreparedRuleset::new(vec![rule]).unwrap(), &store);
     let p = resources
         .insert("p", vec![query], Support::TRUE, &store)
         .unwrap();
@@ -553,7 +555,7 @@ fn propagation_keys_preserve_ordered_ids_and_pending_support_is_local() {
     let not = support(&mut arena, Operation::Not(birth));
     let store = Store::new();
     let rule = Rule::propagate("ordered", [c("p", []), c("p", [])], Goal::True);
-    let mut resources = Resources::new(vec![rule], &store).unwrap();
+    let mut resources = Resources::new(&PreparedRuleset::new(vec![rule]).unwrap(), &store);
     let a = resources
         .insert("p", vec![], Support::TRUE, &store)
         .unwrap();
@@ -570,7 +572,7 @@ fn propagation_keys_preserve_ordered_ids_and_pending_support_is_local() {
     acknowledge_true(&mut resources, &mut arena, second);
     assert!(authorize(&resources, &store, &mut arena, 0, vec![a, b], Support::TRUE).is_none());
     let rule = Rule::propagate("local", [c("p", [])], Goal::True);
-    let mut resources = Resources::new(vec![rule], &store).unwrap();
+    let mut resources = Resources::new(&PreparedRuleset::new(vec![rule]).unwrap(), &store);
     let a = resources
         .insert("p", vec![], Support::TRUE, &store)
         .unwrap();
@@ -592,7 +594,7 @@ fn acknowledgement_keeps_other_pending_support_and_cancelled_prepare_has_no_effe
     let not = support(&mut arena, Operation::Not(birth));
     let store = Store::new();
     let rule = Rule::propagate("pending", [c("p", [])], Goal::True);
-    let mut resources = Resources::new(vec![rule], &store).unwrap();
+    let mut resources = Resources::new(&PreparedRuleset::new(vec![rule]).unwrap(), &store);
     let a = resources
         .insert("p", vec![], Support::TRUE, &store)
         .unwrap();
@@ -636,7 +638,7 @@ fn one_frame_completion_is_distinct_from_exhaustive_ineligibility() {
     equate(&mut store, &mut arena, birth, x, fa);
     equate(&mut store, &mut arena, not, x, fb);
     let rule = Rule::propagate("frames", [c("p", [t("f", [v(0)])])], Goal::True);
-    let mut resources = Resources::new(vec![rule], &store).unwrap();
+    let mut resources = Resources::new(&PreparedRuleset::new(vec![rule]).unwrap(), &store);
     let p = resources
         .insert("p", vec![x], Support::TRUE, &store)
         .unwrap();
@@ -693,7 +695,7 @@ fn rejecting_a_guard_frame_does_not_discard_an_eligible_alternative() {
     equate(&mut store, &mut arena, not, x, fa);
     let mut rule = Rule::propagate("guard_frames", [c("p", [t("f", [v(0)])])], Goal::True);
     rule.guards = vec![Guard::Equal(v(0), atom("a"))];
-    let mut resources = Resources::new(vec![rule], &store).unwrap();
+    let mut resources = Resources::new(&PreparedRuleset::new(vec![rule]).unwrap(), &store);
     let p = resources
         .insert("p", vec![x], Support::TRUE, &store)
         .unwrap();
