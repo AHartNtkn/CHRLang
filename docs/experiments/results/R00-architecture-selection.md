@@ -113,3 +113,8 @@ The [conditional lifecycle pilot](R03-conditional-lifecycle.md) validates all 25
 ## Current evidence update after T036
 
 [Conditional maintenance diagnosis](R03-conditional-maintenance.md) measures the predicted quadratic deferral and validates a monotone-liveness correction in 384 paired processes. Ordinary overhead is much smaller, opaque sharing gains increase, and discrimination64 becomes inconclusive. T037 selects relation-region eligibility/correspondence: determining when general arbitration and resource machinery can be eliminated without shared-variable or contextual interference. This applies the existing finite-region cost evidence to a consequential language/architecture boundary, ahead of another conditional tuning pass.
+
+
+## Current evidence update during T037
+
+[Region boundary tests](R05-region-boundaries.md) distinguish specialization preserving source arbitration from eager relation execution. Unique predicate definitions alone fail contextual correspondence; logical finite-answer equivalence does not settle exhaustion or raw multiplicity. The next gate therefore targets actual scheduling-preserving specialization, while stronger eager-region certificates remain separate work. No general eligibility or new performance claim follows from the passing boundary examples.
