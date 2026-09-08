@@ -4,6 +4,8 @@
 
 The [architecture checkpoint](R07-architecture-checkpoint.md) and [closure audit](R07-closure-audit.md) record earlier assessments. The governing sequence above supplies the current investigation requirements. Existing measurements retain their stated scope; the current evidence does not support whole-goal closure.
 
+Current parallel evidence: the [reusable-worker pilot](S09-worker-timing-pilot.md) establishes bounded lifecycle wall-time gains with higher process CPU, plus strong tiny-query losses. Matched allocation costs remain open; this is a conditional resource tradeoff, not architecture selection.
+
 The first comparison should distinguish generic selection, incremental activation and generated rule execution on complete ordinary-CHR computations. In parallel, analyze a directly compiled finite consistency relation as a contrasting way to eliminate execution. Integrated representation and conditional execution remain serious independent candidates; existing service results do not rank them against these organizations.
 
 This is a selection supported by analysis and existing evidence, not a performance result or a production architecture choice. It selects decision briefs before implementation. Compilation, representation, search storage and scheduling are partly independent dimensions; the candidates below are coherent starting combinations, not mutually exclusive categories.

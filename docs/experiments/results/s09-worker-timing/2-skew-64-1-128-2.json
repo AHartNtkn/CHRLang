@@ -1,0 +1,23 @@
+{
+  "command": [
+    "/home/ahart/Documents/CHRLang/target/release/examples/worker_cost",
+    "2",
+    "64",
+    "1",
+    "128",
+    "skew"
+  ],
+  "block": 2,
+  "cell": [
+    "skew",
+    64,
+    1,
+    128,
+    2
+  ],
+  "cutoff": false,
+  "exit_code": 0,
+  "stdout": "{\"workers\":2,\"depth\":64,\"queries\":1,\"quantum\":128,\"family\":\"skew\",\"prepare_ns\":154612,\"shutdown_ns\":45895,\"runtime_drop_ns\":1427,\"lifecycle_ns\":1420716}\n{\"query\":0,\"setup_ns\":411126,\"execute_observe_ns\":634444,\"first_observation_ns\":621325,\"close_ns\":156601,\"dispose_ns\":16611}\n",
+  "stderr": "",
+  "process_cpu_seconds": 0.0033810000000003004
+}
