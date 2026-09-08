@@ -280,6 +280,8 @@ impl State {
             .is_some_and(|g| matches!(g.as_ref(), Goal::Or(..)))
     }
     fn step(&mut self, rules: &[Rule], decision: Option<bool>, log: &mut Recorder) -> Event {
+        #[cfg(feature = "replay-diagnostic")]
+        diagnostics::record_step();
         if let Some(g) = self.pending.last().cloned() {
             log.change(self, Change::Pop(g.clone()));
             match g.as_ref() {
@@ -684,5 +686,57 @@ mod tests {
             edit.apply(&mut s, true);
         }
         assert_eq!(s, final_state);
+    }
+}
+
+/// Work-only instrumentation and a deterministic-prefix projection. Absent from
+/// timing builds. Projection executes each source step once, preserving FIFO
+/// branch decisions, and sums the prefix each root-replay service would repeat.
+#[cfg(feature = "replay-diagnostic")]
+pub mod diagnostics {
+    use super::*;
+    use std::cell::Cell;
+    thread_local! { static STEPS: Cell<u64> = const { Cell::new(0) }; }
+    pub(super) fn record_step() {
+        STEPS.with(|n| n.set(n.get() + 1));
+    }
+    pub fn reset() {
+        STEPS.with(|n| n.set(0));
+    }
+    pub fn steps() -> u64 {
+        STEPS.with(Cell::get)
+    }
+    pub struct Projection {
+        pub service_steps: u64,
+        pub root_replay_steps: u64,
+        pub answers: Vec<Answer>,
+    }
+    pub fn project(rules: &[Rule], query: &Query, bound: usize) -> Projection {
+        let mut frontier = VecDeque::from([(State::new(query).unwrap(), 0u64)]);
+        let mut result = Projection {
+            service_steps: 0,
+            root_replay_steps: 0,
+            answers: vec![],
+        };
+        for _ in 0..bound {
+            let Some((mut state, prefix)) = frontier.pop_front() else {
+                return result;
+            };
+            result.service_steps += 1;
+            result.root_replay_steps += prefix + 1;
+            match state.step(rules, None, &mut Recorder::new(false)) {
+                Event::Progress => frontier.push_back((state, prefix + 1)),
+                Event::Failed => (),
+                Event::Answer => result.answers.push(state.answer(&query.outputs)),
+                Event::Fork(a, b) => {
+                    let mut right = state.clone();
+                    state.pending.push(a);
+                    right.pending.push(b);
+                    frontier.push_back((state, prefix + 1));
+                    frontier.push_back((right, prefix + 1));
+                }
+            }
+        }
+        panic!("projection source-service cutoff");
     }
 }

@@ -17,7 +17,7 @@ Existing measurements count within their demonstrated scope. Completion of a bou
 | S06 compilation | [Finite-table source gate](results/S06-table-source-gate.md), [lifecycle pilot](results/S06-table-lifecycle.md) | Broader derivations, recursive/contextual lowering, structural spaces and native compilation costs |
 | S07–S11 | Earlier bounded results and current stage specifications | Language comparisons, sustained lifetime, warm parallel execution, whole architectures and held-out audit |
 
-T066's S04 restoration/replay trial is the current implementation task. Its [entry assessment](results/S04-restoration-entry.md) compares its decision value with S05 stable-identity reuse. The remaining-investigation schedule requires that comparison to be revisited after the trial.
+T066's S04 restoration/replay trial is active. Its [lifecycle pilot is registered](registrations/S04-lifecycle-pilot.md); [sizing diagnoses root-replay prefix repetition](results/S04-replay-sizing.md) and prospectively extends that case's resource limit. Its [entry assessment](results/S04-restoration-entry.md) compares its decision value with S05 stable-identity reuse. The remaining-investigation schedule requires that comparison to be revisited after the trial.
 
 ## Coverage of every reviewed decision
 

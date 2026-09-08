@@ -1,0 +1,18 @@
+{
+  "command": [
+    "cargo",
+    "build",
+    "-p",
+    "chr-restoration",
+    "--release",
+    "--example",
+    "lifecycle",
+    "--target-dir",
+    "/home/ahart/Documents/CHRLang/target/s04-lifecycle/cow-meter",
+    "--features",
+    "arena-cow,alloc-meter"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "   Compiling chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax)\n   Compiling chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe)\n   Compiling chr-restoration v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-restoration)\n   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)\n   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)\n    Finished `release` profile [optimized] target(s) in 6.22s\n"
+}
