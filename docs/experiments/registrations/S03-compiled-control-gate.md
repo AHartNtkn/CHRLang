@@ -1,0 +1,7 @@
+# S03 compiled controls: prospective source gate
+
+Before timing the direct graph, add the existing compiled executor to the same complete-answer tests. Reuse preparation across changing word queries. Run Global scheduling with scanned and indexed access on all 40 finite configurations, checking each full raw multiset against the independently derived expectations already used by scalar and Conditional. Both accesses must preserve repeated aliases, raw equal-arm alternatives, consuming/kept heads, propagation tuples and disconnected failure. Give each execution 2,000,000 service steps and each process 60 seconds. Verify finite-sibling publication over 20,000 steps separately for both accesses.
+
+Active scheduling is a separate diagnostic. Its different committed scheduling policy is already known to change results on some sources. Screen it on the 28 word configurations, reporting exact full-answer agreement or disagreement per configuration rather than treating a legal different schedule as a runtime defect or admitting unequal outputs into timing. A narrower admission may be useful on future sources if independently checked.
+
+Run the shared source gate in default, fresh replay and metrics-off builds plus strict Clippy. No test durations are comparative architectural evidence. Record hashes and commands. Passing this gate admits existing generic compiled search controls; it is not a generated source compiler or graphless word lowering, and neither claim follows automatically.

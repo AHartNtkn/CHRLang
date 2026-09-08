@@ -145,11 +145,23 @@ fn dynamic_births_resources_and_complete_observations() {
     ] {
         let rules = source(alphabet, reject);
         let prepared = PreparedRuleset::new(rules.clone()).unwrap();
+        let compiled = chr_compiled::PreparedRuleset::new(rules.clone(), None).unwrap();
         let direct = chr_direct_choice::engine::PreparedRuleset::new(rules.clone()).unwrap();
         for (depth, two) in cases {
             for first in [false, true] {
                 let input = query(depth, two, first);
                 let oracle = expected(depth, two, alphabet, reject);
+                for access in [chr_compiled::Access::Scan, chr_compiled::Access::Indexed] {
+                    runtime_support::same_raw(
+                        run_compiled(
+                            &compiled,
+                            input.clone(),
+                            chr_compiled::Policy::Global,
+                            access,
+                        ),
+                        oracle.clone(),
+                    );
+                }
                 runtime_support::same_raw(
                     runtime_support::run(&rules, &input, 200_000),
                     oracle.clone(),
@@ -292,6 +304,18 @@ fn check_all_source_engines(rules: Vec<Rule>, input: Query, expected: Vec<Answer
         runtime_support::run(&rules, &input, 200_000),
         expected.clone(),
     );
+    let prepared = chr_compiled::PreparedRuleset::new(rules.clone(), None).unwrap();
+    for access in [chr_compiled::Access::Scan, chr_compiled::Access::Indexed] {
+        runtime_support::same_raw(
+            run_compiled(
+                &prepared,
+                input.clone(),
+                chr_compiled::Policy::Global,
+                access,
+            ),
+            expected.clone(),
+        );
+    }
     runtime_support::same_raw(
         run(&PreparedRuleset::new(rules.clone()).unwrap(), input.clone()),
         expected.clone(),
@@ -513,4 +537,199 @@ fn mixed_kept_consumed_heads_preserve_joint_output_identity() {
             ],
         }],
     );
+}
+
+fn run_compiled(
+    prepared: &chr_compiled::PreparedRuleset,
+    input: Query,
+    policy: chr_compiled::Policy,
+    access: chr_compiled::Access,
+) -> Vec<Answer> {
+    use chr_compiled::SearchEvent;
+    let mut engine = prepared.start_search(input, policy, access).unwrap();
+    let mut answers = Vec::new();
+    for _ in 0..2_000_000 {
+        match engine.tick() {
+            SearchEvent::Complete(mut branch) => answers.push(
+                branch
+                    .engine
+                    .observe()
+                    .expect("complete branch must observe"),
+            ),
+            SearchEvent::Exhausted => return answers,
+            SearchEvent::Progress | SearchEvent::Failed(_) | SearchEvent::Split { .. } => {}
+        }
+    }
+    panic!("registered compiled source gate cutoff");
+}
+#[test]
+fn compiled_global_controls_publish_finite_sibling_without_exhaustion() {
+    use chr_compiled::{Access, Policy, PreparedRuleset, SearchEvent};
+    let rules = vec![
+        Rule::simplify(
+            "start",
+            [c("start", [])],
+            or(c("loop", []).into(), c("finite", [v(0), v(0)]).into()),
+        ),
+        Rule::simplify("loop", [c("loop", [])], c("loop", []).into()),
+    ];
+    let prepared = PreparedRuleset::new(rules, None).unwrap();
+    for access in [Access::Scan, Access::Indexed] {
+        let mut engine = prepared
+            .start_search(
+                Query {
+                    constraints: vec![c("start", [])],
+                    outputs: vec![],
+                },
+                Policy::Global,
+                access,
+            )
+            .unwrap();
+        let expected = Answer {
+            outputs: vec![],
+            residual: vec![c("finite", [v(900), v(900)])],
+        };
+        let mut count = 0;
+        for _ in 0..20_000 {
+            match engine.tick() {
+                SearchEvent::Complete(mut branch) => {
+                    runtime_support::same_raw(
+                        vec![branch.engine.observe().unwrap()],
+                        vec![expected.clone()],
+                    );
+                    count += 1;
+                }
+                SearchEvent::Exhausted => panic!("continuing compiled sibling cannot exhaust"),
+                SearchEvent::Progress | SearchEvent::Failed(_) | SearchEvent::Split { .. } => {}
+            }
+        }
+        assert_eq!(count, 1);
+    }
+}
+
+fn same_answers(actual: &[Answer], expected: &[Answer]) -> bool {
+    if actual.len() != expected.len() {
+        return false;
+    }
+    let mut unmatched = expected.to_vec();
+    for answer in actual {
+        let Some(index) = unmatched
+            .iter()
+            .position(|other| chr_observe::equivalent(answer, other, &mut Default::default()))
+        else {
+            return false;
+        };
+        unmatched.swap_remove(index);
+    }
+    unmatched.is_empty()
+}
+#[test]
+fn active_policy_word_screen_records_complete_answer_agreement() {
+    let mut agreements = 0;
+    let mut cases = 0;
+    for (alphabet, reject, depths) in [
+        (
+            Alphabet::Binary,
+            false,
+            vec![
+                (0, false),
+                (1, false),
+                (2, false),
+                (3, false),
+                (1, true),
+                (2, true),
+            ],
+        ),
+        (
+            Alphabet::Nested,
+            false,
+            vec![(1, false), (2, false), (2, true)],
+        ),
+        (
+            Alphabet::Duplicate,
+            false,
+            vec![(1, false), (2, false), (3, false)],
+        ),
+        (Alphabet::Binary, true, vec![(1, false), (2, false)]),
+    ] {
+        let prepared = chr_compiled::PreparedRuleset::new(source(alphabet, reject), None).unwrap();
+        for (depth, two) in depths {
+            for first in [false, true] {
+                let oracle = expected(depth, two, alphabet, reject);
+                for access in [chr_compiled::Access::Scan, chr_compiled::Access::Indexed] {
+                    let actual = run_compiled(
+                        &prepared,
+                        query(depth, two, first),
+                        chr_compiled::Policy::Active,
+                        access,
+                    );
+                    let agrees = same_answers(&actual, &oracle);
+                    let mut policy_expected = oracle.clone();
+                    if !first {
+                        for answer in &mut policy_expected {
+                            answer.residual.retain(|c| c.name != "seen");
+                        }
+                    }
+                    assert!(
+                        same_answers(&actual, &policy_expected),
+                        "Active difference exceeds the token observation"
+                    );
+                    cases += 1;
+                    agreements += usize::from(agrees);
+                    if cases == 1 {
+                        println!("active first difference actual={actual:?} expected={oracle:?}");
+                    }
+                    println!(
+                        "active alphabet={alphabet:?} reject={reject} depth={depth} two={two} token_first={first} access={access:?} expected_raw={} actual_raw={} agrees={agrees}",
+                        oracle.len(),
+                        actual.len()
+                    );
+                }
+            }
+        }
+    }
+    assert_eq!(cases, 56);
+    println!(
+        "active agreements={agreements}/{cases}; this is a diagnostic, not admission of mismatched cases"
+    );
+}
+
+#[test]
+fn active_nonchoice_trace_explains_missing_token_observation() {
+    use chr_compiled::{Access, Policy, PreparedRuleset, SearchEvent};
+    let rules = source(Alphabet::Binary, false);
+    let prepared = PreparedRuleset::new(rules.clone(), None).unwrap();
+    for first in [false, true] {
+        let mut root = prepared
+            .start(query(0, false, first), Policy::Active, Access::Indexed)
+            .unwrap();
+        root.enable_trace();
+        let mut engine = root.into_search();
+        let mut trace = None;
+        for _ in 0..10_000 {
+            match engine.tick() {
+                SearchEvent::Complete(branch) => {
+                    trace = Some(
+                        branch
+                            .engine
+                            .trace()
+                            .iter()
+                            .map(|(rule, _)| rules[*rule].name.clone())
+                            .collect::<Vec<_>>(),
+                    );
+                }
+                SearchEvent::Exhausted => break,
+                _ => {}
+            }
+        }
+        let trace = trace.expect("bounded no-choice source must complete");
+        assert!(trace.iter().any(|name| name == "use"));
+        assert_eq!(trace.iter().any(|name| name == "watch"), first);
+        if first {
+            assert!(
+                trace.iter().position(|n| n == "watch") < trace.iter().position(|n| n == "use")
+            );
+        }
+        println!("Active no-choice token_first={first} rule_trace={trace:?}");
+    }
 }

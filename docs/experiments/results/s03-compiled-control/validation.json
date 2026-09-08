@@ -1,0 +1,99 @@
+{
+  "commands": [
+    {
+      "name": "default",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-direct-conditional",
+        "--test",
+        "direct_graph_entry",
+        "--",
+        "--nocapture"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "replay",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-direct-conditional",
+        "--test",
+        "direct_graph_entry",
+        "--",
+        "--nocapture"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "off",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-direct-conditional",
+        "--no-default-features",
+        "--test",
+        "direct_graph_entry",
+        "--",
+        "--nocapture"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "clippy",
+      "command": [
+        "cargo",
+        "clippy",
+        "-p",
+        "chr-direct-conditional",
+        "--test",
+        "direct_graph_entry",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "clippy-off",
+      "command": [
+        "cargo",
+        "clippy",
+        "-p",
+        "chr-direct-conditional",
+        "--no-default-features",
+        "--test",
+        "direct_graph_entry",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "fmt",
+      "command": [
+        "cargo",
+        "fmt",
+        "-p",
+        "chr-direct-conditional",
+        "--",
+        "--check"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "sha256": {
+    "research/chr-direct-conditional/tests/direct_graph_entry.rs": "35d18075cce273c0c3d5f130dcfb9db224611c3c446e923be7879b80ec83d421",
+    "research/chr-direct-conditional/tests/runtime_support/mod.rs": "03633e8d666fadcdd08ddfe4900aa8116b32e434fb0a5dcb1c5faa23ff5976b2",
+    "research/chr-direct-conditional/Cargo.toml": "9b315de2a1f54b5c0892cac88d504f846b3c85ddbc02ef306f14c81746b2e0c6",
+    "research/chr-compiled/src/lib.rs": "0c9c38380250de3296c0154d4454889e46ec7d2adc07a9d462c15c6086971f10",
+    "research/chr-compiled/src/search.rs": "70a0263fec741196612ff84a8cc73099e341540a5b974f947848d9e067ddf633",
+    "docs/experiments/registrations/S03-compiled-control-gate.md": "f823644b55a441cd951971759ccf0885cfd7a210ef8fbbfb70e73a32b3b55eb5",
+    "Cargo.lock": "e65763e9e37939935ec4e035ede6aef5faf9df824ac4779af71a6111fc570c93"
+  }
+}
