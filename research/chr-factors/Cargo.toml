@@ -6,6 +6,7 @@ edition.workspace = true
 default = ["metrics"]
 metrics = ["chr-persistent/metrics", "chr-observe/metrics", "chr-compiled?/metrics"]
 lifecycle = ["dep:chr-compiled"]
+worker-lowering = ["lifecycle", "chr-compiled/carrier-contraction"]
 
 [dependencies]
 chr-syntax = { path = "../../crates/chr-syntax" }
@@ -23,3 +24,7 @@ required-features = ["lifecycle"]
 [[example]]
 name = "region_lifecycle_memory"
 required-features = ["lifecycle"]
+
+[[example]]
+name = "worker_lowering_gate"
+required-features = ["worker-lowering"]

@@ -1,0 +1,21 @@
+{
+  "command": [
+    "cargo",
+    "clippy",
+    "-p",
+    "chr-factors",
+    "--no-default-features",
+    "--features",
+    "worker-lowering",
+    "--example",
+    "worker_allocation",
+    "--example",
+    "worker_lowering_gate",
+    "--",
+    "-D",
+    "warnings"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)\n    Checking chr-factors v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-factors)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.19s\n"
+}

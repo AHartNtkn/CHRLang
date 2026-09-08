@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Recompute the prospectively specified paired-block summaries."""
 from pathlib import Path
-import json,statistics,hashlib
+import json,statistics,hashlib,subprocess
 ROOT=Path(__file__).resolve().parents[4]
 OUT=Path(__file__).resolve().parent
 
@@ -14,7 +14,8 @@ def classify(ratios):
 def main():
     freeze=json.loads((OUT/'freeze.json').read_text())
     for name,h in freeze['source'].items():
-        assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==h,name
+        content=subprocess.check_output(['git','show',freeze['source_commit']+':'+name],cwd=ROOT) if 'source_commit' in freeze else (ROOT/name).read_bytes()
+        assert hashlib.sha256(content).hexdigest()==h,name
     data={};warmups=0
     for path in OUT.glob('*.json'):
         r=json.loads(path.read_text())

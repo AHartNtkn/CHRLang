@@ -1,0 +1,7 @@
+# Matched worker allocation follow-up
+
+Run the timing pilot's exact eighty source/query-count/quantum/worker configurations with the isolated `worker_allocation` executable, three fresh processes each. Use the same source generator, expected complete products, Runtime, Session, window4, query-depth changes and coordinator budget as the timing pilot. Validate every complete answer and raw count. Bounds remain60 seconds and1GiB per process.
+
+Measure one uninterrupted requested-heap window from source construction through complete runtime, query and answer disposal. Initialize stdout and the previously attributed process channel context before that window in every mode. Expected-answer construction and harness command-line storage are outside it. Report incremental peak above the starting baseline, cumulative requested bytes, allocation/free counts and full baseline restoration. No instrumented timing is evidence for speed. This is matched runtime work, not an identical process-startup endpoint or RSS.
+
+Require full live restoration in every run. Check deterministic traffic by cell, preserving any variations for attribution. Peaks may vary with concurrent overlap: report all three and their range. Ratios are descriptive, not a new weighted architecture score. Relate the memory observations to the already-registered wall/CPU conclusions; a material contradiction or retaining owner requires investigation before disposing of T069.
