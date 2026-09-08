@@ -296,3 +296,7 @@ The [selective/consuming lowerings](S01-selective-consuming-gate.md) pass indepe
 ## S01 lifecycle and script ownership
 
 The [224-process initial pilot](S01-selective-lifecycle.md) exposed a shared quadratic script-copying cost. The [336-process paired correction](S01-script-ownership-repair.md) removes most long-script overhead while preserving exact blocked-driver residuals. Both lowerings then beat generic controls throughout the registered sessions; dense consumption makes Retained about 40% slower than Direct. Other retention contrasts remain below the practical threshold or noisy, so T065 selects a focused request-frequency crossover rather than closing S01.
+
+## S01 request crossover and S04 selection
+
+The [288-process crossover](S01-request-crossover.md) establishes a practical retention benefit at N32/R64 stable selective requests (paired ratio 0.779), and a strong dense-consuming loss at the same size (5.619). This supports a source-dependent tradeoff without inventing workload weights or automatic routing. T065's bounded comparison is complete; broader S01 remains open. [S04 restoration/replay](S04-restoration-entry.md) is selected next, with S05 stable-identity reuse the strongest ready alternative.
