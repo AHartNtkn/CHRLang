@@ -178,10 +178,12 @@ fn partner_traversal_resumes_at_candidate_boundaries() {
             for _ in 0..100 {
                 let before = engine.stats().candidate_visits;
                 engine.step();
-                assert!(
-                    engine.stats().candidate_visits - before <= 1,
-                    "{policy:?} {execution:?} did not yield between candidates"
-                );
+                if chr_compiled::COLLECT_METRICS {
+                    assert!(
+                        engine.stats().candidate_visits - before <= 1,
+                        "{policy:?} {execution:?} did not yield between candidates"
+                    );
+                }
             }
             assert!(engine.advance(1000).exhausted);
         }
@@ -244,11 +246,15 @@ fn native_rules_do_not_call_generic_template_walkers() {
             let case = fixtures::case(0, 3);
             let mut engine = prepared_engine(0, case.query, policy, execution).unwrap();
             assert!(engine.advance(10000).exhausted);
-            assert!(engine.stats().structural_tests > 0);
-            assert_eq!(
-                engine.stats().generic_ast_visits == 0,
-                matches!(execution, Execution::Generated)
-            );
+            if chr_compiled::COLLECT_METRICS {
+                assert!(engine.stats().structural_tests > 0);
+            }
+            if chr_compiled::COLLECT_METRICS {
+                assert_eq!(
+                    engine.stats().generic_ast_visits == 0,
+                    matches!(execution, Execution::Generated)
+                );
+            }
         }
     }
 }

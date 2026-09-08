@@ -3,6 +3,10 @@ name = "chr-persistent"
 version.workspace = true
 edition.workspace = true
 
+[features]
+default = ["kernel-metrics"]
+kernel-metrics = []
+
 [dependencies]
 chr-syntax = { path = "../../crates/chr-syntax" }
 chr-observe = { path = "../chr-observe" }

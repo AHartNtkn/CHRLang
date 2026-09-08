@@ -1,4 +1,6 @@
 //! Independent scalar controls with immutable terms and explicit state snapshot policies.
+/// Availability of shared term/map diagnostics; legacy Search counters are separate.
+pub const COLLECT_KERNEL_METRICS: bool = cfg!(feature = "kernel-metrics");
 mod map;
 mod state;
 mod terms;

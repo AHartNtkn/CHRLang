@@ -32,7 +32,9 @@ impl Arena {
         id
     }
     pub fn make(&mut self, name: &str, args: Vec<Term>, stats: &mut Stats) -> Term {
-        stats.term_requests += 1;
+        if crate::COLLECT_KERNEL_METRICS {
+            stats.term_requests += 1;
+        }
         let key = Node {
             name: name.to_owned(),
             args,
@@ -43,7 +45,9 @@ impl Arena {
         let id = self.nodes.len();
         self.nodes.push(key.clone());
         self.intern.insert(key, id);
-        stats.term_nodes = self.nodes.len();
+        if crate::COLLECT_KERNEL_METRICS {
+            stats.term_nodes = self.nodes.len();
+        }
         Term::Node(id)
     }
     pub fn instantiate(
@@ -86,7 +90,9 @@ impl Arena {
     pub fn equal(&self, left: Term, right: Term, bindings: &Bindings, stats: &mut Stats) -> bool {
         let mut todo = vec![(left, right)];
         while let Some((left, right)) = todo.pop() {
-            stats.pairs += 1;
+            if crate::COLLECT_KERNEL_METRICS {
+                stats.pairs += 1;
+            }
             let left = deref(left, bindings, stats);
             let right = deref(right, bindings, stats);
             if left == right {
@@ -126,7 +132,9 @@ impl Arena {
         let mut trial = bindings.clone();
         let mut todo = vec![(left, right)];
         while let Some((left, right)) = todo.pop() {
-            stats.pairs += 1;
+            if crate::COLLECT_KERNEL_METRICS {
+                stats.pairs += 1;
+            }
             let left = deref(left, &trial, stats);
             let right = deref(right, &trial, stats);
             if left == right {
@@ -144,7 +152,9 @@ impl Arena {
                     let mut stack = vec![term];
                     let mut seen = HashSet::new();
                     while let Some(t) = stack.pop() {
-                        stats.occurs_visits += 1;
+                        if crate::COLLECT_KERNEL_METRICS {
+                            stats.occurs_visits += 1;
+                        }
                         match deref(t, &trial, stats) {
                             Term::Var(id) if id == var => return false,
                             Term::Node(id) if seen.insert(id) => stack.extend(&self.nodes[id].args),
@@ -172,7 +182,9 @@ impl Arena {
 }
 pub fn deref(mut term: Term, bindings: &Bindings, stats: &mut Stats) -> Term {
     while let Term::Var(id) = term {
-        stats.dereferences += 1;
+        if crate::COLLECT_KERNEL_METRICS {
+            stats.dereferences += 1;
+        }
         match bindings.get(&id, &mut stats.storage) {
             Some(t) => term = t,
             None => break,

@@ -8,7 +8,7 @@ goal:
   execution_authority: Redesigned goal authorizes implementation and experiments selected under R00 and the governing sequence.
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
-  current_research: R01 counter-free measurement configuration and bounded pilot; R02 serialization obligations analyzed; R04 source gate passed
+  current_research: R01 pilot measured; anchor-informed partner enumeration selected; R02 integration and R04 solving remain independent
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -63,7 +63,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T026
+active_task: T027
 tasks:
   - id: T001
     type: pm
@@ -618,7 +618,7 @@ tasks:
   - id: T026
     type: pm
     assignee: PM
-    status: active
+    status: done
     objective: Establish counter-free native measurement and freeze a bounded R01 cost pilot with full lifecycle accounting.
     inputs:
       - docs/experiments/registrations/R01-measurement-design.md
@@ -626,7 +626,12 @@ tasks:
     expected_output:
       - Verified counted and counter-free builds with preserved source semantics and truthful retention.
       - Native phase runner, separate allocation diagnostics, exact pilot registration and reproducible evidence.
-    receipt: null
+    receipt:
+      result: done
+      harness: codex
+      summary: Counter-free runner validated; 640 registered processes and 2560 full answers pass. Access and activation dominate; anchor information is unavailable to earlier partner enumeration.
+      evidence:
+        - docs/experiments/results/R01-native-pilot.md
     allowed_files:
       - research/chr-compiled/
       - research/chr-persistent/
@@ -642,13 +647,39 @@ tasks:
       - Preserve semantic changed-variable reporting; disable diagnostic updates only.
       - No architecture ranking from an unregistered or confounded timing comparison.
 
+  - id: T027
+    type: pm
+    assignee: PM
+    status: active
+    objective: Make established active-occurrence information available to partner lookup and reassess the dedicated control without changing source semantics.
+    inputs:
+      - docs/experiments/results/R01-native-pilot.md
+    expected_output:
+      - Generic and native anchored matching with independent application, resource, unknown-term and resume validation.
+      - Prospectively registered bounded measurements and architectural disposition.
+    receipt: null
+    allowed_files:
+      - research/chr-compiled/
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    verify:
+      - Full answers, selected occurrence traces and independent terminal checks
+      - Counted and counter-free tests, generated compilation, Clippy and formatting
+      - Fresh source freeze before comparative runs
+    stop_if:
+      - Matching must not bind query variables or reorder source occurrence tuples.
+      - Preserve R02 independence and no universal architecture ranking.
+
 checks:
   dirty_fingerprint: preexisting_unfinished_experimental_files_preserved
   last_verification:
     result: passed
-    task: T025
-    scope: R01 access/lifetime semantics and R04 source correspondence; timing remains unmeasured.
+    task: T026
+    scope: R01 native pilot; workspace and counter-free semantics; runner review and feature isolation.
     commands:
+      - Registered native pilot validates 640 processes and 2560 complete answers
+      - Counter-free compiled/persistent tests and workspace tests pass
+      - Native runner tests, allocation self-check, Clippy and formatting pass
       - Twelve independent oracle tests pass
       - R04 registered source gate passes 338 queries under six rule orders
       - R04 package formatting and Clippy pass

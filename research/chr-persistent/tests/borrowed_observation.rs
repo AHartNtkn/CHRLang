@@ -134,7 +134,9 @@ fn borrowed_and_eager_transitions_agree_on_aliases_duplicates_and_failure() {
         eager.stats().storage.visits - eager.eager_export_stats().storage_visits,
         graph.stats().storage.visits
     );
-    assert!(eager.eager_export_stats().dereferences > 0);
+    if chr_persistent::COLLECT_KERNEL_METRICS {
+        assert!(eager.eager_export_stats().dereferences > 0);
+    }
     assert_eq!(graph.eager_export_stats().answers, 0);
     assert_eq!(eager_answers[0].residual.len(), 2);
     assert!(equivalent(

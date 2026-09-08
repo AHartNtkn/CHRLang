@@ -1,4 +1,5 @@
 //! Certified delayed-split experiment; storage/equality services are shared with the E01 control.
+const COLLECT_KERNEL_METRICS: bool = true;
 #[path = "../../chr-persistent/src/map.rs"]
 mod map;
 mod state;

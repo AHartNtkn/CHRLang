@@ -32,7 +32,9 @@ fn node<K, V>(
     right: Link<K, V>,
     s: &mut Storage,
 ) -> Rc<Node<K, V>> {
-    s.allocations += 1;
+    if crate::COLLECT_KERNEL_METRICS {
+        s.allocations += 1;
+    }
     Rc::new(Node {
         key,
         value,
@@ -51,7 +53,9 @@ fn put<K: Ord + Clone, V: Clone>(
     let Some(n) = root else {
         return node(key, value, priority, None, None, s);
     };
-    s.visits += 1;
+    if crate::COLLECT_KERNEL_METRICS {
+        s.visits += 1;
+    }
     match key.cmp(&n.key) {
         Ordering::Equal => node(key, value, priority, n.left.clone(), n.right.clone(), s),
         Ordering::Less => {
@@ -121,7 +125,9 @@ fn merge<K: Clone, V: Clone>(left: &Link<K, V>, right: &Link<K, V>, s: &mut Stor
         (None, _) => right.clone(),
         (_, None) => left.clone(),
         (Some(a), Some(b)) => {
-            s.visits += 1;
+            if crate::COLLECT_KERNEL_METRICS {
+                s.visits += 1;
+            }
             Some(if a.priority > b.priority {
                 node(
                     a.key.clone(),
@@ -146,7 +152,9 @@ fn merge<K: Clone, V: Clone>(left: &Link<K, V>, right: &Link<K, V>, s: &mut Stor
 }
 fn erase<K: Ord + Clone, V: Clone>(root: &Link<K, V>, key: &K, s: &mut Storage) -> Link<K, V> {
     let n = root.as_ref()?;
-    s.visits += 1;
+    if crate::COLLECT_KERNEL_METRICS {
+        s.visits += 1;
+    }
     match key.cmp(&n.key) {
         Ordering::Equal => merge(&n.left, &n.right, s),
         Ordering::Less => Some(node(
@@ -171,7 +179,9 @@ impl<K: Ord + Clone + Hash, V: Clone> Map<K, V> {
     pub fn get(&self, key: &K, s: &mut Storage) -> Option<V> {
         let mut cursor = &self.0;
         while let Some(n) = cursor {
-            s.visits += 1;
+            if crate::COLLECT_KERNEL_METRICS {
+                s.visits += 1;
+            }
             match key.cmp(&n.key) {
                 Ordering::Equal => return Some(n.value.clone()),
                 Ordering::Less => cursor = &n.left,
@@ -197,7 +207,9 @@ impl<K: Ord + Clone + Hash, V: Clone> Map<K, V> {
             s: &mut Storage,
         ) {
             if let Some(n) = root {
-                s.visits += 1;
+                if crate::COLLECT_KERNEL_METRICS {
+                    s.visits += 1;
+                }
                 if &n.key > lo {
                     visit(&n.left, lo, hi, out, s);
                 }
@@ -216,7 +228,9 @@ impl<K: Ord + Clone + Hash, V: Clone> Map<K, V> {
     pub fn entries(&self, s: &mut Storage) -> Vec<(K, V)> {
         fn visit<K: Clone, V: Clone>(root: &Link<K, V>, out: &mut Vec<(K, V)>, s: &mut Storage) {
             if let Some(n) = root {
-                s.visits += 1;
+                if crate::COLLECT_KERNEL_METRICS {
+                    s.visits += 1;
+                }
                 visit(&n.left, out, s);
                 out.push((n.key.clone(), n.value.clone()));
                 visit(&n.right, out, s);
@@ -229,7 +243,9 @@ impl<K: Ord + Clone + Hash, V: Clone> Map<K, V> {
     pub fn copied(&self, s: &mut Storage) -> Self {
         fn copy<K: Clone, V: Clone>(root: &Link<K, V>, s: &mut Storage) -> Link<K, V> {
             root.as_ref().map(|n| {
-                s.snapshot_copies += 1;
+                if crate::COLLECT_KERNEL_METRICS {
+                    s.snapshot_copies += 1;
+                }
                 node(
                     n.key.clone(),
                     n.value.clone(),
@@ -314,6 +330,8 @@ mod model_test {
         }
         let copied = actual.copied(&mut s);
         assert_eq!(actual.entries(&mut s), copied.entries(&mut s));
-        assert!(s.snapshot_copies > 0);
+        if crate::COLLECT_KERNEL_METRICS {
+            assert!(s.snapshot_copies > 0);
+        }
     }
 }

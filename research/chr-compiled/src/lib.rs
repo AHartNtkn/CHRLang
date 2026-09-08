@@ -6,6 +6,11 @@ use chr_persistent::{
 use chr_syntax::{Answer, Constraint, Goal, Guard, Query, Rule, Term as Source, Var};
 use std::collections::{BTreeMap, BTreeSet, VecDeque};
 use std::sync::Arc;
+/// Compile-time availability of execution diagnostics.
+pub const COLLECT_METRICS: bool = cfg!(feature = "metrics");
+#[cfg(feature = "experiment")]
+#[path = "../experiments/native.rs"]
+pub mod experiment;
 pub mod fixtures;
 pub mod generate;
 
@@ -278,22 +283,36 @@ fn vars_goal(goal: &Goal, out: &mut BTreeSet<u64>) -> Result<(), String> {
 }
 impl Core {
     pub fn predicate(&mut self, name: &str, arity: usize) -> usize {
-        self.stats.predicate_setup_lookups += 1;
+        if COLLECT_METRICS {
+            self.stats.predicate_setup_lookups += 1;
+        }
         let pred = self.arena.predicate(name, arity);
-        self.stats.predicate_dictionary_entries = self.arena.predicates.len();
+        if COLLECT_METRICS {
+            self.stats.predicate_dictionary_entries = self.arena.predicates.len();
+        }
         pred
     }
     fn key_make(&mut self, name: &str, args: Vec<Term>) -> usize {
-        let before = self.arena.nodes.len();
-        self.stats.key_normalization_requests += 1;
+        let before = if COLLECT_METRICS {
+            self.arena.nodes.len()
+        } else {
+            0
+        };
+        if COLLECT_METRICS {
+            self.stats.key_normalization_requests += 1;
+        }
         let Term::Node(id) = self.arena.make(name, args, &mut self.stats.kernel) else {
             unreachable!()
         };
-        self.stats.key_normalization_allocations += (self.arena.nodes.len() - before) as u64;
+        if COLLECT_METRICS {
+            self.stats.key_normalization_allocations += (self.arena.nodes.len() - before) as u64;
+        }
         id
     }
     fn ground_key(&mut self, value: Term) -> Option<usize> {
-        self.stats.key_visits += 1;
+        if COLLECT_METRICS {
+            self.stats.key_visits += 1;
+        }
         match deref(value, &self.bindings, &mut self.stats.kernel) {
             Term::Var(_) => None,
             Term::Node(id) => {
@@ -307,7 +326,9 @@ impl Core {
         }
     }
     fn template_key(&mut self, t: &Template, frame: &Frame) -> Option<usize> {
-        self.stats.key_template_visits += 1;
+        if COLLECT_METRICS {
+            self.stats.key_template_visits += 1;
+        }
         match t {
             Template::Slot(slot) => self.ground_key(frame.slots[*slot]?),
             Template::App(name, ts) => {
@@ -327,7 +348,9 @@ impl Core {
             let mut best = None;
             for (arg, t) in desc.args.iter().enumerate() {
                 if let Some(key) = self.template_key(t, frame) {
-                    self.stats.index_lookups += 1;
+                    if COLLECT_METRICS {
+                        self.stats.index_lookups += 1;
+                    }
                     let size = self.index.get(&(pred, arg, key)).map_or(0, BTreeSet::len);
                     if best.is_none_or(|(_, n)| size < n) {
                         best = Some(((pred, arg, key), size));
@@ -338,7 +361,9 @@ impl Core {
                 }
             }
             if let Some((key, _)) = best {
-                self.stats.index_lookups += 1;
+                if COLLECT_METRICS {
+                    self.stats.index_lookups += 1;
+                }
                 let ids: Vec<_> = self
                     .index
                     .get(&key)
@@ -346,7 +371,9 @@ impl Core {
                     .flatten()
                     .copied()
                     .collect();
-                self.stats.index_bucket_entries += ids.len() as u64;
+                if COLLECT_METRICS {
+                    self.stats.index_bucket_entries += ids.len() as u64;
+                }
                 return ids;
             }
         }
@@ -357,7 +384,9 @@ impl Core {
             .flatten()
             .copied()
             .collect();
-        self.stats.pool_visits += ids.len() as u64;
+        if COLLECT_METRICS {
+            self.stats.pool_visits += ids.len() as u64;
+        }
         ids
     }
     fn remove_keys(&mut self, id: u64) {
@@ -366,8 +395,12 @@ impl Core {
             for key in keys.into_iter().flatten() {
                 let bucket = self.index.get_mut(&key).expect("recorded key bucket");
                 assert!(bucket.remove(&id));
-                self.stats.index_removes += 1;
-                self.stats.index_entries -= 1;
+                if COLLECT_METRICS {
+                    self.stats.index_removes += 1;
+                }
+                if COLLECT_METRICS {
+                    self.stats.index_entries -= 1;
+                }
                 if bucket.is_empty() {
                     self.index.remove(&key);
                 }
@@ -378,11 +411,15 @@ impl Core {
         self.policy == Policy::Active || self.access == Access::Indexed
     }
     pub fn arguments(&mut self, id: u64) -> Option<Vec<Term>> {
-        self.stats.candidate_visits += 1;
+        if COLLECT_METRICS {
+            self.stats.candidate_visits += 1;
+        }
         self.store.get(&id).map(|o| o.args.clone())
     }
     pub fn bind(&mut self, frame: &mut Frame, slot: usize, value: Term) -> bool {
-        self.stats.structural_tests += 1;
+        if COLLECT_METRICS {
+            self.stats.structural_tests += 1;
+        }
         let value = deref(value, &self.bindings, &mut self.stats.kernel);
         match frame.slots[slot] {
             Some(old) => self
@@ -395,7 +432,9 @@ impl Core {
         }
     }
     pub fn constructor(&mut self, value: Term, name: &str, arity: usize) -> Option<Vec<Term>> {
-        self.stats.structural_tests += 1;
+        if COLLECT_METRICS {
+            self.stats.structural_tests += 1;
+        }
         match deref(value, &self.bindings, &mut self.stats.kernel) {
             Term::Node(id) => {
                 let n = &self.arena.nodes[id];
@@ -419,14 +458,18 @@ impl Core {
             .equal(a, b, &self.bindings, &mut self.stats.kernel)
     }
     pub fn eligible(&mut self, rule: usize, ids: &[u64]) -> bool {
-        self.stats.history_checks += 1;
+        if COLLECT_METRICS {
+            self.stats.history_checks += 1;
+        }
         !self.history.contains(&(rule, ids.to_vec()))
     }
     pub fn body_predicate(&self, rule: usize, index: usize) -> usize {
         self.rules[rule].body_preds[index]
     }
     pub fn copy_frame(&mut self, frame: &Frame) -> Frame {
-        self.stats.binding_slot_copies += frame.slots.len() as u64;
+        if COLLECT_METRICS {
+            self.stats.binding_slot_copies += frame.slots.len() as u64;
+        }
         frame.clone()
     }
     pub fn candidate(
@@ -442,15 +485,23 @@ impl Core {
             } else {
                 self.pool(rule, head, &cursor.frames[head])
             };
-            cursor.pool_entries += ids.len();
-            self.stats.cursor_pool_entries += ids.len() as u64;
-            self.stats.max_cursor_pool_entries =
-                self.stats.max_cursor_pool_entries.max(cursor.pool_entries);
+            if COLLECT_METRICS {
+                cursor.pool_entries += ids.len();
+            }
+            if COLLECT_METRICS {
+                self.stats.cursor_pool_entries += ids.len() as u64;
+            }
+            if COLLECT_METRICS {
+                self.stats.max_cursor_pool_entries =
+                    self.stats.max_cursor_pool_entries.max(cursor.pool_entries);
+            }
             cursor.pools[head] = Some(PoolCursor { ids, next: 0 });
         }
         let pool = cursor.pools[head].as_mut().unwrap();
         if pool.next == pool.ids.len() {
-            cursor.pool_entries -= pool.ids.len();
+            if COLLECT_METRICS {
+                cursor.pool_entries -= pool.ids.len();
+            }
             cursor.pools[head] = None;
             if head == 0 {
                 return Candidate::Done;
@@ -466,7 +517,9 @@ impl Core {
         Candidate::Value(id)
     }
     fn generic_pattern(&mut self, p: &Template, value: Term, f: &mut Frame) -> bool {
-        self.stats.generic_ast_visits += 1;
+        if COLLECT_METRICS {
+            self.stats.generic_ast_visits += 1;
+        }
         match p {
             Template::Slot(slot) => self.bind(f, *slot, value),
             Template::App(n, ps) => match self.constructor(value, n, ps.len()) {
@@ -479,7 +532,9 @@ impl Core {
         }
     }
     fn instantiate(&mut self, t: &Template, f: &mut Frame) -> Term {
-        self.stats.generic_ast_visits += 1;
+        if COLLECT_METRICS {
+            self.stats.generic_ast_visits += 1;
+        }
         match t {
             Template::Slot(slot) => self.variable(f, *slot),
             Template::App(n, xs) => {
@@ -489,7 +544,9 @@ impl Core {
         }
     }
     fn body(&mut self, g: &Body, f: &mut Frame) -> Work {
-        self.stats.generic_ast_visits += 1;
+        if COLLECT_METRICS {
+            self.stats.generic_ast_visits += 1;
+        }
         match g {
             Body::Insert(pred, args) => {
                 Work::Insert(*pred, args.iter().map(|t| self.instantiate(t, f)).collect())
@@ -511,10 +568,16 @@ impl Core {
         }
         if self.queued.insert(id) {
             self.queue.push_back(id);
-            self.stats.activation_pushes += 1;
-            self.stats.max_queue = self.stats.max_queue.max(self.queue.len());
+            if COLLECT_METRICS {
+                self.stats.activation_pushes += 1;
+            }
+            if COLLECT_METRICS {
+                self.stats.max_queue = self.stats.max_queue.max(self.queue.len());
+            }
         } else {
-            self.stats.activation_coalesced += 1
+            if COLLECT_METRICS {
+                self.stats.activation_coalesced += 1;
+            }
         }
     }
     fn refresh(&mut self, id: u64) {
@@ -527,13 +590,19 @@ impl Core {
         {
             return;
         }
-        self.stats.dependency_refreshes += 1;
+        if COLLECT_METRICS {
+            self.stats.dependency_refreshes += 1;
+        }
         if self.access == Access::Indexed {
-            self.stats.index_repairs += 1;
+            if COLLECT_METRICS {
+                self.stats.index_repairs += 1;
+            }
             self.remove_keys(id);
         }
         if let Some(old) = self.dependencies.remove(&id) {
-            self.stats.dependency_edges -= old.len();
+            if COLLECT_METRICS {
+                self.stats.dependency_edges -= old.len();
+            }
             for var in old {
                 if let Some(w) = self.watchers.get_mut(&var) {
                     w.remove(&id);
@@ -552,7 +621,9 @@ impl Core {
         let mut vars = BTreeSet::new();
         let mut nodes = BTreeSet::new();
         while let Some(t) = todo.pop() {
-            self.stats.dependency_visits += 1;
+            if COLLECT_METRICS {
+                self.stats.dependency_visits += 1;
+            }
             match t {
                 Term::Var(v) => {
                     if vars.insert(v)
@@ -571,26 +642,36 @@ impl Core {
         for v in &vars {
             self.watchers.entry(*v).or_default().insert(id);
         }
-        self.stats.dependency_edges += vars.len();
+        if COLLECT_METRICS {
+            self.stats.dependency_edges += vars.len();
+        }
         self.dependencies.insert(id, vars);
-        self.stats.max_dependency_edges = self
-            .stats
-            .max_dependency_edges
-            .max(self.stats.dependency_edges);
+        if COLLECT_METRICS {
+            self.stats.max_dependency_edges = self
+                .stats
+                .max_dependency_edges
+                .max(self.stats.dependency_edges);
+        }
         if self.access == Access::Indexed {
             let mut keys = vec![];
             for (arg, t) in index_args.unwrap().into_iter().enumerate() {
                 let key = self.ground_key(t).map(|k| (pred, arg, k));
                 if let Some(key) = key {
                     assert!(self.index.entry(key).or_default().insert(id));
-                    self.stats.index_inserts += 1;
-                    self.stats.index_entries += 1;
+                    if COLLECT_METRICS {
+                        self.stats.index_inserts += 1;
+                    }
+                    if COLLECT_METRICS {
+                        self.stats.index_entries += 1;
+                    }
                 }
                 keys.push(key);
             }
             self.occurrence_keys.insert(id, keys);
-            self.stats.max_index_entries =
-                self.stats.max_index_entries.max(self.stats.index_entries);
+            if COLLECT_METRICS {
+                self.stats.max_index_entries =
+                    self.stats.max_index_entries.max(self.stats.index_entries);
+            }
         }
     }
     fn insert(&mut self, pred: usize, args: Vec<Term>) {
@@ -604,7 +685,9 @@ impl Core {
             }
         }
         self.enqueue(id);
-        self.stats.max_occurrences = self.stats.max_occurrences.max(self.store.len());
+        if COLLECT_METRICS {
+            self.stats.max_occurrences = self.stats.max_occurrences.max(self.store.len());
+        }
     }
     fn remove(&mut self, id: u64) {
         if let Some(occ) = self.store.remove(&id)
@@ -617,7 +700,9 @@ impl Core {
         }
     }
     fn equation(&mut self, a: Term, b: Term) -> bool {
-        self.stats.kernel.equations += 1;
+        if COLLECT_METRICS {
+            self.stats.kernel.equations += 1;
+        }
         if !self.needs_dependencies() {
             return self
                 .arena
@@ -635,7 +720,9 @@ impl Core {
         }
         let mut affected = BTreeSet::new();
         for v in changed {
-            self.stats.changed_variables += 1;
+            if COLLECT_METRICS {
+                self.stats.changed_variables += 1;
+            }
             if let Some(ids) = self.watchers.get(&v) {
                 affected.extend(ids)
             }
@@ -671,17 +758,23 @@ impl Core {
             return Selection::Done;
         };
         if search.cursor.is_none() {
-            self.stats.rule_dispatches += 1;
+            if COLLECT_METRICS {
+                self.stats.rule_dispatches += 1;
+            }
             let r = &self.rules[rule];
             search.cursor = Some(Cursor::new(r.slots, r.heads.len(), self.next_var));
         }
-        self.stats.cursor_steps += 1;
+        if COLLECT_METRICS {
+            self.stats.cursor_steps += 1;
+        }
         let cursor = search.cursor.as_mut().unwrap();
         let event = match code {
             Some(c) => (c.selectors[rule])(self, cursor, at),
             None => generic_rule(self, rule, cursor, at),
         };
-        self.stats.max_cursor_frames = self.stats.max_cursor_frames.max(cursor.frames.len());
+        if COLLECT_METRICS {
+            self.stats.max_cursor_frames = self.stats.max_cursor_frames.max(cursor.frames.len());
+        }
         match event {
             Selection::Done => {
                 search.call += 1;
@@ -774,9 +867,15 @@ impl Core {
             history: self.history.iter().cloned().collect(),
             next_var: self.next_var,
         };
-        self.stats.audit_snapshots += 1;
-        self.stats.audit_dereferences += stats.dereferences;
-        self.stats.audit_storage_visits += stats.storage.visits;
+        if COLLECT_METRICS {
+            self.stats.audit_snapshots += 1;
+        }
+        if COLLECT_METRICS {
+            self.stats.audit_dereferences += stats.dereferences;
+        }
+        if COLLECT_METRICS {
+            self.stats.audit_storage_visits += stats.storage.visits;
+        }
         result
     }
 }
@@ -1001,10 +1100,14 @@ impl PreparedRuleset {
             queued: BTreeSet::new(),
             dependencies: BTreeMap::new(),
             watchers: BTreeMap::new(),
-            stats: Stats {
-                predicate_dictionary_entries: self.predicates.len(),
-                predicate_setup_lookups: self.predicates.len() as u64,
-                ..Stats::default()
+            stats: if COLLECT_METRICS {
+                Stats {
+                    predicate_dictionary_entries: self.predicates.len(),
+                    predicate_setup_lookups: self.predicates.len() as u64,
+                    ..Stats::default()
+                }
+            } else {
+                Stats::default()
             },
             policy,
             access,
@@ -1060,7 +1163,9 @@ impl Engine {
         if self.done {
             return;
         }
-        self.core.stats.source_steps += 1;
+        if COLLECT_METRICS {
+            self.core.stats.source_steps += 1;
+        }
         if let Some(work) = self.core.pending.pop() {
             match work {
                 Work::Insert(p, args) => self.core.insert(p, args),
@@ -1086,9 +1191,13 @@ impl Engine {
                     return;
                 };
                 self.core.queued.remove(&id);
-                self.core.stats.activation_pops += 1;
+                if COLLECT_METRICS {
+                    self.core.stats.activation_pops += 1;
+                }
                 if !self.core.store.contains_key(&id) {
-                    self.core.stats.stale_activations += 1;
+                    if COLLECT_METRICS {
+                        self.core.stats.stale_activations += 1;
+                    }
                     return;
                 }
                 Some(id)
@@ -1111,12 +1220,11 @@ impl Engine {
             Selection::Found(app) => {
                 let anchor = self.search.take().unwrap().anchor;
                 let before = if self.audit_enabled {
-                    Some(self.core.view())
+                    Some((self.core.view(), app.ids.clone()))
                 } else {
                     None
                 };
                 let audit_rule = app.rule;
-                let audit_ids = app.ids.clone();
                 let kept = self.core.rules[app.rule].kept;
                 for id in app.ids.iter().skip(kept) {
                     self.core.remove(*id)
@@ -1127,11 +1235,13 @@ impl Engine {
                 }
                 self.core.next_var = app.next;
                 self.core.pending.push(app.body);
-                self.core.stats.applications += 1;
-                if let Some(before) = before {
+                if COLLECT_METRICS {
+                    self.core.stats.applications += 1;
+                }
+                if let Some((before, ids)) = before {
                     self.audit.push(Commit {
                         rule: audit_rule,
-                        ids: audit_ids,
+                        ids,
                         before,
                         after: self.core.view(),
                     })
@@ -1164,7 +1274,9 @@ impl Engine {
     /// Export a completed successful state. Repeated calls produce the same observation.
     pub fn observe(&mut self) -> Option<Answer> {
         if self.done && !self.failed {
-            self.core.stats.observation_visits += 1;
+            if COLLECT_METRICS {
+                self.core.stats.observation_visits += 1;
+            }
             Some(self.core.export())
         } else {
             None
@@ -1190,13 +1302,14 @@ impl Engine {
             pending: self.core.pending.len(),
             history: self.core.history.len(),
             queue: self.core.queue.len(),
-            dependency_edges: self.core.stats.dependency_edges,
+            dependency_edges: self.core.dependencies.values().map(BTreeSet::len).sum(),
             term_nodes: self.core.arena.nodes.len(),
-            index_entries: self.core.stats.index_entries,
+            index_entries: self.core.index.values().map(BTreeSet::len).sum(),
             index_buckets: self.core.index.len(),
             index_reverse_records: self.core.occurrence_keys.len(),
             cursor_frames: cursor.map_or(0, |c| c.frames.len()),
-            cursor_pool_entries: cursor.map_or(0, |c| c.pool_entries),
+            cursor_pool_entries: cursor
+                .map_or(0, |c| c.pools.iter().flatten().map(|p| p.ids.len()).sum()),
             trace_entries: self.trace.len(),
             audit_entries: self.audit.len(),
         }

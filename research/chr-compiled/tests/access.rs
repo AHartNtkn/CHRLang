@@ -131,7 +131,7 @@ fn flat_keys_collisions_and_low_yield_repairs_have_independent_checks() {
                         case.expected.as_ref().unwrap(),
                         &mut Default::default()
                     ));
-                    if id == 13 && access == Access::Indexed {
+                    if id == 13 && access == Access::Indexed && chr_compiled::COLLECT_METRICS {
                         assert!(
                             engine.stats().index_bucket_entries > 0,
                             "fixture must exercise a bound-key bucket"
@@ -158,15 +158,23 @@ fn execution_observation_and_teardown_are_separate_lifetimes() {
         .unwrap();
     assert!(!engine.advance(2).exhausted);
     assert!(engine.observe().is_none());
-    assert_eq!(engine.stats().observation_visits, 0);
+    if chr_compiled::COLLECT_METRICS {
+        assert_eq!(engine.stats().observation_visits, 0);
+    }
     assert!(engine.advance(10000).exhausted);
-    assert_eq!(engine.stats().observation_visits, 0);
+    if chr_compiled::COLLECT_METRICS {
+        assert_eq!(engine.stats().observation_visits, 0);
+    }
     let steps = engine.stats().source_steps;
     let first = engine.observe().unwrap();
     let second = engine.observe().unwrap();
     assert_eq!(first, second);
-    assert_eq!(engine.stats().source_steps, steps);
-    assert_eq!(engine.stats().observation_visits, 2);
+    if chr_compiled::COLLECT_METRICS {
+        assert_eq!(engine.stats().source_steps, steps);
+    }
+    if chr_compiled::COLLECT_METRICS {
+        assert_eq!(engine.stats().observation_visits, 2);
+    }
     assert!(chr_observe::equivalent(
         &first,
         case.expected.as_ref().unwrap(),
@@ -203,7 +211,9 @@ fn ground_intermediate_output_is_not_a_completed_observation() {
         assert!(saw_ground_pending);
         assert!(engine.status().failed);
         assert!(engine.observe().is_none());
-        assert_eq!(engine.stats().observation_visits, 0);
+        if chr_compiled::COLLECT_METRICS {
+            assert_eq!(engine.stats().observation_visits, 0);
+        }
     }
 }
 
@@ -227,8 +237,12 @@ fn no_head_residuals_keep_aliases_without_matcher_maintenance() {
                 assert_eq!(engine.retention().occurrences, 1);
                 assert_eq!(engine.retention().dependency_edges, 0);
                 assert_eq!(engine.retention().index_reverse_records, 0);
-                assert_eq!(engine.stats().dependency_refreshes, 0);
-                assert_eq!(engine.stats().activation_pushes, 0);
+                if chr_compiled::COLLECT_METRICS {
+                    assert_eq!(engine.stats().dependency_refreshes, 0);
+                }
+                if chr_compiled::COLLECT_METRICS {
+                    assert_eq!(engine.stats().activation_pushes, 0);
+                }
                 assert!(engine.advance(10000).exhausted);
                 let expected = Answer {
                     outputs: vec![("x".into(), t("f", [atom("a")])), ("y".into(), atom("a"))],
@@ -253,5 +267,29 @@ fn no_head_residuals_keep_aliases_without_matcher_maintenance() {
         ));
         assert_eq!(engine.retention().dependency_edges, 0);
         assert_eq!(engine.retention().index_reverse_records, 0);
+    }
+}
+
+#[test]
+fn metric_availability_does_not_change_execution_or_retention() {
+    let p = PreparedRuleset::bundled(11, Execution::Generated).unwrap();
+    let case = fixtures::repair_case(3);
+    let mut e = p
+        .start(case.query, Policy::Active, Access::Indexed)
+        .unwrap();
+    assert!(e.advance(10000).exhausted);
+    assert!(chr_observe::equivalent(
+        e.observe().as_ref().unwrap(),
+        case.expected.as_ref().unwrap(),
+        &mut Default::default()
+    ));
+    assert!(e.retention().index_entries > 0);
+    if !chr_compiled::COLLECT_METRICS {
+        assert_eq!(e.stats().candidate_visits, 0);
+        assert_eq!(e.stats().key_visits, 0);
+    }
+    if !chr_persistent::COLLECT_KERNEL_METRICS {
+        assert_eq!(e.stats().kernel.dereferences, 0);
+        assert_eq!(e.stats().kernel.storage.visits, 0);
     }
 }

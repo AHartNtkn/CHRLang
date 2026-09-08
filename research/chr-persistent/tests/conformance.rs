@@ -48,9 +48,11 @@ fn snapshot_sharing_does_not_claim_to_share_source_execution() {
         assert!(s.advance(case.budget).exhausted);
         assert_eq!(s.stats().applications, 39);
         assert_eq!(s.stats().splits, 7);
-        match mode {
-            Snapshot::Persistent => assert_eq!(s.stats().storage.snapshot_copies, 0),
-            Snapshot::Copy => assert!(s.stats().storage.snapshot_copies > 0),
+        if chr_persistent::COLLECT_KERNEL_METRICS {
+            match mode {
+                Snapshot::Persistent => assert_eq!(s.stats().storage.snapshot_copies, 0),
+                Snapshot::Copy => assert!(s.stats().storage.snapshot_copies > 0),
+            }
         }
     }
 }
