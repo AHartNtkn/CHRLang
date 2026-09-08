@@ -128,3 +128,8 @@ The [conditional lifecycle pilot](R03-conditional-lifecycle.md) validates all 25
 ## Current selection after T038
 
 [R07 checkpoint](R07-architecture-checkpoint.md) compares viable organizations, necessary responsibilities and all question dispositions. T039 selects ongoing-stream lifetime/cancellation evidence on current conditional and specialized explicit engines. Consumer-retained output and finite controls will distinguish historical runtime retention from required live work. This has greater immediate architectural value than ranking one finite output cell; parallel granularity, mixed phases, compilation and eager-region certificates remain open.
+
+
+## Current selection after T039
+
+[Ongoing-stream lifecycle](R06-streaming-lifetime.md) identifies consequential conditional publication run-ahead and historical retention, with successful cancellation disposal in both paths. T040 selects support-restricted history traversal and independent correspondence before comparative rerun. Broad reclamation and optional explicit lineage remain alternatives whose priority follows the measured cost.

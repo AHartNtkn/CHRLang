@@ -60,3 +60,8 @@ A repeated coarse-region parallel pilot is the strongest broader alternative: [E
 Direct distributed named choice needs a complete source/publication gate before ranking; it is not prioritized merely because a prototype exists. Constructor integration, maintained joins, graph observers, larger application matrices, net/trace tuning, generalized tables and certificates retain the question-specific dispositions above. None is rejected by absence from T039, and none is a mandatory implementation queue.
 
 Root audited Q1/Q2/Q4/Q5/Q8/Q12 against receipts and current controls. Independent read-only review audited Q3/Q6/Q7/Q9/Q10/Q11 and selected the same streaming contrast, explicitly identifying growing explicit lineages as a contrary-control risk. No numerical workload weights, cross-session transitive ranking or final closure claim is used.
+
+
+## Update after T039
+
+[Streaming lifetime results](R06-streaming-lifetime.md) narrow conditional applicability: unbounded64/128 reaches the service cap at42 answers with large historical retention, while specialized explicit completes. All allocation owners restore baseline on disposal. T040 now selects support-restricted publication traversal ahead of broad reclamation or optional explicit lineage. This supersedes the checkpoint's immediate T039 selection; its other open directions remain explicit.
