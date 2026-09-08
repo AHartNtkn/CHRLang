@@ -316,3 +316,7 @@ The [672-process matcher comparison](S04-matcher-paired-cost.md) cuts mutation l
 ## S05 stable-identity kernel gate
 
 The [kernel gate](S05-stable-kernel-gate.md) checks exact-context and dependency-valid operation reuse over a common constructor owner against 3,888 independent ordered-equation cases. Unrelated binding changes distinguish useful reuse between the policies, while three faulty validity/replay variants fail semantic assertions. This establishes a bounded correctness mechanism, with full source effects, wake-ups, lifetime and direct-sharing costs still required. T067 remains active.
+
+## S05 complete source gate
+
+The [source gate](S05-stable-source-gate.md) validates shared-handle equation interception in the existing scalar machine across 576 registered configurations and directed cache-hit effects. Cached bindings enable consumption, common cached failure leaves a finite sibling, and owner checks reject foreign cursors/arenas. Source-level replay/failure faults are rejected. T067 remains active for prospective lifecycle costs, explicit preparation/query ownership and the direct-sharing comparison; this is correctness evidence, not a measured optimization.

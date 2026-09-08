@@ -1,0 +1,14 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "-p",
+    "chr-reuse",
+    "--release",
+    "--test",
+    "stable_source"
+  ],
+  "exit_code": 101,
+  "stdout": "\nrunning 6 tests\ntest changing_binding_invalidates_cached_success ... ok\ntest one_cache_cannot_accept_another_machines_constructor_numbers ... ok\ntest foreign_cursor_is_rejected_before_equation_service - should panic ... ok\ntest common_failure_does_not_fail_a_finite_sibling ... ok\ntest successful_hits_enable_consumption_and_preserve_duplicate_alternatives ... FAILED\ntest registered_sources_preserve_full_observations_raw_multiplicity_and_progress ... FAILED\n\nfailures:\n\n---- successful_hits_enable_consumption_and_preserve_duplicate_alternatives stdout ----\n\nthread 'successful_hits_enable_consumption_and_preserve_duplicate_alternatives' (125) panicked at research/chr-reuse/tests/../../chr-direct-conditional/tests/runtime_support/mod.rs:273:32:\nmissing full observation Answer { outputs: [(\"x\", App(\"a\", []))], residual: [Constraint { name: \"seen\", args: [App(\"a\", [])] }] }; remaining [Answer { outputs: [(\"x\", Var(Var(0)))], residual: [Constraint { name: \"item\", args: [Var(Var(0))] }] }]\n\n---- registered_sources_preserve_full_observations_raw_multiplicity_and_progress stdout ----\nregistered source cases: 64; configurations: 576\n\nthread 'registered_sources_preserve_full_observations_raw_multiplicity_and_progress' (124) panicked at research/chr-reuse/tests/stable_source.rs:127:17:\nassertion `left == right` failed: A03-raw-duplicates Exact\n  left: 2\n right: 1\n\n\nfailures:\n    registered_sources_preserve_full_observations_raw_multiplicity_and_progress\n    successful_hits_enable_consumption_and_preserve_duplicate_alternatives\n\ntest result: FAILED. 4 passed; 2 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n",
+  "stderr": "   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)\n   Compiling chr-reuse v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-reuse)\n    Finished `release` profile [optimized] target(s) in 1.73s\n     Running tests/stable_source.rs (target/release/deps/stable_source-c244c445a305c8fb)\nerror: test failed, to rerun pass `-p chr-reuse --test stable_source`\n"
+}

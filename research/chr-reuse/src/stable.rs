@@ -49,9 +49,7 @@ pub struct Session {
     owner: Rc<()>,
     arena: Arena,
     next_var: u64,
-    cache: HashMap<(Term, Term), Entry>,
-    fifo: VecDeque<(Term, Term)>,
-    capacity: usize,
+    table: EquationCache,
     stats: Stats,
 }
 impl Session {
@@ -60,9 +58,7 @@ impl Session {
             owner: Rc::new(()),
             arena: Arena::default(),
             next_var: 0,
-            cache: HashMap::new(),
-            fifo: VecDeque::new(),
-            capacity,
+            table: EquationCache::new(capacity),
             stats: Stats::default(),
         }
     }
@@ -106,38 +102,10 @@ impl Session {
         Ok(self.arena.export(h.term, &c.bindings, &mut self.stats))
     }
     pub fn entries(&self) -> usize {
-        self.cache.len()
+        self.table.entries()
     }
     pub fn clear(&mut self) {
-        self.cache.clear();
-        self.fifo.clear();
-    }
-    /// Collect the entire reachable input-variable closure only on a miss.
-    /// This is conservative: variables irrelevant to an early clash may occur
-    /// here. Hits inspect binding dependencies without reconstructing terms.
-    fn dependencies(
-        &mut self,
-        left: Term,
-        right: Term,
-        bindings: &Bindings,
-    ) -> Vec<(u64, Option<Term>)> {
-        let mut todo = vec![left, right];
-        let mut nodes = HashSet::new();
-        let mut variables = BTreeMap::new();
-        while let Some(t) = todo.pop() {
-            match t {
-                Term::Node(id) if nodes.insert(id) => todo.extend(&self.arena.node(id).args),
-                Term::Var(v) if !variables.contains_key(&v) => {
-                    let binding = bindings.get(&v, &mut self.stats.storage);
-                    variables.insert(v, binding);
-                    if let Some(term) = binding {
-                        todo.push(term);
-                    }
-                }
-                _ => (),
-            }
-        }
-        variables.into_iter().collect()
+        self.table.clear();
     }
     pub fn unify(
         &mut self,
@@ -148,30 +116,116 @@ impl Session {
     ) -> Result<Outcome, ForeignOwner> {
         self.check(left, context)?;
         self.check(right, context)?;
-        let key = (left.term, right.term);
+        self.table.execute(
+            &self.owner,
+            &self.arena,
+            left.term,
+            right.term,
+            &mut context.bindings,
+            &mut self.stats,
+            policy,
+        )
+    }
+}
+/// A cache belongs to exactly one shared arena owner; clearing entries does not
+/// make another machine's numeric handles valid.
+pub struct EquationCache {
+    owner: Option<Rc<()>>,
+    cache: HashMap<(Term, Term), Entry>,
+    fifo: VecDeque<(Term, Term)>,
+    capacity: usize,
+}
+impl EquationCache {
+    pub fn new(capacity: usize) -> Self {
+        Self {
+            owner: None,
+            cache: HashMap::new(),
+            fifo: VecDeque::new(),
+            capacity,
+        }
+    }
+    pub fn entries(&self) -> usize {
+        self.cache.len()
+    }
+    pub fn clear(&mut self) {
+        self.cache.clear();
+        self.fifo.clear();
+    }
+    pub fn solve(
+        &mut self,
+        equation: &mut chr_persistent::continuations::EquationAccess<'_>,
+        policy: Policy,
+    ) -> Result<Outcome, ForeignOwner> {
+        equation.solve_with(|owner, arena, left, right, bindings, stats| {
+            self.execute(owner, arena, left, right, bindings, stats, policy)
+        })
+    }
+    /// Collect the entire reachable input-variable closure only on a miss.
+    /// This is conservative: variables irrelevant to an early clash may occur
+    /// here. Hits inspect binding dependencies without reconstructing terms.
+    fn dependencies(
+        arena: &Arena,
+        left: Term,
+        right: Term,
+        bindings: &Bindings,
+        stats: &mut Stats,
+    ) -> Vec<(u64, Option<Term>)> {
+        let mut todo = vec![left, right];
+        let mut nodes = HashSet::new();
+        let mut variables = BTreeMap::new();
+        while let Some(t) = todo.pop() {
+            match t {
+                Term::Node(id) if nodes.insert(id) => todo.extend(&arena.node(id).args),
+                Term::Var(v) if !variables.contains_key(&v) => {
+                    let binding = bindings.get(&v, &mut stats.storage);
+                    variables.insert(v, binding);
+                    if let Some(term) = binding {
+                        todo.push(term);
+                    }
+                }
+                _ => (),
+            }
+        }
+        variables.into_iter().collect()
+    }
+    #[allow(clippy::too_many_arguments)]
+    fn execute(
+        &mut self,
+        owner: &Rc<()>,
+        arena: &Arena,
+        left: Term,
+        right: Term,
+        bindings: &mut Bindings,
+        stats: &mut Stats,
+        policy: Policy,
+    ) -> Result<Outcome, ForeignOwner> {
+        if let Some(existing) = &self.owner {
+            if !Rc::ptr_eq(existing, owner) {
+                return Err(ForeignOwner);
+            }
+        } else {
+            self.owner = Some(owner.clone());
+        }
+        let key = (left, right);
         if policy != Policy::Direct
             && let Some(e) = self.cache.get(&key)
         {
             let valid = e.policy == policy
                 && match policy {
-                    Policy::Exact => e
-                        .input
-                        .as_ref()
-                        .expect("exact input")
-                        .same_root(&context.bindings),
+                    Policy::Exact => e.input.as_ref().expect("exact input").same_root(bindings),
                     Policy::Dependencies => e
                         .dependencies
                         .iter()
-                        .all(|(v, b)| context.bindings.get(v, &mut self.stats.storage) == *b),
+                        .all(|(v, b)| bindings.get(v, &mut stats.storage) == *b),
                     Policy::Direct => false,
                 };
             if valid {
                 if e.success {
                     if policy == Policy::Exact {
-                        context.bindings = e.output.as_ref().expect("exact output").clone();
+                        *bindings = e.output.as_ref().expect("exact output").clone();
                     } else {
                         for (v, t) in &e.delta {
-                            context.bindings.insert(*v, *t, &mut self.stats.storage);
+                            bindings.insert(*v, *t, &mut stats.storage);
                         }
                     }
                 }
@@ -182,20 +236,14 @@ impl Session {
                 });
             }
         }
-        let input = context.bindings.clone();
+        let input = bindings.clone();
         let dependencies = if policy == Policy::Dependencies && self.capacity > 0 {
-            self.dependencies(left.term, right.term, &input)
+            Self::dependencies(arena, left, right, &input, stats)
         } else {
             vec![]
         };
         let mut changed = Vec::new();
-        let success = self.arena.unify_record(
-            left.term,
-            right.term,
-            &mut context.bindings,
-            &mut self.stats,
-            &mut changed,
-        );
+        let success = arena.unify_record(left, right, bindings, stats, &mut changed);
         if policy != Policy::Direct && self.capacity > 0 {
             let delta = changed
                 .iter()
@@ -203,9 +251,8 @@ impl Session {
                 .map(|v| {
                     (
                         *v,
-                        context
-                            .bindings
-                            .get(v, &mut self.stats.storage)
+                        bindings
+                            .get(v, &mut stats.storage)
                             .expect("successful changed binding"),
                     )
                 })
@@ -223,7 +270,7 @@ impl Session {
                     policy,
                     input: (policy == Policy::Exact).then_some(input),
                     dependencies,
-                    output: (success && policy == Policy::Exact).then(|| context.bindings.clone()),
+                    output: (success && policy == Policy::Exact).then(|| bindings.clone()),
                     success,
                     delta,
                     changed: changed.clone(),

@@ -4,6 +4,7 @@
 //! environment, and applies the returned bindings with ordinary wake-ups. This
 //! API does not establish a CHR continuation key or a branch-pruning certificate.
 pub mod stable;
+pub mod stable_search;
 use chr_syntax::{Term, Var};
 use std::collections::BTreeMap;
 

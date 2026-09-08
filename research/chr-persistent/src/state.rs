@@ -379,6 +379,12 @@ impl State {
 }
 
 impl State {
+    pub(crate) fn take_shared_equation(&mut self) -> (Term, Term, &mut Bindings) {
+        let Some(Work::Equal(a, b)) = self.pending.pop() else {
+            panic!("expected pending equation")
+        };
+        (a, b, &mut self.bindings)
+    }
     pub(crate) fn complete_equation(
         &mut self,
         solution: Option<std::collections::BTreeMap<Var, Source>>,

@@ -4,7 +4,7 @@ use chr_syntax::{Answer, Query, Rule, Term, Var};
 use std::collections::BTreeMap;
 
 #[derive(Clone)]
-pub struct Cursor(pub(crate) state::State);
+pub struct Cursor(pub(crate) state::State, std::rc::Rc<()>);
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub enum TermHead {
     Variable(u64),
@@ -41,22 +41,99 @@ pub struct Machine {
     owner: std::rc::Rc<()>,
     eager_export: crate::EagerExportStats,
 }
+/// A pending equation over this machine's append-only arena. Construction is
+/// private so an external service cannot invent a different arena for its owner.
+pub struct EquationAccess<'a> {
+    owner: &'a std::rc::Rc<()>,
+    arena: &'a terms::Arena,
+    left: terms::Term,
+    right: terms::Term,
+    bindings: &'a mut terms::Bindings,
+    stats: &'a mut Stats,
+}
+impl EquationAccess<'_> {
+    pub fn solve_with<T>(
+        &mut self,
+        solve: impl FnOnce(
+            &std::rc::Rc<()>,
+            &terms::Arena,
+            terms::Term,
+            terms::Term,
+            &mut terms::Bindings,
+            &mut Stats,
+        ) -> T,
+    ) -> T {
+        solve(
+            self.owner,
+            self.arena,
+            self.left,
+            self.right,
+            self.bindings,
+            self.stats,
+        )
+    }
+}
 impl Machine {
     pub fn new(rules: Vec<Rule>, query: Query) -> Result<(Self, Cursor), String> {
         let mut search = Search::new(rules, query, Snapshot::Persistent)?;
-        let cursor = Cursor(search.frontier.pop_front().expect("initial state"));
+        let owner = std::rc::Rc::new(());
+        let cursor = Cursor(
+            search.frontier.pop_front().expect("initial state"),
+            owner.clone(),
+        );
         Ok((
             Self {
                 rules: search.rules,
                 arena: search.arena,
                 stats: search.stats,
-                owner: std::rc::Rc::new(()),
+                owner,
                 eager_export: search.eager_export,
             },
             cursor,
         ))
     }
+    /// Intercept only an actual pending equation. All other source transitions
+    /// use the ordinary machine. A successful transaction is followed by its
+    /// normal whole-store eligibility scan once pending source effects drain.
+    pub fn step_with_equation(
+        &mut self,
+        mut cursor: Cursor,
+        mut solve: impl FnMut(&mut EquationAccess<'_>) -> bool,
+    ) -> Step {
+        self.check_cursor(&cursor);
+        if !cursor.0.has_pending_equation() {
+            return self.step(cursor);
+        }
+        if crate::COLLECT_METRICS {
+            self.stats.steps += 1;
+            self.stats.equations += 1;
+        }
+        let (left, right, bindings) = cursor.0.take_shared_equation();
+        let success = solve(&mut EquationAccess {
+            owner: &self.owner,
+            arena: &self.arena,
+            left,
+            right,
+            bindings,
+            stats: &mut self.stats,
+        });
+        if success {
+            Step::Continue(cursor)
+        } else {
+            if crate::COLLECT_METRICS {
+                self.stats.failed += 1;
+            }
+            Step::Failed
+        }
+    }
+    fn check_cursor(&self, cursor: &Cursor) {
+        assert!(
+            std::rc::Rc::ptr_eq(&self.owner, &cursor.1),
+            "cursor belongs to another machine"
+        );
+    }
     pub fn key(&mut self, cursor: &Cursor) -> StateKey {
+        self.check_cursor(cursor);
         cursor.0.key(&self.arena, &mut self.stats)
     }
     pub fn eager_export_stats(&self) -> &crate::EagerExportStats {
@@ -67,9 +144,11 @@ impl Machine {
     }
     /// Only the next pending equation, resolved under this cursor's environment.
     pub fn pending_equation(&mut self, cursor: &Cursor) -> Option<(Term, Term)> {
+        self.check_cursor(cursor);
         cursor.0.pending_equation(&self.arena, &mut self.stats)
     }
     pub fn has_pending_equation(&self, cursor: &Cursor) -> bool {
+        self.check_cursor(cursor);
         cursor.0.has_pending_equation()
     }
     /// Complete the next equation using a validated most-general solution over
@@ -79,6 +158,7 @@ impl Machine {
         mut cursor: Cursor,
         solution: Option<BTreeMap<Var, Term>>,
     ) -> Step {
+        self.check_cursor(&cursor);
         assert!(
             cursor.0.has_pending_equation(),
             "expected an active equation"
@@ -107,11 +187,13 @@ impl Machine {
         left: bool,
         path: &[usize],
     ) -> Option<TermHead> {
+        self.check_cursor(cursor);
         cursor
             .0
             .pending_head(&self.arena, &mut self.stats, left, path)
     }
     fn transition(&mut self, cursor: &mut Cursor) -> state::Event {
+        self.check_cursor(cursor);
         if crate::COLLECT_METRICS {
             self.stats.steps += 1;
         }
@@ -144,7 +226,9 @@ impl Machine {
     pub fn step(&mut self, mut cursor: Cursor) -> Step {
         match self.transition(&mut cursor) {
             state::Event::Continue => Step::Continue(cursor),
-            state::Event::Split(sibling) => Step::Split(cursor, Cursor(*sibling)),
+            state::Event::Split(sibling) => {
+                Step::Split(cursor, Cursor(*sibling, self.owner.clone()))
+            }
             state::Event::Failed => Step::Failed,
             state::Event::Complete => Step::Answer(cursor.0.export_answer(
                 &self.arena,
@@ -161,7 +245,9 @@ impl Machine {
     ) -> BorrowedStep {
         match self.transition(&mut cursor) {
             state::Event::Continue => BorrowedStep::Continue(cursor),
-            state::Event::Split(sibling) => BorrowedStep::Split(cursor, Cursor(*sibling)),
+            state::Event::Split(sibling) => {
+                BorrowedStep::Split(cursor, Cursor(*sibling, self.owner.clone()))
+            }
             state::Event::Failed => BorrowedStep::Failed,
             state::Event::Complete => {
                 BorrowedStep::Answer(cursor.0.into_observation(self.owner.clone(), stats))
