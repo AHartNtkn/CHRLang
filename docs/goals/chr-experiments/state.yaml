@@ -8,7 +8,7 @@ goal:
   execution_authority: Redesigned goal authorizes implementation and experiments selected under R00 and the governing sequence.
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
-  current_research: R01 prepared-plan and resumable traversal implementation; R04 source gate passed; R02 integration entry analyzed
+  current_research: R01 bound-key access and preparation lifetime before costs; R04 source gate passed; R02 integration entry ready
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -63,7 +63,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T024
+active_task: T025
 tasks:
   - id: T001
     type: pm
@@ -552,7 +552,7 @@ tasks:
   - id: T024
     type: pm
     assignee: PM
-    status: active
+    status: done
     objective: Implement and independently validate R01 four-cell activation/code-generation entry while advancing R04 finite-consistency analysis.
     inputs:
       - docs/experiments/results/R00-architecture-selection.md
@@ -561,7 +561,14 @@ tasks:
       - Genuine generated rule execution and competent activation with independent source observations; exact comparative gate registration before matrix execution.
       - Independent finite-consistency fragment, assignment oracle and registered source correspondence gate for R04.
       - R02 complete consuming class/index entry analysis.
-    receipt: null
+    receipt:
+      result: done
+      harness: codex
+      summary: R01 four-cell semantic implementation and R04 independent source gate pass; R02 complete-path analysis recorded. Cost control gaps remain explicit.
+      evidence:
+        - docs/experiments/results/R01-semantic-entry.md
+        - docs/experiments/results/R04-source-correspondence-gate.md
+        - docs/experiments/results/R02-consuming-integration-entry.md
     allowed_files:
       - research/chr-direct-solver/
       - research/chr-compiled/
@@ -578,18 +585,45 @@ tasks:
       - No generated comparative matrix or cost run before registration and freeze.
       - Preserve reference independence and do not require incumbent order across architectures.
 
+  - id: T025
+    type: pm
+    assignee: PM
+    status: active
+    objective: Establish credible bound-argument access and reusable preparation controls before R01 cost comparisons.
+    inputs:
+      - docs/experiments/registrations/R01-access-lifetime-entry.md
+      - docs/experiments/results/R01-semantic-entry.md
+    expected_output:
+      - Indexed/scanned execution with independent observations, flat-key regimes and measured access bookkeeping.
+      - Explicit prepared ruleset, per-query and diagnostic lifetimes; source freeze and prospective cost registration after review.
+    receipt: null
+    allowed_files:
+      - research/chr-compiled/
+      - research/chr-persistent/
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    verify:
+      - Independent full answers and legal commits across access, policy and execution modes
+      - Alias and nested-key repair, resource identity, prepared-query isolation
+      - Relevant Rust tests, workspace Clippy and formatting
+    stop_if:
+      - No cost matrix before prospective registration and freeze.
+      - R02 remains independently eligible; no production or language adoption.
+
 checks:
   dirty_fingerprint: preexisting_unfinished_experimental_files_preserved
   last_verification:
     result: passed
     task: T024
-    scope: R04 oracle and source correspondence only; R01 implementation remains in progress.
+    scope: R01 semantic entry and R04 source correspondence; access and lifetime cost controls remain open.
     commands:
       - Twelve independent oracle tests pass
       - R04 registered source gate passes 338 queries under six rule orders
       - R04 package formatting and Clippy pass
+      - R01 compiled, persistent and boxes tests pass (31); workspace Clippy and formatting pass
       - Documentation links and goal-state structure validated
     evidence:
+      - docs/experiments/results/R01-semantic-entry.md
       - docs/experiments/results/R04-finite-consistency-entry.md
       - docs/experiments/results/R04-source-correspondence-gate.md
       - research/chr-direct-solver/results/source-gate.json

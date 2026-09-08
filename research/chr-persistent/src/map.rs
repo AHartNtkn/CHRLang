@@ -18,7 +18,7 @@ struct Node<K, V> {
     right: Link<K, V>,
 }
 #[derive(Clone)]
-pub(crate) struct Map<K, V>(Link<K, V>);
+pub struct Map<K, V>(Link<K, V>);
 impl<K, V> Default for Map<K, V> {
     fn default() -> Self {
         Self(None)

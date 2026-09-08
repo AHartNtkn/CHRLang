@@ -1,6 +1,6 @@
 # R01: integrated activation and code-generation semantic entry
 
-Status: selected for implementation by [R00](../results/R00-architecture-selection.md). Hand-sized development checks may run. The generated comparative matrix and costs await exact fixture/runner registration and source freeze. This entry does not select a production architecture.
+Status: [semantic entry implemented and checked](../results/R01-semantic-entry.md). The [access/lifetime control](R01-access-lifetime-entry.md) is the next selected implementation before cost registration and source freeze. This entry does not select a production architecture.
 
 ## Decision and competing explanations
 

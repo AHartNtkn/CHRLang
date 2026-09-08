@@ -132,3 +132,30 @@ impl Search {
 pub mod continuations;
 
 pub mod observation;
+
+/// Candidate-only primitives shared by the integrated compilation experiment.
+/// This exposes no reference interpreter implementation.
+pub mod kernel {
+    use crate::Stats;
+    pub use crate::terms::{Arena, Bindings, Scope, Term, deref};
+
+    impl Arena {
+        /// Report variables changed by a successful transaction. Failure leaves both
+        /// the caller's bindings and change report unchanged.
+        pub fn unify_record(
+            &self,
+            left: Term,
+            right: Term,
+            bindings: &mut Bindings,
+            stats: &mut Stats,
+            changed: &mut Vec<u64>,
+        ) -> bool {
+            let mut transaction = Vec::new();
+            if !self.unify_impl::<true>(left, right, bindings, stats, &mut transaction) {
+                return false;
+            }
+            changed.extend(transaction);
+            true
+        }
+    }
+}

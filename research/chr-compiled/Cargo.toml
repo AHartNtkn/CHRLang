@@ -1,0 +1,13 @@
+[package]
+name = "chr-compiled"
+version.workspace = true
+edition.workspace = true
+build = "build.rs"
+
+[dependencies]
+chr-syntax = { path = "../../crates/chr-syntax" }
+chr-persistent = { path = "../chr-persistent" }
+chr-observe = { path = "../chr-observe" }
+
+[build-dependencies]
+chr-syntax = { path = "../../crates/chr-syntax" }

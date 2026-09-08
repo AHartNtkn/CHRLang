@@ -7,19 +7,19 @@ pub enum Term {
     Node(usize),
 }
 #[derive(Clone, Hash, PartialEq, Eq)]
-pub(crate) struct Node {
+pub struct Node {
     pub name: String,
     pub args: Vec<Term>,
 }
 #[derive(Default)]
-pub(crate) struct Arena {
+pub struct Arena {
     pub nodes: Vec<Node>,
     intern: HashMap<Node, usize>,
     pub predicates: Vec<(String, usize)>,
     predicates_by_name: HashMap<(String, usize), usize>,
 }
-pub(crate) type Scope = BTreeMap<u64, Term>;
-pub(crate) type Bindings = Map<u64, Term>;
+pub type Scope = BTreeMap<u64, Term>;
+pub type Bindings = Map<u64, Term>;
 impl Arena {
     pub fn predicate(&mut self, name: &str, arity: usize) -> usize {
         let key = (name.to_owned(), arity);
@@ -113,6 +113,16 @@ impl Arena {
         bindings: &mut Bindings,
         stats: &mut Stats,
     ) -> bool {
+        self.unify_impl::<false>(left, right, bindings, stats, &mut Vec::new())
+    }
+    pub(crate) fn unify_impl<const REPORT: bool>(
+        &self,
+        left: Term,
+        right: Term,
+        bindings: &mut Bindings,
+        stats: &mut Stats,
+        changed: &mut Vec<u64>,
+    ) -> bool {
         let mut trial = bindings.clone();
         let mut todo = vec![(left, right)];
         while let Some((left, right)) = todo.pop() {
@@ -126,6 +136,9 @@ impl Arena {
                 (Term::Var(a), Term::Var(b)) => {
                     let (child, parent) = if a > b { (a, b) } else { (b, a) };
                     trial.insert(child, Term::Var(parent), &mut stats.storage);
+                    if REPORT {
+                        changed.push(child);
+                    }
                 }
                 (Term::Var(var), term) | (term, Term::Var(var)) => {
                     let mut stack = vec![term];
@@ -139,6 +152,9 @@ impl Arena {
                         }
                     }
                     trial.insert(var, term, &mut stats.storage);
+                    if REPORT {
+                        changed.push(var);
+                    }
                 }
                 (Term::Node(a), Term::Node(b)) => {
                     let a = &self.nodes[a];
@@ -154,7 +170,7 @@ impl Arena {
         true
     }
 }
-pub(crate) fn deref(mut term: Term, bindings: &Bindings, stats: &mut Stats) -> Term {
+pub fn deref(mut term: Term, bindings: &Bindings, stats: &mut Stats) -> Term {
     while let Term::Var(id) = term {
         stats.dereferences += 1;
         match bindings.get(&id, &mut stats.storage) {
