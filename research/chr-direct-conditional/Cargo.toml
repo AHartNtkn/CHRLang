@@ -8,6 +8,7 @@ default = ["metrics"]
 metrics = ["chr-compiled?/metrics", "chr-observe?/metrics"]
 experiment = ["dep:chr-compiled", "dep:chr-observe"]
 alloc-meter = ["experiment"]
+fork-diagnostics = ["chr-compiled?/fork-diagnostics"]
 carrier-contraction = ["chr-compiled?/carrier-contraction"]
 arena-cow = ["chr-compiled?/arena-cow"]
 

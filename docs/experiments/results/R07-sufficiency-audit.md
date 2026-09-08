@@ -63,3 +63,17 @@ Other directions retain the bounded limits above. No numerical worker ranking, u
 The storage/lifetime reviewer recommends the state-preservation screen first. The access/lowering reviewer recommends the carrier certificate first, because it can challenge the only currently separated favorable sharing placement with a small semantic gate. Both reject closure now. Root selects storage first: identifying its magnitude under small output can change the default search-state organization, whereas carrier contraction initially qualifies a pure countdown regime. Source inspection proves copying occurs, not that it dominates; that missing attribution is exactly the bounded screen. This qualitative priority is a judgment about breadth and entry cost, not a measured utility score. Reassess after its evidence rather than treating the alternative as a mandatory later implementation.
 
 The carrier reviewer also supplies a plausible narrow certificate: start at an ordinarily selected step, admit one live carrier occurrence and a finite spine, require opaque unchanged payloads and no observers/interior competing cases, stop before the terminal body, and retain occurrence-identity accounting and resumable search service. These premises make the lead concrete without proving or adopting the transformation in this audit.
+
+
+## T054 result and T055 selection
+
+[Complete carrier costs](R05-carrier-cost.md) validate640 processes and25600 answers.
+Carrier beats Conditional with separated ranges in all14 ground cells; Conditional
+wins both unknown-tail cells. COW versus Carrier overlaps throughout. These results
+qualify the countdown sharing recommendation without ranking arbitrary shared work.
+Independent review supports known-prefix contraction to the actual tail under the
+existing certificate. T055 selects that semantic gate and, if valid, a separately
+registered narrow comparison. The strongest broader alternative is substantive
+noncontractible equation/constructor prework, which pure carriers do not represent.
+Resolving this concrete competent-control boundary has lower entry cost and direct
+consequence for the current contrary result. Goal closure remains unsupported.

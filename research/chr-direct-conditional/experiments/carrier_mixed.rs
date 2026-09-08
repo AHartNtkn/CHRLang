@@ -276,12 +276,13 @@ fn run(config: Config) -> Result<Report, String> {
         let prepared = match config.backend {
             Backend::Conditional => chr_direct_conditional::engine::PreparedRuleset::new(rules)
                 .map(Prepared::Conditional),
-            Backend::Specialized => chr_compiled::PreparedRuleset::new(rules, None).and_then(|p| {
-                let p = p.specialize_inferred();
+            Backend::Specialized => {
+                let prepared = chr_compiled::PreparedRuleset::new(rules, None)
+                    .map(|p| p.specialize_inferred());
                 #[cfg(feature = "carrier-contraction")]
-                let p = p.contract_carriers_inferred()?;
-                Ok(Prepared::Specialized(p))
-            }),
+                let prepared = prepared.and_then(|p| p.contract_carriers_inferred());
+                prepared.map(Prepared::Specialized)
+            }
         };
         (prepared, source_clone_ns)
     });

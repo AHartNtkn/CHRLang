@@ -25,7 +25,7 @@ Validation:323 workspace tests pass with one ignored; all 13 enabled carrier tes
 pass across counter configurations and arena/fork features. The new runner's four
 tests pass, as do actual work/allocation smokes and adverse analyzer checks.
 Strict Clippy, formatting and independent pre-run review find no blocker.
-[Receipts](r 05-carrier-cost-gate/) retain commands/results, compiler layout evidence
+[Receipts](r05-carrier-cost-gate/) retain commands/results, compiler layout evidence
 and its checker. Engine, kernel and observer flags are checked in each runner
 result. Sources and binaries will be frozen by the prospective launcher; no
 comparative result is claimed by this entry.

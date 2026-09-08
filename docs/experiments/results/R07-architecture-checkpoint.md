@@ -2,7 +2,7 @@
 
 Use competent explicit source execution as the general baseline, with selective access and checked specialization. Prefer direct execution of independently certified fragments when it can avoid general CHR machinery. Native compilation has not earned its extra preparation over the checked recursive loop at measured reuse; conditional sharing earns a bounded pre-heavy advantage over the corrected serial control.
 
-Updated through T052: [arena ownership evidence](R03-arena-ownership.md) establishes a bounded storage option with adverse mutation controls. T053 establishes bounded carrier eligibility; T054 measures its complete cost. This checkpoint introduces no workload weights, mandatory restrictions or automatic mixed-engine routing.
+Updated through T052: [arena ownership evidence](R03-arena-ownership.md) establishes a bounded storage option with adverse mutation controls. T053 establishes bounded carrier eligibility; T054 establishes ground complete-cost gains; T055 tests known-prefix eligibility. This checkpoint introduces no workload weights, mandatory restrictions or automatic mixed-engine routing.
 
 ## Recommendations and their evidence
 
@@ -41,16 +41,16 @@ These are bounded recommendations and explicit next-work priorities. They are no
 |---|---|---|
 | Q1 execution/access | Selective access and inferred source-preserving specialization are supported. Corrected structural maintenance strengthens the explicit control. | Maintained joins/adaptive indexing could help a different update/selectivity regime, but presently refine an access policy. T049 finds greater immediate value in the live-state storage screen. |
 | Q2 representation | Dedicated execution is the supported baseline; integrated equality has bounded capability and contrary cost evidence. | OR/nonmonotone-guard integration needs a concrete interaction with expected architectural benefit. No such new case is established by a larger same-boundary sweep. |
-| Q3 search storage | Current conditional gains are confined to pre64/post0 among these placements; most pairs favor Specialized. | T048 supplies the current comparison; T050 finds consequential split traffic; T052 resolves a bounded arena ownership option; insertion pairs overlap and one no-choice pair favors cloning. Explicit cloning is a chosen organization; this will not rank every trail/replay/persistence design. |
+| Q3 search storage | Current ground pure-carrier cells favor contraction; Conditional wins unknown tails pending the competent-prefix gate. | T048 supplies the current comparison; T050 finds consequential split traffic; T052 resolves a bounded arena ownership option; insertion pairs overlap and one no-choice pair favors cloning. Explicit cloning is a chosen organization; this will not rank every trail/replay/persistence design. |
 | Q4 avoiding execution | Certified finite-domain and recursive direct execution are supported in distinct fragments. Native generation is not preferred at measured reuse. | Larger learning endpoints or very high compilation reuse need an independently motivated regime. Another compiler sweep is not selected without a distinct decision-changing regime. |
-| Q5 static/language | Sufficient inferred properties earn bounded gains without mandatory restrictions. Contextual contraction remains unsupported. | Contextual eligibility is the strongest semantic alternative: it could broaden direct lowering, but requires termination/effect correspondence. T049 identifies a concrete pure-carrier certificate as the strongest alternative to the storage screen. |
+| Q5 static/language | Sufficient inferred properties earn bounded gains without mandatory restrictions. Bounded source-derived carrier contraction is supported. | Contextual eligibility is the strongest semantic alternative: it could broaden direct lowering, but requires termination/effect correspondence. T049 identifies a concrete pure-carrier certificate as the strongest alternative to the storage screen. |
 | Q6 retain/recompute | Small immutable facts can avoid consequential work; support/history retention can dominate. | Current mixed evidence bounds when physical sharing earns bookkeeping. Tables, replay, reunion and broad reclamation need a specific retained/recomputed cost that could change the surviving choice, not automatic implementation. |
 | Q7 completion/failure | Raw multiplicity, finite-sibling progress, branch-wide failure and unsupported admission remain distinct obligations. | Existing adverse gates reject blanket eager execution and strict global publication priority as an unqualified improvement. Support-local throttling is substantial scheduling work; low-sharing stream evidence does not currently justify that expansion. |
 | Q8 complexity | Checked direct lowering eliminates more responsibilities than native emission alone; other organizations retain explicit ownership costs. | Use these responsibilities in the recommendation and investigate measured causes. Another catalogue or a feature/line-count score would not change the decision. |
 | Q9 observation/lifetime | Full aliases/residuals, raw versus unique endpoints, consumer retention and runtime history are separated by evidence. | Broad observer or reclamation redesign has no selected benefit over the present explicit stream control. Reopen for a surviving workload where extraction/retention can reverse the architecture preference. |
 | Q10 parallelism | Current worker benefit is unresolved; permanent factoring remains a distinct capability. | Warm pools, connected regions and larger worker counts change deployment/ownership assumptions. Do not expand them merely to seek a favorable cell. |
 | Q11 generalization | Finite mixed phases, ongoing streams, independent products and sealed relations give distinct applicability boundaries. | Current mixed-phase evidence covers the corrected control. Larger supplied examples or application labels alone do not establish decision value or workload weights. |
-| Q12 overall choice | Explicit baseline plus independently checked direct paths is supported; conditional finite preference has current bounded evidence. | T052 supplies complete storage evidence; T053 establishes bounded carrier eligibility; T054 measures its complete cost. Do not close the goal solely because this checkpoint or the initial sequence is complete. |
+| Q12 overall choice | Explicit baseline plus independently checked direct paths is supported; conditional finite preference has current bounded evidence. | T052 supplies complete storage evidence; T053 establishes bounded carrier eligibility; T054 establishes ground complete-cost gains; T055 tests known-prefix eligibility. Do not close the goal solely because this checkpoint or the initial sequence is complete. |
 
 Direct distributed choice graphs, net encodings and trace-solver tuning have no automatic priority. Their existing evidence does not show a new responsibility boundary likely to outperform the surviving direct/dedicated controls without a substantial semantic gate. This is a present cost/value disposition, not a universal impossibility claim. Likewise, proof of arbitrary contextual lowering is not a prerequisite for recommending the already certified sealed facility.
 
@@ -91,3 +91,17 @@ this semantic question over further storage refinement. Ordinary source priority
 one live carrier, finite controls, opaque payloads, observer exclusion and finite
 service must be justified rather than inferred from purity. The earlier contextual
 counterexamples remain active requirements. The goal remains active.
+
+
+## T054 result and T055 selection
+
+[Complete carrier costs](R05-carrier-cost.md) validate640 processes and25600 answers.
+Carrier beats Conditional with separated ranges in all14 ground cells; Conditional
+wins both unknown-tail cells. COW versus Carrier overlaps throughout. These results
+qualify the countdown sharing recommendation without ranking arbitrary shared work.
+Independent review supports known-prefix contraction to the actual tail under the
+existing certificate. T055 selects that semantic gate and, if valid, a separately
+registered narrow comparison. The strongest broader alternative is substantive
+noncontractible equation/constructor prework, which pure carriers do not represent.
+Resolving this concrete competent-control boundary has lower entry cost and direct
+consequence for the current contrary result. Goal closure remains unsupported.
