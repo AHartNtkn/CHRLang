@@ -284,3 +284,7 @@ The [paired candidate-reuse correction](S02-candidate-reuse.md) completes 175 pr
 ## S06 finite table-source gate
 
 The [source-derived bag-join gate](S06-table-source-gate.md) passes 6,144 configuration/order comparisons per executor, including scalar and generic dedicated controls. Duplicate derivations, aliases, structured arguments, fresh locals, off-output failure and lazy first publication are checked. The accepted finite source eliminates occurrence/activation/history responsibilities; certificate, index, substitution and observation costs are not yet measured. T064 remains active for prospective lifecycle comparison; R04 translation and broader S06 mechanisms remain distinct.
+
+## S06 table lifecycle and next discovery contrast
+
+The [252-process finite-table pilot](S06-table-lifecycle.md) favors direct source compilation over both generic controls in every registered one-query and 16-query cell, including certification, query lifetime and disposal. This supports the admitted fragment without selecting language restrictions, a universal relation solver or native compilation. T064's bounded trial is complete. [S01 selective and consuming discovery](S01-next-selection.md) is selected next, with S04 restoration/replay the strongest ready independent alternative.
