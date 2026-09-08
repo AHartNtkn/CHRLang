@@ -8,7 +8,7 @@ goal:
   execution_authority: Redesigned goal authorizes implementation and experiments selected under R00 and the governing sequence.
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
-  current_research: Scheduling-preserving specialization passes semantics and lifecycle pilot; cross-architecture evidence checkpoint selected
+  current_research: Cross-architecture checkpoint selects ongoing-stream ownership and cancellation evidence
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -63,7 +63,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T038
+active_task: T039
 tasks:
   - id: T001
     type: pm
@@ -1006,7 +1006,7 @@ tasks:
   - id: T038
     type: pm
     assignee: PM
-    status: active
+    status: done
     objective: Consolidate viable architectural evidence, necessary responsibilities and unresolved decisions into an R07 checkpoint that selects the next materially useful investigation without premature closure.
     inputs:
       - docs/experiments/sequence.md
@@ -1027,20 +1027,51 @@ tasks:
       - Every relevant question remains explicit; checkpoint is not automatic final closure
     stop_if:
       - Do not mark goal complete from a document or completed matrix alone.
+    receipt:
+      result: done
+      summary: Cross-architecture responsibility and twelve-question audit selects ongoing-stream lifetime over narrow output reranking; goal remains active.
+      evidence:
+        - docs/experiments/results/R07-architecture-checkpoint.md
+      validation: Root receipt audit and independent read-only review; no new performance claim or cross-session ranking.
+
+
+
+  - id: T039
+    type: pm
+    assignee: PM
+    status: active
+    objective: Establish ongoing-stream lifetime and cancellation evidence for current conditional and specialized explicit execution with independent full-observation and consumer-retention controls.
+    inputs:
+      - docs/experiments/results/R07-architecture-checkpoint.md
+    allowed_files:
+      - research/
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+      - Cargo.toml
+      - Cargo.lock
+    expected_output:
+      - Independent constant-answer stream and finite exhaustion gates.
+      - Prospectively registered bounded lifecycle comparison and causal ownership disposition.
+    verify:
+      - Preserve full residual identity, raw multiplicity, finite service and no premature exhaustion
+      - Separate ordinary-allocator timing from work and requested-heap diagnostics
+      - Charge output policy and cancellation/disposal; diagnose runtime retention independently of consumer outputs
+      - Relevant tests, source freeze and independent review before comparative claims
+    stop_if:
+      - No assumption that explicit lineage or conditional history retention is necessary or bounded.
+      - No new observation policy or language adoption.
     receipt: null
-
-
 
 
 checks:
   dirty_fingerprint: preexisting_unfinished_experimental_files_preserved
   last_verification:
     result: passed
-    task: T037
-    scope: Scheduling-preserving specialization and prospectively registered lifecycle pilot.
+    task: T038
+    scope: Cross-architecture evidence and responsibility checkpoint.
     commands:
-      - All 256 process outcomes and 14240 raw observations independently validated
-      - Forty compiled-package tests pass in both feature modes
-      - Workspace tests, Clippy, runner checks, formatting and source freeze pass
+      - Root audit of primary R01/R02/R04/R05 receipts and current question map
+      - Independent review of search, retention, progress, observation, parallelism and generalization
+      - Local report links and task-state consistency checked
     evidence:
-      - docs/experiments/results/R05-single-head-lifecycle.md
+      - docs/experiments/results/R07-architecture-checkpoint.md

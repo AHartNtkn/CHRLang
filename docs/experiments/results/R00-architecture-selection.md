@@ -123,3 +123,8 @@ The [conditional lifecycle pilot](R03-conditional-lifecycle.md) validates all 25
 ## Current evidence update after T037
 
 [Checked single-head specialization](R05-single-head-lifecycle.md) preserves source order and full observations while eliminating generic cursor/history work. Its registered pilot supports bounded lifecycle savings without mandatory language restrictions. T038 selects an R07 comparison checkpoint: reconcile viable paths, strengthened controls, responsibility costs and consequential uncertainty before another experiment. Separate-session output ratios cannot select conditional versus specialized execution, and the checkpoint cannot stand in for final goal closure.
+
+
+## Current selection after T038
+
+[R07 checkpoint](R07-architecture-checkpoint.md) compares viable organizations, necessary responsibilities and all question dispositions. T039 selects ongoing-stream lifetime/cancellation evidence on current conditional and specialized explicit engines. Consumer-retained output and finite controls will distinguish historical runtime retention from required live work. This has greater immediate architectural value than ranking one finite output cell; parallel granularity, mixed phases, compilation and eager-region certificates remain open.
