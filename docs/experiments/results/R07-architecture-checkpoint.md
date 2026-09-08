@@ -2,7 +2,7 @@
 
 Use competent explicit source execution as the general baseline, with selective access and checked specialization. Prefer direct execution of independently certified fragments when it can avoid general CHR machinery. Native compilation has not earned its extra preparation over the checked recursive loop at measured reuse; conditional sharing earns a bounded pre-heavy advantage over the corrected serial control.
 
-Updated through T052: [arena ownership evidence](R03-arena-ownership.md) establishes a bounded storage option with adverse mutation controls. T053 tests pure-carrier eligibility. This checkpoint introduces no workload weights, mandatory restrictions or automatic mixed-engine routing.
+Updated through T052: [arena ownership evidence](R03-arena-ownership.md) establishes a bounded storage option with adverse mutation controls. T053 establishes bounded carrier eligibility; T054 measures its complete cost. This checkpoint introduces no workload weights, mandatory restrictions or automatic mixed-engine routing.
 
 ## Recommendations and their evidence
 
@@ -50,23 +50,24 @@ These are bounded recommendations and explicit next-work priorities. They are no
 | Q9 observation/lifetime | Full aliases/residuals, raw versus unique endpoints, consumer retention and runtime history are separated by evidence. | Broad observer or reclamation redesign has no selected benefit over the present explicit stream control. Reopen for a surviving workload where extraction/retention can reverse the architecture preference. |
 | Q10 parallelism | Current worker benefit is unresolved; permanent factoring remains a distinct capability. | Warm pools, connected regions and larger worker counts change deployment/ownership assumptions. Do not expand them merely to seek a favorable cell. |
 | Q11 generalization | Finite mixed phases, ongoing streams, independent products and sealed relations give distinct applicability boundaries. | Current mixed-phase evidence covers the corrected control. Larger supplied examples or application labels alone do not establish decision value or workload weights. |
-| Q12 overall choice | Explicit baseline plus independently checked direct paths is supported; conditional finite preference has current bounded evidence. | T052 supplies complete storage evidence; T053 tests pure-carrier eligibility. Do not close the goal solely because this checkpoint or the initial sequence is complete. |
+| Q12 overall choice | Explicit baseline plus independently checked direct paths is supported; conditional finite preference has current bounded evidence. | T052 supplies complete storage evidence; T053 establishes bounded carrier eligibility; T054 measures its complete cost. Do not close the goal solely because this checkpoint or the initial sequence is complete. |
 
 Direct distributed choice graphs, net encodings and trace-solver tuning have no automatic priority. Their existing evidence does not show a new responsibility boundary likely to outperform the surviving direct/dedicated controls without a substantial semantic gate. This is a present cost/value disposition, not a universal impossibility claim. Likewise, proof of arbitrary contextual lowering is not a prerequisite for recommending the already certified sealed facility.
 
-## Selected T053 and alternatives
+## Selected T054 and alternatives
 
-[Arena ownership evidence](R03-arena-ownership.md) establishes complete read-choice
-benefits with insertion uncertainty and a no-choice regression. Retain that bounded
-serial option; more persistent-storage or replay work has no comparably specific
-unanswered decision at present.
+[Carrier eligibility](R05-carrier-eligibility.md) passes 13 independent and adverse
+gates. A finite single-carrier interval can avoid intermediate selection and
+occurrence maintenance while retaining exact identities and ordinary terminal
+arbitration. This does not establish its economics or arbitrary contextual
+lowering. Existing broader counterexamples remain applicable.
 
-The pure-carrier eligibility gate is next. It may avoid repeated computation in
-the remaining positive conditional countdown regime. One live carrier, a finite
-control spine, unchanged opaque payloads, absence of observers, ordinary source
-priority and safe suspension/identity accounting must be established. Purity alone
-does not justify contraction. The gate may reject the proposed scope; no language
-restriction is assumed. The goal remains active.
+T054 isolates the incumbent from candidate-only job storage/checks before a
+prospectively registered complete-path comparison. Certificate preparation,
+resumable inspection, output and disposal must be charged. This can determine
+whether valid source lowering changes the remaining bounded sharing preference.
+Further storage tuning has lower current decision value after the completed
+arena comparison. The goal remains active.
 
 ## Review
 
@@ -83,7 +84,7 @@ choice pairs, with all insertion pairs overlapping and one no-choice regression.
 Retain this serial option with its mutation boundary and overhead; no universal
 time/memory policy follows. Other mutable source state remains substantial.
 
-T053 now selects the pure-carrier eligibility gate. It could avoid repeated
+The T053 pure-carrier gate now passes; T054 selects the fair complete-cost comparison. It could avoid repeated
 computation in the remaining positive conditional countdown regime, which is a
 different opportunity from sharing immutable storage. Independent review favors
 this semantic question over further storage refinement. Ordinary source priority,

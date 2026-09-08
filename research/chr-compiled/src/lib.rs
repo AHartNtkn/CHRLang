@@ -10,6 +10,7 @@ use std::collections::{BTreeMap, BTreeSet, VecDeque};
 use std::sync::Arc;
 /// Compile-time availability of execution diagnostics.
 pub const COLLECT_METRICS: bool = cfg!(feature = "metrics");
+pub mod carriers;
 #[cfg(feature = "experiment")]
 #[path = "../experiments/native.rs"]
 pub mod experiment;
@@ -54,6 +55,12 @@ pub struct Stats {
     pub max_index_entries: usize,
     pub source_steps: u64,
     pub applications: u64,
+    /// Validated nonempty suffixes handled by the carrier job.
+    pub carrier_contractions: u64,
+    /// Certified source applications; trace/audit mode expands their commits.
+    pub carrier_steps: u64,
+    /// Resumable control-spine inspections, including unsuccessful admission.
+    pub carrier_checks: u64,
     pub candidate_visits: u64,
     pub structural_tests: u64,
     pub generic_ast_visits: u64,
@@ -146,6 +153,7 @@ struct Head {
 }
 #[derive(Clone)]
 struct Prepared {
+    carrier: Option<Arc<carriers::Plan>>,
     kept: usize,
     heads: Vec<Head>,
     slots: usize,
@@ -1109,6 +1117,8 @@ pub struct Status {
     pub failed: bool,
 }
 pub struct Engine {
+    carrier: Option<carriers::Job>,
+    carrier_blocked: Option<u64>,
     core: Core,
     code: Option<Compiled>,
     done: bool,
@@ -1249,6 +1259,7 @@ impl PreparedRuleset {
             let mut body_preds = vec![];
             let body = lower_goal(&rule.body, &slots, &mut arena, &mut body_preds);
             prepared.push(Prepared {
+                carrier: None,
                 kept: rule.kept.len(),
                 heads,
                 slots: slots.len(),
@@ -1377,6 +1388,8 @@ impl PreparedRuleset {
         }
         Ok((
             Engine {
+                carrier: None,
+                carrier_blocked: None,
                 core,
                 code: self.code,
                 done: false,
@@ -1412,6 +1425,8 @@ impl Engine {
             }};
         }
         Self {
+            carrier: self.carrier.clone(),
+            carrier_blocked: self.carrier_blocked,
             core: self.core.fork_clone(
                 #[cfg(feature = "fork-diagnostics")]
                 observer,
@@ -1436,10 +1451,18 @@ impl Engine {
         if COLLECT_METRICS {
             self.core.stats.source_steps += 1;
         }
+        if self.carrier_tick() {
+            return;
+        }
         if let Some(work) = self.core.pending.pop() {
             match work {
-                Work::Insert(p, args) => self.core.insert(p, args),
+                Work::Insert(p, args) => {
+                    let id = self.core.next_occ;
+                    self.core.insert(p, args);
+                    self.carrier_inserted(id);
+                }
                 Work::Equal(a, b) => {
+                    self.carrier_blocked = None;
                     if !self.core.equation(a, b) {
                         self.done = true;
                         self.failed = true
@@ -1490,50 +1513,55 @@ impl Engine {
             }
             Selection::Found(app) => {
                 let anchor = self.search.take().unwrap().anchor;
-                let before = if self.audit_enabled {
-                    Some((self.core.view(), app.ids.clone()))
-                } else {
-                    None
-                };
-                let audit_rule = app.rule;
-                let kept = self.core.rules[app.rule].kept;
-                for id in app.ids.iter().skip(kept) {
-                    self.core.remove(*id)
-                }
-                if self
-                    .core
-                    .regions
-                    .as_ref()
-                    .is_some_and(|plans| plans[app.rule].is_some())
-                {
-                    if COLLECT_METRICS {
-                        self.core.stats.specialized_applications += 1;
-                    }
-                } else {
-                    self.core.history.insert((app.rule, app.ids.clone()));
-                }
-                if self.trace_enabled {
-                    self.trace.push((app.rule, app.ids));
-                }
-                self.core.next_var = app.next;
-                self.core.pending.push(app.body);
-                if COLLECT_METRICS {
-                    self.core.stats.applications += 1;
-                }
-                if let Some((before, ids)) = before {
-                    self.audit.push(Commit {
-                        rule: audit_rule,
-                        ids,
-                        before,
-                        after: self.core.view(),
-                    })
-                }
-                if let Some(id) = anchor
-                    && self.core.store.contains_key(&id)
-                {
-                    self.core.enqueue(id)
-                }
+                self.carrier_entry(&app);
+                self.commit_application(app, anchor);
             }
+        }
+    }
+
+    fn commit_application(&mut self, app: Application, anchor: Option<u64>) {
+        let before = if self.audit_enabled {
+            Some((self.core.view(), app.ids.clone()))
+        } else {
+            None
+        };
+        let audit_rule = app.rule;
+        let kept = self.core.rules[app.rule].kept;
+        for id in app.ids.iter().skip(kept) {
+            self.core.remove(*id)
+        }
+        if self
+            .core
+            .regions
+            .as_ref()
+            .is_some_and(|plans| plans[app.rule].is_some())
+        {
+            if COLLECT_METRICS {
+                self.core.stats.specialized_applications += 1;
+            }
+        } else {
+            self.core.history.insert((app.rule, app.ids.clone()));
+        }
+        if self.trace_enabled {
+            self.trace.push((app.rule, app.ids));
+        }
+        self.core.next_var = app.next;
+        self.core.pending.push(app.body);
+        if COLLECT_METRICS {
+            self.core.stats.applications += 1;
+        }
+        if let Some((before, ids)) = before {
+            self.audit.push(Commit {
+                rule: audit_rule,
+                ids,
+                before,
+                after: self.core.view(),
+            })
+        }
+        if let Some(id) = anchor
+            && self.core.store.contains_key(&id)
+        {
+            self.core.enqueue(id)
         }
     }
 

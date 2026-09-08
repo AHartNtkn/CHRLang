@@ -8,7 +8,7 @@ goal:
   execution_authority: Redesigned goal authorizes implementation and experiments selected under R00 and the governing sequence.
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
-  current_research: Arena ownership has bounded lifecycle evidence; pure-carrier eligibility selected
+  current_research: Carrier semantic gate validated; isolate incumbent overhead before complete-path comparison
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -1500,9 +1500,10 @@ tasks:
   - id: T053
     type: pm
     assignee: PM
-    status: active
+    status: complete
     objective: Establish whether a source-derived pure-carrier certificate can safely avoid repeated countdown work in context.
     inputs:
+      - docs/experiments/results/R05-carrier-eligibility-design.md
       - docs/experiments/results/R07-sufficiency-audit.md
       - docs/experiments/results/R03-arena-ownership.md
       - docs/experiments/results/R05-region-boundaries.md
@@ -1523,19 +1524,51 @@ tasks:
     stop_if:
       - Stop broadening the certificate if the proposed finite single-carrier boundary cannot preserve source semantics.
       - No automatic storage expansion or sharing priority from prior prototypes.
+    receipt:
+      summary: Source-derived resumable carrier contraction passes13 gates, including independent primary IDs/answers, trace/audit replay, adverse eligibility and finite service.
+      evidence:
+        - docs/experiments/results/R05-carrier-eligibility.md
+        - docs/experiments/results/r05-carrier-gate/
+      validation: Default/off/COW carrier gates, workspace, strict Clippy and independent review; no timing comparison.
+
+  - id: T054
+    type: pm
+    assignee: PM
+    status: active
+    objective: Isolate carrier machinery costs and compare complete execution paths against competent explicit and conditional controls.
+    inputs:
+      - docs/experiments/results/R05-carrier-eligibility.md
+      - docs/experiments/results/R05-current-mixed.md
+      - docs/experiments/results/R03-arena-ownership.md
+    allowed_files:
+      - research/
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    expected_output:
+      - A control without candidate-only job storage/checks and a fully charged candidate configuration.
+      - Registered complete lifecycle comparison with prepared reuse, ordinary allocator timing, diagnostic separation and adverse controls.
+      - Evidence-backed disposition on whether pure source lowering changes the remaining bounded sharing recommendation.
+    verify:
+      - Preserve the T053 independent source and finite-service gates
+      - Include preparation, admission/validation, observation and disposal with complete raw answers
+      - Do not confuse logical application count with actual dispatch work
+      - Freeze sources and configurations before comparative runs
+    stop_if:
+      - No performance conclusion from a control charged with unselected candidate-only machinery.
+      - No broader contextual optimization or storage tuning without a new consequential question.
     receipt: null
 
 checks:
   dirty_fingerprint: preexisting_unfinished_experimental_files_preserved
   last_verification:
     result: passed
-    task: T052
-    scope: Arena ownership source/runner gates and full512-process lifecycle comparison.
+    task: T053
+    scope: Source-derived carrier semantic and implementation gate; no comparative measurements.
     commands:
       - cargo test --workspace --all-targets
-      - Default/off/COW source and persistent gates, strict Clippy and cargo fmt check
-      - Root insertion runner tests and actual work/allocation smokes with adverse analyzer assertions
-      - Independent exact manifest, complete answers, work equality, allocator restoration and frozen artifact audit
+      - Final13 carrier tests default, counter-free and COW+fork configurations
+      - Strict all-target Clippy and cargo fmt check
+      - Independent primary ID/answer, source replay, audit and certificate review
     evidence:
-      - docs/experiments/results/R03-arena-ownership.md
-      - docs/experiments/results/r03-arena-ownership/audit.json
+      - docs/experiments/results/R05-carrier-eligibility.md
+      - docs/experiments/results/r05-carrier-gate/
