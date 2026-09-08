@@ -1,6 +1,6 @@
 # R00: architectural alternatives and first experiment selection
 
-Current decision authority: [T047 architecture checkpoint](R07-architecture-checkpoint.md). T048 selects current mixed-work sharing evidence after the serial correction; checked direct lowering is supported, while native compilation and worker expansion have no general preference. The entries below retain their stated experimental context.
+Current decision authority: [architecture checkpoint](R07-architecture-checkpoint.md), updated with T048 current mixed-work evidence. T049 selects the all-question sufficiency audit; checked direct lowering is supported, while native compilation and worker expansion have no general preference. The entries below retain their stated experimental context.
 
 The first comparison should distinguish generic selection, incremental activation and generated rule execution on complete ordinary-CHR computations. In parallel, analyze a directly compiled finite consistency relation as a contrasting way to eliminate execution. Integrated representation and conditional execution remain serious independent candidates; existing service results do not rank them against these organizations.
 
@@ -189,3 +189,7 @@ The [conditional lifecycle pilot](R03-conditional-lifecycle.md) validates all 25
 ## Update after T046
 
 [Recursive lifecycle evidence](R05-recursive-lifecycle.md) validates all 324 sessions and 62,316 full responses. Checked Direct captures most benefit over Specialized; Native has three separated Direct gains but does not recover its per-source compilation cost within measured reuse. T047 selects a decision checkpoint: distinguish lowering from code generation, retain unresolved current parallel benefit, and reassess conditional/explicit recommendations whose controls precede serial changes. No cross-session ratios or universal architecture winner follow.
+
+## Update after T048
+
+[Current mixed evidence](R05-current-mixed.md) validates all 224 processes. Conditional wins both pre64/post0 pairs; Specialized wins eleven pairs and reused balanced32/32 overlaps. T049 selects an evidence-sufficiency audit across the full goal before further experimental selection or closure.

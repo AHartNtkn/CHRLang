@@ -8,7 +8,7 @@ goal:
   execution_authority: Redesigned goal authorizes implementation and experiments selected under R00 and the governing sequence.
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
-  current_research: Current mixed comparison entry validated and prospectively registered; matched runs pending
+  current_research: Current mixed evidence complete; all-question sufficiency and final-decision audit selected
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -63,7 +63,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T048
+active_task: T049
 tasks:
   - id: T001
     type: pm
@@ -1336,7 +1336,7 @@ tasks:
   - id: T048
     type: pm
     assignee: PM
-    status: active
+    status: done
     objective: Resolve the current finite mixed-work applicability of Conditional versus corrected Specialized with the existing source and complete-observation boundary.
     inputs:
       - docs/experiments/results/R07-architecture-checkpoint.md
@@ -1360,23 +1360,49 @@ tasks:
       - Do not automatically expand reunion, mode switching, reclamation or further tuning after this comparison.
       - Reassess a consequential anomaly by causal evidence and decision value.
     receipt:
-      summary: Counter-free diagnostic ownership corrected and checked; current mixed comparison prospectively registered, runs pending.
+      summary: All 224 processes and 8960 answers pass; current conditional advantage is bounded to pre64/post0 pairs, with eleven Specialized wins and one overlap.
       evidence:
-        - docs/experiments/results/R05-current-mixed-entry.md
+        - docs/experiments/results/R05-current-mixed.md
         - docs/experiments/registrations/R05-current-mixed.md
       validation: All 66 package tests in both feature configurations, metrics-off Clippy, formatting and feature graphs.
+
+  - id: T049
+    type: pm
+    assignee: PM
+    status: active
+    objective: Audit evidence sufficiency against the full architecture goal and justify every unresolved direction before closure or selecting further investigation.
+    inputs:
+      - docs/experiments/sequence.md
+      - docs/experiments/coverage.md
+      - docs/experiments/results/R07-architecture-checkpoint.md
+      - docs/experiments/results/R05-current-mixed.md
+    allowed_files:
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    expected_output:
+      - Evidence-backed recommendations, contrary evidence, responsibility and language tradeoffs.
+      - Every relevant unresolved direction has a justified bounded conclusion, necessary owner decision, or exact external unblock.
+      - Explicit value comparison for plausible further investigations; select useful work if closure is not proved.
+    verify:
+      - Audit the full objective against authoritative sources and receipts, not just completed task labels
+      - Preserve fragment, lifecycle, multiplicity and cross-freeze limits
+      - Independent adversarial review of sufficiency and strongest alternative
+    stop_if:
+      - Do not close solely because a matrix or checkpoint is complete.
+      - Do not turn unselected directions into unsupported final dispositions.
+    receipt: null
 
 
 checks:
   dirty_fingerprint: preexisting_unfinished_experimental_files_preserved
   last_verification:
     result: passed
-    task: T047
-    scope: Current architecture recommendations and all-question dispositions.
+    task: T048
+    scope: Current mixed comparison; complete manifest, observations, allocation restoration and source freeze.
     commands:
-      - Primary evidence review through T046 and source/endpoint comparison
-      - Independent conditional/lifetime and representation/compilation/parallel audits
-      - Local document links, Q1-Q12 coverage and single-active-task state validation
+      - analyze_mixed.py --output docs/experiments/results/r05-current-mixed
+      - Independent source and binary SHA256 audit; seed 48048 and exact manifest validation
+      - Full package tests in both configurations, feature ownership regression and Clippy
     evidence:
-      - docs/experiments/results/R07-architecture-checkpoint.md
-      - docs/experiments/coverage.md
+      - docs/experiments/results/R05-current-mixed.md
+      - docs/experiments/results/r05-current-mixed/audit.json
