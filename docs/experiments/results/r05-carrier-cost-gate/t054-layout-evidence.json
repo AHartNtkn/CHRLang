@@ -1,0 +1,59 @@
+{
+  "off": {
+    "artifact": "/tmp/t054-layout-off/debug/deps/chr_compiled-37b10bcb6f6e92b1.ll",
+    "types": {
+      "Engine": {
+        "bytes": 1288,
+        "carrier_fields": []
+      },
+      "Prepared": {
+        "bytes": 184,
+        "carrier_fields": []
+      },
+      "Stats": {
+        "bytes": 512,
+        "carrier_fields": []
+      }
+    },
+    "hooks_present": {
+      "carrier_tick": false,
+      "carrier_entry": false,
+      "carrier_inserted": false,
+      "contract_carriers_inferred": false,
+      "carrier_eligibility": false
+    }
+  },
+  "on": {
+    "artifact": "/tmp/t054-layout-on/debug/deps/chr_compiled-137fc596961142c4.ll",
+    "types": {
+      "Engine": {
+        "bytes": 1400,
+        "carrier_fields": [
+          "carrier",
+          "carrier_blocked"
+        ]
+      },
+      "Prepared": {
+        "bytes": 192,
+        "carrier_fields": [
+          "carrier"
+        ]
+      },
+      "Stats": {
+        "bytes": 536,
+        "carrier_fields": [
+          "carrier_contractions",
+          "carrier_steps",
+          "carrier_checks"
+        ]
+      }
+    },
+    "hooks_present": {
+      "carrier_tick": true,
+      "carrier_entry": true,
+      "carrier_inserted": true,
+      "contract_carriers_inferred": true,
+      "carrier_eligibility": true
+    }
+  }
+}

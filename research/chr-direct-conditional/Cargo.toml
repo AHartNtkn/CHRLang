@@ -8,6 +8,8 @@ default = ["metrics"]
 metrics = ["chr-compiled?/metrics", "chr-observe?/metrics"]
 experiment = ["dep:chr-compiled", "dep:chr-observe"]
 alloc-meter = ["experiment"]
+carrier-contraction = ["chr-compiled?/carrier-contraction"]
+arena-cow = ["chr-compiled?/arena-cow"]
 
 [[bin]]
 name = "chr-conditional-cost"
@@ -31,4 +33,9 @@ required-features = ["experiment"]
 [[bin]]
 name = "chr-mixed-cost"
 path = "experiments/mixed.rs"
+required-features = ["experiment"]
+
+[[bin]]
+name = "chr-carrier-cost"
+path = "experiments/carrier_mixed.rs"
 required-features = ["experiment"]

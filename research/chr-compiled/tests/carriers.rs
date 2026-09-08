@@ -1,3 +1,4 @@
+#![cfg(feature = "carrier-contraction")]
 #[allow(dead_code)]
 mod search_support;
 use chr_compiled::{Access, Policy, PreparedRuleset};

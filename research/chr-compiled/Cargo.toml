@@ -8,6 +8,7 @@ build = "build.rs"
 default = ["metrics"]
 metrics = ["chr-persistent/kernel-metrics", "chr-observe/metrics"]
 experiment = []
+carrier-contraction = []
 fork-diagnostics = ["chr-persistent/fork-diagnostics"]
 arena-cow = ["chr-persistent/arena-cow"]
 alloc-meter = ["experiment"]

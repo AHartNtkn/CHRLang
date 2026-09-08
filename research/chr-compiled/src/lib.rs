@@ -1,4 +1,5 @@
 //! Experimental indexed CHR execution with explicit source-disjunction search.
+pub use chr_persistent::COLLECT_KERNEL_METRICS;
 #[cfg(feature = "fork-diagnostics")]
 use chr_persistent::kernel::{ForkObserver, NoopForkObserver, observed_clone};
 use chr_persistent::{
@@ -10,6 +11,7 @@ use std::collections::{BTreeMap, BTreeSet, VecDeque};
 use std::sync::Arc;
 /// Compile-time availability of execution diagnostics.
 pub const COLLECT_METRICS: bool = cfg!(feature = "metrics");
+#[cfg(feature = "carrier-contraction")]
 pub mod carriers;
 #[cfg(feature = "experiment")]
 #[path = "../experiments/native.rs"]
@@ -56,10 +58,13 @@ pub struct Stats {
     pub source_steps: u64,
     pub applications: u64,
     /// Validated nonempty suffixes handled by the carrier job.
+    #[cfg(feature = "carrier-contraction")]
     pub carrier_contractions: u64,
     /// Certified source applications; trace/audit mode expands their commits.
+    #[cfg(feature = "carrier-contraction")]
     pub carrier_steps: u64,
     /// Resumable control-spine inspections, including unsuccessful admission.
+    #[cfg(feature = "carrier-contraction")]
     pub carrier_checks: u64,
     pub candidate_visits: u64,
     pub structural_tests: u64,
@@ -153,6 +158,7 @@ struct Head {
 }
 #[derive(Clone)]
 struct Prepared {
+    #[cfg(feature = "carrier-contraction")]
     carrier: Option<Arc<carriers::Plan>>,
     kept: usize,
     heads: Vec<Head>,
@@ -1117,7 +1123,9 @@ pub struct Status {
     pub failed: bool,
 }
 pub struct Engine {
+    #[cfg(feature = "carrier-contraction")]
     carrier: Option<carriers::Job>,
+    #[cfg(feature = "carrier-contraction")]
     carrier_blocked: Option<u64>,
     core: Core,
     code: Option<Compiled>,
@@ -1259,6 +1267,7 @@ impl PreparedRuleset {
             let mut body_preds = vec![];
             let body = lower_goal(&rule.body, &slots, &mut arena, &mut body_preds);
             prepared.push(Prepared {
+                #[cfg(feature = "carrier-contraction")]
                 carrier: None,
                 kept: rule.kept.len(),
                 heads,
@@ -1388,7 +1397,9 @@ impl PreparedRuleset {
         }
         Ok((
             Engine {
+                #[cfg(feature = "carrier-contraction")]
                 carrier: None,
+                #[cfg(feature = "carrier-contraction")]
                 carrier_blocked: None,
                 core,
                 code: self.code,
@@ -1425,7 +1436,9 @@ impl Engine {
             }};
         }
         Self {
+            #[cfg(feature = "carrier-contraction")]
             carrier: self.carrier.clone(),
+            #[cfg(feature = "carrier-contraction")]
             carrier_blocked: self.carrier_blocked,
             core: self.core.fork_clone(
                 #[cfg(feature = "fork-diagnostics")]
@@ -1451,18 +1464,24 @@ impl Engine {
         if COLLECT_METRICS {
             self.core.stats.source_steps += 1;
         }
+        #[cfg(feature = "carrier-contraction")]
         if self.carrier_tick() {
             return;
         }
         if let Some(work) = self.core.pending.pop() {
             match work {
                 Work::Insert(p, args) => {
+                    #[cfg(feature = "carrier-contraction")]
                     let id = self.core.next_occ;
                     self.core.insert(p, args);
+                    #[cfg(feature = "carrier-contraction")]
                     self.carrier_inserted(id);
                 }
                 Work::Equal(a, b) => {
-                    self.carrier_blocked = None;
+                    #[cfg(feature = "carrier-contraction")]
+                    {
+                        self.carrier_blocked = None;
+                    }
                     if !self.core.equation(a, b) {
                         self.done = true;
                         self.failed = true
@@ -1513,6 +1532,7 @@ impl Engine {
             }
             Selection::Found(app) => {
                 let anchor = self.search.take().unwrap().anchor;
+                #[cfg(feature = "carrier-contraction")]
                 self.carrier_entry(&app);
                 self.commit_application(app, anchor);
             }

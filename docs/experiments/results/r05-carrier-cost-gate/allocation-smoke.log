@@ -1,0 +1,35 @@
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+warning: unexpected `cfg` condition value: `fork-diagnostics`
+   --> research/chr-direct-conditional/experiments/../../chr-compiled/experiments/meter.rs:155:7
+    |
+155 | #[cfg(feature = "fork-diagnostics")]
+    |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: expected values for `feature` are: `alloc-meter`, `arena-cow`, `carrier-contraction`, `default`, `experiment`, and `metrics`
+    = help: consider adding `fork-diagnostics` as a feature in `Cargo.toml`
+    = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+    = note: `#[warn(unexpected_cfgs)]` on by default
+
+warning: unexpected `cfg` condition value: `fork-diagnostics`
+   --> research/chr-direct-conditional/experiments/../../chr-compiled/experiments/meter.rs:162:7
+    |
+162 | #[cfg(feature = "fork-diagnostics")]
+    |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: expected values for `feature` are: `alloc-meter`, `arena-cow`, `carrier-contraction`, `default`, `experiment`, and `metrics`
+    = help: consider adding `fork-diagnostics` as a feature in `Cargo.toml`
+    = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition value: `fork-diagnostics`
+   --> research/chr-direct-conditional/experiments/../../chr-compiled/experiments/meter.rs:133:11
+    |
+133 |     #[cfg(feature = "fork-diagnostics")]
+    |           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: expected values for `feature` are: `alloc-meter`, `arena-cow`, `carrier-contraction`, `default`, `experiment`, and `metrics`
+    = help: consider adding `fork-diagnostics` as a feature in `Cargo.toml`
+    = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: `chr-direct-conditional` (bin "chr-carrier-cost") generated 3 warnings
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.18s
+     Running `target/debug/chr-carrier-cost specialized 8 0 2 unknown`
