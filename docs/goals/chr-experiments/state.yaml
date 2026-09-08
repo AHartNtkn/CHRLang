@@ -8,7 +8,7 @@ goal:
   execution_authority: Redesigned goal authorizes implementation and experiments selected under R00 and the governing sequence.
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
-  current_research: Current mixed evidence complete; all-question sufficiency and final-decision audit selected
+  current_research: Sufficiency audit identifies live-state/early-failure storage gap; bounded causal screen selected
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -63,7 +63,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T049
+active_task: T050
 tasks:
   - id: T001
     type: pm
@@ -1369,7 +1369,7 @@ tasks:
   - id: T049
     type: pm
     assignee: PM
-    status: active
+    status: done
     objective: Audit evidence sufficiency against the full architecture goal and justify every unresolved direction before closure or selecting further investigation.
     inputs:
       - docs/experiments/sequence.md
@@ -1390,6 +1390,38 @@ tasks:
     stop_if:
       - Do not close solely because a matrix or checkpoint is complete.
       - Do not turn unselected directions into unsupported final dispositions.
+    receipt:
+      summary: Full-goal audit does not establish closure; substantial live-state preservation across cheap failing alternatives remains a decision-relevant gap.
+      evidence:
+        - docs/experiments/results/R07-sufficiency-audit.md
+      validation: Source inspection, primary report/receipt review and independent challenges covering storage and contextual lowering.
+
+  - id: T050
+    type: pm
+    assignee: PM
+    status: active
+    objective: Establish whether explicit state preservation across cheap mostly failing alternatives is consequential enough to justify a different snapshot organization.
+    inputs:
+      - docs/experiments/results/R07-sufficiency-audit.md
+      - docs/experiments/results/E01.md
+      - research/chr-compiled/src/search.rs
+      - research/chr-compiled/src/lib.rs
+    allowed_files:
+      - research/
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    expected_output:
+      - Independent source/observation gate varying live-state size and alternatives, with no-choice and all-success controls.
+      - Bounded registered causal accounting separating storage from mutation, failure, cleanup and publication.
+      - Evidence-backed decision whether to compare one credible snapshot alternative or stop this direction.
+    verify:
+      - Complete answers, aliases, residual multiplicity, failure and exhaustion remain authoritative
+      - Payload state is real source state and its consumption is charged
+      - Ordinary allocator counter-free timing is separate from diagnostics; include preparation and disposal
+      - Register any comparisons before runs and freeze sources and artifacts
+    stop_if:
+      - Do not presume cloning cost is dominant or implement an open-ended trail/replay program.
+      - Reassess value against source-derived carrier contraction before expanding the screen.
     receipt: null
 
 
@@ -1397,12 +1429,11 @@ checks:
   dirty_fingerprint: preexisting_unfinished_experimental_files_preserved
   last_verification:
     result: passed
-    task: T048
-    scope: Current mixed comparison; complete manifest, observations, allocation restoration and source freeze.
+    task: T049
+    scope: Full-objective sufficiency audit identifies concrete missing architectural evidence.
     commands:
-      - analyze_mixed.py --output docs/experiments/results/r05-current-mixed
-      - Independent source and binary SHA256 audit; seed 48048 and exact manifest validation
-      - Full package tests in both configurations, feature ownership regression and Clippy
+      - Source inspection of Core and Engine fork_clone and search ownership
+      - R01/R02/R04/R05/E01 evidence and language boundary review
+      - Independent storage/lifetime and access/lowering adversarial audits
     evidence:
-      - docs/experiments/results/R05-current-mixed.md
-      - docs/experiments/results/r05-current-mixed/audit.json
+      - docs/experiments/results/R07-sufficiency-audit.md
