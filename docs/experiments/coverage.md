@@ -2,7 +2,7 @@
 
 Future work is selected by its ability to change an architectural or language-design decision under the [sequence](sequence.md). A completed experimental package is evidence for its stated claim; it does not establish that its entire mechanism is resolved or that its follow-ups deserve execution.
 
-**Current selection:** [Streaming lifetime evidence](results/R06-streaming-lifetime.md) records384 processes, with64 conditional ongoing-stream service cutoffs after42 answers and full allocation restoration after disposal. T039 is complete. T040 selects support-restricted publication history traversal: a correspondence gate and causal comparison before broader reclamation. The [R07 checkpoint](results/R07-architecture-checkpoint.md) retains parallel granularity, mixed phases, compilation and eager eligibility as open directions.
+**Current selection:** [Streaming lifetime evidence](results/R06-streaming-lifetime.md) records384 processes, with64 conditional ongoing-stream service cutoffs after42 answers and full allocation restoration after disposal. T039 is complete. T040 selects support-restricted publication history traversal: a correspondence gate and [registered causal comparison](registrations/R06-restricted-publication.md) before broader reclamation. The [R07 checkpoint](results/R07-architecture-checkpoint.md) retains parallel granularity, mixed phases, compilation and eager eligibility as open directions.
 
 ## Question map
 

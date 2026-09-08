@@ -151,7 +151,6 @@ enum Phase {
         region: Support,
     },
     Freeze {
-        region: Support,
         histories: Histories,
         occurrences: usize,
         variables: usize,
@@ -506,8 +505,7 @@ impl Engine {
                 Status::Complete(s) => {
                     self.completed = s;
                     Phase::Freeze {
-                        region,
-                        histories: self.births.histories(),
+                        histories: self.births.histories(region, &self.arena),
                         occurrences: self.resources.occurrences().len(),
                         variables: self.store.variable_count(),
                         counts: vec![],
@@ -515,7 +513,6 @@ impl Engine {
                 }
             },
             Phase::Freeze {
-                region,
                 histories,
                 occurrences,
                 variables,
@@ -524,19 +521,14 @@ impl Engine {
                 if counts.len() < variables {
                     counts.push(self.store.bindings(counts.len()).len());
                     Phase::Freeze {
-                        region,
                         histories,
                         occurrences,
                         variables,
                         counts,
                     }
                 } else {
-                    self.observations.push_back(Observation::new(
-                        region,
-                        histories,
-                        occurrences,
-                        counts,
-                    ));
+                    self.observations
+                        .push_back(Observation::new(histories, occurrences, counts));
                     Phase::Begin
                 }
             }
@@ -859,7 +851,6 @@ impl Engine {
 }
 
 struct Observation {
-    region: Support,
     histories: Histories,
     occurrences: usize,
     bindings: Vec<usize>,
@@ -867,7 +858,6 @@ struct Observation {
 }
 enum ObserveState {
     History,
-    Filter { world: Vec<bool>, cursor: Support },
     Export(Export),
 }
 enum ObservationEvent {
@@ -876,14 +866,8 @@ enum ObservationEvent {
     Done,
 }
 impl Observation {
-    fn new(
-        region: Support,
-        histories: Histories,
-        occurrences: usize,
-        bindings: Vec<usize>,
-    ) -> Self {
+    fn new(histories: Histories, occurrences: usize, bindings: Vec<usize>) -> Self {
         Self {
-            region,
             histories,
             occurrences,
             bindings,
@@ -903,15 +887,7 @@ impl Observation {
             ObserveState::History => match self.histories.tick(births, arena) {
                 HistoryEvent::Progress => ObserveState::History,
                 HistoryEvent::Exhausted => return ObservationEvent::Done,
-                HistoryEvent::History(world) => ObserveState::Filter {
-                    world,
-                    cursor: self.region,
-                },
-            },
-            ObserveState::Filter { world, cursor } => match evaluate_node(arena, cursor, &world) {
-                Decision::Next(cursor) => ObserveState::Filter { world, cursor },
-                Decision::Done(false) => ObserveState::History,
-                Decision::Done(true) => ObserveState::Export(Export::new(world)),
+                HistoryEvent::History(world) => ObserveState::Export(Export::new(world)),
             },
             ObserveState::Export(mut export) => {
                 if let Some(answer) = export.tick(

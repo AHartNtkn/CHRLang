@@ -1,7 +1,7 @@
 use chr_direct_conditional::births::{Births, HistoryEvent};
 use chr_direct_conditional::support::{Arena, Support};
 fn histories(births: &Births, arena: &Arena) -> Vec<Vec<bool>> {
-    let mut cursor = births.histories();
+    let mut cursor = births.histories(Support::TRUE, arena);
     let mut result = vec![];
     for _ in 0..10000 {
         match cursor.tick(births, arena) {
@@ -31,7 +31,7 @@ fn independent_births_are_cartesian_and_cancelled_cursor_does_not_consume_them()
     let mut births = Births::new();
     births.create(&mut arena, Support::TRUE);
     births.create(&mut arena, Support::TRUE);
-    let mut partial = births.histories();
+    let mut partial = births.histories(Support::TRUE, &arena);
     for _ in 0..3 {
         partial.tick(&births, &arena);
     }
@@ -51,7 +51,7 @@ fn a_cursor_keeps_its_birth_prefix_when_other_work_introduces_births() {
     let mut arena = Arena::new();
     let mut births = Births::new();
     births.create(&mut arena, Support::TRUE);
-    let mut cursor = births.histories();
+    let mut cursor = births.histories(Support::TRUE, &arena);
     births.create(&mut arena, Support::TRUE);
     let mut actual = vec![];
     for _ in 0..100 {
@@ -95,4 +95,38 @@ fn all_three_birth_causal_guards_match_independent_reachable_histories() {
             }
         }
     }
+}
+
+#[test]
+fn independent_64_birth_single_cube_finishes_with_linear_service() {
+    let width = 64;
+    let mut arena = Arena::new();
+    let mut births = Births::new();
+    for _ in 0..width {
+        births.create(&mut arena, Support::TRUE);
+    }
+    let mut cube = Support::TRUE;
+    for variable in (0..width).rev() {
+        cube = arena.mk(variable, Support::FALSE, cube);
+    }
+    let mut cursor = births.histories(cube, &arena);
+    let mut actual = vec![];
+    let mut exhausted = false;
+    for _ in 0..(16 * width + 16) {
+        match cursor.tick(&births, &arena) {
+            HistoryEvent::History(h) => {
+                actual.push(h);
+            }
+            HistoryEvent::Exhausted => {
+                exhausted = true;
+                break;
+            }
+            HistoryEvent::Progress => (),
+        }
+    }
+    assert!(
+        exhausted,
+        "single cube must not enumerate incompatible histories"
+    );
+    assert_eq!(actual, vec![vec![true; width]]);
 }
