@@ -17,12 +17,13 @@ const FAMILIES: [&str; 6] = [
     "trivial",
     "unique",
 ];
-const MODES: [&str; 7] = [
+const MODES: [&str; 8] = [
     "ordinary",
     "direct",
     "exact",
     "dependencies",
     "indexed",
+    "specialized",
     "conditional",
     "graph",
 ];
@@ -114,6 +115,20 @@ impl Prepared {
             ),
             "indexed" => {
                 Self::Indexed(chr_compiled::PreparedRuleset::new(rules.to_vec(), None).unwrap())
+            }
+            "specialized" => {
+                let p = chr_compiled::PreparedRuleset::new(rules.to_vec(), None).unwrap();
+                let eligible = p.region_eligibility();
+                assert!(
+                    rules
+                        .iter()
+                        .flat_map(|r| r.kept.iter().chain(&r.removed))
+                        .all(|head| eligible
+                            .iter()
+                            .any(|e| e.predicate == (head.name.clone(), head.args.len())
+                                && e.eligible))
+                );
+                Self::Indexed(p.specialize_inferred())
             }
             "conditional" => Self::Conditional(
                 chr_direct_conditional::engine::PreparedRuleset::new(rules.to_vec()).unwrap(),

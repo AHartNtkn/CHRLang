@@ -320,3 +320,7 @@ The [kernel gate](S05-stable-kernel-gate.md) checks exact-context and dependency
 ## S05 complete source gate
 
 The [source gate](S05-stable-source-gate.md) validates shared-handle equation interception in the existing scalar machine across 576 registered configurations and directed cache-hit effects. Cached bindings enable consumption, common cached failure leaves a finite sibling, and owner checks reject foreign cursors/arenas. Source-level replay/failure faults are rejected. T067 remains active for prospective lifecycle costs, explicit preparation/query ownership and the direct-sharing comparison; this is correctness evidence, not a measured optimization.
+
+## S05 lifecycle and strong-control comparison
+
+The [588-process pilot](S05-lifecycle-pilot.md) and [336-process inferred-specialization comparison](S05-specialized-control.md) find large equation-work/traffic savings from dependency reuse but smaller runtime gains at depth64; distinct requests lose about 54–56%. Ordinary shared-arena scalar execution remains a necessary control, while the direct graph retains a favorable common-failure peak/time case. These findings motivate an operation-size/request crossover before deciding whether reuse can economically substitute for sharing. Broader invalidation, eviction, lifetime and architectural attribution remain open; T067 stays active.

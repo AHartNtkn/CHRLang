@@ -1,6 +1,6 @@
 # Stable reuse reduces allocation, but the first pilot does not establish a practical runtime gain
 
-The 588-process pilot completes with exact allocation replay in all 84 cells. Dependency validity avoids most repeated equation work, while distinct substantive requests expose a practical overhead. The architecture comparison still needs the inferred-specialization control used in R05; generic Indexed execution is insufficient to represent that alternative.
+The 588-process pilot completes with exact allocation replay in all 84 cells. Dependency validity avoids most repeated equation work, while distinct substantive requests expose a practical overhead. The [specialized-control follow-up](S05-specialized-control.md) now supplies the inferred-specialization comparison used in R05; generic Indexed execution alone is insufficient to represent that alternative.
 
 ## Material results
 
@@ -16,7 +16,7 @@ The direct choice graph remains a relevant competitor on common failure before d
 
 ## Correcting the control coverage
 
-R05 used `specialize_inferred()` on the compiled ruleset. This pilot's Indexed configuration used generic preparation. The resulting generic Indexed losses therefore do not establish losses for the strongest known compiled control. A prospectively registered follow-up must compare inferred specialization with ordinary scalar, dependency reuse and the choice graph on these same sources and lifecycle boundaries.
+R05 used `specialize_inferred()` on the compiled ruleset. This pilot's Indexed configuration used generic preparation. The resulting generic Indexed losses therefore do not establish losses for the strongest known compiled control. The [registered follow-up](S05-specialized-control.md) compares inferred specialization with ordinary scalar, dependency reuse and the choice graph on these same sources and lifecycle boundaries.
 
 The original source and binaries remain frozen. No cross-freeze timing ratio should substitute for that follow-up. Broader favorable payloads, binding invalidation sensitivity, eviction, cross-query cache ownership and profiling of remaining runtime costs remain S05 obligations.
 
@@ -26,4 +26,4 @@ The [registration](../registrations/S05-lifecycle-pilot.md) fixes the six source
 
 Scalar source preparation now validates and retains shared rules once. Every query still gets a fresh arena and cache. A changed-query regression confirms that prepared-rule reuse does not reuse another query's cache identity. Ordinary source execution is included separately from intercepted Direct to charge the latter's interface work. Preparation, setup, execution/observation, cancellation and disposal are recorded; native compilation and fixture/oracle work are excluded. Requested allocation is not RSS.
 
-No universal cache or architecture is selected. T067 remains active for the strong-control follow-up and consequential attribution.
+No universal cache or architecture is selected. T067 remains active for the operation-size/request-frequency crossover and consequential attribution.
