@@ -1,0 +1,25 @@
+# Ongoing-stream lifetime entry
+
+T039 is active, selected by the [architecture checkpoint](R07-architecture-checkpoint.md). This entry records analytical ownership evidence and the measurement boundary alongside the passing semantic gate and before a comparative pilot. No timing or heap comparison has run for this entry.
+
+Use `loop() -> (result(a) OR loop())`. After each raw completion there is one identical constant-size full residual answer and a continuing source alternative. Historical branch paths are not part of the public Answer. The continuation can be described by the same source constraint regardless of delivered count. This is a discriminating lifetime witness, not a general proof that arbitrary recursive query state can be bounded.
+
+The current explicit search representation extends and copies `CompletedBranch.lineage` on every split, even in counter-free builds. After n continuations, its continuing branch therefore has a path of length n. Consumer output disposal alone cannot make that path constant-size. This is a source-derived lower bound on represented history, not a measured heap slope or a claim that lineage is the only growing allocation. It warrants distinguishing causal diagnostic history from the semantic obligations of explicit choice and raw delivery.
+
+The current conditional engine owns an append-only birth guard vector and a support arena for the query. Each source choice creates a fresh Boolean variable and its canonical node. Consequently n births require at least n ledger entries and n distinct variable nodes in this representation. Resources, candidate keys, indexes, completed supports and observation cursors can retain additional history. Exactly-once publication and correlation are required; retaining every completed birth indefinitely has not been established as necessary. Any reclamation design must preserve correlations involving still-live state and completion cursors.
+
+Both paths can therefore retain history after consumers drop identical outputs. Measuring the amount, growth and service consequences can still distinguish their applicability and identify the dominant ownership obligation. Do not frame this witness as a conditional-only leak test or infer a winner from asymptotic lower bounds.
+
+The planned runner separates preparation, query setup, service through full answer production, consumer disposal/retention, and final engine/prepared/output disposal. Check each constant-size full answer outside its service interval before applying the selected consumer policy. This introduces validation-warmed subsequent intervals and must be disclosed; no claim of a validator-free continuous latency trace follows. Allocate fixed measurement storage before the baseline, serialize after all intervals, and keep diagnostic builds separate. A retained-output control and finite exact-exhaustion control distinguish consumer ownership and cancellation from runtime history. Query syntax construction is outside preparation as in prior pilots; source cloning consumed by preparation is charged.
+
+The semantic gate must pass before selecting exact comparative sizes. A registration will freeze the configurations, checkpoints, repetitions, source/binaries, requested-heap and work modes, wall/memory/service caps, and interpretations before comparative execution. An inconclusive or resource-limited run is evidence to preserve, not permission to alter bounds during the same comparison.
+
+## Executable semantic gate
+
+`research/chr-direct-conditional/tests/streaming.rs` checks both conditional execution and inferred-specialized Global/Indexed explicit execution against a closed-form source oracle. The shared `tests/stream_support/mod.rs` contains syntax fixtures and an allocation-free complete-answer checker, with no execution dependency. Ground residuals and nonground cross-residual aliases are checked separately. Raw duplicate answers remain distinct.
+
+Unbounded runs reach prefixes 1,2,4,8,16,32 with drop and retain consumers. Finite depths 0,1,2,8,16 exhaust at exactly the source-prescribed count and remain exhausted on another tick. Retained answers remain valid after the engine is dropped. The checker rejects incorrect atoms, extra/duplicate residuals, split aliases, grounding and unexpected outputs; it accepts residual reordering. This establishes the bounded semantic entry, not memory reclamation or asymptotic fairness.
+
+Five tests pass with `cargo test -p chr-direct-conditional --features experiment --test streaming` and with the added `--no-default-features` option. Targeted Clippy with `-D warnings` passes in both configurations; workspace formatting passes. No semantic service cutoff was reached. Root reviewed the fixture, oracle and consumer ownership checks. An independent read-only review found no blocker in the architectural selection or analytical ownership entry. Runtime implementation and reference execution are unchanged.
+
+Next within T039: implement the lifecycle runner, freeze exact comparative configurations and resource bounds, then run the registered pilot. Timing and requested-heap rankings remain unmeasured for this stream.
