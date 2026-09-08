@@ -1,0 +1,400 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 71  of event 'cpu-clock:u'
+# Event count (approx.): 71071071
+#
+# Children      Self  Symbol                                                                                                                                                                                                                                                                                                                                                                                                                   IPC   [IPC Coverage]
+# ........  ........  .......................................................................................................................................................................................................................................................................................................................................................................................................................  ....................
+#
+   100.00%     0.00%  [.] 0xffffffffffffffff                                                                                                                                                                                                                                                                                                                                                                                                   -      -
+            |
+             --97.18%--s03_lifecycle[54d1f9110e713ecf]::cell
+                       <s03_lifecycle[54d1f9110e713ecf]::Running>::collect
+                       <chr_direct_choice[72283e23cae49e74]::engine::Engine>::tick
+                       |
+                       |--53.52%--chr_direct_choice[72283e23cae49e74]::engine::subtract
+                       |          |
+                       |          |--47.89%--<alloc[24b8200b0946867]::vec::Vec<chr_direct_choice[72283e23cae49e74]::Context> as alloc[24b8200b0946867]::vec::spec_from_iter_nested::SpecFromIterNested<chr_direct_choice[72283e23cae49e74]::Context, core[37f591cfbe66b0b1]::iter::adapters::flatten::FlatMap<core[37f591cfbe66b0b1]::slice::iter::Iter<chr_direct_choice[72283e23cae49e74]::Context>, alloc[24b8200b0946867]::vec::Vec<chr_direct_choice[72283e23cae49e74]::Context>, <chr_direct_choice[72283e23cae49e74]::Graph>::resolve::{closure#0}>>>::from_iter
+                       |          |          |
+                       |          |           --45.07%--<core[37f591cfbe66b0b1]::iter::adapters::flatten::FlatMap<core[37f591cfbe66b0b1]::slice::iter::Iter<chr_direct_choice[72283e23cae49e74]::Context>, alloc[24b8200b0946867]::vec::Vec<chr_direct_choice[72283e23cae49e74]::Context>, <chr_direct_choice[72283e23cae49e74]::Graph>::live::{closure#0}> as core[37f591cfbe66b0b1]::iter::traits::iterator::Iterator>::next
+                       |          |                     |
+                       |          |                      --42.25%--<chr_direct_choice[72283e23cae49e74]::Context>::subtract
+                       |          |                                |
+                       |          |                                |--29.58%--<chr_direct_choice[72283e23cae49e74]::Context>::intersection
+                       |          |                                |          |
+                       |          |                                |          |--12.68%--_RINvNvXs0_NtNtNtCscdodAO9FK5_5alloc11collections5btree3mapINtB8_8BTreeMappppENtNtCs4NRVxsYgnAr_4core5clone5Clone5clone13clone_subtreeNtCs9NEFZWY0mIO_17chr_direct_choice5LabelbNtNtBe_5alloc6GlobalEB29_.llvm.16268479243634136277
+                       |          |                                |          |
+                       |          |                                |          |--5.63%--cfree
+                       |          |                                |          |
+                       |          |                                |           --4.23%--<alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_direct_choice[72283e23cae49e74]::Label, bool> as core[37f591cfbe66b0b1]::ops::drop::Drop>::drop
+                       |          |                                |
+                       |          |                                 --5.63%--_RINvNvXs0_NtNtNtCscdodAO9FK5_5alloc11collections5btree3mapINtB8_8BTreeMappppENtNtCs4NRVxsYgnAr_4core5clone5Clone5clone13clone_subtreeNtCs9NEFZWY0mIO_17chr_direct_choice5LabelbNtNtBe_5alloc6GlobalEB29_.llvm.16268479243634136277
+                       |          |
+                       |           --4.23%--cfree
+                       |
+                       |--11.27%--<alloc[24b8200b0946867]::vec::Vec<chr_syntax[43ecd98269a6cf87]::Constraint> as alloc[24b8200b0946867]::vec::spec_from_iter_nested::SpecFromIterNested<chr_syntax[43ecd98269a6cf87]::Constraint, core[37f591cfbe66b0b1]::iter::adapters::cloned::Cloned<core[37f591cfbe66b0b1]::iter::adapters::chain::Chain<core[37f591cfbe66b0b1]::slice::iter::Iter<chr_syntax[43ecd98269a6cf87]::Constraint>, core[37f591cfbe66b0b1]::slice::iter::Iter<chr_syntax[43ecd98269a6cf87]::Constraint>>>>>::from_iter
+                       |          <core[37f591cfbe66b0b1]::iter::adapters::chain::Chain<core[37f591cfbe66b0b1]::slice::iter::Iter<chr_syntax[43ecd98269a6cf87]::Constraint>, core[37f591cfbe66b0b1]::slice::iter::Iter<chr_syntax[43ecd98269a6cf87]::Constraint>> as core[37f591cfbe66b0b1]::iter::traits::iterator::Iterator>::fold::<(), core[37f591cfbe66b0b1]::iter::adapters::map::map_fold<&chr_syntax[43ecd98269a6cf87]::Constraint, chr_syntax[43ecd98269a6cf87]::Constraint, (), <chr_syntax[43ecd98269a6cf87]::Constraint as core[37f591cfbe66b0b1]::clone::Clone>::clone, core[37f591cfbe66b0b1]::iter::traits::iterator::Iterator::for_each::call<chr_syntax[43ecd98269a6cf87]::Constraint, <alloc[24b8200b0946867]::vec::Vec<chr_syntax[43ecd98269a6cf87]::Constraint>>::extend_trusted<core[37f591cfbe66b0b1]::iter::adapters::cloned::Cloned<core[37f591cfbe66b0b1]::iter::adapters::chain::Chain<core[37f591cfbe66b0b1]::slice::iter::Iter<chr_syntax[43ecd98269a6cf87]::Constraint>, core[37f591cfbe66b0b1]::slice::iter::Iter<chr_syntax[43ecd98269a6cf87]::Constraint>>>>::{closure#0}>::{closure#0}>::{closure#0}>
+                       |          <alloc[24b8200b0946867]::vec::Vec<chr_syntax[43ecd98269a6cf87]::Term> as core[37f591cfbe66b0b1]::clone::Clone>::clone
+                       |          |
+                       |           --9.86%--<alloc[24b8200b0946867]::vec::Vec<chr_syntax[43ecd98269a6cf87]::Term> as core[37f591cfbe66b0b1]::clone::Clone>::clone
+                       |
+                       |--7.04%--<chr_direct_choice[72283e23cae49e74]::engine::Engine>::heads
+                       |
+                        --4.23%--cfree
+
+   100.00%     0.00%  [.] <s03_lifecycle[54d1f9110e713ecf]::Running>::collect                                                                                                                                                                                                                                                                                                                                                           -      -
+            |
+            ---<chr_direct_choice[72283e23cae49e74]::engine::Engine>::tick
+               |
+               |--53.52%--chr_direct_choice[72283e23cae49e74]::engine::subtract
+               |          |
+               |          |--47.89%--<alloc[24b8200b0946867]::vec::Vec<chr_direct_choice[72283e23cae49e74]::Context> as alloc[24b8200b0946867]::vec::spec_from_iter_nested::SpecFromIterNested<chr_direct_choice[72283e23cae49e74]::Context, core[37f591cfbe66b0b1]::iter::adapters::flatten::FlatMap<core[37f591cfbe66b0b1]::slice::iter::Iter<chr_direct_choice[72283e23cae49e74]::Context>, alloc[24b8200b0946867]::vec::Vec<chr_direct_choice[72283e23cae49e74]::Context>, <chr_direct_choice[72283e23cae49e74]::Graph>::resolve::{closure#0}>>>::from_iter
+               |          |          |
+               |          |           --45.07%--<core[37f591cfbe66b0b1]::iter::adapters::flatten::FlatMap<core[37f591cfbe66b0b1]::slice::iter::Iter<chr_direct_choice[72283e23cae49e74]::Context>, alloc[24b8200b0946867]::vec::Vec<chr_direct_choice[72283e23cae49e74]::Context>, <chr_direct_choice[72283e23cae49e74]::Graph>::live::{closure#0}> as core[37f591cfbe66b0b1]::iter::traits::iterator::Iterator>::next
+               |          |                     |
+               |          |                      --42.25%--<chr_direct_choice[72283e23cae49e74]::Context>::subtract
+               |          |                                |
+               |          |                                |--29.58%--<chr_direct_choice[72283e23cae49e74]::Context>::intersection
+               |          |                                |          |
+               |          |                                |          |--12.68%--_RINvNvXs0_NtNtNtCscdodAO9FK5_5alloc11collections5btree3mapINtB8_8BTreeMappppENtNtCs4NRVxsYgnAr_4core5clone5Clone5clone13clone_subtreeNtCs9NEFZWY0mIO_17chr_direct_choice5LabelbNtNtBe_5alloc6GlobalEB29_.llvm.16268479243634136277
+               |          |                                |          |
+               |          |                                |          |--5.63%--cfree
+               |          |                                |          |
+               |          |                                |           --4.23%--<alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_direct_choice[72283e23cae49e74]::Label, bool> as core[37f591cfbe66b0b1]::ops::drop::Drop>::drop
+               |          |                                |
+               |          |                                 --5.63%--_RINvNvXs0_NtNtNtCscdodAO9FK5_5alloc11collections5btree3mapINtB8_8BTreeMappppENtNtCs4NRVxsYgnAr_4core5clone5Clone5clone13clone_subtreeNtCs9NEFZWY0mIO_17chr_direct_choice5LabelbNtNtBe_5alloc6GlobalEB29_.llvm.16268479243634136277
+               |          |
+               |           --4.23%--cfree
+               |
+               |--11.27%--<alloc[24b8200b0946867]::vec::Vec<chr_syntax[43ecd98269a6cf87]::Constraint> as alloc[24b8200b0946867]::vec::spec_from_iter_nested::SpecFromIterNested<chr_syntax[43ecd98269a6cf87]::Constraint, core[37f591cfbe66b0b1]::iter::adapters::cloned::Cloned<core[37f591cfbe66b0b1]::iter::adapters::chain::Chain<core[37f591cfbe66b0b1]::slice::iter::Iter<chr_syntax[43ecd98269a6cf87]::Constraint>, core[37f591cfbe66b0b1]::slice::iter::Iter<chr_syntax[43ecd98269a6cf87]::Constraint>>>>>::from_iter
+               |          <core[37f591cfbe66b0b1]::iter::adapters::chain::Chain<core[37f591cfbe66b0b1]::slice::iter::Iter<chr_syntax[43ecd98269a6cf87]::Constraint>, core[37f591cfbe66b0b1]::slice::iter::Iter<chr_syntax[43ecd98269a6cf87]::Constraint>> as core[37f591cfbe66b0b1]::iter::traits::iterator::Iterator>::fold::<(), core[37f591cfbe66b0b1]::iter::adapters::map::map_fold<&chr_syntax[43ecd98269a6cf87]::Constraint, chr_syntax[43ecd98269a6cf87]::Constraint, (), <chr_syntax[43ecd98269a6cf87]::Constraint as core[37f591cfbe66b0b1]::clone::Clone>::clone, core[37f591cfbe66b0b1]::iter::traits::iterator::Iterator::for_each::call<chr_syntax[43ecd98269a6cf87]::Constraint, <alloc[24b8200b0946867]::vec::Vec<chr_syntax[43ecd98269a6cf87]::Constraint>>::extend_trusted<core[37f591cfbe66b0b1]::iter::adapters::cloned::Cloned<core[37f591cfbe66b0b1]::iter::adapters::chain::Chain<core[37f591cfbe66b0b1]::slice::iter::Iter<chr_syntax[43ecd98269a6cf87]::Constraint>, core[37f591cfbe66b0b1]::slice::iter::Iter<chr_syntax[43ecd98269a6cf87]::Constraint>>>>::{closure#0}>::{closure#0}>::{closure#0}>
+               |          <alloc[24b8200b0946867]::vec::Vec<chr_syntax[43ecd98269a6cf87]::Term> as core[37f591cfbe66b0b1]::clone::Clone>::clone
+               |          |
+               |           --9.86%--<alloc[24b8200b0946867]::vec::Vec<chr_syntax[43ecd98269a6cf87]::Term> as core[37f591cfbe66b0b1]::clone::Clone>::clone
+               |
+               |--9.86%--<chr_direct_choice[72283e23cae49e74]::engine::Engine>::heads
+               |          |
+               |           --4.23%--<alloc[24b8200b0946867]::vec::Vec<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)> as alloc[24b8200b0946867]::vec::spec_from_iter_nested::SpecFromIterNested<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>), core[37f591cfbe66b0b1]::iter::adapters::flatten::FlatMap<alloc[24b8200b0946867]::vec::into_iter::IntoIter<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)>, alloc[24b8200b0946867]::vec::Vec<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)>, <chr_direct_choice[72283e23cae49e74]::engine::Engine>::pattern::{closure#1}>>>::from_iter
+               |                     <core[37f591cfbe66b0b1]::iter::adapters::flatten::FlatMap<alloc[24b8200b0946867]::vec::into_iter::IntoIter<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)>, alloc[24b8200b0946867]::vec::Vec<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)>, <chr_direct_choice[72283e23cae49e74]::engine::Engine>::heads::{closure#0}> as core[37f591cfbe66b0b1]::iter::traits::iterator::Iterator>::next
+               |                     <chr_direct_choice[72283e23cae49e74]::engine::Engine>::pattern
+               |                     <alloc[24b8200b0946867]::vec::Vec<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)> as alloc[24b8200b0946867]::vec::spec_from_iter_nested::SpecFromIterNested<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>), core[37f591cfbe66b0b1]::iter::adapters::flatten::FlatMap<alloc[24b8200b0946867]::vec::into_iter::IntoIter<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)>, alloc[24b8200b0946867]::vec::Vec<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)>, <chr_direct_choice[72283e23cae49e74]::engine::Engine>::pattern::{closure#1}>>>::from_iter
+               |                     <core[37f591cfbe66b0b1]::iter::adapters::flatten::FlatMap<alloc[24b8200b0946867]::vec::into_iter::IntoIter<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)>, alloc[24b8200b0946867]::vec::Vec<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)>, <chr_direct_choice[72283e23cae49e74]::engine::Engine>::heads::{closure#0}> as core[37f591cfbe66b0b1]::iter::traits::iterator::Iterator>::next
+               |
+                --4.23%--cfree
+
+   100.00%     1.41%  [.] <chr_direct_choice[72283e23cae49e74]::engine::Engine>::tick                                                                                                                                                                                                                                                                                                                                                   -      -
+            |
+             --98.59%--<chr_direct_choice[72283e23cae49e74]::engine::Engine>::tick
+                       |
+                       |--53.52%--chr_direct_choice[72283e23cae49e74]::engine::subtract
+                       |          |
+                       |          |--47.89%--<alloc[24b8200b0946867]::vec::Vec<chr_direct_choice[72283e23cae49e74]::Context> as alloc[24b8200b0946867]::vec::spec_from_iter_nested::SpecFromIterNested<chr_direct_choice[72283e23cae49e74]::Context, core[37f591cfbe66b0b1]::iter::adapters::flatten::FlatMap<core[37f591cfbe66b0b1]::slice::iter::Iter<chr_direct_choice[72283e23cae49e74]::Context>, alloc[24b8200b0946867]::vec::Vec<chr_direct_choice[72283e23cae49e74]::Context>, <chr_direct_choice[72283e23cae49e74]::Graph>::resolve::{closure#0}>>>::from_iter
+                       |          |          |
+                       |          |           --45.07%--<core[37f591cfbe66b0b1]::iter::adapters::flatten::FlatMap<core[37f591cfbe66b0b1]::slice::iter::Iter<chr_direct_choice[72283e23cae49e74]::Context>, alloc[24b8200b0946867]::vec::Vec<chr_direct_choice[72283e23cae49e74]::Context>, <chr_direct_choice[72283e23cae49e74]::Graph>::live::{closure#0}> as core[37f591cfbe66b0b1]::iter::traits::iterator::Iterator>::next
+                       |          |                     |
+                       |          |                      --42.25%--<chr_direct_choice[72283e23cae49e74]::Context>::subtract
+                       |          |                                |
+                       |          |                                |--29.58%--<chr_direct_choice[72283e23cae49e74]::Context>::intersection
+                       |          |                                |          |
+                       |          |                                |          |--12.68%--_RINvNvXs0_NtNtNtCscdodAO9FK5_5alloc11collections5btree3mapINtB8_8BTreeMappppENtNtCs4NRVxsYgnAr_4core5clone5Clone5clone13clone_subtreeNtCs9NEFZWY0mIO_17chr_direct_choice5LabelbNtNtBe_5alloc6GlobalEB29_.llvm.16268479243634136277
+                       |          |                                |          |
+                       |          |                                |          |--5.63%--cfree
+                       |          |                                |          |
+                       |          |                                |           --4.23%--<alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_direct_choice[72283e23cae49e74]::Label, bool> as core[37f591cfbe66b0b1]::ops::drop::Drop>::drop
+                       |          |                                |
+                       |          |                                 --5.63%--_RINvNvXs0_NtNtNtCscdodAO9FK5_5alloc11collections5btree3mapINtB8_8BTreeMappppENtNtCs4NRVxsYgnAr_4core5clone5Clone5clone13clone_subtreeNtCs9NEFZWY0mIO_17chr_direct_choice5LabelbNtNtBe_5alloc6GlobalEB29_.llvm.16268479243634136277
+                       |          |
+                       |           --4.23%--cfree
+                       |
+                       |--11.27%--<alloc[24b8200b0946867]::vec::Vec<chr_syntax[43ecd98269a6cf87]::Constraint> as alloc[24b8200b0946867]::vec::spec_from_iter_nested::SpecFromIterNested<chr_syntax[43ecd98269a6cf87]::Constraint, core[37f591cfbe66b0b1]::iter::adapters::cloned::Cloned<core[37f591cfbe66b0b1]::iter::adapters::chain::Chain<core[37f591cfbe66b0b1]::slice::iter::Iter<chr_syntax[43ecd98269a6cf87]::Constraint>, core[37f591cfbe66b0b1]::slice::iter::Iter<chr_syntax[43ecd98269a6cf87]::Constraint>>>>>::from_iter
+                       |          <core[37f591cfbe66b0b1]::iter::adapters::chain::Chain<core[37f591cfbe66b0b1]::slice::iter::Iter<chr_syntax[43ecd98269a6cf87]::Constraint>, core[37f591cfbe66b0b1]::slice::iter::Iter<chr_syntax[43ecd98269a6cf87]::Constraint>> as core[37f591cfbe66b0b1]::iter::traits::iterator::Iterator>::fold::<(), core[37f591cfbe66b0b1]::iter::adapters::map::map_fold<&chr_syntax[43ecd98269a6cf87]::Constraint, chr_syntax[43ecd98269a6cf87]::Constraint, (), <chr_syntax[43ecd98269a6cf87]::Constraint as core[37f591cfbe66b0b1]::clone::Clone>::clone, core[37f591cfbe66b0b1]::iter::traits::iterator::Iterator::for_each::call<chr_syntax[43ecd98269a6cf87]::Constraint, <alloc[24b8200b0946867]::vec::Vec<chr_syntax[43ecd98269a6cf87]::Constraint>>::extend_trusted<core[37f591cfbe66b0b1]::iter::adapters::cloned::Cloned<core[37f591cfbe66b0b1]::iter::adapters::chain::Chain<core[37f591cfbe66b0b1]::slice::iter::Iter<chr_syntax[43ecd98269a6cf87]::Constraint>, core[37f591cfbe66b0b1]::slice::iter::Iter<chr_syntax[43ecd98269a6cf87]::Constraint>>>>::{closure#0}>::{closure#0}>::{closure#0}>
+                       |          <alloc[24b8200b0946867]::vec::Vec<chr_syntax[43ecd98269a6cf87]::Term> as core[37f591cfbe66b0b1]::clone::Clone>::clone
+                       |          |
+                       |           --9.86%--<alloc[24b8200b0946867]::vec::Vec<chr_syntax[43ecd98269a6cf87]::Term> as core[37f591cfbe66b0b1]::clone::Clone>::clone
+                       |
+                       |--9.86%--<chr_direct_choice[72283e23cae49e74]::engine::Engine>::heads
+                       |          |
+                       |           --4.23%--<alloc[24b8200b0946867]::vec::Vec<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)> as alloc[24b8200b0946867]::vec::spec_from_iter_nested::SpecFromIterNested<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>), core[37f591cfbe66b0b1]::iter::adapters::flatten::FlatMap<alloc[24b8200b0946867]::vec::into_iter::IntoIter<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)>, alloc[24b8200b0946867]::vec::Vec<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)>, <chr_direct_choice[72283e23cae49e74]::engine::Engine>::pattern::{closure#1}>>>::from_iter
+                       |                     <core[37f591cfbe66b0b1]::iter::adapters::flatten::FlatMap<alloc[24b8200b0946867]::vec::into_iter::IntoIter<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)>, alloc[24b8200b0946867]::vec::Vec<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)>, <chr_direct_choice[72283e23cae49e74]::engine::Engine>::heads::{closure#0}> as core[37f591cfbe66b0b1]::iter::traits::iterator::Iterator>::next
+                       |                     <chr_direct_choice[72283e23cae49e74]::engine::Engine>::pattern
+                       |                     <alloc[24b8200b0946867]::vec::Vec<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)> as alloc[24b8200b0946867]::vec::spec_from_iter_nested::SpecFromIterNested<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>), core[37f591cfbe66b0b1]::iter::adapters::flatten::FlatMap<alloc[24b8200b0946867]::vec::into_iter::IntoIter<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)>, alloc[24b8200b0946867]::vec::Vec<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)>, <chr_direct_choice[72283e23cae49e74]::engine::Engine>::pattern::{closure#1}>>>::from_iter
+                       |                     <core[37f591cfbe66b0b1]::iter::adapters::flatten::FlatMap<alloc[24b8200b0946867]::vec::into_iter::IntoIter<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)>, alloc[24b8200b0946867]::vec::Vec<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)>, <chr_direct_choice[72283e23cae49e74]::engine::Engine>::heads::{closure#0}> as core[37f591cfbe66b0b1]::iter::traits::iterator::Iterator>::next
+                       |
+                        --4.23%--cfree
+
+    97.18%     0.00%  [.] s03_lifecycle[54d1f9110e713ecf]::cell                                                                                                                                                                                                                                                                                                                                                                               -      -
+            |
+            ---<s03_lifecycle[54d1f9110e713ecf]::Running>::collect
+               <chr_direct_choice[72283e23cae49e74]::engine::Engine>::tick
+               |
+               |--53.52%--chr_direct_choice[72283e23cae49e74]::engine::subtract
+               |          |
+               |          |--47.89%--<alloc[24b8200b0946867]::vec::Vec<chr_direct_choice[72283e23cae49e74]::Context> as alloc[24b8200b0946867]::vec::spec_from_iter_nested::SpecFromIterNested<chr_direct_choice[72283e23cae49e74]::Context, core[37f591cfbe66b0b1]::iter::adapters::flatten::FlatMap<core[37f591cfbe66b0b1]::slice::iter::Iter<chr_direct_choice[72283e23cae49e74]::Context>, alloc[24b8200b0946867]::vec::Vec<chr_direct_choice[72283e23cae49e74]::Context>, <chr_direct_choice[72283e23cae49e74]::Graph>::resolve::{closure#0}>>>::from_iter
+               |          |          |
+               |          |           --45.07%--<core[37f591cfbe66b0b1]::iter::adapters::flatten::FlatMap<core[37f591cfbe66b0b1]::slice::iter::Iter<chr_direct_choice[72283e23cae49e74]::Context>, alloc[24b8200b0946867]::vec::Vec<chr_direct_choice[72283e23cae49e74]::Context>, <chr_direct_choice[72283e23cae49e74]::Graph>::live::{closure#0}> as core[37f591cfbe66b0b1]::iter::traits::iterator::Iterator>::next
+               |          |                     |
+               |          |                      --42.25%--<chr_direct_choice[72283e23cae49e74]::Context>::subtract
+               |          |                                |
+               |          |                                |--29.58%--<chr_direct_choice[72283e23cae49e74]::Context>::intersection
+               |          |                                |          |
+               |          |                                |          |--12.68%--_RINvNvXs0_NtNtNtCscdodAO9FK5_5alloc11collections5btree3mapINtB8_8BTreeMappppENtNtCs4NRVxsYgnAr_4core5clone5Clone5clone13clone_subtreeNtCs9NEFZWY0mIO_17chr_direct_choice5LabelbNtNtBe_5alloc6GlobalEB29_.llvm.16268479243634136277
+               |          |                                |          |
+               |          |                                |          |--5.63%--cfree
+               |          |                                |          |
+               |          |                                |           --4.23%--<alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_direct_choice[72283e23cae49e74]::Label, bool> as core[37f591cfbe66b0b1]::ops::drop::Drop>::drop
+               |          |                                |
+               |          |                                 --5.63%--_RINvNvXs0_NtNtNtCscdodAO9FK5_5alloc11collections5btree3mapINtB8_8BTreeMappppENtNtCs4NRVxsYgnAr_4core5clone5Clone5clone13clone_subtreeNtCs9NEFZWY0mIO_17chr_direct_choice5LabelbNtNtBe_5alloc6GlobalEB29_.llvm.16268479243634136277
+               |          |
+               |           --4.23%--cfree
+               |
+               |--11.27%--<alloc[24b8200b0946867]::vec::Vec<chr_syntax[43ecd98269a6cf87]::Constraint> as alloc[24b8200b0946867]::vec::spec_from_iter_nested::SpecFromIterNested<chr_syntax[43ecd98269a6cf87]::Constraint, core[37f591cfbe66b0b1]::iter::adapters::cloned::Cloned<core[37f591cfbe66b0b1]::iter::adapters::chain::Chain<core[37f591cfbe66b0b1]::slice::iter::Iter<chr_syntax[43ecd98269a6cf87]::Constraint>, core[37f591cfbe66b0b1]::slice::iter::Iter<chr_syntax[43ecd98269a6cf87]::Constraint>>>>>::from_iter
+               |          <core[37f591cfbe66b0b1]::iter::adapters::chain::Chain<core[37f591cfbe66b0b1]::slice::iter::Iter<chr_syntax[43ecd98269a6cf87]::Constraint>, core[37f591cfbe66b0b1]::slice::iter::Iter<chr_syntax[43ecd98269a6cf87]::Constraint>> as core[37f591cfbe66b0b1]::iter::traits::iterator::Iterator>::fold::<(), core[37f591cfbe66b0b1]::iter::adapters::map::map_fold<&chr_syntax[43ecd98269a6cf87]::Constraint, chr_syntax[43ecd98269a6cf87]::Constraint, (), <chr_syntax[43ecd98269a6cf87]::Constraint as core[37f591cfbe66b0b1]::clone::Clone>::clone, core[37f591cfbe66b0b1]::iter::traits::iterator::Iterator::for_each::call<chr_syntax[43ecd98269a6cf87]::Constraint, <alloc[24b8200b0946867]::vec::Vec<chr_syntax[43ecd98269a6cf87]::Constraint>>::extend_trusted<core[37f591cfbe66b0b1]::iter::adapters::cloned::Cloned<core[37f591cfbe66b0b1]::iter::adapters::chain::Chain<core[37f591cfbe66b0b1]::slice::iter::Iter<chr_syntax[43ecd98269a6cf87]::Constraint>, core[37f591cfbe66b0b1]::slice::iter::Iter<chr_syntax[43ecd98269a6cf87]::Constraint>>>>::{closure#0}>::{closure#0}>::{closure#0}>
+               |          <alloc[24b8200b0946867]::vec::Vec<chr_syntax[43ecd98269a6cf87]::Term> as core[37f591cfbe66b0b1]::clone::Clone>::clone
+               |          |
+               |           --9.86%--<alloc[24b8200b0946867]::vec::Vec<chr_syntax[43ecd98269a6cf87]::Term> as core[37f591cfbe66b0b1]::clone::Clone>::clone
+               |
+               |--7.04%--<chr_direct_choice[72283e23cae49e74]::engine::Engine>::heads
+               |
+                --4.23%--cfree
+
+    53.52%     1.41%  [.] chr_direct_choice[72283e23cae49e74]::engine::subtract                                                                                                                                                                                                                                                                                                                                                              -      -
+            |
+             --52.11%--chr_direct_choice[72283e23cae49e74]::engine::subtract
+                       |
+                       |--47.89%--<alloc[24b8200b0946867]::vec::Vec<chr_direct_choice[72283e23cae49e74]::Context> as alloc[24b8200b0946867]::vec::spec_from_iter_nested::SpecFromIterNested<chr_direct_choice[72283e23cae49e74]::Context, core[37f591cfbe66b0b1]::iter::adapters::flatten::FlatMap<core[37f591cfbe66b0b1]::slice::iter::Iter<chr_direct_choice[72283e23cae49e74]::Context>, alloc[24b8200b0946867]::vec::Vec<chr_direct_choice[72283e23cae49e74]::Context>, <chr_direct_choice[72283e23cae49e74]::Graph>::resolve::{closure#0}>>>::from_iter
+                       |          |
+                       |           --45.07%--<core[37f591cfbe66b0b1]::iter::adapters::flatten::FlatMap<core[37f591cfbe66b0b1]::slice::iter::Iter<chr_direct_choice[72283e23cae49e74]::Context>, alloc[24b8200b0946867]::vec::Vec<chr_direct_choice[72283e23cae49e74]::Context>, <chr_direct_choice[72283e23cae49e74]::Graph>::live::{closure#0}> as core[37f591cfbe66b0b1]::iter::traits::iterator::Iterator>::next
+                       |                     |
+                       |                      --42.25%--<chr_direct_choice[72283e23cae49e74]::Context>::subtract
+                       |                                |
+                       |                                |--29.58%--<chr_direct_choice[72283e23cae49e74]::Context>::intersection
+                       |                                |          |
+                       |                                |          |--12.68%--_RINvNvXs0_NtNtNtCscdodAO9FK5_5alloc11collections5btree3mapINtB8_8BTreeMappppENtNtCs4NRVxsYgnAr_4core5clone5Clone5clone13clone_subtreeNtCs9NEFZWY0mIO_17chr_direct_choice5LabelbNtNtBe_5alloc6GlobalEB29_.llvm.16268479243634136277
+                       |                                |          |
+                       |                                |          |--5.63%--cfree
+                       |                                |          |
+                       |                                |           --4.23%--<alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_direct_choice[72283e23cae49e74]::Label, bool> as core[37f591cfbe66b0b1]::ops::drop::Drop>::drop
+                       |                                |
+                       |                                 --5.63%--_RINvNvXs0_NtNtNtCscdodAO9FK5_5alloc11collections5btree3mapINtB8_8BTreeMappppENtNtCs4NRVxsYgnAr_4core5clone5Clone5clone13clone_subtreeNtCs9NEFZWY0mIO_17chr_direct_choice5LabelbNtNtBe_5alloc6GlobalEB29_.llvm.16268479243634136277
+                       |
+                        --4.23%--cfree
+
+    50.70%     0.00%  [.] <alloc[24b8200b0946867]::vec::Vec<chr_direct_choice[72283e23cae49e74]::Context> as alloc[24b8200b0946867]::vec::spec_from_iter_nested::SpecFromIterNested<chr_direct_choice[72283e23cae49e74]::Context, core[37f591cfbe66b0b1]::iter::adapters::flatten::FlatMap<core[37f591cfbe66b0b1]::slice::iter::Iter<chr_direct_choice[72283e23cae49e74]::Context>, alloc[24b8200b0946867]::vec::Vec<chr_direct_choice[72283e23cae49e74]::Context>, <chr_direct_choice[72283e23cae49e74]::Graph>::resolve::{closure#0}>>>::from_iter                                                                                                                    -      -
+            |
+             --47.89%--<core[37f591cfbe66b0b1]::iter::adapters::flatten::FlatMap<core[37f591cfbe66b0b1]::slice::iter::Iter<chr_direct_choice[72283e23cae49e74]::Context>, alloc[24b8200b0946867]::vec::Vec<chr_direct_choice[72283e23cae49e74]::Context>, <chr_direct_choice[72283e23cae49e74]::Graph>::live::{closure#0}> as core[37f591cfbe66b0b1]::iter::traits::iterator::Iterator>::next
+                       |
+                        --43.66%--<chr_direct_choice[72283e23cae49e74]::Context>::subtract
+                                  |
+                                  |--29.58%--<chr_direct_choice[72283e23cae49e74]::Context>::intersection
+                                  |          |
+                                  |          |--12.68%--_RINvNvXs0_NtNtNtCscdodAO9FK5_5alloc11collections5btree3mapINtB8_8BTreeMappppENtNtCs4NRVxsYgnAr_4core5clone5Clone5clone13clone_subtreeNtCs9NEFZWY0mIO_17chr_direct_choice5LabelbNtNtBe_5alloc6GlobalEB29_.llvm.16268479243634136277
+                                  |          |
+                                  |          |--5.63%--cfree
+                                  |          |
+                                  |           --4.23%--<alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_direct_choice[72283e23cae49e74]::Label, bool> as core[37f591cfbe66b0b1]::ops::drop::Drop>::drop
+                                  |
+                                  |--5.63%--_RINvNvXs0_NtNtNtCscdodAO9FK5_5alloc11collections5btree3mapINtB8_8BTreeMappppENtNtCs4NRVxsYgnAr_4core5clone5Clone5clone13clone_subtreeNtCs9NEFZWY0mIO_17chr_direct_choice5LabelbNtNtBe_5alloc6GlobalEB29_.llvm.16268479243634136277
+                                  |
+                                   --4.23%--cfree
+
+    47.89%     2.82%  [.] <core[37f591cfbe66b0b1]::iter::adapters::flatten::FlatMap<core[37f591cfbe66b0b1]::slice::iter::Iter<chr_direct_choice[72283e23cae49e74]::Context>, alloc[24b8200b0946867]::vec::Vec<chr_direct_choice[72283e23cae49e74]::Context>, <chr_direct_choice[72283e23cae49e74]::Graph>::live::{closure#0}> as core[37f591cfbe66b0b1]::iter::traits::iterator::Iterator>::next                                                                                                                                                   -      -
+            |
+             --45.07%--<core[37f591cfbe66b0b1]::iter::adapters::flatten::FlatMap<core[37f591cfbe66b0b1]::slice::iter::Iter<chr_direct_choice[72283e23cae49e74]::Context>, alloc[24b8200b0946867]::vec::Vec<chr_direct_choice[72283e23cae49e74]::Context>, <chr_direct_choice[72283e23cae49e74]::Graph>::live::{closure#0}> as core[37f591cfbe66b0b1]::iter::traits::iterator::Iterator>::next
+                       |
+                        --43.66%--<chr_direct_choice[72283e23cae49e74]::Context>::subtract
+                                  |
+                                  |--29.58%--<chr_direct_choice[72283e23cae49e74]::Context>::intersection
+                                  |          |
+                                  |          |--12.68%--_RINvNvXs0_NtNtNtCscdodAO9FK5_5alloc11collections5btree3mapINtB8_8BTreeMappppENtNtCs4NRVxsYgnAr_4core5clone5Clone5clone13clone_subtreeNtCs9NEFZWY0mIO_17chr_direct_choice5LabelbNtNtBe_5alloc6GlobalEB29_.llvm.16268479243634136277
+                                  |          |
+                                  |          |--5.63%--cfree
+                                  |          |
+                                  |           --4.23%--<alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_direct_choice[72283e23cae49e74]::Label, bool> as core[37f591cfbe66b0b1]::ops::drop::Drop>::drop
+                                  |
+                                  |--5.63%--_RINvNvXs0_NtNtNtCscdodAO9FK5_5alloc11collections5btree3mapINtB8_8BTreeMappppENtNtCs4NRVxsYgnAr_4core5clone5Clone5clone13clone_subtreeNtCs9NEFZWY0mIO_17chr_direct_choice5LabelbNtNtBe_5alloc6GlobalEB29_.llvm.16268479243634136277
+                                  |
+                                   --4.23%--cfree
+
+    43.66%     1.41%  [.] <chr_direct_choice[72283e23cae49e74]::Context>::subtract                                                                                                                                                                                                                                                                                                                                                         -      -
+            |
+             --42.25%--<chr_direct_choice[72283e23cae49e74]::Context>::subtract
+                       |
+                       |--29.58%--<chr_direct_choice[72283e23cae49e74]::Context>::intersection
+                       |          |
+                       |          |--12.68%--_RINvNvXs0_NtNtNtCscdodAO9FK5_5alloc11collections5btree3mapINtB8_8BTreeMappppENtNtCs4NRVxsYgnAr_4core5clone5Clone5clone13clone_subtreeNtCs9NEFZWY0mIO_17chr_direct_choice5LabelbNtNtBe_5alloc6GlobalEB29_.llvm.16268479243634136277
+                       |          |
+                       |          |--5.63%--cfree
+                       |          |
+                       |           --4.23%--<alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_direct_choice[72283e23cae49e74]::Label, bool> as core[37f591cfbe66b0b1]::ops::drop::Drop>::drop
+                       |
+                       |--5.63%--_RINvNvXs0_NtNtNtCscdodAO9FK5_5alloc11collections5btree3mapINtB8_8BTreeMappppENtNtCs4NRVxsYgnAr_4core5clone5Clone5clone13clone_subtreeNtCs9NEFZWY0mIO_17chr_direct_choice5LabelbNtNtBe_5alloc6GlobalEB29_.llvm.16268479243634136277
+                       |
+                        --4.23%--cfree
+
+    35.21%     5.63%  [.] <chr_direct_choice[72283e23cae49e74]::Context>::intersection                                                                                                                                                                                                                                                                                                                                                    -      -
+            |
+            |--29.58%--<chr_direct_choice[72283e23cae49e74]::Context>::intersection
+            |          |
+            |          |--16.90%--_RINvNvXs0_NtNtNtCscdodAO9FK5_5alloc11collections5btree3mapINtB8_8BTreeMappppENtNtCs4NRVxsYgnAr_4core5clone5Clone5clone13clone_subtreeNtCs9NEFZWY0mIO_17chr_direct_choice5LabelbNtNtBe_5alloc6GlobalEB29_.llvm.16268479243634136277
+            |          |
+            |          |--5.63%--cfree
+            |          |
+            |           --4.23%--<alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_direct_choice[72283e23cae49e74]::Label, bool> as core[37f591cfbe66b0b1]::ops::drop::Drop>::drop
+            |
+             --5.63%--0xffffffffffffffff
+                       s03_lifecycle[54d1f9110e713ecf]::cell
+                       <s03_lifecycle[54d1f9110e713ecf]::Running>::collect
+                       <chr_direct_choice[72283e23cae49e74]::engine::Engine>::tick
+                       chr_direct_choice[72283e23cae49e74]::engine::subtract
+                       <alloc[24b8200b0946867]::vec::Vec<chr_direct_choice[72283e23cae49e74]::Context> as alloc[24b8200b0946867]::vec::spec_from_iter_nested::SpecFromIterNested<chr_direct_choice[72283e23cae49e74]::Context, core[37f591cfbe66b0b1]::iter::adapters::flatten::FlatMap<core[37f591cfbe66b0b1]::slice::iter::Iter<chr_direct_choice[72283e23cae49e74]::Context>, alloc[24b8200b0946867]::vec::Vec<chr_direct_choice[72283e23cae49e74]::Context>, <chr_direct_choice[72283e23cae49e74]::Graph>::resolve::{closure#0}>>>::from_iter
+                       <core[37f591cfbe66b0b1]::iter::adapters::flatten::FlatMap<core[37f591cfbe66b0b1]::slice::iter::Iter<chr_direct_choice[72283e23cae49e74]::Context>, alloc[24b8200b0946867]::vec::Vec<chr_direct_choice[72283e23cae49e74]::Context>, <chr_direct_choice[72283e23cae49e74]::Graph>::live::{closure#0}> as core[37f591cfbe66b0b1]::iter::traits::iterator::Iterator>::next
+                       <chr_direct_choice[72283e23cae49e74]::Context>::subtract
+                       <chr_direct_choice[72283e23cae49e74]::Context>::intersection
+
+    25.35%    21.13%  [.] _RINvNvXs0_NtNtNtCscdodAO9FK5_5alloc11collections5btree3mapINtB8_8BTreeMappppENtNtCs4NRVxsYgnAr_4core5clone5Clone5clone13clone_subtreeNtCs9NEFZWY0mIO_17chr_direct_choice5LabelbNtNtBe_5alloc6GlobalEB29_.llvm.16268479243634136277                                                                                                                                                                                  -      -
+            |
+            |--21.13%--0xffffffffffffffff
+            |          |
+            |           --19.72%--s03_lifecycle[54d1f9110e713ecf]::cell
+            |                     <s03_lifecycle[54d1f9110e713ecf]::Running>::collect
+            |                     <chr_direct_choice[72283e23cae49e74]::engine::Engine>::tick
+            |                     |
+            |                      --14.08%--chr_direct_choice[72283e23cae49e74]::engine::subtract
+            |                                <alloc[24b8200b0946867]::vec::Vec<chr_direct_choice[72283e23cae49e74]::Context> as alloc[24b8200b0946867]::vec::spec_from_iter_nested::SpecFromIterNested<chr_direct_choice[72283e23cae49e74]::Context, core[37f591cfbe66b0b1]::iter::adapters::flatten::FlatMap<core[37f591cfbe66b0b1]::slice::iter::Iter<chr_direct_choice[72283e23cae49e74]::Context>, alloc[24b8200b0946867]::vec::Vec<chr_direct_choice[72283e23cae49e74]::Context>, <chr_direct_choice[72283e23cae49e74]::Graph>::resolve::{closure#0}>>>::from_iter
+            |                                <core[37f591cfbe66b0b1]::iter::adapters::flatten::FlatMap<core[37f591cfbe66b0b1]::slice::iter::Iter<chr_direct_choice[72283e23cae49e74]::Context>, alloc[24b8200b0946867]::vec::Vec<chr_direct_choice[72283e23cae49e74]::Context>, <chr_direct_choice[72283e23cae49e74]::Graph>::live::{closure#0}> as core[37f591cfbe66b0b1]::iter::traits::iterator::Iterator>::next
+            |                                <chr_direct_choice[72283e23cae49e74]::Context>::subtract
+            |                                |
+            |                                |--9.86%--<chr_direct_choice[72283e23cae49e74]::Context>::intersection
+            |                                |          _RINvNvXs0_NtNtNtCscdodAO9FK5_5alloc11collections5btree3mapINtB8_8BTreeMappppENtNtCs4NRVxsYgnAr_4core5clone5Clone5clone13clone_subtreeNtCs9NEFZWY0mIO_17chr_direct_choice5LabelbNtNtBe_5alloc6GlobalEB29_.llvm.16268479243634136277
+            |                                |
+            |                                 --4.23%--_RINvNvXs0_NtNtNtCscdodAO9FK5_5alloc11collections5btree3mapINtB8_8BTreeMappppENtNtCs4NRVxsYgnAr_4core5clone5Clone5clone13clone_subtreeNtCs9NEFZWY0mIO_17chr_direct_choice5LabelbNtNtBe_5alloc6GlobalEB29_.llvm.16268479243634136277
+            |
+             --4.23%--_RINvNvXs0_NtNtNtCscdodAO9FK5_5alloc11collections5btree3mapINtB8_8BTreeMappppENtNtCs4NRVxsYgnAr_4core5clone5Clone5clone13clone_subtreeNtCs9NEFZWY0mIO_17chr_direct_choice5LabelbNtNtBe_5alloc6GlobalEB29_.llvm.16268479243634136277
+
+    25.35%     4.23%  [.] cfree                                                                                                                                                                                                                                                                                                                                                                                                                -      -
+            |
+            |--21.13%--cfree
+            |          |
+            |          |--5.63%--0x7a5c22aa26c9
+            |          |
+            |           --4.23%--0x7a5c22aa26ff
+            |
+             --4.23%--0xffffffffffffffff
+                       s03_lifecycle[54d1f9110e713ecf]::cell
+                       <s03_lifecycle[54d1f9110e713ecf]::Running>::collect
+                       <chr_direct_choice[72283e23cae49e74]::engine::Engine>::tick
+                       chr_direct_choice[72283e23cae49e74]::engine::subtract
+
+    11.27%     7.04%  [.] <alloc[24b8200b0946867]::vec::Vec<chr_syntax[43ecd98269a6cf87]::Term> as core[37f591cfbe66b0b1]::clone::Clone>::clone                                                                                                                                                                                                                                                              -      -
+            |
+            |--7.04%--0xffffffffffffffff
+            |          s03_lifecycle[54d1f9110e713ecf]::cell
+            |          <s03_lifecycle[54d1f9110e713ecf]::Running>::collect
+            |          <chr_direct_choice[72283e23cae49e74]::engine::Engine>::tick
+            |          <alloc[24b8200b0946867]::vec::Vec<chr_syntax[43ecd98269a6cf87]::Constraint> as alloc[24b8200b0946867]::vec::spec_from_iter_nested::SpecFromIterNested<chr_syntax[43ecd98269a6cf87]::Constraint, core[37f591cfbe66b0b1]::iter::adapters::cloned::Cloned<core[37f591cfbe66b0b1]::iter::adapters::chain::Chain<core[37f591cfbe66b0b1]::slice::iter::Iter<chr_syntax[43ecd98269a6cf87]::Constraint>, core[37f591cfbe66b0b1]::slice::iter::Iter<chr_syntax[43ecd98269a6cf87]::Constraint>>>>>::from_iter
+            |          <core[37f591cfbe66b0b1]::iter::adapters::chain::Chain<core[37f591cfbe66b0b1]::slice::iter::Iter<chr_syntax[43ecd98269a6cf87]::Constraint>, core[37f591cfbe66b0b1]::slice::iter::Iter<chr_syntax[43ecd98269a6cf87]::Constraint>> as core[37f591cfbe66b0b1]::iter::traits::iterator::Iterator>::fold::<(), core[37f591cfbe66b0b1]::iter::adapters::map::map_fold<&chr_syntax[43ecd98269a6cf87]::Constraint, chr_syntax[43ecd98269a6cf87]::Constraint, (), <chr_syntax[43ecd98269a6cf87]::Constraint as core[37f591cfbe66b0b1]::clone::Clone>::clone, core[37f591cfbe66b0b1]::iter::traits::iterator::Iterator::for_each::call<chr_syntax[43ecd98269a6cf87]::Constraint, <alloc[24b8200b0946867]::vec::Vec<chr_syntax[43ecd98269a6cf87]::Constraint>>::extend_trusted<core[37f591cfbe66b0b1]::iter::adapters::cloned::Cloned<core[37f591cfbe66b0b1]::iter::adapters::chain::Chain<core[37f591cfbe66b0b1]::slice::iter::Iter<chr_syntax[43ecd98269a6cf87]::Constraint>, core[37f591cfbe66b0b1]::slice::iter::Iter<chr_syntax[43ecd98269a6cf87]::Constraint>>>>::{closure#0}>::{closure#0}>::{closure#0}>
+            |          <alloc[24b8200b0946867]::vec::Vec<chr_syntax[43ecd98269a6cf87]::Term> as core[37f591cfbe66b0b1]::clone::Clone>::clone
+            |          <alloc[24b8200b0946867]::vec::Vec<chr_syntax[43ecd98269a6cf87]::Term> as core[37f591cfbe66b0b1]::clone::Clone>::clone
+            |
+             --4.23%--<alloc[24b8200b0946867]::vec::Vec<chr_syntax[43ecd98269a6cf87]::Term> as core[37f591cfbe66b0b1]::clone::Clone>::clone
+
+    11.27%     0.00%  [.] <alloc[24b8200b0946867]::vec::Vec<chr_syntax[43ecd98269a6cf87]::Constraint> as alloc[24b8200b0946867]::vec::spec_from_iter_nested::SpecFromIterNested<chr_syntax[43ecd98269a6cf87]::Constraint, core[37f591cfbe66b0b1]::iter::adapters::cloned::Cloned<core[37f591cfbe66b0b1]::iter::adapters::chain::Chain<core[37f591cfbe66b0b1]::slice::iter::Iter<chr_syntax[43ecd98269a6cf87]::Constraint>, core[37f591cfbe66b0b1]::slice::iter::Iter<chr_syntax[43ecd98269a6cf87]::Constraint>>>>>::from_iter                                                                                                            -      -
+            |
+            ---<core[37f591cfbe66b0b1]::iter::adapters::chain::Chain<core[37f591cfbe66b0b1]::slice::iter::Iter<chr_syntax[43ecd98269a6cf87]::Constraint>, core[37f591cfbe66b0b1]::slice::iter::Iter<chr_syntax[43ecd98269a6cf87]::Constraint>> as core[37f591cfbe66b0b1]::iter::traits::iterator::Iterator>::fold::<(), core[37f591cfbe66b0b1]::iter::adapters::map::map_fold<&chr_syntax[43ecd98269a6cf87]::Constraint, chr_syntax[43ecd98269a6cf87]::Constraint, (), <chr_syntax[43ecd98269a6cf87]::Constraint as core[37f591cfbe66b0b1]::clone::Clone>::clone, core[37f591cfbe66b0b1]::iter::traits::iterator::Iterator::for_each::call<chr_syntax[43ecd98269a6cf87]::Constraint, <alloc[24b8200b0946867]::vec::Vec<chr_syntax[43ecd98269a6cf87]::Constraint>>::extend_trusted<core[37f591cfbe66b0b1]::iter::adapters::cloned::Cloned<core[37f591cfbe66b0b1]::iter::adapters::chain::Chain<core[37f591cfbe66b0b1]::slice::iter::Iter<chr_syntax[43ecd98269a6cf87]::Constraint>, core[37f591cfbe66b0b1]::slice::iter::Iter<chr_syntax[43ecd98269a6cf87]::Constraint>>>>::{closure#0}>::{closure#0}>::{closure#0}>
+               <alloc[24b8200b0946867]::vec::Vec<chr_syntax[43ecd98269a6cf87]::Term> as core[37f591cfbe66b0b1]::clone::Clone>::clone
+               |
+                --9.86%--<alloc[24b8200b0946867]::vec::Vec<chr_syntax[43ecd98269a6cf87]::Term> as core[37f591cfbe66b0b1]::clone::Clone>::clone
+
+    11.27%     0.00%  [.] <core[37f591cfbe66b0b1]::iter::adapters::chain::Chain<core[37f591cfbe66b0b1]::slice::iter::Iter<chr_syntax[43ecd98269a6cf87]::Constraint>, core[37f591cfbe66b0b1]::slice::iter::Iter<chr_syntax[43ecd98269a6cf87]::Constraint>> as core[37f591cfbe66b0b1]::iter::traits::iterator::Iterator>::fold::<(), core[37f591cfbe66b0b1]::iter::adapters::map::map_fold<&chr_syntax[43ecd98269a6cf87]::Constraint, chr_syntax[43ecd98269a6cf87]::Constraint, (), <chr_syntax[43ecd98269a6cf87]::Constraint as core[37f591cfbe66b0b1]::clone::Clone>::clone, core[37f591cfbe66b0b1]::iter::traits::iterator::Iterator::for_each::call<chr_syntax[43ecd98269a6cf87]::Constraint, <alloc[24b8200b0946867]::vec::Vec<chr_syntax[43ecd98269a6cf87]::Constraint>>::extend_trusted<core[37f591cfbe66b0b1]::iter::adapters::cloned::Cloned<core[37f591cfbe66b0b1]::iter::adapters::chain::Chain<core[37f591cfbe66b0b1]::slice::iter::Iter<chr_syntax[43ecd98269a6cf87]::Constraint>, core[37f591cfbe66b0b1]::slice::iter::Iter<chr_syntax[43ecd98269a6cf87]::Constraint>>>>::{closure#0}>::{closure#0}>::{closure#0}>  -      -
+            |
+            ---<alloc[24b8200b0946867]::vec::Vec<chr_syntax[43ecd98269a6cf87]::Term> as core[37f591cfbe66b0b1]::clone::Clone>::clone
+               |
+                --9.86%--<alloc[24b8200b0946867]::vec::Vec<chr_syntax[43ecd98269a6cf87]::Term> as core[37f591cfbe66b0b1]::clone::Clone>::clone
+
+     9.86%     1.41%  [.] <chr_direct_choice[72283e23cae49e74]::engine::Engine>::heads                                                                                                                                                                                                                                                                                                                                                  -      -
+            |
+             --8.45%--<chr_direct_choice[72283e23cae49e74]::engine::Engine>::heads
+                       |
+                        --4.23%--<alloc[24b8200b0946867]::vec::Vec<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)> as alloc[24b8200b0946867]::vec::spec_from_iter_nested::SpecFromIterNested<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>), core[37f591cfbe66b0b1]::iter::adapters::flatten::FlatMap<alloc[24b8200b0946867]::vec::into_iter::IntoIter<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)>, alloc[24b8200b0946867]::vec::Vec<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)>, <chr_direct_choice[72283e23cae49e74]::engine::Engine>::pattern::{closure#1}>>>::from_iter
+                                  <core[37f591cfbe66b0b1]::iter::adapters::flatten::FlatMap<alloc[24b8200b0946867]::vec::into_iter::IntoIter<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)>, alloc[24b8200b0946867]::vec::Vec<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)>, <chr_direct_choice[72283e23cae49e74]::engine::Engine>::heads::{closure#0}> as core[37f591cfbe66b0b1]::iter::traits::iterator::Iterator>::next
+                                  <chr_direct_choice[72283e23cae49e74]::engine::Engine>::pattern
+                                  <alloc[24b8200b0946867]::vec::Vec<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)> as alloc[24b8200b0946867]::vec::spec_from_iter_nested::SpecFromIterNested<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>), core[37f591cfbe66b0b1]::iter::adapters::flatten::FlatMap<alloc[24b8200b0946867]::vec::into_iter::IntoIter<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)>, alloc[24b8200b0946867]::vec::Vec<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)>, <chr_direct_choice[72283e23cae49e74]::engine::Engine>::pattern::{closure#1}>>>::from_iter
+                                  <core[37f591cfbe66b0b1]::iter::adapters::flatten::FlatMap<alloc[24b8200b0946867]::vec::into_iter::IntoIter<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)>, alloc[24b8200b0946867]::vec::Vec<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)>, <chr_direct_choice[72283e23cae49e74]::engine::Engine>::heads::{closure#0}> as core[37f591cfbe66b0b1]::iter::traits::iterator::Iterator>::next
+
+     9.86%     7.04%  [.] malloc                                                                                                                                                                                                                                                                                                                                                                                                               -      -
+            |
+             --7.04%--0xffffffffffffffff
+                       s03_lifecycle[54d1f9110e713ecf]::cell
+                       <s03_lifecycle[54d1f9110e713ecf]::Running>::collect
+                       <chr_direct_choice[72283e23cae49e74]::engine::Engine>::tick
+
+     5.63%     5.63%  [.] 0x00000000000a26c9                                                                                                                                                                                                                                                                                                                                                                                                   -      -
+            |
+            ---s03_lifecycle[54d1f9110e713ecf]::cell
+               <s03_lifecycle[54d1f9110e713ecf]::Running>::collect
+               <chr_direct_choice[72283e23cae49e74]::engine::Engine>::tick
+
+     5.63%     5.63%  [.] <alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_direct_choice[72283e23cae49e74]::Label, bool> as core[37f591cfbe66b0b1]::ops::drop::Drop>::drop                                                                                                                                                                                                                                                      -      -
+            |
+            ---s03_lifecycle[54d1f9110e713ecf]::cell
+               <s03_lifecycle[54d1f9110e713ecf]::Running>::collect
+               <chr_direct_choice[72283e23cae49e74]::engine::Engine>::tick
+               |
+                --4.23%--chr_direct_choice[72283e23cae49e74]::engine::subtract
+                          <alloc[24b8200b0946867]::vec::Vec<chr_direct_choice[72283e23cae49e74]::Context> as alloc[24b8200b0946867]::vec::spec_from_iter_nested::SpecFromIterNested<chr_direct_choice[72283e23cae49e74]::Context, core[37f591cfbe66b0b1]::iter::adapters::flatten::FlatMap<core[37f591cfbe66b0b1]::slice::iter::Iter<chr_direct_choice[72283e23cae49e74]::Context>, alloc[24b8200b0946867]::vec::Vec<chr_direct_choice[72283e23cae49e74]::Context>, <chr_direct_choice[72283e23cae49e74]::Graph>::resolve::{closure#0}>>>::from_iter
+                          <core[37f591cfbe66b0b1]::iter::adapters::flatten::FlatMap<core[37f591cfbe66b0b1]::slice::iter::Iter<chr_direct_choice[72283e23cae49e74]::Context>, alloc[24b8200b0946867]::vec::Vec<chr_direct_choice[72283e23cae49e74]::Context>, <chr_direct_choice[72283e23cae49e74]::Graph>::live::{closure#0}> as core[37f591cfbe66b0b1]::iter::traits::iterator::Iterator>::next
+                          <chr_direct_choice[72283e23cae49e74]::Context>::subtract
+                          <chr_direct_choice[72283e23cae49e74]::Context>::intersection
+                          <alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_direct_choice[72283e23cae49e74]::Label, bool> as core[37f591cfbe66b0b1]::ops::drop::Drop>::drop
+
+     5.63%     4.23%  [.] <alloc[24b8200b0946867]::collections::btree::map::entry::VacantEntry<chr_direct_choice[72283e23cae49e74]::Label, bool>>::insert_entry                                                                                                                                                                                                                                                                     -      -
+            |
+             --4.23%--0xffffffffffffffff
+                       s03_lifecycle[54d1f9110e713ecf]::cell
+                       <s03_lifecycle[54d1f9110e713ecf]::Running>::collect
+                       <chr_direct_choice[72283e23cae49e74]::engine::Engine>::tick
+                       chr_direct_choice[72283e23cae49e74]::engine::subtract
+                       <alloc[24b8200b0946867]::vec::Vec<chr_direct_choice[72283e23cae49e74]::Context> as alloc[24b8200b0946867]::vec::spec_from_iter_nested::SpecFromIterNested<chr_direct_choice[72283e23cae49e74]::Context, core[37f591cfbe66b0b1]::iter::adapters::flatten::FlatMap<core[37f591cfbe66b0b1]::slice::iter::Iter<chr_direct_choice[72283e23cae49e74]::Context>, alloc[24b8200b0946867]::vec::Vec<chr_direct_choice[72283e23cae49e74]::Context>, <chr_direct_choice[72283e23cae49e74]::Graph>::resolve::{closure#0}>>>::from_iter
+                       <core[37f591cfbe66b0b1]::iter::adapters::flatten::FlatMap<core[37f591cfbe66b0b1]::slice::iter::Iter<chr_direct_choice[72283e23cae49e74]::Context>, alloc[24b8200b0946867]::vec::Vec<chr_direct_choice[72283e23cae49e74]::Context>, <chr_direct_choice[72283e23cae49e74]::Graph>::live::{closure#0}> as core[37f591cfbe66b0b1]::iter::traits::iterator::Iterator>::next
+                       <chr_direct_choice[72283e23cae49e74]::Context>::subtract
+
+     5.63%     0.00%  [.] 0x00007a5c22aa26c9                                                                                                                                                                                                                                                                                                                                                                                                   -      -
+     4.23%     0.00%  [.] <alloc[24b8200b0946867]::vec::Vec<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)> as alloc[24b8200b0946867]::vec::spec_from_iter_nested::SpecFromIterNested<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>), core[37f591cfbe66b0b1]::iter::adapters::flatten::FlatMap<alloc[24b8200b0946867]::vec::into_iter::IntoIter<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)>, alloc[24b8200b0946867]::vec::Vec<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)>, <chr_direct_choice[72283e23cae49e74]::engine::Engine>::pattern::{closure#1}>>>::from_iter                     -      -
+            |
+            ---<core[37f591cfbe66b0b1]::iter::adapters::flatten::FlatMap<alloc[24b8200b0946867]::vec::into_iter::IntoIter<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)>, alloc[24b8200b0946867]::vec::Vec<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)>, <chr_direct_choice[72283e23cae49e74]::engine::Engine>::heads::{closure#0}> as core[37f591cfbe66b0b1]::iter::traits::iterator::Iterator>::next
+               <chr_direct_choice[72283e23cae49e74]::engine::Engine>::pattern
+               <alloc[24b8200b0946867]::vec::Vec<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)> as alloc[24b8200b0946867]::vec::spec_from_iter_nested::SpecFromIterNested<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>), core[37f591cfbe66b0b1]::iter::adapters::flatten::FlatMap<alloc[24b8200b0946867]::vec::into_iter::IntoIter<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)>, alloc[24b8200b0946867]::vec::Vec<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)>, <chr_direct_choice[72283e23cae49e74]::engine::Engine>::pattern::{closure#1}>>>::from_iter
+               <core[37f591cfbe66b0b1]::iter::adapters::flatten::FlatMap<alloc[24b8200b0946867]::vec::into_iter::IntoIter<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)>, alloc[24b8200b0946867]::vec::Vec<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)>, <chr_direct_choice[72283e23cae49e74]::engine::Engine>::heads::{closure#0}> as core[37f591cfbe66b0b1]::iter::traits::iterator::Iterator>::next
+
+     4.23%     0.00%  [.] <core[37f591cfbe66b0b1]::iter::adapters::flatten::FlatMap<alloc[24b8200b0946867]::vec::into_iter::IntoIter<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)>, alloc[24b8200b0946867]::vec::Vec<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)>, <chr_direct_choice[72283e23cae49e74]::engine::Engine>::heads::{closure#0}> as core[37f591cfbe66b0b1]::iter::traits::iterator::Iterator>::next                                                  -      -
+            |
+            ---<chr_direct_choice[72283e23cae49e74]::engine::Engine>::pattern
+               <alloc[24b8200b0946867]::vec::Vec<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)> as alloc[24b8200b0946867]::vec::spec_from_iter_nested::SpecFromIterNested<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>), core[37f591cfbe66b0b1]::iter::adapters::flatten::FlatMap<alloc[24b8200b0946867]::vec::into_iter::IntoIter<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)>, alloc[24b8200b0946867]::vec::Vec<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)>, <chr_direct_choice[72283e23cae49e74]::engine::Engine>::pattern::{closure#1}>>>::from_iter
+               <core[37f591cfbe66b0b1]::iter::adapters::flatten::FlatMap<alloc[24b8200b0946867]::vec::into_iter::IntoIter<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)>, alloc[24b8200b0946867]::vec::Vec<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)>, <chr_direct_choice[72283e23cae49e74]::engine::Engine>::heads::{closure#0}> as core[37f591cfbe66b0b1]::iter::traits::iterator::Iterator>::next
+
+     4.23%     4.23%  [.] 0x00000000000a26ff                                                                                                                                                                                                                                                                                                                                                                                                   -      -
+            |
+            ---s03_lifecycle[54d1f9110e713ecf]::cell
+               <s03_lifecycle[54d1f9110e713ecf]::Running>::collect
+               <chr_direct_choice[72283e23cae49e74]::engine::Engine>::tick
+
+     4.23%     0.00%  [.] <chr_direct_choice[72283e23cae49e74]::engine::Engine>::pattern                                                                                                                                                                                                                                                                                                                                                -      -
+            |
+            ---<alloc[24b8200b0946867]::vec::Vec<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)> as alloc[24b8200b0946867]::vec::spec_from_iter_nested::SpecFromIterNested<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>), core[37f591cfbe66b0b1]::iter::adapters::flatten::FlatMap<alloc[24b8200b0946867]::vec::into_iter::IntoIter<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)>, alloc[24b8200b0946867]::vec::Vec<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)>, <chr_direct_choice[72283e23cae49e74]::engine::Engine>::pattern::{closure#1}>>>::from_iter
+               <core[37f591cfbe66b0b1]::iter::adapters::flatten::FlatMap<alloc[24b8200b0946867]::vec::into_iter::IntoIter<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)>, alloc[24b8200b0946867]::vec::Vec<(chr_direct_choice[72283e23cae49e74]::Context, alloc[24b8200b0946867]::collections::btree::map::BTreeMap<chr_syntax[43ecd98269a6cf87]::Var, chr_direct_choice[72283e23cae49e74]::NodeId>)>, <chr_direct_choice[72283e23cae49e74]::engine::Engine>::heads::{closure#0}> as core[37f591cfbe66b0b1]::iter::traits::iterator::Iterator>::next
+
+     4.23%     1.41%  [.] <alloc[24b8200b0946867]::string::String as core[37f591cfbe66b0b1]::clone::Clone>::clone                                                                                                                                                                                                                                                                                                                            -      -
+     4.23%     0.00%  [.] <alloc[24b8200b0946867]::vec::Vec<(chr_direct_choice[72283e23cae49e74]::Context, chr_direct_choice[72283e23cae49e74]::View)> as alloc[24b8200b0946867]::vec::spec_from_iter_nested::SpecFromIterNested<(chr_direct_choice[72283e23cae49e74]::Context, chr_direct_choice[72283e23cae49e74]::View), core[37f591cfbe66b0b1]::iter::adapters::flatten::FlatMap<alloc[24b8200b0946867]::vec::into_iter::IntoIter<chr_direct_choice[72283e23cae49e74]::Context>, alloc[24b8200b0946867]::vec::Vec<(chr_direct_choice[72283e23cae49e74]::Context, chr_direct_choice[72283e23cae49e74]::View)>, <chr_direct_choice[72283e23cae49e74]::Graph>::expose::{closure#0}>>>::from_iter                                                                                                                 -      -
+            |
+            ---<core[37f591cfbe66b0b1]::iter::adapters::flatten::FlatMap<alloc[24b8200b0946867]::vec::into_iter::IntoIter<chr_direct_choice[72283e23cae49e74]::Context>, alloc[24b8200b0946867]::vec::Vec<(chr_direct_choice[72283e23cae49e74]::Context, chr_direct_choice[72283e23cae49e74]::View)>, <chr_direct_choice[72283e23cae49e74]::Graph>::expose::{closure#0}> as core[37f591cfbe66b0b1]::iter::traits::iterator::Iterator>::next
+
+     4.23%     0.00%  [.] <core[37f591cfbe66b0b1]::iter::adapters::flatten::FlatMap<alloc[24b8200b0946867]::vec::into_iter::IntoIter<chr_direct_choice[72283e23cae49e74]::Context>, alloc[24b8200b0946867]::vec::Vec<(chr_direct_choice[72283e23cae49e74]::Context, chr_direct_choice[72283e23cae49e74]::View)>, <chr_direct_choice[72283e23cae49e74]::Graph>::expose::{closure#0}> as core[37f591cfbe66b0b1]::iter::traits::iterator::Iterator>::next                                                                                                                                           -      -
+     4.23%     0.00%  [.] 0x00007a5c22aa26ff                                                                                                                                                                                                                                                                                                                                                                                                   -      -
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

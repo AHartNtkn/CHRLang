@@ -1,0 +1,23 @@
+{
+  "command": [
+    "perf",
+    "record",
+    "-e",
+    "cpu-clock:u",
+    "-F",
+    "999",
+    "--call-graph",
+    "dwarf",
+    "-o",
+    "/tmp/s03-graph-profile.data",
+    "--",
+    "target/s03-time/release/examples/s03_lifecycle",
+    "graph",
+    "discriminate"
+  ],
+  "samples": 71,
+  "lost_samples": 0,
+  "affinity": "inherited; exploratory profile, not primary timing",
+  "binary_sha256": "122490d76aa4a91a080dae0230416ad569fca369ed61559a87cad91949da8e85",
+  "raw_sha256": "8cad07722c409367a413b291d47e17dbf2986f3132c6824b497c5a16ac7cebb8"
+}

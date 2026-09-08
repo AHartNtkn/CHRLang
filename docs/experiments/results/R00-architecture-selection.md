@@ -253,3 +253,8 @@ require an unimplemented cache before measurement. A favorable result would just
 reassessing that possible control; it would not prove intrinsic sharing necessity.
 Other directions have bounded cost/value dispositions, subject to this final
 comparative evidence. The full goal remains active.
+
+
+## Renewed S03 lifecycle evidence
+
+The [first S03 lifecycle pilot](S03-lifecycle-pilot.md) completes 210 registered processes with independent complete-answer checks. Direct graph execution favors opaque common work but loses after early discrimination; checked graphless word lowering dominates the graph on its admitted source. Profiling identifies temporary context-map work as a bounded repair candidate, selected before broad rejection or further architecture tuning. Preparation, query lifetime and disposal are included; independent native compilation, ongoing reclamation and general architecture selection remain open under the governing sequence.

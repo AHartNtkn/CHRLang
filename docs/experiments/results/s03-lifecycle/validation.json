@@ -1,0 +1,48 @@
+[
+  {
+    "name": "clippy",
+    "command": [
+      "cargo",
+      "clippy",
+      "-p",
+      "chr-direct-conditional",
+      "--no-default-features",
+      "--example",
+      "s03_lifecycle",
+      "--",
+      "-D",
+      "warnings"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "clippy-memory",
+    "command": [
+      "cargo",
+      "clippy",
+      "-p",
+      "chr-direct-conditional",
+      "--no-default-features",
+      "--features",
+      "alloc-meter",
+      "--example",
+      "s03_lifecycle",
+      "--",
+      "-D",
+      "warnings"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "fmt",
+    "command": [
+      "cargo",
+      "fmt",
+      "-p",
+      "chr-direct-conditional",
+      "--",
+      "--check"
+    ],
+    "exit_code": 0
+  }
+]

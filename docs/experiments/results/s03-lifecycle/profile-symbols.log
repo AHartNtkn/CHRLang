@@ -1,0 +1,517 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 71  of event 'cpu-clock:u'
+# Event count (approx.): 71071071
+#
+# Overhead  Symbol                                                                                                                                                                                                                                                                                                                                                                                               IPC   [IPC Coverage]
+# ........  ...................................................................................................................................................................................................................................................................................................................................................................................................  ....................
+#
+    21.13%  [.] _RINvNvXs0_NtNtNtCscdodAO9FK5_5alloc11collections5btree3mapINtB8_8BTreeMappppENtNtCs4NRVxsYgnAr_4core5clone5Clone5clone13clone_subtreeNtCs9NEFZWY0mIO_17chr_direct_choice5LabelbNtNtBe_5alloc6GlobalEB29_.llvm.16268479243634136277                                                                                                                                                              -      -
+            |
+            |--14.08%--_RNvMCs9NEFZWY0mIO_17chr_direct_choiceNtB2_7Context12intersection
+            |          |
+            |          |--9.86%--_RNvMCs9NEFZWY0mIO_17chr_direct_choiceNtB2_7Context8subtract
+            |          |          _RNvXs1_NtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flattenINtB5_7FlatMapINtNtNtBb_5slice4iter4IterNtCs9NEFZWY0mIO_17chr_direct_choice7ContextEINtNtCscdodAO9FK5_5alloc3vec3VecB1u_ENCNvMNtB1w_8equalityNtB1w_5Graph4live0ENtNtNtB9_6traits8iterator8Iterator4nextB1w_
+            |          |          _RNvXNtNtCscdodAO9FK5_5alloc3vec21spec_from_iter_nestedINtB4_3VecNtCs9NEFZWY0mIO_17chr_direct_choice7ContextEINtB2_18SpecFromIterNestedB10_INtNtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flatten7FlatMapINtNtNtB2l_5slice4iter4IterB10_EBQ_NCNvMNtB12_8equalityNtB12_5Graph7resolve0EE9from_iterB12_
+            |          |          _RNvNtCs9NEFZWY0mIO_17chr_direct_choice6engine8subtract
+            |          |          _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+            |          |          _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+            |          |          _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+            |          |          0xffffffffffffffff
+            |          |
+            |          |--1.41%--_RNvMNtCs9NEFZWY0mIO_17chr_direct_choice8equalityNtB4_5Graph7resolve
+            |          |          _RNvXs1_NtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flattenINtB5_7FlatMapINtNtNtCscdodAO9FK5_5alloc3vec9into_iter8IntoIterNtCs9NEFZWY0mIO_17chr_direct_choice7ContextEINtB19_3VecTB1R_NtB1T_4ViewEENCNvMs_B1T_NtB1T_5Graph6expose0ENtNtNtB9_6traits8iterator8Iterator4nextB1T_
+            |          |          _RNvXNtNtCscdodAO9FK5_5alloc3vec21spec_from_iter_nestedINtB4_3VecTNtCs9NEFZWY0mIO_17chr_direct_choice7ContextNtB13_4ViewEEINtB2_18SpecFromIterNestedB10_INtNtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flatten7FlatMapINtNtB4_9into_iter8IntoIterB11_EBQ_NCNvMs_B13_NtB13_5Graph6expose0EE9from_iterB13_
+            |          |          _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine7pattern
+            |          |          _RNvXs1_NtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flattenINtB5_7FlatMapINtNtNtCscdodAO9FK5_5alloc3vec9into_iter8IntoIterTNtCs9NEFZWY0mIO_17chr_direct_choice7ContextINtNtNtNtB1b_11collections5btree3map8BTreeMapNtCs5PyYPRahy7j_10chr_syntax3VarNtB1U_6NodeIdEEEINtB19_3VecB1R_ENCNvMs_NtB1U_6engineNtB4r_6Engine5heads0ENtNtNtB9_6traits8iterator8Iterator4nextB1U_
+            |          |          _RNvXNtNtCscdodAO9FK5_5alloc3vec21spec_from_iter_nestedINtB4_3VecTNtCs9NEFZWY0mIO_17chr_direct_choice7ContextINtNtNtNtB6_11collections5btree3map8BTreeMapNtCs5PyYPRahy7j_10chr_syntax3VarNtB13_6NodeIdEEEINtB2_18SpecFromIterNestedB10_INtNtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flatten7FlatMapINtNtB4_9into_iter8IntoIterB10_EBQ_NCNvMs_NtB13_6engineNtB5i_6Engine7patterns_0EE9from_iterB13_
+            |          |          _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine7pattern
+            |          |          _RNvXs1_NtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flattenINtB5_7FlatMapINtNtNtCscdodAO9FK5_5alloc3vec9into_iter8IntoIterTNtCs9NEFZWY0mIO_17chr_direct_choice7ContextINtNtNtNtB1b_11collections5btree3map8BTreeMapNtCs5PyYPRahy7j_10chr_syntax3VarNtB1U_6NodeIdEEEINtB19_3VecB1R_ENCNvMs_NtB1U_6engineNtB4r_6Engine5heads0ENtNtNtB9_6traits8iterator8Iterator4nextB1U_
+            |          |          _RNvXNtNtCscdodAO9FK5_5alloc3vec21spec_from_iter_nestedINtB4_3VecTNtCs9NEFZWY0mIO_17chr_direct_choice7ContextINtNtNtNtB6_11collections5btree3map8BTreeMapNtCs5PyYPRahy7j_10chr_syntax3VarNtB13_6NodeIdEEEINtB2_18SpecFromIterNestedB10_INtNtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flatten7FlatMapINtNtB4_9into_iter8IntoIterB10_EBQ_NCNvMs_NtB13_6engineNtB5i_6Engine7patterns_0EE9from_iterB13_
+            |          |          _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine5heads
+            |          |          _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+            |          |          _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+            |          |          0xffffffffffffffff
+            |          |
+            |          |--1.41%--_RNvXNtNtCscdodAO9FK5_5alloc3vec21spec_from_iter_nestedINtB4_3VecNtCs9NEFZWY0mIO_17chr_direct_choice7ContextEINtB2_18SpecFromIterNestedB10_INtNtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flatten7FlatMapINtNtNtB2l_5slice4iter4IterB10_EINtNtB2h_10filter_map9FilterMapB38_NCNCNvMs0_B12_NtB12_9Resources7consume00ENCB4h_0EE9from_iterB12_
+            |          |          _RNvMs0_Cs9NEFZWY0mIO_17chr_direct_choiceNtB5_9Resources7consume
+            |          |          _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+            |          |          _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+            |          |          _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+            |          |          0xffffffffffffffff
+            |          |
+            |           --1.41%--_RNvXNtNtCscdodAO9FK5_5alloc3vec21spec_from_iter_nestedINtB4_3VecNtCs9NEFZWY0mIO_17chr_direct_choice7ContextEINtB2_18SpecFromIterNestedB10_INtNtNtNtCs4NRVxsYgnAr_4core4iter8adapters10filter_map9FilterMapINtNtNtB2l_5slice4iter4IterB10_ENCNvMs_NtB12_6engineNtB3R_6Engine12applicationss_0EE9from_iterB12_
+            |                     _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+            |                     _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+            |                     _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+            |                     0xffffffffffffffff
+            |
+            |--4.23%--_RNvMCs9NEFZWY0mIO_17chr_direct_choiceNtB2_7Context8subtract
+            |          _RNvXs1_NtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flattenINtB5_7FlatMapINtNtNtBb_5slice4iter4IterNtCs9NEFZWY0mIO_17chr_direct_choice7ContextEINtNtCscdodAO9FK5_5alloc3vec3VecB1u_ENCNvMNtB1w_8equalityNtB1w_5Graph4live0ENtNtNtB9_6traits8iterator8Iterator4nextB1w_
+            |          _RNvXNtNtCscdodAO9FK5_5alloc3vec21spec_from_iter_nestedINtB4_3VecNtCs9NEFZWY0mIO_17chr_direct_choice7ContextEINtB2_18SpecFromIterNestedB10_INtNtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flatten7FlatMapINtNtNtB2l_5slice4iter4IterB10_EBQ_NCNvMNtB12_8equalityNtB12_5Graph7resolve0EE9from_iterB12_
+            |          _RNvNtCs9NEFZWY0mIO_17chr_direct_choice6engine8subtract
+            |          _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+            |          _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+            |          _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+            |          0xffffffffffffffff
+            |
+            |--1.41%--_RINvXs2_NtNtNtCscdodAO9FK5_5alloc11collections9vec_deque4iterINtB6_4IterNtNtCs9NEFZWY0mIO_17chr_direct_choice6engine7PendingENtNtNtNtCs4NRVxsYgnAr_4core4iter6traits8iterator8Iterator4folduNCINvNtNtB25_8adapters3map8map_foldRB18_NtB1c_7ContextuNCNvMs_B1a_NtB1a_6Engine4tick0NCINvNvB1Z_8for_each4callB3E_NCINvMsj_NtBc_3vecINtB4Z_3VecB3E_E14extend_trustedINtB35_3MapBX_B3T_EE0E0E0EB1c_
+            |          _RNvXs_NtNtCscdodAO9FK5_5alloc3vec21spec_from_iter_nestedINtB6_3VecNtCs9NEFZWY0mIO_17chr_direct_choice7ContextEINtB4_18SpecFromIterNestedB12_INtNtNtNtCs4NRVxsYgnAr_4core4iter8adapters3map3MapINtNtNtNtB8_11collections9vec_deque4iter4IterNtNtB14_6engine7PendingENCNvMs_B3N_NtB3N_6Engine4tick0EE9from_iterB14_
+            |          _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+            |          _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+            |          _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+            |          0xffffffffffffffff
+            |
+             --1.41%--_RNvXsa_NtCscdodAO9FK5_5alloc3vecINtB5_3VecNtCs9NEFZWY0mIO_17chr_direct_choice7ContextENtNtCs4NRVxsYgnAr_4core5clone5Clone5cloneBG_
+                       _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+                       _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+                       _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+                       0xffffffffffffffff
+
+     7.04%  [.] _RNvXsa_NtCscdodAO9FK5_5alloc3vecINtB5_3VecNtCs5PyYPRahy7j_10chr_syntax4TermENtNtCs4NRVxsYgnAr_4core5clone5Clone5cloneCs9NEFZWY0mIO_17chr_direct_choice                                                                                                                                                                                                                                          -      -
+            |
+            ---_RNvXsa_NtCscdodAO9FK5_5alloc3vecINtB5_3VecNtCs5PyYPRahy7j_10chr_syntax4TermENtNtCs4NRVxsYgnAr_4core5clone5Clone5cloneCs9NEFZWY0mIO_17chr_direct_choice
+               |
+               |--5.63%--_RINvXs_NtNtNtCs4NRVxsYgnAr_4core4iter8adapters5chainINtB5_5ChainINtNtNtBb_5slice4iter4IterNtCs5PyYPRahy7j_10chr_syntax10ConstraintEB10_ENtNtNtB9_6traits8iterator8Iterator4folduNCINvNtB7_3map8map_foldRB1q_B1q_uNvYB1q_NtNtBb_5clone5Clone5cloneNCINvNvB2a_8for_each4callB1q_NCINvMsj_NtCscdodAO9FK5_5alloc3vecINtB4t_3VecB1q_E14extend_trustedINtNtB7_6cloned6ClonedBO_EE0E0E0ECs9NEFZWY0mIO_17chr_direct_choice
+               |          _RNvXs_NtNtCscdodAO9FK5_5alloc3vec21spec_from_iter_nestedINtB6_3VecNtCs5PyYPRahy7j_10chr_syntax10ConstraintEINtB4_18SpecFromIterNestedB12_INtNtNtNtCs4NRVxsYgnAr_4core4iter8adapters6cloned6ClonedINtNtB2g_5chain5ChainINtNtNtB2k_5slice4iter4IterB12_EB3q_EEE9from_iterCs9NEFZWY0mIO_17chr_direct_choice
+               |          _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+               |          _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+               |          _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+               |          0xffffffffffffffff
+               |
+                --1.41%--_RNvXsa_NtCscdodAO9FK5_5alloc3vecINtB5_3VecNtCs5PyYPRahy7j_10chr_syntax4TermENtNtCs4NRVxsYgnAr_4core5clone5Clone5cloneCs9NEFZWY0mIO_17chr_direct_choice
+                          _RINvXs_NtNtNtCs4NRVxsYgnAr_4core4iter8adapters5chainINtB5_5ChainINtNtNtBb_5slice4iter4IterNtCs5PyYPRahy7j_10chr_syntax10ConstraintEB10_ENtNtNtB9_6traits8iterator8Iterator4folduNCINvNtB7_3map8map_foldRB1q_B1q_uNvYB1q_NtNtBb_5clone5Clone5cloneNCINvNvB2a_8for_each4callB1q_NCINvMsj_NtCscdodAO9FK5_5alloc3vecINtB4t_3VecB1q_E14extend_trustedINtNtB7_6cloned6ClonedBO_EE0E0E0ECs9NEFZWY0mIO_17chr_direct_choice
+                          _RNvXs_NtNtCscdodAO9FK5_5alloc3vec21spec_from_iter_nestedINtB6_3VecNtCs5PyYPRahy7j_10chr_syntax10ConstraintEINtB4_18SpecFromIterNestedB12_INtNtNtNtCs4NRVxsYgnAr_4core4iter8adapters6cloned6ClonedINtNtB2g_5chain5ChainINtNtNtB2k_5slice4iter4IterB12_EB3q_EEE9from_iterCs9NEFZWY0mIO_17chr_direct_choice
+                          _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+                          _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+                          _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+                          0xffffffffffffffff
+
+     7.04%  [.] malloc                                                                                                                                                                                                                                                                                                                                                                                           -      -
+            |
+            |--1.41%--_RNvMs4_NtNtNtNtCscdodAO9FK5_5alloc11collections5btree3map5entryINtB5_11VacantEntryNtCs9NEFZWY0mIO_17chr_direct_choice5LabelbE12insert_entryB1k_
+            |          _RNvMCs9NEFZWY0mIO_17chr_direct_choiceNtB2_7Context12intersection
+            |          _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine5heads
+            |          _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+            |          _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+            |          _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+            |          0xffffffffffffffff
+            |
+            |--1.41%--_RINvNvXs0_NtNtNtCscdodAO9FK5_5alloc11collections5btree3mapINtB8_8BTreeMappppENtNtCs4NRVxsYgnAr_4core5clone5Clone5clone13clone_subtreeNtCs9NEFZWY0mIO_17chr_direct_choice5LabelbNtNtBe_5alloc6GlobalEB29_.llvm.16268479243634136277
+            |          _RNvMCs9NEFZWY0mIO_17chr_direct_choiceNtB2_7Context8subtract
+            |          _RNvXs1_NtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flattenINtB5_7FlatMapINtNtNtBb_5slice4iter4IterNtCs9NEFZWY0mIO_17chr_direct_choice7ContextEINtNtCscdodAO9FK5_5alloc3vec3VecB1u_ENCNvMNtB1w_8equalityNtB1w_5Graph4live0ENtNtNtB9_6traits8iterator8Iterator4nextB1w_
+            |          _RNvXNtNtCscdodAO9FK5_5alloc3vec21spec_from_iter_nestedINtB4_3VecNtCs9NEFZWY0mIO_17chr_direct_choice7ContextEINtB2_18SpecFromIterNestedB10_INtNtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flatten7FlatMapINtNtNtB2l_5slice4iter4IterB10_EBQ_NCNvMNtB12_8equalityNtB12_5Graph7resolve0EE9from_iterB12_
+            |          _RNvNtCs9NEFZWY0mIO_17chr_direct_choice6engine8subtract
+            |          _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+            |          _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+            |          _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+            |          0xffffffffffffffff
+            |
+            |--1.41%--_RNvXsa_NtCscdodAO9FK5_5alloc3vecINtB5_3VecNtCs5PyYPRahy7j_10chr_syntax4TermENtNtCs4NRVxsYgnAr_4core5clone5Clone5cloneCs9NEFZWY0mIO_17chr_direct_choice
+            |          _RNvXsa_NtCscdodAO9FK5_5alloc3vecINtB5_3VecNtCs5PyYPRahy7j_10chr_syntax4TermENtNtCs4NRVxsYgnAr_4core5clone5Clone5cloneCs9NEFZWY0mIO_17chr_direct_choice
+            |          _RINvXs_NtNtNtCs4NRVxsYgnAr_4core4iter8adapters5chainINtB5_5ChainINtNtNtBb_5slice4iter4IterNtCs5PyYPRahy7j_10chr_syntax10ConstraintEB10_ENtNtNtB9_6traits8iterator8Iterator4folduNCINvNtB7_3map8map_foldRB1q_B1q_uNvYB1q_NtNtBb_5clone5Clone5cloneNCINvNvB2a_8for_each4callB1q_NCINvMsj_NtCscdodAO9FK5_5alloc3vecINtB4t_3VecB1q_E14extend_trustedINtNtB7_6cloned6ClonedBO_EE0E0E0ECs9NEFZWY0mIO_17chr_direct_choice
+            |          _RNvXs_NtNtCscdodAO9FK5_5alloc3vec21spec_from_iter_nestedINtB6_3VecNtCs5PyYPRahy7j_10chr_syntax10ConstraintEINtB4_18SpecFromIterNestedB12_INtNtNtNtCs4NRVxsYgnAr_4core4iter8adapters6cloned6ClonedINtNtB2g_5chain5ChainINtNtNtB2k_5slice4iter4IterB12_EB3q_EEE9from_iterCs9NEFZWY0mIO_17chr_direct_choice
+            |          _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+            |          _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+            |          _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+            |          0xffffffffffffffff
+            |
+            |--1.41%--_RNvXNtNtCscdodAO9FK5_5alloc3vec21spec_from_iter_nestedINtB4_3VecNtCs9NEFZWY0mIO_17chr_direct_choice7ContextEINtB2_18SpecFromIterNestedB10_INtNtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flatten7FlatMapINtNtNtB2l_5slice4iter4IterB10_EBQ_NCNvMNtB12_8equalityNtB12_5Graph7resolve0EE9from_iterB12_
+            |          _RNvNtCs9NEFZWY0mIO_17chr_direct_choice6engine8subtract
+            |          _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+            |          _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+            |          _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+            |          0xffffffffffffffff
+            |
+             --1.41%--_RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine5heads
+                       _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+                       _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+                       _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+                       0xffffffffffffffff
+
+     5.63%  [.] _RNvMCs9NEFZWY0mIO_17chr_direct_choiceNtB2_7Context12intersection                                                                                                                                                                                                                                                                                                                                -      -
+            |
+            ---_RNvMCs9NEFZWY0mIO_17chr_direct_choiceNtB2_7Context8subtract
+               _RNvXs1_NtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flattenINtB5_7FlatMapINtNtNtBb_5slice4iter4IterNtCs9NEFZWY0mIO_17chr_direct_choice7ContextEINtNtCscdodAO9FK5_5alloc3vec3VecB1u_ENCNvMNtB1w_8equalityNtB1w_5Graph4live0ENtNtNtB9_6traits8iterator8Iterator4nextB1w_
+               _RNvXNtNtCscdodAO9FK5_5alloc3vec21spec_from_iter_nestedINtB4_3VecNtCs9NEFZWY0mIO_17chr_direct_choice7ContextEINtB2_18SpecFromIterNestedB10_INtNtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flatten7FlatMapINtNtNtB2l_5slice4iter4IterB10_EBQ_NCNvMNtB12_8equalityNtB12_5Graph7resolve0EE9from_iterB12_
+               _RNvNtCs9NEFZWY0mIO_17chr_direct_choice6engine8subtract
+               _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+               _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+               _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+               0xffffffffffffffff
+
+     5.63%  [.] _RNvXNtNtNtCscdodAO9FK5_5alloc11collections5btree3mapINtB2_8BTreeMapNtCs9NEFZWY0mIO_17chr_direct_choice5LabelbENtNtNtCs4NRVxsYgnAr_4core3ops4drop4Drop4dropB15_                                                                                                                                                                                                                                  -      -
+            |
+            |--4.23%--_RNvMCs9NEFZWY0mIO_17chr_direct_choiceNtB2_7Context12intersection
+            |          _RNvMCs9NEFZWY0mIO_17chr_direct_choiceNtB2_7Context8subtract
+            |          _RNvXs1_NtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flattenINtB5_7FlatMapINtNtNtBb_5slice4iter4IterNtCs9NEFZWY0mIO_17chr_direct_choice7ContextEINtNtCscdodAO9FK5_5alloc3vec3VecB1u_ENCNvMNtB1w_8equalityNtB1w_5Graph4live0ENtNtNtB9_6traits8iterator8Iterator4nextB1w_
+            |          _RNvXNtNtCscdodAO9FK5_5alloc3vec21spec_from_iter_nestedINtB4_3VecNtCs9NEFZWY0mIO_17chr_direct_choice7ContextEINtB2_18SpecFromIterNestedB10_INtNtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flatten7FlatMapINtNtNtB2l_5slice4iter4IterB10_EBQ_NCNvMNtB12_8equalityNtB12_5Graph7resolve0EE9from_iterB12_
+            |          _RNvNtCs9NEFZWY0mIO_17chr_direct_choice6engine8subtract
+            |          _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+            |          _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+            |          _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+            |          0xffffffffffffffff
+            |
+             --1.41%--_RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+                       _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+                       _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+                       0xffffffffffffffff
+
+     5.63%  [.] 0x00000000000a26c9                                                                                                                                                                                                                                                                                                                                                                               -      -
+            |
+            ---cfree
+               |
+               |--1.41%--_RNvMs0_Cs9NEFZWY0mIO_17chr_direct_choiceNtB5_9Resources7consume
+               |          _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+               |          _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+               |          _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+               |          0xffffffffffffffff
+               |
+               |--1.41%--_RNvMCs9NEFZWY0mIO_17chr_direct_choiceNtB2_7Context8subtract
+               |          _RNvXs1_NtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flattenINtB5_7FlatMapINtNtNtBb_5slice4iter4IterNtCs9NEFZWY0mIO_17chr_direct_choice7ContextEINtNtCscdodAO9FK5_5alloc3vec3VecB1u_ENCNvMNtB1w_8equalityNtB1w_5Graph4live0ENtNtNtB9_6traits8iterator8Iterator4nextB1w_
+               |          _RNvXNtNtCscdodAO9FK5_5alloc3vec21spec_from_iter_nestedINtB4_3VecNtCs9NEFZWY0mIO_17chr_direct_choice7ContextEINtB2_18SpecFromIterNestedB10_INtNtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flatten7FlatMapINtNtNtB2l_5slice4iter4IterB10_EBQ_NCNvMNtB12_8equalityNtB12_5Graph7resolve0EE9from_iterB12_
+               |          _RNvNtCs9NEFZWY0mIO_17chr_direct_choice6engine8subtract
+               |          _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+               |          _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+               |          _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+               |          0xffffffffffffffff
+               |
+               |--1.41%--_RNvMCs9NEFZWY0mIO_17chr_direct_choiceNtB2_7Context12intersection
+               |          _RNvMCs9NEFZWY0mIO_17chr_direct_choiceNtB2_7Context8subtract
+               |          _RNvXs1_NtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flattenINtB5_7FlatMapINtNtNtBb_5slice4iter4IterNtCs9NEFZWY0mIO_17chr_direct_choice7ContextEINtNtCscdodAO9FK5_5alloc3vec3VecB1u_ENCNvMNtB1w_8equalityNtB1w_5Graph4live0ENtNtNtB9_6traits8iterator8Iterator4nextB1w_
+               |          _RNvXNtNtCscdodAO9FK5_5alloc3vec21spec_from_iter_nestedINtB4_3VecNtCs9NEFZWY0mIO_17chr_direct_choice7ContextEINtB2_18SpecFromIterNestedB10_INtNtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flatten7FlatMapINtNtNtB2l_5slice4iter4IterB10_EBQ_NCNvMNtB12_8equalityNtB12_5Graph7resolve0EE9from_iterB12_
+               |          _RNvNtCs9NEFZWY0mIO_17chr_direct_choice6engine8subtract
+               |          _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+               |          _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+               |          _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+               |          0xffffffffffffffff
+               |
+                --1.41%--_RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+                          _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+                          _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+                          0xffffffffffffffff
+
+     4.23%  [.] _RNvMs4_NtNtNtNtCscdodAO9FK5_5alloc11collections5btree3map5entryINtB5_11VacantEntryNtCs9NEFZWY0mIO_17chr_direct_choice5LabelbE12insert_entryB1k_                                                                                                                                                                                                                                                 -      -
+            |
+            |--2.82%--_RNvMCs9NEFZWY0mIO_17chr_direct_choiceNtB2_7Context8subtract
+            |          _RNvXs1_NtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flattenINtB5_7FlatMapINtNtNtBb_5slice4iter4IterNtCs9NEFZWY0mIO_17chr_direct_choice7ContextEINtNtCscdodAO9FK5_5alloc3vec3VecB1u_ENCNvMNtB1w_8equalityNtB1w_5Graph4live0ENtNtNtB9_6traits8iterator8Iterator4nextB1w_
+            |          _RNvXNtNtCscdodAO9FK5_5alloc3vec21spec_from_iter_nestedINtB4_3VecNtCs9NEFZWY0mIO_17chr_direct_choice7ContextEINtB2_18SpecFromIterNestedB10_INtNtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flatten7FlatMapINtNtNtB2l_5slice4iter4IterB10_EBQ_NCNvMNtB12_8equalityNtB12_5Graph7resolve0EE9from_iterB12_
+            |          _RNvNtCs9NEFZWY0mIO_17chr_direct_choice6engine8subtract
+            |          _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+            |          _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+            |          _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+            |          0xffffffffffffffff
+            |
+             --1.41%--_RNvMCs9NEFZWY0mIO_17chr_direct_choiceNtB2_7Context12intersection
+                       _RNvMCs9NEFZWY0mIO_17chr_direct_choiceNtB2_7Context8subtract
+                       _RNvXs1_NtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flattenINtB5_7FlatMapINtNtNtBb_5slice4iter4IterNtCs9NEFZWY0mIO_17chr_direct_choice7ContextEINtNtCscdodAO9FK5_5alloc3vec3VecB1u_ENCNvMNtB1w_8equalityNtB1w_5Graph4live0ENtNtNtB9_6traits8iterator8Iterator4nextB1w_
+                       _RNvXNtNtCscdodAO9FK5_5alloc3vec21spec_from_iter_nestedINtB4_3VecNtCs9NEFZWY0mIO_17chr_direct_choice7ContextEINtB2_18SpecFromIterNestedB10_INtNtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flatten7FlatMapINtNtNtB2l_5slice4iter4IterB10_EBQ_NCNvMNtB12_8equalityNtB12_5Graph7resolve0EE9from_iterB12_
+                       _RNvNtCs9NEFZWY0mIO_17chr_direct_choice6engine8subtract
+                       _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+                       _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+                       _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+                       0xffffffffffffffff
+
+     4.23%  [.] cfree                                                                                                                                                                                                                                                                                                                                                                                            -      -
+            |
+            |--2.82%--_RNvMCs9NEFZWY0mIO_17chr_direct_choiceNtB2_7Context12intersection
+            |          _RNvMCs9NEFZWY0mIO_17chr_direct_choiceNtB2_7Context8subtract
+            |          _RNvXs1_NtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flattenINtB5_7FlatMapINtNtNtBb_5slice4iter4IterNtCs9NEFZWY0mIO_17chr_direct_choice7ContextEINtNtCscdodAO9FK5_5alloc3vec3VecB1u_ENCNvMNtB1w_8equalityNtB1w_5Graph4live0ENtNtNtB9_6traits8iterator8Iterator4nextB1w_
+            |          _RNvXNtNtCscdodAO9FK5_5alloc3vec21spec_from_iter_nestedINtB4_3VecNtCs9NEFZWY0mIO_17chr_direct_choice7ContextEINtB2_18SpecFromIterNestedB10_INtNtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flatten7FlatMapINtNtNtB2l_5slice4iter4IterB10_EBQ_NCNvMNtB12_8equalityNtB12_5Graph7resolve0EE9from_iterB12_
+            |          _RNvNtCs9NEFZWY0mIO_17chr_direct_choice6engine8subtract
+            |          _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+            |          _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+            |          _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+            |          0xffffffffffffffff
+            |
+             --1.41%--_RNvNtCs9NEFZWY0mIO_17chr_direct_choice6engine8subtract
+                       _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+                       _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+                       _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+                       0xffffffffffffffff
+
+     4.23%  [.] 0x00000000000a26ff                                                                                                                                                                                                                                                                                                                                                                               -      -
+            |
+            ---cfree
+               |
+               |--1.41%--_RNvXs1_NtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flattenINtB5_7FlatMapINtNtNtCscdodAO9FK5_5alloc3vec9into_iter8IntoIterTNtCs9NEFZWY0mIO_17chr_direct_choice7ContextINtNtNtNtB1b_11collections5btree3map8BTreeMapNtCs5PyYPRahy7j_10chr_syntax3VarNtB1U_6NodeIdEEEINtB19_3VecB1R_ENCNvMs_NtB1U_6engineNtB4r_6Engine5heads0ENtNtNtB9_6traits8iterator8Iterator4nextB1U_
+               |          _RNvXNtNtCscdodAO9FK5_5alloc3vec21spec_from_iter_nestedINtB4_3VecTNtCs9NEFZWY0mIO_17chr_direct_choice7ContextINtNtNtNtB6_11collections5btree3map8BTreeMapNtCs5PyYPRahy7j_10chr_syntax3VarNtB13_6NodeIdEEEINtB2_18SpecFromIterNestedB10_INtNtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flatten7FlatMapINtNtB4_9into_iter8IntoIterB10_EBQ_NCNvMs_NtB13_6engineNtB5i_6Engine7patterns_0EE9from_iterB13_
+               |          _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine7pattern
+               |          _RNvXs1_NtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flattenINtB5_7FlatMapINtNtNtCscdodAO9FK5_5alloc3vec9into_iter8IntoIterTNtCs9NEFZWY0mIO_17chr_direct_choice7ContextINtNtNtNtB1b_11collections5btree3map8BTreeMapNtCs5PyYPRahy7j_10chr_syntax3VarNtB1U_6NodeIdEEEINtB19_3VecB1R_ENCNvMs_NtB1U_6engineNtB4r_6Engine5heads0ENtNtNtB9_6traits8iterator8Iterator4nextB1U_
+               |          _RNvXNtNtCscdodAO9FK5_5alloc3vec21spec_from_iter_nestedINtB4_3VecTNtCs9NEFZWY0mIO_17chr_direct_choice7ContextINtNtNtNtB6_11collections5btree3map8BTreeMapNtCs5PyYPRahy7j_10chr_syntax3VarNtB13_6NodeIdEEEINtB2_18SpecFromIterNestedB10_INtNtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flatten7FlatMapINtNtB4_9into_iter8IntoIterB10_EBQ_NCNvMs_NtB13_6engineNtB5i_6Engine7patterns_0EE9from_iterB13_
+               |          _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine5heads
+               |          _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+               |          _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+               |          _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+               |          0xffffffffffffffff
+               |
+               |--1.41%--_RNvNtCs9NEFZWY0mIO_17chr_direct_choice6engine8subtract
+               |          _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+               |          _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+               |          _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+               |          0xffffffffffffffff
+               |
+                --1.41%--_RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+                          _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+                          _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+                          0xffffffffffffffff
+
+     2.82%  [.] _RNvXs1_NtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flattenINtB5_7FlatMapINtNtNtBb_5slice4iter4IterNtCs9NEFZWY0mIO_17chr_direct_choice7ContextEINtNtCscdodAO9FK5_5alloc3vec3VecB1u_ENCNvMNtB1w_8equalityNtB1w_5Graph4live0ENtNtNtB9_6traits8iterator8Iterator4nextB1w_                                                                                                                               -      -
+            |
+            ---_RNvXNtNtCscdodAO9FK5_5alloc3vec21spec_from_iter_nestedINtB4_3VecNtCs9NEFZWY0mIO_17chr_direct_choice7ContextEINtB2_18SpecFromIterNestedB10_INtNtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flatten7FlatMapINtNtNtB2l_5slice4iter4IterB10_EBQ_NCNvMNtB12_8equalityNtB12_5Graph7resolve0EE9from_iterB12_
+               |
+               |--1.41%--_RNvNtCs9NEFZWY0mIO_17chr_direct_choice6engine8subtract
+               |          _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+               |          _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+               |          _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+               |          0xffffffffffffffff
+               |
+                --1.41%--_RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+                          _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+                          _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+                          0xffffffffffffffff
+
+     1.41%  [.] _RINvXs2_NtNtNtCscdodAO9FK5_5alloc11collections9vec_deque4iterINtB6_4IterNtNtCs9NEFZWY0mIO_17chr_direct_choice6engine7PendingENtNtNtNtCs4NRVxsYgnAr_4core4iter6traits8iterator8Iterator4folduNCINvNtNtB25_8adapters3map8map_foldRB18_NtB1c_7ContextuNCNvMs_B1a_NtB1a_6Engine4tick0NCINvNvB1Z_8for_each4callB3E_NCINvMsj_NtBc_3vecINtB4Z_3VecB3E_E14extend_trustedINtB35_3MapBX_B3T_EE0E0E0EB1c_  -      -
+            |
+            ---_RNvXs_NtNtCscdodAO9FK5_5alloc3vec21spec_from_iter_nestedINtB6_3VecNtCs9NEFZWY0mIO_17chr_direct_choice7ContextEINtB4_18SpecFromIterNestedB12_INtNtNtNtCs4NRVxsYgnAr_4core4iter8adapters3map3MapINtNtNtNtB8_11collections9vec_deque4iter4IterNtNtB14_6engine7PendingENCNvMs_B3N_NtB3N_6Engine4tick0EE9from_iterB14_
+               _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+               _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+               _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+               0xffffffffffffffff
+
+     1.41%  [.] _RNvCs9wFQrvczXsK_7___rustc12___rust_alloc                                                                                                                                                                                                                                                                                                                                                       -      -
+            |
+            ---_RINvNvXs0_NtNtNtCscdodAO9FK5_5alloc11collections5btree3mapINtB8_8BTreeMappppENtNtCs4NRVxsYgnAr_4core5clone5Clone5clone13clone_subtreeNtCs9NEFZWY0mIO_17chr_direct_choice5LabelbNtNtBe_5alloc6GlobalEB29_.llvm.16268479243634136277
+               _RNvMCs9NEFZWY0mIO_17chr_direct_choiceNtB2_7Context12intersection
+               _RNvMCs9NEFZWY0mIO_17chr_direct_choiceNtB2_7Context8subtract
+               _RNvXs1_NtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flattenINtB5_7FlatMapINtNtNtBb_5slice4iter4IterNtCs9NEFZWY0mIO_17chr_direct_choice7ContextEINtNtCscdodAO9FK5_5alloc3vec3VecB1u_ENCNvMNtB1w_8equalityNtB1w_5Graph4live0ENtNtNtB9_6traits8iterator8Iterator4nextB1w_
+               _RNvXNtNtCscdodAO9FK5_5alloc3vec21spec_from_iter_nestedINtB4_3VecNtCs9NEFZWY0mIO_17chr_direct_choice7ContextEINtB2_18SpecFromIterNestedB10_INtNtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flatten7FlatMapINtNtNtB2l_5slice4iter4IterB10_EBQ_NCNvMNtB12_8equalityNtB12_5Graph7resolve0EE9from_iterB12_
+               _RNvNtCs9NEFZWY0mIO_17chr_direct_choice6engine8subtract
+               _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+               _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+               _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+               0xffffffffffffffff
+
+     1.41%  [.] _RNvCs9wFQrvczXsK_7___rustc35___rust_no_alloc_shim_is_unstable_v2                                                                                                                                                                                                                                                                                                                                -      -
+            |
+            ---_RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+               _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+               _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+               0xffffffffffffffff
+
+     1.41%  [.] _RNvMCs9NEFZWY0mIO_17chr_direct_choiceNtB2_7Context8subtract                                                                                                                                                                                                                                                                                                                                     -      -
+            |
+            ---_RNvXs1_NtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flattenINtB5_7FlatMapINtNtNtBb_5slice4iter4IterNtCs9NEFZWY0mIO_17chr_direct_choice7ContextEINtNtCscdodAO9FK5_5alloc3vec3VecB1u_ENCNvMNtB1w_8equalityNtB1w_5Graph4live0ENtNtNtB9_6traits8iterator8Iterator4nextB1w_
+               _RNvXNtNtCscdodAO9FK5_5alloc3vec21spec_from_iter_nestedINtB4_3VecNtCs9NEFZWY0mIO_17chr_direct_choice7ContextEINtB2_18SpecFromIterNestedB10_INtNtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flatten7FlatMapINtNtNtB2l_5slice4iter4IterB10_EBQ_NCNvMNtB12_8equalityNtB12_5Graph7resolve0EE9from_iterB12_
+               _RNvNtCs9NEFZWY0mIO_17chr_direct_choice6engine8subtract
+               _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+               _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+               _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+               0xffffffffffffffff
+
+     1.41%  [.] _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick                                                                                                                                                                                                                                                                                                                               -      -
+            |
+            ---_RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+               _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+               0xffffffffffffffff
+
+     1.41%  [.] _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine5heads                                                                                                                                                                                                                                                                                                                              -      -
+            |
+            ---_RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+               _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+               _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+               0xffffffffffffffff
+
+     1.41%  [.] _RNvNtCs9NEFZWY0mIO_17chr_direct_choice6engine8subtract                                                                                                                                                                                                                                                                                                                                          -      -
+            |
+            ---_RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+               _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+               _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+               0xffffffffffffffff
+
+     1.41%  [.] _RNvXs4_NtCscdodAO9FK5_5alloc6stringNtB5_6StringNtNtCs4NRVxsYgnAr_4core5clone5Clone5clone                                                                                                                                                                                                                                                                                                        -      -
+            |
+            ---_RNvXsa_NtCscdodAO9FK5_5alloc3vecINtB5_3VecNtCs5PyYPRahy7j_10chr_syntax4TermENtNtCs4NRVxsYgnAr_4core5clone5Clone5cloneCs9NEFZWY0mIO_17chr_direct_choice
+               _RINvXs_NtNtNtCs4NRVxsYgnAr_4core4iter8adapters5chainINtB5_5ChainINtNtNtBb_5slice4iter4IterNtCs5PyYPRahy7j_10chr_syntax10ConstraintEB10_ENtNtNtB9_6traits8iterator8Iterator4folduNCINvNtB7_3map8map_foldRB1q_B1q_uNvYB1q_NtNtBb_5clone5Clone5cloneNCINvNvB2a_8for_each4callB1q_NCINvMsj_NtCscdodAO9FK5_5alloc3vecINtB4t_3VecB1q_E14extend_trustedINtNtB7_6cloned6ClonedBO_EE0E0E0ECs9NEFZWY0mIO_17chr_direct_choice
+               _RNvXs_NtNtCscdodAO9FK5_5alloc3vec21spec_from_iter_nestedINtB6_3VecNtCs5PyYPRahy7j_10chr_syntax10ConstraintEINtB4_18SpecFromIterNestedB12_INtNtNtNtCs4NRVxsYgnAr_4core4iter8adapters6cloned6ClonedINtNtB2g_5chain5ChainINtNtNtB2k_5slice4iter4IterB12_EB3q_EEE9from_iterCs9NEFZWY0mIO_17chr_direct_choice
+               _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+               _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+               _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+               0xffffffffffffffff
+
+     1.41%  [.] _RNvXsa_NtCscdodAO9FK5_5alloc3vecINtB5_3VecNtCs9NEFZWY0mIO_17chr_direct_choice7ContextENtNtCs4NRVxsYgnAr_4core5clone5Clone5cloneBG_                                                                                                                                                                                                                                                              -      -
+            |
+            ---_RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+               _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+               _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+               0xffffffffffffffff
+
+     1.41%  [.] 0x00000000000a2671                                                                                                                                                                                                                                                                                                                                                                               -      -
+            |
+            ---cfree
+               _RNvMCs9NEFZWY0mIO_17chr_direct_choiceNtB2_7Context8subtract
+               _RNvXs1_NtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flattenINtB5_7FlatMapINtNtNtBb_5slice4iter4IterNtCs9NEFZWY0mIO_17chr_direct_choice7ContextEINtNtCscdodAO9FK5_5alloc3vec3VecB1u_ENCNvMNtB1w_8equalityNtB1w_5Graph4live0ENtNtNtB9_6traits8iterator8Iterator4nextB1w_
+               _RNvXNtNtCscdodAO9FK5_5alloc3vec21spec_from_iter_nestedINtB4_3VecNtCs9NEFZWY0mIO_17chr_direct_choice7ContextEINtB2_18SpecFromIterNestedB10_INtNtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flatten7FlatMapINtNtNtB2l_5slice4iter4IterB10_EBQ_NCNvMNtB12_8equalityNtB12_5Graph7resolve0EE9from_iterB12_
+               _RNvNtCs9NEFZWY0mIO_17chr_direct_choice6engine8subtract
+               _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+               _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+               _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+               0xffffffffffffffff
+
+     1.41%  [.] 0x00000000000a270b                                                                                                                                                                                                                                                                                                                                                                               -      -
+            |
+            ---cfree
+               _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+               _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+               _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+               0xffffffffffffffff
+
+     1.41%  [.] 0x00000000000a27c4                                                                                                                                                                                                                                                                                                                                                                               -      -
+            |
+            ---cfree
+               _RINvNtCs4NRVxsYgnAr_4core3ptr9drop_glueINtNtCscdodAO9FK5_5alloc3vec3VecNtCs5PyYPRahy7j_10chr_syntax4TermEECs9NEFZWY0mIO_17chr_direct_choice.llvm.2434755565475014215
+               _RINvNtCs4NRVxsYgnAr_4core3ptr9drop_glueINtNtCscdodAO9FK5_5alloc3vec3VecNtCs5PyYPRahy7j_10chr_syntax4TermEECs9NEFZWY0mIO_17chr_direct_choice.llvm.2434755565475014215
+               _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+               _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+               _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+               0xffffffffffffffff
+
+     1.41%  [.] 0x00000000000a29c0                                                                                                                                                                                                                                                                                                                                                                               -      -
+            |
+            ---cfree
+               _RNvNtCs9NEFZWY0mIO_17chr_direct_choice6engine8subtract
+               _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+               _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+               _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+               0xffffffffffffffff
+
+     1.41%  [.] 0x00000000000a29ce                                                                                                                                                                                                                                                                                                                                                                               -      -
+            |
+            ---cfree
+               _RNvXs1_NtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flattenINtB5_7FlatMapINtNtNtBb_5slice4iter4IterNtCs9NEFZWY0mIO_17chr_direct_choice7ContextEINtNtCscdodAO9FK5_5alloc3vec3VecB1u_ENCNvMNtB1w_8equalityNtB1w_5Graph4live0ENtNtNtB9_6traits8iterator8Iterator4nextB1w_
+               _RNvXNtNtCscdodAO9FK5_5alloc3vec21spec_from_iter_nestedINtB4_3VecNtCs9NEFZWY0mIO_17chr_direct_choice7ContextEINtB2_18SpecFromIterNestedB10_INtNtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flatten7FlatMapINtNtNtB2l_5slice4iter4IterB10_EBQ_NCNvMNtB12_8equalityNtB12_5Graph7resolve0EE9from_iterB12_
+               _RNvNtCs9NEFZWY0mIO_17chr_direct_choice6engine8subtract
+               _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+               _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+               _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+               0xffffffffffffffff
+
+     1.41%  [.] 0x00000000000a29dd                                                                                                                                                                                                                                                                                                                                                                               -      -
+            |
+            ---cfree
+               _RNvMCs9NEFZWY0mIO_17chr_direct_choiceNtB2_7Context12intersection
+               _RNvMCs9NEFZWY0mIO_17chr_direct_choiceNtB2_7Context8subtract
+               _RNvXs1_NtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flattenINtB5_7FlatMapINtNtNtBb_5slice4iter4IterNtCs9NEFZWY0mIO_17chr_direct_choice7ContextEINtNtCscdodAO9FK5_5alloc3vec3VecB1u_ENCNvMNtB1w_8equalityNtB1w_5Graph4live0ENtNtNtB9_6traits8iterator8Iterator4nextB1w_
+               _RNvXNtNtCscdodAO9FK5_5alloc3vec21spec_from_iter_nestedINtB4_3VecNtCs9NEFZWY0mIO_17chr_direct_choice7ContextEINtB2_18SpecFromIterNestedB10_INtNtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flatten7FlatMapINtNtNtB2l_5slice4iter4IterB10_EBQ_NCNvMNtB12_8equalityNtB12_5Graph7resolve0EE9from_iterB12_
+               _RNvNtCs9NEFZWY0mIO_17chr_direct_choice6engine8subtract
+               _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+               _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+               _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+               0xffffffffffffffff
+
+     1.41%  [.] 0x00000000000a29e1                                                                                                                                                                                                                                                                                                                                                                               -      -
+            |
+            ---cfree
+               _RNvMCs9NEFZWY0mIO_17chr_direct_choiceNtB2_7Context8subtract
+               _RNvXs1_NtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flattenINtB5_7FlatMapINtNtNtBb_5slice4iter4IterNtCs9NEFZWY0mIO_17chr_direct_choice7ContextEINtNtCscdodAO9FK5_5alloc3vec3VecB1u_ENCNvMNtB1w_8equalityNtB1w_5Graph4live0ENtNtNtB9_6traits8iterator8Iterator4nextB1w_
+               _RNvXNtNtCscdodAO9FK5_5alloc3vec21spec_from_iter_nestedINtB4_3VecNtCs9NEFZWY0mIO_17chr_direct_choice7ContextEINtB2_18SpecFromIterNestedB10_INtNtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flatten7FlatMapINtNtNtB2l_5slice4iter4IterB10_EBQ_NCNvMNtB12_8equalityNtB12_5Graph7resolve0EE9from_iterB12_
+               _RNvMNtCs9NEFZWY0mIO_17chr_direct_choice8equalityNtB4_5Graph7resolve
+               _RNvXs1_NtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flattenINtB5_7FlatMapINtNtNtCscdodAO9FK5_5alloc3vec9into_iter8IntoIterNtCs9NEFZWY0mIO_17chr_direct_choice7ContextEINtB19_3VecTB1R_NtB1T_4ViewEENCNvMs_B1T_NtB1T_5Graph6expose0ENtNtNtB9_6traits8iterator8Iterator4nextB1T_
+               _RNvXNtNtCscdodAO9FK5_5alloc3vec21spec_from_iter_nestedINtB4_3VecTNtCs9NEFZWY0mIO_17chr_direct_choice7ContextNtB13_4ViewEEINtB2_18SpecFromIterNestedB10_INtNtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flatten7FlatMapINtNtB4_9into_iter8IntoIterB11_EBQ_NCNvMs_B13_NtB13_5Graph6expose0EE9from_iterB13_
+               _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine7pattern
+               _RNvXs1_NtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flattenINtB5_7FlatMapINtNtNtCscdodAO9FK5_5alloc3vec9into_iter8IntoIterTNtCs9NEFZWY0mIO_17chr_direct_choice7ContextINtNtNtNtB1b_11collections5btree3map8BTreeMapNtCs5PyYPRahy7j_10chr_syntax3VarNtB1U_6NodeIdEEEINtB19_3VecB1R_ENCNvMs_NtB1U_6engineNtB4r_6Engine5heads0ENtNtNtB9_6traits8iterator8Iterator4nextB1U_
+               _RNvXNtNtCscdodAO9FK5_5alloc3vec21spec_from_iter_nestedINtB4_3VecTNtCs9NEFZWY0mIO_17chr_direct_choice7ContextINtNtNtNtB6_11collections5btree3map8BTreeMapNtCs5PyYPRahy7j_10chr_syntax3VarNtB13_6NodeIdEEEINtB2_18SpecFromIterNestedB10_INtNtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flatten7FlatMapINtNtB4_9into_iter8IntoIterB10_EBQ_NCNvMs_NtB13_6engineNtB5i_6Engine7patterns_0EE9from_iterB13_
+               _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine7pattern
+               _RNvXs1_NtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flattenINtB5_7FlatMapINtNtNtCscdodAO9FK5_5alloc3vec9into_iter8IntoIterTNtCs9NEFZWY0mIO_17chr_direct_choice7ContextINtNtNtNtB1b_11collections5btree3map8BTreeMapNtCs5PyYPRahy7j_10chr_syntax3VarNtB1U_6NodeIdEEEINtB19_3VecB1R_ENCNvMs_NtB1U_6engineNtB4r_6Engine5heads0ENtNtNtB9_6traits8iterator8Iterator4nextB1U_
+               _RNvXNtNtCscdodAO9FK5_5alloc3vec21spec_from_iter_nestedINtB4_3VecTNtCs9NEFZWY0mIO_17chr_direct_choice7ContextINtNtNtNtB6_11collections5btree3map8BTreeMapNtCs5PyYPRahy7j_10chr_syntax3VarNtB13_6NodeIdEEEINtB2_18SpecFromIterNestedB10_INtNtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flatten7FlatMapINtNtB4_9into_iter8IntoIterB10_EBQ_NCNvMs_NtB13_6engineNtB5i_6Engine7patterns_0EE9from_iterB13_
+               _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine5heads
+               _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+               _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+               0xffffffffffffffff
+
+     1.41%  [.] 0x00000000000a29e9                                                                                                                                                                                                                                                                                                                                                                               -      -
+            |
+            ---cfree
+               _RINvNtCs4NRVxsYgnAr_4core3ptr9drop_glueINtNtCscdodAO9FK5_5alloc3vec3VecNtCs5PyYPRahy7j_10chr_syntax4TermEECs9NEFZWY0mIO_17chr_direct_choice.llvm.2434755565475014215
+               _RINvNtCs4NRVxsYgnAr_4core3ptr9drop_glueINtNtCscdodAO9FK5_5alloc3vec3VecNtCs5PyYPRahy7j_10chr_syntax4TermEECs9NEFZWY0mIO_17chr_direct_choice.llvm.2434755565475014215
+               _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+               _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+               _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+               0xffffffffffffffff
+
+     1.41%  [.] 0x00000000000a3ef9                                                                                                                                                                                                                                                                                                                                                                               -      -
+            |
+            ---malloc
+               _RNvXs4_NtCscdodAO9FK5_5alloc6stringNtB5_6StringNtNtCs4NRVxsYgnAr_4core5clone5Clone5clone
+               _RNvXs1_NtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flattenINtB5_7FlatMapINtNtNtCscdodAO9FK5_5alloc3vec9into_iter8IntoIterTNtCs9NEFZWY0mIO_17chr_direct_choice7ContextNtB1U_6NodeIdEEINtB19_3VecTB1S_NtB1U_4ViewEENCNCNvMs_B1U_NtB1U_5Graph6expose00ENtNtNtB9_6traits8iterator8Iterator4nextB1U_
+               _RNvXs1_NtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flattenINtB5_7FlatMapINtNtNtCscdodAO9FK5_5alloc3vec9into_iter8IntoIterNtCs9NEFZWY0mIO_17chr_direct_choice7ContextEINtB19_3VecTB1R_NtB1T_4ViewEENCNvMs_B1T_NtB1T_5Graph6expose0ENtNtNtB9_6traits8iterator8Iterator4nextB1T_
+               _RNvXNtNtCscdodAO9FK5_5alloc3vec21spec_from_iter_nestedINtB4_3VecTNtCs9NEFZWY0mIO_17chr_direct_choice7ContextNtB13_4ViewEEINtB2_18SpecFromIterNestedB10_INtNtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flatten7FlatMapINtNtB4_9into_iter8IntoIterB11_EBQ_NCNvMs_B13_NtB13_5Graph6expose0EE9from_iterB13_
+               _RNvMs_Cs9NEFZWY0mIO_17chr_direct_choiceNtB4_5Graph5terms.llvm.3568868932579891516
+               _RNvMs_Cs9NEFZWY0mIO_17chr_direct_choiceNtB4_5Graph5terms.llvm.3568868932579891516
+               _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+               _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+               _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+               0xffffffffffffffff
+
+     1.41%  [.] 0x00000000000a4044                                                                                                                                                                                                                                                                                                                                                                               -      -
+            |
+            ---malloc
+               _RINvNvXs0_NtNtNtCscdodAO9FK5_5alloc11collections5btree3mapINtB8_8BTreeMappppENtNtCs4NRVxsYgnAr_4core5clone5Clone5clone13clone_subtreeNtCs9NEFZWY0mIO_17chr_direct_choice5LabelbNtNtBe_5alloc6GlobalEB29_.llvm.16268479243634136277
+               _RNvMCs9NEFZWY0mIO_17chr_direct_choiceNtB2_7Context12intersection
+               _RNvMCs9NEFZWY0mIO_17chr_direct_choiceNtB2_7Context8subtract
+               _RNvXs1_NtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flattenINtB5_7FlatMapINtNtNtBb_5slice4iter4IterNtCs9NEFZWY0mIO_17chr_direct_choice7ContextEINtNtCscdodAO9FK5_5alloc3vec3VecB1u_ENCNvMNtB1w_8equalityNtB1w_5Graph4live0ENtNtNtB9_6traits8iterator8Iterator4nextB1w_
+               _RNvXNtNtCscdodAO9FK5_5alloc3vec21spec_from_iter_nestedINtB4_3VecNtCs9NEFZWY0mIO_17chr_direct_choice7ContextEINtB2_18SpecFromIterNestedB10_INtNtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flatten7FlatMapINtNtNtB2l_5slice4iter4IterB10_EBQ_NCNvMNtB12_8equalityNtB12_5Graph7resolve0EE9from_iterB12_
+               _RNvNtCs9NEFZWY0mIO_17chr_direct_choice6engine8subtract
+               _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+               _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+               _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+               0xffffffffffffffff
+
+     1.41%  [.] 0x0000000000199be0                                                                                                                                                                                                                                                                                                                                                                               -      -
+            |
+            ---_RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine5heads
+               _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+               _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+               _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+               0xffffffffffffffff
+
+     1.41%  [.] 0x00000000001a0886                                                                                                                                                                                                                                                                                                                                                                               -      -
+            |
+            ---_RNvXs4_NtCscdodAO9FK5_5alloc6stringNtB5_6StringNtNtCs4NRVxsYgnAr_4core5clone5Clone5clone
+               _RNvXsa_NtCscdodAO9FK5_5alloc3vecINtB5_3VecNtCs5PyYPRahy7j_10chr_syntax4TermENtNtCs4NRVxsYgnAr_4core5clone5Clone5cloneCs9NEFZWY0mIO_17chr_direct_choice
+               _RNvXsa_NtCscdodAO9FK5_5alloc3vecINtB5_3VecNtCs5PyYPRahy7j_10chr_syntax4TermENtNtCs4NRVxsYgnAr_4core5clone5Clone5cloneCs9NEFZWY0mIO_17chr_direct_choice
+               _RINvXs_NtNtNtCs4NRVxsYgnAr_4core4iter8adapters5chainINtB5_5ChainINtNtNtBb_5slice4iter4IterNtCs5PyYPRahy7j_10chr_syntax10ConstraintEB10_ENtNtNtB9_6traits8iterator8Iterator4folduNCINvNtB7_3map8map_foldRB1q_B1q_uNvYB1q_NtNtBb_5clone5Clone5cloneNCINvNvB2a_8for_each4callB1q_NCINvMsj_NtCscdodAO9FK5_5alloc3vecINtB4t_3VecB1q_E14extend_trustedINtNtB7_6cloned6ClonedBO_EE0E0E0ECs9NEFZWY0mIO_17chr_direct_choice
+               _RNvXs_NtNtCscdodAO9FK5_5alloc3vec21spec_from_iter_nestedINtB6_3VecNtCs5PyYPRahy7j_10chr_syntax10ConstraintEINtB4_18SpecFromIterNestedB12_INtNtNtNtCs4NRVxsYgnAr_4core4iter8adapters6cloned6ClonedINtNtB2g_5chain5ChainINtNtNtB2k_5slice4iter4IterB12_EB3q_EEE9from_iterCs9NEFZWY0mIO_17chr_direct_choice
+               _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+               _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+               _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+               0xffffffffffffffff
+
+     1.41%  [.] 0x00000000001a08d7                                                                                                                                                                                                                                                                                                                                                                               -      -
+            |
+            ---0x7a5c22aa4b8a
+               realloc
+               _RNvMs4_NtCscdodAO9FK5_5alloc7raw_vecNtB5_11RawVecInner11finish_growCs9NEFZWY0mIO_17chr_direct_choice.llvm.14004301032757972311
+               _RINvNvMs2_NtCscdodAO9FK5_5alloc7raw_vecINtB8_11RawVecInnerpE7reserve21do_reserve_and_handleNtNtBa_5alloc6GlobalECs9NEFZWY0mIO_17chr_direct_choice
+               _RNvXNtNtCscdodAO9FK5_5alloc3vec21spec_from_iter_nestedINtB4_3VecNtCs9NEFZWY0mIO_17chr_direct_choice7ContextEINtB2_18SpecFromIterNestedB10_INtNtNtNtCs4NRVxsYgnAr_4core4iter8adapters7flatten7FlatMapINtNtNtB2l_5slice4iter4IterB10_EBQ_NCNvMNtB12_8equalityNtB12_5Graph7resolve0EE9from_iterB12_
+               _RNvNtCs9NEFZWY0mIO_17chr_direct_choice6engine8subtract
+               _RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+               _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+               _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+               0xffffffffffffffff
+
+     1.41%  [.] 0x00000000001a0974                                                                                                                                                                                                                                                                                                                                                                               -      -
+            |
+            ---_RNvMs_NtCs9NEFZWY0mIO_17chr_direct_choice6engineNtB4_6Engine4tick
+               _RNvMs0_Cs7huKvx8z0UR_13s03_lifecycleNtB5_7Running7collect
+               _RNvCs7huKvx8z0UR_13s03_lifecycle4cell
+               0xffffffffffffffff
+
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#
