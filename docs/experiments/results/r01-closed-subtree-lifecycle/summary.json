@@ -1,0 +1,8354 @@
+[
+  {
+    "version": "baseline",
+    "cell": [
+      "one-zero",
+      "Inline",
+      64,
+      4
+    ],
+    "primary_complete": 5,
+    "samples_ns": [
+      74532,
+      80955,
+      85399,
+      83048,
+      89980
+    ],
+    "complete_comparison": true,
+    "total_ns": {
+      "samples": [
+        74532,
+        80955,
+        85399,
+        83048,
+        89980
+      ],
+      "min": 74532,
+      "median": 83048,
+      "max": 89980
+    },
+    "contiguous_ns": {
+      "samples": [
+        74220,
+        80698,
+        85158,
+        82773,
+        89707
+      ],
+      "min": 74220,
+      "median": 82773,
+      "max": 89707
+    },
+    "construct_ns": {
+      "samples": [
+        61876,
+        64143,
+        69346,
+        68829,
+        73828
+      ],
+      "min": 61876,
+      "median": 68829,
+      "max": 73828
+    },
+    "first_answer_ns": {
+      "samples": [
+        71221,
+        77861,
+        81958,
+        79678,
+        86335
+      ],
+      "min": 71221,
+      "median": 79678,
+      "max": 86335
+    },
+    "search_ns": {
+      "samples": [
+        9502,
+        13844,
+        12759,
+        10998,
+        12575
+      ],
+      "min": 9502,
+      "median": 12575,
+      "max": 13844
+    },
+    "shutdown_ns": {
+      "samples": [
+        2221,
+        2106,
+        2334,
+        2310,
+        2607
+      ],
+      "min": 2106,
+      "median": 2310,
+      "max": 2607
+    },
+    "drop_ns": {
+      "samples": [
+        550,
+        543,
+        653,
+        564,
+        631
+      ],
+      "min": 543,
+      "median": 564,
+      "max": 653
+    },
+    "validation_ns": {
+      "samples": [
+        866,
+        665,
+        723,
+        748,
+        733
+      ],
+      "min": 665,
+      "median": 733,
+      "max": 866
+    },
+    "output_drop_ns": {
+      "samples": [
+        312,
+        257,
+        241,
+        275,
+        273
+      ],
+      "min": 241,
+      "median": 273,
+      "max": 312
+    },
+    "allocation": {
+      "schema_version": 1,
+      "case": "one-zero",
+      "mode": "Inline",
+      "quantum": 64,
+      "limit": 4,
+      "metrics": false,
+      "persistent_metrics": false,
+      "kernel_metrics": false,
+      "observer_metrics": false,
+      "compiled_metrics": false,
+      "metered": true,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 2,
+      "answers": 2,
+      "service_calls": 1,
+      "budget": 5000000,
+      "construct_ns": 61135,
+      "first_answer_ns": 69317,
+      "search_ns": 8231,
+      "shutdown_ns": 1628,
+      "drop_ns": 369,
+      "contiguous_ns": 71425,
+      "validation_ns": 751,
+      "output_drop_ns": 260,
+      "total_ns": 71685,
+      "retained_bytes": 0,
+      "memory": {
+        "lifecycle": {
+          "allocation_calls": 165,
+          "requested_bytes": 14030,
+          "baseline_live": 2990,
+          "peak_live": 9359,
+          "final_live": 3640
+        },
+        "output_drop": {
+          "allocation_calls": 0,
+          "requested_bytes": 0,
+          "baseline_live": 3640,
+          "peak_live": 3640,
+          "final_live": 2990
+        }
+      },
+      "work": null
+    },
+    "work": {
+      "schema_version": 1,
+      "case": "one-zero",
+      "mode": "Inline",
+      "quantum": 64,
+      "limit": 4,
+      "metrics": true,
+      "persistent_metrics": true,
+      "kernel_metrics": true,
+      "observer_metrics": true,
+      "compiled_metrics": true,
+      "metered": false,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 2,
+      "answers": 2,
+      "service_calls": 1,
+      "budget": 5000000,
+      "construct_ns": 82984,
+      "first_answer_ns": 101557,
+      "search_ns": 18693,
+      "shutdown_ns": 2719,
+      "drop_ns": 977,
+      "contiguous_ns": 105610,
+      "validation_ns": 763,
+      "output_drop_ns": 429,
+      "total_ns": 106039,
+      "retained_bytes": null,
+      "memory": {
+        "lifecycle": null,
+        "output_drop": null
+      },
+      "work": {
+        "applications": 1,
+        "actual_applications": 1,
+        "accepted_source_steps": 8,
+        "actual_source_steps": 8,
+        "products": 2,
+        "source_turns": 1,
+        "candidates": 3,
+        "specialized_applications": 0,
+        "cursor_steps": 0,
+        "history_checks": 0,
+        "transport": {
+          "issued": 1,
+          "received": 1,
+          "accepted": 1,
+          "max_outstanding": 1,
+          "owner_buffered_peak": 1,
+          "outstanding": 0,
+          "buffered": 0,
+          "unaccepted_at_shutdown": 0,
+          "actual_source_steps": 8,
+          "accepted_source_steps": 8,
+          "cancelled_requests": 0,
+          "unserved_quantum_slots": 0,
+          "prefetch_visits": 1
+        }
+      }
+    }
+  },
+  {
+    "version": "baseline",
+    "cell": [
+      "one-zero",
+      "Specialized",
+      0,
+      0
+    ],
+    "primary_complete": 5,
+    "samples_ns": [
+      121200,
+      98255,
+      110063,
+      103951,
+      101996
+    ],
+    "complete_comparison": true,
+    "total_ns": {
+      "samples": [
+        121200,
+        98255,
+        110063,
+        103951,
+        101996
+      ],
+      "min": 98255,
+      "median": 103951,
+      "max": 121200
+    },
+    "contiguous_ns": {
+      "samples": [
+        120968,
+        98047,
+        109850,
+        103723,
+        101828
+      ],
+      "min": 98047,
+      "median": 103723,
+      "max": 120968
+    },
+    "construct_ns": {
+      "samples": [
+        90929,
+        69936,
+        70513,
+        76417,
+        70397
+      ],
+      "min": 69936,
+      "median": 70513,
+      "max": 90929
+    },
+    "first_answer_ns": {
+      "samples": [
+        116922,
+        94337,
+        106091,
+        99810,
+        97491
+      ],
+      "min": 94337,
+      "median": 99810,
+      "max": 116922
+    },
+    "search_ns": {
+      "samples": [
+        27657,
+        26143,
+        37182,
+        24910,
+        28301
+      ],
+      "min": 24910,
+      "median": 27657,
+      "max": 37182
+    },
+    "shutdown_ns": {
+      "samples": [
+        42,
+        44,
+        47,
+        41,
+        37
+      ],
+      "min": 37,
+      "median": 42,
+      "max": 47
+    },
+    "drop_ns": {
+      "samples": [
+        2293,
+        1877,
+        2059,
+        2307,
+        3052
+      ],
+      "min": 1877,
+      "median": 2293,
+      "max": 3052
+    },
+    "validation_ns": {
+      "samples": [
+        774,
+        729,
+        721,
+        694,
+        656
+      ],
+      "min": 656,
+      "median": 721,
+      "max": 774
+    },
+    "output_drop_ns": {
+      "samples": [
+        232,
+        208,
+        213,
+        228,
+        168
+      ],
+      "min": 168,
+      "median": 213,
+      "max": 232
+    },
+    "allocation": {
+      "schema_version": 1,
+      "case": "one-zero",
+      "mode": "Specialized",
+      "quantum": 0,
+      "limit": 0,
+      "metrics": false,
+      "persistent_metrics": false,
+      "kernel_metrics": false,
+      "observer_metrics": false,
+      "compiled_metrics": false,
+      "metered": true,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 2,
+      "answers": 2,
+      "service_calls": 14,
+      "budget": 20000000,
+      "construct_ns": 72179,
+      "first_answer_ns": 97284,
+      "search_ns": 26849,
+      "shutdown_ns": 46,
+      "drop_ns": 2091,
+      "contiguous_ns": 101206,
+      "validation_ns": 719,
+      "output_drop_ns": 222,
+      "total_ns": 101428,
+      "retained_bytes": 0,
+      "memory": {
+        "lifecycle": {
+          "allocation_calls": 245,
+          "requested_bytes": 22569,
+          "baseline_live": 2994,
+          "peak_live": 17611,
+          "final_live": 3644
+        },
+        "output_drop": {
+          "allocation_calls": 0,
+          "requested_bytes": 0,
+          "baseline_live": 3644,
+          "peak_live": 3644,
+          "final_live": 2994
+        }
+      },
+      "work": null
+    },
+    "work": {
+      "schema_version": 1,
+      "case": "one-zero",
+      "mode": "Specialized",
+      "quantum": 0,
+      "limit": 0,
+      "metrics": true,
+      "persistent_metrics": true,
+      "kernel_metrics": true,
+      "observer_metrics": true,
+      "compiled_metrics": true,
+      "metered": false,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 2,
+      "answers": 2,
+      "service_calls": 14,
+      "budget": 20000000,
+      "construct_ns": 76166,
+      "first_answer_ns": 102902,
+      "search_ns": 28388,
+      "shutdown_ns": 42,
+      "drop_ns": 2198,
+      "contiguous_ns": 106841,
+      "validation_ns": 825,
+      "output_drop_ns": 235,
+      "total_ns": 107076,
+      "retained_bytes": null,
+      "memory": {
+        "lifecycle": null,
+        "output_drop": null
+      },
+      "work": {
+        "applications": 1,
+        "actual_applications": 1,
+        "accepted_source_steps": 13,
+        "actual_source_steps": 13,
+        "products": 0,
+        "source_turns": 0,
+        "candidates": 6,
+        "specialized_applications": 1,
+        "cursor_steps": 0,
+        "history_checks": 0,
+        "transport": {
+          "issued": 0,
+          "received": 0,
+          "accepted": 0,
+          "max_outstanding": 0,
+          "owner_buffered_peak": 0,
+          "outstanding": 0,
+          "buffered": 0,
+          "unaccepted_at_shutdown": 0,
+          "actual_source_steps": 0,
+          "accepted_source_steps": 0,
+          "cancelled_requests": 0,
+          "unserved_quantum_slots": 0,
+          "prefetch_visits": 0
+        }
+      }
+    }
+  },
+  {
+    "version": "baseline",
+    "cell": [
+      "one-work",
+      "Inline",
+      64,
+      4
+    ],
+    "primary_complete": 5,
+    "samples_ns": [
+      563561,
+      514518,
+      485977,
+      476755,
+      433111
+    ],
+    "complete_comparison": true,
+    "total_ns": {
+      "samples": [
+        563561,
+        514518,
+        485977,
+        476755,
+        433111
+      ],
+      "min": 433111,
+      "median": 485977,
+      "max": 563561
+    },
+    "contiguous_ns": {
+      "samples": [
+        563251,
+        514234,
+        485665,
+        476504,
+        432862
+      ],
+      "min": 432862,
+      "median": 485665,
+      "max": 563251
+    },
+    "construct_ns": {
+      "samples": [
+        157077,
+        127371,
+        123329,
+        121930,
+        120033
+      ],
+      "min": 120033,
+      "median": 123329,
+      "max": 157077
+    },
+    "first_answer_ns": {
+      "samples": [
+        552782,
+        506105,
+        476405,
+        466909,
+        425486
+      ],
+      "min": 425486,
+      "median": 476405,
+      "max": 552782
+    },
+    "search_ns": {
+      "samples": [
+        395790,
+        379023,
+        353139,
+        345082,
+        305514
+      ],
+      "min": 305514,
+      "median": 353139,
+      "max": 395790
+    },
+    "shutdown_ns": {
+      "samples": [
+        9500,
+        7341,
+        8561,
+        8884,
+        6841
+      ],
+      "min": 6841,
+      "median": 8561,
+      "max": 9500
+    },
+    "drop_ns": {
+      "samples": [
+        791,
+        431,
+        559,
+        483,
+        405
+      ],
+      "min": 405,
+      "median": 483,
+      "max": 791
+    },
+    "validation_ns": {
+      "samples": [
+        810,
+        619,
+        715,
+        638,
+        656
+      ],
+      "min": 619,
+      "median": 656,
+      "max": 810
+    },
+    "output_drop_ns": {
+      "samples": [
+        310,
+        284,
+        312,
+        251,
+        249
+      ],
+      "min": 249,
+      "median": 284,
+      "max": 312
+    },
+    "allocation": {
+      "schema_version": 1,
+      "case": "one-work",
+      "mode": "Inline",
+      "quantum": 64,
+      "limit": 4,
+      "metrics": false,
+      "persistent_metrics": false,
+      "kernel_metrics": false,
+      "observer_metrics": false,
+      "compiled_metrics": false,
+      "metered": true,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 2,
+      "answers": 2,
+      "service_calls": 17,
+      "budget": 5000000,
+      "construct_ns": 155231,
+      "first_answer_ns": 685101,
+      "search_ns": 529958,
+      "shutdown_ns": 10379,
+      "drop_ns": 682,
+      "contiguous_ns": 696322,
+      "validation_ns": 825,
+      "output_drop_ns": 287,
+      "total_ns": 696609,
+      "retained_bytes": 0,
+      "memory": {
+        "lifecycle": {
+          "allocation_calls": 15235,
+          "requested_bytes": 807158,
+          "baseline_live": 15534,
+          "peak_live": 124521,
+          "final_live": 16184
+        },
+        "output_drop": {
+          "allocation_calls": 0,
+          "requested_bytes": 0,
+          "baseline_live": 16184,
+          "peak_live": 16184,
+          "final_live": 15534
+        }
+      },
+      "work": null
+    },
+    "work": {
+      "schema_version": 1,
+      "case": "one-work",
+      "mode": "Inline",
+      "quantum": 64,
+      "limit": 4,
+      "metrics": true,
+      "persistent_metrics": true,
+      "kernel_metrics": true,
+      "observer_metrics": true,
+      "compiled_metrics": true,
+      "metered": false,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 2,
+      "answers": 2,
+      "service_calls": 17,
+      "budget": 5000000,
+      "construct_ns": 143323,
+      "first_answer_ns": 494035,
+      "search_ns": 350880,
+      "shutdown_ns": 8341,
+      "drop_ns": 1014,
+      "contiguous_ns": 503663,
+      "validation_ns": 749,
+      "output_drop_ns": 277,
+      "total_ns": 503940,
+      "retained_bytes": null,
+      "memory": {
+        "lifecycle": null,
+        "output_drop": null
+      },
+      "work": {
+        "applications": 513,
+        "actual_applications": 513,
+        "accepted_source_steps": 1032,
+        "actual_source_steps": 1032,
+        "products": 2,
+        "source_turns": 17,
+        "candidates": 515,
+        "specialized_applications": 0,
+        "cursor_steps": 0,
+        "history_checks": 0,
+        "transport": {
+          "issued": 17,
+          "received": 17,
+          "accepted": 17,
+          "max_outstanding": 1,
+          "owner_buffered_peak": 1,
+          "outstanding": 0,
+          "buffered": 0,
+          "unaccepted_at_shutdown": 0,
+          "actual_source_steps": 1032,
+          "accepted_source_steps": 1032,
+          "cancelled_requests": 0,
+          "unserved_quantum_slots": 0,
+          "prefetch_visits": 17
+        }
+      }
+    }
+  },
+  {
+    "version": "baseline",
+    "cell": [
+      "one-work",
+      "Specialized",
+      0,
+      0
+    ],
+    "primary_complete": 5,
+    "samples_ns": [
+      7503098,
+      8210378,
+      7628278,
+      7577252,
+      8047144
+    ],
+    "complete_comparison": true,
+    "total_ns": {
+      "samples": [
+        7503098,
+        8210378,
+        7628278,
+        7577252,
+        8047144
+      ],
+      "min": 7503098,
+      "median": 7628278,
+      "max": 8210378
+    },
+    "contiguous_ns": {
+      "samples": [
+        7502779,
+        8210116,
+        7628035,
+        7576986,
+        8046834
+      ],
+      "min": 7502779,
+      "median": 7628035,
+      "max": 8210116
+    },
+    "construct_ns": {
+      "samples": [
+        120379,
+        151423,
+        154919,
+        124299,
+        148751
+      ],
+      "min": 120379,
+      "median": 148751,
+      "max": 154919
+    },
+    "first_answer_ns": {
+      "samples": [
+        7456584,
+        8157882,
+        7585410,
+        7525457,
+        8008132
+      ],
+      "min": 7456584,
+      "median": 7585410,
+      "max": 8157882
+    },
+    "search_ns": {
+      "samples": [
+        7375214,
+        8055313,
+        7470513,
+        7449500,
+        7895759
+      ],
+      "min": 7375214,
+      "median": 7470513,
+      "max": 8055313
+    },
+    "shutdown_ns": {
+      "samples": [
+        49,
+        49,
+        42,
+        47,
+        48
+      ],
+      "min": 42,
+      "median": 48,
+      "max": 49
+    },
+    "drop_ns": {
+      "samples": [
+        7089,
+        3290,
+        2521,
+        3092,
+        2229
+      ],
+      "min": 2229,
+      "median": 3092,
+      "max": 7089
+    },
+    "validation_ns": {
+      "samples": [
+        983,
+        984,
+        902,
+        1109,
+        938
+      ],
+      "min": 902,
+      "median": 983,
+      "max": 1109
+    },
+    "output_drop_ns": {
+      "samples": [
+        319,
+        262,
+        243,
+        266,
+        310
+      ],
+      "min": 243,
+      "median": 266,
+      "max": 319
+    },
+    "allocation": {
+      "schema_version": 1,
+      "case": "one-work",
+      "mode": "Specialized",
+      "quantum": 0,
+      "limit": 0,
+      "metrics": false,
+      "persistent_metrics": false,
+      "kernel_metrics": false,
+      "observer_metrics": false,
+      "compiled_metrics": false,
+      "metered": true,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 2,
+      "answers": 2,
+      "service_calls": 1550,
+      "budget": 20000000,
+      "construct_ns": 145939,
+      "first_answer_ns": 11989449,
+      "search_ns": 11894153,
+      "shutdown_ns": 45,
+      "drop_ns": 2838,
+      "contiguous_ns": 12043023,
+      "validation_ns": 1029,
+      "output_drop_ns": 271,
+      "total_ns": 12043294,
+      "retained_bytes": 0,
+      "memory": {
+        "lifecycle": {
+          "allocation_calls": 287783,
+          "requested_bytes": 4106957,
+          "baseline_live": 15538,
+          "peak_live": 154803,
+          "final_live": 16188
+        },
+        "output_drop": {
+          "allocation_calls": 0,
+          "requested_bytes": 0,
+          "baseline_live": 16188,
+          "peak_live": 16188,
+          "final_live": 15538
+        }
+      },
+      "work": null
+    },
+    "work": {
+      "schema_version": 1,
+      "case": "one-work",
+      "mode": "Specialized",
+      "quantum": 0,
+      "limit": 0,
+      "metrics": true,
+      "persistent_metrics": true,
+      "kernel_metrics": true,
+      "observer_metrics": true,
+      "compiled_metrics": true,
+      "metered": false,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 2,
+      "answers": 2,
+      "service_calls": 1550,
+      "budget": 20000000,
+      "construct_ns": 146769,
+      "first_answer_ns": 7816065,
+      "search_ns": 7717540,
+      "shutdown_ns": 69,
+      "drop_ns": 4018,
+      "contiguous_ns": 7868447,
+      "validation_ns": 1286,
+      "output_drop_ns": 291,
+      "total_ns": 7868738,
+      "retained_bytes": null,
+      "memory": {
+        "lifecycle": null,
+        "output_drop": null
+      },
+      "work": {
+        "applications": 513,
+        "actual_applications": 513,
+        "accepted_source_steps": 1549,
+        "actual_source_steps": 1549,
+        "products": 0,
+        "source_turns": 0,
+        "candidates": 1030,
+        "specialized_applications": 513,
+        "cursor_steps": 0,
+        "history_checks": 0,
+        "transport": {
+          "issued": 0,
+          "received": 0,
+          "accepted": 0,
+          "max_outstanding": 0,
+          "owner_buffered_peak": 0,
+          "outstanding": 0,
+          "buffered": 0,
+          "unaccepted_at_shutdown": 0,
+          "actual_source_steps": 0,
+          "accepted_source_steps": 0,
+          "cancelled_requests": 0,
+          "unserved_quantum_slots": 0,
+          "prefetch_visits": 0
+        }
+      }
+    }
+  },
+  {
+    "version": "baseline",
+    "cell": [
+      "two-work",
+      "Inline",
+      64,
+      4
+    ],
+    "primary_complete": 5,
+    "samples_ns": [
+      1016249,
+      1018453,
+      913811,
+      873298,
+      863831
+    ],
+    "complete_comparison": true,
+    "total_ns": {
+      "samples": [
+        1016249,
+        1018453,
+        913811,
+        873298,
+        863831
+      ],
+      "min": 863831,
+      "median": 913811,
+      "max": 1018453
+    },
+    "contiguous_ns": {
+      "samples": [
+        1015645,
+        1017805,
+        913299,
+        872822,
+        863312
+      ],
+      "min": 863312,
+      "median": 913299,
+      "max": 1017805
+    },
+    "construct_ns": {
+      "samples": [
+        243122,
+        234723,
+        204966,
+        198489,
+        185987
+      ],
+      "min": 185987,
+      "median": 204966,
+      "max": 243122
+    },
+    "first_answer_ns": {
+      "samples": [
+        951387,
+        934192,
+        856911,
+        817946,
+        799693
+      ],
+      "min": 799693,
+      "median": 856911,
+      "max": 951387
+    },
+    "search_ns": {
+      "samples": [
+        711946,
+        703328,
+        654876,
+        622261,
+        617391
+      ],
+      "min": 617391,
+      "median": 654876,
+      "max": 711946
+    },
+    "shutdown_ns": {
+      "samples": [
+        58803,
+        77601,
+        51742,
+        50291,
+        58472
+      ],
+      "min": 50291,
+      "median": 58472,
+      "max": 77601
+    },
+    "drop_ns": {
+      "samples": [
+        1685,
+        2048,
+        1639,
+        1693,
+        1377
+      ],
+      "min": 1377,
+      "median": 1685,
+      "max": 2048
+    },
+    "validation_ns": {
+      "samples": [
+        1532,
+        1513,
+        1293,
+        1363,
+        1261
+      ],
+      "min": 1261,
+      "median": 1363,
+      "max": 1532
+    },
+    "output_drop_ns": {
+      "samples": [
+        604,
+        648,
+        512,
+        476,
+        519
+      ],
+      "min": 476,
+      "median": 519,
+      "max": 648
+    },
+    "allocation": {
+      "schema_version": 1,
+      "case": "two-work",
+      "mode": "Inline",
+      "quantum": 64,
+      "limit": 4,
+      "metrics": false,
+      "persistent_metrics": false,
+      "kernel_metrics": false,
+      "observer_metrics": false,
+      "compiled_metrics": false,
+      "metered": true,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 4,
+      "answers": 4,
+      "service_calls": 38,
+      "budget": 5000000,
+      "construct_ns": 300332,
+      "first_answer_ns": 1441532,
+      "search_ns": 1145971,
+      "shutdown_ns": 74169,
+      "drop_ns": 2388,
+      "contiguous_ns": 1522954,
+      "validation_ns": 1692,
+      "output_drop_ns": 633,
+      "total_ns": 1523587,
+      "retained_bytes": 0,
+      "memory": {
+        "lifecycle": {
+          "allocation_calls": 30588,
+          "requested_bytes": 1618908,
+          "baseline_live": 30363,
+          "peak_live": 245327,
+          "final_live": 32771
+        },
+        "output_drop": {
+          "allocation_calls": 0,
+          "requested_bytes": 0,
+          "baseline_live": 32771,
+          "peak_live": 32771,
+          "final_live": 30363
+        }
+      },
+      "work": null
+    },
+    "work": {
+      "schema_version": 1,
+      "case": "two-work",
+      "mode": "Inline",
+      "quantum": 64,
+      "limit": 4,
+      "metrics": true,
+      "persistent_metrics": true,
+      "kernel_metrics": true,
+      "observer_metrics": true,
+      "compiled_metrics": true,
+      "metered": false,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 4,
+      "answers": 4,
+      "service_calls": 38,
+      "budget": 5000000,
+      "construct_ns": 227060,
+      "first_answer_ns": 941157,
+      "search_ns": 717514,
+      "shutdown_ns": 56516,
+      "drop_ns": 1678,
+      "contiguous_ns": 1002933,
+      "validation_ns": 1361,
+      "output_drop_ns": 527,
+      "total_ns": 1003460,
+      "retained_bytes": null,
+      "memory": {
+        "lifecycle": null,
+        "output_drop": null
+      },
+      "work": {
+        "applications": 1026,
+        "actual_applications": 1026,
+        "accepted_source_steps": 2064,
+        "actual_source_steps": 2064,
+        "products": 4,
+        "source_turns": 34,
+        "candidates": 1030,
+        "specialized_applications": 0,
+        "cursor_steps": 0,
+        "history_checks": 0,
+        "transport": {
+          "issued": 34,
+          "received": 34,
+          "accepted": 34,
+          "max_outstanding": 2,
+          "owner_buffered_peak": 2,
+          "outstanding": 0,
+          "buffered": 0,
+          "unaccepted_at_shutdown": 0,
+          "actual_source_steps": 2064,
+          "accepted_source_steps": 2064,
+          "cancelled_requests": 0,
+          "unserved_quantum_slots": 0,
+          "prefetch_visits": 68
+        }
+      }
+    }
+  },
+  {
+    "version": "baseline",
+    "cell": [
+      "two-work",
+      "Specialized",
+      0,
+      0
+    ],
+    "primary_complete": 5,
+    "samples_ns": [
+      32708505,
+      31139757,
+      33047132,
+      34760398,
+      32862291
+    ],
+    "complete_comparison": true,
+    "total_ns": {
+      "samples": [
+        32708505,
+        31139757,
+        33047132,
+        34760398,
+        32862291
+      ],
+      "min": 31139757,
+      "median": 32862291,
+      "max": 34760398
+    },
+    "contiguous_ns": {
+      "samples": [
+        32708014,
+        31139255,
+        33046596,
+        34759814,
+        32861765
+      ],
+      "min": 31139255,
+      "median": 32861765,
+      "max": 34759814
+    },
+    "construct_ns": {
+      "samples": [
+        206091,
+        187527,
+        181367,
+        157182,
+        163030
+      ],
+      "min": 157182,
+      "median": 181367,
+      "max": 206091
+    },
+    "first_answer_ns": {
+      "samples": [
+        32635068,
+        31071956,
+        32974492,
+        34672330,
+        32782647
+      ],
+      "min": 31071956,
+      "median": 32782647,
+      "max": 34672330
+    },
+    "search_ns": {
+      "samples": [
+        32497870,
+        30947227,
+        32860818,
+        34597576,
+        32693989
+      ],
+      "min": 30947227,
+      "median": 32693989,
+      "max": 34597576
+    },
+    "shutdown_ns": {
+      "samples": [
+        49,
+        48,
+        48,
+        50,
+        63
+      ],
+      "min": 48,
+      "median": 49,
+      "max": 63
+    },
+    "drop_ns": {
+      "samples": [
+        3955,
+        4376,
+        4315,
+        4953,
+        4619
+      ],
+      "min": 3955,
+      "median": 4376,
+      "max": 4953
+    },
+    "validation_ns": {
+      "samples": [
+        2211,
+        2293,
+        2568,
+        3132,
+        2095
+      ],
+      "min": 2095,
+      "median": 2293,
+      "max": 3132
+    },
+    "output_drop_ns": {
+      "samples": [
+        491,
+        502,
+        536,
+        584,
+        526
+      ],
+      "min": 491,
+      "median": 526,
+      "max": 584
+    },
+    "allocation": {
+      "schema_version": 1,
+      "case": "two-work",
+      "mode": "Specialized",
+      "quantum": 0,
+      "limit": 0,
+      "metrics": false,
+      "persistent_metrics": false,
+      "kernel_metrics": false,
+      "observer_metrics": false,
+      "compiled_metrics": false,
+      "metered": true,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 4,
+      "answers": 4,
+      "service_calls": 10284,
+      "budget": 20000000,
+      "construct_ns": 231870,
+      "first_answer_ns": 55446823,
+      "search_ns": 55296783,
+      "shutdown_ns": 57,
+      "drop_ns": 4280,
+      "contiguous_ns": 55533044,
+      "validation_ns": 2708,
+      "output_drop_ns": 692,
+      "total_ns": 55533736,
+      "retained_bytes": 0,
+      "memory": {
+        "lifecycle": {
+          "allocation_calls": 1149060,
+          "requested_bytes": 16246463,
+          "baseline_live": 30367,
+          "peak_live": 285639,
+          "final_live": 32391
+        },
+        "output_drop": {
+          "allocation_calls": 0,
+          "requested_bytes": 0,
+          "baseline_live": 32391,
+          "peak_live": 32391,
+          "final_live": 30367
+        }
+      },
+      "work": null
+    },
+    "work": {
+      "schema_version": 1,
+      "case": "two-work",
+      "mode": "Specialized",
+      "quantum": 0,
+      "limit": 0,
+      "metrics": true,
+      "persistent_metrics": true,
+      "kernel_metrics": true,
+      "observer_metrics": true,
+      "compiled_metrics": true,
+      "metered": false,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 4,
+      "answers": 4,
+      "service_calls": 10284,
+      "budget": 20000000,
+      "construct_ns": 183183,
+      "first_answer_ns": 34009469,
+      "search_ns": 33904564,
+      "shutdown_ns": 117,
+      "drop_ns": 5354,
+      "contiguous_ns": 34093272,
+      "validation_ns": 2036,
+      "output_drop_ns": 583,
+      "total_ns": 34093855,
+      "retained_bytes": null,
+      "memory": {
+        "lifecycle": null,
+        "output_drop": null
+      },
+      "work": {
+        "applications": 2051,
+        "actual_applications": 2051,
+        "accepted_source_steps": 10283,
+        "actual_source_steps": 10283,
+        "products": 0,
+        "source_turns": 0,
+        "candidates": 6166,
+        "specialized_applications": 2051,
+        "cursor_steps": 0,
+        "history_checks": 0,
+        "transport": {
+          "issued": 0,
+          "received": 0,
+          "accepted": 0,
+          "max_outstanding": 0,
+          "owner_buffered_peak": 0,
+          "outstanding": 0,
+          "buffered": 0,
+          "unaccepted_at_shutdown": 0,
+          "actual_source_steps": 0,
+          "accepted_source_steps": 0,
+          "cancelled_requests": 0,
+          "unserved_quantum_slots": 0,
+          "prefetch_visits": 0
+        }
+      }
+    }
+  },
+  {
+    "version": "baseline",
+    "cell": [
+      "owner-product",
+      "Inline",
+      64,
+      4
+    ],
+    "primary_complete": 5,
+    "samples_ns": [
+      2151783,
+      1802708,
+      1915088,
+      1910409,
+      1939397
+    ],
+    "complete_comparison": true,
+    "total_ns": {
+      "samples": [
+        2151783,
+        1802708,
+        1915088,
+        1910409,
+        1939397
+      ],
+      "min": 1802708,
+      "median": 1915088,
+      "max": 2151783
+    },
+    "contiguous_ns": {
+      "samples": [
+        2053354,
+        1713757,
+        1805285,
+        1830597,
+        1848362
+      ],
+      "min": 1713757,
+      "median": 1830597,
+      "max": 2053354
+    },
+    "construct_ns": {
+      "samples": [
+        64004,
+        59914,
+        59714,
+        49011,
+        71746
+      ],
+      "min": 49011,
+      "median": 59914,
+      "max": 71746
+    },
+    "first_answer_ns": {
+      "samples": [
+        107074,
+        100983,
+        104636,
+        83886,
+        112197
+      ],
+      "min": 83886,
+      "median": 104636,
+      "max": 112197
+    },
+    "search_ns": {
+      "samples": [
+        1848568,
+        1511147,
+        1612214,
+        1652352,
+        1654164
+      ],
+      "min": 1511147,
+      "median": 1652352,
+      "max": 1848568
+    },
+    "shutdown_ns": {
+      "samples": [
+        8622,
+        32835,
+        8351,
+        7785,
+        8560
+      ],
+      "min": 7785,
+      "median": 8560,
+      "max": 32835
+    },
+    "drop_ns": {
+      "samples": [
+        132009,
+        109732,
+        124881,
+        121323,
+        113755
+      ],
+      "min": 109732,
+      "median": 121323,
+      "max": 132009
+    },
+    "validation_ns": {
+      "samples": [
+        1364101,
+        1159608,
+        1166480,
+        1278063,
+        1278958
+      ],
+      "min": 1159608,
+      "median": 1278063,
+      "max": 1364101
+    },
+    "output_drop_ns": {
+      "samples": [
+        98429,
+        88951,
+        109803,
+        79812,
+        91035
+      ],
+      "min": 79812,
+      "median": 91035,
+      "max": 109803
+    },
+    "allocation": {
+      "schema_version": 1,
+      "case": "owner-product",
+      "mode": "Inline",
+      "quantum": 64,
+      "limit": 4,
+      "metrics": false,
+      "persistent_metrics": false,
+      "kernel_metrics": false,
+      "observer_metrics": false,
+      "compiled_metrics": false,
+      "metered": true,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 256,
+      "answers": 256,
+      "service_calls": 264,
+      "budget": 5000000,
+      "construct_ns": 62534,
+      "first_answer_ns": 113221,
+      "search_ns": 2067627,
+      "shutdown_ns": 8204,
+      "drop_ns": 133306,
+      "contiguous_ns": 2271798,
+      "validation_ns": 1316456,
+      "output_drop_ns": 124471,
+      "total_ns": 2396269,
+      "retained_bytes": 0,
+      "memory": {
+        "lifecycle": {
+          "allocation_calls": 29889,
+          "requested_bytes": 1437264,
+          "baseline_live": 496319,
+          "peak_live": 1494239,
+          "final_live": 977599
+        },
+        "output_drop": {
+          "allocation_calls": 0,
+          "requested_bytes": 0,
+          "baseline_live": 977599,
+          "peak_live": 977599,
+          "final_live": 496319
+        }
+      },
+      "work": null
+    },
+    "work": {
+      "schema_version": 1,
+      "case": "owner-product",
+      "mode": "Inline",
+      "quantum": 64,
+      "limit": 4,
+      "metrics": true,
+      "persistent_metrics": true,
+      "kernel_metrics": true,
+      "observer_metrics": true,
+      "compiled_metrics": true,
+      "metered": false,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 256,
+      "answers": 256,
+      "service_calls": 264,
+      "budget": 5000000,
+      "construct_ns": 67568,
+      "first_answer_ns": 114186,
+      "search_ns": 1645264,
+      "shutdown_ns": 8426,
+      "drop_ns": 113239,
+      "contiguous_ns": 1834749,
+      "validation_ns": 1326304,
+      "output_drop_ns": 104577,
+      "total_ns": 1939326,
+      "retained_bytes": null,
+      "memory": {
+        "lifecycle": null,
+        "output_drop": null
+      },
+      "work": {
+        "applications": 8,
+        "actual_applications": 8,
+        "accepted_source_steps": 64,
+        "actual_source_steps": 64,
+        "products": 256,
+        "source_turns": 8,
+        "candidates": 24,
+        "specialized_applications": 0,
+        "cursor_steps": 0,
+        "history_checks": 0,
+        "transport": {
+          "issued": 8,
+          "received": 8,
+          "accepted": 8,
+          "max_outstanding": 4,
+          "owner_buffered_peak": 4,
+          "outstanding": 0,
+          "buffered": 0,
+          "unaccepted_at_shutdown": 0,
+          "actual_source_steps": 64,
+          "accepted_source_steps": 64,
+          "cancelled_requests": 0,
+          "unserved_quantum_slots": 0,
+          "prefetch_visits": 44
+        }
+      }
+    }
+  },
+  {
+    "version": "baseline",
+    "cell": [
+      "owner-product",
+      "Specialized",
+      0,
+      0
+    ],
+    "primary_complete": 5,
+    "samples_ns": [
+      5941739,
+      5199873,
+      5158189,
+      5114622,
+      5916258
+    ],
+    "complete_comparison": true,
+    "total_ns": {
+      "samples": [
+        5941739,
+        5199873,
+        5158189,
+        5114622,
+        5916258
+      ],
+      "min": 5114622,
+      "median": 5199873,
+      "max": 5941739
+    },
+    "contiguous_ns": {
+      "samples": [
+        5600374,
+        4852054,
+        4774102,
+        4783846,
+        5559830
+      ],
+      "min": 4774102,
+      "median": 4852054,
+      "max": 5600374
+    },
+    "construct_ns": {
+      "samples": [
+        54555,
+        61005,
+        53966,
+        53151,
+        53504
+      ],
+      "min": 53151,
+      "median": 53966,
+      "max": 61005
+    },
+    "first_answer_ns": {
+      "samples": [
+        3302759,
+        3047378,
+        2971567,
+        3059468,
+        3696596
+      ],
+      "min": 2971567,
+      "median": 3059468,
+      "max": 3696596
+    },
+    "search_ns": {
+      "samples": [
+        5384290,
+        4686692,
+        4605896,
+        4620092,
+        5374364
+      ],
+      "min": 4605896,
+      "median": 4686692,
+      "max": 5384290
+    },
+    "shutdown_ns": {
+      "samples": [
+        55,
+        49,
+        49,
+        47,
+        41
+      ],
+      "min": 41,
+      "median": 49,
+      "max": 55
+    },
+    "drop_ns": {
+      "samples": [
+        161417,
+        104260,
+        114150,
+        110511,
+        131880
+      ],
+      "min": 104260,
+      "median": 114150,
+      "max": 161417
+    },
+    "validation_ns": {
+      "samples": [
+        1469903,
+        1689849,
+        1454874,
+        1384775,
+        1409056
+      ],
+      "min": 1384775,
+      "median": 1454874,
+      "max": 1689849
+    },
+    "output_drop_ns": {
+      "samples": [
+        341365,
+        347819,
+        384087,
+        330776,
+        356428
+      ],
+      "min": 330776,
+      "median": 347819,
+      "max": 384087
+    },
+    "allocation": {
+      "schema_version": 1,
+      "case": "owner-product",
+      "mode": "Specialized",
+      "quantum": 0,
+      "limit": 0,
+      "metrics": false,
+      "persistent_metrics": false,
+      "kernel_metrics": false,
+      "observer_metrics": false,
+      "compiled_metrics": false,
+      "metered": true,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 256,
+      "answers": 256,
+      "service_calls": 8720,
+      "budget": 20000000,
+      "construct_ns": 63015,
+      "first_answer_ns": 4114320,
+      "search_ns": 6190079,
+      "shutdown_ns": 48,
+      "drop_ns": 157062,
+      "contiguous_ns": 6410246,
+      "validation_ns": 1454462,
+      "output_drop_ns": 434419,
+      "total_ns": 6844665,
+      "retained_bytes": 0,
+      "memory": {
+        "lifecycle": {
+          "allocation_calls": 85443,
+          "requested_bytes": 6272935,
+          "baseline_live": 496323,
+          "peak_live": 4260675,
+          "final_live": 977603
+        },
+        "output_drop": {
+          "allocation_calls": 0,
+          "requested_bytes": 0,
+          "baseline_live": 977603,
+          "peak_live": 977603,
+          "final_live": 496323
+        }
+      },
+      "work": null
+    },
+    "work": {
+      "schema_version": 1,
+      "case": "owner-product",
+      "mode": "Specialized",
+      "quantum": 0,
+      "limit": 0,
+      "metrics": true,
+      "persistent_metrics": true,
+      "kernel_metrics": true,
+      "observer_metrics": true,
+      "compiled_metrics": true,
+      "metered": false,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 256,
+      "answers": 256,
+      "service_calls": 8720,
+      "budget": 20000000,
+      "construct_ns": 59728,
+      "first_answer_ns": 3086257,
+      "search_ns": 4539345,
+      "shutdown_ns": 56,
+      "drop_ns": 110147,
+      "contiguous_ns": 4709316,
+      "validation_ns": 1279693,
+      "output_drop_ns": 361393,
+      "total_ns": 5070709,
+      "retained_bytes": null,
+      "memory": {
+        "lifecycle": null,
+        "output_drop": null
+      },
+      "work": {
+        "applications": 255,
+        "actual_applications": 255,
+        "accepted_source_steps": 8719,
+        "actual_source_steps": 8719,
+        "products": 0,
+        "source_turns": 0,
+        "candidates": 4606,
+        "specialized_applications": 255,
+        "cursor_steps": 0,
+        "history_checks": 0,
+        "transport": {
+          "issued": 0,
+          "received": 0,
+          "accepted": 0,
+          "max_outstanding": 0,
+          "owner_buffered_peak": 0,
+          "outstanding": 0,
+          "buffered": 0,
+          "unaccepted_at_shutdown": 0,
+          "actual_source_steps": 0,
+          "accepted_source_steps": 0,
+          "cancelled_requests": 0,
+          "unserved_quantum_slots": 0,
+          "prefetch_visits": 0
+        }
+      }
+    }
+  },
+  {
+    "version": "baseline",
+    "cell": [
+      "asym-first",
+      "Inline",
+      64,
+      4
+    ],
+    "primary_complete": 5,
+    "samples_ns": [
+      551400,
+      511112,
+      479955,
+      481397,
+      467611
+    ],
+    "complete_comparison": true,
+    "total_ns": {
+      "samples": [
+        551400,
+        511112,
+        479955,
+        481397,
+        467611
+      ],
+      "min": 467611,
+      "median": 481397,
+      "max": 551400
+    },
+    "contiguous_ns": {
+      "samples": [
+        548727,
+        507808,
+        477512,
+        478249,
+        465059
+      ],
+      "min": 465059,
+      "median": 478249,
+      "max": 548727
+    },
+    "construct_ns": {
+      "samples": [
+        111666,
+        109212,
+        116081,
+        103796,
+        104028
+      ],
+      "min": 103796,
+      "median": 109212,
+      "max": 116081
+    },
+    "first_answer_ns": {
+      "samples": [
+        515398,
+        468550,
+        443587,
+        439358,
+        432382
+      ],
+      "min": 432382,
+      "median": 443587,
+      "max": 515398
+    },
+    "search_ns": {
+      "samples": [
+        424307,
+        382968,
+        349644,
+        358918,
+        348088
+      ],
+      "min": 348088,
+      "median": 358918,
+      "max": 424307
+    },
+    "shutdown_ns": {
+      "samples": [
+        8821,
+        10657,
+        8114,
+        10937,
+        8938
+      ],
+      "min": 8114,
+      "median": 8938,
+      "max": 10937
+    },
+    "drop_ns": {
+      "samples": [
+        3832,
+        4856,
+        3579,
+        4483,
+        3906
+      ],
+      "min": 3579,
+      "median": 3906,
+      "max": 4856
+    },
+    "validation_ns": {
+      "samples": [
+        8302,
+        9367,
+        7389,
+        8845,
+        7726
+      ],
+      "min": 7389,
+      "median": 8302,
+      "max": 9367
+    },
+    "output_drop_ns": {
+      "samples": [
+        2673,
+        3304,
+        2443,
+        3148,
+        2552
+      ],
+      "min": 2443,
+      "median": 2673,
+      "max": 3304
+    },
+    "allocation": {
+      "schema_version": 1,
+      "case": "asym-first",
+      "mode": "Inline",
+      "quantum": 64,
+      "limit": 4,
+      "metrics": false,
+      "persistent_metrics": false,
+      "kernel_metrics": false,
+      "observer_metrics": false,
+      "compiled_metrics": false,
+      "metered": true,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 16,
+      "answers": 16,
+      "service_calls": 36,
+      "budget": 5000000,
+      "construct_ns": 164291,
+      "first_answer_ns": 859022,
+      "search_ns": 739191,
+      "shutdown_ns": 19630,
+      "drop_ns": 7304,
+      "contiguous_ns": 930570,
+      "validation_ns": 12649,
+      "output_drop_ns": 4871,
+      "total_ns": 935441,
+      "retained_bytes": 0,
+      "memory": {
+        "lifecycle": {
+          "allocation_calls": 16627,
+          "requested_bytes": 887200,
+          "baseline_live": 33901,
+          "peak_live": 154519,
+          "final_live": 49325
+        },
+        "output_drop": {
+          "allocation_calls": 0,
+          "requested_bytes": 0,
+          "baseline_live": 49325,
+          "peak_live": 49325,
+          "final_live": 33901
+        }
+      },
+      "work": null
+    },
+    "work": {
+      "schema_version": 1,
+      "case": "asym-first",
+      "mode": "Inline",
+      "quantum": 64,
+      "limit": 4,
+      "metrics": true,
+      "persistent_metrics": true,
+      "kernel_metrics": true,
+      "observer_metrics": true,
+      "compiled_metrics": true,
+      "metered": false,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 16,
+      "answers": 16,
+      "service_calls": 36,
+      "budget": 5000000,
+      "construct_ns": 107021,
+      "first_answer_ns": 464210,
+      "search_ns": 379249,
+      "shutdown_ns": 9169,
+      "drop_ns": 4136,
+      "contiguous_ns": 499787,
+      "validation_ns": 8935,
+      "output_drop_ns": 2668,
+      "total_ns": 502455,
+      "retained_bytes": null,
+      "memory": {
+        "lifecycle": null,
+        "output_drop": null
+      },
+      "work": {
+        "applications": 516,
+        "actual_applications": 516,
+        "accepted_source_steps": 1056,
+        "actual_source_steps": 1056,
+        "products": 16,
+        "source_turns": 20,
+        "candidates": 524,
+        "specialized_applications": 0,
+        "cursor_steps": 0,
+        "history_checks": 0,
+        "transport": {
+          "issued": 20,
+          "received": 20,
+          "accepted": 20,
+          "max_outstanding": 4,
+          "owner_buffered_peak": 4,
+          "outstanding": 0,
+          "buffered": 0,
+          "unaccepted_at_shutdown": 0,
+          "actual_source_steps": 1056,
+          "accepted_source_steps": 1056,
+          "cancelled_requests": 0,
+          "unserved_quantum_slots": 0,
+          "prefetch_visits": 80
+        }
+      }
+    }
+  },
+  {
+    "version": "baseline",
+    "cell": [
+      "asym-first",
+      "Specialized",
+      0,
+      0
+    ],
+    "primary_complete": 5,
+    "samples_ns": [
+      72879643,
+      65205969,
+      67853498,
+      71749928,
+      67133796
+    ],
+    "complete_comparison": true,
+    "total_ns": {
+      "samples": [
+        72879643,
+        65205969,
+        67853498,
+        71749928,
+        67133796
+      ],
+      "min": 65205969,
+      "median": 67853498,
+      "max": 72879643
+    },
+    "contiguous_ns": {
+      "samples": [
+        72875687,
+        65202813,
+        67849958,
+        71746162,
+        67130414
+      ],
+      "min": 65202813,
+      "median": 67849958,
+      "max": 72875687
+    },
+    "construct_ns": {
+      "samples": [
+        120095,
+        122993,
+        111493,
+        102632,
+        105014
+      ],
+      "min": 102632,
+      "median": 111493,
+      "max": 122993
+    },
+    "first_answer_ns": {
+      "samples": [
+        72704583,
+        65051497,
+        67688327,
+        71577655,
+        66959816
+      ],
+      "min": 65051497,
+      "median": 67688327,
+      "max": 72704583
+    },
+    "search_ns": {
+      "samples": [
+        72746605,
+        65071601,
+        67729112,
+        71634490,
+        67015575
+      ],
+      "min": 65071601,
+      "median": 67729112,
+      "max": 72746605
+    },
+    "shutdown_ns": {
+      "samples": [
+        54,
+        47,
+        47,
+        49,
+        47
+      ],
+      "min": 47,
+      "median": 47,
+      "max": 54
+    },
+    "drop_ns": {
+      "samples": [
+        8880,
+        8126,
+        9256,
+        8939,
+        9729
+      ],
+      "min": 8126,
+      "median": 8939,
+      "max": 9729
+    },
+    "validation_ns": {
+      "samples": [
+        15286,
+        12937,
+        13098,
+        14384,
+        13930
+      ],
+      "min": 12937,
+      "median": 13930,
+      "max": 15286
+    },
+    "output_drop_ns": {
+      "samples": [
+        3956,
+        3156,
+        3540,
+        3766,
+        3382
+      ],
+      "min": 3156,
+      "median": 3540,
+      "max": 3956
+    },
+    "allocation": {
+      "schema_version": 1,
+      "case": "asym-first",
+      "mode": "Specialized",
+      "quantum": 0,
+      "limit": 0,
+      "metrics": false,
+      "persistent_metrics": false,
+      "kernel_metrics": false,
+      "observer_metrics": false,
+      "compiled_metrics": false,
+      "metered": true,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 16,
+      "answers": 16,
+      "service_calls": 24872,
+      "budget": 20000000,
+      "construct_ns": 135952,
+      "first_answer_ns": 100670109,
+      "search_ns": 100753021,
+      "shutdown_ns": 52,
+      "drop_ns": 10717,
+      "contiguous_ns": 100899788,
+      "validation_ns": 15537,
+      "output_drop_ns": 3774,
+      "total_ns": 100903562,
+      "retained_bytes": 0,
+      "memory": {
+        "lifecycle": {
+          "allocation_calls": 2290038,
+          "requested_bytes": 33085899,
+          "baseline_live": 33905,
+          "peak_live": 998158,
+          "final_live": 49329
+        },
+        "output_drop": {
+          "allocation_calls": 0,
+          "requested_bytes": 0,
+          "baseline_live": 49329,
+          "peak_live": 49329,
+          "final_live": 33905
+        }
+      },
+      "work": null
+    },
+    "work": {
+      "schema_version": 1,
+      "case": "asym-first",
+      "mode": "Specialized",
+      "quantum": 0,
+      "limit": 0,
+      "metrics": true,
+      "persistent_metrics": true,
+      "kernel_metrics": true,
+      "observer_metrics": true,
+      "compiled_metrics": true,
+      "metered": false,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 16,
+      "answers": 16,
+      "service_calls": 24872,
+      "budget": 20000000,
+      "construct_ns": 93529,
+      "first_answer_ns": 70812430,
+      "search_ns": 70893028,
+      "shutdown_ns": 70,
+      "drop_ns": 12153,
+      "contiguous_ns": 70998896,
+      "validation_ns": 17214,
+      "output_drop_ns": 4109,
+      "total_ns": 71003005,
+      "retained_bytes": null,
+      "memory": {
+        "lifecycle": null,
+        "output_drop": null
+      },
+      "work": {
+        "applications": 4111,
+        "actual_applications": 4111,
+        "accepted_source_steps": 24871,
+        "actual_source_steps": 24871,
+        "products": 0,
+        "source_turns": 0,
+        "candidates": 8350,
+        "specialized_applications": 4111,
+        "cursor_steps": 0,
+        "history_checks": 0,
+        "transport": {
+          "issued": 0,
+          "received": 0,
+          "accepted": 0,
+          "max_outstanding": 0,
+          "owner_buffered_peak": 0,
+          "outstanding": 0,
+          "buffered": 0,
+          "unaccepted_at_shutdown": 0,
+          "actual_source_steps": 0,
+          "accepted_source_steps": 0,
+          "cancelled_requests": 0,
+          "unserved_quantum_slots": 0,
+          "prefetch_visits": 0
+        }
+      }
+    }
+  },
+  {
+    "version": "baseline",
+    "cell": [
+      "asym-last",
+      "Inline",
+      64,
+      4
+    ],
+    "primary_complete": 5,
+    "samples_ns": [
+      498768,
+      534485,
+      549498,
+      645420,
+      538543
+    ],
+    "complete_comparison": true,
+    "total_ns": {
+      "samples": [
+        498768,
+        534485,
+        549498,
+        645420,
+        538543
+      ],
+      "min": 498768,
+      "median": 538543,
+      "max": 645420
+    },
+    "contiguous_ns": {
+      "samples": [
+        496355,
+        531779,
+        546647,
+        642530,
+        535751
+      ],
+      "min": 496355,
+      "median": 535751,
+      "max": 642530
+    },
+    "construct_ns": {
+      "samples": [
+        100904,
+        115573,
+        116763,
+        101086,
+        122524
+      ],
+      "min": 100904,
+      "median": 115573,
+      "max": 122524
+    },
+    "first_answer_ns": {
+      "samples": [
+        465805,
+        495165,
+        508720,
+        597873,
+        499167
+      ],
+      "min": 465805,
+      "median": 499167,
+      "max": 597873
+    },
+    "search_ns": {
+      "samples": [
+        383897,
+        402484,
+        414482,
+        523680,
+        398641
+      ],
+      "min": 383897,
+      "median": 402484,
+      "max": 523680
+    },
+    "shutdown_ns": {
+      "samples": [
+        7848,
+        9621,
+        10860,
+        13477,
+        9989
+      ],
+      "min": 7848,
+      "median": 9989,
+      "max": 13477
+    },
+    "drop_ns": {
+      "samples": [
+        3612,
+        3995,
+        4429,
+        4168,
+        4479
+      ],
+      "min": 3612,
+      "median": 4168,
+      "max": 4479
+    },
+    "validation_ns": {
+      "samples": [
+        7728,
+        8653,
+        9383,
+        9161,
+        8671
+      ],
+      "min": 7728,
+      "median": 8671,
+      "max": 9383
+    },
+    "output_drop_ns": {
+      "samples": [
+        2413,
+        2706,
+        2851,
+        2890,
+        2792
+      ],
+      "min": 2413,
+      "median": 2792,
+      "max": 2890
+    },
+    "allocation": {
+      "schema_version": 1,
+      "case": "asym-last",
+      "mode": "Inline",
+      "quantum": 64,
+      "limit": 4,
+      "metrics": false,
+      "persistent_metrics": false,
+      "kernel_metrics": false,
+      "observer_metrics": false,
+      "compiled_metrics": false,
+      "metered": true,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 16,
+      "answers": 16,
+      "service_calls": 36,
+      "budget": 5000000,
+      "construct_ns": 145555,
+      "first_answer_ns": 709869,
+      "search_ns": 599777,
+      "shutdown_ns": 13193,
+      "drop_ns": 5118,
+      "contiguous_ns": 763753,
+      "validation_ns": 8828,
+      "output_drop_ns": 3557,
+      "total_ns": 767310,
+      "retained_bytes": 0,
+      "memory": {
+        "lifecycle": {
+          "allocation_calls": 16627,
+          "requested_bytes": 887200,
+          "baseline_live": 33899,
+          "peak_live": 154517,
+          "final_live": 49323
+        },
+        "output_drop": {
+          "allocation_calls": 0,
+          "requested_bytes": 0,
+          "baseline_live": 49323,
+          "peak_live": 49323,
+          "final_live": 33899
+        }
+      },
+      "work": null
+    },
+    "work": {
+      "schema_version": 1,
+      "case": "asym-last",
+      "mode": "Inline",
+      "quantum": 64,
+      "limit": 4,
+      "metrics": true,
+      "persistent_metrics": true,
+      "kernel_metrics": true,
+      "observer_metrics": true,
+      "compiled_metrics": true,
+      "metered": false,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 16,
+      "answers": 16,
+      "service_calls": 36,
+      "budget": 5000000,
+      "construct_ns": 113863,
+      "first_answer_ns": 474385,
+      "search_ns": 382132,
+      "shutdown_ns": 10197,
+      "drop_ns": 4391,
+      "contiguous_ns": 510918,
+      "validation_ns": 8891,
+      "output_drop_ns": 2865,
+      "total_ns": 513783,
+      "retained_bytes": null,
+      "memory": {
+        "lifecycle": null,
+        "output_drop": null
+      },
+      "work": {
+        "applications": 516,
+        "actual_applications": 516,
+        "accepted_source_steps": 1056,
+        "actual_source_steps": 1056,
+        "products": 16,
+        "source_turns": 20,
+        "candidates": 524,
+        "specialized_applications": 0,
+        "cursor_steps": 0,
+        "history_checks": 0,
+        "transport": {
+          "issued": 20,
+          "received": 20,
+          "accepted": 20,
+          "max_outstanding": 4,
+          "owner_buffered_peak": 4,
+          "outstanding": 0,
+          "buffered": 0,
+          "unaccepted_at_shutdown": 0,
+          "actual_source_steps": 1056,
+          "accepted_source_steps": 1056,
+          "cancelled_requests": 0,
+          "unserved_quantum_slots": 0,
+          "prefetch_visits": 80
+        }
+      }
+    }
+  },
+  {
+    "version": "baseline",
+    "cell": [
+      "asym-last",
+      "Specialized",
+      0,
+      0
+    ],
+    "primary_complete": 5,
+    "samples_ns": [
+      76933560,
+      71999875,
+      68696079,
+      66971341,
+      70258752
+    ],
+    "complete_comparison": true,
+    "total_ns": {
+      "samples": [
+        76933560,
+        71999875,
+        68696079,
+        66971341,
+        70258752
+      ],
+      "min": 66971341,
+      "median": 70258752,
+      "max": 76933560
+    },
+    "contiguous_ns": {
+      "samples": [
+        76929338,
+        71996069,
+        68692623,
+        66967972,
+        70255506
+      ],
+      "min": 66967972,
+      "median": 70255506,
+      "max": 76929338
+    },
+    "construct_ns": {
+      "samples": [
+        109989,
+        114103,
+        112373,
+        100761,
+        109821
+      ],
+      "min": 100761,
+      "median": 109989,
+      "max": 114103
+    },
+    "first_answer_ns": {
+      "samples": [
+        76751015,
+        71814743,
+        68523620,
+        66819520,
+        70084279
+      ],
+      "min": 66819520,
+      "median": 70084279,
+      "max": 76751015
+    },
+    "search_ns": {
+      "samples": [
+        76809622,
+        71868954,
+        68568506,
+        66858296,
+        70134355
+      ],
+      "min": 66858296,
+      "median": 70134355,
+      "max": 76809622
+    },
+    "shutdown_ns": {
+      "samples": [
+        53,
+        59,
+        48,
+        47,
+        61
+      ],
+      "min": 47,
+      "median": 53,
+      "max": 61
+    },
+    "drop_ns": {
+      "samples": [
+        9622,
+        12898,
+        11648,
+        8819,
+        11219
+      ],
+      "min": 8819,
+      "median": 11219,
+      "max": 12898
+    },
+    "validation_ns": {
+      "samples": [
+        13262,
+        16470,
+        15119,
+        12699,
+        14530
+      ],
+      "min": 12699,
+      "median": 14530,
+      "max": 16470
+    },
+    "output_drop_ns": {
+      "samples": [
+        4222,
+        3806,
+        3456,
+        3369,
+        3246
+      ],
+      "min": 3246,
+      "median": 3456,
+      "max": 4222
+    },
+    "allocation": {
+      "schema_version": 1,
+      "case": "asym-last",
+      "mode": "Specialized",
+      "quantum": 0,
+      "limit": 0,
+      "metrics": false,
+      "persistent_metrics": false,
+      "kernel_metrics": false,
+      "observer_metrics": false,
+      "compiled_metrics": false,
+      "metered": true,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 16,
+      "answers": 16,
+      "service_calls": 49448,
+      "budget": 20000000,
+      "construct_ns": 121088,
+      "first_answer_ns": 108103648,
+      "search_ns": 108174151,
+      "shutdown_ns": 56,
+      "drop_ns": 8649,
+      "contiguous_ns": 108303990,
+      "validation_ns": 12889,
+      "output_drop_ns": 3972,
+      "total_ns": 108307962,
+      "retained_bytes": 0,
+      "memory": {
+        "lifecycle": {
+          "allocation_calls": 2366402,
+          "requested_bytes": 35243051,
+          "baseline_live": 33903,
+          "peak_live": 1000829,
+          "final_live": 49327
+        },
+        "output_drop": {
+          "allocation_calls": 0,
+          "requested_bytes": 0,
+          "baseline_live": 49327,
+          "peak_live": 49327,
+          "final_live": 33903
+        }
+      },
+      "work": null
+    },
+    "work": {
+      "schema_version": 1,
+      "case": "asym-last",
+      "mode": "Specialized",
+      "quantum": 0,
+      "limit": 0,
+      "metrics": true,
+      "persistent_metrics": true,
+      "kernel_metrics": true,
+      "observer_metrics": true,
+      "compiled_metrics": true,
+      "metered": false,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 16,
+      "answers": 16,
+      "service_calls": 49448,
+      "budget": 20000000,
+      "construct_ns": 118485,
+      "first_answer_ns": 71707015,
+      "search_ns": 71738163,
+      "shutdown_ns": 142,
+      "drop_ns": 8895,
+      "contiguous_ns": 71866185,
+      "validation_ns": 12824,
+      "output_drop_ns": 3276,
+      "total_ns": 71869461,
+      "retained_bytes": null,
+      "memory": {
+        "lifecycle": null,
+        "output_drop": null
+      },
+      "work": {
+        "applications": 4111,
+        "actual_applications": 4111,
+        "accepted_source_steps": 49447,
+        "actual_source_steps": 49447,
+        "products": 0,
+        "source_turns": 0,
+        "candidates": 32926,
+        "specialized_applications": 4111,
+        "cursor_steps": 0,
+        "history_checks": 0,
+        "transport": {
+          "issued": 0,
+          "received": 0,
+          "accepted": 0,
+          "max_outstanding": 0,
+          "owner_buffered_peak": 0,
+          "outstanding": 0,
+          "buffered": 0,
+          "unaccepted_at_shutdown": 0,
+          "actual_source_steps": 0,
+          "accepted_source_steps": 0,
+          "cancelled_requests": 0,
+          "unserved_quantum_slots": 0,
+          "prefetch_visits": 0
+        }
+      }
+    }
+  },
+  {
+    "version": "baseline",
+    "cell": [
+      "duplicate-eight",
+      "Inline",
+      64,
+      4
+    ],
+    "primary_complete": 5,
+    "samples_ns": [
+      164894,
+      147860,
+      141361,
+      170685,
+      149390
+    ],
+    "complete_comparison": true,
+    "total_ns": {
+      "samples": [
+        164894,
+        147860,
+        141361,
+        170685,
+        149390
+      ],
+      "min": 141361,
+      "median": 149390,
+      "max": 170685
+    },
+    "contiguous_ns": {
+      "samples": [
+        164474,
+        147498,
+        141009,
+        170282,
+        149023
+      ],
+      "min": 141009,
+      "median": 149023,
+      "max": 170282
+    },
+    "construct_ns": {
+      "samples": [
+        122393,
+        108333,
+        106276,
+        124156,
+        109374
+      ],
+      "min": 106276,
+      "median": 109374,
+      "max": 124156
+    },
+    "first_answer_ns": {
+      "samples": [
+        157323,
+        141623,
+        135664,
+        163521,
+        143147
+      ],
+      "min": 135664,
+      "median": 143147,
+      "max": 163521
+    },
+    "search_ns": {
+      "samples": [
+        35067,
+        33347,
+        29438,
+        39425,
+        33827
+      ],
+      "min": 29438,
+      "median": 33827,
+      "max": 39425
+    },
+    "shutdown_ns": {
+      "samples": [
+        5110,
+        4208,
+        3712,
+        4769,
+        4169
+      ],
+      "min": 3712,
+      "median": 4208,
+      "max": 5110
+    },
+    "drop_ns": {
+      "samples": [
+        1781,
+        1506,
+        1479,
+        1808,
+        1545
+      ],
+      "min": 1479,
+      "median": 1545,
+      "max": 1808
+    },
+    "validation_ns": {
+      "samples": [
+        841,
+        817,
+        744,
+        841,
+        747
+      ],
+      "min": 744,
+      "median": 817,
+      "max": 841
+    },
+    "output_drop_ns": {
+      "samples": [
+        420,
+        362,
+        352,
+        403,
+        367
+      ],
+      "min": 352,
+      "median": 367,
+      "max": 420
+    },
+    "allocation": {
+      "schema_version": 1,
+      "case": "duplicate-eight",
+      "mode": "Inline",
+      "quantum": 64,
+      "limit": 4,
+      "metrics": false,
+      "persistent_metrics": false,
+      "kernel_metrics": false,
+      "observer_metrics": false,
+      "compiled_metrics": false,
+      "metered": true,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 256,
+      "answers": 1,
+      "service_calls": 9,
+      "budget": 5000000,
+      "construct_ns": 147407,
+      "first_answer_ns": 199066,
+      "search_ns": 51798,
+      "shutdown_ns": 5856,
+      "drop_ns": 2448,
+      "contiguous_ns": 207644,
+      "validation_ns": 1076,
+      "output_drop_ns": 532,
+      "total_ns": 208176,
+      "retained_bytes": 0,
+      "memory": {
+        "lifecycle": {
+          "allocation_calls": 1300,
+          "requested_bytes": 91368,
+          "baseline_live": 25083,
+          "peak_live": 60619,
+          "final_live": 27107
+        },
+        "output_drop": {
+          "allocation_calls": 0,
+          "requested_bytes": 0,
+          "baseline_live": 27107,
+          "peak_live": 27107,
+          "final_live": 25083
+        }
+      },
+      "work": null
+    },
+    "work": {
+      "schema_version": 1,
+      "case": "duplicate-eight",
+      "mode": "Inline",
+      "quantum": 64,
+      "limit": 4,
+      "metrics": true,
+      "persistent_metrics": true,
+      "kernel_metrics": true,
+      "observer_metrics": true,
+      "compiled_metrics": true,
+      "metered": false,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 256,
+      "answers": 1,
+      "service_calls": 9,
+      "budget": 5000000,
+      "construct_ns": 151610,
+      "first_answer_ns": 189013,
+      "search_ns": 37527,
+      "shutdown_ns": 4900,
+      "drop_ns": 1951,
+      "contiguous_ns": 196387,
+      "validation_ns": 882,
+      "output_drop_ns": 388,
+      "total_ns": 196775,
+      "retained_bytes": null,
+      "memory": {
+        "lifecycle": null,
+        "output_drop": null
+      },
+      "work": {
+        "applications": 8,
+        "actual_applications": 8,
+        "accepted_source_steps": 64,
+        "actual_source_steps": 64,
+        "products": 1,
+        "source_turns": 8,
+        "candidates": 24,
+        "specialized_applications": 0,
+        "cursor_steps": 0,
+        "history_checks": 0,
+        "transport": {
+          "issued": 8,
+          "received": 8,
+          "accepted": 8,
+          "max_outstanding": 4,
+          "owner_buffered_peak": 4,
+          "outstanding": 0,
+          "buffered": 0,
+          "unaccepted_at_shutdown": 0,
+          "actual_source_steps": 64,
+          "accepted_source_steps": 64,
+          "cancelled_requests": 0,
+          "unserved_quantum_slots": 0,
+          "prefetch_visits": 44
+        }
+      }
+    }
+  },
+  {
+    "version": "baseline",
+    "cell": [
+      "duplicate-eight",
+      "Specialized",
+      0,
+      0
+    ],
+    "primary_complete": 5,
+    "samples_ns": [
+      4592162,
+      4971412,
+      4565829,
+      4884085,
+      4712942
+    ],
+    "complete_comparison": true,
+    "total_ns": {
+      "samples": [
+        4592162,
+        4971412,
+        4565829,
+        4884085,
+        4712942
+      ],
+      "min": 4565829,
+      "median": 4712942,
+      "max": 4971412
+    },
+    "contiguous_ns": {
+      "samples": [
+        4591726,
+        4971056,
+        4565399,
+        4883442,
+        4712585
+      ],
+      "min": 4565399,
+      "median": 4712585,
+      "max": 4971056
+    },
+    "construct_ns": {
+      "samples": [
+        117883,
+        140970,
+        124997,
+        122565,
+        129510
+      ],
+      "min": 117883,
+      "median": 124997,
+      "max": 140970
+    },
+    "first_answer_ns": {
+      "samples": [
+        3121253,
+        3505237,
+        3126378,
+        3083767,
+        3169277
+      ],
+      "min": 3083767,
+      "median": 3126378,
+      "max": 3505237
+    },
+    "search_ns": {
+      "samples": [
+        4445259,
+        4802710,
+        4421121,
+        4731991,
+        4554980
+      ],
+      "min": 4421121,
+      "median": 4554980,
+      "max": 4802710
+    },
+    "shutdown_ns": {
+      "samples": [
+        45,
+        41,
+        46,
+        53,
+        38
+      ],
+      "min": 38,
+      "median": 45,
+      "max": 53
+    },
+    "drop_ns": {
+      "samples": [
+        28494,
+        27293,
+        19193,
+        28775,
+        28018
+      ],
+      "min": 19193,
+      "median": 28018,
+      "max": 28775
+    },
+    "validation_ns": {
+      "samples": [
+        955,
+        932,
+        710,
+        1114,
+        1028
+      ],
+      "min": 710,
+      "median": 955,
+      "max": 1114
+    },
+    "output_drop_ns": {
+      "samples": [
+        436,
+        356,
+        430,
+        643,
+        357
+      ],
+      "min": 356,
+      "median": 430,
+      "max": 643
+    },
+    "allocation": {
+      "schema_version": 1,
+      "case": "duplicate-eight",
+      "mode": "Specialized",
+      "quantum": 0,
+      "limit": 0,
+      "metrics": false,
+      "persistent_metrics": false,
+      "kernel_metrics": false,
+      "observer_metrics": false,
+      "compiled_metrics": false,
+      "metered": true,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 256,
+      "answers": 1,
+      "service_calls": 8720,
+      "budget": 20000000,
+      "construct_ns": 124716,
+      "first_answer_ns": 3781290,
+      "search_ns": 5605649,
+      "shutdown_ns": 51,
+      "drop_ns": 18991,
+      "contiguous_ns": 5749450,
+      "validation_ns": 731,
+      "output_drop_ns": 567,
+      "total_ns": 5750017,
+      "retained_bytes": 0,
+      "memory": {
+        "lifecycle": {
+          "allocation_calls": 85175,
+          "requested_bytes": 6213840,
+          "baseline_live": 25087,
+          "peak_live": 3776687,
+          "final_live": 27111
+        },
+        "output_drop": {
+          "allocation_calls": 0,
+          "requested_bytes": 0,
+          "baseline_live": 27111,
+          "peak_live": 27111,
+          "final_live": 25087
+        }
+      },
+      "work": null
+    },
+    "work": {
+      "schema_version": 1,
+      "case": "duplicate-eight",
+      "mode": "Specialized",
+      "quantum": 0,
+      "limit": 0,
+      "metrics": true,
+      "persistent_metrics": true,
+      "kernel_metrics": true,
+      "observer_metrics": true,
+      "compiled_metrics": true,
+      "metered": false,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 256,
+      "answers": 1,
+      "service_calls": 8720,
+      "budget": 20000000,
+      "construct_ns": 116325,
+      "first_answer_ns": 2982321,
+      "search_ns": 4174376,
+      "shutdown_ns": 54,
+      "drop_ns": 24041,
+      "contiguous_ns": 4314854,
+      "validation_ns": 935,
+      "output_drop_ns": 406,
+      "total_ns": 4315260,
+      "retained_bytes": null,
+      "memory": {
+        "lifecycle": null,
+        "output_drop": null
+      },
+      "work": {
+        "applications": 255,
+        "actual_applications": 255,
+        "accepted_source_steps": 8719,
+        "actual_source_steps": 8719,
+        "products": 0,
+        "source_turns": 0,
+        "candidates": 4606,
+        "specialized_applications": 255,
+        "cursor_steps": 0,
+        "history_checks": 0,
+        "transport": {
+          "issued": 0,
+          "received": 0,
+          "accepted": 0,
+          "max_outstanding": 0,
+          "owner_buffered_peak": 0,
+          "outstanding": 0,
+          "buffered": 0,
+          "unaccepted_at_shutdown": 0,
+          "actual_source_steps": 0,
+          "accepted_source_steps": 0,
+          "cancelled_requests": 0,
+          "unserved_quantum_slots": 0,
+          "prefetch_visits": 0
+        }
+      }
+    }
+  },
+  {
+    "version": "baseline",
+    "cell": [
+      "mixed-add-infer",
+      "Inline",
+      64,
+      4
+    ],
+    "primary_complete": 5,
+    "samples_ns": [
+      94568,
+      100951,
+      112553,
+      123819,
+      118565
+    ],
+    "complete_comparison": true,
+    "total_ns": {
+      "samples": [
+        94568,
+        100951,
+        112553,
+        123819,
+        118565
+      ],
+      "min": 94568,
+      "median": 112553,
+      "max": 123819
+    },
+    "contiguous_ns": {
+      "samples": [
+        94369,
+        100749,
+        112330,
+        123569,
+        118363
+      ],
+      "min": 94369,
+      "median": 112330,
+      "max": 123569
+    },
+    "construct_ns": {
+      "samples": [
+        40836,
+        45782,
+        50599,
+        53850,
+        51108
+      ],
+      "min": 40836,
+      "median": 50599,
+      "max": 53850
+    },
+    "first_answer_ns": {
+      "samples": [
+        88405,
+        94565,
+        105298,
+        116045,
+        111155
+      ],
+      "min": 88405,
+      "median": 105298,
+      "max": 116045
+    },
+    "search_ns": {
+      "samples": [
+        47704,
+        48918,
+        54888,
+        62277,
+        60227
+      ],
+      "min": 47704,
+      "median": 54888,
+      "max": 62277
+    },
+    "shutdown_ns": {
+      "samples": [
+        4516,
+        4665,
+        5300,
+        5920,
+        5552
+      ],
+      "min": 4516,
+      "median": 5300,
+      "max": 5920
+    },
+    "drop_ns": {
+      "samples": [
+        1237,
+        1310,
+        1459,
+        1426,
+        1392
+      ],
+      "min": 1237,
+      "median": 1392,
+      "max": 1459
+    },
+    "validation_ns": {
+      "samples": [
+        594,
+        684,
+        740,
+        736,
+        825
+      ],
+      "min": 594,
+      "median": 736,
+      "max": 825
+    },
+    "output_drop_ns": {
+      "samples": [
+        199,
+        202,
+        223,
+        250,
+        202
+      ],
+      "min": 199,
+      "median": 202,
+      "max": 250
+    },
+    "allocation": {
+      "schema_version": 1,
+      "case": "mixed-add-infer",
+      "mode": "Inline",
+      "quantum": 64,
+      "limit": 4,
+      "metrics": false,
+      "persistent_metrics": false,
+      "kernel_metrics": false,
+      "observer_metrics": false,
+      "compiled_metrics": false,
+      "metered": true,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 1,
+      "answers": 1,
+      "service_calls": 3,
+      "budget": 100000,
+      "construct_ns": 38144,
+      "first_answer_ns": 94102,
+      "search_ns": 56006,
+      "shutdown_ns": 4486,
+      "drop_ns": 863,
+      "contiguous_ns": 99579,
+      "validation_ns": 525,
+      "output_drop_ns": 204,
+      "total_ns": 99783,
+      "retained_bytes": 0,
+      "memory": {
+        "lifecycle": {
+          "allocation_calls": 941,
+          "requested_bytes": 64272,
+          "baseline_live": 6901,
+          "peak_live": 31602,
+          "final_live": 7590
+        },
+        "output_drop": {
+          "allocation_calls": 0,
+          "requested_bytes": 0,
+          "baseline_live": 7590,
+          "peak_live": 7590,
+          "final_live": 6901
+        }
+      },
+      "work": null
+    },
+    "work": {
+      "schema_version": 1,
+      "case": "mixed-add-infer",
+      "mode": "Inline",
+      "quantum": 64,
+      "limit": 4,
+      "metrics": true,
+      "persistent_metrics": true,
+      "kernel_metrics": true,
+      "observer_metrics": true,
+      "compiled_metrics": true,
+      "metered": false,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 1,
+      "answers": 1,
+      "service_calls": 3,
+      "budget": 100000,
+      "construct_ns": 35789,
+      "first_answer_ns": 82079,
+      "search_ns": 46335,
+      "shutdown_ns": 4006,
+      "drop_ns": 1159,
+      "contiguous_ns": 87421,
+      "validation_ns": 491,
+      "output_drop_ns": 152,
+      "total_ns": 87573,
+      "retained_bytes": null,
+      "memory": {
+        "lifecycle": null,
+        "output_drop": null
+      },
+      "work": {
+        "applications": 8,
+        "actual_applications": 8,
+        "accepted_source_steps": 79,
+        "actual_source_steps": 79,
+        "products": 1,
+        "source_turns": 2,
+        "candidates": 8,
+        "specialized_applications": 0,
+        "cursor_steps": 0,
+        "history_checks": 0,
+        "transport": {
+          "issued": 2,
+          "received": 2,
+          "accepted": 2,
+          "max_outstanding": 2,
+          "owner_buffered_peak": 2,
+          "outstanding": 0,
+          "buffered": 0,
+          "unaccepted_at_shutdown": 0,
+          "actual_source_steps": 79,
+          "accepted_source_steps": 79,
+          "cancelled_requests": 0,
+          "unserved_quantum_slots": 0,
+          "prefetch_visits": 4
+        }
+      }
+    }
+  },
+  {
+    "version": "baseline",
+    "cell": [
+      "mixed-add-infer",
+      "Specialized",
+      0,
+      0
+    ],
+    "primary_complete": 5,
+    "samples_ns": [
+      214953,
+      246229,
+      195179,
+      248566,
+      205161
+    ],
+    "complete_comparison": true,
+    "total_ns": {
+      "samples": [
+        214953,
+        246229,
+        195179,
+        248566,
+        205161
+      ],
+      "min": 195179,
+      "median": 214953,
+      "max": 248566
+    },
+    "contiguous_ns": {
+      "samples": [
+        214714,
+        246024,
+        194972,
+        248352,
+        204908
+      ],
+      "min": 194972,
+      "median": 214714,
+      "max": 248352
+    },
+    "construct_ns": {
+      "samples": [
+        42411,
+        49408,
+        44882,
+        64417,
+        41531
+      ],
+      "min": 41531,
+      "median": 44882,
+      "max": 64417
+    },
+    "first_answer_ns": {
+      "samples": [
+        211884,
+        243156,
+        190527,
+        245040,
+        202362
+      ],
+      "min": 190527,
+      "median": 211884,
+      "max": 245040
+    },
+    "search_ns": {
+      "samples": [
+        169578,
+        193915,
+        145731,
+        180846,
+        160933
+      ],
+      "min": 145731,
+      "median": 169578,
+      "max": 193915
+    },
+    "shutdown_ns": {
+      "samples": [
+        48,
+        41,
+        37,
+        38,
+        45
+      ],
+      "min": 37,
+      "median": 41,
+      "max": 48
+    },
+    "drop_ns": {
+      "samples": [
+        2629,
+        2612,
+        4281,
+        3009,
+        2354
+      ],
+      "min": 2354,
+      "median": 2629,
+      "max": 4281
+    },
+    "validation_ns": {
+      "samples": [
+        744,
+        772,
+        477,
+        827,
+        629
+      ],
+      "min": 477,
+      "median": 744,
+      "max": 827
+    },
+    "output_drop_ns": {
+      "samples": [
+        239,
+        205,
+        207,
+        214,
+        253
+      ],
+      "min": 205,
+      "median": 214,
+      "max": 253
+    },
+    "allocation": {
+      "schema_version": 1,
+      "case": "mixed-add-infer",
+      "mode": "Specialized",
+      "quantum": 0,
+      "limit": 0,
+      "metrics": false,
+      "persistent_metrics": false,
+      "kernel_metrics": false,
+      "observer_metrics": false,
+      "compiled_metrics": false,
+      "metered": true,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 1,
+      "answers": 1,
+      "service_calls": 84,
+      "budget": 20000000,
+      "construct_ns": 59472,
+      "first_answer_ns": 240595,
+      "search_ns": 181346,
+      "shutdown_ns": 36,
+      "drop_ns": 2954,
+      "contiguous_ns": 243847,
+      "validation_ns": 794,
+      "output_drop_ns": 191,
+      "total_ns": 244038,
+      "retained_bytes": 0,
+      "memory": {
+        "lifecycle": {
+          "allocation_calls": 3201,
+          "requested_bytes": 211590,
+          "baseline_live": 6905,
+          "peak_live": 68429,
+          "final_live": 7594
+        },
+        "output_drop": {
+          "allocation_calls": 0,
+          "requested_bytes": 0,
+          "baseline_live": 7594,
+          "peak_live": 7594,
+          "final_live": 6905
+        }
+      },
+      "work": null
+    },
+    "work": {
+      "schema_version": 1,
+      "case": "mixed-add-infer",
+      "mode": "Specialized",
+      "quantum": 0,
+      "limit": 0,
+      "metrics": true,
+      "persistent_metrics": true,
+      "kernel_metrics": true,
+      "observer_metrics": true,
+      "compiled_metrics": true,
+      "metered": false,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 1,
+      "answers": 1,
+      "service_calls": 84,
+      "budget": 20000000,
+      "construct_ns": 57649,
+      "first_answer_ns": 228868,
+      "search_ns": 171454,
+      "shutdown_ns": 43,
+      "drop_ns": 3004,
+      "contiguous_ns": 232267,
+      "validation_ns": 842,
+      "output_drop_ns": 234,
+      "total_ns": 232501,
+      "retained_bytes": null,
+      "memory": {
+        "lifecycle": null,
+        "output_drop": null
+      },
+      "work": {
+        "applications": 8,
+        "actual_applications": 8,
+        "accepted_source_steps": 78,
+        "actual_source_steps": 78,
+        "products": 0,
+        "source_turns": 0,
+        "candidates": 16,
+        "specialized_applications": 8,
+        "cursor_steps": 0,
+        "history_checks": 0,
+        "transport": {
+          "issued": 0,
+          "received": 0,
+          "accepted": 0,
+          "max_outstanding": 0,
+          "owner_buffered_peak": 0,
+          "outstanding": 0,
+          "buffered": 0,
+          "unaccepted_at_shutdown": 0,
+          "actual_source_steps": 0,
+          "accepted_source_steps": 0,
+          "cancelled_requests": 0,
+          "unserved_quantum_slots": 0,
+          "prefetch_visits": 0
+        }
+      }
+    }
+  },
+  {
+    "version": "baseline",
+    "cell": [
+      "two-work",
+      "Threads1",
+      64,
+      4
+    ],
+    "primary_complete": 5,
+    "samples_ns": [
+      1370819,
+      1386998,
+      1441638,
+      1230805,
+      1227565
+    ],
+    "complete_comparison": true,
+    "total_ns": {
+      "samples": [
+        1370819,
+        1386998,
+        1441638,
+        1230805,
+        1227565
+      ],
+      "min": 1227565,
+      "median": 1370819,
+      "max": 1441638
+    },
+    "contiguous_ns": {
+      "samples": [
+        1369998,
+        1386229,
+        1441014,
+        1230172,
+        1226708
+      ],
+      "min": 1226708,
+      "median": 1369998,
+      "max": 1441014
+    },
+    "construct_ns": {
+      "samples": [
+        506584,
+        499887,
+        492928,
+        401080,
+        383670
+      ],
+      "min": 383670,
+      "median": 492928,
+      "max": 506584
+    },
+    "first_answer_ns": {
+      "samples": [
+        1310100,
+        1319878,
+        1297259,
+        1114927,
+        1169441
+      ],
+      "min": 1114927,
+      "median": 1297259,
+      "max": 1319878
+    },
+    "search_ns": {
+      "samples": [
+        808391,
+        825047,
+        808638,
+        717984,
+        791037
+      ],
+      "min": 717984,
+      "median": 808391,
+      "max": 825047
+    },
+    "shutdown_ns": {
+      "samples": [
+        52319,
+        58681,
+        136760,
+        108737,
+        49124
+      ],
+      "min": 49124,
+      "median": 58681,
+      "max": 136760
+    },
+    "drop_ns": {
+      "samples": [
+        2618,
+        2524,
+        2601,
+        2279,
+        2785
+      ],
+      "min": 2279,
+      "median": 2601,
+      "max": 2785
+    },
+    "validation_ns": {
+      "samples": [
+        1650,
+        1666,
+        1361,
+        1370,
+        1615
+      ],
+      "min": 1361,
+      "median": 1615,
+      "max": 1666
+    },
+    "output_drop_ns": {
+      "samples": [
+        821,
+        769,
+        624,
+        633,
+        857
+      ],
+      "min": 624,
+      "median": 769,
+      "max": 857
+    },
+    "allocation": {
+      "schema_version": 1,
+      "case": "two-work",
+      "mode": "Threads1",
+      "quantum": 64,
+      "limit": 4,
+      "metrics": false,
+      "persistent_metrics": false,
+      "kernel_metrics": false,
+      "observer_metrics": false,
+      "compiled_metrics": false,
+      "metered": true,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 4,
+      "answers": 4,
+      "service_calls": 38,
+      "budget": 5000000,
+      "construct_ns": 565544,
+      "first_answer_ns": 1861442,
+      "search_ns": 1301528,
+      "shutdown_ns": 83001,
+      "drop_ns": 2942,
+      "contiguous_ns": 1953117,
+      "validation_ns": 1732,
+      "output_drop_ns": 966,
+      "total_ns": 1954083,
+      "retained_bytes": 48,
+      "memory": {
+        "lifecycle": {
+          "allocation_calls": 30606,
+          "requested_bytes": 1624795,
+          "baseline_live": 30365,
+          "peak_live": 250730,
+          "final_live": 32821
+        },
+        "output_drop": {
+          "allocation_calls": 0,
+          "requested_bytes": 0,
+          "baseline_live": 32821,
+          "peak_live": 32821,
+          "final_live": 30413
+        }
+      },
+      "work": null
+    },
+    "work": {
+      "schema_version": 1,
+      "case": "two-work",
+      "mode": "Threads1",
+      "quantum": 64,
+      "limit": 4,
+      "metrics": true,
+      "persistent_metrics": true,
+      "kernel_metrics": true,
+      "observer_metrics": true,
+      "compiled_metrics": true,
+      "metered": false,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 4,
+      "answers": 4,
+      "service_calls": 38,
+      "budget": 5000000,
+      "construct_ns": 329759,
+      "first_answer_ns": 1058417,
+      "search_ns": 733158,
+      "shutdown_ns": 45572,
+      "drop_ns": 2353,
+      "contiguous_ns": 1110989,
+      "validation_ns": 1374,
+      "output_drop_ns": 627,
+      "total_ns": 1111616,
+      "retained_bytes": null,
+      "memory": {
+        "lifecycle": null,
+        "output_drop": null
+      },
+      "work": {
+        "applications": 1026,
+        "actual_applications": 1026,
+        "accepted_source_steps": 2064,
+        "actual_source_steps": 2064,
+        "products": 4,
+        "source_turns": 34,
+        "candidates": 1030,
+        "specialized_applications": 0,
+        "cursor_steps": 0,
+        "history_checks": 0,
+        "transport": {
+          "issued": 34,
+          "received": 34,
+          "accepted": 34,
+          "max_outstanding": 2,
+          "owner_buffered_peak": 1,
+          "outstanding": 0,
+          "buffered": 0,
+          "unaccepted_at_shutdown": 0,
+          "actual_source_steps": 2064,
+          "accepted_source_steps": 2064,
+          "cancelled_requests": 0,
+          "unserved_quantum_slots": 0,
+          "prefetch_visits": 68
+        }
+      }
+    }
+  },
+  {
+    "version": "baseline",
+    "cell": [
+      "two-work",
+      "Threads2",
+      64,
+      4
+    ],
+    "primary_complete": 5,
+    "samples_ns": [
+      909369,
+      886446,
+      876365,
+      865657,
+      919487
+    ],
+    "complete_comparison": true,
+    "total_ns": {
+      "samples": [
+        909369,
+        886446,
+        876365,
+        865657,
+        919487
+      ],
+      "min": 865657,
+      "median": 886446,
+      "max": 919487
+    },
+    "contiguous_ns": {
+      "samples": [
+        908596,
+        885741,
+        875650,
+        864935,
+        918784
+      ],
+      "min": 864935,
+      "median": 885741,
+      "max": 918784
+    },
+    "construct_ns": {
+      "samples": [
+        352059,
+        352886,
+        357090,
+        339649,
+        352549
+      ],
+      "min": 339649,
+      "median": 352549,
+      "max": 357090
+    },
+    "first_answer_ns": {
+      "samples": [
+        856131,
+        832895,
+        821883,
+        811417,
+        863504
+      ],
+      "min": 811417,
+      "median": 832895,
+      "max": 863504
+    },
+    "search_ns": {
+      "samples": [
+        509291,
+        484811,
+        469637,
+        476631,
+        515542
+      ],
+      "min": 469637,
+      "median": 484811,
+      "max": 515542
+    },
+    "shutdown_ns": {
+      "samples": [
+        44583,
+        45543,
+        45919,
+        45880,
+        48058
+      ],
+      "min": 44583,
+      "median": 45880,
+      "max": 48058
+    },
+    "drop_ns": {
+      "samples": [
+        2541,
+        2383,
+        2900,
+        2660,
+        2524
+      ],
+      "min": 2383,
+      "median": 2541,
+      "max": 2900
+    },
+    "validation_ns": {
+      "samples": [
+        1630,
+        1621,
+        1513,
+        1476,
+        1732
+      ],
+      "min": 1476,
+      "median": 1621,
+      "max": 1732
+    },
+    "output_drop_ns": {
+      "samples": [
+        773,
+        705,
+        715,
+        722,
+        703
+      ],
+      "min": 703,
+      "median": 715,
+      "max": 773
+    },
+    "allocation": {
+      "schema_version": 1,
+      "case": "two-work",
+      "mode": "Threads2",
+      "quantum": 64,
+      "limit": 4,
+      "metrics": false,
+      "persistent_metrics": false,
+      "kernel_metrics": false,
+      "observer_metrics": false,
+      "compiled_metrics": false,
+      "metered": true,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 4,
+      "answers": 4,
+      "service_calls": 38,
+      "budget": 5000000,
+      "construct_ns": 396012,
+      "first_answer_ns": 2445847,
+      "search_ns": 2056364,
+      "shutdown_ns": 75443,
+      "drop_ns": 2915,
+      "contiguous_ns": 2530846,
+      "validation_ns": 1571,
+      "output_drop_ns": 886,
+      "total_ns": 2531732,
+      "retained_bytes": 48,
+      "memory": {
+        "lifecycle": {
+          "allocation_calls": 30619,
+          "requested_bytes": 1631610,
+          "baseline_live": 30365,
+          "peak_live": 257845,
+          "final_live": 32821
+        },
+        "output_drop": {
+          "allocation_calls": 0,
+          "requested_bytes": 0,
+          "baseline_live": 32821,
+          "peak_live": 32821,
+          "final_live": 30413
+        }
+      },
+      "work": null
+    },
+    "work": {
+      "schema_version": 1,
+      "case": "two-work",
+      "mode": "Threads2",
+      "quantum": 64,
+      "limit": 4,
+      "metrics": true,
+      "persistent_metrics": true,
+      "kernel_metrics": true,
+      "observer_metrics": true,
+      "compiled_metrics": true,
+      "metered": false,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 4,
+      "answers": 4,
+      "service_calls": 38,
+      "budget": 5000000,
+      "construct_ns": 1231870,
+      "first_answer_ns": 2057352,
+      "search_ns": 835125,
+      "shutdown_ns": 79682,
+      "drop_ns": 3246,
+      "contiguous_ns": 2150094,
+      "validation_ns": 1846,
+      "output_drop_ns": 691,
+      "total_ns": 2150785,
+      "retained_bytes": null,
+      "memory": {
+        "lifecycle": null,
+        "output_drop": null
+      },
+      "work": {
+        "applications": 1026,
+        "actual_applications": 1026,
+        "accepted_source_steps": 2064,
+        "actual_source_steps": 2064,
+        "products": 4,
+        "source_turns": 34,
+        "candidates": 1030,
+        "specialized_applications": 0,
+        "cursor_steps": 0,
+        "history_checks": 0,
+        "transport": {
+          "issued": 34,
+          "received": 34,
+          "accepted": 34,
+          "max_outstanding": 2,
+          "owner_buffered_peak": 2,
+          "outstanding": 0,
+          "buffered": 0,
+          "unaccepted_at_shutdown": 0,
+          "actual_source_steps": 2064,
+          "accepted_source_steps": 2064,
+          "cancelled_requests": 0,
+          "unserved_quantum_slots": 0,
+          "prefetch_visits": 68
+        }
+      }
+    }
+  },
+  {
+    "version": "current",
+    "cell": [
+      "one-zero",
+      "Inline",
+      64,
+      4
+    ],
+    "primary_complete": 5,
+    "samples_ns": [
+      81367,
+      68826,
+      90979,
+      75992,
+      74773
+    ],
+    "complete_comparison": true,
+    "total_ns": {
+      "samples": [
+        81367,
+        68826,
+        90979,
+        75992,
+        74773
+      ],
+      "min": 68826,
+      "median": 75992,
+      "max": 90979
+    },
+    "contiguous_ns": {
+      "samples": [
+        81107,
+        68573,
+        90709,
+        75760,
+        74536
+      ],
+      "min": 68573,
+      "median": 75760,
+      "max": 90709
+    },
+    "construct_ns": {
+      "samples": [
+        64602,
+        56177,
+        74747,
+        61856,
+        60736
+      ],
+      "min": 56177,
+      "median": 61856,
+      "max": 74747
+    },
+    "first_answer_ns": {
+      "samples": [
+        77559,
+        66155,
+        87369,
+        72781,
+        71731
+      ],
+      "min": 66155,
+      "median": 72781,
+      "max": 87369
+    },
+    "search_ns": {
+      "samples": [
+        13244,
+        10041,
+        12745,
+        10979,
+        11184
+      ],
+      "min": 10041,
+      "median": 11184,
+      "max": 13244
+    },
+    "shutdown_ns": {
+      "samples": [
+        2479,
+        1908,
+        2432,
+        2354,
+        2092
+      ],
+      "min": 1908,
+      "median": 2354,
+      "max": 2479
+    },
+    "drop_ns": {
+      "samples": [
+        722,
+        383,
+        713,
+        511,
+        464
+      ],
+      "min": 383,
+      "median": 511,
+      "max": 722
+    },
+    "validation_ns": {
+      "samples": [
+        761,
+        778,
+        801,
+        686,
+        755
+      ],
+      "min": 686,
+      "median": 761,
+      "max": 801
+    },
+    "output_drop_ns": {
+      "samples": [
+        260,
+        253,
+        270,
+        232,
+        237
+      ],
+      "min": 232,
+      "median": 253,
+      "max": 270
+    },
+    "allocation": {
+      "schema_version": 1,
+      "case": "one-zero",
+      "mode": "Inline",
+      "quantum": 64,
+      "limit": 4,
+      "metrics": false,
+      "persistent_metrics": false,
+      "kernel_metrics": false,
+      "observer_metrics": false,
+      "compiled_metrics": false,
+      "metered": true,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 2,
+      "answers": 2,
+      "service_calls": 1,
+      "budget": 5000000,
+      "construct_ns": 71650,
+      "first_answer_ns": 84702,
+      "search_ns": 13189,
+      "shutdown_ns": 2662,
+      "drop_ns": 672,
+      "contiguous_ns": 88240,
+      "validation_ns": 871,
+      "output_drop_ns": 308,
+      "total_ns": 88548,
+      "retained_bytes": 0,
+      "memory": {
+        "lifecycle": {
+          "allocation_calls": 166,
+          "requested_bytes": 14102,
+          "baseline_live": 2990,
+          "peak_live": 9431,
+          "final_live": 3640
+        },
+        "output_drop": {
+          "allocation_calls": 0,
+          "requested_bytes": 0,
+          "baseline_live": 3640,
+          "peak_live": 3640,
+          "final_live": 2990
+        }
+      },
+      "work": null
+    },
+    "work": {
+      "schema_version": 1,
+      "case": "one-zero",
+      "mode": "Inline",
+      "quantum": 64,
+      "limit": 4,
+      "metrics": true,
+      "persistent_metrics": true,
+      "kernel_metrics": true,
+      "observer_metrics": true,
+      "compiled_metrics": true,
+      "metered": false,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 2,
+      "answers": 2,
+      "service_calls": 1,
+      "budget": 5000000,
+      "construct_ns": 54949,
+      "first_answer_ns": 64095,
+      "search_ns": 9200,
+      "shutdown_ns": 1382,
+      "drop_ns": 562,
+      "contiguous_ns": 66203,
+      "validation_ns": 654,
+      "output_drop_ns": 215,
+      "total_ns": 66418,
+      "retained_bytes": null,
+      "memory": {
+        "lifecycle": null,
+        "output_drop": null
+      },
+      "work": {
+        "applications": 1,
+        "actual_applications": 1,
+        "accepted_source_steps": 8,
+        "actual_source_steps": 8,
+        "products": 2,
+        "source_turns": 1,
+        "candidates": 3,
+        "specialized_applications": 0,
+        "cursor_steps": 0,
+        "history_checks": 0,
+        "transport": {
+          "issued": 1,
+          "received": 1,
+          "accepted": 1,
+          "max_outstanding": 1,
+          "owner_buffered_peak": 1,
+          "outstanding": 0,
+          "buffered": 0,
+          "unaccepted_at_shutdown": 0,
+          "actual_source_steps": 8,
+          "accepted_source_steps": 8,
+          "cancelled_requests": 0,
+          "unserved_quantum_slots": 0,
+          "prefetch_visits": 1
+        }
+      }
+    }
+  },
+  {
+    "version": "current",
+    "cell": [
+      "one-zero",
+      "Specialized",
+      0,
+      0
+    ],
+    "primary_complete": 5,
+    "samples_ns": [
+      76313,
+      84469,
+      90416,
+      99320,
+      141406
+    ],
+    "complete_comparison": true,
+    "total_ns": {
+      "samples": [
+        76313,
+        84469,
+        90416,
+        99320,
+        141406
+      ],
+      "min": 76313,
+      "median": 90416,
+      "max": 141406
+    },
+    "contiguous_ns": {
+      "samples": [
+        76099,
+        84229,
+        90215,
+        99097,
+        141178
+      ],
+      "min": 76099,
+      "median": 90215,
+      "max": 141178
+    },
+    "construct_ns": {
+      "samples": [
+        56812,
+        63904,
+        65099,
+        71256,
+        88556
+      ],
+      "min": 56812,
+      "median": 65099,
+      "max": 88556
+    },
+    "first_answer_ns": {
+      "samples": [
+        73441,
+        81196,
+        87049,
+        95330,
+        132657
+      ],
+      "min": 73441,
+      "median": 87049,
+      "max": 132657
+    },
+    "search_ns": {
+      "samples": [
+        17818,
+        18753,
+        23294,
+        25622,
+        49234
+      ],
+      "min": 17818,
+      "median": 23294,
+      "max": 49234
+    },
+    "shutdown_ns": {
+      "samples": [
+        34,
+        44,
+        38,
+        39,
+        44
+      ],
+      "min": 34,
+      "median": 39,
+      "max": 44
+    },
+    "drop_ns": {
+      "samples": [
+        1396,
+        1482,
+        1746,
+        2137,
+        3298
+      ],
+      "min": 1396,
+      "median": 1746,
+      "max": 3298
+    },
+    "validation_ns": {
+      "samples": [
+        614,
+        666,
+        578,
+        591,
+        711
+      ],
+      "min": 578,
+      "median": 614,
+      "max": 711
+    },
+    "output_drop_ns": {
+      "samples": [
+        214,
+        240,
+        201,
+        223,
+        228
+      ],
+      "min": 201,
+      "median": 223,
+      "max": 240
+    },
+    "allocation": {
+      "schema_version": 1,
+      "case": "one-zero",
+      "mode": "Specialized",
+      "quantum": 0,
+      "limit": 0,
+      "metrics": false,
+      "persistent_metrics": false,
+      "kernel_metrics": false,
+      "observer_metrics": false,
+      "compiled_metrics": false,
+      "metered": true,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 2,
+      "answers": 2,
+      "service_calls": 14,
+      "budget": 20000000,
+      "construct_ns": 71263,
+      "first_answer_ns": 95117,
+      "search_ns": 25754,
+      "shutdown_ns": 35,
+      "drop_ns": 2050,
+      "contiguous_ns": 99141,
+      "validation_ns": 676,
+      "output_drop_ns": 190,
+      "total_ns": 99331,
+      "retained_bytes": 0,
+      "memory": {
+        "lifecycle": {
+          "allocation_calls": 234,
+          "requested_bytes": 22330,
+          "baseline_live": 2994,
+          "peak_live": 17670,
+          "final_live": 3644
+        },
+        "output_drop": {
+          "allocation_calls": 0,
+          "requested_bytes": 0,
+          "baseline_live": 3644,
+          "peak_live": 3644,
+          "final_live": 2994
+        }
+      },
+      "work": null
+    },
+    "work": {
+      "schema_version": 1,
+      "case": "one-zero",
+      "mode": "Specialized",
+      "quantum": 0,
+      "limit": 0,
+      "metrics": true,
+      "persistent_metrics": true,
+      "kernel_metrics": true,
+      "observer_metrics": true,
+      "compiled_metrics": true,
+      "metered": false,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 2,
+      "answers": 2,
+      "service_calls": 14,
+      "budget": 20000000,
+      "construct_ns": 60630,
+      "first_answer_ns": 82856,
+      "search_ns": 23387,
+      "shutdown_ns": 36,
+      "drop_ns": 1598,
+      "contiguous_ns": 85689,
+      "validation_ns": 674,
+      "output_drop_ns": 183,
+      "total_ns": 85872,
+      "retained_bytes": null,
+      "memory": {
+        "lifecycle": null,
+        "output_drop": null
+      },
+      "work": {
+        "applications": 1,
+        "actual_applications": 1,
+        "accepted_source_steps": 13,
+        "actual_source_steps": 13,
+        "products": 0,
+        "source_turns": 0,
+        "candidates": 6,
+        "specialized_applications": 1,
+        "cursor_steps": 0,
+        "history_checks": 0,
+        "transport": {
+          "issued": 0,
+          "received": 0,
+          "accepted": 0,
+          "max_outstanding": 0,
+          "owner_buffered_peak": 0,
+          "outstanding": 0,
+          "buffered": 0,
+          "unaccepted_at_shutdown": 0,
+          "actual_source_steps": 0,
+          "accepted_source_steps": 0,
+          "cancelled_requests": 0,
+          "unserved_quantum_slots": 0,
+          "prefetch_visits": 0
+        }
+      }
+    }
+  },
+  {
+    "version": "current",
+    "cell": [
+      "one-work",
+      "Inline",
+      64,
+      4
+    ],
+    "primary_complete": 5,
+    "samples_ns": [
+      442880,
+      506302,
+      473382,
+      529889,
+      460721
+    ],
+    "complete_comparison": true,
+    "total_ns": {
+      "samples": [
+        442880,
+        506302,
+        473382,
+        529889,
+        460721
+      ],
+      "min": 442880,
+      "median": 473382,
+      "max": 529889
+    },
+    "contiguous_ns": {
+      "samples": [
+        442624,
+        505977,
+        473095,
+        529593,
+        460461
+      ],
+      "min": 442624,
+      "median": 473095,
+      "max": 529593
+    },
+    "construct_ns": {
+      "samples": [
+        121866,
+        139131,
+        124927,
+        146052,
+        127915
+      ],
+      "min": 121866,
+      "median": 127915,
+      "max": 146052
+    },
+    "first_answer_ns": {
+      "samples": [
+        435336,
+        496018,
+        463827,
+        519779,
+        451944
+      ],
+      "min": 435336,
+      "median": 463827,
+      "max": 519779
+    },
+    "search_ns": {
+      "samples": [
+        313533,
+        357237,
+        338997,
+        373913,
+        324079
+      ],
+      "min": 313533,
+      "median": 338997,
+      "max": 373913
+    },
+    "shutdown_ns": {
+      "samples": [
+        6740,
+        8823,
+        8490,
+        8845,
+        7796
+      ],
+      "min": 6740,
+      "median": 8490,
+      "max": 8845
+    },
+    "drop_ns": {
+      "samples": [
+        418,
+        716,
+        600,
+        705,
+        602
+      ],
+      "min": 418,
+      "median": 602,
+      "max": 716
+    },
+    "validation_ns": {
+      "samples": [
+        677,
+        710,
+        754,
+        771,
+        646
+      ],
+      "min": 646,
+      "median": 710,
+      "max": 771
+    },
+    "output_drop_ns": {
+      "samples": [
+        256,
+        325,
+        287,
+        296,
+        260
+      ],
+      "min": 256,
+      "median": 287,
+      "max": 325
+    },
+    "allocation": {
+      "schema_version": 1,
+      "case": "one-work",
+      "mode": "Inline",
+      "quantum": 64,
+      "limit": 4,
+      "metrics": false,
+      "persistent_metrics": false,
+      "kernel_metrics": false,
+      "observer_metrics": false,
+      "compiled_metrics": false,
+      "metered": true,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 2,
+      "answers": 2,
+      "service_calls": 17,
+      "budget": 5000000,
+      "construct_ns": 150206,
+      "first_answer_ns": 625880,
+      "search_ns": 475738,
+      "shutdown_ns": 11325,
+      "drop_ns": 517,
+      "contiguous_ns": 637868,
+      "validation_ns": 901,
+      "output_drop_ns": 382,
+      "total_ns": 638250,
+      "retained_bytes": 0,
+      "memory": {
+        "lifecycle": {
+          "allocation_calls": 15242,
+          "requested_bytes": 808238,
+          "baseline_live": 15534,
+          "peak_live": 125097,
+          "final_live": 16184
+        },
+        "output_drop": {
+          "allocation_calls": 0,
+          "requested_bytes": 0,
+          "baseline_live": 16184,
+          "peak_live": 16184,
+          "final_live": 15534
+        }
+      },
+      "work": null
+    },
+    "work": {
+      "schema_version": 1,
+      "case": "one-work",
+      "mode": "Inline",
+      "quantum": 64,
+      "limit": 4,
+      "metrics": true,
+      "persistent_metrics": true,
+      "kernel_metrics": true,
+      "observer_metrics": true,
+      "compiled_metrics": true,
+      "metered": false,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 2,
+      "answers": 2,
+      "service_calls": 17,
+      "budget": 5000000,
+      "construct_ns": 131867,
+      "first_answer_ns": 446791,
+      "search_ns": 315042,
+      "shutdown_ns": 8019,
+      "drop_ns": 1042,
+      "contiguous_ns": 456209,
+      "validation_ns": 640,
+      "output_drop_ns": 239,
+      "total_ns": 456448,
+      "retained_bytes": null,
+      "memory": {
+        "lifecycle": null,
+        "output_drop": null
+      },
+      "work": {
+        "applications": 513,
+        "actual_applications": 513,
+        "accepted_source_steps": 1032,
+        "actual_source_steps": 1032,
+        "products": 2,
+        "source_turns": 17,
+        "candidates": 515,
+        "specialized_applications": 0,
+        "cursor_steps": 0,
+        "history_checks": 0,
+        "transport": {
+          "issued": 17,
+          "received": 17,
+          "accepted": 17,
+          "max_outstanding": 1,
+          "owner_buffered_peak": 1,
+          "outstanding": 0,
+          "buffered": 0,
+          "unaccepted_at_shutdown": 0,
+          "actual_source_steps": 1032,
+          "accepted_source_steps": 1032,
+          "cancelled_requests": 0,
+          "unserved_quantum_slots": 0,
+          "prefetch_visits": 17
+        }
+      }
+    }
+  },
+  {
+    "version": "current",
+    "cell": [
+      "one-work",
+      "Specialized",
+      0,
+      0
+    ],
+    "primary_complete": 5,
+    "samples_ns": [
+      574980,
+      521412,
+      549028,
+      526423,
+      597287
+    ],
+    "complete_comparison": true,
+    "total_ns": {
+      "samples": [
+        574980,
+        521412,
+        549028,
+        526423,
+        597287
+      ],
+      "min": 521412,
+      "median": 549028,
+      "max": 597287
+    },
+    "contiguous_ns": {
+      "samples": [
+        574728,
+        521202,
+        548794,
+        526192,
+        597043
+      ],
+      "min": 521202,
+      "median": 548794,
+      "max": 597043
+    },
+    "construct_ns": {
+      "samples": [
+        159284,
+        146467,
+        139780,
+        138635,
+        187613
+      ],
+      "min": 138635,
+      "median": 146467,
+      "max": 187613
+    },
+    "first_answer_ns": {
+      "samples": [
+        542883,
+        494893,
+        519563,
+        496582,
+        566566
+      ],
+      "min": 494893,
+      "median": 519563,
+      "max": 566566
+    },
+    "search_ns": {
+      "samples": [
+        413036,
+        372967,
+        407018,
+        385574,
+        407031
+      ],
+      "min": 372967,
+      "median": 407018,
+      "max": 413036
+    },
+    "shutdown_ns": {
+      "samples": [
+        46,
+        41,
+        40,
+        44,
+        43
+      ],
+      "min": 40,
+      "median": 43,
+      "max": 46
+    },
+    "drop_ns": {
+      "samples": [
+        2315,
+        1687,
+        1911,
+        1893,
+        2312
+      ],
+      "min": 1687,
+      "median": 1911,
+      "max": 2315
+    },
+    "validation_ns": {
+      "samples": [
+        897,
+        852,
+        877,
+        867,
+        898
+      ],
+      "min": 852,
+      "median": 877,
+      "max": 898
+    },
+    "output_drop_ns": {
+      "samples": [
+        252,
+        210,
+        234,
+        231,
+        244
+      ],
+      "min": 210,
+      "median": 234,
+      "max": 252
+    },
+    "allocation": {
+      "schema_version": 1,
+      "case": "one-work",
+      "mode": "Specialized",
+      "quantum": 0,
+      "limit": 0,
+      "metrics": false,
+      "persistent_metrics": false,
+      "kernel_metrics": false,
+      "observer_metrics": false,
+      "compiled_metrics": false,
+      "metered": true,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 2,
+      "answers": 2,
+      "service_calls": 1550,
+      "budget": 20000000,
+      "construct_ns": 155808,
+      "first_answer_ns": 663807,
+      "search_ns": 542718,
+      "shutdown_ns": 41,
+      "drop_ns": 1909,
+      "contiguous_ns": 700517,
+      "validation_ns": 850,
+      "output_drop_ns": 244,
+      "total_ns": 700761,
+      "retained_bytes": 0,
+      "memory": {
+        "lifecycle": {
+          "allocation_calls": 10494,
+          "requested_bytes": 557934,
+          "baseline_live": 15538,
+          "peak_live": 142550,
+          "final_live": 16188
+        },
+        "output_drop": {
+          "allocation_calls": 0,
+          "requested_bytes": 0,
+          "baseline_live": 16188,
+          "peak_live": 16188,
+          "final_live": 15538
+        }
+      },
+      "work": null
+    },
+    "work": {
+      "schema_version": 1,
+      "case": "one-work",
+      "mode": "Specialized",
+      "quantum": 0,
+      "limit": 0,
+      "metrics": true,
+      "persistent_metrics": true,
+      "kernel_metrics": true,
+      "observer_metrics": true,
+      "compiled_metrics": true,
+      "metered": false,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 2,
+      "answers": 2,
+      "service_calls": 1550,
+      "budget": 20000000,
+      "construct_ns": 152636,
+      "first_answer_ns": 535252,
+      "search_ns": 410484,
+      "shutdown_ns": 45,
+      "drop_ns": 2010,
+      "contiguous_ns": 565220,
+      "validation_ns": 940,
+      "output_drop_ns": 242,
+      "total_ns": 565462,
+      "retained_bytes": null,
+      "memory": {
+        "lifecycle": null,
+        "output_drop": null
+      },
+      "work": {
+        "applications": 513,
+        "actual_applications": 513,
+        "accepted_source_steps": 1549,
+        "actual_source_steps": 1549,
+        "products": 0,
+        "source_turns": 0,
+        "candidates": 1030,
+        "specialized_applications": 513,
+        "cursor_steps": 0,
+        "history_checks": 0,
+        "transport": {
+          "issued": 0,
+          "received": 0,
+          "accepted": 0,
+          "max_outstanding": 0,
+          "owner_buffered_peak": 0,
+          "outstanding": 0,
+          "buffered": 0,
+          "unaccepted_at_shutdown": 0,
+          "actual_source_steps": 0,
+          "accepted_source_steps": 0,
+          "cancelled_requests": 0,
+          "unserved_quantum_slots": 0,
+          "prefetch_visits": 0
+        }
+      }
+    }
+  },
+  {
+    "version": "current",
+    "cell": [
+      "two-work",
+      "Inline",
+      64,
+      4
+    ],
+    "primary_complete": 5,
+    "samples_ns": [
+      1057543,
+      967605,
+      1031335,
+      1026007,
+      895360
+    ],
+    "complete_comparison": true,
+    "total_ns": {
+      "samples": [
+        1057543,
+        967605,
+        1031335,
+        1026007,
+        895360
+      ],
+      "min": 895360,
+      "median": 1026007,
+      "max": 1057543
+    },
+    "contiguous_ns": {
+      "samples": [
+        1056959,
+        967125,
+        1030782,
+        1025326,
+        894822
+      ],
+      "min": 894822,
+      "median": 1025326,
+      "max": 1056959
+    },
+    "construct_ns": {
+      "samples": [
+        233041,
+        210433,
+        247568,
+        227006,
+        230948
+      ],
+      "min": 210433,
+      "median": 230948,
+      "max": 247568
+    },
+    "first_answer_ns": {
+      "samples": [
+        985912,
+        911049,
+        947256,
+        956895,
+        839028
+      ],
+      "min": 839028,
+      "median": 947256,
+      "max": 985912
+    },
+    "search_ns": {
+      "samples": [
+        756153,
+        703540,
+        703029,
+        733314,
+        610787
+      ],
+      "min": 610787,
+      "median": 703540,
+      "max": 756153
+    },
+    "shutdown_ns": {
+      "samples": [
+        65755,
+        51509,
+        78188,
+        63258,
+        51299
+      ],
+      "min": 51299,
+      "median": 63258,
+      "max": 78188
+    },
+    "drop_ns": {
+      "samples": [
+        1908,
+        1557,
+        1898,
+        1647,
+        1705
+      ],
+      "min": 1557,
+      "median": 1705,
+      "max": 1908
+    },
+    "validation_ns": {
+      "samples": [
+        1888,
+        1324,
+        1452,
+        1655,
+        1274
+      ],
+      "min": 1274,
+      "median": 1452,
+      "max": 1888
+    },
+    "output_drop_ns": {
+      "samples": [
+        584,
+        480,
+        553,
+        681,
+        538
+      ],
+      "min": 480,
+      "median": 553,
+      "max": 681
+    },
+    "allocation": {
+      "schema_version": 1,
+      "case": "two-work",
+      "mode": "Inline",
+      "quantum": 64,
+      "limit": 4,
+      "metrics": false,
+      "persistent_metrics": false,
+      "kernel_metrics": false,
+      "observer_metrics": false,
+      "compiled_metrics": false,
+      "metered": true,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 4,
+      "answers": 4,
+      "service_calls": 38,
+      "budget": 5000000,
+      "construct_ns": 278468,
+      "first_answer_ns": 1238796,
+      "search_ns": 964872,
+      "shutdown_ns": 61229,
+      "drop_ns": 1690,
+      "contiguous_ns": 1306338,
+      "validation_ns": 1317,
+      "output_drop_ns": 504,
+      "total_ns": 1306842,
+      "retained_bytes": 0,
+      "memory": {
+        "lifecycle": {
+          "allocation_calls": 30602,
+          "requested_bytes": 1621004,
+          "baseline_live": 30363,
+          "peak_live": 246415,
+          "final_live": 32771
+        },
+        "output_drop": {
+          "allocation_calls": 0,
+          "requested_bytes": 0,
+          "baseline_live": 32771,
+          "peak_live": 32771,
+          "final_live": 30363
+        }
+      },
+      "work": null
+    },
+    "work": {
+      "schema_version": 1,
+      "case": "two-work",
+      "mode": "Inline",
+      "quantum": 64,
+      "limit": 4,
+      "metrics": true,
+      "persistent_metrics": true,
+      "kernel_metrics": true,
+      "observer_metrics": true,
+      "compiled_metrics": true,
+      "metered": false,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 4,
+      "answers": 4,
+      "service_calls": 38,
+      "budget": 5000000,
+      "construct_ns": 207521,
+      "first_answer_ns": 848540,
+      "search_ns": 643831,
+      "shutdown_ns": 50943,
+      "drop_ns": 1973,
+      "contiguous_ns": 904400,
+      "validation_ns": 1377,
+      "output_drop_ns": 477,
+      "total_ns": 904877,
+      "retained_bytes": null,
+      "memory": {
+        "lifecycle": null,
+        "output_drop": null
+      },
+      "work": {
+        "applications": 1026,
+        "actual_applications": 1026,
+        "accepted_source_steps": 2064,
+        "actual_source_steps": 2064,
+        "products": 4,
+        "source_turns": 34,
+        "candidates": 1030,
+        "specialized_applications": 0,
+        "cursor_steps": 0,
+        "history_checks": 0,
+        "transport": {
+          "issued": 34,
+          "received": 34,
+          "accepted": 34,
+          "max_outstanding": 2,
+          "owner_buffered_peak": 2,
+          "outstanding": 0,
+          "buffered": 0,
+          "unaccepted_at_shutdown": 0,
+          "actual_source_steps": 2064,
+          "accepted_source_steps": 2064,
+          "cancelled_requests": 0,
+          "unserved_quantum_slots": 0,
+          "prefetch_visits": 68
+        }
+      }
+    }
+  },
+  {
+    "version": "current",
+    "cell": [
+      "two-work",
+      "Specialized",
+      0,
+      0
+    ],
+    "primary_complete": 5,
+    "samples_ns": [
+      1964634,
+      2108602,
+      2187010,
+      1791834,
+      2140023
+    ],
+    "complete_comparison": true,
+    "total_ns": {
+      "samples": [
+        1964634,
+        2108602,
+        2187010,
+        1791834,
+        2140023
+      ],
+      "min": 1791834,
+      "median": 2108602,
+      "max": 2187010
+    },
+    "contiguous_ns": {
+      "samples": [
+        1964134,
+        2108030,
+        2186483,
+        1791388,
+        2139517
+      ],
+      "min": 1791388,
+      "median": 2108030,
+      "max": 2186483
+    },
+    "construct_ns": {
+      "samples": [
+        190860,
+        197218,
+        203287,
+        173941,
+        203548
+      ],
+      "min": 173941,
+      "median": 197218,
+      "max": 203548
+    },
+    "first_answer_ns": {
+      "samples": [
+        1913700,
+        2052341,
+        2129607,
+        1740776,
+        2081497
+      ],
+      "min": 1740776,
+      "median": 2052341,
+      "max": 2129607
+    },
+    "search_ns": {
+      "samples": [
+        1770790,
+        1907677,
+        1980239,
+        1614973,
+        1933117
+      ],
+      "min": 1614973,
+      "median": 1907677,
+      "max": 1980239
+    },
+    "shutdown_ns": {
+      "samples": [
+        39,
+        47,
+        41,
+        38,
+        46
+      ],
+      "min": 38,
+      "median": 41,
+      "max": 47
+    },
+    "drop_ns": {
+      "samples": [
+        2406,
+        3044,
+        2869,
+        2395,
+        2762
+      ],
+      "min": 2395,
+      "median": 2762,
+      "max": 3044
+    },
+    "validation_ns": {
+      "samples": [
+        1346,
+        1433,
+        1498,
+        1358,
+        1457
+      ],
+      "min": 1346,
+      "median": 1433,
+      "max": 1498
+    },
+    "output_drop_ns": {
+      "samples": [
+        500,
+        572,
+        527,
+        446,
+        506
+      ],
+      "min": 446,
+      "median": 506,
+      "max": 572
+    },
+    "allocation": {
+      "schema_version": 1,
+      "case": "two-work",
+      "mode": "Specialized",
+      "quantum": 0,
+      "limit": 0,
+      "metrics": false,
+      "persistent_metrics": false,
+      "kernel_metrics": false,
+      "observer_metrics": false,
+      "compiled_metrics": false,
+      "metered": true,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 4,
+      "answers": 4,
+      "service_calls": 10284,
+      "budget": 20000000,
+      "construct_ns": 234087,
+      "first_answer_ns": 2632246,
+      "search_ns": 2457037,
+      "shutdown_ns": 45,
+      "drop_ns": 2974,
+      "contiguous_ns": 2694182,
+      "validation_ns": 1607,
+      "output_drop_ns": 556,
+      "total_ns": 2694738,
+      "retained_bytes": 0,
+      "memory": {
+        "lifecycle": {
+          "allocation_calls": 44162,
+          "requested_bytes": 2101964,
+          "baseline_live": 30367,
+          "peak_live": 274070,
+          "final_live": 32391
+        },
+        "output_drop": {
+          "allocation_calls": 0,
+          "requested_bytes": 0,
+          "baseline_live": 32391,
+          "peak_live": 32391,
+          "final_live": 30367
+        }
+      },
+      "work": null
+    },
+    "work": {
+      "schema_version": 1,
+      "case": "two-work",
+      "mode": "Specialized",
+      "quantum": 0,
+      "limit": 0,
+      "metrics": true,
+      "persistent_metrics": true,
+      "kernel_metrics": true,
+      "observer_metrics": true,
+      "compiled_metrics": true,
+      "metered": false,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 4,
+      "answers": 4,
+      "service_calls": 10284,
+      "budget": 20000000,
+      "construct_ns": 199605,
+      "first_answer_ns": 2062364,
+      "search_ns": 1919715,
+      "shutdown_ns": 42,
+      "drop_ns": 3087,
+      "contiguous_ns": 2122494,
+      "validation_ns": 1345,
+      "output_drop_ns": 541,
+      "total_ns": 2123035,
+      "retained_bytes": null,
+      "memory": {
+        "lifecycle": null,
+        "output_drop": null
+      },
+      "work": {
+        "applications": 2051,
+        "actual_applications": 2051,
+        "accepted_source_steps": 10283,
+        "actual_source_steps": 10283,
+        "products": 0,
+        "source_turns": 0,
+        "candidates": 6166,
+        "specialized_applications": 2051,
+        "cursor_steps": 0,
+        "history_checks": 0,
+        "transport": {
+          "issued": 0,
+          "received": 0,
+          "accepted": 0,
+          "max_outstanding": 0,
+          "owner_buffered_peak": 0,
+          "outstanding": 0,
+          "buffered": 0,
+          "unaccepted_at_shutdown": 0,
+          "actual_source_steps": 0,
+          "accepted_source_steps": 0,
+          "cancelled_requests": 0,
+          "unserved_quantum_slots": 0,
+          "prefetch_visits": 0
+        }
+      }
+    }
+  },
+  {
+    "version": "current",
+    "cell": [
+      "owner-product",
+      "Inline",
+      64,
+      4
+    ],
+    "primary_complete": 5,
+    "samples_ns": [
+      1699111,
+      1879484,
+      1822618,
+      1832452,
+      1889519
+    ],
+    "complete_comparison": true,
+    "total_ns": {
+      "samples": [
+        1699111,
+        1879484,
+        1822618,
+        1832452,
+        1889519
+      ],
+      "min": 1699111,
+      "median": 1832452,
+      "max": 1889519
+    },
+    "contiguous_ns": {
+      "samples": [
+        1586879,
+        1785025,
+        1702208,
+        1749169,
+        1794650
+      ],
+      "min": 1586879,
+      "median": 1749169,
+      "max": 1794650
+    },
+    "construct_ns": {
+      "samples": [
+        52594,
+        45357,
+        51029,
+        51336,
+        59741
+      ],
+      "min": 45357,
+      "median": 51336,
+      "max": 59741
+    },
+    "first_answer_ns": {
+      "samples": [
+        87579,
+        76273,
+        90337,
+        87479,
+        105884
+      ],
+      "min": 76273,
+      "median": 87579,
+      "max": 105884
+    },
+    "search_ns": {
+      "samples": [
+        1422164,
+        1585166,
+        1526894,
+        1566131,
+        1612507
+      ],
+      "min": 1422164,
+      "median": 1566131,
+      "max": 1612507
+    },
+    "shutdown_ns": {
+      "samples": [
+        6415,
+        8246,
+        6239,
+        8533,
+        7863
+      ],
+      "min": 6239,
+      "median": 7863,
+      "max": 8533
+    },
+    "drop_ns": {
+      "samples": [
+        105601,
+        146116,
+        117926,
+        123030,
+        114404
+      ],
+      "min": 105601,
+      "median": 117926,
+      "max": 146116
+    },
+    "validation_ns": {
+      "samples": [
+        1237241,
+        1326806,
+        1106727,
+        1141422,
+        1334255
+      ],
+      "min": 1106727,
+      "median": 1237241,
+      "max": 1334255
+    },
+    "output_drop_ns": {
+      "samples": [
+        112232,
+        94459,
+        120410,
+        83283,
+        94869
+      ],
+      "min": 83283,
+      "median": 94869,
+      "max": 120410
+    },
+    "allocation": {
+      "schema_version": 1,
+      "case": "owner-product",
+      "mode": "Inline",
+      "quantum": 64,
+      "limit": 4,
+      "metrics": false,
+      "persistent_metrics": false,
+      "kernel_metrics": false,
+      "observer_metrics": false,
+      "compiled_metrics": false,
+      "metered": true,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 256,
+      "answers": 256,
+      "service_calls": 264,
+      "budget": 5000000,
+      "construct_ns": 64486,
+      "first_answer_ns": 136801,
+      "search_ns": 2195359,
+      "shutdown_ns": 7991,
+      "drop_ns": 140894,
+      "contiguous_ns": 2408854,
+      "validation_ns": 1292749,
+      "output_drop_ns": 130191,
+      "total_ns": 2539045,
+      "retained_bytes": 0,
+      "memory": {
+        "lifecycle": {
+          "allocation_calls": 29897,
+          "requested_bytes": 1437520,
+          "baseline_live": 496319,
+          "peak_live": 1494431,
+          "final_live": 977599
+        },
+        "output_drop": {
+          "allocation_calls": 0,
+          "requested_bytes": 0,
+          "baseline_live": 977599,
+          "peak_live": 977599,
+          "final_live": 496319
+        }
+      },
+      "work": null
+    },
+    "work": {
+      "schema_version": 1,
+      "case": "owner-product",
+      "mode": "Inline",
+      "quantum": 64,
+      "limit": 4,
+      "metrics": true,
+      "persistent_metrics": true,
+      "kernel_metrics": true,
+      "observer_metrics": true,
+      "compiled_metrics": true,
+      "metered": false,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 256,
+      "answers": 256,
+      "service_calls": 264,
+      "budget": 5000000,
+      "construct_ns": 44546,
+      "first_answer_ns": 78631,
+      "search_ns": 1518962,
+      "shutdown_ns": 6557,
+      "drop_ns": 101095,
+      "contiguous_ns": 1671395,
+      "validation_ns": 1202214,
+      "output_drop_ns": 99358,
+      "total_ns": 1770753,
+      "retained_bytes": null,
+      "memory": {
+        "lifecycle": null,
+        "output_drop": null
+      },
+      "work": {
+        "applications": 8,
+        "actual_applications": 8,
+        "accepted_source_steps": 64,
+        "actual_source_steps": 64,
+        "products": 256,
+        "source_turns": 8,
+        "candidates": 24,
+        "specialized_applications": 0,
+        "cursor_steps": 0,
+        "history_checks": 0,
+        "transport": {
+          "issued": 8,
+          "received": 8,
+          "accepted": 8,
+          "max_outstanding": 4,
+          "owner_buffered_peak": 4,
+          "outstanding": 0,
+          "buffered": 0,
+          "unaccepted_at_shutdown": 0,
+          "actual_source_steps": 64,
+          "accepted_source_steps": 64,
+          "cancelled_requests": 0,
+          "unserved_quantum_slots": 0,
+          "prefetch_visits": 44
+        }
+      }
+    }
+  },
+  {
+    "version": "current",
+    "cell": [
+      "owner-product",
+      "Specialized",
+      0,
+      0
+    ],
+    "primary_complete": 5,
+    "samples_ns": [
+      5398047,
+      5476332,
+      5462488,
+      5645659,
+      5371297
+    ],
+    "complete_comparison": true,
+    "total_ns": {
+      "samples": [
+        5398047,
+        5476332,
+        5462488,
+        5645659,
+        5371297
+      ],
+      "min": 5371297,
+      "median": 5462488,
+      "max": 5645659
+    },
+    "contiguous_ns": {
+      "samples": [
+        5037902,
+        5096289,
+        4986450,
+        5326400,
+        5024971
+      ],
+      "min": 4986450,
+      "median": 5037902,
+      "max": 5326400
+    },
+    "construct_ns": {
+      "samples": [
+        52965,
+        69702,
+        65597,
+        67260,
+        65444
+      ],
+      "min": 52965,
+      "median": 65597,
+      "max": 69702
+    },
+    "first_answer_ns": {
+      "samples": [
+        3055854,
+        3175878,
+        3257720,
+        3522802,
+        3294285
+      ],
+      "min": 3055854,
+      "median": 3257720,
+      "max": 3522802
+    },
+    "search_ns": {
+      "samples": [
+        4783260,
+        4912638,
+        4807967,
+        5132846,
+        4841952
+      ],
+      "min": 4783260,
+      "median": 4841952,
+      "max": 5132846
+    },
+    "shutdown_ns": {
+      "samples": [
+        43,
+        54,
+        37,
+        47,
+        41
+      ],
+      "min": 37,
+      "median": 43,
+      "max": 54
+    },
+    "drop_ns": {
+      "samples": [
+        201589,
+        113852,
+        112811,
+        126199,
+        117493
+      ],
+      "min": 112811,
+      "median": 117493,
+      "max": 201589
+    },
+    "validation_ns": {
+      "samples": [
+        1598346,
+        1369755,
+        1451192,
+        1245255,
+        1223308
+      ],
+      "min": 1223308,
+      "median": 1369755,
+      "max": 1598346
+    },
+    "output_drop_ns": {
+      "samples": [
+        360145,
+        380043,
+        476038,
+        319259,
+        346326
+      ],
+      "min": 319259,
+      "median": 360145,
+      "max": 476038
+    },
+    "allocation": {
+      "schema_version": 1,
+      "case": "owner-product",
+      "mode": "Specialized",
+      "quantum": 0,
+      "limit": 0,
+      "metrics": false,
+      "persistent_metrics": false,
+      "kernel_metrics": false,
+      "observer_metrics": false,
+      "compiled_metrics": false,
+      "metered": true,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 256,
+      "answers": 256,
+      "service_calls": 8720,
+      "budget": 20000000,
+      "construct_ns": 50074,
+      "first_answer_ns": 3863015,
+      "search_ns": 6056065,
+      "shutdown_ns": 51,
+      "drop_ns": 159388,
+      "contiguous_ns": 6265615,
+      "validation_ns": 1551494,
+      "output_drop_ns": 397642,
+      "total_ns": 6663257,
+      "retained_bytes": 0,
+      "memory": {
+        "lifecycle": {
+          "allocation_calls": 83125,
+          "requested_bytes": 6230044,
+          "baseline_live": 496323,
+          "peak_live": 4267592,
+          "final_live": 977603
+        },
+        "output_drop": {
+          "allocation_calls": 0,
+          "requested_bytes": 0,
+          "baseline_live": 977603,
+          "peak_live": 977603,
+          "final_live": 496323
+        }
+      },
+      "work": null
+    },
+    "work": {
+      "schema_version": 1,
+      "case": "owner-product",
+      "mode": "Specialized",
+      "quantum": 0,
+      "limit": 0,
+      "metrics": true,
+      "persistent_metrics": true,
+      "kernel_metrics": true,
+      "observer_metrics": true,
+      "compiled_metrics": true,
+      "metered": false,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 256,
+      "answers": 256,
+      "service_calls": 8720,
+      "budget": 20000000,
+      "construct_ns": 51650,
+      "first_answer_ns": 3392392,
+      "search_ns": 5066415,
+      "shutdown_ns": 51,
+      "drop_ns": 139688,
+      "contiguous_ns": 5257843,
+      "validation_ns": 1308860,
+      "output_drop_ns": 364830,
+      "total_ns": 5622673,
+      "retained_bytes": null,
+      "memory": {
+        "lifecycle": null,
+        "output_drop": null
+      },
+      "work": {
+        "applications": 255,
+        "actual_applications": 255,
+        "accepted_source_steps": 8719,
+        "actual_source_steps": 8719,
+        "products": 0,
+        "source_turns": 0,
+        "candidates": 4606,
+        "specialized_applications": 255,
+        "cursor_steps": 0,
+        "history_checks": 0,
+        "transport": {
+          "issued": 0,
+          "received": 0,
+          "accepted": 0,
+          "max_outstanding": 0,
+          "owner_buffered_peak": 0,
+          "outstanding": 0,
+          "buffered": 0,
+          "unaccepted_at_shutdown": 0,
+          "actual_source_steps": 0,
+          "accepted_source_steps": 0,
+          "cancelled_requests": 0,
+          "unserved_quantum_slots": 0,
+          "prefetch_visits": 0
+        }
+      }
+    }
+  },
+  {
+    "version": "current",
+    "cell": [
+      "asym-first",
+      "Inline",
+      64,
+      4
+    ],
+    "primary_complete": 5,
+    "samples_ns": [
+      505671,
+      491192,
+      527421,
+      468589,
+      529703
+    ],
+    "complete_comparison": true,
+    "total_ns": {
+      "samples": [
+        505671,
+        491192,
+        527421,
+        468589,
+        529703
+      ],
+      "min": 468589,
+      "median": 505671,
+      "max": 529703
+    },
+    "contiguous_ns": {
+      "samples": [
+        503205,
+        488418,
+        524609,
+        466015,
+        526943
+      ],
+      "min": 466015,
+      "median": 503205,
+      "max": 526943
+    },
+    "construct_ns": {
+      "samples": [
+        104013,
+        105971,
+        118373,
+        108591,
+        112555
+      ],
+      "min": 104013,
+      "median": 108591,
+      "max": 118373
+    },
+    "first_answer_ns": {
+      "samples": [
+        459023,
+        453456,
+        486502,
+        433122,
+        487043
+      ],
+      "min": 433122,
+      "median": 459023,
+      "max": 487043
+    },
+    "search_ns": {
+      "samples": [
+        374838,
+        368304,
+        391121,
+        344596,
+        399831
+      ],
+      "min": 344596,
+      "median": 374838,
+      "max": 399831
+    },
+    "shutdown_ns": {
+      "samples": [
+        20612,
+        9867,
+        10592,
+        8922,
+        10165
+      ],
+      "min": 8922,
+      "median": 10165,
+      "max": 20612
+    },
+    "drop_ns": {
+      "samples": [
+        3635,
+        4166,
+        4405,
+        3793,
+        4280
+      ],
+      "min": 3635,
+      "median": 4166,
+      "max": 4405
+    },
+    "validation_ns": {
+      "samples": [
+        7938,
+        8411,
+        9066,
+        7540,
+        8069
+      ],
+      "min": 7540,
+      "median": 8069,
+      "max": 9066
+    },
+    "output_drop_ns": {
+      "samples": [
+        2466,
+        2774,
+        2812,
+        2574,
+        2760
+      ],
+      "min": 2466,
+      "median": 2760,
+      "max": 2812
+    },
+    "allocation": {
+      "schema_version": 1,
+      "case": "asym-first",
+      "mode": "Inline",
+      "quantum": 64,
+      "limit": 4,
+      "metrics": false,
+      "persistent_metrics": false,
+      "kernel_metrics": false,
+      "observer_metrics": false,
+      "compiled_metrics": false,
+      "metered": true,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 16,
+      "answers": 16,
+      "service_calls": 36,
+      "budget": 5000000,
+      "construct_ns": 141418,
+      "first_answer_ns": 664393,
+      "search_ns": 557352,
+      "shutdown_ns": 12660,
+      "drop_ns": 5194,
+      "contiguous_ns": 716734,
+      "validation_ns": 8685,
+      "output_drop_ns": 3515,
+      "total_ns": 720249,
+      "retained_bytes": 0,
+      "memory": {
+        "lifecycle": {
+          "allocation_calls": 16637,
+          "requested_bytes": 888304,
+          "baseline_live": 33901,
+          "peak_live": 155119,
+          "final_live": 49325
+        },
+        "output_drop": {
+          "allocation_calls": 0,
+          "requested_bytes": 0,
+          "baseline_live": 49325,
+          "peak_live": 49325,
+          "final_live": 33901
+        }
+      },
+      "work": null
+    },
+    "work": {
+      "schema_version": 1,
+      "case": "asym-first",
+      "mode": "Inline",
+      "quantum": 64,
+      "limit": 4,
+      "metrics": true,
+      "persistent_metrics": true,
+      "kernel_metrics": true,
+      "observer_metrics": true,
+      "compiled_metrics": true,
+      "metered": false,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 16,
+      "answers": 16,
+      "service_calls": 36,
+      "budget": 5000000,
+      "construct_ns": 87958,
+      "first_answer_ns": 398611,
+      "search_ns": 335251,
+      "shutdown_ns": 8012,
+      "drop_ns": 5879,
+      "contiguous_ns": 437285,
+      "validation_ns": 9050,
+      "output_drop_ns": 2872,
+      "total_ns": 440157,
+      "retained_bytes": null,
+      "memory": {
+        "lifecycle": null,
+        "output_drop": null
+      },
+      "work": {
+        "applications": 516,
+        "actual_applications": 516,
+        "accepted_source_steps": 1056,
+        "actual_source_steps": 1056,
+        "products": 16,
+        "source_turns": 20,
+        "candidates": 524,
+        "specialized_applications": 0,
+        "cursor_steps": 0,
+        "history_checks": 0,
+        "transport": {
+          "issued": 20,
+          "received": 20,
+          "accepted": 20,
+          "max_outstanding": 4,
+          "owner_buffered_peak": 4,
+          "outstanding": 0,
+          "buffered": 0,
+          "unaccepted_at_shutdown": 0,
+          "actual_source_steps": 1056,
+          "accepted_source_steps": 1056,
+          "cancelled_requests": 0,
+          "unserved_quantum_slots": 0,
+          "prefetch_visits": 80
+        }
+      }
+    }
+  },
+  {
+    "version": "current",
+    "cell": [
+      "asym-first",
+      "Specialized",
+      0,
+      0
+    ],
+    "primary_complete": 5,
+    "samples_ns": [
+      4434390,
+      4341846,
+      4469590,
+      5236548,
+      4522700
+    ],
+    "complete_comparison": true,
+    "total_ns": {
+      "samples": [
+        4434390,
+        4341846,
+        4469590,
+        5236548,
+        4522700
+      ],
+      "min": 4341846,
+      "median": 4469590,
+      "max": 5236548
+    },
+    "contiguous_ns": {
+      "samples": [
+        4431470,
+        4338215,
+        4466399,
+        5233459,
+        4519526
+      ],
+      "min": 4338215,
+      "median": 4466399,
+      "max": 5233459
+    },
+    "construct_ns": {
+      "samples": [
+        91194,
+        106518,
+        98912,
+        129261,
+        140867
+      ],
+      "min": 91194,
+      "median": 106518,
+      "max": 140867
+    },
+    "first_answer_ns": {
+      "samples": [
+        4306132,
+        4179013,
+        4301177,
+        5079701,
+        4385357
+      ],
+      "min": 4179013,
+      "median": 4306132,
+      "max": 5079701
+    },
+    "search_ns": {
+      "samples": [
+        4335316,
+        4224780,
+        4361411,
+        5096659,
+        4373129
+      ],
+      "min": 4224780,
+      "median": 4361411,
+      "max": 5096659
+    },
+    "shutdown_ns": {
+      "samples": [
+        40,
+        47,
+        45,
+        44,
+        42
+      ],
+      "min": 40,
+      "median": 44,
+      "max": 47
+    },
+    "drop_ns": {
+      "samples": [
+        4880,
+        6820,
+        5987,
+        7451,
+        5447
+      ],
+      "min": 4880,
+      "median": 5987,
+      "max": 7451
+    },
+    "validation_ns": {
+      "samples": [
+        9081,
+        10285,
+        10313,
+        11118,
+        9011
+      ],
+      "min": 9011,
+      "median": 10285,
+      "max": 11118
+    },
+    "output_drop_ns": {
+      "samples": [
+        2920,
+        3631,
+        3191,
+        3089,
+        3174
+      ],
+      "min": 2920,
+      "median": 3174,
+      "max": 3631
+    },
+    "allocation": {
+      "schema_version": 1,
+      "case": "asym-first",
+      "mode": "Specialized",
+      "quantum": 0,
+      "limit": 0,
+      "metrics": false,
+      "persistent_metrics": false,
+      "kernel_metrics": false,
+      "observer_metrics": false,
+      "compiled_metrics": false,
+      "metered": true,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 16,
+      "answers": 16,
+      "service_calls": 24872,
+      "budget": 20000000,
+      "construct_ns": 163740,
+      "first_answer_ns": 6257048,
+      "search_ns": 6273943,
+      "shutdown_ns": 55,
+      "drop_ns": 7664,
+      "contiguous_ns": 6445443,
+      "validation_ns": 10644,
+      "output_drop_ns": 3447,
+      "total_ns": 6448890,
+      "retained_bytes": 0,
+      "memory": {
+        "lifecycle": {
+          "allocation_calls": 94012,
+          "requested_bytes": 4974104,
+          "baseline_live": 33905,
+          "peak_live": 996242,
+          "final_live": 49329
+        },
+        "output_drop": {
+          "allocation_calls": 0,
+          "requested_bytes": 0,
+          "baseline_live": 49329,
+          "peak_live": 49329,
+          "final_live": 33905
+        }
+      },
+      "work": null
+    },
+    "work": {
+      "schema_version": 1,
+      "case": "asym-first",
+      "mode": "Specialized",
+      "quantum": 0,
+      "limit": 0,
+      "metrics": true,
+      "persistent_metrics": true,
+      "kernel_metrics": true,
+      "observer_metrics": true,
+      "compiled_metrics": true,
+      "metered": false,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 16,
+      "answers": 16,
+      "service_calls": 24872,
+      "budget": 20000000,
+      "construct_ns": 114115,
+      "first_answer_ns": 4734770,
+      "search_ns": 4850571,
+      "shutdown_ns": 59,
+      "drop_ns": 7290,
+      "contiguous_ns": 4972081,
+      "validation_ns": 11754,
+      "output_drop_ns": 3197,
+      "total_ns": 4975278,
+      "retained_bytes": null,
+      "memory": {
+        "lifecycle": null,
+        "output_drop": null
+      },
+      "work": {
+        "applications": 4111,
+        "actual_applications": 4111,
+        "accepted_source_steps": 24871,
+        "actual_source_steps": 24871,
+        "products": 0,
+        "source_turns": 0,
+        "candidates": 8350,
+        "specialized_applications": 4111,
+        "cursor_steps": 0,
+        "history_checks": 0,
+        "transport": {
+          "issued": 0,
+          "received": 0,
+          "accepted": 0,
+          "max_outstanding": 0,
+          "owner_buffered_peak": 0,
+          "outstanding": 0,
+          "buffered": 0,
+          "unaccepted_at_shutdown": 0,
+          "actual_source_steps": 0,
+          "accepted_source_steps": 0,
+          "cancelled_requests": 0,
+          "unserved_quantum_slots": 0,
+          "prefetch_visits": 0
+        }
+      }
+    }
+  },
+  {
+    "version": "current",
+    "cell": [
+      "asym-last",
+      "Inline",
+      64,
+      4
+    ],
+    "primary_complete": 5,
+    "samples_ns": [
+      493087,
+      504222,
+      524262,
+      447741,
+      506955
+    ],
+    "complete_comparison": true,
+    "total_ns": {
+      "samples": [
+        493087,
+        504222,
+        524262,
+        447741,
+        506955
+      ],
+      "min": 447741,
+      "median": 504222,
+      "max": 524262
+    },
+    "contiguous_ns": {
+      "samples": [
+        490171,
+        501618,
+        521371,
+        445280,
+        504085
+      ],
+      "min": 445280,
+      "median": 501618,
+      "max": 521371
+    },
+    "construct_ns": {
+      "samples": [
+        98674,
+        124459,
+        116294,
+        97397,
+        99457
+      ],
+      "min": 97397,
+      "median": 99457,
+      "max": 124459
+    },
+    "first_answer_ns": {
+      "samples": [
+        454795,
+        467270,
+        485037,
+        413267,
+        468288
+      ],
+      "min": 413267,
+      "median": 467270,
+      "max": 485037
+    },
+    "search_ns": {
+      "samples": [
+        377537,
+        363464,
+        390765,
+        334915,
+        390885
+      ],
+      "min": 334915,
+      "median": 377537,
+      "max": 390885
+    },
+    "shutdown_ns": {
+      "samples": [
+        9524,
+        9510,
+        9802,
+        8991,
+        9392
+      ],
+      "min": 8991,
+      "median": 9510,
+      "max": 9802
+    },
+    "drop_ns": {
+      "samples": [
+        4316,
+        4073,
+        4384,
+        3877,
+        4233
+      ],
+      "min": 3877,
+      "median": 4233,
+      "max": 4384
+    },
+    "validation_ns": {
+      "samples": [
+        8259,
+        7805,
+        8751,
+        7039,
+        8572
+      ],
+      "min": 7039,
+      "median": 8259,
+      "max": 8751
+    },
+    "output_drop_ns": {
+      "samples": [
+        2916,
+        2604,
+        2891,
+        2461,
+        2870
+      ],
+      "min": 2461,
+      "median": 2870,
+      "max": 2916
+    },
+    "allocation": {
+      "schema_version": 1,
+      "case": "asym-last",
+      "mode": "Inline",
+      "quantum": 64,
+      "limit": 4,
+      "metrics": false,
+      "persistent_metrics": false,
+      "kernel_metrics": false,
+      "observer_metrics": false,
+      "compiled_metrics": false,
+      "metered": true,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 16,
+      "answers": 16,
+      "service_calls": 36,
+      "budget": 5000000,
+      "construct_ns": 154269,
+      "first_answer_ns": 713238,
+      "search_ns": 595151,
+      "shutdown_ns": 13576,
+      "drop_ns": 5484,
+      "contiguous_ns": 768611,
+      "validation_ns": 9653,
+      "output_drop_ns": 3734,
+      "total_ns": 772345,
+      "retained_bytes": 0,
+      "memory": {
+        "lifecycle": {
+          "allocation_calls": 16637,
+          "requested_bytes": 888304,
+          "baseline_live": 33899,
+          "peak_live": 155117,
+          "final_live": 49323
+        },
+        "output_drop": {
+          "allocation_calls": 0,
+          "requested_bytes": 0,
+          "baseline_live": 49323,
+          "peak_live": 49323,
+          "final_live": 33899
+        }
+      },
+      "work": null
+    },
+    "work": {
+      "schema_version": 1,
+      "case": "asym-last",
+      "mode": "Inline",
+      "quantum": 64,
+      "limit": 4,
+      "metrics": true,
+      "persistent_metrics": true,
+      "kernel_metrics": true,
+      "observer_metrics": true,
+      "compiled_metrics": true,
+      "metered": false,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 16,
+      "answers": 16,
+      "service_calls": 36,
+      "budget": 5000000,
+      "construct_ns": 114951,
+      "first_answer_ns": 442853,
+      "search_ns": 347301,
+      "shutdown_ns": 8758,
+      "drop_ns": 4357,
+      "contiguous_ns": 475542,
+      "validation_ns": 7367,
+      "output_drop_ns": 2417,
+      "total_ns": 477959,
+      "retained_bytes": null,
+      "memory": {
+        "lifecycle": null,
+        "output_drop": null
+      },
+      "work": {
+        "applications": 516,
+        "actual_applications": 516,
+        "accepted_source_steps": 1056,
+        "actual_source_steps": 1056,
+        "products": 16,
+        "source_turns": 20,
+        "candidates": 524,
+        "specialized_applications": 0,
+        "cursor_steps": 0,
+        "history_checks": 0,
+        "transport": {
+          "issued": 20,
+          "received": 20,
+          "accepted": 20,
+          "max_outstanding": 4,
+          "owner_buffered_peak": 4,
+          "outstanding": 0,
+          "buffered": 0,
+          "unaccepted_at_shutdown": 0,
+          "actual_source_steps": 1056,
+          "accepted_source_steps": 1056,
+          "cancelled_requests": 0,
+          "unserved_quantum_slots": 0,
+          "prefetch_visits": 80
+        }
+      }
+    }
+  },
+  {
+    "version": "current",
+    "cell": [
+      "asym-last",
+      "Specialized",
+      0,
+      0
+    ],
+    "primary_complete": 5,
+    "samples_ns": [
+      6703257,
+      7624520,
+      7620253,
+      7359942,
+      6866835
+    ],
+    "complete_comparison": true,
+    "total_ns": {
+      "samples": [
+        6703257,
+        7624520,
+        7620253,
+        7359942,
+        6866835
+      ],
+      "min": 6703257,
+      "median": 7359942,
+      "max": 7624520
+    },
+    "contiguous_ns": {
+      "samples": [
+        6700386,
+        7620671,
+        7616810,
+        7356830,
+        6863765
+      ],
+      "min": 6700386,
+      "median": 7356830,
+      "max": 7620671
+    },
+    "construct_ns": {
+      "samples": [
+        126416,
+        98446,
+        100301,
+        121646,
+        128184
+      ],
+      "min": 98446,
+      "median": 121646,
+      "max": 128184
+    },
+    "first_answer_ns": {
+      "samples": [
+        6556374,
+        7438517,
+        7464924,
+        7199186,
+        6727603
+      ],
+      "min": 6556374,
+      "median": 7199186,
+      "max": 7464924
+    },
+    "search_ns": {
+      "samples": [
+        6566279,
+        7514048,
+        7509898,
+        7227660,
+        6728977
+      ],
+      "min": 6566279,
+      "median": 7227660,
+      "max": 7514048
+    },
+    "shutdown_ns": {
+      "samples": [
+        49,
+        57,
+        45,
+        45,
+        40
+      ],
+      "min": 40,
+      "median": 45,
+      "max": 57
+    },
+    "drop_ns": {
+      "samples": [
+        7603,
+        8064,
+        6521,
+        7435,
+        6523
+      ],
+      "min": 6521,
+      "median": 7435,
+      "max": 8064
+    },
+    "validation_ns": {
+      "samples": [
+        10761,
+        12628,
+        8534,
+        10545,
+        9870
+      ],
+      "min": 8534,
+      "median": 10545,
+      "max": 12628
+    },
+    "output_drop_ns": {
+      "samples": [
+        2871,
+        3849,
+        3443,
+        3112,
+        3070
+      ],
+      "min": 2871,
+      "median": 3112,
+      "max": 3849
+    },
+    "allocation": {
+      "schema_version": 1,
+      "case": "asym-last",
+      "mode": "Specialized",
+      "quantum": 0,
+      "limit": 0,
+      "metrics": false,
+      "persistent_metrics": false,
+      "kernel_metrics": false,
+      "observer_metrics": false,
+      "compiled_metrics": false,
+      "metered": true,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 16,
+      "answers": 16,
+      "service_calls": 49448,
+      "budget": 20000000,
+      "construct_ns": 147987,
+      "first_answer_ns": 9354976,
+      "search_ns": 9384498,
+      "shutdown_ns": 55,
+      "drop_ns": 7773,
+      "contiguous_ns": 9540358,
+      "validation_ns": 9762,
+      "output_drop_ns": 3856,
+      "total_ns": 9544214,
+      "retained_bytes": 0,
+      "memory": {
+        "lifecycle": {
+          "allocation_calls": 155452,
+          "requested_bytes": 6940184,
+          "baseline_live": 33903,
+          "peak_live": 996240,
+          "final_live": 49327
+        },
+        "output_drop": {
+          "allocation_calls": 0,
+          "requested_bytes": 0,
+          "baseline_live": 49327,
+          "peak_live": 49327,
+          "final_live": 33903
+        }
+      },
+      "work": null
+    },
+    "work": {
+      "schema_version": 1,
+      "case": "asym-last",
+      "mode": "Specialized",
+      "quantum": 0,
+      "limit": 0,
+      "metrics": true,
+      "persistent_metrics": true,
+      "kernel_metrics": true,
+      "observer_metrics": true,
+      "compiled_metrics": true,
+      "metered": false,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 16,
+      "answers": 16,
+      "service_calls": 49448,
+      "budget": 20000000,
+      "construct_ns": 101298,
+      "first_answer_ns": 6760385,
+      "search_ns": 6782829,
+      "shutdown_ns": 39,
+      "drop_ns": 5448,
+      "contiguous_ns": 6889654,
+      "validation_ns": 9138,
+      "output_drop_ns": 2979,
+      "total_ns": 6892633,
+      "retained_bytes": null,
+      "memory": {
+        "lifecycle": null,
+        "output_drop": null
+      },
+      "work": {
+        "applications": 4111,
+        "actual_applications": 4111,
+        "accepted_source_steps": 49447,
+        "actual_source_steps": 49447,
+        "products": 0,
+        "source_turns": 0,
+        "candidates": 32926,
+        "specialized_applications": 4111,
+        "cursor_steps": 0,
+        "history_checks": 0,
+        "transport": {
+          "issued": 0,
+          "received": 0,
+          "accepted": 0,
+          "max_outstanding": 0,
+          "owner_buffered_peak": 0,
+          "outstanding": 0,
+          "buffered": 0,
+          "unaccepted_at_shutdown": 0,
+          "actual_source_steps": 0,
+          "accepted_source_steps": 0,
+          "cancelled_requests": 0,
+          "unserved_quantum_slots": 0,
+          "prefetch_visits": 0
+        }
+      }
+    }
+  },
+  {
+    "version": "current",
+    "cell": [
+      "duplicate-eight",
+      "Inline",
+      64,
+      4
+    ],
+    "primary_complete": 5,
+    "samples_ns": [
+      165905,
+      211923,
+      160850,
+      133332,
+      151023
+    ],
+    "complete_comparison": true,
+    "total_ns": {
+      "samples": [
+        165905,
+        211923,
+        160850,
+        133332,
+        151023
+      ],
+      "min": 133332,
+      "median": 160850,
+      "max": 211923
+    },
+    "contiguous_ns": {
+      "samples": [
+        165468,
+        211452,
+        160386,
+        132978,
+        150645
+      ],
+      "min": 132978,
+      "median": 160386,
+      "max": 211452
+    },
+    "construct_ns": {
+      "samples": [
+        121983,
+        154302,
+        119972,
+        99493,
+        111951
+      ],
+      "min": 99493,
+      "median": 119972,
+      "max": 154302
+    },
+    "first_answer_ns": {
+      "samples": [
+        158479,
+        203565,
+        153953,
+        127617,
+        144565
+      ],
+      "min": 127617,
+      "median": 153953,
+      "max": 203565
+    },
+    "search_ns": {
+      "samples": [
+        36667,
+        49395,
+        34058,
+        28181,
+        32662
+      ],
+      "min": 28181,
+      "median": 34058,
+      "max": 49395
+    },
+    "shutdown_ns": {
+      "samples": [
+        4792,
+        5359,
+        4508,
+        3731,
+        4265
+      ],
+      "min": 3731,
+      "median": 4508,
+      "max": 5359
+    },
+    "drop_ns": {
+      "samples": [
+        1893,
+        2254,
+        1706,
+        1462,
+        1662
+      ],
+      "min": 1462,
+      "median": 1706,
+      "max": 2254
+    },
+    "validation_ns": {
+      "samples": [
+        858,
+        944,
+        841,
+        709,
+        752
+      ],
+      "min": 709,
+      "median": 841,
+      "max": 944
+    },
+    "output_drop_ns": {
+      "samples": [
+        437,
+        471,
+        464,
+        354,
+        378
+      ],
+      "min": 354,
+      "median": 437,
+      "max": 471
+    },
+    "allocation": {
+      "schema_version": 1,
+      "case": "duplicate-eight",
+      "mode": "Inline",
+      "quantum": 64,
+      "limit": 4,
+      "metrics": false,
+      "persistent_metrics": false,
+      "kernel_metrics": false,
+      "observer_metrics": false,
+      "compiled_metrics": false,
+      "metered": true,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 256,
+      "answers": 1,
+      "service_calls": 9,
+      "budget": 5000000,
+      "construct_ns": 140241,
+      "first_answer_ns": 189166,
+      "search_ns": 49153,
+      "shutdown_ns": 5750,
+      "drop_ns": 2372,
+      "contiguous_ns": 197658,
+      "validation_ns": 1018,
+      "output_drop_ns": 503,
+      "total_ns": 198161,
+      "retained_bytes": 0,
+      "memory": {
+        "lifecycle": {
+          "allocation_calls": 1308,
+          "requested_bytes": 91624,
+          "baseline_live": 25083,
+          "peak_live": 60811,
+          "final_live": 27107
+        },
+        "output_drop": {
+          "allocation_calls": 0,
+          "requested_bytes": 0,
+          "baseline_live": 27107,
+          "peak_live": 27107,
+          "final_live": 25083
+        }
+      },
+      "work": null
+    },
+    "work": {
+      "schema_version": 1,
+      "case": "duplicate-eight",
+      "mode": "Inline",
+      "quantum": 64,
+      "limit": 4,
+      "metrics": true,
+      "persistent_metrics": true,
+      "kernel_metrics": true,
+      "observer_metrics": true,
+      "compiled_metrics": true,
+      "metered": false,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 256,
+      "answers": 1,
+      "service_calls": 9,
+      "budget": 5000000,
+      "construct_ns": 133256,
+      "first_answer_ns": 173902,
+      "search_ns": 40805,
+      "shutdown_ns": 5252,
+      "drop_ns": 2156,
+      "contiguous_ns": 181846,
+      "validation_ns": 1015,
+      "output_drop_ns": 436,
+      "total_ns": 182282,
+      "retained_bytes": null,
+      "memory": {
+        "lifecycle": null,
+        "output_drop": null
+      },
+      "work": {
+        "applications": 8,
+        "actual_applications": 8,
+        "accepted_source_steps": 64,
+        "actual_source_steps": 64,
+        "products": 1,
+        "source_turns": 8,
+        "candidates": 24,
+        "specialized_applications": 0,
+        "cursor_steps": 0,
+        "history_checks": 0,
+        "transport": {
+          "issued": 8,
+          "received": 8,
+          "accepted": 8,
+          "max_outstanding": 4,
+          "owner_buffered_peak": 4,
+          "outstanding": 0,
+          "buffered": 0,
+          "unaccepted_at_shutdown": 0,
+          "actual_source_steps": 64,
+          "accepted_source_steps": 64,
+          "cancelled_requests": 0,
+          "unserved_quantum_slots": 0,
+          "prefetch_visits": 44
+        }
+      }
+    }
+  },
+  {
+    "version": "current",
+    "cell": [
+      "duplicate-eight",
+      "Specialized",
+      0,
+      0
+    ],
+    "primary_complete": 5,
+    "samples_ns": [
+      5033625,
+      4547875,
+      4507212,
+      4459052,
+      4620960
+    ],
+    "complete_comparison": true,
+    "total_ns": {
+      "samples": [
+        5033625,
+        4547875,
+        4507212,
+        4459052,
+        4620960
+      ],
+      "min": 4459052,
+      "median": 4547875,
+      "max": 5033625
+    },
+    "contiguous_ns": {
+      "samples": [
+        5033199,
+        4547516,
+        4506715,
+        4458486,
+        4620610
+      ],
+      "min": 4458486,
+      "median": 4547516,
+      "max": 5033199
+    },
+    "construct_ns": {
+      "samples": [
+        127107,
+        117083,
+        117747,
+        115732,
+        112244
+      ],
+      "min": 112244,
+      "median": 117083,
+      "max": 127107
+    },
+    "first_answer_ns": {
+      "samples": [
+        3443406,
+        3070815,
+        3150128,
+        3047160,
+        3136275
+      ],
+      "min": 3047160,
+      "median": 3136275,
+      "max": 3443406
+    },
+    "search_ns": {
+      "samples": [
+        4874896,
+        4402353,
+        4371076,
+        4298443,
+        4477340
+      ],
+      "min": 4298443,
+      "median": 4402353,
+      "max": 4874896
+    },
+    "shutdown_ns": {
+      "samples": [
+        45,
+        39,
+        41,
+        37,
+        38
+      ],
+      "min": 37,
+      "median": 39,
+      "max": 45
+    },
+    "drop_ns": {
+      "samples": [
+        31106,
+        28002,
+        17810,
+        44236,
+        30950
+      ],
+      "min": 17810,
+      "median": 30950,
+      "max": 44236
+    },
+    "validation_ns": {
+      "samples": [
+        1224,
+        882,
+        680,
+        761,
+        893
+      ],
+      "min": 680,
+      "median": 882,
+      "max": 1224
+    },
+    "output_drop_ns": {
+      "samples": [
+        426,
+        359,
+        497,
+        566,
+        350
+      ],
+      "min": 350,
+      "median": 426,
+      "max": 566
+    },
+    "allocation": {
+      "schema_version": 1,
+      "case": "duplicate-eight",
+      "mode": "Specialized",
+      "quantum": 0,
+      "limit": 0,
+      "metrics": false,
+      "persistent_metrics": false,
+      "kernel_metrics": false,
+      "observer_metrics": false,
+      "compiled_metrics": false,
+      "metered": true,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 256,
+      "answers": 1,
+      "service_calls": 8720,
+      "budget": 20000000,
+      "construct_ns": 179648,
+      "first_answer_ns": 4632729,
+      "search_ns": 6560579,
+      "shutdown_ns": 62,
+      "drop_ns": 34557,
+      "contiguous_ns": 6774891,
+      "validation_ns": 1046,
+      "output_drop_ns": 528,
+      "total_ns": 6775419,
+      "retained_bytes": 0,
+      "memory": {
+        "lifecycle": {
+          "allocation_calls": 82857,
+          "requested_bytes": 6170694,
+          "baseline_live": 25087,
+          "peak_live": 3783349,
+          "final_live": 27111
+        },
+        "output_drop": {
+          "allocation_calls": 0,
+          "requested_bytes": 0,
+          "baseline_live": 27111,
+          "peak_live": 27111,
+          "final_live": 25087
+        }
+      },
+      "work": null
+    },
+    "work": {
+      "schema_version": 1,
+      "case": "duplicate-eight",
+      "mode": "Specialized",
+      "quantum": 0,
+      "limit": 0,
+      "metrics": true,
+      "persistent_metrics": true,
+      "kernel_metrics": true,
+      "observer_metrics": true,
+      "compiled_metrics": true,
+      "metered": false,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 256,
+      "answers": 1,
+      "service_calls": 8720,
+      "budget": 20000000,
+      "construct_ns": 134888,
+      "first_answer_ns": 2968617,
+      "search_ns": 4225964,
+      "shutdown_ns": 44,
+      "drop_ns": 18113,
+      "contiguous_ns": 4379049,
+      "validation_ns": 754,
+      "output_drop_ns": 385,
+      "total_ns": 4379434,
+      "retained_bytes": null,
+      "memory": {
+        "lifecycle": null,
+        "output_drop": null
+      },
+      "work": {
+        "applications": 255,
+        "actual_applications": 255,
+        "accepted_source_steps": 8719,
+        "actual_source_steps": 8719,
+        "products": 0,
+        "source_turns": 0,
+        "candidates": 4606,
+        "specialized_applications": 255,
+        "cursor_steps": 0,
+        "history_checks": 0,
+        "transport": {
+          "issued": 0,
+          "received": 0,
+          "accepted": 0,
+          "max_outstanding": 0,
+          "owner_buffered_peak": 0,
+          "outstanding": 0,
+          "buffered": 0,
+          "unaccepted_at_shutdown": 0,
+          "actual_source_steps": 0,
+          "accepted_source_steps": 0,
+          "cancelled_requests": 0,
+          "unserved_quantum_slots": 0,
+          "prefetch_visits": 0
+        }
+      }
+    }
+  },
+  {
+    "version": "current",
+    "cell": [
+      "mixed-add-infer",
+      "Inline",
+      64,
+      4
+    ],
+    "primary_complete": 5,
+    "samples_ns": [
+      101026,
+      105486,
+      100335,
+      82129,
+      122079
+    ],
+    "complete_comparison": true,
+    "total_ns": {
+      "samples": [
+        101026,
+        105486,
+        100335,
+        82129,
+        122079
+      ],
+      "min": 82129,
+      "median": 101026,
+      "max": 122079
+    },
+    "contiguous_ns": {
+      "samples": [
+        100881,
+        105285,
+        100175,
+        81958,
+        121870
+      ],
+      "min": 81958,
+      "median": 100881,
+      "max": 121870
+    },
+    "construct_ns": {
+      "samples": [
+        44971,
+        42052,
+        45900,
+        32177,
+        53349
+      ],
+      "min": 32177,
+      "median": 44971,
+      "max": 53349
+    },
+    "first_answer_ns": {
+      "samples": [
+        94627,
+        98671,
+        93879,
+        77086,
+        114416
+      ],
+      "min": 77086,
+      "median": 94627,
+      "max": 114416
+    },
+    "search_ns": {
+      "samples": [
+        49837,
+        56773,
+        48177,
+        44963,
+        61210
+      ],
+      "min": 44963,
+      "median": 49837,
+      "max": 61210
+    },
+    "shutdown_ns": {
+      "samples": [
+        4735,
+        5264,
+        4651,
+        3883,
+        5811
+      ],
+      "min": 3883,
+      "median": 4735,
+      "max": 5811
+    },
+    "drop_ns": {
+      "samples": [
+        1264,
+        1096,
+        1375,
+        860,
+        1405
+      ],
+      "min": 860,
+      "median": 1264,
+      "max": 1405
+    },
+    "validation_ns": {
+      "samples": [
+        494,
+        693,
+        726,
+        485,
+        600
+      ],
+      "min": 485,
+      "median": 600,
+      "max": 726
+    },
+    "output_drop_ns": {
+      "samples": [
+        145,
+        201,
+        160,
+        171,
+        209
+      ],
+      "min": 145,
+      "median": 171,
+      "max": 209
+    },
+    "allocation": {
+      "schema_version": 1,
+      "case": "mixed-add-infer",
+      "mode": "Inline",
+      "quantum": 64,
+      "limit": 4,
+      "metrics": false,
+      "persistent_metrics": false,
+      "kernel_metrics": false,
+      "observer_metrics": false,
+      "compiled_metrics": false,
+      "metered": true,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 1,
+      "answers": 1,
+      "service_calls": 3,
+      "budget": 100000,
+      "construct_ns": 41709,
+      "first_answer_ns": 102876,
+      "search_ns": 61224,
+      "shutdown_ns": 5954,
+      "drop_ns": 962,
+      "contiguous_ns": 109943,
+      "validation_ns": 599,
+      "output_drop_ns": 209,
+      "total_ns": 110152,
+      "retained_bytes": 0,
+      "memory": {
+        "lifecycle": {
+          "allocation_calls": 947,
+          "requested_bytes": 64480,
+          "baseline_live": 6901,
+          "peak_live": 31746,
+          "final_live": 7590
+        },
+        "output_drop": {
+          "allocation_calls": 0,
+          "requested_bytes": 0,
+          "baseline_live": 7590,
+          "peak_live": 7590,
+          "final_live": 6901
+        }
+      },
+      "work": null
+    },
+    "work": {
+      "schema_version": 1,
+      "case": "mixed-add-infer",
+      "mode": "Inline",
+      "quantum": 64,
+      "limit": 4,
+      "metrics": true,
+      "persistent_metrics": true,
+      "kernel_metrics": true,
+      "observer_metrics": true,
+      "compiled_metrics": true,
+      "metered": false,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 1,
+      "answers": 1,
+      "service_calls": 3,
+      "budget": 100000,
+      "construct_ns": 46446,
+      "first_answer_ns": 101569,
+      "search_ns": 55249,
+      "shutdown_ns": 4804,
+      "drop_ns": 1327,
+      "contiguous_ns": 107977,
+      "validation_ns": 799,
+      "output_drop_ns": 214,
+      "total_ns": 108191,
+      "retained_bytes": null,
+      "memory": {
+        "lifecycle": null,
+        "output_drop": null
+      },
+      "work": {
+        "applications": 8,
+        "actual_applications": 8,
+        "accepted_source_steps": 79,
+        "actual_source_steps": 79,
+        "products": 1,
+        "source_turns": 2,
+        "candidates": 8,
+        "specialized_applications": 0,
+        "cursor_steps": 0,
+        "history_checks": 0,
+        "transport": {
+          "issued": 2,
+          "received": 2,
+          "accepted": 2,
+          "max_outstanding": 2,
+          "owner_buffered_peak": 2,
+          "outstanding": 0,
+          "buffered": 0,
+          "unaccepted_at_shutdown": 0,
+          "actual_source_steps": 79,
+          "accepted_source_steps": 79,
+          "cancelled_requests": 0,
+          "unserved_quantum_slots": 0,
+          "prefetch_visits": 4
+        }
+      }
+    }
+  },
+  {
+    "version": "current",
+    "cell": [
+      "mixed-add-infer",
+      "Specialized",
+      0,
+      0
+    ],
+    "primary_complete": 5,
+    "samples_ns": [
+      187530,
+      236811,
+      206559,
+      182994,
+      181330
+    ],
+    "complete_comparison": true,
+    "total_ns": {
+      "samples": [
+        187530,
+        236811,
+        206559,
+        182994,
+        181330
+      ],
+      "min": 181330,
+      "median": 187530,
+      "max": 236811
+    },
+    "contiguous_ns": {
+      "samples": [
+        187291,
+        236589,
+        206350,
+        182825,
+        181114
+      ],
+      "min": 181114,
+      "median": 187291,
+      "max": 236589
+    },
+    "construct_ns": {
+      "samples": [
+        45822,
+        54896,
+        47499,
+        42250,
+        41261
+      ],
+      "min": 41261,
+      "median": 45822,
+      "max": 54896
+    },
+    "first_answer_ns": {
+      "samples": [
+        185079,
+        233139,
+        203768,
+        180702,
+        178934
+      ],
+      "min": 178934,
+      "median": 185079,
+      "max": 233139
+    },
+    "search_ns": {
+      "samples": [
+        139350,
+        178480,
+        156504,
+        138542,
+        137764
+      ],
+      "min": 137764,
+      "median": 139350,
+      "max": 178480
+    },
+    "shutdown_ns": {
+      "samples": [
+        36,
+        45,
+        40,
+        35,
+        35
+      ],
+      "min": 35,
+      "median": 36,
+      "max": 45
+    },
+    "drop_ns": {
+      "samples": [
+        2045,
+        3119,
+        2263,
+        1958,
+        2015
+      ],
+      "min": 1958,
+      "median": 2045,
+      "max": 3119
+    },
+    "validation_ns": {
+      "samples": [
+        577,
+        765,
+        617,
+        499,
+        558
+      ],
+      "min": 499,
+      "median": 577,
+      "max": 765
+    },
+    "output_drop_ns": {
+      "samples": [
+        239,
+        222,
+        209,
+        169,
+        216
+      ],
+      "min": 169,
+      "median": 216,
+      "max": 239
+    },
+    "allocation": {
+      "schema_version": 1,
+      "case": "mixed-add-infer",
+      "mode": "Specialized",
+      "quantum": 0,
+      "limit": 0,
+      "metrics": false,
+      "persistent_metrics": false,
+      "kernel_metrics": false,
+      "observer_metrics": false,
+      "compiled_metrics": false,
+      "metered": true,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 1,
+      "answers": 1,
+      "service_calls": 84,
+      "budget": 20000000,
+      "construct_ns": 44007,
+      "first_answer_ns": 232904,
+      "search_ns": 189003,
+      "shutdown_ns": 48,
+      "drop_ns": 2536,
+      "contiguous_ns": 235638,
+      "validation_ns": 546,
+      "output_drop_ns": 255,
+      "total_ns": 235893,
+      "retained_bytes": 0,
+      "memory": {
+        "lifecycle": {
+          "allocation_calls": 3116,
+          "requested_bytes": 211108,
+          "baseline_live": 6905,
+          "peak_live": 68741,
+          "final_live": 7594
+        },
+        "output_drop": {
+          "allocation_calls": 0,
+          "requested_bytes": 0,
+          "baseline_live": 7594,
+          "peak_live": 7594,
+          "final_live": 6905
+        }
+      },
+      "work": null
+    },
+    "work": {
+      "schema_version": 1,
+      "case": "mixed-add-infer",
+      "mode": "Specialized",
+      "quantum": 0,
+      "limit": 0,
+      "metrics": true,
+      "persistent_metrics": true,
+      "kernel_metrics": true,
+      "observer_metrics": true,
+      "compiled_metrics": true,
+      "metered": false,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 1,
+      "answers": 1,
+      "service_calls": 84,
+      "budget": 20000000,
+      "construct_ns": 47775,
+      "first_answer_ns": 193947,
+      "search_ns": 146379,
+      "shutdown_ns": 38,
+      "drop_ns": 2550,
+      "contiguous_ns": 196782,
+      "validation_ns": 818,
+      "output_drop_ns": 185,
+      "total_ns": 196967,
+      "retained_bytes": null,
+      "memory": {
+        "lifecycle": null,
+        "output_drop": null
+      },
+      "work": {
+        "applications": 8,
+        "actual_applications": 8,
+        "accepted_source_steps": 78,
+        "actual_source_steps": 78,
+        "products": 0,
+        "source_turns": 0,
+        "candidates": 16,
+        "specialized_applications": 8,
+        "cursor_steps": 0,
+        "history_checks": 0,
+        "transport": {
+          "issued": 0,
+          "received": 0,
+          "accepted": 0,
+          "max_outstanding": 0,
+          "owner_buffered_peak": 0,
+          "outstanding": 0,
+          "buffered": 0,
+          "unaccepted_at_shutdown": 0,
+          "actual_source_steps": 0,
+          "accepted_source_steps": 0,
+          "cancelled_requests": 0,
+          "unserved_quantum_slots": 0,
+          "prefetch_visits": 0
+        }
+      }
+    }
+  },
+  {
+    "version": "current",
+    "cell": [
+      "two-work",
+      "Threads1",
+      64,
+      4
+    ],
+    "primary_complete": 5,
+    "samples_ns": [
+      1377863,
+      1479762,
+      1470537,
+      1417079,
+      1041822
+    ],
+    "complete_comparison": true,
+    "total_ns": {
+      "samples": [
+        1377863,
+        1479762,
+        1470537,
+        1417079,
+        1041822
+      ],
+      "min": 1041822,
+      "median": 1417079,
+      "max": 1479762
+    },
+    "contiguous_ns": {
+      "samples": [
+        1377103,
+        1478946,
+        1469767,
+        1416325,
+        1040963
+      ],
+      "min": 1040963,
+      "median": 1416325,
+      "max": 1478946
+    },
+    "construct_ns": {
+      "samples": [
+        447104,
+        564257,
+        498359,
+        502645,
+        288967
+      ],
+      "min": 288967,
+      "median": 498359,
+      "max": 564257
+    },
+    "first_answer_ns": {
+      "samples": [
+        1262421,
+        1412714,
+        1396901,
+        1354712,
+        983410
+      ],
+      "min": 983410,
+      "median": 1354712,
+      "max": 1412714
+    },
+    "search_ns": {
+      "samples": [
+        820546,
+        853584,
+        903121,
+        856363,
+        699154
+      ],
+      "min": 699154,
+      "median": 853584,
+      "max": 903121
+    },
+    "shutdown_ns": {
+      "samples": [
+        106599,
+        58479,
+        65544,
+        54559,
+        50327
+      ],
+      "min": 50327,
+      "median": 58479,
+      "max": 106599
+    },
+    "drop_ns": {
+      "samples": [
+        2735,
+        2524,
+        2646,
+        2677,
+        2420
+      ],
+      "min": 2420,
+      "median": 2646,
+      "max": 2735
+    },
+    "validation_ns": {
+      "samples": [
+        1936,
+        1690,
+        1513,
+        1664,
+        1692
+      ],
+      "min": 1513,
+      "median": 1690,
+      "max": 1936
+    },
+    "output_drop_ns": {
+      "samples": [
+        760,
+        816,
+        770,
+        754,
+        859
+      ],
+      "min": 754,
+      "median": 770,
+      "max": 859
+    },
+    "allocation": {
+      "schema_version": 1,
+      "case": "two-work",
+      "mode": "Threads1",
+      "quantum": 64,
+      "limit": 4,
+      "metrics": false,
+      "persistent_metrics": false,
+      "kernel_metrics": false,
+      "observer_metrics": false,
+      "compiled_metrics": false,
+      "metered": true,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 4,
+      "answers": 4,
+      "service_calls": 38,
+      "budget": 5000000,
+      "construct_ns": 431430,
+      "first_answer_ns": 1526769,
+      "search_ns": 1100967,
+      "shutdown_ns": 53736,
+      "drop_ns": 2366,
+      "contiguous_ns": 1588579,
+      "validation_ns": 1598,
+      "output_drop_ns": 913,
+      "total_ns": 1589492,
+      "retained_bytes": 48,
+      "memory": {
+        "lifecycle": {
+          "allocation_calls": 30620,
+          "requested_bytes": 1627003,
+          "baseline_live": 30365,
+          "peak_live": 251930,
+          "final_live": 32821
+        },
+        "output_drop": {
+          "allocation_calls": 0,
+          "requested_bytes": 0,
+          "baseline_live": 32821,
+          "peak_live": 32821,
+          "final_live": 30413
+        }
+      },
+      "work": null
+    },
+    "work": {
+      "schema_version": 1,
+      "case": "two-work",
+      "mode": "Threads1",
+      "quantum": 64,
+      "limit": 4,
+      "metrics": true,
+      "persistent_metrics": true,
+      "kernel_metrics": true,
+      "observer_metrics": true,
+      "compiled_metrics": true,
+      "metered": false,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 4,
+      "answers": 4,
+      "service_calls": 38,
+      "budget": 5000000,
+      "construct_ns": 515943,
+      "first_answer_ns": 1445561,
+      "search_ns": 933901,
+      "shutdown_ns": 59452,
+      "drop_ns": 2796,
+      "contiguous_ns": 1512274,
+      "validation_ns": 1643,
+      "output_drop_ns": 727,
+      "total_ns": 1513001,
+      "retained_bytes": null,
+      "memory": {
+        "lifecycle": null,
+        "output_drop": null
+      },
+      "work": {
+        "applications": 1026,
+        "actual_applications": 1026,
+        "accepted_source_steps": 2064,
+        "actual_source_steps": 2064,
+        "products": 4,
+        "source_turns": 34,
+        "candidates": 1030,
+        "specialized_applications": 0,
+        "cursor_steps": 0,
+        "history_checks": 0,
+        "transport": {
+          "issued": 34,
+          "received": 34,
+          "accepted": 34,
+          "max_outstanding": 2,
+          "owner_buffered_peak": 1,
+          "outstanding": 0,
+          "buffered": 0,
+          "unaccepted_at_shutdown": 0,
+          "actual_source_steps": 2064,
+          "accepted_source_steps": 2064,
+          "cancelled_requests": 0,
+          "unserved_quantum_slots": 0,
+          "prefetch_visits": 68
+        }
+      }
+    }
+  },
+  {
+    "version": "current",
+    "cell": [
+      "two-work",
+      "Threads2",
+      64,
+      4
+    ],
+    "primary_complete": 5,
+    "samples_ns": [
+      906754,
+      1047005,
+      922431,
+      985672,
+      1379607
+    ],
+    "complete_comparison": true,
+    "total_ns": {
+      "samples": [
+        906754,
+        1047005,
+        922431,
+        985672,
+        1379607
+      ],
+      "min": 906754,
+      "median": 985672,
+      "max": 1379607
+    },
+    "contiguous_ns": {
+      "samples": [
+        906049,
+        1046259,
+        921732,
+        984964,
+        1378931
+      ],
+      "min": 906049,
+      "median": 984964,
+      "max": 1378931
+    },
+    "construct_ns": {
+      "samples": [
+        355371,
+        280745,
+        377442,
+        420476,
+        274860
+      ],
+      "min": 274860,
+      "median": 355371,
+      "max": 420476
+    },
+    "first_answer_ns": {
+      "samples": [
+        847473,
+        988906,
+        868672,
+        920537,
+        1306669
+      ],
+      "min": 847473,
+      "median": 920537,
+      "max": 1306669
+    },
+    "search_ns": {
+      "samples": [
+        497285,
+        713067,
+        495723,
+        504987,
+        1036688
+      ],
+      "min": 495723,
+      "median": 504987,
+      "max": 1036688
+    },
+    "shutdown_ns": {
+      "samples": [
+        50394,
+        49493,
+        46005,
+        44952,
+        64501
+      ],
+      "min": 44952,
+      "median": 49493,
+      "max": 64501
+    },
+    "drop_ns": {
+      "samples": [
+        2881,
+        2840,
+        2447,
+        14414,
+        2782
+      ],
+      "min": 2447,
+      "median": 2840,
+      "max": 14414
+    },
+    "validation_ns": {
+      "samples": [
+        1599,
+        1636,
+        1561,
+        1585,
+        1866
+      ],
+      "min": 1561,
+      "median": 1599,
+      "max": 1866
+    },
+    "output_drop_ns": {
+      "samples": [
+        705,
+        746,
+        699,
+        708,
+        676
+      ],
+      "min": 676,
+      "median": 705,
+      "max": 746
+    },
+    "allocation": {
+      "schema_version": 1,
+      "case": "two-work",
+      "mode": "Threads2",
+      "quantum": 64,
+      "limit": 4,
+      "metrics": false,
+      "persistent_metrics": false,
+      "kernel_metrics": false,
+      "observer_metrics": false,
+      "compiled_metrics": false,
+      "metered": true,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 4,
+      "answers": 4,
+      "service_calls": 38,
+      "budget": 5000000,
+      "construct_ns": 392248,
+      "first_answer_ns": 2422267,
+      "search_ns": 2037112,
+      "shutdown_ns": 86335,
+      "drop_ns": 3495,
+      "contiguous_ns": 2519294,
+      "validation_ns": 1786,
+      "output_drop_ns": 944,
+      "total_ns": 2520238,
+      "retained_bytes": 48,
+      "memory": {
+        "lifecycle": {
+          "allocation_calls": 30633,
+          "requested_bytes": 1633994,
+          "baseline_live": 30365,
+          "peak_live": 259445,
+          "final_live": 32821
+        },
+        "output_drop": {
+          "allocation_calls": 0,
+          "requested_bytes": 0,
+          "baseline_live": 32821,
+          "peak_live": 32821,
+          "final_live": 30413
+        }
+      },
+      "work": null
+    },
+    "work": {
+      "schema_version": 1,
+      "case": "two-work",
+      "mode": "Threads2",
+      "quantum": 64,
+      "limit": 4,
+      "metrics": true,
+      "persistent_metrics": true,
+      "kernel_metrics": true,
+      "observer_metrics": true,
+      "compiled_metrics": true,
+      "metered": false,
+      "status": "complete",
+      "exhausted": true,
+      "raw": 4,
+      "answers": 4,
+      "service_calls": 38,
+      "budget": 5000000,
+      "construct_ns": 333775,
+      "first_answer_ns": 803186,
+      "search_ns": 473595,
+      "shutdown_ns": 47304,
+      "drop_ns": 2312,
+      "contiguous_ns": 857163,
+      "validation_ns": 1543,
+      "output_drop_ns": 660,
+      "total_ns": 857823,
+      "retained_bytes": null,
+      "memory": {
+        "lifecycle": null,
+        "output_drop": null
+      },
+      "work": {
+        "applications": 1026,
+        "actual_applications": 1026,
+        "accepted_source_steps": 2064,
+        "actual_source_steps": 2064,
+        "products": 4,
+        "source_turns": 34,
+        "candidates": 1030,
+        "specialized_applications": 0,
+        "cursor_steps": 0,
+        "history_checks": 0,
+        "transport": {
+          "issued": 34,
+          "received": 34,
+          "accepted": 34,
+          "max_outstanding": 2,
+          "owner_buffered_peak": 1,
+          "outstanding": 0,
+          "buffered": 0,
+          "unaccepted_at_shutdown": 0,
+          "actual_source_steps": 2064,
+          "accepted_source_steps": 2064,
+          "cancelled_requests": 0,
+          "unserved_quantum_slots": 0,
+          "prefetch_visits": 68
+        }
+      }
+    }
+  }
+]

@@ -85,3 +85,8 @@ Root audited Q1/Q2/Q4/Q5/Q8/Q12 against receipts and current controls. Independe
 ## Update after T043
 
 [Regional lifecycle evidence](R08-regional-lifecycle.md) establishes a bounded capacity benefit versus one worker, with unresolved balanced ordering versus Inline and contrary controls favoring Inline. The current specialized serial control exposes large per-application overhead on one-region carry. T044 selects a deterministic causal gate for repeated Indexed structural maintenance before another timing or executor change. Static eligibility remains the strongest broader alternative; parallel expansion is not selected.
+
+
+## Update after T044
+
+[The paired immutable-subtree pilot](R01-closed-subtree-lifecycle.md) validates all 288 processes and 9,664 full observations. Four carry-heavy Specialized families have separated favorable before/after ranges; all Inline changes and current balanced worker ordering remain unresolved. Metadata increases Inline requested allocation traffic and is included. T045 selects checked finite recursive-relation eligibility and correspondence, with nonground payloads, failure and contextual exclusions, ahead of more executor tuning. Native compilation lifecycle remains unmeasured; the certified R04 fragment is the alternative if recursive eligibility requires broad analysis. The goal remains active.

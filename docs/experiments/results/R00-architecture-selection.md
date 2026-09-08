@@ -162,3 +162,8 @@ The [conditional lifecycle pilot](R03-conditional-lifecycle.md) validates all 25
 ## Correction update during T044
 
 [The structural-maintenance gate](R01-structural-maintenance.md) confirms avoidable quadratic Indexed traversal and validates immutable-subtree recognition with linear visits and preserved late-binding behavior. The paired lifecycle registration includes the added metadata cost and persistent controls; no timing improvement is inferred from work counts alone. T044 remains active pending that comparison.
+
+
+## Update after T044
+
+[The paired immutable-subtree pilot](R01-closed-subtree-lifecycle.md) validates all 288 processes and 9,664 full observations. Four carry-heavy Specialized families have separated favorable before/after ranges; all Inline changes and current balanced worker ordering remain unresolved. Metadata increases Inline requested allocation traffic and is included. T045 selects checked finite recursive-relation eligibility and correspondence, with nonground payloads, failure and contextual exclusions, ahead of more executor tuning. Native compilation lifecycle remains unmeasured; the certified R04 fragment is the alternative if recursive eligibility requires broad analysis. The goal remains active.
