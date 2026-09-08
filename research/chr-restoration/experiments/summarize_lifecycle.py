@@ -24,6 +24,9 @@ rows=[]
 for cell in order:
     name=f"{cell['kind']}-{cell['rep']}-{cell['family']}-{cell['mode']}-{cell['reuse']}"
     receipt=json.loads((OUT/(name+'.json')).read_text())
+    key=('cow-' if cell['mode']=='indexed-cow' else '')+cell['kind']
+    expected_command=[freeze['binaries'][key]['path'], 'indexed' if cell['mode']=='indexed-cow' else cell['mode'], cell['family'], str(cell['reuse'])]
+    assert receipt['command']==expected_command
     assert receipt['exit_code']==0 and not receipt.get('cutoff')
     value=json.loads(receipt['stdout'])
     assert value['family']==cell['family'] and value['reuse']==cell['reuse']
@@ -34,6 +37,14 @@ for cell in order:
     assert all(q['count']==counts[cell['family']] and q['first_ns'] is not None for q in value['queries'])
     ps=phases(value)
     assert all(p['ns']>=0 for p in ps)
+    for phase in ps+list(value['cancellation'].values()):
+        if cell['kind']=='time':
+            assert phase['memory'] is None
+        else:
+            memory=phase['memory']
+            assert all(isinstance(n,int) and n>=0 for n in memory.values())
+            assert memory['peak_live']>=max(memory['live_start'],memory['live_end'])
+    assert all(0<=q['first_ns']<=q['execution_observation']['ns'] for q in value['queries'])
     base=value['preparation']['memory']
     row={**cell,'total_ns':sum(p['ns'] for p in ps),
          'execution_ns':sum(q['execution_observation']['ns'] for q in value['queries']),
@@ -51,7 +62,8 @@ for cell in order:
 assert len(rows)==1008 and len(groups)==144
 summaries=[]
 for (family,mode,reuse),g in sorted(groups.items()):
-    assert len(g['time'])==5 and len(g['meter'])==2
+    assert sorted(rep for rep,_,_ in g['time'])==list(range(5))
+    assert sorted(rep for rep,_,_ in g['meter'])==list(range(2))
     assert diagnostics(g['meter'][0][2])==diagnostics(g['meter'][1][2]),(family,mode,reuse,'allocation replay')
     time={rep:r for rep,r,_ in g['time']}
     item={'family':family,'mode':mode,'reuse':reuse}
