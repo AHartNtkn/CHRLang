@@ -143,3 +143,8 @@ The [conditional lifecycle pilot](R03-conditional-lifecycle.md) validates all 25
 ## Update after T041
 
 [The publication-priority gate](R06-publication-flow-gate.md) establishes exact answers with a bulk-drain sibling-delay tradeoff; no production scheduler change is adopted. T042 selects current-engine mixed-phase generalization ahead of wider scheduling ownership changes and repeated regional parallelism. The broader question dispositions remain active.
+
+
+## Update after T042
+
+[Mixed-phase comparison](R05-mixed-pipeline.md) supplies a current-engine applicability boundary: opaque pre-discrimination work can pay for conditional bookkeeping, while identical post calls retain separate occurrence work. T043 selects a bounded counter-free regional parallel entry ahead of a new static-compilation experiment, with serial-control and applicability review before repeated measurement. Broader lifetime and language questions remain explicit.

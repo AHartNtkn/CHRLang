@@ -2,7 +2,7 @@
 
 Future work is selected by its ability to change an architectural or language-design decision under the [sequence](sequence.md). A completed experimental package is evidence for its stated claim; it does not establish that its entire mechanism is resolved or that its follow-ups deserve execution.
 
-**Current selection:** [Publication-priority gate](results/R06-publication-flow-gate.md) preserves exact answers but delays a finite sibling behind all256 bulk answers at n8, versus28 under interleaving. T041 is complete without a production scheduler change. T042 selects finite mixed-phase generalization of current conditional and specialized explicit execution, testing opaque work → discrimination → common work with a [prospectively registered lifecycle comparison](registrations/R05-mixed-pipeline.md). Broader parallel, compilation, eager-region and lifetime questions remain open; no hybrid/reunion implementation is assumed.
+**Current selection:** [Mixed-phase lifecycle evidence](results/R05-mixed-pipeline.md) validates 224 processes and shows placement-dependent conditional/explicit outcomes. T042 is complete. T043 selects counter-free coarse-region parallel readiness and a prospective repeated comparison if its interface/control remain credible. Operational ownership must remain distinct from diagnostics; static compilation is the strongest broader alternative. No matrix, hybrid policy or worker expansion is automatic.
 
 ## Question map
 
