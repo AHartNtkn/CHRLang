@@ -308,3 +308,7 @@ The [S04 restoration gate](S04-restoration-source-gate.md) establishes independe
 ## S04 lifecycle and attribution update
 
 The [1,008-process S04 pilot](S04-lifecycle-pilot.md) passes full answers, exact allocation replay and disposal checks. Copying wins the retained-store runtime/traffic/peak comparison against existing indexed execution; mutation favors indexed runtime and traffic while copying uses lower peak heap. The tested trail has substantial runtime and retention costs. A [registered matcher diagnostic and correction](S04-matcher-copy-gate.md) identifies and eliminates 36,864 rejected-partner frame copies on mutation without changing source work or answers. Paired costs, including all-compatible and long-alias overhead, remain necessary before interpreting the corrected organization. T066 stays active; no architecture or general state policy is selected.
+
+## S04 paired correction and S05 selection
+
+The [672-process matcher comparison](S04-matcher-paired-cost.md) cuts mutation lifecycle to 11% of its previous time for Copy and 53% for Trail, with exact allocation corroboration and a repeatable 11–15% compatible-alias overhead. Peak heap is unchanged. This resolves the immediate confound without ranking all restoration policies. T066's bounded trial is complete; [T067 stable-identity reuse](S05-stable-reuse-entry.md) is selected next against corrected replay policies, with broader S04 obligations preserved.

@@ -1,0 +1,19 @@
+{
+  "command": [
+    "cargo",
+    "build",
+    "--offline",
+    "--release",
+    "--manifest-path",
+    "/tmp/chr-s04-matcher-ui9ufozz/after/Cargo.toml",
+    "--example",
+    "lifecycle",
+    "--target-dir",
+    "/home/ahart/Documents/CHRLang/target/s04-matcher-paired/after/meter",
+    "--features",
+    "alloc-meter"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "   Compiling chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax)\n   Compiling chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe)\n   Compiling chr-restoration v0.1.0 (/tmp/chr-s04-matcher-ui9ufozz/after)\n   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)\n   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)\n    Finished `release` profile [optimized] target(s) in 5.54s\n"
+}

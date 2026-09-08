@@ -7,8 +7,19 @@ use std::time::Instant;
 #[allow(dead_code)]
 #[path = "../../chr-direct-conditional/tests/runtime_support/mod.rs"]
 mod oracle;
-const FAMILIES: [&str; 9] = [
-    "linear", "small", "retained", "mutation", "work", "deep", "spine", "early", "late",
+const FAMILIES: [&str; 12] = [
+    "linear",
+    "small",
+    "retained",
+    "mutation",
+    "work",
+    "deep",
+    "spine",
+    "early",
+    "late",
+    "compatible-small",
+    "compatible-large",
+    "compatible-alias",
 ];
 const MODES: [&str; 7] = [
     "copy",
@@ -60,7 +71,35 @@ fn config(f: &str) -> Config {
 fn nat(n: usize) -> Term {
     (0..n).fold(atom("z"), |x, _| t("s", [x]))
 }
+fn compatible(f: &str) -> bool {
+    f.starts_with("compatible-")
+}
+fn compatible_key(f: &str, seed: usize) -> Term {
+    if f == "compatible-alias" {
+        v(100 + seed as u64 * 1000)
+    } else {
+        (0..if f == "compatible-large" { 64 } else { 0 }).fold(atom("key"), |x, _| t("f", [x]))
+    }
+}
 fn rules(f: &str) -> Vec<Rule> {
+    if compatible(f) {
+        let mut rules = vec![];
+        if f == "compatible-alias" {
+            rules.push(Rule::simplify(
+                "aliases",
+                [c("seed", (0..=64).map(v).collect::<Vec<_>>())],
+                and((0..64).map(|i| eq(v(i), v(i + 1))).collect::<Vec<_>>()),
+            ));
+        }
+        rules.push(Rule {
+            name: "take".into(),
+            kept: vec![c("tag", [v(0)])],
+            removed: vec![c("item", [v(0), v(1)])],
+            guards: vec![],
+            body: c("seen", [v(1)]).into(),
+        });
+        return rules;
+    }
     let x = config(f);
     let ids = (0..x.edits)
         .rev()
@@ -123,6 +162,22 @@ fn rules(f: &str) -> Vec<Rule> {
     ]
 }
 fn query(f: &str, seed: usize) -> Query {
+    if compatible(f) {
+        let base = 100 + seed as u64 * 1000;
+        let key = compatible_key(f, seed);
+        let mut rows = vec![];
+        if f == "compatible-alias" {
+            rows.push(c("seed", (0..=64).map(|i| v(base + i)).collect::<Vec<_>>()));
+        }
+        rows.push(c("tag", [key.clone()]));
+        for i in 0..32 {
+            rows.push(c("item", [key.clone(), v(base + 100 + i % 2)]));
+        }
+        return Query {
+            constraints: rows,
+            outputs: vec![("x".into(), Var(base + 100)), ("y".into(), Var(base + 101))],
+        };
+    }
     let x = config(f);
     let mut rows: Vec<_> = (0..x.n)
         .map(|i| {
@@ -268,11 +323,31 @@ fn gate(selected: Option<&str>, selected_mode: Option<&str>) {
             let q = query(f, seed);
             let expected = oracle::run(&rules, &q, 100_000);
             let count = match f {
-                "early" | "late" | "linear" => 1,
+                "early" | "late" | "linear" | "compatible-small" | "compatible-large"
+                | "compatible-alias" => 1,
                 "spine" => config(f).depth + 1,
                 _ => 1 << config(f).depth,
             };
             assert_eq!(expected.len(), count);
+            if compatible(f) {
+                let base = 100 + seed as u64 * 1000;
+                let key = if f == "compatible-alias" {
+                    v(base + 64)
+                } else {
+                    compatible_key(f, seed)
+                };
+                let mut residual = vec![c("tag", [key])];
+                for i in 0..32 {
+                    residual.push(c("seen", [v(base + 100 + i % 2)]));
+                }
+                oracle::same_raw(
+                    expected.clone(),
+                    vec![Answer {
+                        outputs: vec![("x".into(), v(base + 100)), ("y".into(), v(base + 101))],
+                        residual,
+                    }],
+                );
+            }
             for mode in MODES {
                 if selected_mode.is_some_and(|selected| selected != mode) {
                     continue;
