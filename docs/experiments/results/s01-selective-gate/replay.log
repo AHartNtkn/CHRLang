@@ -1,0 +1,14 @@
+
+running 5 tests
+S01_SELECTIVE_WORK Direct constructed=0 invalidated=0 lookups=36 direct_pairs=12 retained=0 emitted=12
+S01_SELECTIVE_WORK Retained constructed=4 invalidated=0 lookups=0 direct_pairs=0 retained=12 emitted=12
+test selective_work_diagnostics_separate_lookup_from_retention ... ok
+test zero_requests_missing_matches_and_certificate_boundaries ... ok
+test retained_consumption_invalidates_all_shared_partners_and_reuses_preparation ... ok
+test structural_unknowns_broad_aliases_and_late_receipt_values ... ok
+test key_fanout_selectivity_updates_and_consumption_match_source ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.02s
+
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.02s
+     Running tests/selective_join_gate.rs (target/debug/deps/selective_join_gate-b38c664021f8a005)

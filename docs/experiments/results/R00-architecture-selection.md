@@ -288,3 +288,7 @@ The [source-derived bag-join gate](S06-table-source-gate.md) passes 6,144 config
 ## S06 table lifecycle and next discovery contrast
 
 The [252-process finite-table pilot](S06-table-lifecycle.md) favors direct source compilation over both generic controls in every registered one-query and 16-query cell, including certification, query lifetime and disposal. This supports the admitted fragment without selecting language restrictions, a universal relation solver or native compilation. T064's bounded trial is complete. [S01 selective and consuming discovery](S01-next-selection.md) is selected next, with S04 restoration/replay the strongest ready independent alternative.
+
+## S01 selective and consuming source gate
+
+The [selective/consuming lowerings](S01-selective-consuming-gate.md) pass independent source and Global-control checks across the registered 144-configuration grid and directed binding/ownership cases. Direct execution uses composite access; retained execution correctly invalidates all partners of consumed rows. Stable selective requests exhibit fewer retained visits than direct lookups, with construction and invalidation still to price. T065 remains active for prospective lifecycle comparison; work counts do not rank architectures.

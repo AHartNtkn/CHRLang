@@ -1644,5 +1644,6 @@ impl Engine {
 }
 include!(concat!(env!("OUT_DIR"), "/generated.rs"));
 
+pub mod selective_join;
 /// Checked experimental lowering for the registered S01 update-join source.
 pub mod update_join;

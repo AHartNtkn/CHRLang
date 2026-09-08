@@ -1,0 +1,52 @@
+
+running 5 tests
+test retained_consumption_invalidates_all_shared_partners_and_reuses_preparation ... FAILED
+test selective_work_diagnostics_separate_lookup_from_retention ... ok
+test zero_requests_missing_matches_and_certificate_boundaries ... ok
+test key_fanout_selectivity_updates_and_consumption_match_source ... FAILED
+test structural_unknowns_broad_aliases_and_late_receipt_values ... FAILED
+
+failures:
+
+---- retained_consumption_invalidates_all_shared_partners_and_reuses_preparation stdout ----
+
+thread 'retained_consumption_invalidates_all_shared_partners_and_reuses_preparation' (510) panicked at research/chr-compiled/tests/selective_join_gate.rs:167:5:
+assertion `left == right` failed
+  left: 12
+ right: 0
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- key_fanout_selectivity_updates_and_consumption_match_source stdout ----
+
+thread 'key_fanout_selectivity_updates_and_consumption_match_source' (509) panicked at research/chr-compiled/tests/../../chr-direct-conditional/tests/runtime_support/mod.rs:273:32:
+missing full observation Answer { outputs: [("x", Var(Var(50))), ("y", Var(Var(51)))], residual: [Constraint { name: "left", args: [App("k0", []), App("f", [App("v0", [])])] }, Constraint { name: "receipt", args: [App("before", []), App("f", [App("v0", [])]), App("g", [App("v0", [])])] }, Constraint { name: "receipt", args: [App("inserted", []), App("f", [App("v0", [])]), App("g", [App("v0", [])])] }, Constraint { name: "done", args: [] }] }; remaining [Answer { outputs: [("x", Var(Var(50))), ("y", Var(Var(51)))], residual: [Constraint { name: "left", args: [App("k0", []), App("f", [App("v0", [])])] }, Constraint { name: "right", args: [App("k0", []), App("g", [App("v0", [])])] }, Constraint { name: "right", args: [App("k0", []), App("g", [App("v0", [])])] }, Constraint { name: "receipt", args: [App("before", []), App("f", [App("v0", [])]), App("g", [App("v0", [])])] }, Constraint { name: "receipt", args: [App("after", []), App("f", [App("v0", [])]), App("g", [App("v0", [])])] }, Constraint { name: "receipt", args: [App("inserted", []), App("f", [App("v0", [])]), App("g", [App("v0", [])])] }, Constraint { name: "receipt", args: [App("inserted", []), App("f", [App("v0", [])]), App("g", [App("v0", [])])] }, Constraint { name: "done", args: [] }] }]
+
+---- structural_unknowns_broad_aliases_and_late_receipt_values stdout ----
+
+thread 'structural_unknowns_broad_aliases_and_late_receipt_values' (512) panicked at research/chr-compiled/tests/../../chr-direct-conditional/tests/runtime_support/mod.rs:273:32:
+missing full observation Answer { outputs: [("x", App("a", [])), ("y", Var(Var(51)))], residual: [Constraint { name: "left", args: [App("k", []), App("f", [App("a", [])])] }, Constraint { name: "left", args: [App("k", []), App("f", [App("a", [])])] }, Constraint { name: "left", args: [App("k", []), App("f", [App("a", [])])] }, Constraint { name: "left", args: [App("k", []), App("f", [App("a", [])])] }, Constraint { name: "receipt", args: [App("before", []), App("f", [App("a", [])]), App("g", [App("a", [])])] }, Constraint { name: "receipt", args: [App("before", []), App("f", [App("a", [])]), App("g", [App("a", [])])] }, Constraint { name: "receipt", args: [App("before", []), App("f", [App("a", [])]), App("g", [App("a", [])])] }, Constraint { name: "receipt", args: [App("before", []), App("f", [App("a", [])]), App("g", [App("a", [])])] }, Constraint { name: "done", args: [] }] }; remaining [Answer { outputs: [("x", App("a", [])), ("y", Var(Var(51)))], residual: [Constraint { name: "left", args: [App("k", []), App("f", [App("a", [])])] }, Constraint { name: "left", args: [App("k", []), App("f", [App("a", [])])] }, Constraint { name: "left", args: [App("k", []), App("f", [App("a", [])])] }, Constraint { name: "left", args: [App("k", []), App("f", [App("a", [])])] }, Constraint { name: "right", args: [App("k", []), App("g", [App("a", [])])] }, Constraint { name: "right", args: [App("k", []), App("g", [App("a", [])])] }, Constraint { name: "right", args: [App("k", []), App("g", [App("a", [])])] }, Constraint { name: "right", args: [App("k", []), App("g", [App("a", [])])] }, Constraint { name: "receipt", args: [App("before", []), App("f", [App("a", [])]), App("g", [App("a", [])])] }, Constraint { name: "receipt", args: [App("before", []), App("f", [App("a", [])]), App("g", [App("a", [])])] }, Constraint { name: "receipt", args: [App("before", []), App("f", [App("a", [])]), App("g", [App("a", [])])] }, Constraint { name: "receipt", args: [App("before", []), App("f", [App("a", [])]), App("g", [App("a", [])])] }, Constraint { name: "receipt", args: [App("before", []), App("f", [App("a", [])]), App("g", [App("a", [])])] }, Constraint { name: "receipt", args: [App("before", []), App("f", [App("a", [])]), App("g", [App("a", [])])] }, Constraint { name: "receipt", args: [App("before", []), App("f", [App("a", [])]), App("g", [App("a", [])])] }, Constraint { name: "receipt", args: [App("before", []), App("f", [App("a", [])]), App("g", [App("a", [])])] }, Constraint { name: "receipt", args: [App("before", []), App("f", [App("a", [])]), App("g", [App("a", [])])] }, Constraint { name: "receipt", args: [App("before", []), App("f", [App("a", [])]), App("g", [App("a", [])])] }, Constraint { name: "receipt", args: [App("before", []), App("f", [App("a", [])]), App("g", [App("a", [])])] }, Constraint { name: "receipt", args: [App("before", []), App("f", [App("a", [])]), App("g", [App("a", [])])] }, Constraint { name: "receipt", args: [App("after", []), App("f", [App("a", [])]), App("g", [App("a", [])])] }, Constraint { name: "receipt", args: [App("after", []), App("f", [App("a", [])]), App("g", [App("a", [])])] }, Constraint { name: "receipt", args: [App("after", []), App("f", [App("a", [])]), App("g", [App("a", [])])] }, Constraint { name: "receipt", args: [App("after", []), App("f", [App("a", [])]), App("g", [App("a", [])])] }, Constraint { name: "receipt", args: [App("after", []), App("f", [App("a", [])]), App("g", [App("a", [])])] }, Constraint { name: "receipt", args: [App("after", []), App("f", [App("a", [])]), App("g", [App("a", [])])] }, Constraint { name: "receipt", args: [App("after", []), App("f", [App("a", [])]), App("g", [App("a", [])])] }, Constraint { name: "receipt", args: [App("after", []), App("f", [App("a", [])]), App("g", [App("a", [])])] }, Constraint { name: "receipt", args: [App("after", []), App("f", [App("a", [])]), App("g", [App("a", [])])] }, Constraint { name: "receipt", args: [App("after", []), App("f", [App("a", [])]), App("g", [App("a", [])])] }, Constraint { name: "receipt", args: [App("after", []), App("f", [App("a", [])]), App("g", [App("a", [])])] }, Constraint { name: "receipt", args: [App("after", []), App("f", [App("a", [])]), App("g", [App("a", [])])] }, Constraint { name: "receipt", args: [App("after", []), App("f", [App("a", [])]), App("g", [App("a", [])])] }, Constraint { name: "receipt", args: [App("after", []), App("f", [App("a", [])]), App("g", [App("a", [])])] }, Constraint { name: "receipt", args: [App("after", []), App("f", [App("a", [])]), App("g", [App("a", [])])] }, Constraint { name: "receipt", args: [App("after", []), App("f", [App("a", [])]), App("g", [App("a", [])])] }, Constraint { name: "done", args: [] }] }]
+
+
+failures:
+    key_fanout_selectivity_updates_and_consumption_match_source
+    retained_consumption_invalidates_all_shared_partners_and_reuses_preparation
+    structural_unknowns_broad_aliases_and_late_receipt_values
+
+test result: FAILED. 2 passed; 3 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+warning: field `consuming` is never read
+  --> research/chr-compiled/src/selective_join.rs:69:5
+   |
+67 | pub struct Engine {
+   |            ------ field in this struct
+68 |     mode: Mode,
+69 |     consuming: bool,
+   |     ^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `chr-compiled` (lib) generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.46s
+     Running tests/selective_join_gate.rs (target/debug/deps/selective_join_gate-b38c664021f8a005)
+error: test failed, to rerun pass `-p chr-compiled --test selective_join_gate`

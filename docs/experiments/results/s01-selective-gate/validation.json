@@ -1,0 +1,143 @@
+{
+  "commands": [
+    {
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-compiled",
+        "--test",
+        "selective_join_gate",
+        "--",
+        "--nocapture"
+      ],
+      "exit_code": 0,
+      "log": "default.log",
+      "timeout_seconds": 60
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-compiled",
+        "--test",
+        "selective_join_gate",
+        "--",
+        "--nocapture"
+      ],
+      "exit_code": 0,
+      "log": "replay.log",
+      "timeout_seconds": 60
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-compiled",
+        "--no-default-features",
+        "--test",
+        "selective_join_gate",
+        "--",
+        "--nocapture"
+      ],
+      "exit_code": 0,
+      "log": "off.log",
+      "timeout_seconds": 60
+    },
+    {
+      "command": [
+        "cargo",
+        "clippy",
+        "-p",
+        "chr-compiled",
+        "--test",
+        "selective_join_gate",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit_code": 0,
+      "log": "clippy.log",
+      "timeout_seconds": 60
+    },
+    {
+      "command": [
+        "cargo",
+        "clippy",
+        "-p",
+        "chr-compiled",
+        "--no-default-features",
+        "--test",
+        "selective_join_gate",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit_code": 0,
+      "log": "clippy-off.log",
+      "timeout_seconds": 60
+    },
+    {
+      "command": [
+        "cargo",
+        "fmt",
+        "-p",
+        "chr-compiled",
+        "--",
+        "--check"
+      ],
+      "exit_code": 0,
+      "log": "fmt.log",
+      "timeout_seconds": 60
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-compiled"
+      ],
+      "exit_code": 0,
+      "log": "package.log",
+      "timeout_seconds": 60
+    }
+  ],
+  "mutations": [
+    {
+      "name": "payload-dependency",
+      "exit_code": 101,
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-compiled",
+        "--test",
+        "selective_join_gate"
+      ]
+    },
+    {
+      "name": "consumption",
+      "exit_code": 101,
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-compiled",
+        "--test",
+        "selective_join_gate"
+      ]
+    }
+  ],
+  "diagnostic_replay": [
+    "S01_SELECTIVE_WORK Direct constructed=0 invalidated=0 lookups=36 direct_pairs=12 retained=0 emitted=12",
+    "S01_SELECTIVE_WORK Retained constructed=4 invalidated=0 lookups=0 direct_pairs=0 retained=12 emitted=12"
+  ],
+  "sha256": {
+    "research/chr-compiled/src/selective_join.rs": "3abc8da69c77aa28d80c0859b03dc60c1db61a67b9f8ce61155a47bf6b10e1ac",
+    "research/chr-compiled/tests/selective_join_gate.rs": "1673a445b8c8d6aeb95b02054a71e1bd407cf2a7a8312c228f21bbc54342bc75",
+    "research/chr-compiled/src/lib.rs": "0d1ce9187c1e7208cb2ea8ecccc982ddaf7b220a07c55641be03e6de00149a94",
+    "research/chr-direct-conditional/tests/runtime_support/mod.rs": "03633e8d666fadcdd08ddfe4900aa8116b32e434fb0a5dcb1c5faa23ff5976b2"
+  }
+}
