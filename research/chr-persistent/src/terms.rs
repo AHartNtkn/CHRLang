@@ -13,15 +13,117 @@ pub struct Node {
 }
 #[derive(Default, Clone)]
 pub struct Arena {
+    #[cfg(feature = "fork-diagnostics")]
+    fork_prefix: Option<usize>,
+    #[cfg(feature = "fork-diagnostics")]
+    fork_interning: ForkInterning,
+    #[cfg(feature = "fork-diagnostics")]
+    first_miss_nodes: Option<usize>,
+    #[cfg(feature = "fork-diagnostics")]
+    fork_predicate_insertions: u64,
+    #[cfg(feature = "fork-diagnostics")]
+    segment_requests: u64,
+    #[cfg(feature = "fork-diagnostics")]
+    requests_before_first_miss: Option<u64>,
     nodes: Vec<Node>,
     closed: Vec<bool>,
     intern: HashMap<Node, usize>,
     pub predicates: Vec<(String, usize)>,
     predicates_by_name: HashMap<(String, usize), usize>,
 }
+/// Diagnostic clone boundaries; callers must not mutate measured owners.
+#[cfg(feature = "fork-diagnostics")]
+pub trait ForkObserver {
+    fn before(&mut self, owner: &'static str);
+    fn after(&mut self, owner: &'static str);
+    fn segment(&mut self, _endpoint: &'static str, _segment: ForkSegment) {}
+}
+#[cfg(feature = "fork-diagnostics")]
+#[derive(Clone, Copy, Debug)]
+pub struct ForkSegment {
+    pub inherited_nodes: usize,
+    pub first_miss_nodes: Option<usize>,
+    pub predicate_insertions: u64,
+    pub requests_before_first_miss: Option<u64>,
+}
+#[cfg(feature = "fork-diagnostics")]
+pub struct NoopForkObserver;
+#[cfg(feature = "fork-diagnostics")]
+impl ForkObserver for NoopForkObserver {
+    fn before(&mut self, _: &'static str) {}
+    fn after(&mut self, _: &'static str) {}
+}
+#[cfg(feature = "fork-diagnostics")]
+#[derive(Clone, Copy, Default, Debug, PartialEq, Eq)]
+pub struct ForkInterning {
+    pub inherited_hits: u64,
+    pub local_hits: u64,
+    pub misses: u64,
+}
+#[cfg(feature = "fork-diagnostics")]
+impl ForkInterning {
+    pub fn add(&mut self, other: Self) {
+        self.inherited_hits += other.inherited_hits;
+        self.local_hits += other.local_hits;
+        self.misses += other.misses;
+    }
+}
+#[cfg(feature = "fork-diagnostics")]
+pub fn observed_clone<T: Clone>(
+    value: &T,
+    owner: &'static str,
+    observer: &mut impl ForkObserver,
+) -> T {
+    observer.before(owner);
+    let result = value.clone();
+    observer.after(owner);
+    result
+}
 pub type Scope = BTreeMap<u64, Term>;
 pub type Bindings = Map<u64, Term>;
 impl Arena {
+    #[cfg(feature = "fork-diagnostics")]
+    pub fn clone_observed(&self, observer: &mut impl ForkObserver) -> Self {
+        Self {
+            nodes: observed_clone(&self.nodes, "arena_nodes", observer),
+            closed: observed_clone(&self.closed, "arena_closed", observer),
+            intern: observed_clone(&self.intern, "arena_intern", observer),
+            predicates: observed_clone(&self.predicates, "arena_predicates", observer),
+            predicates_by_name: observed_clone(
+                &self.predicates_by_name,
+                "arena_predicate_lookup",
+                observer,
+            ),
+            fork_prefix: self.fork_prefix,
+            fork_interning: ForkInterning::default(),
+            first_miss_nodes: None,
+            fork_predicate_insertions: 0,
+            segment_requests: 0,
+            requests_before_first_miss: None,
+        }
+    }
+    #[cfg(feature = "fork-diagnostics")]
+    pub fn mark_fork_prefix(&mut self) {
+        self.fork_prefix = Some(self.node_count());
+        self.first_miss_nodes = None;
+        self.fork_predicate_insertions = 0;
+        self.segment_requests = 0;
+        self.requests_before_first_miss = None;
+    }
+    #[cfg(feature = "fork-diagnostics")]
+    pub fn fork_segment(&self) -> Option<ForkSegment> {
+        self.fork_prefix.map(|inherited_nodes| ForkSegment {
+            inherited_nodes,
+            first_miss_nodes: self.first_miss_nodes,
+            predicate_insertions: self.fork_predicate_insertions,
+            requests_before_first_miss: self.requests_before_first_miss,
+        })
+    }
+    #[cfg(feature = "fork-diagnostics")]
+    pub fn take_fork_interning(&mut self) -> ForkInterning {
+        std::mem::take(&mut self.fork_interning)
+    }
+
     /// Interned nodes cannot be mutated after insertion. IDs belong to this arena.
     pub fn node(&self, id: usize) -> &Node {
         &self.nodes[id]
@@ -40,6 +142,10 @@ impl Arena {
         if let Some(id) = self.predicates_by_name.get(&key) {
             return *id;
         }
+        #[cfg(feature = "fork-diagnostics")]
+        if self.fork_prefix.is_some() {
+            self.fork_predicate_insertions += 1;
+        }
         let id = self.predicates.len();
         self.predicates.push(key.clone());
         self.predicates_by_name.insert(key, id);
@@ -49,12 +155,32 @@ impl Arena {
         if crate::COLLECT_KERNEL_METRICS {
             stats.term_requests += 1;
         }
+        #[cfg(feature = "fork-diagnostics")]
+        if self.fork_prefix.is_some() {
+            self.segment_requests += 1;
+        }
         let key = Node {
             name: name.to_owned(),
             args,
         };
         if let Some(id) = self.intern.get(&key) {
+            #[cfg(feature = "fork-diagnostics")]
+            if let Some(prefix) = self.fork_prefix {
+                if *id < prefix {
+                    self.fork_interning.inherited_hits += 1;
+                } else {
+                    self.fork_interning.local_hits += 1;
+                }
+            }
             return Term::Node(*id);
+        }
+        #[cfg(feature = "fork-diagnostics")]
+        if self.fork_prefix.is_some() {
+            self.fork_interning.misses += 1;
+            if self.first_miss_nodes.is_none() {
+                self.first_miss_nodes = Some(self.node_count());
+                self.requests_before_first_miss = Some(self.segment_requests - 1);
+            }
         }
         let closed = key.args.iter().all(|term| match term {
             Term::Var(_) => false,

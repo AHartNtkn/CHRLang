@@ -1,0 +1,21 @@
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.02s
+     Running tests/fork_diagnostics.rs (target/debug/deps/fork_diagnostics-a8feec7f903175ff)
+
+running 1 test
+test failed_branch_interning_is_counted_once_and_siblings_stay_independent ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/state_preservation.rs (target/debug/deps/state_preservation-5e01031a84ce2c56)
+
+running 5 tests
+test complete_answer_checker_rejects_alias_and_multiplicity_changes ... ok
+test payload_omission_or_broken_alias_prevents_small_answer ... ok
+test source_payload_is_live_and_bound_before_first_split ... ok
+test requested_key_selects_early_late_or_no_success_without_changing_rules ... ok
+test independent_live_state_and_complete_branch_gate ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+

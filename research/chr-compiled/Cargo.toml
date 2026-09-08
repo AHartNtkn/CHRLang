@@ -8,6 +8,7 @@ build = "build.rs"
 default = ["metrics"]
 metrics = ["chr-persistent/kernel-metrics", "chr-observe/metrics"]
 experiment = []
+fork-diagnostics = ["chr-persistent/fork-diagnostics"]
 alloc-meter = ["experiment"]
 
 [[bin]]

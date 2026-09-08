@@ -130,5 +130,40 @@ pub fn self_check() -> Result<(), String> {
     if end(start).live_end != start.live {
         return Err("reallocation teardown leaked requested bytes".into());
     }
+    #[cfg(feature = "fork-diagnostics")]
+    {
+        let outer = begin();
+        let before = checkpoint();
+        let buffer = vec![0_u8; 128];
+        std::hint::black_box(&buffer);
+        let allocated = checkpoint();
+        let peak = end(outer).peak_live;
+        drop(buffer);
+        let freed = checkpoint();
+        if allocated.requested_bytes - before.requested_bytes != 128
+            || allocated.allocation_calls - before.allocation_calls != 1
+            || freed.deallocation_calls - allocated.deallocation_calls != 1
+            || end(outer).peak_live != peak
+        {
+            return Err("cumulative checkpoint altered peak or miscounted traffic".into());
+        }
+    }
     Ok(())
+}
+
+/// Cumulative allocation traffic; reading never resets the active peak window.
+#[cfg(feature = "fork-diagnostics")]
+#[derive(Clone, Copy, Default)]
+pub struct Checkpoint {
+    pub allocation_calls: usize,
+    pub requested_bytes: usize,
+    pub deallocation_calls: usize,
+}
+#[cfg(feature = "fork-diagnostics")]
+pub fn checkpoint() -> Checkpoint {
+    Checkpoint {
+        allocation_calls: CALLS.load(Relaxed),
+        requested_bytes: BYTES.load(Relaxed),
+        deallocation_calls: FREES.load(Relaxed),
+    }
 }

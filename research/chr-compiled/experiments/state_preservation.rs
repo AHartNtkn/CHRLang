@@ -17,6 +17,183 @@ const LABELS: [&str; 9] = [
     "terminal_disposal",
     "split_metadata_disposal",
 ];
+#[cfg(all(feature = "fork-diagnostics", feature = "alloc-meter"))]
+mod fork_diagnostics {
+    use super::*;
+    use chr_persistent::kernel::{ForkInterning, ForkObserver, ForkSegment};
+    const OWNERS: [&str; 23] = [
+        "rules",
+        "regions",
+        "arena_nodes",
+        "arena_closed",
+        "arena_intern",
+        "arena_predicates",
+        "arena_predicate_lookup",
+        "bindings",
+        "store",
+        "pools",
+        "dispatch",
+        "history",
+        "pending",
+        "outputs",
+        "queue",
+        "queued",
+        "dependencies",
+        "watchers",
+        "index",
+        "occurrence_keys",
+        "trace",
+        "audit",
+        "search",
+    ];
+    #[derive(Clone, Copy, Default)]
+    struct Traffic {
+        count: usize,
+        ns: u128,
+        calls: usize,
+        bytes: usize,
+        frees: usize,
+    }
+    impl Traffic {
+        fn json(self) -> String {
+            format!(
+                "{{\"count\":{},\"ns\":{},\"allocation_calls\":{},\"requested_bytes\":{},\"deallocation_calls\":{}}}",
+                self.count, self.ns, self.calls, self.bytes, self.frees
+            )
+        }
+    }
+    #[derive(Clone, Copy, Default)]
+    struct Segments {
+        segments: u64,
+        mutation_free_segments: u64,
+        inherited_nodes: u64,
+        mutation_free_inherited_nodes: u64,
+        first_miss_segments: u64,
+        first_miss_nodes: u64,
+        first_miss_inherited_nodes: u64,
+        predicate_insertions: u64,
+        requests_before_first_miss: u64,
+    }
+    impl Segments {
+        fn json(self) -> String {
+            format!(
+                "{{\"segments\":{},\"mutation_free_segments\":{},\"inherited_nodes\":{},\"mutation_free_inherited_nodes\":{},\"first_miss_segments\":{},\"first_miss_nodes\":{},\"first_miss_inherited_nodes\":{},\"predicate_insertions\":{},\"requests_before_first_miss\":{}}}",
+                self.segments,
+                self.mutation_free_segments,
+                self.inherited_nodes,
+                self.mutation_free_inherited_nodes,
+                self.first_miss_segments,
+                self.first_miss_nodes,
+                self.first_miss_inherited_nodes,
+                self.predicate_insertions,
+                self.requests_before_first_miss
+            )
+        }
+    }
+    #[derive(Default)]
+    pub(super) struct Totals {
+        owners: [Traffic; 23],
+        segments: [Segments; 3],
+        opened: Option<(usize, Instant, meter::Checkpoint)>,
+        pub interning: ForkInterning,
+    }
+    impl ForkObserver for Totals {
+        fn segment(&mut self, endpoint: &'static str, segment: ForkSegment) {
+            let index = match endpoint {
+                "split" => 0,
+                "failed" => 1,
+                "complete" => 2,
+                _ => unreachable!("known endpoint"),
+            };
+            let s = &mut self.segments[index];
+            s.segments += 1;
+            s.inherited_nodes += segment.inherited_nodes as u64;
+            s.predicate_insertions += segment.predicate_insertions;
+            if let Some(nodes) = segment.first_miss_nodes {
+                s.first_miss_segments += 1;
+                s.requests_before_first_miss += segment
+                    .requests_before_first_miss
+                    .expect("first miss ordinal");
+                s.first_miss_nodes += nodes as u64;
+                s.first_miss_inherited_nodes += segment.inherited_nodes as u64;
+            } else if segment.predicate_insertions == 0 {
+                s.mutation_free_segments += 1;
+                s.mutation_free_inherited_nodes += segment.inherited_nodes as u64;
+            }
+        }
+
+        fn before(&mut self, owner: &'static str) {
+            assert!(self.opened.is_none());
+            let index = OWNERS
+                .iter()
+                .position(|name| *name == owner)
+                .expect("known clone owner");
+            self.opened = Some((index, Instant::now(), meter::checkpoint()));
+        }
+        fn after(&mut self, owner: &'static str) {
+            let end = meter::checkpoint();
+            let (index, start, begin) = self.opened.take().expect("open clone owner");
+            let ns = start.elapsed().as_nanos();
+            assert_eq!(OWNERS[index], owner);
+            let t = &mut self.owners[index];
+            t.count += 1;
+            t.ns += ns;
+            t.calls += end.allocation_calls - begin.allocation_calls;
+            t.bytes += end.requested_bytes - begin.requested_bytes;
+            t.frees += end.deallocation_calls - begin.deallocation_calls;
+        }
+    }
+    impl Totals {
+        pub fn json(&self, split: Category) -> String {
+            assert!(self.opened.is_none());
+            let mut sum = Traffic::default();
+            for t in self.owners {
+                sum.ns += t.ns;
+                sum.calls += t.calls;
+                sum.bytes += t.bytes;
+                sum.frees += t.frees;
+                assert_eq!(t.count, split.count);
+            }
+            let m = split.interval.memory.unwrap_or_default();
+            let remainder = Traffic {
+                count: split.count,
+                ns: split
+                    .interval
+                    .ns
+                    .checked_sub(sum.ns)
+                    .expect("owner clocks within split"),
+                calls: m
+                    .calls
+                    .checked_sub(sum.calls)
+                    .expect("owner calls within split"),
+                bytes: m
+                    .bytes
+                    .checked_sub(sum.bytes)
+                    .expect("owner bytes within split"),
+                frees: m
+                    .frees
+                    .checked_sub(sum.frees)
+                    .expect("owner frees within split"),
+            };
+            format!(
+                "{{\"owners\":{{{}}},\"remainder\":{},\"interning\":{{\"inherited_hits\":{},\"local_hits\":{},\"misses\":{}}},\"segments\":{{\"split\":{},\"failed\":{},\"complete\":{}}}}}",
+                OWNERS
+                    .iter()
+                    .zip(self.owners)
+                    .map(|(name, t)| format!("{name:?}:{}", t.json()))
+                    .collect::<Vec<_>>()
+                    .join(","),
+                remainder.json(),
+                self.interning.inherited_hits,
+                self.interning.local_hits,
+                self.interning.misses,
+                self.segments[0].json(),
+                self.segments[1].json(),
+                self.segments[2].json()
+            )
+        }
+    }
+}
 #[derive(Clone, Copy, Default)]
 struct Memory {
     start: usize,
@@ -170,6 +347,8 @@ struct Sample {
     exhausted: bool,
     categories: [Category; 9],
     work: Work,
+    #[cfg(all(feature = "fork-diagnostics", feature = "alloc-meter"))]
+    fork: fork_diagnostics::Totals,
 }
 impl Sample {
     fn total_ns(&self) -> u128 {
@@ -200,7 +379,7 @@ impl Sample {
             "null".into()
         };
         format!(
-            "{{\"n\":{},\"predicted_applications\":{},\"first_observation_ns\":{},\"maximum_frontier\":{},\"total_ns\":{},\"query\":{},\"setup\":{},\"service\":{},\"engine_drop\":{},\"validation\":{},\"output_drop\":{},\"ticks\":{},\"splits\":{},\"failed\":{},\"answers\":{},\"exhausted\":{},\"diagnostic\":{},\"work\":{}}}",
+            "{{\"n\":{},\"predicted_applications\":{},\"first_observation_ns\":{},\"maximum_frontier\":{},\"total_ns\":{},\"query\":{},\"setup\":{},\"service\":{},\"engine_drop\":{},\"validation\":{},\"output_drop\":{},\"ticks\":{},\"splits\":{},\"failed\":{},\"answers\":{},\"exhausted\":{},\"diagnostic\":{},\"work\":{}{}}}",
             self.n,
             self.predicted_applications,
             self.first_observation_ns
@@ -227,6 +406,19 @@ impl Sample {
                 self.work.json()
             } else {
                 "null".into()
+            },
+            {
+                #[cfg(all(feature = "fork-diagnostics", feature = "alloc-meter"))]
+                {
+                    format!(
+                        ",\"fork_diagnostics\":{}",
+                        self.fork.json(self.categories[0])
+                    )
+                }
+                #[cfg(not(all(feature = "fork-diagnostics", feature = "alloc-meter")))]
+                {
+                    ""
+                }
             }
         )
     }
@@ -291,6 +483,9 @@ fn run(
     if cfg!(feature = "alloc-meter") && chr_compiled::COLLECT_METRICS {
         return Err("allocation and work diagnostics require separate configurations".into());
     }
+    if cfg!(feature = "fork-diagnostics") && !cfg!(feature = "alloc-meter") {
+        return Err("fork diagnostics runner requires alloc-meter".into());
+    }
     let rules = fixture::rules();
     let samples = std::iter::repeat_with(Sample::default)
         .take(queries)
@@ -332,7 +527,16 @@ fn run(
         }
         for _ in 0..budget {
             let event = if cfg!(feature = "alloc-meter") {
-                let (event, interval) = measure(|| engine.tick());
+                let (event, interval) = measure(|| {
+                    #[cfg(all(feature = "fork-diagnostics", feature = "alloc-meter"))]
+                    {
+                        engine.tick_observed(&mut s.fork)
+                    }
+                    #[cfg(not(all(feature = "fork-diagnostics", feature = "alloc-meter")))]
+                    {
+                        engine.tick()
+                    }
+                });
                 let kind = match &event {
                     SearchEvent::Split { .. } => 0,
                     SearchEvent::Progress => 1,
@@ -410,6 +614,10 @@ fn run(
         }
         s.service.ns = service_clock.elapsed().as_nanos();
         s.answers = answers.len();
+        #[cfg(all(feature = "fork-diagnostics", feature = "alloc-meter"))]
+        {
+            s.fork.interning = engine.fork_interning();
+        }
         let (_, phase) = measure(|| drop(engine));
         s.engine_drop = phase;
         let start = Instant::now();

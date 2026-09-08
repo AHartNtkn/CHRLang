@@ -1,5 +1,7 @@
 //! Explicit source disjunction search over complete branch continuations.
 use crate::{COLLECT_METRICS, Engine, Stats, Work};
+#[cfg(feature = "fork-diagnostics")]
+use chr_persistent::kernel::{ForkInterning, ForkObserver, NoopForkObserver};
 use std::collections::VecDeque;
 
 /// Scheduler diagnostics. Branch `Engine::stats()` counters cover only the
@@ -37,6 +39,8 @@ pub enum SearchEvent {
 pub struct SearchEngine {
     frontier: VecDeque<CompletedBranch>,
     stats: SearchStats,
+    #[cfg(feature = "fork-diagnostics")]
+    interning: ForkInterning,
 }
 impl SearchEngine {
     pub fn new(engine: Engine) -> Self {
@@ -46,6 +50,8 @@ impl SearchEngine {
                 engine,
             }]),
             stats: SearchStats::default(),
+            #[cfg(feature = "fork-diagnostics")]
+            interning: ForkInterning::default(),
         }
     }
     pub fn enable_trace(&mut self) {
@@ -66,7 +72,24 @@ impl SearchEngine {
     }
     /// Service at most one ordinary engine step and its resulting branch event.
     /// Terminal branches are transferred to the caller, without answer deduplication.
+    #[cfg(feature = "fork-diagnostics")]
+    pub fn fork_interning(&self) -> ForkInterning {
+        self.interning
+    }
     pub fn tick(&mut self) -> SearchEvent {
+        self.tick_impl(
+            #[cfg(feature = "fork-diagnostics")]
+            &mut NoopForkObserver,
+        )
+    }
+    #[cfg(feature = "fork-diagnostics")]
+    pub fn tick_observed(&mut self, observer: &mut impl ForkObserver) -> SearchEvent {
+        self.tick_impl(observer)
+    }
+    fn tick_impl(
+        &mut self,
+        #[cfg(feature = "fork-diagnostics")] observer: &mut impl ForkObserver,
+    ) -> SearchEvent {
         let Some(mut branch) = self.frontier.pop_front() else {
             return SearchEvent::Exhausted;
         };
@@ -74,11 +97,32 @@ impl SearchEngine {
             self.stats.service_steps += 1;
         }
         branch.engine.step();
+        #[cfg(feature = "fork-diagnostics")]
+        self.interning
+            .add(branch.engine.core.arena.take_fork_interning());
+        #[cfg(feature = "fork-diagnostics")]
+        if let Some(segment) = branch.engine.core.arena.fork_segment() {
+            if branch.engine.pending_split() {
+                observer.segment("split", segment);
+            } else if branch.engine.failed {
+                observer.segment("failed", segment);
+            } else if branch.engine.done {
+                observer.segment("complete", segment);
+            }
+        }
         if branch.engine.pending_split() {
             let Some(Work::Or(left, right)) = branch.engine.core.pending.pop() else {
                 unreachable!("explicit split");
             };
-            let mut sibling = branch.engine.fork_clone();
+            let mut sibling = branch.engine.fork_clone(
+                #[cfg(feature = "fork-diagnostics")]
+                observer,
+            );
+            #[cfg(feature = "fork-diagnostics")]
+            {
+                branch.engine.core.arena.mark_fork_prefix();
+                sibling.core.arena.mark_fork_prefix();
+            }
             let segment = branch.engine.core.segment_stats();
             let work = if COLLECT_METRICS {
                 Some(Box::new(std::mem::replace(

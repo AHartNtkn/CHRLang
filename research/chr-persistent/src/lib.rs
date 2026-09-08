@@ -167,6 +167,10 @@ pub mod observation;
 pub mod kernel {
     use crate::Stats;
     pub use crate::terms::{Arena, Bindings, Scope, Term, deref};
+    #[cfg(feature = "fork-diagnostics")]
+    pub use crate::terms::{
+        ForkInterning, ForkObserver, ForkSegment, NoopForkObserver, observed_clone,
+    };
 
     impl Arena {
         /// Report variables changed by a successful transaction. Failure leaves both

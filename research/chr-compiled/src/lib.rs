@@ -1,4 +1,6 @@
 //! Experimental indexed CHR execution with explicit source-disjunction search.
+#[cfg(feature = "fork-diagnostics")]
+use chr_persistent::kernel::{ForkObserver, NoopForkObserver, observed_clone};
 use chr_persistent::{
     Stats as KernelStats,
     kernel::{Arena, Bindings, Term, deref},
@@ -322,24 +324,42 @@ impl Core {
             ..Stats::default()
         }
     }
-    fn fork_clone(&self) -> Self {
+    fn fork_clone(
+        &self,
+        #[cfg(feature = "fork-diagnostics")] observer: &mut impl ForkObserver,
+    ) -> Self {
+        macro_rules! copied {
+            ($field:ident) => {{
+                #[cfg(feature = "fork-diagnostics")]
+                {
+                    observed_clone(&self.$field, stringify!($field), observer)
+                }
+                #[cfg(not(feature = "fork-diagnostics"))]
+                {
+                    self.$field.clone()
+                }
+            }};
+        }
         Self {
-            rules: self.rules.clone(),
-            regions: self.regions.clone(),
+            rules: copied!(rules),
+            regions: copied!(regions),
+            #[cfg(feature = "fork-diagnostics")]
+            arena: self.arena.clone_observed(observer),
+            #[cfg(not(feature = "fork-diagnostics"))]
             arena: self.arena.clone(),
-            bindings: self.bindings.clone(),
-            store: self.store.clone(),
-            pools: self.pools.clone(),
-            dispatch: self.dispatch.clone(),
-            history: self.history.clone(),
-            pending: self.pending.clone(),
-            outputs: self.outputs.clone(),
-            queue: self.queue.clone(),
-            queued: self.queued.clone(),
-            dependencies: self.dependencies.clone(),
-            watchers: self.watchers.clone(),
-            index: self.index.clone(),
-            occurrence_keys: self.occurrence_keys.clone(),
+            bindings: copied!(bindings),
+            store: copied!(store),
+            pools: copied!(pools),
+            dispatch: copied!(dispatch),
+            history: copied!(history),
+            pending: copied!(pending),
+            outputs: copied!(outputs),
+            queue: copied!(queue),
+            queued: copied!(queued),
+            dependencies: copied!(dependencies),
+            watchers: copied!(watchers),
+            index: copied!(index),
+            occurrence_keys: copied!(occurrence_keys),
             next_var: self.next_var,
             next_occ: self.next_occ,
             policy: self.policy,
@@ -1140,7 +1160,10 @@ impl PreparedQuery {
                 }
             }
         }
-        let mut engine = self.engine.fork_clone();
+        let mut engine = self.engine.fork_clone(
+            #[cfg(feature = "fork-diagnostics")]
+            &mut NoopForkObserver,
+        );
         for constraint in extra {
             let pred = engine
                 .core
@@ -1372,17 +1395,35 @@ impl Engine {
     fn pending_split(&self) -> bool {
         !self.done && matches!(self.core.pending.last(), Some(Work::Or(..)))
     }
-    fn fork_clone(&self) -> Self {
+    fn fork_clone(
+        &self,
+        #[cfg(feature = "fork-diagnostics")] observer: &mut impl ForkObserver,
+    ) -> Self {
+        macro_rules! copied {
+            ($field:ident) => {{
+                #[cfg(feature = "fork-diagnostics")]
+                {
+                    observed_clone(&self.$field, stringify!($field), observer)
+                }
+                #[cfg(not(feature = "fork-diagnostics"))]
+                {
+                    self.$field.clone()
+                }
+            }};
+        }
         Self {
-            core: self.core.fork_clone(),
+            core: self.core.fork_clone(
+                #[cfg(feature = "fork-diagnostics")]
+                observer,
+            ),
             code: self.code,
             done: self.done,
             failed: self.failed,
-            trace: self.trace.clone(),
+            trace: copied!(trace),
             trace_enabled: self.trace_enabled,
             audit_enabled: self.audit_enabled,
-            audit: self.audit.clone(),
-            search: self.search.clone(),
+            audit: copied!(audit),
+            search: copied!(search),
         }
     }
     pub fn into_search(self) -> SearchEngine {

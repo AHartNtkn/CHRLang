@@ -2,6 +2,8 @@
 name = "chr-boxes"
 version.workspace = true
 edition.workspace = true
+[features]
+fork-diagnostics = []
 [dependencies]
 chr-syntax = { path = "../../crates/chr-syntax" }
 chr-observe = { path = "../chr-observe" }
