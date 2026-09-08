@@ -20,6 +20,6 @@ Unit tests additionally check invalid node order, node reduction/canonical ident
 
 ## Remaining work under T035
 
-Next implement supported finite-tree equality and nonbinding structural demand, including conditional occurs checks and support-sensitive invalidation. Then integrate occurrence/propagation ownership, body sequencing and direct activation. The independent full-path gate must still prove support-local finite-sibling progress, complete source effects and exactly-once joint output/residual publication. The [reviewed protocol](R03-conditional-protocol.md) remains authoritative for those obligations.
+[Supported finite-tree equality and nonbinding equality demand](R03-conditional-equality.md) now pass independent checks. Structural head matching, occurrence/propagation ownership, body sequencing and direct activation remain to integrate. The independent full-path gate must still prove support-local finite-sibling progress, complete source effects and exactly-once joint output/residual publication. The [reviewed protocol](R03-conditional-protocol.md) remains authoritative for those obligations.
 
 Query-scoped retention is intentional for this first candidate: cancelled jobs may leave canonical nodes in the arena until query disposal. Within-query reclamation and long-lived stream costs remain unmeasured. These component checks do not establish the architecture's benefit against compiled source execution or finite lowering.

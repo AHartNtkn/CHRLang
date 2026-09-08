@@ -1,0 +1,16 @@
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.30s
+     Running tests/equality_oracle.rs (target/debug/deps/equality_oracle-4bb796ba2702eb47)
+
+running 8 tests
+test partial_commit_notifications_survive_interruption_and_restart ... ok
+test alias_dependencies_intersect_later_binding_and_new_support_notifications ... ok
+test equality_demand_is_nonbinding_and_reports_support_expansion_dependencies ... ok
+test stale_writer_must_restart_and_cannot_commit_from_old_binding_state ... ok
+test three_edge_cycle_fails_only_on_intersection_and_field_clash_is_local ... ok
+test mutation_during_deep_occurs_continuation_rejects_stale_effects ... ok
+test entails_matches_resolved_tree_equality_without_adding_bindings ... ok
+test supported_equation_pairs_match_independent_finite_tree_substitutions ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.18s
+
