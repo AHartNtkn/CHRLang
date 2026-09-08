@@ -231,6 +231,9 @@ fn run(config: Config) -> Result<Report, String> {
     if config.queries == 0 || config.queries > 1000 || config.pre > 4096 || config.post > 4096 {
         return Err("queries must be 1..1000 and work depths at most 4096".into());
     }
+    if cfg!(feature = "metrics") != chr_observe::COLLECT_METRICS {
+        return Err("observer and conditional metrics differ".into());
+    }
     let harness = Instant::now();
     let source = fixtures::rules();
     let queries = (0..config.queries)
@@ -336,7 +339,7 @@ impl Report {
                 .sum::<u128>();
         format!(
             concat!(
-                "{{\"schema_version\":1,\"backend\":\"{}\",\"pre\":{},\"post\":{},\"queries\":{},\"metrics\":{},\"compiled_metrics\":{},\"allocator_meter\":{},",
+                "{{\"schema_version\":1,\"backend\":\"{}\",\"pre\":{},\"post\":{},\"queries\":{},\"metrics\":{},\"compiled_metrics\":{},\"observer_metrics\":{},\"allocator_meter\":{},",
                 "\"tick_limit\":{},\"completed\":{},\"complete\":{},\"harness_setup_ns\":{},\"baseline\":{},\"prepare\":{},\"source_clone_ns\":{},\"samples\":[{}],\"prepared_drop\":{},\"final\":{},\"measured_ns\":{},\"validation_ns\":{}}}"
             ),
             self.config.backend.name(),
@@ -345,6 +348,7 @@ impl Report {
             self.config.queries,
             cfg!(feature = "metrics"),
             chr_compiled::COLLECT_METRICS,
+            chr_observe::COLLECT_METRICS,
             cfg!(feature = "alloc-meter"),
             TICK_LIMIT,
             self.samples.iter().filter(|s| s.exhausted).count(),
@@ -398,6 +402,10 @@ fn main() -> Result<(), String> {
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn observer_diagnostics_follow_measurement_configuration() {
+        assert_eq!(chr_observe::COLLECT_METRICS, cfg!(feature = "metrics"));
+    }
     #[test]
     fn reusable_preparation_validates_complete_queries_and_lifecycle_records() {
         for backend in [Backend::Conditional, Backend::Specialized] {

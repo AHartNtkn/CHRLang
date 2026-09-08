@@ -5,7 +5,7 @@ edition.workspace = true
 
 [features]
 default = ["metrics"]
-metrics = ["chr-compiled?/metrics"]
+metrics = ["chr-compiled?/metrics", "chr-observe?/metrics"]
 experiment = ["dep:chr-compiled", "dep:chr-observe"]
 alloc-meter = ["experiment"]
 
@@ -18,10 +18,10 @@ required-features = ["experiment"]
 chr-syntax = { path = "../../crates/chr-syntax" }
 
 chr-compiled = { path = "../chr-compiled", default-features = false, optional = true }
-chr-observe = { path = "../chr-observe", optional = true }
+chr-observe = { path = "../chr-observe", default-features = false, optional = true }
 
 [dev-dependencies]
-chr-observe = { path = "../chr-observe" }
+chr-observe = { path = "../chr-observe", default-features = false }
 
 [[bin]]
 name = "chr-stream-cost"

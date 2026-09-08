@@ -1,0 +1,11 @@
+# Current mixed comparison readiness
+
+T048 retains the T042 source, sixteen complete tuple answers with joint residual aliases, zero/pre/post controls, and changing-query prepared reuse. Independent review confirmed exact coverage, multiplicity, exhaustion, split-prefix work ownership and answer validity after engine disposal. The corrected Specialized uses current immutable-subtree maintenance; source cloning remains an implementation choice.
+
+A counter-free configuration regression demonstrated observer diagnostics enabled before the feature correction (expected false, actual true; test exit 101). Optional and test observer dependencies now disable defaults and receive metrics through the owning feature. The runner checks and reports observer diagnostics alongside compiled and conditional diagnostics. No observed timing penalty is attributed to this issue: the mixed path exports directly rather than invoking observer routines.
+
+Validation: all 66 package all-target tests pass both with `--features experiment` and with `--no-default-features --features experiment`; metrics-off Clippy with warnings denied and workspace formatting pass. Cargo feature graphs show no compiled/observer/persistent diagnostics in primary and compiled/observer metrics plus persistent kernel metrics in work. Python syntax checks pass. [Validation logs](r05-current-mixed-entry/t048-default-tests.log) and feature graphs are retained beside this report.
+
+The launcher requires explicit destination, registration and seed; refuses an existing destination; writes the complete seeded manifest before builds; uses locked offline builds capped at 180 seconds; and preserves per-process outcomes. The analyzer verifies exact ordered job coverage, diagnostics, lifecycle sums, complete endpoints and allocation baseline restoration. Full answer structure is checked in the runner outside measured intervals; retained process records contain counts and phases, not serialized answers. Validation warms later disposal intervals as declared.
+
+[The prospective registration](../registrations/R05-current-mixed.md) fixes all hypotheses, cells, bounds and interpretation. Comparative measurements remain to run. No current sharing preference follows from readiness.

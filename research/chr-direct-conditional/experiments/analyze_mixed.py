@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """Audit every R05 mixed-pipeline endpoint and summarize complete cells."""
-import itertools
+import argparse
 import json
 import pathlib
 import statistics
 
 ROOT=pathlib.Path(__file__).resolve().parents[3]
-OUT=ROOT/'docs/experiments/results/r05-mixed-pipeline'
+
 PAIRS=[(0,0),(0,16),(8,8),(16,0),(0,64),(32,32),(64,0)]
 
 def phases(d):
@@ -16,10 +16,18 @@ def total(d):
     return sum(p['ns'] for p in phases(d))/d['queries']/1e6
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--output', type=pathlib.Path, required=True)
+    args = parser.parse_args()
+    OUT = args.output.resolve()
     rows=[json.loads(l) for l in (OUT/'runs.jsonl').read_text().splitlines()]
     cells={(b,pre,post,q) for b in ['conditional','specialized'] for pre,post in PAIRS for q in [1,4]}
     reps={('warmup',0),('allocation',0),('work',0),*(('primary',i) for i in range(5))}
     expected={(mode,rep,cell) for cell in cells for mode,rep in reps}
+    meta = json.loads((OUT/'metadata.json').read_text())
+    manifest = [(j['mode'],j['rep'],tuple(j['cell'])) for j in meta['jobs']]
+    assert len(manifest) == len(expected) and set(manifest) == expected
+    assert [(r['mode'],r['rep'],tuple(r['cell'])) for r in rows] == manifest[:len(rows)]
     seen=set(); failures=[]; predictions=[]
     for r in rows:
         key=(r['mode'],r['rep'],tuple(r['cell']))
@@ -29,7 +37,7 @@ def main():
             failures.append({k:r.get(k) for k in ['mode','rep','cell','exit','timeout','stderr']});continue
         d=r['result']
         assert [d[k] for k in ['backend','pre','post','queries']]==r['cell']
-        assert d['metrics']==d['compiled_metrics']==(r['mode']=='work')
+        assert d['metrics']==d['compiled_metrics']==d['observer_metrics']==(r['mode']=='work')
         assert d['allocator_meter']==(r['mode']=='allocation')
         assert sum(p['ns'] for p in phases(d))==d['measured_ns']
         assert d['completed']==sum(s['exhausted'] for s in d['samples'])

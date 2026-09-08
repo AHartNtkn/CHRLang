@@ -1,0 +1,14 @@
+chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional) features=default,experiment,metrics
+├── chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled) features=metrics
+│   ├── chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe) features=metrics
+│   │   └── chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax) features=
+│   ├── chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent) features=kernel-metrics
+│   │   ├── chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe) features=metrics (*)
+│   │   └── chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax) features=
+│   └── chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax) features=
+│   [build-dependencies]
+│   └── chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax) features=
+├── chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe) features=metrics (*)
+└── chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax) features=
+[dev-dependencies]
+└── chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe) features=metrics (*)
