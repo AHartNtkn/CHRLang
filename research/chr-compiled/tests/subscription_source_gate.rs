@@ -1,5 +1,9 @@
+#[path = "../experiments/subscription_join.rs"]
+mod join;
 #[path = "../../chr-direct-conditional/tests/runtime_support/mod.rs"]
 mod oracle;
+#[path = "../experiments/subscription_runtime.rs"]
+mod runtime;
 #[path = "../experiments/subscription_source.rs"]
 mod source;
 use chr_syntax::{Answer, Constraint, Query, Term, atom, c, t, v};
@@ -47,6 +51,25 @@ fn check(q: &Query, consuming: bool, expected: Vec<Constraint>) -> Answer {
     actual.sort();
     expected.sort();
     assert_eq!(actual, expected);
+    let prepared = runtime::Prepared::new(&rules).unwrap();
+    for mode in [
+        join::Mode::Indexed,
+        join::Mode::Eager,
+        join::Mode::Subscribed,
+    ] {
+        for quantum in [1, 37] {
+            let mut e = prepared.start(q.clone(), mode).unwrap();
+            assert!(!e.advance(0));
+            assert!(e.observe().is_err());
+            for _ in 0..200_000 / quantum {
+                if e.advance(quantum) {
+                    break;
+                }
+            }
+            oracle::same_raw(e.observe().unwrap(), vec![answer.clone()]);
+            let _ = (e.stats(), e.retained());
+        }
+    }
     let p = chr_compiled::PreparedRuleset::new(rules, None).unwrap();
     for access in [chr_compiled::Access::Scan, chr_compiled::Access::Indexed] {
         let mut engine = p
@@ -219,4 +242,123 @@ fn unmatched_resource_update_blocks_driver_with_exact_residual() {
             residual: q.constraints,
         }],
     );
+}
+
+#[test]
+fn binding_changes_demand_endpoints_shared_rows_and_late_receipts() {
+    for consuming in [false, true] {
+        for first in [false, true] {
+            let data = vec![
+                c("left", [v(50), t("f", [atom("a")])]),
+                c("left", [atom("k"), t("f", [atom("a")])]),
+                c("middle", [atom("a"), t("g", [atom("b")])]),
+                c("right", [atom("b"), t("h", [v(51)])]),
+            ];
+            let q = query(
+                data,
+                vec![
+                    t("open", [v(50), v(51), atom("d")]),
+                    ask("before"),
+                    t("bind", [v(50), atom("k")]),
+                    t("bind", [v(51), atom("yes")]),
+                    ask("after"),
+                    close(),
+                ],
+                first,
+            );
+            let mut before = receipt("before");
+            before.args[4] = t("h", [atom("yes")]);
+            let mut expected = vec![before];
+            if !consuming {
+                expected.extend([receipt("after"), receipt("after")]);
+            }
+            check(&q, consuming, expected);
+        }
+    }
+}
+
+#[test]
+fn consuming_source_priority_is_preserved_across_distinct_matching_demands() {
+    let mut data = rows();
+    data.push(c("left", [atom("other"), t("f", [atom("other_a")])]));
+    data.push(c("middle", [atom("other_a"), t("g", [atom("b")])]));
+    let q = query(
+        data,
+        vec![
+            t("open", [atom("other"), atom("yes"), atom("d")]),
+            open(),
+            ask("priority"),
+            close(),
+            ask("empty"),
+        ],
+        false,
+    );
+    let a = check(&q, true, vec![receipt("priority")]);
+    assert_eq!(a.residual.iter().filter(|c| c.name == "demand").count(), 1);
+}
+
+#[test]
+fn changed_prepared_queries_cancellation_failure_and_certification() {
+    let rules = source_rules(false);
+    let p = runtime::Prepared::new(&rules).unwrap();
+    let mut changed = rules.clone();
+    changed.swap(0, 1);
+    assert!(runtime::Prepared::new(&changed).is_err());
+    for mode in [
+        join::Mode::Indexed,
+        join::Mode::Eager,
+        join::Mode::Subscribed,
+    ] {
+        for round in ["a", "b", "a"] {
+            let q = query(rows(), vec![open(), ask(round), close()], false);
+            let expected = oracle::run(&rules, &q, 200_000);
+            for prefix in [0, 1, 2, 3, 4] {
+                let mut canceled = p.start(q.clone(), mode).unwrap();
+                canceled.advance(prefix);
+                drop(canceled);
+            }
+            let mut e = p.start(q, mode).unwrap();
+            assert!(e.advance(100));
+            oracle::same_raw(e.observe().unwrap(), expected);
+        }
+        for equations in [
+            vec![t("bind", [v(50), t("cycle", [v(50)])])],
+            vec![t("bind", [v(50), atom("a")]), t("bind", [v(50), atom("b")])],
+        ] {
+            let q = query(rows(), equations, false);
+            assert!(oracle::run(&rules, &q, 200_000).is_empty());
+            let mut e = p.start(q, mode).unwrap();
+            assert!(e.advance(100));
+            assert!(e.observe().unwrap().is_empty());
+        }
+    }
+}
+
+#[test]
+fn existing_single_head_specialization_has_no_eligible_region_here() {
+    for consuming in [false, true] {
+        let rules = source_rules(consuming);
+        let p = chr_compiled::PreparedRuleset::new(rules.clone(), None).unwrap();
+        let eligibility = p.region_eligibility();
+        assert!(eligibility.iter().all(|e| !e.eligible));
+        for head in rules.iter().flat_map(|r| r.kept.iter().chain(&r.removed)) {
+            assert!(
+                p.specialize_checked(&[(head.name.clone(), head.args.len())])
+                    .is_err()
+            );
+        }
+        let q = query(rows(), vec![open(), ask("one"), close()], false);
+        let mut e = p
+            .specialize_inferred()
+            .start(
+                q.clone(),
+                chr_compiled::Policy::Global,
+                chr_compiled::Access::Indexed,
+            )
+            .unwrap();
+        assert!(e.advance(200_000).exhausted);
+        assert_eq!(e.stats().specialized_candidates, 0);
+        oracle::same_raw(vec![e.observe().unwrap()], oracle::run(&rules, &q, 200_000));
+        println!("S01_SUBSCRIPTION_ELIGIBILITY consuming={consuming} {eligibility:?}");
+    }
 }

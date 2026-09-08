@@ -1,0 +1,19 @@
+{
+  "command": [
+    "cargo",
+    "clippy",
+    "-p",
+    "chr-compiled",
+    "--no-default-features",
+    "--test",
+    "subscription_source_gate",
+    "--test",
+    "subscription_join_gate",
+    "--",
+    "-D",
+    "warnings"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "    Checking chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.13s\n"
+}

@@ -1,0 +1,18 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "-p",
+    "chr-compiled",
+    "--release",
+    "--test",
+    "subscription_source_gate",
+    "existing_single_head_specialization_has_no_eligible_region_here",
+    "--",
+    "--exact",
+    "--nocapture"
+  ],
+  "exit_code": 0,
+  "stdout": "\nrunning 1 test\nS01_SUBSCRIPTION_ELIGIBILITY consuming=false [Eligibility { predicate: (\"left\", 2), eligible: false, reason: Some(\"rule 0 does not have one removed head and no kept heads\") }, Eligibility { predicate: (\"middle\", 2), eligible: false, reason: Some(\"rule 0 does not have one removed head and no kept heads\") }, Eligibility { predicate: (\"right\", 2), eligible: false, reason: Some(\"rule 0 does not have one removed head and no kept heads\") }, Eligibility { predicate: (\"demand\", 3), eligible: false, reason: Some(\"rule 0 does not have one removed head and no kept heads\") }, Eligibility { predicate: (\"pulse\", 2), eligible: false, reason: Some(\"rule 0 does not have one removed head and no kept heads\") }, Eligibility { predicate: (\"receipt\", 5), eligible: false, reason: Some(\"predicate has no source head uses\") }, Eligibility { predicate: (\"wait\", 1), eligible: false, reason: Some(\"rule 1 does not have one removed head and no kept heads\") }, Eligibility { predicate: (\"drive\", 1), eligible: false, reason: Some(\"rule 4 does not have one removed head and no kept heads\") }, Eligibility { predicate: (\"done\", 0), eligible: false, reason: Some(\"predicate has no source head uses\") }]\nS01_SUBSCRIPTION_ELIGIBILITY consuming=true [Eligibility { predicate: (\"left\", 2), eligible: false, reason: Some(\"rule 0 does not have one removed head and no kept heads\") }, Eligibility { predicate: (\"middle\", 2), eligible: false, reason: Some(\"rule 0 does not have one removed head and no kept heads\") }, Eligibility { predicate: (\"demand\", 3), eligible: false, reason: Some(\"rule 0 does not have one removed head and no kept heads\") }, Eligibility { predicate: (\"pulse\", 2), eligible: false, reason: Some(\"rule 0 does not have one removed head and no kept heads\") }, Eligibility { predicate: (\"right\", 2), eligible: false, reason: Some(\"rule 0 does not have one removed head and no kept heads\") }, Eligibility { predicate: (\"receipt\", 5), eligible: false, reason: Some(\"predicate has no source head uses\") }, Eligibility { predicate: (\"wait\", 1), eligible: false, reason: Some(\"rule 1 does not have one removed head and no kept heads\") }, Eligibility { predicate: (\"drive\", 1), eligible: false, reason: Some(\"rule 4 does not have one removed head and no kept heads\") }, Eligibility { predicate: (\"done\", 0), eligible: false, reason: Some(\"predicate has no source head uses\") }]\ntest existing_single_head_specialization_has_no_eligible_region_here ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 9 filtered out; finished in 0.00s\n\n",
+  "stderr": "    Finished `release` profile [optimized] target(s) in 0.00s\n     Running tests/subscription_source_gate.rs (target/release/deps/subscription_source_gate-97358bf90ca1e4d3)\n"
+}

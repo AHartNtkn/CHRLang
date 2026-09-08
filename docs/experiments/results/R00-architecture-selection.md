@@ -332,3 +332,7 @@ The [616-process crossover](S05-operation-crossover.md) passes complete observat
 ## S01 demand lifetime and tuple-maintenance gate
 
 The [subscription gate](S01-subscription-kernel-gate.md) establishes 44 source configurations against independent execution and both compiled Global controls. Indexed, eager and demand-driven tuple kernels agree with an independent product oracle over 32 update sequences each; three deliberate retention/multiplicity/invalidation faults fail release checks. Subscriptions avoid inactive retention and repeated discovery, while middle updates still examine active demand keys. This is mechanism and correctness evidence, not cost or full source-correspondence evidence. T068 remains active for source integration and prospective lifecycle comparison.
+
+## S01 subscription source correspondence
+
+The [integrated source gate](S01-subscription-source-gate.md) checks 49 configurations in all three join policies and two service quanta, with independent full answers, changed preparation queries, cancellation and failure cases. Four binding/resource/order faults fail release checks. The existing single-head specializer admits no region on this multihead source, so it supplies no additional specialized control; broader generated access remains open. Candidate materialization, binding scans and all query owners must be charged in the prospective lifecycle experiment. T068 remains active; no cost ranking has run.

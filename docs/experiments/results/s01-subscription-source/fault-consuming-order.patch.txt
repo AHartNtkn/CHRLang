@@ -1,0 +1,4 @@
+Replace exactly:
+candidates.sort_unstable_by_key(|[l, m, r, d]| [*l, *m, *d, *r]);
+With:
+candidates.sort_unstable_by_key(|[l, m, r, d]| [*d, *l, *m, *r]);
