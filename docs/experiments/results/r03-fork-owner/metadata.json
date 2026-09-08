@@ -1,0 +1,858 @@
+{
+  "affinity_cpu": 0,
+  "uname": [
+    "Linux",
+    "XPG",
+    "6.8.0-138-generic",
+    "#138~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Fri Aug  7 13:43:15 UTC ",
+    "x86_64"
+  ],
+  "rustc": "rustc 1.97.1 (8bab26f4f 2026-07-14)\nbinary: rustc\ncommit-hash: 8bab26f4f68e0e26f0bb7960be334d5b520ea452\ncommit-date: 2026-07-14\nhost: x86_64-unknown-linux-gnu\nrelease: 1.97.1\nLLVM version: 22.1.6\n",
+  "base_commit": "19b727060463e5a4568c835fad4d3ed86539d02e",
+  "sources": {
+    "Cargo.lock": "89f3ad33811d3a4a5339e839fd69fba102b28138fba3bfa965958754e01bc0be",
+    "Cargo.toml": "9947f07cedf30ebf3198c26e814803ae70d1c103810126aeea4cee854246458a",
+    "crates/chr-syntax/Cargo.toml": "d29d87af16b9999f3d3c25edb6d8a0c76bc6061f76c0e0daff8427ede4d4f8f1",
+    "crates/chr-syntax/src/lib.rs": "9b380518e3071aeea80b8644aa5cf12f91d919f0bffdedd5c17122e27dffd48e",
+    "docs/experiments/registrations/R03-fork-owner.md": "9ac4faed75a411b83cf56f5de1695395fffcf36f0717bbaf5a88c44aeacc16a1",
+    "research/chr-compiled/Cargo.toml": "676eea103a58e4bee35a9fec955118f0578b77fcbb0866316a6a1b5d44cbed39",
+    "research/chr-compiled/build.rs": "9fadcfa5830b4c150a3b13b8db0d91168af48b67a8b4616cbdaa418db8eb539a",
+    "research/chr-compiled/examples/recursive_session_packages.rs": "d2f2a75e28b948119be9560c06ec9322e5be1cef29a1829afd1df4d5bad30730",
+    "research/chr-compiled/examples/search_diagnosis.rs": "9362302c39a83b6b67d805598cad8bca8de24a914dd1124b698c847f83688d27",
+    "research/chr-compiled/examples/search_gate.rs": "47de8b832464d8d2042981ac2da00d7dce8fbad62d0adf9497c2839c46a700ca",
+    "research/chr-compiled/experiments/analyze.py": "ba75f36a19246b81983968305b07616cbebc0d5e5ca4170a8f38f611e2437698",
+    "research/chr-compiled/experiments/analyze_anchor.py": "0efdce9a68b8b970527b649ba2e8c95d6aef638639c50371c57dacf9d9528aff",
+    "research/chr-compiled/experiments/analyze_fork_owner.py": "dfad238d1bcd3b0872b777677140f084bb85cf5831b0cf7bc0af77378cf1acde",
+    "research/chr-compiled/experiments/analyze_state_preservation.py": "c9ea7b2c736dec3c84d38471c72f548d63e93cc70467fc35133f6711c4e6c8d2",
+    "research/chr-compiled/experiments/anchor_pilot.py": "dba857b3ecab400794b3c9a1df6c9c04704b146065e23c5c36631e4670029d00",
+    "research/chr-compiled/experiments/fork_owner_pilot.py": "b5747e56454cc50da9c6d81c4a634002adc657126a8bb5dd864d83af2d95be28",
+    "research/chr-compiled/experiments/main.rs": "d1e4a2a26f547f538f35151795527f088a7196517d93a37ff28e2717d9faeece",
+    "research/chr-compiled/experiments/meter.rs": "e6c6bd2191c4274b31bc50e289f901a50ced51fff9dbb6d9c7dc18595aaa26b6",
+    "research/chr-compiled/experiments/native.rs": "6e05f3b9032e66e58a38817fee4043aaa2bbff5253757d998a9ee38025171a4c",
+    "research/chr-compiled/experiments/pilot.py": "f9a545c9cface2cfea0e69ec93c359b5bf2b916b25b779703d0dca983d11162a",
+    "research/chr-compiled/experiments/recursive_lifecycle_pilot.py": "e840c1c6417f874d0a71bc627f5137b8c70fc8a6b28bbe8271e9cd9fd67bbc92",
+    "research/chr-compiled/experiments/recursive_session_fixture.rs": "b13747ac7c6f678f07dff70db3658ebe7366be5ed1323d303d231c622598f14f",
+    "research/chr-compiled/experiments/search_diagnosis.py": "7dd15d9b56cc746026cafc7082ffdf4ac64fbb674c8324fbd3ff2db00b4de51d",
+    "research/chr-compiled/experiments/search_gate.py": "16135ecc124640010dfb75957ec129d3f24796a330eda6629fad8916c9bfedd8",
+    "research/chr-compiled/experiments/state_preservation.rs": "bafc5a2c8d507bda21b09fcedb3115cc4dafbea35413d76852671f398d675326",
+    "research/chr-compiled/experiments/state_preservation_pilot.py": "01a106f404e86a53297c178328a702a693df9e2eafe99eeb2876f6ff24819842",
+    "research/chr-compiled/src/fixtures.rs": "6d85975c37049f7110c9a2c75e09a0df38eda7bf2bc66edc57d2d0fd3b8675b2",
+    "research/chr-compiled/src/generate.rs": "0af78402846104113dd36aa3d914876507be3d350a522b06375e66082c7fae13",
+    "research/chr-compiled/src/lib.rs": "14d987855b437b19a225875e8a16fa5ea20e3cf9b45166908ee0705bc7a66347",
+    "research/chr-compiled/src/recursive/native.rs": "73aa3145afb173c52dcbbc5fd55280e9faec121a16ff53763b1aa06451bc915e",
+    "research/chr-compiled/src/recursive/session.rs": "e2afcfd5387e6b238b0be8c3ae68d72ae60955857ee1d363cb1f3fc16fd00ec9",
+    "research/chr-compiled/src/recursive.rs": "152cbbe284d60aabb63f3ef77a86ab93dcfbee29b8d0c29f9b9c6a40b08bff77",
+    "research/chr-compiled/src/regions.rs": "f1c8f7803d52d4f8d59528b9a9e034d5eb51d1b600ebb7d7da6a8252f8f09363",
+    "research/chr-compiled/src/search.rs": "70a0263fec741196612ff84a8cc73099e341540a5b974f947848d9e067ddf633",
+    "research/chr-compiled/src/search_fixtures.rs": "47f48bc438d7ee811ba6f2bf3ed86e175ac368bbc7e28d3eaeb02ab87ee8aa15",
+    "research/chr-compiled/tests/access.rs": "e71c1292fccbcf76899a6b2e1602e29c1ee1a442cfe5f14042230ac11b0b1c9b",
+    "research/chr-compiled/tests/closed_subtrees.rs": "10e2964b86cd7cf4c0037b1af40337d2b0ac29533f8868264f84d0f26c039367",
+    "research/chr-compiled/tests/fork_diagnostics.rs": "5ce76f50e3b0f4edbd925bb6e7d368101aaf077647e7d6206d0820464097b19d",
+    "research/chr-compiled/tests/query_template.rs": "57b79cff7d99807ca53f16fe266ea17bbd5a3dd4711aa7d078a4ca446f6a9798",
+    "research/chr-compiled/tests/recursive_matrix.rs": "343457431242c80684871c5528a86f036e58d6d2123b62bb918810f7b1770dd6",
+    "research/chr-compiled/tests/recursive_native_artifact.rs": "bf5a97922fd4e28926b018d52216e8fd96653ea07cd47394244cf97f0ef5f382",
+    "research/chr-compiled/tests/recursive_relations.rs": "fd97d67e7940eb47cb48d4cd45dc3d735fb02858b6b90b0c980bd6f32afc9736",
+    "research/chr-compiled/tests/recursive_session_artifact.rs": "17b74b7fac7eb5bfc7fc84edff89b0e3a8df94e49fe4d1107ffd98e8f2baa49b",
+    "research/chr-compiled/tests/recursive_session_protocol.rs": "f7de5c5e113534380db83145a71ea19b8e52065ab868fcebb396ac91a7fe66f3",
+    "research/chr-compiled/tests/region_boundaries.rs": "fd7334fcb573b59b2dec9d87c613d14871ba351797f787ba48801d8efe569345",
+    "research/chr-compiled/tests/regional_serial_control.rs": "c725da95f9bb08f74858e546d7551b70bc355f49c858332fc84615376d30071a",
+    "research/chr-compiled/tests/search.rs": "8e6ab10f971869b27da770866608dcacdb69e376c2c7e1bd5630246f7f23f965",
+    "research/chr-compiled/tests/search_support/mod.rs": "d780fc45d5aa388d2719fdbbb2241d19b7ee77d6c8ea9c53a4e7382d3b200662",
+    "research/chr-compiled/tests/semantic.rs": "193c557660d113c65513bfddec5eb4f1ad4c92e9c3672a3f05dd50ebbc97553a",
+    "research/chr-compiled/tests/single_head_regions.rs": "a6c9bf6fefedf8e19d839fcb0a132f0f466430eeab05f8604c4cfc9e3a48b39d",
+    "research/chr-compiled/tests/state_preservation.rs": "cb6d3422b295d8d8b0ecf5e3df6ee86d646d40cc3763ed1d22dcfb2afd43140d",
+    "research/chr-compiled/tests/state_preservation_support/mod.rs": "bea9cd5c78a1a9030c641edbee58003d8c27e34eb6dd07f094b88e916e3ec0d1",
+    "research/chr-compiled/tests/structural_maintenance.rs": "6c00deff903aee8fe6fe640512c2cf713f3f6154288588495b4163fdf81a8dfd",
+    "research/chr-compiled/tests/support/mod.rs": "f240d2a22c431d3b57150ee877e1164dec4ba15976f1b2e7748503952b46cfef",
+    "research/chr-observe/Cargo.toml": "fbd6b3343ae0b5a9bb7aab284a388bfd8762093a4ca19edd323969f66910d20a",
+    "research/chr-observe/examples/probe.rs": "d3ad3153734e3aeaa05b727fce95d76066629320934de421459022f49b5cf818",
+    "research/chr-observe/scripts/audit_graph_gate.py": "2210afac3e237d14e57b858fb00b66f970108b162661f243bd64c4d73cff2097",
+    "research/chr-observe/scripts/run_graph_gate.py": "0b082b0cb56a2ec7d2ecced1a809197b82237b6871ddeca60dbe6c220733b405",
+    "research/chr-observe/src/graph.rs": "e808864fec25405c5c408799fcf9d6756f072b9585c92dc96a0425fe3f3f4e18",
+    "research/chr-observe/src/lib.rs": "e36516971166df34ee2ba001cc5967975c54a260bebe9b59ba3ce38671ec916c",
+    "research/chr-observe/tests/alpha.rs": "0382762ed3dbf5a6269c0de612e5037abdbb315b890bc4cc86a09f8d61352d6c",
+    "research/chr-observe/tests/graph_hand.rs": "0c316bfba3373d547e9f418bcf37a72c247e9aa719157eda5213dc51f6057a3e",
+    "research/chr-observe/tests/graph_oracle.rs": "dbc208d01b0ba863e5ce571cdd51e277ffef57c9cec428c38b4ce03cd478b903",
+    "research/chr-persistent/Cargo.toml": "39032cc9d4a707052cae8236485626ddc5762c3bd763c965dcb0d22a4dbd1c20",
+    "research/chr-persistent/examples/batch.rs": "4da34d803cb402b4eb067deedca901f6bbc6c328aff1bbed9639f2f4e1530f89",
+    "research/chr-persistent/examples/graph_cost.rs": "001581c8fa724f19a2f61e19a7825e59230a54d23ce6343e19d0dbd053bec02b",
+    "research/chr-persistent/examples/graph_memory.rs": "9b3efc867879583b9fc1183cb4f5829b59024fc7612b7f3844134dae624b9082",
+    "research/chr-persistent/examples/support/allocator.rs": "408fa1dd9d23d6ea88ca01098a64b571f505fa4a5e90f6e902eb468ae3cb7179",
+    "research/chr-persistent/examples/support/graph_cost.rs": "fbda8bed77191bfd368cb022ce1bdd5d1ad1dad044d459e0df40e51c867b3c84",
+    "research/chr-persistent/examples/support/graph_cost_cases.rs": "d358f146e2b42cbd2f4d5fb1dbb4cdb87edf9323714560f0cb88531511ec946f",
+    "research/chr-persistent/examples/support/graph_session.rs": "3fe0d73b4253997aee731b8b0d0e9130d25b727420aee578a2d2cfd962eb398c",
+    "research/chr-persistent/run_batch.py": "a5c16be752d4339d8614f4106d4ec0c90b87431537a284b3aae64bd4630ac3ed",
+    "research/chr-persistent/scripts/audit_graph_cost_pilot.py": "bfd76cff5bb1594b47c793a4e88cf9046d660ec7788b038f9bace2746d2d1bbe",
+    "research/chr-persistent/scripts/audit_graph_costs.py": "792bd5ae93d65cecdc342a80b70e1c80aebf73da246d5a1de9d95f554b7defac",
+    "research/chr-persistent/scripts/audit_graph_source_gate.py": "610c78f789142cde8ead29347c24b9dcf67950151f3676e7d98b5f9d90379c90",
+    "research/chr-persistent/scripts/run_graph_cost_pilot.py": "5a7709202e16a89add7c277679f0c9abdd0761caf2c9a4072cd1890d0fa219ad",
+    "research/chr-persistent/scripts/run_graph_costs.py": "9686497dae260c93484464683407b79897ab46debaeb780dab17191c7e875263",
+    "research/chr-persistent/scripts/run_graph_source_gate.py": "af91421fd846f7220ad099933a17a04d10f6a08e1f2ce2db600ca72e92f02d5b",
+    "research/chr-persistent/src/continuations.rs": "7e46bc14d6b84cc4bf8b20ede2e27201c9ec32a67bdff9e0d7d78e9790e8b94f",
+    "research/chr-persistent/src/lib.rs": "eae24ca217767a47e48aafd4741c6dd9997e7cf5b6554d7494b315ca834c4f40",
+    "research/chr-persistent/src/map.rs": "5bbbc623989afca9e71e3461784af9bd593f719e1f09931c7ab7b18779e9445d",
+    "research/chr-persistent/src/observation.rs": "11b931056c3c52a7f60c6ec3aa12e36a9cf8c8fd5633cc5367b915e63008faac",
+    "research/chr-persistent/src/state.rs": "0561d8f1bd868a3c5a1dfdb7b76094e682ef49cb1fe61b4127e45736b67f7f4a",
+    "research/chr-persistent/src/terms.rs": "64923635fc3a1f17d919e3edc1627273906ca89684c8884ee6753d1275537ff7",
+    "research/chr-persistent/tests/borrowed_observation.rs": "8aed47251ad5c72e172dd5947042efaad2cc4c07008ea33ea4a0422ab697ebeb",
+    "research/chr-persistent/tests/closed_occurs.rs": "66633ae7c7756737a01359425efc4c32f162211bb00254ab08dcf0e4dfb8f132",
+    "research/chr-persistent/tests/conformance.rs": "8ef5636ddb615537f06d2548af26cc1fbd6f47d162839c51b3a7ff81e75c93c8",
+    "research/chr-persistent/tests/continuation_keys.rs": "d6e95034ef4011f86ebaf7085c02332b8399059216e0436c347fdf444880f66b",
+    "research/chr-persistent/tests/fork_diagnostics.rs": "140bd5c31818747f20fb91ad383ef0d86f28524b0a9e72cd83181d0d5f7ffd90",
+    "research/chr-persistent/tests/graph_cost_cases.rs": "4917039ca477356fcf3f8be2a51bc561dd457e0313c4c4c61fb76c356a798442",
+    "research/chr-persistent/tests/graph_registry.rs": "c1d5f13b206b0f2752068a7c6def9d404f3f95e2229b77ac75d0830968be51cf"
+  },
+  "bounds": {
+    "process_seconds": 30,
+    "process_address_bytes": 1073741824,
+    "execution_seconds": 600,
+    "build_seconds": 180
+  },
+  "seed": 51051,
+  "jobs": [
+    {
+      "mode": "allocation",
+      "rep": 0,
+      "cell": [
+        64,
+        8,
+        "mostly-fail",
+        1
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 1,
+      "cell": [
+        512,
+        64,
+        "all-success",
+        1
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 1,
+      "cell": [
+        64,
+        1,
+        "mostly-fail",
+        4
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 0,
+      "cell": [
+        0,
+        64,
+        "all-success",
+        4
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 1,
+      "cell": [
+        64,
+        1,
+        "mostly-fail",
+        1
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 1,
+      "cell": [
+        64,
+        1,
+        "all-success",
+        4
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 0,
+      "cell": [
+        64,
+        64,
+        "mostly-fail",
+        1
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 0,
+      "cell": [
+        0,
+        64,
+        "mostly-fail",
+        1
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 1,
+      "cell": [
+        64,
+        8,
+        "all-success",
+        4
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 0,
+      "cell": [
+        512,
+        64,
+        "mostly-fail",
+        4
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 0,
+      "cell": [
+        64,
+        1,
+        "all-success",
+        4
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 0,
+      "cell": [
+        64,
+        8,
+        "all-success",
+        1
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 1,
+      "cell": [
+        512,
+        64,
+        "mostly-fail",
+        1
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 0,
+      "cell": [
+        64,
+        64,
+        "all-success",
+        1
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 1,
+      "cell": [
+        512,
+        8,
+        "mostly-fail",
+        1
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 1,
+      "cell": [
+        512,
+        1,
+        "mostly-fail",
+        1
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 0,
+      "cell": [
+        64,
+        1,
+        "all-success",
+        1
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 1,
+      "cell": [
+        512,
+        8,
+        "all-success",
+        4
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 1,
+      "cell": [
+        0,
+        1,
+        "mostly-fail",
+        4
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 1,
+      "cell": [
+        64,
+        1,
+        "all-success",
+        1
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 1,
+      "cell": [
+        0,
+        1,
+        "all-success",
+        1
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 1,
+      "cell": [
+        0,
+        8,
+        "all-success",
+        4
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 0,
+      "cell": [
+        512,
+        8,
+        "mostly-fail",
+        4
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 0,
+      "cell": [
+        64,
+        64,
+        "mostly-fail",
+        4
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 0,
+      "cell": [
+        0,
+        1,
+        "all-success",
+        1
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 1,
+      "cell": [
+        512,
+        8,
+        "mostly-fail",
+        4
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 0,
+      "cell": [
+        512,
+        1,
+        "mostly-fail",
+        1
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 1,
+      "cell": [
+        64,
+        64,
+        "mostly-fail",
+        1
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 1,
+      "cell": [
+        512,
+        1,
+        "mostly-fail",
+        4
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 0,
+      "cell": [
+        0,
+        8,
+        "mostly-fail",
+        4
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 0,
+      "cell": [
+        512,
+        1,
+        "all-success",
+        1
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 1,
+      "cell": [
+        512,
+        8,
+        "all-success",
+        1
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 1,
+      "cell": [
+        0,
+        8,
+        "all-success",
+        1
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 1,
+      "cell": [
+        64,
+        8,
+        "all-success",
+        1
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 0,
+      "cell": [
+        512,
+        64,
+        "mostly-fail",
+        1
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 1,
+      "cell": [
+        512,
+        1,
+        "all-success",
+        4
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 0,
+      "cell": [
+        0,
+        8,
+        "all-success",
+        1
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 0,
+      "cell": [
+        0,
+        64,
+        "all-success",
+        1
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 1,
+      "cell": [
+        64,
+        8,
+        "mostly-fail",
+        4
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 0,
+      "cell": [
+        512,
+        1,
+        "all-success",
+        4
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 0,
+      "cell": [
+        512,
+        8,
+        "all-success",
+        1
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 1,
+      "cell": [
+        0,
+        1,
+        "mostly-fail",
+        1
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 0,
+      "cell": [
+        0,
+        1,
+        "all-success",
+        4
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 0,
+      "cell": [
+        0,
+        1,
+        "mostly-fail",
+        4
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 1,
+      "cell": [
+        0,
+        8,
+        "mostly-fail",
+        1
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 0,
+      "cell": [
+        0,
+        8,
+        "mostly-fail",
+        1
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 1,
+      "cell": [
+        0,
+        64,
+        "mostly-fail",
+        4
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 0,
+      "cell": [
+        512,
+        1,
+        "mostly-fail",
+        4
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 1,
+      "cell": [
+        64,
+        8,
+        "mostly-fail",
+        1
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 0,
+      "cell": [
+        64,
+        8,
+        "all-success",
+        4
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 1,
+      "cell": [
+        512,
+        64,
+        "mostly-fail",
+        4
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 1,
+      "cell": [
+        64,
+        64,
+        "all-success",
+        1
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 1,
+      "cell": [
+        64,
+        64,
+        "all-success",
+        4
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 0,
+      "cell": [
+        64,
+        1,
+        "mostly-fail",
+        4
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 1,
+      "cell": [
+        0,
+        64,
+        "all-success",
+        4
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 0,
+      "cell": [
+        512,
+        64,
+        "all-success",
+        4
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 0,
+      "cell": [
+        0,
+        64,
+        "mostly-fail",
+        4
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 0,
+      "cell": [
+        64,
+        64,
+        "all-success",
+        4
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 0,
+      "cell": [
+        512,
+        8,
+        "mostly-fail",
+        1
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 0,
+      "cell": [
+        0,
+        1,
+        "mostly-fail",
+        1
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 1,
+      "cell": [
+        0,
+        1,
+        "all-success",
+        4
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 0,
+      "cell": [
+        0,
+        8,
+        "all-success",
+        4
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 1,
+      "cell": [
+        0,
+        8,
+        "mostly-fail",
+        4
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 1,
+      "cell": [
+        512,
+        1,
+        "all-success",
+        1
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 1,
+      "cell": [
+        0,
+        64,
+        "mostly-fail",
+        1
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 1,
+      "cell": [
+        0,
+        64,
+        "all-success",
+        1
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 0,
+      "cell": [
+        64,
+        1,
+        "mostly-fail",
+        1
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 0,
+      "cell": [
+        512,
+        64,
+        "all-success",
+        1
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 0,
+      "cell": [
+        512,
+        8,
+        "all-success",
+        4
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 1,
+      "cell": [
+        512,
+        64,
+        "all-success",
+        4
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 0,
+      "cell": [
+        64,
+        8,
+        "mostly-fail",
+        4
+      ]
+    },
+    {
+      "mode": "allocation",
+      "rep": 1,
+      "cell": [
+        64,
+        64,
+        "mostly-fail",
+        4
+      ]
+    }
+  ],
+  "builds": {
+    "allocation": {
+      "command": [
+        "cargo",
+        "build",
+        "--locked",
+        "--offline",
+        "--release",
+        "-p",
+        "chr-compiled",
+        "--bin",
+        "chr-state-preservation-cost",
+        "--target-dir",
+        "/home/ahart/Documents/CHRLang/target/r03-fork-owner-allocation",
+        "--no-default-features",
+        "--features",
+        "alloc-meter,fork-diagnostics"
+      ],
+      "status": "complete",
+      "exit": 0,
+      "binary_sha256": "488fabb63fee6e96ff5c1b2fe3996a382f5f48569d6e28bf1c5399ccc7cc969b",
+      "wall_s": 3.374124524067156
+    }
+  }
+}

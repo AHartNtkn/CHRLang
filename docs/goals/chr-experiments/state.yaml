@@ -8,7 +8,7 @@ goal:
   execution_authority: Redesigned goal authorizes implementation and experiments selected under R00 and the governing sequence.
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
-  current_research: Fork-owner diagnostics validated; registered allocation attribution next
+  current_research: Arena copying attributed; bounded lookup-before-detachment comparison selected
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -1431,7 +1431,7 @@ tasks:
   - id: T051
     type: pm
     assignee: PM
-    status: active
+    status: complete
     objective: Establish sound closed-subtree occurs handling and causal fork-owner allocation evidence before selecting a snapshot intervention.
     inputs:
       - docs/experiments/results/R03-state-preservation.md
@@ -1456,19 +1456,48 @@ tasks:
       - Do not presume arena sharing or whole-state copy-on-write wins before owner evidence.
       - Reassess value against carrier contraction before expanding representation work.
     receipt:
-      summary: Immutable closed-subtree occurs guard passes regression/adverse gates and workspace320 tests; fork attribution implemented and independently reviewed; allocation matrix registered before execution.
+      summary: Closed occurs correction validated;72 fork-owner processes and2280 answers identify arena36.6percent of large split traffic with all8400 postfork segments mutation-free.
       evidence:
         - docs/experiments/results/R01-closed-occurs.md
         - docs/experiments/results/R03-fork-owner-design.md
+        - docs/experiments/results/R03-fork-owner.md
       validation: Exact RED/GREEN visits, default/off semantics, cycle/rollback/notification witnesses and independent review; no timing claim.
 
+
+  - id: T052
+    type: pm
+    assignee: PM
+    status: active
+    objective: Compare lookup-before-detachment arena ownership against current cloning with complete lifecycle and adverse insertion controls.
+    inputs:
+      - docs/experiments/results/R03-fork-owner.md
+      - research/chr-persistent/src/terms.rs
+      - research/chr-compiled/experiments/state_preservation.rs
+    allowed_files:
+      - research/
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    expected_output:
+      - One bounded shared arena owner with controlled mutation and stable node identities.
+      - Independent sibling insertion, failure-after-insertion, repeated fork and predicate insertion gates.
+      - Registered counter-free lifecycle comparison including immediate detachment, no-choice and read-preserving controls.
+      - Evidence-backed storage disposition and reassessment against carrier contraction.
+    verify:
+      - Preserve complete answers, aliases, finite-tree equality, raw failures and exhaustion
+      - Charge preparation, lookup, detachment, mutation, observation and disposal
+      - Separate diagnostics from ordinary allocator primary timing
+      - Freeze configurations and sources before comparisons
+    stop_if:
+      - No wider storage redesign or predicted-speedup claim from diagnostic fractions.
+      - Reassess carrier contraction if the bounded candidate lacks complete lifecycle benefit.
+    receipt: null
 
 checks:
   dirty_fingerprint: preexisting_unfinished_experimental_files_preserved
   last_verification:
     result: passed
     task: T051
-    scope: Closed occurs shortcut and updated affected work expectation; fork-owner measurement design.
+    scope: Fork-owner instrumentation, full workspace and registered72-process allocation matrix.
     commands:
       - cargo test --workspace --all-targets
       - Persistent and compiled state-preservation tests in default and counter-free configurations
@@ -1476,4 +1505,4 @@ checks:
       - Independent immutable-closedness proof and diagnostic allocation-boundary review
     evidence:
       - docs/experiments/results/R01-closed-occurs.md
-      - docs/experiments/results/r01-closed-occurs/t051-workspace-green.log
+      - docs/experiments/results/r03-fork-owner/audit.json
