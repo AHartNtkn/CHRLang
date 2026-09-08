@@ -1,5 +1,7 @@
 # R00: architectural alternatives and first experiment selection
 
+> Current status: this assessment predates the [design-disposition review](R07-design-disposition-review.md). Architecture selection and research closure remain unresolved. The [renewed sequence](../sequence.md) and [current coverage map](../coverage.md) govern further investigation; recommendations and stopping judgments below are subject to that review.
+
 The completed architecture recommendation is [R07](R07-architecture-checkpoint.md),
 with [full-objective closure evidence](R07-closure-audit.md). The selection record
 below preserves experimental decisions and their contemporaneous premises.

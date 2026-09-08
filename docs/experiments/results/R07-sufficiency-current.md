@@ -1,5 +1,7 @@
 # Current sufficiency assessment (T058)
 
+> Current status: this assessment predates the [design-disposition review](R07-design-disposition-review.md). Architecture selection and research closure remain unresolved. The [renewed sequence](../sequence.md) and [current coverage map](../coverage.md) govern further investigation; recommendations and stopping judgments below are subject to that review.
+
 The completed substantive comparison resolves the last selected cost question.
 T059 supports common pre-discrimination failure as a bounded Conditional benefit;
 explicit controls win every successful and post-discrimination cell. All relevant

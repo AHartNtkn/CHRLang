@@ -1,5 +1,7 @@
 # Architecture decision evidence
 
+> Current status: this assessment predates the [design-disposition review](R07-design-disposition-review.md). Architecture selection and research closure remain unresolved. The [renewed sequence](../sequence.md) and [current coverage map](../coverage.md) govern further investigation; recommendations and stopping judgments below are subject to that review.
+
 Use competent explicit CHR execution as the general baseline, with selective
 access, binding-aware activation where its scheduling contract applies, and
 source-derived specialization. Add independently checked direct execution for

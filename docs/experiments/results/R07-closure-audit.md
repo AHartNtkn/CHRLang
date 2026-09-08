@@ -1,5 +1,7 @@
 # Full-objective closure audit (T060)
 
+> Current status: this assessment predates the [design-disposition review](R07-design-disposition-review.md). Architecture selection and research closure remain unresolved. The [renewed sequence](../sequence.md) and [current coverage map](../coverage.md) govern further investigation; recommendations and stopping judgments below are subject to that review.
+
 This audit evaluates the original objective in the goal attachment and governing
 sequence, not completion of a selected matrix or prototype. The previous goal turns
 made progress through implemented semantic gates, prospectively registered results
