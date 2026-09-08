@@ -27,6 +27,6 @@ All eight independent equality tests pass, alongside the deep-traversal unit tes
 
 ## Remaining responsibility gates
 
-Next integrate structural head demand, occurrence identity, propagation history and atomic supported body work. The [protocol](R03-conditional-protocol.md) still requires direct activation, source-order preservation and support-local invalidation/completion. Global version rejection alone cannot satisfy that progress requirement. Exactly-once raw answer publication and joint nonground output/residual export remain unimplemented.
+[Structural head demand and resource commits](R03-conditional-resources.md) now pass their component gate. Automatic selection and supported body execution remain to integrate. The [protocol](R03-conditional-protocol.md) still requires direct activation, source-order preservation and support-local invalidation/completion. Global version rejection alone cannot satisfy that progress requirement. Exactly-once raw answer publication and joint nonground output/residual export remain unimplemented.
 
 This component adds guarded-binding lists, support traversal, dependency records and explicit continuation state. Their retention and processing costs must be charged in the eventual complete-path comparison. The current gate establishes semantic behavior, not that conditional equality is faster or simpler than the dedicated or integrated alternatives.

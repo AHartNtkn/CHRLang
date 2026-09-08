@@ -6,6 +6,8 @@
 //! mutation; it is not a support-local runtime progress protocol.
 use crate::support::{Arena, Job, Operation, Status, Support};
 use std::collections::{BTreeMap, BTreeSet};
+use std::sync::atomic::{AtomicU64, Ordering};
+static NEXT_STORE: AtomicU64 = AtomicU64::new(1);
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct Term(usize);
@@ -28,6 +30,7 @@ pub struct Change {
     pub support: Support,
 }
 pub struct Store {
+    identity: u64,
     nodes: Vec<Node>,
     constructors: BTreeMap<(String, Vec<Term>), Term>,
     bindings: Vec<Vec<Binding>>,
@@ -43,6 +46,9 @@ impl Default for Store {
 impl Store {
     pub fn new() -> Self {
         Self {
+            identity: NEXT_STORE
+                .fetch_update(Ordering::Relaxed, Ordering::Relaxed, |n| n.checked_add(1))
+                .expect("equality store identity capacity exhausted"),
             nodes: vec![],
             constructors: BTreeMap::new(),
             bindings: vec![],
@@ -89,6 +95,9 @@ impl Store {
     pub fn changes(&self) -> &[Change] {
         &self.changes
     }
+    pub fn identity(&self) -> u64 {
+        self.identity
+    }
     pub fn version(&self) -> u64 {
         self.version
     }
@@ -111,6 +120,7 @@ impl Store {
         self.inspect(right);
         UnifyJob {
             request: (region, left, right),
+            identity: self.identity,
             version: self.version,
             walker: Walker::new(region, left, right, false),
             effect: None,
@@ -122,6 +132,7 @@ impl Store {
         self.inspect(right);
         DemandJob {
             request: (region, left, right),
+            identity: self.identity,
             version: self.version,
             walker: Walker::new(region, left, right, true),
             possible: region,
@@ -511,6 +522,7 @@ enum Effect {
     },
 }
 pub struct UnifyJob {
+    identity: u64,
     request: (Support, Term, Term),
     version: u64,
     walker: Walker,
@@ -525,7 +537,7 @@ impl UnifyJob {
         if let Some(failed) = self.result {
             return UnifyStatus::Complete { failed };
         }
-        if self.version != store.version {
+        if self.version != store.version || self.identity != store.identity {
             return UnifyStatus::Stale;
         }
         if let Some(effect) = self.effect.take() {
@@ -651,6 +663,7 @@ pub enum DemandStatus {
     Stale,
 }
 pub struct DemandJob {
+    identity: u64,
     request: (Support, Term, Term),
     version: u64,
     walker: Walker,
@@ -670,7 +683,7 @@ impl DemandJob {
         if let Some(entailed) = self.result {
             return DemandStatus::Complete { entailed };
         }
-        if self.version != store.version {
+        if self.version != store.version || self.identity != store.identity {
             return DemandStatus::Stale;
         }
         if !self.initialized {

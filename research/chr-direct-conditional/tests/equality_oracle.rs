@@ -497,3 +497,27 @@ fn mutation_during_deep_occurs_continuation_rejects_stale_effects() {
     equate(&mut store, &mut arena, Support::TRUE, x, nested);
     assert_eq!(store.failed(), Support::TRUE);
 }
+
+#[test]
+fn unfinished_equality_jobs_reject_a_different_store_with_colliding_handles() {
+    let mut arena = Arena::new();
+    let mut first = Store::new();
+    let x = first.fresh_variable();
+    let a = first.constructor("a", vec![]);
+    let mut second = Store::new();
+    second.fresh_variable();
+    second.constructor("b", vec![]);
+    assert_eq!(first.version(), second.version());
+    let mut writer = first.unify(Support::TRUE, x, a);
+    assert!(matches!(
+        writer.tick(&mut second, &mut arena),
+        UnifyStatus::Stale
+    ));
+    assert!(second.changes().is_empty());
+    assert_eq!(second.failed(), Support::FALSE);
+    let mut demand = first.entails(Support::TRUE, x, x);
+    assert!(matches!(
+        demand.tick(&second, &mut arena),
+        DemandStatus::Stale
+    ));
+}

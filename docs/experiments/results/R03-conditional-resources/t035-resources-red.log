@@ -1,0 +1,9 @@
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+error[E0432]: unresolved import `chr_direct_conditional::matching`
+  --> research/chr-direct-conditional/tests/matching_resources.rs:32:29
+   |
+32 | use chr_direct_conditional::matching::{Pattern,Plan,Matched,MatchStatus};
+   |                             ^^^^^^^^ could not find `matching` in `chr_direct_conditional`
+
+For more information about this error, try `rustc --explain E0432`.
+error: could not compile `chr-direct-conditional` (test "matching_resources") due to 1 previous error

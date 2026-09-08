@@ -1,0 +1,73 @@
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.27s
+     Running unittests src/lib.rs (target/debug/deps/chr_direct_conditional-b7f75851b0a564c6)
+
+running 8 tests
+test matching::tests::first_slot_keeps_conditional_value_opaque_and_repetition_demands_equality ... ok
+test support::tests::construction_rejects_an_earlier_child_variable - should panic ... ok
+test resources::tests::emitted_frame_finishes_the_job_without_certifying_remaining_eligibility ... ok
+test support::tests::canonical_reduction_and_complement_have_boolean_meaning ... ok
+test support::tests::independent_jobs_interleave_and_finished_jobs_do_no_more_work ... ok
+test support::tests::construction_rejects_out_of_bounds_handles - should panic ... ok
+test support::tests::long_negation_yields_with_at_most_one_node_allocation_per_tick ... ok
+test equality::tests::deep_occurs_check_and_demand_are_resumable_and_nonbinding ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/births.rs (target/debug/deps/births-f5269503540caf64)
+
+running 4 tests
+test a_cursor_keeps_its_birth_prefix_when_other_work_introduces_births ... ok
+test independent_births_are_cartesian_and_cancelled_cursor_does_not_consume_them ... ok
+test nested_inactive_birth_has_three_histories_and_equal_arms_still_count ... ok
+test all_three_birth_causal_guards_match_independent_reachable_histories ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/equality_oracle.rs (target/debug/deps/equality_oracle-8e0dbf342bf168c4)
+
+running 9 tests
+test alias_dependencies_intersect_later_binding_and_new_support_notifications ... ok
+test partial_commit_notifications_survive_interruption_and_restart ... ok
+test equality_demand_is_nonbinding_and_reports_support_expansion_dependencies ... ok
+test stale_writer_must_restart_and_cannot_commit_from_old_binding_state ... ok
+test unfinished_equality_jobs_reject_a_different_store_with_colliding_handles ... ok
+test three_edge_cycle_fails_only_on_intersection_and_field_clash_is_local ... ok
+test mutation_during_deep_occurs_continuation_rejects_stale_effects ... ok
+test entails_matches_resolved_tree_equality_without_adding_bindings ... ok
+test supported_equation_pairs_match_independent_finite_tree_substitutions ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.18s
+
+     Running tests/matching_resources.rs (target/debug/deps/matching_resources-67c5f44887599eb8)
+
+running 12 tests
+test acknowledgement_keeps_other_pending_support_and_cancelled_prepare_has_no_effect ... ok
+test opaque_slot_does_not_partition_conditional_values ... ok
+test occurrence_identity_and_body_readiness_are_preserved ... ok
+test guard_locals_are_rigid_fresh_identities_without_head_bindings ... ok
+test one_frame_completion_is_distinct_from_exhaustive_ineligibility ... ok
+test simpagation_keeps_only_declared_kept_occurrence ... ok
+test propagation_keys_preserve_ordered_ids_and_pending_support_is_local ... ok
+test rejecting_a_guard_frame_does_not_discard_an_eligible_alternative ... ok
+test tokens_reject_foreign_and_stale_owners_without_partial_effects ... ok
+test two_birth_consumption_intersects_crossing_supports ... ok
+test propagation_resource_truth_masks_preserve_exact_effects_and_pending_body ... ok
+test symbolic_matching_matches_independent_joint_slot_environments ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+
+     Running tests/support_truth.rs (target/debug/deps/support_truth-5c83646556c290d0)
+
+running 2 tests
+test cancelled_boolean_job_leaves_valid_nodes_for_interleaving_and_restart ... ok
+test every_three_variable_function_and_pair_matches_independent_truth_tables ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.58s
+
+   Doc-tests chr_direct_conditional
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

@@ -1,0 +1,31 @@
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+error[E0277]: no implementation for `u8 & i32`
+   --> research/chr-direct-conditional/tests/matching_resources.rs:120:51
+    |
+120 | ...   let mut mask=|bits:u8|{let leaf=|i|if bits&(1<<i)!=0{Support::TRUE}else{Support::FALSE};let lo=arena.mk(1,leaf(0),leaf(2));le...
+    |                                                 ^ no implementation for `u8 & i32`
+    |
+    = help: the trait `BitAnd<i32>` is not implemented for `u8`
+help: the following other types implement trait `BitAnd<Rhs>`
+   --> /home/ahart/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/bit.rs:174:9
+    |
+174 |         impl const BitAnd for $t {
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^ `u8` implements `BitAnd`
+...
+187 | bitand_impl! { bool usize u8 u16 u32 u64 u128 isize i8 i16 i32 i64 i128 }
+    | ------------------------------------------------------------------------- in this macro invocation
+    |
+   ::: /home/ahart/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/internal_macros.rs:22:9
+    |
+ 22 |         impl const $imp<$u> for &$t {
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^ `&u8` implements `BitAnd<u8>`
+...
+ 33 |         impl const $imp<&$u> for $t {
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^ `u8` implements `BitAnd<&u8>`
+...
+ 44 |         impl const $imp<&$u> for &$t {
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ `&u8` implements `BitAnd`
+    = note: this error originates in the macro `bitand_impl` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+For more information about this error, try `rustc --explain E0277`.
+error: could not compile `chr-direct-conditional` (test "matching_resources") due to 1 previous error
