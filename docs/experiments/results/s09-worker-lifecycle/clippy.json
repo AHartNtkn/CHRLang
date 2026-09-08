@@ -1,0 +1,20 @@
+{
+  "command": [
+    "cargo",
+    "clippy",
+    "-p",
+    "chr-factors",
+    "--no-default-features",
+    "--test",
+    "reusable_workers",
+    "--example",
+    "reusable_workers_gate",
+    "--",
+    "-D",
+    "warnings"
+  ],
+  "exit_code": 0,
+  "cutoff": false,
+  "stdout": "",
+  "stderr": "    Checking chr-factors v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-factors)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.13s\n"
+}

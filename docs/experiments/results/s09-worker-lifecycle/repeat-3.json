@@ -1,0 +1,16 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "-p",
+    "chr-factors",
+    "--release",
+    "--test",
+    "reusable_workers",
+    "--no-default-features"
+  ],
+  "exit_code": 0,
+  "cutoff": false,
+  "stdout": "\nrunning 9 tests\ntest duplicates_keep_raw_multiplicity_but_do_not_leak_seen_sets ... ok\ntest workers::gate::stale_reply_cannot_consume_a_current_reservation ... ok\ntest shutdown_drains_a_full_request_window_without_logical_admission ... ok\ntest logical_refutation_does_not_poison_the_next_query ... ok\ntest worker_failure_is_an_error_and_closes_cleanly ... ok\ntest invalid_input_does_not_poison_an_idle_pool ... ok\ntest pending_cancellation_end_ack_and_identity_isolation ... ok\ntest workers_overlap_and_cancel_before_source_service_then_start_fresh ... ok\ntest changed_queries_and_region_counts_reuse_workers_without_answer_history ... ok\n\ntest result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n",
+  "stderr": "    Finished `release` profile [optimized] target(s) in 0.01s\n     Running tests/reusable_workers.rs (target/release/deps/reusable_workers-bfecaa5596910ebe)\n"
+}

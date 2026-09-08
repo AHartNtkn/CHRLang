@@ -1,0 +1,16 @@
+{
+  "command": [
+    "cargo",
+    "run",
+    "-p",
+    "chr-factors",
+    "--no-default-features",
+    "--release",
+    "--example",
+    "reusable_workers_gate"
+  ],
+  "exit_code": 0,
+  "cutoff": false,
+  "stdout": "30 independent source-query checks pass across persistent worker lifetimes; metrics=false\n",
+  "stderr": "   Compiling chr-factors v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-factors)\n    Finished `release` profile [optimized] target(s) in 0.90s\n     Running `target/release/examples/reusable_workers_gate`\n"
+}

@@ -15,7 +15,8 @@ Existing measurements count within their demonstrated scope. Completion of a bou
 | S04 restoration | [Source gate](results/S04-restoration-source-gate.md), [full lifecycle pilot](results/S04-lifecycle-pilot.md), [paired matcher correction](results/S04-matcher-paired-cost.md) | Stronger restoration/replay policies, adaptive splitting and temporary separation/reunion |
 | S05 reuse | [Source gate](results/S05-stable-source-gate.md), [lifecycle pilot](results/S05-lifecycle-pilot.md), [specialized control](results/S05-specialized-control.md), [operation crossover](results/S05-operation-crossover.md) | Invalidation/eviction/lifetime, further cost attribution and generalized continuation tables |
 | S06 compilation | [Finite-table source gate](results/S06-table-source-gate.md), [lifecycle pilot](results/S06-table-lifecycle.md) | Broader derivations, recursive/contextual lowering, structural spaces and native compilation costs |
-| S07–S11 | Earlier bounded results and current stage specifications | Language comparisons, sustained lifetime, warm parallel execution, whole architectures and held-out audit |
+| S09 parallelism | [Reusable worker lifecycle gate](results/S09-worker-lifecycle-gate.md) | Regional/product integration, compatible inline control, warm lifecycle accounting and scaling |
+| S07–S08, S10–S11 | Earlier bounded results and current stage specifications | Language comparisons, sustained lifetime, whole architectures and held-out audit |
 
 T066's [1,008-process S04 pilot](results/S04-lifecycle-pilot.md) and [672-process matcher comparison](results/S04-matcher-paired-cost.md) are complete. The correction removes most mutation copying cost, with a smaller repeatable alias overhead; broader restoration policies remain open. T067 selects [S05 stable-identity reuse](results/S05-stable-reuse-entry.md) against corrected replay policies as the strongest ready alternative. Neither bounded trial closes its stage or the architecture goal.
 
