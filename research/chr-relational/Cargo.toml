@@ -7,5 +7,9 @@ edition.workspace = true
 chr-syntax = { path = "../../crates/chr-syntax" }
 
 [dev-dependencies]
-chr-observe = { path = "../chr-observe" }
+chr-observe = { path = "../chr-observe", default-features = false }
 chr-integrated = { path = "../chr-integrated", default-features = false }
+chr-compiled = { path = "../chr-compiled", default-features = false }
+
+[features]
+alloc-meter = []

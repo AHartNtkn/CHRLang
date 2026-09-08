@@ -1,0 +1,183 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 794  of event 'cpu_core/cycles/P'
+# Event count (approx.): 3405477526
+#
+# Overhead  Command        Shared Object         Symbol                                                                                                                                                                                                                                                                                                                                                                                                                                      
+# ........  .............  ....................  ............................................................................................................................................................................................................................................................................................................................................................................................................................................
+#
+    14.09%  s02_lifecycle  s02_lifecycle         [.] _RNvMs_CsghalEJKOZBx_14chr_relationalNtB4_8HeadPlan4join.llvm.16955079050321592651
+            |
+            ---_RNvMs_CsghalEJKOZBx_14chr_relationalNtB4_8HeadPlan4join.llvm.16955079050321592651
+               |          
+               |--10.95%--_RNvMs_CsghalEJKOZBx_14chr_relationalNtB4_8HeadPlan4join.llvm.16955079050321592651
+               |          |          
+               |           --10.33%--_RNvMs_CsghalEJKOZBx_14chr_relationalNtB4_8HeadPlan4join.llvm.16955079050321592651
+               |                     |          
+               |                     |--5.34%--_RNvMs_CsghalEJKOZBx_14chr_relationalNtB4_8HeadPlan8evaluate
+               |                     |          _RNvMs0_NtCsghalEJKOZBx_14chr_relational7executeNtB5_6Engine7advance
+               |                     |          _RNvMs0_CsdsJKra9t8xO_13s02_lifecycleNtB5_7Running7collect
+               |                     |          _RNvCsdsJKra9t8xO_13s02_lifecycle4main
+               |                     |          _RINvNtNtCs2AWtUsOyxgP_3std3sys9backtrace28___rust_begin_short_backtraceFEuuECsdsJKra9t8xO_13s02_lifecycle
+               |                     |          _RNCINvNtCs2AWtUsOyxgP_3std2rt10lang_startuE0CsdsJKra9t8xO_13s02_lifecycle.llvm.2218225979842278560
+               |                     |          0xffffffffffffffff
+               |                     |          
+               |                      --4.99%--_RNvMs_CsghalEJKOZBx_14chr_relationalNtB4_8HeadPlan4join.llvm.16955079050321592651
+               |                                |          
+               |                                |--3.83%--_RNvMs_CsghalEJKOZBx_14chr_relationalNtB4_8HeadPlan8evaluate
+               |                                |          _RNvMs0_NtCsghalEJKOZBx_14chr_relational7executeNtB5_6Engine7advance
+               |                                |          _RNvMs0_CsdsJKra9t8xO_13s02_lifecycleNtB5_7Running7collect
+               |                                |          _RNvCsdsJKra9t8xO_13s02_lifecycle4main
+               |                                |          0xffffffffffffffff
+               |                                |          
+               |                                 --1.16%--_RNvMs_CsghalEJKOZBx_14chr_relationalNtB4_8HeadPlan4join.llvm.16955079050321592651
+               |                                           _RNvMs_CsghalEJKOZBx_14chr_relationalNtB4_8HeadPlan8evaluate
+               |                                           _RNvMs0_NtCsghalEJKOZBx_14chr_relational7executeNtB5_6Engine7advance
+               |                                           _RNvMs0_CsdsJKra9t8xO_13s02_lifecycleNtB5_7Running7collect
+               |                                           _RNvCsdsJKra9t8xO_13s02_lifecycle4main
+               |                                           0xffffffffffffffff
+               |          
+                --2.90%--0x2
+
+     9.12%  s02_lifecycle  s02_lifecycle         [.] _RINvMs_NtNtNtCscdodAO9FK5_5alloc11collections5btree6searchINtNtB7_4node7NodeRefNtNtBX_6marker5ImmutNtCsghalEJKOZBx_14chr_relational8RelationNtB1B_5TableNtB1h_14LeafOrInternalE11search_treeB1z_EB1B_
+            |          
+             --9.00%--_RINvMs_NtNtNtCscdodAO9FK5_5alloc11collections5btree6searchINtNtB7_4node7NodeRefNtNtBX_6marker5ImmutNtCsghalEJKOZBx_14chr_relational8RelationNtB1B_5TableNtB1h_14LeafOrInternalE11search_treeB1z_EB1B_
+                       |          
+                       |--4.06%--_RNvMs_CsghalEJKOZBx_14chr_relationalNtB4_8HeadPlan4join.llvm.16955079050321592651
+                       |          |          
+                       |           --3.80%--_RNvMs_CsghalEJKOZBx_14chr_relationalNtB4_8HeadPlan4join.llvm.16955079050321592651
+                       |                     |          
+                       |                      --3.68%--_RNvMs_CsghalEJKOZBx_14chr_relationalNtB4_8HeadPlan4join.llvm.16955079050321592651
+                       |                                |          
+                       |                                |--1.92%--_RNvMs_CsghalEJKOZBx_14chr_relationalNtB4_8HeadPlan8evaluate
+                       |                                |          _RNvMs0_NtCsghalEJKOZBx_14chr_relational7executeNtB5_6Engine7advance
+                       |                                |          _RNvMs0_CsdsJKra9t8xO_13s02_lifecycleNtB5_7Running7collect
+                       |                                |          _RNvCsdsJKra9t8xO_13s02_lifecycle4main
+                       |                                |          0xffffffffffffffff
+                       |                                |          
+                       |                                 --1.76%--_RNvMs_CsghalEJKOZBx_14chr_relationalNtB4_8HeadPlan4join.llvm.16955079050321592651
+                       |                                           _RNvMs_CsghalEJKOZBx_14chr_relationalNtB4_8HeadPlan8evaluate
+                       |                                           _RNvMs0_NtCsghalEJKOZBx_14chr_relational7executeNtB5_6Engine7advance
+                       |                                           _RNvMs0_CsdsJKra9t8xO_13s02_lifecycleNtB5_7Running7collect
+                       |                                           _RNvCsdsJKra9t8xO_13s02_lifecycle4main
+                       |                                           0xffffffffffffffff
+                       |          
+                        --1.36%--_RINvXs0_NtNtNtCs4NRVxsYgnAr_4core4iter8adapters3mapINtB6_3MapINtNtB8_9enumerate9EnumerateINtNtNtBc_5slice4iter4IterjEENCINvNvNtNtNtBa_6traits8iterator8Iterator10min_by_key3keyTjRjEjNCNvMs_CsghalEJKOZBx_14chr_relationalNtB30_8HeadPlan4joins_0E0EB1Z_4foldTjB2N_ENCINvNvB1Z_6min_by4foldB43_INvB1X_7compareB2N_jEE0EB30_
+                                  _RNvMs_CsghalEJKOZBx_14chr_relationalNtB4_8HeadPlan4join.llvm.16955079050321592651
+                                  |          
+                                   --1.14%--_RNvMs_CsghalEJKOZBx_14chr_relationalNtB4_8HeadPlan4join.llvm.16955079050321592651
+                                             |          
+                                              --1.01%--_RNvMs_CsghalEJKOZBx_14chr_relationalNtB4_8HeadPlan4join.llvm.16955079050321592651
+                                                        _RNvMs_CsghalEJKOZBx_14chr_relationalNtB4_8HeadPlan8evaluate
+                                                        _RNvMs0_NtCsghalEJKOZBx_14chr_relational7executeNtB5_6Engine7advance
+                                                        _RNvMs0_CsdsJKra9t8xO_13s02_lifecycleNtB5_7Running7collect
+                                                        _RNvCsdsJKra9t8xO_13s02_lifecycle4main
+                                                        0xffffffffffffffff
+
+     5.69%  s02_lifecycle  libc.so.6             [.] malloc
+            |
+            ---malloc
+
+     4.59%  s02_lifecycle  s02_lifecycle         [.] _RNvMs0_CsghalEJKOZBx_14chr_relationalNtB5_5Table10candidates
+            |
+            ---_RNvMs0_CsghalEJKOZBx_14chr_relationalNtB5_5Table10candidates
+               |          
+                --3.83%--_RNvMs_CsghalEJKOZBx_14chr_relationalNtB4_8HeadPlan4join.llvm.16955079050321592651
+                          _RNvMs_CsghalEJKOZBx_14chr_relationalNtB4_8HeadPlan4join.llvm.16955079050321592651
+                          _RNvMs_CsghalEJKOZBx_14chr_relationalNtB4_8HeadPlan4join.llvm.16955079050321592651
+                          |          
+                          |--2.17%--_RNvMs_CsghalEJKOZBx_14chr_relationalNtB4_8HeadPlan4join.llvm.16955079050321592651
+                          |          _RNvMs_CsghalEJKOZBx_14chr_relationalNtB4_8HeadPlan8evaluate
+                          |          _RNvMs0_NtCsghalEJKOZBx_14chr_relational7executeNtB5_6Engine7advance
+                          |          _RNvMs0_CsdsJKra9t8xO_13s02_lifecycleNtB5_7Running7collect
+                          |          _RNvCsdsJKra9t8xO_13s02_lifecycle4main
+                          |          0xffffffffffffffff
+                          |          
+                           --1.66%--_RNvMs_CsghalEJKOZBx_14chr_relationalNtB4_8HeadPlan8evaluate
+                                     _RNvMs0_NtCsghalEJKOZBx_14chr_relational7executeNtB5_6Engine7advance
+                                     _RNvMs0_CsdsJKra9t8xO_13s02_lifecycleNtB5_7Running7collect
+                                     _RNvCsdsJKra9t8xO_13s02_lifecycle4main
+                                     0xffffffffffffffff
+
+     4.41%  s02_lifecycle  libc.so.6             [.] cfree
+            |
+            ---cfree
+
+     3.30%  s02_lifecycle  s02_lifecycle         [.] _RINvMs_NtNtNtCscdodAO9FK5_5alloc11collections5btree6searchINtNtB7_4node7NodeRefNtNtBX_6marker3MutNtCsghalEJKOZBx_14chr_relational5MatchNtNtB7_7set_val9SetValZSTNtB1h_14LeafOrInternalE11search_treeB1x_EB1z_
+            |
+            ---_RINvMs_NtNtNtCscdodAO9FK5_5alloc11collections5btree6searchINtNtB7_4node7NodeRefNtNtBX_6marker3MutNtCsghalEJKOZBx_14chr_relational5MatchNtNtB7_7set_val9SetValZSTNtB1h_14LeafOrInternalE11search_treeB1x_EB1z_
+               |          
+                --3.17%--_RNvMsi_NtNtNtCscdodAO9FK5_5alloc11collections5btree3mapINtB5_8BTreeMapNtCsghalEJKOZBx_14chr_relational5MatchNtNtB7_7set_val9SetValZSTE6insertB18_
+                          _RNvMs_CsghalEJKOZBx_14chr_relationalNtB4_8HeadPlan4join.llvm.16955079050321592651
+                          _RNvMs_CsghalEJKOZBx_14chr_relationalNtB4_8HeadPlan4join.llvm.16955079050321592651
+                          _RNvMs_CsghalEJKOZBx_14chr_relationalNtB4_8HeadPlan4join.llvm.16955079050321592651
+                          _RNvMs_CsghalEJKOZBx_14chr_relationalNtB4_8HeadPlan4join.llvm.16955079050321592651
+                          _RNvMs_CsghalEJKOZBx_14chr_relationalNtB4_8HeadPlan4join.llvm.16955079050321592651
+                          _RNvMs_CsghalEJKOZBx_14chr_relationalNtB4_8HeadPlan8evaluate
+                          _RNvMs0_NtCsghalEJKOZBx_14chr_relational7executeNtB5_6Engine7advance
+                          _RNvMs0_CsdsJKra9t8xO_13s02_lifecycleNtB5_7Running7collect
+                          _RNvCsdsJKra9t8xO_13s02_lifecycle4main
+                          0xffffffffffffffff
+
+     2.00%  s02_lifecycle  s02_lifecycle         [.] _RINvXs0_NtNtNtCs4NRVxsYgnAr_4core4iter8adapters3mapINtB6_3MapINtNtB8_9enumerate9EnumerateINtNtNtBc_5slice4iter4IterjEENCINvNvNtNtNtBa_6traits8iterator8Iterator10min_by_key3keyTjRjEjNCNvMs_CsghalEJKOZBx_14chr_relationalNtB30_8HeadPlan4joins_0E0EB1Z_4foldTjB2N_ENCINvNvB1Z_6min_by4foldB43_INvB1X_7compareB2N_jEE0EB30_
+            |
+            ---_RINvXs0_NtNtNtCs4NRVxsYgnAr_4core4iter8adapters3mapINtB6_3MapINtNtB8_9enumerate9EnumerateINtNtNtBc_5slice4iter4IterjEENCINvNvNtNtNtBa_6traits8iterator8Iterator10min_by_key3keyTjRjEjNCNvMs_CsghalEJKOZBx_14chr_relationalNtB30_8HeadPlan4joins_0E0EB1Z_4foldTjB2N_ENCINvNvB1Z_6min_by4foldB43_INvB1X_7compareB2N_jEE0EB30_
+               |          
+                --1.88%--_RNvMs_CsghalEJKOZBx_14chr_relationalNtB4_8HeadPlan4join.llvm.16955079050321592651
+                          _RNvMs_CsghalEJKOZBx_14chr_relationalNtB4_8HeadPlan4join.llvm.16955079050321592651
+                          _RNvMs_CsghalEJKOZBx_14chr_relationalNtB4_8HeadPlan4join.llvm.16955079050321592651
+                          |          
+                           --1.63%--_RNvMs_CsghalEJKOZBx_14chr_relationalNtB4_8HeadPlan8evaluate
+                                     _RNvMs0_NtCsghalEJKOZBx_14chr_relational7executeNtB5_6Engine7advance
+                                     _RNvMs0_CsdsJKra9t8xO_13s02_lifecycleNtB5_7Running7collect
+                                     _RNvCsdsJKra9t8xO_13s02_lifecycle4main
+                                     0xffffffffffffffff
+
+     1.92%  s02_lifecycle  s02_lifecycle         [.] _RNvMs4_NtNtNtNtCscdodAO9FK5_5alloc11collections5btree3map5entryINtB5_11VacantEntryNtCsghalEJKOZBx_14chr_relational5MatchNtNtB9_7set_val9SetValZSTE12insert_entryB1k_
+            |
+            ---_RNvMs4_NtNtNtNtCscdodAO9FK5_5alloc11collections5btree3map5entryINtB5_11VacantEntryNtCsghalEJKOZBx_14chr_relational5MatchNtNtB9_7set_val9SetValZSTE12insert_entryB1k_
+               |          
+                --1.42%--_RNvMsi_NtNtNtCscdodAO9FK5_5alloc11collections5btree3mapINtB5_8BTreeMapNtCsghalEJKOZBx_14chr_relational5MatchNtNtB7_7set_val9SetValZSTE6insertB18_
+                          _RNvMs_CsghalEJKOZBx_14chr_relationalNtB4_8HeadPlan4join.llvm.16955079050321592651
+                          _RNvMs_CsghalEJKOZBx_14chr_relationalNtB4_8HeadPlan4join.llvm.16955079050321592651
+                          _RNvMs_CsghalEJKOZBx_14chr_relationalNtB4_8HeadPlan4join.llvm.16955079050321592651
+                          _RNvMs_CsghalEJKOZBx_14chr_relationalNtB4_8HeadPlan4join.llvm.16955079050321592651
+                          _RNvMs_CsghalEJKOZBx_14chr_relationalNtB4_8HeadPlan4join.llvm.16955079050321592651
+                          _RNvMs_CsghalEJKOZBx_14chr_relationalNtB4_8HeadPlan8evaluate
+                          _RNvMs0_NtCsghalEJKOZBx_14chr_relational7executeNtB5_6Engine7advance
+                          _RNvMs0_CsdsJKra9t8xO_13s02_lifecycleNtB5_7Running7collect
+                          _RNvCsdsJKra9t8xO_13s02_lifecycle4main
+                          0xffffffffffffffff
+
+     1.92%  s02_lifecycle  s02_lifecycle         [.] _RNvCs9wFQrvczXsK_7___rustc11___rdl_alloc
+            |
+            ---_RNvCs9wFQrvczXsK_7___rustc11___rdl_alloc
+               |          
+                --1.27%--_RNvMs_CsghalEJKOZBx_14chr_relationalNtB4_8HeadPlan4join.llvm.16955079050321592651
+                          |          
+                           --1.14%--_RNvMs_CsghalEJKOZBx_14chr_relationalNtB4_8HeadPlan4join.llvm.16955079050321592651
+
+     1.38%  s02_lifecycle  s02_lifecycle         [.] _RNvMCsghalEJKOZBx_14chr_relationalNtB2_4View6attach
+            |
+            ---_RNvMCsghalEJKOZBx_14chr_relationalNtB2_4View6attach
+               |          
+                --1.25%--_RNvMCsghalEJKOZBx_14chr_relationalNtB2_4View6insert.llvm.16955079050321592651
+
+     1.00%  s02_lifecycle  libc.so.6             [.] 0x00000000000a26e6
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#
+Warning:
+Kernel address maps (/proc/{kallsyms,modules}) were restricted.
+
+Check /proc/sys/kernel/kptr_restrict before running 'perf record'.
+
+As no suitable kallsyms nor vmlinux was found, kernel samples
+can't be resolved.
+
+Samples in kernel modules can't be resolved as well.

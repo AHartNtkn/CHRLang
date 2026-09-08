@@ -1,0 +1,75 @@
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 4 tests
+test duplicate_constructor_proofs_do_not_duplicate_resources ... ok
+test changed_equality_snapshots_preserve_nonbinding_eligibility ... ok
+test selective_constructor_can_drive_the_source_join ... ok
+test plans_match_exhaustive_heads_across_unknown_and_equal_value_snapshots ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+
+running 2 tests
+test finite_sibling_publishes_beside_ongoing_rule_work ... ok
+test complete_sources_match_independent_owned_semantics ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+
+running 5 tests
+test stale_atomic_claims_and_distinct_equal_valued_resources ... ok
+test equality_enables_indexed_join_before_unrelated_work_finishes ... ok
+test parent_congruence_and_incident_key_repair_enable_repeated_variables ... ok
+test finite_tree_failure_and_forked_consumption_are_isolated ... ok
+test ordered_equation_pairs_match_owned_substitution_and_repaired_joins ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.09s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Compiling chr-relational v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-relational)
+warning: unexpected `cfg` condition value: `fork-diagnostics`
+   --> research/chr-relational/examples/../../chr-compiled/experiments/meter.rs:155:7
+    |
+155 | #[cfg(feature = "fork-diagnostics")]
+    |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: expected values for `feature` are: `alloc-meter`
+    = help: consider adding `fork-diagnostics` as a feature in `Cargo.toml`
+    = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+    = note: `#[warn(unexpected_cfgs)]` on by default
+
+warning: unexpected `cfg` condition value: `fork-diagnostics`
+   --> research/chr-relational/examples/../../chr-compiled/experiments/meter.rs:162:7
+    |
+162 | #[cfg(feature = "fork-diagnostics")]
+    |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: expected values for `feature` are: `alloc-meter`
+    = help: consider adding `fork-diagnostics` as a feature in `Cargo.toml`
+    = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition value: `fork-diagnostics`
+   --> research/chr-relational/examples/../../chr-compiled/experiments/meter.rs:133:11
+    |
+133 |     #[cfg(feature = "fork-diagnostics")]
+    |           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: expected values for `feature` are: `alloc-meter`
+    = help: consider adding `fork-diagnostics` as a feature in `Cargo.toml`
+    = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: `chr-relational` (example "s02_lifecycle") generated 3 warnings
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.19s
+     Running unittests src/lib.rs (target/debug/deps/chr_relational-76bfe09b53995626)
+     Running tests/head_plan.rs (target/debug/deps/head_plan-f2e2aad87f7c8f80)
+     Running tests/source.rs (target/debug/deps/source-b2d93377f409e281)
+     Running tests/store.rs (target/debug/deps/store-ec6814670f1b1b2e)
+   Doc-tests chr_relational

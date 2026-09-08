@@ -272,3 +272,7 @@ The [mutable owner gate](S02-relational-owner.md) passes 1,296 independent order
 ## S02 complete source gate
 
 The [relational source gate](S02-relational-source.md) passes 46 independently checked finite configurations, including 36 comparisons with the no-choice integrated control, and finite-sibling publication beside ongoing work. This supplies a complete path for a bounded lifecycle comparison; it does not establish a cost advantage or settle shared contextual integration. T063 remains active for prospective cost registration, with S01 and S06 reassessed after the pilot.
+
+## S02 lifecycle pilot
+
+The [140-process pilot](S02-lifecycle-pilot.md) demonstrates a selective-constructor advantage against the integrated control, but substantial broad-match losses and faster dedicated controls throughout the tested families. Repeated full candidate materialization is a concrete profiled cost, selected for a bounded correction overlapping S01's retained discovery. Delayed-selective relational/integrated timing remains inconclusive. No general architecture or contextual-integration disposition follows.

@@ -1,0 +1,18 @@
+{
+  "command": [
+    "perf",
+    "record",
+    "-F",
+    "999",
+    "--call-graph",
+    "dwarf",
+    "-o",
+    "/tmp/chr-s02-perf.data",
+    "--",
+    "python3",
+    "-c",
+    "import subprocess\nfor _ in range(100):\n subprocess.run([\"target/s02-time/release/examples/s02_lifecycle\",\"relational\",\"dense\"],stdout=subprocess.DEVNULL,check=True)\n"
+  ],
+  "exit_code": 0,
+  "scope": "100 whole processes including warmup, validation and harness; diagnostic attribution only"
+}
