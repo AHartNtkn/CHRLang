@@ -2,7 +2,7 @@
 
 Future work is selected by its ability to change an architectural or language-design decision under the [sequence](sequence.md). A completed experimental package is evidence for its stated claim; it does not establish that its entire mechanism is resolved or that its follow-ups deserve execution.
 
-**Current selection:** [The conditional protocol](results/R03-conditional-protocol.md) specifies direct activation, conditional resource ownership, causal births and support-local completion. Independent reviews exposed essential progress and multiplicity obligations; the executable gate is still pending. T035 implements that complete path against competent explicit source search. [Scheduling diagnosis](results/R03-search-diagnosis.md) and [finite-solving lifecycle evidence](results/R04-lifecycle-pilot.md) remain bounded comparative evidence.
+**Current selection:** [The conditional protocol](results/R03-conditional-protocol.md) specifies direct activation, conditional resource ownership, causal births and support-local completion. Independent reviews exposed essential progress and multiplicity obligations; the executable gate is still pending. T035 implements that complete path against competent explicit source search. [Support and birth components](results/R03-conditional-components.md) pass exhaustive checks; equality, source effects and publication remain unfinished. [Scheduling diagnosis](results/R03-search-diagnosis.md) and [finite-solving lifecycle evidence](results/R04-lifecycle-pilot.md) remain bounded comparative evidence.
 
 ## Question map
 

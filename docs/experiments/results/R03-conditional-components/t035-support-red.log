@@ -1,0 +1,245 @@
+error[E0425]: cannot find type `Arena` in this scope
+ --> research/chr-direct-conditional/src/support.rs:5:26
+  |
+5 |     fn finish(arena:&mut Arena,operation:Operation)->Support {
+  |                          ^^^^^ not found in this scope
+
+error[E0425]: cannot find type `Operation` in this scope
+   --> research/chr-direct-conditional/src/support.rs:5:42
+    |
+  5 |     fn finish(arena:&mut Arena,operation:Operation)->Support {
+    |                                          ^^^^^^^^^
+    |
+   ::: /home/ahart/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/option.rs:597:1
+    |
+597 | pub enum Option<T> {
+    | ------------------ similarly named enum `Option` defined here
+    |
+help: an enum with a similar name exists
+    |
+  5 -     fn finish(arena:&mut Arena,operation:Operation)->Support {
+  5 +     fn finish(arena:&mut Arena,operation:Option)->Support {
+    |
+
+error[E0425]: cannot find type `Support` in this scope
+ --> research/chr-direct-conditional/src/support.rs:5:54
+  |
+5 |     fn finish(arena:&mut Arena,operation:Operation)->Support {
+  |                                                      ^^^^^^^ not found in this scope
+
+error[E0425]: cannot find value `FALSE` in this scope
+  --> research/chr-direct-conditional/src/support.rs:15:34
+   |
+15 |         assert_eq!(arena.mk(x_id,FALSE,TRUE),x);
+   |                                  ^^^^^ not found in this scope
+   |
+help: you may want to use a bool value instead
+   |
+15 -         assert_eq!(arena.mk(x_id,FALSE,TRUE),x);
+15 +         assert_eq!(arena.mk(x_id,false,TRUE),x);
+   |
+
+error[E0425]: cannot find value `TRUE` in this scope
+  --> research/chr-direct-conditional/src/support.rs:15:40
+   |
+15 |         assert_eq!(arena.mk(x_id,FALSE,TRUE),x);
+   |                                        ^^^^ not found in this scope
+   |
+help: you may want to use a bool value instead
+   |
+15 -         assert_eq!(arena.mk(x_id,FALSE,TRUE),x);
+15 +         assert_eq!(arena.mk(x_id,FALSE,true),x);
+   |
+
+error[E0425]: cannot find value `FALSE` in this scope
+  --> research/chr-direct-conditional/src/support.rs:18:60
+   |
+18 |         assert_eq!(finish(&mut arena,Operation::And(x,nx)),FALSE);
+   |                                                            ^^^^^ not found in this scope
+   |
+help: you may want to use a bool value instead
+   |
+18 -         assert_eq!(finish(&mut arena,Operation::And(x,nx)),FALSE);
+18 +         assert_eq!(finish(&mut arena,Operation::And(x,nx)),false);
+   |
+
+error[E0425]: cannot find value `TRUE` in this scope
+  --> research/chr-direct-conditional/src/support.rs:19:59
+   |
+19 |         assert_eq!(finish(&mut arena,Operation::Or(x,nx)),TRUE);
+   |                                                           ^^^^ not found in this scope
+   |
+help: you may want to use a bool value instead
+   |
+19 -         assert_eq!(finish(&mut arena,Operation::Or(x,nx)),TRUE);
+19 +         assert_eq!(finish(&mut arena,Operation::Or(x,nx)),true);
+   |
+
+warning: unused import: `super::*`
+ --> research/chr-direct-conditional/src/support.rs:4:9
+  |
+4 |     use super::*;
+  |         ^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+error[E0433]: cannot find type `Arena` in this scope
+  --> research/chr-direct-conditional/src/support.rs:12:23
+   |
+12 |         let mut arena=Arena::new();
+   |                       ^^^^^ use of undeclared type `Arena`
+
+error[E0433]: cannot find type `Operation` in this scope
+  --> research/chr-direct-conditional/src/support.rs:17:34
+   |
+17 |         let nx=finish(&mut arena,Operation::Not(x));
+   |                                  ^^^^^^^^^ use of undeclared type `Operation`
+   |
+help: an enum with a similar name exists
+   |
+17 -         let nx=finish(&mut arena,Operation::Not(x));
+17 +         let nx=finish(&mut arena,Option::Not(x));
+   |
+
+error[E0433]: cannot find type `Operation` in this scope
+  --> research/chr-direct-conditional/src/support.rs:18:38
+   |
+18 |         assert_eq!(finish(&mut arena,Operation::And(x,nx)),FALSE);
+   |                                      ^^^^^^^^^ use of undeclared type `Operation`
+   |
+help: an enum with a similar name exists
+   |
+18 -         assert_eq!(finish(&mut arena,Operation::And(x,nx)),FALSE);
+18 +         assert_eq!(finish(&mut arena,Option::And(x,nx)),FALSE);
+   |
+
+error[E0433]: cannot find type `Operation` in this scope
+  --> research/chr-direct-conditional/src/support.rs:19:38
+   |
+19 |         assert_eq!(finish(&mut arena,Operation::Or(x,nx)),TRUE);
+   |                                      ^^^^^^^^^ use of undeclared type `Operation`
+   |
+help: an enum with a similar name exists
+   |
+19 -         assert_eq!(finish(&mut arena,Operation::Or(x,nx)),TRUE);
+19 +         assert_eq!(finish(&mut arena,Option::Or(x,nx)),TRUE);
+   |
+
+error[E0433]: cannot find type `Operation` in this scope
+  --> research/chr-direct-conditional/src/support.rs:20:34
+   |
+20 |         let ny=finish(&mut arena,Operation::Not(y));
+   |                                  ^^^^^^^^^ use of undeclared type `Operation`
+   |
+help: an enum with a similar name exists
+   |
+20 -         let ny=finish(&mut arena,Operation::Not(y));
+20 +         let ny=finish(&mut arena,Option::Not(y));
+   |
+
+error[E0433]: cannot find type `Operation` in this scope
+  --> research/chr-direct-conditional/src/support.rs:21:38
+   |
+21 |         assert_eq!(finish(&mut arena,Operation::Difference(x,y)),finish(&mut arena,Operation::And(x,ny)));
+   |                                      ^^^^^^^^^ use of undeclared type `Operation`
+   |
+help: an enum with a similar name exists
+   |
+21 -         assert_eq!(finish(&mut arena,Operation::Difference(x,y)),finish(&mut arena,Operation::And(x,ny)));
+21 +         assert_eq!(finish(&mut arena,Option::Difference(x,y)),finish(&mut arena,Operation::And(x,ny)));
+   |
+
+error[E0433]: cannot find type `Operation` in this scope
+  --> research/chr-direct-conditional/src/support.rs:21:84
+   |
+21 |         assert_eq!(finish(&mut arena,Operation::Difference(x,y)),finish(&mut arena,Operation::And(x,ny)));
+   |                                                                                    ^^^^^^^^^ use of undeclared type `Operation`
+   |
+help: an enum with a similar name exists
+   |
+21 -         assert_eq!(finish(&mut arena,Operation::Difference(x,y)),finish(&mut arena,Operation::And(x,ny)));
+21 +         assert_eq!(finish(&mut arena,Operation::Difference(x,y)),finish(&mut arena,Option::And(x,ny)));
+   |
+
+error[E0433]: cannot find type `Operation` in this scope
+  --> research/chr-direct-conditional/src/support.rs:23:36
+   |
+23 |         let both=finish(&mut arena,Operation::And(x,y));
+   |                                    ^^^^^^^^^ use of undeclared type `Operation`
+   |
+help: an enum with a similar name exists
+   |
+23 -         let both=finish(&mut arena,Operation::And(x,y));
+23 +         let both=finish(&mut arena,Option::And(x,y));
+   |
+
+error[E0433]: cannot find type `Arena` in this scope
+  --> research/chr-direct-conditional/src/support.rs:30:23
+   |
+30 |         let mut arena=Arena::new();
+   |                       ^^^^^ use of undeclared type `Arena`
+
+error[E0433]: cannot find type `Operation` in this scope
+  --> research/chr-direct-conditional/src/support.rs:32:39
+   |
+32 |         let mut conjunction=arena.job(Operation::And(x,y));
+   |                                       ^^^^^^^^^ use of undeclared type `Operation`
+   |
+help: an enum with a similar name exists
+   |
+32 -         let mut conjunction=arena.job(Operation::And(x,y));
+32 +         let mut conjunction=arena.job(Option::And(x,y));
+   |
+
+error[E0433]: cannot find type `Operation` in this scope
+  --> research/chr-direct-conditional/src/support.rs:33:39
+   |
+33 |         let mut disjunction=arena.job(Operation::Or(x,y));
+   |                                       ^^^^^^^^^ use of undeclared type `Operation`
+   |
+help: an enum with a similar name exists
+   |
+33 -         let mut disjunction=arena.job(Operation::Or(x,y));
+33 +         let mut disjunction=arena.job(Option::Or(x,y));
+   |
+
+error[E0433]: cannot find type `Status` in this scope
+  --> research/chr-direct-conditional/src/support.rs:45:49
+   |
+45 |         assert_eq!(conjunction.tick(&mut arena),Status::Complete(and));
+   |                                                 ^^^^^^ use of undeclared type `Status`
+
+error[E0433]: cannot find type `Status` in this scope
+ --> research/chr-direct-conditional/src/support.rs:7:36
+  |
+7 |         for _ in 0..10_000 {if let Status::Complete(result)=job.tick(arena) {return result;}}
+  |                                    ^^^^^^ use of undeclared type `Status`
+
+error[E0433]: cannot find type `Status` in this scope
+  --> research/chr-direct-conditional/src/support.rs:34:55
+   |
+34 |         assert!(matches!(conjunction.tick(&mut arena),Status::Pending));
+   |                                                       ^^^^^^ use of undeclared type `Status`
+
+error[E0433]: cannot find type `Status` in this scope
+  --> research/chr-direct-conditional/src/support.rs:39:20
+   |
+39 |             if let Status::Complete(value)=disjunction.tick(&mut arena) {or=Some(value);}
+   |                    ^^^^^^ use of undeclared type `Status`
+
+error[E0433]: cannot find type `Status` in this scope
+  --> research/chr-direct-conditional/src/support.rs:38:20
+   |
+38 |             if let Status::Complete(value)=conjunction.tick(&mut arena) {and=Some(value);}
+   |                    ^^^^^^ use of undeclared type `Status`
+
+error[E0433]: cannot find type `Status` in this scope
+  --> research/chr-direct-conditional/src/support.rs:35:55
+   |
+35 |         assert!(matches!(disjunction.tick(&mut arena),Status::Pending));
+   |                                                       ^^^^^^ use of undeclared type `Status`
+
+error: aborting due to 24 previous errors; 1 warning emitted
+
+Some errors have detailed explanations: E0425, E0433.
+For more information about an error, try `rustc --explain E0425`.

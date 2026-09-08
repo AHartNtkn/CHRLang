@@ -1,0 +1,17 @@
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+error[E0432]: unresolved import `chr_direct_conditional::births`
+ --> research/chr-direct-conditional/tests/births.rs:1:29
+  |
+1 | use chr_direct_conditional::births::{Births, HistoryEvent};
+  |                             ^^^^^^ could not find `births` in `chr_direct_conditional`
+
+error[E0432]: unresolved imports `chr_direct_conditional::support::Arena`, `chr_direct_conditional::support::Support`
+ --> research/chr-direct-conditional/tests/births.rs:2:39
+  |
+2 | use chr_direct_conditional::support::{Arena, Support};
+  |                                       ^^^^^  ^^^^^^^ no `Support` in `support`
+  |                                       |
+  |                                       no `Arena` in `support`
+
+For more information about this error, try `rustc --explain E0432`.
+error: could not compile `chr-direct-conditional` (test "births") due to 2 previous errors

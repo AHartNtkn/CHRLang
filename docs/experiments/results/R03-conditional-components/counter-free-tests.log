@@ -1,0 +1,37 @@
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.13s
+     Running unittests src/lib.rs (target/debug/deps/chr_direct_conditional-6447c8ce302707d0)
+
+running 5 tests
+test support::tests::canonical_reduction_and_complement_have_boolean_meaning ... ok
+test support::tests::construction_rejects_an_earlier_child_variable - should panic ... ok
+test support::tests::construction_rejects_out_of_bounds_handles - should panic ... ok
+test support::tests::independent_jobs_interleave_and_finished_jobs_do_no_more_work ... ok
+test support::tests::long_negation_yields_with_at_most_one_node_allocation_per_tick ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/births.rs (target/debug/deps/births-081251b1600a2a1d)
+
+running 4 tests
+test a_cursor_keeps_its_birth_prefix_when_other_work_introduces_births ... ok
+test independent_births_are_cartesian_and_cancelled_cursor_does_not_consume_them ... ok
+test nested_inactive_birth_has_three_histories_and_equal_arms_still_count ... ok
+test all_three_birth_causal_guards_match_independent_reachable_histories ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/support_truth.rs (target/debug/deps/support_truth-428c3ba101e96aee)
+
+running 2 tests
+test cancelled_boolean_job_leaves_valid_nodes_for_interleaving_and_restart ... ok
+test every_three_variable_function_and_pair_matches_independent_truth_tables ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.58s
+
+   Doc-tests chr_direct_conditional
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
