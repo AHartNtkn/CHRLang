@@ -108,3 +108,8 @@ The [direct conditional runtime gate](R03-conditional-runtime.md) now checks com
 ## Current evidence update after T035
 
 The [conditional lifecycle pilot](R03-conditional-lifecycle.md) validates all 256 processes. Opaque shared work pays for support machinery in these cases, while ordinary and immediately discriminating work is substantially slower; recursive output shows narrower gains. T036 selects causal maintenance diagnosis because allocation traffic grows much faster than retained requested heap, and lower-priority candidate deferral may be avoidable under monotone liveness. This distinction can change how much complexity/cost is inherent before wider architecture recommendations. No universal winner or language adoption follows.
+
+
+## Current evidence update after T036
+
+[Conditional maintenance diagnosis](R03-conditional-maintenance.md) measures the predicted quadratic deferral and validates a monotone-liveness correction in 384 paired processes. Ordinary overhead is much smaller, opaque sharing gains increase, and discrimination64 becomes inconclusive. T037 selects relation-region eligibility/correspondence: determining when general arbitration and resource machinery can be eliminated without shared-variable or contextual interference. This applies the existing finite-region cost evidence to a consequential language/architecture boundary, ahead of another conditional tuning pass.

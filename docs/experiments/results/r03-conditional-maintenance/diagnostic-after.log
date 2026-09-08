@@ -1,0 +1,14 @@
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.37s
+     Running tests/maintenance.rs (target/debug/deps/maintenance-1e215fcd61a81f75)
+
+running 2 tests
+test partial_liveness_keeps_genuine_deferred_work_in_both_choice_regions ... ok
+n=16 reversed=false selected=34 deferred=0 discovered=34
+n=64 reversed=false selected=130 deferred=0 discovered=130
+n=16 reversed=true selected=34 deferred=0 discovered=34
+n=64 reversed=true selected=130 deferred=0 discovered=130
+test countdown_candidate_selection_is_linear_in_both_source_orders ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+

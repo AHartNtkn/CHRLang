@@ -1,0 +1,11 @@
+# Proposed next selection after conditional maintenance
+
+The architectural question is whether an inferred or checked declared closed relation region can eliminate general CHR arbitration/resource machinery while preserving nonground modes and surrounding observable CHR behavior. R04's finite-region gains are credible once eligibility holds; the missing applicability and interference boundary can change the architecture more than another conditional tuning pass.
+
+Start with an analytical and executable correspondence gate, not a new backend. Accepted witnesses should include closed catchall relations, unknown arguments, repeated variables and recursive explicit choices. Adverse contexts include external consumers, shared-variable effects, overlapping rules, constructor cases outside a declared signature, and propagation observing resource consumption/reintroduction. Compare inferred eligibility, checked optional declarations and mandatory restrictions. Identify the exact machinery each can soundly eliminate and the program reformulations each requires.
+
+Unique single-head dispatch is insufficient. In source rule order `q(a)->A; q(X)->B; p(X)->X=a`, initial `q(Y),p(Y)` first consumes q through the second rule and ultimately produces B. Eager expansion of the uniquely defined p instead binds Y=a before arbitration and permits A. The gate must check the surrounding source observation and cannot certify a region merely from its predicate's rule count.
+
+An eligible region needs a precise boundary for shared variables, occurrence ownership, scheduling, source choice and full observation. Closure under predicate names alone does not prove effect independence. Rejecting an example is a recorded eligibility/language tradeoff, not permission to weaken the source semantics. Actual restrictions remain experimental; language adoption is owner-dependent.
+
+Only after correspondence is credible should a cost registration compare accepted regions against competent ordinary execution, charging analysis, linking, preparation, output recovery and reuse. Larger solver sweeps and further conditional refinements are weaker ready alternatives unless T036 exposes a result that changes their relevance. Final portfolio closure still requires an evidence-backed disposition for all relevant questions.

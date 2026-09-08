@@ -1,0 +1,834 @@
+[
+  {
+    "family": "discriminate",
+    "size": 16,
+    "queries": 1,
+    "baseline": {
+      "median_ms": 6.071733,
+      "min_ms": 6.045741,
+      "max_ms": 6.169222,
+      "first_ms": 5.471447,
+      "prepare_ms": 0.04144,
+      "answer_disposal_ms_per_query": 0.003208,
+      "requested_bytes_per_query": 7078898.0,
+      "peak_requested_live_bytes": 209548,
+      "work": {
+        "applications": 292,
+        "choices": 4,
+        "candidates": 564
+      }
+    },
+    "conditional": {
+      "median_ms": 3.701609,
+      "min_ms": 3.490911,
+      "max_ms": 4.192054,
+      "first_ms": 3.119631,
+      "prepare_ms": 0.042342,
+      "answer_disposal_ms_per_query": 0.012567,
+      "requested_bytes_per_query": 3076194.0,
+      "peak_requested_live_bytes": 180996,
+      "work": {
+        "applications": 292,
+        "choices": 4,
+        "candidates": 564
+      }
+    },
+    "explicit": {
+      "median_ms": 2.567846,
+      "min_ms": 2.485054,
+      "max_ms": 2.595662,
+      "first_ms": 2.44072,
+      "prepare_ms": 0.04415,
+      "answer_disposal_ms_per_query": 0.00262,
+      "requested_bytes_per_query": 1844746.0,
+      "peak_requested_live_bytes": 296971,
+      "work": {
+        "applications": 303,
+        "choices": 15,
+        "candidates": 319
+      }
+    },
+    "conditional_over_baseline": 0.6096462080924836,
+    "conditional_over_explicit": 1.44152297295087
+  },
+  {
+    "family": "discriminate",
+    "size": 16,
+    "queries": 4,
+    "baseline": {
+      "median_ms": 6.39241175,
+      "min_ms": 6.38295925,
+      "max_ms": 6.6723995,
+      "first_ms": 5.447439,
+      "prepare_ms": 0.04343,
+      "answer_disposal_ms_per_query": 0.00319,
+      "requested_bytes_per_query": 7302981.5,
+      "peak_requested_live_bytes": 259638,
+      "work": {
+        "applications": 292,
+        "choices": 4,
+        "candidates": 564
+      }
+    },
+    "conditional": {
+      "median_ms": 3.7809125,
+      "min_ms": 3.74943,
+      "max_ms": 3.9351495,
+      "first_ms": 3.144465,
+      "prepare_ms": 0.040623,
+      "answer_disposal_ms_per_query": 0.00282175,
+      "requested_bytes_per_query": 3098321.5,
+      "peak_requested_live_bytes": 229182,
+      "work": {
+        "applications": 292,
+        "choices": 4,
+        "candidates": 564
+      }
+    },
+    "explicit": {
+      "median_ms": 2.682611,
+      "min_ms": 2.6306065,
+      "max_ms": 2.90155975,
+      "first_ms": 2.463967,
+      "prepare_ms": 0.041321,
+      "answer_disposal_ms_per_query": 0.0027785,
+      "requested_bytes_per_query": 1854107.0,
+      "peak_requested_live_bytes": 331379,
+      "work": {
+        "applications": 303,
+        "choices": 15,
+        "candidates": 319
+      }
+    },
+    "conditional_over_baseline": 0.5914688614981661,
+    "conditional_over_explicit": 1.4094151183306114
+  },
+  {
+    "family": "discriminate",
+    "size": 64,
+    "queries": 1,
+    "baseline": {
+      "median_ms": 35.286241,
+      "min_ms": 35.112134,
+      "max_ms": 35.721347,
+      "first_ms": 33.298719,
+      "prepare_ms": 0.037326,
+      "answer_disposal_ms_per_query": 0.014543,
+      "requested_bytes_per_query": 53931242.0,
+      "peak_requested_live_bytes": 566980,
+      "work": {
+        "applications": 1060,
+        "choices": 4,
+        "candidates": 2100
+      }
+    },
+    "conditional": {
+      "median_ms": 11.338447,
+      "min_ms": 11.108378,
+      "max_ms": 12.461974,
+      "first_ms": 9.491458,
+      "prepare_ms": 0.039897,
+      "answer_disposal_ms_per_query": 0.002825,
+      "requested_bytes_per_query": 9250298.0,
+      "peak_requested_live_bytes": 424988,
+      "work": {
+        "applications": 1060,
+        "choices": 4,
+        "candidates": 2100
+      }
+    },
+    "explicit": {
+      "median_ms": 12.041397,
+      "min_ms": 11.691801,
+      "max_ms": 12.36521,
+      "first_ms": 11.785577,
+      "prepare_ms": 0.044521,
+      "answer_disposal_ms_per_query": 0.011105,
+      "requested_bytes_per_query": 7073634.0,
+      "peak_requested_live_bytes": 501003,
+      "work": {
+        "applications": 1071,
+        "choices": 15,
+        "candidates": 1087
+      }
+    },
+    "conditional_over_baseline": 0.32132770957382517,
+    "conditional_over_explicit": 0.9416222220727379
+  },
+  {
+    "family": "discriminate",
+    "size": 64,
+    "queries": 4,
+    "baseline": {
+      "median_ms": 37.88758775,
+      "min_ms": 34.97989925,
+      "max_ms": 39.85345,
+      "first_ms": 33.925185,
+      "prepare_ms": 0.045485,
+      "answer_disposal_ms_per_query": 0.003378,
+      "requested_bytes_per_query": 54609249.5,
+      "peak_requested_live_bytes": 618902,
+      "work": {
+        "applications": 1060,
+        "choices": 4,
+        "candidates": 2100
+      }
+    },
+    "conditional": {
+      "median_ms": 11.73944,
+      "min_ms": 11.630115,
+      "max_ms": 12.6729255,
+      "first_ms": 9.557136,
+      "prepare_ms": 0.036391,
+      "answer_disposal_ms_per_query": 0.005547,
+      "requested_bytes_per_query": 9273025.5,
+      "peak_requested_live_bytes": 474374,
+      "work": {
+        "applications": 1060,
+        "choices": 4,
+        "candidates": 2100
+      }
+    },
+    "explicit": {
+      "median_ms": 12.37085825,
+      "min_ms": 12.304899,
+      "max_ms": 12.74666,
+      "first_ms": 11.688331,
+      "prepare_ms": 0.049667,
+      "answer_disposal_ms_per_query": 0.00276275,
+      "requested_bytes_per_query": 7102239.0,
+      "peak_requested_live_bytes": 535411,
+      "work": {
+        "applications": 1071,
+        "choices": 15,
+        "candidates": 1087
+      }
+    },
+    "conditional_over_baseline": 0.3098492328797048,
+    "conditional_over_explicit": 0.9489592203515872
+  },
+  {
+    "family": "output",
+    "size": 4,
+    "queries": 1,
+    "baseline": {
+      "median_ms": 0.222659,
+      "min_ms": 0.199869,
+      "max_ms": 0.253411,
+      "first_ms": 0.106868,
+      "prepare_ms": 0.018052,
+      "answer_disposal_ms_per_query": 0.002322,
+      "requested_bytes_per_query": 182556.0,
+      "peak_requested_live_bytes": 34574,
+      "work": {
+        "applications": 5,
+        "choices": 4,
+        "candidates": 10
+      }
+    },
+    "conditional": {
+      "median_ms": 0.219105,
+      "min_ms": 0.184174,
+      "max_ms": 0.249048,
+      "first_ms": 0.106124,
+      "prepare_ms": 0.012964,
+      "answer_disposal_ms_per_query": 0.002403,
+      "requested_bytes_per_query": 166476.0,
+      "peak_requested_live_bytes": 34574,
+      "work": {
+        "applications": 5,
+        "choices": 4,
+        "candidates": 10
+      }
+    },
+    "explicit": {
+      "median_ms": 0.239726,
+      "min_ms": 0.224717,
+      "max_ms": 0.25892,
+      "first_ms": 0.181235,
+      "prepare_ms": 0.019864,
+      "answer_disposal_ms_per_query": 0.00172,
+      "requested_bytes_per_query": 250143.0,
+      "peak_requested_live_bytes": 150344,
+      "work": {
+        "applications": 31,
+        "choices": 15,
+        "candidates": 31
+      }
+    },
+    "conditional_over_baseline": 0.9840383725786965,
+    "conditional_over_explicit": 0.9139809615978242
+  },
+  {
+    "family": "output",
+    "size": 4,
+    "queries": 4,
+    "baseline": {
+      "median_ms": 0.2511195,
+      "min_ms": 0.23990275,
+      "max_ms": 0.26895775,
+      "first_ms": 0.113371,
+      "prepare_ms": 0.013666,
+      "answer_disposal_ms_per_query": 0.00380875,
+      "requested_bytes_per_query": 219025.0,
+      "peak_requested_live_bytes": 140381,
+      "work": {
+        "applications": 5,
+        "choices": 4,
+        "candidates": 10
+      }
+    },
+    "conditional": {
+      "median_ms": 0.237139,
+      "min_ms": 0.22888775,
+      "max_ms": 0.2687,
+      "first_ms": 0.095733,
+      "prepare_ms": 0.013107,
+      "answer_disposal_ms_per_query": 0.00375525,
+      "requested_bytes_per_query": 201833.0,
+      "peak_requested_live_bytes": 140381,
+      "work": {
+        "applications": 5,
+        "choices": 4,
+        "candidates": 10
+      }
+    },
+    "explicit": {
+      "median_ms": 0.25233525,
+      "min_ms": 0.2484465,
+      "max_ms": 0.29195725,
+      "first_ms": 0.170078,
+      "prepare_ms": 0.025105,
+      "answer_disposal_ms_per_query": 0.00275825,
+      "requested_bytes_per_query": 378262.25,
+      "peak_requested_live_bytes": 346838,
+      "work": {
+        "applications": 31,
+        "choices": 15,
+        "candidates": 31
+      }
+    },
+    "conditional_over_baseline": 0.9443273023401209,
+    "conditional_over_explicit": 0.9397775380173796
+  },
+  {
+    "family": "output",
+    "size": 6,
+    "queries": 1,
+    "baseline": {
+      "median_ms": 0.685859,
+      "min_ms": 0.644171,
+      "max_ms": 0.70203,
+      "first_ms": 0.156315,
+      "prepare_ms": 0.01684,
+      "answer_disposal_ms_per_query": 0.011048,
+      "requested_bytes_per_query": 397640.0,
+      "peak_requested_live_bytes": 116764,
+      "work": {
+        "applications": 7,
+        "choices": 6,
+        "candidates": 14
+      }
+    },
+    "conditional": {
+      "median_ms": 0.63877,
+      "min_ms": 0.573452,
+      "max_ms": 0.701639,
+      "first_ms": 0.131429,
+      "prepare_ms": 0.016198,
+      "answer_disposal_ms_per_query": 0.011306,
+      "requested_bytes_per_query": 377112.0,
+      "peak_requested_live_bytes": 116764,
+      "work": {
+        "applications": 7,
+        "choices": 6,
+        "candidates": 14
+      }
+    },
+    "explicit": {
+      "median_ms": 0.797542,
+      "min_ms": 0.713206,
+      "max_ms": 0.860442,
+      "first_ms": 0.628356,
+      "prepare_ms": 0.019329,
+      "answer_disposal_ms_per_query": 0.008425,
+      "requested_bytes_per_query": 1062331.0,
+      "peak_requested_live_bytes": 638590,
+      "work": {
+        "applications": 127,
+        "choices": 63,
+        "candidates": 127
+      }
+    },
+    "conditional_over_baseline": 0.9313430311478015,
+    "conditional_over_explicit": 0.8009233369527874
+  },
+  {
+    "family": "output",
+    "size": 6,
+    "queries": 4,
+    "baseline": {
+      "median_ms": 0.94158825,
+      "min_ms": 0.88635075,
+      "max_ms": 1.031474,
+      "first_ms": 0.139155,
+      "prepare_ms": 0.011829,
+      "answer_disposal_ms_per_query": 0.018018,
+      "requested_bytes_per_query": 549913.0,
+      "peak_requested_live_bytes": 657899,
+      "work": {
+        "applications": 7,
+        "choices": 6,
+        "candidates": 14
+      }
+    },
+    "conditional": {
+      "median_ms": 0.91101725,
+      "min_ms": 0.888271,
+      "max_ms": 1.01074675,
+      "first_ms": 0.139207,
+      "prepare_ms": 0.014687,
+      "answer_disposal_ms_per_query": 0.01896125,
+      "requested_bytes_per_query": 528273.0,
+      "peak_requested_live_bytes": 657899,
+      "work": {
+        "applications": 7,
+        "choices": 6,
+        "candidates": 14
+      }
+    },
+    "explicit": {
+      "median_ms": 1.146014,
+      "min_ms": 1.07878625,
+      "max_ms": 1.98043575,
+      "first_ms": 0.690805,
+      "prepare_ms": 0.021286,
+      "answer_disposal_ms_per_query": 0.04462025,
+      "requested_bytes_per_query": 1630850.25,
+      "peak_requested_live_bytes": 1525814,
+      "work": {
+        "applications": 127,
+        "choices": 63,
+        "candidates": 127
+      }
+    },
+    "conditional_over_baseline": 0.9675325175308847,
+    "conditional_over_explicit": 0.7949442589706582
+  },
+  {
+    "family": "plain",
+    "size": 16,
+    "queries": 1,
+    "baseline": {
+      "median_ms": 0.281762,
+      "min_ms": 0.268482,
+      "max_ms": 0.298367,
+      "first_ms": 0.252369,
+      "prepare_ms": 0.01758,
+      "answer_disposal_ms_per_query": 0.002728,
+      "requested_bytes_per_query": 390504.0,
+      "peak_requested_live_bytes": 20955,
+      "work": {
+        "applications": 17,
+        "choices": 0,
+        "candidates": 34
+      }
+    },
+    "conditional": {
+      "median_ms": 0.154622,
+      "min_ms": 0.147134,
+      "max_ms": 0.171293,
+      "first_ms": 0.125154,
+      "prepare_ms": 0.01488,
+      "answer_disposal_ms_per_query": 0.000313,
+      "requested_bytes_per_query": 159816.0,
+      "peak_requested_live_bytes": 19283,
+      "work": {
+        "applications": 17,
+        "choices": 0,
+        "candidates": 34
+      }
+    },
+    "explicit": {
+      "median_ms": 0.079619,
+      "min_ms": 0.075526,
+      "max_ms": 0.097534,
+      "first_ms": 0.055091,
+      "prepare_ms": 0.012417,
+      "answer_disposal_ms_per_query": 0.000275,
+      "requested_bytes_per_query": 56816.0,
+      "peak_requested_live_bytes": 15724,
+      "work": {
+        "applications": 17,
+        "choices": 0,
+        "candidates": 18
+      }
+    },
+    "conditional_over_baseline": 0.5487681092553289,
+    "conditional_over_explicit": 1.9420238887702685
+  },
+  {
+    "family": "plain",
+    "size": 16,
+    "queries": 4,
+    "baseline": {
+      "median_ms": 0.242864,
+      "min_ms": 0.23402575,
+      "max_ms": 0.25167625,
+      "first_ms": 0.247967,
+      "prepare_ms": 0.015532,
+      "answer_disposal_ms_per_query": 0.0008795,
+      "requested_bytes_per_query": 403348.0,
+      "peak_requested_live_bytes": 25367,
+      "work": {
+        "applications": 17,
+        "choices": 0,
+        "candidates": 34
+      }
+    },
+    "conditional": {
+      "median_ms": 0.1224995,
+      "min_ms": 0.10924225,
+      "max_ms": 0.129732,
+      "first_ms": 0.123593,
+      "prepare_ms": 0.01097,
+      "answer_disposal_ms_per_query": 0.000876,
+      "requested_bytes_per_query": 160348.0,
+      "peak_requested_live_bytes": 23655,
+      "work": {
+        "applications": 17,
+        "choices": 0,
+        "candidates": 34
+      }
+    },
+    "explicit": {
+      "median_ms": 0.06375775,
+      "min_ms": 0.06336575,
+      "max_ms": 0.065066,
+      "first_ms": 0.062848,
+      "prepare_ms": 0.020904,
+      "answer_disposal_ms_per_query": 0.00017425,
+      "requested_bytes_per_query": 54305.0,
+      "peak_requested_live_bytes": 19220,
+      "work": {
+        "applications": 17,
+        "choices": 0,
+        "candidates": 18
+      }
+    },
+    "conditional_over_baseline": 0.5043954641280717,
+    "conditional_over_explicit": 1.9213272112017754
+  },
+  {
+    "family": "plain",
+    "size": 64,
+    "queries": 1,
+    "baseline": {
+      "median_ms": 1.660266,
+      "min_ms": 1.631189,
+      "max_ms": 1.704934,
+      "first_ms": 1.611993,
+      "prepare_ms": 0.014621,
+      "answer_disposal_ms_per_query": 0.00031,
+      "requested_bytes_per_query": 3283768.0,
+      "peak_requested_live_bytes": 52011,
+      "work": {
+        "applications": 65,
+        "choices": 0,
+        "candidates": 130
+      }
+    },
+    "conditional": {
+      "median_ms": 0.452723,
+      "min_ms": 0.425503,
+      "max_ms": 0.482589,
+      "first_ms": 0.396076,
+      "prepare_ms": 0.01655,
+      "answer_disposal_ms_per_query": 0.000296,
+      "requested_bytes_per_query": 569008.0,
+      "peak_requested_live_bytes": 43899,
+      "work": {
+        "applications": 65,
+        "choices": 0,
+        "candidates": 130
+      }
+    },
+    "explicit": {
+      "median_ms": 0.379526,
+      "min_ms": 0.343626,
+      "max_ms": 0.411,
+      "first_ms": 0.33248,
+      "prepare_ms": 0.017326,
+      "answer_disposal_ms_per_query": 0.000235,
+      "requested_bytes_per_query": 267096.0,
+      "peak_requested_live_bytes": 30396,
+      "work": {
+        "applications": 65,
+        "choices": 0,
+        "candidates": 66
+      }
+    },
+    "conditional_over_baseline": 0.27268100412825413,
+    "conditional_over_explicit": 1.1928642569942507
+  },
+  {
+    "family": "plain",
+    "size": 64,
+    "queries": 4,
+    "baseline": {
+      "median_ms": 1.70637825,
+      "min_ms": 1.635311,
+      "max_ms": 1.916269,
+      "first_ms": 1.693832,
+      "prepare_ms": 0.014402,
+      "answer_disposal_ms_per_query": 0.00020175,
+      "requested_bytes_per_query": 3324552.0,
+      "peak_requested_live_bytes": 56423,
+      "work": {
+        "applications": 65,
+        "choices": 0,
+        "candidates": 130
+      }
+    },
+    "conditional": {
+      "median_ms": 0.39420475,
+      "min_ms": 0.38511575,
+      "max_ms": 0.438944,
+      "first_ms": 0.376566,
+      "prepare_ms": 0.014102,
+      "answer_disposal_ms_per_query": 0.00018375,
+      "requested_bytes_per_query": 569540.0,
+      "peak_requested_live_bytes": 48271,
+      "work": {
+        "applications": 65,
+        "choices": 0,
+        "candidates": 130
+      }
+    },
+    "explicit": {
+      "median_ms": 0.36287125,
+      "min_ms": 0.32266025,
+      "max_ms": 0.376652,
+      "first_ms": 0.352309,
+      "prepare_ms": 0.020982,
+      "answer_disposal_ms_per_query": 0.00016875,
+      "requested_bytes_per_query": 265713.0,
+      "peak_requested_live_bytes": 33892,
+      "work": {
+        "applications": 65,
+        "choices": 0,
+        "candidates": 66
+      }
+    },
+    "conditional_over_baseline": 0.23101838645681283,
+    "conditional_over_explicit": 1.0863488082894415
+  },
+  {
+    "family": "shared",
+    "size": 16,
+    "queries": 1,
+    "baseline": {
+      "median_ms": 0.470113,
+      "min_ms": 0.445821,
+      "max_ms": 0.51483,
+      "first_ms": 0.300391,
+      "prepare_ms": 0.016872,
+      "answer_disposal_ms_per_query": 0.002532,
+      "requested_bytes_per_query": 535784.0,
+      "peak_requested_live_bytes": 35388,
+      "work": {
+        "applications": 21,
+        "choices": 4,
+        "candidates": 38
+      }
+    },
+    "conditional": {
+      "median_ms": 0.376748,
+      "min_ms": 0.349835,
+      "max_ms": 0.386043,
+      "first_ms": 0.203072,
+      "prepare_ms": 0.014439,
+      "answer_disposal_ms_per_query": 0.002491,
+      "requested_bytes_per_query": 299640.0,
+      "peak_requested_live_bytes": 35388,
+      "work": {
+        "applications": 21,
+        "choices": 4,
+        "candidates": 38
+      }
+    },
+    "explicit": {
+      "median_ms": 0.998531,
+      "min_ms": 0.95949,
+      "max_ms": 1.00119,
+      "first_ms": 0.93776,
+      "prepare_ms": 0.019483,
+      "answer_disposal_ms_per_query": 0.002565,
+      "requested_bytes_per_query": 931966.0,
+      "peak_requested_live_bytes": 200863,
+      "work": {
+        "applications": 287,
+        "choices": 15,
+        "candidates": 303
+      }
+    },
+    "conditional_over_baseline": 0.8013988126259006,
+    "conditional_over_explicit": 0.3773022570155559
+  },
+  {
+    "family": "shared",
+    "size": 16,
+    "queries": 4,
+    "baseline": {
+      "median_ms": 0.42758425,
+      "min_ms": 0.40561225,
+      "max_ms": 0.4462475,
+      "first_ms": 0.306237,
+      "prepare_ms": 0.013015,
+      "answer_disposal_ms_per_query": 0.0024145,
+      "requested_bytes_per_query": 548628.0,
+      "peak_requested_live_bytes": 81562,
+      "work": {
+        "applications": 21,
+        "choices": 4,
+        "candidates": 38
+      }
+    },
+    "conditional": {
+      "median_ms": 0.3043845,
+      "min_ms": 0.28935325,
+      "max_ms": 0.34036,
+      "first_ms": 0.190783,
+      "prepare_ms": 0.015712,
+      "answer_disposal_ms_per_query": 0.00251775,
+      "requested_bytes_per_query": 300172.0,
+      "peak_requested_live_bytes": 81562,
+      "work": {
+        "applications": 21,
+        "choices": 4,
+        "candidates": 38
+      }
+    },
+    "explicit": {
+      "median_ms": 1.01800225,
+      "min_ms": 0.95853675,
+      "max_ms": 1.04680525,
+      "first_ms": 0.920313,
+      "prepare_ms": 0.018178,
+      "answer_disposal_ms_per_query": 0.002557,
+      "requested_bytes_per_query": 952785.0,
+      "peak_requested_live_bytes": 235271,
+      "work": {
+        "applications": 287,
+        "choices": 15,
+        "candidates": 303
+      }
+    },
+    "conditional_over_baseline": 0.7118702337609488,
+    "conditional_over_explicit": 0.29900179493709367
+  },
+  {
+    "family": "shared",
+    "size": 64,
+    "queries": 1,
+    "baseline": {
+      "median_ms": 2.039579,
+      "min_ms": 1.871498,
+      "max_ms": 2.069771,
+      "first_ms": 1.784004,
+      "prepare_ms": 0.015494,
+      "answer_disposal_ms_per_query": 0.002734,
+      "requested_bytes_per_query": 3429048.0,
+      "peak_requested_live_bytes": 60004,
+      "work": {
+        "applications": 69,
+        "choices": 4,
+        "candidates": 134
+      }
+    },
+    "conditional": {
+      "median_ms": 0.71962,
+      "min_ms": 0.684061,
+      "max_ms": 0.760938,
+      "first_ms": 0.462562,
+      "prepare_ms": 0.015782,
+      "answer_disposal_ms_per_query": 0.002628,
+      "requested_bytes_per_query": 708832.0,
+      "peak_requested_live_bytes": 60004,
+      "work": {
+        "applications": 69,
+        "choices": 4,
+        "candidates": 134
+      }
+    },
+    "explicit": {
+      "median_ms": 6.323338,
+      "min_ms": 6.237993,
+      "max_ms": 6.37862,
+      "first_ms": 6.165155,
+      "prepare_ms": 0.019485,
+      "answer_disposal_ms_per_query": 0.01166,
+      "requested_bytes_per_query": 4323366.0,
+      "peak_requested_live_bytes": 435199,
+      "work": {
+        "applications": 1055,
+        "choices": 15,
+        "candidates": 1071
+      }
+    },
+    "conditional_over_baseline": 0.3528277159158827,
+    "conditional_over_explicit": 0.11380381690809507
+  },
+  {
+    "family": "shared",
+    "size": 64,
+    "queries": 4,
+    "baseline": {
+      "median_ms": 1.98809725,
+      "min_ms": 1.956627,
+      "max_ms": 2.2796255,
+      "first_ms": 1.733133,
+      "prepare_ms": 0.015284,
+      "answer_disposal_ms_per_query": 0.00277375,
+      "requested_bytes_per_query": 3469832.0,
+      "peak_requested_live_bytes": 106178,
+      "work": {
+        "applications": 69,
+        "choices": 4,
+        "candidates": 134
+      }
+    },
+    "conditional": {
+      "median_ms": 0.63092825,
+      "min_ms": 0.61164425,
+      "max_ms": 0.66360425,
+      "first_ms": 0.447791,
+      "prepare_ms": 0.016659,
+      "answer_disposal_ms_per_query": 0.00262825,
+      "requested_bytes_per_query": 709364.0,
+      "peak_requested_live_bytes": 106178,
+      "work": {
+        "applications": 69,
+        "choices": 4,
+        "candidates": 134
+      }
+    },
+    "explicit": {
+      "median_ms": 6.45750775,
+      "min_ms": 6.429399,
+      "max_ms": 6.49550925,
+      "first_ms": 6.073891,
+      "prepare_ms": 0.015868,
+      "answer_disposal_ms_per_query": 0.0026695,
+      "requested_bytes_per_query": 4363325.0,
+      "peak_requested_live_bytes": 470023,
+      "work": {
+        "applications": 1055,
+        "choices": 15,
+        "candidates": 1071
+      }
+    },
+    "conditional_over_baseline": 0.3173528105830839,
+    "conditional_over_explicit": 0.0977046059294315
+  }
+]

@@ -8,7 +8,7 @@ goal:
   execution_authority: Redesigned goal authorizes implementation and experiments selected under R00 and the governing sequence.
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
-  current_research: Conditional lifecycle pilot validates regime-dependent savings; adverse maintenance growth is selected for diagnosis
+  current_research: Conditional maintenance cause validated and corrected; relation-region eligibility and correspondence are selected
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -63,7 +63,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T036
+active_task: T037
 tasks:
   - id: T001
     type: pm
@@ -944,7 +944,7 @@ tasks:
   - id: T036
     type: pm
     assignee: PM
-    status: active
+    status: done
     objective: Diagnose conditional maintenance growth on ordinary and discriminating work, distinguishing avoidable deferred dead candidates from necessary support costs before further architecture conclusions.
     inputs:
       - docs/experiments/results/R03-conditional-lifecycle.md
@@ -962,18 +962,51 @@ tasks:
     stop_if:
       - Do not attribute all overhead to one mechanism without discriminating evidence.
       - No workload weights or universal architecture winner.
+    receipt:
+      result: done
+      summary: Predicted quadratic selections measured exactly; liveness cap restores linear work. All 384 paired processes validate and revise architecture ratios without a universal winner.
+      evidence:
+        - docs/experiments/results/R03-conditional-maintenance.md
+      validation: Forty-six package tests both modes, runner gate, workspace checks, source and baseline binary hashes pass.
+  - id: T037
+    type: pm
+    assignee: PM
+    status: active
+    objective: Establish a sound inferred or checked-declared relation-region eligibility and source correspondence gate, exposing interference and language tradeoffs before choosing specialized execution.
+    inputs:
+      - docs/goals/chr-experiments/notes/T037-region-eligibility.md
+      - docs/experiments/results/R04-lifecycle-pilot.md
+      - docs/experiments/results/E02-initial-inventory.md
+    allowed_files:
+      - research/
+      - crates/
+      - Cargo.toml
+      - Cargo.lock
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    expected_output:
+      - Explicit region boundary and independent accepted/adverse correspondence witnesses.
+      - Inferred versus optional-declared versus mandatory restriction tradeoffs and justified next disposition.
+    verify:
+      - Preserve source arbitration, shared-variable effects, explicit choice, occurrence effects and full observations
+      - Eligibility rejects unsupported contexts rather than silently changing semantics
+      - No comparative timing before a prospective registration
+    stop_if:
+      - Language adoption remains owner-dependent.
+      - Do not infer independence from predicate uniqueness alone.
     receipt: null
+
 
 
 checks:
   dirty_fingerprint: preexisting_unfinished_experimental_files_preserved
   last_verification:
     result: passed
-    task: T035
-    scope: Shared preparation ownership and registered conditional lifecycle pilot.
+    task: T036
+    scope: Causal maintenance diagnostics and paired registered lifecycle follow-up.
     commands:
-      - All 256 process outcomes and 14240 complete raw observations validated
-      - Forty-four package tests and matched runner gate pass counter-free
-      - Workspace tests, Clippy, formatting and frozen-source verification pass
+      - All 384 process outcomes and 21360 complete raw observations validated
+      - Forty-six package tests both modes and matched runner gate pass
+      - Workspace tests, Clippy, formatting, source and baseline binary verification pass
     evidence:
-      - docs/experiments/results/R03-conditional-lifecycle.md
+      - docs/experiments/results/R03-conditional-maintenance.md

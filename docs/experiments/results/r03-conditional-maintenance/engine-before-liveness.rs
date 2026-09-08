@@ -168,10 +168,6 @@ struct Active {
 }
 enum ActiveStage {
     Union(Option<Job>),
-    Live {
-        index: usize,
-        wait: Option<Job>,
-    },
     Scope(Job),
     Defer {
         job: Job,
@@ -559,46 +555,6 @@ impl Engine {
                 } else if let Some(s) = active.scopes.pop() {
                     ActiveStage::Union(Some(self.arena.job(Operation::Or(active.scope, s))))
                 } else {
-                    ActiveStage::Live {
-                        index: 0,
-                        wait: None,
-                    }
-                }
-            }
-            // Occurrence supports only shrink and IDs are never reused. Scope
-            // outside the tuple's current live intersection can never become
-            // eligible, so it must not survive as deferred matching work.
-            // This cap is a necessary condition, never an eligibility certificate.
-            ActiveStage::Live { mut index, wait } => {
-                if active.scope == Support::FALSE {
-                    return;
-                }
-                if let Some(mut job) = wait {
-                    match job.tick(&mut self.arena) {
-                        Status::Pending => ActiveStage::Live {
-                            index,
-                            wait: Some(job),
-                        },
-                        Status::Complete(scope) => {
-                            active.scope = scope;
-                            ActiveStage::Live { index, wait: None }
-                        }
-                    }
-                } else if let Some(&id) = active.key.ids.get(index) {
-                    let live = self
-                        .resources
-                        .occurrence(id)
-                        .expect("stable occurrence identity")
-                        .live;
-                    if live == Support::FALSE {
-                        return;
-                    }
-                    index += 1;
-                    ActiveStage::Live {
-                        index,
-                        wait: Some(self.arena.job(Operation::And(active.scope, live))),
-                    }
-                } else {
                     ActiveStage::Scope(self.arena.job(Operation::And(active.scope, self.remaining)))
                 }
             }
@@ -715,10 +671,9 @@ impl Engine {
                     ActiveStage::Body
                 }
             },
-            ActiveStage::Body => ActiveStage::Live {
-                index: 0,
-                wait: None,
-            },
+            ActiveStage::Body => {
+                ActiveStage::Scope(self.arena.job(Operation::And(active.scope, self.remaining)))
+            }
         };
         self.active = Some(active);
     }
