@@ -176,6 +176,15 @@ fn erase<K: Ord + Clone, V: Clone>(root: &Link<K, V>, key: &K, s: &mut Storage) 
     }
 }
 impl<K: Ord + Clone + Hash, V: Clone> Map<K, V> {
+    /// Identity of immutable contents, not extensional equality. Both maps
+    /// retain their roots, so allocation reuse cannot produce a false match.
+    pub fn same_root(&self, other: &Self) -> bool {
+        match (&self.0, &other.0) {
+            (None, None) => true,
+            (Some(a), Some(b)) => Rc::ptr_eq(a, b),
+            _ => false,
+        }
+    }
     pub fn get(&self, key: &K, s: &mut Storage) -> Option<V> {
         let mut cursor = &self.0;
         while let Some(n) = cursor {

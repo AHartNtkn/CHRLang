@@ -312,3 +312,7 @@ The [1,008-process S04 pilot](S04-lifecycle-pilot.md) passes full answers, exact
 ## S04 paired correction and S05 selection
 
 The [672-process matcher comparison](S04-matcher-paired-cost.md) cuts mutation lifecycle to 11% of its previous time for Copy and 53% for Trail, with exact allocation corroboration and a repeatable 11–15% compatible-alias overhead. Peak heap is unchanged. This resolves the immediate confound without ranking all restoration policies. T066's bounded trial is complete; [T067 stable-identity reuse](S05-stable-reuse-entry.md) is selected next against corrected replay policies, with broader S04 obligations preserved.
+
+## S05 stable-identity kernel gate
+
+The [kernel gate](S05-stable-kernel-gate.md) checks exact-context and dependency-valid operation reuse over a common constructor owner against 3,888 independent ordered-equation cases. Unrelated binding changes distinguish useful reuse between the policies, while three faulty validity/replay variants fail semantic assertions. This establishes a bounded correctness mechanism, with full source effects, wake-ups, lifetime and direct-sharing costs still required. T067 remains active.

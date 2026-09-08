@@ -12,7 +12,7 @@ OUT=ROOT/'docs/experiments/results/s04-matcher-paired'
 order=json.loads((OUT/'order.json').read_text())
 freeze=json.loads((OUT/'freeze.json').read_text())
 for f,h in freeze['sources'].items():
-    assert hashlib.sha256((ROOT/f).read_bytes()).hexdigest()==h,f
+    assert hashlib.sha256(subprocess.check_output(['git','show',f"{freeze['source_commit']}:{f}"],cwd=ROOT)).hexdigest()==h,f
 assert hashlib.sha256((OUT/'packages.json').read_bytes()).hexdigest()==freeze['packages_sha256']
 for b in freeze['binaries'].values(): assert hashlib.sha256(Path(b['path']).read_bytes()).hexdigest()==b['sha256']
 

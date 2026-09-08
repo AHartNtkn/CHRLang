@@ -1,0 +1,14 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "-p",
+    "chr-reuse",
+    "--release",
+    "--test",
+    "stable"
+  ],
+  "exit_code": 101,
+  "stdout": "\nrunning 4 tests\ntest bounded_eviction_recomputes_without_changing_results ... ok\ntest changed_bindings_occurs_failure_and_foreign_handles_are_not_reused_unsafely ... ok\ntest hits_replay_bindings_and_unrelated_changes_distinguish_validity_policies ... FAILED\ntest ordered_equations_and_changed_contexts_match_independent_reference ... FAILED\n\nfailures:\n\n---- hits_replay_bindings_and_unrelated_changes_distinguish_validity_policies stdout ----\n\nthread 'hits_replay_bindings_and_unrelated_changes_distinguish_validity_policies' (196) panicked at research/chr-reuse/tests/stable.rs:20:9:\nassertion `left == right` failed\n  left: Var(Var(0))\n right: App(\"a\", [])\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n\n---- ordered_equations_and_changed_contexts_match_independent_reference stdout ----\n\nthread 'ordered_equations_and_changed_contexts_match_independent_reference' (197) panicked at research/chr-reuse/tests/stable.rs:196:29:\n[(Var(Var(0)), Var(Var(1)))]\n\n\nfailures:\n    hits_replay_bindings_and_unrelated_changes_distinguish_validity_policies\n    ordered_equations_and_changed_contexts_match_independent_reference\n\ntest result: FAILED. 2 passed; 2 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s\n\n",
+  "stderr": "   Compiling chr-reuse v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-reuse)\n    Finished `release` profile [optimized] target(s) in 1.39s\n     Running tests/stable.rs (target/release/deps/stable-8fb6eb4748d94b9e)\nerror: test failed, to rerun pass `-p chr-reuse --test stable`\n"
+}
