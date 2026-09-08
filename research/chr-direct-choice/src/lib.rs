@@ -2,6 +2,8 @@
 //! This kernel is not yet a CHR source executor. IDs belong to their creating arena.
 //! Observation requires a caller-established completion boundary; it does not run
 //! pending source effects. Recursive traversal is bounded only by the input graph.
+mod equality;
+
 use chr_syntax::{Term, Var};
 use std::collections::{BTreeMap, BTreeSet};
 
@@ -68,6 +70,8 @@ enum Node {
 pub struct Graph {
     nodes: Vec<Node>,
     births: Vec<Context>,
+    bindings: BTreeMap<u64, Vec<(Context, NodeId)>>,
+    failed: Vec<Context>,
 }
 impl Graph {
     /// A fresh dynamic event, even for equal arms. Its activation must include
@@ -107,33 +111,40 @@ impl Graph {
     /// Demand the outer constructor only. Child nodes stay shared and opaque.
     /// A conditional node is meaningful only within its birth activation.
     pub fn expose(&self, node: NodeId, context: &Context) -> Vec<(Context, View)> {
-        match &self.nodes[node.0] {
-            Node::Unknown(id) => vec![(context.clone(), View::Unknown(*id))],
-            Node::App(name, children) => vec![(
-                context.clone(),
-                View::Constructor(name.clone(), children.clone()),
-            )],
-            Node::Choice(label, left, right) => {
-                let Some(active) = context.intersection(&self.births[label.0]) else {
-                    return Vec::new();
-                };
-                [(false, *left), (true, *right)]
+        self.live(context)
+            .into_iter()
+            .flat_map(|context| {
+                self.resolve(node, &context)
                     .into_iter()
-                    .flat_map(|(arm, child)| {
-                        active
-                            .select(*label, arm)
-                            .map(|next| self.expose(child, &next))
-                            .unwrap_or_default()
+                    .flat_map(|(context, node)| match &self.nodes[node.0] {
+                        Node::Unknown(id) => vec![(context, View::Unknown(*id))],
+                        Node::App(name, children) => {
+                            vec![(context, View::Constructor(name.clone(), children.clone()))]
+                        }
+                        Node::Choice(label, left, right) => {
+                            let Some(active) = context.intersection(&self.births[label.0]) else {
+                                return Vec::new();
+                            };
+                            [(false, *left), (true, *right)]
+                                .into_iter()
+                                .flat_map(|(arm, child)| {
+                                    active
+                                        .select(*label, arm)
+                                        .map(|next| self.expose(child, &next))
+                                        .unwrap_or_default()
+                                })
+                                .collect()
+                        }
                     })
-                    .collect()
-            }
-        }
+                    .collect::<Vec<_>>()
+            })
+            .collect()
     }
     /// Complete dynamic histories, omitting assignments to inactive births.
     /// Choices unrelated to the observed value still count as raw alternatives.
     pub fn histories(&self, context: &Context) -> Vec<Context> {
         assert!(context.0.keys().all(|label| label.0 < self.births.len()));
-        let mut histories = vec![context.clone()];
+        let mut histories = self.live(context);
         for (index, active) in self.births.iter().enumerate() {
             let label = Label(index);
             histories = histories

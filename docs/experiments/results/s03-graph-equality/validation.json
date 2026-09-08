@@ -1,0 +1,58 @@
+{
+  "commands": [
+    {
+      "name": "tests",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-direct-choice"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "replay",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-direct-choice"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "clippy",
+      "command": [
+        "cargo",
+        "clippy",
+        "-p",
+        "chr-direct-choice",
+        "--all-targets",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "fmt",
+      "command": [
+        "cargo",
+        "fmt",
+        "-p",
+        "chr-direct-choice",
+        "--",
+        "--check"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "sha256": {
+    "research/chr-direct-choice/src/lib.rs": "fb38602be606e1eb77923b58266593f3fd3ec182d78a683dfe1179c879343dcb",
+    "research/chr-direct-choice/src/equality.rs": "652d2b3a463ee257475b8027b92211ea1532ba882450360bd939c6d4b817586a",
+    "research/chr-direct-choice/tests/equality.rs": "b51130845fa87eeec2b0a16757d4e6ce1695b4f67806ed5a8d13c59ac480efaf",
+    "research/chr-direct-choice/tests/equality_oracle.rs": "2c545366c19528cfe78e771092bab26876d11d7c5ab4ab0b1e847ea6053c8766",
+    "research/chr-direct-choice/tests/kernel.rs": "da26c07c64de65ab8247a3d78805bf4d92b22f3f2cee4cb602450daec5b22681",
+    "docs/experiments/registrations/S03-graph-equality.md": "d641648ab85fc0148ed901aaeda8640c37086aa22bdfe3cccebd7e9e5bcdb637"
+  }
+}

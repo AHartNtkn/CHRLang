@@ -8,7 +8,7 @@ goal:
   execution_authority: Redesigned goal authorizes implementation and experiments selected under R00 and the governing sequence.
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
-  current_research: S00 contracts and first-cycle feasibility assessed; S01 direct/retained source gates pass with selective/consuming and lifecycle work open; S03 direct graph kernel passes context, dynamic-choice and resource checks, while source execution, equality and complete publication remain open. Architecture questions remain unresolved.
+  current_research: S00 contracts and first-cycle feasibility assessed; S01 direct/retained source gates pass with selective/consuming and lifecycle work open; S03 direct graph kernel passes context, dynamic-choice, resource and independently checked finite-tree equality gates, while source execution and complete publication remain open. Architecture questions remain unresolved.
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -74,6 +74,7 @@ tasks:
       - docs/experiments/results/S00-first-cycle-feasibility.md
       - docs/experiments/registrations/S03-dynamic-resource-source-gate.md
       - docs/experiments/results/S03-direct-graph-kernel.md
+      - docs/experiments/results/S03-graph-equality.md
     allowed_files:
       - docs/experiments/
       - docs/goals/chr-experiments/
