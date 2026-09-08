@@ -1,0 +1,21 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s
+     Running tests/structural_maintenance.rs (target/debug/deps/structural_maintenance-ade859467139fb2d)
+
+running 2 tests
+depth=8 specialized=false access=Scan Counts { applications: 8, dependencies: 0, keys: 0, requests: 0, nodes: 0, inserts: 0, removes: 0 }
+depth=8 specialized=false access=Indexed Counts { applications: 8, dependencies: 18, keys: 18, requests: 0, nodes: 0, inserts: 18, removes: 16 }
+depth=8 specialized=true access=Scan Counts { applications: 8, dependencies: 0, keys: 0, requests: 0, nodes: 0, inserts: 0, removes: 0 }
+depth=8 specialized=true access=Indexed Counts { applications: 8, dependencies: 18, keys: 18, requests: 0, nodes: 0, inserts: 18, removes: 16 }
+depth=16 specialized=false access=Scan Counts { applications: 16, dependencies: 0, keys: 0, requests: 0, nodes: 0, inserts: 0, removes: 0 }
+depth=16 specialized=false access=Indexed Counts { applications: 16, dependencies: 34, keys: 34, requests: 0, nodes: 0, inserts: 34, removes: 32 }
+depth=16 specialized=true access=Scan Counts { applications: 16, dependencies: 0, keys: 0, requests: 0, nodes: 0, inserts: 0, removes: 0 }
+depth=16 specialized=true access=Indexed Counts { applications: 16, dependencies: 34, keys: 34, requests: 0, nodes: 0, inserts: 34, removes: 32 }
+depth=32 specialized=false access=Scan Counts { applications: 32, dependencies: 0, keys: 0, requests: 0, nodes: 0, inserts: 0, removes: 0 }
+test open_parent_dependencies_survive_alias_then_binding ... ok
+depth=32 specialized=false access=Indexed Counts { applications: 32, dependencies: 66, keys: 66, requests: 0, nodes: 0, inserts: 66, removes: 64 }
+depth=32 specialized=true access=Scan Counts { applications: 32, dependencies: 0, keys: 0, requests: 0, nodes: 0, inserts: 0, removes: 0 }
+depth=32 specialized=true access=Indexed Counts { applications: 32, dependencies: 66, keys: 66, requests: 0, nodes: 0, inserts: 66, removes: 64 }
+test immutable_suffix_work_is_distinct_from_source_applications ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

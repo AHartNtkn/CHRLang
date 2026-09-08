@@ -1,0 +1,24 @@
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.16s
+     Running tests/closed_subtrees.rs (target/debug/deps/closed_subtrees-70f08d33ca0f4ad6)
+
+running 1 test
+test indexed_carry_maintenance_visits_only_argument_roots ... FAILED
+
+failures:
+
+---- indexed_carry_maintenance_visits_only_argument_roots stdout ----
+
+thread 'indexed_carry_maintenance_visits_only_argument_roots' (68) panicked at research/chr-compiled/tests/closed_subtrees.rs:16:21:
+assertion `left == right` failed
+  left: 594
+ right: 66
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    indexed_carry_maintenance_visits_only_argument_roots
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p chr-compiled --test closed_subtrees`

@@ -47,7 +47,7 @@ impl AnswerView for View<'_> {
         let Handle::Node(n) = h else {
             panic!("normalized constructor handle required")
         };
-        self.arena.nodes[n].args[i]
+        self.arena.node(n).args[i]
     }
     fn resolve(&self, mut h: Handle, stats: &mut Stats) -> TermView<'_, Handle, u64> {
         while let Handle::Var(v) = h {
@@ -67,7 +67,7 @@ impl AnswerView for View<'_> {
         match h {
             Handle::Var(v) => TermView::Variable(v),
             Handle::Node(n) => {
-                let n = &self.arena.nodes[n];
+                let n = self.arena.node(n);
                 TermView::Constructor(&n.name, h, n.args.len())
             }
         }

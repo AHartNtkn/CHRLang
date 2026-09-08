@@ -2,7 +2,7 @@
 
 Future work is selected by its ability to change an architectural or language-design decision under the [sequence](sequence.md). A completed experimental package is evidence for its stated claim; it does not establish that its entire mechanism is resolved or that its follow-ups deserve execution.
 
-**Current selection:** [Regional lifecycle evidence](results/R08-regional-lifecycle.md) completes all 400 processes. Balanced worker capacity helps against one worker but remains unresolved against Inline; contrary controls favor Inline. T044 selects a bounded causal gate for repeated Indexed dependency/ground-key maintenance exposed by the specialized serial control. Static-lowering eligibility remains the strongest broader alternative; worker expansion is not selected.
+**Current selection:** [Structural-maintenance evidence](results/R01-structural-maintenance.md) confirms quadratic baseline Indexed traversal and validates an immutable-subtree correction with linear visits and unchanged source observations. T044 remains active for the [registered paired lifecycle comparison](registrations/R01-closed-subtree-lifecycle.md), including metadata costs and contrary controls. Static-lowering eligibility remains the strongest broader alternative; worker expansion is not selected.
 
 ## Question map
 

@@ -83,7 +83,7 @@ fn immutable_suffix_work_is_distinct_from_source_applications() {
                 );
                 assert_eq!(trace, vec![0; n]);
                 if chr_compiled::COLLECT_METRICS {
-                    let visits = ((n + 1) * (n + 4) / 2) as u64;
+                    let visits = (2 * (n + 1)) as u64;
                     assert_eq!(counts.applications, n as u64);
                     assert_eq!(
                         counts.dependencies,
@@ -91,7 +91,7 @@ fn immutable_suffix_work_is_distinct_from_source_applications() {
                     );
                     if access == Access::Indexed {
                         assert_eq!(counts.keys, visits);
-                        assert_eq!(counts.requests, visits);
+                        assert_eq!(counts.requests, 0);
                         assert_eq!(counts.nodes, 0);
                         assert_eq!(counts.inserts, 2 * (n + 1) as u64);
                         assert_eq!(counts.removes, 2 * n as u64);

@@ -364,7 +364,7 @@ impl State {
             },
             Source::App(name, args) => match value {
                 Term::Node(id) => {
-                    let n = &arena.nodes[id];
+                    let n = arena.node(id);
                     name == &n.name
                         && args.len() == n.args.len()
                         && args
@@ -436,12 +436,12 @@ impl State {
             let Term::Node(id) = deref(term, &self.bindings, stats) else {
                 return None;
             };
-            term = *arena.nodes[id].args.get(index)?;
+            term = *arena.node(id).args.get(index)?;
         }
         Some(match deref(term, &self.bindings, stats) {
             Term::Var(v) => TermHead::Variable(v),
             Term::Node(id) => {
-                TermHead::Constructor(arena.nodes[id].name.clone(), arena.nodes[id].args.len())
+                TermHead::Constructor(arena.node(id).name.clone(), arena.node(id).args.len())
             }
         })
     }

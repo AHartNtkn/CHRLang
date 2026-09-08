@@ -355,7 +355,7 @@ impl State {
             },
             Source::App(name, args) => match value {
                 Term::Node(id) => {
-                    let n = &arena.nodes[id];
+                    let n = arena.node(id);
                     name == &n.name
                         && args.len() == n.args.len()
                         && args

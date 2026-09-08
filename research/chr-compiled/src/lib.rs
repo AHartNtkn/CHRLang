@@ -358,7 +358,7 @@ impl Core {
     }
     fn key_make(&mut self, name: &str, args: Vec<Term>) -> usize {
         let before = if COLLECT_METRICS {
-            self.arena.nodes.len()
+            self.arena.node_count()
         } else {
             0
         };
@@ -369,7 +369,7 @@ impl Core {
             unreachable!()
         };
         if COLLECT_METRICS {
-            self.stats.key_normalization_allocations += (self.arena.nodes.len() - before) as u64;
+            self.stats.key_normalization_allocations += (self.arena.node_count() - before) as u64;
         }
         id
     }
@@ -380,7 +380,10 @@ impl Core {
         match deref(value, &self.bindings, &mut self.stats.kernel) {
             Term::Var(_) => None,
             Term::Node(id) => {
-                let node = self.arena.nodes[id].clone();
+                if self.arena.is_closed(id) {
+                    return Some(id);
+                }
+                let node = self.arena.node(id).clone();
                 let mut args = Vec::with_capacity(node.args.len());
                 for t in node.args {
                     args.push(Term::Node(self.ground_key(t)?));
@@ -506,7 +509,7 @@ impl Core {
         }
         match deref(value, &self.bindings, &mut self.stats.kernel) {
             Term::Node(id) => {
-                let n = &self.arena.nodes[id];
+                let n = self.arena.node(id);
                 (n.name == name && n.args.len() == arity).then(|| n.args.clone())
             }
             Term::Var(_) => None,
@@ -703,8 +706,8 @@ impl Core {
                     }
                 }
                 Term::Node(n) => {
-                    if nodes.insert(n) {
-                        todo.extend(&self.arena.nodes[n].args)
+                    if !self.arena.is_closed(n) && nodes.insert(n) {
+                        todo.extend(&self.arena.node(n).args)
                     }
                 }
             }
@@ -1541,7 +1544,7 @@ impl Engine {
             history: self.core.history.len(),
             queue: self.core.queue.len(),
             dependency_edges: self.core.dependencies.values().map(BTreeSet::len).sum(),
-            term_nodes: self.core.arena.nodes.len(),
+            term_nodes: self.core.arena.node_count(),
             index_entries: self.core.index.values().map(BTreeSet::len).sum(),
             index_buckets: self.core.index.len(),
             index_reverse_records: self.core.occurrence_keys.len(),

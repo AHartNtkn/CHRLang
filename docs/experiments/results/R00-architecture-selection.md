@@ -158,3 +158,7 @@ The [conditional lifecycle pilot](R03-conditional-lifecycle.md) validates all 25
 ## Update after T043
 
 [Regional lifecycle evidence](R08-regional-lifecycle.md) establishes a bounded capacity benefit versus one worker, with unresolved balanced ordering versus Inline and contrary controls favoring Inline. The current specialized serial control exposes large per-application overhead on one-region carry. T044 selects a deterministic causal gate for repeated Indexed structural maintenance before another timing or executor change. Static eligibility remains the strongest broader alternative; parallel expansion is not selected.
+
+## Correction update during T044
+
+[The structural-maintenance gate](R01-structural-maintenance.md) confirms avoidable quadratic Indexed traversal and validates immutable-subtree recognition with linear visits and preserved late-binding behavior. The paired lifecycle registration includes the added metadata cost and persistent controls; no timing improvement is inferred from work counts alone. T044 remains active pending that comparison.

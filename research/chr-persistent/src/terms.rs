@@ -13,7 +13,8 @@ pub struct Node {
 }
 #[derive(Default, Clone)]
 pub struct Arena {
-    pub nodes: Vec<Node>,
+    nodes: Vec<Node>,
+    closed: Vec<bool>,
     intern: HashMap<Node, usize>,
     pub predicates: Vec<(String, usize)>,
     predicates_by_name: HashMap<(String, usize), usize>,
@@ -21,6 +22,19 @@ pub struct Arena {
 pub type Scope = BTreeMap<u64, Term>;
 pub type Bindings = Map<u64, Term>;
 impl Arena {
+    /// Interned nodes cannot be mutated after insertion. IDs belong to this arena.
+    pub fn node(&self, id: usize) -> &Node {
+        &self.nodes[id]
+    }
+    pub fn node_count(&self) -> usize {
+        self.nodes.len()
+    }
+    /// True exactly when the constructor subtree contains no syntactic variables.
+    /// Bindings never participate in this property, including after a fork.
+    pub fn is_closed(&self, id: usize) -> bool {
+        self.closed[id]
+    }
+
     pub fn predicate(&mut self, name: &str, arity: usize) -> usize {
         let key = (name.to_owned(), arity);
         if let Some(id) = self.predicates_by_name.get(&key) {
@@ -42,11 +56,16 @@ impl Arena {
         if let Some(id) = self.intern.get(&key) {
             return Term::Node(*id);
         }
-        let id = self.nodes.len();
+        let closed = key.args.iter().all(|term| match term {
+            Term::Var(_) => false,
+            Term::Node(id) => self.is_closed(*id),
+        });
+        let id = self.node_count();
         self.nodes.push(key.clone());
+        self.closed.push(closed);
         self.intern.insert(key, id);
         if crate::COLLECT_KERNEL_METRICS {
-            stats.term_nodes = self.nodes.len();
+            stats.term_nodes = self.node_count();
         }
         Term::Node(id)
     }
@@ -196,6 +215,42 @@ pub fn deref(mut term: Term, bindings: &Bindings, stats: &mut Stats) -> Term {
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn closedness_is_canonical_structural_and_independent_of_bindings() {
+        let mut arena = Arena::default();
+        let mut stats = Stats::default();
+        let a = arena.make("a", vec![], &mut stats);
+        let b = arena.make("b", vec![], &mut stats);
+        let closed = arena.make("f", vec![a], &mut stats);
+        assert_eq!(closed, arena.make("f", vec![a], &mut stats));
+        assert_ne!(closed, arena.make("f", vec![b], &mut stats));
+        let open = arena.make("g", vec![closed, Term::Var(1)], &mut stats);
+        let Term::Node(closed_id) = closed else {
+            unreachable!()
+        };
+        let Term::Node(open_id) = open else {
+            unreachable!()
+        };
+        assert!(arena.is_closed(closed_id));
+        assert!(!arena.is_closed(open_id));
+        let mut left = Bindings::default();
+        assert!(arena.unify(Term::Var(0), open, &mut left, &mut stats));
+        let fork = arena.clone();
+        let mut right = left.clone();
+        assert!(arena.unify(Term::Var(1), a, &mut left, &mut stats));
+        assert!(fork.unify(Term::Var(1), b, &mut right, &mut stats));
+        assert!(!arena.is_closed(open_id));
+        assert!(!fork.is_closed(open_id));
+        assert_ne!(
+            arena.export(open, &left, &mut stats),
+            fork.export(open, &right, &mut stats)
+        );
+        assert!(!arena.unify(Term::Var(1), b, &mut left, &mut stats));
+        assert!(arena.equal(Term::Var(1), a, &left, &mut stats));
+        assert!(arena.is_closed(closed_id));
+        assert!(!arena.is_closed(open_id));
+        assert_eq!(arena.node(open_id).args, vec![closed, Term::Var(1)]);
+    }
     #[test]
     fn failed_equation_does_not_publish_earlier_pairs() {
         let mut arena = Arena::default();
