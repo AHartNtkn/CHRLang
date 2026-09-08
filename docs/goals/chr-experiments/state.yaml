@@ -8,7 +8,7 @@ goal:
   execution_authority: Redesigned goal authorizes implementation and experiments selected under R00 and the governing sequence.
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
-  current_research: Compiled explicit-search gate passes; R04 native arc-consistency and support-CNF semantic implementation selected
+  current_research: R04 finite native and Boolean gates pass; matched cold/reuse lifecycle comparison selected
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -63,7 +63,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T031
+active_task: T032
 tasks:
   - id: T001
     type: pm
@@ -776,7 +776,7 @@ tasks:
   - id: T031
     type: pm
     assignee: PM
-    status: active
+    status: done
     objective: Implement and independently validate reusable native arc-consistency and support-CNF finite solving against the eligible source relation, preparing a credible R04 full-path comparison.
     inputs:
       - docs/experiments/results/R03-compiled-search-semantic-gate.md
@@ -802,17 +802,53 @@ tasks:
     stop_if:
       - Eligibility is not UNSAT; bounded solving is not global refutation.
       - Preserve independent reference and owner-only language adoption.
+    receipt:
+      result: done
+      summary: Native trailed AC and incremental support/conflict CNF pass 1032 source checks, exhaustive table solution checks and 25088 independently validated inference closures; query scopes preserve full raw observations.
+      evidence:
+        - docs/experiments/results/R04-finite-backend-semantic-gate.md
+      validation: Workspace and final package tests, Clippy, formatting and independent review pass.
+  - id: T032
+    type: pm
+    assignee: PM
+    status: active
+    objective: Measure a prospectively registered R04 full-path finite-solving comparison with matched cold/reuse input boundaries and credible compiled source execution.
+    inputs:
+      - docs/experiments/results/R04-finite-backend-semantic-gate.md
+      - docs/experiments/results/R03-compiled-search-semantic-gate.md
+    allowed_files:
+      - research/chr-finite/
+      - research/chr-compiled/
+      - research/chr-direct-solver/
+      - Cargo.toml
+      - Cargo.lock
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    expected_output:
+      - Independently checked compiled fixed-topology query reuse control, without choosing values outside source execution.
+      - Frozen cold/reuse lifecycle pilot for native AC, support/conflict Boolean solving and competent compiled access policies.
+      - Full raw observations, preparation/setup/solve/observe/disposal phases, process-wide memory and bounded interpretation.
+    verify:
+      - Full source/assignment oracle and changed-query scope checks before timing
+      - Prospective exact hypotheses, cells, repetitions, limits and source/binary freeze
+      - No Rust-only allocation claims about external Z3 storage
+      - Relevant tests, Clippy, formatting and evidence audit
+    stop_if:
+      - Do not impose workload weights or infer solver superiority from unmatched inference/setup.
+      - UNKNOWN and cutoff are not UNSAT or exhausted answer sets.
     receipt: null
 
 checks:
   dirty_fingerprint: preexisting_unfinished_experimental_files_preserved
   last_verification:
     result: passed
-    task: T030
-    scope: Compiled explicit source search and independent full branch/finite correspondence.
+    task: T031
+    scope: Finite backend source, inference and query-lifetime gates.
     commands:
-      - Workspace all-target tests, Clippy and formatting pass
-      - Counter-free all-target tests and allocation-feature Clippy pass
-      - Default/off finite gates check 338 queries across 48 configurations each, including full raw multiplicities and actual counter flags
+      - Workspace all-target tests and Clippy pass
+      - Final package tests, Clippy and formatting pass
+      - 344 source queries on three backends preserve full raw observations
+      - 512 tables with seven supplied-value configurations validate both Boolean encodings and native results
+      - 25088 table/domain cases independently validate native AC and support unit propagation
     evidence:
-      - docs/experiments/results/R03-compiled-search-semantic-gate.md
+      - docs/experiments/results/R04-finite-backend-semantic-gate.md

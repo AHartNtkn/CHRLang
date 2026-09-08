@@ -1,0 +1,30 @@
+   Compiling chr-finite v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-finite)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.19s
+     Running unittests src/lib.rs (target/debug/deps/chr_finite-b2bb62fd453b7799)
+
+running 7 tests
+test native::tests::trail_restores_siblings_and_prepared_queries_do_not_share_bindings ... ok
+test native::tests::unsupported_values_propagate_in_both_directions ... ok
+test model::tests::ordered_tables_self_relations_and_constants_keep_their_meaning ... ok
+test model::tests::ground_contradictions_include_empty_models ... ok
+test cnf::tests::support_units_find_unsupported_values_without_branching ... ok
+test cnf::tests::both_support_directions_and_empty_contradictions_propagate ... ok
+test native::tests::failed_decisions_restore_an_arc_consistent_unsatisfiable_triangle ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/solver.rs (target/debug/deps/solver-eece863e5ad6e86a)
+
+running 3 tests
+test scoped_enumeration_survives_early_drop_and_ground_contradictions ... ok
+test support_unit_propagation_matches_arc_consistency_for_every_table_and_domain_pair ... ok
+test boolean_and_native_models_preserve_every_binary_table ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 5.45s
+
+   Doc-tests chr_finite
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

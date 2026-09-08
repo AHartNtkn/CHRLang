@@ -1,6 +1,6 @@
 # R04: distinguish inference from solver organization
 
-A useful solver comparison must match domain inference before attributing a difference to representation or learning. The next full R04 implementation has lower priority than the consuming class/index question in R02. R04 now has a checked finite lowering, but ranking two finite solvers does not yet settle a broader architecture choice.
+A useful solver comparison must match domain inference before attributing a difference to representation or learning. The [finite backend semantic gate](R04-finite-backend-semantic-gate.md) and [compiled explicit-search gate](R03-compiled-search-semantic-gate.md) now pass. A matched cold/reuse lifecycle comparison is selected; the source research below explains its inference controls. Ranking two finite solvers alone does not settle a broader architecture choice.
 
 ## What source research changes
 
@@ -24,8 +24,8 @@ Exactly-one value constraints are needed to preserve assignment counts in a one-
 
 A competent compiled CHR control is additionally required to rank eliminating rule execution itself. Neither the Cartesian oracle nor the copying reference supplies that performance control. Charge preparation, propagation, decisions, learning/explanations, enumeration, output reconstruction, retained storage and cleanup for all competitors.
 
-## Priority relative to the strongest alternative
+## Entry selection rationale
 
 [R02's consuming integration entry](R02-consuming-integration-entry.md) tests the representation used by equality, activation and consuming rules across a broader source path. The proposed R04 contrast primarily chooses a backend for the already eligible finite relation. Without an adopted workload distribution or a concrete architecture decision depending on that backend, there is insufficient reason to prioritize its implementation over R02.
 
-Keep the R04 gate and this source-backed comparison ready. Reconsider implementation when global inference, learning, or reusable finite logical regions could change a surviving architecture recommendation. R04 does not depend on R02 succeeding; its present disposition is lower expected decision value, not an external blocker or final closure.
+That entry selection informed the earlier R02 work. Current selection is recorded in the [coverage map](../coverage.md): the relevant semantic gates now pass and R04 lifecycle measurement is next. It remains a bounded finite-region comparison, not final architectural closure.
