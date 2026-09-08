@@ -133,3 +133,8 @@ The [conditional lifecycle pilot](R03-conditional-lifecycle.md) validates all 25
 ## Current selection after T039
 
 [Ongoing-stream lifecycle](R06-streaming-lifetime.md) identifies consequential conditional publication run-ahead and historical retention, with successful cancellation disposal in both paths. T040 selects support-restricted history traversal and independent correspondence before comparative rerun. Broad reclamation and optional explicit lineage remain alternatives whose priority follows the measured cost.
+
+
+## Update after T040
+
+[Restricted publication](R06-restricted-publication.md) materially reduces traversal and run-ahead, but retained history and ongoing alias cutoffs remain. T041 selects one bounded publication-flow-control feasibility gate, including the adverse latency of pausing source work behind a large finite observer. This is a scheduling tradeoff, not a bounded-memory claim. Broader mixed-phase and parallel investigations remain alternatives after that distinction.

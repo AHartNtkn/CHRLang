@@ -8,7 +8,7 @@ goal:
   execution_authority: Redesigned goal authorizes implementation and experiments selected under R00 and the governing sequence.
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
-  current_research: Streaming pilot identifies consequential conditional publication history; support-restricted traversal selected
+  current_research: Restricted traversal improves delivery but history retention remains; publication flow-control feasibility selected
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -63,7 +63,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T040
+active_task: T041
 tasks:
   - id: T001
     type: pm
@@ -1072,7 +1072,7 @@ tasks:
   - id: T040
     type: pm
     assignee: PM
-    status: active
+    status: done
     objective: Establish support-restricted causal history traversal for publication and independently measure how much ongoing-stream run-ahead and retention it explains.
     inputs:
       - docs/experiments/results/R06-streaming-lifetime.md
@@ -1093,6 +1093,35 @@ tasks:
       - Do not attribute all support retention to one mechanism without the causal comparison.
     progress_evidence:
       - docs/experiments/results/R06-restricted-history-gate.md
+    receipt:
+      result: done
+      summary: Exact restricted history gate and576-process paired pilot pass; substantial traversal savings leave ongoing retention and16 revised alias cutoffs. Flow-control feasibility selected.
+      evidence:
+        - docs/experiments/results/R06-restricted-publication.md
+      validation: All59 package tests in both modes, workspace checks, exhaustive oracle, paired baseline replay, all72 allocation restorations and source freeze.
+
+  - id: T041
+    type: pm
+    assignee: PM
+    status: active
+    objective: Establish whether publication flow control can bound run-ahead without unacceptable finite-sibling delay before selecting a scheduling experiment or broader architecture investigation.
+    inputs:
+      - docs/experiments/results/R06-restricted-publication.md
+    allowed_files:
+      - research/
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    expected_output:
+      - Explicit producer/publication ownership and service contract with independent adverse progress witnesses.
+      - Justified disposition against broad reclamation, mixed-phase generalization and parallel granularity.
+    verify:
+      - Preserve raw alternatives, residual aliases, source resumption, ownership, cancellation and exhaustion
+      - Distinguish eventual fairness from finite-sibling latency behind a large finite region
+      - Do not infer bounded memory from a bounded publication queue
+      - Register any comparative treatment before runs
+    stop_if:
+      - No silent weakening of progress or implicit output deduplication.
+      - Further refinement requires renewed decision value rather than prototype momentum.
     receipt: null
 
 
@@ -1100,12 +1129,12 @@ checks:
   dirty_fingerprint: preexisting_unfinished_experimental_files_preserved
   last_verification:
     result: passed
-    task: T039
-    scope: Complete streaming pilot and preserved cutoff outcomes.
+    task: T040
+    scope: Restricted history correspondence and full paired lifecycle outcomes.
     commands:
-      - All384 processes recorded;23168 delivered full raw answers validate
-      - All48 allocation baselines restored, including cutoffs
-      - Source and binary freeze, feature-mode tests, Clippy, formatting and allocator self-check pass
-      - Independent measurement and ownership review
+      - All576 processes recorded;36304 delivered raw answers validate
+      - All72 allocation baselines restored, including partial outcomes; baseline non-time replay matches
+      - All59 package tests both feature modes, workspace tests and Clippy, formatting and source freeze pass
+      - Independent source, oracle and measurement review
     evidence:
-      - docs/experiments/results/R06-streaming-lifetime.md
+      - docs/experiments/results/R06-restricted-publication.md

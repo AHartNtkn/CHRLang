@@ -65,3 +65,8 @@ Root audited Q1/Q2/Q4/Q5/Q8/Q12 against receipts and current controls. Independe
 ## Update after T039
 
 [Streaming lifetime results](R06-streaming-lifetime.md) narrow conditional applicability: unbounded64/128 reaches the service cap at42 answers with large historical retention, while specialized explicit completes. All allocation owners restore baseline on disposal. T040 now selects support-restricted publication traversal ahead of broad reclamation or optional explicit lineage. This supersedes the checkpoint's immediate T039 selection; its other open directions remain explicit.
+
+
+## Update after T040
+
+[Restricted publication](R06-restricted-publication.md) materially reduces traversal and run-ahead, but retained history and ongoing alias cutoffs remain. T041 selects one bounded publication-flow-control feasibility gate, including the adverse latency of pausing source work behind a large finite observer. This is a scheduling tradeoff, not a bounded-memory claim. Broader mixed-phase and parallel investigations remain alternatives after that distinction.
