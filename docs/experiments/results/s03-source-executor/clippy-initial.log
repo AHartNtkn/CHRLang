@@ -1,0 +1,29 @@
+    Checking chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+    Checking chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe)
+    Checking chr-direct-choice v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-choice)
+error: this `if` statement can be collapsed
+   --> research/chr-direct-choice/src/engine.rs:142:21
+    |
+142 | /                     if let View::Constructor(actual, children) = view {
+143 | |                         if &actual == name && children.len() == args.len() {
+144 | |                             let mut partial = vec![(r, locals.clone())];
+145 | |                             for (p, v) in args.iter().zip(children) {
+...   |
+153 | |                     }
+    | |_____________________^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.97.0/index.html#collapsible_if
+    = note: `-D clippy::collapsible-if` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::collapsible_if)]`
+help: collapse nested if block
+    |
+142 ~                     if let View::Constructor(actual, children) = view
+143 ~                         && &actual == name && children.len() == args.len() {
+144 |                             let mut partial = vec![(r, locals.clone())];
+...
+151 |                             result.extend(partial);
+152 ~                         }
+    |
+
+error: could not compile `chr-direct-choice` (lib) due to 1 previous error
+warning: build failed, waiting for other jobs to finish...

@@ -1,0 +1,38 @@
+
+running 1 test
+alphabet=Binary reject=false depth=0 two=false token_first=false raw=1
+alphabet=Binary reject=false depth=0 two=false token_first=true raw=1
+alphabet=Binary reject=false depth=1 two=false token_first=false raw=2
+alphabet=Binary reject=false depth=1 two=false token_first=true raw=2
+alphabet=Binary reject=false depth=2 two=false token_first=false raw=4
+alphabet=Binary reject=false depth=2 two=false token_first=true raw=4
+alphabet=Binary reject=false depth=3 two=false token_first=false raw=8
+alphabet=Binary reject=false depth=3 two=false token_first=true raw=8
+alphabet=Binary reject=false depth=1 two=true token_first=false raw=4
+alphabet=Binary reject=false depth=1 two=true token_first=true raw=4
+alphabet=Binary reject=false depth=2 two=true token_first=false raw=16
+alphabet=Binary reject=false depth=2 two=true token_first=true raw=16
+alphabet=Nested reject=false depth=1 two=false token_first=false raw=3
+alphabet=Nested reject=false depth=1 two=false token_first=true raw=3
+alphabet=Nested reject=false depth=2 two=false token_first=false raw=9
+alphabet=Nested reject=false depth=2 two=false token_first=true raw=9
+alphabet=Nested reject=false depth=2 two=true token_first=false raw=81
+alphabet=Nested reject=false depth=2 two=true token_first=true raw=81
+alphabet=Duplicate reject=false depth=1 two=false token_first=false raw=2
+alphabet=Duplicate reject=false depth=1 two=false token_first=true raw=2
+alphabet=Duplicate reject=false depth=2 two=false token_first=false raw=4
+alphabet=Duplicate reject=false depth=2 two=false token_first=true raw=4
+alphabet=Duplicate reject=false depth=3 two=false token_first=false raw=8
+alphabet=Duplicate reject=false depth=3 two=false token_first=true raw=8
+alphabet=Binary reject=true depth=1 two=false token_first=false raw=1
+alphabet=Binary reject=true depth=1 two=false token_first=true raw=1
+alphabet=Binary reject=true depth=2 two=false token_first=false raw=2
+alphabet=Binary reject=true depth=2 two=false token_first=true raw=2
+test dynamic_births_resources_and_complete_observations ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 3 filtered out; finished in 0.06s
+
+   Compiling chr-direct-choice v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-choice)
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.67s
+     Running tests/direct_graph_entry.rs (target/debug/deps/direct_graph_entry-ce217a7a7cdc466d)

@@ -145,6 +145,7 @@ fn dynamic_births_resources_and_complete_observations() {
     ] {
         let rules = source(alphabet, reject);
         let prepared = PreparedRuleset::new(rules.clone()).unwrap();
+        let direct = chr_direct_choice::engine::PreparedRuleset::new(rules.clone()).unwrap();
         for (depth, two) in cases {
             for first in [false, true] {
                 let input = query(depth, two, first);
@@ -153,6 +154,7 @@ fn dynamic_births_resources_and_complete_observations() {
                     runtime_support::run(&rules, &input, 200_000),
                     oracle.clone(),
                 );
+                runtime_support::same_raw(run_direct(&direct, input.clone()), oracle.clone());
                 let actual = run(&prepared, input);
                 let raw = actual.len();
                 runtime_support::same_raw(actual, oracle);
@@ -230,4 +232,285 @@ fn finite_sibling_is_observed_without_claiming_global_completion() {
         }
     }
     assert_eq!(answers, 1);
+}
+
+fn run_direct(prepared: &chr_direct_choice::engine::PreparedRuleset, input: Query) -> Vec<Answer> {
+    use chr_direct_choice::engine::Event;
+    let mut engine = prepared.start(input).unwrap();
+    let mut answers = Vec::new();
+    for _ in 0..2_000_000 {
+        match engine.tick() {
+            Event::Progress => {}
+            Event::Answer(a) => answers.push(a),
+            Event::Exhausted => return answers,
+        }
+    }
+    panic!("registered direct graph gate cutoff");
+}
+#[test]
+fn direct_graph_publishes_finite_sibling_without_claiming_exhaustion() {
+    use chr_direct_choice::engine::{Event, PreparedRuleset};
+    let rules = vec![
+        Rule::simplify(
+            "start",
+            [c("start", [])],
+            or(c("loop", []).into(), c("finite", [v(0), v(0)]).into()),
+        ),
+        Rule::simplify("loop", [c("loop", [])], c("loop", []).into()),
+    ];
+    let mut engine = PreparedRuleset::new(rules)
+        .unwrap()
+        .start(Query {
+            constraints: vec![c("start", [])],
+            outputs: vec![],
+        })
+        .unwrap();
+    let expected = Answer {
+        outputs: vec![],
+        residual: vec![c("finite", [v(900), v(900)])],
+    };
+    let mut count = 0;
+    for _ in 0..20_000 {
+        match engine.tick() {
+            Event::Progress => {}
+            Event::Answer(a) => {
+                assert!(chr_observe::equivalent(
+                    &a,
+                    &expected,
+                    &mut Default::default()
+                ));
+                count += 1;
+            }
+            Event::Exhausted => panic!("continuing direct graph sibling cannot exhaust"),
+        }
+    }
+    assert_eq!(count, 1);
+}
+
+fn check_all_source_engines(rules: Vec<Rule>, input: Query, expected: Vec<Answer>) {
+    runtime_support::same_raw(
+        runtime_support::run(&rules, &input, 200_000),
+        expected.clone(),
+    );
+    runtime_support::same_raw(
+        run(&PreparedRuleset::new(rules.clone()).unwrap(), input.clone()),
+        expected.clone(),
+    );
+    runtime_support::same_raw(
+        run_direct(
+            &chr_direct_choice::engine::PreparedRuleset::new(rules).unwrap(),
+            input,
+        ),
+        expected,
+    );
+}
+
+#[test]
+fn effectful_choices_competing_consumers_and_late_arrivals() {
+    let rules = vec![
+        Rule::propagate("watch", [c("token", [v(0)])], c("seen", [v(0)]).into()),
+        Rule::simplify(
+            "seed",
+            [c("seed", [v(0)])],
+            or(
+                and([eq(v(0), atom("a")), c("ask", [v(0)]).into()]),
+                and([eq(v(0), atom("b")), c("late", [v(0)]).into()]),
+            ),
+        ),
+        Rule::simplify(
+            "take_a",
+            [c("ask", [atom("a")]), c("token", [v(0)])],
+            c("won", [atom("a"), v(0)]).into(),
+        ),
+        Rule::simplify("delay", [c("late", [v(0)])], c("ask", [v(0)]).into()),
+        Rule::simplify(
+            "take_b",
+            [c("ask", [atom("b")]), c("token", [v(0)])],
+            c("won", [atom("b"), v(0)]).into(),
+        ),
+    ];
+    let query = Query {
+        constraints: vec![
+            c("seed", [v(100)]),
+            c("token", [v(200)]),
+            c("payload", [v(100)]),
+        ],
+        outputs: vec![("value".into(), chr_syntax::Var(100))],
+    };
+    let expected = ["a", "b"]
+        .into_iter()
+        .map(|value| Answer {
+            outputs: vec![("value".into(), atom(value))],
+            residual: vec![
+                c("seen", [v(900)]),
+                c("payload", [atom(value)]),
+                c("won", [atom(value), v(900)]),
+            ],
+        })
+        .collect();
+    check_all_source_engines(rules, query, expected);
+}
+
+#[test]
+fn nonbinding_heads_and_guards_wait_for_real_aliases() {
+    let same = Rule::simplify("same", [c("pair", [v(0), v(0)])], c("same", [v(0)]).into());
+    let bind = Rule::simplify("bind", [c("bind", [v(0), v(1)])], eq(v(0), v(1)));
+    for later in [false, true] {
+        let mut constraints = vec![c("pair", [v(100), v(101)])];
+        if later {
+            constraints.push(c("bind", [v(100), v(101)]));
+        }
+        let expected = if later {
+            vec![c("same", [v(900)])]
+        } else {
+            vec![c("pair", [v(900), v(901)])]
+        };
+        check_all_source_engines(
+            vec![same.clone(), bind.clone()],
+            Query {
+                constraints,
+                outputs: vec![],
+            },
+            vec![Answer {
+                outputs: vec![],
+                residual: expected,
+            }],
+        );
+        let guarded = Rule {
+            name: "guarded".into(),
+            kept: vec![c("p", [v(0)]), c("q", [v(1)])],
+            removed: vec![],
+            guards: vec![chr_syntax::Guard::Equal(v(0), v(1))],
+            body: c("equal", [v(0), v(1)]).into(),
+        };
+        let mut constraints = vec![c("p", [v(100)]), c("q", [v(101)])];
+        if later {
+            constraints.push(c("bind", [v(100), v(101)]));
+        }
+        let residual = if later {
+            vec![
+                c("p", [v(900)]),
+                c("q", [v(900)]),
+                c("equal", [v(900), v(900)]),
+            ]
+        } else {
+            vec![c("p", [v(900)]), c("q", [v(901)])]
+        };
+        check_all_source_engines(
+            vec![guarded, bind.clone()],
+            Query {
+                constraints,
+                outputs: vec![],
+            },
+            vec![Answer {
+                outputs: vec![],
+                residual,
+            }],
+        );
+    }
+}
+
+#[test]
+fn propagation_respects_occurrence_identity_and_fresh_application_unknowns() {
+    let pair = Rule::propagate(
+        "pair",
+        [c("p", [v(0)]), c("p", [v(1)])],
+        c("seen", [v(0), v(1)]).into(),
+    );
+    for n in [1, 2] {
+        let constraints = vec![c("p", [atom("a")]); n];
+        let mut residual = constraints.clone();
+        if n == 2 {
+            residual.extend(vec![c("seen", [atom("a"), atom("a")]); 2]);
+        }
+        check_all_source_engines(
+            vec![pair.clone()],
+            Query {
+                constraints,
+                outputs: vec![],
+            },
+            vec![Answer {
+                outputs: vec![],
+                residual,
+            }],
+        );
+    }
+    let fresh = Rule::simplify(
+        "fresh",
+        [c("start", [v(0)])],
+        and([c("done", [v(0), v(1), v(1)]).into(), Goal::True]),
+    );
+    check_all_source_engines(
+        vec![fresh],
+        Query {
+            constraints: vec![c("start", [atom("a")]), c("start", [atom("b")])],
+            outputs: vec![],
+        },
+        vec![Answer {
+            outputs: vec![],
+            residual: vec![
+                c("done", [atom("a"), v(900), v(900)]),
+                c("done", [atom("b"), v(901), v(901)]),
+            ],
+        }],
+    );
+}
+
+#[test]
+fn disconnected_failure_prevents_early_answer_publication() {
+    for bad in [
+        Goal::Fail,
+        eq(v(1), t("f", [v(1)])),
+        and([eq(v(1), v(2)), eq(v(2), t("f", [v(1)]))]),
+    ] {
+        let rules = vec![Rule::simplify(
+            "start",
+            [c("start", [])],
+            or(
+                and([c("out", [atom("bad")]).into(), bad]),
+                c("out", [atom("good")]).into(),
+            ),
+        )];
+        check_all_source_engines(
+            rules,
+            Query {
+                constraints: vec![c("start", [])],
+                outputs: vec![],
+            },
+            vec![Answer {
+                outputs: vec![],
+                residual: vec![c("out", [atom("good")])],
+            }],
+        );
+    }
+}
+
+#[test]
+fn mixed_kept_consumed_heads_preserve_joint_output_identity() {
+    let rule = Rule {
+        name: "serve".into(),
+        kept: vec![c("token", [v(0)])],
+        removed: vec![c("ask", [v(1)])],
+        guards: vec![],
+        body: c("served", [v(1), v(0)]).into(),
+    };
+    check_all_source_engines(
+        vec![rule],
+        Query {
+            constraints: vec![
+                c("token", [v(100)]),
+                c("ask", [atom("a")]),
+                c("ask", [atom("b")]),
+            ],
+            outputs: vec![("handle".into(), chr_syntax::Var(100))],
+        },
+        vec![Answer {
+            outputs: vec![("handle".into(), v(900))],
+            residual: vec![
+                c("token", [v(900)]),
+                c("served", [atom("a"), v(900)]),
+                c("served", [atom("b"), v(900)]),
+            ],
+        }],
+    );
 }

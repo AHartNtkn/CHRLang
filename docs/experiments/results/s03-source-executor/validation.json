@@ -1,0 +1,126 @@
+{
+  "commands": [
+    {
+      "name": "graph-package",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-direct-choice"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "source",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-direct-conditional",
+        "--test",
+        "direct_graph_entry",
+        "--",
+        "--nocapture"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "replay",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-direct-conditional",
+        "--test",
+        "direct_graph_entry",
+        "--",
+        "--nocapture"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "off",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-direct-conditional",
+        "--no-default-features",
+        "--test",
+        "direct_graph_entry",
+        "--",
+        "--nocapture"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "clippy-graph",
+      "command": [
+        "cargo",
+        "clippy",
+        "-p",
+        "chr-direct-choice",
+        "--all-targets",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "clippy-source",
+      "command": [
+        "cargo",
+        "clippy",
+        "-p",
+        "chr-direct-conditional",
+        "--test",
+        "direct_graph_entry",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "clippy-off",
+      "command": [
+        "cargo",
+        "clippy",
+        "-p",
+        "chr-direct-conditional",
+        "--no-default-features",
+        "--test",
+        "direct_graph_entry",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "fmt",
+      "command": [
+        "cargo",
+        "fmt",
+        "-p",
+        "chr-direct-choice",
+        "-p",
+        "chr-direct-conditional",
+        "--",
+        "--check"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "sha256": {
+    "research/chr-direct-choice/src/engine.rs": "7693113f8c676185dac1ff2a9710a3102c4bcb40ffb14c8fa901f7af6631506f",
+    "research/chr-direct-choice/src/lib.rs": "92cada14094d0f12603792a2b360119c61d4dd89fa7b5edb0d41025e81db00fb",
+    "research/chr-direct-choice/src/equality.rs": "652d2b3a463ee257475b8027b92211ea1532ba882450360bd939c6d4b817586a",
+    "research/chr-direct-conditional/tests/direct_graph_entry.rs": "20f4156e22e2e2d9a855ca03abdfcc67570b7619ff19a8643e1f0fb23fb46f0e",
+    "research/chr-direct-conditional/tests/runtime_support/mod.rs": "03633e8d666fadcdd08ddfe4900aa8116b32e434fb0a5dcb1c5faa23ff5976b2",
+    "research/chr-direct-conditional/Cargo.toml": "7e410951f878361c26a360e0a28765ed2618b7209fd9b3806e8358fa58bbe75d",
+    "Cargo.lock": "e65763e9e37939935ec4e035ede6aef5faf9df824ac4779af71a6111fc570c93",
+    "docs/experiments/registrations/S03-source-executor.md": "8752ad262bff75c57d98bb5c0b72533182fa5a9358afcf6d85ba217ee19f1f19"
+  }
+}
