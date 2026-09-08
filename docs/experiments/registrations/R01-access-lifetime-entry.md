@@ -1,5 +1,7 @@
 # R01: credible access and preparation before cost comparison
 
+Status: [implemented and independently checked](../results/R01-access-lifetime-entry.md).
+
 Select a bounded access/lifetime extension to the [validated semantic entry](../results/R01-semantic-entry.md). The architectural question remains whether compilation, activation or representation determines total efficiency. Predicate-only selective joins and implicit preparation lifetimes cannot yet distinguish that question credibly.
 
 ## Selection against alternatives

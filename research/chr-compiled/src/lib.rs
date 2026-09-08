@@ -14,6 +14,11 @@ pub enum Policy {
     Global,
     Active,
 }
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Access {
+    Scan,
+    Indexed,
+}
 #[derive(Clone, Copy, Debug)]
 pub enum Execution {
     Generic,
@@ -22,6 +27,19 @@ pub enum Execution {
 #[derive(Default, Debug)]
 pub struct Stats {
     pub kernel: KernelStats,
+    pub predicate_dictionary_entries: usize,
+    pub predicate_setup_lookups: u64,
+    pub key_visits: u64,
+    pub key_template_visits: u64,
+    pub key_normalization_requests: u64,
+    pub key_normalization_allocations: u64,
+    pub index_repairs: u64,
+    pub index_inserts: u64,
+    pub index_removes: u64,
+    pub index_lookups: u64,
+    pub index_bucket_entries: u64,
+    pub index_entries: usize,
+    pub max_index_entries: usize,
     pub source_steps: u64,
     pub applications: u64,
     pub candidate_visits: u64,
@@ -199,6 +217,9 @@ struct SearchCursor {
     cursor: Option<Cursor>,
 }
 
+/// Predicate, argument position, canonical ground term node.
+type IndexKey = (usize, usize, usize);
+
 /// Public only so generated Rust uses shared primitive operations, not an AST evaluator.
 pub struct Core {
     rules: Arc<Vec<Prepared>>,
@@ -206,7 +227,7 @@ pub struct Core {
     bindings: Bindings,
     store: BTreeMap<u64, Occurrence>,
     pools: BTreeMap<usize, BTreeSet<u64>>,
-    dispatch: BTreeMap<usize, Vec<(usize, usize)>>,
+    dispatch: Arc<BTreeMap<usize, Vec<(usize, usize)>>>,
     history: BTreeSet<(usize, Vec<u64>)>,
     pending: Vec<Work>,
     outputs: Vec<(String, Term)>,
@@ -218,6 +239,9 @@ pub struct Core {
     watchers: BTreeMap<u64, BTreeSet<u64>>,
     pub stats: Stats,
     policy: Policy,
+    access: Access,
+    index: BTreeMap<IndexKey, BTreeSet<u64>>,
+    occurrence_keys: BTreeMap<u64, Vec<Option<IndexKey>>>,
 }
 fn vars_term(term: &Source, out: &mut BTreeSet<u64>) {
     match term {
@@ -254,10 +278,78 @@ fn vars_goal(goal: &Goal, out: &mut BTreeSet<u64>) -> Result<(), String> {
 }
 impl Core {
     pub fn predicate(&mut self, name: &str, arity: usize) -> usize {
-        self.arena.predicate(name, arity)
+        self.stats.predicate_setup_lookups += 1;
+        let pred = self.arena.predicate(name, arity);
+        self.stats.predicate_dictionary_entries = self.arena.predicates.len();
+        pred
     }
-    pub fn pool(&mut self, rule: usize, head: usize) -> Vec<u64> {
-        let pred = self.rules[rule].heads[head].pred;
+    fn key_make(&mut self, name: &str, args: Vec<Term>) -> usize {
+        let before = self.arena.nodes.len();
+        self.stats.key_normalization_requests += 1;
+        let Term::Node(id) = self.arena.make(name, args, &mut self.stats.kernel) else {
+            unreachable!()
+        };
+        self.stats.key_normalization_allocations += (self.arena.nodes.len() - before) as u64;
+        id
+    }
+    fn ground_key(&mut self, value: Term) -> Option<usize> {
+        self.stats.key_visits += 1;
+        match deref(value, &self.bindings, &mut self.stats.kernel) {
+            Term::Var(_) => None,
+            Term::Node(id) => {
+                let node = self.arena.nodes[id].clone();
+                let mut args = Vec::with_capacity(node.args.len());
+                for t in node.args {
+                    args.push(Term::Node(self.ground_key(t)?));
+                }
+                Some(self.key_make(&node.name, args))
+            }
+        }
+    }
+    fn template_key(&mut self, t: &Template, frame: &Frame) -> Option<usize> {
+        self.stats.key_template_visits += 1;
+        match t {
+            Template::Slot(slot) => self.ground_key(frame.slots[*slot]?),
+            Template::App(name, ts) => {
+                let mut args = Vec::with_capacity(ts.len());
+                for t in ts {
+                    args.push(Term::Node(self.template_key(t, frame)?));
+                }
+                Some(self.key_make(name, args))
+            }
+        }
+    }
+    fn pool(&mut self, rule: usize, head: usize, frame: &Frame) -> Vec<u64> {
+        let program = self.rules.clone();
+        let desc = &program[rule].heads[head];
+        let pred = desc.pred;
+        if self.access == Access::Indexed {
+            let mut best = None;
+            for (arg, t) in desc.args.iter().enumerate() {
+                if let Some(key) = self.template_key(t, frame) {
+                    self.stats.index_lookups += 1;
+                    let size = self.index.get(&(pred, arg, key)).map_or(0, BTreeSet::len);
+                    if best.is_none_or(|(_, n)| size < n) {
+                        best = Some(((pred, arg, key), size));
+                    }
+                    if size == 0 {
+                        break;
+                    }
+                }
+            }
+            if let Some((key, _)) = best {
+                self.stats.index_lookups += 1;
+                let ids: Vec<_> = self
+                    .index
+                    .get(&key)
+                    .into_iter()
+                    .flatten()
+                    .copied()
+                    .collect();
+                self.stats.index_bucket_entries += ids.len() as u64;
+                return ids;
+            }
+        }
         let ids: Vec<_> = self
             .pools
             .get(&pred)
@@ -267,6 +359,23 @@ impl Core {
             .collect();
         self.stats.pool_visits += ids.len() as u64;
         ids
+    }
+    fn remove_keys(&mut self, id: u64) {
+        if let Some(keys) = self.occurrence_keys.remove(&id) {
+            // Reverse key records retain the predicate independently of the live store.
+            for key in keys.into_iter().flatten() {
+                let bucket = self.index.get_mut(&key).expect("recorded key bucket");
+                assert!(bucket.remove(&id));
+                self.stats.index_removes += 1;
+                self.stats.index_entries -= 1;
+                if bucket.is_empty() {
+                    self.index.remove(&key);
+                }
+            }
+        }
+    }
+    fn needs_dependencies(&self) -> bool {
+        self.policy == Policy::Active || self.access == Access::Indexed
     }
     pub fn arguments(&mut self, id: u64) -> Option<Vec<Term>> {
         self.stats.candidate_visits += 1;
@@ -331,7 +440,7 @@ impl Core {
             let ids = if at.is_some_and(|(h, _)| h == head) {
                 vec![at.unwrap().1]
             } else {
-                self.pool(rule, head)
+                self.pool(rule, head, &cursor.frames[head])
             };
             cursor.pool_entries += ids.len();
             self.stats.cursor_pool_entries += ids.len() as u64;
@@ -392,7 +501,12 @@ impl Core {
         }
     }
     fn enqueue(&mut self, id: u64) {
-        if self.policy == Policy::Global {
+        if self.policy == Policy::Global
+            || !self
+                .store
+                .get(&id)
+                .is_some_and(|occ| self.dispatch.contains_key(&occ.pred))
+        {
             return;
         }
         if self.queued.insert(id) {
@@ -404,7 +518,20 @@ impl Core {
         }
     }
     fn refresh(&mut self, id: u64) {
+        // Prepared dispatch is immutable: a no-head predicate cannot become matchable.
+        // Residual terms still resolve through the query's ordinary binding map.
+        if self
+            .store
+            .get(&id)
+            .is_some_and(|occ| !self.dispatch.contains_key(&occ.pred))
+        {
+            return;
+        }
         self.stats.dependency_refreshes += 1;
+        if self.access == Access::Indexed {
+            self.stats.index_repairs += 1;
+            self.remove_keys(id);
+        }
         if let Some(old) = self.dependencies.remove(&id) {
             self.stats.dependency_edges -= old.len();
             for var in old {
@@ -419,6 +546,8 @@ impl Core {
         let Some(occ) = self.store.get(&id) else {
             return;
         };
+        let pred = occ.pred;
+        let index_args = (self.access == Access::Indexed).then(|| occ.args.clone());
         let mut todo = occ.args.clone();
         let mut vars = BTreeSet::new();
         let mut nodes = BTreeSet::new();
@@ -448,29 +577,48 @@ impl Core {
             .stats
             .max_dependency_edges
             .max(self.stats.dependency_edges);
+        if self.access == Access::Indexed {
+            let mut keys = vec![];
+            for (arg, t) in index_args.unwrap().into_iter().enumerate() {
+                let key = self.ground_key(t).map(|k| (pred, arg, k));
+                if let Some(key) = key {
+                    assert!(self.index.entry(key).or_default().insert(id));
+                    self.stats.index_inserts += 1;
+                    self.stats.index_entries += 1;
+                }
+                keys.push(key);
+            }
+            self.occurrence_keys.insert(id, keys);
+            self.stats.max_index_entries =
+                self.stats.max_index_entries.max(self.stats.index_entries);
+        }
     }
     fn insert(&mut self, pred: usize, args: Vec<Term>) {
         let id = self.next_occ;
         self.next_occ += 1;
         self.store.insert(id, Occurrence { pred, args });
-        self.pools.entry(pred).or_default().insert(id);
-        if self.policy == Policy::Active {
-            self.refresh(id);
+        if self.dispatch.contains_key(&pred) {
+            self.pools.entry(pred).or_default().insert(id);
+            if self.needs_dependencies() {
+                self.refresh(id);
+            }
         }
         self.enqueue(id);
         self.stats.max_occurrences = self.stats.max_occurrences.max(self.store.len());
     }
     fn remove(&mut self, id: u64) {
-        if let Some(occ) = self.store.remove(&id) {
+        if let Some(occ) = self.store.remove(&id)
+            && self.dispatch.contains_key(&occ.pred)
+        {
             self.pools.get_mut(&occ.pred).unwrap().remove(&id);
-            if self.policy == Policy::Active {
+            if self.needs_dependencies() {
                 self.refresh(id);
             }
         }
     }
     fn equation(&mut self, a: Term, b: Term) -> bool {
         self.stats.kernel.equations += 1;
-        if self.policy == Policy::Global {
+        if !self.needs_dependencies() {
             return self
                 .arena
                 .unify(a, b, &mut self.bindings, &mut self.stats.kernel);
@@ -706,14 +854,16 @@ pub struct Retention {
     pub queue: usize,
     pub dependency_edges: usize,
     pub term_nodes: usize,
+    pub index_entries: usize,
+    pub index_buckets: usize,
+    pub index_reverse_records: usize,
     pub cursor_frames: usize,
     pub cursor_pool_entries: usize,
     pub trace_entries: usize,
     pub audit_entries: usize,
 }
 #[derive(Debug)]
-pub struct ResultBatch {
-    pub answer: Option<Answer>,
+pub struct Status {
     pub exhausted: bool,
     pub failed: bool,
 }
@@ -723,17 +873,27 @@ pub struct Engine {
     done: bool,
     failed: bool,
     trace: Vec<(usize, Vec<u64>)>,
+    trace_enabled: bool,
     audit_enabled: bool,
     audit: Vec<Commit>,
     search: Option<SearchCursor>,
 }
-impl Engine {
-    pub fn new(
-        id: usize,
-        query: Query,
-        policy: Policy,
-        execution: Execution,
-    ) -> Result<Self, String> {
+#[derive(Debug)]
+pub struct PreparationStats {
+    pub rules: usize,
+    pub heads: usize,
+    pub slots: usize,
+    pub predicates: usize,
+}
+#[derive(Clone)]
+pub struct PreparedRuleset {
+    rules: Arc<Vec<Prepared>>,
+    dispatch: Arc<BTreeMap<usize, Vec<(usize, usize)>>>,
+    predicates: Arc<Vec<(String, usize)>>,
+    code: Option<Compiled>,
+}
+impl PreparedRuleset {
+    pub fn bundled(id: usize, execution: Execution) -> Result<Self, String> {
         let rules = fixtures::programs()
             .get(id)
             .cloned()
@@ -742,14 +902,9 @@ impl Engine {
             Execution::Generic => None,
             Execution::Generated => Some(bundled(id)),
         };
-        Self::with_program(rules, query, policy, code)
+        Self::new(rules, code)
     }
-    pub fn with_program(
-        rules: Vec<Rule>,
-        query: Query,
-        policy: Policy,
-        code: Option<Compiled>,
-    ) -> Result<Self, String> {
+    pub fn new(rules: Vec<Rule>, code: Option<Compiled>) -> Result<Self, String> {
         if code.is_some_and(|c| c.source != format!("{rules:?}")) {
             return Err("generated program does not match supplied rules".into());
         }
@@ -810,13 +965,33 @@ impl Engine {
                 body_preds,
             });
         }
-        let mut core = Core {
+        Ok(Self {
             rules: Arc::new(prepared),
+            dispatch: Arc::new(dispatch),
+            predicates: Arc::new(arena.predicates),
+            code,
+        })
+    }
+    pub fn stats(&self) -> PreparationStats {
+        PreparationStats {
+            rules: self.rules.len(),
+            heads: self.rules.iter().map(|r| r.heads.len()).sum(),
+            slots: self.rules.iter().map(|r| r.slots).sum(),
+            predicates: self.predicates.len(),
+        }
+    }
+    pub fn start(&self, query: Query, policy: Policy, access: Access) -> Result<Engine, String> {
+        let mut arena = Arena::default();
+        for (name, arity) in self.predicates.iter() {
+            arena.predicate(name, *arity);
+        }
+        let mut core = Core {
+            rules: self.rules.clone(),
             arena,
             bindings: Bindings::default(),
             store: BTreeMap::new(),
             pools: BTreeMap::new(),
-            dispatch,
+            dispatch: self.dispatch.clone(),
             history: BTreeSet::new(),
             pending: vec![],
             outputs: vec![],
@@ -826,8 +1001,15 @@ impl Engine {
             queued: BTreeSet::new(),
             dependencies: BTreeMap::new(),
             watchers: BTreeMap::new(),
-            stats: Stats::default(),
+            stats: Stats {
+                predicate_dictionary_entries: self.predicates.len(),
+                predicate_setup_lookups: self.predicates.len() as u64,
+                ..Stats::default()
+            },
             policy,
+            access,
+            index: BTreeMap::new(),
+            occurrence_keys: BTreeMap::new(),
         };
         let mut scope = BTreeMap::new();
         let mut names = BTreeSet::new();
@@ -860,17 +1042,20 @@ impl Engine {
             );
             core.outputs.push((name, value));
         }
-        Ok(Self {
+        Ok(Engine {
             core,
-            code,
+            code: self.code,
             done: false,
             failed: false,
             trace: vec![],
+            trace_enabled: false,
             audit_enabled: false,
             audit: vec![],
             search: None,
         })
     }
+}
+impl Engine {
     pub fn step(&mut self) {
         if self.done {
             return;
@@ -937,7 +1122,9 @@ impl Engine {
                     self.core.remove(*id)
                 }
                 self.core.history.insert((app.rule, app.ids.clone()));
-                self.trace.push((app.rule, app.ids));
+                if self.trace_enabled {
+                    self.trace.push((app.rule, app.ids));
+                }
                 self.core.next_var = app.next;
                 self.core.pending.push(app.body);
                 self.core.stats.applications += 1;
@@ -958,25 +1145,36 @@ impl Engine {
         }
     }
 
-    pub fn run(&mut self, budget: usize) -> ResultBatch {
+    /// Advance execution without exporting an answer.
+    pub fn advance(&mut self, budget: usize) -> Status {
         for _ in 0..budget {
             if self.done {
                 break;
             }
             self.step()
         }
-        ResultBatch {
-            answer: if self.done && !self.failed {
-                self.core.stats.observation_visits += 1;
-                Some(self.core.export())
-            } else {
-                None
-            },
+        self.status()
+    }
+    pub fn status(&self) -> Status {
+        Status {
             exhausted: self.done,
             failed: self.failed,
         }
     }
+    /// Export a completed successful state. Repeated calls produce the same observation.
+    pub fn observe(&mut self) -> Option<Answer> {
+        if self.done && !self.failed {
+            self.core.stats.observation_visits += 1;
+            Some(self.core.export())
+        } else {
+            None
+        }
+    }
+    pub fn enable_trace(&mut self) {
+        self.trace_enabled = true
+    }
     pub fn enable_audit(&mut self) {
+        self.trace_enabled = true;
         self.audit_enabled = true
     }
     pub fn audit(&self) -> &[Commit] {
@@ -994,6 +1192,9 @@ impl Engine {
             queue: self.core.queue.len(),
             dependency_edges: self.core.stats.dependency_edges,
             term_nodes: self.core.arena.nodes.len(),
+            index_entries: self.core.stats.index_entries,
+            index_buckets: self.core.index.len(),
+            index_reverse_records: self.core.occurrence_keys.len(),
             cursor_frames: cursor.map_or(0, |c| c.frames.len()),
             cursor_pool_entries: cursor.map_or(0, |c| c.pool_entries),
             trace_entries: self.trace.len(),

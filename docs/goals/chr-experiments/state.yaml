@@ -8,7 +8,7 @@ goal:
   execution_authority: Redesigned goal authorizes implementation and experiments selected under R00 and the governing sequence.
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
-  current_research: R01 bound-key access and preparation lifetime before costs; R04 source gate passed; R02 integration entry ready
+  current_research: R01 counter-free measurement configuration and bounded pilot; R02 serialization obligations analyzed; R04 source gate passed
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -63,7 +63,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T025
+active_task: T026
 tasks:
   - id: T001
     type: pm
@@ -588,7 +588,7 @@ tasks:
   - id: T025
     type: pm
     assignee: PM
-    status: active
+    status: done
     objective: Establish credible bound-argument access and reusable preparation controls before R01 cost comparisons.
     inputs:
       - docs/experiments/registrations/R01-access-lifetime-entry.md
@@ -596,7 +596,12 @@ tasks:
     expected_output:
       - Indexed/scanned execution with independent observations, flat-key regimes and measured access bookkeeping.
       - Explicit prepared ruleset, per-query and diagnostic lifetimes; source freeze and prospective cost registration after review.
-    receipt: null
+    receipt:
+      result: done
+      harness: codex
+      summary: Indexed/scanned paths, preparation reuse and separate execution/observation pass independent checks; no-head data avoids matcher maintenance. Timing remains unmeasured.
+      evidence:
+        - docs/experiments/results/R01-access-lifetime-entry.md
     allowed_files:
       - research/chr-compiled/
       - research/chr-persistent/
@@ -610,20 +615,47 @@ tasks:
       - No cost matrix before prospective registration and freeze.
       - R02 remains independently eligible; no production or language adoption.
 
+  - id: T026
+    type: pm
+    assignee: PM
+    status: active
+    objective: Establish counter-free native measurement and freeze a bounded R01 cost pilot with full lifecycle accounting.
+    inputs:
+      - docs/experiments/registrations/R01-measurement-design.md
+      - docs/experiments/results/R01-access-lifetime-entry.md
+    expected_output:
+      - Verified counted and counter-free builds with preserved source semantics and truthful retention.
+      - Native phase runner, separate allocation diagnostics, exact pilot registration and reproducible evidence.
+    receipt: null
+    allowed_files:
+      - research/chr-compiled/
+      - research/chr-persistent/
+      - research/chr-boxes/src/lib.rs
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    verify:
+      - Semantic checks in both instrumentation configurations
+      - Default legacy accounting, truthful retention and resolved feature graph
+      - Relevant Rust tests, workspace Clippy and formatting
+      - Registered pilot only after source/build freeze and runner review
+    stop_if:
+      - Preserve semantic changed-variable reporting; disable diagnostic updates only.
+      - No architecture ranking from an unregistered or confounded timing comparison.
+
 checks:
   dirty_fingerprint: preexisting_unfinished_experimental_files_preserved
   last_verification:
     result: passed
-    task: T024
-    scope: R01 semantic entry and R04 source correspondence; access and lifetime cost controls remain open.
+    task: T025
+    scope: R01 access/lifetime semantics and R04 source correspondence; timing remains unmeasured.
     commands:
       - Twelve independent oracle tests pass
       - R04 registered source gate passes 338 queries under six rule orders
       - R04 package formatting and Clippy pass
-      - R01 compiled, persistent and boxes tests pass (31); workspace Clippy and formatting pass
+      - R01 access/lifetime and semantic tests pass (15); workspace Clippy and formatting pass
       - Documentation links and goal-state structure validated
     evidence:
-      - docs/experiments/results/R01-semantic-entry.md
+      - docs/experiments/results/R01-access-lifetime-entry.md
       - docs/experiments/results/R04-finite-consistency-entry.md
       - docs/experiments/results/R04-source-correspondence-gate.md
       - research/chr-direct-solver/results/source-gate.json

@@ -112,9 +112,17 @@ pub fn programs() -> Vec<Vec<Rule>> {
         Rule::simplify("single", [c("p", [])], c("single", []).into()),
         Rule::simplify("seed", [c("seed", [])], c("q", []).into()),
     ];
+    let collisions = vec![
+        Rule::propagate(
+            "keyed",
+            [c("p", [v(0)]), c("q", [v(0)])],
+            c("hit", [v(0), v(0)]).into(),
+        ),
+        Rule::simplify("spawn", [c("seed", [])], c("q", [atom("a")]).into()),
+    ];
     vec![
         build, reach, delayed, wake, ordered, middle, fail, fresh, arrival, self_wake, suspended,
-        nested, conflict,
+        nested, conflict, collisions,
     ]
 }
 pub fn unary(n: usize) -> chr_syntax::Term {
@@ -261,4 +269,71 @@ pub fn case(id: usize, n: usize) -> Case {
         ),
         _ => panic!("unknown fixture"),
     }
+}
+
+/// Depth-zero keys with fixed-width names. Rules are program 1 (ground) or 2 (delayed).
+pub fn flat_chain_case(n: usize, delayed: bool) -> Case {
+    let key = |i: usize| atom(&format!("k{i:016x}"));
+    let mut input = vec![c("reach", [key(0)])];
+    let mut residual = vec![];
+    let mut outputs = vec![];
+    let mut values = vec![];
+    for i in 0..n {
+        residual.push(c("edge", [key(i), key(i + 1)]));
+        input.push(c(
+            "edge",
+            [
+                if delayed {
+                    v((n + 1 + i) as u64)
+                } else {
+                    key(i)
+                },
+                key(i + 1),
+            ],
+        ));
+    }
+    for i in 0..=n {
+        input.push(c("job", [key(i), v(i as u64)]));
+        outputs.push((format!("o{i}"), Var(i as u64)));
+        values.push(t("seen", [key(i)]));
+        residual.push(c("reach", [key(i)]));
+        residual.push(c("done", [key(i)]));
+    }
+    if delayed {
+        for i in 0..n {
+            input.push(c("bind", [v((n + 1 + i) as u64), key(i)]));
+        }
+    }
+    success(input, outputs, values, residual)
+}
+/// Program 13: n initial equal-key q occurrences plus one new occurrence.
+pub fn collision_case(n: usize) -> Case {
+    let mut input = vec![c("p", [atom("a")])];
+    for _ in 0..n {
+        input.push(c("q", [atom("a")]));
+    }
+    input.push(c("seed", []));
+    let mut residual = vec![c("p", [atom("a")])];
+    for _ in 0..=n {
+        residual.push(c("q", [atom("a")]));
+        residual.push(c("hit", [atom("a"), atom("a")]));
+    }
+    success(input, vec![], vec![], residual)
+}
+/// Program 11: every initially unknown nested key becomes f(b), which never enables p(f(a)).
+pub fn repair_case(n: usize) -> Case {
+    let mut input = vec![];
+    let mut outputs = vec![];
+    let mut values = vec![];
+    let mut residual = vec![];
+    for i in 0..n {
+        input.push(c("p", [t("f", [v(i as u64)])]));
+        outputs.push((format!("v{i}"), Var(i as u64)));
+        values.push(atom("b"));
+        residual.push(c("p", [t("f", [atom("b")])]));
+    }
+    for i in 0..n {
+        input.push(c("bind", [v(i as u64), atom("b")]));
+    }
+    success(input, outputs, values, residual)
 }

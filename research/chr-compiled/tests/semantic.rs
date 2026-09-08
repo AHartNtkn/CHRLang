@@ -1,4 +1,15 @@
-use chr_compiled::{Engine, Execution, Policy, fixtures};
+use chr_compiled::{Access, Engine, Execution, Policy, PreparedRuleset, fixtures};
+fn prepared_engine(
+    id: usize,
+    q: chr_syntax::Query,
+    p: Policy,
+    e: Execution,
+) -> Result<Engine, String> {
+    let rules = PreparedRuleset::bundled(id, e)?;
+    let mut engine = rules.start(q, p, Access::Scan)?;
+    engine.enable_trace();
+    Ok(engine)
+}
 #[test]
 fn integrated_hand_cases_have_independent_complete_answers() {
     for (id, _) in fixtures::programs()
@@ -10,11 +21,12 @@ fn integrated_hand_cases_have_independent_complete_answers() {
         for policy in [Policy::Global, Policy::Active] {
             let mut traces = vec![];
             for execution in [Execution::Generic, Execution::Generated] {
-                let mut engine = Engine::new(id, case.query.clone(), policy, execution).unwrap();
-                let result = engine.run(100_000);
+                let mut engine =
+                    prepared_engine(id, case.query.clone(), policy, execution).unwrap();
+                let result = engine.advance(100_000);
                 assert!(result.exhausted, "{id} {policy:?} {execution:?}");
                 assert_eq!(result.failed, case.failed, "{id} {policy:?} {execution:?}");
-                match (&result.answer, &case.expected) {
+                match (&engine.observe(), &case.expected) {
                     (Some(actual), Some(expected)) => assert!(
                         chr_observe::equivalent(actual, expected, &mut Default::default()),
                         "{id} {policy:?} {execution:?}: {actual:?}"
@@ -60,9 +72,9 @@ fn independent_source_checker_validates_commits_and_quiescence() {
         for policy in [Policy::Global, Policy::Active] {
             for execution in [Execution::Generic, Execution::Generated] {
                 let case = fixtures::case(id, 2);
-                let mut engine = Engine::new(id, case.query, policy, execution).unwrap();
+                let mut engine = prepared_engine(id, case.query, policy, execution).unwrap();
                 engine.enable_audit();
-                let result = engine.run(10000);
+                let result = engine.advance(10000);
                 assert!(result.exhausted);
                 for commit in engine.audit() {
                     support::check_commit(rules, commit)
@@ -84,13 +96,13 @@ fn active_changes_history_and_runtime_queries() {
         for policy in [Policy::Global, Policy::Active] {
             for execution in [Execution::Generic, Execution::Generated] {
                 let case = fixtures::case(id, 2);
-                let mut engine = Engine::new(id, case.query, policy, execution).unwrap();
+                let mut engine = prepared_engine(id, case.query, policy, execution).unwrap();
                 engine.enable_audit();
-                let result = engine.run(10000);
+                let result = engine.advance(10000);
                 assert!(result.exhausted && !result.failed);
                 assert!(
                     chr_observe::equivalent(
-                        result.answer.as_ref().unwrap(),
+                        engine.observe().as_ref().unwrap(),
                         case.expected.as_ref().unwrap(),
                         &mut Default::default()
                     ),
@@ -107,10 +119,12 @@ fn active_changes_history_and_runtime_queries() {
     // The same native ruleset handles runtime depth that is absent from generation.
     for depth in [0, 1, 9] {
         let case = fixtures::case(0, depth);
-        let mut engine = Engine::new(0, case.query, Policy::Active, Execution::Generated).unwrap();
-        let result = engine.run(10000);
+        let mut engine =
+            prepared_engine(0, case.query, Policy::Active, Execution::Generated).unwrap();
+        let result = engine.advance(10000);
+        assert!(result.exhausted);
         assert!(chr_observe::equivalent(
-            result.answer.as_ref().unwrap(),
+            engine.observe().as_ref().unwrap(),
             case.expected.as_ref().unwrap(),
             &mut Default::default()
         ));
@@ -128,9 +142,9 @@ fn nonconfluent_policies_may_choose_different_legal_schedules() {
     for policy in [Policy::Global, Policy::Active] {
         let mut traces = vec![];
         for execution in [Execution::Generic, Execution::Generated] {
-            let mut engine = Engine::new(12, query.clone(), policy, execution).unwrap();
+            let mut engine = prepared_engine(12, query.clone(), policy, execution).unwrap();
             engine.enable_audit();
-            let result = engine.run(1000);
+            let result = engine.advance(1000);
             assert!(result.exhausted && !result.failed);
             let rules = &fixtures::programs()[12];
             for commit in engine.audit() {
@@ -139,7 +153,7 @@ fn nonconfluent_policies_may_choose_different_legal_schedules() {
             assert!(support::terminal(rules, &engine.view()));
             traces.push(engine.trace().to_vec());
             if matches!(execution, Execution::Generic) {
-                policy_answers.push(result.answer.unwrap());
+                policy_answers.push(engine.observe().unwrap());
             }
         }
         assert_eq!(traces[0], traces[1]);
@@ -160,7 +174,7 @@ fn partner_traversal_resumes_at_candidate_boundaries() {
                 ],
                 outputs: vec![],
             };
-            let mut engine = Engine::new(4, q, policy, execution).unwrap();
+            let mut engine = prepared_engine(4, q, policy, execution).unwrap();
             for _ in 0..100 {
                 let before = engine.stats().candidate_visits;
                 engine.step();
@@ -169,7 +183,7 @@ fn partner_traversal_resumes_at_candidate_boundaries() {
                     "{policy:?} {execution:?} did not yield between candidates"
                 );
             }
-            assert!(engine.run(1000).exhausted);
+            assert!(engine.advance(1000).exhausted);
         }
     }
 }
@@ -183,26 +197,33 @@ fn source_effects_and_matching_do_not_publish_invalid_answers() {
                 constraints: vec![c("skip", []), c("late", [v(0)])],
                 outputs: vec![("x".into(), chr_syntax::Var(0))],
             };
-            let mut late = Engine::new(6, q, policy, execution).unwrap();
-            let result = late.run(10000);
+            let mut late = prepared_engine(6, q, policy, execution).unwrap();
+            let result = late.advance(10000);
             assert!(result.exhausted && result.failed);
-            assert!(result.answer.is_none());
+            assert!(late.observe().is_none());
             // A guard must not equate two distinct free query variables.
             let q = Query {
                 constraints: vec![c("p", [v(0), v(1)])],
                 outputs: vec![],
             };
-            let mut guard = Engine::new(3, q, policy, execution).unwrap();
-            let result = guard.run(1000);
-            assert_eq!(result.answer.unwrap().residual, vec![c("p", [v(0), v(1)])]);
+            let mut guard = prepared_engine(3, q, policy, execution).unwrap();
+            let result = guard.advance(1000);
+            assert!(result.exhausted);
+            assert_eq!(
+                guard.observe().unwrap().residual,
+                vec![c("p", [v(0), v(1)])]
+            );
             // One occurrence cannot fill both repeated head positions.
             let q = Query {
                 constraints: vec![c("p", [atom("a")])],
                 outputs: vec![],
             };
-            let mut distinct = Engine::new(4, q, policy, execution).unwrap();
+            let mut distinct = prepared_engine(4, q, policy, execution).unwrap();
             assert_eq!(
-                distinct.run(1000).answer.unwrap().residual,
+                {
+                    assert!(distinct.advance(1000).exhausted);
+                    distinct.observe().unwrap().residual
+                },
                 vec![c("p", [atom("a")])]
             );
         }
@@ -213,18 +234,7 @@ fn source_effects_and_matching_do_not_publish_invalid_answers() {
         or(Goal::True, Goal::Fail),
     )];
     assert!(chr_compiled::generate::emit("unsupported", &rules).is_err());
-    assert!(
-        Engine::with_program(
-            rules,
-            Query {
-                constraints: vec![],
-                outputs: vec![]
-            },
-            Policy::Global,
-            None
-        )
-        .is_err()
-    );
+    assert!(PreparedRuleset::new(rules, None).is_err());
 }
 
 #[test]
@@ -232,8 +242,8 @@ fn native_rules_do_not_call_generic_template_walkers() {
     for policy in [Policy::Global, Policy::Active] {
         for execution in [Execution::Generic, Execution::Generated] {
             let case = fixtures::case(0, 3);
-            let mut engine = Engine::new(0, case.query, policy, execution).unwrap();
-            assert!(engine.run(10000).exhausted);
+            let mut engine = prepared_engine(0, case.query, policy, execution).unwrap();
+            assert!(engine.advance(10000).exhausted);
             assert!(engine.stats().structural_tests > 0);
             assert_eq!(
                 engine.stats().generic_ast_visits == 0,
