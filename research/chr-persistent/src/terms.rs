@@ -11,7 +11,7 @@ pub struct Node {
     pub name: String,
     pub args: Vec<Term>,
 }
-#[derive(Default)]
+#[derive(Default, Clone)]
 pub struct Arena {
     pub nodes: Vec<Node>,
     intern: HashMap<Node, usize>,

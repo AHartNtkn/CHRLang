@@ -1,4 +1,4 @@
-//! R01 no-OR integrated execution experiment. No reference evaluator dependency.
+//! Experimental indexed CHR execution with explicit source-disjunction search.
 use chr_persistent::{
     Stats as KernelStats,
     kernel::{Arena, Bindings, Term, deref},
@@ -13,6 +13,9 @@ pub const COLLECT_METRICS: bool = cfg!(feature = "metrics");
 pub mod experiment;
 pub mod fixtures;
 pub mod generate;
+pub mod search;
+pub mod search_fixtures;
+pub use search::{CompletedBranch, SearchEngine, SearchEvent, SearchStats};
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Policy {
@@ -79,6 +82,7 @@ pub enum Work {
     Insert(usize, Vec<Term>),
     Equal(Term, Term),
     And(Vec<Work>),
+    Or(Box<Work>, Box<Work>),
     True,
     Fail,
 }
@@ -122,6 +126,7 @@ enum Body {
     Insert(usize, Vec<Template>),
     Equal(Template, Template),
     And(Vec<Body>),
+    Or(Box<Body>, Box<Body>),
     True,
     Fail,
 }
@@ -168,7 +173,10 @@ fn lower_goal(
         ),
         Goal::True => Body::True,
         Goal::Fail => Body::Fail,
-        Goal::Or(..) => unreachable!("validated"),
+        Goal::Or(a, b) => Body::Or(
+            Box::new(lower_goal(a, slots, arena, preds)),
+            Box::new(lower_goal(b, slots, arena, preds)),
+        ),
     }
 }
 
@@ -182,11 +190,13 @@ pub enum Candidate {
     Yield,
     Done,
 }
+#[derive(Clone)]
 struct PoolCursor {
     ids: Vec<u64>,
     next: usize,
 }
 /// DFS partner state. Source effects only run after a cursor returns Found.
+#[derive(Clone)]
 pub struct Cursor {
     pub anchor_pending: bool,
     pub depth: usize,
@@ -217,6 +227,7 @@ impl Cursor {
         self.frames.pop();
     }
 }
+#[derive(Clone)]
 struct SearchCursor {
     anchor: Option<u64>,
     calls: Vec<(usize, Option<(usize, u64)>)>,
@@ -278,12 +289,54 @@ fn vars_goal(goal: &Goal, out: &mut BTreeSet<u64>) -> Result<(), String> {
                 vars_goal(g, out)?
             }
         }
-        Goal::Or(..) => return Err("R01 does not support OR".into()),
+        Goal::Or(a, b) => {
+            vars_goal(a, out)?;
+            vars_goal(b, out)?;
+        }
         Goal::True | Goal::Fail => (),
     }
     Ok(())
 }
 impl Core {
+    fn segment_stats(&self) -> Stats {
+        if !COLLECT_METRICS {
+            return Stats::default();
+        }
+        Stats {
+            predicate_dictionary_entries: self.arena.predicates.len(),
+            index_entries: self.stats.index_entries,
+            dependency_edges: self.stats.dependency_edges,
+            max_index_entries: self.stats.index_entries,
+            max_dependency_edges: self.stats.dependency_edges,
+            max_queue: self.queue.len(),
+            max_occurrences: self.store.len(),
+            ..Stats::default()
+        }
+    }
+    fn fork_clone(&self) -> Self {
+        Self {
+            rules: self.rules.clone(),
+            arena: self.arena.clone(),
+            bindings: self.bindings.clone(),
+            store: self.store.clone(),
+            pools: self.pools.clone(),
+            dispatch: self.dispatch.clone(),
+            history: self.history.clone(),
+            pending: self.pending.clone(),
+            outputs: self.outputs.clone(),
+            queue: self.queue.clone(),
+            queued: self.queued.clone(),
+            dependencies: self.dependencies.clone(),
+            watchers: self.watchers.clone(),
+            index: self.index.clone(),
+            occurrence_keys: self.occurrence_keys.clone(),
+            next_var: self.next_var,
+            next_occ: self.next_occ,
+            policy: self.policy,
+            access: self.access,
+            stats: self.segment_stats(),
+        }
+    }
     pub fn predicate(&mut self, name: &str, arity: usize) -> usize {
         if COLLECT_METRICS {
             self.stats.predicate_setup_lookups += 1;
@@ -555,6 +608,7 @@ impl Core {
             }
             Body::Equal(a, b) => Work::Equal(self.instantiate(a, f), self.instantiate(b, f)),
             Body::And(gs) => Work::And(gs.iter().map(|g| self.body(g, f)).collect()),
+            Body::Or(a, b) => Work::Or(Box::new(self.body(a, f)), Box::new(self.body(b, f))),
             Body::True => Work::True,
             Body::Fail => Work::Fail,
         }
@@ -833,6 +887,10 @@ impl Core {
                         .map(|g| source(g, arena, bindings, stats))
                         .collect(),
                 ),
+                Work::Or(a, b) => Goal::Or(
+                    Box::new(source(a, arena, bindings, stats)),
+                    Box::new(source(b, arena, bindings, stats)),
+                ),
                 Work::True => Goal::True,
                 Work::Fail => Goal::Fail,
             }
@@ -984,6 +1042,8 @@ pub struct Retention {
 }
 #[derive(Debug)]
 pub struct Status {
+    /// A source disjunction awaits explicit branch search; no answer is available.
+    pub pending_split: bool,
     pub exhausted: bool,
     pub failed: bool,
 }
@@ -1100,6 +1160,14 @@ impl PreparedRuleset {
             predicates: self.predicates.len(),
         }
     }
+    pub fn start_search(
+        &self,
+        query: Query,
+        policy: Policy,
+        access: Access,
+    ) -> Result<SearchEngine, String> {
+        self.start(query, policy, access).map(Engine::into_search)
+    }
     pub fn start(&self, query: Query, policy: Policy, access: Access) -> Result<Engine, String> {
         let mut arena = Arena::default();
         for (name, arity) in self.predicates.iter() {
@@ -1180,8 +1248,27 @@ impl PreparedRuleset {
     }
 }
 impl Engine {
+    fn pending_split(&self) -> bool {
+        !self.done && matches!(self.core.pending.last(), Some(Work::Or(..)))
+    }
+    fn fork_clone(&self) -> Self {
+        Self {
+            core: self.core.fork_clone(),
+            code: self.code,
+            done: self.done,
+            failed: self.failed,
+            trace: self.trace.clone(),
+            trace_enabled: self.trace_enabled,
+            audit_enabled: self.audit_enabled,
+            audit: self.audit.clone(),
+            search: self.search.clone(),
+        }
+    }
+    pub fn into_search(self) -> SearchEngine {
+        SearchEngine::new(self)
+    }
     pub fn step(&mut self) {
-        if self.done {
+        if self.done || self.pending_split() {
             return;
         }
         if COLLECT_METRICS {
@@ -1197,6 +1284,7 @@ impl Engine {
                     }
                 }
                 Work::And(gs) => self.core.pending.extend(gs.into_iter().rev()),
+                Work::Or(..) => unreachable!("pending disjunction stops before service"),
                 Work::True => (),
                 Work::Fail => {
                     self.done = true;
@@ -1279,7 +1367,7 @@ impl Engine {
     /// Advance execution without exporting an answer.
     pub fn advance(&mut self, budget: usize) -> Status {
         for _ in 0..budget {
-            if self.done {
+            if self.done || self.pending_split() {
                 break;
             }
             self.step()
@@ -1288,6 +1376,7 @@ impl Engine {
     }
     pub fn status(&self) -> Status {
         Status {
+            pending_split: self.pending_split(),
             exhausted: self.done,
             failed: self.failed,
         }

@@ -31,7 +31,10 @@ fn collect_goal(g: &Goal, vars: &mut BTreeSet<u64>) -> Result<(), String> {
             }
         }
         Goal::True | Goal::Fail => (),
-        Goal::Or(..) => return Err("R01 does not compile OR".into()),
+        Goal::Or(a, b) => {
+            collect_goal(a, vars)?;
+            collect_goal(b, vars)?;
+        }
     }
     Ok(())
 }
@@ -121,7 +124,11 @@ impl Emit {
             }
             Goal::True => "Work::True".into(),
             Goal::Fail => "Work::Fail".into(),
-            Goal::Or(..) => unreachable!("validated"),
+            Goal::Or(a, b) => {
+                let a = self.goal(a, frame);
+                let b = self.goal(b, frame);
+                format!("Work::Or(Box::new({a}),Box::new({b}))")
+            }
         };
         writeln!(self.text, "let {temp}={expr};").unwrap();
         temp

@@ -8,7 +8,7 @@ goal:
   execution_authority: Redesigned goal authorizes implementation and experiments selected under R00 and the governing sequence.
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
-  current_research: R02 repair and congruence pilots measured; compiled explicit-search semantic gate selected for R03/R04 controls
+  current_research: Compiled explicit-search gate passes; R04 native arc-consistency and support-CNF semantic implementation selected
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -63,7 +63,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T030
+active_task: T031
 tasks:
   - id: T001
     type: pm
@@ -743,7 +743,7 @@ tasks:
   - id: T030
     type: pm
     assignee: PM
-    status: active
+    status: done
     objective: Establish independently checked explicit-search execution in the compiled control for solver elimination and conditional execution comparisons.
     inputs:
       - docs/experiments/results/R02-congruence-witness-pilot.md
@@ -751,6 +751,7 @@ tasks:
       - docs/experiments/results/R04-source-correspondence-gate.md
     allowed_files:
       - research/chr-compiled/
+      - research/chr-persistent/src/terms.rs
       - research/chr-direct-solver/
       - docs/experiments/
       - docs/goals/chr-experiments/
@@ -766,19 +767,52 @@ tasks:
     stop_if:
       - Do not assign all choices outside the engine and omit source search cost.
       - No owner language adoption or universal scheduling policy inferred from a control.
+    receipt:
+      result: done
+      summary: Generic/generated source OR with independent branch conservation, source replay and full raw observations. Finite oracle checks 32448 query/configuration executions across metrics on/off.
+      evidence:
+        - docs/experiments/results/R03-compiled-search-semantic-gate.md
+      validation: Workspace and counter-free tests, Clippy, formatting, source-work ownership and independent review pass.
+  - id: T031
+    type: pm
+    assignee: PM
+    status: active
+    objective: Implement and independently validate reusable native arc-consistency and support-CNF finite solving against the eligible source relation, preparing a credible R04 full-path comparison.
+    inputs:
+      - docs/experiments/results/R03-compiled-search-semantic-gate.md
+      - docs/experiments/results/R04-solving-comparison-selection.md
+      - docs/experiments/results/R04-source-correspondence-gate.md
+    allowed_files:
+      - research/chr-finite/
+      - research/chr-direct-solver/
+      - research/chr-compiled/
+      - Cargo.toml
+      - Cargo.lock
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    expected_output:
+      - Reusable finite problem lowering, reversible native arc consistency and incremental support/conflict CNF controls.
+      - Independent full assignment/observation checks, matched initial inference witness, query-scope and residual multiplicity checks.
+      - Prospective cost registration only after credible source/inference gates; external solver allocation boundaries explicit.
+    verify:
+      - Existing Cartesian oracle plus asymmetric tables, propagation and arc-consistent contradictions
+      - Query reuse does not retain enumeration exclusions across changed givens
+      - No source-reference dependency in candidate execution
+      - Workspace tests, Clippy and formatting
+    stop_if:
+      - Eligibility is not UNSAT; bounded solving is not global refutation.
+      - Preserve independent reference and owner-only language adoption.
     receipt: null
 
 checks:
   dirty_fingerprint: preexisting_unfinished_experimental_files_preserved
   last_verification:
     result: passed
-    task: T029
-    scope: R02 repair, maintenance and congruence pilots with complete source observations and matched access controls.
+    task: T030
+    scope: Compiled explicit source search and independent full branch/finite correspondence.
     commands:
       - Workspace all-target tests, Clippy and formatting pass
-      - Counter-free experiment tests and allocator-build Clippy pass
-      - Three registered pilots validate 686 processes and 2744 full answers
-      - Source freezes, actual instrumentation flags, mechanism checks and stable query allocation baselines pass
+      - Counter-free all-target tests and allocation-feature Clippy pass
+      - Default/off finite gates check 338 queries across 48 configurations each, including full raw multiplicities and actual counter flags
     evidence:
-      - docs/experiments/results/R02-repair-maintenance-pilot.md
-      - docs/experiments/results/R02-congruence-witness-pilot.md
+      - docs/experiments/results/R03-compiled-search-semantic-gate.md

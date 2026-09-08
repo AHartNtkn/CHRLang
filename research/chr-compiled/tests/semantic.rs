@@ -235,8 +235,20 @@ fn source_effects_and_matching_do_not_publish_invalid_answers() {
         [c("p", [])],
         or(Goal::True, Goal::Fail),
     )];
-    assert!(chr_compiled::generate::emit("unsupported", &rules).is_err());
-    assert!(PreparedRuleset::new(rules, None).is_err());
+    assert!(chr_compiled::generate::emit("choice", &rules).is_ok());
+    let prepared = PreparedRuleset::new(rules, None).unwrap();
+    let mut branch = prepared
+        .start(
+            Query {
+                constraints: vec![c("p", [])],
+                outputs: vec![],
+            },
+            Policy::Global,
+            Access::Scan,
+        )
+        .unwrap();
+    assert!(branch.advance(1000).pending_split);
+    assert!(branch.observe().is_none());
 }
 
 #[test]
