@@ -1,0 +1,62 @@
+{
+  "commands": [
+    {
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-relational"
+      ],
+      "exit_code": 0,
+      "log": "tests.log",
+      "timeout_seconds": 60
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-relational"
+      ],
+      "exit_code": 0,
+      "log": "replay.log",
+      "timeout_seconds": 60
+    },
+    {
+      "command": [
+        "cargo",
+        "clippy",
+        "-p",
+        "chr-relational",
+        "--all-targets",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit_code": 0,
+      "log": "clippy.log",
+      "timeout_seconds": 60
+    },
+    {
+      "command": [
+        "cargo",
+        "fmt",
+        "-p",
+        "chr-relational",
+        "--",
+        "--check"
+      ],
+      "exit_code": 0,
+      "log": "fmt.log",
+      "timeout_seconds": 60
+    }
+  ],
+  "sha256": {
+    "research/chr-relational/src/lib.rs": "6f34bf7f61ff098b5aa5d475e888a456466b571b71e4201f85163ae65a337f1d",
+    "research/chr-relational/src/store.rs": "ce6c9675422b5434080b4b9acd818d8d20dac3cdd3a449d69fbfb3aa7879d885",
+    "research/chr-relational/tests/head_plan.rs": "321535af163089d2f89224d5ad5def1c46aada18932d34d22d49d08ef1a895d6",
+    "research/chr-relational/tests/store.rs": "5674be19768ee805ebb7540203fc4e0270a763c83f968901b6228a0a0e0d0cc4",
+    "research/chr-relational/Cargo.toml": "9afe4c9507629754cb2987baa54ea915066b54de7faf1a9db860b97239d449a3",
+    "Cargo.lock": "15334222701ae7f418ba80497d8d6ecdaa193700d1b1de756cd9495b3e305fa5"
+  }
+}

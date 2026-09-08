@@ -1,0 +1,43 @@
+
+running 4 tests
+test equality_enables_indexed_join_before_unrelated_work_finishes ... FAILED
+test parent_congruence_and_incident_key_repair_enable_repeated_variables ... FAILED
+test finite_tree_failure_and_forked_consumption_are_isolated ... FAILED
+test stale_atomic_claims_and_distinct_equal_valued_resources ... FAILED
+
+failures:
+
+---- equality_enables_indexed_join_before_unrelated_work_finishes stdout ----
+
+thread 'equality_enables_indexed_join_before_unrelated_work_finishes' (165) panicked at research/chr-relational/src/store.rs:6:38:
+not yet implemented
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- parent_congruence_and_incident_key_repair_enable_repeated_variables stdout ----
+
+thread 'parent_congruence_and_incident_key_repair_enable_repeated_variables' (167) panicked at research/chr-relational/src/store.rs:6:38:
+not yet implemented
+
+---- finite_tree_failure_and_forked_consumption_are_isolated stdout ----
+
+thread 'finite_tree_failure_and_forked_consumption_are_isolated' (166) panicked at research/chr-relational/src/store.rs:6:38:
+not yet implemented
+
+---- stale_atomic_claims_and_distinct_equal_valued_resources stdout ----
+
+thread 'stale_atomic_claims_and_distinct_equal_valued_resources' (168) panicked at research/chr-relational/src/store.rs:7:92:
+not yet implemented
+
+
+failures:
+    equality_enables_indexed_join_before_unrelated_work_finishes
+    finite_tree_failure_and_forked_consumption_are_isolated
+    parent_congruence_and_incident_key_repair_enable_repeated_variables
+    stale_atomic_claims_and_distinct_equal_valued_resources
+
+test result: FAILED. 0 passed; 4 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Compiling chr-relational v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-relational)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.26s
+     Running tests/store.rs (target/debug/deps/store-021620c03742b6d5)
+error: test failed, to rerun pass `-p chr-relational --test store`

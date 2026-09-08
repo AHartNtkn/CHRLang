@@ -1,0 +1,117 @@
+   Compiling chr-relational v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-relational)
+error[E0277]: the trait bound `View: Clone` is not satisfied
+  --> research/chr-relational/src/store.rs:8:5
+   |
+ 6 | #[derive(Default, Clone)]
+   |                   ----- in this derive macro expansion
+ 7 | pub struct Store {
+ 8 |     view: View,
+   |     ^^^^^^^^^^ unsatisfied trait bound
+   |
+help: the trait `Clone` is not implemented for `View`
+  --> research/chr-relational/src/lib.rs:26:1
+   |
+26 | pub struct View {
+   | ^^^^^^^^^^^^^^^
+
+error[E0599]: no method named `peers` found for struct `View` in the current scope
+  --> research/chr-relational/src/store.rs:31:40
+   |
+31 |         if let Some(value) = self.view.peers(name, &children).first() {
+   |                                        ^^^^^ method not found in `View`
+   |
+  ::: research/chr-relational/src/lib.rs:26:1
+   |
+26 | pub struct View {
+   | --------------- method `peers` not found for this struct
+
+error[E0599]: no method named `descriptors` found for struct `View` in the current scope
+  --> research/chr-relational/src/store.rs:68:44
+   |
+68 |             for (_, children) in self.view.descriptors(value) {
+   |                                            ^^^^^^^^^^^ method not found in `View`
+   |
+  ::: research/chr-relational/src/lib.rs:26:1
+   |
+26 | pub struct View {
+   | --------------- method `descriptors` not found for this struct
+
+error[E0599]: no method named `descriptors` found for struct `View` in the current scope
+  --> research/chr-relational/src/store.rs:93:30
+   |
+93 |         let left = self.view.descriptors(a);
+   |                              ^^^^^^^^^^^ method not found in `View`
+   |
+  ::: research/chr-relational/src/lib.rs:26:1
+   |
+26 | pub struct View {
+   | --------------- method `descriptors` not found for this struct
+
+error[E0599]: no method named `descriptors` found for struct `View` in the current scope
+  --> research/chr-relational/src/store.rs:94:31
+   |
+94 |         let right = self.view.descriptors(b);
+   |                               ^^^^^^^^^^^ method not found in `View`
+   |
+  ::: research/chr-relational/src/lib.rs:26:1
+   |
+26 | pub struct View {
+   | --------------- method `descriptors` not found for this struct
+
+error[E0599]: no method named `replace_value` found for struct `View` in the current scope
+   --> research/chr-relational/src/store.rs:118:33
+    |
+118 |         let changed = self.view.replace_value(b, a);
+    |                                 ^^^^^^^^^^^^^ method not found in `View`
+    |
+   ::: research/chr-relational/src/lib.rs:26:1
+    |
+ 26 | pub struct View {
+    | --------------- method `replace_value` not found for this struct
+
+error[E0599]: no method named `peers` found for struct `View` in the current scope
+   --> research/chr-relational/src/store.rs:124:35
+    |
+124 |             for peer in self.view.peers(&name, &values[1..]) {
+    |                                   ^^^^^ method not found in `View`
+    |
+   ::: research/chr-relational/src/lib.rs:26:1
+    |
+ 26 | pub struct View {
+    | --------------- method `peers` not found for this struct
+
+error[E0609]: no field `locations` on type `View`
+   --> research/chr-relational/src/store.rs:154:47
+    |
+154 |             || ids.iter().any(|id| !self.view.locations.contains_key(id))
+    |                                               ^^^^^^^^^ unknown field
+    |
+    = note: available fields are: `tables`, `occurrences`
+
+error[E0599]: no method named `retire` found for struct `View` in the current scope
+   --> research/chr-relational/src/store.rs:159:23
+    |
+159 |             self.view.retire(*id);
+    |                       ^^^^^^ method not found in `View`
+    |
+   ::: research/chr-relational/src/lib.rs:26:1
+    |
+ 26 | pub struct View {
+    | --------------- method `retire` not found for this struct
+
+error[E0599]: no method named `descriptors` found for struct `View` in the current scope
+   --> research/chr-relational/src/store.rs:165:25
+    |
+165 |         match self.view.descriptors(value).first() {
+    |                         ^^^^^^^^^^^ method not found in `View`
+    |
+   ::: research/chr-relational/src/lib.rs:26:1
+    |
+ 26 | pub struct View {
+    | --------------- method `descriptors` not found for this struct
+
+Some errors have detailed explanations: E0277, E0599, E0609.
+For more information about an error, try `rustc --explain E0277`.
+error: could not compile `chr-relational` (lib) due to 10 previous errors
+warning: build failed, waiting for other jobs to finish...
+error: could not compile `chr-relational` (lib test) due to 10 previous errors

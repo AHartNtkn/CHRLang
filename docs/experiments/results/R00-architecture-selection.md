@@ -2,11 +2,7 @@
 
 > Current status: this assessment predates the [design-disposition review](R07-design-disposition-review.md). Architecture selection and research closure remain unresolved. The [renewed sequence](../sequence.md) and [current coverage map](../coverage.md) govern further investigation; recommendations and stopping judgments below are subject to that review.
 
-The completed architecture recommendation is [R07](R07-architecture-checkpoint.md),
-with [full-objective closure evidence](R07-closure-audit.md). The selection record
-below preserves experimental decisions and their contemporaneous premises.
-
-Current decision authority: [architecture checkpoint](R07-architecture-checkpoint.md), updated with T048 current mixed-work evidence. T050 establishes consequential state-preservation cost and selects T051 causal ownership/occurs gates; checked direct lowering is supported, while native compilation and worker expansion have no general preference. The entries below retain their stated experimental context.
+The [architecture checkpoint](R07-architecture-checkpoint.md) and [closure audit](R07-closure-audit.md) record earlier assessments. The governing sequence above supplies the current investigation requirements. Existing measurements retain their stated scope; the current evidence does not support whole-goal closure.
 
 The first comparison should distinguish generic selection, incremental activation and generated rule execution on complete ordinary-CHR computations. In parallel, analyze a directly compiled finite consistency relation as a contrasting way to eliminate execution. Integrated representation and conditional execution remain serious independent candidates; existing service results do not rank them against these organizations.
 
@@ -268,3 +264,7 @@ The [paired context repair](S03-context-repair.md) completes 252 processes and r
 ## S02 relational head-plan gate
 
 The [relational head-plan gate](S02-relational-head-plan.md) validates constructor-first joins and complete candidate tuples/bindings against an independent exhaustive matcher. This tests a remaining recursive-pattern boundary in the integrated control without inventing a solved-term export step. T063 remains active for actual equality/key maintenance, compatible contexts, resource commits and full source observation; snapshot correctness does not establish those runtime obligations or performance.
+
+## S02 mutable equality/resource owner
+
+The [mutable owner gate](S02-relational-owner.md) passes 1,296 independent ordered equation cases, checking exports and repaired joins after each update. Directed cases establish consuming interleaving and copied-context isolation. These are correctness capabilities, with full source execution, shared contexts and comparative costs still unresolved. T063 remains active.
