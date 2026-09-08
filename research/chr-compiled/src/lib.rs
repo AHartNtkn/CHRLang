@@ -63,7 +63,7 @@ pub struct Stats {
     /// Certified source applications; trace/audit mode expands their commits.
     #[cfg(feature = "carrier-contraction")]
     pub carrier_steps: u64,
-    /// Resumable control-spine inspections, including unsuccessful admission.
+    /// Resumable control-prefix inspections, including the stopping tail.
     #[cfg(feature = "carrier-contraction")]
     pub carrier_checks: u64,
     pub candidate_visits: u64,
@@ -1125,8 +1125,6 @@ pub struct Status {
 pub struct Engine {
     #[cfg(feature = "carrier-contraction")]
     carrier: Option<carriers::Job>,
-    #[cfg(feature = "carrier-contraction")]
-    carrier_blocked: Option<u64>,
     core: Core,
     code: Option<Compiled>,
     done: bool,
@@ -1399,8 +1397,6 @@ impl PreparedRuleset {
             Engine {
                 #[cfg(feature = "carrier-contraction")]
                 carrier: None,
-                #[cfg(feature = "carrier-contraction")]
-                carrier_blocked: None,
                 core,
                 code: self.code,
                 done: false,
@@ -1438,8 +1434,6 @@ impl Engine {
         Self {
             #[cfg(feature = "carrier-contraction")]
             carrier: self.carrier.clone(),
-            #[cfg(feature = "carrier-contraction")]
-            carrier_blocked: self.carrier_blocked,
             core: self.core.fork_clone(
                 #[cfg(feature = "fork-diagnostics")]
                 observer,
@@ -1478,10 +1472,6 @@ impl Engine {
                     self.carrier_inserted(id);
                 }
                 Work::Equal(a, b) => {
-                    #[cfg(feature = "carrier-contraction")]
-                    {
-                        self.carrier_blocked = None;
-                    }
                     if !self.core.equation(a, b) {
                         self.done = true;
                         self.failed = true

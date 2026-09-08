@@ -181,7 +181,7 @@ fn multiple_carriers_partial_controls_and_later_bindings_stay_ordinary_when_need
     };
     let steps = compare(rules.clone(), q.clone(), false);
     if chr_compiled::COLLECT_METRICS {
-        assert_eq!(steps, 1);
+        assert_eq!(steps, 2);
     }
     compare(rules, q, true);
 }
@@ -225,7 +225,7 @@ fn certificate_rejects_observers_repeated_control_guards_and_extra_work() {
 }
 
 #[test]
-fn unsuccessful_spine_walk_is_not_repeated_along_same_chain() {
+fn known_prefix_contracts_once_at_an_unknown_tail() {
     let p = PreparedRuleset::new(source(), None)
         .unwrap()
         .specialize_inferred()
@@ -244,7 +244,7 @@ fn unsuccessful_spine_walk_is_not_repeated_along_same_chain() {
     assert_eq!(answer.residual[0].args[0], answer.outputs[0].1);
     if chr_compiled::COLLECT_METRICS {
         assert_eq!(e.stats().carrier_checks, 32);
-        assert_eq!(e.stats().carrier_steps, 0);
+        assert_eq!(e.stats().carrier_steps, 31);
     }
 }
 #[test]
@@ -254,9 +254,9 @@ fn cancellation_during_validation_preserves_prepared_reuse() {
         .specialize_inferred()
         .contract_carriers_inferred()
         .unwrap();
-    let mut e = p
-        .start(query(128), Policy::Global, Access::Indexed)
-        .unwrap();
+    let mut partial = query(128);
+    partial.constraints[0].args[0] = (0..128).fold(v(9), |x, _| t("s", [x]));
+    let mut e = p.start(partial, Policy::Global, Access::Indexed).unwrap();
     assert!(!e.advance(20).exhausted);
     assert!(e.observe().is_none());
     if chr_compiled::COLLECT_METRICS {
@@ -288,36 +288,41 @@ fn finite_sibling_is_serviced_beside_a_divergent_source_branch() {
         .specialize_inferred()
         .contract_carriers_inferred()
         .unwrap();
-    let mut q = query(64);
-    q.constraints[0].name = "choose".into();
-    let mut search = p.start_search(q, Policy::Global, Access::Indexed).unwrap();
-    let mut answer = None;
-    for _ in 0..10000 {
-        match search.tick() {
-            SearchEvent::Complete(mut branch) => {
-                assert_eq!(branch.lineage, vec![false]);
-                if chr_compiled::COLLECT_METRICS {
-                    assert_eq!(branch.engine.stats().carrier_steps, 63);
-                }
-                answer = branch.engine.observe();
-                break;
-            }
-            SearchEvent::Exhausted | SearchEvent::Failed(_) => {
-                panic!("finite sibling or loop lost")
-            }
-            _ => (),
+    for unknown_tail in [false, true] {
+        let mut q = query(64);
+        if unknown_tail {
+            q.constraints[0].args[0] = (0..64).fold(v(9), |x, _| t("s", [x]));
         }
-    }
-    let answer = answer.expect("finite sibling completes");
-    assert_eq!(
-        answer.residual,
-        vec![c(
-            "done",
-            [answer.outputs[0].1.clone(), answer.outputs[0].1.clone()]
-        )]
-    );
-    for _ in 0..1000 {
-        assert!(matches!(search.tick(), SearchEvent::Progress));
+        q.constraints[0].name = "choose".into();
+        let mut search = p.start_search(q, Policy::Global, Access::Indexed).unwrap();
+        let mut answer = None;
+        for _ in 0..10000 {
+            match search.tick() {
+                SearchEvent::Complete(mut branch) => {
+                    assert_eq!(branch.lineage, vec![false]);
+                    if chr_compiled::COLLECT_METRICS {
+                        assert_eq!(branch.engine.stats().carrier_steps, 63);
+                    }
+                    answer = branch.engine.observe();
+                    break;
+                }
+                SearchEvent::Exhausted | SearchEvent::Failed(_) => {
+                    panic!("finite sibling or loop lost")
+                }
+                _ => (),
+            }
+        }
+        let answer = answer.expect("finite sibling completes");
+        assert_eq!(
+            answer.residual,
+            vec![c(
+                if unknown_tail { "carry" } else { "done" },
+                [answer.outputs[0].1.clone(), answer.outputs[0].1.clone()]
+            )]
+        );
+        for _ in 0..1000 {
+            assert!(matches!(search.tick(), SearchEvent::Progress));
+        }
     }
 }
 #[test]
@@ -545,5 +550,49 @@ fn singleton_admission_is_rechecked_after_later_carrier_births() {
     let steps = compare(rules, q, true);
     if chr_compiled::COLLECT_METRICS {
         assert_eq!(steps, 4);
+    }
+}
+
+#[test]
+fn known_prefix_preserves_actual_unknown_or_malformed_tail_and_ids() {
+    for tail in [
+        v(3),
+        atom("foreign"),
+        t("s", [atom("a"), atom("b")]),
+        t("foreign", [t("s", [atom("z")])]),
+    ] {
+        for depth in [0usize, 1, 4] {
+            let control = (0..depth).fold(tail.clone(), |x, _| t("s", [x]));
+            let q = Query {
+                constraints: vec![c("carry", [control, v(3)])],
+                outputs: vec![("tail".into(), Var(3))],
+            };
+            let p = PreparedRuleset::new(source(), None)
+                .unwrap()
+                .specialize_inferred()
+                .contract_carriers_inferred()
+                .unwrap();
+            let mut e = p.start(q.clone(), Policy::Global, Access::Indexed).unwrap();
+            assert!(e.advance(10000).exhausted);
+            assert_eq!(e.view().store[0].0, depth as u64);
+            let answer = e.observe().unwrap();
+            let exported_tail = if matches!(tail, Term::Var(_)) {
+                answer.outputs[0].1.clone()
+            } else {
+                tail.clone()
+            };
+            assert_eq!(
+                answer.residual,
+                vec![c("carry", [exported_tail, answer.outputs[0].1.clone()])]
+            );
+            if chr_compiled::COLLECT_METRICS {
+                assert_eq!(e.stats().carrier_steps, depth.saturating_sub(1) as u64);
+                assert_eq!(e.stats().carrier_checks, depth as u64);
+            }
+            let steps = compare(source(), q, true);
+            if chr_compiled::COLLECT_METRICS {
+                assert_eq!(steps, depth.saturating_sub(1) as u64);
+            }
+        }
     }
 }

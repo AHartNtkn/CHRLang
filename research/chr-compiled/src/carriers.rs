@@ -1,5 +1,5 @@
 //! Source-derived pure carrier contraction under Global sealed selection.
-//! Validation is resumable; terminal selection/body and unknown tails stay ordinary.
+//! Known-prefix inspection is resumable; arbitration at the actual tail stays ordinary.
 use super::*;
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub struct Eligibility {
@@ -12,7 +12,6 @@ pub(crate) struct Plan {
     pred: usize,
     control: usize,
     step: String,
-    base: String,
 }
 fn infer(rules: &[Prepared], uses: &[(usize, usize)]) -> Option<(usize, Plan)> {
     if uses.len() != 2 || uses[0].0 == uses[1].0 {
@@ -51,7 +50,7 @@ fn infer(rules: &[Prepared], uses: &[(usize, usize)]) -> Option<(usize, Plan)> {
             if !valid {
                 continue;
             }
-            let Template::App(base, fields) = &other.heads[0].args[control] else {
+            let Template::App(_, fields) = &other.heads[0].args[control] else {
                 continue;
             };
             if !fields.is_empty() {
@@ -83,7 +82,6 @@ fn infer(rules: &[Prepared], uses: &[(usize, usize)]) -> Option<(usize, Plan)> {
                         pred: *pred,
                         control,
                         step: name.clone(),
-                        base: base.clone(),
                     },
                 ));
             }
@@ -138,7 +136,6 @@ impl PreparedRuleset {
 #[derive(Clone)]
 enum Phase {
     AwaitInsert,
-    SuppressedInsert,
     Check { cursor: Term, steps: u64 },
     Expand { remaining: u64 },
     ExpandedInsert { remaining: u64 },
@@ -153,10 +150,6 @@ pub(crate) struct Job {
 }
 impl Engine {
     pub(crate) fn carrier_entry(&mut self, app: &Application) {
-        let suppressed = app.ids.len() == 1 && self.carrier_blocked == Some(app.ids[0]);
-        if app.ids.iter().any(|id| self.carrier_blocked == Some(*id)) {
-            self.carrier_blocked = None;
-        }
         let Some(plan) = self.core.rules[app.rule].carrier.clone() else {
             return;
         };
@@ -178,11 +171,7 @@ impl Engine {
             rule: app.rule,
             id: 0,
             args: vec![],
-            phase: if suppressed {
-                Phase::SuppressedInsert
-            } else {
-                Phase::AwaitInsert
-            },
+            phase: Phase::AwaitInsert,
         });
     }
     pub(crate) fn carrier_inserted(&mut self, id: u64) {
@@ -190,10 +179,6 @@ impl Engine {
             return;
         };
         match job.phase {
-            Phase::SuppressedInsert => {
-                self.carrier_blocked = Some(id);
-                return;
-            }
             Phase::AwaitInsert => {
                 job.id = id;
                 job.args = self.core.store[&id].args.clone();
@@ -219,7 +204,7 @@ impl Engine {
             return false;
         };
         match job.phase {
-            Phase::AwaitInsert | Phase::SuppressedInsert | Phase::ExpandedInsert { .. } => {
+            Phase::AwaitInsert | Phase::ExpandedInsert { .. } => {
                 self.carrier = Some(job);
                 return false;
             }
@@ -227,8 +212,8 @@ impl Engine {
                 if COLLECT_METRICS {
                     self.core.stats.carrier_checks += 1;
                 }
-                let cursor = deref(cursor, &self.core.bindings, &mut self.core.stats.kernel);
-                if let Term::Node(id) = cursor {
+                let value = deref(cursor, &self.core.bindings, &mut self.core.stats.kernel);
+                if let Term::Node(id) = value {
                     let node = self.core.arena.node(id);
                     if node.name == job.plan.step && node.args.len() == 1 {
                         job.phase = Phase::Check {
@@ -238,37 +223,35 @@ impl Engine {
                         self.carrier = Some(job);
                         return true;
                     }
-                    if node.name == job.plan.base && node.args.is_empty() {
-                        if steps == 0 {
-                            return true;
-                        }
-                        if COLLECT_METRICS {
-                            self.core.stats.carrier_contractions += 1;
-                        }
-                        if self.trace_enabled || self.audit_enabled {
-                            job.phase = Phase::Expand { remaining: steps };
-                            self.carrier = Some(job);
-                            return true;
-                        }
-                        // All omitted applications consume/repost exactly once and allocate no vars.
-                        let final_id = self
-                            .core
-                            .next_occ
-                            .checked_add(steps - 1)
-                            .expect("occurrence IDs exhausted");
-                        self.core.remove(job.id);
-                        job.args[job.plan.control] = cursor;
-                        self.core.next_occ = final_id;
-                        self.core.insert(job.plan.pred, job.args);
-                        if COLLECT_METRICS {
-                            self.core.stats.applications += steps;
-                            self.core.stats.specialized_applications += steps;
-                            self.core.stats.carrier_steps += steps;
-                        }
-                        return true;
-                    }
                 }
-                self.carrier_blocked = Some(job.id);
+                // Only matching unary nodes were admitted. The actual tail can
+                // be free, malformed or terminal; preserve its original handle.
+                if steps == 0 {
+                    return true;
+                }
+                if COLLECT_METRICS {
+                    self.core.stats.carrier_contractions += 1;
+                }
+                if self.trace_enabled || self.audit_enabled {
+                    job.phase = Phase::Expand { remaining: steps };
+                    self.carrier = Some(job);
+                    return true;
+                }
+                // Every omitted application consumes/reposts once with no fresh vars.
+                let final_id = self
+                    .core
+                    .next_occ
+                    .checked_add(steps - 1)
+                    .expect("occurrence IDs exhausted");
+                self.core.remove(job.id);
+                job.args[job.plan.control] = cursor;
+                self.core.next_occ = final_id;
+                self.core.insert(job.plan.pred, job.args);
+                if COLLECT_METRICS {
+                    self.core.stats.applications += steps;
+                    self.core.stats.specialized_applications += steps;
+                    self.core.stats.carrier_steps += steps;
+                }
             }
             Phase::Expand { remaining } => {
                 let control = deref(

@@ -1,0 +1,33 @@
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.67s
+     Running tests/carriers.rs (target/debug/deps/carriers-1bd9a84dc4bb8b79)
+
+running 2 tests
+test known_prefix_preserves_actual_unknown_or_malformed_tail_and_ids ... FAILED
+test known_prefix_contracts_once_at_an_unknown_tail ... FAILED
+
+failures:
+
+---- known_prefix_preserves_actual_unknown_or_malformed_tail_and_ids stdout ----
+
+thread 'known_prefix_preserves_actual_unknown_or_malformed_tail_and_ids' (260) panicked at research/chr-compiled/tests/carriers.rs:563:47:
+assertion `left == right` failed
+  left: 0
+ right: 3
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- known_prefix_contracts_once_at_an_unknown_tail stdout ----
+
+thread 'known_prefix_contracts_once_at_an_unknown_tail' (259) panicked at research/chr-compiled/tests/carriers.rs:247:9:
+assertion `left == right` failed
+  left: 0
+ right: 31
+
+
+failures:
+    known_prefix_contracts_once_at_an_unknown_tail
+    known_prefix_preserves_actual_unknown_or_malformed_tail_and_ids
+
+test result: FAILED. 0 passed; 2 failed; 0 ignored; 0 measured; 12 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p chr-compiled --test carriers`

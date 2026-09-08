@@ -6,7 +6,7 @@ CONFIGS={'conditional':'','specialized':'','specialized-cow':'arena-cow','carrie
 PAIRS=[(0,0),(0,16),(8,8),(16,0),(0,64),(32,32),(64,0)]
 PHASES=['query','setup','execution_observation','engine_drop','outputs_drop']
 def phases(d): return [d['prepare'],d['prepared_drop'],*(s[k] for s in d['samples'] for k in PHASES)]
-def check_row(r):
+def check_row(r, prefix=False):
     assert r.get('exit')==0 and 'result' in r
     d=r['result'];pre,post,q,kind=r['cell']; config=r['configuration']; mode=r['mode']
     assert [d['pre'],d['post'],d['queries'],d['unknown']]==[pre,post,q,kind=='unknown']
@@ -30,7 +30,7 @@ def check_row(r):
             a,b=s['pre'],s['post']
             predicted=(a+1 if kind=='unknown' else a+16*b+34) if config=='conditional' else (1+16*a if kind=='unknown' else 1+16*(a+b+3))
             assert s['work']['applications']==predicted
-            steps=16*(max(a-1,0)+max(b-1,0)) if kind=='ground' and config.startswith('carrier') else 0
+            steps=16*(max(a-1,0)+max(b-1,0)) if (kind=='ground' or prefix) and config.startswith('carrier') else 0
             checks=16*(a+b) if config.startswith('carrier') else 0
             assert s['work']['carrier_steps']==steps
             assert s['work']['carrier_checks']==checks
@@ -38,14 +38,19 @@ def check_row(r):
     if mode=='allocation': assert d['baseline']['memory']['live_end']==d['final']['memory']['live_end']
     return 16*q
 
-def audit(out):
+def audit(out, experiment="ground"):
+    prefix = experiment == "prefix"
+    configs = {k:v for k,v in CONFIGS.items() if not prefix or not k.endswith("-cow")}
     meta=json.loads((out/'metadata.json').read_text())
-    assert meta['seed']==54054
+    assert meta['seed']==(55055 if prefix else 54054)
+    assert meta.get('experiment', 'ground') == experiment
     assert meta['bounds']=={'process_seconds':30,'process_address_bytes':1024**3,'execution_seconds':1200,'build_seconds':180}
     cells=[(a,b,q,'ground') for a,b in PAIRS for q in [1,4]]+[(64,0,q,'unknown') for q in [1,4]]
-    planned=[]; rng=random.Random(54054)
+    if prefix:
+        cells=[(a,0,q,'unknown') for a in [0,1,64] for q in [1,4]]+[(64,0,q,'ground') for q in [1,4]]
+    planned=[]; rng=random.Random(55055 if prefix else 54054)
     for mode,reps in [('warmup',1),('primary',5),('allocation',1),('work',1)]:
-        batch=[(mode,rep,c,cell) for rep in range(reps) for c in CONFIGS for cell in cells]
+        batch=[(mode,rep,c,cell) for rep in range(reps) for c in configs for cell in cells]
         rng.shuffle(batch);planned.extend(batch)
     key=lambda r:(r['mode'],r['rep'],r['configuration'],tuple(r['cell']))
     assert list(map(key,meta['jobs']))==planned
@@ -58,13 +63,13 @@ def audit(out):
             command=meta['builds'][c+'-'+mode]['command']
             binary=str(pathlib.Path(command[command.index('--target-dir')+1])/'release/chr-carrier-cost')
             assert r['command']==[binary,'conditional' if c=='conditional' else 'specialized',*map(str,r['cell'])]
-            answers+=check_row(r);valid.add(id(r))
+            answers+=check_row(r,prefix);valid.add(id(r))
         except (AssertionError,KeyError,TypeError) as error:
             failures.append({'configuration':r['configuration'],'cell':r['cell'],'mode':r['mode'],'rep':r['rep'],'error':repr(error),'exit':r.get('exit'),'stderr':r.get('stderr'),'timeout':r.get('timeout')})
     summary=[]
     for cell in cells:
         item={'cell':cell,'configurations':{}}
-        for c in CONFIGS:
+        for c in configs:
             group=[r for r in rows if tuple(r['cell'])==cell and r['configuration']==c]
             good=[r for r in group if id(r) in valid]
             t={'recorded':len(group),'complete':len(group)==8 and len(good)==8}
@@ -83,6 +88,7 @@ def audit(out):
             item['configurations'][c]=t
         item['comparisons']={}
         for a,b in [('carrier','specialized'),('carrier-cow','specialized-cow'),('carrier','conditional'),('carrier-cow','conditional'),('specialized-cow','conditional'),('specialized','conditional'),('carrier-cow','carrier')]:
+            if a not in configs or b not in configs: continue
             x,y=item['configurations'][a],item['configurations'][b]
             if x['complete'] and y['complete']:
                 item['comparisons'][a+'/'+b]={'median_ratio':x['median_ms']/y['median_ms'],'range_disposition':'first-lower' if x['max_ms']<y['min_ms'] else 'second-lower' if y['max_ms']<x['min_ms'] else 'overlap'}
@@ -90,7 +96,7 @@ def audit(out):
     freeze=[]
     for name,h in meta['sources'].items():
         if hashlib.sha256((ROOT/name).read_bytes()).hexdigest()!=h:freeze.append(name)
-    for c,extra in CONFIGS.items():
+    for c,extra in configs.items():
         for mode in ('primary','allocation','work'):
             b=meta.get('builds',{}).get(c+'-'+mode,{})
             if b.get('status')!='complete':freeze.append('build:'+c+'-'+mode);continue
@@ -102,4 +108,6 @@ def audit(out):
     (out/'audit.json').write_text(json.dumps(result,indent=2)+'\n');(out/'summary.json').write_text(json.dumps(summary,indent=2)+'\n');print(json.dumps(result));return result
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--output',type=pathlib.Path,required=True)
-    r=audit(p.parse_args().output.resolve());raise SystemExit(bool(r['missing'] or r['failures'] or r['freeze_errors']))
+    p.add_argument('--experiment',choices=['ground','prefix'],default='ground')
+    args=p.parse_args()
+    r=audit(args.output.resolve(),args.experiment);raise SystemExit(bool(r['missing'] or r['failures'] or r['freeze_errors']))

@@ -21,6 +21,7 @@ def main():
     parser.add_argument('--output', type=pathlib.Path, required=True)
     parser.add_argument('--registration', type=pathlib.Path, required=True)
     parser.add_argument('--seed', type=int, required=True)
+    parser.add_argument('--experiment', choices=['ground', 'prefix'], default='ground')
     args = parser.parse_args()
     OUT = args.output.resolve()
     registration = args.registration.resolve()
@@ -42,6 +43,11 @@ def main():
     cells += [(64,0,q,'unknown') for q in [1,4]]
     configurations = {'conditional':'', 'specialized':'', 'specialized-cow':'arena-cow',
                       'carrier':'carrier-contraction','carrier-cow':'carrier-contraction,arena-cow'}
+    if args.experiment == 'prefix':
+        cells = [(pre,0,q,'unknown') for pre in [0,1,64] for q in [1,4]]
+        cells += [(64,0,q,'ground') for q in [1,4]]
+        configurations = {'conditional':'', 'specialized':'', 'carrier':'carrier-contraction'}
+    meta['experiment'] = args.experiment
     jobs = []
     rng = random.Random(args.seed)
     for mode, reps in [('warmup', 1), ('primary', 5), ('allocation', 1), ('work', 1)]:
