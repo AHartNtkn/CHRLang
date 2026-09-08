@@ -8,7 +8,7 @@ goal:
   execution_authority: Redesigned goal authorizes implementation and experiments selected under R00 and the governing sequence.
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
-  current_research: Shared recursive sessions validated; measurement runner and prospective compilation lifecycle pilot remain
+  current_research: Recursive lifecycle runner validated and registered; comparative pilot ready
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -1293,6 +1293,8 @@ tasks:
       - docs/experiments/results/R05-recursive-native-entry.md
       - docs/experiments/registrations/R05-recursive-session-gate.md
       - docs/experiments/results/R05-recursive-session-gate.md
+      - docs/experiments/registrations/R05-recursive-lifecycle.md
+      - docs/experiments/results/r05-recursive-runner/README.md
     receipt: null
 
 
@@ -1301,11 +1303,12 @@ checks:
   last_verification:
     result: passed
     task: T046
-    scope: Shared recursive executable sessions; measurement runner and comparative registration pending.
+    scope: Installed-control packages and registered lifecycle runner readiness; comparative pilot pending.
     commands:
       - 60 package all-target tests in each parent feature configuration
       - 42 full responses across three external counter-free executable sessions
       - Strict Clippy in both feature modes and cargo fmt --all --check
       - Independent protocol review and artifact dependency/hash audit
+      - Exact manifest, mathematical oracle, child-failure and audit-mutation runner checks
     evidence:
       - docs/experiments/results/R05-recursive-session-gate.md

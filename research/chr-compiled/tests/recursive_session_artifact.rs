@@ -92,7 +92,7 @@ fn three_executables_preserve_complete_changed_query_sessions() {
         if backend == "native" {
             fs::write(
                 dir.join("src/generated.rs"),
-                Prepared::new(fixture::rules()).unwrap().emit_rust(),
+                Prepared::new(fixture::rules("add")).unwrap().emit_rust(),
             )
             .unwrap();
             main.push_str("mod generated; fn main(){session::serve(std::io::stdin().lock(),std::io::stdout().lock(),|q|match generated::execute(q){Ok(Some(a))=>Response::Success(a),Ok(None)=>Response::Failure,Err(e)=>Response::Unsupported(e)}).unwrap();}");
@@ -104,9 +104,9 @@ fn three_executables_preserve_complete_changed_query_sessions() {
             )
             .unwrap();
             if backend == "direct" {
-                main.push_str("fn main(){let p=chr_compiled::recursive::Prepared::new(fixture::rules()).unwrap();session::serve(std::io::stdin().lock(),std::io::stdout().lock(),|q|match p.execute(q){Ok(Some(a))=>Response::Success(a),Ok(None)=>Response::Failure,Err(e)=>Response::Unsupported(e.0)}).unwrap();}");
+                main.push_str("fn main(){let p=chr_compiled::recursive::Prepared::new(fixture::rules(\"add\")).unwrap();session::serve(std::io::stdin().lock(),std::io::stdout().lock(),|q|match p.execute(q){Ok(Some(a))=>Response::Success(a),Ok(None)=>Response::Failure,Err(e)=>Response::Unsupported(e.0)}).unwrap();}");
             } else {
-                main.push_str(r#"fn main(){let p=chr_compiled::PreparedRuleset::new(fixture::rules(),None).unwrap().specialize_inferred();session::serve(std::io::stdin().lock(),std::io::stdout().lock(),|q|{
+                main.push_str(r#"fn main(){let p=chr_compiled::PreparedRuleset::new(fixture::rules("add"),None).unwrap().specialize_inferred();session::serve(std::io::stdin().lock(),std::io::stdout().lock(),|q|{
 let e=match p.start(q,chr_compiled::Policy::Global,chr_compiled::Access::Indexed){Ok(e)=>e,Err(e)=>return Response::Error(e)};
 let mut e=e.into_search();let mut answer=None;
 for _ in 0..100_000 {match e.tick(){chr_compiled::SearchEvent::Complete(mut b)=>{if answer.is_some(){return Response::Error("unexpected raw multiplicity".into());}match b.engine.observe(){Some(a)=>answer=Some(a),None=>return Response::Error("observation unavailable".into())}},chr_compiled::SearchEvent::Exhausted=>return answer.map_or(Response::Failure,Response::Success),_=>()}}
@@ -161,7 +161,7 @@ Response::Error("service cutoff".into())}).unwrap();}"#);
                 assert!(matches!(response, Response::Unsupported(_)));
                 continue;
             }
-            let expected = scalar::run(&fixture::rules(), q, 100_000);
+            let expected = scalar::run(&fixture::rules("add"), q, 100_000);
             let actual = match response {
                 Response::Success(a) => vec![a],
                 Response::Failure => vec![],
