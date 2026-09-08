@@ -1,0 +1,22 @@
+   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.90s
+     Running unittests src/lib.rs (target/debug/deps/chr_persistent-1f735267b1bcafc0)
+
+running 1 test
+test terms::tests::cow_hits_share_storage_and_insertions_detach_all_dictionaries ... FAILED
+
+failures:
+
+---- terms::tests::cow_hits_share_storage_and_insertions_detach_all_dictionaries stdout ----
+
+thread 'terms::tests::cow_hits_share_storage_and_insertions_detach_all_dictionaries' (780) panicked at research/chr-persistent/src/terms.rs:367:9:
+fork must share the data owner
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    terms::tests::cow_hits_share_storage_and_insertions_detach_all_dictionaries
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 5 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p chr-persistent --lib`

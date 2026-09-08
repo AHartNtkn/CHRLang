@@ -35,7 +35,7 @@ impl AnswerView for View<'_> {
         self.answer.residual.len()
     }
     fn residual_name(&self, i: usize) -> &str {
-        &self.arena.predicates[self.answer.residual[i].0].0
+        &self.arena.predicates()[self.answer.residual[i].0].0
     }
     fn residual_arity(&self, i: usize) -> usize {
         self.answer.residual[i].1.len()

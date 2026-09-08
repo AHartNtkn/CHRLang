@@ -265,7 +265,7 @@ impl State {
             .entries(&mut stats.storage)
             .into_iter()
             .map(|((pred, _), args)| Constraint {
-                name: arena.predicates[pred].0.clone(),
+                name: arena.predicates()[pred].0.clone(),
                 args: args
                     .iter()
                     .map(|t| arena.export(*t, &self.bindings, stats))

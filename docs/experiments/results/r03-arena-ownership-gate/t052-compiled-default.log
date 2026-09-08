@@ -1,0 +1,22 @@
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.21s
+     Running tests/arena_cow.rs (target/debug/deps/arena_cow-e47592f0720f4bd2)
+
+running 3 tests
+test refork_after_insertion_keeps_new_node_ids_and_aliases_valid ... ok
+test insertion_answer_oracle_rejects_missing_or_split_constructed_aliases ... ok
+test fired_constructor_insertion_then_failure_isolates_siblings_and_reuses_prepared ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running tests/state_preservation.rs (target/debug/deps/state_preservation-d685edd58408d7e9)
+
+running 5 tests
+test complete_answer_checker_rejects_alias_and_multiplicity_changes ... ok
+test payload_omission_or_broken_alias_prevents_small_answer ... ok
+test requested_key_selects_early_late_or_no_success_without_changing_rules ... ok
+test source_payload_is_live_and_bound_before_first_split ... ok
+test independent_live_state_and_complete_branch_gate ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s
+

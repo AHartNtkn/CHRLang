@@ -8,6 +8,7 @@ default = ["metrics"]
 metrics = ["kernel-metrics", "chr-observe/metrics"]
 kernel-metrics = []
 fork-diagnostics = []
+arena-cow = []
 
 [dependencies]
 chr-syntax = { path = "../../crates/chr-syntax" }

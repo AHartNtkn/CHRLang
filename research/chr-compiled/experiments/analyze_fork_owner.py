@@ -83,7 +83,7 @@ def audit(out):
     failures, answers, valid = [], 0, set()
     for row in rows:
         try:
-            assert row['command'] == [executable, *map(str, row['cell'])]
+            assert row['command'] == [executable, *map(str, row['cell']), 'read']
             found, count = check_row(row)
             failures.extend(found)
             answers += count

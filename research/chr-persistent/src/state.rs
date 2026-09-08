@@ -235,7 +235,7 @@ impl State {
             .entries(&mut stats.storage)
             .into_iter()
             .map(|((pred, _), args)| Constraint {
-                name: arena.predicates[pred].0.clone(),
+                name: arena.predicates()[pred].0.clone(),
                 args: args
                     .iter()
                     .map(|t| arena.export(*t, &self.bindings, stats))
@@ -463,7 +463,7 @@ impl State {
         fn work_key(w: &Work, arena: &Arena, bindings: &Bindings, stats: &mut Stats) -> WorkKey {
             match w {
                 Work::Insert(p, args) => WorkKey::Insert(
-                    arena.predicates[*p].0.clone(),
+                    arena.predicates()[*p].0.clone(),
                     args.iter()
                         .map(|&t| arena.export(t, bindings, stats))
                         .collect(),
@@ -496,7 +496,7 @@ impl State {
             .into_iter()
             .map(|((p, id), args)| {
                 (
-                    arena.predicates[p].0.clone(),
+                    arena.predicates()[p].0.clone(),
                     id,
                     args.iter()
                         .map(|&t| arena.export(t, &self.bindings, stats))

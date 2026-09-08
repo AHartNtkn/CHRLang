@@ -92,7 +92,7 @@ def main():
             if time.monotonic() - start > 1200:
                 (OUT / 'total-bound.json').write_text(json.dumps({'completed': i, 'planned': len(jobs)}))
                 break
-            command = [binaries['primary' if mode == 'warmup' else mode], *map(str, cell)]
+            command = [binaries['primary' if mode == 'warmup' else mode], *map(str, cell), "read"]
             before = time.monotonic()
             row = {'mode': mode, 'rep': rep, 'cell': cell, 'command': command}
             try:

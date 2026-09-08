@@ -314,7 +314,7 @@ impl Core {
             return Stats::default();
         }
         Stats {
-            predicate_dictionary_entries: self.arena.predicates.len(),
+            predicate_dictionary_entries: self.arena.predicates().len(),
             index_entries: self.stats.index_entries,
             dependency_edges: self.stats.dependency_edges,
             max_index_entries: self.stats.index_entries,
@@ -373,7 +373,7 @@ impl Core {
         }
         let pred = self.arena.predicate(name, arity);
         if COLLECT_METRICS {
-            self.stats.predicate_dictionary_entries = self.arena.predicates.len();
+            self.stats.predicate_dictionary_entries = self.arena.predicates().len();
         }
         pred
     }
@@ -913,7 +913,7 @@ impl Core {
                 .store
                 .values()
                 .map(|o| Constraint {
-                    name: self.arena.predicates[o.pred].0.clone(),
+                    name: self.arena.predicates()[o.pred].0.clone(),
                     args: o
                         .args
                         .iter()
@@ -933,7 +933,7 @@ impl Core {
         ) -> Goal {
             match work {
                 Work::Insert(p, args) => Goal::Constraint(Constraint {
-                    name: arena.predicates[*p].0.clone(),
+                    name: arena.predicates()[*p].0.clone(),
                     args: args
                         .iter()
                         .map(|t| arena.export(*t, bindings, stats))
@@ -964,7 +964,7 @@ impl Core {
                     (
                         *id,
                         Constraint {
-                            name: self.arena.predicates[o.pred].0.clone(),
+                            name: self.arena.predicates()[o.pred].0.clone(),
                             args: o
                                 .args
                                 .iter()
@@ -1261,7 +1261,7 @@ impl PreparedRuleset {
             rules: Arc::new(prepared),
             regions: None,
             dispatch: Arc::new(dispatch),
-            predicates: Arc::new(arena.predicates),
+            predicates: Arc::new(arena.into_predicates()),
             code,
         })
     }

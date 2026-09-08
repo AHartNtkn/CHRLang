@@ -75,7 +75,10 @@ fn failed_branch_interning_is_counted_once_and_siblings_stay_independent() {
             }
         }
         assert_eq!((splits, failures, complete, exhausted), (1, 1, 1, true));
-        assert_eq!(observer.count, 23);
+        assert_eq!(
+            observer.count,
+            if cfg!(feature = "arena-cow") { 19 } else { 23 }
+        );
         assert!(observer.active.is_none());
         assert_eq!(observer.segments.len(), 2);
         for (endpoint, segment) in &observer.segments {

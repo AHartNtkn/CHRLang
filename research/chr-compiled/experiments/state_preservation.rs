@@ -1,6 +1,8 @@
 //! Primary whole-service clock; separate inclusive event-class allocation diagnostics.
 #[path = "../tests/state_preservation_support/mod.rs"]
 mod fixture;
+#[path = "../tests/arena_cow_support/mod.rs"]
+mod insertion_fixture;
 #[cfg(feature = "alloc-meter")]
 use chr_compiled::experiment::meter;
 use chr_compiled::{Access, Policy, PreparedRuleset, SearchEvent, Stats};
@@ -21,6 +23,29 @@ const LABELS: [&str; 9] = [
 mod fork_diagnostics {
     use super::*;
     use chr_persistent::kernel::{ForkInterning, ForkObserver, ForkSegment};
+    #[cfg(feature = "arena-cow")]
+    const OWNERS: [&str; 19] = [
+        "rules",
+        "regions",
+        "arena_shared",
+        "bindings",
+        "store",
+        "pools",
+        "dispatch",
+        "history",
+        "pending",
+        "outputs",
+        "queue",
+        "queued",
+        "dependencies",
+        "watchers",
+        "index",
+        "occurrence_keys",
+        "trace",
+        "audit",
+        "search",
+    ];
+    #[cfg(not(feature = "arena-cow"))]
     const OWNERS: [&str; 23] = [
         "rules",
         "regions",
@@ -92,7 +117,7 @@ mod fork_diagnostics {
     }
     #[derive(Default)]
     pub(super) struct Totals {
-        owners: [Traffic; 23],
+        owners: [Traffic; OWNERS.len()],
         segments: [Segments; 3],
         opened: Option<(usize, Instant, meter::Checkpoint)>,
         pub interning: ForkInterning,
@@ -427,6 +452,7 @@ struct Report {
     n: usize,
     a: usize,
     all_success: bool,
+    insertion: bool,
     queries: usize,
     attempted: usize,
     budget: usize,
@@ -439,7 +465,9 @@ struct Report {
 impl Report {
     fn json(&self) -> String {
         format!(
-            "{{\"schema_version\":1,\"n\":{},\"alternatives\":{},\"all_success\":{},\"queries\":{},\"attempted\":{},\"budget_per_query\":{},\"metrics\":{},\"kernel_metrics\":{},\"observer_metrics\":{},\"metered\":{},\"baseline_live\":{},\"final_live\":{},\"prepare\":{},\"prepared_drop\":{},\"samples\":[{}]}}",
+            "{{\"schema_version\":1,\"arena_cow\":{},\"insertion\":{},\"n\":{},\"alternatives\":{},\"all_success\":{},\"queries\":{},\"attempted\":{},\"budget_per_query\":{},\"metrics\":{},\"kernel_metrics\":{},\"observer_metrics\":{},\"metered\":{},\"baseline_live\":{},\"final_live\":{},\"prepare\":{},\"prepared_drop\":{},\"samples\":[{}]}}",
+            cfg!(feature = "arena-cow"),
+            self.insertion,
             self.n,
             self.a,
             self.all_success,
@@ -469,6 +497,7 @@ fn run(
     n: usize,
     a: usize,
     all_success: bool,
+    insertion: bool,
     queries: usize,
     budget: usize,
 ) -> Result<Report, String> {
@@ -486,7 +515,11 @@ fn run(
     if cfg!(feature = "fork-diagnostics") && !cfg!(feature = "alloc-meter") {
         return Err("fork diagnostics runner requires alloc-meter".into());
     }
-    let rules = fixture::rules();
+    let rules = if insertion {
+        insertion_fixture::rules()
+    } else {
+        fixture::rules()
+    };
     let samples = std::iter::repeat_with(Sample::default)
         .take(queries)
         .collect();
@@ -501,6 +534,7 @@ fn run(
         n,
         a,
         all_success,
+        insertion,
         queries,
         attempted: 0,
         budget,
@@ -513,8 +547,17 @@ fn run(
     for index in 0..queries {
         let s = &mut report.samples[index];
         s.n = n + index % 2;
-        s.predicted_applications = s.n + 1 + a + (s.n + 1) * fixture::expected_raw(a, all_success);
-        let (query, phase) = measure(|| fixture::query(s.n, a, all_success));
+        s.predicted_applications = s.n
+            + 1
+            + a * if insertion { 2 } else { 1 }
+            + (s.n + 1) * fixture::expected_raw(a, all_success);
+        let (query, phase) = measure(|| {
+            if insertion {
+                insertion_fixture::query(s.n, a, all_success)
+            } else {
+                fixture::query(s.n, a, all_success)
+            }
+        });
         s.query = phase;
         let (engine, phase) =
             measure(|| prepared.start_search(query, Policy::Global, Access::Indexed));
@@ -621,7 +664,21 @@ fn run(
         let (_, phase) = measure(|| drop(engine));
         s.engine_drop = phase;
         let start = Instant::now();
-        let valid = answers.iter().all(fixture::answer_matches);
+        let valid = if insertion {
+            let mut seen = vec![false; a];
+            answers.iter().all(|answer| {
+                let Some(key) = insertion_fixture::answer_key(answer) else {
+                    return false;
+                };
+                if key >= a || (!all_success && key != 0) || seen[key] {
+                    return false;
+                }
+                seen[key] = true;
+                true
+            })
+        } else {
+            answers.iter().all(fixture::answer_matches)
+        };
         s.validation.ns = start.elapsed().as_nanos();
         if !valid {
             return Err("complete answer mismatch".into());
@@ -679,8 +736,8 @@ fn entry() -> Result<(), String> {
         #[cfg(not(feature = "alloc-meter"))]
         return Err("requires alloc-meter".into());
     }
-    if args.len() != 4 {
-        return Err("usage: N A all-success|mostly-fail QUERIES".into());
+    if args.len() != 5 {
+        return Err("usage: N A all-success|mostly-fail QUERIES read|insert".into());
     }
     let n = args[0].parse().map_err(|_| "invalid N")?;
     let a = args[1].parse().map_err(|_| "invalid A")?;
@@ -690,7 +747,12 @@ fn entry() -> Result<(), String> {
         _ => return Err("invalid outcome mode".into()),
     };
     let queries = args[3].parse().map_err(|_| "invalid queries")?;
-    let report = run(n, a, all_success, queries, BUDGET)?;
+    let insertion = match args[4].as_str() {
+        "read" => false,
+        "insert" => true,
+        _ => return Err("invalid mutation mode".into()),
+    };
+    let report = run(n, a, all_success, insertion, queries, BUDGET)?;
     println!("{}", report.json());
     Ok(())
 }
@@ -699,8 +761,8 @@ mod tests {
     use super::*;
     #[test]
     fn small_complete_sessions_and_cutoff() {
-        for all in [false, true] {
-            let r = run(2, 3, all, 2, 100_000).unwrap();
+        for (all, insertion) in [(false, false), (false, true), (true, false), (true, true)] {
+            let r = run(2, 3, all, insertion, 2, 100_000).unwrap();
             assert_eq!(r.attempted, 2);
             assert!(
                 r.samples
@@ -708,9 +770,9 @@ mod tests {
                     .all(|s| s.exhausted && s.answers == if all { 3 } else { 1 })
             );
         }
-        let r = run(0, 1, false, 1, 100_000).unwrap();
+        let r = run(0, 1, false, true, 1, 100_000).unwrap();
         assert_eq!(r.samples[0].splits, 0);
-        let r = run(2, 3, false, 2, 0).unwrap();
+        let r = run(2, 3, false, true, 2, 0).unwrap();
         assert_eq!(r.attempted, 1);
         assert!(!r.samples[0].exhausted);
         assert_eq!(r.samples[0].answers, 0);

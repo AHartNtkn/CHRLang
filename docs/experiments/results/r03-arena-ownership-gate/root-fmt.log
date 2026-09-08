@@ -1,0 +1,65 @@
+Diff in /home/ahart/Documents/CHRLang/research/chr-compiled/experiments/state_preservation.rs:515:
+     if cfg!(feature = "fork-diagnostics") && !cfg!(feature = "alloc-meter") {
+         return Err("fork diagnostics runner requires alloc-meter".into());
+     }
+-    let rules = if insertion { insertion_fixture::rules() } else { fixture::rules() };
++    let rules = if insertion {
++        insertion_fixture::rules()
++    } else {
++        fixture::rules()
++    };
+     let samples = std::iter::repeat_with(Sample::default)
+         .take(queries)
+         .collect();
+Diff in /home/ahart/Documents/CHRLang/research/chr-compiled/experiments/state_preservation.rs:543:
+     for index in 0..queries {
+         let s = &mut report.samples[index];
+         s.n = n + index % 2;
+-        s.predicted_applications = s.n + 1 + a * if insertion { 2 } else { 1 } + (s.n + 1) * fixture::expected_raw(a, all_success);
+-        let (query, phase) = measure(|| if insertion { insertion_fixture::query(s.n, a, all_success) } else { fixture::query(s.n, a, all_success) });
++        s.predicted_applications = s.n
++            + 1
++            + a * if insertion { 2 } else { 1 }
++            + (s.n + 1) * fixture::expected_raw(a, all_success);
++        let (query, phase) = measure(|| {
++            if insertion {
++                insertion_fixture::query(s.n, a, all_success)
++            } else {
++                fixture::query(s.n, a, all_success)
++            }
++        });
+         s.query = phase;
+         let (engine, phase) =
+             measure(|| prepared.start_search(query, Policy::Global, Access::Indexed));
+Diff in /home/ahart/Documents/CHRLang/research/chr-compiled/experiments/state_preservation.rs:654:
+         let valid = if insertion {
+             let mut seen = vec![false; a];
+             answers.iter().all(|answer| {
+-                let Some(key) = insertion_fixture::answer_key(answer) else { return false; };
+-                if key >= a || (!all_success && key != 0) || seen[key] { return false; }
++                let Some(key) = insertion_fixture::answer_key(answer) else {
++                    return false;
++                };
++                if key >= a || (!all_success && key != 0) || seen[key] {
++                    return false;
++                }
+                 seen[key] = true;
+                 true
+             })
+Diff in /home/ahart/Documents/CHRLang/research/chr-compiled/experiments/state_preservation.rs:662:
+-        } else { answers.iter().all(fixture::answer_matches) };
++        } else {
++            answers.iter().all(fixture::answer_matches)
++        };
+         s.validation.ns = start.elapsed().as_nanos();
+         if !valid {
+             return Err("complete answer mismatch".into());
+Diff in /home/ahart/Documents/CHRLang/research/chr-compiled/experiments/state_preservation.rs:742:
+     use super::*;
+     #[test]
+     fn small_complete_sessions_and_cutoff() {
+-        for (all, insertion) in [(false,false), (false,true), (true,false), (true,true)] {
++        for (all, insertion) in [(false, false), (false, true), (true, false), (true, true)] {
+             let r = run(2, 3, all, insertion, 2, 100_000).unwrap();
+             assert_eq!(r.attempted, 2);
+             assert!(

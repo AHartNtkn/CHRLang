@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Execute the prospectively registered T051 fork-owner allocation investigation."""
+"""Execute the prospectively registered T052 arena ownership lifecycle comparison."""
 import argparse
 import hashlib
 import json
@@ -38,61 +38,69 @@ def main():
                  'research/chr-persistent', 'research/chr-observe', 'crates/chr-syntax']:
         files.extend(p for p in (ROOT / base).rglob('*') if p.suffix in ['.rs', '.toml', '.py'])
     meta['sources'] = {str(p.relative_to(ROOT)): digest(p) for p in sorted(set(files))}
-    cells = [(n, a, outcome, queries) for n in [0, 64, 512]
-             for a in [1, 8, 64] for outcome in ['mostly-fail', 'all-success']
-             for queries in [1, 4]]
+    cells = [(n, a, outcome, queries, mutation) for n in [0, 512]
+             for a in [1, 64] for outcome in ['mostly-fail', 'all-success']
+             for queries in [1, 4] for mutation in ['read', 'insert']]
     jobs = []
     rng = random.Random(args.seed)
-    for mode, reps in [('allocation', 2)]:
-        batch = [(mode, rep, cell) for rep in range(reps) for cell in cells]
+    for mode, reps in [('warmup', 1), ('primary', 5), ('allocation', 1), ('work', 1)]:
+        batch = [(mode, rep, ownership, cell) for rep in range(reps)
+                 for ownership in ['clone', 'cow'] for cell in cells]
         rng.shuffle(batch)
         jobs.extend(batch)
     meta['bounds'] = {'process_seconds': 30, 'process_address_bytes': 1024**3,
-                      'execution_seconds': 600, 'build_seconds': 180}
+                      'execution_seconds': 1200, 'build_seconds': 180}
     meta['seed'] = args.seed
-    meta['jobs'] = [{'mode': mode, 'rep': rep, 'cell': cell} for mode, rep, cell in jobs]
+    meta['jobs'] = [{'mode': mode, 'rep': rep, 'ownership': ownership, 'cell': cell}
+                    for mode, rep, ownership, cell in jobs]
     (OUT / 'metadata.json').write_text(json.dumps(meta, indent=2) + '\n')
     binaries = {}
-    for mode, features in [('allocation', ['--no-default-features', '--features', 'alloc-meter,fork-diagnostics'])]:
-        target = ROOT / 'target' / (OUT.name + '-' + mode)
-        command = ['cargo', 'build', '--locked', '--offline', '--release', '-p', 'chr-compiled',
-                   '--bin', 'chr-state-preservation-cost', '--target-dir', str(target), *features]
-        build = {'command': command, 'status': 'running'}
-        meta.setdefault('builds', {})[mode] = build
-        (OUT / 'metadata.json').write_text(json.dumps(meta, indent=2) + '\n')
-        before = time.monotonic()
-        try:
-            with (OUT / (mode + '-build.log')).open('w') as log:
-                result = subprocess.run(command, cwd=ROOT, stdout=log,
-                                        stderr=subprocess.STDOUT, timeout=180)
-            build.update(exit=result.returncode, status='complete' if result.returncode == 0 else 'failed')
-            result.check_returncode()
-            binaries[mode] = str(target / 'release/chr-state-preservation-cost')
-            build['binary_sha256'] = digest(pathlib.Path(binaries[mode]))
-        except (OSError, subprocess.SubprocessError) as error:
-            build.update(status='failed', error=repr(error))
-            raise
-        finally:
-            build['wall_s'] = time.monotonic() - before
+    for mode, features in [('primary', ['--no-default-features', '--features', 'experiment']),
+                           ('allocation', ['--no-default-features', '--features', 'alloc-meter']),
+                           ('work', ['--features', 'experiment'])]:
+        for ownership in ['clone', 'cow']:
+            key = ownership + '-' + mode
+            target = ROOT / 'target' / (OUT.name + '-' + key)
+            selected = features if ownership == 'clone' else [*features[:-1], features[-1] + ',arena-cow']
+            command = ['cargo', 'build', '--locked', '--offline', '--release', '-p', 'chr-compiled',
+                       '--bin', 'chr-state-preservation-cost', '--target-dir', str(target), *selected]
+            build = {'command': command, 'status': 'running'}
+            meta.setdefault('builds', {})[key] = build
             (OUT / 'metadata.json').write_text(json.dumps(meta, indent=2) + '\n')
+            before = time.monotonic()
+            try:
+                with (OUT / (key + '-build.log')).open('w') as log:
+                    result = subprocess.run(command, cwd=ROOT, stdout=log,
+                                            stderr=subprocess.STDOUT, timeout=180)
+                build.update(exit=result.returncode, status='complete' if result.returncode == 0 else 'failed')
+                result.check_returncode()
+                binaries[key] = str(target / 'release/chr-state-preservation-cost')
+                build['binary_sha256'] = digest(pathlib.Path(binaries[key]))
+            except (OSError, subprocess.SubprocessError) as error:
+                build.update(status='failed', error=repr(error))
+                raise
+            finally:
+                build['wall_s'] = time.monotonic() - before
+                (OUT / 'metadata.json').write_text(json.dumps(meta, indent=2) + '\n')
+
 
     (OUT / 'metadata.json').write_text(json.dumps(meta, indent=2) + '\n')
     def limits():
         os.sched_setaffinity(0, {cpu})
         resource.setrlimit(resource.RLIMIT_AS, (1024**3, 1024**3))
-    check = subprocess.run([binaries['allocation'], 'meter-check'], capture_output=True,
+    check = subprocess.run([binaries['clone-allocation'], 'meter-check'], capture_output=True,
                            text=True, timeout=30, preexec_fn=limits)
     (OUT / 'meter-check.log').write_text(check.stdout + check.stderr)
     check.check_returncode()
     start = time.monotonic()
     with (OUT / 'runs.jsonl').open('x') as log:
-        for i, (mode, rep, cell) in enumerate(jobs):
-            if time.monotonic() - start > 600:
+        for i, (mode, rep, ownership, cell) in enumerate(jobs):
+            if time.monotonic() - start > 1200:
                 (OUT / 'total-bound.json').write_text(json.dumps({'completed': i, 'planned': len(jobs)}))
                 break
-            command = [binaries[mode], *map(str, cell), "read"]
+            command = [binaries[ownership + '-' + ('primary' if mode == 'warmup' else mode)], *map(str, cell)]
             before = time.monotonic()
-            row = {'mode': mode, 'rep': rep, 'cell': cell, 'command': command}
+            row = {'mode': mode, 'rep': rep, 'ownership': ownership, 'cell': cell, 'command': command}
             try:
                 result = subprocess.run(command, capture_output=True, text=True,
                                         timeout=30, preexec_fn=limits)

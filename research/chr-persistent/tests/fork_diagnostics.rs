@@ -25,7 +25,10 @@ fn actual_clone_and_latest_prefix_interning_are_branch_local() {
     assert_eq!(arena.take_fork_interning().misses, 0);
     let mut observer = Observer::default();
     let mut sibling = arena.clone_observed(&mut observer);
-    assert_eq!(observer.count, 5);
+    assert_eq!(
+        observer.count,
+        if cfg!(feature = "arena-cow") { 1 } else { 5 }
+    );
     assert!(observer.opened.is_none());
     arena.mark_fork_prefix();
     sibling.mark_fork_prefix();
