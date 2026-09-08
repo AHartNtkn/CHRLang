@@ -23,3 +23,5 @@ Unbounded runs reach prefixes 1,2,4,8,16,32 with drop and retain consumers. Fini
 Five tests pass with `cargo test -p chr-direct-conditional --features experiment --test streaming` and with the added `--no-default-features` option. Targeted Clippy with `-D warnings` passes in both configurations; workspace formatting passes. No semantic service cutoff was reached. Root reviewed the fixture, oracle and consumer ownership checks. An independent read-only review found no blocker in the architectural selection or analytical ownership entry. Runtime implementation and reference execution are unchanged.
 
 Next within T039: implement the lifecycle runner, freeze exact comparative configurations and resource bounds, then run the registered pilot. Timing and requested-heap rankings remain unmeasured for this stream.
+
+The [prospective lifecycle registration](../registrations/R06-streaming-lifetime.md) now fixes both engines, two answer families, drop/retain consumers, finite/unbounded extents, targets16/64/128 and384 isolated processes. Runner validation and a source freeze precede execution.

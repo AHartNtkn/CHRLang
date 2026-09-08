@@ -22,3 +22,8 @@ chr-observe = { path = "../chr-observe", optional = true }
 
 [dev-dependencies]
 chr-observe = { path = "../chr-observe" }
+
+[[bin]]
+name = "chr-stream-cost"
+path = "experiments/stream.rs"
+required-features = ["experiment"]
