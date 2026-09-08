@@ -20,6 +20,12 @@ const METRICS: bool = cfg!(feature = "metrics");
 #[derive(Default, Debug)]
 pub struct Stats {
     pub ticks: u64,
+    /// Actual source body equality jobs, including equations inside choices.
+    #[cfg(feature = "metrics")]
+    pub equality_jobs: u64,
+    /// Calls advancing those jobs; includes their support and failure service.
+    #[cfg(feature = "metrics")]
+    pub equality_ticks: u64,
     pub applications: u64,
     pub births: u64,
     pub answers: u64,
@@ -762,6 +768,10 @@ impl Engine {
                     BodyState::Next
                 }
                 Goal::Unify(a, b) => {
+                    #[cfg(feature = "metrics")]
+                    {
+                        self.stats.equality_jobs += 1;
+                    }
                     let left = lower(&a, &mut body.vars, &mut self.store);
                     let right = lower(&b, &mut body.vars, &mut self.store);
                     BodyState::Unify(Box::new(self.store.unify(scope, left, right)))
@@ -786,11 +796,17 @@ impl Engine {
                     }
                 }
             },
-            BodyState::Unify(mut job) => match job.tick(&mut self.store, &mut self.arena) {
-                UnifyStatus::Pending => BodyState::Unify(job),
-                UnifyStatus::Complete { .. } => BodyState::Next,
-                UnifyStatus::Stale => panic!("serial equality writer changed"),
-            },
+            BodyState::Unify(mut job) => {
+                #[cfg(feature = "metrics")]
+                {
+                    self.stats.equality_ticks += 1;
+                }
+                match job.tick(&mut self.store, &mut self.arena) {
+                    UnifyStatus::Pending => BodyState::Unify(job),
+                    UnifyStatus::Complete { .. } => BodyState::Next,
+                    UnifyStatus::Stale => panic!("serial equality writer changed"),
+                }
+            }
             BodyState::Fail(mut job) => match job.tick(&mut self.store, &mut self.arena) {
                 UnifyStatus::Pending => BodyState::Fail(job),
                 UnifyStatus::Complete { .. } => BodyState::Next,
