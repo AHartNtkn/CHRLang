@@ -1,6 +1,6 @@
 //! Raw-answer FIFO source execution with stable-identity equation interception.
 use crate::stable::{EquationCache, Policy};
-use chr_persistent::continuations::{Cursor, Machine, Step};
+use chr_persistent::continuations::{Cursor, Machine, PreparedMachine, Step};
 use chr_syntax::{Answer, Query, Rule};
 use std::collections::VecDeque;
 pub struct Search {
@@ -14,6 +14,30 @@ pub struct Batch {
     pub answers: Vec<Answer>,
     pub exhausted: bool,
 }
+pub struct Prepared {
+    machine: PreparedMachine,
+    policy: Policy,
+    capacity: usize,
+}
+impl Prepared {
+    pub fn new(rules: Vec<Rule>, policy: Policy, capacity: usize) -> Result<Self, String> {
+        Ok(Self {
+            machine: PreparedMachine::new(rules)?,
+            policy,
+            capacity,
+        })
+    }
+    pub fn start(&self, query: Query) -> Result<Search, String> {
+        let (machine, cursor) = self.machine.start(query)?;
+        Ok(Search {
+            machine,
+            frontier: VecDeque::from([cursor]),
+            table: EquationCache::new(self.capacity),
+            policy: self.policy,
+            hits: 0,
+        })
+    }
+}
 impl Search {
     pub fn new(
         rules: Vec<Rule>,
@@ -21,14 +45,10 @@ impl Search {
         policy: Policy,
         capacity: usize,
     ) -> Result<Self, String> {
-        let (machine, cursor) = Machine::new(rules, query)?;
-        Ok(Self {
-            machine,
-            frontier: VecDeque::from([cursor]),
-            table: EquationCache::new(capacity),
-            policy,
-            hits: 0,
-        })
+        Prepared::new(rules, policy, capacity)?.start(query)
+    }
+    pub fn source_stats(&self) -> &chr_persistent::Stats {
+        self.machine.stats()
     }
     pub fn hits(&self) -> u64 {
         self.hits

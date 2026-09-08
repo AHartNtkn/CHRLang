@@ -1,0 +1,16 @@
+{
+  "command": [
+    "cargo",
+    "run",
+    "-p",
+    "chr-reuse",
+    "--release",
+    "--example",
+    "lifecycle",
+    "--",
+    "work"
+  ],
+  "exit_code": 0,
+  "stdout": "{\"family\":\"before-success\",\"mode\":\"direct\",\"hits\":0,\"equations\":46,\"pairs\":2142}\n{\"family\":\"before-success\",\"mode\":\"exact\",\"hits\":0,\"equations\":46,\"pairs\":2142}\n{\"family\":\"before-success\",\"mode\":\"dependencies\",\"hits\":37,\"equations\":46,\"pairs\":140}\n{\"family\":\"after-success\",\"mode\":\"direct\",\"hits\":0,\"equations\":46,\"pairs\":2142}\n{\"family\":\"after-success\",\"mode\":\"exact\",\"hits\":0,\"equations\":46,\"pairs\":2142}\n{\"family\":\"after-success\",\"mode\":\"dependencies\",\"hits\":37,\"equations\":46,\"pairs\":140}\n{\"family\":\"before-clash\",\"mode\":\"direct\",\"hits\":0,\"equations\":46,\"pairs\":1086}\n{\"family\":\"before-clash\",\"mode\":\"exact\",\"hits\":0,\"equations\":46,\"pairs\":1086}\n{\"family\":\"before-clash\",\"mode\":\"dependencies\",\"hits\":37,\"equations\":46,\"pairs\":74}\n{\"family\":\"after-clash\",\"mode\":\"direct\",\"hits\":0,\"equations\":46,\"pairs\":1086}\n{\"family\":\"after-clash\",\"mode\":\"exact\",\"hits\":0,\"equations\":46,\"pairs\":1086}\n{\"family\":\"after-clash\",\"mode\":\"dependencies\",\"hits\":37,\"equations\":46,\"pairs\":74}\n{\"family\":\"trivial\",\"mode\":\"direct\",\"hits\":0,\"equations\":46,\"pairs\":46}\n{\"family\":\"trivial\",\"mode\":\"exact\",\"hits\":0,\"equations\":46,\"pairs\":46}\n{\"family\":\"trivial\",\"mode\":\"dependencies\",\"hits\":37,\"equations\":46,\"pairs\":9}\n{\"family\":\"unique\",\"mode\":\"direct\",\"hits\":0,\"equations\":46,\"pairs\":2174}\n{\"family\":\"unique\",\"mode\":\"exact\",\"hits\":0,\"equations\":46,\"pairs\":2174}\n{\"family\":\"unique\",\"mode\":\"dependencies\",\"hits\":22,\"equations\":46,\"pairs\":2152}\n",
+  "stderr": "    Finished `release` profile [optimized] target(s) in 0.00s\n     Running `target/release/examples/lifecycle work`\n"
+}

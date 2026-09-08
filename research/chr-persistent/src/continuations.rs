@@ -1,5 +1,5 @@
 //! Experimental source-step interface. Cursors belong to their creating machine.
-use crate::{Search, Snapshot, Stats, state, terms};
+use crate::{Snapshot, Stats, state, terms};
 use chr_syntax::{Answer, Query, Rule, Term, Var};
 use std::collections::BTreeMap;
 
@@ -35,7 +35,7 @@ pub enum Step {
     Answer(Answer),
 }
 pub struct Machine {
-    rules: Vec<Rule>,
+    rules: std::rc::Rc<Vec<Rule>>,
     arena: terms::Arena,
     stats: Stats,
     owner: std::rc::Rc<()>,
@@ -73,24 +73,54 @@ impl EquationAccess<'_> {
         )
     }
 }
-impl Machine {
-    pub fn new(rules: Vec<Rule>, query: Query) -> Result<(Self, Cursor), String> {
-        let mut search = Search::new(rules, query, Snapshot::Persistent)?;
+pub struct PreparedMachine {
+    rules: std::rc::Rc<Vec<Rule>>,
+}
+impl PreparedMachine {
+    pub fn new(rules: Vec<Rule>) -> Result<Self, String> {
+        let mut names = std::collections::BTreeSet::new();
+        for r in &rules {
+            if r.kept.is_empty() && r.removed.is_empty() {
+                return Err("empty rule heads".into());
+            }
+            if !names.insert(&r.name) {
+                return Err("duplicate rule name".into());
+            }
+        }
+        Ok(Self {
+            rules: std::rc::Rc::new(rules),
+        })
+    }
+    pub fn start(&self, query: Query) -> Result<(Machine, Cursor), String> {
+        let mut names = std::collections::BTreeSet::new();
+        for (name, _) in &query.outputs {
+            if !names.insert(name) {
+                return Err("duplicate output name".into());
+            }
+        }
+        let mut arena = terms::Arena::default();
+        let mut stats = Stats {
+            max_frontier: usize::from(crate::COLLECT_METRICS),
+            ..Stats::default()
+        };
+        let state = state::State::new(query, &mut arena, &mut stats);
         let owner = std::rc::Rc::new(());
-        let cursor = Cursor(
-            search.frontier.pop_front().expect("initial state"),
-            owner.clone(),
-        );
+        let cursor = Cursor(state, owner.clone());
         Ok((
-            Self {
-                rules: search.rules,
-                arena: search.arena,
-                stats: search.stats,
+            Machine {
+                rules: self.rules.clone(),
+                arena,
+                stats,
                 owner,
-                eager_export: search.eager_export,
+                eager_export: crate::EagerExportStats::default(),
             },
             cursor,
         ))
+    }
+}
+impl Machine {
+    pub fn new(rules: Vec<Rule>, query: Query) -> Result<(Self, Cursor), String> {
+        PreparedMachine::new(rules)?.start(query)
     }
     /// Intercept only an actual pending equation. All other source transitions
     /// use the ordinary machine. A successful transaction is followed by its

@@ -1,0 +1,11 @@
+{
+  "command": [
+    "/home/ahart/Documents/CHRLang/target/s05-lifecycle/meter/release/examples/lifecycle",
+    "exact",
+    "trivial",
+    "1"
+  ],
+  "exit_code": 0,
+  "stdout": "{\"family\":\"trivial\",\"mode\":\"exact\",\"reuse\":1,\"meter\":true,\"preparation\":{\"ns\":24304,\"memory\":{\"live_start\":47567,\"live_end\":72617,\"peak_live\":73129,\"allocation_calls\":374,\"requested_bytes\":25562,\"deallocation_calls\":4}},\"prepared_disposal\":{\"ns\":4944,\"memory\":{\"live_start\":72617,\"live_end\":47567,\"peak_live\":72617,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":370}},\"queries\":[{\"setup\":{\"ns\":2296,\"memory\":{\"live_start\":72617,\"live_end\":73890,\"peak_live\":74298,\"allocation_calls\":36,\"requested_bytes\":2101,\"deallocation_calls\":12}},\"execution_observation\":{\"ns\":112478,\"memory\":{\"live_start\":73890,\"live_end\":100033,\"peak_live\":100866,\"allocation_calls\":2366,\"requested_bytes\":132646,\"deallocation_calls\":1953}},\"engine_disposal\":{\"ns\":1874,\"memory\":{\"live_start\":100033,\"live_end\":88617,\"peak_live\":100033,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":119}},\"answer_disposal\":{\"ns\":4022,\"memory\":{\"live_start\":88617,\"live_end\":72617,\"peak_live\":88617,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":305}},\"first_ns\":74979,\"count\":16}],\"cancellation\":{\"setup\":{\"ns\":1452,\"memory\":{\"live_start\":72617,\"live_end\":73890,\"peak_live\":74298,\"allocation_calls\":36,\"requested_bytes\":2101,\"deallocation_calls\":12}},\"execution_observation\":{\"ns\":81809,\"memory\":{\"live_start\":73890,\"live_end\":94890,\"peak_live\":95442,\"allocation_calls\":1509,\"requested_bytes\":109129,\"deallocation_calls\":1208}},\"engine_disposal\":{\"ns\":4299,\"memory\":{\"live_start\":94890,\"live_end\":73761,\"peak_live\":94890,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":294}},\"answer_disposal\":{\"ns\":475,\"memory\":{\"live_start\":73761,\"live_end\":72617,\"peak_live\":73761,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":20}}}}\n",
+  "stderr": ""
+}

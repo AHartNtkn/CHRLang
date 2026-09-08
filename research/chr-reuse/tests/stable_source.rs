@@ -171,3 +171,24 @@ fn one_cache_cannot_accept_another_machines_constructor_numbers() {
         });
     }
 }
+
+#[test]
+fn prepared_rules_are_reused_across_changed_queries_without_cache_identity_leakage() {
+    use chr_reuse::stable_search::Prepared;
+    let rules = vec![Rule::simplify(
+        "bind",
+        [c("start", [v(0), v(1)])],
+        or(eq(v(0), v(1)), eq(v(0), v(1))),
+    )];
+    for policy in [Policy::Exact, Policy::Dependencies] {
+        let p = Prepared::new(rules.clone(), policy, 16).unwrap();
+        for name in ["a", "b", "a"] {
+            let q = chr_cases::query(vec![c("start", [v(0), atom(name)])], &[0]);
+            let expected = oracle::run(&rules, &q, 1000);
+            let mut s = p.start(q).unwrap();
+            let b = s.advance(1000);
+            assert!(b.exhausted);
+            oracle::same_raw(b.answers, expected);
+        }
+    }
+}
