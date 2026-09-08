@@ -1,5 +1,5 @@
 //! Complete source execution over relational ownership; choice copies a state.
-use crate::{HeadPlan, Occurrence, Value, store::Store};
+use crate::{HeadPlan, Match, Occurrence, Value, store::Store};
 use chr_syntax::{Answer, Constraint, Goal, Guard, Query, Rule, Term, Var};
 use std::collections::{BTreeMap, BTreeSet, VecDeque};
 use std::sync::Arc;
@@ -7,6 +7,7 @@ use std::sync::Arc;
 pub struct Prepared {
     rules: Vec<Rule>,
     plans: Vec<HeadPlan>,
+    arrivals: BTreeMap<(String, usize), Vec<usize>>,
 }
 impl Prepared {
     pub fn new(rules: &[Rule]) -> Result<Arc<Self>, String> {
@@ -16,7 +17,19 @@ impl Prepared {
         {
             return Err("rules require at least one head".into());
         }
+        let mut arrivals: BTreeMap<(String, usize), Vec<usize>> = BTreeMap::new();
+        for (ri, rule) in rules.iter().enumerate() {
+            for head in rule.kept.iter().chain(&rule.removed) {
+                let readers = arrivals
+                    .entry((head.name.clone(), head.args.len()))
+                    .or_default();
+                if !readers.contains(&ri) {
+                    readers.push(ri);
+                }
+            }
+        }
         Ok(Arc::new(Self {
+            arrivals,
             rules: rules.to_vec(),
             plans: rules
                 .iter()
@@ -25,7 +38,10 @@ impl Prepared {
         }))
     }
     pub fn start(self: &Arc<Self>, query: &Query) -> Engine {
-        let mut state = State::default();
+        let mut state = State {
+            candidates: vec![None; self.rules.len()],
+            ..State::default()
+        };
         let mut env = BTreeMap::new();
         for c in &query.constraints {
             let args = c
@@ -61,6 +77,7 @@ struct State {
     pending: Vec<Effect>,
     history: BTreeSet<(usize, Vec<Occurrence>)>,
     outputs: Vec<(String, Value)>,
+    candidates: Vec<Option<VecDeque<Match>>>,
 }
 #[derive(PartialEq, Eq)]
 enum GuardTerm {
@@ -110,7 +127,10 @@ impl State {
     }
     fn application(&mut self, p: &Prepared) -> bool {
         for (ri, (rule, plan)) in p.rules.iter().zip(&p.plans).enumerate() {
-            for candidate in self.store.matches(plan).matches {
+            if self.candidates[ri].is_none() {
+                self.candidates[ri] = Some(self.store.matches(plan).matches.into());
+            }
+            while let Some(candidate) = self.candidates[ri].as_mut().unwrap().pop_front() {
                 let ids = candidate
                     .kept
                     .iter()
@@ -178,13 +198,22 @@ impl Engine {
         let Some(mut state) = self.frontier.pop_front() else {
             return Step::Exhausted;
         };
-        state.store.step();
+        if state.store.step() {
+            // Equality changes both canonical keys and positive guard entailment.
+            // Conservatively invalidate even when this queued deduction is redundant.
+            state.candidates.fill(None);
+        }
         if state.store.failed() {
             return Step::Progress;
         }
         if let Some(effect) = state.pending.pop() {
             match effect {
                 Effect::Post(n, xs) => {
+                    if let Some(readers) = self.prepared.arrivals.get(&(n.clone(), xs.len())) {
+                        for ri in readers {
+                            state.candidates[*ri] = None;
+                        }
+                    }
                     state.store.post(&n, &xs);
                 }
                 Effect::Equal(a, b) => state.store.equate(a, b),

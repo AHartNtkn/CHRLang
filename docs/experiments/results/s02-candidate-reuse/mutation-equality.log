@@ -1,0 +1,22 @@
+
+running 1 test
+test candidate_reuse_preserves_priority_arrivals_guards_and_consumption ... FAILED
+
+failures:
+
+---- candidate_reuse_preserves_priority_arrivals_guards_and_consumption stdout ----
+
+thread 'candidate_reuse_preserves_priority_arrivals_guards_and_consumption' (232) panicked at research/chr-relational/tests/../../chr-direct-conditional/tests/runtime_support/mod.rs:273:32:
+missing full observation Answer { outputs: [("x", App("a", [])), ("y", Var(Var(21)))], residual: [Constraint { name: "guarded", args: [App("a", [])] }] }; remaining [Answer { outputs: [("x", App("a", [])), ("y", Var(Var(1)))], residual: [Constraint { name: "p", args: [App("a", [])] }] }]
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    candidate_reuse_preserves_priority_arrivals_guards_and_consumption
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 2 filtered out; finished in 0.00s
+
+   Compiling chr-relational v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-relational)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.87s
+     Running tests/source.rs (target/debug/deps/source-9fd2bf1104a15cfc)
+error: test failed, to rerun pass `-p chr-relational --test source`

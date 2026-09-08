@@ -276,3 +276,7 @@ The [relational source gate](S02-relational-source.md) passes 46 independently c
 ## S02 lifecycle pilot
 
 The [140-process pilot](S02-lifecycle-pilot.md) demonstrates a selective-constructor advantage against the integrated control, but substantial broad-match losses and faster dedicated controls throughout the tested families. Repeated full candidate materialization is a concrete profiled cost, selected for a bounded correction overlapping S01's retained discovery. Delayed-selective relational/integrated timing remains inconclusive. No general architecture or contextual-integration disposition follows.
+
+## S02 candidate reuse and S06 selection
+
+The [paired candidate-reuse correction](S02-candidate-reuse.md) completes 175 processes, reducing flat/dense relational lifecycle by about two thirds and delayed-dense lifecycle by 45%, with independent invalidation counterchecks. The selective-constructor benefit survives, while broad comparisons still favor controls. T063's bounded trial is complete; broader S02 obligations remain open. [Direct relation compilation](S06-direct-relation-entry.md) is selected ahead of another local correction because it tests elimination of the execution loop, with S01 retained discovery the strongest ready alternative.

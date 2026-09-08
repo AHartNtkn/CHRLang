@@ -197,3 +197,99 @@ fn finite_sibling_publishes_beside_ongoing_rule_work() {
     assert_eq!(answers.len(), 1);
     assert_eq!(answers[0].outputs, vec![("x".into(), atom("answer"))]);
 }
+
+#[test]
+fn candidate_reuse_preserves_priority_arrivals_guards_and_consumption() {
+    let mut guarded = Rule::simplify("guard-first", [c("p", [v(0)])], c("guarded", [v(0)]).into());
+    guarded.guards = vec![Guard::Equal(v(0), atom("a"))];
+    let cases = vec![
+        // A new higher-priority head must take the shared token before low.
+        (
+            vec![
+                Rule::simplify(
+                    "high",
+                    [c("p", [v(0)]), c("token", [])],
+                    c("high", [v(0)]).into(),
+                ),
+                Rule::simplify("make", [c("trigger", [])], c("p", [atom("a")]).into()),
+                Rule::simplify("low", [c("seed", []), c("token", [])], c("low", []).into()),
+            ],
+            vec![c("trigger", []), c("seed", []), c("token", [])],
+        ),
+        // A failed guard must be reconsidered after a lower rule binds its value.
+        (
+            vec![
+                guarded,
+                Rule::simplify("bind", [c("bind", [v(0)])], eq(v(0), atom("a"))),
+            ],
+            vec![c("p", [v(20)]), c("bind", [v(20)])],
+        ),
+        // A new high-priority partner must win before the next low-priority tuple.
+        (
+            vec![
+                Rule::simplify(
+                    "high",
+                    [c("p", [v(0)]), c("ticket", [v(0)])],
+                    c("high", [v(0)]).into(),
+                ),
+                Rule::simplify(
+                    "low",
+                    [c("seed", [v(0)])],
+                    and(vec![c("p", [v(0)]).into(), c("ticket", [v(0)]).into()]),
+                ),
+            ],
+            vec![c("seed", [atom("a")]), c("seed", [atom("b")])],
+        ),
+        // Cached tuples share q; only one can consume that occurrence.
+        (
+            vec![Rule::simplify(
+                "pair",
+                [c("p", [v(0)]), c("q", [v(0)])],
+                c("done", [v(0)]).into(),
+            )],
+            vec![
+                c("p", [atom("a")]),
+                c("p", [atom("a")]),
+                c("q", [atom("a")]),
+            ],
+        ),
+        // Both forks inherit a previously ineligible p; equality differs locally.
+        (
+            vec![
+                Rule::simplify("known", [c("p", [atom("a")])], c("yes", []).into()),
+                Rule::simplify(
+                    "choose",
+                    [c("choose", [v(0)])],
+                    or(eq(v(0), atom("a")), eq(v(0), atom("b"))),
+                ),
+            ],
+            vec![c("p", [v(20)]), c("choose", [v(20)])],
+        ),
+        // Previously distinct constructor identities become repeated-variable partners.
+        (
+            vec![
+                Rule::simplify(
+                    "same",
+                    [c("p", [v(0)]), c("q", [v(0)])],
+                    c("same", []).into(),
+                ),
+                Rule::simplify("alias", [c("alias", [v(0), v(1)])], eq(v(0), v(1))),
+            ],
+            vec![
+                c("p", [t("f", [v(20)])]),
+                c("q", [t("f", [v(21)])]),
+                c("alias", [v(20), v(21)]),
+            ],
+        ),
+    ];
+    for (rules, constraints) in cases {
+        let q = Query {
+            constraints,
+            outputs: vec![("x".into(), Var(20)), ("y".into(), Var(21))],
+        };
+        oracle::same_raw(
+            run(&Prepared::new(&rules).unwrap(), &q),
+            oracle::run(&rules, &q, 10000),
+        );
+    }
+}
