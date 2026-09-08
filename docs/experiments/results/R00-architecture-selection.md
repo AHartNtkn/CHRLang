@@ -1,5 +1,7 @@
 # R00: architectural alternatives and first experiment selection
 
+Current decision authority: [T047 architecture checkpoint](R07-architecture-checkpoint.md). T048 selects current mixed-work sharing evidence after the serial correction; checked direct lowering is supported, while native compilation and worker expansion have no general preference. The entries below retain their stated experimental context.
+
 The first comparison should distinguish generic selection, incremental activation and generated rule execution on complete ordinary-CHR computations. In parallel, analyze a directly compiled finite consistency relation as a contrasting way to eliminate execution. Integrated representation and conditional execution remain serious independent candidates; existing service results do not rank them against these organizations.
 
 This is a selection supported by analysis and existing evidence, not a performance result or a production architecture choice. It selects decision briefs before implementation. Compilation, representation, search storage and scheduling are partly independent dimensions; the candidates below are coherent starting combinations, not mutually exclusive categories.

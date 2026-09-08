@@ -8,7 +8,7 @@ goal:
   execution_authority: Redesigned goal authorizes implementation and experiments selected under R00 and the governing sequence.
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
-  current_research: Recursive lifecycle pilot complete; updated architecture decision checkpoint selected
+  current_research: Updated architecture recommendations complete; current mixed-work sharing comparison selected
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -63,7 +63,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T047
+active_task: T048
 tasks:
   - id: T001
     type: pm
@@ -1305,7 +1305,7 @@ tasks:
   - id: T047
     type: pm
     assignee: PM
-    status: active
+    status: done
     objective: Update architecture recommendations and all question dispositions using current lifecycle evidence and identify the next decision-critical uncertainty or closure gap.
     inputs:
       - docs/experiments/results/R05-recursive-lifecycle.md
@@ -1325,6 +1325,40 @@ tasks:
       - No invented workload weights or automatic implementation queue for every uncertainty
     stop_if:
       - A checkpoint is not final closure without an evidence-backed disposition for every relevant unresolved direction.
+    receipt:
+      result: done
+      summary: All twelve questions have current bounded dispositions; checked lowering is distinguished from native generation, current worker benefit remains unresolved, and finite conditional preference requires comparison after the serial correction.
+      evidence:
+        - docs/experiments/results/R07-architecture-checkpoint.md
+        - docs/experiments/coverage.md
+      validation: Primary-receipt and source audit, independent conditional/lifetime review and separate representation/compilation/parallel review.
+
+  - id: T048
+    type: pm
+    assignee: PM
+    status: active
+    objective: Resolve the current finite mixed-work applicability of Conditional versus corrected Specialized with the existing source and complete-observation boundary.
+    inputs:
+      - docs/experiments/results/R07-architecture-checkpoint.md
+      - docs/experiments/results/R05-mixed-pipeline.md
+      - docs/experiments/results/R01-closed-subtree-lifecycle.md
+    allowed_files:
+      - research/
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    expected_output:
+      - Current runner/control competence and diagnostic-ownership entry audit.
+      - Prospectively registered matched comparison with unchanged pre/post placement and zero-stage controls.
+      - Full raw observations, work and lifecycle evidence updating the finite sharing recommendation.
+    verify:
+      - Preserve source semantics, raw multiplicity, aliases, exhaustion and prepared-query reuse
+      - Separate counter-free ordinary-allocator primary runs from work and requested-heap diagnostics
+      - Include complete preparation and disposal with accurately named validation boundaries
+      - Freeze current source and binaries, retain all outcomes and validate exact manifest
+    stop_if:
+      - Do not infer a current ranking by composing historical ratios.
+      - Do not automatically expand reunion, mode switching, reclamation or further tuning after this comparison.
+      - Reassess a consequential anomaly by causal evidence and decision value.
     receipt: null
 
 
@@ -1332,12 +1366,12 @@ checks:
   dirty_fingerprint: preexisting_unfinished_experimental_files_preserved
   last_verification:
     result: passed
-    task: T046
-    scope: Registered recursive compilation and session lifecycle comparison.
+    task: T047
+    scope: Current architecture recommendations and all-question dispositions.
     commands:
-      - All 67 build/preparation stages and 324 sessions complete
-      - Full replay audit validates 36396 successes and 25920 finite failures
-      - Live source, artifact, exact build-order and session manifest audit
-      - Independent result interpretation and next-selection review
+      - Primary evidence review through T046 and source/endpoint comparison
+      - Independent conditional/lifetime and representation/compilation/parallel audits
+      - Local document links, Q1-Q12 coverage and single-active-task state validation
     evidence:
-      - docs/experiments/results/R05-recursive-lifecycle.md
+      - docs/experiments/results/R07-architecture-checkpoint.md
+      - docs/experiments/coverage.md
