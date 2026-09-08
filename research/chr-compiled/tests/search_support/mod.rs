@@ -211,8 +211,19 @@ impl Replay {
             if ids.len() == rule.kept.len() + rule.removed.len() {
                 return replay.frame(r, rule, ids).is_some();
             }
-            for id in replay.store.keys() {
-                if ids.contains(id) {
+            let head = rule
+                .kept
+                .iter()
+                .chain(&rule.removed)
+                .nth(ids.len())
+                .unwrap();
+            for (id, occurrence) in &replay.store {
+                // Predicate/arity is a necessary condition independent of bindings.
+                // Prune impossible tuples before enumerating their remaining heads.
+                if occurrence.name != head.name
+                    || occurrence.args.len() != head.args.len()
+                    || ids.contains(id)
+                {
                     continue;
                 }
                 ids.push(*id);

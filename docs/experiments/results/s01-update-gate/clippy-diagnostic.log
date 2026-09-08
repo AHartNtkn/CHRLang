@@ -1,0 +1,26 @@
+    Checking chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+error: this `if` statement can be collapsed
+  --> research/chr-compiled/tests/update_join_gate.rs:46:9
+   |
+46 | /         if source[*index].name == "join" {
+47 | |             if let Some(retired) = retired_right {
+48 | |                 let mut stale = ids.clone();
+49 | |                 stale[1] = retired;
+...  |
+57 | |         }
+   | |_________^
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.97.0/index.html#collapsible_if
+   = note: `-D clippy::collapsible-if` implied by `-D warnings`
+   = help: to override `-D warnings` add `#[allow(clippy::collapsible_if)]`
+help: collapse nested if block
+   |
+46 ~         if source[*index].name == "join"
+47 ~             && let Some(retired) = retired_right {
+48 |                 let mut stale = ids.clone();
+...
+55 |                 );
+56 ~             }
+   |
+
+error: could not compile `chr-compiled` (test "update_join_gate") due to 1 previous error

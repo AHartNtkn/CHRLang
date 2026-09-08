@@ -1,0 +1,274 @@
+   Compiling chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax)
+   Compiling chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe)
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)
+    Finished `release` profile [optimized] target(s) in 3.03s
+     Running tests/update_join_gate.rs (target/release/deps/update_join_gate-53489f1d0171f690)
+
+running 4 tests
+test active_policy_propagation_completion_screen ... execution/replay done: policy=Active access=Scan rows=2 events=1
+Active Scan: receipts=1, complete_expected=false
+execution/replay done: policy=Active access=Indexed rows=2 events=1
+Active Indexed: receipts=1, complete_expected=false
+ok
+test bounded_resume_and_oracle_mutations ... execution/replay done: policy=Global access=Indexed rows=2 events=2
+ok
+test global_cartesian_grid_and_adverse_empty_requests ... case rows=1 events=[]
+execution/replay done: policy=Global access=Scan rows=1 events=0
+execution/replay done: policy=Global access=Scan rows=1 events=0
+execution/replay done: policy=Global access=Indexed rows=1 events=0
+execution/replay done: policy=Global access=Indexed rows=1 events=0
+case rows=1 events=[Request(App("k0", []), App("round0", []))]
+execution/replay done: policy=Global access=Scan rows=1 events=1
+execution/replay done: policy=Global access=Scan rows=1 events=1
+execution/replay done: policy=Global access=Indexed rows=1 events=1
+execution/replay done: policy=Global access=Indexed rows=1 events=1
+case rows=1 events=[Request(App("k0", []), App("round0", [])), Request(App("k0", []), App("round1", []))]
+execution/replay done: policy=Global access=Scan rows=1 events=2
+execution/replay done: policy=Global access=Scan rows=1 events=2
+execution/replay done: policy=Global access=Indexed rows=1 events=2
+execution/replay done: policy=Global access=Indexed rows=1 events=2
+case rows=1 events=[Request(App("k0", []), App("round0", [])), Request(App("k0", []), App("round1", [])), Request(App("k0", []), App("round2", [])), Request(App("k0", []), App("round3", []))]
+execution/replay done: policy=Global access=Scan rows=1 events=4
+execution/replay done: policy=Global access=Scan rows=1 events=4
+execution/replay done: policy=Global access=Indexed rows=1 events=4
+execution/replay done: policy=Global access=Indexed rows=1 events=4
+case rows=1 events=[]
+execution/replay done: policy=Global access=Scan rows=1 events=0
+execution/replay done: policy=Global access=Scan rows=1 events=0
+execution/replay done: policy=Global access=Indexed rows=1 events=0
+execution/replay done: policy=Global access=Indexed rows=1 events=0
+case rows=1 events=[Request(App("k0", []), App("round0", []))]
+execution/replay done: policy=Global access=Scan rows=1 events=1
+execution/replay done: policy=Global access=Scan rows=1 events=1
+execution/replay done: policy=Global access=Indexed rows=1 events=1
+execution/replay done: policy=Global access=Indexed rows=1 events=1
+case rows=1 events=[Request(App("k0", []), App("round0", [])), Request(App("k0", []), App("round1", []))]
+execution/replay done: policy=Global access=Scan rows=1 events=2
+execution/replay done: policy=Global access=Scan rows=1 events=2
+execution/replay done: policy=Global access=Indexed rows=1 events=2
+execution/replay done: policy=Global access=Indexed rows=1 events=2
+case rows=1 events=[Request(App("k0", []), App("round0", [])), Request(App("k0", []), App("round1", [])), Request(App("k0", []), App("round2", [])), Request(App("k0", []), App("round3", []))]
+execution/replay done: policy=Global access=Scan rows=1 events=4
+execution/replay done: policy=Global access=Scan rows=1 events=4
+execution/replay done: policy=Global access=Indexed rows=1 events=4
+execution/replay done: policy=Global access=Indexed rows=1 events=4
+case rows=2 events=[]
+execution/replay done: policy=Global access=Scan rows=2 events=0
+execution/replay done: policy=Global access=Scan rows=2 events=0
+execution/replay done: policy=Global access=Indexed rows=2 events=0
+execution/replay done: policy=Global access=Indexed rows=2 events=0
+case rows=2 events=[Request(App("k0", []), App("round0", []))]
+execution/replay done: policy=Global access=Scan rows=2 events=1
+execution/replay done: policy=Global access=Scan rows=2 events=1
+execution/replay done: policy=Global access=Indexed rows=2 events=1
+execution/replay done: policy=Global access=Indexed rows=2 events=1
+case rows=2 events=[Request(App("k0", []), App("round0", [])), Request(App("k0", []), App("round1", []))]
+execution/replay done: policy=Global access=Scan rows=2 events=2
+execution/replay done: policy=Global access=Scan rows=2 events=2
+execution/replay done: policy=Global access=Indexed rows=2 events=2
+execution/replay done: policy=Global access=Indexed rows=2 events=2
+case rows=2 events=[Request(App("k0", []), App("round0", [])), Request(App("k0", []), App("round1", [])), Request(App("k0", []), App("round2", [])), Request(App("k0", []), App("round3", []))]
+execution/replay done: policy=Global access=Scan rows=2 events=4
+execution/replay done: policy=Global access=Scan rows=2 events=4
+execution/replay done: policy=Global access=Indexed rows=2 events=4
+execution/replay done: policy=Global access=Indexed rows=2 events=4
+case rows=2 events=[]
+execution/replay done: policy=Global access=Scan rows=2 events=0
+execution/replay done: policy=Global access=Scan rows=2 events=0
+execution/replay done: policy=Global access=Indexed rows=2 events=0
+execution/replay done: policy=Global access=Indexed rows=2 events=0
+case rows=2 events=[Request(App("k0", []), App("round0", []))]
+execution/replay done: policy=Global access=Scan rows=2 events=1
+execution/replay done: policy=Global access=Scan rows=2 events=1
+execution/replay done: policy=Global access=Indexed rows=2 events=1
+execution/replay done: policy=Global access=Indexed rows=2 events=1
+case rows=2 events=[Request(App("k0", []), App("round0", [])), Request(App("k1", []), App("round1", []))]
+execution/replay done: policy=Global access=Scan rows=2 events=2
+execution/replay done: policy=Global access=Scan rows=2 events=2
+execution/replay done: policy=Global access=Indexed rows=2 events=2
+execution/replay done: policy=Global access=Indexed rows=2 events=2
+case rows=2 events=[Request(App("k0", []), App("round0", [])), Request(App("k1", []), App("round1", [])), Request(App("k0", []), App("round2", [])), Request(App("k1", []), App("round3", []))]
+execution/replay done: policy=Global access=Scan rows=2 events=4
+execution/replay done: policy=Global access=Scan rows=2 events=4
+execution/replay done: policy=Global access=Indexed rows=2 events=4
+execution/replay done: policy=Global access=Indexed rows=2 events=4
+case rows=4 events=[]
+execution/replay done: policy=Global access=Scan rows=4 events=0
+execution/replay done: policy=Global access=Scan rows=4 events=0
+execution/replay done: policy=Global access=Indexed rows=4 events=0
+execution/replay done: policy=Global access=Indexed rows=4 events=0
+case rows=4 events=[Request(App("k0", []), App("round0", []))]
+execution/replay done: policy=Global access=Scan rows=4 events=1
+execution/replay done: policy=Global access=Scan rows=4 events=1
+execution/replay done: policy=Global access=Indexed rows=4 events=1
+execution/replay done: policy=Global access=Indexed rows=4 events=1
+case rows=4 events=[Request(App("k0", []), App("round0", [])), Request(App("k0", []), App("round1", []))]
+execution/replay done: policy=Global access=Scan rows=4 events=2
+execution/replay done: policy=Global access=Scan rows=4 events=2
+execution/replay done: policy=Global access=Indexed rows=4 events=2
+execution/replay done: policy=Global access=Indexed rows=4 events=2
+case rows=4 events=[Request(App("k0", []), App("round0", [])), Request(App("k0", []), App("round1", [])), Request(App("k0", []), App("round2", [])), Request(App("k0", []), App("round3", []))]
+execution/replay done: policy=Global access=Scan rows=4 events=4
+execution/replay done: policy=Global access=Scan rows=4 events=4
+execution/replay done: policy=Global access=Indexed rows=4 events=4
+execution/replay done: policy=Global access=Indexed rows=4 events=4
+case rows=4 events=[]
+execution/replay done: policy=Global access=Scan rows=4 events=0
+execution/replay done: policy=Global access=Scan rows=4 events=0
+execution/replay done: policy=Global access=Indexed rows=4 events=0
+execution/replay done: policy=Global access=Indexed rows=4 events=0
+case rows=4 events=[Request(App("k0", []), App("round0", []))]
+execution/replay done: policy=Global access=Scan rows=4 events=1
+execution/replay done: policy=Global access=Scan rows=4 events=1
+execution/replay done: policy=Global access=Indexed rows=4 events=1
+execution/replay done: policy=Global access=Indexed rows=4 events=1
+case rows=4 events=[Request(App("k0", []), App("round0", [])), Request(App("k1", []), App("round1", []))]
+execution/replay done: policy=Global access=Scan rows=4 events=2
+execution/replay done: policy=Global access=Scan rows=4 events=2
+execution/replay done: policy=Global access=Indexed rows=4 events=2
+execution/replay done: policy=Global access=Indexed rows=4 events=2
+case rows=4 events=[Request(App("k0", []), App("round0", [])), Request(App("k1", []), App("round1", [])), Request(App("k2", []), App("round2", [])), Request(App("k3", []), App("round3", []))]
+execution/replay done: policy=Global access=Scan rows=4 events=4
+execution/replay done: policy=Global access=Scan rows=4 events=4
+execution/replay done: policy=Global access=Indexed rows=4 events=4
+execution/replay done: policy=Global access=Indexed rows=4 events=4
+case rows=8 events=[]
+execution/replay done: policy=Global access=Scan rows=8 events=0
+execution/replay done: policy=Global access=Scan rows=8 events=0
+execution/replay done: policy=Global access=Indexed rows=8 events=0
+execution/replay done: policy=Global access=Indexed rows=8 events=0
+case rows=8 events=[Request(App("k0", []), App("round0", []))]
+execution/replay done: policy=Global access=Scan rows=8 events=1
+execution/replay done: policy=Global access=Scan rows=8 events=1
+execution/replay done: policy=Global access=Indexed rows=8 events=1
+execution/replay done: policy=Global access=Indexed rows=8 events=1
+case rows=8 events=[Request(App("k0", []), App("round0", [])), Request(App("k0", []), App("round1", []))]
+execution/replay done: policy=Global access=Scan rows=8 events=2
+execution/replay done: policy=Global access=Scan rows=8 events=2
+execution/replay done: policy=Global access=Indexed rows=8 events=2
+execution/replay done: policy=Global access=Indexed rows=8 events=2
+case rows=8 events=[Request(App("k0", []), App("round0", [])), Request(App("k0", []), App("round1", [])), Request(App("k0", []), App("round2", [])), Request(App("k0", []), App("round3", []))]
+execution/replay done: policy=Global access=Scan rows=8 events=4
+execution/replay done: policy=Global access=Scan rows=8 events=4
+execution/replay done: policy=Global access=Indexed rows=8 events=4
+execution/replay done: policy=Global access=Indexed rows=8 events=4
+case rows=8 events=[]
+execution/replay done: policy=Global access=Scan rows=8 events=0
+execution/replay done: policy=Global access=Scan rows=8 events=0
+execution/replay done: policy=Global access=Indexed rows=8 events=0
+execution/replay done: policy=Global access=Indexed rows=8 events=0
+case rows=8 events=[Request(App("k0", []), App("round0", []))]
+execution/replay done: policy=Global access=Scan rows=8 events=1
+execution/replay done: policy=Global access=Scan rows=8 events=1
+execution/replay done: policy=Global access=Indexed rows=8 events=1
+execution/replay done: policy=Global access=Indexed rows=8 events=1
+case rows=8 events=[Request(App("k0", []), App("round0", [])), Request(App("k1", []), App("round1", []))]
+execution/replay done: policy=Global access=Scan rows=8 events=2
+execution/replay done: policy=Global access=Scan rows=8 events=2
+execution/replay done: policy=Global access=Indexed rows=8 events=2
+execution/replay done: policy=Global access=Indexed rows=8 events=2
+case rows=8 events=[Request(App("k0", []), App("round0", [])), Request(App("k1", []), App("round1", [])), Request(App("k2", []), App("round2", [])), Request(App("k3", []), App("round3", []))]
+execution/replay done: policy=Global access=Scan rows=8 events=4
+execution/replay done: policy=Global access=Scan rows=8 events=4
+execution/replay done: policy=Global access=Indexed rows=8 events=4
+execution/replay done: policy=Global access=Indexed rows=8 events=4
+case rows=4 events=[Request(App("absent", []), App("round0", []))]
+execution/replay done: policy=Global access=Scan rows=4 events=1
+execution/replay done: policy=Global access=Scan rows=4 events=1
+execution/replay done: policy=Global access=Indexed rows=4 events=1
+execution/replay done: policy=Global access=Indexed rows=4 events=1
+ok
+test source_mutation_bindings_duplicates_and_joint_aliases ... case rows=2 events=[Request(App("k0", []), App("round0", [])), Replace(App("k0", []), App("r0", []), App("r0", [])), Request(App("k0", []), App("later", []))]
+execution/replay done: policy=Global access=Scan rows=2 events=3
+execution/replay done: policy=Global access=Scan rows=2 events=3
+execution/replay done: policy=Global access=Indexed rows=2 events=3
+execution/replay done: policy=Global access=Indexed rows=2 events=3
+case rows=2 events=[Request(App("k0", []), App("round0", [])), Replace(App("k0", []), App("r0", []), App("changed", [])), Request(App("k0", []), App("later", []))]
+execution/replay done: policy=Global access=Scan rows=2 events=3
+execution/replay done: policy=Global access=Scan rows=2 events=3
+execution/replay done: policy=Global access=Indexed rows=2 events=3
+execution/replay done: policy=Global access=Indexed rows=2 events=3
+case rows=2 events=[Request(App("k0", []), App("round0", [])), Bind(Var(100), App("k0", [])), Request(App("k0", []), App("later", []))]
+execution/replay done: policy=Global access=Scan rows=2 events=3
+execution/replay done: policy=Global access=Scan rows=2 events=3
+execution/replay done: policy=Global access=Indexed rows=2 events=3
+execution/replay done: policy=Global access=Indexed rows=2 events=3
+case rows=2 events=[Request(App("k0", []), App("round0", [])), Request(App("k0", []), App("round1", []))]
+execution/replay done: policy=Global access=Scan rows=2 events=2
+execution/replay done: policy=Global access=Scan rows=2 events=2
+execution/replay done: policy=Global access=Indexed rows=2 events=2
+execution/replay done: policy=Global access=Indexed rows=2 events=2
+case rows=2 events=[Request(App("k0", []), App("round0", [])), Request(App("k0", []), App("round1", []))]
+execution/replay done: policy=Global access=Scan rows=2 events=2
+execution/replay done: policy=Global access=Scan rows=2 events=2
+execution/replay done: policy=Global access=Indexed rows=2 events=2
+execution/replay done: policy=Global access=Indexed rows=2 events=2
+case rows=2 events=[Request(App("k0", []), App("round0", [])), Request(App("k0", []), App("round1", []))]
+execution/replay done: policy=Global access=Scan rows=2 events=2
+execution/replay done: policy=Global access=Scan rows=2 events=2
+execution/replay done: policy=Global access=Indexed rows=2 events=2
+execution/replay done: policy=Global access=Indexed rows=2 events=2
+case rows=4 events=[Request(App("k0", []), App("round0", [])), Replace(App("k0", []), App("r0", []), App("r0", [])), Request(App("k0", []), App("later", []))]
+execution/replay done: policy=Global access=Scan rows=4 events=3
+execution/replay done: policy=Global access=Scan rows=4 events=3
+execution/replay done: policy=Global access=Indexed rows=4 events=3
+execution/replay done: policy=Global access=Indexed rows=4 events=3
+case rows=4 events=[Request(App("k0", []), App("round0", [])), Replace(App("k0", []), App("r0", []), App("changed", [])), Request(App("k0", []), App("later", []))]
+execution/replay done: policy=Global access=Scan rows=4 events=3
+execution/replay done: policy=Global access=Scan rows=4 events=3
+execution/replay done: policy=Global access=Indexed rows=4 events=3
+execution/replay done: policy=Global access=Indexed rows=4 events=3
+case rows=4 events=[Request(App("k0", []), App("round0", [])), Bind(Var(100), App("k0", [])), Request(App("k0", []), App("later", []))]
+execution/replay done: policy=Global access=Scan rows=4 events=3
+execution/replay done: policy=Global access=Scan rows=4 events=3
+execution/replay done: policy=Global access=Indexed rows=4 events=3
+execution/replay done: policy=Global access=Indexed rows=4 events=3
+case rows=4 events=[Request(App("k0", []), App("round0", [])), Request(App("k0", []), App("round1", []))]
+execution/replay done: policy=Global access=Scan rows=4 events=2
+execution/replay done: policy=Global access=Scan rows=4 events=2
+execution/replay done: policy=Global access=Indexed rows=4 events=2
+execution/replay done: policy=Global access=Indexed rows=4 events=2
+case rows=4 events=[Request(App("k0", []), App("round0", [])), Request(App("k0", []), App("round1", []))]
+execution/replay done: policy=Global access=Scan rows=4 events=2
+execution/replay done: policy=Global access=Scan rows=4 events=2
+execution/replay done: policy=Global access=Indexed rows=4 events=2
+execution/replay done: policy=Global access=Indexed rows=4 events=2
+case rows=4 events=[Request(App("k0", []), App("round0", [])), Request(App("k0", []), App("round1", []))]
+execution/replay done: policy=Global access=Scan rows=4 events=2
+execution/replay done: policy=Global access=Scan rows=4 events=2
+execution/replay done: policy=Global access=Indexed rows=4 events=2
+execution/replay done: policy=Global access=Indexed rows=4 events=2
+case rows=8 events=[Request(App("k0", []), App("round0", [])), Replace(App("k0", []), App("r0", []), App("r0", [])), Request(App("k0", []), App("later", []))]
+execution/replay done: policy=Global access=Scan rows=8 events=3
+execution/replay done: policy=Global access=Scan rows=8 events=3
+execution/replay done: policy=Global access=Indexed rows=8 events=3
+execution/replay done: policy=Global access=Indexed rows=8 events=3
+case rows=8 events=[Request(App("k0", []), App("round0", [])), Replace(App("k0", []), App("r0", []), App("changed", [])), Request(App("k0", []), App("later", []))]
+execution/replay done: policy=Global access=Scan rows=8 events=3
+execution/replay done: policy=Global access=Scan rows=8 events=3
+execution/replay done: policy=Global access=Indexed rows=8 events=3
+execution/replay done: policy=Global access=Indexed rows=8 events=3
+case rows=8 events=[Request(App("k0", []), App("round0", [])), Bind(Var(100), App("k0", [])), Request(App("k0", []), App("later", []))]
+execution/replay done: policy=Global access=Scan rows=8 events=3
+execution/replay done: policy=Global access=Scan rows=8 events=3
+execution/replay done: policy=Global access=Indexed rows=8 events=3
+execution/replay done: policy=Global access=Indexed rows=8 events=3
+case rows=8 events=[Request(App("k0", []), App("round0", [])), Request(App("k0", []), App("round1", []))]
+execution/replay done: policy=Global access=Scan rows=8 events=2
+execution/replay done: policy=Global access=Scan rows=8 events=2
+execution/replay done: policy=Global access=Indexed rows=8 events=2
+execution/replay done: policy=Global access=Indexed rows=8 events=2
+case rows=8 events=[Request(App("k0", []), App("round0", [])), Request(App("k0", []), App("round1", []))]
+execution/replay done: policy=Global access=Scan rows=8 events=2
+execution/replay done: policy=Global access=Scan rows=8 events=2
+execution/replay done: policy=Global access=Indexed rows=8 events=2
+execution/replay done: policy=Global access=Indexed rows=8 events=2
+case rows=8 events=[Request(App("k0", []), App("round0", [])), Request(App("k0", []), App("round1", []))]
+execution/replay done: policy=Global access=Scan rows=8 events=2
+execution/replay done: policy=Global access=Scan rows=8 events=2
+execution/replay done: policy=Global access=Indexed rows=8 events=2
+execution/replay done: policy=Global access=Indexed rows=8 events=2
+ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 17.33s

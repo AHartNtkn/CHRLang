@@ -6,7 +6,7 @@ Existing E/R results remain evidence within their recorded boundaries. Their pac
 
 ## Coverage of every reviewed decision
 
-Entry numbers refer to the [57-entry review](results/R07-design-disposition-review.md). S00 is active: the [contract audit and four candidate sketches](results/S00-contracts-and-candidates.md) include a six-case probe with exact replay. The [S01 semantic gate is registered](registrations/S01-update-discovery-gate.md); next are its implementation and first-cycle feasibility assessments. Other stages remain planned; no new comparative timing has run.
+Entry numbers refer to the [57-entry review](results/R07-design-disposition-review.md). S00 is active: the [contract audit and four candidate sketches](results/S00-contracts-and-candidates.md) include a six-case probe with exact replay. The [S01 semantic gate is registered](registrations/S01-update-discovery-gate.md); the [source/control gate](results/S01-source-control-gate.md) now validates Global controls and establishes an Active-policy mismatch. Retained/direct discovery implementations and first-cycle feasibility assessments remain next. Other stages remain planned; no new comparative timing has run.
 
 | Owner stage | Review entries | Existing evidence to retain | Required investigation |
 |---|---|---|---|

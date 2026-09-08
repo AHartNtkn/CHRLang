@@ -8,7 +8,7 @@ goal:
   execution_authority: Redesigned goal authorizes implementation and experiments selected under R00 and the governing sequence.
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
-  current_research: S00 contract ledger and candidate sketches evidenced by six-case probe; S01 gate registered; next are implementation and first-cycle feasibility assessments. Architecture questions remain unresolved.
+  current_research: S00 contract ledger and candidate sketches evidenced by six-case probe; S01 Global source/control gate passes; Active differs in completed work. Retained/direct implementations and first-cycle feasibility assessments remain next. Architecture questions remain unresolved.
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -69,7 +69,7 @@ tasks:
     type: pm
     assignee: PM
     status: active
-    objective: Establish S00 comparison contracts and coherent candidates, validate policy/accounting distinctions, and register the first discriminating follow-up.
+    objective: Establish S00 comparison contracts and coherent candidates, validate policy/accounting distinctions and S01 source controls, and register the first discriminating follow-up.
     inputs:
       - docs/experiments/sequence.md
       - docs/experiments/results/R07-design-disposition-review.md
@@ -77,6 +77,7 @@ tasks:
       - docs/experiments/
       - docs/goals/chr-experiments/
       - research/chr-cases/examples/
+      - research/chr-compiled/tests/
     verify:
       - Independently predicted contract probe and reference semantic tests
       - Source-linked contract ledger and complete candidate responsibilities
@@ -1744,11 +1745,13 @@ checks:
   last_verification:
     result: passed
     task: T061
-    scope: S00 semantic contract probe, independent reference suite and documentation links; architecture goal remains active.
+    scope: S01 source and policy controls, compiled-package tests and exact oracle checks; retained/direct implementations remain unfinished.
     commands:
-      - timeout 60s target/release/examples/contract_probe (two independent processes)
-      - cargo test -p chr-reference
-      - cargo clippy -p chr-cases --example contract_probe -- -D warnings
+      - cargo test -p chr-compiled --test update_join_gate -- --nocapture
+      - cargo test -p chr-compiled --no-default-features --test update_join_gate -- --nocapture
+      - cargo test -p chr-compiled --tests
+      - cargo clippy -p chr-compiled --test update_join_gate -- -D warnings
+      - cargo clippy -p chr-compiled --no-default-features --test update_join_gate -- -D warnings
     evidence:
-      - docs/experiments/results/S00-contracts-and-candidates.md
-      - docs/experiments/results/s00-contract/
+      - docs/experiments/results/S01-source-control-gate.md
+      - docs/experiments/results/s01-update-gate/validation.json
