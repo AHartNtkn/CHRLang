@@ -4,7 +4,7 @@ pub const COLLECT_METRICS: bool = cfg!(feature = "metrics");
 use chr_syntax::{Answer, Constraint, Goal, Query, Rule, Term, Var};
 use std::collections::{BTreeMap, BTreeSet, VecDeque};
 pub mod parallel_regions;
-mod partition;
+pub mod partition;
 #[derive(Clone, Copy, Debug)]
 pub enum Mode {
     Scalar,

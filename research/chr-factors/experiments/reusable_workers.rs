@@ -24,7 +24,7 @@ pub struct Batch {
     pub exhausted: bool,
     pub cancelled: bool,
 }
-struct Search {
+pub(super) struct Search {
     #[cfg(test)]
     live: Arc<AtomicUsize>,
     machine: Machine,
@@ -39,7 +39,7 @@ impl Drop for Search {
     }
 }
 impl Search {
-    fn new(
+    pub(super) fn new(
         prepared: &PreparedMachine,
         q: Query,
         #[cfg(test)] live: Arc<AtomicUsize>,
@@ -56,7 +56,7 @@ impl Search {
             raw: 0,
         })
     }
-    fn service(
+    pub(super) fn service(
         &mut self,
         request: u64,
         region: usize,

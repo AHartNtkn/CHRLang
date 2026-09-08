@@ -6,7 +6,7 @@ Read the **decision** column first. The other columns explain what would make th
 
 ## Execution order
 
-**The next cycle tests distinct architectural mechanisms before another round of tuning measured ones.** The order below starts from the authoritative worktree at `91b293e`. Completed bounded comparisons remain evidence; uncommitted regional-coordinator work still needs independent validation. The active task remains T069.
+**The next cycle tests distinct architectural mechanisms before another round of tuning measured ones.** The order below carries forward the existing bounded comparisons. The [regional source gate](results/S09-regional-source-gate.md) now validates the complete coordinator; allocation and lifecycle measurement remain outstanding. The active task remains T069.
 
 | Order | Investigation | Why it comes here; what it must deliver |
 |---|---|---|

@@ -1,0 +1,16 @@
+{
+  "command": [
+    "cargo",
+    "run",
+    "-p",
+    "chr-factors",
+    "--no-default-features",
+    "--release",
+    "--example",
+    "reusable_regions_gate"
+  ],
+  "exit_code": 0,
+  "cutoff": false,
+  "stdout": "40 complete source queries, each followed by cancellation; inline and 1/2/4 workers\n",
+  "stderr": "   Compiling chr-factors v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-factors)\n    Finished `release` profile [optimized] target(s) in 1.28s\n     Running `target/release/examples/reusable_regions_gate`\n"
+}

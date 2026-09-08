@@ -1,0 +1,15 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "-p",
+    "chr-factors",
+    "--release",
+    "--test",
+    "reusable_regions"
+  ],
+  "exit_code": 101,
+  "cutoff": false,
+  "stdout": "\nrunning 5 tests\ntest certified_products_reuse_runtime_with_empty_shared_and_independent_outputs ... FAILED\ntest workers::gate::stale_reply_cannot_consume_a_current_reservation ... ok\ntest product_raw_multiplicity_and_cancellation_do_not_leak_across_queries ... ok\ntest finite_source_registry_agrees_after_partition_and_product ... ok\ntest finite_products_publish_beside_continuing_source_and_runtime_reuses ... ok\n\nfailures:\n\n---- certified_products_reuse_runtime_with_empty_shared_and_independent_outputs stdout ----\n\nthread 'certified_products_reuse_runtime_with_empty_shared_and_independent_outputs' (1847) panicked at research/chr-factors/tests/../../chr-direct-conditional/tests/runtime_support/mod.rs:273:32:\nmissing full observation Answer { outputs: [(\"out0\", Var(Var(0))), (\"out1\", Var(Var(1)))], residual: [Constraint { name: \"left\", args: [Var(Var(0))] }, Constraint { name: \"right\", args: [Var(Var(1))] }] }; remaining [Answer { outputs: [(\"out0\", Var(Var(0))), (\"out1\", Var(Var(0)))], residual: [Constraint { name: \"left\", args: [Var(Var(0))] }, Constraint { name: \"right\", args: [Var(Var(0))] }] }]\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n\n\nfailures:\n    certified_products_reuse_runtime_with_empty_shared_and_independent_outputs\n\ntest result: FAILED. 4 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s\n\n",
+  "stderr": "   Compiling chr-factors v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-factors)\nwarning: value assigned to `next` is never read\n   --> research/chr-factors/tests/../experiments/reusable_regions.rs:289:24\n    |\n289 |         let mut next = 0;\n    |                        ^ this value is reassigned later and never used\n290 |         for (region, factor) in self.factors.iter().enumerate() {\n291 |             next = 0; // injected accidental cross-factor alias\n    |             -------- `next` is overwritten here before the previous value is read\n    |\n    = note: `#[warn(unused_assignments)]` (part of `#[warn(unused)]`) on by default\n\nwarning: `chr-factors` (test \"reusable_regions\") generated 1 warning\n    Finished `release` profile [optimized] target(s) in 1.34s\n     Running tests/reusable_regions.rs (target/release/deps/reusable_regions-30442b79e5f940fc)\nerror: test failed, to rerun pass `-p chr-factors --test reusable_regions`\n"
+}

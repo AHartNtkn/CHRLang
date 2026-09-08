@@ -49,11 +49,7 @@ fn unite(parents: &mut [usize], a: usize, b: usize, stats: &mut Stats) {
         parents[a.max(b)] = a.min(b);
     }
 }
-pub(super) fn regions(
-    rules: Vec<Rule>,
-    query: Query,
-    stats: &mut Stats,
-) -> Vec<(Vec<Rule>, Query)> {
+pub fn regions(rules: Vec<Rule>, query: Query, stats: &mut Stats) -> Vec<(Vec<Rule>, Query)> {
     let mut all = BTreeSet::new();
     let mut links = vec![];
     for r in &rules {

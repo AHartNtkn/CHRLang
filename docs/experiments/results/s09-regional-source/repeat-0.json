@@ -1,0 +1,16 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "-p",
+    "chr-factors",
+    "--release",
+    "--test",
+    "reusable_regions",
+    "--no-default-features"
+  ],
+  "exit_code": 0,
+  "cutoff": false,
+  "stdout": "\nrunning 5 tests\ntest workers::gate::stale_reply_cannot_consume_a_current_reservation ... ok\ntest product_raw_multiplicity_and_cancellation_do_not_leak_across_queries ... ok\ntest certified_products_reuse_runtime_with_empty_shared_and_independent_outputs ... ok\ntest finite_source_registry_agrees_after_partition_and_product ... ok\ntest finite_products_publish_beside_continuing_source_and_runtime_reuses ... ok\n\ntest result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s\n\n",
+  "stderr": "    Finished `release` profile [optimized] target(s) in 0.03s\n     Running tests/reusable_regions.rs (target/release/deps/reusable_regions-91bafb00d1762165)\n"
+}

@@ -1,0 +1,4 @@
+Replace exactly:
+if sizes.iter().all(|n| *n > 0) {
+With:
+if false && sizes.iter().all(|n| *n > 0) {

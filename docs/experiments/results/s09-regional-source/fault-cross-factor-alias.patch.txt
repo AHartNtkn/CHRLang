@@ -1,0 +1,5 @@
+Replace exactly:
+let answer = &factor.answers[job.cursor[region]];
+With:
+next = 0; // injected accidental cross-factor alias
+            let answer = &factor.answers[job.cursor[region]];

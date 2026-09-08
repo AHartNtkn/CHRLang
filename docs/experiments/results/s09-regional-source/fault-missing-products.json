@@ -1,0 +1,15 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "-p",
+    "chr-factors",
+    "--release",
+    "--test",
+    "reusable_regions"
+  ],
+  "exit_code": 101,
+  "cutoff": false,
+  "stdout": "\nrunning 5 tests\ntest certified_products_reuse_runtime_with_empty_shared_and_independent_outputs ... FAILED\ntest product_raw_multiplicity_and_cancellation_do_not_leak_across_queries ... FAILED\ntest finite_products_publish_beside_continuing_source_and_runtime_reuses ... FAILED\ntest workers::gate::stale_reply_cannot_consume_a_current_reservation ... ok\ntest finite_source_registry_agrees_after_partition_and_product ... FAILED\n\nfailures:\n\n---- certified_products_reuse_runtime_with_empty_shared_and_independent_outputs stdout ----\n\nthread 'certified_products_reuse_runtime_with_empty_shared_and_independent_outputs' (2071) panicked at research/chr-factors/tests/../../chr-direct-conditional/tests/runtime_support/mod.rs:268:5:\nassertion `left == right` failed: raw multiplicity differs\n  left: 0\n right: 1\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n\n---- product_raw_multiplicity_and_cancellation_do_not_leak_across_queries stdout ----\n\nthread 'product_raw_multiplicity_and_cancellation_do_not_leak_across_queries' (2074) panicked at research/chr-factors/tests/../../chr-direct-conditional/tests/runtime_support/mod.rs:268:5:\nassertion `left == right` failed: raw multiplicity differs\n  left: 0\n right: 1\n\n---- finite_products_publish_beside_continuing_source_and_runtime_reuses stdout ----\n\nthread 'finite_products_publish_beside_continuing_source_and_runtime_reuses' (2072) panicked at research/chr-factors/tests/../../chr-direct-conditional/tests/runtime_support/mod.rs:268:5:\nassertion `left == right` failed: raw multiplicity differs\n  left: 0\n right: 2\n\n---- finite_source_registry_agrees_after_partition_and_product stdout ----\n\nthread 'finite_source_registry_agrees_after_partition_and_product' (2073) panicked at research/chr-factors/tests/../../chr-direct-conditional/tests/runtime_support/mod.rs:268:5:\nassertion `left == right` failed: raw multiplicity differs\n  left: 0\n right: 1\n\n\nfailures:\n    certified_products_reuse_runtime_with_empty_shared_and_independent_outputs\n    finite_products_publish_beside_continuing_source_and_runtime_reuses\n    finite_source_registry_agrees_after_partition_and_product\n    product_raw_multiplicity_and_cancellation_do_not_leak_across_queries\n\ntest result: FAILED. 1 passed; 4 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n",
+  "stderr": "   Compiling chr-factors v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-factors)\n    Finished `release` profile [optimized] target(s) in 1.34s\n     Running tests/reusable_regions.rs (target/release/deps/reusable_regions-30442b79e5f940fc)\nerror: test failed, to rerun pass `-p chr-factors --test reusable_regions`\n"
+}
