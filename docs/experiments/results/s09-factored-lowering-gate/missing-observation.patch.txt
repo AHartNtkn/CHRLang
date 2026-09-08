@@ -1,0 +1,4 @@
+Replace exactly:
+if self.seen.insert(answer.clone()) {
+With:
+if false && self.seen.insert(answer.clone()) {

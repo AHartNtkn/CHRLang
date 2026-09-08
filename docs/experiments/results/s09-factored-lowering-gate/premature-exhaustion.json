@@ -1,0 +1,18 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "-p",
+    "chr-factors",
+    "--release",
+    "--no-default-features",
+    "--features",
+    "worker-lowering",
+    "--test",
+    "reusable_regions"
+  ],
+  "exit_code": 101,
+  "cutoff": false,
+  "stdout": "\nrunning 6 tests\ntest workers::gate::stale_reply_cannot_consume_a_current_reservation ... ok\ntest product_raw_multiplicity_and_cancellation_do_not_leak_across_queries ... FAILED\ntest finite_source_registry_agrees_after_partition_and_product ... FAILED\ntest certified_products_reuse_runtime_with_empty_shared_and_independent_outputs ... FAILED\ntest finite_products_publish_beside_continuing_source_and_runtime_reuses ... FAILED\ntest factored_contraction_matches_full_worker_source_products ... FAILED\n\nfailures:\n\n---- product_raw_multiplicity_and_cancellation_do_not_leak_across_queries stdout ----\n\nthread 'product_raw_multiplicity_and_cancellation_do_not_leak_across_queries' (4606) panicked at research/chr-factors/tests/reusable_regions.rs:61:5:\nassertion `left == right` failed\n  left: Some(0)\n right: Some(4)\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n\n---- finite_source_registry_agrees_after_partition_and_product stdout ----\n\nthread 'finite_source_registry_agrees_after_partition_and_product' (4605) panicked at research/chr-factors/tests/reusable_regions.rs:61:5:\nassertion `left == right` failed\n  left: Some(1)\n right: Some(2)\n\n---- certified_products_reuse_runtime_with_empty_shared_and_independent_outputs stdout ----\n\nthread 'certified_products_reuse_runtime_with_empty_shared_and_independent_outputs' (4602) panicked at research/chr-factors/tests/reusable_regions.rs:61:5:\nassertion `left == right` failed\n  left: Some(0)\n right: Some(1)\n\n---- finite_products_publish_beside_continuing_source_and_runtime_reuses stdout ----\n\nthread 'finite_products_publish_beside_continuing_source_and_runtime_reuses' (4604) panicked at research/chr-factors/tests/reusable_regions.rs:177:21:\nassertion failed: !batch.exhausted\n\n---- factored_contraction_matches_full_worker_source_products stdout ----\n\nthread 'factored_contraction_matches_full_worker_source_products' (4603) panicked at research/chr-factors/tests/reusable_regions.rs:227:25:\nassertion `left == right` failed\n  left: Some(0)\n right: Some(2)\n\n\nfailures:\n    certified_products_reuse_runtime_with_empty_shared_and_independent_outputs\n    factored_contraction_matches_full_worker_source_products\n    finite_products_publish_beside_continuing_source_and_runtime_reuses\n    finite_source_registry_agrees_after_partition_and_product\n    product_raw_multiplicity_and_cancellation_do_not_leak_across_queries\n\ntest result: FAILED. 1 passed; 5 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s\n\n",
+  "stderr": "   Compiling chr-factors v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-factors)\n    Finished `release` profile [optimized] target(s) in 1.55s\n     Running tests/reusable_regions.rs (target/release/deps/reusable_regions-59cd571269a2ac26)\nerror: test failed, to rerun pass `-p chr-factors --test reusable_regions`\n"
+}

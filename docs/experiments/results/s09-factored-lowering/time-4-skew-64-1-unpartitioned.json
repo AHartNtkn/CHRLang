@@ -1,0 +1,22 @@
+{
+  "command": [
+    "/home/ahart/Documents/CHRLang/target/release/examples/worker_lowered_cost",
+    "contracted",
+    "64",
+    "1",
+    "skew"
+  ],
+  "allocation": false,
+  "block": 4,
+  "cell": [
+    "skew",
+    64,
+    1,
+    "unpartitioned"
+  ],
+  "exit_code": 0,
+  "cutoff": false,
+  "stdout": "{\"mode\":\"contracted\",\"depth\":64,\"queries\":1,\"family\":\"skew\"}\n{\"prepare_ns\":49794,\"shutdown_ns\":2377,\"lifecycle_ns\":1549010}\n{\"query\":0,\"setup_ns\":232066,\"execute_observe_ns\":1229518,\"first_observation_ns\":1081013,\"dispose_ns\":35255}\n",
+  "stderr": "",
+  "process_cpu_seconds": 0.0029439999999999467
+}

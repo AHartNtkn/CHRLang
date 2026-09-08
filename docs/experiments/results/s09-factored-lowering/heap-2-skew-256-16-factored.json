@@ -1,0 +1,23 @@
+{
+  "command": [
+    "/home/ahart/Documents/CHRLang/target/release/examples/worker_allocation",
+    "contracted",
+    "256",
+    "16",
+    "128",
+    "skew"
+  ],
+  "allocation": true,
+  "block": 2,
+  "cell": [
+    "skew",
+    256,
+    16,
+    "factored"
+  ],
+  "exit_code": 0,
+  "cutoff": false,
+  "stdout": "{\"workers\":null,\"depth\":256,\"queries\":16,\"quantum\":128,\"family\":\"skew\"}\n{\"live_start\":7685,\"live_end\":7685,\"peak_live\":663946,\"allocation_calls\":430248,\"requested_bytes\":28092864,\"deallocation_calls\":429079}\n",
+  "stderr": "",
+  "process_cpu_seconds": 0.02754800000000024
+}

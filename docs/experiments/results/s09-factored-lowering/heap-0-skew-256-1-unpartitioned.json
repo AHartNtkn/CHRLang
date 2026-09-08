@@ -1,0 +1,22 @@
+{
+  "command": [
+    "/home/ahart/Documents/CHRLang/target/release/examples/worker_lowered_allocation",
+    "contracted",
+    "256",
+    "1",
+    "skew"
+  ],
+  "allocation": true,
+  "block": 0,
+  "cell": [
+    "skew",
+    256,
+    1,
+    "unpartitioned"
+  ],
+  "exit_code": 0,
+  "cutoff": false,
+  "stdout": "{\"mode\":\"contracted\",\"depth\":256,\"queries\":1,\"family\":\"skew\"}\n{\"prepare_ns\":62752,\"shutdown_ns\":2953,\"lifecycle_ns\":6613842}\n{\"query\":0,\"setup_ns\":1398315,\"execute_observe_ns\":5146983,\"first_observation_ns\":3947467,\"dispose_ns\":2839}\n{\"allocation\":{\"live_start\":7677,\"live_end\":7677,\"peak_live\":3350082,\"allocation_calls\":75553,\"requested_bytes\":3781824,\"deallocation_calls\":75515}}\n",
+  "stderr": "",
+  "process_cpu_seconds": 0.008252999999999955
+}

@@ -1,5 +1,5 @@
 from pathlib import Path
-import hashlib,json,statistics
+import hashlib,json,statistics,subprocess
 ROOT=Path(__file__).resolve().parents[4]
 OUT=Path(__file__).resolve().parent
 def classify(rs):
@@ -9,8 +9,12 @@ def classify(rs):
     return 'unresolved'
 def main():
     freeze=json.loads((OUT/'freeze.json').read_text())
-    for name,h in freeze['source'].items():assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==h,name
-    for name,h in freeze['binaries'].items():assert hashlib.sha256((ROOT/'target/release/examples'/name).read_bytes()).hexdigest()==h,name
+    for name,h in freeze['source'].items():
+        content=subprocess.check_output(['git','show',freeze['source_commit']+':'+name],cwd=ROOT) if 'source_commit' in freeze else (ROOT/name).read_bytes()
+        assert hashlib.sha256(content).hexdigest()==h,name
+    # Historical receipts validate archival source; binary hashes identify the measured artifacts.
+    if 'source_commit' not in freeze:
+        for name,h in freeze['binaries'].items():assert hashlib.sha256((ROOT/'target/release/examples'/name).read_bytes()).hexdigest()==h,name
     data={};warmups=0
     for p in OUT.glob('*.json'):
         r=json.loads(p.read_text())

@@ -1,5 +1,8 @@
 //! Certified products over reusable workers and the same inline source service.
 use super::workers::{self, Pool, QueryId, Search};
+#[cfg(feature = "worker-lowering")]
+#[path = "contracted_region.rs"]
+mod contracted;
 use chr_persistent::continuations::PreparedMachine;
 use chr_syntax::{Answer, Constraint, Query, Rule, Term, Var};
 use std::collections::{BTreeMap, BTreeSet, VecDeque};
@@ -8,11 +11,42 @@ use std::sync::{Arc, atomic::AtomicBool};
 pub enum Mode {
     Inline,
     Threads(usize),
+    #[cfg(feature = "worker-lowering")]
+    Contracted,
 }
 enum Backend {
     Inline(PreparedMachine),
     Threads(Pool),
+    #[cfg(feature = "worker-lowering")]
+    Contracted(chr_compiled::PreparedRuleset),
     Closed,
+}
+enum SerialSearches {
+    Persistent(Vec<Search>),
+    #[cfg(feature = "worker-lowering")]
+    Contracted(Vec<contracted::Search>),
+}
+impl SerialSearches {
+    fn service(
+        &mut self,
+        request: u64,
+        region: usize,
+        budget: usize,
+        cancel: &AtomicBool,
+    ) -> workers::Batch {
+        match self {
+            Self::Persistent(s) => s[region].service(request, region, budget, cancel),
+            #[cfg(feature = "worker-lowering")]
+            Self::Contracted(s) => s[region].service(request, region, budget, cancel),
+        }
+    }
+    fn clear(&mut self) {
+        match self {
+            Self::Persistent(s) => s.clear(),
+            #[cfg(feature = "worker-lowering")]
+            Self::Contracted(s) => s.clear(),
+        }
+    }
 }
 pub struct Runtime {
     rules: Vec<Rule>,
@@ -31,6 +65,12 @@ impl Runtime {
             return Err("positive source quantum and window required".into());
         }
         let backend = match mode {
+            #[cfg(feature = "worker-lowering")]
+            Mode::Contracted => Backend::Contracted(
+                chr_compiled::PreparedRuleset::new(rules.clone(), None)?
+                    .specialize_inferred()
+                    .contract_carriers_inferred()?,
+            ),
             Mode::Inline => Backend::Inline(PreparedMachine::new(rules.clone())?),
             Mode::Threads(n) => Backend::Threads(Pool::new(rules.clone(), n, window)?),
         };
@@ -57,22 +97,33 @@ impl Runtime {
             .collect::<Vec<_>>();
         let count = queries.len();
         let cancel = Arc::new(AtomicBool::new(false));
-        let mut inline = Vec::new();
         #[cfg(test)]
         let live = Arc::new(std::sync::atomic::AtomicUsize::new(0));
-        let token = match &mut self.backend {
+        let (token, inline) = match &mut self.backend {
             Backend::Inline(p) => {
+                let mut searches = Vec::new();
                 for q in queries {
-                    inline.push(Search::new(
+                    searches.push(Search::new(
                         p,
                         q,
                         #[cfg(test)]
                         live.clone(),
                     )?);
                 }
-                None
+                (None, SerialSearches::Persistent(searches))
             }
-            Backend::Threads(p) => Some(p.begin(queries)?),
+            #[cfg(feature = "worker-lowering")]
+            Backend::Contracted(p) => {
+                let searches = queries
+                    .into_iter()
+                    .map(|q| contracted::Search::new(p, q))
+                    .collect::<Result<Vec<_>, _>>()?;
+                (None, SerialSearches::Contracted(searches))
+            }
+            Backend::Threads(p) => (
+                Some(p.begin(queries)?),
+                SerialSearches::Persistent(Vec::new()),
+            ),
             Backend::Closed => unreachable!(),
         };
         Ok(Session {
@@ -106,6 +157,8 @@ impl Runtime {
     pub fn shutdown(&mut self) -> Result<(), String> {
         match std::mem::replace(&mut self.backend, Backend::Closed) {
             Backend::Threads(mut p) => p.shutdown(),
+            #[cfg(feature = "worker-lowering")]
+            Backend::Contracted(_) => Ok(()),
             Backend::Inline(_) | Backend::Closed => Ok(()),
         }
     }
@@ -143,7 +196,7 @@ pub struct Batch {
 pub struct Session<'a> {
     backend: &'a mut Backend,
     token: Option<QueryId>,
-    inline: Vec<Search>,
+    inline: SerialSearches,
     cancel: Arc<AtomicBool>,
     quantum: usize,
     window: usize,
@@ -211,18 +264,19 @@ impl Session<'_> {
                 Backend::Threads(p) => {
                     p.submit(self.token.as_ref().unwrap(), region, self.quantum)?
                 }
-                Backend::Inline(_) => {
+                Backend::Closed => return Err("runtime closed".into()),
+                _ => {
                     let request = self.next_request;
                     self.next_request = self
                         .next_request
                         .checked_add(1)
                         .ok_or("request identity overflow")?;
-                    let batch =
-                        self.inline[region].service(request, region, self.quantum, &self.cancel);
+                    let batch = self
+                        .inline
+                        .service(request, region, self.quantum, &self.cancel);
                     self.replies.insert(request, batch);
                     request
                 }
-                Backend::Closed => return Err("runtime closed".into()),
             };
             self.factors[region].pending = true;
             self.flights.push_back((request, region));

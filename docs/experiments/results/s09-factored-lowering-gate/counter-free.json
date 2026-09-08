@@ -1,0 +1,18 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "-p",
+    "chr-factors",
+    "--release",
+    "--no-default-features",
+    "--features",
+    "worker-lowering",
+    "--test",
+    "reusable_regions"
+  ],
+  "exit_code": 0,
+  "cutoff": false,
+  "stdout": "\nrunning 6 tests\ntest workers::gate::stale_reply_cannot_consume_a_current_reservation ... ok\ntest product_raw_multiplicity_and_cancellation_do_not_leak_across_queries ... ok\ntest certified_products_reuse_runtime_with_empty_shared_and_independent_outputs ... ok\ntest finite_products_publish_beside_continuing_source_and_runtime_reuses ... ok\ntest finite_source_registry_agrees_after_partition_and_product ... ok\ntest factored_contraction_matches_full_worker_source_products ... ok\n\ntest result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.10s\n\n",
+  "stderr": "   Compiling chr-factors v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-factors)\n    Finished `release` profile [optimized] target(s) in 1.41s\n     Running tests/reusable_regions.rs (target/release/deps/reusable_regions-59cd571269a2ac26)\n"
+}

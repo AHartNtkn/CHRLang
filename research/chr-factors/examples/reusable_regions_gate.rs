@@ -26,6 +26,8 @@ fn main() {
         regions::Mode::Threads(1),
         regions::Mode::Threads(2),
         regions::Mode::Threads(4),
+        #[cfg(feature = "worker-lowering")]
+        regions::Mode::Contracted,
     ] {
         for quantum in [1, 7] {
             let mut runtime = regions::Runtime::new(rules.clone(), mode, quantum, 4).unwrap();
@@ -71,6 +73,6 @@ fn main() {
         }
     }
     println!(
-        "{checked} complete source queries, each followed by cancellation; inline and 1/2/4 workers"
+        "{checked} complete source queries, each followed by cancellation; configured inline/worker source modes"
     );
 }

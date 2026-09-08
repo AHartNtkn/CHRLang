@@ -6,6 +6,8 @@ mod cases;
 mod meter;
 #[path = "../experiments/reusable_regions.rs"]
 mod regions;
+#[path = "../experiments/worker_mode.rs"]
+mod selection;
 #[allow(dead_code)]
 #[path = "../experiments/reusable_workers.rs"]
 mod workers;
@@ -13,7 +15,8 @@ fn main() {
     assert!(!std::hint::black_box(chr_factors::COLLECT_METRICS));
     assert!(!std::hint::black_box(chr_persistent::COLLECT_METRICS));
     let args = std::env::args().collect::<Vec<_>>();
-    let workers: usize = args[1].parse().unwrap();
+    let (mode, workers) = selection::parse(&args[1]).unwrap();
+    let workers = workers.map_or_else(|| "null".to_string(), |n| n.to_string());
     let depth: usize = args[2].parse().unwrap();
     let repetitions: usize = args[3].parse().unwrap();
     let quantum: usize = args[4].parse().unwrap();
@@ -21,11 +24,6 @@ fn main() {
     assert!(matches!(family, "balanced" | "skew" | "tiny"));
     let count = if family == "tiny" { 1 } else { 4 };
     let expected = cases::expected(count);
-    let mode = if workers == 0 {
-        regions::Mode::Inline
-    } else {
-        regions::Mode::Threads(workers)
-    };
     println!(
         "{{\"workers\":{workers},\"depth\":{depth},\"queries\":{repetitions},\"quantum\":{quantum},\"family\":\"{family}\"}}"
     );

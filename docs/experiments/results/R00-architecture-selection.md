@@ -4,7 +4,7 @@
 
 The [architecture checkpoint](R07-architecture-checkpoint.md) and [closure audit](R07-closure-audit.md) record earlier assessments. The governing sequence above supplies the current investigation requirements. Existing measurements retain their stated scope; the current evidence does not support whole-goal closure.
 
-Current parallel evidence: the [reusable-worker pilot](S09-worker-timing-pilot.md) establishes bounded lifecycle wall-time gains with higher process CPU, plus strong tiny-query losses. The [matched allocation matrix](S09-worker-allocation.md) also finds higher worker traffic and median peaks. The [serial contraction comparison](S09-lowered-control.md) now exposes a further factoring/branch-ownership distinction that requires testing; this remains a conditional resource tradeoff, not architecture selection.
+Current parallel evidence: the [factored-contraction comparison](S09-factored-lowering.md) shows that the persistent-worker gains on these countdown sources do not survive available serial lowering plus factoring. Parallelism on other or lowered work remains open. The current investigation is [generated multihead access](S01-generated-access-entry.md), where that single-head contraction cannot settle the execution choice.
 
 The first comparison should distinguish generic selection, incremental activation and generated rule execution on complete ordinary-CHR computations. In parallel, analyze a directly compiled finite consistency relation as a contrasting way to eliminate execution. Integrated representation and conditional execution remain serious independent candidates; existing service results do not rank them against these organizations.
 

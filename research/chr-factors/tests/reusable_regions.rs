@@ -7,6 +7,16 @@ mod regions;
 mod workers;
 use chr_syntax::{Answer, Goal, Query, Rule, atom, c, eq, or, v};
 use regions::{Mode, Runtime};
+fn modes() -> Vec<Mode> {
+    vec![
+        Mode::Inline,
+        Mode::Threads(1),
+        Mode::Threads(2),
+        Mode::Threads(4),
+        #[cfg(feature = "worker-lowering")]
+        Mode::Contracted,
+    ]
+}
 fn rules() -> Vec<Rule> {
     ["p", "q"]
         .into_iter()
@@ -55,12 +65,7 @@ fn check_answers(runtime: &mut Runtime, rules: &[Rule], q: Query, factors: Optio
 #[test]
 fn certified_products_reuse_runtime_with_empty_shared_and_independent_outputs() {
     let rs = rules();
-    for mode in [
-        Mode::Inline,
-        Mode::Threads(1),
-        Mode::Threads(2),
-        Mode::Threads(4),
-    ] {
+    for mode in modes() {
         for quantum in [1, 7] {
             for window in [1, 4] {
                 let mut r = Runtime::new(rs.clone(), mode, quantum, window).unwrap();
@@ -113,7 +118,7 @@ fn product_raw_multiplicity_and_cancellation_do_not_leak_across_queries() {
             )
         })
         .collect::<Vec<_>>();
-    for mode in [Mode::Inline, Mode::Threads(2)] {
+    for mode in modes() {
         let mut r = Runtime::new(rs.clone(), mode, 1, 4).unwrap();
         let q = chr_cases::query(vec![c("p", [v(0)]), c("q", [v(1)])], &[0, 1]);
         for prefix in [0, 1, 5, 20] {
@@ -128,7 +133,7 @@ fn product_raw_multiplicity_and_cancellation_do_not_leak_across_queries() {
 #[test]
 fn finite_source_registry_agrees_after_partition_and_product() {
     for case in chr_cases::registry().into_iter().filter(|c| c.exhausted) {
-        for mode in [Mode::Inline, Mode::Threads(2)] {
+        for mode in modes() {
             let mut runtime = Runtime::new(case.rules.clone(), mode, 7, 4).unwrap();
             check_answers(&mut runtime, &case.rules, case.query.clone(), None);
             runtime.shutdown().unwrap();
@@ -155,12 +160,7 @@ fn finite_products_publish_beside_continuing_source_and_runtime_reuses() {
             or(eq(v(0), atom("a")), eq(v(0), atom("b"))),
         ),
     ];
-    for mode in [
-        Mode::Inline,
-        Mode::Threads(1),
-        Mode::Threads(2),
-        Mode::Threads(4),
-    ] {
+    for mode in modes() {
         for quantum in [1, 7] {
             for window in [1, 4] {
                 let mut runtime = Runtime::new(rs.clone(), mode, quantum, window).unwrap();
@@ -196,6 +196,42 @@ fn finite_products_publish_beside_continuing_source_and_runtime_reuses() {
                 );
                 runtime.shutdown().unwrap();
             }
+        }
+    }
+}
+
+#[cfg(feature = "worker-lowering")]
+#[test]
+fn factored_contraction_matches_full_worker_source_products() {
+    #[path = "../experiments/worker_cases.rs"]
+    mod workload;
+    for mode in [Mode::Inline, Mode::Threads(4), Mode::Contracted] {
+        for quantum in [1, 128] {
+            let mut runtime = Runtime::new(workload::source(), mode, quantum, 4).unwrap();
+            for count in [1, 2, 4] {
+                let expected = workload::expected(count);
+                for depth in [0, 8, 64, 256] {
+                    for skew in [false, true] {
+                        let mut session =
+                            runtime.start(workload::query(count, depth, skew)).unwrap();
+                        assert_eq!(session.factor_count(), count);
+                        let mut actual = Vec::new();
+                        for _ in 0..100_000 {
+                            let batch = session.advance(1).unwrap();
+                            actual.extend(batch.answers);
+                            if batch.exhausted {
+                                break;
+                            }
+                        }
+                        assert!(session.exhausted());
+                        assert_eq!(session.raw_count(), Some(expected.len() as u128));
+                        actual.sort_unstable_by(|a, b| a.outputs.cmp(&b.outputs));
+                        assert_eq!(actual, expected);
+                        session.close().unwrap();
+                    }
+                }
+            }
+            runtime.shutdown().unwrap();
         }
     }
 }
