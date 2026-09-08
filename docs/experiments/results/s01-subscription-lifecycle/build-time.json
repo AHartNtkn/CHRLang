@@ -1,0 +1,17 @@
+{
+  "command": [
+    "cargo",
+    "build",
+    "-p",
+    "chr-compiled",
+    "--release",
+    "--example",
+    "s01_subscription_lifecycle",
+    "--target-dir",
+    "/home/ahart/Documents/CHRLang/target/s01-subscription-lifecycle/time",
+    "--no-default-features"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "   Compiling chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax)\n   Compiling chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe)\n   Compiling chr-programs v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-programs)\n   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)\n   Compiling chr-cases v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-cases)\n   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)\n    Finished `release` profile [optimized] target(s) in 5.72s\n"
+}

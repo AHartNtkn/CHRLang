@@ -336,3 +336,7 @@ The [subscription gate](S01-subscription-kernel-gate.md) establishes 44 source c
 ## S01 subscription source correspondence
 
 The [integrated source gate](S01-subscription-source-gate.md) checks 49 configurations in all three join policies and two service quanta, with independent full answers, changed preparation queries, cancellation and failure cases. Four binding/resource/order faults fail release checks. The existing single-head specializer admits no region on this multihead source, so it supplies no additional specialized control; broader generated access remains open. Candidate materialization, binding scans and all query owners must be charged in the prospective lifecycle experiment. T068 remains active; no cost ranking has run.
+
+## S01 subscription lifecycle and remaining favorable witness
+
+The [1,008-process pilot](S01-subscription-lifecycle.md) passes exact allocation replay and full lifetime restoration in all 144 cells. Subscriptions beat eager retention practically in six cells but not indexed rediscovery; ten indexed-relative losses include consumption and reopening. Compiled execution retains lower-peak countercases despite substantially slower runtime. T068 remains active: [costly low-yield discovery](S01-subscription-low-yield-entry.md) is still missing, and its control must use both bound endpoints where advantageous. This bounded follow-up takes priority over warm workers or corrected restoration because it can change the current subscription interpretation; those alternatives remain required.
