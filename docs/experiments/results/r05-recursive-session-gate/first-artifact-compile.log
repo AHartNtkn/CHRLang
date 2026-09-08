@@ -1,0 +1,43 @@
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.33s
+     Running tests/recursive_session_artifact.rs (target/debug/deps/recursive_session_artifact-22e59e48370ffa78)
+
+running 1 test
+
+thread 'three_executables_preserve_complete_changed_query_sessions' (126) panicked at research/chr-compiled/tests/recursive_session_artifact.rs:56:9:
+specialized build at /tmp/chr-recursive-session-125-1788853191868796846: error[E0308]: mismatched types
+ --> src/main.rs:7:189
+  |
+7 | ...multiplicity".into());}match b.engine.observe(){Ok(a)=>answer=Some(a),Err(e)=>return Response::Error(e)}},chr_compiled::SearchEven...
+  |                                 ------------------ ^^^^^ expected `Option<Answer>`, found `Result<_, _>`
+  |                                 |
+  |                                 this expression has type `Option<Answer>`
+  |
+  = note: expected enum `Option<Answer>`
+             found enum `Result<_, _>`
+
+error[E0308]: mismatched types
+ --> src/main.rs:7:211
+  |
+7 | ...".into());}match b.engine.observe(){Ok(a)=>answer=Some(a),Err(e)=>return Response::Error(e)}},chr_compiled::SearchEvent::Exhausted...
+  |                     ------------------                       ^^^^^^ expected `Option<Answer>`, found `Result<_, _>`
+  |                     |
+  |                     this expression has type `Option<Answer>`
+  |
+  = note: expected enum `Option<Answer>`
+             found enum `Result<_, _>`
+
+For more information about this error, try `rustc --explain E0308`.
+error: could not compile `session-specialized` (bin "session-specialized") due to 2 previous errors
+
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test three_executables_preserve_complete_changed_query_sessions ... FAILED
+
+failures:
+
+failures:
+    three_executables_preserve_complete_changed_query_sessions
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.46s
+
+error: test failed, to rerun pass `-p chr-compiled --test recursive_session_artifact`

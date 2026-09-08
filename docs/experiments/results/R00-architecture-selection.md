@@ -177,3 +177,8 @@ The [conditional lifecycle pilot](R03-conditional-lifecycle.md) validates all 25
 ## Entry update during T046
 
 [Native recursive artifacts](R05-recursive-native-entry.md) validate 182 outcomes across seven separately compiled modules. Body operations are generated statements, with no compiled-engine runtime dependency. T046 continues with equivalent executable sessions and prospective compilation-lifecycle registration; debug correctness compilation is not timing evidence.
+
+
+## Session update during T046
+
+[Shared executable sessions](R05-recursive-session-gate.md) validate 42 complete responses across native, direct and Specialized, preserving unsupported-versus-ordinary-residual behavior. All 60 package tests pass in both configurations. The remaining T046 entry is a reviewable measurement runner and prospective compilation-lifecycle registration, with bundled phases named accurately and external execution caps. No comparative timings have run.

@@ -8,7 +8,7 @@ goal:
   execution_authority: Redesigned goal authorizes implementation and experiments selected under R00 and the governing sequence.
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
-  current_research: Native recursive artifacts validated; shared sessions and prospective compilation lifecycle pilot remain
+  current_research: Shared recursive sessions validated; measurement runner and prospective compilation lifecycle pilot remain
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -1291,6 +1291,8 @@ tasks:
     progress_evidence:
       - docs/experiments/registrations/R05-recursive-native-entry.md
       - docs/experiments/results/R05-recursive-native-entry.md
+      - docs/experiments/registrations/R05-recursive-session-gate.md
+      - docs/experiments/results/R05-recursive-session-gate.md
     receipt: null
 
 
@@ -1299,11 +1301,11 @@ checks:
   last_verification:
     result: passed
     task: T046
-    scope: Native recursive artifact correspondence; lifecycle protocol and measurements pending.
+    scope: Shared recursive executable sessions; measurement runner and comparative registration pending.
     commands:
-      - 54 package all-target tests in each parent feature configuration
-      - 182 generated outcomes across seven external modules with counter-free dependencies
+      - 60 package all-target tests in each parent feature configuration
+      - 42 full responses across three external counter-free executable sessions
       - Strict Clippy in both feature modes and cargo fmt --all --check
-      - Independent generator review and dependency/source artifact audit
+      - Independent protocol review and artifact dependency/hash audit
     evidence:
-      - docs/experiments/results/R05-recursive-native-entry.md
+      - docs/experiments/results/R05-recursive-session-gate.md

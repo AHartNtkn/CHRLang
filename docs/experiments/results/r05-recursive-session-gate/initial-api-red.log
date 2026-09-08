@@ -1,0 +1,9 @@
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+error[E0432]: unresolved import `chr_compiled::recursive::session`
+ --> research/chr-compiled/tests/recursive_session_artifact.rs:7:41
+  |
+7 | use chr_compiled::recursive::{Prepared, session::{self, Response}};
+  |                                         ^^^^^^^ could not find `session` in `recursive`
+
+For more information about this error, try `rustc --explain E0432`.
+error: could not compile `chr-compiled` (test "recursive_session_artifact") due to 1 previous error

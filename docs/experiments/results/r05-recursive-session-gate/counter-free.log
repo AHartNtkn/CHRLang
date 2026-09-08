@@ -1,0 +1,166 @@
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.81s
+     Running unittests src/lib.rs (target/debug/deps/chr_compiled-7228aa6308229fe4)
+
+running 5 tests
+test regions::tests::sealed_selection_bypasses_tuple_cursor_and_history ... ok
+test search::tests::failure_is_branch_local_and_raw_duplicates_are_preserved ... ok
+test search::tests::ordinary_engine_stops_at_explicit_split_then_search_separates_bindings ... ok
+test search::tests::finite_sibling_receives_service_beside_divergence ... ok
+test search::tests::each_child_owns_live_indexed_resources_and_segment_counters ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/access.rs (target/debug/deps/access-27fd1bc77f98acf1)
+
+running 10 tests
+test execution_observation_and_teardown_are_separate_lifetimes ... ok
+test ground_intermediate_output_is_not_a_completed_observation ... ok
+test prepared_rules_and_queries_have_independent_lifetimes ... ok
+test metric_availability_does_not_change_execution_or_retention ... ok
+test different_queries_share_only_static_preparation ... ok
+test no_head_residuals_keep_aliases_without_matcher_maintenance ... ok
+test later_anchor_preserves_unknown_structure_repeated_slots_and_resources ... ok
+test active_known_keys_bound_partner_discovery_on_flat_chains ... ok
+test flat_keys_collisions_and_low_yield_repairs_have_independent_checks ... ok
+test indexed_and_scanned_access_preserve_full_observations_and_traces ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running tests/closed_subtrees.rs (target/debug/deps/closed_subtrees-ee0a1c1d46a2b54d)
+
+running 2 tests
+test syntactically_open_bound_variable_still_reactivates_after_alias_target_changes ... ok
+test open_parent_follows_new_alias_targets_across_forks_and_failed_equations ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/query_template.rs (target/debug/deps/query_template-8742da476857eee3)
+
+running 1 test
+test prepared_topology_preserves_changed_givens_raw_answers_and_early_drop ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/recursive_matrix.rs (target/debug/deps/recursive_matrix-94c2e48e7ae8b3ea)
+
+running 2 tests
+test mathematical_spine_and_alias_expectations ... ok
+test alias_and_constructor_cross_product_preserves_full_raw_observations ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running tests/recursive_native_artifact.rs (target/debug/deps/recursive_native_artifact-add05086ec70b10e)
+
+running 1 test
+validated 182 outcomes across 7 modules; artifact at /tmp/chr-recursive-native-gate-3860-1788853313999142295
+test emitted_artifact_preserves_changed_queries_and_admission ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.72s
+
+     Running tests/recursive_relations.rs (target/debug/deps/recursive_relations-7faa29b48f32583b)
+
+running 6 tests
+test reject_source_and_query_context_outside_certificate ... ok
+test unknown_control_and_context_are_explicitly_unsupported ... ok
+test conflicts_and_occurs_fail_without_unsupported_fallback ... ok
+test control_equations_are_executed_and_entire_query_checked_first ... ok
+test reused_equations_preserve_fresh_joint_aliases ... ok
+test inferred_names_positions_order_and_different_bodies ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/recursive_session_artifact.rs (target/debug/deps/recursive_session_artifact-9bf9615a1d3cbe2f)
+
+running 1 test
+validated 42 session responses across three executables; artifact at /tmp/chr-recursive-session-4135-1788853315724106889
+test three_executables_preserve_complete_changed_query_sessions ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.58s
+
+     Running tests/recursive_session_protocol.rs (target/debug/deps/recursive_session_protocol-52d931b1ad2db32a)
+
+running 5 tests
+test exact_handcoded_query_and_joint_answer_roundtrip ... ok
+test each_response_is_flushed_and_clean_eof_never_executes ... ok
+test malformed_complete_frame_does_not_poison_changed_requests ... ok
+test framing_and_limits_are_explicit_errors ... ok
+test aggregate_nodes_depth_utf8_and_response_resource_failure ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+     Running tests/region_boundaries.rs (target/debug/deps/region_boundaries-3ec025ba334f555f)
+
+running 8 tests
+test entailment_guards_cannot_be_used_as_solver_assertions ... ok
+test equal_choice_arms_and_open_constructors_remain_observable ... ok
+test constructor_and_repeated_heads_cannot_become_binding_equations ... ok
+test external_observation_requires_occurrence_boundary ... ok
+test recursive_choice_unfolding_preserves_observed_finite_prefix_in_closed_query ... ok
+test unique_predicate_does_not_authorize_effect_reordering ... ok
+test closed_query_inlining_preserves_opaque_unknowns_and_fresh_locals ... ok
+test equal_answer_sets_do_not_establish_equal_exhaustion_behavior ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running tests/regional_serial_control.rs (target/debug/deps/regional_serial_control-09fec140afae694a)
+
+running 1 test
+test specialized_serial_preserves_regional_finite_contracts ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.13s
+
+     Running tests/search.rs (target/debug/deps/search-c1c5d2d06c4f5157)
+
+running 2 tests
+test prepared_search_reuse_and_direct_branch_split_are_explicit ... ok
+test branch_tree_has_exact_independent_observations_and_resource_effects ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.23s
+
+     Running tests/semantic.rs (target/debug/deps/semantic-6a5f46ddf03bef9f)
+
+running 8 tests
+test equation_change_report_is_commit_only ... ok
+test native_rules_do_not_call_generic_template_walkers ... ok
+test nonconfluent_policies_may_choose_different_legal_schedules ... ok
+test partner_traversal_resumes_at_candidate_boundaries ... ok
+test source_effects_and_matching_do_not_publish_invalid_answers ... ok
+test active_changes_history_and_runtime_queries ... ok
+test integrated_hand_cases_have_independent_complete_answers ... ok
+test independent_source_checker_validates_commits_and_quiescence ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/single_head_regions.rs (target/debug/deps/single_head_regions-b2f6b6bc0ca674d9)
+
+running 6 tests
+test eligibility_checks_every_head_use_and_arity ... ok
+test selected_calls_bypass_tuple_cursor_and_history ... ok
+test mixed_context_and_nonground_source_cases ... ok
+test recursive_choices_and_guard_local_identity ... ok
+test generated_mixed_plans_and_prepared_query_leases ... ok
+test guard_and_constructor_crossing_corpus ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running tests/structural_maintenance.rs (target/debug/deps/structural_maintenance-18d84211bc3852f9)
+
+running 2 tests
+test open_parent_dependencies_survive_alias_then_binding ... ok
+test immutable_suffix_work_is_distinct_from_source_applications ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests examples/search_diagnosis.rs (target/debug/examples/search_diagnosis-0a37f2d9ba26c9eb)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests examples/search_gate.rs (target/debug/examples/search_gate-05bb5453a7e300f5)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

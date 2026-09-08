@@ -4,6 +4,7 @@
 //! store or selector. It is synchronous: the ground spine bounds iterations, not
 //! the size of unification or exported terms. Arena/bindings belong to one query.
 mod native;
+pub mod session;
 
 use chr_persistent::{
     Stats,
