@@ -1,0 +1,14 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "-p",
+    "chr-compiled",
+    "--release",
+    "--test",
+    "subscription_join_gate"
+  ],
+  "exit_code": 101,
+  "stdout": "\nrunning 3 tests\ntest indexed_control_uses_selective_final_endpoint ... ok\ntest inactive_demands_avoid_retention_and_repeated_requests_avoid_rediscovery ... FAILED\ntest updates_retirement_reopening_and_occurrences_match_independent_product ... FAILED\n\nfailures:\n\n---- inactive_demands_avoid_retention_and_repeated_requests_avoid_rediscovery stdout ----\n\nthread 'inactive_demands_avoid_retention_and_repeated_requests_avoid_rediscovery' (336) panicked at research/chr-compiled/tests/subscription_join_gate.rs:97:9:\nassertion `left == right` failed\n  left: 512\n right: 0\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n\n---- updates_retirement_reopening_and_occurrences_match_independent_product stdout ----\n\nthread 'updates_retirement_reopening_and_occurrences_match_independent_product' (338) panicked at research/chr-compiled/tests/subscription_join_gate.rs:71:17:\nassertion `left == right` failed\n  left: 66\n right: 0\n\n\nfailures:\n    inactive_demands_avoid_retention_and_repeated_requests_avoid_rediscovery\n    updates_retirement_reopening_and_occurrences_match_independent_product\n\ntest result: FAILED. 1 passed; 2 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s\n\n",
+  "stderr": "   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)\n    Finished `release` profile [optimized] target(s) in 1.32s\n     Running tests/subscription_join_gate.rs (target/release/deps/subscription_join_gate-c25d7abc2ea2a83d)\nerror: test failed, to rerun pass `-p chr-compiled --test subscription_join_gate`\n"
+}

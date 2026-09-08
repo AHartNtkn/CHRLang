@@ -1,0 +1,8 @@
+Replace exactly:
+        for t in tuples {
+            self.forget(t);
+        }
+        self.relations[relation].remove(id);
+With:
+        for _t in tuples {}
+        self.relations[relation].remove(id);

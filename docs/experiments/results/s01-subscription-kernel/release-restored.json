@@ -1,0 +1,16 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "-p",
+    "chr-compiled",
+    "--release",
+    "--test",
+    "subscription_join_gate",
+    "--test",
+    "subscription_source_gate"
+  ],
+  "exit_code": 0,
+  "stdout": "\nrunning 3 tests\ntest indexed_control_uses_selective_final_endpoint ... ok\ntest inactive_demands_avoid_retention_and_repeated_requests_avoid_rediscovery ... ok\ntest updates_retirement_reopening_and_occurrences_match_independent_product ... ok\n\ntest result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s\n\n\nrunning 6 tests\ntest unmatched_resource_update_blocks_driver_with_exact_residual ... ok\ntest duplicate_demand_occurrences_have_independent_history_and_retirement ... ok\ntest aliases_and_structural_binding_enable_matches_without_binding_during_match ... ok\ntest live_demand_repeated_pulses_retirement_and_reopening ... ok\ntest updates_to_each_relation_and_demand_retirement ... ok\ntest occurrence_multiplicity_selectivity_and_consuming_shared_partners ... ok\n\ntest result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s\n\n",
+  "stderr": "   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)\n    Finished `release` profile [optimized] target(s) in 1.28s\n     Running tests/subscription_join_gate.rs (target/release/deps/subscription_join_gate-c25d7abc2ea2a83d)\n     Running tests/subscription_source_gate.rs (target/release/deps/subscription_source_gate-97358bf90ca1e4d3)\n"
+}

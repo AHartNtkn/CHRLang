@@ -1,0 +1,6 @@
+Replace exactly:
+                for t in tuples {
+                    self.forget(t);
+                }
+With:
+                for _t in tuples {}

@@ -328,3 +328,7 @@ The [588-process pilot](S05-lifecycle-pilot.md) and [336-process inferred-specia
 ## S05 operation crossover and next matching contrast
 
 The [616-process crossover](S05-operation-crossover.md) passes complete observations, exact allocation replay in all 88 cells and full disposal. At 64 common requests, depth256–1,024 supports roughly 25–35% before-discrimination runtime savings; distinct depth1,024 requests take 2.75 times ordinary runtime. Graph common-clash peak/traffic remains lower, and the after-discrimination clash timing remains uncertain. Native compilation and broader cache validity/lifetime are not resolved. T067's bounded trial is complete; T068 selects [demand-driven subscriptions](S01-subscription-entry.md), with warm parallel workers and corrected replay policies retained as consequential alternatives. The architecture goal remains active.
+
+## S01 demand lifetime and tuple-maintenance gate
+
+The [subscription gate](S01-subscription-kernel-gate.md) establishes 44 source configurations against independent execution and both compiled Global controls. Indexed, eager and demand-driven tuple kernels agree with an independent product oracle over 32 update sequences each; three deliberate retention/multiplicity/invalidation faults fail release checks. Subscriptions avoid inactive retention and repeated discovery, while middle updates still examine active demand keys. This is mechanism and correctness evidence, not cost or full source-correspondence evidence. T068 remains active for source integration and prospective lifecycle comparison.

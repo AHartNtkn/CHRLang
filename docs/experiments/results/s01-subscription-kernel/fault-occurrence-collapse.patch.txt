@@ -1,0 +1,5 @@
+Replace exactly:
+        out.sort_unstable();
+With:
+        out.sort_unstable();
+        out.dedup_by_key(|t| self.key(*t));
