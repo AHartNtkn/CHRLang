@@ -1,0 +1,83 @@
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+warning: unused attribute `allow`
+  --> research/chr-compiled/examples/search_diagnosis.rs:28:5
+   |
+28 |     #[allow(clippy::assertions_on_constants)]
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+note: the built-in attribute `allow` will be ignored, since it's applied to the macro invocation `assert`
+  --> research/chr-compiled/examples/search_diagnosis.rs:29:5
+   |
+29 |     assert!(
+   |     ^^^^^^
+   = note: `#[warn(unused_attributes)]` (part of `#[warn(unused)]`) on by default
+
+warning: `chr-compiled` (example "search_diagnosis" test) generated 1 warning (run `cargo fix --example "search_diagnosis" -p chr-compiled --tests` to apply 1 suggestion)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.14s
+     Running unittests src/lib.rs (target/debug/deps/chr_compiled-6be053a662b217e6)
+
+running 4 tests
+test search::tests::failure_is_branch_local_and_raw_duplicates_are_preserved ... ok
+test search::tests::finite_sibling_receives_service_beside_divergence ... ok
+test search::tests::ordinary_engine_stops_at_explicit_split_then_search_separates_bindings ... ok
+test search::tests::each_child_owns_live_indexed_resources_and_segment_counters ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/access.rs (target/debug/deps/access-719a3fc5b3b16174)
+
+running 10 tests
+test ground_intermediate_output_is_not_a_completed_observation ... ok
+test execution_observation_and_teardown_are_separate_lifetimes ... ok
+test prepared_rules_and_queries_have_independent_lifetimes ... ok
+test metric_availability_does_not_change_execution_or_retention ... ok
+test different_queries_share_only_static_preparation ... ok
+test no_head_residuals_keep_aliases_without_matcher_maintenance ... ok
+test later_anchor_preserves_unknown_structure_repeated_slots_and_resources ... ok
+test active_known_keys_bound_partner_discovery_on_flat_chains ... ok
+test flat_keys_collisions_and_low_yield_repairs_have_independent_checks ... ok
+test indexed_and_scanned_access_preserve_full_observations_and_traces ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running tests/query_template.rs (target/debug/deps/query_template-6ef04f00ec0eb6b4)
+
+running 1 test
+test prepared_topology_preserves_changed_givens_raw_answers_and_early_drop ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/search.rs (target/debug/deps/search-46f8e1bf8fe13141)
+
+running 2 tests
+test prepared_search_reuse_and_direct_branch_split_are_explicit ... ok
+test branch_tree_has_exact_independent_observations_and_resource_effects ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.22s
+
+     Running tests/semantic.rs (target/debug/deps/semantic-eb80cf945da075d2)
+
+running 8 tests
+test equation_change_report_is_commit_only ... ok
+test partner_traversal_resumes_at_candidate_boundaries ... ok
+test native_rules_do_not_call_generic_template_walkers ... ok
+test nonconfluent_policies_may_choose_different_legal_schedules ... ok
+test source_effects_and_matching_do_not_publish_invalid_answers ... ok
+test active_changes_history_and_runtime_queries ... ok
+test integrated_hand_cases_have_independent_complete_answers ... ok
+test independent_source_checker_validates_commits_and_quiescence ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running unittests examples/search_diagnosis.rs (target/debug/examples/search_diagnosis-61aff5a2fa4ce641)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests examples/search_gate.rs (target/debug/examples/search_gate-387c10c539e0d39a)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

@@ -8,7 +8,7 @@ goal:
   execution_authority: Redesigned goal authorizes implementation and experiments selected under R00 and the governing sequence.
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
-  current_research: R04 lifecycle evidence complete; source-search scheduling and retention diagnosis selected
+  current_research: Source scheduling diagnosis complete; direct conditional resource and publication protocol selected
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -63,7 +63,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T033
+active_task: T034
 tasks:
   - id: T001
     type: pm
@@ -845,7 +845,7 @@ tasks:
   - id: T033
     type: pm
     assignee: PM
-    status: active
+    status: done
     objective: Diagnose source failure scheduling, frontier retention and observation cost before selecting the next search architecture contrast.
     inputs:
       - docs/experiments/results/R04-lifecycle-pilot.md
@@ -864,18 +864,50 @@ tasks:
     stop_if:
       - Do not attribute a joint scheduling/access contrast to indexing alone.
       - Do not adopt a universal search policy or language contract.
+    receipt:
+      result: done
+      summary: 144 deterministic diagnostic runs validate full answers; delayed failure causes 6560 versus 44 chain8 splits and frontier6360 versus9. Access and dispatch preserve counts. Physical observation anomaly remains unattributed.
+      evidence:
+        - docs/experiments/results/R03-search-diagnosis.md
+      validation: Compiled tests, Clippy, formatting, independent source audit, exact repeats and frozen-source check pass.
+  - id: T034
+    type: pm
+    assignee: PM
+    status: active
+    objective: Establish a coherent direct conditional activation, resource and publication protocol with independent semantic witnesses before choosing its implementation and cost contrast.
+    inputs:
+      - docs/experiments/results/R00-architecture-selection.md
+      - docs/experiments/results/R03-search-diagnosis.md
+      - docs/experiments/results/E03.md
+      - docs/experiments/results/E06-native.md
+    allowed_files:
+      - research/
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+      - Cargo.toml
+      - Cargo.lock
+    expected_output:
+      - Explicit source-effect, correlation, activation, failure, publication and lifetime responsibility model.
+      - Independent positive/adverse witnesses and evidence-backed implementation selection against competent source search.
+    verify:
+      - Consuming resources, propagation identity, dynamic births and off-output failure accounted for
+      - No implicit source choice or reference dependency
+      - Any comparative runs prospectively registered
+    stop_if:
+      - Do not substitute preview-each-interpretation grouping for direct conditional activation.
+      - No owner-independent language adoption or priority for unfinished prototypes.
     receipt: null
 
 checks:
   dirty_fingerprint: preexisting_unfinished_experimental_files_preserved
   last_verification:
     result: passed
-    task: T032
-    scope: Matched finite-solving lifecycle and compiled query reuse.
+    task: T033
+    scope: Causal source-search diagnostics.
     commands:
-      - Workspace all-target tests, Clippy and formatting pass
-      - Runner and counter-free query-template tests pass
-      - 720 processes validate 1800 complete queries and 194616 raw answers
-      - Independent audit recomputes 120 lifecycle summaries and verifies frozen sources
+      - Compiled all-target tests, Clippy and formatting pass
+      - 144 processes validate complete independent observations and branch conservation
+      - Repeated and access/dispatch diagnostic counts agree exactly
+      - Frozen source archive hashes verified
     evidence:
-      - docs/experiments/results/R04-lifecycle-pilot.md
+      - docs/experiments/results/R03-search-diagnosis.md

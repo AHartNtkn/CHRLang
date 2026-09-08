@@ -88,3 +88,8 @@ Read-only independent reviews covered integrated/conditional execution and direc
 ## Current evidence update after T032
 
 The [R04 lifecycle pilot](R04-lifecycle-pilot.md) establishes a viable native finite lowering in its exact fragment: all 720 processes complete, with lower native lifecycle in each cold/reuse cell. Whole-process memory and full answer recovery are included; general CHR and native compilation superiority are not established. The large active/global source-search contrast selects a bounded T033 causal scheduling/frontier diagnosis before committing to a storage or conditional protocol. This update governs current priority; the initial selection rationale above records the entry decision. R02 and the remaining R03–R07 questions retain their stated unresolved boundaries.
+
+
+## Current priority after T033
+
+[Source diagnostics](R03-search-diagnosis.md) establish delayed failure as the branch explosion cause; global source selection supplies the early-rejection control. T034 selects the coherent conditional activation/resource/publication boundary and independent witnesses. That complete organization can change work across choices; further queue tuning cannot answer its central question. Its implementation is selected from the responsibility model, without automatic priority for an existing prototype.
