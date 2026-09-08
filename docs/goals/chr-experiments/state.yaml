@@ -8,7 +8,7 @@ goal:
   execution_authority: Redesigned goal authorizes implementation and experiments selected under R00 and the governing sequence.
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
-  current_research: R02 semantic gate and first lifecycle pilot measured; constructor-decomposition/repair costs and output-only maintenance selected next
+  current_research: R02 repair and congruence pilots measured; compiled explicit-search semantic gate selected for R03/R04 controls
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -63,7 +63,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T029
+active_task: T030
 tasks:
   - id: T001
     type: pm
@@ -711,7 +711,7 @@ tasks:
   - id: T029
     type: pm
     assignee: PM
-    status: active
+    status: done
     objective: Measure constructor-decomposing equality and nested repair with source effects, and isolate output-only access maintenance before drawing broader representation conclusions.
     inputs:
       - docs/experiments/results/R02-integrated-cost-pilot.md
@@ -719,7 +719,13 @@ tasks:
     expected_output:
       - Independent nested/batched equality workloads that actually exercise descriptor repairs and pending-equality source applications.
       - Prospective measured maintenance ablation, complete lifecycle evidence and cross-architecture disposition.
-    receipt: null
+    receipt:
+      result: done
+      summary: Validated head-only matcher maintenance and single-witness congruence; 686 registered processes validate 2744 full answers. Nested integration remains slower than competent dedicated access with more requested heap.
+      evidence:
+        - docs/experiments/results/R02-repair-maintenance-pilot.md
+        - docs/experiments/results/R02-congruence-witness-pilot.md
+      validation: Workspace tests, Clippy, formatting, counter-free semantic/runner checks, independent reviews and frozen pilot checks pass.
     allowed_files:
       - research/chr-integrated/
       - research/chr-compiled/
@@ -734,20 +740,45 @@ tasks:
     stop_if:
       - No architecture ranking from unmatched counters or missing constructor-repair coverage.
       - Preserve source semantics, reference independence and owner-only language adoption.
+  - id: T030
+    type: pm
+    assignee: PM
+    status: active
+    objective: Establish independently checked explicit-search execution in the compiled control for solver elimination and conditional execution comparisons.
+    inputs:
+      - docs/experiments/results/R02-congruence-witness-pilot.md
+      - docs/experiments/results/R04-solving-comparison-selection.md
+      - docs/experiments/results/R04-source-correspondence-gate.md
+    allowed_files:
+      - research/chr-compiled/
+      - research/chr-direct-solver/
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+      - Cargo.toml
+      - Cargo.lock
+    expected_output:
+      - Explicit branch lifecycle and finite-service semantics, source OR in generated/generic execution, independent full-answer and resource checks.
+      - Credible ordinary search control for a prospectively registered R04/R03 contrast; no timing ranking from the gate alone.
+    verify:
+      - Independent finite assignment/source oracle and occurrence-level branch checks
+      - Fair finite sibling progress, joint aliases, fresh variables, multiplicity and branch-local failure
+      - Default and counter-free tests, workspace validation, preparation reuse and disposal
+    stop_if:
+      - Do not assign all choices outside the engine and omit source search cost.
+      - No owner language adoption or universal scheduling policy inferred from a control.
+    receipt: null
 
 checks:
   dirty_fingerprint: preexisting_unfinished_experimental_files_preserved
   last_verification:
     result: passed
-    task: T028
-    scope: R02 integrated semantic gate and first cost pilot; independent source replay, representation audit and counter-free controls.
+    task: T029
+    scope: R02 repair, maintenance and congruence pilots with complete source observations and matched access controls.
     commands:
-      - Thirteen independent semantic tests and two native runner tests pass with default and counter-free instrumentation
-      - Registered R02 pilot validates 490 processes and 1960 complete answers
-      - Actual integrated/compiled/kernel features checked; allocator self-check and bounded retention pass
-      - Workspace tests, Clippy, formatting and independent reviews pass
+      - Workspace all-target tests, Clippy and formatting pass
+      - Counter-free experiment tests and allocator-build Clippy pass
+      - Three registered pilots validate 686 processes and 2744 full answers
+      - Source freezes, actual instrumentation flags, mechanism checks and stable query allocation baselines pass
     evidence:
-      - docs/experiments/results/R02-integrated-semantic-gate.md
-      - docs/experiments/results/R02-integrated-cost-pilot.md
-      - docs/experiments/results/R02-integrated-pilot/all-tests.log
-      - docs/experiments/results/R02-integrated-pilot/off-tests.log
+      - docs/experiments/results/R02-repair-maintenance-pilot.md
+      - docs/experiments/results/R02-congruence-witness-pilot.md

@@ -1,0 +1,19 @@
+chr-integrated v0.1.0 (/tmp/chr-r02-repair-before/research/chr-integrated)
+├── chr-compiled v0.1.0 (/tmp/chr-r02-repair-before/research/chr-compiled)
+│   ├── chr-persistent v0.1.0 (/tmp/chr-r02-repair-before/research/chr-persistent)
+│   │   ├── chr-observe feature "default"
+│   │   │   └── chr-observe v0.1.0 (/tmp/chr-r02-repair-before/research/chr-observe)
+│   │   │       └── chr-syntax feature "default"
+│   │   │           └── chr-syntax v0.1.0 (/tmp/chr-r02-repair-before/crates/chr-syntax)
+│   │   └── chr-syntax feature "default" (*)
+│   ├── chr-observe feature "default" (*)
+│   └── chr-syntax feature "default" (*)
+│   [build-dependencies]
+│   └── chr-syntax feature "default" (*)
+├── chr-persistent v0.1.0 (/tmp/chr-r02-repair-before/research/chr-persistent) (*)
+├── chr-observe feature "default" (*)
+└── chr-syntax feature "default" (*)
+[build-dependencies]
+└── chr-syntax feature "default" (*)
+[dev-dependencies]
+└── chr-observe feature "default" (*)

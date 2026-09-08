@@ -55,6 +55,12 @@ pub struct Audit {
     pub enabled_applications: usize,
     pub inconsistent: bool,
     pub indexes_valid: bool,
+    /// Retained live occurrence memberships in source predicate buckets.
+    pub matcher_predicate_entries: usize,
+    /// Retained live occurrence memberships in source argument buckets.
+    pub matcher_argument_entries: usize,
+    /// Retained occurrence/column dependencies used to wake source matching.
+    pub matcher_occurrence_incidence: usize,
     pub live_occurrences: usize,
     pub retained_occurrences: usize,
     pub allocated_values: usize,
@@ -350,6 +356,15 @@ impl Engine {
             args: args.clone(),
             live: true,
         });
+        // Observation owns every occurrence. Matcher maintenance owns only
+        // signatures that can participate in a prepared source head.
+        if !self
+            .prepared
+            .heads
+            .contains_key(&(constraint.name.clone(), args.len()))
+        {
+            return;
+        }
         self.predicates
             .entry((constraint.name.clone(), args.len()))
             .or_default()
@@ -474,17 +489,32 @@ impl Engine {
         {
             bucket.remove(&id);
         }
-        let key = (
+        let key: Key = (
             descriptor.name,
             descriptor.children.iter().map(|x| self.root(*x)).collect(),
         );
-        let peers = self.constructors.get(&key).cloned().unwrap_or_default();
+        // Each bucket is connected by established or queued owner equalities.
+        // One edge extends that connected component; pairwise edges add no fact.
+        // These obligations survive key movement because identified children never
+        // become unequal, even while parent repairs and source work interleave.
+        let peer = self.constructors.get(&key).and_then(|bucket| {
+            bucket.iter().find_map(|peer| {
+                let other = &self.descriptors[*peer];
+                other
+                    .children
+                    .iter()
+                    .map(|v| self.root(*v))
+                    .eq(key.1.iter().copied())
+                    .then_some(other.owner)
+            })
+        });
         self.constructors.entry(key.clone()).or_default().insert(id);
         self.descriptors[id].key = Some(key);
-        for peer in peers {
-            self.equate(descriptor.owner, self.descriptors[peer].owner);
+        if let Some(peer) = peer {
+            self.equate(descriptor.owner, peer);
         }
     }
+
     fn reaches(&self, start: Value, target: Value) -> bool {
         let mut pending = vec![start];
         let mut visited = BTreeSet::new();
@@ -852,6 +882,13 @@ impl Engine {
         let mut columns: BTreeMap<Column, BTreeSet<u64>> = BTreeMap::new();
         let mut uses = vec![BTreeSet::new(); self.nodes.len()];
         for (id, occ) in self.occurrences.iter().enumerate().filter(|(_, o)| o.live) {
+            if !self
+                .prepared
+                .heads
+                .contains_key(&(occ.name.clone(), occ.args.len()))
+            {
+                continue;
+            }
             predicates
                 .entry((occ.name.clone(), occ.args.len()))
                 .or_default()
@@ -926,6 +963,9 @@ impl Engine {
             enabled_applications: enabled,
             inconsistent,
             indexes_valid,
+            matcher_predicate_entries: self.predicates.values().map(BTreeSet::len).sum(),
+            matcher_argument_entries: self.columns.values().map(BTreeSet::len).sum(),
+            matcher_occurrence_incidence: self.nodes.iter().map(|node| node.uses.len()).sum(),
             live_occurrences: self.occurrences.iter().filter(|o| o.live).count(),
             retained_occurrences: self.occurrences.len(),
             allocated_values: self.nodes.len(),

@@ -501,6 +501,8 @@ fn registered_cost_workloads_have_independent_complete_observations() {
         Family::Fanout,
         Family::Repair,
         Family::Build,
+        Family::Batch,
+        Family::Nested,
     ] {
         for depth in [1, 3] {
             for size in [2, 3] {
@@ -529,5 +531,96 @@ fn registered_cost_workloads_have_independent_complete_observations() {
                 }
             }
         }
+    }
+}
+
+#[test]
+fn batched_nested_workloads_exercise_repair_and_partial_source_execution() {
+    for family in [workloads::Family::Batch, workloads::Family::Nested] {
+        let rules = workloads::programs()[family.program()].clone();
+        let (query, expected) = workloads::case(family, 8, 2);
+        let prepared = PreparedRuleset::new(&rules).unwrap();
+        let mut engine = prepared.start(&query);
+        engine.enable_trace();
+        assert_eq!(engine.run(100_000), Step::Complete);
+        verify_complete(&rules, &query, Some(&expected), &engine);
+        assert!(
+            engine
+                .trace()
+                .iter()
+                .any(|c| c.rule == 1 && c.pending_equalities > 0)
+        );
+        if cfg!(feature = "metrics") {
+            assert!(engine.stats().descriptor_repairs > 0);
+            assert!(engine.stats().speculative_applications > 0);
+        }
+    }
+}
+
+#[test]
+fn congruence_obligations_connect_many_owners_through_pending_key_movement() {
+    let rules = vec![
+        Rule::simplify("bind", [c("bind", [v(0), v(1)])], eq(v(0), v(1))),
+        Rule::simplify(
+            "open",
+            [
+                c("open", [v(0), t("g", [t("f", [atom("a")])])]),
+                c("ticket", [v(0)]),
+            ],
+            c("result", [v(0)]).into(),
+        ),
+        Rule::propagate("seen", [c("result", [v(0)])], c("seen", [v(0)]).into()),
+    ];
+    for size in [8, 32, 64] {
+        let mut query = Query {
+            constraints: vec![],
+            outputs: vec![],
+        };
+        let mut expected = Answer {
+            outputs: vec![],
+            residual: vec![],
+        };
+        for i in 0..size {
+            let key = atom(&format!("k{i}"));
+            query.constraints.extend([
+                c("open", [key.clone(), t("g", [t("f", [v(i as u64)])])]),
+                c("ticket", [key.clone()]),
+            ]);
+            query.outputs.push((format!("x{i}"), Var(i as u64)));
+            expected.outputs.push((format!("x{i}"), atom("a")));
+            expected
+                .residual
+                .extend([c("result", [key.clone()]), c("seen", [key])]);
+        }
+        query.constraints.push(c(
+            "bind",
+            [
+                t("tuple", (0..size).map(|i| v(i as u64)).collect::<Vec<_>>()),
+                t("tuple", vec![atom("a"); size]),
+            ],
+        ));
+        let prepared = PreparedRuleset::new(&rules).unwrap();
+        let mut engine = prepared.start(&query);
+        engine.enable_trace();
+        assert_eq!(engine.run(100_000), Step::Complete);
+        verify_complete(&rules, &query, Some(&expected), &engine);
+        assert!(
+            engine
+                .trace()
+                .iter()
+                .any(|c| c.rule == 1 && c.pending_equalities > 0)
+        );
+        assert!(
+            engine
+                .trace()
+                .iter()
+                .any(|c| c.rule == 1 && c.pending_repairs > 0)
+        );
+        #[cfg(feature = "metrics")]
+        assert!(
+            engine.stats().equality_steps <= 4 * size + 2,
+            "one tuple decomposition and two congruence layers require linear equality service: size={size}, steps={}",
+            engine.stats().equality_steps
+        );
     }
 }

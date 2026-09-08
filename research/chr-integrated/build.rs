@@ -12,7 +12,11 @@ fn main() {
     for (i, rules) in workloads::programs().iter().enumerate() {
         source.push_str(&generate::emit(&format!("p{i}"), rules).unwrap());
     }
-    source.push_str("}\nfn code(id:usize)->chr_compiled::Compiled {match id {0=>native::p0_code(),1=>native::p1_code(),_=>unreachable!()}}\n");
+    source.push_str("}\nfn code(id:usize)->chr_compiled::Compiled {match id {\n");
+    for i in 0..workloads::programs().len() {
+        source.push_str(&format!("{i}=>native::p{i}_code(),\n"));
+    }
+    source.push_str("_=>unreachable!()}}\n");
     std::fs::write(
         std::path::PathBuf::from(std::env::var_os("OUT_DIR").unwrap()).join("generated.rs"),
         source,

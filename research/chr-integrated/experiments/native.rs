@@ -419,7 +419,7 @@ pub fn main() -> Result<(), String> {
         return Ok(());
     }
     if args.len() != 6 {
-        return Err("usage: chr-integrated-cost time|work|memory independent|fanout|repair|build SIZE DEPTH QUERIES integrated|generic-indexed|generated-indexed|generated-scan|generated-global-scan".into());
+        return Err("usage: chr-integrated-cost time|work|memory independent|fanout|repair|build|batch|nested SIZE DEPTH QUERIES integrated|generic-indexed|generated-indexed|generated-scan|generated-global-scan".into());
     }
     let counted = match args[0].as_str() {
         "time" | "memory" => false,

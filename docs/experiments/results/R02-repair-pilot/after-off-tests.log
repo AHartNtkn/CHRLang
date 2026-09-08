@@ -1,0 +1,50 @@
+   Compiling chr-integrated v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-integrated)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.90s
+     Running unittests src/lib.rs (target/debug/deps/chr_integrated-2964e477f29632b7)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests experiments/native.rs (target/debug/deps/chr_integrated_cost-1567434c5af67889)
+
+running 2 tests
+test tests::validation_checks_values_and_residual_multiplicity ... ok
+test tests::variants_preserve_complete_answers_across_preparation_reuse ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/maintenance.rs (target/debug/deps/maintenance-b9e07158be5f798e)
+
+running 2 tests
+test output_only_occurrences_preserve_nested_binding_and_joint_aliases ... ok
+test mixed_source_and_output_signatures_keep_only_live_head_memberships ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/semantic.rs (target/debug/deps/semantic-3a1b55dc664b04e4)
+
+running 14 tests
+test legal_source_competition_is_not_implicit_search ... ok
+test finite_tree_and_complete_body_obligations_prevent_publication ... ok
+test preparation_reuse_has_independent_query_lifetimes ... ok
+test mixed_heads_keep_one_resource_across_two_consumptions ... ok
+test support::oracle_rejects_missed_work_and_preserves_unbound_matching ... ok
+test fresh_locals_and_propagation_are_occurrence_sensitive ... ok
+test repeated_slots_and_positive_guards_wait_for_equality ... ok
+test unknown_heads_and_joint_aliases_remain_most_general ... ok
+test nested_congruence_and_constructor_guards_repair_access ... ok
+test pending_contradiction_receives_service_beside_recursive_source_work ... ok
+test source_effects_run_during_pending_equality_but_never_publish_failure ... ok
+test batched_nested_workloads_exercise_repair_and_partial_source_execution ... ok
+test equality_activates_consumption_without_fusing_resources ... ok
+test registered_cost_workloads_have_independent_complete_observations ... ok
+
+test result: ok. 14 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+   Doc-tests chr_integrated
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
