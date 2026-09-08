@@ -49,3 +49,10 @@ cargo rustc -p chr-factors --release --target-dir /tmp/t043-ir-on --lib -- --emi
 ```
 
 Inspect the named function signatures and service body in the emitted `.ll` files; symbol hashes and layouts are toolchain-specific. Diagnostic absence is supported jointly by feature wiring, semantic off-mode execution, source review and optimized-code inspection, rather than output zeros alone.
+
+
+## Runner gate
+
+The [registered 50-cell pilot](../registrations/R08-regional-lifecycle.md) now has a validated cold lifecycle runner with Inline, one/two-worker and specialized whole-source controls. Both feature modes pass all supported full-answer endpoints and explicit cutoff tests; strict Clippy, formatting and meter self-check pass. [Gate logs](r08-regional-runner/default.log) and adjacent receipts preserve validation. Independent review checked the measurement, resource and interpretation boundaries.
+
+A [standard-library-only channel probe](r08-regional-runner/channel-probe.log) finds a 48-byte receiving-thread allocation that persists across repeated main-thread receives and is released by receiver-thread termination. Matching threaded-query retention is consistent with this infrastructure ownership. The runner reports every final requested-live delta, with no prewarming or subtraction. Owner-thread/process teardown remains outside query timing. The new registration states this qualification before comparative runs.

@@ -4,12 +4,22 @@ version.workspace = true
 edition.workspace = true
 [features]
 default = ["metrics"]
-metrics = ["chr-persistent/metrics", "chr-observe/metrics"]
+metrics = ["chr-persistent/metrics", "chr-observe/metrics", "chr-compiled?/metrics"]
+lifecycle = ["dep:chr-compiled"]
 
 [dependencies]
 chr-syntax = { path = "../../crates/chr-syntax" }
 chr-observe = { path = "../chr-observe", default-features = false }
 chr-persistent = { path = "../chr-persistent", default-features = false }
+chr-compiled = { path = "../chr-compiled", default-features = false, optional = true }
 [dev-dependencies]
 chr-cases = { path = "../chr-cases" }
 chr-reference = { path = "../../crates/chr-reference" }
+
+[[example]]
+name = "region_lifecycle"
+required-features = ["lifecycle"]
+
+[[example]]
+name = "region_lifecycle_memory"
+required-features = ["lifecycle"]
