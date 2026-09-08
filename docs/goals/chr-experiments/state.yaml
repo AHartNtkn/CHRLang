@@ -8,7 +8,7 @@ goal:
   execution_authority: Redesigned goal authorizes implementation and experiments selected under R00 and the governing sequence.
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
-  current_research: Shared arena candidate and adverse insertion gate validated; lifecycle comparison registered
+  current_research: Arena ownership has bounded lifecycle evidence; pure-carrier eligibility selected
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -1467,7 +1467,7 @@ tasks:
   - id: T052
     type: pm
     assignee: PM
-    status: active
+    status: complete
     objective: Compare lookup-before-detachment arena ownership against current cloning with complete lifecycle and adverse insertion controls.
     inputs:
       - docs/experiments/results/R03-fork-owner.md
@@ -1490,19 +1490,52 @@ tasks:
     stop_if:
       - No wider storage redesign or predicted-speedup claim from diagnostic fractions.
       - Reassess carrier contraction if the bounded candidate lacks complete lifecycle benefit.
+    receipt:
+      summary: All512 processes and21440 answers pass; arena sharing has8 separated read-choice advantages,1 no-choice regression and23 overlaps including all insertion cells.
+      evidence:
+        - docs/experiments/results/R03-arena-ownership.md
+        - docs/experiments/results/r03-arena-ownership/audit.json
+      validation: Independent manifest, source-work, full-answer, baseline and freeze audit; workspace323 tests; default/off/COW source gates and strict Clippy.
+
+  - id: T053
+    type: pm
+    assignee: PM
+    status: active
+    objective: Establish whether a source-derived pure-carrier certificate can safely avoid repeated countdown work in context.
+    inputs:
+      - docs/experiments/results/R07-sufficiency-audit.md
+      - docs/experiments/results/R03-arena-ownership.md
+      - docs/experiments/results/R05-region-boundaries.md
+      - docs/experiments/results/R05-current-mixed.md
+    allowed_files:
+      - research/
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    expected_output:
+      - Exact semantic eligibility boundary derived from source structure, without recognized workload names.
+      - Independent adverse gates for source priority, multiple carriers, opaque aliases, observers and unknown controls.
+      - One bounded correct candidate or justified rejection, with a decision whether lifecycle measurement earns further work.
+    verify:
+      - Preserve nonbinding matching, occurrence identity, ordinary arbitration, finite service, effects and complete answers
+      - Enter only at an ordinarily selected carrier step and stop before the terminal body
+      - Do not presume purity permits contraction or impose language restrictions
+      - Register any comparative measurements before runs
+    stop_if:
+      - Stop broadening the certificate if the proposed finite single-carrier boundary cannot preserve source semantics.
+      - No automatic storage expansion or sharing priority from prior prototypes.
     receipt: null
 
 checks:
   dirty_fingerprint: preexisting_unfinished_experimental_files_preserved
   last_verification:
     result: passed
-    task: T051
-    scope: Fork-owner instrumentation, full workspace and registered72-process allocation matrix.
+    task: T052
+    scope: Arena ownership source/runner gates and full512-process lifecycle comparison.
     commands:
       - cargo test --workspace --all-targets
-      - Persistent and compiled state-preservation tests in default and counter-free configurations
-      - Persistent/compiled/boxes and reuse failure-test strict Clippy; cargo fmt --all -- --check
-      - Independent immutable-closedness proof and diagnostic allocation-boundary review
+      - Default/off/COW source and persistent gates, strict Clippy and cargo fmt check
+      - Root insertion runner tests and actual work/allocation smokes with adverse analyzer assertions
+      - Independent exact manifest, complete answers, work equality, allocator restoration and frozen artifact audit
     evidence:
-      - docs/experiments/results/R01-closed-occurs.md
-      - docs/experiments/results/r03-fork-owner/audit.json
+      - docs/experiments/results/R03-arena-ownership.md
+      - docs/experiments/results/r03-arena-ownership/audit.json

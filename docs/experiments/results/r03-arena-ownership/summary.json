@@ -1,0 +1,4130 @@
+[
+  {
+    "cell": [
+      0,
+      1,
+      "mostly-fail",
+      1,
+      "read"
+    ],
+    "configurations": {
+      "clone": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 0.057915,
+        "min_ms": 0.051319,
+        "max_ms": 0.078527,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.029491,
+        "first_service_ms": 0.01717,
+        "phase_ms_per_query": {
+          "query": 0.000528,
+          "setup": 0.005792,
+          "service": 0.018772,
+          "engine_drop": 0.000118,
+          "output_drop": 0.000325
+        },
+        "requested_bytes_per_query": 34978.0,
+        "peak_above_baseline": 15503,
+        "phase_requested_bytes_per_query": {
+          "query": 405.0,
+          "setup": 3700.0,
+          "service": 10254.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 3,
+            "source_steps": 31,
+            "candidate_visits": 6,
+            "cursor_steps": 6,
+            "dependency_visits": 11,
+            "key_visits": 11,
+            "history_checks": 1,
+            "pairs": 1,
+            "occurs_visits": 0,
+            "term_requests": 14
+          }
+        ]
+      },
+      "cow": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 0.076232,
+        "min_ms": 0.058526,
+        "max_ms": 0.092489,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.042467,
+        "first_service_ms": 0.02148,
+        "phase_ms_per_query": {
+          "query": 0.000635,
+          "setup": 0.005751,
+          "service": 0.023688,
+          "engine_drop": 0.000136,
+          "output_drop": 0.000802
+        },
+        "requested_bytes_per_query": 35186.0,
+        "peak_above_baseline": 15527,
+        "phase_requested_bytes_per_query": {
+          "query": 405.0,
+          "setup": 3724.0,
+          "service": 10254.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 3,
+            "source_steps": 31,
+            "candidate_visits": 6,
+            "cursor_steps": 6,
+            "dependency_visits": 11,
+            "key_visits": 11,
+            "history_checks": 1,
+            "pairs": 1,
+            "occurs_visits": 0,
+            "term_requests": 14
+          }
+        ]
+      }
+    },
+    "range_disposition": "overlap",
+    "cow_over_clone": 1.3162738496071829
+  },
+  {
+    "cell": [
+      0,
+      1,
+      "mostly-fail",
+      1,
+      "insert"
+    ],
+    "configurations": {
+      "clone": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 0.068661,
+        "min_ms": 0.059268,
+        "max_ms": 0.079962,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.034337,
+        "first_service_ms": 0.022763,
+        "phase_ms_per_query": {
+          "query": 0.000442,
+          "setup": 0.006228,
+          "service": 0.024799,
+          "engine_drop": 0.000104,
+          "output_drop": 0.000442
+        },
+        "requested_bytes_per_query": 40198.0,
+        "peak_above_baseline": 16979,
+        "phase_requested_bytes_per_query": {
+          "query": 405.0,
+          "setup": 3728.0,
+          "service": 12816.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 4,
+            "source_steps": 41,
+            "candidate_visits": 7,
+            "cursor_steps": 8,
+            "dependency_visits": 15,
+            "key_visits": 15,
+            "history_checks": 1,
+            "pairs": 1,
+            "occurs_visits": 0,
+            "term_requests": 18
+          }
+        ]
+      },
+      "cow": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 0.080438,
+        "min_ms": 0.072035,
+        "max_ms": 0.086032,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.044071,
+        "first_service_ms": 0.025556,
+        "phase_ms_per_query": {
+          "query": 0.000608,
+          "setup": 0.005493,
+          "service": 0.028195,
+          "engine_drop": 0.000114,
+          "output_drop": 0.000425
+        },
+        "requested_bytes_per_query": 40406.0,
+        "peak_above_baseline": 17003,
+        "phase_requested_bytes_per_query": {
+          "query": 405.0,
+          "setup": 3752.0,
+          "service": 12816.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 4,
+            "source_steps": 41,
+            "candidate_visits": 7,
+            "cursor_steps": 8,
+            "dependency_visits": 15,
+            "key_visits": 15,
+            "history_checks": 1,
+            "pairs": 1,
+            "occurs_visits": 0,
+            "term_requests": 18
+          }
+        ]
+      }
+    },
+    "range_disposition": "overlap",
+    "cow_over_clone": 1.1715238636198133
+  },
+  {
+    "cell": [
+      0,
+      1,
+      "mostly-fail",
+      4,
+      "read"
+    ],
+    "configurations": {
+      "clone": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 0.029004,
+        "min_ms": 0.02476675,
+        "max_ms": 0.032652,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.035468,
+        "first_service_ms": 0.020389,
+        "phase_ms_per_query": {
+          "query": 0.0003535,
+          "setup": 0.0031155,
+          "service": 0.015699,
+          "engine_drop": 0.00011675,
+          "output_drop": 0.00027225
+        },
+        "requested_bytes_per_query": 22095.25,
+        "peak_above_baseline": 16301,
+        "phase_requested_bytes_per_query": {
+          "query": 454.0,
+          "setup": 3725.5,
+          "service": 12761.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 3,
+            "source_steps": 31,
+            "candidate_visits": 6,
+            "cursor_steps": 6,
+            "dependency_visits": 11,
+            "key_visits": 11,
+            "history_checks": 1,
+            "pairs": 1,
+            "occurs_visits": 0,
+            "term_requests": 14
+          },
+          {
+            "applications": 5,
+            "source_steps": 44,
+            "candidate_visits": 9,
+            "cursor_steps": 9,
+            "dependency_visits": 24,
+            "key_visits": 25,
+            "history_checks": 2,
+            "pairs": 6,
+            "occurs_visits": 4,
+            "term_requests": 23
+          },
+          {
+            "applications": 3,
+            "source_steps": 31,
+            "candidate_visits": 6,
+            "cursor_steps": 6,
+            "dependency_visits": 11,
+            "key_visits": 11,
+            "history_checks": 1,
+            "pairs": 1,
+            "occurs_visits": 0,
+            "term_requests": 14
+          },
+          {
+            "applications": 5,
+            "source_steps": 44,
+            "candidate_visits": 9,
+            "cursor_steps": 9,
+            "dependency_visits": 24,
+            "key_visits": 25,
+            "history_checks": 2,
+            "pairs": 6,
+            "occurs_visits": 4,
+            "term_requests": 23
+          }
+        ]
+      },
+      "cow": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 0.0280225,
+        "min_ms": 0.025978,
+        "max_ms": 0.0300535,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.03754,
+        "first_service_ms": 0.018008,
+        "phase_ms_per_query": {
+          "query": 0.0003505,
+          "setup": 0.00269575,
+          "service": 0.014818,
+          "engine_drop": 0.00011525,
+          "output_drop": 0.00021825
+        },
+        "requested_bytes_per_query": 22165.25,
+        "peak_above_baseline": 16325,
+        "phase_requested_bytes_per_query": {
+          "query": 454.0,
+          "setup": 3749.5,
+          "service": 12761.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 3,
+            "source_steps": 31,
+            "candidate_visits": 6,
+            "cursor_steps": 6,
+            "dependency_visits": 11,
+            "key_visits": 11,
+            "history_checks": 1,
+            "pairs": 1,
+            "occurs_visits": 0,
+            "term_requests": 14
+          },
+          {
+            "applications": 5,
+            "source_steps": 44,
+            "candidate_visits": 9,
+            "cursor_steps": 9,
+            "dependency_visits": 24,
+            "key_visits": 25,
+            "history_checks": 2,
+            "pairs": 6,
+            "occurs_visits": 4,
+            "term_requests": 23
+          },
+          {
+            "applications": 3,
+            "source_steps": 31,
+            "candidate_visits": 6,
+            "cursor_steps": 6,
+            "dependency_visits": 11,
+            "key_visits": 11,
+            "history_checks": 1,
+            "pairs": 1,
+            "occurs_visits": 0,
+            "term_requests": 14
+          },
+          {
+            "applications": 5,
+            "source_steps": 44,
+            "candidate_visits": 9,
+            "cursor_steps": 9,
+            "dependency_visits": 24,
+            "key_visits": 25,
+            "history_checks": 2,
+            "pairs": 6,
+            "occurs_visits": 4,
+            "term_requests": 23
+          }
+        ]
+      }
+    },
+    "range_disposition": "overlap",
+    "cow_over_clone": 0.9661598400220659
+  },
+  {
+    "cell": [
+      0,
+      1,
+      "mostly-fail",
+      4,
+      "insert"
+    ],
+    "configurations": {
+      "clone": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 0.0299405,
+        "min_ms": 0.02827275,
+        "max_ms": 0.034958,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.034651,
+        "first_service_ms": 0.022105,
+        "phase_ms_per_query": {
+          "query": 0.00028025,
+          "setup": 0.00335425,
+          "service": 0.016751,
+          "engine_drop": 0.000126,
+          "output_drop": 0.00025075
+        },
+        "requested_bytes_per_query": 25558.75,
+        "peak_above_baseline": 17840,
+        "phase_requested_bytes_per_query": {
+          "query": 454.0,
+          "setup": 3753.5,
+          "service": 15539.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 4,
+            "source_steps": 41,
+            "candidate_visits": 7,
+            "cursor_steps": 8,
+            "dependency_visits": 15,
+            "key_visits": 15,
+            "history_checks": 1,
+            "pairs": 1,
+            "occurs_visits": 0,
+            "term_requests": 18
+          },
+          {
+            "applications": 6,
+            "source_steps": 54,
+            "candidate_visits": 10,
+            "cursor_steps": 11,
+            "dependency_visits": 28,
+            "key_visits": 29,
+            "history_checks": 2,
+            "pairs": 6,
+            "occurs_visits": 4,
+            "term_requests": 27
+          },
+          {
+            "applications": 4,
+            "source_steps": 41,
+            "candidate_visits": 7,
+            "cursor_steps": 8,
+            "dependency_visits": 15,
+            "key_visits": 15,
+            "history_checks": 1,
+            "pairs": 1,
+            "occurs_visits": 0,
+            "term_requests": 18
+          },
+          {
+            "applications": 6,
+            "source_steps": 54,
+            "candidate_visits": 10,
+            "cursor_steps": 11,
+            "dependency_visits": 28,
+            "key_visits": 29,
+            "history_checks": 2,
+            "pairs": 6,
+            "occurs_visits": 4,
+            "term_requests": 27
+          }
+        ]
+      },
+      "cow": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 0.03518675,
+        "min_ms": 0.03123875,
+        "max_ms": 0.03755675,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.037273,
+        "first_service_ms": 0.022291,
+        "phase_ms_per_query": {
+          "query": 0.0003695,
+          "setup": 0.0034975,
+          "service": 0.02029575,
+          "engine_drop": 0.00015825,
+          "output_drop": 0.0002655
+        },
+        "requested_bytes_per_query": 25628.75,
+        "peak_above_baseline": 17864,
+        "phase_requested_bytes_per_query": {
+          "query": 454.0,
+          "setup": 3777.5,
+          "service": 15539.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 4,
+            "source_steps": 41,
+            "candidate_visits": 7,
+            "cursor_steps": 8,
+            "dependency_visits": 15,
+            "key_visits": 15,
+            "history_checks": 1,
+            "pairs": 1,
+            "occurs_visits": 0,
+            "term_requests": 18
+          },
+          {
+            "applications": 6,
+            "source_steps": 54,
+            "candidate_visits": 10,
+            "cursor_steps": 11,
+            "dependency_visits": 28,
+            "key_visits": 29,
+            "history_checks": 2,
+            "pairs": 6,
+            "occurs_visits": 4,
+            "term_requests": 27
+          },
+          {
+            "applications": 4,
+            "source_steps": 41,
+            "candidate_visits": 7,
+            "cursor_steps": 8,
+            "dependency_visits": 15,
+            "key_visits": 15,
+            "history_checks": 1,
+            "pairs": 1,
+            "occurs_visits": 0,
+            "term_requests": 18
+          },
+          {
+            "applications": 6,
+            "source_steps": 54,
+            "candidate_visits": 10,
+            "cursor_steps": 11,
+            "dependency_visits": 28,
+            "key_visits": 29,
+            "history_checks": 2,
+            "pairs": 6,
+            "occurs_visits": 4,
+            "term_requests": 27
+          }
+        ]
+      }
+    },
+    "range_disposition": "overlap",
+    "cow_over_clone": 1.1752225246739367
+  },
+  {
+    "cell": [
+      0,
+      1,
+      "all-success",
+      1,
+      "read"
+    ],
+    "configurations": {
+      "clone": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 0.068507,
+        "min_ms": 0.05609,
+        "max_ms": 0.093361,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.034079,
+        "first_service_ms": 0.021115,
+        "phase_ms_per_query": {
+          "query": 0.000482,
+          "setup": 0.005714,
+          "service": 0.023434,
+          "engine_drop": 0.000116,
+          "output_drop": 0.000607
+        },
+        "requested_bytes_per_query": 35120.0,
+        "peak_above_baseline": 15567,
+        "phase_requested_bytes_per_query": {
+          "query": 404.0,
+          "setup": 3699.0,
+          "service": 10398.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 3,
+            "source_steps": 31,
+            "candidate_visits": 6,
+            "cursor_steps": 6,
+            "dependency_visits": 11,
+            "key_visits": 11,
+            "history_checks": 1,
+            "pairs": 1,
+            "occurs_visits": 1,
+            "term_requests": 13
+          }
+        ]
+      },
+      "cow": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 0.066452,
+        "min_ms": 0.053631,
+        "max_ms": 0.071087,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.034635,
+        "first_service_ms": 0.019792,
+        "phase_ms_per_query": {
+          "query": 0.000409,
+          "setup": 0.004929,
+          "service": 0.021408,
+          "engine_drop": 0.000131,
+          "output_drop": 0.000372
+        },
+        "requested_bytes_per_query": 35328.0,
+        "peak_above_baseline": 15591,
+        "phase_requested_bytes_per_query": {
+          "query": 404.0,
+          "setup": 3723.0,
+          "service": 10398.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 3,
+            "source_steps": 31,
+            "candidate_visits": 6,
+            "cursor_steps": 6,
+            "dependency_visits": 11,
+            "key_visits": 11,
+            "history_checks": 1,
+            "pairs": 1,
+            "occurs_visits": 1,
+            "term_requests": 13
+          }
+        ]
+      }
+    },
+    "range_disposition": "overlap",
+    "cow_over_clone": 0.9700030653801801
+  },
+  {
+    "cell": [
+      0,
+      1,
+      "all-success",
+      1,
+      "insert"
+    ],
+    "configurations": {
+      "clone": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 0.057519,
+        "min_ms": 0.05306,
+        "max_ms": 0.068707,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.027835,
+        "first_service_ms": 0.01997,
+        "phase_ms_per_query": {
+          "query": 0.00038,
+          "setup": 0.005114,
+          "service": 0.021737,
+          "engine_drop": 9.2e-05,
+          "output_drop": 0.000404
+        },
+        "requested_bytes_per_query": 40340.0,
+        "peak_above_baseline": 17043,
+        "phase_requested_bytes_per_query": {
+          "query": 404.0,
+          "setup": 3727.0,
+          "service": 12960.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 4,
+            "source_steps": 41,
+            "candidate_visits": 7,
+            "cursor_steps": 8,
+            "dependency_visits": 15,
+            "key_visits": 15,
+            "history_checks": 1,
+            "pairs": 1,
+            "occurs_visits": 1,
+            "term_requests": 17
+          }
+        ]
+      },
+      "cow": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 0.078661,
+        "min_ms": 0.06662,
+        "max_ms": 0.103175,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.040493,
+        "first_service_ms": 0.026026,
+        "phase_ms_per_query": {
+          "query": 0.00051,
+          "setup": 0.005477,
+          "service": 0.029296,
+          "engine_drop": 0.000128,
+          "output_drop": 0.000398
+        },
+        "requested_bytes_per_query": 40548.0,
+        "peak_above_baseline": 17067,
+        "phase_requested_bytes_per_query": {
+          "query": 404.0,
+          "setup": 3751.0,
+          "service": 12960.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 4,
+            "source_steps": 41,
+            "candidate_visits": 7,
+            "cursor_steps": 8,
+            "dependency_visits": 15,
+            "key_visits": 15,
+            "history_checks": 1,
+            "pairs": 1,
+            "occurs_visits": 1,
+            "term_requests": 17
+          }
+        ]
+      }
+    },
+    "range_disposition": "overlap",
+    "cow_over_clone": 1.3675655000956204
+  },
+  {
+    "cell": [
+      0,
+      1,
+      "all-success",
+      4,
+      "read"
+    ],
+    "configurations": {
+      "clone": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 0.03104775,
+        "min_ms": 0.02753,
+        "max_ms": 0.03232575,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.033558,
+        "first_service_ms": 0.02305,
+        "phase_ms_per_query": {
+          "query": 0.00032025,
+          "setup": 0.00326675,
+          "service": 0.0171835,
+          "engine_drop": 0.0001425,
+          "output_drop": 0.00028425
+        },
+        "requested_bytes_per_query": 22269.25,
+        "peak_above_baseline": 16365,
+        "phase_requested_bytes_per_query": {
+          "query": 453.0,
+          "setup": 3724.5,
+          "service": 12937.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 3,
+            "source_steps": 31,
+            "candidate_visits": 6,
+            "cursor_steps": 6,
+            "dependency_visits": 11,
+            "key_visits": 11,
+            "history_checks": 1,
+            "pairs": 1,
+            "occurs_visits": 1,
+            "term_requests": 13
+          },
+          {
+            "applications": 5,
+            "source_steps": 44,
+            "candidate_visits": 9,
+            "cursor_steps": 9,
+            "dependency_visits": 24,
+            "key_visits": 25,
+            "history_checks": 2,
+            "pairs": 6,
+            "occurs_visits": 5,
+            "term_requests": 22
+          },
+          {
+            "applications": 3,
+            "source_steps": 31,
+            "candidate_visits": 6,
+            "cursor_steps": 6,
+            "dependency_visits": 11,
+            "key_visits": 11,
+            "history_checks": 1,
+            "pairs": 1,
+            "occurs_visits": 1,
+            "term_requests": 13
+          },
+          {
+            "applications": 5,
+            "source_steps": 44,
+            "candidate_visits": 9,
+            "cursor_steps": 9,
+            "dependency_visits": 24,
+            "key_visits": 25,
+            "history_checks": 2,
+            "pairs": 6,
+            "occurs_visits": 5,
+            "term_requests": 22
+          }
+        ]
+      },
+      "cow": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 0.030283,
+        "min_ms": 0.02454975,
+        "max_ms": 0.0333885,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.040229,
+        "first_service_ms": 0.022452,
+        "phase_ms_per_query": {
+          "query": 0.0003255,
+          "setup": 0.002841,
+          "service": 0.01604225,
+          "engine_drop": 0.00016025,
+          "output_drop": 0.00028425
+        },
+        "requested_bytes_per_query": 22339.25,
+        "peak_above_baseline": 16389,
+        "phase_requested_bytes_per_query": {
+          "query": 453.0,
+          "setup": 3748.5,
+          "service": 12937.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 3,
+            "source_steps": 31,
+            "candidate_visits": 6,
+            "cursor_steps": 6,
+            "dependency_visits": 11,
+            "key_visits": 11,
+            "history_checks": 1,
+            "pairs": 1,
+            "occurs_visits": 1,
+            "term_requests": 13
+          },
+          {
+            "applications": 5,
+            "source_steps": 44,
+            "candidate_visits": 9,
+            "cursor_steps": 9,
+            "dependency_visits": 24,
+            "key_visits": 25,
+            "history_checks": 2,
+            "pairs": 6,
+            "occurs_visits": 5,
+            "term_requests": 22
+          },
+          {
+            "applications": 3,
+            "source_steps": 31,
+            "candidate_visits": 6,
+            "cursor_steps": 6,
+            "dependency_visits": 11,
+            "key_visits": 11,
+            "history_checks": 1,
+            "pairs": 1,
+            "occurs_visits": 1,
+            "term_requests": 13
+          },
+          {
+            "applications": 5,
+            "source_steps": 44,
+            "candidate_visits": 9,
+            "cursor_steps": 9,
+            "dependency_visits": 24,
+            "key_visits": 25,
+            "history_checks": 2,
+            "pairs": 6,
+            "occurs_visits": 5,
+            "term_requests": 22
+          }
+        ]
+      }
+    },
+    "range_disposition": "overlap",
+    "cow_over_clone": 0.9753685854852606
+  },
+  {
+    "cell": [
+      0,
+      1,
+      "all-success",
+      4,
+      "insert"
+    ],
+    "configurations": {
+      "clone": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 0.0330775,
+        "min_ms": 0.032202,
+        "max_ms": 0.03622525,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.034219,
+        "first_service_ms": 0.023523,
+        "phase_ms_per_query": {
+          "query": 0.00027325,
+          "setup": 0.00383425,
+          "service": 0.01882975,
+          "engine_drop": 0.00013425,
+          "output_drop": 0.00025975
+        },
+        "requested_bytes_per_query": 25732.75,
+        "peak_above_baseline": 17852,
+        "phase_requested_bytes_per_query": {
+          "query": 453.0,
+          "setup": 3752.5,
+          "service": 15715.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 4,
+            "source_steps": 41,
+            "candidate_visits": 7,
+            "cursor_steps": 8,
+            "dependency_visits": 15,
+            "key_visits": 15,
+            "history_checks": 1,
+            "pairs": 1,
+            "occurs_visits": 1,
+            "term_requests": 17
+          },
+          {
+            "applications": 6,
+            "source_steps": 54,
+            "candidate_visits": 10,
+            "cursor_steps": 11,
+            "dependency_visits": 28,
+            "key_visits": 29,
+            "history_checks": 2,
+            "pairs": 6,
+            "occurs_visits": 5,
+            "term_requests": 26
+          },
+          {
+            "applications": 4,
+            "source_steps": 41,
+            "candidate_visits": 7,
+            "cursor_steps": 8,
+            "dependency_visits": 15,
+            "key_visits": 15,
+            "history_checks": 1,
+            "pairs": 1,
+            "occurs_visits": 1,
+            "term_requests": 17
+          },
+          {
+            "applications": 6,
+            "source_steps": 54,
+            "candidate_visits": 10,
+            "cursor_steps": 11,
+            "dependency_visits": 28,
+            "key_visits": 29,
+            "history_checks": 2,
+            "pairs": 6,
+            "occurs_visits": 5,
+            "term_requests": 26
+          }
+        ]
+      },
+      "cow": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 0.035358,
+        "min_ms": 0.028504,
+        "max_ms": 0.0391505,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.041291,
+        "first_service_ms": 0.025964,
+        "phase_ms_per_query": {
+          "query": 0.000308,
+          "setup": 0.003593,
+          "service": 0.01899175,
+          "engine_drop": 0.00014625,
+          "output_drop": 0.00026775
+        },
+        "requested_bytes_per_query": 25802.75,
+        "peak_above_baseline": 17876,
+        "phase_requested_bytes_per_query": {
+          "query": 453.0,
+          "setup": 3776.5,
+          "service": 15715.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 4,
+            "source_steps": 41,
+            "candidate_visits": 7,
+            "cursor_steps": 8,
+            "dependency_visits": 15,
+            "key_visits": 15,
+            "history_checks": 1,
+            "pairs": 1,
+            "occurs_visits": 1,
+            "term_requests": 17
+          },
+          {
+            "applications": 6,
+            "source_steps": 54,
+            "candidate_visits": 10,
+            "cursor_steps": 11,
+            "dependency_visits": 28,
+            "key_visits": 29,
+            "history_checks": 2,
+            "pairs": 6,
+            "occurs_visits": 5,
+            "term_requests": 26
+          },
+          {
+            "applications": 4,
+            "source_steps": 41,
+            "candidate_visits": 7,
+            "cursor_steps": 8,
+            "dependency_visits": 15,
+            "key_visits": 15,
+            "history_checks": 1,
+            "pairs": 1,
+            "occurs_visits": 1,
+            "term_requests": 17
+          },
+          {
+            "applications": 6,
+            "source_steps": 54,
+            "candidate_visits": 10,
+            "cursor_steps": 11,
+            "dependency_visits": 28,
+            "key_visits": 29,
+            "history_checks": 2,
+            "pairs": 6,
+            "occurs_visits": 5,
+            "term_requests": 26
+          }
+        ]
+      }
+    },
+    "range_disposition": "overlap",
+    "cow_over_clone": 1.0689441463230291
+  },
+  {
+    "cell": [
+      0,
+      64,
+      "mostly-fail",
+      1,
+      "read"
+    ],
+    "configurations": {
+      "clone": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 0.696869,
+        "min_ms": 0.639657,
+        "max_ms": 0.700953,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.037154,
+        "first_service_ms": 0.622034,
+        "phase_ms_per_query": {
+          "query": 0.004003,
+          "setup": 0.028008,
+          "service": 0.624374,
+          "engine_drop": 8.3e-05,
+          "output_drop": 0.000641
+        },
+        "requested_bytes_per_query": 1190899.0,
+        "peak_above_baseline": 44543,
+        "phase_requested_bytes_per_query": {
+          "query": 3492.0,
+          "setup": 25930.0,
+          "service": 1140858.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 66,
+            "source_steps": 409,
+            "candidate_visits": 69,
+            "cursor_steps": 6,
+            "dependency_visits": 263,
+            "key_visits": 263,
+            "history_checks": 1,
+            "pairs": 64,
+            "occurs_visits": 0,
+            "term_requests": 203
+          }
+        ]
+      },
+      "cow": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 0.19257,
+        "min_ms": 0.177949,
+        "max_ms": 0.216217,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.041564,
+        "first_service_ms": 0.115395,
+        "phase_ms_per_query": {
+          "query": 0.003256,
+          "setup": 0.027369,
+          "service": 0.118292,
+          "engine_drop": 0.000104,
+          "output_drop": 0.000666
+        },
+        "requested_bytes_per_query": 362337.0,
+        "peak_above_baseline": 31343,
+        "phase_requested_bytes_per_query": {
+          "query": 3492.0,
+          "setup": 25954.0,
+          "service": 312088.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 66,
+            "source_steps": 409,
+            "candidate_visits": 69,
+            "cursor_steps": 6,
+            "dependency_visits": 263,
+            "key_visits": 263,
+            "history_checks": 1,
+            "pairs": 64,
+            "occurs_visits": 0,
+            "term_requests": 203
+          }
+        ]
+      }
+    },
+    "range_disposition": "cow-lower",
+    "cow_over_clone": 0.2763360115028793
+  },
+  {
+    "cell": [
+      0,
+      64,
+      "mostly-fail",
+      1,
+      "insert"
+    ],
+    "configurations": {
+      "clone": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 0.864187,
+        "min_ms": 0.855632,
+        "max_ms": 0.939291,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.034624,
+        "first_service_ms": 0.791225,
+        "phase_ms_per_query": {
+          "query": 0.003823,
+          "setup": 0.026561,
+          "service": 0.793638,
+          "engine_drop": 0.000104,
+          "output_drop": 0.000518
+        },
+        "requested_bytes_per_query": 1744210.0,
+        "peak_above_baseline": 86486,
+        "phase_requested_bytes_per_query": {
+          "query": 3492.0,
+          "setup": 25958.0,
+          "service": 1691511.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 130,
+            "source_steps": 986,
+            "candidate_visits": 133,
+            "cursor_steps": 134,
+            "dependency_visits": 519,
+            "key_visits": 519,
+            "history_checks": 1,
+            "pairs": 64,
+            "occurs_visits": 0,
+            "term_requests": 459
+          }
+        ]
+      },
+      "cow": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 0.874698,
+        "min_ms": 0.791669,
+        "max_ms": 0.882029,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.041363,
+        "first_service_ms": 0.795375,
+        "phase_ms_per_query": {
+          "query": 0.003357,
+          "setup": 0.028375,
+          "service": 0.797888,
+          "engine_drop": 0.000108,
+          "output_drop": 0.000499
+        },
+        "requested_bytes_per_query": 1755050.0,
+        "peak_above_baseline": 59762,
+        "phase_requested_bytes_per_query": {
+          "query": 3492.0,
+          "setup": 25982.0,
+          "service": 1702143.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 130,
+            "source_steps": 986,
+            "candidate_visits": 133,
+            "cursor_steps": 134,
+            "dependency_visits": 519,
+            "key_visits": 519,
+            "history_checks": 1,
+            "pairs": 64,
+            "occurs_visits": 0,
+            "term_requests": 459
+          }
+        ]
+      }
+    },
+    "range_disposition": "overlap",
+    "cow_over_clone": 1.01216287678477
+  },
+  {
+    "cell": [
+      0,
+      64,
+      "mostly-fail",
+      4,
+      "read"
+    ],
+    "configurations": {
+      "clone": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 0.6754895,
+        "min_ms": 0.66239125,
+        "max_ms": 0.69878825,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.029779,
+        "first_service_ms": 0.590043,
+        "phase_ms_per_query": {
+          "query": 0.00252925,
+          "setup": 0.0226015,
+          "service": 0.637908,
+          "engine_drop": 6.85e-05,
+          "output_drop": 0.000226
+        },
+        "requested_bytes_per_query": 1202091.25,
+        "peak_above_baseline": 49256,
+        "phase_requested_bytes_per_query": {
+          "query": 3541.0,
+          "setup": 25947.0,
+          "service": 1167448.5,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 66,
+            "source_steps": 409,
+            "candidate_visits": 69,
+            "cursor_steps": 6,
+            "dependency_visits": 263,
+            "key_visits": 263,
+            "history_checks": 1,
+            "pairs": 64,
+            "occurs_visits": 0,
+            "term_requests": 203
+          },
+          {
+            "applications": 68,
+            "source_steps": 422,
+            "candidate_visits": 72,
+            "cursor_steps": 9,
+            "dependency_visits": 276,
+            "key_visits": 277,
+            "history_checks": 2,
+            "pairs": 69,
+            "occurs_visits": 4,
+            "term_requests": 212
+          },
+          {
+            "applications": 66,
+            "source_steps": 409,
+            "candidate_visits": 69,
+            "cursor_steps": 6,
+            "dependency_visits": 263,
+            "key_visits": 263,
+            "history_checks": 1,
+            "pairs": 64,
+            "occurs_visits": 0,
+            "term_requests": 203
+          },
+          {
+            "applications": 68,
+            "source_steps": 422,
+            "candidate_visits": 72,
+            "cursor_steps": 9,
+            "dependency_visits": 276,
+            "key_visits": 277,
+            "history_checks": 2,
+            "pairs": 69,
+            "occurs_visits": 4,
+            "term_requests": 212
+          }
+        ]
+      },
+      "cow": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 0.16287825,
+        "min_ms": 0.150729,
+        "max_ms": 0.166334,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.037358,
+        "first_service_ms": 0.126786,
+        "phase_ms_per_query": {
+          "query": 0.00335325,
+          "setup": 0.0224115,
+          "service": 0.12570275,
+          "engine_drop": 0.00071025,
+          "output_drop": 0.00027225
+        },
+        "requested_bytes_per_query": 368571.75,
+        "peak_above_baseline": 35839,
+        "phase_requested_bytes_per_query": {
+          "query": 3541.0,
+          "setup": 25971.0,
+          "service": 333859.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 66,
+            "source_steps": 409,
+            "candidate_visits": 69,
+            "cursor_steps": 6,
+            "dependency_visits": 263,
+            "key_visits": 263,
+            "history_checks": 1,
+            "pairs": 64,
+            "occurs_visits": 0,
+            "term_requests": 203
+          },
+          {
+            "applications": 68,
+            "source_steps": 422,
+            "candidate_visits": 72,
+            "cursor_steps": 9,
+            "dependency_visits": 276,
+            "key_visits": 277,
+            "history_checks": 2,
+            "pairs": 69,
+            "occurs_visits": 4,
+            "term_requests": 212
+          },
+          {
+            "applications": 66,
+            "source_steps": 409,
+            "candidate_visits": 69,
+            "cursor_steps": 6,
+            "dependency_visits": 263,
+            "key_visits": 263,
+            "history_checks": 1,
+            "pairs": 64,
+            "occurs_visits": 0,
+            "term_requests": 203
+          },
+          {
+            "applications": 68,
+            "source_steps": 422,
+            "candidate_visits": 72,
+            "cursor_steps": 9,
+            "dependency_visits": 276,
+            "key_visits": 277,
+            "history_checks": 2,
+            "pairs": 69,
+            "occurs_visits": 4,
+            "term_requests": 212
+          }
+        ]
+      }
+    },
+    "range_disposition": "cow-lower",
+    "cow_over_clone": 0.24112624992690487
+  },
+  {
+    "cell": [
+      0,
+      64,
+      "mostly-fail",
+      4,
+      "insert"
+    ],
+    "configurations": {
+      "clone": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 0.90930875,
+        "min_ms": 0.85784125,
+        "max_ms": 0.922696,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.036651,
+        "first_service_ms": 0.843637,
+        "phase_ms_per_query": {
+          "query": 0.0032535,
+          "setup": 0.0218515,
+          "service": 0.87294875,
+          "engine_drop": 8.075e-05,
+          "output_drop": 0.00033875
+        },
+        "requested_bytes_per_query": 1750084.75,
+        "peak_above_baseline": 89363,
+        "phase_requested_bytes_per_query": {
+          "query": 3541.0,
+          "setup": 25975.0,
+          "service": 1714756.5,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 130,
+            "source_steps": 986,
+            "candidate_visits": 133,
+            "cursor_steps": 134,
+            "dependency_visits": 519,
+            "key_visits": 519,
+            "history_checks": 1,
+            "pairs": 64,
+            "occurs_visits": 0,
+            "term_requests": 459
+          },
+          {
+            "applications": 132,
+            "source_steps": 999,
+            "candidate_visits": 136,
+            "cursor_steps": 137,
+            "dependency_visits": 532,
+            "key_visits": 533,
+            "history_checks": 2,
+            "pairs": 69,
+            "occurs_visits": 4,
+            "term_requests": 468
+          },
+          {
+            "applications": 130,
+            "source_steps": 986,
+            "candidate_visits": 133,
+            "cursor_steps": 134,
+            "dependency_visits": 519,
+            "key_visits": 519,
+            "history_checks": 1,
+            "pairs": 64,
+            "occurs_visits": 0,
+            "term_requests": 459
+          },
+          {
+            "applications": 132,
+            "source_steps": 999,
+            "candidate_visits": 136,
+            "cursor_steps": 137,
+            "dependency_visits": 532,
+            "key_visits": 533,
+            "history_checks": 2,
+            "pairs": 69,
+            "occurs_visits": 4,
+            "term_requests": 468
+          }
+        ]
+      },
+      "cow": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 0.8585055,
+        "min_ms": 0.82652675,
+        "max_ms": 0.9025595,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.044574,
+        "first_service_ms": 0.833766,
+        "phase_ms_per_query": {
+          "query": 0.003003,
+          "setup": 0.02238575,
+          "service": 0.8204735,
+          "engine_drop": 7.225e-05,
+          "output_drop": 0.00033825
+        },
+        "requested_bytes_per_query": 1760786.75,
+        "peak_above_baseline": 65420,
+        "phase_requested_bytes_per_query": {
+          "query": 3541.0,
+          "setup": 25999.0,
+          "service": 1725388.5,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 130,
+            "source_steps": 986,
+            "candidate_visits": 133,
+            "cursor_steps": 134,
+            "dependency_visits": 519,
+            "key_visits": 519,
+            "history_checks": 1,
+            "pairs": 64,
+            "occurs_visits": 0,
+            "term_requests": 459
+          },
+          {
+            "applications": 132,
+            "source_steps": 999,
+            "candidate_visits": 136,
+            "cursor_steps": 137,
+            "dependency_visits": 532,
+            "key_visits": 533,
+            "history_checks": 2,
+            "pairs": 69,
+            "occurs_visits": 4,
+            "term_requests": 468
+          },
+          {
+            "applications": 130,
+            "source_steps": 986,
+            "candidate_visits": 133,
+            "cursor_steps": 134,
+            "dependency_visits": 519,
+            "key_visits": 519,
+            "history_checks": 1,
+            "pairs": 64,
+            "occurs_visits": 0,
+            "term_requests": 459
+          },
+          {
+            "applications": 132,
+            "source_steps": 999,
+            "candidate_visits": 136,
+            "cursor_steps": 137,
+            "dependency_visits": 532,
+            "key_visits": 533,
+            "history_checks": 2,
+            "pairs": 69,
+            "occurs_visits": 4,
+            "term_requests": 468
+          }
+        ]
+      }
+    },
+    "range_disposition": "overlap",
+    "cow_over_clone": 0.9441298128935854
+  },
+  {
+    "cell": [
+      0,
+      64,
+      "all-success",
+      1,
+      "read"
+    ],
+    "configurations": {
+      "clone": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 0.956761,
+        "min_ms": 0.907399,
+        "max_ms": 1.024285,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.037717,
+        "first_service_ms": 0.103883,
+        "phase_ms_per_query": {
+          "query": 0.004613,
+          "setup": 0.029427,
+          "service": 0.878063,
+          "engine_drop": 9.2e-05,
+          "output_drop": 0.004554
+        },
+        "requested_bytes_per_query": 1439975.0,
+        "peak_above_baseline": 167539,
+        "phase_requested_bytes_per_query": {
+          "query": 3491.0,
+          "setup": 25929.0,
+          "service": 1389936.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 129,
+            "source_steps": 1606,
+            "candidate_visits": 195,
+            "cursor_steps": 384,
+            "dependency_visits": 389,
+            "key_visits": 389,
+            "history_checks": 64,
+            "pairs": 64,
+            "occurs_visits": 64,
+            "term_requests": 580
+          }
+        ]
+      },
+      "cow": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 0.41831,
+        "min_ms": 0.386018,
+        "max_ms": 0.454225,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.039436,
+        "first_service_ms": 0.050807,
+        "phase_ms_per_query": {
+          "query": 0.003161,
+          "setup": 0.027694,
+          "service": 0.34245,
+          "engine_drop": 0.000118,
+          "output_drop": 0.004421
+        },
+        "requested_bytes_per_query": 609493.0,
+        "peak_above_baseline": 88119,
+        "phase_requested_bytes_per_query": {
+          "query": 3491.0,
+          "setup": 25953.0,
+          "service": 559246.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 129,
+            "source_steps": 1606,
+            "candidate_visits": 195,
+            "cursor_steps": 384,
+            "dependency_visits": 389,
+            "key_visits": 389,
+            "history_checks": 64,
+            "pairs": 64,
+            "occurs_visits": 64,
+            "term_requests": 580
+          }
+        ]
+      }
+    },
+    "range_disposition": "cow-lower",
+    "cow_over_clone": 0.43721472760699903
+  },
+  {
+    "cell": [
+      0,
+      64,
+      "all-success",
+      1,
+      "insert"
+    ],
+    "configurations": {
+      "clone": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 1.388068,
+        "min_ms": 1.348026,
+        "max_ms": 1.604133,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.037889,
+        "first_service_ms": 0.159246,
+        "phase_ms_per_query": {
+          "query": 0.003851,
+          "setup": 0.028366,
+          "service": 1.275882,
+          "engine_drop": 8.7e-05,
+          "output_drop": 0.043111
+        },
+        "requested_bytes_per_query": 2131565.0,
+        "peak_above_baseline": 347566,
+        "phase_requested_bytes_per_query": {
+          "query": 3491.0,
+          "setup": 25957.0,
+          "service": 2078868.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 193,
+            "source_steps": 2246,
+            "candidate_visits": 259,
+            "cursor_steps": 512,
+            "dependency_visits": 645,
+            "key_visits": 645,
+            "history_checks": 64,
+            "pairs": 64,
+            "occurs_visits": 64,
+            "term_requests": 836
+          }
+        ]
+      },
+      "cow": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 1.348984,
+        "min_ms": 1.227022,
+        "max_ms": 1.369808,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.034229,
+        "first_service_ms": 0.135315,
+        "phase_ms_per_query": {
+          "query": 0.003251,
+          "setup": 0.027762,
+          "service": 1.234728,
+          "engine_drop": 0.000103,
+          "output_drop": 0.042713
+        },
+        "requested_bytes_per_query": 2138565.0,
+        "peak_above_baseline": 319842,
+        "phase_requested_bytes_per_query": {
+          "query": 3491.0,
+          "setup": 25981.0,
+          "service": 2085660.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 193,
+            "source_steps": 2246,
+            "candidate_visits": 259,
+            "cursor_steps": 512,
+            "dependency_visits": 645,
+            "key_visits": 645,
+            "history_checks": 64,
+            "pairs": 64,
+            "occurs_visits": 64,
+            "term_requests": 836
+          }
+        ]
+      }
+    },
+    "range_disposition": "overlap",
+    "cow_over_clone": 0.9718428780146217
+  },
+  {
+    "cell": [
+      0,
+      64,
+      "all-success",
+      4,
+      "read"
+    ],
+    "configurations": {
+      "clone": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 0.9924115,
+        "min_ms": 0.9734755,
+        "max_ms": 1.04995875,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.033667,
+        "first_service_ms": 0.09821,
+        "phase_ms_per_query": {
+          "query": 0.00345175,
+          "setup": 0.03105325,
+          "service": 0.944544,
+          "engine_drop": 6e-05,
+          "output_drop": 0.004494
+        },
+        "requested_bytes_per_query": 1520789.25,
+        "peak_above_baseline": 218810,
+        "phase_requested_bytes_per_query": {
+          "query": 3540.0,
+          "setup": 25946.0,
+          "service": 1486148.5,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 129,
+            "source_steps": 1606,
+            "candidate_visits": 195,
+            "cursor_steps": 384,
+            "dependency_visits": 389,
+            "key_visits": 389,
+            "history_checks": 64,
+            "pairs": 64,
+            "occurs_visits": 64,
+            "term_requests": 580
+          },
+          {
+            "applications": 194,
+            "source_steps": 2123,
+            "candidate_visits": 324,
+            "cursor_steps": 576,
+            "dependency_visits": 528,
+            "key_visits": 718,
+            "history_checks": 128,
+            "pairs": 321,
+            "occurs_visits": 68,
+            "term_requests": 841
+          },
+          {
+            "applications": 129,
+            "source_steps": 1606,
+            "candidate_visits": 195,
+            "cursor_steps": 384,
+            "dependency_visits": 389,
+            "key_visits": 389,
+            "history_checks": 64,
+            "pairs": 64,
+            "occurs_visits": 64,
+            "term_requests": 580
+          },
+          {
+            "applications": 194,
+            "source_steps": 2123,
+            "candidate_visits": 324,
+            "cursor_steps": 576,
+            "dependency_visits": 528,
+            "key_visits": 718,
+            "history_checks": 128,
+            "pairs": 321,
+            "occurs_visits": 68,
+            "term_requests": 841
+          }
+        ]
+      },
+      "cow": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 0.44036775,
+        "min_ms": 0.43538825,
+        "max_ms": 0.469503,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.036469,
+        "first_service_ms": 0.048615,
+        "phase_ms_per_query": {
+          "query": 0.003536,
+          "setup": 0.022711,
+          "service": 0.3970965,
+          "engine_drop": 7.7e-05,
+          "output_drop": 0.0091175
+        },
+        "requested_bytes_per_query": 684069.75,
+        "peak_above_baseline": 113193,
+        "phase_requested_bytes_per_query": {
+          "query": 3540.0,
+          "setup": 25970.0,
+          "service": 649359.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 129,
+            "source_steps": 1606,
+            "candidate_visits": 195,
+            "cursor_steps": 384,
+            "dependency_visits": 389,
+            "key_visits": 389,
+            "history_checks": 64,
+            "pairs": 64,
+            "occurs_visits": 64,
+            "term_requests": 580
+          },
+          {
+            "applications": 194,
+            "source_steps": 2123,
+            "candidate_visits": 324,
+            "cursor_steps": 576,
+            "dependency_visits": 528,
+            "key_visits": 718,
+            "history_checks": 128,
+            "pairs": 321,
+            "occurs_visits": 68,
+            "term_requests": 841
+          },
+          {
+            "applications": 129,
+            "source_steps": 1606,
+            "candidate_visits": 195,
+            "cursor_steps": 384,
+            "dependency_visits": 389,
+            "key_visits": 389,
+            "history_checks": 64,
+            "pairs": 64,
+            "occurs_visits": 64,
+            "term_requests": 580
+          },
+          {
+            "applications": 194,
+            "source_steps": 2123,
+            "candidate_visits": 324,
+            "cursor_steps": 576,
+            "dependency_visits": 528,
+            "key_visits": 718,
+            "history_checks": 128,
+            "pairs": 321,
+            "occurs_visits": 68,
+            "term_requests": 841
+          }
+        ]
+      }
+    },
+    "range_disposition": "cow-lower",
+    "cow_over_clone": 0.44373503330019853
+  },
+  {
+    "cell": [
+      0,
+      64,
+      "all-success",
+      4,
+      "insert"
+    ],
+    "configurations": {
+      "clone": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 1.3643755,
+        "min_ms": 1.28101775,
+        "max_ms": 1.411259,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.033439,
+        "first_service_ms": 0.16064,
+        "phase_ms_per_query": {
+          "query": 0.00194825,
+          "setup": 0.05419025,
+          "service": 1.25693475,
+          "engine_drop": 6.65e-05,
+          "output_drop": 0.04290925
+        },
+        "requested_bytes_per_query": 2197573.75,
+        "peak_above_baseline": 393544,
+        "phase_requested_bytes_per_query": {
+          "query": 3540.0,
+          "setup": 25974.0,
+          "service": 2162247.5,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 193,
+            "source_steps": 2246,
+            "candidate_visits": 259,
+            "cursor_steps": 512,
+            "dependency_visits": 645,
+            "key_visits": 645,
+            "history_checks": 64,
+            "pairs": 64,
+            "occurs_visits": 64,
+            "term_requests": 836
+          },
+          {
+            "applications": 258,
+            "source_steps": 2763,
+            "candidate_visits": 388,
+            "cursor_steps": 704,
+            "dependency_visits": 784,
+            "key_visits": 974,
+            "history_checks": 128,
+            "pairs": 321,
+            "occurs_visits": 68,
+            "term_requests": 1097
+          },
+          {
+            "applications": 193,
+            "source_steps": 2246,
+            "candidate_visits": 259,
+            "cursor_steps": 512,
+            "dependency_visits": 645,
+            "key_visits": 645,
+            "history_checks": 64,
+            "pairs": 64,
+            "occurs_visits": 64,
+            "term_requests": 836
+          },
+          {
+            "applications": 258,
+            "source_steps": 2763,
+            "candidate_visits": 388,
+            "cursor_steps": 704,
+            "dependency_visits": 784,
+            "key_visits": 974,
+            "history_checks": 128,
+            "pairs": 321,
+            "occurs_visits": 68,
+            "term_requests": 1097
+          }
+        ]
+      },
+      "cow": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 1.36867475,
+        "min_ms": 1.35447325,
+        "max_ms": 1.43222225,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.040826,
+        "first_service_ms": 0.142686,
+        "phase_ms_per_query": {
+          "query": 0.002081,
+          "setup": 0.0563665,
+          "service": 1.25841475,
+          "engine_drop": 8.35e-05,
+          "output_drop": 0.04476
+        },
+        "requested_bytes_per_query": 2204435.75,
+        "peak_above_baseline": 368969,
+        "phase_requested_bytes_per_query": {
+          "query": 3540.0,
+          "setup": 25998.0,
+          "service": 2169039.5,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 193,
+            "source_steps": 2246,
+            "candidate_visits": 259,
+            "cursor_steps": 512,
+            "dependency_visits": 645,
+            "key_visits": 645,
+            "history_checks": 64,
+            "pairs": 64,
+            "occurs_visits": 64,
+            "term_requests": 836
+          },
+          {
+            "applications": 258,
+            "source_steps": 2763,
+            "candidate_visits": 388,
+            "cursor_steps": 704,
+            "dependency_visits": 784,
+            "key_visits": 974,
+            "history_checks": 128,
+            "pairs": 321,
+            "occurs_visits": 68,
+            "term_requests": 1097
+          },
+          {
+            "applications": 193,
+            "source_steps": 2246,
+            "candidate_visits": 259,
+            "cursor_steps": 512,
+            "dependency_visits": 645,
+            "key_visits": 645,
+            "history_checks": 64,
+            "pairs": 64,
+            "occurs_visits": 64,
+            "term_requests": 836
+          },
+          {
+            "applications": 258,
+            "source_steps": 2763,
+            "candidate_visits": 388,
+            "cursor_steps": 704,
+            "dependency_visits": 784,
+            "key_visits": 974,
+            "history_checks": 128,
+            "pairs": 321,
+            "occurs_visits": 68,
+            "term_requests": 1097
+          }
+        ]
+      }
+    },
+    "range_disposition": "overlap",
+    "cow_over_clone": 1.0031510753454602
+  },
+  {
+    "cell": [
+      512,
+      1,
+      "mostly-fail",
+      1,
+      "read"
+    ],
+    "configurations": {
+      "clone": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 3.748502,
+        "min_ms": 3.432807,
+        "max_ms": 3.769427,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.035137,
+        "first_service_ms": 3.27166,
+        "phase_ms_per_query": {
+          "query": 0.047285,
+          "setup": 0.239844,
+          "service": 3.380737,
+          "engine_drop": 0.000111,
+          "output_drop": 0.000753
+        },
+        "requested_bytes_per_query": 3864346.0,
+        "peak_above_baseline": 777167,
+        "phase_requested_bytes_per_query": {
+          "query": 50581.0,
+          "setup": 246172.0,
+          "service": 3546974.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 1027,
+            "source_steps": 6687,
+            "candidate_visits": 1542,
+            "cursor_steps": 1542,
+            "dependency_visits": 6667,
+            "key_visits": 7179,
+            "history_checks": 513,
+            "pairs": 2561,
+            "occurs_visits": 2048,
+            "term_requests": 4622
+          }
+        ]
+      },
+      "cow": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 3.922367,
+        "min_ms": 3.817538,
+        "max_ms": 4.008585,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.043311,
+        "first_service_ms": 3.450339,
+        "phase_ms_per_query": {
+          "query": 0.048991,
+          "setup": 0.232124,
+          "service": 3.573584,
+          "engine_drop": 0.000259,
+          "output_drop": 0.000746
+        },
+        "requested_bytes_per_query": 3864554.0,
+        "peak_above_baseline": 777191,
+        "phase_requested_bytes_per_query": {
+          "query": 50581.0,
+          "setup": 246196.0,
+          "service": 3546974.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 1027,
+            "source_steps": 6687,
+            "candidate_visits": 1542,
+            "cursor_steps": 1542,
+            "dependency_visits": 6667,
+            "key_visits": 7179,
+            "history_checks": 513,
+            "pairs": 2561,
+            "occurs_visits": 2048,
+            "term_requests": 4622
+          }
+        ]
+      }
+    },
+    "range_disposition": "clone-lower",
+    "cow_over_clone": 1.0463825282739612
+  },
+  {
+    "cell": [
+      512,
+      1,
+      "mostly-fail",
+      1,
+      "insert"
+    ],
+    "configurations": {
+      "clone": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 3.862885,
+        "min_ms": 3.470768,
+        "max_ms": 4.245472,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.039495,
+        "first_service_ms": 3.426085,
+        "phase_ms_per_query": {
+          "query": 0.046905,
+          "setup": 0.236698,
+          "service": 3.535952,
+          "engine_drop": 0.000111,
+          "output_drop": 0.000662
+        },
+        "requested_bytes_per_query": 3902230.0,
+        "peak_above_baseline": 778204,
+        "phase_requested_bytes_per_query": {
+          "query": 50581.0,
+          "setup": 246200.0,
+          "service": 3582200.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 1028,
+            "source_steps": 6697,
+            "candidate_visits": 1543,
+            "cursor_steps": 1544,
+            "dependency_visits": 6671,
+            "key_visits": 7183,
+            "history_checks": 513,
+            "pairs": 2561,
+            "occurs_visits": 2048,
+            "term_requests": 4626
+          }
+        ]
+      },
+      "cow": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 3.626417,
+        "min_ms": 3.472447,
+        "max_ms": 3.888946,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.040633,
+        "first_service_ms": 3.200448,
+        "phase_ms_per_query": {
+          "query": 0.04913,
+          "setup": 0.230147,
+          "service": 3.330065,
+          "engine_drop": 0.000118,
+          "output_drop": 0.000476
+        },
+        "requested_bytes_per_query": 3902438.0,
+        "peak_above_baseline": 778228,
+        "phase_requested_bytes_per_query": {
+          "query": 50581.0,
+          "setup": 246224.0,
+          "service": 3582200.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 1028,
+            "source_steps": 6697,
+            "candidate_visits": 1543,
+            "cursor_steps": 1544,
+            "dependency_visits": 6671,
+            "key_visits": 7183,
+            "history_checks": 513,
+            "pairs": 2561,
+            "occurs_visits": 2048,
+            "term_requests": 4626
+          }
+        ]
+      }
+    },
+    "range_disposition": "overlap",
+    "cow_over_clone": 0.9387846130547506
+  },
+  {
+    "cell": [
+      512,
+      1,
+      "mostly-fail",
+      4,
+      "read"
+    ],
+    "configurations": {
+      "clone": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 3.67903925,
+        "min_ms": 3.5498955,
+        "max_ms": 3.78138225,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.034478,
+        "first_service_ms": 3.241601,
+        "phase_ms_per_query": {
+          "query": 0.0409815,
+          "setup": 0.19916475,
+          "service": 3.41705875,
+          "engine_drop": 9.55e-05,
+          "output_drop": 0.00041875
+        },
+        "requested_bytes_per_query": 3851907.25,
+        "peak_above_baseline": 777841,
+        "phase_requested_bytes_per_query": {
+          "query": 50630.0,
+          "setup": 246197.5,
+          "service": 3549925.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 1027,
+            "source_steps": 6687,
+            "candidate_visits": 1542,
+            "cursor_steps": 1542,
+            "dependency_visits": 6667,
+            "key_visits": 7179,
+            "history_checks": 513,
+            "pairs": 2561,
+            "occurs_visits": 2048,
+            "term_requests": 4622
+          },
+          {
+            "applications": 1029,
+            "source_steps": 6700,
+            "candidate_visits": 1545,
+            "cursor_steps": 1545,
+            "dependency_visits": 6680,
+            "key_visits": 7193,
+            "history_checks": 514,
+            "pairs": 2566,
+            "occurs_visits": 2052,
+            "term_requests": 4631
+          },
+          {
+            "applications": 1027,
+            "source_steps": 6687,
+            "candidate_visits": 1542,
+            "cursor_steps": 1542,
+            "dependency_visits": 6667,
+            "key_visits": 7179,
+            "history_checks": 513,
+            "pairs": 2561,
+            "occurs_visits": 2048,
+            "term_requests": 4622
+          },
+          {
+            "applications": 1029,
+            "source_steps": 6700,
+            "candidate_visits": 1545,
+            "cursor_steps": 1545,
+            "dependency_visits": 6680,
+            "key_visits": 7193,
+            "history_checks": 514,
+            "pairs": 2566,
+            "occurs_visits": 2052,
+            "term_requests": 4631
+          }
+        ]
+      },
+      "cow": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 3.7411745,
+        "min_ms": 3.69592475,
+        "max_ms": 3.84122675,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.030603,
+        "first_service_ms": 3.333481,
+        "phase_ms_per_query": {
+          "query": 0.03972975,
+          "setup": 0.1902315,
+          "service": 3.50467825,
+          "engine_drop": 0.00011475,
+          "output_drop": 0.00040475
+        },
+        "requested_bytes_per_query": 3851977.25,
+        "peak_above_baseline": 777865,
+        "phase_requested_bytes_per_query": {
+          "query": 50630.0,
+          "setup": 246221.5,
+          "service": 3549925.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 1027,
+            "source_steps": 6687,
+            "candidate_visits": 1542,
+            "cursor_steps": 1542,
+            "dependency_visits": 6667,
+            "key_visits": 7179,
+            "history_checks": 513,
+            "pairs": 2561,
+            "occurs_visits": 2048,
+            "term_requests": 4622
+          },
+          {
+            "applications": 1029,
+            "source_steps": 6700,
+            "candidate_visits": 1545,
+            "cursor_steps": 1545,
+            "dependency_visits": 6680,
+            "key_visits": 7193,
+            "history_checks": 514,
+            "pairs": 2566,
+            "occurs_visits": 2052,
+            "term_requests": 4631
+          },
+          {
+            "applications": 1027,
+            "source_steps": 6687,
+            "candidate_visits": 1542,
+            "cursor_steps": 1542,
+            "dependency_visits": 6667,
+            "key_visits": 7179,
+            "history_checks": 513,
+            "pairs": 2561,
+            "occurs_visits": 2048,
+            "term_requests": 4622
+          },
+          {
+            "applications": 1029,
+            "source_steps": 6700,
+            "candidate_visits": 1545,
+            "cursor_steps": 1545,
+            "dependency_visits": 6680,
+            "key_visits": 7193,
+            "history_checks": 514,
+            "pairs": 2566,
+            "occurs_visits": 2052,
+            "term_requests": 4631
+          }
+        ]
+      }
+    },
+    "range_disposition": "overlap",
+    "cow_over_clone": 1.0168889880693717
+  },
+  {
+    "cell": [
+      512,
+      1,
+      "mostly-fail",
+      4,
+      "insert"
+    ],
+    "configurations": {
+      "clone": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 3.72372275,
+        "min_ms": 3.54274775,
+        "max_ms": 3.7501335,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.036067,
+        "first_service_ms": 3.301332,
+        "phase_ms_per_query": {
+          "query": 0.040031,
+          "setup": 0.19145875,
+          "service": 3.4759605,
+          "engine_drop": 8.475e-05,
+          "output_drop": 0.00048125
+        },
+        "requested_bytes_per_query": 3887850.75,
+        "peak_above_baseline": 778878,
+        "phase_requested_bytes_per_query": {
+          "query": 50630.0,
+          "setup": 246225.5,
+          "service": 3585183.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 1028,
+            "source_steps": 6697,
+            "candidate_visits": 1543,
+            "cursor_steps": 1544,
+            "dependency_visits": 6671,
+            "key_visits": 7183,
+            "history_checks": 513,
+            "pairs": 2561,
+            "occurs_visits": 2048,
+            "term_requests": 4626
+          },
+          {
+            "applications": 1030,
+            "source_steps": 6710,
+            "candidate_visits": 1546,
+            "cursor_steps": 1547,
+            "dependency_visits": 6684,
+            "key_visits": 7197,
+            "history_checks": 514,
+            "pairs": 2566,
+            "occurs_visits": 2052,
+            "term_requests": 4635
+          },
+          {
+            "applications": 1028,
+            "source_steps": 6697,
+            "candidate_visits": 1543,
+            "cursor_steps": 1544,
+            "dependency_visits": 6671,
+            "key_visits": 7183,
+            "history_checks": 513,
+            "pairs": 2561,
+            "occurs_visits": 2048,
+            "term_requests": 4626
+          },
+          {
+            "applications": 1030,
+            "source_steps": 6710,
+            "candidate_visits": 1546,
+            "cursor_steps": 1547,
+            "dependency_visits": 6684,
+            "key_visits": 7197,
+            "history_checks": 514,
+            "pairs": 2566,
+            "occurs_visits": 2052,
+            "term_requests": 4635
+          }
+        ]
+      },
+      "cow": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 3.7359275,
+        "min_ms": 3.6936775,
+        "max_ms": 4.171441,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.034159,
+        "first_service_ms": 3.382981,
+        "phase_ms_per_query": {
+          "query": 0.04148225,
+          "setup": 0.194427,
+          "service": 3.4907475,
+          "engine_drop": 8.625e-05,
+          "output_drop": 0.00052825
+        },
+        "requested_bytes_per_query": 3887920.75,
+        "peak_above_baseline": 778902,
+        "phase_requested_bytes_per_query": {
+          "query": 50630.0,
+          "setup": 246249.5,
+          "service": 3585183.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 1028,
+            "source_steps": 6697,
+            "candidate_visits": 1543,
+            "cursor_steps": 1544,
+            "dependency_visits": 6671,
+            "key_visits": 7183,
+            "history_checks": 513,
+            "pairs": 2561,
+            "occurs_visits": 2048,
+            "term_requests": 4626
+          },
+          {
+            "applications": 1030,
+            "source_steps": 6710,
+            "candidate_visits": 1546,
+            "cursor_steps": 1547,
+            "dependency_visits": 6684,
+            "key_visits": 7197,
+            "history_checks": 514,
+            "pairs": 2566,
+            "occurs_visits": 2052,
+            "term_requests": 4635
+          },
+          {
+            "applications": 1028,
+            "source_steps": 6697,
+            "candidate_visits": 1543,
+            "cursor_steps": 1544,
+            "dependency_visits": 6671,
+            "key_visits": 7183,
+            "history_checks": 513,
+            "pairs": 2561,
+            "occurs_visits": 2048,
+            "term_requests": 4626
+          },
+          {
+            "applications": 1030,
+            "source_steps": 6710,
+            "candidate_visits": 1546,
+            "cursor_steps": 1547,
+            "dependency_visits": 6684,
+            "key_visits": 7197,
+            "history_checks": 514,
+            "pairs": 2566,
+            "occurs_visits": 2052,
+            "term_requests": 4635
+          }
+        ]
+      }
+    },
+    "range_disposition": "overlap",
+    "cow_over_clone": 1.0032775667844767
+  },
+  {
+    "cell": [
+      512,
+      1,
+      "all-success",
+      1,
+      "read"
+    ],
+    "configurations": {
+      "clone": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 3.68796,
+        "min_ms": 3.627584,
+        "max_ms": 4.021026,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.037765,
+        "first_service_ms": 3.254595,
+        "phase_ms_per_query": {
+          "query": 0.053616,
+          "setup": 0.220556,
+          "service": 3.366517,
+          "engine_drop": 0.000103,
+          "output_drop": 0.000736
+        },
+        "requested_bytes_per_query": 3819080.0,
+        "peak_above_baseline": 776727,
+        "phase_requested_bytes_per_query": {
+          "query": 50580.0,
+          "setup": 246171.0,
+          "service": 3501710.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 1027,
+            "source_steps": 6687,
+            "candidate_visits": 1542,
+            "cursor_steps": 1542,
+            "dependency_visits": 6667,
+            "key_visits": 7179,
+            "history_checks": 513,
+            "pairs": 2561,
+            "occurs_visits": 2049,
+            "term_requests": 4621
+          }
+        ]
+      },
+      "cow": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 3.655116,
+        "min_ms": 3.57697,
+        "max_ms": 3.89228,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.041587,
+        "first_service_ms": 3.249902,
+        "phase_ms_per_query": {
+          "query": 0.047202,
+          "setup": 0.221037,
+          "service": 3.359436,
+          "engine_drop": 0.000126,
+          "output_drop": 0.000666
+        },
+        "requested_bytes_per_query": 3819288.0,
+        "peak_above_baseline": 776751,
+        "phase_requested_bytes_per_query": {
+          "query": 50580.0,
+          "setup": 246195.0,
+          "service": 3501710.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 1027,
+            "source_steps": 6687,
+            "candidate_visits": 1542,
+            "cursor_steps": 1542,
+            "dependency_visits": 6667,
+            "key_visits": 7179,
+            "history_checks": 513,
+            "pairs": 2561,
+            "occurs_visits": 2049,
+            "term_requests": 4621
+          }
+        ]
+      }
+    },
+    "range_disposition": "overlap",
+    "cow_over_clone": 0.9910942634952657
+  },
+  {
+    "cell": [
+      512,
+      1,
+      "all-success",
+      1,
+      "insert"
+    ],
+    "configurations": {
+      "clone": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 3.657835,
+        "min_ms": 3.313353,
+        "max_ms": 4.031005,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.037819,
+        "first_service_ms": 3.247396,
+        "phase_ms_per_query": {
+          "query": 0.046475,
+          "setup": 0.226171,
+          "service": 3.362023,
+          "engine_drop": 0.000114,
+          "output_drop": 0.000828
+        },
+        "requested_bytes_per_query": 3856964.0,
+        "peak_above_baseline": 777986,
+        "phase_requested_bytes_per_query": {
+          "query": 50580.0,
+          "setup": 246199.0,
+          "service": 3536936.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 1028,
+            "source_steps": 6697,
+            "candidate_visits": 1543,
+            "cursor_steps": 1544,
+            "dependency_visits": 6671,
+            "key_visits": 7183,
+            "history_checks": 513,
+            "pairs": 2561,
+            "occurs_visits": 2049,
+            "term_requests": 4625
+          }
+        ]
+      },
+      "cow": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 3.630298,
+        "min_ms": 3.536116,
+        "max_ms": 3.901432,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.036319,
+        "first_service_ms": 3.197541,
+        "phase_ms_per_query": {
+          "query": 0.047775,
+          "setup": 0.225725,
+          "service": 3.319486,
+          "engine_drop": 0.000117,
+          "output_drop": 0.000491
+        },
+        "requested_bytes_per_query": 3857172.0,
+        "peak_above_baseline": 778010,
+        "phase_requested_bytes_per_query": {
+          "query": 50580.0,
+          "setup": 246223.0,
+          "service": 3536936.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 1028,
+            "source_steps": 6697,
+            "candidate_visits": 1543,
+            "cursor_steps": 1544,
+            "dependency_visits": 6671,
+            "key_visits": 7183,
+            "history_checks": 513,
+            "pairs": 2561,
+            "occurs_visits": 2049,
+            "term_requests": 4625
+          }
+        ]
+      }
+    },
+    "range_disposition": "overlap",
+    "cow_over_clone": 0.9924717763376423
+  },
+  {
+    "cell": [
+      512,
+      1,
+      "all-success",
+      4,
+      "read"
+    ],
+    "configurations": {
+      "clone": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 3.8024065,
+        "min_ms": 3.68205725,
+        "max_ms": 5.2210065,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.032918,
+        "first_service_ms": 3.389883,
+        "phase_ms_per_query": {
+          "query": 0.03988125,
+          "setup": 0.19644675,
+          "service": 3.55538775,
+          "engine_drop": 8.475e-05,
+          "output_drop": 0.00059075
+        },
+        "requested_bytes_per_query": 3806673.25,
+        "peak_above_baseline": 777841,
+        "phase_requested_bytes_per_query": {
+          "query": 50629.0,
+          "setup": 246196.5,
+          "service": 3504693.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 1027,
+            "source_steps": 6687,
+            "candidate_visits": 1542,
+            "cursor_steps": 1542,
+            "dependency_visits": 6667,
+            "key_visits": 7179,
+            "history_checks": 513,
+            "pairs": 2561,
+            "occurs_visits": 2049,
+            "term_requests": 4621
+          },
+          {
+            "applications": 1029,
+            "source_steps": 6700,
+            "candidate_visits": 1545,
+            "cursor_steps": 1545,
+            "dependency_visits": 6680,
+            "key_visits": 7193,
+            "history_checks": 514,
+            "pairs": 2566,
+            "occurs_visits": 2053,
+            "term_requests": 4630
+          },
+          {
+            "applications": 1027,
+            "source_steps": 6687,
+            "candidate_visits": 1542,
+            "cursor_steps": 1542,
+            "dependency_visits": 6667,
+            "key_visits": 7179,
+            "history_checks": 513,
+            "pairs": 2561,
+            "occurs_visits": 2049,
+            "term_requests": 4621
+          },
+          {
+            "applications": 1029,
+            "source_steps": 6700,
+            "candidate_visits": 1545,
+            "cursor_steps": 1545,
+            "dependency_visits": 6680,
+            "key_visits": 7193,
+            "history_checks": 514,
+            "pairs": 2566,
+            "occurs_visits": 2053,
+            "term_requests": 4630
+          }
+        ]
+      },
+      "cow": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 3.68871875,
+        "min_ms": 3.60646025,
+        "max_ms": 3.74806625,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.034589,
+        "first_service_ms": 3.227094,
+        "phase_ms_per_query": {
+          "query": 0.0406725,
+          "setup": 0.191453,
+          "service": 3.4498275,
+          "engine_drop": 9.8e-05,
+          "output_drop": 0.0004065
+        },
+        "requested_bytes_per_query": 3806743.25,
+        "peak_above_baseline": 777865,
+        "phase_requested_bytes_per_query": {
+          "query": 50629.0,
+          "setup": 246220.5,
+          "service": 3504693.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 1027,
+            "source_steps": 6687,
+            "candidate_visits": 1542,
+            "cursor_steps": 1542,
+            "dependency_visits": 6667,
+            "key_visits": 7179,
+            "history_checks": 513,
+            "pairs": 2561,
+            "occurs_visits": 2049,
+            "term_requests": 4621
+          },
+          {
+            "applications": 1029,
+            "source_steps": 6700,
+            "candidate_visits": 1545,
+            "cursor_steps": 1545,
+            "dependency_visits": 6680,
+            "key_visits": 7193,
+            "history_checks": 514,
+            "pairs": 2566,
+            "occurs_visits": 2053,
+            "term_requests": 4630
+          },
+          {
+            "applications": 1027,
+            "source_steps": 6687,
+            "candidate_visits": 1542,
+            "cursor_steps": 1542,
+            "dependency_visits": 6667,
+            "key_visits": 7179,
+            "history_checks": 513,
+            "pairs": 2561,
+            "occurs_visits": 2049,
+            "term_requests": 4621
+          },
+          {
+            "applications": 1029,
+            "source_steps": 6700,
+            "candidate_visits": 1545,
+            "cursor_steps": 1545,
+            "dependency_visits": 6680,
+            "key_visits": 7193,
+            "history_checks": 514,
+            "pairs": 2566,
+            "occurs_visits": 2053,
+            "term_requests": 4630
+          }
+        ]
+      }
+    },
+    "range_disposition": "overlap",
+    "cow_over_clone": 0.9701011057076617
+  },
+  {
+    "cell": [
+      512,
+      1,
+      "all-success",
+      4,
+      "insert"
+    ],
+    "configurations": {
+      "clone": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 3.64406775,
+        "min_ms": 3.4952545,
+        "max_ms": 3.773184,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.031569,
+        "first_service_ms": 3.244411,
+        "phase_ms_per_query": {
+          "query": 0.03915775,
+          "setup": 0.1863005,
+          "service": 3.4030215,
+          "engine_drop": 8.975e-05,
+          "output_drop": 0.00051675
+        },
+        "requested_bytes_per_query": 3842616.75,
+        "peak_above_baseline": 778878,
+        "phase_requested_bytes_per_query": {
+          "query": 50629.0,
+          "setup": 246224.5,
+          "service": 3539951.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 1028,
+            "source_steps": 6697,
+            "candidate_visits": 1543,
+            "cursor_steps": 1544,
+            "dependency_visits": 6671,
+            "key_visits": 7183,
+            "history_checks": 513,
+            "pairs": 2561,
+            "occurs_visits": 2049,
+            "term_requests": 4625
+          },
+          {
+            "applications": 1030,
+            "source_steps": 6710,
+            "candidate_visits": 1546,
+            "cursor_steps": 1547,
+            "dependency_visits": 6684,
+            "key_visits": 7197,
+            "history_checks": 514,
+            "pairs": 2566,
+            "occurs_visits": 2053,
+            "term_requests": 4634
+          },
+          {
+            "applications": 1028,
+            "source_steps": 6697,
+            "candidate_visits": 1543,
+            "cursor_steps": 1544,
+            "dependency_visits": 6671,
+            "key_visits": 7183,
+            "history_checks": 513,
+            "pairs": 2561,
+            "occurs_visits": 2049,
+            "term_requests": 4625
+          },
+          {
+            "applications": 1030,
+            "source_steps": 6710,
+            "candidate_visits": 1546,
+            "cursor_steps": 1547,
+            "dependency_visits": 6684,
+            "key_visits": 7197,
+            "history_checks": 514,
+            "pairs": 2566,
+            "occurs_visits": 2053,
+            "term_requests": 4634
+          }
+        ]
+      },
+      "cow": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 3.7877275,
+        "min_ms": 3.73541075,
+        "max_ms": 3.94935775,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.042927,
+        "first_service_ms": 3.455665,
+        "phase_ms_per_query": {
+          "query": 0.042816,
+          "setup": 0.20261,
+          "service": 3.5257405,
+          "engine_drop": 0.0001035,
+          "output_drop": 0.00063925
+        },
+        "requested_bytes_per_query": 3842686.75,
+        "peak_above_baseline": 778902,
+        "phase_requested_bytes_per_query": {
+          "query": 50629.0,
+          "setup": 246248.5,
+          "service": 3539951.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 1028,
+            "source_steps": 6697,
+            "candidate_visits": 1543,
+            "cursor_steps": 1544,
+            "dependency_visits": 6671,
+            "key_visits": 7183,
+            "history_checks": 513,
+            "pairs": 2561,
+            "occurs_visits": 2049,
+            "term_requests": 4625
+          },
+          {
+            "applications": 1030,
+            "source_steps": 6710,
+            "candidate_visits": 1546,
+            "cursor_steps": 1547,
+            "dependency_visits": 6684,
+            "key_visits": 7197,
+            "history_checks": 514,
+            "pairs": 2566,
+            "occurs_visits": 2053,
+            "term_requests": 4634
+          },
+          {
+            "applications": 1028,
+            "source_steps": 6697,
+            "candidate_visits": 1543,
+            "cursor_steps": 1544,
+            "dependency_visits": 6671,
+            "key_visits": 7183,
+            "history_checks": 513,
+            "pairs": 2561,
+            "occurs_visits": 2049,
+            "term_requests": 4625
+          },
+          {
+            "applications": 1030,
+            "source_steps": 6710,
+            "candidate_visits": 1546,
+            "cursor_steps": 1547,
+            "dependency_visits": 6684,
+            "key_visits": 7197,
+            "history_checks": 514,
+            "pairs": 2566,
+            "occurs_visits": 2053,
+            "term_requests": 4634
+          }
+        ]
+      }
+    },
+    "range_disposition": "overlap",
+    "cow_over_clone": 1.0394229086437814
+  },
+  {
+    "cell": [
+      512,
+      64,
+      "mostly-fail",
+      1,
+      "read"
+    ],
+    "configurations": {
+      "clone": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 20.453904,
+        "min_ms": 19.994436,
+        "max_ms": 27.876275,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.035894,
+        "first_service_ms": 19.986243,
+        "phase_ms_per_query": {
+          "query": 0.051554,
+          "setup": 0.243671,
+          "service": 20.114246,
+          "engine_drop": 0.000249,
+          "output_drop": 0.000816
+        },
+        "requested_bytes_per_query": 44898961.0,
+        "peak_above_baseline": 1427036,
+        "phase_requested_bytes_per_query": {
+          "query": 53668.0,
+          "setup": 247243.0,
+          "service": 44577431.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 1090,
+            "source_steps": 7065,
+            "candidate_visits": 1605,
+            "cursor_steps": 1542,
+            "dependency_visits": 6919,
+            "key_visits": 7431,
+            "history_checks": 513,
+            "pairs": 2624,
+            "occurs_visits": 2048,
+            "term_requests": 4811
+          }
+        ]
+      },
+      "cow": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 9.359058,
+        "min_ms": 9.3361,
+        "max_ms": 9.697806,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.038024,
+        "first_service_ms": 8.882353,
+        "phase_ms_per_query": {
+          "query": 0.048562,
+          "setup": 0.223764,
+          "service": 9.042034,
+          "engine_drop": 0.000264,
+          "output_drop": 0.00067
+        },
+        "requested_bytes_per_query": 29892690.0,
+        "peak_above_baseline": 1188707,
+        "phase_requested_bytes_per_query": {
+          "query": 53668.0,
+          "setup": 247267.0,
+          "service": 29570952.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 1090,
+            "source_steps": 7065,
+            "candidate_visits": 1605,
+            "cursor_steps": 1542,
+            "dependency_visits": 6919,
+            "key_visits": 7431,
+            "history_checks": 513,
+            "pairs": 2624,
+            "occurs_visits": 2048,
+            "term_requests": 4811
+          }
+        ]
+      }
+    },
+    "range_disposition": "cow-lower",
+    "cow_over_clone": 0.4575682960084294
+  },
+  {
+    "cell": [
+      512,
+      64,
+      "mostly-fail",
+      1,
+      "insert"
+    ],
+    "configurations": {
+      "clone": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 20.833638,
+        "min_ms": 20.534135,
+        "max_ms": 21.018017,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.035518,
+        "first_service_ms": 20.406468,
+        "phase_ms_per_query": {
+          "query": 0.052991,
+          "setup": 0.224014,
+          "service": 20.511154,
+          "engine_drop": 0.000219,
+          "output_drop": 0.001052
+        },
+        "requested_bytes_per_query": 51405326.0,
+        "peak_above_baseline": 2732165,
+        "phase_requested_bytes_per_query": {
+          "query": 53668.0,
+          "setup": 247271.0,
+          "service": 51081138.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 1154,
+            "source_steps": 7642,
+            "candidate_visits": 1669,
+            "cursor_steps": 1670,
+            "dependency_visits": 7175,
+            "key_visits": 7687,
+            "history_checks": 513,
+            "pairs": 2624,
+            "occurs_visits": 2048,
+            "term_requests": 5067
+          }
+        ]
+      },
+      "cow": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 21.631359,
+        "min_ms": 20.961469,
+        "max_ms": 24.699436,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.042104,
+        "first_service_ms": 21.159261,
+        "phase_ms_per_query": {
+          "query": 0.057168,
+          "setup": 0.235983,
+          "service": 21.294649,
+          "engine_drop": 0.000383,
+          "output_drop": 0.001024
+        },
+        "requested_bytes_per_query": 51416166.0,
+        "peak_above_baseline": 2305548,
+        "phase_requested_bytes_per_query": {
+          "query": 53668.0,
+          "setup": 247295.0,
+          "service": 51091770.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 1154,
+            "source_steps": 7642,
+            "candidate_visits": 1669,
+            "cursor_steps": 1670,
+            "dependency_visits": 7175,
+            "key_visits": 7687,
+            "history_checks": 513,
+            "pairs": 2624,
+            "occurs_visits": 2048,
+            "term_requests": 5067
+          }
+        ]
+      }
+    },
+    "range_disposition": "overlap",
+    "cow_over_clone": 1.0382900480463373
+  },
+  {
+    "cell": [
+      512,
+      64,
+      "mostly-fail",
+      4,
+      "read"
+    ],
+    "configurations": {
+      "clone": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 20.68221525,
+        "min_ms": 20.40102525,
+        "max_ms": 21.979162,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.033512,
+        "first_service_ms": 19.642702,
+        "phase_ms_per_query": {
+          "query": 0.04453275,
+          "setup": 0.2092015,
+          "service": 20.405728,
+          "engine_drop": 0.00382675,
+          "output_drop": 0.00086925
+        },
+        "requested_bytes_per_query": 44906808.25,
+        "peak_above_baseline": 1428354,
+        "phase_requested_bytes_per_query": {
+          "query": 53717.0,
+          "setup": 247268.5,
+          "service": 44600668.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 1090,
+            "source_steps": 7065,
+            "candidate_visits": 1605,
+            "cursor_steps": 1542,
+            "dependency_visits": 6919,
+            "key_visits": 7431,
+            "history_checks": 513,
+            "pairs": 2624,
+            "occurs_visits": 2048,
+            "term_requests": 4811
+          },
+          {
+            "applications": 1092,
+            "source_steps": 7078,
+            "candidate_visits": 1608,
+            "cursor_steps": 1545,
+            "dependency_visits": 6932,
+            "key_visits": 7445,
+            "history_checks": 514,
+            "pairs": 2629,
+            "occurs_visits": 2052,
+            "term_requests": 4820
+          },
+          {
+            "applications": 1090,
+            "source_steps": 7065,
+            "candidate_visits": 1605,
+            "cursor_steps": 1542,
+            "dependency_visits": 6919,
+            "key_visits": 7431,
+            "history_checks": 513,
+            "pairs": 2624,
+            "occurs_visits": 2048,
+            "term_requests": 4811
+          },
+          {
+            "applications": 1092,
+            "source_steps": 7078,
+            "candidate_visits": 1608,
+            "cursor_steps": 1545,
+            "dependency_visits": 6932,
+            "key_visits": 7445,
+            "history_checks": 514,
+            "pairs": 2629,
+            "occurs_visits": 2052,
+            "term_requests": 4820
+          }
+        ]
+      },
+      "cow": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 9.5171275,
+        "min_ms": 9.3108415,
+        "max_ms": 9.60018725,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.03684,
+        "first_service_ms": 8.980871,
+        "phase_ms_per_query": {
+          "query": 0.04183475,
+          "setup": 0.19733975,
+          "service": 9.25405,
+          "engine_drop": 0.0038145,
+          "output_drop": 0.00071875
+        },
+        "requested_bytes_per_query": 29892965.25,
+        "peak_above_baseline": 1189789,
+        "phase_requested_bytes_per_query": {
+          "query": 53717.0,
+          "setup": 247292.5,
+          "service": 29586755.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 1090,
+            "source_steps": 7065,
+            "candidate_visits": 1605,
+            "cursor_steps": 1542,
+            "dependency_visits": 6919,
+            "key_visits": 7431,
+            "history_checks": 513,
+            "pairs": 2624,
+            "occurs_visits": 2048,
+            "term_requests": 4811
+          },
+          {
+            "applications": 1092,
+            "source_steps": 7078,
+            "candidate_visits": 1608,
+            "cursor_steps": 1545,
+            "dependency_visits": 6932,
+            "key_visits": 7445,
+            "history_checks": 514,
+            "pairs": 2629,
+            "occurs_visits": 2052,
+            "term_requests": 4820
+          },
+          {
+            "applications": 1090,
+            "source_steps": 7065,
+            "candidate_visits": 1605,
+            "cursor_steps": 1542,
+            "dependency_visits": 6919,
+            "key_visits": 7431,
+            "history_checks": 513,
+            "pairs": 2624,
+            "occurs_visits": 2048,
+            "term_requests": 4811
+          },
+          {
+            "applications": 1092,
+            "source_steps": 7078,
+            "candidate_visits": 1608,
+            "cursor_steps": 1545,
+            "dependency_visits": 6932,
+            "key_visits": 7445,
+            "history_checks": 514,
+            "pairs": 2629,
+            "occurs_visits": 2052,
+            "term_requests": 4820
+          }
+        ]
+      }
+    },
+    "range_disposition": "cow-lower",
+    "cow_over_clone": 0.46015996763209405
+  },
+  {
+    "cell": [
+      512,
+      64,
+      "mostly-fail",
+      4,
+      "insert"
+    ],
+    "configurations": {
+      "clone": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 20.6976675,
+        "min_ms": 20.639513,
+        "max_ms": 21.934307,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.03539,
+        "first_service_ms": 20.466981,
+        "phase_ms_per_query": {
+          "query": 0.0441245,
+          "setup": 0.21289725,
+          "service": 20.41852725,
+          "engine_drop": 0.00013175,
+          "output_drop": 0.001031
+        },
+        "requested_bytes_per_query": 51417406.75,
+        "peak_above_baseline": 2734771,
+        "phase_requested_bytes_per_query": {
+          "query": 53717.0,
+          "setup": 247296.5,
+          "service": 51110581.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 1154,
+            "source_steps": 7642,
+            "candidate_visits": 1669,
+            "cursor_steps": 1670,
+            "dependency_visits": 7175,
+            "key_visits": 7687,
+            "history_checks": 513,
+            "pairs": 2624,
+            "occurs_visits": 2048,
+            "term_requests": 5067
+          },
+          {
+            "applications": 1156,
+            "source_steps": 7655,
+            "candidate_visits": 1672,
+            "cursor_steps": 1673,
+            "dependency_visits": 7188,
+            "key_visits": 7701,
+            "history_checks": 514,
+            "pairs": 2629,
+            "occurs_visits": 2052,
+            "term_requests": 5076
+          },
+          {
+            "applications": 1154,
+            "source_steps": 7642,
+            "candidate_visits": 1669,
+            "cursor_steps": 1670,
+            "dependency_visits": 7175,
+            "key_visits": 7687,
+            "history_checks": 513,
+            "pairs": 2624,
+            "occurs_visits": 2048,
+            "term_requests": 5067
+          },
+          {
+            "applications": 1156,
+            "source_steps": 7655,
+            "candidate_visits": 1672,
+            "cursor_steps": 1673,
+            "dependency_visits": 7188,
+            "key_visits": 7701,
+            "history_checks": 514,
+            "pairs": 2629,
+            "occurs_visits": 2052,
+            "term_requests": 5076
+          }
+        ]
+      },
+      "cow": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 21.855628,
+        "min_ms": 21.782221,
+        "max_ms": 22.30857375,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.04108,
+        "first_service_ms": 21.446935,
+        "phase_ms_per_query": {
+          "query": 0.04704075,
+          "setup": 0.21339675,
+          "service": 21.58965175,
+          "engine_drop": 0.00025725,
+          "output_drop": 0.00121625
+        },
+        "requested_bytes_per_query": 51428108.75,
+        "peak_above_baseline": 2307780,
+        "phase_requested_bytes_per_query": {
+          "query": 53717.0,
+          "setup": 247320.5,
+          "service": 51121213.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 1154,
+            "source_steps": 7642,
+            "candidate_visits": 1669,
+            "cursor_steps": 1670,
+            "dependency_visits": 7175,
+            "key_visits": 7687,
+            "history_checks": 513,
+            "pairs": 2624,
+            "occurs_visits": 2048,
+            "term_requests": 5067
+          },
+          {
+            "applications": 1156,
+            "source_steps": 7655,
+            "candidate_visits": 1672,
+            "cursor_steps": 1673,
+            "dependency_visits": 7188,
+            "key_visits": 7701,
+            "history_checks": 514,
+            "pairs": 2629,
+            "occurs_visits": 2052,
+            "term_requests": 5076
+          },
+          {
+            "applications": 1154,
+            "source_steps": 7642,
+            "candidate_visits": 1669,
+            "cursor_steps": 1670,
+            "dependency_visits": 7175,
+            "key_visits": 7687,
+            "history_checks": 513,
+            "pairs": 2624,
+            "occurs_visits": 2048,
+            "term_requests": 5067
+          },
+          {
+            "applications": 1156,
+            "source_steps": 7655,
+            "candidate_visits": 1672,
+            "cursor_steps": 1673,
+            "dependency_visits": 7188,
+            "key_visits": 7701,
+            "history_checks": 514,
+            "pairs": 2629,
+            "occurs_visits": 2052,
+            "term_requests": 5076
+          }
+        ]
+      }
+    },
+    "range_disposition": "overlap",
+    "cow_over_clone": 1.0559464248809678
+  },
+  {
+    "cell": [
+      512,
+      64,
+      "all-success",
+      1,
+      "read"
+    ],
+    "configurations": {
+      "clone": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 179.221544,
+        "min_ms": 178.299788,
+        "max_ms": 186.049043,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.036526,
+        "first_service_ms": 157.893421,
+        "phase_ms_per_query": {
+          "query": 0.052147,
+          "setup": 0.236913,
+          "service": 178.874955,
+          "engine_drop": 0.000281,
+          "output_drop": 0.013081
+        },
+        "requested_bytes_per_query": 108798933.0,
+        "peak_above_baseline": 41075680,
+        "phase_requested_bytes_per_query": {
+          "query": 53667.0,
+          "setup": 247242.0,
+          "service": 108477405.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 33409,
+            "source_steps": 266310,
+            "candidate_visits": 66243,
+            "cursor_steps": 98688,
+            "dependency_visits": 71557,
+            "key_visits": 168837,
+            "history_checks": 32832,
+            "pairs": 131648,
+            "occurs_visits": 2112,
+            "term_requests": 134212
+          }
+        ]
+      },
+      "cow": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 143.497227,
+        "min_ms": 142.601547,
+        "max_ms": 146.086858,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.029947,
+        "first_service_ms": 128.243496,
+        "phase_ms_per_query": {
+          "query": 0.047882,
+          "setup": 0.215897,
+          "service": 143.203847,
+          "engine_drop": 0.000254,
+          "output_drop": 0.012057
+        },
+        "requested_bytes_per_query": 93772822.0,
+        "peak_above_baseline": 26059465,
+        "phase_requested_bytes_per_query": {
+          "query": 53667.0,
+          "setup": 247266.0,
+          "service": 93451086.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 33409,
+            "source_steps": 266310,
+            "candidate_visits": 66243,
+            "cursor_steps": 98688,
+            "dependency_visits": 71557,
+            "key_visits": 168837,
+            "history_checks": 32832,
+            "pairs": 131648,
+            "occurs_visits": 2112,
+            "term_requests": 134212
+          }
+        ]
+      }
+    },
+    "range_disposition": "cow-lower",
+    "cow_over_clone": 0.8006695166067759
+  },
+  {
+    "cell": [
+      512,
+      64,
+      "all-success",
+      1,
+      "insert"
+    ],
+    "configurations": {
+      "clone": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 184.322764,
+        "min_ms": 183.595132,
+        "max_ms": 190.941133,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.035274,
+        "first_service_ms": 161.231537,
+        "phase_ms_per_query": {
+          "query": 0.056447,
+          "setup": 0.242,
+          "service": 183.878788,
+          "engine_drop": 0.000258,
+          "output_drop": 0.144674
+        },
+        "requested_bytes_per_query": 116454777.0,
+        "peak_above_baseline": 44239264,
+        "phase_requested_bytes_per_query": {
+          "query": 53667.0,
+          "setup": 247270.0,
+          "service": 116130591.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 33473,
+            "source_steps": 266950,
+            "candidate_visits": 66307,
+            "cursor_steps": 98816,
+            "dependency_visits": 71813,
+            "key_visits": 169093,
+            "history_checks": 32832,
+            "pairs": 131648,
+            "occurs_visits": 2112,
+            "term_requests": 134468
+          }
+        ]
+      },
+      "cow": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 188.71496,
+        "min_ms": 185.676596,
+        "max_ms": 194.80196,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.041371,
+        "first_service_ms": 166.366201,
+        "phase_ms_per_query": {
+          "query": 0.052739,
+          "setup": 0.230972,
+          "service": 188.273293,
+          "engine_drop": 0.000292,
+          "output_drop": 0.110676
+        },
+        "requested_bytes_per_query": 116446417.0,
+        "peak_above_baseline": 44264490,
+        "phase_requested_bytes_per_query": {
+          "query": 53667.0,
+          "setup": 247294.0,
+          "service": 116122023.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 33473,
+            "source_steps": 266950,
+            "candidate_visits": 66307,
+            "cursor_steps": 98816,
+            "dependency_visits": 71813,
+            "key_visits": 169093,
+            "history_checks": 32832,
+            "pairs": 131648,
+            "occurs_visits": 2112,
+            "term_requests": 134468
+          }
+        ]
+      }
+    },
+    "range_disposition": "overlap",
+    "cow_over_clone": 1.0238288310390136
+  },
+  {
+    "cell": [
+      512,
+      64,
+      "all-success",
+      4,
+      "read"
+    ],
+    "configurations": {
+      "clone": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 172.681283,
+        "min_ms": 171.71294525,
+        "max_ms": 175.92832075,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.033961,
+        "first_service_ms": 157.759384,
+        "phase_ms_per_query": {
+          "query": 0.044305,
+          "setup": 0.1920285,
+          "service": 172.340535,
+          "engine_drop": 0.000244,
+          "output_drop": 0.0128925
+        },
+        "requested_bytes_per_query": 108863890.25,
+        "peak_above_baseline": 41116926,
+        "phase_requested_bytes_per_query": {
+          "query": 53716.0,
+          "setup": 247267.5,
+          "service": 108557752.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 33409,
+            "source_steps": 266310,
+            "candidate_visits": 66243,
+            "cursor_steps": 98688,
+            "dependency_visits": 71557,
+            "key_visits": 168837,
+            "history_checks": 32832,
+            "pairs": 131648,
+            "occurs_visits": 2112,
+            "term_requests": 134212
+          },
+          {
+            "applications": 33474,
+            "source_steps": 266827,
+            "candidate_visits": 66372,
+            "cursor_steps": 98880,
+            "dependency_visits": 71696,
+            "key_visits": 169166,
+            "history_checks": 32896,
+            "pairs": 131905,
+            "occurs_visits": 2116,
+            "term_requests": 134473
+          },
+          {
+            "applications": 33409,
+            "source_steps": 266310,
+            "candidate_visits": 66243,
+            "cursor_steps": 98688,
+            "dependency_visits": 71557,
+            "key_visits": 168837,
+            "history_checks": 32832,
+            "pairs": 131648,
+            "occurs_visits": 2112,
+            "term_requests": 134212
+          },
+          {
+            "applications": 33474,
+            "source_steps": 266827,
+            "candidate_visits": 66372,
+            "cursor_steps": 98880,
+            "dependency_visits": 71696,
+            "key_visits": 169166,
+            "history_checks": 32896,
+            "pairs": 131905,
+            "occurs_visits": 2116,
+            "term_requests": 134473
+          }
+        ]
+      },
+      "cow": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 142.50352275,
+        "min_ms": 140.089584,
+        "max_ms": 143.093629,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.039179,
+        "first_service_ms": 129.402315,
+        "phase_ms_per_query": {
+          "query": 0.040535,
+          "setup": 0.18164625,
+          "service": 142.25731025,
+          "engine_drop": 0.0001585,
+          "output_drop": 0.013052
+        },
+        "requested_bytes_per_query": 93830207.25,
+        "peak_above_baseline": 26085843,
+        "phase_requested_bytes_per_query": {
+          "query": 53716.0,
+          "setup": 247291.5,
+          "service": 93523999.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 33409,
+            "source_steps": 266310,
+            "candidate_visits": 66243,
+            "cursor_steps": 98688,
+            "dependency_visits": 71557,
+            "key_visits": 168837,
+            "history_checks": 32832,
+            "pairs": 131648,
+            "occurs_visits": 2112,
+            "term_requests": 134212
+          },
+          {
+            "applications": 33474,
+            "source_steps": 266827,
+            "candidate_visits": 66372,
+            "cursor_steps": 98880,
+            "dependency_visits": 71696,
+            "key_visits": 169166,
+            "history_checks": 32896,
+            "pairs": 131905,
+            "occurs_visits": 2116,
+            "term_requests": 134473
+          },
+          {
+            "applications": 33409,
+            "source_steps": 266310,
+            "candidate_visits": 66243,
+            "cursor_steps": 98688,
+            "dependency_visits": 71557,
+            "key_visits": 168837,
+            "history_checks": 32832,
+            "pairs": 131648,
+            "occurs_visits": 2112,
+            "term_requests": 134212
+          },
+          {
+            "applications": 33474,
+            "source_steps": 266827,
+            "candidate_visits": 66372,
+            "cursor_steps": 98880,
+            "dependency_visits": 71696,
+            "key_visits": 169166,
+            "history_checks": 32896,
+            "pairs": 131905,
+            "occurs_visits": 2116,
+            "term_requests": 134473
+          }
+        ]
+      }
+    },
+    "range_disposition": "cow-lower",
+    "cow_over_clone": 0.8252401202624837
+  },
+  {
+    "cell": [
+      512,
+      64,
+      "all-success",
+      4,
+      "insert"
+    ],
+    "configurations": {
+      "clone": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 177.8025305,
+        "min_ms": 175.5936285,
+        "max_ms": 179.62296075,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.035878,
+        "first_service_ms": 161.872259,
+        "phase_ms_per_query": {
+          "query": 0.04350075,
+          "setup": 0.196527,
+          "service": 177.39984025,
+          "engine_drop": 0.00020725,
+          "output_drop": 0.14250125
+        },
+        "requested_bytes_per_query": 116524975.75,
+        "peak_above_baseline": 44286684,
+        "phase_requested_bytes_per_query": {
+          "query": 53716.0,
+          "setup": 247295.5,
+          "service": 116218152.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 33473,
+            "source_steps": 266950,
+            "candidate_visits": 66307,
+            "cursor_steps": 98816,
+            "dependency_visits": 71813,
+            "key_visits": 169093,
+            "history_checks": 32832,
+            "pairs": 131648,
+            "occurs_visits": 2112,
+            "term_requests": 134468
+          },
+          {
+            "applications": 33538,
+            "source_steps": 267467,
+            "candidate_visits": 66436,
+            "cursor_steps": 99008,
+            "dependency_visits": 71952,
+            "key_visits": 169422,
+            "history_checks": 32896,
+            "pairs": 131905,
+            "occurs_visits": 2116,
+            "term_requests": 134729
+          },
+          {
+            "applications": 33473,
+            "source_steps": 266950,
+            "candidate_visits": 66307,
+            "cursor_steps": 98816,
+            "dependency_visits": 71813,
+            "key_visits": 169093,
+            "history_checks": 32832,
+            "pairs": 131648,
+            "occurs_visits": 2112,
+            "term_requests": 134468
+          },
+          {
+            "applications": 33538,
+            "source_steps": 267467,
+            "candidate_visits": 66436,
+            "cursor_steps": 99008,
+            "dependency_visits": 71952,
+            "key_visits": 169422,
+            "history_checks": 32896,
+            "pairs": 131905,
+            "occurs_visits": 2116,
+            "term_requests": 134729
+          }
+        ]
+      },
+      "cow": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 179.46017725,
+        "min_ms": 178.88270175,
+        "max_ms": 183.206052,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.039234,
+        "first_service_ms": 163.988787,
+        "phase_ms_per_query": {
+          "query": 0.0428415,
+          "setup": 0.1862125,
+          "service": 179.06839575,
+          "engine_drop": 0.00020175,
+          "output_drop": 0.15717475
+        },
+        "requested_bytes_per_query": 116516477.75,
+        "peak_above_baseline": 44311910,
+        "phase_requested_bytes_per_query": {
+          "query": 53716.0,
+          "setup": 247319.5,
+          "service": 116209584.0,
+          "engine_drop": 0.0,
+          "output_drop": 0.0
+        },
+        "work": [
+          {
+            "applications": 33473,
+            "source_steps": 266950,
+            "candidate_visits": 66307,
+            "cursor_steps": 98816,
+            "dependency_visits": 71813,
+            "key_visits": 169093,
+            "history_checks": 32832,
+            "pairs": 131648,
+            "occurs_visits": 2112,
+            "term_requests": 134468
+          },
+          {
+            "applications": 33538,
+            "source_steps": 267467,
+            "candidate_visits": 66436,
+            "cursor_steps": 99008,
+            "dependency_visits": 71952,
+            "key_visits": 169422,
+            "history_checks": 32896,
+            "pairs": 131905,
+            "occurs_visits": 2116,
+            "term_requests": 134729
+          },
+          {
+            "applications": 33473,
+            "source_steps": 266950,
+            "candidate_visits": 66307,
+            "cursor_steps": 98816,
+            "dependency_visits": 71813,
+            "key_visits": 169093,
+            "history_checks": 32832,
+            "pairs": 131648,
+            "occurs_visits": 2112,
+            "term_requests": 134468
+          },
+          {
+            "applications": 33538,
+            "source_steps": 267467,
+            "candidate_visits": 66436,
+            "cursor_steps": 99008,
+            "dependency_visits": 71952,
+            "key_visits": 169422,
+            "history_checks": 32896,
+            "pairs": 131905,
+            "occurs_visits": 2116,
+            "term_requests": 134729
+          }
+        ]
+      }
+    },
+    "range_disposition": "overlap",
+    "cow_over_clone": 1.0093229648944733
+  }
+]

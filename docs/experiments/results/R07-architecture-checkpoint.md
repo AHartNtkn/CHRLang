@@ -2,7 +2,7 @@
 
 Use competent explicit source execution as the general baseline, with selective access and checked specialization. Prefer direct execution of independently certified fragments when it can avoid general CHR machinery. Native compilation has not earned its extra preparation over the checked recursive loop at measured reuse; conditional sharing earns a bounded pre-heavy advantage over the corrected serial control.
 
-Updated through T048: [current mixed evidence](R05-current-mixed.md) resolves the control gap with 224 complete processes. [T049 sufficiency audit](R07-sufficiency-audit.md) identified a live-state gap; [T050 evidence](R03-state-preservation.md) now warrants T051 owner attribution and a closed occurs gate. This checkpoint introduces no workload weights, mandatory restrictions or automatic mixed-engine routing.
+Updated through T052: [arena ownership evidence](R03-arena-ownership.md) establishes a bounded storage option with adverse mutation controls. T053 tests pure-carrier eligibility. This checkpoint introduces no workload weights, mandatory restrictions or automatic mixed-engine routing.
 
 ## Recommendations and their evidence
 
@@ -41,7 +41,7 @@ These are bounded recommendations and explicit next-work priorities. They are no
 |---|---|---|
 | Q1 execution/access | Selective access and inferred source-preserving specialization are supported. Corrected structural maintenance strengthens the explicit control. | Maintained joins/adaptive indexing could help a different update/selectivity regime, but presently refine an access policy. T049 finds greater immediate value in the live-state storage screen. |
 | Q2 representation | Dedicated execution is the supported baseline; integrated equality has bounded capability and contrary cost evidence. | OR/nonmonotone-guard integration needs a concrete interaction with expected architectural benefit. No such new case is established by a larger same-boundary sweep. |
-| Q3 search storage | Current conditional gains are confined to pre64/post0 among these placements; most pairs favor Specialized. | T048 supplies the current comparison; T050 finds consequential split traffic; T051 attributes arena copying; T052 compares one shared arena owner. Explicit cloning is a chosen organization; this will not rank every trail/replay/persistence design. |
+| Q3 search storage | Current conditional gains are confined to pre64/post0 among these placements; most pairs favor Specialized. | T048 supplies the current comparison; T050 finds consequential split traffic; T052 resolves a bounded arena ownership option; insertion pairs overlap and one no-choice pair favors cloning. Explicit cloning is a chosen organization; this will not rank every trail/replay/persistence design. |
 | Q4 avoiding execution | Certified finite-domain and recursive direct execution are supported in distinct fragments. Native generation is not preferred at measured reuse. | Larger learning endpoints or very high compilation reuse need an independently motivated regime. Another compiler sweep is not selected without a distinct decision-changing regime. |
 | Q5 static/language | Sufficient inferred properties earn bounded gains without mandatory restrictions. Contextual contraction remains unsupported. | Contextual eligibility is the strongest semantic alternative: it could broaden direct lowering, but requires termination/effect correspondence. T049 identifies a concrete pure-carrier certificate as the strongest alternative to the storage screen. |
 | Q6 retain/recompute | Small immutable facts can avoid consequential work; support/history retention can dominate. | Current mixed evidence bounds when physical sharing earns bookkeeping. Tables, replay, reunion and broad reclamation need a specific retained/recomputed cost that could change the surviving choice, not automatic implementation. |
@@ -50,18 +50,43 @@ These are bounded recommendations and explicit next-work priorities. They are no
 | Q9 observation/lifetime | Full aliases/residuals, raw versus unique endpoints, consumer retention and runtime history are separated by evidence. | Broad observer or reclamation redesign has no selected benefit over the present explicit stream control. Reopen for a surviving workload where extraction/retention can reverse the architecture preference. |
 | Q10 parallelism | Current worker benefit is unresolved; permanent factoring remains a distinct capability. | Warm pools, connected regions and larger worker counts change deployment/ownership assumptions. Do not expand them merely to seek a favorable cell. |
 | Q11 generalization | Finite mixed phases, ongoing streams, independent products and sealed relations give distinct applicability boundaries. | Current mixed-phase evidence covers the corrected control. Larger supplied examples or application labels alone do not establish decision value or workload weights. |
-| Q12 overall choice | Explicit baseline plus independently checked direct paths is supported; conditional finite preference has current bounded evidence. | T050 supplies storage evidence; T051 selects precise causal gates. Do not close the goal solely because this checkpoint or the initial sequence is complete. |
+| Q12 overall choice | Explicit baseline plus independently checked direct paths is supported; conditional finite preference has current bounded evidence. | T052 supplies complete storage evidence; T053 tests pure-carrier eligibility. Do not close the goal solely because this checkpoint or the initial sequence is complete. |
 
 Direct distributed choice graphs, net encodings and trace-solver tuning have no automatic priority. Their existing evidence does not show a new responsibility boundary likely to outperform the surviving direct/dedicated controls without a substantial semantic gate. This is a present cost/value disposition, not a universal impossibility claim. Likewise, proof of arbitrary contextual lowering is not a prerequisite for recommending the already certified sealed facility.
 
-## Selected T051 and alternatives
+## Selected T053 and alternatives
 
-[State-preservation evidence](R03-state-preservation.md) validates all 288 processes and 9,120 answers. At n512/a64 mostly-failing, split-producing service accounts for about 84% of requested traffic; no-choice construction and all-success cleanup also remain material. Exact source inspection accounts for 133,376 repeated occurs visits through closed keys.
+[Arena ownership evidence](R03-arena-ownership.md) establishes complete read-choice
+benefits with insertion uncertainty and a no-choice regression. Retain that bounded
+serial option; more persistent-storage or replay work has no comparably specific
+unanswered decision at present.
 
-T051 has validated [immutable-subtree occurs handling](R01-closed-occurs.md), with no new timing claim. [Fork-owner evidence](R03-fork-owner.md) identifies 36.6% arena traffic and mutation-free continuations in all registered cells. T052 selects one lookup-before-detachment arena comparison with immediate-insertion and no-choice controls, including mutation and disposal. This is an experimental candidate, not a production selection. The concrete carrier-contraction gate remains the strongest alternative, but current measured general state costs and the precise common traversal recurrence give these gates greater immediate value. The goal remains active.
+The pure-carrier eligibility gate is next. It may avoid repeated computation in
+the remaining positive conditional countdown regime. One live carrier, a finite
+control spine, unchanged opaque payloads, absence of observers, ordinary source
+priority and safe suspension/identity accounting must be established. Purity alone
+does not justify contraction. The gate may reject the proposed scope; no language
+restriction is assumed. The goal remains active.
 
 ## Review
 
 Root reviewed access, current serial/native evidence, the mixed source/runner and the all-question map. Independent read-only review audited conditional lifetime/observation and selected the same current mixed comparison. A second independent review found no mandatory new cost experiment in the representation/compilation/parallel questions and identified contextual eligibility as the strongest semantic alternative. The selection above addresses both findings without converting every open extension into a queue.
 
 Independent T048 audit verifies exact manifest, all endpoints, allocation restoration, seed and frozen sources/binaries, and supports a sufficiency audit next.
+
+
+## T052 ownership disposition and next gate
+
+[Arena ownership](R03-arena-ownership.md) validates all 512 processes and 21,440
+answers. Lookup-before-detachment sharing improves all eight read-preserving
+choice pairs, with all insertion pairs overlapping and one no-choice regression.
+Retain this serial option with its mutation boundary and overhead; no universal
+time/memory policy follows. Other mutable source state remains substantial.
+
+T053 now selects the pure-carrier eligibility gate. It could avoid repeated
+computation in the remaining positive conditional countdown regime, which is a
+different opportunity from sharing immutable storage. Independent review favors
+this semantic question over further storage refinement. Ordinary source priority,
+one live carrier, finite controls, opaque payloads, observer exclusion and finite
+service must be justified rather than inferred from purity. The earlier contextual
+counterexamples remain active requirements. The goal remains active.
