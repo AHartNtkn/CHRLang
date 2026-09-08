@@ -1,0 +1,13 @@
+# Mixed-pipeline semantic and measurement gate
+
+T042's finite source pipeline is executable on current conditional and inferred-specialized explicit Global/Indexed execution. Independent full-answer checks pass before the [registered lifecycle comparison](../registrations/R05-mixed-pipeline.md). No timing ranking follows from this gate.
+
+One start rule makes four binary choices and posts an opaque pre-countdown carrying the tuple, post depth and a fresh unknown. Its base posts a constructor-discriminating gate. Sixteen gate rules post the same `post(depth,U)` computation plus `witness(tuple,U,U)`. The post base emits `done(U,U)`. An allocation-free checker validates both complete residuals, the shared unknown, tuple shape, empty outputs and one key for each of the sixteen bit tuples. A16-bit seen set detects omissions and duplicate choices. Incorrect aliases, tuple shape and residual multiplicity are rejected independently of engine traversal.
+
+Semantic cases include zero stages, asymmetric depths and repeated starts over one prepared ruleset. Answers remain valid after each engine is disposed. The runner additionally checks four-query reuse with changing depths, complete lifecycle records and the same full-answer contract. Three semantic tests and one runner test pass with default and counter-free experiment features. Strict Clippy and formatting pass; the allocation meter self-check passes in a separate process.
+
+Small diagnostic application counts match the explanatory formulas: conditional `pre+16*post+34`, specialized `1+16*(pre+post+3)`. They are logged observations, not semantic acceptance assertions. The start prefix is counted once through retired split-segment aggregation. The cost comparison will measure work separately from primary counter-free timing.
+
+The runner charges rule cloning/preparation, query cloning/setup, combined execution/full observation, per-query engine/output disposal and final prepared disposal. Original syntax and fixed sample records stay alive across the allocation baseline/final readings. Query outputs remain retained through execution; complete multiset validation occurs outside measured intervals before disposal. Validation is allocation-free but warms later intervals. No source execution dependency on the reference is introduced, and no runtime organization is changed by these fixtures.
+
+Identical post-call arguments do not imply identical occurrence ownership. This gate enables measuring the transition; it does not establish automatic reunion or competitiveness against a stronger finite lowering that eliminates countdowns altogether.
