@@ -2,7 +2,7 @@
 
 Future work is selected by its ability to change an architectural or language-design decision under the [sequence](sequence.md). A completed experimental package is evidence for its stated claim; it does not establish that its entire mechanism is resolved or that its follow-ups deserve execution.
 
-**Current selection:** [The sufficiency audit](results/R07-sufficiency-audit.md) completes T049 and identifies missing evidence on substantial live state across cheap mostly failing alternatives. T050 selects a bounded causal storage screen, ahead of the concrete carrier-contraction alternative. The goal remains active; a supported bounded portfolio is not yet sufficient for closure.
+**Current selection:** [The sufficiency audit](results/R07-sufficiency-audit.md) completes T049 and identifies missing evidence on substantial live state across cheap mostly failing alternatives. T050 has a [validated live-state source gate](results/R03-state-preservation-design.md); measurement implementation and prospective registration are next, ahead of the concrete carrier-contraction alternative. The goal remains active; a supported bounded portfolio is not yet sufficient for closure.
 
 ## Question map
 

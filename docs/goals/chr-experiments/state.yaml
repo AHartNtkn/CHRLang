@@ -8,7 +8,7 @@ goal:
   execution_authority: Redesigned goal authorizes implementation and experiments selected under R00 and the governing sequence.
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
-  current_research: Sufficiency audit identifies live-state/early-failure storage gap; bounded causal screen selected
+  current_research: Live-state source gate validated; storage measurement runner and prospective registration next
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -1422,18 +1422,25 @@ tasks:
     stop_if:
       - Do not presume cloning cost is dominant or implement an open-ended trail/replay program.
       - Reassess value against source-derived carrier contraction before expanding the screen.
-    receipt: null
+    receipt:
+      summary: Query-dependent live-state fixture and five independent semantic tests pass; measurement boundary reviewed, costs unmeasured.
+      evidence:
+        - docs/experiments/results/R03-state-preservation-design.md
+      validation: 24 source-replay cells, pre-split live payload, wanted-key and adverse gates in both counter configurations; Clippy and formatting.
 
 
 checks:
   dirty_fingerprint: preexisting_unfinished_experimental_files_preserved
   last_verification:
     result: passed
-    task: T049
-    scope: Full-objective sufficiency audit identifies concrete missing architectural evidence.
+    task: T050
+    scope: Live-state source/observation gate and inclusive split-service measurement boundary.
     commands:
-      - Source inspection of Core and Engine fork_clone and search ownership
-      - R01/R02/R04/R05/E01 evidence and language boundary review
-      - Independent storage/lifetime and access/lowering adversarial audits
+      - cargo test -p chr-compiled --test state_preservation
+      - cargo test -p chr-compiled --no-default-features --test state_preservation
+      - cargo clippy -p chr-compiled --no-default-features --test state_preservation -- -D warnings
+      - cargo fmt --all -- --check
     evidence:
-      - docs/experiments/results/R07-sufficiency-audit.md
+      - docs/experiments/results/R03-state-preservation-design.md
+      - docs/experiments/results/r03-state-preservation-gate/t050-state-default.log
+      - docs/experiments/results/r03-state-preservation-gate/t050-state-off.log
