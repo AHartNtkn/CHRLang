@@ -1,0 +1,27 @@
+   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.48s
+     Running tests/structural_maintenance.rs (target/debug/deps/structural_maintenance-ade859467139fb2d)
+
+running 2 tests
+
+thread 'immutable_suffix_work_is_distinct_from_source_applications' (318) panicked at research/chr-compiled/tests/structural_maintenance.rs:52:21:
+assertion `left == right` failed
+  left: 0
+ right: 54
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test immutable_suffix_work_is_distinct_from_source_applications ... FAILED
+
+thread 'open_parent_dependencies_survive_alias_then_binding' (319) panicked at research/chr-compiled/tests/structural_maintenance.rs:20:67:
+called `Result::unwrap()` on an `Err` value: "sealed specialization requires Global source policy"
+test open_parent_dependencies_survive_alias_then_binding ... FAILED
+
+failures:
+
+failures:
+    immutable_suffix_work_is_distinct_from_source_applications
+    open_parent_dependencies_survive_alias_then_binding
+
+test result: FAILED. 0 passed; 2 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p chr-compiled --test structural_maintenance`
