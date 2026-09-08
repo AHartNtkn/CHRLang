@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
-import csv,json,statistics
+import csv,json,statistics,sys
 from pathlib import Path
-ROOT=Path(__file__).resolve().parents[3];OUT=ROOT/'docs/experiments/results/s03-lifecycle'
+ROOT=Path(__file__).resolve().parents[3];OUT=ROOT/'docs/experiments/results'/(sys.argv[1] if len(sys.argv)>1 else 's03-lifecycle')
 records=[json.loads(x) for x in (OUT/'raw.jsonl').read_text().splitlines()]
-assert len(records)==210 and all(r['exit_code']==0 for r in records)
+order=json.loads((OUT/'order.json').read_text())
+assert len(records)==len(order) and all(r['exit_code']==0 for r in records)
+assert all(all(r[k]==v for k,v in cell.items()) for r,cell in zip(records,order))
 groups={}
 for r in records:groups.setdefault((r['kind'],r['family'],r['mode']),[]).append(r)
 rows=[]
@@ -30,7 +32,7 @@ with (OUT/'summary.tsv').open('w') as f:
     w=csv.DictWriter(f,fields,delimiter='\t',lineterminator='\n',restval='NA');w.writeheader();w.writerows(rows)
 ratios=[]
 for family in ['binary','nested','duplicate','plain','shared','discriminate']:
-    for control in ['global-scan','global-index','conditional','words','active-index']:
+    for control in ['global-scan','global-index','conditional','words','active-index','graph-original']:
         if ('time',family,control) not in groups:continue
         graph={r['repetition']:r['measurement']['total_ns'] for r in groups['time',family,'graph']}
         other={r['repetition']:r['measurement']['total_ns'] for r in groups['time',family,control]}

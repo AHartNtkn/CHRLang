@@ -1,0 +1,44 @@
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 5 tests
+test disconnected_failure_and_constructor_arity_affect_complete_observations ... ok
+test nonbinding_equality_never_instantiates_or_fails_a_region ... ok
+test reflexive_choice_arm_is_not_a_constructor_cycle ... ok
+test finite_tree_occurs_checks_follow_aliases_and_preserve_good_arms ... ok
+test bindings_aliases_and_failures_are_context_local ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 1 test
+test equation_pairs_match_scalar_finite_tree_solutions_in_every_assignment ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+
+
+running 6 tests
+test conflicting_consumers_and_late_contexts_match_scalar_resources ... ok
+test conditional_birth_rejects_missing_causal_ancestor - should panic ... ok
+test opaque_access_preserves_correlated_and_independent_choices ... ok
+test constructor_demand_consumes_only_matching_contexts_then_accepts_late_births ... ok
+test dynamic_births_preserve_raw_multiplicity_without_inactive_assignments ... ok
+test context_algebra_matches_boolean_truth_tables ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.06s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Compiling chr-direct-choice v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-choice)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.33s
+     Running unittests src/lib.rs (target/debug/deps/chr_direct_choice-9be38ef2c3d7cf03)
+     Running tests/equality.rs (target/debug/deps/equality-fc444baf98e6dc86)
+     Running tests/equality_oracle.rs (target/debug/deps/equality_oracle-026424ea44a29335)
+     Running tests/kernel.rs (target/debug/deps/kernel-d55ff3e33e232f4a)
+   Doc-tests chr_direct_choice

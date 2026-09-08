@@ -8,7 +8,7 @@ goal:
   execution_authority: Redesigned goal authorizes implementation and experiments selected under R00 and the governing sequence.
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
-  current_research: S00 contracts and first-cycle feasibility assessed; S01 direct/retained source gates pass with selective/consuming and lifecycle work open; S03 direct graph passes kernel/equality checks, 40 finite source configurations and finite-sibling publication; compiled Global controls pass the source gate and Active is admitted only on verified token-first words; graphless word lowering and common-work gates pass, and the 30-cell lifecycle pilot is registered; all 210 pilot processes completed; opaque work favors the graph while discrimination exposes profiled context-allocation overhead. A bounded context-operation repair and matched rerun are next. Architecture questions remain unresolved.
+  current_research: S00 contracts and first-cycle feasibility assessed; S01 direct/retained source gates pass with selective/consuming and lifecycle work open; S03 direct graph passes kernel/equality checks, 40 finite source configurations and finite-sibling publication; compiled Global controls pass the source gate and Active is admitted only on verified token-first words; graphless word lowering and common-work gates pass, and the 30-cell lifecycle pilot is registered; all 210 pilot processes completed; opaque work favors the graph while discrimination exposes profiled context-allocation overhead. The 252-process context repair is retained; the bounded T062 trial is complete and S02 relational execution is selected next. Architecture questions remain unresolved.
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -63,12 +63,35 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T062
+active_task: T063
 tasks:
-  - id: T062
+  - id: T063
     type: pm
     assignee: PM
     status: active
+    objective: Design and independently gate a relational execution alternative that integrates constructor patterns, equality-driven eligibility and consuming source heads; establish which boundary it eliminates relative to the existing integrated control and account for context-local equality.
+    inputs:
+      - docs/experiments/sequence.md
+      - docs/experiments/results/S03-context-repair.md
+      - docs/experiments/results/R02-consuming-integration-entry.md
+      - research/chr-integrated/src/lib.rs
+    allowed_files:
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+      - research/chr-relational/
+      - research/chr-integrated/tests/
+      - research/chr-integrated/Cargo.toml
+      - Cargo.toml
+      - Cargo.lock
+    verify:
+      - State the eliminated boundary and distinguish mechanisms already implemented by R02
+      - Independent full source observations, occurrence identity, nonbinding matching, finite-tree equality and completion
+      - Favorable equality-enabled joins and adverse repair/low-yield updates
+      - Explicit treatment of choice-local equality and consuming ownership
+  - id: T062
+    type: pm
+    assignee: PM
+    status: complete
     objective: Implement and independently gate direct named-choice or derivation graph execution, including dynamic provenance, conflicting consumption, late contexts and complete publication; compare against credible compiled and Conditional controls before cost conclusions.
     inputs:
       - docs/experiments/results/S00-first-cycle-feasibility.md

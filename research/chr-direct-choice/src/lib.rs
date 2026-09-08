@@ -27,16 +27,25 @@ impl Context {
         result.0.insert(label, arm);
         Some(result)
     }
+    fn overlaps(&self, other: &Self) -> bool {
+        other
+            .0
+            .iter()
+            .all(|(label, arm)| self.0.get(label).is_none_or(|old| old == arm))
+    }
     pub fn intersection(&self, other: &Self) -> Option<Self> {
-        let mut result = self.clone();
-        for (&label, &arm) in &other.0 {
-            result = result.select(label, arm)?;
+        if !self.overlaps(other) {
+            return None;
         }
+        let mut result = self.clone();
+        result
+            .0
+            .extend(other.0.iter().map(|(&label, &arm)| (label, arm)));
         Some(result)
     }
     /// Disjoint cubes for `self AND NOT other`. No full assignment enumeration.
     pub fn subtract(&self, other: &Self) -> Vec<Self> {
-        if self.intersection(other).is_none() {
+        if !self.overlaps(other) {
             return vec![self.clone()];
         }
         let mut inside = self.clone();

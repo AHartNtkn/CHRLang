@@ -1,0 +1,63 @@
+[
+  {
+    "name": "graph-tests",
+    "command": [
+      "cargo",
+      "test",
+      "-p",
+      "chr-direct-choice"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "source-tests",
+    "command": [
+      "cargo",
+      "test",
+      "-p",
+      "chr-direct-conditional",
+      "--test",
+      "direct_graph_entry"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "source-off",
+    "command": [
+      "cargo",
+      "test",
+      "-p",
+      "chr-direct-conditional",
+      "--no-default-features",
+      "--test",
+      "direct_graph_entry"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "clippy",
+    "command": [
+      "cargo",
+      "clippy",
+      "-p",
+      "chr-direct-choice",
+      "--all-targets",
+      "--",
+      "-D",
+      "warnings"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "fmt",
+    "command": [
+      "cargo",
+      "fmt",
+      "-p",
+      "chr-direct-choice",
+      "--",
+      "--check"
+    ],
+    "exit_code": 0
+  }
+]

@@ -258,3 +258,8 @@ comparative evidence. The full goal remains active.
 ## Renewed S03 lifecycle evidence
 
 The [first S03 lifecycle pilot](S03-lifecycle-pilot.md) completes 210 registered processes with independent complete-answer checks. Direct graph execution favors opaque common work but loses after early discrimination; checked graphless word lowering dominates the graph on its admitted source. Profiling identifies temporary context-map work as a bounded repair candidate, selected before broad rejection or further architecture tuning. Preparation, query lifetime and disposal are included; independent native compilation, ongoing reclamation and general architecture selection remain open under the governing sequence.
+
+
+## Renewed S03 context repair and next boundary
+
+The [paired context repair](S03-context-repair.md) completes 252 processes and removes about 30% of the graph's discrimination lifecycle cost without changing semantics. The graph remains favorable on opaque work and unfavorable against compiled controls after discrimination; graphless word compilation remains distinct. T062's bounded trial is complete, while S03's broader obligations remain open. T063 selects S02 relational execution: assess a shared constructor/source join plan and choice-local equality, rather than assuming the current integrated control exports solved terms during matching.
