@@ -8,7 +8,7 @@ goal:
   execution_authority: Redesigned goal authorizes implementation and experiments selected under R00 and the governing sequence.
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
-  current_research: Paired correction complete; finite recursive-lowering eligibility and correspondence selected
+  current_research: Sealed recursive correspondence complete; native generation and compilation lifecycle entry selected
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -63,7 +63,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T045
+active_task: T046
 tasks:
   - id: T001
     type: pm
@@ -1231,7 +1231,7 @@ tasks:
   - id: T045
     type: pm
     assignee: PM
-    status: active
+    status: done
     objective: Establish a checked sufficient finite recursive-relation certificate and complete source correspondence before assessing native compilation lifecycle.
     inputs:
       - docs/experiments/results/R01-closed-subtree-lifecycle.md
@@ -1254,6 +1254,40 @@ tasks:
     stop_if:
       - Reconsider R04 if admission requires broad contextual or termination analysis.
       - No comparative timing before registration and no general eager-region or language adoption claim.
+    receipt:
+      result: done
+      summary: Source-derived sealed recursive certificate and direct equation execution preserve nonground aliases and finite failure; 168-case matrix and mathematical expectations pass without occurrence selection.
+      evidence:
+        - docs/experiments/results/R05-finite-recursive-gate.md
+      validation: 53 package all-target tests in each feature mode, strict Clippy, formatting, independent certificate and implementation review.
+
+  - id: T046
+    type: pm
+    assignee: PM
+    status: active
+    objective: Establish generated native execution and credible compilation-lifecycle accounting for the certified finite recursive fragment.
+    inputs:
+      - docs/experiments/results/R05-finite-recursive-gate.md
+      - docs/experiments/results/R01-closed-subtree-lifecycle.md
+    allowed_files:
+      - research/
+      - Cargo.toml
+      - Cargo.lock
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    expected_output:
+      - Source-derived native artifact and complete-answer correspondence without interpreted equation templates at runtime.
+      - Explicit preparation, generation, compiler, startup/loading, changed-query reuse, observation and disposal boundary.
+      - Prospectively registered bounded comparison or evidence-backed alternate entry disposition.
+    verify:
+      - Preserve admission errors, finite failure, fresh variables and complete joint observations
+      - Compare direct equation execution and corrected Specialized with matching accepted queries
+      - Separate shared runtime prerequisites from per-source compilation and retain cold costs
+      - Primary counter-free ordinary allocator runs, with separate diagnostics if needed
+    stop_if:
+      - Reconsider certified R04 if native integration requires broad infrastructure.
+      - No comparative timing before complete source correspondence and prospective registration.
+      - No universal lifecycle claim or automatic language adoption.
     receipt: null
 
 
@@ -1261,15 +1295,12 @@ checks:
   dirty_fingerprint: preexisting_unfinished_experimental_files_preserved
   last_verification:
     result: passed
-    task: T044
-    scope: Completed paired lifecycle intervention, full observation audit and current semantic gates.
+    task: T045
+    scope: Sealed recursive certificate, direct equation execution and independent complete-observation gate.
     commands:
-      - All 298 workspace all-target tests, strict Clippy and formatting pass
-      - Compiled and persistent default and metrics-off suites pass
-      - Structural visits fall from 54/170/594 to 18/34/66 with unchanged source and index updates
-      - Open-term dependency, branch-local binding and speculative failure witnesses pass
-      - All 288 paired processes and 9664 observations validate with live source and binary hashes
-      - Independent invariant, runner and result interpretation review
+      - cargo test -p chr-compiled --all-targets
+      - cargo test -p chr-compiled --no-default-features --all-targets
+      - Strict Clippy in both feature modes and cargo fmt --all --check
+      - Independent certificate and implementation audit
     evidence:
-      - docs/experiments/results/R01-structural-maintenance.md
-      - docs/experiments/results/R01-closed-subtree-lifecycle.md
+      - docs/experiments/results/R05-finite-recursive-gate.md

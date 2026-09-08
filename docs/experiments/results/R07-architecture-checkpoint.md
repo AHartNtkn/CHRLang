@@ -90,3 +90,8 @@ Root audited Q1/Q2/Q4/Q5/Q8/Q12 against receipts and current controls. Independe
 ## Update after T044
 
 [The paired immutable-subtree pilot](R01-closed-subtree-lifecycle.md) validates all 288 processes and 9,664 full observations. Four carry-heavy Specialized families have separated favorable before/after ranges; all Inline changes and current balanced worker ordering remain unresolved. Metadata increases Inline requested allocation traffic and is included. T045 selects checked finite recursive-relation eligibility and correspondence, with nonground payloads, failure and contextual exclusions, ahead of more executor tuning. Native compilation lifecycle remains unmeasured; the certified R04 fragment is the alternative if recursive eligibility requires broad analysis. The goal remains active.
+
+
+## Update after T045
+
+[Finite recursive correspondence](R05-finite-recursive-gate.md) establishes a source-derived sealed certificate with unknown payloads, complete alias/failure observations and no occurrence store or rule selector. The 168-case matrix, mathematical expectations and contextual gates pass in both counter configurations. T046 selects native generation and compilation-lifecycle entry ahead of further executor tuning. The direct loop still interprets equation templates and uses finite-tree services; no native generation or speed claim follows. R04 remains the bounded alternative if artifact integration requires broad infrastructure.

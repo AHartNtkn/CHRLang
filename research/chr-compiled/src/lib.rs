@@ -13,6 +13,7 @@ pub const COLLECT_METRICS: bool = cfg!(feature = "metrics");
 pub mod experiment;
 pub mod fixtures;
 pub mod generate;
+pub mod recursive;
 pub mod regions;
 pub mod search;
 pub mod search_fixtures;
