@@ -9,11 +9,11 @@ Existing measurements count within their demonstrated scope. Completion of a bou
 | Stage | Evidence now available | Still required |
 |---|---|---|
 | S00 contracts | [Contracts and candidate sketches](results/S00-contracts-and-candidates.md), [first-cycle feasibility](results/S00-first-cycle-feasibility.md) | Apply and extend contracts when a new mechanism or language option changes the comparison |
-| S01 discovery | [Selective/consuming source gate](results/S01-selective-consuming-gate.md), [ownership correction](results/S01-script-ownership-repair.md), [request crossover](results/S01-request-crossover.md) | Partial joins, subscriptions, broader generated access and source-property selection |
+| S01 discovery | [Selective/consuming source gate](results/S01-selective-consuming-gate.md), [ownership correction](results/S01-script-ownership-repair.md), [request crossover](results/S01-request-crossover.md) | Demand-driven subscriptions versus eager partial retention, broader generated access and source-property selection |
 | S02 integration | [Source gate](results/S02-relational-source.md), [lifecycle pilot](results/S02-lifecycle-pilot.md), [candidate reuse correction](results/S02-candidate-reuse.md) | Distinct contextual/local-rewrite mechanisms and interleaving that changes useful work |
 | S03 direct graphs | [Source executor](results/S03-source-executor.md), [lifecycle pilot](results/S03-lifecycle-pilot.md), [context repair](results/S03-context-repair.md) | Pull-tabbing, derivation reuse, backend correspondence and sustainable lifetime |
 | S04 restoration | [Source gate](results/S04-restoration-source-gate.md), [full lifecycle pilot](results/S04-lifecycle-pilot.md), [paired matcher correction](results/S04-matcher-paired-cost.md) | Stronger restoration/replay policies, adaptive splitting and temporary separation/reunion |
-| S05 reuse | [Source gate](results/S05-stable-source-gate.md), [lifecycle pilot](results/S05-lifecycle-pilot.md), [specialized control](results/S05-specialized-control.md) | Operation-size/request crossover, invalidation/eviction/lifetime, further cost attribution and generalized continuation tables |
+| S05 reuse | [Source gate](results/S05-stable-source-gate.md), [lifecycle pilot](results/S05-lifecycle-pilot.md), [specialized control](results/S05-specialized-control.md), [operation crossover](results/S05-operation-crossover.md) | Invalidation/eviction/lifetime, further cost attribution and generalized continuation tables |
 | S06 compilation | [Finite-table source gate](results/S06-table-source-gate.md), [lifecycle pilot](results/S06-table-lifecycle.md) | Broader derivations, recursive/contextual lowering, structural spaces and native compilation costs |
 | S07–S11 | Earlier bounded results and current stage specifications | Language comparisons, sustained lifetime, warm parallel execution, whole architectures and held-out audit |
 
@@ -51,3 +51,7 @@ A final bounded decision needs contrary evidence and a sensitivity argument expl
 The review's [coverage check](results/R07-design-disposition-review.md#coverage-check) maps E00–E18 and R01–R08 to individual design decisions and links their receipts. The [architecture assumptions](architecture-assumptions.md) and [framing review](research-framing-review.md) remain useful checks against treating existing interfaces or example domains as requirements.
 
 No aggregate benchmark weights, universal winner, automatic hybrid routing or additional production baseline is selected by this map.
+
+## Current selection after the operation crossover
+
+The [616-process S05 crossover](results/S05-operation-crossover.md) completes T067's bounded trial with favorable repeated-operation runtime, adverse unique requests and a graph peak-memory countercase. It does not resolve broader S05. T068 selects [demand-driven matching subscriptions](results/S01-subscription-entry.md), with reusable workers and corrected replay still required alternatives. All 57 review assignments remain in force.

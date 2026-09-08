@@ -1,3 +1,5 @@
+#[path = "../experiments/crossover_source.rs"]
+mod crossover;
 #[cfg(feature = "alloc-meter")]
 use chr_compiled::experiment::meter;
 use chr_reuse::stable::Policy as CachePolicy;
@@ -28,6 +30,10 @@ const MODES: [&str; 8] = [
     "graph",
 ];
 fn rules(f: &str) -> Vec<Rule> {
+    if let Some(x) = crossover::Config::parse(f) {
+        return x.rules();
+    }
+
     let placement = if f.starts_with("before") {
         fixture::Placement::BeforeGate
     } else {
@@ -48,6 +54,10 @@ fn rules(f: &str) -> Vec<Rule> {
     rules
 }
 fn query(f: &str, seed: usize) -> Query {
+    if let Some(x) = crossover::Config::parse(f) {
+        return x.query(seed);
+    }
+
     let mut q = fixture::query(64, f.ends_with("clash"));
     if f == "trivial" {
         q.constraints[0].args[0] = atom("same");
@@ -58,6 +68,10 @@ fn query(f: &str, seed: usize) -> Query {
     q
 }
 fn expected(f: &str, seed: usize) -> Vec<Answer> {
+    if let Some(x) = crossover::Config::parse(f) {
+        return x.expected(seed);
+    }
+
     if f.ends_with("clash") {
         return vec![];
     }
@@ -233,19 +247,20 @@ fn execute(e: &mut Running, stop: bool) -> (Vec<Answer>, Option<u128>) {
     panic!("source-service cutoff")
 }
 fn gate(selected: Option<&str>, selected_mode: Option<&str>) {
+    if let Some(m) = selected_mode {
+        assert!(m.split(',').all(|x| MODES.contains(&x)));
+    }
     #[cfg(feature = "alloc-meter")]
     meter::self_check().unwrap();
-    for f in FAMILIES {
-        if selected.is_some_and(|x| x != f) {
-            continue;
-        }
+    let families = selected.map_or_else(|| FAMILIES.to_vec(), |f| vec![f]);
+    for f in families {
         let rs = rules(f);
         for seed in [0, 7] {
             let q = query(f, seed);
             let expected = expected(f, seed);
             oracle::same_raw(oracle::run(&rs, &q, 100_000), expected.clone());
             for mode in MODES {
-                if selected_mode.is_some_and(|x| x != mode) {
+                if selected_mode.is_some_and(|x| !x.split(',').any(|m| m == mode)) {
                     continue;
                 }
                 let p = Prepared::new(mode, &rs);
@@ -296,7 +311,11 @@ struct Row {
     count: usize,
 }
 fn cell(mode: &str, f: &str, reuse: usize) {
-    assert!(MODES.contains(&mode) && FAMILIES.contains(&f) && [1, 8].contains(&reuse));
+    assert!(
+        MODES.contains(&mode)
+            && (FAMILIES.contains(&f) || crossover::Config::parse(f).is_some())
+            && [1, 8].contains(&reuse)
+    );
     let rules = rules(f);
     let queries: Vec<_> = (0..reuse).map(|i| query(f, i)).collect();
     let expected: Vec<_> = queries
@@ -361,9 +380,10 @@ fn cell(mode: &str, f: &str, reuse: usize) {
         cancel_answer_disposal.json()
     );
 }
-fn work() {
+fn work(selected: Option<&str>) {
     assert!(std::hint::black_box(cfg!(feature = "metrics")));
-    for f in FAMILIES {
+    let families = selected.map_or_else(|| FAMILIES.to_vec(), |f| vec![f]);
+    for f in families {
         for mode in ["direct", "exact", "dependencies"] {
             let rs = rules(f);
             let p = Prepared::new(mode, &rs);
@@ -372,6 +392,32 @@ fn work() {
             let Running::Cache(s) = running else {
                 unreachable!()
             };
+            if let Some(x) = crossover::Config::parse(f) {
+                let requests = 1u64 << x.bits;
+                assert_eq!(s.source_stats().equations, 3 * requests - 2);
+                let operation_pairs = if x.clash {
+                    x.depth as u64 + 2
+                } else {
+                    2 * x.depth as u64 + 4
+                } + if x.unique { 2 } else { 0 };
+                let pairs = if mode == "dependencies" && !x.unique {
+                    operation_pairs + 2 * x.bits as u64
+                } else {
+                    operation_pairs * requests
+                        + if mode == "dependencies" {
+                            2 * x.bits as u64
+                        } else {
+                            2 * requests - 2
+                        }
+                };
+                if !x.unique || mode != "dependencies" {
+                    assert_eq!(
+                        s.source_stats().pairs,
+                        pairs,
+                        "source-derived kernel pair count"
+                    );
+                }
+            }
             println!(
                 "{{\"family\":\"{f}\",\"mode\":\"{mode}\",\"hits\":{},\"equations\":{},\"pairs\":{}}}",
                 s.hits(),
@@ -384,7 +430,7 @@ fn work() {
 fn main() {
     let a: Vec<_> = std::env::args().collect();
     if a.get(1).map(String::as_str) == Some("work") {
-        work();
+        work(a.get(2).map(String::as_str));
         return;
     }
     assert!(

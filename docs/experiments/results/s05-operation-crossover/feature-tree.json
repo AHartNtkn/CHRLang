@@ -1,0 +1,14 @@
+{
+  "command": [
+    "cargo",
+    "tree",
+    "-p",
+    "chr-reuse",
+    "--no-default-features",
+    "-e",
+    "features"
+  ],
+  "exit_code": 0,
+  "stdout": "chr-reuse v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-reuse)\n\u251c\u2500\u2500 chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe)\n\u2502   \u2514\u2500\u2500 chr-syntax feature \"default\"\n\u2502       \u2514\u2500\u2500 chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax)\n\u251c\u2500\u2500 chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)\n\u2502   \u251c\u2500\u2500 chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe) (*)\n\u2502   \u2514\u2500\u2500 chr-syntax feature \"default\" (*)\n\u2514\u2500\u2500 chr-syntax feature \"default\" (*)\n[dev-dependencies]\n\u251c\u2500\u2500 chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)\n\u2502   \u251c\u2500\u2500 chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe) (*)\n\u2502   \u251c\u2500\u2500 chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent) (*)\n\u2502   \u2514\u2500\u2500 chr-syntax feature \"default\" (*)\n\u2502   [build-dependencies]\n\u2502   \u2514\u2500\u2500 chr-syntax feature \"default\" (*)\n\u251c\u2500\u2500 chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)\n\u2502   \u2514\u2500\u2500 chr-syntax feature \"default\" (*)\n\u251c\u2500\u2500 chr-cases feature \"default\"\n\u2502   \u2514\u2500\u2500 chr-cases v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-cases)\n\u2502       \u251c\u2500\u2500 chr-programs feature \"default\"\n\u2502       \u2502   \u2514\u2500\u2500 chr-programs v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-programs)\n\u2502       \u2502       \u2514\u2500\u2500 chr-syntax feature \"default\" (*)\n\u2502       \u2514\u2500\u2500 chr-syntax feature \"default\" (*)\n\u251c\u2500\u2500 chr-direct-choice feature \"default\"\n\u2502   \u2514\u2500\u2500 chr-direct-choice v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-choice)\n\u2502       \u2514\u2500\u2500 chr-syntax feature \"default\" (*)\n\u2514\u2500\u2500 chr-reference feature \"default\"\n    \u2514\u2500\u2500 chr-reference v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-reference)\n        \u2514\u2500\u2500 chr-syntax feature \"default\" (*)\n",
+  "stderr": ""
+}

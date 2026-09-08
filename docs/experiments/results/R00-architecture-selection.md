@@ -324,3 +324,7 @@ The [source gate](S05-stable-source-gate.md) validates shared-handle equation in
 ## S05 lifecycle and strong-control comparison
 
 The [588-process pilot](S05-lifecycle-pilot.md) and [336-process inferred-specialization comparison](S05-specialized-control.md) find large equation-work/traffic savings from dependency reuse but smaller runtime gains at depth64; distinct requests lose about 54–56%. Ordinary shared-arena scalar execution remains a necessary control, while the direct graph retains a favorable common-failure peak/time case. These findings motivate an operation-size/request crossover before deciding whether reuse can economically substitute for sharing. Broader invalidation, eviction, lifetime and architectural attribution remain open; T067 stays active.
+
+## S05 operation crossover and next matching contrast
+
+The [616-process crossover](S05-operation-crossover.md) passes complete observations, exact allocation replay in all 88 cells and full disposal. At 64 common requests, depth256–1,024 supports roughly 25–35% before-discrimination runtime savings; distinct depth1,024 requests take 2.75 times ordinary runtime. Graph common-clash peak/traffic remains lower, and the after-discrimination clash timing remains uncertain. Native compilation and broader cache validity/lifetime are not resolved. T067's bounded trial is complete; T068 selects [demand-driven subscriptions](S01-subscription-entry.md), with warm parallel workers and corrected replay policies retained as consequential alternatives. The architecture goal remains active.
