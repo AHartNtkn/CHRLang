@@ -8,7 +8,7 @@ goal:
   execution_authority: Redesigned goal authorizes implementation and experiments selected under R00 and the governing sequence.
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
-  current_research: Source scheduling diagnosis complete; direct conditional resource and publication protocol selected
+  current_research: Conditional resource protocol reviewed; independent executable direct-activation gate selected
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -63,7 +63,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T034
+active_task: T035
 tasks:
   - id: T001
     type: pm
@@ -873,7 +873,7 @@ tasks:
   - id: T034
     type: pm
     assignee: PM
-    status: active
+    status: done
     objective: Establish a coherent direct conditional activation, resource and publication protocol with independent semantic witnesses before choosing its implementation and cost contrast.
     inputs:
       - docs/experiments/results/R00-architecture-selection.md
@@ -896,18 +896,50 @@ tasks:
     stop_if:
       - Do not substitute preview-each-interpretation grouping for direct conditional activation.
       - No owner-independent language adoption or priority for unfinished prototypes.
+    receipt:
+      result: done
+      summary: Selected direct symbolic activation with conditional resource ownership, causal births and support-local publication; independent reviews identify finite-sibling and contextual equality obligations. Runtime gate is not yet implemented.
+      evidence:
+        - docs/experiments/results/R03-conditional-protocol.md
+      validation: Independent design and adversarial reviews; explicit source witnesses and responsibility audit. No performance or executable semantic-gate claim.
+  - id: T035
+    type: pm
+    assignee: PM
+    status: active
+    objective: Implement the selected direct conditional activation path and independently validate source resources, contextual equality, raw birth multiplicity and support-local progress before cost comparison.
+    inputs:
+      - docs/experiments/results/R03-conditional-protocol.md
+      - docs/experiments/results/R03-search-diagnosis.md
+    allowed_files:
+      - research/
+      - Cargo.toml
+      - Cargo.lock
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    expected_output:
+      - Coherent executable symbolic-support runtime with direct activation and full query-to-answer lifecycle.
+      - Independent projection/source-effect oracle, adverse witnesses and finite sibling checks.
+      - Evidence-backed cost registration only after semantics and required responsibility gates pass.
+    verify:
+      - Candidate execution does not enumerate projected branch machines to discover shared work
+      - Nonbinding matching, supported occurs checks, consuming identity and propagation uniqueness
+      - Active birth counting, exactly-once raw delivery and full nonground residual aliases
+      - Disjoint divergence cannot restart finite-support completion indefinitely
+      - Relevant tests, Clippy, formatting and independent review
+    stop_if:
+      - No source-reference execution dependency or implicit source alternatives.
+      - No comparative performance claim before prospective registration and full-path validation.
     receipt: null
 
 checks:
   dirty_fingerprint: preexisting_unfinished_experimental_files_preserved
   last_verification:
     result: passed
-    task: T033
-    scope: Causal source-search diagnostics.
+    task: T034
+    scope: Conditional protocol design and responsibility review, not executable correctness.
     commands:
-      - Compiled all-target tests, Clippy and formatting pass
-      - 144 processes validate complete independent observations and branch conservation
-      - Repeated and access/dispatch diagnostic counts agree exactly
-      - Frozen source archive hashes verified
+      - Independent design and adversarial reviews incorporated
+      - Source witness and completion/invalidation boundaries audited
+      - Local evidence links and task-state consistency checked
     evidence:
-      - docs/experiments/results/R03-search-diagnosis.md
+      - docs/experiments/results/R03-conditional-protocol.md

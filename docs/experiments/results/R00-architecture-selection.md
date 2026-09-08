@@ -93,3 +93,8 @@ The [R04 lifecycle pilot](R04-lifecycle-pilot.md) establishes a viable native fi
 ## Current priority after T033
 
 [Source diagnostics](R03-search-diagnosis.md) establish delayed failure as the branch explosion cause; global source selection supplies the early-rejection control. T034 selects the coherent conditional activation/resource/publication boundary and independent witnesses. That complete organization can change work across choices; further queue tuning cannot answer its central question. Its implementation is selected from the responsibility model, without automatic priority for an existing prototype.
+
+
+## Conditional implementation entry after T034
+
+[The reviewed protocol](R03-conditional-protocol.md) selects direct symbolic activation with supported occurrence/history ownership and causal source births. Completion and invalidation are local to support so a divergent alternative cannot continually restart a finite sibling's proof. T035 establishes executable projection, resource and progress gates before any cost claim. The initial serial owner and decision-DAG representation are implementation choices; their costs and limits remain part of the comparison.
