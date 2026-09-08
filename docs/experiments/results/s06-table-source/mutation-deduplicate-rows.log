@@ -1,0 +1,24 @@
+
+running 1 test
+test binary_bag_joins_match_product_oracle_and_source ... FAILED
+
+failures:
+
+---- binary_bag_joins_match_product_oracle_and_source stdout ----
+
+thread 'binary_bag_joins_match_product_oracle_and_source' (203) panicked at research/chr-direct-relation/tests/../../chr-direct-conditional/tests/runtime_support/mod.rs:268:5:
+assertion `left == right` failed: raw multiplicity differs
+  left: 1
+ right: 2
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    binary_bag_joins_match_product_oracle_and_source
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 3 filtered out; finished in 0.01s
+
+   Compiling chr-direct-relation v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-relation)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.36s
+     Running tests/source.rs (target/debug/deps/source-5e0fdd724065cfba)
+error: test failed, to rerun pass `-p chr-direct-relation --test source`

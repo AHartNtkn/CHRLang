@@ -280,3 +280,7 @@ The [140-process pilot](S02-lifecycle-pilot.md) demonstrates a selective-constru
 ## S02 candidate reuse and S06 selection
 
 The [paired candidate-reuse correction](S02-candidate-reuse.md) completes 175 processes, reducing flat/dense relational lifecycle by about two thirds and delayed-dense lifecycle by 45%, with independent invalidation counterchecks. The selective-constructor benefit survives, while broad comparisons still favor controls. T063's bounded trial is complete; broader S02 obligations remain open. [Direct relation compilation](S06-direct-relation-entry.md) is selected ahead of another local correction because it tests elimination of the execution loop, with S01 retained discovery the strongest ready alternative.
+
+## S06 finite table-source gate
+
+The [source-derived bag-join gate](S06-table-source-gate.md) passes 6,144 configuration/order comparisons per executor, including scalar and generic dedicated controls. Duplicate derivations, aliases, structured arguments, fresh locals, off-output failure and lazy first publication are checked. The accepted finite source eliminates occurrence/activation/history responsibilities; certificate, index, substitution and observation costs are not yet measured. T064 remains active for prospective lifecycle comparison; R04 translation and broader S06 mechanisms remain distinct.
