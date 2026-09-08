@@ -113,3 +113,38 @@ fn indexed_control_uses_selective_final_endpoint() {
         if chr_compiled::COLLECT_METRICS { 2 } else { 0 }
     );
 }
+
+#[test]
+fn both_bound_endpoints_avoid_dead_middle_continuations() {
+    for mode in [Mode::Indexed, Mode::Eager, Mode::Subscribed] {
+        let mut e = Join::new(mode);
+        for i in 0..8 {
+            e.insert(0, i, (atom("k"), atom(&format!("a{i}"))));
+            e.insert(2, i, (atom(&format!("b{i}")), atom("v")));
+            for j in 0..8 {
+                e.insert(
+                    1,
+                    2 * (i * 8 + j),
+                    (atom(&format!("a{i}")), atom(&format!("dead_b{j}"))),
+                );
+                e.insert(
+                    1,
+                    2 * (i * 8 + j) + 1,
+                    (atom(&format!("dead_a{i}")), atom(&format!("b{j}"))),
+                );
+            }
+        }
+        e.insert(1, 128, (atom("a0"), atom("b0")));
+        e.open(0, (atom("k"), atom("v")));
+        assert_eq!(e.request(0), vec![[0, 128, 0]]);
+        if chr_compiled::COLLECT_METRICS && mode != Mode::Eager {
+            assert_eq!(e.stats().pair_plans, 1);
+            assert_eq!(e.stats().planning_rows, 16);
+            assert_eq!(e.stats().probes, 64);
+        }
+        e.remove(1, 128);
+        assert!(e.request(0).is_empty());
+        e.insert(1, 129, (atom("a0"), atom("b0")));
+        assert_eq!(e.request(0), vec![[0, 129, 0]]);
+    }
+}

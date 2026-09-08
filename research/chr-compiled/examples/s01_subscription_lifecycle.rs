@@ -41,6 +41,8 @@ impl Measurement {
 mod cases;
 #[path = "../experiments/subscription_join.rs"]
 mod join;
+#[path = "../experiments/subscription_low_yield.rs"]
+mod low_yield;
 #[path = "../experiments/subscription_runtime.rs"]
 mod runtime;
 #[path = "../experiments/subscription_source.rs"]
@@ -110,28 +112,40 @@ impl Running {
             Self::Generic(e) => e.observe().unwrap(),
         }
     }
-    fn work(&self) -> (usize, usize, usize, usize) {
+    fn work(&self) -> (usize, usize, usize, usize, usize, usize, usize, usize) {
         match self {
             Self::Lower(e) => (
                 e.stats().constructed,
                 e.stats().invalidated,
                 e.stats().probes,
                 e.retained(),
+                e.stats().planning_rows,
+                e.stats().pair_plans,
+                e.stats().left_plans,
+                e.stats().right_plans,
             ),
-            Self::Generic(_) => (0, 0, 0, 0),
+            Self::Generic(_) => (0, 0, 0, 0, 0, 0, 0, 0),
         }
     }
 }
 fn inputs(f: &str, n: usize, r: usize, rules: &[Rule]) -> Vec<(Query, Answer)> {
     (0..2)
         .map(|seed| {
-            let q = cases::query(f, n, r, seed);
+            let q = if low_yield::FAMILIES.contains(&f) {
+                low_yield::query(f, n, r, seed)
+            } else {
+                cases::query(f, n, r, seed)
+            };
             let mut a = oracle::run(rules, &q, 2_000_000);
             assert_eq!(a.len(), 1);
             let a = a.pop().unwrap();
             assert_eq!(
                 a.residual.iter().filter(|c| c.name == "receipt").count(),
-                cases::receipts(f, n, r)
+                if low_yield::FAMILIES.contains(&f) {
+                    r
+                } else {
+                    cases::receipts(f, n, r)
+                }
             );
             (q, a)
         })
@@ -148,9 +162,9 @@ fn cell(mode: &str, f: &str, n: usize, r: usize, gate: bool, work: bool) {
             e.execute();
             oracle::same_raw(vec![e.observe()], vec![a.clone()]);
             if work {
-                let (built, invalidated, probes, retained) = e.work();
+                let (built, invalidated, probes, retained, planning, pair, left, right) = e.work();
                 println!(
-                    "{{\"constructed\":{built},\"invalidated\":{invalidated},\"probes\":{probes},\"retained\":{retained}}}"
+                    "{{\"constructed\":{built},\"invalidated\":{invalidated},\"probes\":{probes},\"retained\":{retained},\"planning_rows\":{planning},\"pair_plans\":{pair},\"left_plans\":{left},\"right_plans\":{right}}}"
                 );
             }
         }

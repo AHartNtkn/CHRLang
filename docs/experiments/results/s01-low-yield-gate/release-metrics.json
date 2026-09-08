@@ -1,0 +1,16 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "-p",
+    "chr-compiled",
+    "--release",
+    "--test",
+    "subscription_source_gate",
+    "--test",
+    "subscription_join_gate"
+  ],
+  "exit_code": 0,
+  "stdout": "\nrunning 4 tests\ntest indexed_control_uses_selective_final_endpoint ... ok\ntest inactive_demands_avoid_retention_and_repeated_requests_avoid_rediscovery ... ok\ntest both_bound_endpoints_avoid_dead_middle_continuations ... ok\ntest updates_retirement_reopening_and_occurrences_match_independent_product ... ok\n\ntest result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s\n\n\nrunning 11 tests\ntest existing_single_head_specialization_has_no_eligible_region_here ... ok\ntest unmatched_resource_update_blocks_driver_with_exact_residual ... ok\ntest consuming_source_priority_is_preserved_across_distinct_matching_demands ... ok\ntest duplicate_demand_occurrences_have_independent_history_and_retirement ... ok\ntest aliases_and_structural_binding_enable_matches_without_binding_during_match ... ok\ntest changed_prepared_queries_cancellation_failure_and_certification ... ok\ntest live_demand_repeated_pulses_retirement_and_reopening ... ok\ntest binding_changes_demand_endpoints_shared_rows_and_late_receipts ... ok\ntest updates_to_each_relation_and_demand_retirement ... ok\ntest occurrence_multiplicity_selectivity_and_consuming_shared_partners ... ok\ntest low_yield_sources_preserve_all_dead_rows_and_exact_bridge_receipts ... ok\n\ntest result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.11s\n\n",
+  "stderr": "    Finished `release` profile [optimized] target(s) in 0.04s\n     Running tests/subscription_join_gate.rs (target/release/deps/subscription_join_gate-c25d7abc2ea2a83d)\n     Running tests/subscription_source_gate.rs (target/release/deps/subscription_source_gate-97358bf90ca1e4d3)\n"
+}

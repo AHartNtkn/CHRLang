@@ -1,5 +1,7 @@
 #[path = "../experiments/subscription_join.rs"]
 mod join;
+#[path = "../experiments/subscription_low_yield.rs"]
+mod low_yield;
 #[path = "../../chr-direct-conditional/tests/runtime_support/mod.rs"]
 mod oracle;
 #[path = "../experiments/subscription_runtime.rs"]
@@ -360,5 +362,37 @@ fn existing_single_head_specialization_has_no_eligible_region_here() {
         assert_eq!(e.stats().specialized_candidates, 0);
         oracle::same_raw(vec![e.observe().unwrap()], oracle::run(&rules, &q, 200_000));
         println!("S01_SUBSCRIPTION_ELIGIBILITY consuming={consuming} {eligibility:?}");
+    }
+}
+
+#[test]
+fn low_yield_sources_preserve_all_dead_rows_and_exact_bridge_receipts() {
+    for f in low_yield::FAMILIES {
+        for n in [4, 8] {
+            for rounds in [2, 16] {
+                let q = low_yield::query(f, n, rounds, 7);
+                let expected = (0..rounds)
+                    .map(|r| {
+                        c(
+                            "receipt",
+                            [
+                                atom("d"),
+                                atom(&format!("r{r}")),
+                                t("f", [atom("a0")]),
+                                t("g", [atom("b0")]),
+                                t("h", [atom("value")]),
+                            ],
+                        )
+                    })
+                    .collect();
+                let a = check(&q, false, expected);
+                assert_eq!(
+                    a.residual.iter().filter(|r| r.name == "middle").count(),
+                    2 * n * n + 1
+                );
+                assert_eq!(a.residual.iter().filter(|r| r.name == "left").count(), n);
+                assert_eq!(a.residual.iter().filter(|r| r.name == "right").count(), n);
+            }
+        }
     }
 }

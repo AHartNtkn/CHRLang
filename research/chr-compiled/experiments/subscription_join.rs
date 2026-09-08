@@ -44,6 +44,10 @@ pub struct Stats {
     pub constructed: usize,
     pub invalidated: usize,
     pub probes: usize,
+    pub planning_rows: usize,
+    pub pair_plans: usize,
+    pub left_plans: usize,
+    pub right_plans: usize,
 }
 macro_rules! count {
     ($s:expr,$f:ident) => {
@@ -112,12 +116,55 @@ impl Join {
         }
         count!(self.stats, invalidated);
     }
-    /// Enumerate from the smaller endpoint bucket; exact final probes avoid broad joins.
+    /// Choose left-first, right-first or endpoint-pair middle probes from current index degrees.
     fn discover(&mut self, key: &Key) -> Vec<Triple> {
         let left = self.relations[0].first.get(&key.0);
         let right = self.relations[2].second.get(&key.1);
         let mut out = Vec::new();
-        if left.map_or(0, BTreeSet::len) <= right.map_or(0, BTreeSet::len) {
+        let left_cost: usize = left
+            .into_iter()
+            .flatten()
+            .map(|l| {
+                count!(self.stats, planning_rows);
+                1 + self.relations[1]
+                    .first
+                    .get(&self.relations[0].rows[l].1)
+                    .map_or(0, BTreeSet::len)
+            })
+            .sum();
+        let right_cost: usize = right
+            .into_iter()
+            .flatten()
+            .map(|r| {
+                count!(self.stats, planning_rows);
+                1 + self.relations[1]
+                    .second
+                    .get(&self.relations[2].rows[r].0)
+                    .map_or(0, BTreeSet::len)
+            })
+            .sum();
+        let pair_cost = left
+            .map_or(0, BTreeSet::len)
+            .saturating_mul(right.map_or(0, BTreeSet::len));
+        if pair_cost <= left_cost && pair_cost <= right_cost {
+            count!(self.stats, pair_plans);
+            for &l in left.into_iter().flatten() {
+                for &r in right.into_iter().flatten() {
+                    count!(self.stats, probes);
+                    let a = &self.relations[0].rows[&l].1;
+                    let b = &self.relations[2].rows[&r].0;
+                    for &m in self.relations[1]
+                        .exact
+                        .get(&(a.clone(), b.clone()))
+                        .into_iter()
+                        .flatten()
+                    {
+                        out.push([l, m, r]);
+                    }
+                }
+            }
+        } else if left_cost <= right_cost {
+            count!(self.stats, left_plans);
             for &l in left.into_iter().flatten() {
                 count!(self.stats, probes);
                 let a = &self.relations[0].rows[&l].1;
@@ -135,6 +182,7 @@ impl Join {
                 }
             }
         } else {
+            count!(self.stats, right_plans);
             for &r in right.into_iter().flatten() {
                 count!(self.stats, probes);
                 let b = &self.relations[2].rows[&r].0;

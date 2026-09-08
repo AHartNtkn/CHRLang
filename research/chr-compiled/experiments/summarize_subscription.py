@@ -2,11 +2,11 @@
 """Audit registered source, lifecycle restoration, allocation replay and paired costs."""
 from pathlib import Path
 from collections import defaultdict
-import hashlib,json,statistics,csv
+import hashlib,json,statistics,csv,subprocess
 ROOT=Path(__file__).resolve().parents[3]
 OUT=ROOT/'docs/experiments/results/s01-subscription-lifecycle'
 freeze=json.loads((OUT/'freeze.json').read_text())
-for f,h in freeze['sources'].items():assert hashlib.sha256((ROOT/f).read_bytes()).hexdigest()==h,f
+for f,h in freeze['sources'].items():assert hashlib.sha256(subprocess.check_output(['git','show',f"{freeze['source_commit']}:{f}"],cwd=ROOT)).hexdigest()==h,f
 for b in freeze['binaries'].values():assert hashlib.sha256(Path(b['path']).read_bytes()).hexdigest()==b['sha256']
 order=json.loads((OUT/'order.json').read_text());assert len(order)==1008
 rows=[];groups=defaultdict(lambda:defaultdict(list))
