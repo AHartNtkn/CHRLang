@@ -1,0 +1,67 @@
+{
+  "commands": [
+    {
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-compiled"
+      ],
+      "exit_code": 0,
+      "log": "package.log"
+    },
+    {
+      "command": [
+        "cargo",
+        "clippy",
+        "-p",
+        "chr-compiled",
+        "--no-default-features",
+        "--test",
+        "selective_join_gate",
+        "--example",
+        "s01_selective_lifecycle",
+        "--features",
+        "alloc-meter",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit_code": 0,
+      "log": "clippy-final.log"
+    },
+    {
+      "command": [
+        "cargo",
+        "run",
+        "-q",
+        "-p",
+        "chr-compiled",
+        "--no-default-features",
+        "--example",
+        "s01_selective_lifecycle",
+        "--",
+        "gate"
+      ],
+      "exit_code": 0,
+      "log": "runner-final.log"
+    },
+    {
+      "command": [
+        "cargo",
+        "fmt",
+        "-p",
+        "chr-compiled",
+        "--",
+        "--check"
+      ],
+      "exit_code": 0,
+      "log": "fmt.log"
+    }
+  ],
+  "sha256": {
+    "research/chr-compiled/src/selective_join.rs": "a895aaf6cd693a47e889fbccf380317034d12df606084c8e0a1fcfd69707825b",
+    "research/chr-compiled/tests/selective_join_gate.rs": "7f55484f1144012b633762342ddf0f313b8cfe67d0608455428f12eda5df0283",
+    "research/chr-compiled/examples/s01_selective_lifecycle.rs": "98726861ee899cc6303da993cc35fe98730adf31fb3e8af4bc6ca6a46208ee5a"
+  }
+}

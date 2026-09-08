@@ -1,0 +1,9 @@
+# S01 script ownership correction: prospective paired test
+
+The initial selective lifecycle pilot shows setup dominating both lowerings on long update scripts. Source inspection finds two suffix copies at each parse step: one retained as a possible blocked-driver residual and one copied to continue parsing. A script of L instructions therefore copies quadratic suffix structure before query execution. This is shared input ownership cost, not necessary retained-pair complexity.
+
+Keep one owned source script and parse it by reference. Each decoded instruction stores its original position plus its operation arguments, not an owned remaining suffix. Only a blocked replacement reconstructs the required remaining driver term from the single script. Preserve admission, source observations, unknown identities, cancellation and disposal. Add a blocked replacement after earlier binding/consumption to test exact tail reconstruction.
+
+Use the byte-identical lifecycle harness and original frozen binaries. Compare 32 corrected cells and 16 original lowering cells (Direct/Retained × eight families), five timing and two allocation repetitions: 336 processes. Seed 20260912; randomized order within repetition, same CPU, four warmups and eight-query cycles. Retain 60 seconds/1 GiB per process, 2,000,000 advances per query, ordinary counter-free timing, separate allocation diagnostics and exact complete-answer validation.
+
+Freeze both binary sets and changed source before running. Analyze corrected/original paired lifecycle, setup, disposal and requested traffic for both lowerings, plus fresh control contrasts and Retained/Direct ratios. Use the existing 20% practical threshold and same-direction condition. This correction must not be counted as evidence that retained joins win or lose intrinsically. Investigate material regressions or residual uncertainty before disposition.

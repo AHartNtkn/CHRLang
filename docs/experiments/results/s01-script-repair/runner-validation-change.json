@@ -1,0 +1,6 @@
+{
+  "path": "research/chr-compiled/examples/s01_selective_lifecycle.rs",
+  "measured_source": "measured-runner.rs",
+  "measured_sha256": "c2497a99ed22eae30f9b5779dee6645cba8dacf51c791d7fa23ab705b7733ad0",
+  "reason": "Move counter-free assertion from const evaluation to runtime so default-feature package tests can compile this example. Assertion remains before all measurements; no measured code changes."
+}

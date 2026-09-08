@@ -277,3 +277,22 @@ fn selective_work_diagnostics_separate_lookup_from_retention() {
         );
     }
 }
+
+#[test]
+fn blocked_tail_after_binding_and_consumption_preserves_source_residual() {
+    let q = query(
+        vec![
+            c("left", [atom("k"), t("f", [v(50)])]),
+            c("right", [atom("k"), t("g", [atom("a")])]),
+        ],
+        vec![
+            t("bind", [v(50), atom("a")]),
+            t("req", [atom("k"), atom("first")]),
+            t("replace", [atom("k"), t("g", [v(50)]), t("g", [atom("b")])]),
+            t("insert", [atom("k"), t("g", [atom("a")])]),
+            t("req", [atom("k"), atom("unreached")]),
+        ],
+        false,
+    );
+    check(&q, true);
+}

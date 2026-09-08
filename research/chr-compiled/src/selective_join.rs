@@ -39,7 +39,7 @@ enum Op {
 #[derive(Clone)]
 struct Instruction {
     op: Op,
-    remaining: Term,
+    position: usize,
 }
 /// Checking this exact source prevents silent specialization of a different program.
 pub struct Prepared {
@@ -84,6 +84,7 @@ pub struct Engine {
     receipts: Vec<Constraint>,
     outputs: Vec<(String, Var)>,
     stopped: Option<Term>,
+    source_script: Term,
     done: bool,
     stats: Stats,
 }
@@ -154,14 +155,15 @@ impl Engine {
                 _ => return Err("unsupported query row or multiple drivers".into()),
             }
         }
-        let mut tail = script.ok_or("one driver required")?;
+        let source_script = script.ok_or("one driver required")?;
+        let mut tail = &source_script;
         let mut instructions = VecDeque::new();
         let mut bound = BTreeSet::new();
         loop {
-            if tail == atom("nil") {
+            if *tail == atom("nil") {
                 break;
             }
-            let Term::App(ref name, ref xs) = tail else {
+            let Term::App(name, xs) = tail else {
                 return Err("closed instruction spine required".into());
             };
             if name != "cons" || xs.len() != 2 {
@@ -188,9 +190,9 @@ impl Engine {
             };
             instructions.push_back(Instruction {
                 op,
-                remaining: tail.clone(),
+                position: instructions.len(),
             });
-            tail = xs[1].clone();
+            tail = &xs[1];
         }
         let next_right = right.len();
         let mut this = Self {
@@ -213,6 +215,7 @@ impl Engine {
             receipts: vec![],
             outputs: query.outputs,
             stopped: None,
+            source_script,
             done: false,
             stats: Stats::default(),
         };
@@ -468,7 +471,14 @@ impl Engine {
                             .find(|id| resolve(&self.right[id].payload, &self.bindings) == old)
                     });
                     let Some(id) = id else {
-                        self.stopped = Some(instruction.remaining);
+                        let mut tail = &self.source_script;
+                        for _ in 0..instruction.position {
+                            let Term::App(_, xs) = tail else {
+                                unreachable!("validated script")
+                            };
+                            tail = &xs[1];
+                        }
+                        self.stopped = Some(tail.clone());
                         self.done = true;
                         break;
                     };

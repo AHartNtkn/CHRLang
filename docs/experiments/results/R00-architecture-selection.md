@@ -292,3 +292,7 @@ The [252-process finite-table pilot](S06-table-lifecycle.md) favors direct sourc
 ## S01 selective and consuming source gate
 
 The [selective/consuming lowerings](S01-selective-consuming-gate.md) pass independent source and Global-control checks across the registered 144-configuration grid and directed binding/ownership cases. Direct execution uses composite access; retained execution correctly invalidates all partners of consumed rows. Stable selective requests exhibit fewer retained visits than direct lookups, with construction and invalidation still to price. T065 remains active for prospective lifecycle comparison; work counts do not rank architectures.
+
+## S01 lifecycle and script ownership
+
+The [224-process initial pilot](S01-selective-lifecycle.md) exposed a shared quadratic script-copying cost. The [336-process paired correction](S01-script-ownership-repair.md) removes most long-script overhead while preserving exact blocked-driver residuals. Both lowerings then beat generic controls throughout the registered sessions; dense consumption makes Retained about 40% slower than Direct. Other retention contrasts remain below the practical threshold or noisy, so T065 selects a focused request-frequency crossover rather than closing S01.
