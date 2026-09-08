@@ -8,7 +8,7 @@ goal:
   execution_authority: Redesigned goal authorizes implementation and experiments selected under R00 and the governing sequence.
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
-  current_research: Restricted traversal improves delivery but history retention remains; publication flow-control feasibility selected
+  current_research: Publication priority exposes sibling-delay tradeoff; mixed-phase current-engine generalization selected
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -63,7 +63,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T041
+active_task: T042
 tasks:
   - id: T001
     type: pm
@@ -1103,7 +1103,7 @@ tasks:
   - id: T041
     type: pm
     assignee: PM
-    status: active
+    status: done
     objective: Establish whether publication flow control can bound run-ahead without unacceptable finite-sibling delay before selecting a scheduling experiment or broader architecture investigation.
     inputs:
       - docs/experiments/results/R06-restricted-publication.md
@@ -1122,6 +1122,37 @@ tasks:
     stop_if:
       - No silent weakening of progress or implicit output deduplication.
       - Further refinement requires renewed decision value rather than prototype momentum.
+    receipt:
+      result: done
+      summary: Source-generated gate preserves exact answers but strict priority delays n8 sibling behind256 versus28 bulk answers; mixed-phase generalization selected without scheduler expansion.
+      evidence:
+        - docs/experiments/results/R06-publication-flow-gate.md
+      validation: Both feature modes, midpoint cancellation, exact raw alias-bearing answers, source snapshots/resumption, strict Clippy and independent review.
+
+  - id: T042
+    type: pm
+    assignee: PM
+    status: active
+    objective: Establish mixed-phase applicability of current conditional and specialized explicit execution across opaque work, constructor discrimination and subsequent common computation.
+    inputs:
+      - docs/experiments/results/R06-publication-flow-gate.md
+      - docs/experiments/results/R03-conditional-maintenance.md
+      - docs/experiments/results/R05-single-head-lifecycle.md
+    allowed_files:
+      - research/
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    expected_output:
+      - Independent finite mixed-pipeline semantic gate and precise workload rationale.
+      - Registered same-session complete lifecycle comparison and bounded applicability disposition.
+    verify:
+      - Preserve correlated choices, complete residual aliases, raw multiplicity and exhaustion
+      - Current specialized control and counter-free primary timing; independent full answers outside intervals
+      - Vary work placement and include zero-stage controls without invented workload weights
+      - No implicit hybrid execution, reunion or new backend
+    stop_if:
+      - No performance claim before prospective registration and semantic validation.
+      - Further implementation follows decision value rather than another favorable fixture.
     receipt: null
 
 
@@ -1129,12 +1160,11 @@ checks:
   dirty_fingerprint: preexisting_unfinished_experimental_files_preserved
   last_verification:
     result: passed
-    task: T040
-    scope: Restricted history correspondence and full paired lifecycle outcomes.
+    task: T041
+    scope: Deterministic publication-priority feasibility gate only.
     commands:
-      - All576 processes recorded;36304 delivered raw answers validate
-      - All72 allocation baselines restored, including partial outcomes; baseline non-time replay matches
-      - All59 package tests both feature modes, workspace tests and Clippy, formatting and source freeze pass
-      - Independent source, oracle and measurement review
+      - Both source-controller tests pass default and counter-free experiment builds
+      - Eight full-count cases, source resumption and midpoint cancellation validated
+      - Strict Clippy, formatting and independent source/interpretation review pass
     evidence:
-      - docs/experiments/results/R06-restricted-publication.md
+      - docs/experiments/results/R06-publication-flow-gate.md

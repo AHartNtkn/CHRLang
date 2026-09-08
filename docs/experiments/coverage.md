@@ -2,7 +2,7 @@
 
 Future work is selected by its ability to change an architectural or language-design decision under the [sequence](sequence.md). A completed experimental package is evidence for its stated claim; it does not establish that its entire mechanism is resolved or that its follow-ups deserve execution.
 
-**Current selection:** [Restricted-publication comparison](results/R06-restricted-publication.md) records576 paired processes and substantial traversal savings, while ongoing retention remains consequential. T040 is complete. T041 selects a bounded publication-flow-control feasibility/progress gate to separate run-ahead amplification from historical-state ownership, with explicit adverse finite-sibling latency. Mixed-phase, parallel, compilation and eager-region questions remain open; further conditional refinement is not automatic.
+**Current selection:** [Publication-priority gate](results/R06-publication-flow-gate.md) preserves exact answers but delays a finite sibling behind all256 bulk answers at n8, versus28 under interleaving. T041 is complete without a production scheduler change. T042 selects finite mixed-phase generalization of current conditional and specialized explicit execution, testing opaque work → discrimination → common work. Broader parallel, compilation, eager-region and lifetime questions remain open; no hybrid/reunion implementation is assumed.
 
 ## Question map
 

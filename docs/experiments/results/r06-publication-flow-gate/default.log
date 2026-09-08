@@ -1,0 +1,18 @@
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.32s
+     Running unittests src/lib.rs (target/debug/deps/chr_direct_conditional-6943511f7f658ec3)
+
+running 2 tests
+T041 Receipt { choices: 0, strict: false, bulk: 1, sibling: 1, bulk_before_sibling: Some(1), queued_apps: Some(2), drained_apps: Some(2), queued_pending: 2, sibling_discovered_with_bulk_owned: false, exhausted: true }
+test engine::publication_flow_tests::cancellation_with_bulk_observer_owned_preserves_delivered_answer ... ok
+T041 Receipt { choices: 0, strict: true, bulk: 1, sibling: 1, bulk_before_sibling: Some(1), queued_apps: Some(2), drained_apps: Some(2), queued_pending: 2, sibling_discovered_with_bulk_owned: false, exhausted: true }
+T041 Receipt { choices: 2, strict: false, bulk: 4, sibling: 1, bulk_before_sibling: Some(4), queued_apps: Some(2), drained_apps: Some(4), queued_pending: 2, sibling_discovered_with_bulk_owned: false, exhausted: true }
+T041 Receipt { choices: 2, strict: true, bulk: 4, sibling: 1, bulk_before_sibling: Some(4), queued_apps: Some(2), drained_apps: Some(2), queued_pending: 2, sibling_discovered_with_bulk_owned: false, exhausted: true }
+T041 Receipt { choices: 4, strict: false, bulk: 16, sibling: 1, bulk_before_sibling: Some(16), queued_apps: Some(2), drained_apps: Some(11), queued_pending: 2, sibling_discovered_with_bulk_owned: false, exhausted: true }
+T041 Receipt { choices: 4, strict: true, bulk: 16, sibling: 1, bulk_before_sibling: Some(16), queued_apps: Some(2), drained_apps: Some(2), queued_pending: 2, sibling_discovered_with_bulk_owned: false, exhausted: true }
+T041 Receipt { choices: 8, strict: false, bulk: 256, sibling: 1, bulk_before_sibling: Some(28), queued_apps: Some(2), drained_apps: Some(18), queued_pending: 2, sibling_discovered_with_bulk_owned: true, exhausted: true }
+T041 Receipt { choices: 8, strict: true, bulk: 256, sibling: 1, bulk_before_sibling: Some(256), queued_apps: Some(2), drained_apps: Some(2), queued_pending: 2, sibling_discovered_with_bulk_owned: false, exhausted: true }
+test engine::publication_flow_tests::publication_priority_preserves_answers_but_withholds_runnable_sibling ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.03s
+

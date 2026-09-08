@@ -1155,6 +1155,10 @@ impl TermExport {
     }
 }
 #[cfg(test)]
+#[path = "publication_flow_tests.rs"]
+mod publication_flow_tests;
+
+#[cfg(test)]
 mod tests {
     use super::*;
     use chr_syntax::{Goal, Query, Rule, c, or};

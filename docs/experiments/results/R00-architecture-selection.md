@@ -138,3 +138,8 @@ The [conditional lifecycle pilot](R03-conditional-lifecycle.md) validates all 25
 ## Update after T040
 
 [Restricted publication](R06-restricted-publication.md) materially reduces traversal and run-ahead, but retained history and ongoing alias cutoffs remain. T041 selects one bounded publication-flow-control feasibility gate, including the adverse latency of pausing source work behind a large finite observer. This is a scheduling tradeoff, not a bounded-memory claim. Broader mixed-phase and parallel investigations remain alternatives after that distinction.
+
+
+## Update after T041
+
+[The publication-priority gate](R06-publication-flow-gate.md) establishes exact answers with a bulk-drain sibling-delay tradeoff; no production scheduler change is adopted. T042 selects current-engine mixed-phase generalization ahead of wider scheduling ownership changes and repeated regional parallelism. The broader question dispositions remain active.
