@@ -1,0 +1,53 @@
+{
+  "log_commands": [
+    {
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-compiled"
+      ],
+      "log": "default-tests.log",
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-compiled",
+        "--release",
+        "--no-default-features",
+        "--test",
+        "generated_access",
+        "--test",
+        "generated_access_artifact",
+        "--test",
+        "subscription_source_gate",
+        "--test",
+        "search",
+        "--",
+        "--nocapture"
+      ],
+      "log": "counter-free-release.log",
+      "exit_code": 0
+    }
+  ],
+  "passed_test_counts": {
+    "default-tests": 104,
+    "counter-free-release": 15
+  },
+  "final_checks": [
+    "final-mechanism.json",
+    "final-lifetime-release.json",
+    "clippy.json",
+    "workspace-check.json"
+  ],
+  "faults": [
+    "control-frame-snapshots.json",
+    "missing-rollback.json",
+    "reuse-occurrence.json",
+    "skip-candidate.json"
+  ],
+  "qualification": "Full package and release suite logs precede the added interleaved-lifetime test. Final default/release checks include that test. Fault-run source digests identify their exact source versions."
+}

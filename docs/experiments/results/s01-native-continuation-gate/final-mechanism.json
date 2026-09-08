@@ -1,0 +1,16 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "-p",
+    "chr-compiled",
+    "--test",
+    "generated_access",
+    "--",
+    "--nocapture"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 0.27698089100886136,
+  "stdout": "\nrunning 2 tests\ntest independent_native_queries_outlive_preparation_and_abandoned_work ... ok\nconfigurations=192 native_slot_copies=0 native_pool_entries=0 native_template_visits=0 control_slot_copies=4554\ntest native_continuations_preserve_finite_source_effects_without_frame_snapshots ... ok\n\ntest result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s\n\n",
+  "stderr": "   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.23s\n     Running tests/generated_access.rs (target/debug/deps/generated_access-adb18cdf7cfc4c0b)\n"
+}

@@ -62,12 +62,18 @@ fn branch_tree_has_exact_independent_observations_and_resource_effects() {
     for id in 0..10 {
         for policy in [Policy::Global, Policy::Active] {
             for access in [Access::Scan, Access::Indexed] {
-                for generated in [false, true] {
+                for generated in 0..3 {
                     let rules = search_fixtures::programs()[id].clone();
                     let (query, mut expected, finite) = search_fixtures::case(id);
-                    let prepared =
-                        PreparedRuleset::new(rules.clone(), generated.then(|| search_bundled(id)))
-                            .unwrap();
+                    let prepared = PreparedRuleset::new(
+                        rules.clone(),
+                        match generated {
+                            0 => None,
+                            1 => Some(search_bundled(id)),
+                            _ => Some(chr_compiled::access_search_bundled(id)),
+                        },
+                    )
+                    .unwrap();
                     let mut search = prepared
                         .start_search(query.clone(), policy, access)
                         .unwrap();

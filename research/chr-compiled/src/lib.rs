@@ -1,5 +1,6 @@
 //! Experimental indexed CHR execution with explicit source-disjunction search.
 pub use chr_persistent::COLLECT_KERNEL_METRICS;
+pub mod native_access;
 #[cfg(feature = "fork-diagnostics")]
 use chr_persistent::kernel::{ForkObserver, NoopForkObserver, observed_clone};
 use chr_persistent::{
@@ -131,6 +132,7 @@ pub type RuleSelector = fn(&mut Core, &mut Cursor, Option<(usize, u64)>) -> Sele
 pub struct Compiled {
     pub source: &'static str,
     pub selectors: &'static [RuleSelector],
+    pub native: Option<&'static [native_access::Factory]>,
 }
 #[derive(Clone)]
 struct Occurrence {
@@ -257,6 +259,7 @@ struct SearchCursor {
     call: usize,
     cursor: Option<Cursor>,
     direct: Option<regions::DirectCursor>,
+    native: Option<Box<dyn native_access::Continuation>>,
 }
 
 /// Predicate, argument position, canonical ground term node.
@@ -860,6 +863,7 @@ impl Core {
             call: 0,
             cursor: None,
             direct: None,
+            native: None,
         }
     }
     fn search_tick(&mut self, code: Option<Compiled>, search: &mut SearchCursor) -> Selection {
@@ -883,6 +887,25 @@ impl Core {
                 Selection::Done => {
                     search.call += 1;
                     search.direct = None;
+                    Selection::Yield
+                }
+                event => event,
+            };
+        }
+        if let Some(factories) = code.and_then(|c| c.native) {
+            if search.native.is_none() {
+                if COLLECT_METRICS {
+                    self.stats.rule_dispatches += 1;
+                }
+                search.native = Some(factories[rule](self.next_var));
+            }
+            if COLLECT_METRICS {
+                self.stats.cursor_steps += 1;
+            }
+            return match search.native.as_mut().unwrap().tick(self, at) {
+                Selection::Done => {
+                    search.call += 1;
+                    search.native = None;
                     Selection::Yield
                 }
                 event => event,

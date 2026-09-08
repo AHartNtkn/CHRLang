@@ -29,3 +29,32 @@ Prospectively register exact sources, sizes, repetition counts, bounds and inter
 Direct pull-tabbing/derivation reuse is the strongest distinct ready alternative: it could replace explicit search organization. Parallelizing the now-contracted service is another concrete follow-up. All remain required, with corrected restoration and the other coverage obligations intact.
 
 Generated multihead access goes first because it targets a known remaining generic selection boundary, has ready source/oracle and retention controls, and extends beyond the single-head properties responsible for the just-completed worker result. The estimated work is a source/plan compiler and independently compiled artifact path with effect-correctness validation. Direct graph work requires a different correlation/effect/lifetime protocol; worker refinement would revisit a now-bounded source family. Reassess ordering if the compiler gate exposes an actual obstacle or a more consequential ready comparison.
+
+## First implementation: source-ordered streaming continuations
+
+The first candidate emits one continuation type per rule. It owns one binding frame,
+fixed-size occurrence/range arrays and a source-head program counter. Generated
+assignments clear variables no longer justified by the retained source-head prefix;
+anchor-bound variables survive rollback. Matching never binds source unknowns.
+Access expressions are compiled from source patterns and use the smallest available
+ground-key bucket. Ordered range traversal replaces candidate-vector snapshots.
+The store cannot change while one selector is suspended: source effects commit only
+after a complete application is returned. This invariant justifies streaming and
+must be revisited before introducing concurrent store mutation.
+
+This removes frame snapshots, candidate bucket materialization and template-key
+interpretation. It retains occurrence/index storage, binding repair, propagation
+history, source scheduling and the existing term primitives. Reordering heads could
+change consuming competition; this candidate preserves their order. Retained joins
+are a different comparison, not part of this continuation implementation.
+
+Before costs, compare complete answers and source effects against independent scalar
+execution, generic selection and the existing generated selectors. Exercise all
+existing finite access sources across scan/indexed and global/active policies;
+compare exact occurrence traces within a policy. Check changed queries over one
+prepared source and independent OR/failure witnesses. Work diagnostics must establish
+zero frame-copy and candidate-vector traffic on the new path, while controls perform
+that work. These are mechanism observations, not performance results. Add directed
+rollback/anchor/consumption faults and subscription sources before declaring the
+full T070 source gate complete. Independent compilation and selective update code
+remain subsequent obligations; this first candidate retains generic update repair.

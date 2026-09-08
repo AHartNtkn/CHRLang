@@ -350,3 +350,7 @@ The [861-process follow-up](S01-subscription-low-yield.md) passes exact allocati
 ## S09 reusable worker ownership gate
 
 The [worker lifecycle gate](S09-worker-lifecycle-gate.md) preserves prepared source across changing region queries, with generation/pool identity, explicit cancellation and end-query release. Three deliberate retention/identity faults fail release checks; counter-free repeated tests and the ordinary 30-query source gate pass. Worker failure remains distinct from logical refutation. The current hardware inventory permits multiworker investigation, and the existing meter is process-global, but neither establishes scaling or cross-thread phase validity. T069 remains active for complete regional/product correspondence and prospective cold/reused lifecycle costs.
+
+## S01 source-generated continuation gate
+
+The [native continuation gate](S01-native-continuation-gate.md) establishes that source-derived rollback and ordered range traversal can avoid generic frame snapshots, candidate vectors and key-template interpretation. The 192-case finite corpus, independent 112-case artifact, branch replay and live-demand checks preserve the tested source effects; three deliberate selection/rollback faults are detected. Compilation, generated update repair, range-lookup costs and complete lifetime costs remain open. T070 continues toward a competent indexed/retained comparison; no architecture ranking follows from eliminating those work counts.

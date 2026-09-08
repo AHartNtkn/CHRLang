@@ -1,0 +1,23 @@
+{
+  "fault": "reuse-occurrence",
+  "file": "research/chr-compiled/src/generate.rs",
+  "original_sha256": "f5ebbcc9f86121b8d287f9eb49f08170536dd5b3bc152c238b2b2a36e04b9079",
+  "old": "if self.ids[..{h}].contains(&id)",
+  "new": "if false && self.ids[..{h}].contains(&id)",
+  "command": [
+    "cargo",
+    "test",
+    "-p",
+    "chr-compiled",
+    "--test",
+    "generated_access",
+    "--test",
+    "generated_access_artifact",
+    "--",
+    "--nocapture"
+  ],
+  "returncode": 101,
+  "stdout": "\nrunning 1 test\ntest native_continuations_preserve_finite_source_effects_without_frame_snapshots ... FAILED\n\nfailures:\n\nfailures:\n    native_continuations_preserve_finite_source_effects_without_frame_snapshots\n\ntest result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s\n\n",
+  "stderr": "   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.19s\n     Running tests/generated_access.rs (target/debug/deps/generated_access-adb18cdf7cfc4c0b)\n\nthread 'native_continuations_preserve_finite_source_effects_without_frame_snapshots' (1104) panicked at research/chr-compiled/tests/generated_access.rs:36:21:\nassertion `left == right` failed: id=4 n=0 Global Scan\n  left: [(0, [0, 0]), (0, [1, 1]), (1, [2]), (0, [0, 1]), (0, [1, 0])]\n right: [(1, [2]), (0, [0, 1]), (0, [1, 0])]\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\nerror: test failed, to rerun pass `-p chr-compiled --test generated_access`\n",
+  "source_restored": true
+}

@@ -72,14 +72,28 @@ fn check(q: &Query, consuming: bool, expected: Vec<Constraint>) -> Answer {
             let _ = (e.stats(), e.retained());
         }
     }
-    let p = chr_compiled::PreparedRuleset::new(rules, None).unwrap();
     for access in [chr_compiled::Access::Scan, chr_compiled::Access::Indexed] {
-        let mut engine = p
-            .start(q.clone(), chr_compiled::Policy::Global, access)
-            .unwrap();
-        let end = engine.advance(200_000);
-        assert!(end.exhausted && !end.failed);
-        oracle::same_raw(vec![engine.observe().unwrap()], vec![answer.clone()]);
+        let mut traces = vec![];
+        for code in [
+            None,
+            Some(chr_compiled::access_subscription_bundled(usize::from(
+                consuming,
+            ))),
+        ] {
+            let p = chr_compiled::PreparedRuleset::new(rules.clone(), code).unwrap();
+            let mut engine = p
+                .start(q.clone(), chr_compiled::Policy::Global, access)
+                .unwrap();
+            engine.enable_trace();
+            let end = engine.advance(200_000);
+            assert!(end.exhausted && !end.failed);
+            oracle::same_raw(vec![engine.observe().unwrap()], vec![answer.clone()]);
+            traces.push(engine.trace().to_vec());
+        }
+        assert_eq!(
+            traces[0], traces[1],
+            "generated access changed source occurrence competition"
+        );
     }
     answer
 }

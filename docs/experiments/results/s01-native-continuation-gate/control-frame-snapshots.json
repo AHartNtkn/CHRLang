@@ -1,0 +1,23 @@
+{
+  "fault": "control-frame-snapshots",
+  "file": "research/chr-compiled/tests/generated_access.rs",
+  "original_sha256": "fb5d282ce791d635035b71603239de105e7e337c11b83b0b4ff70510908a00cb",
+  "old": "PreparedRuleset::new(rules.clone(), Some(chr_compiled::access_bundled(id)))",
+  "new": "PreparedRuleset::bundled(id, Execution::Generated)",
+  "command": [
+    "cargo",
+    "test",
+    "-p",
+    "chr-compiled",
+    "--test",
+    "generated_access",
+    "--test",
+    "generated_access_artifact",
+    "--",
+    "--nocapture"
+  ],
+  "returncode": 101,
+  "stdout": "\nrunning 1 test\nconfigurations=192 native_slot_copies=4554 native_pool_entries=2322 native_template_visits=907 control_slot_copies=4554\ntest native_continuations_preserve_finite_source_effects_without_frame_snapshots ... FAILED\n\nfailures:\n\nfailures:\n    native_continuations_preserve_finite_source_effects_without_frame_snapshots\n\ntest result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s\n\n",
+  "stderr": "   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.22s\n     Running tests/generated_access.rs (target/debug/deps/generated_access-adb18cdf7cfc4c0b)\n\nthread 'native_continuations_preserve_finite_source_effects_without_frame_snapshots' (190) panicked at research/chr-compiled/tests/generated_access.rs:68:9:\nassertion `left == right` failed\n  left: 907\n right: 0\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\nerror: test failed, to rerun pass `-p chr-compiled --test generated_access`\n",
+  "source_restored": true
+}

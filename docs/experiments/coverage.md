@@ -15,7 +15,7 @@ The stage assignments below cover all 57 entries. They must be read together wit
 | Stage | Evidence now available | Still required |
 |---|---|---|
 | S00 contracts | [Contracts and candidate sketches](results/S00-contracts-and-candidates.md), [first-cycle feasibility](results/S00-first-cycle-feasibility.md) | Apply and extend contracts when a new mechanism or language option changes the comparison |
-| S01 discovery | [Selective/consuming source gate](results/S01-selective-consuming-gate.md), [ownership correction](results/S01-script-ownership-repair.md), [request crossover](results/S01-request-crossover.md), [subscription lifecycle pilot](results/S01-subscription-lifecycle.md), [low-yield follow-up](results/S01-subscription-low-yield.md) | Other intermediate stages and broad active-demand populations, broader generated access and source-property selection |
+| S01 discovery | [Selective/consuming source gate](results/S01-selective-consuming-gate.md), [ownership correction](results/S01-script-ownership-repair.md), [request crossover](results/S01-request-crossover.md), [subscription lifecycle pilot](results/S01-subscription-lifecycle.md), [low-yield follow-up](results/S01-subscription-low-yield.md) | Other intermediate stages and broad active-demand populations, generated update plans, compilation/lifecycle costs and source-property selection |
 | S02 integration | [Source gate](results/S02-relational-source.md), [lifecycle pilot](results/S02-lifecycle-pilot.md), [candidate reuse correction](results/S02-candidate-reuse.md) | Distinct contextual/local-rewrite mechanisms and interleaving that changes useful work |
 | S03 direct graphs | [Source executor](results/S03-source-executor.md), [lifecycle pilot](results/S03-lifecycle-pilot.md), [context repair](results/S03-context-repair.md) | Pull-tabbing, derivation reuse, backend correspondence and sustainable lifetime |
 | S04 restoration | [Source gate](results/S04-restoration-source-gate.md), [full lifecycle pilot](results/S04-lifecycle-pilot.md), [paired matcher correction](results/S04-matcher-paired-cost.md) | Stronger restoration/replay policies, adaptive splitting and temporary separation/reunion |
@@ -70,3 +70,7 @@ The [861-process low-yield follow-up](results/S01-subscription-low-yield.md) com
 ## Current selection after the bounded worker comparison
 
 T069 completes the [factored-contraction comparison](results/S09-factored-lowering.md) with all ten wall/CPU comparisons favoring the stronger serial organization over four persistent workers. This resolves the tested contractible family, not S09. T070 selects [generated multihead access](results/S01-generated-access-entry.md); direct graph mechanisms and broader S08/S09 obligations remain required.
+
+## S01 generated continuation evidence
+
+T070's [first native continuation gate](results/S01-native-continuation-gate.md) establishes source-derived rollback and streaming access without generic frame snapshots, candidate vectors or interpreted key templates. Independent finite effects, explicit branch replay, live-demand traces and a separately compiled artifact pass; three source faults are detected. Generated update repair, competent multi-endpoint plans and full compilation/runtime costs remain required. This is correctness and work evidence, not a cost ranking or stage completion.
