@@ -8,7 +8,7 @@ goal:
   execution_authority: Redesigned goal authorizes implementation and experiments selected under R00 and the governing sequence.
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
-  current_research: Carrier ground cost advantage validated; known-prefix semantic control selected
+  current_research: Pure-carrier costs have bounded disposition; substantive-work entry versus maintained joins selected
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -63,7 +63,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T055
+active_task: T056
 tasks:
   - id: T001
     type: pm
@@ -1566,7 +1566,7 @@ tasks:
   - id: T055
     type: pm
     assignee: PM
-    status: active
+    status: complete
     objective: Validate known-prefix carrier contraction at actual unknown or malformed tails before interpreting the contrary cost result.
     inputs:
       - docs/experiments/results/R05-carrier-cost.md
@@ -1581,19 +1581,47 @@ tasks:
       - Register a bounded matched cost comparison only after the semantic gate passes
     stop_if:
       - No arbitrary contextual certificate broadening or comparative run before registration.
+    receipt:
+      summary: Known-prefix gate14tests passes;192processes and7680answers validate. Longunknown overlaps Conditional; ground favors Carrier; shortunknown and peakheap favor Conditional.
+      evidence:
+        - docs/experiments/results/R05-carrier-prefix-gate.md
+        - docs/experiments/results/R05-carrier-prefix-cost.md
+        - docs/experiments/results/r05-carrier-prefix-cost/audit.json
+      validation: Independent semantic and raw manifest, full endpoint, work, allocation restoration and freeze audits;323workspace tests and strict feature checks.
+
+  - id: T056
+    type: pm
+    assignee: PM
+    status: active
+    objective: Establish a substantive pre-discrimination work contrast with competent controls and independent observations, or justify a stronger maintained-join investigation.
+    inputs:
+      - docs/experiments/results/R05-carrier-prefix-cost.md
+      - docs/experiments/results/R07-sufficiency-audit.md
+    allowed_files:
+      - research/
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    verify:
+      - Source work must have an independently observable result and correlation, not only a countdown label
+      - Assess direct lowering and early discrimination as competent alternatives before measuring sharing
+      - Register configurations and full lifecycle measurements before comparative runs
+      - Select by architecture decision value versus the current maintained-join bottleneck alternative
+    stop_if:
+      - Do not infer generic noncontractibility merely because the current certificate does not accept a fixture.
+      - No broader sharing implementation or workload weights without a consequential question.
     receipt: null
 
 checks:
   dirty_fingerprint: preexisting_unfinished_experimental_files_preserved
   last_verification:
     result: passed
-    task: T053
-    scope: Source-derived carrier semantic and implementation gate; no comparative measurements.
+    task: T055
+    scope: Known-prefix semantic gate and registered complete-cost comparison.
     commands:
       - cargo test --workspace --all-targets
-      - Final13 carrier tests default, counter-free and COW+fork configurations
+      - Final14 carrier tests default, counter-free and COW+fork configurations
       - Strict all-target Clippy and cargo fmt check
       - Independent primary ID/answer, source replay, audit and certificate review
     evidence:
-      - docs/experiments/results/R05-carrier-eligibility.md
-      - docs/experiments/results/r05-carrier-gate/
+      - docs/experiments/results/R05-carrier-prefix-gate.md
+      - docs/experiments/results/r05-carrier-prefix-cost/audit.json

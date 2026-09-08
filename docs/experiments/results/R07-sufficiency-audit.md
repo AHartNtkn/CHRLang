@@ -77,3 +77,16 @@ registered narrow comparison. The strongest broader alternative is substantive
 noncontractible equation/constructor prework, which pure carriers do not represent.
 Resolving this concrete competent-control boundary has lower entry cost and direct
 consequence for the current contrary result. Goal closure remains unsupported.
+
+
+## T055 bounded disposition
+
+[Known-prefix costs](R05-carrier-prefix-cost.md) validate192 processes and7680
+answers. Long unknown timing ranges overlap Conditional; ground controls favor
+Carrier; short unknown controls favor Conditional. Conditional has substantially
+lower peak requested heap, including about98KB versus438KB long unknown cold.
+Independent review finds this pure-carrier investigation sufficient. Do not repeat
+for a separated winner. A substantive equation/constructor prework fixture can
+ask a different sharing question; it needs an observable result and a competent
+lowering/control assessment, with maintained joins as the strongest ready alternative.
+The full goal remains active.

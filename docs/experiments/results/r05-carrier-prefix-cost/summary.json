@@ -1,0 +1,1298 @@
+[
+  {
+    "cell": [
+      0,
+      0,
+      1,
+      "unknown"
+    ],
+    "configurations": {
+      "conditional": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 0.202607,
+        "min_ms": 0.199694,
+        "max_ms": 0.206256,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.046171,
+        "first_service_ms": 0.06154,
+        "phase_ms": {
+          "query": 0.000212,
+          "setup": 0.00286,
+          "execution_observation": 0.139761,
+          "engine_drop": 0.00303,
+          "outputs_drop": 0.003721
+        },
+        "requested_bytes_per_query": 166111.0,
+        "peak_above_baseline": 65269,
+        "work": [
+          {
+            "applications": 1,
+            "choices": 4,
+            "candidates": 3,
+            "specialized_applications": 0,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 0
+          }
+        ]
+      },
+      "specialized": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 0.329807,
+        "min_ms": 0.303266,
+        "max_ms": 0.359656,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.064108,
+        "first_service_ms": 0.237967,
+        "phase_ms": {
+          "query": 0.000177,
+          "setup": 0.00406,
+          "execution_observation": 0.259713,
+          "engine_drop": 0.000151,
+          "outputs_drop": 0.001913
+        },
+        "requested_bytes_per_query": 387486.0,
+        "peak_above_baseline": 235277,
+        "work": [
+          {
+            "applications": 1,
+            "choices": 15,
+            "candidates": 34,
+            "specialized_applications": 1,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 0
+          }
+        ]
+      },
+      "carrier": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 0.389059,
+        "min_ms": 0.348882,
+        "max_ms": 0.421928,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.090511,
+        "first_service_ms": 0.252781,
+        "phase_ms": {
+          "query": 0.000183,
+          "setup": 0.006913,
+          "execution_observation": 0.278887,
+          "engine_drop": 0.00024,
+          "outputs_drop": 0.00194
+        },
+        "requested_bytes_per_query": 415882.0,
+        "peak_above_baseline": 234695,
+        "work": [
+          {
+            "applications": 1,
+            "choices": 15,
+            "candidates": 34,
+            "specialized_applications": 1,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 0
+          }
+        ]
+      }
+    },
+    "comparisons": {
+      "carrier/specialized": {
+        "median_ratio": 1.179656587034235,
+        "range_disposition": "overlap"
+      },
+      "carrier/conditional": {
+        "median_ratio": 1.9202643541437363,
+        "range_disposition": "second-lower"
+      },
+      "specialized/conditional": {
+        "median_ratio": 1.6278164130558175,
+        "range_disposition": "second-lower"
+      }
+    }
+  },
+  {
+    "cell": [
+      0,
+      0,
+      4,
+      "unknown"
+    ],
+    "configurations": {
+      "conditional": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 0.1412785,
+        "min_ms": 0.13269575,
+        "max_ms": 0.16031575,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.050507,
+        "first_service_ms": 0.059753,
+        "phase_ms": {
+          "query": 0.000251,
+          "setup": 0.001374,
+          "execution_observation": 0.122164,
+          "engine_drop": 0.001366,
+          "outputs_drop": 0.00403875
+        },
+        "requested_bytes_per_query": 122446.5,
+        "peak_above_baseline": 65338,
+        "work": [
+          {
+            "applications": 1,
+            "choices": 4,
+            "candidates": 3,
+            "specialized_applications": 0,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 0
+          },
+          {
+            "applications": 2,
+            "choices": 4,
+            "candidates": 5,
+            "specialized_applications": 0,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 0
+          },
+          {
+            "applications": 1,
+            "choices": 4,
+            "candidates": 3,
+            "specialized_applications": 0,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 0
+          },
+          {
+            "applications": 2,
+            "choices": 4,
+            "candidates": 5,
+            "specialized_applications": 0,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 0
+          }
+        ]
+      },
+      "specialized": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 0.27430925,
+        "min_ms": 0.2597445,
+        "max_ms": 0.2857625,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.068846,
+        "first_service_ms": 0.25694,
+        "phase_ms": {
+          "query": 0.0001615,
+          "setup": 0.01575575,
+          "execution_observation": 0.237379,
+          "engine_drop": 0.000147,
+          "outputs_drop": 0.00166675
+        },
+        "requested_bytes_per_query": 354925.75,
+        "peak_above_baseline": 241701,
+        "work": [
+          {
+            "applications": 1,
+            "choices": 15,
+            "candidates": 34,
+            "specialized_applications": 1,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 0
+          },
+          {
+            "applications": 17,
+            "choices": 15,
+            "candidates": 66,
+            "specialized_applications": 17,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 0
+          },
+          {
+            "applications": 1,
+            "choices": 15,
+            "candidates": 34,
+            "specialized_applications": 1,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 0
+          },
+          {
+            "applications": 17,
+            "choices": 15,
+            "candidates": 66,
+            "specialized_applications": 17,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 0
+          }
+        ]
+      },
+      "carrier": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 0.258872,
+        "min_ms": 0.25244125,
+        "max_ms": 0.29064725,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.084325,
+        "first_service_ms": 0.235368,
+        "phase_ms": {
+          "query": 0.0001525,
+          "setup": 0.0149585,
+          "execution_observation": 0.221047,
+          "engine_drop": 0.00013425,
+          "outputs_drop": 0.00148575
+        },
+        "requested_bytes_per_query": 364768.75,
+        "peak_above_baseline": 241119,
+        "work": [
+          {
+            "applications": 1,
+            "choices": 15,
+            "candidates": 34,
+            "specialized_applications": 1,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 0
+          },
+          {
+            "applications": 17,
+            "choices": 15,
+            "candidates": 66,
+            "specialized_applications": 17,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 16
+          },
+          {
+            "applications": 1,
+            "choices": 15,
+            "candidates": 34,
+            "specialized_applications": 1,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 0
+          },
+          {
+            "applications": 17,
+            "choices": 15,
+            "candidates": 66,
+            "specialized_applications": 17,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 16
+          }
+        ]
+      }
+    },
+    "comparisons": {
+      "carrier/specialized": {
+        "median_ratio": 0.9437231883357925,
+        "range_disposition": "overlap"
+      },
+      "carrier/conditional": {
+        "median_ratio": 1.832352410310132,
+        "range_disposition": "second-lower"
+      },
+      "specialized/conditional": {
+        "median_ratio": 1.9416206287580913,
+        "range_disposition": "second-lower"
+      }
+    }
+  },
+  {
+    "cell": [
+      1,
+      0,
+      1,
+      "unknown"
+    ],
+    "configurations": {
+      "conditional": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 0.210502,
+        "min_ms": 0.190399,
+        "max_ms": 0.218399,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.047034,
+        "first_service_ms": 0.067856,
+        "phase_ms": {
+          "query": 0.000271,
+          "setup": 0.003368,
+          "execution_observation": 0.138282,
+          "engine_drop": 0.002834,
+          "outputs_drop": 0.006329
+        },
+        "requested_bytes_per_query": 174446.0,
+        "peak_above_baseline": 65338,
+        "work": [
+          {
+            "applications": 2,
+            "choices": 4,
+            "candidates": 5,
+            "specialized_applications": 0,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 0
+          }
+        ]
+      },
+      "specialized": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 0.412916,
+        "min_ms": 0.366206,
+        "max_ms": 0.427541,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.06518,
+        "first_service_ms": 0.288349,
+        "phase_ms": {
+          "query": 0.00024,
+          "setup": 0.004815,
+          "execution_observation": 0.331692,
+          "engine_drop": 0.000221,
+          "outputs_drop": 0.002449
+        },
+        "requested_bytes_per_query": 443321.0,
+        "peak_above_baseline": 241701,
+        "work": [
+          {
+            "applications": 17,
+            "choices": 15,
+            "candidates": 66,
+            "specialized_applications": 17,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 0
+          }
+        ]
+      },
+      "carrier": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 0.419374,
+        "min_ms": 0.366979,
+        "max_ms": 0.436548,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.085779,
+        "first_service_ms": 0.291565,
+        "phase_ms": {
+          "query": 0.000267,
+          "setup": 0.00668,
+          "execution_observation": 0.319321,
+          "engine_drop": 0.000182,
+          "outputs_drop": 0.00167
+        },
+        "requested_bytes_per_query": 472741.0,
+        "peak_above_baseline": 241119,
+        "work": [
+          {
+            "applications": 17,
+            "choices": 15,
+            "candidates": 66,
+            "specialized_applications": 17,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 16
+          }
+        ]
+      }
+    },
+    "comparisons": {
+      "carrier/specialized": {
+        "median_ratio": 1.0156399848879676,
+        "range_disposition": "overlap"
+      },
+      "carrier/conditional": {
+        "median_ratio": 1.9922566056379514,
+        "range_disposition": "second-lower"
+      },
+      "specialized/conditional": {
+        "median_ratio": 1.961577562208435,
+        "range_disposition": "second-lower"
+      }
+    }
+  },
+  {
+    "cell": [
+      1,
+      0,
+      4,
+      "unknown"
+    ],
+    "configurations": {
+      "conditional": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 0.15096225,
+        "min_ms": 0.14557025,
+        "max_ms": 0.16459425,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.053004,
+        "first_service_ms": 0.074909,
+        "phase_ms": {
+          "query": 0.00028525,
+          "setup": 0.00164175,
+          "execution_observation": 0.12755175,
+          "engine_drop": 0.00160325,
+          "outputs_drop": 0.00417425
+        },
+        "requested_bytes_per_query": 130781.5,
+        "peak_above_baseline": 65407,
+        "work": [
+          {
+            "applications": 2,
+            "choices": 4,
+            "candidates": 5,
+            "specialized_applications": 0,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 0
+          },
+          {
+            "applications": 3,
+            "choices": 4,
+            "candidates": 7,
+            "specialized_applications": 0,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 0
+          },
+          {
+            "applications": 2,
+            "choices": 4,
+            "candidates": 5,
+            "specialized_applications": 0,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 0
+          },
+          {
+            "applications": 3,
+            "choices": 4,
+            "candidates": 7,
+            "specialized_applications": 0,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 0
+          }
+        ]
+      },
+      "specialized": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 0.285255,
+        "min_ms": 0.282019,
+        "max_ms": 0.29764275,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.067378,
+        "first_service_ms": 0.288792,
+        "phase_ms": {
+          "query": 0.00019825,
+          "setup": 0.0125845,
+          "execution_observation": 0.252146,
+          "engine_drop": 0.00011125,
+          "outputs_drop": 0.00177625
+        },
+        "requested_bytes_per_query": 393332.75,
+        "peak_above_baseline": 241701,
+        "work": [
+          {
+            "applications": 17,
+            "choices": 15,
+            "candidates": 66,
+            "specialized_applications": 17,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 0
+          },
+          {
+            "applications": 33,
+            "choices": 15,
+            "candidates": 98,
+            "specialized_applications": 33,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 0
+          },
+          {
+            "applications": 17,
+            "choices": 15,
+            "candidates": 66,
+            "specialized_applications": 17,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 0
+          },
+          {
+            "applications": 33,
+            "choices": 15,
+            "candidates": 98,
+            "specialized_applications": 33,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 0
+          }
+        ]
+      },
+      "carrier": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 0.3229895,
+        "min_ms": 0.2921255,
+        "max_ms": 0.33574175,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.10254,
+        "first_service_ms": 0.308043,
+        "phase_ms": {
+          "query": 0.0002045,
+          "setup": 0.018706,
+          "execution_observation": 0.2752475,
+          "engine_drop": 0.000151,
+          "outputs_drop": 0.001725
+        },
+        "requested_bytes_per_query": 394407.75,
+        "peak_above_baseline": 241119,
+        "work": [
+          {
+            "applications": 17,
+            "choices": 15,
+            "candidates": 66,
+            "specialized_applications": 17,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 16
+          },
+          {
+            "applications": 33,
+            "choices": 15,
+            "candidates": 66,
+            "specialized_applications": 33,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 16,
+            "carrier_checks": 32
+          },
+          {
+            "applications": 17,
+            "choices": 15,
+            "candidates": 66,
+            "specialized_applications": 17,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 16
+          },
+          {
+            "applications": 33,
+            "choices": 15,
+            "candidates": 66,
+            "specialized_applications": 33,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 16,
+            "carrier_checks": 32
+          }
+        ]
+      }
+    },
+    "comparisons": {
+      "carrier/specialized": {
+        "median_ratio": 1.13228339555836,
+        "range_disposition": "overlap"
+      },
+      "carrier/conditional": {
+        "median_ratio": 2.13953819580723,
+        "range_disposition": "second-lower"
+      },
+      "specialized/conditional": {
+        "median_ratio": 1.889578354853614,
+        "range_disposition": "second-lower"
+      }
+    }
+  },
+  {
+    "cell": [
+      64,
+      0,
+      1,
+      "unknown"
+    ],
+    "configurations": {
+      "conditional": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 0.769223,
+        "min_ms": 0.708443,
+        "max_ms": 0.841002,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.048156,
+        "first_service_ms": 0.509185,
+        "phase_ms": {
+          "query": 0.002436,
+          "setup": 0.025323,
+          "execution_observation": 0.668703,
+          "engine_drop": 0.006589,
+          "outputs_drop": 0.006613
+        },
+        "requested_bytes_per_query": 741959.0,
+        "peak_above_baseline": 97789,
+        "work": [
+          {
+            "applications": 65,
+            "choices": 4,
+            "candidates": 131,
+            "specialized_applications": 0,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 0
+          }
+        ]
+      },
+      "specialized": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 4.507978,
+        "min_ms": 4.349635,
+        "max_ms": 4.738845,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.064771,
+        "first_service_ms": 4.342901,
+        "phase_ms": {
+          "query": 0.002871,
+          "setup": 0.028295,
+          "execution_observation": 4.402756,
+          "engine_drop": 0.000236,
+          "outputs_drop": 0.002099
+        },
+        "requested_bytes_per_query": 5067062.0,
+        "peak_above_baseline": 438789,
+        "work": [
+          {
+            "applications": 1025,
+            "choices": 15,
+            "candidates": 2082,
+            "specialized_applications": 1025,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 0
+          }
+        ]
+      },
+      "carrier": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 0.851133,
+        "min_ms": 0.781885,
+        "max_ms": 0.90007,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.091683,
+        "first_service_ms": 0.66342,
+        "phase_ms": {
+          "query": 0.002909,
+          "setup": 0.030897,
+          "execution_observation": 0.714784,
+          "engine_drop": 0.00027,
+          "outputs_drop": 0.001901
+        },
+        "requested_bytes_per_query": 814034.0,
+        "peak_above_baseline": 438207,
+        "work": [
+          {
+            "applications": 1025,
+            "choices": 15,
+            "candidates": 66,
+            "specialized_applications": 1025,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 1008,
+            "carrier_checks": 1024
+          }
+        ]
+      }
+    },
+    "comparisons": {
+      "carrier/specialized": {
+        "median_ratio": 0.1888059347228403,
+        "range_disposition": "first-lower"
+      },
+      "carrier/conditional": {
+        "median_ratio": 1.1064840754891625,
+        "range_disposition": "overlap"
+      },
+      "specialized/conditional": {
+        "median_ratio": 5.860430590348962,
+        "range_disposition": "second-lower"
+      }
+    }
+  },
+  {
+    "cell": [
+      64,
+      0,
+      4,
+      "unknown"
+    ],
+    "configurations": {
+      "conditional": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 0.69914825,
+        "min_ms": 0.69469875,
+        "max_ms": 0.739555,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.047491,
+        "first_service_ms": 0.519667,
+        "phase_ms": {
+          "query": 0.0033445,
+          "setup": 0.01897,
+          "execution_observation": 0.65598325,
+          "engine_drop": 0.0052795,
+          "outputs_drop": 0.0041295
+        },
+        "requested_bytes_per_query": 698294.5,
+        "peak_above_baseline": 97858,
+        "work": [
+          {
+            "applications": 65,
+            "choices": 4,
+            "candidates": 131,
+            "specialized_applications": 0,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 0
+          },
+          {
+            "applications": 66,
+            "choices": 4,
+            "candidates": 133,
+            "specialized_applications": 0,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 0
+          },
+          {
+            "applications": 65,
+            "choices": 4,
+            "candidates": 131,
+            "specialized_applications": 0,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 0
+          },
+          {
+            "applications": 66,
+            "choices": 4,
+            "candidates": 133,
+            "specialized_applications": 0,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 0
+          }
+        ]
+      },
+      "specialized": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 4.52111125,
+        "min_ms": 4.50821925,
+        "max_ms": 4.60690375,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.06634,
+        "first_service_ms": 4.409653,
+        "phase_ms": {
+          "query": 0.0028785,
+          "setup": 0.0580985,
+          "execution_observation": 4.438223,
+          "engine_drop": 0.00015625,
+          "outputs_drop": 0.00197975
+        },
+        "requested_bytes_per_query": 5055191.75,
+        "peak_above_baseline": 440803,
+        "work": [
+          {
+            "applications": 1025,
+            "choices": 15,
+            "candidates": 2082,
+            "specialized_applications": 1025,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 0
+          },
+          {
+            "applications": 1041,
+            "choices": 15,
+            "candidates": 2114,
+            "specialized_applications": 1041,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 0
+          },
+          {
+            "applications": 1025,
+            "choices": 15,
+            "candidates": 2082,
+            "specialized_applications": 1025,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 0
+          },
+          {
+            "applications": 1041,
+            "choices": 15,
+            "candidates": 2114,
+            "specialized_applications": 1041,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 0
+          }
+        ]
+      },
+      "carrier": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 0.699364,
+        "min_ms": 0.67871975,
+        "max_ms": 0.76227275,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.095081,
+        "first_service_ms": 0.667896,
+        "phase_ms": {
+          "query": 0.00264425,
+          "setup": 0.05464775,
+          "execution_observation": 0.61224425,
+          "engine_drop": 0.00016225,
+          "outputs_drop": 0.00164475
+        },
+        "requested_bytes_per_query": 736434.75,
+        "peak_above_baseline": 440221,
+        "work": [
+          {
+            "applications": 1025,
+            "choices": 15,
+            "candidates": 66,
+            "specialized_applications": 1025,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 1008,
+            "carrier_checks": 1024
+          },
+          {
+            "applications": 1041,
+            "choices": 15,
+            "candidates": 66,
+            "specialized_applications": 1041,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 1024,
+            "carrier_checks": 1040
+          },
+          {
+            "applications": 1025,
+            "choices": 15,
+            "candidates": 66,
+            "specialized_applications": 1025,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 1008,
+            "carrier_checks": 1024
+          },
+          {
+            "applications": 1041,
+            "choices": 15,
+            "candidates": 66,
+            "specialized_applications": 1041,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 1024,
+            "carrier_checks": 1040
+          }
+        ]
+      }
+    },
+    "comparisons": {
+      "carrier/specialized": {
+        "median_ratio": 0.1546885182265754,
+        "range_disposition": "first-lower"
+      },
+      "carrier/conditional": {
+        "median_ratio": 1.000308589773342,
+        "range_disposition": "overlap"
+      },
+      "specialized/conditional": {
+        "median_ratio": 6.466598822209738,
+        "range_disposition": "second-lower"
+      }
+    }
+  },
+  {
+    "cell": [
+      64,
+      0,
+      1,
+      "ground"
+    ],
+    "configurations": {
+      "conditional": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 1.80877,
+        "min_ms": 1.724088,
+        "max_ms": 1.970993,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.046951,
+        "first_service_ms": 1.458806,
+        "phase_ms": {
+          "query": 0.002492,
+          "setup": 0.025539,
+          "execution_observation": 1.718486,
+          "engine_drop": 0.009158,
+          "outputs_drop": 0.002224
+        },
+        "requested_bytes_per_query": 1507849.0,
+        "peak_above_baseline": 123891,
+        "work": [
+          {
+            "applications": 98,
+            "choices": 4,
+            "candidates": 179,
+            "specialized_applications": 0,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 0
+          }
+        ]
+      },
+      "specialized": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 2.226837,
+        "min_ms": 2.208018,
+        "max_ms": 2.289087,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.067227,
+        "first_service_ms": 2.033792,
+        "phase_ms": {
+          "query": 0.002962,
+          "setup": 0.028886,
+          "execution_observation": 2.117045,
+          "engine_drop": 0.00035,
+          "outputs_drop": 0.002174
+        },
+        "requested_bytes_per_query": 3539760.0,
+        "peak_above_baseline": 428540,
+        "work": [
+          {
+            "applications": 1073,
+            "choices": 15,
+            "candidates": 2210,
+            "specialized_applications": 1073,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 0
+          }
+        ]
+      },
+      "carrier": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 0.79814,
+        "min_ms": 0.782786,
+        "max_ms": 0.897244,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.083472,
+        "first_service_ms": 0.595546,
+        "phase_ms": {
+          "query": 0.002651,
+          "setup": 0.027227,
+          "execution_observation": 0.669618,
+          "engine_drop": 0.000195,
+          "outputs_drop": 0.001841
+        },
+        "requested_bytes_per_query": 850396.0,
+        "peak_above_baseline": 427958,
+        "work": [
+          {
+            "applications": 1073,
+            "choices": 15,
+            "candidates": 194,
+            "specialized_applications": 1073,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 1008,
+            "carrier_checks": 1024
+          }
+        ]
+      }
+    },
+    "comparisons": {
+      "carrier/specialized": {
+        "median_ratio": 0.35841868982776914,
+        "range_disposition": "first-lower"
+      },
+      "carrier/conditional": {
+        "median_ratio": 0.4412611885424902,
+        "range_disposition": "first-lower"
+      },
+      "specialized/conditional": {
+        "median_ratio": 1.2311333115874326,
+        "range_disposition": "second-lower"
+      }
+    }
+  },
+  {
+    "cell": [
+      64,
+      0,
+      4,
+      "ground"
+    ],
+    "configurations": {
+      "conditional": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 2.011173,
+        "min_ms": 1.8198965,
+        "max_ms": 3.66426,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.049328,
+        "first_service_ms": 1.572087,
+        "phase_ms": {
+          "query": 0.00405525,
+          "setup": 0.02292875,
+          "execution_observation": 1.94834675,
+          "engine_drop": 0.0099035,
+          "outputs_drop": 0.01016175
+        },
+        "requested_bytes_per_query": 1534317.5,
+        "peak_above_baseline": 134160,
+        "work": [
+          {
+            "applications": 98,
+            "choices": 4,
+            "candidates": 179,
+            "specialized_applications": 0,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 0
+          },
+          {
+            "applications": 115,
+            "choices": 4,
+            "candidates": 213,
+            "specialized_applications": 0,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 0
+          },
+          {
+            "applications": 98,
+            "choices": 4,
+            "candidates": 179,
+            "specialized_applications": 0,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 0
+          },
+          {
+            "applications": 115,
+            "choices": 4,
+            "candidates": 213,
+            "specialized_applications": 0,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 0
+          }
+        ]
+      },
+      "specialized": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 2.141922,
+        "min_ms": 2.060959,
+        "max_ms": 2.285003,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.064919,
+        "first_service_ms": 1.953589,
+        "phase_ms": {
+          "query": 0.00301375,
+          "setup": 0.05637825,
+          "execution_observation": 2.0620165,
+          "engine_drop": 0.000139,
+          "outputs_drop": 0.00181025
+        },
+        "requested_bytes_per_query": 3528994.25,
+        "peak_above_baseline": 435182,
+        "work": [
+          {
+            "applications": 1073,
+            "choices": 15,
+            "candidates": 2210,
+            "specialized_applications": 1073,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 0
+          },
+          {
+            "applications": 1105,
+            "choices": 15,
+            "candidates": 2274,
+            "specialized_applications": 1105,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 0
+          },
+          {
+            "applications": 1073,
+            "choices": 15,
+            "candidates": 2210,
+            "specialized_applications": 1073,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 0
+          },
+          {
+            "applications": 1105,
+            "choices": 15,
+            "candidates": 2274,
+            "specialized_applications": 1105,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 0,
+            "carrier_checks": 0
+          }
+        ]
+      },
+      "carrier": {
+        "recorded": 8,
+        "complete": true,
+        "median_ms": 0.7221485,
+        "min_ms": 0.712475,
+        "max_ms": 0.800408,
+        "primary_repetitions": 5,
+        "prepare_ms": 0.087668,
+        "first_service_ms": 0.626169,
+        "phase_ms": {
+          "query": 0.003041,
+          "setup": 0.05623475,
+          "execution_observation": 0.64205975,
+          "engine_drop": 0.000136,
+          "outputs_drop": 0.001712
+        },
+        "requested_bytes_per_query": 799045.25,
+        "peak_above_baseline": 434600,
+        "work": [
+          {
+            "applications": 1073,
+            "choices": 15,
+            "candidates": 194,
+            "specialized_applications": 1073,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 1008,
+            "carrier_checks": 1024
+          },
+          {
+            "applications": 1105,
+            "choices": 15,
+            "candidates": 226,
+            "specialized_applications": 1105,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 1024,
+            "carrier_checks": 1056
+          },
+          {
+            "applications": 1073,
+            "choices": 15,
+            "candidates": 194,
+            "specialized_applications": 1073,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 1008,
+            "carrier_checks": 1024
+          },
+          {
+            "applications": 1105,
+            "choices": 15,
+            "candidates": 226,
+            "specialized_applications": 1105,
+            "cursor_steps": 0,
+            "history_checks": 0,
+            "carrier_steps": 1024,
+            "carrier_checks": 1056
+          }
+        ]
+      }
+    },
+    "comparisons": {
+      "carrier/specialized": {
+        "median_ratio": 0.33714976549099357,
+        "range_disposition": "first-lower"
+      },
+      "carrier/conditional": {
+        "median_ratio": 0.35906831485904,
+        "range_disposition": "first-lower"
+      },
+      "specialized/conditional": {
+        "median_ratio": 1.065011314292704,
+        "range_disposition": "overlap"
+      }
+    }
+  }
+]

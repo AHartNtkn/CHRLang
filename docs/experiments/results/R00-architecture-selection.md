@@ -193,3 +193,17 @@ The [conditional lifecycle pilot](R03-conditional-lifecycle.md) validates all 25
 ## Update after T048
 
 [Current mixed evidence](R05-current-mixed.md) validates all 224 processes. Conditional wins both pre64/post0 pairs; Specialized wins eleven pairs and reused balanced32/32 overlaps. T049 selects an evidence-sufficiency audit across the full goal before further experimental selection or closure.
+
+
+## Current update after T055
+
+[Carrier complete costs](R05-carrier-cost.md) and the
+[known-prefix control](R05-carrier-prefix-cost.md) qualify the pure-countdown
+sharing preference. Ground controls favor source lowering; long unknown timings
+overlap Conditional, while short unknown endpoints and peak heap favor Conditional.
+Independent review finds this bounded contrast sufficient; repeated timings would
+not answer a new question. Arena ownership remains a separately bounded option.
+The strongest remaining sharing question is substantive equation/constructor
+pre-discrimination work, with an observable result and competent lowering control.
+Assess it against a current maintained-join bottleneck screen before expanding
+implementation. Goal closure remains unsupported.
