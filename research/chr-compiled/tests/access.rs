@@ -293,3 +293,99 @@ fn metric_availability_does_not_change_execution_or_retention() {
         assert_eq!(e.stats().kernel.storage.visits, 0);
     }
 }
+
+#[test]
+fn active_known_keys_bound_partner_discovery_on_flat_chains() {
+    for n in [8, 32] {
+        for execution in [Execution::Generic, Execution::Generated] {
+            let prepared = PreparedRuleset::bundled(1, execution).unwrap();
+            let case = fixtures::flat_chain_case(n, false);
+            let mut engine = prepared
+                .start(case.query, Policy::Active, Access::Indexed)
+                .unwrap();
+            // Repeated bounded calls exercise suspended matching, not only one large advance.
+            let mut complete = false;
+            for _ in 0..10000 {
+                if engine.advance(7).exhausted {
+                    complete = true;
+                    break;
+                }
+            }
+            assert!(complete);
+            assert!(chr_observe::equivalent(
+                engine.observe().as_ref().unwrap(),
+                case.expected.as_ref().unwrap(),
+                &mut Default::default()
+            ));
+            if chr_compiled::COLLECT_METRICS {
+                assert!(
+                    engine.stats().candidate_visits <= 30 * (n as u64 + 1),
+                    "known active keys should bound partner discovery: n={n}, visits={}",
+                    engine.stats().candidate_visits
+                );
+            }
+        }
+    }
+}
+
+#[test]
+fn later_anchor_preserves_unknown_structure_repeated_slots_and_resources() {
+    use chr_syntax::{Answer, Query, Var, atom, c, t, v};
+    for execution in [Execution::Generic, Execution::Generated] {
+        let prepared = PreparedRuleset::bundled(14, execution).unwrap();
+        for right in [
+            c("right", [v(1), v(0)]),
+            c("right", [t("f", [v(0)]), v(0)]),
+            c("right", [t("f", [atom("a")]), atom("b")]),
+            c("right", [t("f", [atom("a")]), atom("a")]),
+        ] {
+            let succeeds = right == c("right", [t("f", [atom("a")]), atom("a")]);
+            for reverse in [false, true] {
+                let mut input = vec![
+                    c("left", [atom("a")]),
+                    c("left", [atom("a")]),
+                    right.clone(),
+                ];
+                if reverse {
+                    input.reverse();
+                }
+                let expected = Answer {
+                    outputs: vec![("x".into(), v(0)), ("y".into(), v(1))],
+                    residual: if succeeds {
+                        vec![c("left", [atom("a")]), c("hit", [])]
+                    } else {
+                        input.clone()
+                    },
+                };
+                let mut traces = vec![];
+                for access in [Access::Scan, Access::Indexed] {
+                    let query = Query {
+                        constraints: input.clone(),
+                        outputs: vec![("x".into(), Var(0)), ("y".into(), Var(1))],
+                    };
+                    let mut engine = prepared.start(query, Policy::Active, access).unwrap();
+                    engine.enable_audit();
+                    let mut complete = false;
+                    for _ in 0..1000 {
+                        if engine.advance(1).exhausted {
+                            complete = true;
+                            break;
+                        }
+                    }
+                    assert!(complete);
+                    assert!(chr_observe::equivalent(
+                        engine.observe().as_ref().unwrap(),
+                        &expected,
+                        &mut Default::default()
+                    ));
+                    for commit in engine.audit() {
+                        support::check_commit(&fixtures::programs()[14], commit);
+                    }
+                    assert!(support::terminal(&fixtures::programs()[14], &engine.view()));
+                    traces.push(engine.trace().to_vec());
+                }
+                assert_eq!(traces[0], traces[1]);
+            }
+        }
+    }
+}

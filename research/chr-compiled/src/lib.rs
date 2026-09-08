@@ -188,6 +188,7 @@ struct PoolCursor {
 }
 /// DFS partner state. Source effects only run after a cursor returns Found.
 pub struct Cursor {
+    pub anchor_pending: bool,
     pub depth: usize,
     pub ids: Vec<u64>,
     pub frames: Vec<Frame>,
@@ -197,6 +198,7 @@ pub struct Cursor {
 impl Cursor {
     fn new(slots: usize, heads: usize, next: u64) -> Self {
         Self {
+            anchor_pending: true,
             depth: 0,
             ids: vec![],
             frames: vec![Frame::new(slots, next)],
@@ -887,6 +889,25 @@ fn generic_rule(
 ) -> Selection {
     let program = core.rules.clone();
     let prepared = &program[rule];
+    if cursor.anchor_pending {
+        cursor.anchor_pending = false;
+        if let Some((head, id)) = at.filter(|(head, _)| *head > 0) {
+            let Some(args) = core.arguments(id) else {
+                return Selection::Done;
+            };
+            let mut frame = core.copy_frame(&cursor.frames[0]);
+            if !prepared.heads[head]
+                .args
+                .iter()
+                .zip(args)
+                .all(|(p, value)| core.generic_pattern(p, value, &mut frame))
+            {
+                return Selection::Done;
+            }
+            cursor.frames[0] = frame;
+            return Selection::Yield;
+        }
+    }
     let h = cursor.depth;
     if h == prepared.heads.len() {
         if !core.eligible(rule, &cursor.ids) {

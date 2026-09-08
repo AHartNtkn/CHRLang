@@ -1,0 +1,52 @@
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.18s
+     Running unittests src/lib.rs (target/debug/deps/chr_compiled-35a3f3cdada706ac)
+
+running 2 tests
+test experiment::tests::validation_checks_values_and_residual_multiplicity ... ok
+test experiment::tests::reused_preparation_runs_changed_queries_and_checks_full_answers ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests experiments/main.rs (target/debug/deps/chr_compiled_cost-ad6af7b9a373b49f)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/access.rs (target/debug/deps/access-49fdf4a7234ff88a)
+
+running 10 tests
+test ground_intermediate_output_is_not_a_completed_observation ... ok
+test execution_observation_and_teardown_are_separate_lifetimes ... ok
+test metric_availability_does_not_change_execution_or_retention ... ok
+test prepared_rules_and_queries_have_independent_lifetimes ... ok
+test different_queries_share_only_static_preparation ... ok
+test no_head_residuals_keep_aliases_without_matcher_maintenance ... ok
+test later_anchor_preserves_unknown_structure_repeated_slots_and_resources ... ok
+test flat_keys_collisions_and_low_yield_repairs_have_independent_checks ... ok
+test active_known_keys_bound_partner_discovery_on_flat_chains ... ok
+test indexed_and_scanned_access_preserve_full_observations_and_traces ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running tests/semantic.rs (target/debug/deps/semantic-6af2f9ce943ece1f)
+
+running 8 tests
+test equation_change_report_is_commit_only ... ok
+test partner_traversal_resumes_at_candidate_boundaries ... ok
+test nonconfluent_policies_may_choose_different_legal_schedules ... ok
+test native_rules_do_not_call_generic_template_walkers ... ok
+test source_effects_and_matching_do_not_publish_invalid_answers ... ok
+test active_changes_history_and_runtime_queries ... ok
+test integrated_hand_cases_have_independent_complete_answers ... ok
+test independent_source_checker_validates_commits_and_quiescence ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+   Doc-tests chr_compiled
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

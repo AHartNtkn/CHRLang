@@ -1,0 +1,22 @@
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.00s
+     Running tests/access.rs (target/debug/deps/access-719a3fc5b3b16174)
+
+running 1 test
+test active_known_keys_bound_partner_discovery_on_flat_chains ... FAILED
+
+failures:
+
+---- active_known_keys_bound_partner_discovery_on_flat_chains stdout ----
+
+thread 'active_known_keys_bound_partner_discovery_on_flat_chains' (208) panicked at research/chr-compiled/tests/access.rs:308:17:
+known active keys should bound partner discovery: n=8, visits=318
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    active_known_keys_bound_partner_discovery_on_flat_chains
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 8 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p chr-compiled --test access`

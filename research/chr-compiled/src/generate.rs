@@ -48,21 +48,21 @@ impl Emit {
         self.next += 1;
         n
     }
-    fn pattern(&mut self, p: &Term, value: &str, frame: &str) {
+    fn pattern(&mut self, p: &Term, value: &str, frame: &str, failure: &str) {
         match p {
             Term::Var(Var(v)) => {
                 writeln!(
                     self.text,
-                    "if !core.bind(&mut {frame}, {}, {value}) {{return Selection::Yield;}}",
+                    "if !core.bind(&mut {frame}, {}, {value}) {{return {failure};}}",
                     self.slots[v]
                 )
                 .unwrap();
             }
             Term::App(name, args) => {
                 let temp = self.name();
-                writeln!(self.text,"let Some({temp})=core.constructor({value},{name:?},{}) else {{return Selection::Yield;}};",args.len()).unwrap();
+                writeln!(self.text,"let Some({temp})=core.constructor({value},{name:?},{}) else {{return {failure};}};",args.len()).unwrap();
                 for (i, p) in args.iter().enumerate() {
-                    self.pattern(p, &format!("{temp}[{i}]"), frame)
+                    self.pattern(p, &format!("{temp}[{i}]"), frame, failure)
                 }
             }
         }
@@ -163,11 +163,27 @@ pub fn emit(name: &str, rules: &[Rule]) -> Result<String, String> {
         };
         let func = format!("{name}_r{r}");
         funcs.push(func.clone());
-        writeln!(e.text,"fn {func}(core:&mut Core,cursor:&mut Cursor,anchor:Option<(usize,u64)>)->Selection{{\nmatch cursor.depth {{").unwrap();
+        writeln!(
+            e.text,
+            "fn {func}(core:&mut Core,cursor:&mut Cursor,anchor:Option<(usize,u64)>)->Selection{{"
+        )
+        .unwrap();
+        if heads.len() > 1 {
+            e.text.push_str("if cursor.anchor_pending { cursor.anchor_pending=false; if let Some((head,id))=anchor.filter(|(head,_)| *head>0) { let Some(args)=core.arguments(id) else {return Selection::Done;}; let mut frame=core.copy_frame(&cursor.frames[0]); match head {\n");
+            for (h, head) in heads.iter().enumerate().skip(1) {
+                writeln!(e.text, "{h} => {{").unwrap();
+                for (a, p) in head.args.iter().enumerate() {
+                    e.pattern(p, &format!("args[{a}]"), "frame", "Selection::Done");
+                }
+                e.text.push_str("},\n");
+            }
+            e.text.push_str("_=>unreachable!(\"invalid anchor head\"),} cursor.frames[0]=frame; return Selection::Yield; }}\n");
+        }
+        e.text.push_str("match cursor.depth {\n");
         for (h, head) in heads.iter().enumerate() {
             writeln!(e.text,"{h} => {{\nlet id=match core.candidate({r},{h},anchor,cursor){{Candidate::Value(id)=>id,Candidate::Yield=>return Selection::Yield,Candidate::Done=>return Selection::Done}};\nlet Some(args)=core.arguments(id) else{{return Selection::Yield}};\nlet mut frame=core.copy_frame(&cursor.frames[{h}]);").unwrap();
             for (a, p) in head.args.iter().enumerate() {
-                e.pattern(p, &format!("args[{a}]"), "frame")
+                e.pattern(p, &format!("args[{a}]"), "frame", "Selection::Yield")
             }
             e.text
                 .push_str("cursor.descend(id,frame); Selection::Yield\n},\n");

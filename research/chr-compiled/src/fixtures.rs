@@ -120,9 +120,14 @@ pub fn programs() -> Vec<Vec<Rule>> {
         ),
         Rule::simplify("spawn", [c("seed", [])], c("q", [atom("a")]).into()),
     ];
+    let anchored = vec![Rule::simplify(
+        "anchored",
+        [c("left", [v(0)]), c("right", [t("f", [v(0)]), v(0)])],
+        c("hit", []).into(),
+    )];
     vec![
         build, reach, delayed, wake, ordered, middle, fail, fresh, arrival, self_wake, suspended,
-        nested, conflict, collisions,
+        nested, conflict, collisions, anchored,
     ]
 }
 pub fn unary(n: usize) -> chr_syntax::Term {

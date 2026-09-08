@@ -8,7 +8,7 @@ goal:
   execution_authority: Redesigned goal authorizes implementation and experiments selected under R00 and the governing sequence.
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
-  current_research: R01 pilot measured; anchor-informed partner enumeration selected; R02 integration and R04 solving remain independent
+  current_research: R01 anchor-aware control measured; R02 consuming representation integration selected; R04 solving remains independent
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -63,7 +63,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T027
+active_task: T028
 tasks:
   - id: T001
     type: pm
@@ -650,14 +650,19 @@ tasks:
   - id: T027
     type: pm
     assignee: PM
-    status: active
+    status: done
     objective: Make established active-occurrence information available to partner lookup and reassess the dedicated control without changing source semantics.
     inputs:
       - docs/experiments/results/R01-native-pilot.md
     expected_output:
       - Generic and native anchored matching with independent application, resource, unknown-term and resume validation.
       - Prospectively registered bounded measurements and architectural disposition.
-    receipt: null
+    receipt:
+      result: done
+      harness: codex
+      summary: Anchor-aware generic/native matching passes independent semantics; 1120 registered processes validate 4480 answers. Selective-chain work and allocation fall materially; collision overhead remains explicit.
+      evidence:
+        - docs/experiments/results/R01-anchor-pilot.md
     allowed_files:
       - research/chr-compiled/
       - docs/experiments/
@@ -670,13 +675,42 @@ tasks:
       - Matching must not bind query variables or reorder source occurrence tuples.
       - Preserve R02 independence and no universal architecture ranking.
 
+  - id: T028
+    type: pm
+    assignee: PM
+    status: active
+    objective: Implement and independently validate integrated constructor/equality activation with consuming source effects, then compare its bounded complete costs with the dedicated control.
+    inputs:
+      - docs/experiments/results/R02-consuming-integration-entry.md
+      - docs/experiments/results/R02-partial-equality-serialization.md
+      - docs/experiments/results/R01-anchor-pilot.md
+    expected_output:
+      - Executable integrated path including partial equality, consuming application, consistency and complete observation.
+      - Independent source and finite-tree validation, followed by prospective cost registration and bounded findings.
+    receipt: null
+    allowed_files:
+      - research/
+      - Cargo.toml
+      - Cargo.lock
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    verify:
+      - Independent equality, resource identity, propagation and completion checks
+      - Positive deductions may activate work, but clashes and cycles prevent publication
+      - Full lifecycle costs only after semantic gate, review and source freeze
+    stop_if:
+      - Preserve reference independence and nonbinding source matching.
+      - No implicit source search or owner-independent language adoption.
+
 checks:
   dirty_fingerprint: preexisting_unfinished_experimental_files_preserved
   last_verification:
     result: passed
-    task: T026
-    scope: R01 native pilot; workspace and counter-free semantics; runner review and feature isolation.
+    task: T027
+    scope: R01 anchor-aware matcher and before/after pilot; independent review, default and counter-free semantic validation.
     commands:
+      - Anchor pilot validates 1120 processes and 4480 complete answers
+      - New discovery regression RED and GREEN; adverse anchor and candidate-resume checks pass
       - Registered native pilot validates 640 processes and 2560 complete answers
       - Counter-free compiled/persistent tests and workspace tests pass
       - Native runner tests, allocation self-check, Clippy and formatting pass
