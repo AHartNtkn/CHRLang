@@ -8,7 +8,7 @@ goal:
   execution_authority: Redesigned goal authorizes implementation and experiments selected under R00 and the governing sequence.
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
-  current_research: R01 anchor-aware control measured; R02 consuming representation integration selected; R04 solving remains independent
+  current_research: R02 semantic gate and first lifecycle pilot measured; constructor-decomposition/repair costs and output-only maintenance selected next
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -63,7 +63,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T028
+active_task: T029
 tasks:
   - id: T001
     type: pm
@@ -678,7 +678,7 @@ tasks:
   - id: T028
     type: pm
     assignee: PM
-    status: active
+    status: done
     objective: Implement and independently validate integrated constructor/equality activation with consuming source effects, then compare its bounded complete costs with the dedicated control.
     inputs:
       - docs/experiments/results/R02-consuming-integration-entry.md
@@ -687,7 +687,13 @@ tasks:
     expected_output:
       - Executable integrated path including partial equality, consuming application, consistency and complete observation.
       - Independent source and finite-tree validation, followed by prospective cost registration and bounded findings.
-    receipt: null
+    receipt:
+      result: done
+      harness: codex
+      summary: Integrated consuming path passes independent replay and partial-equality witnesses; 490 registered processes validate 1960 answers. Fanout benefit has higher heap; first cost cells do not exercise constructor repair or pending-equality applications.
+      evidence:
+        - docs/experiments/results/R02-integrated-semantic-gate.md
+        - docs/experiments/results/R02-integrated-cost-pilot.md
     allowed_files:
       - research/
       - Cargo.toml
@@ -702,25 +708,46 @@ tasks:
       - Preserve reference independence and nonbinding source matching.
       - No implicit source search or owner-independent language adoption.
 
+  - id: T029
+    type: pm
+    assignee: PM
+    status: active
+    objective: Measure constructor-decomposing equality and nested repair with source effects, and isolate output-only access maintenance before drawing broader representation conclusions.
+    inputs:
+      - docs/experiments/results/R02-integrated-cost-pilot.md
+      - docs/experiments/results/R02-integrated-semantic-gate.md
+    expected_output:
+      - Independent nested/batched equality workloads that actually exercise descriptor repairs and pending-equality source applications.
+      - Prospective measured maintenance ablation, complete lifecycle evidence and cross-architecture disposition.
+    receipt: null
+    allowed_files:
+      - research/chr-integrated/
+      - research/chr-compiled/
+      - Cargo.toml
+      - Cargo.lock
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    verify:
+      - Source replay, finite-tree and resource gates in both instrumentation configurations
+      - Work diagnostics prove registered mechanisms are exercised
+      - Frozen prospective comparison with full answers, lifecycle and requested allocation diagnostics
+    stop_if:
+      - No architecture ranking from unmatched counters or missing constructor-repair coverage.
+      - Preserve source semantics, reference independence and owner-only language adoption.
+
 checks:
   dirty_fingerprint: preexisting_unfinished_experimental_files_preserved
   last_verification:
     result: passed
-    task: T027
-    scope: R01 anchor-aware matcher and before/after pilot; independent review, default and counter-free semantic validation.
+    task: T028
+    scope: R02 integrated semantic gate and first cost pilot; independent source replay, representation audit and counter-free controls.
     commands:
-      - Anchor pilot validates 1120 processes and 4480 complete answers
-      - New discovery regression RED and GREEN; adverse anchor and candidate-resume checks pass
-      - Registered native pilot validates 640 processes and 2560 complete answers
-      - Counter-free compiled/persistent tests and workspace tests pass
-      - Native runner tests, allocation self-check, Clippy and formatting pass
-      - Twelve independent oracle tests pass
-      - R04 registered source gate passes 338 queries under six rule orders
-      - R04 package formatting and Clippy pass
-      - R01 access/lifetime and semantic tests pass (15); workspace Clippy and formatting pass
-      - Documentation links and goal-state structure validated
+      - Thirteen independent semantic tests and two native runner tests pass with default and counter-free instrumentation
+      - Registered R02 pilot validates 490 processes and 1960 complete answers
+      - Actual integrated/compiled/kernel features checked; allocator self-check and bounded retention pass
+      - Workspace tests, Clippy, formatting and independent reviews pass
     evidence:
-      - docs/experiments/results/R01-access-lifetime-entry.md
-      - docs/experiments/results/R04-finite-consistency-entry.md
-      - docs/experiments/results/R04-source-correspondence-gate.md
-      - research/chr-direct-solver/results/source-gate.json
+      - docs/experiments/results/R02-integrated-semantic-gate.md
+      - docs/experiments/results/R02-integrated-cost-pilot.md
+      - docs/experiments/results/R02-integrated-pilot/all-tests.log
+      - docs/experiments/results/R02-integrated-pilot/off-tests.log

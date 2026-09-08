@@ -45,4 +45,4 @@ The strongest adverse case is a high-degree alias merge touching many indexed co
 
 The next implementation needs an executable integrated path, a competent dedicated control, independent finite-tree/resource observations and forced deduction/application interleavings. R01 is not required to design or implement those indexes. Its findings may improve the conventional control, but cannot require the integrated candidate to preserve a completed-unifier API.
 
-R01 remains the selected write task because it addresses the missing competent execution control across several directions. This R02 analysis narrows a different complete-path experiment and makes it ready for the next selection comparison. No R02 implementation or architectural rejection follows from this note, and language adoption remains separate.
+The [integrated semantic gate](R02-integrated-semantic-gate.md) now implements this entry, and the [first lifecycle pilot](R02-integrated-cost-pilot.md) records bounded cost findings. Constructor-decomposition and nested-repair costs remain selected follow-up work. Language adoption remains separate.
