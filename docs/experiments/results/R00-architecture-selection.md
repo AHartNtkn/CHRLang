@@ -153,3 +153,8 @@ The [conditional lifecycle pilot](R03-conditional-lifecycle.md) validates all 25
 ## Entry update during T043
 
 [Regional readiness](R08-regional-readiness.md) separates diagnostic work and message payloads from admission and raw multiplicity. The existing certificate covers permanently disconnected predicate families; the next comparison must include current inferred-specialized serial execution as well as matched-quantum worker controls. Correctness and optimized-code checks pass; comparative registration and runs remain.
+
+
+## Update after T043
+
+[Regional lifecycle evidence](R08-regional-lifecycle.md) establishes a bounded capacity benefit versus one worker, with unresolved balanced ordering versus Inline and contrary controls favoring Inline. The current specialized serial control exposes large per-application overhead on one-region carry. T044 selects a deterministic causal gate for repeated Indexed structural maintenance before another timing or executor change. Static eligibility remains the strongest broader alternative; parallel expansion is not selected.

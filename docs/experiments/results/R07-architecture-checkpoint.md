@@ -80,3 +80,8 @@ Root audited Q1/Q2/Q4/Q5/Q8/Q12 against receipts and current controls. Independe
 ## Update after T042
 
 [Mixed-phase comparison](R05-mixed-pipeline.md) supplies a current-engine applicability boundary: opaque pre-discrimination work can pay for conditional bookkeeping, while identical post calls retain separate occurrence work. T043 selects a bounded counter-free regional parallel entry ahead of a new static-compilation experiment, with serial-control and applicability review before repeated measurement. Broader lifetime and language questions remain explicit.
+
+
+## Update after T043
+
+[Regional lifecycle evidence](R08-regional-lifecycle.md) establishes a bounded capacity benefit versus one worker, with unresolved balanced ordering versus Inline and contrary controls favoring Inline. The current specialized serial control exposes large per-application overhead on one-region carry. T044 selects a deterministic causal gate for repeated Indexed structural maintenance before another timing or executor change. Static eligibility remains the strongest broader alternative; parallel expansion is not selected.

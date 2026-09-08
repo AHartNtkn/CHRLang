@@ -2,7 +2,7 @@
 
 Future work is selected by its ability to change an architectural or language-design decision under the [sequence](sequence.md). A completed experimental package is evidence for its stated claim; it does not establish that its entire mechanism is resolved or that its follow-ups deserve execution.
 
-**Current selection:** [Mixed-phase lifecycle evidence](results/R05-mixed-pipeline.md) validates 224 processes and shows placement-dependent conditional/explicit outcomes. T042 is complete. T043 has established [counter-free regional readiness](results/R08-regional-readiness.md), including operational ownership and a specialized serial semantic gate. A new runner and prospective bounded comparison remain before performance claims. Operational ownership must remain distinct from diagnostics; static compilation is the strongest broader alternative. No matrix, hybrid policy or worker expansion is automatic.
+**Current selection:** [Regional lifecycle evidence](results/R08-regional-lifecycle.md) completes all 400 processes. Balanced worker capacity helps against one worker but remains unresolved against Inline; contrary controls favor Inline. T044 selects a bounded causal gate for repeated Indexed dependency/ground-key maintenance exposed by the specialized serial control. Static-lowering eligibility remains the strongest broader alternative; worker expansion is not selected.
 
 ## Question map
 
