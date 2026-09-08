@@ -1,5 +1,7 @@
 # Live-state preservation screen: measurement boundary
 
+Current cost outcome: [T050 results](R03-state-preservation.md). The sections below document the source and runner entry gates.
+
 T050 will test whether copying substantial live state across cheap, mostly failing alternatives warrants a different explicit-search representation. Source inspection establishes copying, but does not establish its share of total cost. The first gate therefore needs meaningful source state, independent observations and a measurement boundary that separates fork service from ordinary execution and disposal.
 
 The [sufficiency audit](R07-sufficiency-audit.md) selects this question over the concrete carrier-contraction alternative. No new snapshot representation is selected. A matched representation comparison becomes useful only if the screen establishes consequential storage costs after preparation, failure, cleanup and observation are included.
@@ -50,6 +52,6 @@ T050 remains active. The next work is the measurement runner, its counter/alloca
 
 [Primary](r03-state-preservation-runner/t050-runner-primary.json), [work](r03-state-preservation-runner/t050-runner-work.json) and [allocation](r03-state-preservation-runner/t050-runner-allocation.json) readiness runs use n2/a3/two mostly-failing queries. All validate complete answers and counts; allocation baseline/final live bytes agree. These are small correctness runs, not comparative timing evidence. The existing compiled experiment owns the single allocator; the runner accesses its meter with visibility changes only.
 
-Default/counter-free runner tests cover both outcomes, no-choice and cutoff. Strict Clippy passes in default/counter-free/allocation configurations and formatting passes. Root row-audits all three smoke records and verifies rejection of altered counter flags, raw counts and allocation sums. An injected build failure preserves its attempted command and all288 prospective jobs; the analyzer reports all missing runs and failed/missing builds. [Failure-check receipt](r03-state-preservation-runner/launcher-failure-check.json) is a validator exercise, not an experiment outcome.
+Default/counter-free runner tests cover both outcomes, no-choice and cutoff. Strict Clippy passes in default/counter-free/allocation configurations and formatting passes. Root row-audits all three smoke records and verifies rejection of altered counter flags, raw counts and allocation sums. An injected build failure preserves its attempted command and all 288 prospective jobs; the analyzer reports all missing runs and failed/missing builds. [Failure-check receipt](r03-state-preservation-runner/launcher-failure-check.json) is a validator exercise, not an experiment outcome.
 
 Independent final review finds no blocking ownership, instrumentation or cutoff defect. [The prospective registration](../registrations/R03-state-preservation.md) fixes the36 cells,288 processes, bounds and interpretation. Source/binary freeze and complete outcomes remain required before interpreting the cost screen.

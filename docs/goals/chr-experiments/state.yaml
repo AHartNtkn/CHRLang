@@ -8,7 +8,7 @@ goal:
   execution_authority: Redesigned goal authorizes implementation and experiments selected under R00 and the governing sequence.
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
-  current_research: State-preservation runner validated and cost screen registered; bounded execution next
+  current_research: State-preservation cost screen complete; closed occurs traversal and fork-owner attribution selected
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -63,7 +63,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T050
+active_task: T051
 tasks:
   - id: T001
     type: pm
@@ -1399,7 +1399,7 @@ tasks:
   - id: T050
     type: pm
     assignee: PM
-    status: active
+    status: done
     objective: Establish whether explicit state preservation across cheap mostly failing alternatives is consequential enough to justify a different snapshot organization.
     inputs:
       - docs/experiments/results/R07-sufficiency-audit.md
@@ -1423,10 +1423,39 @@ tasks:
       - Do not presume cloning cost is dominant or implement an open-ended trail/replay program.
       - Reassess value against source-derived carrier contraction before expanding the screen.
     receipt:
-      summary: Source and measurement gates pass; counter-free primary and separate diagnostics registered for288 processes, costs not yet measured.
+      summary: All288 processes and9120 answers pass; split traffic reaches84percent in large mostly-failing cases, with exact independent repeated occurs traversal identified.
       evidence:
-        - docs/experiments/results/R03-state-preservation-design.md
-      validation: 24 source-replay cells, pre-split live payload, wanted-key and adverse gates in both counter configurations; Clippy and formatting.
+        - docs/experiments/results/R03-state-preservation.md
+      validation: Source/runner gates, all288 cost processes,9120 answers, all36 allocation baselines, exact manifest and independent freeze/result audit.
+
+  - id: T051
+    type: pm
+    assignee: PM
+    status: active
+    objective: Establish sound closed-subtree occurs handling and causal fork-owner allocation evidence before selecting a snapshot intervention.
+    inputs:
+      - docs/experiments/results/R03-state-preservation.md
+      - research/chr-persistent/src/terms.rs
+      - research/chr-compiled/src/lib.rs
+      - research/chr-compiled/src/search.rs
+    allowed_files:
+      - research/
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    expected_output:
+      - Independent regression and adverse cycle/alias/branch gates for immutable closed-subtree occurs handling.
+      - Nonnested allocation attribution of actual fork-owner groups and post-fork interning hits/misses, preserving total accounting.
+      - Evidence-backed selection of one credible snapshot comparison or justified disposition if none earns further work.
+    verify:
+      - Preserve finite-tree equality, nonbinding matching, source effects, raw answers and finite service
+      - Keep diagnostics outside primary timing and reconcile them against inclusive fork service
+      - Register comparative measurements before runs and include mutation/detachment/disposal costs
+      - Record limits of the right-recursive alternative workload and contrary all-success controls
+    stop_if:
+      - Do not equate inclusive split-service fractions with an achievable speedup.
+      - Do not presume arena sharing or whole-state copy-on-write wins before owner evidence.
+      - Reassess value against carrier contraction before expanding representation work.
+    receipt: null
 
 
 checks:
@@ -1434,13 +1463,11 @@ checks:
   last_verification:
     result: passed
     task: T050
-    scope: Source and runner gates, diagnostic ownership, failure retention and prospective registration.
+    scope: All288 cost processes,9120 complete observations, allocation restoration, exact manifest and frozen source/binaries.
     commands:
-      - cargo test -p chr-compiled --test state_preservation
-      - cargo test -p chr-compiled --no-default-features --test state_preservation
-      - cargo clippy -p chr-compiled --no-default-features --test state_preservation -- -D warnings
-      - cargo fmt --all -- --check
+      - analyze_state_preservation.py --output docs/experiments/results/r03-state-preservation
+      - Independent full result/manifest/source audit
+      - Source inspection of fork ownership and exact133376 occurs-visit recurrence
     evidence:
-      - docs/experiments/results/R03-state-preservation-design.md
-      - docs/experiments/results/r03-state-preservation-gate/t050-state-default.log
-      - docs/experiments/results/r03-state-preservation-gate/t050-state-off.log
+      - docs/experiments/results/R03-state-preservation.md
+      - docs/experiments/results/r03-state-preservation/audit.json

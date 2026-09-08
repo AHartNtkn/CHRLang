@@ -1,6 +1,6 @@
 # R00: architectural alternatives and first experiment selection
 
-Current decision authority: [architecture checkpoint](R07-architecture-checkpoint.md), updated with T048 current mixed-work evidence. T049 identifies missing state-preservation evidence and selects T050; checked direct lowering is supported, while native compilation and worker expansion have no general preference. The entries below retain their stated experimental context.
+Current decision authority: [architecture checkpoint](R07-architecture-checkpoint.md), updated with T048 current mixed-work evidence. T050 establishes consequential state-preservation cost and selects T051 causal ownership/occurs gates; checked direct lowering is supported, while native compilation and worker expansion have no general preference. The entries below retain their stated experimental context.
 
 The first comparison should distinguish generic selection, incremental activation and generated rule execution on complete ordinary-CHR computations. In parallel, analyze a directly compiled finite consistency relation as a contrasting way to eliminate execution. Integrated representation and conditional execution remain serious independent candidates; existing service results do not rank them against these organizations.
 
