@@ -1,0 +1,191 @@
+//! Isolated process diagnostics: requested heap bytes, not timing or RSS.
+#[allow(dead_code, unexpected_cfgs)]
+#[path = "../../chr-compiled/experiments/meter.rs"]
+mod meter;
+#[path = "../experiments/reusable_regions.rs"]
+mod regions;
+#[allow(dead_code)]
+#[path = "../experiments/reusable_workers.rs"]
+mod workers;
+use chr_syntax::{Rule, atom, c, eq, v};
+use std::sync::{
+    Arc, Mutex,
+    atomic::{AtomicUsize, Ordering::SeqCst},
+};
+
+struct Cell {
+    command: AtomicUsize,
+    done: AtomicUsize,
+    value: Mutex<Option<Vec<u8>>>,
+}
+fn wait(value: &AtomicUsize, expected: usize) {
+    while value.load(SeqCst) != expected {
+        std::thread::yield_now();
+    }
+}
+fn cross_thread() {
+    let cells: Vec<_> = (0..2)
+        .map(|_| {
+            Arc::new(Cell {
+                command: AtomicUsize::new(0),
+                done: AtomicUsize::new(0),
+                value: Mutex::new(None),
+            })
+        })
+        .collect();
+    let handles: Vec<_> = cells
+        .iter()
+        .map(|cell| {
+            let cell = cell.clone();
+            std::thread::spawn(move || {
+                cell.done.store(1, SeqCst);
+                wait(&cell.command, 1);
+                *cell.value.lock().unwrap() = Some(vec![0; 1024]);
+                cell.done.store(2, SeqCst);
+                wait(&cell.command, 2);
+                drop(cell.value.lock().unwrap().take());
+                cell.done.store(3, SeqCst);
+                wait(&cell.command, 3);
+                let mut value = Vec::with_capacity(16);
+                value.extend(0u8..64);
+                value.truncate(8);
+                value.shrink_to_fit();
+                *cell.value.lock().unwrap() = Some(value);
+                cell.done.store(4, SeqCst);
+                wait(&cell.command, 4);
+            })
+        })
+        .collect();
+    for cell in &cells {
+        wait(&cell.done, 1);
+    }
+    let start = meter::begin();
+    for cell in &cells {
+        cell.command.store(1, SeqCst);
+    }
+    for cell in &cells {
+        wait(&cell.done, 2);
+    }
+    let allocated = meter::end(start);
+    assert_eq!(allocated.allocation_calls, 2);
+    assert_eq!(allocated.requested_bytes, 2048);
+    assert_eq!(allocated.live_end, allocated.live_start + 2048);
+    assert_eq!(allocated.peak_live, allocated.live_end);
+    for cell in &cells {
+        drop(cell.value.lock().unwrap().take());
+    }
+    let freed = meter::end(start);
+    assert_eq!(freed.live_end, freed.live_start);
+    assert_eq!(freed.deallocation_calls, 2);
+    let start = meter::begin();
+    for cell in &cells {
+        *cell.value.lock().unwrap() = Some(vec![0; 2048]);
+    }
+    for cell in &cells {
+        cell.command.store(2, SeqCst);
+    }
+    for cell in &cells {
+        wait(&cell.done, 3);
+    }
+    let reverse = meter::end(start);
+    assert_eq!(reverse.live_start, reverse.live_end);
+    assert_eq!(reverse.allocation_calls, 2);
+    assert_eq!(reverse.deallocation_calls, 2);
+    assert_eq!(reverse.requested_bytes, 4096);
+    let start = meter::begin();
+    for cell in &cells {
+        cell.command.store(3, SeqCst);
+    }
+    for cell in &cells {
+        wait(&cell.done, 4);
+    }
+    let resized = meter::end(start);
+    assert_eq!(resized.live_end, resized.live_start + 16);
+    assert_eq!(resized.allocation_calls, 6);
+    assert_eq!(resized.requested_bytes, 2 * (16 + 64 + 8));
+    for cell in &cells {
+        drop(cell.value.lock().unwrap().take());
+    }
+    let restored = meter::end(start);
+    assert_eq!(restored.live_start, restored.live_end);
+    for cell in &cells {
+        cell.command.store(4, SeqCst);
+    }
+    for handle in handles {
+        handle.join().unwrap();
+    }
+    println!(
+        "{{\"allocated\":{},\"freed\":{},\"reverse\":{},\"resized\":{},\"restored\":{}}}",
+        allocated.json(),
+        freed.json(),
+        reverse.json(),
+        resized.json(),
+        restored.json()
+    );
+}
+fn lifecycle(workers: usize) {
+    let rules = vec![Rule::simplify("p", [c("p", [v(0)])], eq(v(0), atom("a")))];
+    let mode = if workers == 0 {
+        regions::Mode::Inline
+    } else {
+        regions::Mode::Threads(workers)
+    };
+    let mut receipts = Vec::with_capacity(8 * 32);
+    // Warm output infrastructure before taking any lifecycle baseline.
+    println!("{{\"workers\":{workers},\"kind\":\"lifecycle-diagnostic\"}}");
+    let context_start = meter::begin();
+    std::hint::black_box(std::thread::current());
+    receipts.push(("thread-context", meter::end(context_start)));
+    for _ in 0..8 {
+        let start = meter::begin();
+        let mut runtime = regions::Runtime::new(rules.clone(), mode, 1, 4).unwrap();
+        receipts.push(("prepare", meter::end(start)));
+        for _ in 0..4 {
+            let start = meter::begin();
+            let mut session = runtime
+                .start(chr_cases::query(vec![c("p", [v(0)])], &[0]))
+                .unwrap();
+            receipts.push(("setup", meter::end(start)));
+            assert_eq!(session.factor_count(), 1);
+            let _ = &session.certificate;
+            let start = meter::begin();
+            let mut answers = Vec::new();
+            for _ in 0..1000 {
+                let batch = session.advance(1).unwrap();
+                answers.extend(batch.answers);
+                if batch.exhausted {
+                    break;
+                }
+            }
+            receipts.push(("execute-observe", meter::end(start)));
+            assert!(session.exhausted());
+            assert_eq!(session.raw_count(), Some(1));
+            let start = meter::begin();
+            session.close().unwrap();
+            receipts.push(("close", meter::end(start)));
+            let start = meter::begin();
+            drop(session);
+            receipts.push(("session-drop", meter::end(start)));
+            assert_eq!(answers, vec![chr_cases::answer(vec![atom("a")], vec![])]);
+            let start = meter::begin();
+            drop(answers);
+            receipts.push(("answer-drop", meter::end(start)));
+        }
+        let start = meter::begin();
+        runtime.shutdown().unwrap();
+        receipts.push(("shutdown", meter::end(start)));
+        let start = meter::begin();
+        drop(runtime);
+        receipts.push(("runtime-drop", meter::end(start)));
+    }
+    for (phase, reading) in receipts {
+        println!("{{\"phase\":\"{phase}\",\"reading\":{}}}", reading.json());
+    }
+}
+fn main() {
+    match std::env::args().nth(1).as_deref() {
+        Some("cross-thread") => cross_thread(),
+        Some(n) => lifecycle(n.parse().unwrap()),
+        None => panic!("expected cross-thread or worker count"),
+    }
+}
