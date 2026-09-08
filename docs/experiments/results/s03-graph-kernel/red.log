@@ -1,0 +1,49 @@
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 4 tests
+test context_algebra_matches_boolean_truth_tables ... FAILED
+test conflicting_consumers_and_late_contexts_match_scalar_resources ... FAILED
+test dynamic_births_preserve_raw_multiplicity_without_inactive_assignments ... FAILED
+test opaque_access_preserves_correlated_and_independent_choices ... FAILED
+
+failures:
+
+---- context_algebra_matches_boolean_truth_tables stdout ----
+
+thread 'context_algebra_matches_boolean_truth_tables' (170) panicked at research/chr-direct-choice/src/lib.rs:24:73:
+not yet implemented
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- conflicting_consumers_and_late_contexts_match_scalar_resources stdout ----
+
+thread 'conflicting_consumers_and_late_contexts_match_scalar_resources' (169) panicked at research/chr-direct-choice/src/lib.rs:24:73:
+not yet implemented
+
+---- dynamic_births_preserve_raw_multiplicity_without_inactive_assignments stdout ----
+
+thread 'dynamic_births_preserve_raw_multiplicity_without_inactive_assignments' (171) panicked at research/chr-direct-choice/src/lib.rs:24:73:
+not yet implemented
+
+---- opaque_access_preserves_correlated_and_independent_choices stdout ----
+
+thread 'opaque_access_preserves_correlated_and_independent_choices' (172) panicked at research/chr-direct-choice/src/lib.rs:24:73:
+not yet implemented
+
+
+failures:
+    conflicting_consumers_and_late_contexts_match_scalar_resources
+    context_algebra_matches_boolean_truth_tables
+    dynamic_births_preserve_raw_multiplicity_without_inactive_assignments
+    opaque_access_preserves_correlated_and_independent_choices
+
+test result: FAILED. 0 passed; 4 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Compiling chr-direct-choice v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-choice)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.33s
+     Running unittests src/lib.rs (target/debug/deps/chr_direct_choice-9be38ef2c3d7cf03)
+     Running tests/kernel.rs (target/debug/deps/kernel-d55ff3e33e232f4a)
+error: test failed, to rerun pass `-p chr-direct-choice --test kernel`

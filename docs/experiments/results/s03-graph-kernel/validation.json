@@ -1,0 +1,56 @@
+{
+  "commands": [
+    {
+      "name": "tests",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-direct-choice"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "replay",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-direct-choice"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "clippy",
+      "command": [
+        "cargo",
+        "clippy",
+        "-p",
+        "chr-direct-choice",
+        "--all-targets",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "fmt",
+      "command": [
+        "cargo",
+        "fmt",
+        "-p",
+        "chr-direct-choice",
+        "--",
+        "--check"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "sha256": {
+    "research/chr-direct-choice/src/lib.rs": "dc6db8fa82593dc70ef0a0b52091ff8ff0620441c9cf20757ef7f7f15f62cf75",
+    "research/chr-direct-choice/tests/kernel.rs": "da26c07c64de65ab8247a3d78805bf4d92b22f3f2cee4cb602450daec5b22681",
+    "research/chr-direct-choice/Cargo.toml": "e38b58a2a5036e6cdffb013160922db62fa906594390d1858d8d39de704532af",
+    "docs/experiments/registrations/S03-direct-graph-kernel.md": "d702e56b880deaf8478051e30f39b5f43dc39e0b35a0e16ec758dc4b6fe3e549"
+  }
+}
