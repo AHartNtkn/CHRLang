@@ -45,7 +45,14 @@ fn snapshots_keep_branch_bindings_and_reject_another_machine() {
         }
     }
     assert_eq!(completed.len(), 2);
-    assert_eq!(capture.snapshots, 2);
+    assert_eq!(
+        capture.snapshots,
+        if chr_persistent::COLLECT_METRICS {
+            2
+        } else {
+            0
+        }
+    );
     let source_before = format!("{:?}", m.stats());
     assert!(!equivalent(
         &m.answer_view(&completed[0]).unwrap(),
@@ -97,6 +104,7 @@ fn borrowed_and_eager_transitions_agree_on_aliases_duplicates_and_failure() {
     let mut gq = std::collections::VecDeque::from([g]);
     let mut eager_answers = vec![];
     let mut snapshots = vec![];
+    let mut failed = 0;
     let mut capture = CaptureStats::default();
     while let Some(e) = eq.pop_front() {
         let g = gq.pop_front().expect("matching frontier");
@@ -109,7 +117,9 @@ fn borrowed_and_eager_transitions_agree_on_aliases_duplicates_and_failure() {
                 eq.extend([e, f]);
                 gq.extend([g, h]);
             }
-            (Step::Failed, BorrowedStep::Failed) => {}
+            (Step::Failed, BorrowedStep::Failed) => {
+                failed += 1;
+            }
             (Step::Answer(e), BorrowedStep::Answer(g)) => {
                 assert_eq!(e, graph.export_answer(&g, &mut Stats::default()).unwrap());
                 eager_answers.push(e);
@@ -120,12 +130,23 @@ fn borrowed_and_eager_transitions_agree_on_aliases_duplicates_and_failure() {
     }
     assert!(gq.is_empty());
     assert_eq!(eager_answers.len(), 2);
-    assert_eq!(graph.stats().failed, 1);
+    assert_eq!(failed, 1);
+    assert_eq!(
+        graph.stats().failed,
+        u64::from(chr_persistent::COLLECT_METRICS)
+    );
     assert_eq!(eager.stats().steps, graph.stats().steps);
     assert_eq!(eager.stats().equations, graph.stats().equations);
     assert_eq!(eager.stats().applications, graph.stats().applications);
     assert_eq!(eager.stats().completed, graph.stats().completed);
-    assert_eq!(eager.eager_export_stats().answers, 2);
+    assert_eq!(
+        eager.eager_export_stats().answers,
+        if chr_persistent::COLLECT_METRICS {
+            2
+        } else {
+            0
+        }
+    );
     assert_eq!(
         eager.stats().dereferences - eager.eager_export_stats().dereferences,
         graph.stats().dereferences
@@ -134,7 +155,7 @@ fn borrowed_and_eager_transitions_agree_on_aliases_duplicates_and_failure() {
         eager.stats().storage.visits - eager.eager_export_stats().storage_visits,
         graph.stats().storage.visits
     );
-    if chr_persistent::COLLECT_KERNEL_METRICS {
+    if chr_persistent::COLLECT_KERNEL_METRICS && chr_persistent::COLLECT_METRICS {
         assert!(eager.eager_export_stats().dereferences > 0);
     }
     assert_eq!(graph.eager_export_stats().answers, 0);

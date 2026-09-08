@@ -148,3 +148,8 @@ The [conditional lifecycle pilot](R03-conditional-lifecycle.md) validates all 25
 ## Update after T042
 
 [Mixed-phase comparison](R05-mixed-pipeline.md) supplies a current-engine applicability boundary: opaque pre-discrimination work can pay for conditional bookkeeping, while identical post calls retain separate occurrence work. T043 selects a bounded counter-free regional parallel entry ahead of a new static-compilation experiment, with serial-control and applicability review before repeated measurement. Broader lifetime and language questions remain explicit.
+
+
+## Entry update during T043
+
+[Regional readiness](R08-regional-readiness.md) separates diagnostic work and message payloads from admission and raw multiplicity. The existing certificate covers permanently disconnected predicate families; the next comparison must include current inferred-specialized serial execution as well as matched-quantum worker controls. Correctness and optimized-code checks pass; comparative registration and runs remain.

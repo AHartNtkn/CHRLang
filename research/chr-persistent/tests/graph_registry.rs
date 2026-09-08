@@ -116,8 +116,10 @@ fn registered_completion_case() {
         assert_eq!(&borrowed.export_answer(s, &mut export).unwrap(), a);
     }
     assert_eq!(counts(&eager), counts(&borrowed));
-    assert_eq!(capture.snapshots, case.raw_answers);
-    assert_eq!(eager.eager_export_stats().answers, case.raw_answers);
+    if chr_persistent::COLLECT_METRICS {
+        assert_eq!(capture.snapshots, case.raw_answers);
+        assert_eq!(eager.eager_export_stats().answers, case.raw_answers);
+    }
     assert_eq!(borrowed.eager_export_stats().answers, 0);
     println!(
         "SOURCE\t{i}\t{}\t{}\t{}\t{}\t{peak}\t{:?}\t{:?}\t{:?}\t{:?}\t{:?}",

@@ -19,7 +19,9 @@ fn goals(g: &Goal, out: &mut Vec<Pred>) {
     }
 }
 fn vars(t: &Term, out: &mut BTreeSet<Var>, stats: &mut Stats) {
-    stats.certificate_terms += 1;
+    if crate::COLLECT_METRICS {
+        stats.certificate_terms += 1;
+    }
     match t {
         Term::Var(v) => {
             out.insert(*v);
@@ -38,7 +40,9 @@ fn root(parents: &mut [usize], i: usize) -> usize {
     parents[i]
 }
 fn unite(parents: &mut [usize], a: usize, b: usize, stats: &mut Stats) {
-    stats.certificate_edges += 1;
+    if crate::COLLECT_METRICS {
+        stats.certificate_edges += 1;
+    }
     let a = root(parents, a);
     let b = root(parents, b);
     if a != b {
@@ -64,7 +68,9 @@ pub(super) fn regions(
         links.push(ps);
     }
     all.extend(query.constraints.iter().map(pred));
-    stats.certificate_predicates = all.len();
+    if crate::COLLECT_METRICS {
+        stats.certificate_predicates = all.len();
+    }
     let ids = all
         .into_iter()
         .enumerate()

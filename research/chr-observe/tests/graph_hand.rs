@@ -75,7 +75,7 @@ fn rollback_and_joint_aliases_preserve_residual_multisets() {
     };
     let mut stats = Stats::default();
     assert!(equivalent(&a, &b, &mut stats));
-    assert!(stats.backtracks > 0);
+    assert_eq!(stats.backtracks > 0, chr_observe::COLLECT_METRICS);
     b.residual[1] = vec![1, 1];
     assert!(!equivalent(&a, &b, &mut Stats::default()));
 }
@@ -102,7 +102,7 @@ fn borrowed_tree_control_uses_the_same_joint_mapping_and_backtracking() {
     };
     let mut stats = Stats::default();
     assert!(equivalent(&TreeView(&a), &TreeView(&b), &mut stats));
-    assert!(stats.backtracks > 0);
+    assert_eq!(stats.backtracks > 0, chr_observe::COLLECT_METRICS);
     assert_eq!(stats.dereferences, 0);
     assert_eq!(stats.binding_visits, 0);
     let mut bad = b.clone();

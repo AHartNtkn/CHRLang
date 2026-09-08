@@ -6,7 +6,7 @@ build = "build.rs"
 
 [features]
 default = ["metrics"]
-metrics = ["chr-persistent/kernel-metrics"]
+metrics = ["chr-persistent/kernel-metrics", "chr-observe/metrics"]
 experiment = []
 alloc-meter = ["experiment"]
 
@@ -18,7 +18,10 @@ required-features = ["experiment"]
 [dependencies]
 chr-syntax = { path = "../../crates/chr-syntax" }
 chr-persistent = { path = "../chr-persistent", default-features = false }
-chr-observe = { path = "../chr-observe" }
+chr-observe = { path = "../chr-observe", default-features = false }
 
 [build-dependencies]
 chr-syntax = { path = "../../crates/chr-syntax" }
+
+[dev-dependencies]
+chr-cases = { path = "../chr-cases" }

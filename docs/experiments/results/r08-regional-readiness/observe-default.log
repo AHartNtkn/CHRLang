@@ -1,0 +1,45 @@
+   Compiling chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.47s
+     Running unittests src/lib.rs (target/debug/deps/chr_observe-c03ce8a818dee2c2)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/alpha.rs (target/debug/deps/alpha-a40ef69e2364c372)
+
+running 7 tests
+test exact_dedup_keeps_nonisomorphic_answers ... ok
+test equal_local_degrees_do_not_prove_global_equivalence ... ok
+test ground_terms_and_output_names_remain_observable ... ok
+test output_and_residual_share_one_injective_renaming ... ok
+test output_renaming_preserves_aliases_and_constructor_positions ... ok
+test residual_permutations_require_backtracking_and_preserve_multiplicity ... ok
+test all_three_vertex_directed_graphs_agree_with_permutation_oracle ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running tests/graph_hand.rs (target/debug/deps/graph_hand-2b7a68a8bdc6d508)
+
+running 3 tests
+test rollback_and_joint_aliases_preserve_residual_multisets ... ok
+test physical_sharing_and_equal_numeric_handles_do_not_decide_denotation ... ok
+test borrowed_tree_control_uses_the_same_joint_mapping_and_backtracking ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/graph_oracle.rs (target/debug/deps/graph_oracle-c16eaced532d3bed)
+
+running 3 tests
+test common_roots_different_environments ... ok
+test targeted_templates ... ok
+test all_directed_graph_pairs ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.16s
+
+   Doc-tests chr_observe
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

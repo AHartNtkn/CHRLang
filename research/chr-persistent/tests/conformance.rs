@@ -32,8 +32,8 @@ fn both_snapshot_modes_preserve_registered_semantics() {
             }
             assert_eq!(exhausted, case.exhausted, "{} {mode:?} completion", case.id);
             assert_eq!(
-                search.stats().completed,
-                case.raw_answers,
+                search.raw_completions(),
+                case.raw_answers as u128,
                 "{} {mode:?} multiplicity",
                 case.id
             );
@@ -46,8 +46,11 @@ fn snapshot_sharing_does_not_claim_to_share_source_execution() {
         let case = chr_cases::carry_case(3, 4, 16);
         let mut s = Search::new(case.rules, case.query, mode).unwrap();
         assert!(s.advance(case.budget).exhausted);
-        assert_eq!(s.stats().applications, 39);
-        assert_eq!(s.stats().splits, 7);
+        assert_eq!(s.raw_completions(), 8);
+        if chr_persistent::COLLECT_METRICS {
+            assert_eq!(s.stats().applications, 39);
+            assert_eq!(s.stats().splits, 7);
+        }
         if chr_persistent::COLLECT_KERNEL_METRICS {
             match mode {
                 Snapshot::Persistent => assert_eq!(s.stats().storage.snapshot_copies, 0),

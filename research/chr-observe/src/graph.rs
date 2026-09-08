@@ -39,7 +39,9 @@ fn terms<L: AnswerView, R: AnswerView>(
     mapping: &mut Vec<(L::Variable, R::Variable)>,
     stats: &mut Stats,
 ) -> bool {
-    stats.term_pairs += 1;
+    if crate::COLLECT_METRICS {
+        stats.term_pairs += 1;
+    }
     match (left.resolve(a, stats), right.resolve(b, stats)) {
         (TermView::Variable(a), TermView::Variable(b)) => {
             if let Some((_, mapped)) = mapping.iter().find(|(x, _)| *x == a) {
@@ -80,14 +82,18 @@ fn occurrences<L: AnswerView, R: AnswerView>(
         return true;
     }
     for i in 0..right.residual_count() {
-        stats.occurrence_scans += 1;
+        if crate::COLLECT_METRICS {
+            stats.occurrence_scans += 1;
+        }
         if used[i]
             || left.residual_name(index) != right.residual_name(i)
             || left.residual_arity(index) != right.residual_arity(i)
         {
             continue;
         }
-        stats.occurrence_candidates += 1;
+        if crate::COLLECT_METRICS {
+            stats.occurrence_candidates += 1;
+        }
         let checkpoint = mapping.len();
         if (0..left.residual_arity(index)).all(|j| {
             terms(
@@ -106,7 +112,9 @@ fn occurrences<L: AnswerView, R: AnswerView>(
             used[i] = false;
         }
         mapping.truncate(checkpoint);
-        stats.backtracks += 1;
+        if crate::COLLECT_METRICS {
+            stats.backtracks += 1;
+        }
     }
     false
 }

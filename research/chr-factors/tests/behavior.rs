@@ -51,7 +51,10 @@ fn distinct_closed_predicates_form_a_product_without_aliasing() {
     assert!(b.exhausted);
     assert_eq!(b.answers.len(), 4);
     assert_eq!(s.raw_count(), Some(4));
-    assert_eq!(s.source_applications(), 2);
+    assert_eq!(
+        s.source_applications(),
+        if chr_factors::COLLECT_METRICS { 2 } else { 0 }
+    );
 }
 
 #[test]

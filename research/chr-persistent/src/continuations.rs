@@ -83,15 +83,21 @@ impl Machine {
             cursor.0.has_pending_equation(),
             "expected an active equation"
         );
-        self.stats.steps += 1;
-        self.stats.equations += 1;
+        if crate::COLLECT_METRICS {
+            self.stats.steps += 1;
+        }
+        if crate::COLLECT_METRICS {
+            self.stats.equations += 1;
+        }
         if cursor
             .0
             .complete_equation(solution, &mut self.arena, &mut self.stats)
         {
             Step::Continue(cursor)
         } else {
-            self.stats.failed += 1;
+            if crate::COLLECT_METRICS {
+                self.stats.failed += 1;
+            }
             Step::Failed
         }
     }
@@ -106,7 +112,9 @@ impl Machine {
             .pending_head(&self.arena, &mut self.stats, left, path)
     }
     fn transition(&mut self, cursor: &mut Cursor) -> state::Event {
-        self.stats.steps += 1;
+        if crate::COLLECT_METRICS {
+            self.stats.steps += 1;
+        }
         let event = cursor.0.step(
             &self.rules,
             &mut self.arena,
@@ -114,9 +122,21 @@ impl Machine {
             &mut self.stats,
         );
         match &event {
-            state::Event::Split(_) => self.stats.splits += 1,
-            state::Event::Failed => self.stats.failed += 1,
-            state::Event::Complete => self.stats.completed += 1,
+            state::Event::Split(_) => {
+                if crate::COLLECT_METRICS {
+                    self.stats.splits += 1;
+                }
+            }
+            state::Event::Failed => {
+                if crate::COLLECT_METRICS {
+                    self.stats.failed += 1;
+                }
+            }
+            state::Event::Complete => {
+                if crate::COLLECT_METRICS {
+                    self.stats.completed += 1;
+                }
+            }
             state::Event::Continue => {}
         }
         event

@@ -3,6 +3,10 @@ name = "chr-observe"
 version.workspace = true
 edition.workspace = true
 
+[features]
+default = ["metrics"]
+metrics = []
+
 [dependencies]
 chr-syntax = { path = "../../crates/chr-syntax" }
 

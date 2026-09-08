@@ -37,8 +37,31 @@ pub struct SourceStats {
     pub storage_allocations: u64,
     pub snapshot_copies: u64,
 }
+#[cfg(not(feature = "metrics"))]
+const NO_SOURCE: SourceStats = SourceStats {
+    steps: 0,
+    applications: 0,
+    introductions: 0,
+    equations: 0,
+    pairs: 0,
+    dereferences: 0,
+    occurs_visits: 0,
+    head_candidates: 0,
+    splits: 0,
+    failed: 0,
+    completed: 0,
+    duplicates: 0,
+    max_frontier: 0,
+    term_nodes: 0,
+    term_requests: 0,
+    pending_allocations: 0,
+    storage_visits: 0,
+    storage_allocations: 0,
+    snapshot_copies: 0,
+};
 
 impl SourceStats {
+    #[cfg(feature = "metrics")]
     fn read(s: &chr_persistent::Stats) -> Self {
         Self {
             steps: s.steps,
@@ -72,6 +95,7 @@ pub struct ObservationStats {
     pub backtracks: u64,
 }
 impl ObservationStats {
+    #[cfg(feature = "metrics")]
     fn read(s: &chr_observe::Stats) -> Self {
         Self {
             term_pairs: s.term_pairs,
@@ -110,10 +134,15 @@ struct Response {
     region: usize,
     answers: Vec<Answer>,
     exhausted: bool,
+    raw_completions: u128,
+    #[cfg(feature = "metrics")]
     source: SourceStats,
+    #[cfg(feature = "metrics")]
     observation: ObservationStats,
+    #[cfg(feature = "metrics")]
     steps: u64,
     cancelled: bool,
+    #[cfg(feature = "metrics")]
     unserved_quantum_slots: u64,
 }
 struct Slot {
@@ -125,6 +154,7 @@ struct Reservations {
     limit: usize,
     next: u64,
     stats: TransportStats,
+    outstanding: usize,
     actual_source: Vec<SourceStats>,
     actual_observation: Vec<ObservationStats>,
 }
@@ -135,14 +165,23 @@ impl Reservations {
             limit,
             next: 0,
             stats: TransportStats::default(),
-            actual_source: vec![SourceStats::default(); regions],
-            actual_observation: vec![ObservationStats::default(); regions],
+            outstanding: 0,
+            actual_source: if crate::COLLECT_METRICS {
+                vec![SourceStats::default(); regions]
+            } else {
+                Vec::new()
+            },
+            actual_observation: if crate::COLLECT_METRICS {
+                vec![ObservationStats::default(); regions]
+            } else {
+                Vec::new()
+            },
         }
     }
     fn issue(&mut self, region: usize, quantum: usize) -> Result<Request, String> {
         if region >= self.slots.len()
             || self.slots[region].is_some()
-            || self.stats.outstanding == self.limit
+            || self.outstanding == self.limit
             || quantum == 0
         {
             return Err("regional reservation is unavailable".into());
@@ -150,9 +189,16 @@ impl Reservations {
         let id = self.next;
         self.next = id.checked_add(1).ok_or("regional request ID overflow")?;
         self.slots[region] = Some(Slot { id, response: None });
-        self.stats.issued += 1;
-        self.stats.outstanding += 1;
-        self.stats.max_outstanding = self.stats.max_outstanding.max(self.stats.outstanding);
+        #[cfg(feature = "metrics")]
+        {
+            self.stats.issued += 1;
+        }
+        self.outstanding += 1;
+        #[cfg(feature = "metrics")]
+        {
+            self.stats.outstanding = self.outstanding;
+            self.stats.max_outstanding = self.stats.max_outstanding.max(self.stats.outstanding);
+        }
         Ok(Request {
             id,
             region,
@@ -172,14 +218,19 @@ impl Reservations {
         if slot.response.is_some() {
             return Err("duplicate regional reply".into());
         }
-        self.stats.received += 1;
-        self.stats.buffered += 1;
-        self.stats.owner_buffered_peak = self.stats.owner_buffered_peak.max(self.stats.buffered);
-        self.stats.actual_source_steps += response.steps;
-        self.stats.cancelled_requests += u64::from(response.cancelled);
-        self.stats.unserved_quantum_slots += response.unserved_quantum_slots;
-        self.actual_source[region] = response.source;
-        self.actual_observation[region] = response.observation;
+        #[cfg(feature = "metrics")]
+        {
+            self.stats.received += 1;
+            self.stats.buffered += 1;
+            self.stats.owner_buffered_peak =
+                self.stats.owner_buffered_peak.max(self.stats.buffered);
+            self.stats.actual_source_steps += response.steps;
+            self.stats.cancelled_requests += u64::from(response.cancelled);
+            self.stats.unserved_quantum_slots += response.unserved_quantum_slots;
+
+            self.actual_source[region] = response.source;
+            self.actual_observation[region] = response.observation;
+        }
         slot.response = Some(response);
         Ok(())
     }
@@ -203,19 +254,33 @@ impl Reservations {
             return Err("canceled regional reply cannot enter logical observation".into());
         }
         let response = self.slots[region].take().unwrap().response.unwrap();
-        self.stats.accepted += 1;
-        self.stats.accepted_source_steps += response.steps;
-        self.stats.outstanding -= 1;
-        self.stats.buffered -= 1;
+        #[cfg(feature = "metrics")]
+        {
+            self.stats.accepted += 1;
+            self.stats.accepted_source_steps += response.steps;
+        }
+        self.outstanding -= 1;
+        #[cfg(feature = "metrics")]
+        {
+            self.stats.outstanding = self.outstanding;
+            self.stats.buffered -= 1;
+        }
         Ok(response)
     }
     fn release(&mut self) {
-        self.stats.unaccepted_at_shutdown = self.stats.outstanding;
+        #[cfg(feature = "metrics")]
+        {
+            self.stats.unaccepted_at_shutdown = self.stats.outstanding;
+        }
         for slot in &mut self.slots {
             *slot = None;
         }
-        self.stats.outstanding = 0;
-        self.stats.buffered = 0;
+        self.outstanding = 0;
+        #[cfg(feature = "metrics")]
+        {
+            self.stats.outstanding = 0;
+            self.stats.buffered = 0;
+        }
     }
 }
 
@@ -231,15 +296,20 @@ fn service_with_step_hook(
     cancel: &AtomicBool,
     mut after_step: impl FnMut(usize),
 ) -> Response {
+    #[cfg(feature = "metrics")]
     let before = search.stats().steps;
     let mut answers = Vec::new();
     let mut exhausted = false;
     let mut cancelled = false;
+    #[cfg(feature = "metrics")]
     let mut unserved_quantum_slots = 0;
     for step in 0..request.quantum {
         if cancel.load(Ordering::Acquire) {
             cancelled = true;
-            unserved_quantum_slots = (request.quantum - step) as u64;
+            #[cfg(feature = "metrics")]
+            {
+                unserved_quantum_slots = (request.quantum - step) as u64;
+            }
             break;
         }
         let batch = search.advance(1);
@@ -255,10 +325,15 @@ fn service_with_step_hook(
         region: request.region,
         answers,
         exhausted,
+        raw_completions: search.raw_completions(),
+        #[cfg(feature = "metrics")]
         source: SourceStats::read(search.stats()),
+        #[cfg(feature = "metrics")]
         observation: ObservationStats::read(search.observation_stats()),
+        #[cfg(feature = "metrics")]
         steps: search.stats().steps - before,
         cancelled,
+        #[cfg(feature = "metrics")]
         unserved_quantum_slots,
     }
 }
@@ -272,12 +347,18 @@ pub enum WorkerPhase {
 /// actual regional service. Hooks cannot replace the solver and require Threads.
 pub type WorkerHook = Arc<dyn Fn(usize, usize, u64, WorkerPhase) + Send + Sync>;
 
+#[cfg(feature = "metrics")]
 type Initialization = Vec<(usize, SourceStats, ObservationStats)>;
+#[cfg(not(feature = "metrics"))]
+type Initialization = ();
 // Numeric reply snapshots stay by value in the bounded channel. Boxing solely
 // to shrink the rare initialization/error variants adds allocation per service.
-#[expect(
-    clippy::large_enum_variant,
-    reason = "bounded by-value service snapshots avoid per-reply boxing"
+#[cfg_attr(
+    feature = "metrics",
+    expect(
+        clippy::large_enum_variant,
+        reason = "bounded by-value service snapshots avoid per-reply boxing"
+    )
 )]
 enum Message {
     Ready(Initialization),
@@ -329,13 +410,17 @@ impl Pool {
                         // No Rc crosses the thread boundary: construction and
                         // all future source mutation happen inside this closure.
                         let mut searches = BTreeMap::new();
-                        let mut initialized = Vec::new();
+                        #[cfg(feature = "metrics")]
+                        let mut initialized = Initialization::default();
+                        #[cfg(not(feature = "metrics"))]
+                        let initialized = ();
                         for (region, (rules, query)) in inputs {
                             let search = chr_persistent::Search::new(
                                 rules,
                                 query,
                                 chr_persistent::Snapshot::Persistent,
                             )?;
+                            #[cfg(feature = "metrics")]
                             initialized.push((
                                 region,
                                 SourceStats::read(search.stats()),
@@ -388,10 +473,18 @@ impl Pool {
             }
         }
         drop(output);
-        let mut initial = Vec::new();
+        #[cfg(feature = "metrics")]
+        let mut initial = Initialization::default();
+        #[cfg(not(feature = "metrics"))]
+        let initial = ();
         for _ in 0..count {
             match pool.output.recv() {
-                Ok(Message::Ready(rows)) => initial.extend(rows),
+                Ok(Message::Ready(rows)) => {
+                    #[cfg(feature = "metrics")]
+                    initial.extend(rows);
+                    #[cfg(not(feature = "metrics"))]
+                    let () = rows;
+                }
                 other => {
                     let error = match other {
                         Ok(Message::Failed(error)) => error,
@@ -471,7 +564,10 @@ struct Factor {
     produced: usize,
     answers: Vec<Answer>,
     done: bool,
+    raw_completions: u128,
+    #[cfg(feature = "metrics")]
     source: SourceStats,
+    #[cfg(feature = "metrics")]
     observation: ObservationStats,
 }
 
@@ -550,13 +646,19 @@ impl Search {
         let (backend, initial) = match mode {
             Mode::Inline => {
                 let mut searches = Vec::new();
-                let mut initial = Vec::new();
+                #[cfg(feature = "metrics")]
+                let mut initial = Initialization::default();
+                #[cfg(not(feature = "metrics"))]
+                let initial = ();
                 for (region, (rules, query)) in regions.into_iter().enumerate() {
+                    #[cfg(not(feature = "metrics"))]
+                    let _ = region;
                     let search = chr_persistent::Search::new(
                         rules,
                         query,
                         chr_persistent::Snapshot::Persistent,
                     )?;
+                    #[cfg(feature = "metrics")]
                     initial.push((
                         region,
                         SourceStats::read(search.stats()),
@@ -571,21 +673,32 @@ impl Search {
                 (Backend::Threads(pool), initial)
             }
         };
+        #[cfg_attr(not(feature = "metrics"), allow(unused_mut))]
         let mut factors = (0..count)
             .map(|_| Factor {
                 produced: 0,
                 answers: Vec::new(),
                 done: false,
+                raw_completions: 0,
+                #[cfg(feature = "metrics")]
                 source: SourceStats::default(),
+                #[cfg(feature = "metrics")]
                 observation: ObservationStats::default(),
             })
             .collect::<Vec<_>>();
+        #[cfg_attr(not(feature = "metrics"), allow(unused_mut))]
         let mut reservations = Reservations::new(count, limit);
+        #[cfg(not(feature = "metrics"))]
+        let () = initial;
+        #[cfg(feature = "metrics")]
         for (region, source, observation) in initial {
             factors[region].source = source;
             factors[region].observation = observation;
-            reservations.actual_source[region] = source;
-            reservations.actual_observation[region] = observation;
+            #[cfg(feature = "metrics")]
+            {
+                reservations.actual_source[region] = source;
+                reservations.actual_observation[region] = observation;
+            }
         }
         Ok(Self {
             factors,
@@ -616,19 +729,33 @@ impl Search {
         self.factors.len()
     }
     pub fn source_applications(&self) -> u64 {
-        self.factors.iter().map(|f| f.source.applications).sum()
+        self.source_stats().map(|s| s.applications).sum()
     }
     pub fn source_stats(&self) -> impl Iterator<Item = &SourceStats> {
-        self.factors.iter().map(|f| &f.source)
+        self.factors.iter().map(|f| {
+            #[cfg(feature = "metrics")]
+            {
+                &f.source
+            }
+            #[cfg(not(feature = "metrics"))]
+            {
+                let _ = f;
+                &NO_SOURCE
+            }
+        })
     }
+    /// Empty when factor diagnostics are disabled.
     pub fn actual_source_stats(&self) -> &[SourceStats] {
         &self.reservations.actual_source
     }
+    /// Empty when factor diagnostics are disabled.
     pub fn actual_regional_observation_stats(&self) -> &[ObservationStats] {
         &self.reservations.actual_observation
     }
     pub fn regional_observation_stats(&self) -> ObservationStats {
+        #[cfg_attr(not(feature = "metrics"), allow(unused_mut))]
         let mut total = ObservationStats::default();
+        #[cfg(feature = "metrics")]
         for factor in &self.factors {
             total.term_pairs += factor.observation.term_pairs;
             total.occurrence_scans += factor.observation.occurrence_scans;
@@ -649,7 +776,7 @@ impl Search {
         }
         self.factors
             .iter()
-            .try_fold(1u128, |n, f| n.checked_mul(f.source.completed as u128))
+            .try_fold(1u128, |n, f| n.checked_mul(f.raw_completions))
     }
     pub fn exhausted(&self) -> bool {
         self.refuted || (self.jobs.is_empty() && self.factors.iter().all(|f| f.done))
@@ -676,11 +803,14 @@ impl Search {
             return Ok(requests);
         };
         for n in 0..self.factors.len() {
-            if self.reservations.stats.outstanding == self.reservations.limit {
+            if self.reservations.outstanding == self.reservations.limit {
                 break;
             }
             let region = (first + n) % self.factors.len();
-            self.reservations.stats.prefetch_visits += 1;
+            #[cfg(feature = "metrics")]
+            {
+                self.reservations.stats.prefetch_visits += 1;
+            }
             if !self.factors[region].done && self.reservations.slots[region].is_none() {
                 requests.push(self.reservations.issue(region, self.quantum)?);
             }
@@ -757,14 +887,24 @@ impl Search {
                 self.reservations.receive(pool.receive()?)?;
             }
             let response = self.reservations.take(region)?;
-            self.stats.source_steps += 1;
+            #[cfg(feature = "metrics")]
+            {
+                self.stats.source_steps += 1;
+            }
             self.factors[region].done = response.exhausted;
-            self.factors[region].source = response.source;
-            self.factors[region].observation = response.observation;
+            self.factors[region].raw_completions = response.raw_completions;
+            #[cfg(feature = "metrics")]
+            {
+                self.factors[region].source = response.source;
+                self.factors[region].observation = response.observation;
+            }
             for answer in response.answers {
                 self.factors[region].produced += 1;
                 if self.factors.len() == 1 {
-                    self.stats.products += 1;
+                    #[cfg(feature = "metrics")]
+                    {
+                        self.stats.products += 1;
+                    }
                     answers.push(answer);
                     continue;
                 }
@@ -783,31 +923,46 @@ impl Search {
                         sizes,
                         cursor,
                     });
-                    self.stats.product_jobs += 1;
-                    self.stats.max_jobs = self.stats.max_jobs.max(self.jobs.len());
+                    #[cfg(feature = "metrics")]
+                    {
+                        self.stats.product_jobs += 1;
+                        self.stats.max_jobs = self.stats.max_jobs.max(self.jobs.len());
+                    }
                 }
             }
             if self.factors[region].done && self.factors[region].produced == 0 {
                 self.refuted = true;
-                self.stats.empty_refutations += 1;
+                #[cfg(feature = "metrics")]
+                {
+                    self.stats.empty_refutations += 1;
+                }
                 self.jobs.clear();
             }
             self.next_factor = (region + 1) % self.factors.len();
             self.prefer_source = false;
         } else if let Some(mut job) = self.jobs.pop_front() {
             let answer = self.combine(&job);
-            self.stats.products += 1;
+            #[cfg(feature = "metrics")]
+            {
+                self.stats.products += 1;
+            }
             if self.seen.insert(answer.clone()) {
                 answers.push(answer);
             } else {
-                self.stats.duplicates += 1;
+                #[cfg(feature = "metrics")]
+                {
+                    self.stats.duplicates += 1;
+                }
             }
             if job.next() {
                 self.jobs.push_back(job);
             }
             self.prefer_source = true;
         }
-        self.stats.steps += 1;
+        #[cfg(feature = "metrics")]
+        {
+            self.stats.steps += 1;
+        }
         self.prepared = false;
         if self.refuted {
             self.finish_services()?;
@@ -920,6 +1075,7 @@ mod tests {
         let (rules, query) = looping_region();
         let mut search =
             Search::new_with_worker_hook(rules, query, Mode::Threads(1), 8, 1, hook).unwrap();
+        #[cfg(feature = "metrics")]
         let initial = search.factors[0].source;
         for request in search.prepare_requests().unwrap() {
             search.dispatch(request).unwrap();
@@ -935,13 +1091,12 @@ mod tests {
             unreachable!()
         };
         let response = pool.receive().unwrap();
-        let properties = (
-            response.steps,
-            response.cancelled,
-            response.unserved_quantum_slots,
-            response.answers.len(),
-            response.exhausted,
-        );
+        assert!(response.cancelled);
+        assert!(response.answers.is_empty());
+        assert!(!response.exhausted);
+        assert_eq!(response.raw_completions, 0);
+        #[cfg(feature = "metrics")]
+        assert_eq!((response.steps, response.unserved_quantum_slots), (0, 8));
         search.reservations.receive(response).unwrap();
         // Even a received cancellation acknowledgement cannot become a source
         // turn or empty-factor refutation.
@@ -951,20 +1106,26 @@ mod tests {
             entered,
             "worker did not reach the controlled service boundary"
         );
-        assert_eq!(properties, (0, true, 8, 0, false));
+
+        assert_eq!(search.reservations.outstanding, 0);
+        #[cfg(feature = "metrics")]
         let stats = search.transport_stats();
-        assert_eq!((stats.issued, stats.received, stats.accepted), (1, 1, 0));
-        assert_eq!(
-            (stats.actual_source_steps, stats.accepted_source_steps),
-            (0, 0)
-        );
-        assert_eq!(
-            (stats.cancelled_requests, stats.unserved_quantum_slots),
-            (1, 8)
-        );
-        assert_eq!(stats.unaccepted_at_shutdown, 1);
+        #[cfg(feature = "metrics")]
+        {
+            assert_eq!((stats.issued, stats.received, stats.accepted), (1, 1, 0));
+            assert_eq!(
+                (stats.actual_source_steps, stats.accepted_source_steps),
+                (0, 0)
+            );
+            assert_eq!(
+                (stats.cancelled_requests, stats.unserved_quantum_slots),
+                (1, 8)
+            );
+            assert_eq!(stats.unaccepted_at_shutdown, 1);
+        }
         assert_eq!(search.stats().steps, 0);
         assert_eq!(search.stats().empty_refutations, 0);
+        #[cfg(feature = "metrics")]
         assert_eq!(search.factors[0].source, initial);
         assert_eq!(search.raw_count(), None);
     }
@@ -984,6 +1145,7 @@ mod tests {
             chr_persistent::Search::new(rules, query, chr_persistent::Snapshot::Persistent)
                 .unwrap();
         let cancel = AtomicBool::new(false);
+        let mut serviced = 0;
         let response = service_with_step_hook(
             &mut search,
             Request {
@@ -992,12 +1154,21 @@ mod tests {
                 quantum: 8,
             },
             &cancel,
-            |_| cancel.store(true, Ordering::Release),
+            |_| {
+                serviced += 1;
+                cancel.store(true, Ordering::Release);
+            },
         );
+        assert_eq!(serviced, 1);
+        #[cfg(feature = "metrics")]
         assert_eq!(response.steps, 1);
         assert!(response.cancelled);
+        #[cfg(feature = "metrics")]
         assert_eq!(response.unserved_quantum_slots, 7);
+        assert_eq!(response.raw_completions, control.raw_completions());
+        #[cfg(feature = "metrics")]
         assert_eq!(response.source, SourceStats::read(control.stats()));
+        #[cfg(feature = "metrics")]
         assert_eq!(
             response.observation,
             ObservationStats::read(control.observation_stats())
@@ -1012,10 +1183,15 @@ mod tests {
             region: request.region,
             answers: Vec::new(),
             exhausted: false,
+            raw_completions: 0,
+            #[cfg(feature = "metrics")]
             source: SourceStats::default(),
+            #[cfg(feature = "metrics")]
             observation: ObservationStats::default(),
+            #[cfg(feature = "metrics")]
             steps: 0,
             cancelled: false,
+            #[cfg(feature = "metrics")]
             unserved_quantum_slots: 0,
         }
     }
@@ -1026,7 +1202,11 @@ mod tests {
         let request = reservations.issue(0, 1).unwrap();
         let id = request.id;
         reservations.receive(reply(request)).unwrap();
-        assert_eq!(reservations.stats.received, 1);
+        assert_eq!(reservations.outstanding, 1);
+        assert_eq!(
+            reservations.stats.received,
+            u64::from(crate::COLLECT_METRICS)
+        );
         assert_eq!(reservations.stats.accepted, 0);
         assert!(reservations.issue(1, 1).is_err());
         assert!(
@@ -1048,7 +1228,11 @@ mod tests {
                 .is_err()
         );
         reservations.take(0).unwrap();
-        assert_eq!(reservations.stats.accepted, 1);
+        assert_eq!(reservations.outstanding, 0);
+        assert_eq!(
+            reservations.stats.accepted,
+            u64::from(crate::COLLECT_METRICS)
+        );
         assert!(
             reservations
                 .receive(reply(Request {

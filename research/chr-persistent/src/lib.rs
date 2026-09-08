@@ -1,5 +1,7 @@
 //! Independent scalar controls with immutable terms and explicit state snapshot policies.
-/// Availability of shared term/map diagnostics; legacy Search counters are separate.
+/// Diagnostic availability; operational state remains active in every build.
+pub const COLLECT_METRICS: bool = cfg!(feature = "metrics");
+/// Availability of shared term/map diagnostics; source diagnostics have their own `COLLECT_METRICS` flag.
 pub const COLLECT_KERNEL_METRICS: bool = cfg!(feature = "kernel-metrics");
 mod map;
 mod state;
@@ -51,6 +53,7 @@ pub struct Search {
     mode: Snapshot,
     stats: Stats,
     eager_export: EagerExportStats,
+    raw_completions: u128,
 }
 impl Search {
     pub fn new(rules: Vec<Rule>, query: Query, mode: Snapshot) -> Result<Self, String> {
@@ -71,7 +74,7 @@ impl Search {
         }
         let mut arena = terms::Arena::default();
         let mut stats = Stats {
-            max_frontier: 1,
+            max_frontier: usize::from(COLLECT_METRICS),
             ..Stats::default()
         };
         let initial = state::State::new(query, &mut arena, &mut stats);
@@ -83,6 +86,7 @@ impl Search {
             mode,
             stats,
             eager_export: EagerExportStats::default(),
+            raw_completions: 0,
         })
     }
     pub fn advance(&mut self, budget: usize) -> Batch {
@@ -91,32 +95,55 @@ impl Search {
             let Some(mut branch) = self.frontier.pop_front() else {
                 break;
             };
-            self.stats.steps += 1;
+            if crate::COLLECT_METRICS {
+                self.stats.steps += 1;
+            }
             match branch.step(&self.rules, &mut self.arena, self.mode, &mut self.stats) {
                 state::Event::Continue => self.frontier.push_back(branch),
                 state::Event::Split(sibling) => {
-                    self.stats.splits += 1;
+                    if crate::COLLECT_METRICS {
+                        self.stats.splits += 1;
+                    }
                     self.frontier.push_back(branch);
                     self.frontier.push_back(*sibling);
                 }
-                state::Event::Failed => self.stats.failed += 1,
+                state::Event::Failed => {
+                    if crate::COLLECT_METRICS {
+                        self.stats.failed += 1;
+                    }
+                }
                 state::Event::Complete => {
                     let answer =
                         branch.export_answer(&self.arena, &mut self.stats, &mut self.eager_export);
-                    self.stats.completed += 1;
+                    self.raw_completions = self
+                        .raw_completions
+                        .checked_add(1)
+                        .expect("raw completion count overflow");
+                    if crate::COLLECT_METRICS {
+                        self.stats.completed += 1;
+                    }
                     if self.seen.insert(answer.clone()) {
                         answers.push(answer);
                     } else {
-                        self.stats.duplicates += 1;
+                        if crate::COLLECT_METRICS {
+                            self.stats.duplicates += 1;
+                        }
                     }
                 }
             }
-            self.stats.max_frontier = self.stats.max_frontier.max(self.frontier.len());
+            if crate::COLLECT_METRICS {
+                self.stats.max_frontier = self.stats.max_frontier.max(self.frontier.len());
+            }
         }
         Batch {
             answers,
             exhausted: self.frontier.is_empty(),
         }
+    }
+    /// Exact source completion multiplicity, including observational duplicates.
+    /// This is semantic state, available even when diagnostics are disabled.
+    pub fn raw_completions(&self) -> u128 {
+        self.raw_completions
     }
     pub fn stats(&self) -> &Stats {
         &self.stats

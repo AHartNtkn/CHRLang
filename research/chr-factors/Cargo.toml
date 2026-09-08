@@ -2,10 +2,14 @@
 name = "chr-factors"
 version.workspace = true
 edition.workspace = true
+[features]
+default = ["metrics"]
+metrics = ["chr-persistent/metrics", "chr-observe/metrics"]
+
 [dependencies]
 chr-syntax = { path = "../../crates/chr-syntax" }
-chr-observe = { path = "../chr-observe" }
-chr-persistent = { path = "../chr-persistent" }
+chr-observe = { path = "../chr-observe", default-features = false }
+chr-persistent = { path = "../chr-persistent", default-features = false }
 [dev-dependencies]
 chr-cases = { path = "../chr-cases" }
 chr-reference = { path = "../../crates/chr-reference" }

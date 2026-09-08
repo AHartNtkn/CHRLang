@@ -55,7 +55,14 @@ fn fixtures_and_policies_preserve_full_expected_answers_and_raw_counts() {
             }
             if policy == Policy::EagerGraphCompare {
                 assert_eq!(snap.capture, [0; 3]);
-                assert_eq!(snap.eager_export[0], 32);
+                assert_eq!(
+                    snap.eager_export[0],
+                    if chr_persistent::COLLECT_METRICS {
+                        32
+                    } else {
+                        0
+                    }
+                );
                 assert_eq!(snap.eager_compare, [0; 4]);
                 assert_eq!(snap.graph_compare[4..], [0; 2]);
             }
@@ -83,7 +90,9 @@ fn fixtures_and_policies_preserve_full_expected_answers_and_raw_counts() {
                 }
             );
             assert!(s.exhausted(), "{id} {policy:?}");
-            assert_eq!(s.engine.machine.stats().completed, c.raw_answers, "{id}");
+            if chr_persistent::COLLECT_METRICS {
+                assert_eq!(s.engine.machine.stats().completed, c.raw_answers, "{id}");
+            }
             assert_eq!(s.deliveries.len(), c.expected.len(), "{id} {policy:?}");
             for answer in &c.expected {
                 assert!(
@@ -107,7 +116,15 @@ fn graph_mode_exports_only_recognized_completions_and_retains_only_their_snapsho
     let c = graph_cost_cases::case("dag-4-repeat");
     let mut s = Session::new(c.rules, c.query, Policy::GraphCompare).unwrap();
     s.advance(c.budget).unwrap();
-    assert_eq!(s.counters.capture.snapshots, 32);
+    assert_eq!(s.snapshot().raw_completions, 32);
+    assert_eq!(
+        s.counters.capture.snapshots,
+        if chr_persistent::COLLECT_METRICS {
+            32
+        } else {
+            0
+        }
+    );
     assert_eq!(s.counters.exports, 1);
     assert_eq!(s.index.len(), 1);
     assert_eq!(s.engine.machine.eager_export_stats().answers, 0);

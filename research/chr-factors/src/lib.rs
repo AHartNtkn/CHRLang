@@ -1,4 +1,6 @@
 //! Permanent independent regions with incremental fair product observation.
+/// Diagnostic availability; operational state remains active in every build.
+pub const COLLECT_METRICS: bool = cfg!(feature = "metrics");
 use chr_syntax::{Answer, Constraint, Goal, Query, Rule, Term, Var};
 use std::collections::{BTreeMap, BTreeSet, VecDeque};
 pub mod parallel_regions;
@@ -63,7 +65,9 @@ pub struct Search {
     refuted: bool,
 }
 fn rename(t: &Term, scope: &mut BTreeMap<Var, Var>, next: &mut u64, stats: &mut Stats) -> Term {
-    stats.renamed_nodes += 1;
+    if crate::COLLECT_METRICS {
+        stats.renamed_nodes += 1;
+    }
     match t {
         Term::Var(v) => Term::Var(*scope.entry(*v).or_insert_with(|| {
             let v = Var(*next);
@@ -167,9 +171,9 @@ impl Search {
         if !self.factors.iter().all(|f| f.done) {
             return None;
         }
-        self.factors.iter().try_fold(1u128, |n, f| {
-            n.checked_mul(f.search.stats().completed as u128)
-        })
+        self.factors
+            .iter()
+            .try_fold(1u128, |n, f| n.checked_mul(f.search.raw_completions()))
     }
     pub fn exhausted(&self) -> bool {
         self.refuted || (self.jobs.is_empty() && self.factors.iter().all(|f| f.done))
@@ -215,19 +219,25 @@ impl Search {
             if self.exhausted() {
                 break;
             }
-            self.stats.steps += 1;
+            if crate::COLLECT_METRICS {
+                self.stats.steps += 1;
+            }
             let source = (0..self.factors.len())
                 .map(|n| (self.next_factor + n) % self.factors.len())
                 .find(|i| !self.factors[*i].done);
             if let Some(i) = source.filter(|_| self.prefer_source || self.jobs.is_empty()) {
-                self.stats.source_steps += 1;
+                if crate::COLLECT_METRICS {
+                    self.stats.source_steps += 1;
+                }
                 let b = self.factors[i].search.advance(1);
                 self.factors[i].done = b.exhausted;
                 for answer in b.answers {
                     self.factors[i].produced += 1;
                     if self.factors.len() == 1 {
                         // The identity product needs no cache, renaming or second deduplication.
-                        self.stats.products += 1;
+                        if crate::COLLECT_METRICS {
+                            self.stats.products += 1;
+                        }
                         answers.push(answer);
                         continue;
                     }
@@ -247,24 +257,34 @@ impl Search {
                             sizes,
                             cursor,
                         });
-                        self.stats.product_jobs += 1;
-                        self.stats.max_jobs = self.stats.max_jobs.max(self.jobs.len());
+                        if crate::COLLECT_METRICS {
+                            self.stats.product_jobs += 1;
+                        }
+                        if crate::COLLECT_METRICS {
+                            self.stats.max_jobs = self.stats.max_jobs.max(self.jobs.len());
+                        }
                     }
                 }
                 if self.factors[i].done && self.factors[i].produced == 0 {
                     self.refuted = true;
-                    self.stats.empty_refutations += 1;
+                    if crate::COLLECT_METRICS {
+                        self.stats.empty_refutations += 1;
+                    }
                     self.jobs.clear();
                 }
                 self.next_factor = (i + 1) % self.factors.len();
                 self.prefer_source = false;
             } else if let Some(mut job) = self.jobs.pop_front() {
                 let answer = self.combine(&job);
-                self.stats.products += 1;
+                if crate::COLLECT_METRICS {
+                    self.stats.products += 1;
+                }
                 if self.seen.insert(answer.clone()) {
                     answers.push(answer);
                 } else {
-                    self.stats.duplicates += 1;
+                    if crate::COLLECT_METRICS {
+                        self.stats.duplicates += 1;
+                    }
                 }
                 if job.next() {
                     self.jobs.push_back(job);

@@ -19,7 +19,9 @@ enum Work {
 struct Pending(Option<Rc<(Work, Pending)>>);
 impl Pending {
     fn push(&mut self, work: Work, stats: &mut Stats) {
-        stats.pending_allocations += 1;
+        if crate::COLLECT_METRICS {
+            stats.pending_allocations += 1;
+        }
         self.0 = Some(Rc::new((work, self.clone())));
     }
     fn pop(&mut self) -> Option<Work> {
@@ -37,7 +39,9 @@ impl Pending {
         let mut result = Self::default();
         for w in work.into_iter().rev() {
             result.push(w, stats);
-            stats.storage.snapshot_copies += 1;
+            if crate::COLLECT_METRICS {
+                stats.storage.snapshot_copies += 1;
+            }
         }
         result
     }
@@ -168,10 +172,14 @@ impl State {
                     self.store
                         .insert((pred, self.next_occ), args, &mut stats.storage);
                     self.next_occ += 1;
-                    stats.introductions += 1;
+                    if crate::COLLECT_METRICS {
+                        stats.introductions += 1;
+                    }
                 }
                 Work::Equal(a, b) => {
-                    stats.equations += 1;
+                    if crate::COLLECT_METRICS {
+                        stats.equations += 1;
+                    }
                     if !arena.unify(a, b, &mut self.bindings, stats) {
                         return Event::Failed;
                     }
@@ -202,7 +210,9 @@ impl State {
                 self.history.insert(app.token, (), &mut stats.storage);
                 self.next_var = app.next_var;
                 self.pending.push(app.body, stats);
-                stats.applications += 1;
+                if crate::COLLECT_METRICS {
+                    stats.applications += 1;
+                }
                 return Event::Continue;
             }
         }
@@ -232,9 +242,15 @@ impl State {
                     .collect(),
             })
             .collect();
-        export.answers += 1;
-        export.dereferences += stats.dereferences - before.0;
-        export.storage_visits += stats.storage.visits - before.1;
+        if crate::COLLECT_METRICS {
+            export.answers += 1;
+        }
+        if crate::COLLECT_METRICS {
+            export.dereferences += stats.dereferences - before.0;
+        }
+        if crate::COLLECT_METRICS {
+            export.storage_visits += stats.storage.visits - before.1;
+        }
         Answer { outputs, residual }
     }
     pub(crate) fn into_observation(
@@ -249,9 +265,15 @@ impl State {
             .into_iter()
             .map(|((pred, _), args)| (pred, args))
             .collect::<Vec<_>>();
-        stats.snapshots += 1;
-        stats.residual_occurrences += residual.len() as u64;
-        stats.store_visits += storage.visits;
+        if crate::COLLECT_METRICS {
+            stats.snapshots += 1;
+        }
+        if crate::COLLECT_METRICS {
+            stats.residual_occurrences += residual.len() as u64;
+        }
+        if crate::COLLECT_METRICS {
+            stats.store_visits += storage.visits;
+        }
         crate::observation::CompletedAnswer {
             owner,
             outputs: self.outputs,
@@ -302,7 +324,9 @@ impl State {
             if keys.contains(&key) {
                 continue;
             }
-            stats.head_candidates += 1;
+            if crate::COLLECT_METRICS {
+                stats.head_candidates += 1;
+            }
             let mut trial = scope.clone();
             if first
                 .args

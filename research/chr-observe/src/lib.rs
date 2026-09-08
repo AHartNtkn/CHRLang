@@ -2,6 +2,8 @@
 //!
 //! Outputs fix a partial variable bijection. Residual occurrences are matched as
 //! a multiset under extensions of that same bijection; failed matches roll back.
+/// Diagnostic availability; operational state remains active in every build.
+pub const COLLECT_METRICS: bool = cfg!(feature = "metrics");
 use chr_syntax::{Answer, Constraint, Term, Var};
 
 #[derive(Default, Debug)]
@@ -15,7 +17,9 @@ pub struct Stats {
 struct Bijection(Vec<(Var, Var)>);
 impl Bijection {
     fn terms(&mut self, left: &Term, right: &Term, stats: &mut Stats) -> bool {
-        stats.term_pairs += 1;
+        if crate::COLLECT_METRICS {
+            stats.term_pairs += 1;
+        }
         match (left, right) {
             (Term::Var(a), Term::Var(b)) => {
                 if let Some((_, mapped)) = self.0.iter().find(|(x, _)| x == a) {
@@ -65,11 +69,15 @@ fn match_occurrences(
         return true;
     };
     for (i, candidate) in right.iter().enumerate() {
-        stats.occurrence_scans += 1;
+        if crate::COLLECT_METRICS {
+            stats.occurrence_scans += 1;
+        }
         if used[i] || first.name != candidate.name || first.args.len() != candidate.args.len() {
             continue;
         }
-        stats.occurrence_candidates += 1;
+        if crate::COLLECT_METRICS {
+            stats.occurrence_candidates += 1;
+        }
         let mut extended = mapping.clone();
         if first
             .args
@@ -83,7 +91,9 @@ fn match_occurrences(
             }
             used[i] = false;
         }
-        stats.backtracks += 1;
+        if crate::COLLECT_METRICS {
+            stats.backtracks += 1;
+        }
     }
     false
 }

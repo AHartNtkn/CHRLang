@@ -1,0 +1,25 @@
+FILE /tmp/t043-ir-off/release/deps/chr_observe-51cfaff45f2081cd.ll
+PASS stats argument readnone: define noundef zeroext i1 @_RNvCsdCnGUarR94B_11chr_observe10equivalent(ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %left, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %right, ptr noalias readnone align 8 captures(none) %stats) unnamed_addr #0 personality ptr @rust_eh_personality {
+FILE /tmp/t043-ir-off/release/deps/chr_persistent-82ce59fb7e6a3268.ll
+PASS stats argument readnone: define noundef zeroext i1 @_RNvMNtCskSWU5OEIGYe_14chr_persistent5termsNtB2_5Arena5unify(ptr noalias noundef readonly align 8 captures(none) dereferenceable(144) %self, i64 noundef range(i64 0, 2) %left.0, i64 noundef %left.1, i64 noundef range(i64 0, 2) %right.0, i64 noundef %right.1, ptr noalias noundef align 8 captures(none) dereferenceable(8) %bindings, ptr noalias readnone align 8 captures(none) %stats) unnamed_addr #2 personality ptr @rust_eh_personality {
+PASS stats argument readnone: define internal fastcc noundef zeroext i1 @_RNvMs_NtCskSWU5OEIGYe_14chr_persistent5stateNtB4_5State7matches(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(64) %self, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(48) %pattern, i64 noundef range(i64 0, 2) %value.0, i64 noundef %value.1, ptr noalias noundef nonnull align 8 dereferenceable(24) %scope, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(144) %arena, ptr noalias noundef nonnull readnone align 8 captures(none) dereferenceable(152) %stats) unnamed_addr #2 personality ptr @rust_eh_personality {
+PASS stats argument readnone: define internal fastcc void @_RNvMs_NtCskSWU5OEIGYe_14chr_persistent5stateNtB4_5State13export_answer(ptr dead_on_unwind noalias noundef nonnull writable writeonly align 8 captures(none) dereferenceable(48) %_0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(64) %self, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(144) %arena, ptr noalias noundef nonnull readnone align 8 captures(none) dereferenceable(152) %stats) unnamed_addr #2 personality ptr @rust_eh_personality {
+PASS stats argument readnone: define void @_RNvXNtCskSWU5OEIGYe_14chr_persistent11observationNtB2_4ViewNtNtCsdCnGUarR94B_11chr_observe5graph10AnswerView7resolve(ptr dead_on_unwind noalias noundef writable writeonly sret([40 x i8]) align 8 captures(none) dereferenceable(40) %_0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %self, i64 noundef range(i64 0, 2) %0, i64 noundef %1, ptr noalias noundef readnone align 8 captures(none) dereferenceable(48) %stats) unnamed_addr #2 {
+PASS regional response layout off 64 bytes: define internal fastcc void @_RNvNtCs3OReUKODLDf_11chr_factors16parallel_regions7service(ptr dead_on_unwind noalias noundef nonnull writable writeonly align 16 captures(none) dereferenceable(64) %_0, ptr noalias noundef nonnull align 16 dereferenceable(464) %search, ptr dead_on_return noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %request, ptr noundef nonnull readonly captures(none) %cancel) unnamed_addr #1 personality ptr @rust_eh_personality {
+SERVICE search state access off
+  %18 = getelementptr inbounds nuw i8, ptr %search, i64 176
+PASS regional response layout on 272 bytes: define internal fastcc void @_RNvNtCsfryqAK4qz19_11chr_factors16parallel_regions7service(ptr dead_on_unwind noalias noundef nonnull writable writeonly align 16 captures(none) dereferenceable(272) %_0, ptr noalias noundef nonnull align 16 dereferenceable(464) %search, ptr dead_on_return noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %request, ptr noundef nonnull readonly captures(none) %cancel) unnamed_addr #1 personality ptr @rust_eh_personality {
+SERVICE search state access on
+  %0 = getelementptr inbounds nuw i8, ptr %search, i64 272
+  %19 = getelementptr inbounds nuw i8, ptr %search, i64 176
+  %20 = getelementptr inbounds nuw i8, ptr %search, i64 288
+  %21 = getelementptr inbounds nuw i8, ptr %search, i64 304
+  %22 = getelementptr inbounds nuw i8, ptr %search, i64 320
+  %23 = getelementptr inbounds nuw i8, ptr %search, i64 336
+  %24 = getelementptr inbounds nuw i8, ptr %search, i64 352
+  %25 = getelementptr inbounds nuw i8, ptr %search, i64 368
+  %26 = getelementptr inbounds nuw i8, ptr %search, i64 384
+  %27 = getelementptr inbounds nuw i8, ptr %search, i64 400
+  %28 = getelementptr inbounds nuw i8, ptr %search, i64 416
+  %29 = getelementptr inbounds nuw i8, ptr %search, i64 240
+  %30 = getelementptr inbounds nuw i8, ptr %search, i64 256

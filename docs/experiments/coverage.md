@@ -2,7 +2,7 @@
 
 Future work is selected by its ability to change an architectural or language-design decision under the [sequence](sequence.md). A completed experimental package is evidence for its stated claim; it does not establish that its entire mechanism is resolved or that its follow-ups deserve execution.
 
-**Current selection:** [Mixed-phase lifecycle evidence](results/R05-mixed-pipeline.md) validates 224 processes and shows placement-dependent conditional/explicit outcomes. T042 is complete. T043 selects counter-free coarse-region parallel readiness and a prospective repeated comparison if its interface/control remain credible. Operational ownership must remain distinct from diagnostics; static compilation is the strongest broader alternative. No matrix, hybrid policy or worker expansion is automatic.
+**Current selection:** [Mixed-phase lifecycle evidence](results/R05-mixed-pipeline.md) validates 224 processes and shows placement-dependent conditional/explicit outcomes. T042 is complete. T043 has established [counter-free regional readiness](results/R08-regional-readiness.md), including operational ownership and a specialized serial semantic gate. A new runner and prospective bounded comparison remain before performance claims. Operational ownership must remain distinct from diagnostics; static compilation is the strongest broader alternative. No matrix, hybrid policy or worker expansion is automatic.
 
 ## Question map
 

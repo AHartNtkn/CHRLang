@@ -51,10 +51,14 @@ impl AnswerView for View<'_> {
     }
     fn resolve(&self, mut h: Handle, stats: &mut Stats) -> TermView<'_, Handle, u64> {
         while let Handle::Var(v) = h {
-            stats.dereferences += 1;
+            if chr_observe::COLLECT_METRICS {
+                stats.dereferences += 1;
+            }
             let mut storage = crate::Storage::default();
             let next = self.answer.bindings.get(&v, &mut storage);
-            stats.binding_visits += storage.visits;
+            if chr_observe::COLLECT_METRICS {
+                stats.binding_visits += storage.visits;
+            }
             match next {
                 Some(t) => h = t,
                 None => break,
