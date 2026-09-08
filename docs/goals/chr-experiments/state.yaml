@@ -8,7 +8,7 @@ goal:
   execution_authority: Redesigned goal authorizes implementation and experiments selected under R00 and the governing sequence.
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
-  current_research: Substantive equation source gate validated; current ordinary-CHR join work screen selected
+  current_research: Sufficiency audit selects current substantive equality lifecycle comparison with competent existing controls
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -63,7 +63,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T057
+active_task: T059
 tasks:
   - id: T001
     type: pm
@@ -1620,7 +1620,7 @@ tasks:
   - id: T057
     type: pm
     assignee: PM
-    status: active
+    status: complete
     objective: Determine whether current active indexed recomputation leaves a consequential ordinary-CHR join discovery bottleneck before implementing maintained matching.
     inputs:
       - docs/experiments/registrations/R01-current-join-screen.md
@@ -1637,19 +1637,70 @@ tasks:
       - No timing or total-lifecycle conclusion from instrumentation counts
     stop_if:
       - No maintained backend without surviving competent-control bottleneck evidence.
+    receipt:
+      summary: All32processes and16cells validate exactly; ActiveIndexed steadyrequest visits7candidates and10cursorsteps at bothtable sizes. No maintainedjoin implementation justified for thisfamily.
+      evidence:
+        - docs/experiments/results/R01-current-join-screen.md
+        - docs/experiments/results/r01-current-join-screen/audit.json
+      validation: Independent full endpoints, work, phase, source and binary audit; semantic gates default/off and strict Clippy.
+
+  - id: T058
+    type: pm
+    assignee: PM
+    status: complete
+    objective: Reassess full architectural evidence sufficiency and whether substantive shared-representation reuse merits further implementation relative to remaining alternatives.
+    inputs:
+      - docs/experiments/coverage.md
+      - docs/experiments/results/R07-sufficiency-audit.md
+      - docs/experiments/results/R01-current-join-screen.md
+      - docs/experiments/results/R05-substantive-work-entry.md
+      - docs/experiments/results/E12-equations.md
+    allowed_files:
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    verify:
+      - Audit all relevant questions and plausible followups against decision value and cost
+      - Preserve current contrary observations and incomparable source freezes
+      - Distinguish optional implementation from a necessary competent control
+      - Keep goal active unless every relevant unresolved direction has justified final disposition
+    receipt:
+      summary: All-question audit finds one concrete missing comparison, substantive common equality. Existing dedicated controls suffice; a new cache is conditional followup, not assumed prerequisite.
+      evidence:
+        - docs/experiments/results/R07-sufficiency-current.md
+      validation: Independent sharing/control and non-sharing cost-value audits; coherent current recommendation updated.
+
+  - id: T059
+    type: pm
+    assignee: PM
+    status: active
+    objective: Compare complete substantive equation lifecycle across current Conditional and ordinary/COW Specialized controls with preserved failure and full-answer endpoints.
+    inputs:
+      - docs/experiments/results/R07-sufficiency-current.md
+      - docs/experiments/results/R05-substantive-work-entry.md
+      - research/chr-direct-conditional/tests/equation_support/mod.rs
+    allowed_files:
+      - research/chr-direct-conditional/
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    verify:
+      - Validate full aliases, raw assignments, explicit failed lineages and whole-query exhaustion
+      - Measure all query, service, observation and disposal phases with prepared reuse
+      - Separate counter-free ordinary-allocator timings from diagnostics
+      - Register exact workloads, controls, resource bounds and interpretation before comparisons
+    stop_if:
+      - No intrinsic sharing necessity claim or presumed cache benefit.
     receipt: null
 
 checks:
   dirty_fingerprint: preexisting_unfinished_experimental_files_preserved
   last_verification:
     result: passed
-    task: T055
-    scope: Known-prefix semantic gate and registered complete-cost comparison.
+    task: T057
+    scope: Registered current ordinary-CHR work screen and semantic gates; no timing comparison.
     commands:
-      - cargo test --workspace --all-targets
-      - Final14 carrier tests default, counter-free and COW+fork configurations
-      - Strict all-target Clippy and cargo fmt check
-      - Independent primary ID/answer, source replay, audit and certificate review
+      - Four source gates and runner test in default and counter-free modes
+      - Strict Clippy both modes and cargo fmt check
+      - Independent32run full endpoint, phase, repetition and freeze audit
     evidence:
-      - docs/experiments/results/R05-carrier-prefix-gate.md
-      - docs/experiments/results/r05-carrier-prefix-cost/audit.json
+      - docs/experiments/results/R01-current-join-entry.md
+      - docs/experiments/results/r01-current-join-screen/audit.json

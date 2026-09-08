@@ -222,3 +222,28 @@ ordinary-CHR retained-join opportunity without implementing maintenance. Current
 active nonfirst-head prebinding may already avoid historical repeated-prefix work.
 The equation-sharing question remains plausible and is reassessed after this
 lower-cost screen; neither prototype becomes an automatic work queue.
+
+
+## T057 work result and T058 audit
+
+[Current keyed joins](R01-current-join-screen.md) validate32 processes with exact
+repeated endpoints and counts. Active+Indexed uses7 candidates and10 cursor steps
+per subsequent request at N16 and N128. This family supplies no maintained-state
+justification. No timing or all-join claim follows. T058 now reassesses all relevant
+questions, especially whether substantive shared-operation costs need a new control
+before a bounded architecture comparison. Preserve both the value of competent
+current primitives and the possibility of decision-changing reuse; do not demand
+every imaginable optimization before measuring or assume a current prototype is
+the final control. Goal closure requires the full evidence/value audit.
+
+
+## Current T058 conclusion
+
+[The all-question sufficiency assessment](R07-sufficiency-current.md) selects T059:
+complete substantive common-equation costs with Conditional and ordinary/COW
+Specialized controls. The dedicated arena unifier is a competent existing primitive.
+E12's adverse cache interface and T056's failed-lineage hoist distinction do not
+require an unimplemented cache before measurement. A favorable result would justify
+reassessing that possible control; it would not prove intrinsic sharing necessity.
+Other directions have bounded cost/value dispositions, subject to this final
+comparative evidence. The full goal remains active.
