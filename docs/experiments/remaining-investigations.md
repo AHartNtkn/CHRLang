@@ -8,7 +8,7 @@ The work has three parts: test the distinct execution mechanisms, compare their 
 
 ## Execution order
 
-**The cycle now returns to integrated consuming execution, T072.** The [fresh-derivation confirmation](results/S03-derivation-confirmation.md) establishes substantive gains and adverse cases, with a stronger exact-source control in every configuration. The [four-package breadth review](results/S03-derivation-breadth-review.md) selects newly shared contextual deductions and operationally distinct local rewrites. General lowering, graph observation and broader derivations remain required.
+**The cycle now investigates integrated consuming execution, T072.** Its [shared-deduction gate](results/S02-shared-deduction-gate.md) establishes exact equality-transition reuse with separate resource ownership; total costs are not yet measured. The [fresh-derivation confirmation](results/S03-derivation-confirmation.md) establishes substantive gains and adverse cases, with a stronger exact-source control in every configuration. The [four-package breadth review](results/S03-derivation-breadth-review.md) selects newly shared contextual deductions and operationally distinct local rewrites. General lowering, graph observation and broader derivations remain required.
 
 | Order | Investigation | Why it comes here; what it must deliver |
 |---|---|---|
