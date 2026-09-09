@@ -1,6 +1,6 @@
 # R00: architectural alternatives and first experiment selection
 
-Current evidence: the [resumable lifecycle and ownership attribution](S10-resumable-lifecycle.md) validate 4920 processes, stable-history gains and mixed-source penalties. Redundant equality invalidation remains consequential. T078 next compares [change-sensitive invalidation and source elimination](S10-equality-invalidation-entry.md); broader language, lifetime and architecture questions remain required.
+Current evidence: the [equality invalidation/source-elimination gate](S10-equality-invalidation-gate.md) distinguishes complementary controls. Dynamic-alias eager/resumable offers fall from 153 to 17 with same-root detection; constructor self-equality falls to 16 only with source elimination. Full-answer and progress gates pass. Lifecycle costs remain unmeasured; T078 stays active.
 
 The [resource-fusion lifecycle pilot](S06-resource-fusion-lifecycle.md) completes 1350 processes and 180 exact allocation pairs. Inference and certification can outweigh execution savings; timing remains exploratory with clock-overhead evidence. All owners restore. The [S10 entry](S10-composition-entry.md) selects T078 coherent-path capability and mixed-source qualification. T073 and the other unresolved component directions remain required.
 

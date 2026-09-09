@@ -161,7 +161,7 @@ fn consuming_the_first_prefix_advances_to_the_next_live_pair() {
 }
 
 #[test]
-fn equality_invalidation_is_an_adverse_control_for_saved_progress() {
+fn redundant_equality_exposes_invalidation_policy() {
     use chr_syntax::{and, eq};
     let rules = vec![Rule::propagate(
         "visit",
@@ -183,6 +183,13 @@ fn equality_invalidation_is_an_adverse_control_for_saved_progress() {
         }],
     );
     #[cfg(feature = "local-work")]
-    assert_eq!(counts, vec![152, 152, 152]);
+    assert_eq!(
+        counts,
+        if cfg!(feature = "precise-invalidation") {
+            vec![16, 152, 16]
+        } else {
+            vec![152, 152, 152]
+        }
+    );
     println!("equality-reset eager/demand/resumable offered={counts:?}");
 }

@@ -92,6 +92,8 @@ pub struct Store {
     failed: bool,
     share_deductions: bool,
     equality_state: usize,
+    #[cfg(feature = "precise-invalidation")]
+    last_step_changed: bool,
 }
 impl Store {
     pub fn with_persistent_equality(mut self) -> Self {
@@ -197,13 +199,27 @@ impl Store {
         }
         false
     }
+    /// Whether the most recent queue step could change matching information.
+    /// Same-root work still progresses the queue but does not invalidate matches.
+    #[cfg(feature = "precise-invalidation")]
+    pub fn last_step_changed(&self) -> bool {
+        self.last_step_changed
+    }
     pub fn step(&mut self) -> bool {
+        #[cfg(feature = "precise-invalidation")]
+        {
+            self.last_step_changed = false;
+        }
         let Some((a, b)) = self.equations.pop_front() else {
             return false;
         };
         let (a, b) = (self.root(a), self.root(b));
         if a == b {
             return true;
+        }
+        #[cfg(feature = "precise-invalidation")]
+        {
+            self.last_step_changed = true;
         }
         let key = (self.equality_state, a, b);
         if self.share_deductions {

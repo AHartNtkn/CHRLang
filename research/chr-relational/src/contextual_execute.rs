@@ -274,10 +274,16 @@ impl Engine {
             return Step::Exhausted;
         };
         if state.store.step() {
-            // Equality changes both canonical keys and positive guard entailment.
-            // Conservatively invalidate even when this queued deduction is redundant.
-            state.candidates.fill(None);
-            state.cursors.fill(None);
+            // Distinct-root work can change canonical keys, partial constructor
+            // descriptions or guards. Same-root work still advances the queue.
+            #[cfg(feature = "precise-invalidation")]
+            let invalidate = state.store.last_step_changed();
+            #[cfg(not(feature = "precise-invalidation"))]
+            let invalidate = true;
+            if invalidate {
+                state.candidates.fill(None);
+                state.cursors.fill(None);
+            }
         }
         if state.store.failed() {
             return Step::Progress;

@@ -1,6 +1,6 @@
 # The comparisons still needed to choose the architecture
 
-The [resumable lifecycle](results/S10-resumable-lifecycle.md) establishes stable-history gains, mixed-source penalties and a large equality-reset cost. T078 next investigates [invalidation versus source elimination](results/S10-equality-invalidation-entry.md); broader language and architecture obligations remain required.
+The [equality invalidation/source-elimination gate](results/S10-equality-invalidation-gate.md) establishes different work savings from runtime detection and source analysis. T078 next registers their bounded lifecycle attribution; broader language and architecture obligations remain required.
 
 ## Starting evidence and immediate decision
 
@@ -18,7 +18,7 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-**Equality invalidation and source elimination are selected under T078/S10.** Compare actual information changes with queue progress, and runtime tracking with avoiding trivial equations before execution. Preserve newly enabled earlier applications and partial deductions.
+**Equality invalidation and source elimination remain selected under T078/S10.** The source/work gate passes. Register and measure full lifecycle costs of the two controls, including meaningful-change and mixed-source adverse cases, before attributing the previous reset penalty to an architecture.
 
 The order below incorporates the latest component evidence and the S10 entry decision. Each numbered row has a separate architectural question and completion boundary. The detailed mechanism specifications later in this document define its controls and adverse cases. A row containing several mechanisms requires a conclusion for each; completing one does not complete the row.
 
