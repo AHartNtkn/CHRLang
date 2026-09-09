@@ -64,8 +64,28 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T073
+active_task: T078
 tasks:
+  - id: T078
+    type: pm
+    assignee: PM
+    status: active
+    objective: Establish and independently qualify at least two coherent complete execution paths on mixed-mechanism sources, including a serious alternative, with explicit semantic capability and responsibility maps before whole-path cost registration.
+    next_action: Audit existing compiled, relational/contextual and direct conditional paths against the common contract. Select two credible alternatives from actual capabilities; register joins/aliases/search, equality/failure/observation and lowering/resource interactions, including ordinary behavior outside optimization eligibility. Implement missing required capabilities rather than silently narrowing the contract. Reconsider unresolved component work after this gate.
+    inputs:
+      - docs/experiments/results/S10-composition-entry.md
+      - docs/experiments/results/S06-resource-fusion-lifecycle.md
+      - docs/experiments/results/S02-multihead-ownership.md
+      - docs/experiments/results/S04-repeated-reunion-ownership.md
+      - docs/experiments/sequence.md
+      - docs/experiments/coverage.md
+      - docs/experiments/question-to-experiment-map.md
+    allowed_files:
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+      - research/
+      - Cargo.toml
+      - Cargo.lock
   - id: T077
     type: pm
     assignee: PM
@@ -217,9 +237,9 @@ tasks:
   - id: T073
     type: pm
     assignee: PM
-    status: active
-    progress: Source-derived private effectful fusion passes a 360-query matrix with 280 admitted and 80 insufficient-resource rejections. Independent before/after answers and generic/specialized Scan agree; key partition, late aliases, fresh capture and source boundaries validate. A trace reduces six applications to three. No lifecycle cost ranking follows.
-    next_action: Register original/fused complete lifecycle costs with generic/specialized Scan and Indexed contrast. Charge inference, emitted preparation and per-query count certification across zero/one/many firings, aliases, duplicate alternatives and spare resources. Reconsider native integrated costs, adaptive reunion and coherent composition after this bounded package.
+    status: pending
+    progress: Resource fusion completes 1350 lifecycle processes with 180 exact allocation pairs and full disposal restoration. Inference/certification can offset execution savings; five-sample timing remains exploratory, with a 5000-sample clock-overhead diagnostic. T078 coherent-path qualification is selected next.
+    next_action: Broader resource derivations, source eligibility, timing precision, native compilation costs and sustained artifact lifetime remain required. Reconsider these after the first S10 mixed-source gate; the bounded fusion result does not close S06 or S07.
     objective: Derive a source-driven lowering transformation beyond exact schemas, with explicit dependency/resource conditions, independent complete-answer checks and consequential language-property boundaries before cost measurement.
     inputs:
       - docs/experiments/results/S06-resource-fusion-gate.md
@@ -2315,14 +2335,16 @@ checks:
   last_verification:
     result: passed
     task: T073
-    scope: Source-derived resource fusion and counted query eligibility.
+    scope: Resource-fusion lifecycle, inference/certification accounting and clock diagnostic.
     commands:
-      - cargo test -p chr-compiled --lib --test pure_prefix --test resource_fusion
-      - cargo test -p chr-compiled --lib --test pure_prefix --test resource_fusion --no-default-features
-      - cargo clippy -p chr-compiled --test resource_fusion --no-deps -- -D warnings
-      - Explicit-file formatting, evidence links and query-count receipt
+      - 90 preflights, 360 allocation runs and 900 ordinary timing runs
+      - 180 exact allocation pairs and all query/cancel/prepared/inference owner baselines
+      - 5000-sample registered empty-closure clock probe
+      - Counter-free source tests and scoped Clippy for allocation and ordinary builds
+      - Cell/order/source audits, explicit-file formatting and evidence links
     evidence:
-      - docs/experiments/results/S06-resource-fusion-gate.md
-      - docs/experiments/results/s06-resource-fusion-gate/default.log
-      - docs/experiments/results/s06-resource-fusion-gate/counter-free.log
-      - docs/experiments/results/s06-resource-fusion-gate/clippy.log
+      - docs/experiments/results/S06-resource-fusion-lifecycle.md
+      - docs/experiments/results/s06-resource-fusion-lifecycle/allocation-audit.json
+      - docs/experiments/results/s06-resource-fusion-lifecycle/timing-audit.json
+      - docs/experiments/results/s06-resource-fusion-lifecycle/clock-audit.json
+      - docs/experiments/results/S10-composition-entry.md

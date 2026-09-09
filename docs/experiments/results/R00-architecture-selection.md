@@ -1,6 +1,6 @@
 # R00: architectural alternatives and first experiment selection
 
-The [resource-fusion gate](S06-resource-fusion-gate.md) infers an effectful producer/consumer fusion with a per-query counted-resource certificate. A 360-query matrix admits 280 and rejects 80 insufficient-resource cases; independent before/after answers and generic/specialized Scan agree. Six traced applications become three. Availability, key ownership and source order are substantive conditions. T073 next charges inference, query certification and complete lifecycle; no cost or architecture ranking follows.
+The [resource-fusion lifecycle pilot](S06-resource-fusion-lifecycle.md) completes 1350 processes and 180 exact allocation pairs. Inference and certification can outweigh execution savings; timing remains exploratory with clock-overhead evidence. All owners restore. The [S10 entry](S10-composition-entry.md) selects T078 coherent-path capability and mixed-source qualification. T073 and the other unresolved component directions remain required.
 
 The [resident replay gate](S04-resident-replay-source-gate.md) removes repeated reconstruction when only one branch remains: 100 continuing service calls now execute 100 rather than 5,050 source steps. Exact finite/ongoing event traces, independent answers and checkpoint release checks pass; all 72 broader work cells validate. Competing branches still expose large reconstruction counts. T077 remains active for complete cost/ownership comparison and actual temporary reunion; no timing conclusion follows.
 

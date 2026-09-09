@@ -1,10 +1,10 @@
 # The comparisons still needed to choose the architecture
 
-The [resource-fusion gate](results/S06-resource-fusion-gate.md) infers an effectful producer/consumer fusion with a per-query counted-resource certificate. A 360-query matrix admits 280 and rejects 80 insufficient-resource cases; independent before/after answers and generic/specialized Scan agree. Six traced applications become three. Availability, key ownership and source order are substantive conditions. T073 next charges inference, query certification and complete lifecycle; no cost or architecture ranking follows.
+The [resource-fusion lifecycle pilot](results/S06-resource-fusion-lifecycle.md) completes 1350 processes and 180 exact allocation pairs. Inference and certification can outweigh execution savings; timing remains exploratory with clock-overhead evidence. All owners restore. The [S10 entry](results/S10-composition-entry.md) selects T078 coherent-path capability and mixed-source qualification. T073 and the other unresolved component directions remain required.
 
 ## Starting evidence and immediate decision
 
-The next bounded package charges source inference, emitted preparation and changed-query resource certification for the private effectful fusion, against original generic/specialized Scan and an Indexed access contrast. Include zero/one/many firings, spare resources, aliases and duplicate alternatives. The [source-gate decision](results/S06-resource-fusion-gate.md#next-decision-charge-inference-and-query-certification) requires reconsidering native integrated costs, adaptive reunion and coherent composition after this lifecycle package.
+The next bounded package audits and qualifies at least two coherent execution paths under T078/S10. Inspect actual source capabilities and responsibility boundaries before registering mixed joins/aliases/search, failure/observation and lowering/resource sources. The [S10 entry decision](results/S10-composition-entry.md) keeps native component costs, adaptive reunion and every consequential open direction accountable.
 
 The completed [restoration pilot](results/S04-resident-cost-pilot.md), [reunion source gate](results/S04-reunion-source-gate.md), [ownership/identity comparison](results/S04-reunion-identity-attribution.md), [strong-control gate](results/S04-reunion-strong-controls.md) and [complete-cost pilot](results/S04-reunion-complete-pilot.md) supply controls. They do not resolve repeated dynamic reunion or general source inference.
 
@@ -18,12 +18,13 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-**Repeated-update attribution is complete; repeated dynamic separation/reunion is selected next.** The current worktree already supplies bounded call-reuse and structural-solving trials. Their broader questions remain required, but those completed trials are evidence to build on, not experiments to start again.
+**Coherent-path qualification is selected next under T078/S10.** The current worktree supplies bounded matching, reunion, call-reuse, structural-solving and resource-fusion trials. Their broader questions remain required; their results now provide controls for testing interactions between mechanisms.
 
-The order below incorporates the complete reunion pilot and its linked source freeze. Each numbered row has a separate architectural question and completion boundary. The detailed mechanism specifications later in this document define its controls and adverse cases. A row containing several mechanisms requires a conclusion for each; completing one does not complete the row.
+The order below incorporates the latest component evidence and the S10 entry decision. Each numbered row has a separate architectural question and completion boundary. The detailed mechanism specifications later in this document define its controls and adverse cases. A row containing several mechanisms requires a conclusion for each; completing one does not complete the row.
 
 | Order | Required investigation | What its result must decide |
 |---|---|---|
+| Current | **Coherent-path entry (T078 / S10).** Audit existing complete candidates and qualify mixed-mechanism sources before whole-path costs. | Whether semantic capability, ownership and optimization interactions support at least two credible complete alternatives; retain all unresolved component directions. |
 | 1 | **Bounded pilot complete; broader restoration remains required (T077 / S04-A).** Compare copying, persistence/COW, undo, root replay and checkpoint intervals on read-heavy and mutation-heavy states, shallow/wide and deep search, early/late failure, changed queries and cancellation. | Whether avoiding sole-branch reconstruction changes the time–memory tradeoff once preparation, switching, complete answers and disposal count. The [source gate](results/S04-resident-replay-source-gate.md) and [cost pilot](results/S04-resident-cost-pilot.md) now supply bounded evidence. Alternative policies and broader state/lifetime regimes remain required. |
 | 2 | **Bounded reunion costs complete; broader reunion and adaptive splitting remain required (T077 / S04-B/C).** Repeated dynamic reunion has bounded source/work/allocation evidence; adaptive splitting and broader lifetime remain required before general conclusions. Use same-predicate independent occurrences, late aliases/calls and shared consumables. Compare ordinary execution, permanent factoring and temporary separation; separately compare fixed and demand-sensitive splitting. | Whether temporary independence or economical split timing can replace retained shared execution. Include frequent reunion, immediate failure and no useful separation. Preserve correlation, source progress, resource claims and propagation history. Checkpoints alone cannot answer either question. |
 | 3 | **Complete integrated execution (T072 / S02-A/B).** Carry the corrected dependency lifecycle controls into broader source/ownership comparison, then compare CHR-expressed equality, strategic local rewrites and the strongest contextual/scanned/indexed controls on full equality-enabled consuming sources. | Which service boundaries actually disappear, whether interleaving avoids useful work, and what repair/ownership costs remain. Keep scheduling differences explicit. An isolated equality operation cannot decide the complete organization. |
@@ -65,7 +66,7 @@ The order below incorporates the complete reunion pilot and its linked source fr
 
 ## Next discriminating comparisons
 
-**The specifications below are organized by question; their numbers are not the execution order.** T073 source-derived resource-aware lowering is active, as recorded in the current selection above. Integrated execution, broader call reuse and structural solving remain required beyond their bounded source and cost gates.
+**The specifications below are organized by question; their numbers are not the execution order.** T078 coherent-path capability and mixed-source qualification is active, as recorded in the current selection above. Integrated execution, broader call reuse and structural solving remain required beyond their bounded source and cost gates.
 
 These are experiment specifications, not claims of results. Each comparison requires a source gate, exploratory sizing, prospective confirmation and a decision record. Exact sizes follow sizing; thresholds and repetitions must be fixed before confirmation under the [common measurement rules](sequence.md#registration-bounds-and-interpretation).
 
