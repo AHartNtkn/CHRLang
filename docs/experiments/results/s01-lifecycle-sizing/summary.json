@@ -1,0 +1,62 @@
+{
+  "cells": 280,
+  "complete_queries": 2380,
+  "failures": [],
+  "seed": 7001,
+  "extra_artifacts": {
+    "dispatch64-off": {
+      "source_sha256": "4b13f90af185bb50a908fe8251a46f0d56e826df0ab2fe7fde402cf6befb115e",
+      "binary_sha256": "cd766721bf07ce59e44a4389a0ef7652377e006141c6f20619c3ed58399bfbe1",
+      "binary_bytes": 5329360
+    },
+    "dispatch64-thin": {
+      "source_sha256": "4b13f90af185bb50a908fe8251a46f0d56e826df0ab2fe7fde402cf6befb115e",
+      "binary_sha256": "0fd65bec4c32926a6a3eca4e3252a42d6cfe1edccdbcaff6d12c74596f9321b9",
+      "binary_bytes": 3274488
+    }
+  },
+  "maximum_phases": {
+    "setup_ns": {
+      "ns": 131079,
+      "cell": "run-off-subscription-specialized-32-1"
+    },
+    "execute_ns": {
+      "ns": 1654838,
+      "cell": "run-off-subscription-specialized-32-1"
+    },
+    "observation_ns": {
+      "ns": 65616,
+      "cell": "run-thin-subscription-native-planned-32-16"
+    },
+    "engine_drop_ns": {
+      "ns": 66045,
+      "cell": "run-thin-subscription-native-planned-32-16"
+    },
+    "answer_drop_ns": {
+      "ns": 87108,
+      "cell": "run-off-payload-native-32-1"
+    },
+    "query_ns": {
+      "ns": 1874005,
+      "cell": "run-off-subscription-specialized-32-1"
+    },
+    "source_ns": {
+      "ns": 124717,
+      "cell": "run-off-dispatch64-native-32-16"
+    },
+    "prepare_ns": {
+      "ns": 358423,
+      "cell": "run-off-dispatch64-native-specialized-32-1"
+    },
+    "prepared_drop_ns": {
+      "ns": 31337,
+      "cell": "run-off-dispatch64-native-32-1"
+    },
+    "lifecycle_ns": {
+      "ns": 24851794,
+      "cell": "run-off-subscription-specialized-32-16"
+    }
+  },
+  "parent_commit": "fd569775db86a78a92b02c8890dc22109ff2dc3b",
+  "interpretation": "Exploratory sizing only; no comparative ranking"
+}

@@ -1,0 +1,27 @@
+{
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "",
+  "command": [
+    "rustc",
+    "--edition",
+    "2024",
+    "-C",
+    "opt-level=3",
+    "-C",
+    "codegen-units=1",
+    "-C",
+    "lto=thin",
+    "/home/ahart/Documents/CHRLang/target/s01-link-optimization/dispatch64.rs",
+    "--extern",
+    "chr_compiled=/home/ahart/Documents/CHRLang/target/s01-link-optimization/runtime/release/libchr_compiled.rlib",
+    "-L",
+    "dependency=/home/ahart/Documents/CHRLang/target/s01-link-optimization/runtime/release/deps",
+    "-o",
+    "/home/ahart/Documents/CHRLang/target/s01-link-optimization/dispatch64-thin"
+  ],
+  "elapsed_seconds": 3.554640430957079,
+  "child_cpu_seconds": 16.272434999999998,
+  "address_space_bytes": 4294967296,
+  "timeout_seconds": 60
+}
