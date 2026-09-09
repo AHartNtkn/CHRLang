@@ -1,0 +1,11 @@
+# Next: retain useful contextual matching progress without retaining every tuple
+
+The eager contextual control can retain many candidates before selecting one. The restarting-demand control avoids that retention but repeats discovery through propagation history. T078 next tests a resumable matching organization between these measured alternatives, using filtered conditional execution and Scan as additional complete-path controls where relevant.
+
+Inspect `Store::find_match` and contextual execution's candidate/history lifecycle before choosing the continuation representation. Establish the actual validity boundary of saved matching progress. A cursor must not skip a newly enabled earlier application after binding, insertion or resource consumption, and it must preserve alternative environments for partial constructor information.
+
+The first gate needs a source where repeated rejected history is avoided, a dense productive source, changed-binding and newly posted-head counterexamples, duplicate occurrences and guards, plus finite-answer progress beside ongoing work. Use independent complete observations and direct work evidence that saved progress survives a meaningful sequence of applications. Caching one successful answer or merely changing an API does not establish this mechanism.
+
+Charge cursor construction, retained environments, invalidation, resumption and disposal in subsequent lifecycle costs. Preserve the eager and restarting-demand implementations as deliberate experiment controls. Do not assume a global generation check or a predicate-only dependency check is either necessary or sufficient; establish the conditions against actual source semantics.
+
+This investigation could change the time–memory tradeoff and necessary matching/history responsibilities across complete contextual execution. The strongest ready alternative is support-aware conditional joining, still unresolved after the [filtering lifecycle](S10-selective-discovery-lifecycle.md). The known history adverse regime makes resumable contextual discovery ready for a distinct discriminating test. Reconsider conditional joining after the first source/work gate; the wider architecture and language obligations remain active.

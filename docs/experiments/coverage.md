@@ -1,6 +1,6 @@
 # Unanswered architecture questions and experimental ownership
 
-Current evidence: the [selective discovery gate](results/S10-selective-discovery-gate.md) preserves full-source tests while reducing branch-specific candidates, but adds ticks on dense and early-failure controls. T078 next measures lifecycle costs against existing conditional execution and stronger controls. Broader language, lifetime and architecture comparisons remain required.
+Current evidence: the [filtered-discovery lifecycle](results/S10-selective-discovery-lifecycle.md) validates 2100 processes and 300 exact allocation pairs. It reduces branch-specific conditional costs but adds dense/counting overhead; stronger Scan controls remain consequential. T078 next investigates [resumable contextual discovery](results/S10-resumable-contextual-entry.md). Broader language, lifetime and architecture questions remain required.
 
 The [resource-fusion lifecycle pilot](results/S06-resource-fusion-lifecycle.md) completes 1350 processes and 180 exact allocation pairs. Inference and certification can outweigh execution savings; timing remains exploratory with clock-overhead evidence. All owners restore. The [S10 entry](results/S10-composition-entry.md) selects T078 coherent-path capability and mixed-source qualification. T073 and the other unresolved component directions remain required.
 
