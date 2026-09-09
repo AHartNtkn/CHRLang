@@ -1,0 +1,45 @@
+warning: method `access_key` is never used
+   --> research/chr-integrated/../chr-compiled/src/generate.rs:229:8
+    |
+227 | impl Emit {
+    | --------- method in this implementation
+228 |     /// A key exists only when every source-pattern component is established.
+229 |     fn access_key(&mut self, term: &Term) -> String {
+    |        ^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `emit_access` is never used
+   --> research/chr-integrated/../chr-compiled/src/generate.rs:255:8
+    |
+255 | pub fn emit_access(name: &str, rules: &[Rule]) -> Result<String, String> {
+    |        ^^^^^^^^^^^
+
+warning: function `update_columns` is never used
+   --> research/chr-integrated/../chr-compiled/src/generate.rs:400:8
+    |
+400 | pub fn update_columns(rules: &[Rule]) -> BTreeMap<(String, usize), BTreeSet<usize>> {
+    |        ^^^^^^^^^^^^^^
+
+warning: `chr-integrated` (build script) generated 3 warnings
+   Compiling chr-relational v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-relational)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.35s
+     Running unittests src/lib.rs (target/debug/deps/chr_relational-6530f41a48475f36)
+
+running 1 test
+
+thread 'execute::interleaving_tests::merged_constructor_facts_are_unique_but_source_occurrences_are_not' (141) panicked at research/chr-relational/src/interleaving_tests.rs:105:5:
+assertion `left == right` failed
+  left: 2
+ right: 1
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test execute::interleaving_tests::merged_constructor_facts_are_unique_but_source_occurrences_are_not ... FAILED
+
+failures:
+
+failures:
+    execute::interleaving_tests::merged_constructor_facts_are_unique_but_source_occurrences_are_not
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p chr-relational --lib`

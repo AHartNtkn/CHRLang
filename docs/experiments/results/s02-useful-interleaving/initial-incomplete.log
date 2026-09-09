@@ -1,0 +1,40 @@
+warning: method `access_key` is never used
+   --> research/chr-integrated/../chr-compiled/src/generate.rs:229:8
+    |
+227 | impl Emit {
+    | --------- method in this implementation
+228 |     /// A key exists only when every source-pattern component is established.
+229 |     fn access_key(&mut self, term: &Term) -> String {
+    |        ^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `emit_access` is never used
+   --> research/chr-integrated/../chr-compiled/src/generate.rs:255:8
+    |
+255 | pub fn emit_access(name: &str, rules: &[Rule]) -> Result<String, String> {
+    |        ^^^^^^^^^^^
+
+warning: function `update_columns` is never used
+   --> research/chr-integrated/../chr-compiled/src/generate.rs:400:8
+    |
+400 | pub fn update_columns(rules: &[Rule]) -> BTreeMap<(String, usize), BTreeSet<usize>> {
+    |        ^^^^^^^^^^^^^^
+
+warning: `chr-integrated` (build script) generated 3 warnings
+   Compiling chr-relational v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-relational)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.31s
+     Running unittests src/lib.rs (target/debug/deps/chr_relational-6530f41a48475f36)
+
+running 1 test
+depth=4 deep=false fail=false interleaved=5 settled=5
+depth=4 deep=false fail=true interleaved=2 settled=5
+depth=4 deep=true fail=false interleaved=5 settled=5
+depth=4 deep=true fail=true interleaved=5 settled=5
+depth=16 deep=false fail=false interleaved=17 settled=17
+depth=16 deep=false fail=true interleaved=2 settled=17
+depth=16 deep=true fail=false interleaved=17 settled=17
+depth=16 deep=true fail=true interleaved=17 settled=17
+depth=64 deep=false fail=false interleaved=65 settled=65
+depth=64 deep=false fail=true interleaved=2 settled=65
+test execute::interleaving_tests::useful_early_failure_and_settlement_dependent_control has been running for over 60 seconds

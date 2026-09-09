@@ -236,3 +236,7 @@ impl Engine {
         Step::Progress
     }
 }
+
+#[cfg(test)]
+#[path = "interleaving_tests.rs"]
+mod interleaving_tests;

@@ -23,3 +23,7 @@ Then implement the smallest complete source path that exercises a surviving dist
 ## Unfinished work remains explicit
 
 T071's demand cost package is measured, but its actual local pull-tab operations, cross-application fresh templates, broader aliases and sustainable lifetime remain open under S03. They return at the next breadth review, along with broader lowering. T072 owns this contextual/local-rewrite package; its completion cannot close S02 or the research goal.
+
+## First evidence
+
+The [useful-interleaving control](S02-useful-interleaving-control.md) shows the existing relational executor already avoids equality work through consuming early failure. It also repairs duplicate constructor facts exposed by deep matching. Next establish shared contextual consequences with context-local resource claims; partial access and incidence indexing alone cannot distinguish a new organization from this corrected control.

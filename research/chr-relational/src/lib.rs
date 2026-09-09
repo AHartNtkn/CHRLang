@@ -57,7 +57,20 @@ impl View {
             },
         );
     }
+    fn duplicate_constructor(&self, key: &Relation, values: &[Value]) -> bool {
+        if !matches!(key, Relation::Constructor(..)) {
+            return false;
+        }
+        self.tables.get(key).is_some_and(|table| {
+            table.columns[0]
+                .get(&values[0])
+                .is_some_and(|bucket| bucket.iter().any(|i| table.rows[*i].values == values))
+        })
+    }
     fn insert(&mut self, key: Relation, fact: Fact) {
+        if self.duplicate_constructor(&key, &fact.values) {
+            return;
+        }
         let table = self.tables.entry(key.clone()).or_default();
         if table.columns.is_empty() {
             table.columns.resize_with(fact.values.len(), BTreeMap::new);
@@ -110,6 +123,12 @@ impl View {
                 if *value == old {
                     *value = new;
                 }
+            }
+            // Constructor rows express facts, whereas source rows own distinct
+            // occurrences. A merge may make facts identical; only facts coalesce.
+            if self.duplicate_constructor(&key, &self.tables[&key].rows[index].values) {
+                self.tables.get_mut(&key).unwrap().live.remove(&index);
+                continue;
             }
             self.attach(&key, index);
             if matches!(key, Relation::Constructor(..)) {
