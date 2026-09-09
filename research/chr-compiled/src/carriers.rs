@@ -12,6 +12,32 @@ pub(crate) struct Plan {
     pred: usize,
     control: usize,
     step: String,
+    update: Option<Update>,
+}
+#[derive(Clone)]
+struct Update {
+    parameters: Vec<usize>,
+    args: Vec<Template>,
+    slots: usize,
+}
+impl Update {
+    fn apply(&self, core: &mut Core, args: &[Term], control: usize, child: Term) -> Vec<Term> {
+        let mut frame = Frame::new(self.slots, core.next_var);
+        for (i, slot) in self.parameters.iter().enumerate() {
+            frame.slots[*slot] = Some(if i == control { child } else { args[i] });
+        }
+        // Eligibility proves every slot read here was supplied by the head.
+        self.args
+            .iter()
+            .map(|t| core.instantiate(t, &mut frame))
+            .collect()
+    }
+}
+fn bound(t: &Template, slots: &BTreeSet<usize>) -> bool {
+    match t {
+        Template::Slot(s) => slots.contains(s),
+        Template::App(_, args) => args.iter().all(|t| bound(t, slots)),
+    }
 }
 fn infer(rules: &[Prepared], uses: &[(usize, usize)]) -> Option<(usize, Plan)> {
     if uses.len() != 2 || uses[0].0 == uses[1].0 {
@@ -62,6 +88,8 @@ fn infer(rules: &[Prepared], uses: &[(usize, usize)]) -> Option<(usize, Plan)> {
             if *pred != head.pred || args.len() != head.args.len() {
                 continue;
             }
+            let mut unchanged = true;
+            let mut parameters = Vec::new();
             for (i, arg) in args.iter().enumerate() {
                 let expected = if i == control {
                     *child
@@ -71,9 +99,14 @@ fn infer(rules: &[Prepared], uses: &[(usize, usize)]) -> Option<(usize, Plan)> {
                     };
                     *s
                 };
-                if !matches!(arg,Template::Slot(slot) if *slot==expected) {
-                    valid = false;
-                }
+                parameters.push(expected);
+                let same = matches!(arg,Template::Slot(slot) if *slot==expected);
+                unchanged &= same;
+                valid &= if i == control {
+                    same
+                } else {
+                    bound(arg, &slots)
+                };
             }
             if valid {
                 return Some((
@@ -82,6 +115,11 @@ fn infer(rules: &[Prepared], uses: &[(usize, usize)]) -> Option<(usize, Plan)> {
                         pred: *pred,
                         control,
                         step: name.clone(),
+                        update: (!unchanged).then(|| Update {
+                            parameters,
+                            args: args.clone(),
+                            slots: step.slots,
+                        }),
                     },
                 ));
             }
@@ -146,6 +184,7 @@ pub(crate) struct Job {
     rule: usize,
     id: u64,
     args: Vec<Term>,
+    updated: Option<Vec<Term>>,
     phase: Phase,
 }
 impl Engine {
@@ -171,6 +210,7 @@ impl Engine {
             rule: app.rule,
             id: 0,
             args: vec![],
+            updated: None,
             phase: Phase::AwaitInsert,
         });
     }
@@ -216,8 +256,20 @@ impl Engine {
                 if let Term::Node(id) = value {
                     let node = self.core.arena.node(id);
                     if node.name == job.plan.step && node.args.len() == 1 {
+                        let child = node.args[0];
+                        if !self.trace_enabled
+                            && !self.audit_enabled
+                            && let Some(update) = &job.plan.update
+                        {
+                            job.updated = Some(update.apply(
+                                &mut self.core,
+                                job.updated.as_deref().unwrap_or(&job.args),
+                                job.plan.control,
+                                child,
+                            ));
+                        }
                         job.phase = Phase::Check {
-                            cursor: node.args[0],
+                            cursor: child,
                             steps: steps.checked_add(1).expect("carrier depth"),
                         };
                         self.carrier = Some(job);
@@ -233,6 +285,9 @@ impl Engine {
                     self.core.stats.carrier_contractions += 1;
                 }
                 if self.trace_enabled || self.audit_enabled {
+                    // Replay from the original occurrence even if diagnostics
+                    // were enabled partway through primary inspection.
+                    job.updated = None;
                     job.phase = Phase::Expand { remaining: steps };
                     self.carrier = Some(job);
                     return true;
@@ -244,6 +299,9 @@ impl Engine {
                     .checked_add(steps - 1)
                     .expect("occurrence IDs exhausted");
                 self.core.remove(job.id);
+                if let Some(updated) = job.updated.take() {
+                    job.args = updated;
+                }
                 job.args[job.plan.control] = cursor;
                 self.core.next_occ = final_id;
                 self.core.insert(job.plan.pred, job.args);
@@ -262,7 +320,12 @@ impl Engine {
                 let Term::Node(id) = control else {
                     unreachable!("validated spine")
                 };
-                job.args[job.plan.control] = self.core.arena.node(id).args[0];
+                let child = self.core.arena.node(id).args[0];
+                if let Some(update) = &job.plan.update {
+                    job.args = update.apply(&mut self.core, &job.args, job.plan.control, child);
+                } else {
+                    job.args[job.plan.control] = child;
+                }
                 let body = Work::Insert(job.plan.pred, job.args.clone());
                 self.commit_application(
                     Application {
