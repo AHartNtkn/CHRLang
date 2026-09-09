@@ -1,6 +1,6 @@
 # The comparisons still needed to choose the architecture
 
-The [equality lifecycle](results/S10-equality-lifecycle.md) completes 6272 processes with exact allocation and owner checks. T078 next investigates [support-aware conditional joining](results/S10-support-join-entry.md); broader language and architecture obligations remain required.
+The [direct support-join gate](results/S10-support-join-gate.md) has mixed work results and 123 passing crate tests. T078 next tests partial-prefix pruning before lifecycle registration; broader language and architecture obligations remain required.
 
 ## Starting evidence and immediate decision
 
@@ -18,7 +18,7 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-**Support-aware conditional joining is selected under T078/S10.** Equality controls now correct the large reset attribution. Investigate incompatible combinations before tuple matching, with compatible, late-information and consuming controls.
+**Partial-prefix support pruning is selected under T078/S10.** Direct tuple checking passes its source gate but has mixed work costs. Test whether incompatible prefixes avoid suffix products, with compatible, late-information and consuming controls, before paired lifecycle registration.
 
 The order below incorporates the latest component evidence and the S10 entry decision. Each numbered row has a separate architectural question and completion boundary. The detailed mechanism specifications later in this document define its controls and adverse cases. A row containing several mechanisms requires a conclusion for each; completing one does not complete the row.
 

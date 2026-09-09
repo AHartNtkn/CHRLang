@@ -1,6 +1,6 @@
 # R00: architectural alternatives and first experiment selection
 
-Current evidence: the [equality lifecycle and alias attribution](S10-equality-lifecycle.md) complete 6272 processes and 896 exact allocation pairs. Same-root detection removes most reset-history traffic; source elimination handles constructor reflexivity; actual aliases differ from structurally equal separate nodes. Mixed-source penalties remain. T078 next investigates [support-aware joining](S10-support-join-entry.md).
+Current evidence: the [direct support-join gate](S10-support-join-gate.md) rejects impossible tuples before candidate registration. Early-failure steps fall from 5845 to 5125; independent-choice steps rise from 34960 to 35295 despite fewer candidates. All 123 crate tests pass. T078 next compares partial-prefix pruning; lifecycle costs and broader architecture obligations remain open.
 
 The [resource-fusion lifecycle pilot](S06-resource-fusion-lifecycle.md) completes 1350 processes and 180 exact allocation pairs. Inference and certification can outweigh execution savings; timing remains exploratory with clock-overhead evidence. All owners restore. The [S10 entry](S10-composition-entry.md) selects T078 coherent-path capability and mixed-source qualification. T073 and the other unresolved component directions remain required.
 

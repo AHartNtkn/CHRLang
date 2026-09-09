@@ -1,0 +1,28 @@
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.55s
+     Running tests/selective_discovery.rs (target/debug/deps/selective_discovery-dec5c2f6b32a03b3)
+
+running 3 tests
+depth=1 tuples=4 ticks=433
+depth=4 tuples=13 ticks=778
+depth=16 tuples=139 ticks=3058
+test immutable_heads_and_consumed_occurrences_do_not_need_candidate_entries ... ok
+family=common choices=3 depth=16 tuples=139 ticks=4301
+dense tuples=30 ticks=8556
+test dense_unknown_head_patterns_keep_all_distinct_occurrence_pairs ... ok
+family=independent choices=3 depth=16 tuples=1629 ticks=34960
+family=early choices=3 depth=16 tuples=259 ticks=5845
+test branching_sources_preserve_answers_while_exposing_discovery_work ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+     Running tests/support_join.rs (target/debug/deps/support_join-2c01f1a6e37461cb)
+
+running 1 test
+family=incompatible tuples=2 ticks=146
+family=correlated tuples=5 ticks=432
+family=independent tuples=5 ticks=883
+test correlation_controls_which_occurrences_can_join ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

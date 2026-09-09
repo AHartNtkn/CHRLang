@@ -142,6 +142,16 @@ struct Discovery {
     digits: Option<Vec<usize>>,
     #[cfg(feature = "selective-discovery")]
     pools: Option<DiscoveryPools>,
+    #[cfg(feature = "support-join")]
+    check: Option<DiscoveryCheck>,
+}
+#[cfg(feature = "support-join")]
+struct DiscoveryCheck {
+    key: Key,
+    anchor_live: Support,
+    region: Support,
+    index: usize,
+    wait: Option<Job>,
 }
 #[cfg(feature = "selective-discovery")]
 struct DiscoveryPools {
@@ -344,6 +354,8 @@ impl Engine {
             digits: None,
             #[cfg(feature = "selective-discovery")]
             pools: None,
+            #[cfg(feature = "support-join")]
+            check: None,
         });
     }
     #[cfg(not(feature = "selective-discovery"))]
@@ -425,6 +437,40 @@ impl Engine {
     #[cfg(feature = "selective-discovery")]
     fn discovery_tick(&mut self) {
         let mut d = self.discoveries.pop_front().unwrap();
+        #[cfg(feature = "support-join")]
+        if let Some(mut check) = d.check.take() {
+            // Lives only shrink; an empty intersection can never recover.
+            // Discovery drains before execution, so the checked lives stay stable.
+            if check.region != Support::FALSE {
+                if let Some(mut job) = check.wait.take() {
+                    match job.tick(&mut self.arena) {
+                        Status::Pending => check.wait = Some(job),
+                        Status::Complete(region) => check.region = region,
+                    }
+                    d.check = Some(check);
+                } else if let Some(&id) = check.key.ids.get(check.index) {
+                    check.index += 1;
+                    let live = self.resources.occurrence(id).unwrap().live;
+                    if live != Support::TRUE && live != check.region {
+                        check.wait = Some(self.arena.job(Operation::And(check.region, live)));
+                    }
+                    d.check = Some(check);
+                } else if self.known.insert(check.key.clone()) {
+                    // Keep the original activation scope. Compatibility is only
+                    // a necessary condition; late matching dependencies remain.
+                    self.pending
+                        .entry(check.key)
+                        .or_default()
+                        .push(check.anchor_live);
+                    if METRICS {
+                        self.stats.discovered_tuples += 1;
+                    }
+                }
+            }
+            self.discoveries.push_front(d);
+            return;
+        }
+
         if d.rule >= self.resources.rules.len() {
             return;
         }
@@ -502,6 +548,31 @@ impl Engine {
             .collect();
         if ids.iter().copied().collect::<BTreeSet<_>>().len() == ids.len() {
             let key = Key { rule: d.rule, ids };
+            #[cfg(feature = "support-join")]
+            if !self.known.contains(&key) {
+                // Identical conditions and unconditional occurrences cannot
+                // narrow the nonempty anchor support. This includes unary heads.
+                let trivial = key.ids.iter().all(|&id| {
+                    let other = self.resources.occurrence(id).unwrap().live;
+                    other == Support::TRUE || other == live
+                });
+                if trivial {
+                    self.known.insert(key.clone());
+                    self.pending.entry(key).or_default().push(live);
+                    if METRICS {
+                        self.stats.discovered_tuples += 1;
+                    }
+                } else {
+                    d.check = Some(DiscoveryCheck {
+                        key,
+                        anchor_live: live,
+                        region: live,
+                        index: 0,
+                        wait: None,
+                    });
+                }
+            }
+            #[cfg(not(feature = "support-join"))]
             if self.known.insert(key.clone()) {
                 self.pending.entry(key).or_default().push(live);
                 if METRICS {
