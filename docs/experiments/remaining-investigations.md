@@ -2,6 +2,8 @@
 
 The [head-dispatch lifecycle](results/S07-head-dispatch-lifecycle.md) validates 3612 processes, distinct preparation/cancellation costs and identical valid declaration/inference allocation. T079 next investigates [non-overlap/resource conflicts](results/S07-overlap-entry.md); broader obligations remain required.
 
+The [serial-body attribution](results/S07-serial-body-allocation.md) completes 96 allocation processes and 48 exact repeats. Existing scheduler identities reduce completed-query traffic in all 12 nonempty comparisons without a non-overlap restriction; 12 empty comparisons are unchanged. This strengthens the unrestricted control. Non-overlap/resource-conflict certification and sustained observation remain required; no speed result is claimed.
+
 ## Starting evidence and immediate decision
 
 The [S07 premise audit](results/S07-resource-premises.md) now supplies accepted/rejected sources and counterexamples: privacy and groundness differ from the stronger optimization certificate. The [executable contract gate](results/S07-resource-contract.md) now enforces those separate properties at preparation and search admission. The bounded declaration lifecycle pilot charges their checking costs. No language policy is adopted. The selective lifecycle pilot supplies a stronger control. Equality invalidation and source elimination now have full pilot costs and a dynamic-identity attribution; support-aware joining is selected next.

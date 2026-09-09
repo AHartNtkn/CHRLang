@@ -1,0 +1,57 @@
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.46s
+     Running tests/head_dispatch.rs (target/debug/deps/head_dispatch-b31777750981935f)
+
+running 4 tests
+history n=0 ordinary=(18, 0) direct=(18, 0)
+test linked_multihead_source_must_be_rechecked ... ok
+history n=1 ordinary=(117, 1) direct=(108, 1)
+declaration=None admission=Optional ticks=370
+declaration=Some(Single) admission=Optional ticks=370
+test finite_answers_and_query_owners_survive_continuing_unary_work ... ok
+declaration=Some(Single) admission=Required ticks=370
+test inferred_and_declared_unary_sources_remove_discovery_owners ... ok
+history n=16 ordinary=(2802, 16) direct=(2658, 16)
+test reused_preparation_preserves_history_priority_and_changed_queries ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/selective_discovery.rs (target/debug/deps/selective_discovery-06e7f6813160e8dd)
+
+running 3 tests
+depth=1 tuples=4 ticks=445
+depth=4 tuples=13 ticks=814
+depth=16 tuples=139 ticks=3280
+test immutable_heads_and_consumed_occurrences_do_not_need_candidate_entries ... ok
+family=common choices=3 depth=16 tuples=139 ticks=4523
+dense tuples=30 ticks=8712
+test dense_unknown_head_patterns_keep_all_distinct_occurrence_pairs ... ok
+family=independent choices=3 depth=16 tuples=1512 ticks=37049
+family=early choices=3 depth=16 tuples=139 ticks=4867
+test branching_sources_preserve_answers_while_exposing_discovery_work ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+     Running tests/support_join.rs (target/debug/deps/support_join-c7c147f2ba4aba87)
+
+running 2 tests
+suffix family=incompatible n=0 tuples=1 ticks=141
+family=incompatible tuples=1 ticks=143
+suffix family=incompatible n=1 tuples=1 ticks=171
+family=correlated tuples=3 ticks=431
+suffix family=incompatible n=8 tuples=1 ticks=339
+suffix family=correlated n=0 tuples=1 ticks=198
+family=independent tuples=5 ticks=931
+test correlation_controls_which_occurrences_can_join ... ok
+suffix family=correlated n=1 tuples=3 ticks=505
+suffix family=correlated n=8 tuples=17 ticks=3361
+suffix family=independent n=0 tuples=1 ticks=282
+suffix family=independent n=1 tuples=5 ticks=1059
+suffix family=independent n=8 tuples=33 ticks=8850
+suffix family=dense n=0 tuples=1 ticks=113
+suffix family=dense n=1 tuples=2 ticks=259
+suffix family=dense n=8 tuples=9 ticks=1638
+test three_head_suffix_products_preserve_full_answers ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+

@@ -1,0 +1,7 @@
+cargo test -p chr-direct-conditional --features head-dispatch,prefix-join,equality-invalidation --test head_dispatch --test support_join --test selective_discovery -- --nocapture
+cargo test -p chr-direct-conditional --features serial-body-accounting,head-dispatch,prefix-join,equality-invalidation --test head_dispatch --test support_join --test selective_discovery -- --nocapture
+cargo test -p chr-direct-conditional --features serial-body-accounting,head-dispatch,prefix-join,equality-invalidation --tests
+cargo test -p chr-direct-conditional --no-default-features --features serial-body-accounting,head-dispatch,prefix-join,equality-invalidation --lib --test runtime --test head_dispatch --test head_properties --test matching_resources --test composition_progress
+cargo clippy -p chr-direct-conditional --no-default-features --features serial-body-accounting,head-dispatch,prefix-join,equality-invalidation --lib --test runtime --test head_dispatch -- -D warnings
+cargo fmt -p chr-direct-conditional -- --check
+python3 research/chr-direct-conditional/experiments/audit_serial_body_allocation.py docs/experiments/results/s07-serial-body-allocation

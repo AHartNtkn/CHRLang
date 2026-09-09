@@ -4,6 +4,8 @@ Current evidence: the [head-dispatch lifecycle](results/S07-head-dispatch-lifecy
 
 The [resource-fusion lifecycle pilot](results/S06-resource-fusion-lifecycle.md) completes 1350 processes and 180 exact allocation pairs. Inference and certification can outweigh execution savings; timing remains exploratory with clock-overhead evidence. All owners restore. The [S10 entry](results/S10-composition-entry.md) selects T078 coherent-path capability and mixed-source qualification. T073 and the other unresolved component directions remain required.
 
+The [serial-body attribution](results/S07-serial-body-allocation.md) completes 96 allocation processes and 48 exact repeats. Existing scheduler identities reduce completed-query traffic in all 12 nonempty comparisons without a non-overlap restriction; 12 empty comparisons are unchanged. This strengthens the unrestricted control. Non-overlap/resource-conflict certification and sustained observation remain required; no speed result is claimed.
+
 ## How unanswered variants remain accountable
 
 The [entry-by-entry experiment map](question-to-experiment-map.md) gives all 57 reviewed decisions a specific required comparison and decision criterion. The stage assignments below remain the ownership summary; results must state which individual propositions and variants they resolve.

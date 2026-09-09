@@ -208,6 +208,22 @@ impl Resources {
     pub fn variables(&self, rule: usize) -> &[Var] {
         &self.rules[rule].variables
     }
+    #[cfg(feature = "serial-body-accounting")]
+    pub(crate) fn prepare_serial(
+        &self,
+        rule: usize,
+        ids: Vec<u64>,
+        scope: Support,
+        store: &Store,
+    ) -> Result<ApplicationJob, String> {
+        assert!(
+            self.pending.is_empty() && self.busy == Support::FALSE,
+            "serial preparation requires no unfinished body"
+        );
+        let mut job = self.prepare(rule, ids, scope, store)?;
+        job.serial = true;
+        Ok(job)
+    }
     pub fn prepare(
         &self,
         rule: usize,
@@ -246,6 +262,8 @@ impl Resources {
             token: None,
             dependencies: vec![],
             dependency: 0,
+            #[cfg(feature = "serial-body-accounting")]
+            serial: false,
         })
     }
     pub fn commit(&mut self, token: Token, store: &Store) -> Result<u64, CommitError> {
@@ -285,7 +303,20 @@ impl Resources {
             id,
             operation: Operation::Difference(self.busy, body.support),
             job: None,
+            #[cfg(feature = "serial-body-accounting")]
+            ready: None,
         })
+    }
+    #[cfg(feature = "serial-body-accounting")]
+    pub(crate) fn begin_acknowledge_serial_body(&self, id: u64) -> Result<BodyAckJob, String> {
+        let body = self.pending.get(&id).ok_or("unknown body")?;
+        assert!(
+            self.pending.len() == 1 && self.busy == body.support,
+            "serial acknowledgement requires the sole body"
+        );
+        let mut job = self.begin_acknowledge_body(id)?;
+        job.ready = Some(Support::FALSE);
+        Ok(job)
     }
     /// Caller asserts every body effect and ensuing equality obligation has finished.
     pub fn acknowledge_body(&mut self, t: AckToken) -> Result<(), CommitError> {
@@ -330,6 +361,8 @@ pub struct BodyAckJob {
     id: u64,
     operation: Operation,
     job: Option<Job>,
+    #[cfg(feature = "serial-body-accounting")]
+    ready: Option<Support>,
 }
 pub enum AckStatus {
     Pending,
@@ -340,6 +373,15 @@ impl BodyAckJob {
     pub fn tick(&mut self, r: &Resources, a: &mut Arena) -> AckStatus {
         if r.identity != self.owner || r.version != self.version {
             return AckStatus::Stale;
+        }
+        #[cfg(feature = "serial-body-accounting")]
+        if let Some(busy) = self.ready {
+            return AckStatus::Ready(AckToken {
+                owner: self.owner,
+                version: self.version,
+                id: self.id,
+                busy,
+            });
         }
         let j = self.job.get_or_insert_with(|| a.job(self.operation));
         match j.tick(a) {
@@ -378,6 +420,8 @@ pub struct ApplicationJob {
     token: Option<Token>,
     dependencies: Vec<Change>,
     dependency: usize,
+    #[cfg(feature = "serial-body-accounting")]
+    serial: bool,
 }
 impl ApplicationJob {
     pub fn dependencies(&self) -> &[Change] {
@@ -422,6 +466,11 @@ impl ApplicationJob {
                 self.phase = 1
             }
             1 => {
+                #[cfg(feature = "serial-body-accounting")]
+                if self.serial {
+                    self.phase = 2;
+                    return ApplicationStatus::Pending;
+                }
                 self.wait = Some(a.job(Operation::Difference(self.region, r.busy)));
                 self.phase = 2
             }
@@ -538,6 +587,13 @@ impl ApplicationJob {
             }
             10 => self.phase = 8,
             8 => {
+                #[cfg(feature = "serial-body-accounting")]
+                if self.serial {
+                    let token = self.token.as_mut().unwrap();
+                    token.busy = token.support;
+                    self.phase = 11;
+                    return ApplicationStatus::Pending;
+                }
                 self.wait =
                     Some(a.job(Operation::Or(r.busy, self.token.as_ref().unwrap().support)));
                 self.phase = 11
@@ -754,5 +810,43 @@ mod tests {
             job.tick(&resources, &store, &mut arena),
             ApplicationStatus::Finished
         ));
+    }
+    #[cfg(feature = "serial-body-accounting")]
+    #[test]
+    fn serial_identities_preserve_busy_exclusion_for_generic_clients() {
+        let store = Store::new();
+        let mut arena = Arena::new();
+        let (_, scope) = arena.fresh_variable();
+        let rule = Rule::simplify("take", [chr_syntax::c("p", [])], Goal::True);
+        let mut r = Resources::new(&PreparedRuleset::new(vec![rule]).unwrap(), &store);
+        let p = r.insert("p", vec![], Support::TRUE, &store).unwrap();
+        let q = r.insert("p", vec![], Support::TRUE, &store).unwrap();
+        let mut job = r.prepare_serial(0, vec![p], scope, &store).unwrap();
+        let token = loop {
+            match job.tick(&r, &store, &mut arena) {
+                ApplicationStatus::Pending => (),
+                ApplicationStatus::Ready(t) => break t,
+                _ => panic!("frame"),
+            }
+        };
+        let body = r.commit(token, &store).unwrap();
+        assert_eq!(r.busy, scope);
+        assert_eq!(r.pending.len(), 1);
+        let mut competing = r.prepare(0, vec![q], scope, &store).unwrap();
+        loop {
+            match competing.tick(&r, &store, &mut arena) {
+                ApplicationStatus::Pending => (),
+                ApplicationStatus::Ineligible => break,
+                _ => panic!("busy scope admitted"),
+            }
+        }
+        let mut ack = r.begin_acknowledge_serial_body(body).unwrap();
+        let token = match ack.tick(&r, &mut arena) {
+            AckStatus::Ready(t) => t,
+            _ => panic!("serial ack"),
+        };
+        r.acknowledge_body(token).unwrap();
+        assert_eq!(r.busy, Support::FALSE);
+        assert!(r.pending.is_empty());
     }
 }

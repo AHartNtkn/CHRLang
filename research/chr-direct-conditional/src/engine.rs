@@ -1023,15 +1023,19 @@ impl Engine {
                     return;
                 }
                 active.dependency = 0;
+                #[cfg(feature = "serial-body-accounting")]
+                let prepare = Resources::prepare_serial;
+                #[cfg(not(feature = "serial-body-accounting"))]
+                let prepare = Resources::prepare;
                 ActiveStage::Match(
-                    self.resources
-                        .prepare(
-                            active.key.rule,
-                            active.key.ids.clone(),
-                            active.scope,
-                            &self.store,
-                        )
-                        .expect("discovered tuple"),
+                    prepare(
+                        &self.resources,
+                        active.key.rule,
+                        active.key.ids.clone(),
+                        active.scope,
+                        &self.store,
+                    )
+                    .expect("discovered tuple"),
                 )
             }
             ActiveStage::Match(mut job) => {
@@ -1128,11 +1132,11 @@ impl Engine {
                         goal,
                     }
                 } else {
-                    BodyState::Ack(
-                        self.resources
-                            .begin_acknowledge_body(body.id)
-                            .expect("pending body"),
-                    )
+                    #[cfg(feature = "serial-body-accounting")]
+                    let acknowledge = Resources::begin_acknowledge_serial_body;
+                    #[cfg(not(feature = "serial-body-accounting"))]
+                    let acknowledge = Resources::begin_acknowledge_body;
+                    BodyState::Ack(acknowledge(&self.resources, body.id).expect("pending body"))
                 }
             }
             BodyState::Scope { mut job, goal } => match job.tick(&mut self.arena) {

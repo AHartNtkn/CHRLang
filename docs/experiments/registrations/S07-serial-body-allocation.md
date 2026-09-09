@@ -1,0 +1,9 @@
+# Registered serial-body allocation attribution
+
+Before comparative execution, measure the scheduler-derived busy-body identities established by the serial-body source/work gate. This is not a non-overlap restriction: arbitrary overlapping rules still execute under the same serial scheduler. H1: avoiding busy Difference/Or/acknowledgement jobs reduces traffic; H2: specialized job/ack state and empty executions can offset savings. Generic resource clients must retain their ordinary busy exclusion.
+
+Cross general/serial builds, conditional/inferred modes, history/choices/mixed_same families, n=0/3, preparation reuse=1/4 and query-release consumers: 48 cells. Use head_cost's independently checked sources and complete lifecycle phases, including separately identifiable 1/64/256 cancellation probes. Two allocation processes per cell (96), shuffled seed 7850; exact replay and all ownership baselines required. No timing run or speed claim.
+
+Release builds have no default features, experiment, head-dispatch, equality-invalidation and alloc-meter; serial additionally serial-body-accounting. Freeze source, driver, registration, toolchain and both binaries. The same 1 GiB/60 CPU-second/75 wall-second and 500,000 complete-query service bounds apply. Complete observations and scalar agreement are checked outside intervals; cancellation diagnostics use preallocated bookkeeping. Report completed-query traffic separately from interrupted work, since equal service budgets can represent different progress. Native compilation, original source construction, process startup and validation are excluded; requested heap bytes are not RSS.
+
+If traffic worsens, attribute the difference before treating specialization as worthwhile. This bounded attribution updates the unrestricted control; non-overlap/resource-conflict certificates remain a separate investigation and are not resolved by it.

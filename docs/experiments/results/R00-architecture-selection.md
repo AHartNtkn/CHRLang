@@ -74,6 +74,8 @@ The first comparison should distinguish generic selection, incremental activatio
 
 This is a selection supported by analysis and existing evidence, not a performance result or a production architecture choice. It selects decision briefs before implementation. Compilation, representation, search storage and scheduling are partly independent dimensions; the candidates below are coherent starting combinations, not mutually exclusive categories.
 
+The [serial-body attribution](S07-serial-body-allocation.md) completes 96 allocation processes and 48 exact repeats. Existing scheduler identities reduce completed-query traffic in all 12 nonempty comparisons without a non-overlap restriction; 12 empty comparisons are unchanged. This strengthens the unrestricted control. Non-overlap/resource-conflict certification and sustained observation remain required; no speed result is claimed.
+
 ## Generated incremental execution with explicit search state
 
 Rules compile to occurrence entry points and partner-access plans. Query constraints become distinct live occurrences; term constructors use a shared immutable arena and logical variables use context-specific binding identities. Introductions and changed variable classes activate relevant entry points. Nonbinding matching reads established structure; unsuccessful matches retain sufficient dependencies to be reconsidered when bindings or partners arrive.
