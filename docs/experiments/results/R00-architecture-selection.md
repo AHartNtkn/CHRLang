@@ -1,5 +1,7 @@
 # R00: architectural alternatives and first experiment selection
 
+The [local handle-rewrite gate](S02-local-ports-gate.md) supplies a distinct bounded counterpart to CHR-expressed merging: registered handles are repaired directly, and attached requests are activated locally. It has independent source checks and explicit specialization/lifetime limits, but no comparative cost result.
+
 The [CHR-expressed constructor gate](S02-chr-constructors-gate.md) now demonstrates source-rule merging, descriptor repair and consuming execution with independent checks. It exposes source scheduling as a responsibility: descriptor ordering can select a different consumer. Distinct local rewriting and complete costs remain unresolved under T072.
 
 The [reclamation lifecycle pilot](S08-reclamation-lifecycle-sizing.md) completes4,818 processes and1,584 exact allocation replays. Reclamation lowers dependency-graph peak requested memory in all144 configurations, while traffic and single-sample timing effects vary. All1,056 consumer-independent owner groups and disposal baselines validate. The [four-package breadth review](S08-lifetime-breadth-review.md) selects T072 distinct integrated execution next. T074/T075 remain unfinished; no general timing or architecture winner follows.

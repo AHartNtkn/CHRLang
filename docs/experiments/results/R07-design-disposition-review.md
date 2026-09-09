@@ -88,6 +88,8 @@ Each numbered entry gives the result, the reason I stopped or limited adoption, 
 
 ### 9. Integrate equality, constructors, matching and consuming execution — Measured limit of the R02 implementation
 
+The [local handle-rewrite gate](S02-local-ports-gate.md) subsequently tests direct handle repair and attached-request activation without a parent forest. It establishes bounded source correctness, not a general strategic-rewrite architecture or a cost ranking. Broader source rules and lifecycle remain required.
+
 The subsequent [CHR-expressed constructor/consumption gate](S02-chr-constructors-gate.md) directly tests another mechanism: source-rule class merging and descriptor repair. It has independent bounded correctness evidence and an explicit resource-scheduling boundary, but no comparative costs. Strategic local rewriting and broader source correspondence remain unresolved.
 
 **Result.** R02 demonstrated real interleaving: source rules could run while equality deductions and constructor repairs remained pending. After correcting redundant congruence work, the size-64 nested case still took 2.05 ms versus 1.71 ms for dedicated scanned execution. At size 256, the relevant stronger indexed control also beat nested integration; batch timing remained inconclusive. Integrated storage was higher in the reported comparisons.

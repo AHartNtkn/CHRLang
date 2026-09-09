@@ -93,6 +93,8 @@ No aggregate benchmark weights, universal winner, automatic hybrid routing or ad
 
 ## Current selection
 
+The [local handle-rewrite gate](results/S02-local-ports-gate.md) now directly tests a distinct representation without parent-chain lookup or relational match tuples. Independent constructor/consuming checks, selective and broad activation, and a registration-cost correction pass. General rule derivation and full costs remain open; T072 stays active.
+
 The [CHR constructor/consumption gate](results/S02-chr-constructors-gate.md) validates finite-tree consistency and equality-enabled consuming execution, and records a descriptor-order resource-selection counterexample. T072 remains active for the distinct local rewrite comparison; no cost ranking follows.
 
 The [CHR-expressed forest gate](results/S02-chr-forest-gate.md) establishes ground-identifier partition correctness, actual path compression and stale-link repair. Constructor consistency and consuming execution remain the next T072 source comparison; this gate supplies no timing or architecture ranking.

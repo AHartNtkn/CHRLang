@@ -2,6 +2,8 @@
 mod forest;
 #[path = "support/chr_constructors.rs"]
 mod kernel;
+#[path = "support/local_ports.rs"]
+mod local;
 #[allow(dead_code)]
 #[path = "../../chr-direct-conditional/tests/runtime_support/mod.rs"]
 mod oracle;
@@ -136,6 +138,24 @@ fn constructor_classes_agree_with_independent_finite_tree_substitution() {
                 outputs: (0..n).map(|i| (format!("v{i}"), Var(i as u64))).collect(),
             };
             let expected = oracle::run(&source, &query, 200_000);
+            let mut local = local::Run::default();
+            let values = (0..n).map(|_| local.value()).collect::<Vec<_>>();
+            for (i, &kind) in kinds.iter().enumerate() {
+                match kind {
+                    0 => (),
+                    1 | 2 => local.describe(values[i], if kind == 1 { "a" } else { "b" }, vec![]),
+                    _ => local.describe(values[i], "f", vec![values[kind - 3]]),
+                }
+            }
+            if union < 9 {
+                local.equate(values[union / 3], values[union % 3]);
+            }
+            local.settle();
+            oracle::same_raw(
+                local.answer(&values).into_iter().collect(),
+                expected.clone(),
+            );
+
             for reverse in [false, true] {
                 let mut facts = facts.clone();
                 if reverse {
@@ -189,6 +209,26 @@ fn equality_enables_consumption_which_enables_another_consumption() {
                 outputs: (0..3).map(|i| (format!("v{i}"), Var(i))).collect(),
             },
             200_000,
+        );
+        let mut local = local::Run::default();
+        let values = (0..3).map(|_| local.value()).collect::<Vec<_>>();
+        local.take(values[0], values[1]);
+        local.take(values[1], values[2]);
+        for _ in 0..tokens {
+            local.token();
+        }
+        local.settle(); // Both requests suspend before constructor information.
+        assert!(local.consumed_tokens.is_empty());
+        let mid = local.value();
+        let leaf = local.value();
+        local.describe(leaf, "a", vec![]);
+        local.describe(mid, "f", vec![leaf]);
+        local.describe(values[0], "f", vec![mid]);
+        local.settle();
+        assert_eq!(local.consumed_tokens.len(), tokens.min(2));
+        oracle::same_raw(
+            local.answer(&values).into_iter().collect(),
+            expected.clone(),
         );
         let mut facts = (0..6).map(|i| c("root", [node(i)])).collect::<Vec<_>>();
         facts.extend([
@@ -351,6 +391,21 @@ fn competing_consumers_expose_descriptor_order_as_a_scheduling_choice() {
             },
             200_000,
         );
+        let mut local = local::Run::default();
+        let values = (0..6).map(|_| local.value()).collect::<Vec<_>>();
+        local.describe(values[4], "a", vec![]);
+        local.describe(values[5], "b", vec![]);
+        local.describe(values[0], "f", vec![values[4]]);
+        local.describe(values[2], "f", vec![values[5]]);
+        for i in if reverse_requests { [2, 0] } else { [0, 2] } {
+            local.take(values[i], values[i + 1]);
+        }
+        local.token();
+        local.settle();
+        let mut answer = local.answer(&[values[1], values[3]]).unwrap();
+        answer.outputs[0].0 = "v1".into();
+        answer.outputs[1].0 = "v3".into();
+        oracle::same_raw(vec![answer], expected.clone());
         let mut facts = (0..6).map(|i| c("root", [node(i)])).collect::<Vec<_>>();
         facts.extend([
             c("d_f", [node(0), node(4)]),
@@ -455,4 +510,160 @@ fn a_hidden_constructor_cycle_cannot_publish_or_poison_its_sibling() {
         .collect();
         oracle::same_raw(actual, expected.clone());
     }
+}
+
+#[test]
+fn local_handle_repair_wakes_only_the_affected_region() {
+    for unrelated in [0, 8, 64] {
+        let mut run = local::Run::default();
+        let target = run.value();
+        let result = run.value();
+        run.take(target, result);
+        for _ in 0..unrelated {
+            let a = run.value();
+            let b = run.value();
+            run.take(a, b);
+        }
+        run.token();
+        run.settle();
+        let before = run.visited_requests;
+        let leaf = run.value();
+        run.describe(leaf, "a", vec![]);
+        run.describe(target, "f", vec![leaf]);
+        run.settle();
+        assert_eq!(
+            run.visited_requests - before,
+            1,
+            "unrelated requests were revisited"
+        );
+        assert_eq!(run.consumed_tokens, vec![0]);
+        let answer = run.answer(&[result]).unwrap();
+        assert_eq!(answer.outputs[0].1, atom("a"));
+        assert_eq!(answer.residual.len(), unrelated);
+    }
+}
+
+#[test]
+fn local_forks_preserve_fresh_handles_and_isolate_hidden_failure() {
+    let mut base = local::Run::default();
+    let x = base.value();
+    let y = base.value();
+    base.take(x, y);
+    base.token();
+    base.settle();
+    let mut good = base.clone();
+    let a = good.value();
+    good.describe(a, "a", vec![]);
+    good.describe(x, "f", vec![a]);
+    good.settle();
+    let mut bad = base.clone();
+    let hidden = bad.value();
+    bad.describe(hidden, "f", vec![hidden]);
+    bad.settle();
+    assert!(bad.answer(&[x, y]).is_none());
+    assert!(base.consumed_tokens.is_empty());
+    assert_eq!(good.consumed_tokens, vec![0]);
+    let expected = Answer {
+        outputs: vec![("v0".into(), t("f", [atom("a")])), ("v1".into(), atom("a"))],
+        residual: vec![],
+    };
+    oracle::same_raw(good.answer(&[x, y]).into_iter().collect(), vec![expected]);
+    let untouched = Answer {
+        outputs: vec![("v0".into(), v(0)), ("v1".into(), v(1))],
+        residual: vec![c("take", [v(0), v(1)]), c("token", [])],
+    };
+    oracle::same_raw(base.answer(&[x, y]).into_iter().collect(), vec![untouched]);
+}
+
+#[test]
+fn local_broad_merge_repairs_every_alias_and_services_all_consumers() {
+    for width in [1, 8, 64] {
+        let mut run = local::Run::default();
+        let values = (0..width).map(|_| run.value()).collect::<Vec<_>>();
+        let outputs = (0..width).map(|_| run.value()).collect::<Vec<_>>();
+        for (&input, &output) in values.iter().zip(&outputs) {
+            run.take(input, output);
+            run.token();
+        }
+        for &other in &values[1..] {
+            run.equate(values[0], other);
+        }
+        run.settle();
+        assert_eq!(run.repaired_handles, width - 1);
+        assert!(run.consumed_tokens.is_empty());
+        let leaf = run.value();
+        run.describe(leaf, "a", vec![]);
+        run.describe(values[0], "f", vec![leaf]);
+        run.settle();
+        let answer = run.answer(&outputs).unwrap();
+        assert!(answer.outputs.iter().all(|(_, term)| *term == atom("a")));
+        assert!(answer.residual.is_empty());
+        assert_eq!(run.visited_requests, 2 * width); // registration + activation
+        assert_eq!(run.consumed_tokens, (0..width).collect::<Vec<_>>());
+    }
+}
+
+#[test]
+fn local_decomposition_preserves_cross_child_aliases_and_arity() {
+    for clash in [false, true] {
+        let mut run = local::Run::default();
+        let x = run.value();
+        let a = run.value();
+        let b = run.value();
+        let out = run.value();
+        run.describe(a, "a", vec![]);
+        run.describe(b, if clash { "b" } else { "a" }, vec![]);
+        run.describe(out, "pair", vec![x, x]);
+        run.describe(out, "pair", vec![a, b]);
+        run.settle();
+        let source = vec![Rule::simplify(
+            "start",
+            [c("start", [v(0), v(1)])],
+            and(vec![
+                eq(v(1), t("pair", [v(0), v(0)])),
+                eq(
+                    v(1),
+                    t("pair", [atom("a"), atom(if clash { "b" } else { "a" })]),
+                ),
+            ]),
+        )];
+        let expected = oracle::run(
+            &source,
+            &Query {
+                constraints: vec![c("start", [v(0), v(1)])],
+                outputs: vec![("v0".into(), Var(0)), ("v1".into(), Var(1))],
+            },
+            200_000,
+        );
+        oracle::same_raw(run.answer(&[x, out]).into_iter().collect(), expected);
+    }
+    let mut run = local::Run::default();
+    let x = run.value();
+    let child = run.value();
+    run.describe(x, "f", vec![child]);
+    run.describe(x, "f", vec![child, child]);
+    run.settle();
+    assert!(run.answer(&[x]).is_none(), "different arities cannot merge");
+}
+
+#[test]
+fn registering_a_known_input_does_not_revisit_existing_requests() {
+    let mut run = local::Run::default();
+    let x = run.value();
+    let leaf = run.value();
+    run.describe(leaf, "a", vec![]);
+    run.describe(x, "f", vec![leaf]);
+    run.settle();
+    let mut outputs = vec![];
+    for _ in 0..64 {
+        let out = run.value();
+        outputs.push(out);
+        run.take(x, out);
+        run.token();
+    }
+    assert_eq!(run.visited_requests, 64);
+    run.settle();
+    let answer = run.answer(&outputs).unwrap();
+    assert!(answer.outputs.iter().all(|(_, value)| *value == atom("a")));
+    assert!(answer.residual.is_empty());
 }
