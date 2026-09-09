@@ -1,5 +1,5 @@
 {
-  "parent_commit": "7b8f469d9da69bf3bd783faecb081b719640a9f7",
+  "parent_commit": "5ac8c5212ba7ae1dd6ac72238df61dbc1811003e",
   "source": {
     "Cargo.lock": "67af0a3eafdc94427d22f7774577ae744fbab95e4688c882275955196b77bb3d",
     "Cargo.toml": "2a40b31dec44673fec8e093f99867e207e6f152b3cc19791b96555e6505b1853",
@@ -12,7 +12,7 @@
     "research/chr-cases/src/lib.rs": "a3fae53c97b11e19c3624bd4608beb0bb6915be56b2c60f9e959da8d3a6adca0",
     "research/chr-cases/tests/lambda.rs": "85acb529b756438c94bb21a35a8a8e88fed641a3be05ff702917555b558e352a",
     "research/chr-cases/tests/registry.rs": "a47fff109c7dda281713e86bc7ef4747989f0b7f01c2f90d20b4bd5d49215e0b",
-    "research/chr-compiled/Cargo.toml": "85886fe4f08f9fc6d5031e7638174643a6e3d4eec72afa1b42395e3bde69fa2c",
+    "research/chr-compiled/Cargo.toml": "f4402614eb1a8b90d15dd5f8b4229f32ecb306ca9cf7ac3cda1a892cb587e488",
     "research/chr-compiled/build.rs": "84fa237b5003a9e9fe3372309139ba0dc40ef266adc1016cd89cadb09e7c3fba",
     "research/chr-compiled/examples/recursive_session_packages.rs": "d2f2a75e28b948119be9560c06ec9322e5be1cef29a1829afd1df4d5bad30730",
     "research/chr-compiled/examples/s01_request_crossover.rs": "5eaf1b7f8cb6e6776f84d54ebeb6bdea401af35645ce9b5ef3ba2ab8e061be6c",
@@ -21,6 +21,10 @@
     "research/chr-compiled/examples/search_diagnosis.rs": "9362302c39a83b6b67d805598cad8bca8de24a914dd1124b698c847f83688d27",
     "research/chr-compiled/examples/search_gate.rs": "47de8b832464d8d2042981ac2da00d7dce8fbad62d0adf9497c2839c46a700ca",
     "research/chr-compiled/experiments/access_source.rs": "891ff57e5bdd4d85d20465b18a197ac2ca734b9a0e3cd56b292aa5397d4340b9",
+    "research/chr-compiled/experiments/artifact_boundary.py": "63b4ad27157e287fec107f1dac06b339edba19dfd548c81f8c06276ac84a3a49",
+    "research/chr-compiled/experiments/artifact_emit.rs": "3a459ccd580a9bd144b869112ae153fd7bd2d0afae2856b69961b4e86ca6282a",
+    "research/chr-compiled/experiments/artifact_runtime.rs": "61a5e49f6fd4fc62220750b5b6c5eef750a0a787ed379f7ef502bd3317d28c24",
+    "research/chr-compiled/experiments/artifact_verify.py": "ef220b16ba92acaceb812b50e53376c4b71956418ea3b9fdd0fd765b635389f3",
     "research/chr-compiled/experiments/join_screen.rs": "823b750adc85e06d034f78d4d186a6dd9528ab483acb80ace67e36067d83fddd",
     "research/chr-compiled/experiments/main.rs": "d1e4a2a26f547f538f35151795527f088a7196517d93a37ff28e2717d9faeece",
     "research/chr-compiled/experiments/meter.rs": "e6c6bd2191c4274b31bc50e289f901a50ced51fff9dbb6d9c7dc18595aaa26b6",
@@ -35,7 +39,7 @@
     "research/chr-compiled/src/carriers.rs": "7405a233cc9bc1efe666915e159bff52c89f1eab8a779319994ac19114c71585",
     "research/chr-compiled/src/fixtures.rs": "6d85975c37049f7110c9a2c75e09a0df38eda7bf2bc66edc57d2d0fd3b8675b2",
     "research/chr-compiled/src/generate.rs": "7442f57148bc804ebd04f4c6628995644b47b2f0e67b04930774ef9f24ffcbe5",
-    "research/chr-compiled/src/lib.rs": "b54950e94461bfa6a437707b3dde4de9265b1e02d070692627e7742f390ed0c4",
+    "research/chr-compiled/src/lib.rs": "e143f3c6bb8df0ed53c7248da903fdc2d08d4624197adc26e2652b83b29ca52f",
     "research/chr-compiled/src/native_access.rs": "ca42514ccefe6d50b9c78e9dce7f5d6bbbb8825ef89ca9a7a289f97d210dac5d",
     "research/chr-compiled/src/native_updates.rs": "4697735c2f4f2e1b0b62fb4035a9f64c383e59fdc205b355918b59a374f1bbb2",
     "research/chr-compiled/src/recursive.rs": "152cbbe284d60aabb63f3ef77a86ab93dcfbee29b8d0c29f9b9c6a40b08bff77",
@@ -107,7 +111,5 @@
     "research/chr-persistent/tests/graph_cost_cases.rs": "4917039ca477356fcf3f8be2a51bc561dd457e0313c4c4c61fb76c356a798442",
     "research/chr-persistent/tests/graph_registry.rs": "c1d5f13b206b0f2752068a7c6def9d404f3f95e2229b77ac75d0830968be51cf"
   },
-  "rustc": "rustc 1.97.1 (8bab26f4f 2026-07-14)\nbinary: rustc\ncommit-hash: 8bab26f4f68e0e26f0bb7960be334d5b520ea452\ncommit-date: 2026-07-14\nhost: x86_64-unknown-linux-gnu\nrelease: 1.97.1\nLLVM version: 22.1.6\n",
-  "scope": "Source/update/work and ownership gate; no comparative timing matrix.",
-  "source_commit": "50aa23239fa85980a864b2f0bad166ff7e1359c6"
+  "scope": "Independent artifact gate source and receipt verifier; no comparative ranking"
 }

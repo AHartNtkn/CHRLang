@@ -13,6 +13,9 @@ use std::collections::{BTreeMap, BTreeSet, VecDeque};
 use std::sync::Arc;
 /// Compile-time availability of execution diagnostics.
 pub const COLLECT_METRICS: bool = cfg!(feature = "metrics");
+#[cfg(feature = "experiment")]
+#[path = "../experiments/artifact_runtime.rs"]
+pub mod artifact_runtime;
 #[cfg(feature = "carrier-contraction")]
 pub mod carriers;
 #[cfg(feature = "experiment")]

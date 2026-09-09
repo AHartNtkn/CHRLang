@@ -1,0 +1,36 @@
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 3.91s
+     Running tests/generated_access.rs (target/debug/deps/generated_access-350afdea0bec319c)
+
+running 4 tests
+test source_derived_updates_do_not_index_head_local_output_arguments ... ok
+test independent_native_queries_outlive_preparation_and_abandoned_work ... ok
+test native_continuations_preserve_finite_source_effects_without_frame_snapshots ... ok
+test projected_updates_preserve_late_keys_and_opaque_payload_bindings ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s
+
+     Running tests/generated_access_artifact.rs (target/debug/deps/generated_access_artifact-41dc9ad18fc865e7)
+
+running 1 test
+test independent_artifact_preserves_rollback_and_changed_queries ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.44s
+
+     Running tests/subscription_source_gate.rs (target/debug/deps/subscription_source_gate-52450d7673357c5c)
+
+running 11 tests
+test existing_single_head_specialization_has_no_eligible_region_here ... ok
+test duplicate_demand_occurrences_have_independent_history_and_retirement ... ok
+test unmatched_resource_update_blocks_driver_with_exact_residual ... ok
+test changed_prepared_queries_cancellation_failure_and_certification ... ok
+test consuming_source_priority_is_preserved_across_distinct_matching_demands ... ok
+test aliases_and_structural_binding_enable_matches_without_binding_during_match ... ok
+test live_demand_repeated_pulses_retirement_and_reopening ... ok
+test binding_changes_demand_endpoints_shared_rows_and_late_receipts ... ok
+test updates_to_each_relation_and_demand_retirement ... ok
+test occurrence_multiplicity_selectivity_and_consuming_shared_partners ... ok
+test low_yield_sources_preserve_all_dead_rows_and_exact_bridge_receipts ... ok
+
+test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.48s
+

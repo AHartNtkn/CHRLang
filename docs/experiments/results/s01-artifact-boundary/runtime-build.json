@@ -1,0 +1,21 @@
+{
+  "command": [
+    "cargo",
+    "build",
+    "--offline",
+    "--release",
+    "-p",
+    "chr-compiled",
+    "--no-default-features",
+    "--features",
+    "experiment",
+    "--lib",
+    "--bin",
+    "chr-access-emit"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 5.163037860067561,
+  "address_space_bytes": 4294967296,
+  "stdout": "",
+  "stderr": "   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)\n    Finished `release` profile [optimized] target(s) in 5.15s\n"
+}

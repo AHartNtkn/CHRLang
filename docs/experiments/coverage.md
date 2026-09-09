@@ -80,3 +80,5 @@ T070's [first native continuation gate](results/S01-native-continuation-gate.md)
 ## S01 update analysis and the scheduling boundary
 
 The [update gate](results/S01-generated-update-gate.md) validates source-projected repair in generated code and a prepared data plan. Both reduce Global dependency work while preserving full source effects; the prepared plan needs no user-program native compilation. An eligibility-only Active wake elision changes consuming competition, and missing Global key watches lose enabled applications. This informs S01/S07's scheduling and source-property comparisons. Compilation/lifecycle costs, broader access plans and other sequence obligations remain open; T070 stays active.
+
+The [independent artifact gate](results/S01-artifact-boundary-gate.md) validates 168 changed queries with a fixed shared runtime and reconciled runtime phases. Remaining cross-crate primitive calls require a compiler-configuration control before native cost confirmation. This is accounting/correctness evidence; T070 and the broader architecture comparison remain open.
