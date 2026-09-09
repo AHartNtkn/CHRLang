@@ -1,0 +1,5 @@
+# Complete source execution over contextual ownership
+
+Extend the contextual store to source execution before costs. Use explicit pending body effects, source-order candidate selection, propagation history and round-robin alternatives. Reuse the relational control's source scheduling convention so the initial comparison isolates representation/discovery and ownership. Constructor storage remains shared; equality/claims remain context-local. This is neither independent-reference code nor classic local port rewriting.
+
+Run every existing finite relational source case through both complete engines and the independent scalar evaluator. Add explicit fresh body variables, sibling consumption, kept heads, repeated occurrences, late contradiction, duplicate alternatives and changed queries over reused preparation. Require exact joint output/residual comparison and raw multiplicity. Test a finite sibling beside a continuing branch with a 500-advance publication bound. A failed gate requires diagnosis before timing. No comparative timing is registered here.

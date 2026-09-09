@@ -10,7 +10,21 @@ fn run(p: &std::sync::Arc<Prepared>, q: &Query) -> Vec<Answer> {
             Step::Answer(a) => answers.push(a),
             Step::Exhausted => {
                 answers.sort();
-                return answers;
+                let mut candidate = chr_relational::contextual_execute::Prepared::new(p.rules())
+                    .unwrap()
+                    .start(q);
+                let mut contextual = Vec::new();
+                for _ in 0..10000 {
+                    match candidate.advance() {
+                        chr_relational::contextual_execute::Step::Answer(a) => contextual.push(a),
+                        chr_relational::contextual_execute::Step::Exhausted => {
+                            oracle::same_raw(contextual, answers.clone());
+                            return answers;
+                        }
+                        chr_relational::contextual_execute::Step::Progress => (),
+                    }
+                }
+                panic!("contextual finite source bound");
             }
             Step::Progress => (),
         }

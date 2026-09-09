@@ -1,12 +1,12 @@
-//! Complete source execution over relational ownership; choice copies a state.
-use crate::{HeadPlan, Match, Occurrence, Value, store::Store};
-use chr_syntax::{Answer, Constraint, Goal, Guard, Query, Rule, Term, Var};
+//! Complete source execution over shared syntax and context-local equality/claims.
+//! Scheduling follows the relational control; this is an experimental competitor.
+use crate::{Match, Occurrence, Value, contextual::Store};
+use chr_syntax::{Answer, Goal, Guard, Query, Rule, Term, Var};
 use std::collections::{BTreeMap, BTreeSet, VecDeque};
 use std::sync::Arc;
 
 pub struct Prepared {
     rules: Vec<Rule>,
-    plans: Vec<HeadPlan>,
     arrivals: BTreeMap<(String, usize), Vec<usize>>,
 }
 impl Prepared {
@@ -34,10 +34,6 @@ impl Prepared {
         Ok(Arc::new(Self {
             arrivals,
             rules: rules.to_vec(),
-            plans: rules
-                .iter()
-                .map(|r| HeadPlan::compile(&r.kept, &r.removed))
-                .collect(),
         }))
     }
     pub fn start(self: &Arc<Self>, query: &Query) -> Engine {
@@ -115,7 +111,7 @@ impl State {
     }
     fn known(&self, v: Value) -> GuardTerm {
         let v = self.store.root(v);
-        match self.store.view.descriptors(v).first() {
+        match self.store.descriptions(v).first() {
             None => GuardTerm::Unknown(v),
             Some((n, xs)) => GuardTerm::App(n.clone(), xs.iter().map(|v| self.known(*v)).collect()),
         }
@@ -129,9 +125,9 @@ impl State {
         }
     }
     fn application(&mut self, p: &Prepared) -> bool {
-        for (ri, (rule, plan)) in p.rules.iter().zip(&p.plans).enumerate() {
+        for (ri, rule) in p.rules.iter().enumerate() {
             if self.candidates[ri].is_none() {
-                self.candidates[ri] = Some(self.store.matches(plan).matches.into());
+                self.candidates[ri] = Some(self.store.matches(&rule.kept, &rule.removed).into());
             }
             while let Some(candidate) = self.candidates[ri].as_mut().unwrap().pop_front() {
                 let ids = candidate
@@ -165,17 +161,7 @@ impl State {
     fn answer(&self) -> Answer {
         let values = self.outputs.iter().map(|(_, v)| *v).collect::<Vec<_>>();
         let terms = self.store.export(&values).expect("settled publication");
-        let mut residual = Vec::new();
-        for (key, index) in self.store.view.locations.values() {
-            let crate::Relation::Source(name, _) = key else {
-                unreachable!()
-            };
-            let row = &self.store.view.tables[key].rows[*index];
-            residual.push(Constraint {
-                name: name.clone(),
-                args: self.store.export(&row.values).unwrap(),
-            });
-        }
+        let residual = self.store.residual().expect("settled publication");
         Answer {
             outputs: self
                 .outputs
@@ -239,7 +225,3 @@ impl Engine {
         Step::Progress
     }
 }
-
-#[cfg(test)]
-#[path = "interleaving_tests.rs"]
-mod interleaving_tests;

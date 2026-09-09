@@ -49,7 +49,7 @@ impl Store {
         }
         id
     }
-    fn descriptions(&self, id: Value) -> Vec<Descriptor> {
+    pub(crate) fn descriptions(&self, id: Value) -> Vec<Descriptor> {
         let id = self.root(id);
         self.descriptors.get(&id).cloned().unwrap_or_else(|| {
             self.arena.borrow().nodes[id.0]
@@ -234,6 +234,20 @@ impl Store {
             .collect::<BTreeSet<_>>()
             .into_iter()
             .collect()
+    }
+    pub(crate) fn residual(&self) -> Option<Vec<Constraint>> {
+        if self.failed || !self.equations.is_empty() {
+            return None;
+        }
+        Some(
+            self.live
+                .values()
+                .map(|r| Constraint {
+                    name: r.name.clone(),
+                    args: r.args.iter().map(|v| self.term(*v)).collect(),
+                })
+                .collect(),
+        )
     }
     pub fn consume(&mut self, m: &Match) -> bool {
         let ids = m.kept.iter().chain(&m.removed).collect::<Vec<_>>();
