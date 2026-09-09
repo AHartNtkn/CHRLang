@@ -14,4 +14,4 @@ The first gate must also inventory necessary implementation responsibilities: so
 
 After this bounded gate, reconsider selective conditional discovery, resumable contextual matching and the broader S07/S08 obligations. T078 remains unfinished for complete architecture comparison beyond its bounded pilots. Every other consequential unresolved direction and held-out closure remains required.
 
-The [executable premise audit](S07-resource-premises.md) now establishes checker-conservative examples, a late-ground reformulation, and distinct observation/resource-sufficiency obligations. Concrete declaration and boundary implementations remain next.
+The [executable premise audit](S07-resource-premises.md) now establishes checker-conservative examples, a late-ground reformulation, and distinct observation/resource-sufficiency obligations. The [executable contract gate](S07-resource-contract.md) now implements the declarations and owned submission boundary. Their costs remain unmeasured.

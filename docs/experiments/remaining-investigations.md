@@ -4,7 +4,7 @@ The [resource-count lifecycle](results/S10-resource-count-lifecycle.md) complete
 
 ## Starting evidence and immediate decision
 
-The [S07 premise audit](results/S07-resource-premises.md) now supplies accepted/rejected sources and counterexamples: privacy and groundness differ from the stronger optimization certificate. The next step implements concrete checked declarations and invocation boundaries before comparing their costs. No language policy is adopted. Selective conditional discovery and resumable contextual matching remain strong alternatives, reconsidered after the first executable S07 gate.
+The [S07 premise audit](results/S07-resource-premises.md) now supplies accepted/rejected sources and counterexamples: privacy and groundness differ from the stronger optimization certificate. The [executable contract gate](results/S07-resource-contract.md) now enforces those separate properties at preparation and search admission. A bounded lifecycle pilot will charge their checking costs before the scheduled discovery review. No language policy is adopted. Selective conditional discovery and resumable contextual matching remain strong alternatives, reconsidered after the first executable S07 gate.
 
 The completed [restoration pilot](results/S04-resident-cost-pilot.md), [reunion source gate](results/S04-reunion-source-gate.md), [ownership/identity comparison](results/S04-reunion-identity-attribution.md), [strong-control gate](results/S04-reunion-strong-controls.md) and [complete-cost pilot](results/S04-reunion-complete-pilot.md) supply controls. They do not resolve repeated dynamic reunion or general source inference.
 

@@ -4,6 +4,7 @@ extern crate self as chr_compiled;
 pub use chr_persistent::COLLECT_KERNEL_METRICS;
 pub mod native_access;
 pub mod resource_count;
+pub mod resource_contract;
 pub mod native_updates;
 #[cfg(feature = "fork-diagnostics")]
 use chr_persistent::kernel::{ForkObserver, NoopForkObserver, observed_clone};
