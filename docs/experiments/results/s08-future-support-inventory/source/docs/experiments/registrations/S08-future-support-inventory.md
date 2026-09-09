@@ -1,0 +1,11 @@
+# Inventory conditions incompatible with every pending task
+
+The stream owner gate found retained graph memory after consumers released answers. This non-mutating diagnostic counts result supports, obligation supports, choice births and consumption claims that conflict with every pending task context. It makes no allocation or timing comparison and does not classify graph nodes as garbage.
+
+The soundness premise is monotone choice assignment: pending tasks only continue unchanged or split by extending an unassigned choice. A conflicting assignment therefore remains conflicting in every descendant. Missing assignments are treated conservatively as potentially compatible. A condition compatible with one pending task remains live for this inventory, even if other semantic constraints would make it unreachable.
+
+Validate compatibility against all729 pairs of partial three-label assignments and their eight total extensions. Validate a real stream witness with future tasks and incompatible histories, diagnostic non-mutation, complete raw answers, and exhaustion where all stored supports are incompatible with the empty frontier.
+
+Run repeated/distinct/alias stream sources at depth16/64, work4, payload8, resource absent/present, successful/failing terminal and graph dependencies/templates: 48 prepared configurations. Each runs changed queries n/n+1 and opposite input orders. Record setup, answers1/4/16/64 where reached, and exhaustion: 96 query trajectories. Validate complete raw results with the independent scalar evaluator and analytical formula. Repeat the entire process twice and require identical diagnostic receipts. Freeze source, compiler and diagnostic binary; use a60-second wall/CPU bound,1GiB address-space limit and two-million-step source/service bound. Preserve every failure or cutoff.
+
+Interpret permanently incompatible conditions as a candidate source of reclaimable metadata. Do not infer that their referenced nodes, choice labels or vector slots may be released or renumbered: call origins, task cursors, shared results and resource identities can still refer to them. The next action must follow an explicit reachability/identity argument and adversarial continuation tests, rather than treating a diagnostic count as reclaimed bytes.
