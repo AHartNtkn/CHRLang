@@ -2,7 +2,7 @@
 #[path = "support/contextual_source.rs"]
 mod contextual_source;
 use chr_syntax::{Answer, Query, Rule};
-use contextual_source::Schema;
+use contextual_source::{Lowered, Schema, Values};
 use std::time::Instant;
 #[cfg(feature = "alloc-meter")]
 #[allow(unexpected_cfgs)]
@@ -44,19 +44,22 @@ impl Measurement {
     }
 }
 enum Prepared {
+    Lowered(Box<Lowered>),
     Contextual(std::sync::Arc<chr_relational::contextual_execute::Prepared>),
     Relational(std::sync::Arc<chr_relational::execute::Prepared>),
     Compiled(Box<chr_compiled::PreparedRuleset>, chr_compiled::Access),
 }
 enum Running {
+    Lowered(Box<Values>),
     Contextual(Box<chr_relational::contextual_execute::Engine>),
     Relational(Box<chr_relational::execute::Engine>),
     Compiled(Box<chr_compiled::SearchEngine>),
 }
-const MODES: [&str; 4] = ["contextual", "relational", "scan", "indexed"];
+const MODES: [&str; 5] = ["contextual", "relational", "scan", "indexed", "lowered"];
 impl Prepared {
-    fn new(mode: &str, _schema: Schema, rules: Vec<Rule>) -> Self {
+    fn new(mode: &str, schema: Schema, rules: Vec<Rule>) -> Self {
         match mode {
+            "lowered" => Self::Lowered(Box::new(Lowered::new(schema, rules).unwrap())),
             "contextual" => {
                 Self::Contextual(chr_relational::contextual_execute::Prepared::new(&rules).unwrap())
             }
@@ -76,6 +79,7 @@ impl Prepared {
     }
     fn start(&self, input: Query) -> Running {
         match self {
+            Self::Lowered(p) => Running::Lowered(Box::new(p.start(input).unwrap())),
             Self::Contextual(p) => Running::Contextual(Box::new(p.start(&input))),
             Self::Relational(p) => Running::Relational(Box::new(p.start(&input))),
             Self::Compiled(p, a) => Running::Compiled(Box::new(
@@ -95,6 +99,10 @@ impl Running {
                 return (answers, first, false);
             }
             let answer = match self {
+                Self::Lowered(e) => match e.next() {
+                    Some(a) => Some(a),
+                    None => return (answers, first, true),
+                },
                 Self::Contextual(e) => match e.advance() {
                     chr_relational::contextual_execute::Step::Progress => None,
                     chr_relational::contextual_execute::Step::Answer(a) => Some(a),
@@ -252,6 +260,28 @@ fn main() {
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn lowering_checks_the_complete_source_and_query() {
+        use contextual_source::Lowered;
+        let schema = Schema::new("local3", true);
+        let mut source = schema.rules();
+        source[0].body = chr_syntax::Goal::True;
+        assert!(Lowered::new(schema, source).is_err());
+        let p = Lowered::new(schema, schema.rules()).unwrap();
+        let mut q = schema.query(8, false);
+        q.constraints
+            .push(chr_syntax::c("token", [chr_syntax::atom("key0")]));
+        assert!(p.start(q).is_err());
+        let mut q = schema.query(8, false);
+        q.outputs.pop();
+        assert!(p.start(q).is_err());
+        let mut q = schema.query(8, false);
+        q.constraints[0].args[0] = chr_syntax::v(9000);
+        assert!(p.start(q).is_err());
+        let mut q = schema.query(8, false);
+        q.constraints.retain(|c| c.name != "patch");
+        assert!(p.start(q).is_err());
+    }
     #[test]
     fn all_paths_match_source_and_survive_interruption() {
         for family in ["shared0", "shared3", "local0", "local3"] {
