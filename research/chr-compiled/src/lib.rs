@@ -1,4 +1,6 @@
 //! Experimental indexed CHR execution with explicit source-disjunction search.
+// Shared experiment modules also compile in standalone binaries and integration tests.
+extern crate self as chr_compiled;
 pub use chr_persistent::COLLECT_KERNEL_METRICS;
 pub mod native_access;
 pub mod native_updates;

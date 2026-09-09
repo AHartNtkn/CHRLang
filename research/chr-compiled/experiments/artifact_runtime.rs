@@ -1,14 +1,22 @@
 //! Shared runtime for independently compiled source artifacts. This boundary
 //! probe is not a comparative timing registration.
 #[allow(dead_code)]
+#[path = "access_source.rs"]
+mod access_source;
+#[allow(dead_code)]
+#[path = "subscription_join.rs"]
+mod join;
+#[allow(dead_code)]
 #[path = "../../chr-direct-conditional/tests/runtime_support/mod.rs"]
 mod oracle;
 #[allow(dead_code)]
-#[path = "access_source.rs"]
-mod source;
+#[path = "subscription_runtime.rs"]
+mod retained;
 #[allow(dead_code)]
 #[path = "subscription_source.rs"]
-mod subscription;
+mod source;
+// The retained source runtime refers to its common source module by this name.
+// Keep access-source fixtures separate from that source contract.
 use crate::{Access, Compiled, Policy, PreparedRuleset, fixtures};
 use chr_syntax::{Query, Rule, atom, c, t, v};
 use std::time::Instant;
@@ -33,8 +41,8 @@ pub fn rules(family: &str) -> Result<Vec<Rule>, String> {
     }
     match family {
         "chain" => Ok(fixtures::programs()[1].clone()),
-        "payload" => Ok(source::payload_rules()),
-        "subscription" => Ok(subscription::source_rules(false)),
+        "payload" => Ok(access_source::payload_rules()),
+        "subscription" => Ok(source::source_rules(false)),
         _ => Err("unknown artifact source family".into()),
     }
 }
@@ -50,7 +58,7 @@ fn query(family: &str, size: usize, round: usize) -> Query {
     }
     match family {
         "chain" => fixtures::flat_chain_case(size, false).query,
-        "payload" => source::payload_query(size, round % 2 == 1),
+        "payload" => access_source::payload_query(size, round % 2 == 1),
         "subscription" => {
             let mut rows = Vec::new();
             for i in 0..size {
@@ -62,7 +70,7 @@ fn query(family: &str, size: usize, round: usize) -> Query {
                     c("right", [end, t("h", [atom("yes")])]),
                 ]);
             }
-            subscription::query(
+            source::query(
                 rows,
                 vec![
                     t("open", [atom("k"), atom("yes"), atom("d")]),
@@ -109,10 +117,16 @@ fn run(mut code: Option<Compiled>) -> Result<(), String> {
         "native-generic-repair",
         "native-planned",
         "native-specialized",
+        "retained-indexed",
+        "retained-eager",
+        "retained-subscribed",
     ]
     .contains(&mode)
     {
         return Err("unknown mode".into());
+    }
+    if mode.starts_with("retained-") && family != "subscription" {
+        return Err("retained mode requires subscription source".into());
     }
     if mode == "native-generic-repair" {
         code.as_mut().unwrap().updates = None;
@@ -123,14 +137,29 @@ fn run(mut code: Option<Compiled>) -> Result<(), String> {
     let source_ns = start.elapsed().as_nanos();
     let start = Instant::now();
     let prepare_source = source;
-    let mut prepared = if ["planned", "specialized", "native-planned"].contains(&mode) {
-        PreparedRuleset::new_with_update_plan(prepare_source, code)?
+    let prepared = if mode.starts_with("retained-") {
+        let plan = retained::Prepared::new(&prepare_source)?;
+        drop(prepare_source);
+        Prepared::Retained(
+            plan,
+            match mode {
+                "retained-indexed" => join::Mode::Indexed,
+                "retained-eager" => join::Mode::Eager,
+                "retained-subscribed" => join::Mode::Subscribed,
+                _ => unreachable!(),
+            },
+        )
     } else {
-        PreparedRuleset::new(prepare_source, code)?
+        let mut plan = if ["planned", "specialized", "native-planned"].contains(&mode) {
+            PreparedRuleset::new_with_update_plan(prepare_source, code)?
+        } else {
+            PreparedRuleset::new(prepare_source, code)?
+        };
+        if ["specialized", "native-specialized"].contains(&mode) {
+            plan = plan.specialize_inferred();
+        }
+        Prepared::Compiled(plan)
     };
-    if ["specialized", "native-specialized"].contains(&mode) {
-        prepared = prepared.specialize_inferred();
-    }
     let prepare_ns = start.elapsed().as_nanos();
     let mut total = source_ns + prepare_ns;
     for round in 0..queries {
@@ -138,16 +167,16 @@ fn run(mut code: Option<Compiled>) -> Result<(), String> {
         let input = query(family, size + round % 2, round);
         let expected = oracle::run(&oracle_source, &input, 2_000_000);
         let start = Instant::now();
-        let mut engine = prepared.start(input, Policy::Global, Access::Indexed)?;
+        let mut engine = prepared.start(input)?;
         let setup_ns = start.elapsed().as_nanos();
         let start = Instant::now();
         let status = engine.advance(2_000_000);
         let execute_ns = start.elapsed().as_nanos();
-        if !status.exhausted {
+        if !status {
             return Err("unfinished artifact query at service bound".into());
         }
         let start = Instant::now();
-        let answer = engine.observe();
+        let answer = engine.observe()?;
         let observation_ns = start.elapsed().as_nanos();
         let start = Instant::now();
         drop(engine);
@@ -180,4 +209,44 @@ fn run(mut code: Option<Compiled>) -> Result<(), String> {
         "{{\"mode\":{mode:?},\"family\":{family:?},\"queries\":{queries},\"source_ns\":{source_ns},\"prepare_ns\":{prepare_ns},\"prepared_drop_ns\":{prepared_drop_ns},\"source_disposal\":\"included in preparation\",\"lifecycle_ns\":{total},\"counters\":false,\"allocator\":\"ordinary\"}}"
     );
     Ok(())
+}
+
+enum Prepared {
+    Compiled(PreparedRuleset),
+    Retained(retained::Prepared, join::Mode),
+}
+impl Prepared {
+    fn start(&self, input: Query) -> Result<Engine, String> {
+        match self {
+            Self::Compiled(plan) => plan
+                .start(input, Policy::Global, Access::Indexed)
+                .map(Engine::Compiled),
+            Self::Retained(plan, mode) => plan.start(input, *mode).map(Engine::Retained),
+        }
+    }
+}
+#[allow(clippy::large_enum_variant)]
+enum Engine {
+    Compiled(crate::Engine),
+    Retained(retained::Engine),
+}
+impl Engine {
+    fn advance(&mut self, budget: usize) -> bool {
+        match self {
+            Self::Compiled(engine) => engine.advance(budget).exhausted,
+            Self::Retained(engine) => engine.advance(budget),
+        }
+    }
+    fn observe(&mut self) -> Result<Option<chr_syntax::Answer>, String> {
+        match self {
+            Self::Compiled(engine) => Ok(engine.observe()),
+            Self::Retained(engine) => {
+                let mut answers = engine.observe()?;
+                if answers.len() > 1 {
+                    return Err("deterministic artifact source returned multiple answers".into());
+                }
+                Ok(answers.pop())
+            }
+        }
+    }
 }

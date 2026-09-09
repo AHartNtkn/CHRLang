@@ -1,0 +1,25 @@
+{
+  "command": [
+    "rustc",
+    "--edition",
+    "2024",
+    "-C",
+    "opt-level=3",
+    "-C",
+    "codegen-units=1",
+    "-C",
+    "lto=thin",
+    "/home/ahart/Documents/CHRLang/target/s01-retained-artifact-gate/generic.rs",
+    "--extern",
+    "chr_compiled=/home/ahart/Documents/CHRLang/target/s01-retained-artifact-gate/runtime/release/libchr_compiled.rlib",
+    "-L",
+    "dependency=/home/ahart/Documents/CHRLang/target/s01-retained-artifact-gate/runtime/release/deps",
+    "-o",
+    "/home/ahart/Documents/CHRLang/target/s01-retained-artifact-gate/generic-thin"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 2.9870992599753663,
+  "address_space_bytes": 4294967296,
+  "stdout": "",
+  "stderr": ""
+}
