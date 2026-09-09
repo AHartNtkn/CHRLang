@@ -80,7 +80,7 @@ These questions govern the depth of each stage below. They do not require exhaus
 
 ## Order and dependencies
 
-Begin with S00, then S01. After that, use the dependencies below and choose the next ready investigation by its likely effect on the architecture decision. Reordering requires a short recorded rationale; it cannot silently remove a group.
+Reuse the existing S00 contracts and S01 evidence. Follow the current execution order below, using these dependencies to determine readiness. Reordering requires a short recorded rationale; it cannot silently remove a group.
 
 | Stage | Decision | Required preceding evidence |
 |---|---|---|
@@ -264,22 +264,8 @@ All new results link raw inputs, commands, freezes, validation and unfavorable o
 
 ## Current execution order
 
-The [complete-caller ownership gate](results/S05-caller-ownership-gate.md) now executes replay and caller work directly, with exact allocation replay across 16 configurations and all disposal baselines restored. T075 is ready for prospective full-caller lifecycle comparison; no timing matrix has run for this path.
+Follow the [ordered experimental sequence](remaining-investigations.md#execution-order): audit the existing complete-call pilot, investigate compact structural solving, test restoration and reunion, then complete integrated source execution and costs. The remaining direct-solving, discovery, graph, language, lifetime and parallel mechanisms remain required before coherent architecture comparison and held-out challenge.
 
-The [checked call-entry gate](results/S05-call-entry-gate.md) now establishes a complete initial private phase with shared caller variables and resumed source work. First-rule selection and variable disjointness each have counterexamples. T075 remains active for complete caller lifecycle preparation before timing registration.
+T075 remains active. The complete-call pilot process has exited successfully with 3,220 raw records; record-level validation and interpretation remain outstanding. Audit it against its prospective registration before interpreting the timings. The [complete-caller ownership gate](results/S05-caller-ownership-gate.md) supplies bounded correctness and lifetime evidence, not a timing conclusion.
 
-The [call-level transport gate](results/S05-call-transport-gate.md) now reuses work across different callers with independently checked fresh-result transport. It also demonstrates that private-family membership does not justify moving a call before input supply. T075 remains active for valid caller-boundary integration before cost registration.
-
-**T075 is active for call-level reuse across different callers.** The [four-package integrated breadth review](results/S02-local-rewrite-breadth-review.md) selects this distinct mechanism after the [nested-pattern source gate](results/S02-local-pattern-gate.md). T072 remains pending for broader source execution, precise dependency repair and full costs.
-
-The [local handle-rewrite gate](results/S02-local-ports-gate.md) now directly tests a distinct representation without parent-chain lookup or relational match tuples. Independent constructor/consuming checks, selective and broad activation, and a registration-cost correction pass. General rule derivation and full costs remain open; T072 remains unfinished.
-
-The [CHR constructor/consumption gate](results/S02-chr-constructors-gate.md) validates finite-tree consistency and equality-enabled consuming execution, and records a descriptor-order resource-selection counterexample. T072 remains unfinished for broader source and cost comparisons; no cost ranking follows.
-
-The [CHR-expressed forest gate](results/S02-chr-forest-gate.md) establishes ground-identifier partition correctness, actual path compression and stale-link repair. Constructor consistency and consuming execution remain the next T072 source comparison; this gate supplies no timing or architecture ranking.
-
-**T072 remains required for broader integrated equality, matching and consuming execution.** The [reclamation breadth review](results/S08-lifetime-breadth-review.md) selects this investigation after the bounded lifetime pilot. Existing relational and contextual measurements supply controls; they do not resolve union-find expressed through CHR or strategic port rewriting.
-
-Follow the [next discriminating comparisons](remaining-investigations.md#next-discriminating-comparisons) for concrete source gates, controls and follow-through. The active distinct investigation is call-level reuse, followed by reconsideration of structural solving, restoration with reconnection and required integrated follow-ups. Language and lifetime costs accompany each. Return to the remaining mechanism schedule afterward; no stage is discharged by completing this cycle.
-
-The [coverage map](coverage.md) connects all 57 reviewed decisions to their required investigations. Individual result reports preserve the bounded findings. This sequence governs what evidence must still be obtained, including complete architectures and held-out challenges.
+The ordered sequence explains why each near-term investigation precedes its strongest ready alternative. At each package boundary, reassess that choice using new evidence. The [coverage map](coverage.md) assigns all 57 reviewed decisions; the [mechanism comparisons](remaining-investigations.md#distinctions-that-must-not-disappear-inside-a-stage) preserve distinct alternatives within those entries. A priority change never resolves an unanswered question.
