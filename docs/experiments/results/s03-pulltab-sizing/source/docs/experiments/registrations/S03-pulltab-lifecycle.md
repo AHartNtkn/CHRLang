@@ -1,0 +1,27 @@
+# Registered lifecycle sizing for corrected demand and local lifting
+
+The [breadth review](../results/S03-dependency-breadth-review.md) selects this bounded total-cost investigation. The source/runner gate now compares complete hand/scalar answers across all seven modes, five families, resource presence/absence, both insertion orders and depths 0, 1 and 8. Reused preparation survives cancellation followed by changed queries. No comparative lifecycle result preceded this registration.
+
+## Hypotheses and controls
+
+The primary question is whether dependency-supported local lifting repays copied calls and conditional obligations after ordinary demand receives the same dependency certificate. Hypothesis H1: longer producer chains may repay lifting through reduced traversal and dependency inspection; short chains may expose overhead. H2: MatchDependencies may repay its analysis on independent choices compared with StaticBirth, with contrary low-reuse cases. H3: source-derived lowering may eliminate work that both graph strategies still execute, but pays per-query transformation and target preparation. Opaque and nested demand are required adverse/boundary controls, not assumed beneficiaries of direct-argument lifting.
+
+Modes: `static` (ordinary StaticBirth), `dependencies` (ordinary MatchDependencies), `pull` (MatchDependencies and local lifting), `scan`, `indexed`, `sealed` (source-inferred compiled specialization with scanning), and `prefix` (source-derived pure-prefix lowering followed by inferred specialization and scanning). All use their explicit source policies; the complete-source gate establishes equal answers on these sources. Prefix analysis is reused, while each query's transformation, target preparation and temporary target disposal count in setup. No source-schema-specific hand solver is substituted for this compiler.
+
+Families: `direct1` has one consumer; `shared4` has four consumers of one choice; `direct4` has four independent choices; `opaque4` captures four independent choice-bearing values without head discrimination; `nested4` discriminates choices inside a constructor, outside this local rewrite. Identity-producing calls separate each choice from its consumers. A query tag is carried into each output and alternates with insertion order, so stale answers across changed queries cannot pass. Optional finishing calls consume one distinct token per consumer. Answers include the entire joint output and exact residual multiplicity.
+
+## Lifecycle and correctness
+
+Use `chr-pulltab-cost MODE FAMILY DEPTH QUERIES RESOURCE REVERSE_FIRST [CANCEL_TICKS]`. Reuse prepared rules across queries; alternate depth n/n+1, query tag and insertion order. Treat the starting order independently, including for one-query runs. Source/input construction is recorded separately. The primary lifecycle sum is preparation + all query setups + execution/complete observation + engine and answer disposal + prepared disposal. Report first-answer latency relative to the start of execution and keep combined execution/observation explicit. The runner records the source/input phases so a broader boundary can also be calculated.
+
+Hand/scalar fixtures are established before primary phases. Full answers are checked outside those phases; interrupted answers are checked as a valid submultiset. Every metered query and the prepared/source lifecycle must restore its starting live allocation count after disposal. The meter counts requested allocations, not RSS. Primary binaries use the ordinary allocator with engine, kernel, observer and direct-demand traversal counters disabled; separate meter binaries provide allocation diagnostics only. Source analysis is measured, but Rust compiler costs are not isolated and no compilation-inclusive architecture claim is permitted.
+
+## Exploratory sizing matrix and bounds
+
+Freeze source, binary and toolchain hashes before runs. Time once per cell for seven modes × five families × depths 0/32 × one/eight queries × resources absent/present × both starting orders: **560 exploratory processes**. Randomize complete configurations with seed 7109. These single measurements size later confirmation; they cannot establish repeatable gains or losses.
+
+Allocation diagnostics use depth 32 and eight queries over all modes/families/resource/starting-order combinations, twice: **280 processes**. Compare phase allocation records exactly between repetitions, excluding clocks. Cancellation uses direct4 at depth 8, two queries, resources present and forward starting order, after zero or one engine tick on the first query; the second query must complete: seven modes × two cancellation points × ordinary/meter = **28 processes**. Run the meter self-check first.
+
+Each process has a 60-second wall/CPU bound and 1 GiB address-space limit, pinned to the first available CPU. Each candidate query has a 2,000,000-tick bound and each scalar fixture a 2,000,000-step bound. Keep failed/cutoff receipts and investigate before interpreting a comparison. A resumed driver may inspect finished receipts but must not restart a process still known live.
+
+Before confirmation, register exact repetitions, warmups, blocking/randomization, practical threshold and analysis using the sizing evidence. At that boundary, investigate consequential control or harness defects, and compare confirmation value against fresh derivation templates, broader integration and reusable lowered-query artifacts. No universal winner, workload weighting or stage closure follows from this pilot.
