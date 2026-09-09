@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/home/ahart/Documents/CHRLang/target/s01-cancellation-artifact-lifetime/subscription-ordinary",
+    "native",
+    "subscription",
+    "0",
+    "4",
+    "0"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 0.0021110899979248643,
+  "address_space_bytes": 1073741824,
+  "stdout": "{\"query\":0,\"size\":0,\"cancelled\":true,\"exhausted_before_cancel\":false,\"setup_ns\":13344,\"execute_ns\":46,\"engine_drop_ns\":3566,\"query_ns\":16956}\n{\"query\":1,\"size\":1,\"setup_ns\":14959,\"execute_ns\":49777,\"observation_ns\":2686,\"engine_drop_ns\":3425,\"answer_drop_ns\":1066,\"query_ns\":71913,\"validated\":true}\n{\"query\":2,\"size\":0,\"cancelled\":true,\"exhausted_before_cancel\":false,\"setup_ns\":7905,\"execute_ns\":36,\"engine_drop_ns\":1416,\"query_ns\":9357}\n{\"query\":3,\"size\":1,\"setup_ns\":15425,\"execute_ns\":29207,\"observation_ns\":1998,\"engine_drop_ns\":3261,\"answer_drop_ns\":804,\"query_ns\":50695,\"validated\":true}\n{\"mode\":\"native\",\"family\":\"subscription\",\"queries\":4,\"cancelled_queries\":2,\"source_ns\":24241,\"prepare_ns\":83265,\"prepared_drop_ns\":3847,\"source_disposal\":\"included in preparation\",\"lifecycle_ns\":260274,\"counters\":false,\"allocator\":\"ordinary\"}\n",
+  "stderr": ""
+}

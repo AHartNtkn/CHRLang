@@ -139,8 +139,8 @@ fn run(mut code: Option<Compiled>) -> Result<(), String> {
         return Err("artifact probe requires disabled engine/kernel/observer counters".into());
     }
     let args = std::env::args().skip(1).collect::<Vec<_>>();
-    if args.len() != 4 {
-        return Err("usage: MODE FAMILY SIZE QUERIES".into());
+    if !(4..=5).contains(&args.len()) {
+        return Err("usage: MODE FAMILY SIZE QUERIES [CANCEL_STEPS]".into());
     }
     let mode = args[0].as_str();
     let family = args[1].as_str();
@@ -149,6 +149,17 @@ fn run(mut code: Option<Compiled>) -> Result<(), String> {
     if size > 4096 || !(1..=1024).contains(&queries) {
         return Err("artifact probe bounds exceeded".into());
     }
+    let cancel_steps = args
+        .get(4)
+        .map(|s| {
+            s.parse::<usize>()
+                .map_err(|_| "invalid cancellation budget")
+        })
+        .transpose()?;
+    if cancel_steps.is_some_and(|steps| steps > 2_000_000) {
+        return Err("cancellation budget exceeds service bound".into());
+    }
+    let mut cancelled_queries = 0;
     let native = mode.starts_with("native");
     if native != code.is_some() {
         return Err("artifact and execution mode disagree".into());
@@ -221,15 +232,57 @@ fn run(mut code: Option<Compiled>) -> Result<(), String> {
         #[cfg(feature = "alloc-meter")]
         let query_baseline = live();
         let input = query(family, size + round % 2, round);
-        let expected = oracle::run(&oracle_source, &input, 2_000_000);
+        let cancel_this = cancel_steps.is_some() && round % 2 == 0;
+        let expected = if cancel_this {
+            Vec::new()
+        } else {
+            oracle::run(&oracle_source, &input, 2_000_000)
+        };
         let start = Phase::begin();
         let mut engine = prepared.start(input)?;
         let setup_measurement = start.finish();
         let setup_ns = setup_measurement.ns;
         let start = Phase::begin();
-        let status = engine.advance(2_000_000);
+        let status = engine.advance(if cancel_this {
+            cancel_steps.unwrap()
+        } else {
+            2_000_000
+        });
         let execute_measurement = start.finish();
         let execute_ns = execute_measurement.ns;
+        if cancel_this {
+            let start = Phase::begin();
+            drop(engine);
+            let engine_drop_measurement = start.finish();
+            let engine_drop_ns = engine_drop_measurement.ns;
+            drop(expected);
+            #[cfg(feature = "alloc-meter")]
+            if live() != query_baseline {
+                return Err(format!(
+                    "cancelled query ownership mismatch: baseline {query_baseline}, end {}",
+                    live()
+                ));
+            }
+            let query_ns = setup_ns + execute_ns + engine_drop_ns;
+            total += query_ns;
+            cancelled_queries += 1;
+            #[cfg(feature = "alloc-meter")]
+            let memory = format!(
+                ",\"memory\":{{{}}},\"query_restored\":true",
+                memory_json(&[
+                    ("setup", &setup_measurement),
+                    ("execute", &execute_measurement),
+                    ("engine_drop", &engine_drop_measurement)
+                ])
+            );
+            #[cfg(not(feature = "alloc-meter"))]
+            let memory = "";
+            println!(
+                "{{\"query\":{round},\"size\":{},\"cancelled\":true,\"exhausted_before_cancel\":{status},\"setup_ns\":{setup_ns},\"execute_ns\":{execute_ns},\"engine_drop_ns\":{engine_drop_ns},\"query_ns\":{query_ns}{memory}}}",
+                size + round % 2
+            );
+            continue;
+        }
         if !status {
             return Err("unfinished artifact query at service bound".into());
         }
@@ -312,7 +365,7 @@ fn run(mut code: Option<Compiled>) -> Result<(), String> {
         "ordinary"
     };
     println!(
-        "{{\"mode\":{mode:?},\"family\":{family:?},\"queries\":{queries},\"source_ns\":{source_ns},\"prepare_ns\":{prepare_ns},\"prepared_drop_ns\":{prepared_drop_ns},\"source_disposal\":\"included in preparation\",\"lifecycle_ns\":{total},\"counters\":false,\"allocator\":{allocator:?}{memory}}}"
+        "{{\"mode\":{mode:?},\"family\":{family:?},\"queries\":{queries},\"cancelled_queries\":{cancelled_queries},\"source_ns\":{source_ns},\"prepare_ns\":{prepare_ns},\"prepared_drop_ns\":{prepared_drop_ns},\"source_disposal\":\"included in preparation\",\"lifecycle_ns\":{total},\"counters\":false,\"allocator\":{allocator:?}{memory}}}"
     );
     Ok(())
 }

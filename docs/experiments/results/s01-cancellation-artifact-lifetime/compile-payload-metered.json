@@ -1,0 +1,23 @@
+{
+  "command": [
+    "rustc",
+    "--edition",
+    "2024",
+    "-C",
+    "opt-level=3",
+    "-C",
+    "codegen-units=1",
+    "/home/ahart/Documents/CHRLang/target/s01-cancellation-artifact-lifetime/payload-metered.rs",
+    "--extern",
+    "chr_compiled=/home/ahart/Documents/CHRLang/target/s01-cancellation-artifact-lifetime/metered/release/libchr_compiled.rlib",
+    "-L",
+    "dependency=/home/ahart/Documents/CHRLang/target/s01-cancellation-artifact-lifetime/metered/release/deps",
+    "-o",
+    "/home/ahart/Documents/CHRLang/target/s01-cancellation-artifact-lifetime/payload-metered"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 0.16045781504362822,
+  "address_space_bytes": 4294967296,
+  "stdout": "",
+  "stderr": ""
+}
