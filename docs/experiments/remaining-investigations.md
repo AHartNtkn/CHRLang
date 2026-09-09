@@ -1,10 +1,10 @@
 # The comparisons still needed to choose the architecture
 
-The [repeated-reunion ownership gate](results/S04-repeated-reunion-ownership.md) completes 216 allocation processes, 54 preflights, 108 exact pairs and 108 instrumentation-off replays. Longer independent work reduces traffic; frequent reconnection and late shared unknowns expose losses and higher peak demand. Separate work counts attribute the late-link loss to no avoided source steps plus repeated boundary checks. T072 broader integrated heads/history is selected next; adaptive reunion and resource-aware lowering remain required. No timing or architecture ranking follows.
+The [multi-head/history gate](results/S02-multihead-history-gate.md) validates 47 finite source configurations over the local equality graph against scalar, scanned and indexed controls. Distinct occurrence identities, ordered propagation history, fresh body values and consuming priority agree. Tuple selection currently scans; T072 next compares selective activation and its repair responsibilities before costs. Broader integration, resource-aware lowering and adaptive reunion remain required.
 
 ## Starting evidence and immediate decision
 
-The next bounded package qualifies broader integrated multi-head matching and occurrence-sensitive propagation history under T072, including competing consumers after equality updates. Compare local rewriting with conventional execution and the independent scalar evaluator. The [reunion ownership decision](results/S04-repeated-reunion-ownership.md#interpretation-and-next-investigation) retains adaptive splitting and resource-aware lowering as required alternatives.
+The next bounded package compares selective head-tuple activation against scanning over the same local equality graph. Preserve occurrence identity, kept-head history, body barriers and complete raw answers under sparse updates, broad merges and consumption. The [source-gate decision](results/S02-multihead-history-gate.md#next-comparison-selective-tuple-activation) retains resource-aware lowering and adaptive reunion as distinct required alternatives.
 
 The completed [restoration pilot](results/S04-resident-cost-pilot.md), [reunion source gate](results/S04-reunion-source-gate.md), [ownership/identity comparison](results/S04-reunion-identity-attribution.md), [strong-control gate](results/S04-reunion-strong-controls.md) and [complete-cost pilot](results/S04-reunion-complete-pilot.md) supply controls. They do not resolve repeated dynamic reunion or general source inference.
 

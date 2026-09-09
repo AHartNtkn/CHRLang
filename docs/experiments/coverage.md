@@ -1,6 +1,6 @@
 # Unanswered architecture questions and experimental ownership
 
-The [repeated-reunion ownership gate](results/S04-repeated-reunion-ownership.md) completes 216 allocation processes, 54 preflights, 108 exact pairs and 108 instrumentation-off replays. Longer independent work reduces traffic; frequent reconnection and late shared unknowns expose losses and higher peak demand. Separate work counts attribute the late-link loss to no avoided source steps plus repeated boundary checks. T072 broader integrated heads/history is selected next; adaptive reunion and resource-aware lowering remain required. No timing or architecture ranking follows.
+The [multi-head/history gate](results/S02-multihead-history-gate.md) validates 47 finite source configurations over the local equality graph against scalar, scanned and indexed controls. Distinct occurrence identities, ordered propagation history, fresh body values and consuming priority agree. Tuple selection currently scans; T072 next compares selective activation and its repair responsibilities before costs. Broader integration, resource-aware lowering and adaptive reunion remain required.
 
 ## How unanswered variants remain accountable
 
