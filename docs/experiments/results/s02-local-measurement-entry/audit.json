@@ -1,0 +1,38 @@
+{
+  "base_head": "7f2c077fa51c64b7431096177accd7a7063dd114",
+  "tests": {
+    "tests": 53,
+    "source-gate": 23
+  },
+  "body_configurations": 149,
+  "controls": 10,
+  "complete_answer_comparisons": 1490,
+  "unchanged_work_records": 36,
+  "isolated_processes": 4,
+  "query_restoration_checks": 288,
+  "plan_restoration_checks": 24,
+  "exact_paired_query_replays": 144,
+  "run_bytes": 416,
+  "inert_diagnostic_fields": 128,
+  "comparative_timings": false,
+  "source_hashes": {
+    "research/chr-relational/Cargo.toml": "8762d6ae266546b568d76f574f09e984b0e26bdb4fe93151d8f76d7e9030ea81",
+    "research/chr-relational/tests/support/local_ports.rs": "8618f645449e7c8572582eea631f6c09141180824533fe74ea8289fec9d4a9a0",
+    "research/chr-relational/tests/chr_constructors.rs": "0ba0dc8466889b740f4ef3775b1a5883249a287ec45cfab4f9090e4043a4d534",
+    "research/chr-relational/tests/local_ownership.rs": "fbb27fcda19e7658af7f3219ecc230b1adc07569159cb4cd8a43f46eb77686ef",
+    "research/chr-direct-conditional/tests/runtime_support/mod.rs": "03633e8d666fadcdd08ddfe4900aa8116b32e434fb0a5dcb1c5faa23ff5976b2",
+    "research/chr-compiled/experiments/meter.rs": "e6c6bd2191c4274b31bc50e289f901a50ced51fff9dbb6d9c7dc18595aaa26b6",
+    "docs/experiments/registrations/S02-local-measurement-entry.md": "b790ba696b18f2051348b8331bec615d16e59881431d7f803f3c35d566d378d9"
+  },
+  "commands": [
+    "cargo test -p chr-relational",
+    "cargo test -p chr-relational --features compiled-work --test chr_constructors -- --nocapture",
+    "cargo test -p chr-relational --features alloc-meter --test local_ownership (twice)",
+    "cargo test -p chr-relational --features alloc-meter,local-work --test local_ownership (twice)",
+    "cargo rustc -p chr-relational --release --features alloc-meter --test local_ownership -- --emit=llvm-ir",
+    "cargo rustc -p chr-relational --release --features alloc-meter,local-work --test local_ownership -- --emit=llvm-ir",
+    "cargo clippy -p chr-relational --test chr_constructors --test local_ownership --features alloc-meter,local-work,compiled-work --no-deps -- -D warnings"
+  ],
+  "toolchain": "rustc 1.97.1 (8bab26f4f 2026-07-14)",
+  "log_format": "Terminal blank lines normalized; command output content preserved."
+}

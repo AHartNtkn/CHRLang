@@ -1,0 +1,11 @@
+# Counter-free local execution and lifecycle ownership gate
+
+T072 qualifies measurement of the integrated local executor against the source-qualified compiled control. This package establishes measurement validity; it runs no comparative timing matrix.
+
+Use one const-parameterized local implementation with diagnostic updates selected at compilation. The counter-free instantiation performs no diagnostic counter updates or consumed-token trace allocation; resource removal remains unconditional. Preserve the diagnostic instantiation and exactly replay its 36 existing work records. Check complete source answers in both instantiations across all three dependency organizations, including the existing 149 body configurations, failures, aliases and competing consumers.
+
+Expose bounded advancement without introducing scheduling within a body. A service budget ending with equations or a body pending represents unfinished work. Resumption must produce the same complete answers as uninterrupted execution. Cancellation drops that actual unfinished query. Keep the existing 200000-operation whole-query cutoff for the bounded gates.
+
+Before any timing pilot, test reusable plan ownership over changing queries, cancellation before and during execution, retained independent answers and final disposal. Use the existing requested-allocation meter in isolated single-thread processes, with at least two identical diagnostic runs; requested bytes are not RSS. Keep source construction, independent oracle checks and JSON serialization outside allocation intervals. Include all three dependency modes, a recursive body source and a failing source. Charge the complete source plan and query representation. No compilation or total architectural superiority claim follows.
+
+Check counter-free release code, independent source answers and default source tests; run strict scoped Clippy and formatting. Record surviving inert diagnostic field size separately from runtime counter work. This is the fourth mechanism package since the last breadth review: compare the next lifecycle pilot with broader integrated source support, repeated dynamic reunion and direct resource-aware lowering before choosing subsequent work.

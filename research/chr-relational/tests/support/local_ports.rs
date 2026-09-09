@@ -64,7 +64,14 @@ impl Plan {
         }))
     }
     pub fn start(self: &Arc<Self>, query: &Query, mode: DependencyMode) -> Run {
-        let mut run = Run::with_dependencies(mode);
+        self.start_with_metrics::<true>(query, mode)
+    }
+    pub fn start_with_metrics<const METRICS: bool>(
+        self: &Arc<Self>,
+        query: &Query,
+        mode: DependencyMode,
+    ) -> Run<METRICS> {
+        let mut run = Run::<METRICS>::with_dependencies(mode);
         let mut variables = BTreeMap::new();
         for c in &query.constraints {
             run.emit(self, c, &mut variables);
@@ -143,7 +150,7 @@ struct Fact {
     args: Vec<usize>,
 }
 #[derive(Clone, Default)]
-pub struct Run {
+pub struct Run<const METRICS: bool = true> {
     mode: DependencyMode,
     body: Option<BodyCursor>,
     facts: Vec<Fact>,
@@ -158,12 +165,12 @@ pub struct Run {
     tokens: VecDeque<usize>,
     next_token: usize,
     failed: bool,
-    // This source gate is diagnostic, never a primary timing build.
+    // Retained inert storage in counter-free runs; updates compile out.
     pub repaired_handles: usize,
     pub visited_requests: usize,
     pub consumed_tokens: Vec<usize>,
 }
-impl Run {
+impl<const METRICS: bool> Run<METRICS> {
     pub fn with_dependencies(mode: DependencyMode) -> Self {
         Self {
             mode,
@@ -234,9 +241,11 @@ impl Run {
         self.next_token += 1;
     }
     fn equal(&self, a: usize, b: usize, deps: &mut Dependencies) -> bool {
-        self.dependency_work
-            .equality_nodes
-            .set(self.dependency_work.equality_nodes.get() + 1);
+        if METRICS {
+            self.dependency_work
+                .equality_nodes
+                .set(self.dependency_work.equality_nodes.get() + 1);
+        }
         let (a, b) = (self.targets[a], self.targets[b]);
         if a == b {
             return true;
@@ -261,9 +270,11 @@ impl Run {
         env: &mut BTreeMap<Var, usize>,
         deps: &mut Dependencies,
     ) -> bool {
-        self.dependency_work
-            .pattern_nodes
-            .set(self.dependency_work.pattern_nodes.get() + 1);
+        if METRICS {
+            self.dependency_work
+                .pattern_nodes
+                .set(self.dependency_work.pattern_nodes.get() + 1);
+        }
         match pattern {
             Term::Var(v) => match env.get(v) {
                 Some(&prior) => self.equal(prior, handle, deps),
@@ -294,28 +305,40 @@ impl Run {
     }
     fn insert_pair(&mut self, a: usize, b: usize, ids: BTreeSet<usize>) {
         assert_ne!(a, b);
-        self.dependency_work.pair_operations += 1;
-        self.dependency_work.membership_edits += ids.len();
+        if METRICS {
+            self.dependency_work.pair_operations += 1;
+            self.dependency_work.membership_edits += ids.len();
+        }
         self.pairs
             .entry(Self::pair_key(a, b))
             .or_default()
             .extend(ids);
         self.nodes[a].partners.insert(b);
         self.nodes[b].partners.insert(a);
-        self.dependency_work.incident_edits += 2;
+        if METRICS {
+            self.dependency_work.incident_edits += 2;
+        }
     }
     fn remove_subscription(&mut self, a: usize, b: usize, id: usize) {
-        self.dependency_work.pair_operations += 1;
+        if METRICS {
+            self.dependency_work.pair_operations += 1;
+        }
         let key = Self::pair_key(a, b);
         if let Some(ids) = self.pairs.get_mut(&key) {
-            self.dependency_work.membership_edits += 1;
+            if METRICS {
+                self.dependency_work.membership_edits += 1;
+            }
             ids.remove(&id);
             if ids.is_empty() {
-                self.dependency_work.pair_operations += 1;
+                if METRICS {
+                    self.dependency_work.pair_operations += 1;
+                }
                 self.pairs.remove(&key);
                 self.nodes[a].partners.remove(&b);
                 self.nodes[b].partners.remove(&a);
-                self.dependency_work.incident_edits += 2;
+                if METRICS {
+                    self.dependency_work.incident_edits += 2;
+                }
             }
         }
     }
@@ -327,7 +350,9 @@ impl Run {
         }
         for handle in std::mem::take(&mut self.takes[id].watched) {
             let node = &mut self.nodes[self.targets[handle]];
-            self.dependency_work.subscription_edits += 2;
+            if METRICS {
+                self.dependency_work.subscription_edits += 2;
+            }
             node.descriptor_watchers.remove(&id);
             node.equality_watchers.remove(&id);
         }
@@ -338,7 +363,9 @@ impl Run {
         if !self.takes[id].live {
             return;
         }
-        self.visited_requests += 1;
+        if METRICS {
+            self.visited_requests += 1;
+        }
         let request = &self.takes[id];
         let mut env = BTreeMap::new();
         let mut deps = Dependencies::default();
@@ -348,7 +375,9 @@ impl Run {
         let is_ready = matched.is_some();
         self.takes[id].matched = matched;
         for &node in &deps.descriptor {
-            self.dependency_work.subscription_edits += 1;
+            if METRICS {
+                self.dependency_work.subscription_edits += 1;
+            }
             self.nodes[node].descriptor_watchers.insert(id);
         }
         if let Some((a, b)) = deps.equality {
@@ -356,7 +385,9 @@ impl Run {
             if self.mode == DependencyMode::Indexed {
                 self.insert_pair(a, b, BTreeSet::from([id]));
             } else {
-                self.dependency_work.subscription_edits += 2;
+                if METRICS {
+                    self.dependency_work.subscription_edits += 2;
+                }
                 self.nodes[a].equality_watchers.insert(id);
                 self.nodes[b].equality_watchers.insert(id);
                 self.takes[id]
@@ -381,18 +412,26 @@ impl Run {
     ) {
         let mut changed = BTreeSet::new();
         for other in partners {
-            self.dependency_work.incident_visits += 1;
-            self.dependency_work.moved_relations += 1;
-            self.dependency_work.pair_operations += 1;
+            if METRICS {
+                self.dependency_work.incident_visits += 1;
+                self.dependency_work.moved_relations += 1;
+                self.dependency_work.pair_operations += 1;
+            }
             let ids = self
                 .pairs
                 .remove(&Self::pair_key(old, other))
                 .expect("incident relation missing");
-            self.dependency_work.moved_subscribers += ids.len();
+            if METRICS {
+                self.dependency_work.moved_subscribers += ids.len();
+            }
             self.nodes[other].partners.remove(&old);
-            self.dependency_work.incident_edits += 1;
+            if METRICS {
+                self.dependency_work.incident_edits += 1;
+            }
             if other == new {
-                self.dependency_work.notifications += ids.len();
+                if METRICS {
+                    self.dependency_work.notifications += ids.len();
+                }
                 wake.extend(ids);
             } else {
                 self.insert_pair(new, other, ids);
@@ -405,11 +444,17 @@ impl Run {
             changed = self.nodes[new].partners.clone();
         }
         for other in changed {
-            self.dependency_work.incident_visits += 1;
+            if METRICS {
+                self.dependency_work.incident_visits += 1;
+            }
             if self.nodes[new].descriptor.is_some() && self.nodes[other].descriptor.is_some() {
-                self.dependency_work.pair_operations += 1;
+                if METRICS {
+                    self.dependency_work.pair_operations += 1;
+                }
                 let ids = &self.pairs[&Self::pair_key(new, other)];
-                self.dependency_work.notifications += ids.len();
+                if METRICS {
+                    self.dependency_work.notifications += ids.len();
+                }
                 wake.extend(ids);
             }
         }
@@ -503,28 +548,38 @@ impl Run {
         let loser = std::mem::take(&mut self.nodes[b]);
         for &handle in &loser.handles {
             self.targets[handle] = a;
-            self.repaired_handles += 1;
+            if METRICS {
+                self.repaired_handles += 1;
+            }
         }
         self.nodes[a].handles.extend(loser.handles);
-        self.dependency_work.notifications +=
-            self.nodes[a].equality_watchers.len() + loser.equality_watchers.len();
+        if METRICS {
+            self.dependency_work.notifications +=
+                self.nodes[a].equality_watchers.len() + loser.equality_watchers.len();
+        }
         let mut wake = self.nodes[a].equality_watchers.clone();
         wake.extend(&loser.equality_watchers);
         // Only watchers whose previously unknown class gains a descriptor
         // have new constructor information. Unknown/unknown aliases do not.
         match (&self.nodes[a].descriptor, &loser.descriptor) {
             (None, Some(_)) => {
-                self.dependency_work.notifications += self.nodes[a].descriptor_watchers.len();
+                if METRICS {
+                    self.dependency_work.notifications += self.nodes[a].descriptor_watchers.len();
+                }
                 wake.extend(&self.nodes[a].descriptor_watchers);
             }
             (Some(_), None) => {
-                self.dependency_work.notifications += loser.descriptor_watchers.len();
+                if METRICS {
+                    self.dependency_work.notifications += loser.descriptor_watchers.len();
+                }
                 wake.extend(&loser.descriptor_watchers);
             }
             _ => (),
         }
-        self.dependency_work.moved_endpoint_subscriptions +=
-            loser.descriptor_watchers.len() + loser.equality_watchers.len();
+        if METRICS {
+            self.dependency_work.moved_endpoint_subscriptions +=
+                loser.descriptor_watchers.len() + loser.equality_watchers.len();
+        }
         self.nodes[a]
             .descriptor_watchers
             .extend(loser.descriptor_watchers);
@@ -585,6 +640,9 @@ impl Run {
             }),
         }
     }
+    pub fn pending_equations(&self) -> usize {
+        self.equations.len()
+    }
     pub fn body_pending(&self) -> bool {
         self.body.is_some()
     }
@@ -601,10 +659,15 @@ impl Run {
         Some(answer)
     }
     pub fn settle(&mut self) {
-        for _ in 0..200_000 {
+        assert!(self.advance(200_000), "local rewrite service cutoff");
+    }
+    /// True means quiescence or failure; false means the budget ended first.
+    /// Returning does not expose a new source rule-selection boundary.
+    pub fn advance(&mut self, budget: usize) -> bool {
+        for _ in 0..budget {
             if self.failed {
                 self.body = None;
-                return;
+                return true;
             }
             if let Some((a, b)) = self.equations.pop_front() {
                 self.merge(a, b);
@@ -632,10 +695,10 @@ impl Run {
                 continue;
             }
             if self.tokens.is_empty() {
-                return;
+                return true;
             }
             let Some(id) = self.ready.pop_first() else {
-                return;
+                return true;
             };
             if !self.takes[id].live {
                 continue;
@@ -649,10 +712,13 @@ impl Run {
             env.insert(plan.output, output);
             self.takes[id].live = false;
             self.unsubscribe(id);
-            self.consumed_tokens.push(self.tokens.pop_front().unwrap());
+            let token = self.tokens.pop_front().unwrap();
+            if METRICS {
+                self.consumed_tokens.push(token);
+            }
             self.body = Some(BodyCursor { plan, env, next: 0 });
         }
-        panic!("local rewrite service cutoff");
+        false
     }
     fn term(&self, handle: usize, fuel: usize) -> Term {
         assert!(fuel > 0, "cycle escaped local consistency");

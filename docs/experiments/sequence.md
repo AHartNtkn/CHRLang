@@ -278,7 +278,7 @@ Exact sizes follow exploratory sizing under the common rules above. The comparat
 
 ## Current execution order
 
-**T072 is active for counter-free local measurement and complete lifecycle ownership.** The [consuming-selector gate](results/S02-nullary-partner-selector.md) qualifies an equally specialized compiled control: all 149 integrated-body configurations agree across seven controls, and separate diagnostics verify direct selection. Establish ordinary-allocator counter-free local execution and separate diagnostic builds before the comparative registration. General joins, propagation history, multiple-rule scheduling, lifetime and complete architectures remain required.
+**T072 is active for ordinary lifecycle measurement and registered sizing.** The [local measurement entry](results/S02-local-measurement-entry.md) validates counter-free source execution, exact diagnostic replay and cancellation/answer ownership. Its four-package breadth review selects a complete measurement path against the qualified compiled controls before further local refinement. General joins, propagation history, multiple-rule scheduling, sustained lifetime and complete architectures remain required.
 
 The [ordered remaining sequence](remaining-investigations.md#execution-order) records the completed bounded restoration/reunion comparisons and remaining investigation boundaries. T077 stays required for broader restoration, adaptive splitting, repeated dynamic reunion, inference and sustained lifetime. Broader lowering and structural theories, discovery, reuse, direct graphs and connected parallelism remain required. Language and lifetime comparisons accompany every candidate; priority is reconsidered at each package boundary.
 

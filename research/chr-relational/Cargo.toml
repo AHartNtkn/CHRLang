@@ -15,3 +15,10 @@ chr-compiled = { path = "../chr-compiled", default-features = false }
 [features]
 compiled-work = ["chr-compiled/metrics"]
 alloc-meter = []
+local-work = []
+
+[[test]]
+name = "local_ownership"
+path = "tests/local_ownership.rs"
+harness = false
+required-features = ["alloc-meter"]

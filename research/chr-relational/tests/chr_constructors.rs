@@ -146,7 +146,7 @@ fn constructor_classes_agree_with_independent_finite_tree_substitution() {
                 outputs: (0..n).map(|i| (format!("v{i}"), Var(i as u64))).collect(),
             };
             let expected = oracle::run(&source, &query, 200_000);
-            let mut local = local::Run::default();
+            let mut local = local::Run::<true>::default();
             let values = (0..n).map(|_| local.value()).collect::<Vec<_>>();
             for (i, &kind) in kinds.iter().enumerate() {
                 match kind {
@@ -218,7 +218,7 @@ fn equality_enables_consumption_which_enables_another_consumption() {
             },
             200_000,
         );
-        let mut local = local::Run::default();
+        let mut local = local::Run::<true>::default();
         let values = (0..3).map(|_| local.value()).collect::<Vec<_>>();
         local.post(&take_plan(), values[0], values[1]);
         local.post(&take_plan(), values[1], values[2]);
@@ -403,7 +403,7 @@ fn competing_consumers_expose_descriptor_order_as_a_scheduling_choice() {
             },
             200_000,
         );
-        let mut local = local::Run::default();
+        let mut local = local::Run::<true>::default();
         let values = (0..6).map(|_| local.value()).collect::<Vec<_>>();
         local.describe(values[4], "a", vec![]);
         local.describe(values[5], "b", vec![]);
@@ -527,7 +527,7 @@ fn a_hidden_constructor_cycle_cannot_publish_or_poison_its_sibling() {
 #[test]
 fn local_handle_repair_wakes_only_the_affected_region() {
     for unrelated in [0, 8, 64] {
-        let mut run = local::Run::default();
+        let mut run = local::Run::<true>::default();
         let target = run.value();
         let result = run.value();
         run.post(&take_plan(), target, result);
@@ -557,7 +557,7 @@ fn local_handle_repair_wakes_only_the_affected_region() {
 
 #[test]
 fn local_forks_preserve_fresh_handles_and_isolate_hidden_failure() {
-    let mut base = local::Run::default();
+    let mut base = local::Run::<true>::default();
     let x = base.value();
     let y = base.value();
     base.post(&take_plan(), x, y);
@@ -595,7 +595,7 @@ fn local_broad_merge_repairs_every_alias_and_services_all_consumers() {
         local::DependencyMode::Indexed,
     ] {
         for width in [1, 8, 64, 256] {
-            let mut run = local::Run::with_dependencies(mode);
+            let mut run = local::Run::<true>::with_dependencies(mode);
             let values = (0..width).map(|_| run.value()).collect::<Vec<_>>();
             let outputs = (0..width).map(|_| run.value()).collect::<Vec<_>>();
             for (&input, &output) in values.iter().zip(&outputs) {
@@ -634,7 +634,7 @@ fn local_broad_merge_repairs_every_alias_and_services_all_consumers() {
 #[test]
 fn local_decomposition_preserves_cross_child_aliases_and_arity() {
     for clash in [false, true] {
-        let mut run = local::Run::default();
+        let mut run = local::Run::<true>::default();
         let x = run.value();
         let a = run.value();
         let b = run.value();
@@ -665,7 +665,7 @@ fn local_decomposition_preserves_cross_child_aliases_and_arity() {
         );
         oracle::same_raw(run.answer(&[x, out]).into_iter().collect(), expected);
     }
-    let mut run = local::Run::default();
+    let mut run = local::Run::<true>::default();
     let x = run.value();
     let child = run.value();
     run.describe(x, "f", vec![child]);
@@ -676,7 +676,7 @@ fn local_decomposition_preserves_cross_child_aliases_and_arity() {
 
 #[test]
 fn registering_a_known_input_does_not_revisit_existing_requests() {
-    let mut run = local::Run::default();
+    let mut run = local::Run::<true>::default();
     let x = run.value();
     let leaf = run.value();
     run.describe(leaf, "a", vec![]);
@@ -704,7 +704,7 @@ fn nested_source_pattern_waits_for_inner_information() {
         eq(v(1), v(0)),
     );
     let plan = local::Plan::compile(&rule).unwrap();
-    let mut run = local::Run::default();
+    let mut run = local::Run::<true>::default();
     let x = run.value();
     let y = run.value();
     let inner = run.value();
@@ -796,7 +796,7 @@ fn source_patterns_preserve_nonbinding_repeated_variables_and_late_aliases() {
                             },
                             200_000,
                         );
-                        let mut run = local::Run::with_dependencies(mode);
+                        let mut run = local::Run::<true>::with_dependencies(mode);
                         let vars = (0..4).map(|_| run.value()).collect::<Vec<_>>();
                         let input = embed(&mut run, &input, &vars);
                         run.post(&plan, input, vars[0]);
@@ -865,7 +865,7 @@ fn descriptor_waits_follow_both_merge_directions_and_nested_information() {
         let plan = local::Plan::compile(&rule).unwrap();
         for large_input in [false, true] {
             for large_inner in [false, true] {
-                let mut run = local::Run::with_dependencies(mode);
+                let mut run = local::Run::<true>::with_dependencies(mode);
                 let input = run.value();
                 let output = run.value();
                 let described = run.value();
@@ -963,7 +963,7 @@ fn unresolved_equality_observes_descendants_and_releases_consumed_dependencies()
         for depth in [0, 1, 3] {
             for late in 0..3 {
                 for reverse in [false, true] {
-                    let mut run = local::Run::with_dependencies(mode);
+                    let mut run = local::Run::<true>::with_dependencies(mode);
                     let out = run.value();
                     let a = run.value();
                     let b = run.value();
@@ -1078,7 +1078,7 @@ fn equality_alias_overhead_is_explicit_and_both_forks_preserve_source_answers() 
         );
         let plan = local::Plan::compile(&rule).unwrap();
         for width in [8, 64] {
-            let mut run = local::Run::with_dependencies(mode);
+            let mut run = local::Run::<true>::with_dependencies(mode);
             let common = run.value();
             let others = (0..width).map(|_| run.value()).collect::<Vec<_>>();
             let outputs = (0..width).map(|_| run.value()).collect::<Vec<_>>();
@@ -1186,7 +1186,7 @@ fn indexed_equality_must_deliver_identity_notifications_and_release_relations() 
         eq(v(11), v(10)),
     );
     let plan = local::Plan::compile(&rule).unwrap();
-    let mut run = local::Run::with_dependencies(local::DependencyMode::Indexed);
+    let mut run = local::Run::<true>::with_dependencies(local::DependencyMode::Indexed);
     let a = run.value();
     let b = run.value();
     let out = run.value();
@@ -1240,7 +1240,7 @@ fn equality_index_charges_relocation_coalescence_and_descendant_progress() {
         local::DependencyMode::Indexed,
     ] {
         for width in [8, 64] {
-            let mut run = local::Run::with_dependencies(mode);
+            let mut run = local::Run::<true>::with_dependencies(mode);
             let common = run.value();
             let others = (0..width).map(|_| run.value()).collect::<Vec<_>>();
             let child_a = run.value();
@@ -1355,7 +1355,7 @@ fn described_winner_awakens_relocated_pairs_without_binding_a_match() {
         local::DependencyMode::Filtered,
         local::DependencyMode::Indexed,
     ] {
-        let mut run = local::Run::with_dependencies(mode);
+        let mut run = local::Run::<true>::with_dependencies(mode);
         let x = run.value();
         let y = run.value();
         let a = run.value();
@@ -1408,6 +1408,35 @@ fn described_winner_awakens_relocated_pairs_without_binding_a_match() {
             run.answer(&[out]).into_iter().collect(),
             oracle::run(&source, &q, 200_000),
         );
+    }
+}
+
+fn check_uninstrumented_body(plan: &std::sync::Arc<local::Plan>, q: &Query, expected: &[Answer]) {
+    for mode in [
+        local::DependencyMode::Endpoint,
+        local::DependencyMode::Filtered,
+        local::DependencyMode::Indexed,
+    ] {
+        let mut e = plan.start_with_metrics::<false>(q, mode);
+        let empty = local::Run::<false>::default().work_json();
+        // One-operation service boundaries exercise suspension within a body.
+        let mut finished = false;
+        for _ in 0..200_000 {
+            if e.advance(1) {
+                finished = true;
+                break;
+            }
+        }
+        assert!(finished);
+        assert!(!e.body_pending());
+        oracle::same_raw(e.observe().into_iter().collect(), expected.to_vec());
+        assert_eq!(e.work_json(), empty);
+        assert!(e.consumed_tokens.is_empty());
+        assert_eq!(e.consumed_tokens.capacity(), 0);
+        if e.observe().is_some() {
+            assert_eq!(e.pending_equations(), 0);
+            e.assert_dependency_integrity();
+        }
     }
 }
 
@@ -1547,6 +1576,7 @@ fn source_body_constructor_equation_is_an_executable_plan() {
                     }
                     let expected = oracle::run(std::slice::from_ref(&rule), &q, 200_000);
                     check_body_controls(&prepared, &q, &expected, true);
+                    check_uninstrumented_body(&plan, &q, &expected);
                     for mode in [
                         local::DependencyMode::Endpoint,
                         local::DependencyMode::Filtered,
@@ -1594,6 +1624,7 @@ fn source_bodies_post_chained_consumers_and_preserve_fresh_residual_aliases() {
             let expected = oracle::run(std::slice::from_ref(&rule), &q, 200_000);
             let prepared = chr_compiled::PreparedRuleset::new(vec![rule.clone()], None).unwrap();
             check_body_controls(&prepared, &q, &expected, depth > 0);
+            check_uninstrumented_body(&plan, &q, &expected);
             for mode in [
                 local::DependencyMode::Endpoint,
                 local::DependencyMode::Filtered,
@@ -1655,6 +1686,7 @@ fn body_barrier_preserves_the_older_consumer_that_becomes_ready_late() {
     let prepared = chr_compiled::PreparedRuleset::new(vec![rule.clone()], None).unwrap();
     check_body_controls(&prepared, &q, &expected, true);
     let plan = local::Plan::compile(&rule).unwrap();
+    check_uninstrumented_body(&plan, &q, &expected);
     for mode in [
         local::DependencyMode::Endpoint,
         local::DependencyMode::Filtered,

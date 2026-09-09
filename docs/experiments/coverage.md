@@ -1,6 +1,6 @@
 # Unanswered architecture questions and experimental ownership
 
-The [consuming-selector gate](results/S02-nullary-partner-selector.md) qualifies an equally specialized compiled control for the integrated body sources. All 149 configurations agree across seven controls (1,043 complete-answer comparisons); separate diagnostics verify actual specialized applications without generic tuple discovery. Source order, absent resources and body completion are preserved. T072 next establishes counter-free local measurement and complete lifecycle/ownership accounting. No performance ranking follows.
+The [local measurement entry](results/S02-local-measurement-entry.md) validates counter-free execution across 149 source configurations and preserves all 36 diagnostic work records. Four isolated allocation processes exactly replay 288 query and 24 prepared-plan restoration checks, including pending equations/bodies and independently retained answers. The four-package breadth review selects an ordinary-allocator lifecycle runner and prospectively registered sizing against the qualified compiled controls. No comparative timings ran.
 
 ## How unanswered variants remain accountable
 

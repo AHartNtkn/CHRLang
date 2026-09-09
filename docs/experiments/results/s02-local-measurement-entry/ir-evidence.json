@@ -1,0 +1,82 @@
+[
+  {
+    "file": "target/release/deps/local_ownership-2f8c0cc7d3e60ae0.ll",
+    "sha256": "0f7272928127cecb64e40076db55ad0638e465973a8639013e88a53d369b9910",
+    "functions": [
+      {
+        "declaration": "define internal fastcc noundef zeroext i1 @_RNvMs_NtCshboIgWjmi4C_15local_ownership5localINtB4_3RunKb0_E5equalB6_(ptr noundef nonnull readonly align 8 captures(none) %self, i64 noundef %a, i64 noundef %b, ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %deps) unnamed_addr #0 personality ptr @rust_eh_personality {",
+        "first_instructions": [
+          "start:",
+          "  %0 = getelementptr inbounds nuw i8, ptr %self, i64 80",
+          "  %_40 = load ptr, ptr %0, align 8, !nonnull !40, !noundef !40",
+          "  %1 = getelementptr inbounds nuw i8, ptr %self, i64 88",
+          "  %_39 = load i64, ptr %1, align 8, !noundef !40",
+          "  %_41 = icmp ult i64 %a, %_39",
+          "  br i1 %_41, label %bb16, label %panic",
+          "",
+          "bb16:                                             ; preds = %start",
+          "  %_8 = getelementptr inbounds nuw i64, ptr %_40, i64 %a",
+          "  %a1 = load i64, ptr %_8, align 8, !noundef !40",
+          "  %_46 = icmp ult i64 %b, %_39"
+        ]
+      },
+      {
+        "declaration": "define internal fastcc noundef zeroext i1 @_RNvMs_NtCshboIgWjmi4C_15local_ownership5localINtB4_3RunKb0_E7matchesB6_(ptr noundef nonnull readonly align 8 captures(none) %self, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(48) %pattern, i64 noundef %handle, ptr noalias noundef nonnull align 8 dereferenceable(24) %env, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %deps) unnamed_addr #0 personality ptr @rust_eh_personality {",
+        "first_instructions": [
+          "start:",
+          "  %_14.i = alloca [32 x i8], align 8",
+          "  %entry1.i = alloca [40 x i8], align 8",
+          "  %0 = load i64, ptr %pattern, align 8, !range !288, !noundef !40",
+          "  %.not = icmp eq i64 %0, -1",
+          "  br i1 %.not, label %bb5, label %bb4",
+          "",
+          "bb4:                                              ; preds = %start",
+          "  %1 = getelementptr inbounds nuw i8, ptr %self, i64 88",
+          "  %_39 = load i64, ptr %1, align 8, !noundef !40",
+          "  %_41 = icmp ult i64 %handle, %_39",
+          "  br i1 %_41, label %bb19, label %panic"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "target/release/deps/local_ownership-99af16491291ed53.ll",
+    "sha256": "fd884eacb1380b434659776b0e2e9143d81ab580d02cb9277e0d0a6f7591acee",
+    "functions": [
+      {
+        "declaration": "define internal fastcc noundef zeroext i1 @_RNvMs_NtCs6OQiuEwR3gl_15local_ownership5localNtB4_3Run5equalB6_(ptr noundef nonnull align 8 captures(none) %self, i64 noundef %a, i64 noundef %b, ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %deps) unnamed_addr #0 personality ptr @rust_eh_personality {",
+        "first_instructions": [
+          "start:",
+          "  %_34 = getelementptr inbounds nuw i8, ptr %self, i64 352",
+          "  %_6 = load i64, ptr %_34, align 8, !noundef !40",
+          "  %_5 = add i64 %_6, 1",
+          "  store i64 %_5, ptr %_34, align 8",
+          "  %0 = getelementptr inbounds nuw i8, ptr %self, i64 80",
+          "  %_40 = load ptr, ptr %0, align 8, !nonnull !40, !noundef !40",
+          "  %1 = getelementptr inbounds nuw i8, ptr %self, i64 88",
+          "  %_39 = load i64, ptr %1, align 8, !noundef !40",
+          "  %_41 = icmp ult i64 %a, %_39",
+          "  br i1 %_41, label %bb16, label %panic",
+          ""
+        ]
+      },
+      {
+        "declaration": "define internal fastcc noundef zeroext i1 @_RNvMs_NtCs6OQiuEwR3gl_15local_ownership5localNtB4_3Run7matchesB6_(ptr noundef nonnull align 8 captures(none) %self, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(48) %pattern, i64 noundef %handle, ptr noalias noundef nonnull align 8 dereferenceable(24) %env, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %deps) unnamed_addr #0 personality ptr @rust_eh_personality {",
+        "first_instructions": [
+          "start:",
+          "  %_14.i = alloca [32 x i8], align 8",
+          "  %entry1.i = alloca [40 x i8], align 8",
+          "  %_34 = getelementptr inbounds nuw i8, ptr %self, i64 344",
+          "  %_7 = load i64, ptr %_34, align 8, !noundef !40",
+          "  %_6 = add i64 %_7, 1",
+          "  store i64 %_6, ptr %_34, align 8",
+          "  %0 = load i64, ptr %pattern, align 8, !range !288, !noundef !40",
+          "  %.not = icmp eq i64 %0, -1",
+          "  br i1 %.not, label %bb5, label %bb4",
+          "",
+          "bb4:                                              ; preds = %start"
+        ]
+      }
+    ]
+  }
+]
