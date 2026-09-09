@@ -88,6 +88,8 @@ The [Boolean repetition and breadth review](S08-support-repetition.md) completes
 
 The [support optimization gate](S08-support-optimization-gate.md) implements independent direct-identity and256-entry completed-result controls. Boolean truth tables, ownership/eviction and complete source suites pass. At depth64 the cache lowers service calls from1,257,853 to779,212; cheap identities preserve service counts. Lifecycle costs remain unmeasured and are selected next under T074.
 
+The [support lifecycle pilot](S08-support-lifecycle.md) completes966 processes/138 exact allocation pairs. Identities and combined policies lower traffic in all23 matched cells; cache alone raises it in four tiny cells and cache policies raise peak memory in19. The substantive alias witness remains far cheaper under Scan/resumable controls. T074 next tests support variable ordering as a structural hypothesis, with semantic gates before costs; no universal winner is selected.
+
 ## Generated incremental execution with explicit search state
 
 Rules compile to occurrence entry points and partner-access plans. Query constraints become distinct live occurrences; term constructors use a shared immutable arena and logical variables use context-specific binding identities. Introductions and changed variable classes activate relevant entry points. Nonbinding matching reads established structure; unsuccessful matches retain sufficient dependencies to be reconsidered when bindings or partners arrive.

@@ -1,0 +1,18 @@
+{
+  "command": [
+    "/home/ahart/Documents/CHRLang/target/s08-support-lifecycle/identities-meter",
+    "inferred",
+    "distinct",
+    "0",
+    "4",
+    "8",
+    "1",
+    "all",
+    "0",
+    "1",
+    "0"
+  ],
+  "returncode": 0,
+  "stdout": "{\"event\":\"start\"}\n{\"mode\":\"inferred\",\"policy\":\"identities\",\"reuse\":1,\"fail_tail\":false,\"family\":\"distinct\",\"depth\":0,\"work\":4,\"payload\":8,\"resource\":true,\"keep\":\"all\",\"cancel\":false,\"meter\":true,\"counters\":false,\"source_build\":{\"ns\":5040,\"memory\":{\"live_start\":3137,\"live_end\":7619,\"peak_live\":7619,\"allocation_calls\":47,\"requested_bytes\":5250,\"deallocation_calls\":0}},\"preparation\":{\"ns\":6722,\"memory\":{\"live_start\":7619,\"live_end\":13376,\"peak_live\":14808,\"allocation_calls\":66,\"requested_bytes\":9647,\"deallocation_calls\":8}},\"prepared_drop\":{\"ns\":2321,\"memory\":{\"live_start\":13376,\"live_end\":3137,\"peak_live\":13376,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":99}},\"consumer_drop\":{\"ns\":996,\"memory\":{\"live_start\":14681,\"live_end\":13376,\"peak_live\":14681,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":45}},\"samples\":[{\"depth\":0,\"answers\":1,\"complete\":true,\"first_answer_ns\":81277,\"input_build\":{\"ns\":2385,\"memory\":{\"live_start\":13376,\"live_end\":14617,\"peak_live\":14617,\"allocation_calls\":38,\"requested_bytes\":1289,\"deallocation_calls\":0}},\"setup\":{\"ns\":8647,\"memory\":{\"live_start\":14617,\"live_end\":19511,\"peak_live\":19895,\"allocation_calls\":79,\"requested_bytes\":7778,\"deallocation_calls\":35}},\"execute_observe\":{\"ns\":81602,\"memory\":{\"live_start\":19511,\"live_end\":23972,\"peak_live\":25860,\"allocation_calls\":275,\"requested_bytes\":28523,\"deallocation_calls\":181}},\"engine_drop\":{\"ns\":2110,\"memory\":{\"live_start\":23972,\"live_end\":14681,\"peak_live\":23972,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":99}}}],\"snapshots\":[{\"query\":0,\"label\":\"setup\",\"answers\":0,\"retained\":0,\"baseline\":13376,\"live\":19511},{\"query\":0,\"label\":\"delivery\",\"answers\":1,\"retained\":1,\"baseline\":13376,\"live\":24004},{\"query\":0,\"label\":\"exhausted\",\"answers\":1,\"retained\":1,\"baseline\":13376,\"live\":23972},{\"query\":0,\"label\":\"engine-disposed\",\"answers\":1,\"retained\":1,\"baseline\":13376,\"live\":14681}]}\n",
+  "stderr": ""
+}

@@ -1,0 +1,18 @@
+{
+  "command": [
+    "/home/ahart/Documents/CHRLang/target/s08-support-lifecycle/combined-meter",
+    "inferred",
+    "aliases",
+    "64",
+    "4",
+    "8",
+    "1",
+    "0",
+    "0",
+    "1",
+    "0"
+  ],
+  "returncode": 0,
+  "stdout": "{\"event\":\"start\"}\n{\"mode\":\"inferred\",\"policy\":\"combined\",\"reuse\":1,\"fail_tail\":false,\"family\":\"aliases\",\"depth\":64,\"work\":4,\"payload\":8,\"resource\":true,\"keep\":\"0\",\"cancel\":false,\"meter\":true,\"counters\":false,\"source_build\":{\"ns\":4787,\"memory\":{\"live_start\":6205,\"live_end\":10635,\"peak_live\":10635,\"allocation_calls\":45,\"requested_bytes\":5198,\"deallocation_calls\":0}},\"preparation\":{\"ns\":16143,\"memory\":{\"live_start\":10635,\"live_end\":16392,\"peak_live\":17824,\"allocation_calls\":66,\"requested_bytes\":9647,\"deallocation_calls\":8}},\"prepared_drop\":{\"ns\":6060,\"memory\":{\"live_start\":16392,\"live_end\":6205,\"peak_live\":16392,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":97}},\"consumer_drop\":{\"ns\":120,\"memory\":{\"live_start\":16392,\"live_end\":16392,\"peak_live\":16392,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":0}},\"samples\":[{\"depth\":64,\"answers\":65,\"complete\":true,\"first_answer_ns\":425917,\"input_build\":{\"ns\":8279,\"memory\":{\"live_start\":16392,\"live_end\":20765,\"peak_live\":20765,\"allocation_calls\":165,\"requested_bytes\":4421,\"deallocation_calls\":0}},\"setup\":{\"ns\":32256,\"memory\":{\"live_start\":20765,\"live_end\":33263,\"peak_live\":35829,\"allocation_calls\":335,\"requested_bytes\":23158,\"deallocation_calls\":170}},\"execute_observe\":{\"ns\":83484330,\"memory\":{\"live_start\":33263,\"live_end\":2720611,\"peak_live\":2732635,\"allocation_calls\":82025,\"requested_bytes\":45879091,\"deallocation_calls\":50716}},\"engine_drop\":{\"ns\":229467,\"memory\":{\"live_start\":2720611,\"live_end\":16392,\"peak_live\":2720611,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":3875}}}],\"snapshots\":[{\"query\":0,\"label\":\"setup\",\"answers\":0,\"retained\":0,\"baseline\":16392,\"live\":33263},{\"query\":0,\"label\":\"delivery\",\"answers\":1,\"retained\":0,\"baseline\":16392,\"live\":61413},{\"query\":0,\"label\":\"delivery\",\"answers\":4,\"retained\":0,\"baseline\":16392,\"live\":84979},{\"query\":0,\"label\":\"delivery\",\"answers\":16,\"retained\":0,\"baseline\":16392,\"live\":269791},{\"query\":0,\"label\":\"delivery\",\"answers\":64,\"retained\":0,\"baseline\":16392,\"live\":2724396},{\"query\":0,\"label\":\"exhausted\",\"answers\":65,\"retained\":0,\"baseline\":16392,\"live\":2720611},{\"query\":0,\"label\":\"engine-disposed\",\"answers\":65,\"retained\":0,\"baseline\":16392,\"live\":16392}]}\n",
+  "stderr": ""
+}
