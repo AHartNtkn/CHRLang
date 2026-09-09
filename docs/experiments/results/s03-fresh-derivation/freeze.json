@@ -1,0 +1,16 @@
+{
+  "base_commit": "f235d23a2afca1b8495f13cd1173697cdb20dc81",
+  "rustc": "rustc 1.97.1 (8bab26f4f 2026-07-14)\nbinary: rustc\ncommit-hash: 8bab26f4f68e0e26f0bb7960be334d5b520ea452\ncommit-date: 2026-07-14\nhost: x86_64-unknown-linux-gnu\nrelease: 1.97.1\nLLVM version: 22.1.6\n",
+  "sources": {
+    "research/chr-direct-choice/src/demand.rs": "e7a84e766d6785212639b6b0368600ef8e6535e12f52605ccf0367b19a007c96",
+    "research/chr-direct-choice/src/demand/templates.rs": "cfb0491ca4c9331280867f562cc6e4ec495f1a6de2a3b9042a4c9843d24ddc61",
+    "research/chr-direct-conditional/tests/suspended_source.rs": "c5de55cce7884c9b472a21411107df90340064cccd97667cbed10cfef26663cb",
+    "research/chr-direct-conditional/tests/runtime_support/mod.rs": "03633e8d666fadcdd08ddfe4900aa8116b32e434fb0a5dcb1c5faa23ff5976b2",
+    "docs/experiments/registrations/S03-fresh-derivation.md": "d3645c42f0e52de884eac9340b918f6592ef60369b3821ce811c0188a4e51f6a"
+  },
+  "commands": [
+    "cargo test -p chr-direct-choice -p chr-direct-conditional --no-default-features --features chr-direct-conditional/work-diagnostics",
+    "cargo clippy -p chr-direct-choice -p chr-direct-conditional --tests --features chr-direct-conditional/work-diagnostics -- -D warnings",
+    "cargo test -p chr-direct-choice --no-default-features --lib"
+  ]
+}

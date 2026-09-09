@@ -8,7 +8,7 @@ The work has three parts: test the distinct execution mechanisms, compare their 
 
 ## Execution order
 
-**The cycle now tests fresh derivation reuse, T071.** The [corrected local-lifting lifecycle pilot](results/S03-pulltab-lifecycle.md) and [post-pilot selection](results/S03-pulltab-postpilot-review.md) support this order. Cold lifting precision, broader integration and T073's artifact reuse/lowering remain unfinished.
+**The cycle now measures fresh derivation reuse, T071, after its source gate.** The [corrected local-lifting lifecycle pilot](results/S03-pulltab-lifecycle.md) and [post-pilot selection](results/S03-pulltab-postpilot-review.md) support this order. The [source gate](results/S03-fresh-derivation-source.md) demonstrates multi-rule reuse with fresh identities, a size-bound continuation and a scheduling counterexample. Work/cost registration is next. Cold lifting precision, broader integration and T073's artifact reuse/lowering remain unfinished.
 
 | Order | Investigation | Why it comes here; what it must deliver |
 |---|---|---|

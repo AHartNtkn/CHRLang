@@ -75,6 +75,21 @@ fn collect(rules: Vec<Rule>, query: Query, expected: Vec<Answer>) {
             expected.clone(),
         );
     }
+    for policy in [
+        chr_direct_choice::demand::Reuse::CurrentContext,
+        chr_direct_choice::demand::Reuse::StaticBirth,
+        chr_direct_choice::demand::Reuse::MatchDependencies,
+    ] {
+        runtime_support::same_raw(
+            demand_prepared(
+                Prepared::with_reuse(rules.clone(), policy)
+                    .unwrap()
+                    .with_derivation_templates(),
+                query.clone(),
+            ),
+            expected.clone(),
+        );
+    }
     runtime_support::same_raw(demand_answers(rules, query), expected);
 }
 fn demand_answers(rules: Vec<Rule>, query: Query) -> Vec<Answer> {
@@ -99,6 +114,9 @@ fn demand_strategy(
     } else {
         prepared
     };
+    demand_prepared(prepared, query)
+}
+fn demand_prepared(prepared: Prepared, query: Query) -> Vec<Answer> {
     let mut run = prepared.start(query).unwrap();
     let mut answers = vec![];
     for _ in 0..100_000 {
@@ -942,54 +960,61 @@ fn pulled_demand_preserves_finite_service_and_off_output_failure() {
         Rule::simplify("loop", [c("loop", [v(0)])], c("loop", [v(0)]).into()),
         Rule::simplify("bad", [c("bad", [v(0)])], Goal::Fail),
     ];
-    for policy in [
-        chr_direct_choice::demand::Reuse::StaticBirth,
-        chr_direct_choice::demand::Reuse::MatchDependencies,
-    ] {
-        for pull_tabs in [false, true] {
-            for failing in [false, true] {
-                let mut constraints = vec![c("make", [v(100)]), c("take", [v(100), v(101)])];
-                if failing {
-                    constraints.push(c("bad", [v(102)]));
-                }
-                let prepared = Prepared::with_reuse(rules.clone(), policy).unwrap();
-                let prepared = if pull_tabs {
-                    prepared.with_pull_tabs()
-                } else {
-                    prepared
-                };
-                let mut run = prepared
-                    .start(Query {
-                        constraints,
-                        outputs: vec![("x".into(), Var(101))],
-                    })
-                    .unwrap();
-                let mut answers = vec![];
-                let mut exhausted = false;
-                for _ in 0..128 {
-                    match run.tick() {
-                        Event::Progress => {}
-                        Event::Answer(a) => answers.push(a),
-                        Event::Exhausted => {
-                            exhausted = true;
-                            break;
+    for templates in [false, true] {
+        for policy in [
+            chr_direct_choice::demand::Reuse::StaticBirth,
+            chr_direct_choice::demand::Reuse::MatchDependencies,
+        ] {
+            for pull_tabs in [false, true] {
+                for failing in [false, true] {
+                    let mut constraints = vec![c("make", [v(100)]), c("take", [v(100), v(101)])];
+                    if failing {
+                        constraints.push(c("bad", [v(102)]));
+                    }
+                    let prepared = Prepared::with_reuse(rules.clone(), policy).unwrap();
+                    let prepared = if pull_tabs {
+                        prepared.with_pull_tabs()
+                    } else {
+                        prepared
+                    };
+                    let prepared = if templates {
+                        prepared.with_derivation_templates()
+                    } else {
+                        prepared
+                    };
+                    let mut run = prepared
+                        .start(Query {
+                            constraints,
+                            outputs: vec![("x".into(), Var(101))],
+                        })
+                        .unwrap();
+                    let mut answers = vec![];
+                    let mut exhausted = false;
+                    for _ in 0..128 {
+                        match run.tick() {
+                            Event::Progress => {}
+                            Event::Answer(a) => answers.push(a),
+                            Event::Exhausted => {
+                                exhausted = true;
+                                break;
+                            }
                         }
                     }
-                }
-                if failing {
-                    assert!(
-                        exhausted && answers.is_empty(),
-                        "off-output failure must terminate"
-                    );
-                } else {
-                    assert!(!exhausted, "loop must remain unfinished");
-                    runtime_support::same_raw(
-                        answers,
-                        vec![Answer {
-                            outputs: vec![("x".into(), atom("ok"))],
-                            residual: vec![],
-                        }],
-                    );
+                    if failing {
+                        assert!(
+                            exhausted && answers.is_empty(),
+                            "off-output failure must terminate"
+                        );
+                    } else {
+                        assert!(!exhausted, "loop must remain unfinished");
+                        runtime_support::same_raw(
+                            answers,
+                            vec![Answer {
+                                outputs: vec![("x".into(), atom("ok"))],
+                                residual: vec![],
+                            }],
+                        );
+                    }
                 }
             }
         }
@@ -1098,4 +1123,228 @@ fn pull_tab_resource_competition_matches_demand_control() {
         demand_strategy(rules.clone(), query.clone(), policy, true),
         demand_strategy(rules, query, policy, false),
     );
+}
+
+#[test]
+fn fresh_derivation_templates_preserve_unknowns_choices_and_call_identity() {
+    for choice in [false, true] {
+        let a = eq(v(0), t("box", [v(99)]));
+        let body = if choice {
+            or(a, eq(v(0), t("other", [v(99)])))
+        } else {
+            a
+        };
+        let rules = vec![
+            Rule::simplify("base", [c("build", [atom("z"), v(0)])], body),
+            Rule::simplify(
+                "step",
+                [c("build", [t("s", [v(0)]), v(1)])],
+                c("build", [v(0), v(1)]).into(),
+            ),
+        ];
+        for depth in [0, 1, 8, 65] {
+            for separate in [false, true] {
+                let input = (0..depth).fold(atom("z"), |x, _| t("s", [x]));
+                let mut constraints = vec![c("build", [input.clone(), v(100)])];
+                if separate {
+                    constraints.push(c("build", [input, v(101)]));
+                }
+                let values = if choice {
+                    vec!["box", "other"]
+                } else {
+                    vec!["box"]
+                };
+                let mut expected = vec![];
+                for x in &values {
+                    for y in &values {
+                        if !separate && x != y {
+                            continue;
+                        }
+                        expected.push(Answer {
+                            outputs: vec![
+                                ("x".into(), t(x, [v(900)])),
+                                ("y".into(), t(y, [v(if separate { 901 } else { 900 })])),
+                            ],
+                            residual: vec![],
+                        });
+                    }
+                }
+                collect(
+                    rules.clone(),
+                    Query {
+                        constraints,
+                        outputs: vec![
+                            ("x".into(), Var(100)),
+                            ("y".into(), Var(if separate { 101 } else { 100 })),
+                        ],
+                    },
+                    expected,
+                );
+            }
+        }
+    }
+}
+
+#[test]
+fn derivation_templates_retain_resource_claims_and_off_output_failure() {
+    let mut rules = vec![
+        Rule::simplify(
+            "base",
+            [c("build", [atom("z"), v(0)])],
+            c("take", [v(0)]).into(),
+        ),
+        Rule::simplify(
+            "step",
+            [c("build", [t("s", [v(0)]), v(1)])],
+            c("build", [v(0), v(1)]).into(),
+        ),
+        Rule::simplify(
+            "take",
+            [c("take", [v(0)]), c("token", [])],
+            eq(v(0), t("box", [v(99)])),
+        ),
+    ];
+    let input = (0..8).fold(atom("z"), |x, _| t("s", [x]));
+    let query = Query {
+        constraints: vec![
+            c("build", [input.clone(), v(100)]),
+            c("build", [input, v(101)]),
+            c("token", []),
+            c("token", []),
+        ],
+        outputs: vec![("x".into(), Var(100)), ("y".into(), Var(101))],
+    };
+    collect(
+        rules.clone(),
+        query.clone(),
+        vec![Answer {
+            outputs: vec![
+                ("x".into(), t("box", [v(900)])),
+                ("y".into(), t("box", [v(901)])),
+            ],
+            residual: vec![],
+        }],
+    );
+    rules[0].body = and([c("bad", [v(1)]).into(), eq(v(0), atom("ok"))]);
+    rules.push(Rule::simplify("bad", [c("bad", [v(0)])], Goal::Fail));
+    collect(rules, query, vec![]);
+}
+
+#[test]
+fn fresh_derivation_size_bound_preserves_complete_source_result() {
+    let rules = vec![
+        Rule::simplify("base", [c("grow", [atom("z"), v(0), v(1)])], eq(v(1), v(0))),
+        Rule::simplify(
+            "step",
+            [c("grow", [t("s", [v(0)]), v(1), v(2)])],
+            c("grow", [v(0), t("pair", [v(1), v(1)]), v(2)]).into(),
+        ),
+    ];
+    let depth = (0..12).fold(atom("z"), |x, _| t("s", [x]));
+    let expected = (0..12).fold(atom("leaf"), |x, _| t("pair", [x.clone(), x]));
+    collect(
+        rules,
+        Query {
+            constraints: vec![c("grow", [depth, atom("leaf"), v(100)])],
+            outputs: vec![("x".into(), Var(100))],
+        },
+        vec![Answer {
+            outputs: vec![("x".into(), expected)],
+            residual: vec![],
+        }],
+    );
+}
+
+#[test]
+fn fresh_derivation_boundary_preserves_residual_occurrences() {
+    let rules = vec![
+        Rule::simplify(
+            "base",
+            [c("build", [atom("z"), v(0)])],
+            c("take", [v(0)]).into(),
+        ),
+        Rule::simplify(
+            "step",
+            [c("build", [t("s", [v(0)]), v(1)])],
+            c("build", [v(0), v(1)]).into(),
+        ),
+        Rule::simplify(
+            "take",
+            [c("take", [v(0)]), c("token", [])],
+            eq(v(0), atom("done")),
+        ),
+    ];
+    let depth = (0..8).fold(atom("z"), |x, _| t("s", [x]));
+    collect(
+        rules,
+        Query {
+            constraints: vec![
+                c("build", [depth.clone(), v(100)]),
+                c("build", [depth, v(101)]),
+            ],
+            outputs: vec![("x".into(), Var(100)), ("y".into(), Var(101))],
+        },
+        vec![Answer {
+            outputs: vec![("x".into(), v(900)), ("y".into(), v(901))],
+            residual: vec![c("take", [v(900)]), c("take", [v(901)])],
+        }],
+    );
+}
+
+#[test]
+fn derivation_contraction_exposes_a_resource_scheduling_difference() {
+    let rules = vec![
+        Rule::simplify(
+            "base",
+            [c("build", [atom("z"), v(0)])],
+            c("take", [v(0)]).into(),
+        ),
+        Rule::simplify(
+            "step",
+            [c("build", [t("s", [v(0)]), v(1)])],
+            c("build", [v(0), v(1)]).into(),
+        ),
+        Rule::simplify(
+            "take",
+            [c("take", [v(0)]), c("token", [])],
+            eq(v(0), atom("done")),
+        ),
+    ];
+    let depth = (0..8).fold(atom("z"), |x, _| t("s", [x]));
+    let query = Query {
+        constraints: vec![
+            c("build", [depth, v(100)]),
+            c("build", [atom("z"), v(101)]),
+            c("token", []),
+        ],
+        outputs: vec![("x".into(), Var(100)), ("y".into(), Var(101))],
+    };
+    let long_wins = Answer {
+        outputs: vec![("x".into(), atom("done")), ("y".into(), v(901))],
+        residual: vec![c("take", [v(901)])],
+    };
+    let short_wins = Answer {
+        outputs: vec![("x".into(), v(900)), ("y".into(), atom("done"))],
+        residual: vec![c("take", [v(900)])],
+    };
+    runtime_support::same_raw(
+        runtime_support::run(&rules, &query, 200_000),
+        vec![short_wins.clone()],
+    );
+    runtime_support::same_raw(
+        demand_answers(rules.clone(), query.clone()),
+        vec![short_wins.clone()],
+    );
+    runtime_support::same_raw(
+        demand_prepared(
+            Prepared::new(rules).unwrap().with_derivation_templates(),
+            query,
+        ),
+        vec![long_wins.clone()],
+    );
+    assert!(!chr_observe::equivalent(
+        &short_wins,
+        &long_wins,
+        &mut Default::default()
+    ));
 }

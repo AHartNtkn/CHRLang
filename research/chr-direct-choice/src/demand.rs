@@ -1,6 +1,7 @@
 //! Experimental suspended applications for a checked equation-producing source fragment.
 //! Context-indexed results preserve application identity. This is not yet a
 //! general multihead CHR executor. Optional local pull-tabs lift directly demanded choices.
+mod templates;
 use chr_syntax::{Answer, Constraint, Goal, Query, Rule, Term, Var};
 use std::collections::{BTreeMap, BTreeSet, VecDeque};
 use std::rc::Rc;
@@ -43,6 +44,7 @@ pub enum Reuse {
     MatchDependencies,
 }
 pub struct Prepared {
+    derivation_templates: bool,
     reuse: Reuse,
     pull_tabs: bool,
     clauses: Rc<Vec<Clause>>,
@@ -79,8 +81,11 @@ pub struct Work {
     pub match_entries: usize,
     pub lift_walk_entries: usize,
     pub dependency_entries: usize,
+    pub template_hits: usize,
 }
 pub struct Run {
+    derivation_templates: bool,
+    templates: BTreeMap<(String, Vec<Term>), Rc<templates::Template>>,
     reuse: Reuse,
     #[cfg(feature = "work-diagnostics")]
     work: Work,
@@ -362,11 +367,17 @@ impl Prepared {
                 pure.contains(&(clause.name.clone(), clause.inputs.len()));
         }
         Ok(Self {
+            derivation_templates: false,
             reuse,
             pull_tabs: false,
             clauses: Rc::new(clauses),
             resource_signatures,
         })
+    }
+    /// Reuse residual source derivations; instantiate fresh identities per application.
+    pub fn with_derivation_templates(mut self) -> Self {
+        self.derivation_templates = true;
+        self
     }
     /// Enable the experimental direct-argument local rewrite, independently of cache validity.
     pub fn with_pull_tabs(mut self) -> Self {
@@ -375,6 +386,8 @@ impl Prepared {
     }
     pub fn start(&self, query: Query) -> Result<Run, String> {
         let mut run = Run {
+            derivation_templates: self.derivation_templates,
+            templates: BTreeMap::new(),
             reuse: self.reuse,
             #[cfg(feature = "work-diagnostics")]
             work: Work::default(),
@@ -749,7 +762,12 @@ impl Run {
                         } else {
                             ctx.clone()
                         };
-                        let value = self.expand(&clause.body, &mut env, &support, output);
+                        let value = if let Some(template) = self.derivation_template(clause, &args)
+                        {
+                            self.expand(&template.body, &mut Env::new(), &support, output)
+                        } else {
+                            self.expand(&clause.body, &mut env, &support, output)
+                        };
                         self.nodes[id].results.push((support, value));
                         return Err(Signal::Progress);
                     }
@@ -757,6 +775,56 @@ impl Run {
                 Ok(output)
             }
         }
+    }
+    fn closed_key(&self, id: Id, fuel: &mut usize) -> Option<Term> {
+        if *fuel == 0 {
+            return None;
+        }
+        *fuel -= 1;
+        let Node::App(n, args) = &self.nodes[id].node else {
+            return None;
+        };
+        Some(Term::App(
+            n.clone(),
+            args.iter()
+                .map(|id| self.closed_key(*id, fuel))
+                .collect::<Option<_>>()?,
+        ))
+    }
+    fn derivation_template(
+        &mut self,
+        clause: &Clause,
+        args: &[Id],
+    ) -> Option<Rc<templates::Template>> {
+        if !self.derivation_templates || !clause.partners.is_empty() {
+            return None;
+        }
+        let mut fuel = 4096;
+        let args = args
+            .iter()
+            .map(|id| self.closed_key(*id, &mut fuel))
+            .collect::<Option<Vec<_>>>()?;
+        let key = (clause.name.clone(), args);
+        if let Some(template) = self.templates.get(&key) {
+            #[cfg(feature = "work-diagnostics")]
+            {
+                self.work.template_hits += 1;
+            }
+            return Some(template.clone());
+        }
+        if self.templates.len() == 64 {
+            return None;
+        }
+        let template = Rc::new(templates::derive(clause, &key.1, &self.clauses)?);
+        self.templates.insert(key, template.clone());
+        Some(template)
+    }
+    /// Query-owned template count and source calls followed during their construction.
+    pub fn retained_derivation_templates(&self) -> (usize, usize) {
+        (
+            self.templates.len(),
+            self.templates.values().map(|t| t.followed_calls).sum(),
+        )
     }
     // The successful head match is already established. Read its dependencies
     // without running producers or resolving any additional source work.
@@ -1031,6 +1099,123 @@ impl Run {
 mod pull_tab_tests {
     use super::*;
     use chr_syntax::{atom, c, eq, v};
+
+    #[test]
+    fn fresh_derivation_eliminates_recursive_call_expansion() {
+        use chr_syntax::{or, t};
+        let rules = vec![
+            Rule::simplify(
+                "base",
+                [c("build", [atom("z"), v(0)])],
+                or(eq(v(0), t("box", [v(99)])), eq(v(0), t("other", [v(99)]))),
+            ),
+            Rule::simplify(
+                "step",
+                [c("build", [t("s", [v(0)]), v(1)])],
+                c("build", [v(0), v(1)]).into(),
+            ),
+        ];
+        let depth = (0..8).fold(atom("z"), |x, _| t("s", [x]));
+        let mut run = Prepared::new(rules)
+            .unwrap()
+            .with_derivation_templates()
+            .start(Query {
+                constraints: vec![
+                    c("build", [depth.clone(), v(100)]),
+                    c("build", [depth, v(101)]),
+                ],
+                outputs: vec![("x".into(), Var(100)), ("y".into(), Var(101))],
+            })
+            .unwrap();
+        let mut answers = 0;
+        for _ in 0..1000 {
+            match run.tick() {
+                Event::Answer(_) => answers += 1,
+                Event::Exhausted => break,
+                Event::Progress => {}
+            }
+        }
+        assert_eq!(answers, 4);
+        assert_eq!(run.retained_derivation_templates(), (1, 8));
+        #[cfg(feature = "work-diagnostics")]
+        assert_eq!(run.work().template_hits, 1);
+        assert_eq!(run.retained_application_results().get("build"), Some(&2));
+    }
+
+    #[test]
+    fn derivation_storage_bound_retains_a_live_continuation() {
+        use chr_syntax::t;
+        let rules = vec![
+            Rule::simplify("base", [c("grow", [atom("z"), v(0), v(1)])], eq(v(1), v(0))),
+            Rule::simplify(
+                "step",
+                [c("grow", [t("s", [v(0)]), v(1), v(2)])],
+                c("grow", [v(0), t("pair", [v(1), v(1)]), v(2)]).into(),
+            ),
+        ];
+        let depth = (0..12).fold(atom("z"), |x, _| t("s", [x]));
+        let mut run = Prepared::new(rules)
+            .unwrap()
+            .with_derivation_templates()
+            .start(Query {
+                constraints: vec![c("grow", [depth, atom("leaf"), v(100)])],
+                outputs: vec![],
+            })
+            .unwrap();
+        assert!(matches!(run.tick(), Event::Progress));
+        let template = run.templates.values().next().unwrap();
+        assert!(template.followed_calls > 0 && template.followed_calls < 12);
+        assert!(matches!(&template.body, Plan::Call(n, _) if n == "grow"));
+    }
+
+    #[test]
+    fn template_entry_limit_preserves_distinct_and_repeated_requests() {
+        let rule = Rule::simplify("id", [c("id", [v(0), v(1)])], eq(v(1), v(0)));
+        let keys = (0..65).chain(std::iter::once(0)).collect::<Vec<_>>();
+        let mut run = Prepared::new(vec![rule])
+            .unwrap()
+            .with_derivation_templates()
+            .start(Query {
+                constraints: keys
+                    .iter()
+                    .enumerate()
+                    .map(|(i, k)| c("id", [atom(&format!("k{k}")), v(100 + i as u64)]))
+                    .collect(),
+                outputs: keys
+                    .iter()
+                    .enumerate()
+                    .map(|(i, _)| (format!("o{i}"), Var(100 + i as u64)))
+                    .collect(),
+            })
+            .unwrap();
+        let mut answered = false;
+        let mut exhausted = false;
+        for _ in 0..1000 {
+            match run.tick() {
+                Event::Answer(a) => {
+                    assert!(!answered);
+                    answered = true;
+                    assert_eq!(
+                        a.outputs,
+                        keys.iter()
+                            .enumerate()
+                            .map(|(i, k)| (format!("o{i}"), atom(&format!("k{k}"))))
+                            .collect::<Vec<_>>()
+                    );
+                    assert!(a.residual.is_empty());
+                }
+                Event::Exhausted => {
+                    exhausted = true;
+                    break;
+                }
+                Event::Progress => {}
+            }
+        }
+        assert!(answered && exhausted);
+        assert_eq!(run.retained_derivation_templates(), (64, 0));
+        #[cfg(feature = "work-diagnostics")]
+        assert_eq!(run.work().template_hits, 1);
+    }
 
     #[test]
     fn pure_match_records_observed_choice_and_producer_support() {
