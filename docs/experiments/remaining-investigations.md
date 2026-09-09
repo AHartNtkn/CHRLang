@@ -8,7 +8,7 @@ The work has three parts: test the distinct execution mechanisms, compare their 
 
 ## Execution order
 
-**The cycle now measures fresh derivation reuse, T071, after its source gate.** The [corrected local-lifting lifecycle pilot](results/S03-pulltab-lifecycle.md) and [post-pilot selection](results/S03-pulltab-postpilot-review.md) support this order. The [source gate](results/S03-fresh-derivation-source.md) demonstrates multi-rule reuse with fresh identities, a size-bound continuation and a scheduling counterexample. Work/cost registration is next. Cold lifting precision, broader integration and T073's artifact reuse/lowering remain unfinished.
+**The cycle now measures fresh derivation reuse, T071, after its source gate.** The [corrected local-lifting lifecycle pilot](results/S03-pulltab-lifecycle.md) and [post-pilot selection](results/S03-pulltab-postpilot-review.md) support this order. The [source gate](results/S03-fresh-derivation-source.md) demonstrates multi-rule reuse with fresh identities, a size-bound continuation and a scheduling counterexample. The [registered lifecycle sizing](results/S03-derivation-sizing.md) now has 1,224 successful processes. Its copying-cost hypothesis requires paired attribution before confirmation. Cold lifting precision, broader integration and T073's artifact reuse/lowering remain unfinished.
 
 | Order | Investigation | Why it comes here; what it must deliver |
 |---|---|---|
@@ -30,6 +30,18 @@ The work has three parts: test the distinct execution mechanisms, compare their 
 **This is a default execution order, with an explicit rule for changing it.** At each boundary, compare the next row with the strongest ready alternative: decision changed, contrary outcomes, dependencies, estimated implementation/measurement cost, and evidence needed. An urgent correctness repair or consequential attribution check can interrupt the order. Record the revised position of the displaced investigation. Lower priority never changes its evidence status.
 
 **Every four completed experimental packages, review breadth before choosing more work.** List each required mechanism as directly measured, analytically resolved, equivalent with an argument, in progress, or untested. Explain any repeated refinements while a distinct ready alternative remains untested. The checkpoint forces a selection review; it is neither a cap on investigation nor a reason to abandon an unresolved result.
+
+## The next three experimental packages
+
+These packages make the immediate work concrete. Their order follows the current evidence; the selection review at each boundary can change it with a stated reason.
+
+| Package | Experiment and controls | Decision and follow-through |
+|---|---|---|
+| **1. Attribute fresh-derivation construction cost (T071).** | Compare the frozen owned-tree implementation with shared immutable internal terms. Validate fresh identities, effects and bounded continuation first. Pair single/repeated/distinct calls and growing accumulators under the same query, resource and observation contracts. Charge first construction, subsequent use and disposal. | Determine whether the adverse sizing reflects avoidable copying or an obligation of reuse. Repair consequential defects, then register confirmation only if its plausible outcomes change the comparison. A persistent cost must be explained, not generalized to all derivation graphs. |
+| **2. Test a distinct integrated organization (T072).** | Start with an equality-enabled consuming application. Compare contextual equality with local incidence/port rewrites and the strongest applicable compiled control. Include a new deduction reused across contexts, a mostly-distinct control, broad merge repair and contested consumption. Show which repeated discovery or representation boundary actually disappears. | Determine whether integration changes useful work and necessary ownership machinery. If proposed organizations are equivalent, demonstrate the relevant operational equivalence; otherwise implement their distinction. Existing immutable-input sharing and relational costs do not answer this experiment. |
+| **3. Test broader lowering and reusable artifacts (T073/S06).** | Derive an executable plan from recursive source with an effectful or unknown-input boundary. Compare ordinary execution, prepared lowering and native generation where applicable. Run changed queries using reusable preparation, plus source/query changes that invalidate an artifact. Include near-miss programs and charge checking, compilation, retention and disposal. | Determine how much work both graph and conventional execution can avoid, at what reuse, and with which source restrictions. A source-specific hand implementation supplies a control, not evidence that general analysis can derive it. Carry surviving mechanisms into whole-architecture trials. |
+
+**Confirmation uses a fresh prospective registration.** Each package fixes exact configurations, repetitions, seeds, resource bounds and practical interpretation before comparative confirmation. The common rules in the governing sequence apply; exploratory results cannot choose a favorable threshold retrospectively. The first package's [sizing report](results/S03-derivation-sizing.md) records the available evidence and the untested copying hypothesis.
 
 ## Matching and integrated execution
 

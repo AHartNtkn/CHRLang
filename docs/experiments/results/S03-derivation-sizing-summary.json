@@ -1,0 +1,53 @@
+{
+  "interpretation": "exploratory single timings; no confirmed ranking",
+  "counts": {
+    "ordinary": 720,
+    "allocation": 480,
+    "cancel": 12,
+    "cancel-meter": 12
+  },
+  "allocation_replays": 240,
+  "frozen_source_and_binary_hashes": "verified",
+  "long_reuse_primary_ms_resources_forward": {
+    "repeat": {
+      "sealed": 1.143889,
+      "lowered": 0.177325,
+      "dependencies": 1.945097,
+      "templates": 1.106641,
+      "scan": 1.507597,
+      "indexed": 1.577603
+    },
+    "choice": {
+      "templates": 2.83322,
+      "lowered": 0.240803,
+      "dependencies": 14.688439,
+      "sealed": 2.775306,
+      "indexed": 4.979456,
+      "scan": 4.043715
+    },
+    "single": {
+      "scan": 0.409498,
+      "lowered": 0.061279,
+      "indexed": 0.459916,
+      "sealed": 0.302128,
+      "templates": 1.011883,
+      "dependencies": 0.47958
+    },
+    "distinct": {
+      "scan": 1.374733,
+      "indexed": 1.737469,
+      "templates": 3.752016,
+      "sealed": 1.264083,
+      "dependencies": 1.789075,
+      "lowered": 0.145995
+    },
+    "grow": {
+      "sealed": 7.050933,
+      "templates": 25.362729,
+      "lowered": 5.983689,
+      "scan": 6.88748,
+      "indexed": 6.81791,
+      "dependencies": 11.121443
+    }
+  }
+}
