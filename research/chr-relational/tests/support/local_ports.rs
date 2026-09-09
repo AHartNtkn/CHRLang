@@ -1,5 +1,6 @@
 //! Local handle rewriting: no parent forest or relational match tuples.
 use chr_syntax::{Answer, Goal, Rule, Term, Var, c, t, v};
+use std::cell::Cell;
 use std::collections::{BTreeMap, BTreeSet, VecDeque};
 #[derive(Clone)]
 pub struct Plan {
@@ -45,17 +46,39 @@ struct Descriptor {
     name: String,
     children: Vec<usize>,
 }
+#[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
+pub enum DependencyMode {
+    #[default]
+    Endpoint,
+    Filtered,
+    Indexed,
+}
+#[derive(Clone, Default, Debug)]
+pub struct DependencyWork {
+    pub notifications: usize,
+    pub pair_operations: usize,
+    pub membership_edits: usize,
+    pub subscription_edits: usize,
+    pub incident_visits: usize,
+    pub incident_edits: usize,
+    pub moved_relations: usize,
+    pub moved_subscribers: usize,
+    pub moved_endpoint_subscriptions: usize,
+    pub pattern_nodes: Cell<usize>,
+    pub equality_nodes: Cell<usize>,
+}
 #[derive(Clone, Default)]
 struct Node {
     handles: Vec<usize>,
     descriptor: Option<Descriptor>,
     descriptor_watchers: BTreeSet<usize>,
     equality_watchers: BTreeSet<usize>,
+    partners: BTreeSet<usize>,
 }
 #[derive(Default)]
 struct Dependencies {
     descriptor: BTreeSet<usize>,
-    equality: BTreeSet<usize>,
+    equality: Option<(usize, usize)>,
 }
 #[derive(Clone)]
 struct Take {
@@ -65,9 +88,13 @@ struct Take {
     plan: Plan,
     watched: Vec<usize>,
     matched: Option<usize>,
+    awaiting: Option<(usize, usize)>,
 }
 #[derive(Clone, Default)]
 pub struct Run {
+    mode: DependencyMode,
+    pairs: BTreeMap<(usize, usize), BTreeSet<usize>>,
+    pub dependency_work: DependencyWork,
     nodes: Vec<Node>,
     targets: Vec<usize>,
     equations: VecDeque<(usize, usize)>,
@@ -82,11 +109,37 @@ pub struct Run {
     pub consumed_tokens: Vec<usize>,
 }
 impl Run {
+    pub fn with_dependencies(mode: DependencyMode) -> Self {
+        Self {
+            mode,
+            ..Self::default()
+        }
+    }
+    pub fn work_json(&self) -> String {
+        let w = &self.dependency_work;
+        format!(
+            "{{\"inspections\":{},\"notifications\":{},\"pair_operations\":{},\"membership_edits\":{},\"subscription_edits\":{},\"incident_visits\":{},\"incident_edits\":{},\"moved_relations\":{},\"moved_subscribers\":{},\"moved_endpoint_subscriptions\":{},\"pattern_nodes\":{},\"equality_nodes\":{},\"repaired_handles\":{}}}",
+            self.visited_requests,
+            w.notifications,
+            w.pair_operations,
+            w.membership_edits,
+            w.subscription_edits,
+            w.incident_visits,
+            w.incident_edits,
+            w.moved_relations,
+            w.moved_subscribers,
+            w.moved_endpoint_subscriptions,
+            w.pattern_nodes.get(),
+            w.equality_nodes.get(),
+            self.repaired_handles
+        )
+    }
     pub fn subscriptions(&self) -> usize {
         self.nodes
             .iter()
-            .map(|n| n.descriptor_watchers.len() + n.equality_watchers.len())
-            .sum()
+            .map(|n| n.descriptor_watchers.len() + n.equality_watchers.len() + n.partners.len())
+            .sum::<usize>()
+            + self.pairs.values().map(BTreeSet::len).sum::<usize>()
     }
     pub fn value(&mut self) -> usize {
         let handle = self.targets.len();
@@ -117,6 +170,7 @@ impl Run {
             plan: plan.clone(),
             watched: vec![],
             matched: None,
+            awaiting: None,
         });
         self.inspect(id);
     }
@@ -125,6 +179,9 @@ impl Run {
         self.next_token += 1;
     }
     fn equal(&self, a: usize, b: usize, deps: &mut Dependencies) -> bool {
+        self.dependency_work
+            .equality_nodes
+            .set(self.dependency_work.equality_nodes.get() + 1);
         let (a, b) = (self.targets[a], self.targets[b]);
         if a == b {
             return true;
@@ -136,8 +193,7 @@ impl Run {
                 .zip(&y.children)
                 .all(|(&x, &y)| self.equal(x, y, deps)),
             (None, _) | (_, None) => {
-                deps.equality.insert(a);
-                deps.equality.insert(b);
+                deps.equality = Some((a, b));
                 false
             }
             _ => false,
@@ -150,6 +206,9 @@ impl Run {
         env: &mut BTreeMap<Var, usize>,
         deps: &mut Dependencies,
     ) -> bool {
+        self.dependency_work
+            .pattern_nodes
+            .set(self.dependency_work.pattern_nodes.get() + 1);
         match pattern {
             Term::Var(v) => match env.get(v) {
                 Some(&prior) => self.equal(prior, handle, deps),
@@ -175,9 +234,45 @@ impl Run {
             }
         }
     }
+    fn pair_key(a: usize, b: usize) -> (usize, usize) {
+        (a.min(b), a.max(b))
+    }
+    fn insert_pair(&mut self, a: usize, b: usize, ids: BTreeSet<usize>) {
+        assert_ne!(a, b);
+        self.dependency_work.pair_operations += 1;
+        self.dependency_work.membership_edits += ids.len();
+        self.pairs
+            .entry(Self::pair_key(a, b))
+            .or_default()
+            .extend(ids);
+        self.nodes[a].partners.insert(b);
+        self.nodes[b].partners.insert(a);
+        self.dependency_work.incident_edits += 2;
+    }
+    fn remove_subscription(&mut self, a: usize, b: usize, id: usize) {
+        self.dependency_work.pair_operations += 1;
+        let key = Self::pair_key(a, b);
+        if let Some(ids) = self.pairs.get_mut(&key) {
+            self.dependency_work.membership_edits += 1;
+            ids.remove(&id);
+            if ids.is_empty() {
+                self.dependency_work.pair_operations += 1;
+                self.pairs.remove(&key);
+                self.nodes[a].partners.remove(&b);
+                self.nodes[b].partners.remove(&a);
+                self.dependency_work.incident_edits += 2;
+            }
+        }
+    }
     fn unsubscribe(&mut self, id: usize) {
+        if let Some((a, b)) = self.takes[id].awaiting.take()
+            && self.mode == DependencyMode::Indexed
+        {
+            self.remove_subscription(self.targets[a], self.targets[b], id);
+        }
         for handle in std::mem::take(&mut self.takes[id].watched) {
             let node = &mut self.nodes[self.targets[handle]];
+            self.dependency_work.subscription_edits += 2;
             node.descriptor_watchers.remove(&id);
             node.equality_watchers.remove(&id);
         }
@@ -197,17 +292,118 @@ impl Run {
             .then(|| env[&request.plan.result]);
         self.takes[id].matched = matched;
         for &node in &deps.descriptor {
+            self.dependency_work.subscription_edits += 1;
             self.nodes[node].descriptor_watchers.insert(id);
         }
-        for &node in &deps.equality {
-            self.nodes[node].equality_watchers.insert(id);
+        if let Some((a, b)) = deps.equality {
+            self.takes[id].awaiting = Some((self.nodes[a].handles[0], self.nodes[b].handles[0]));
+            if self.mode == DependencyMode::Indexed {
+                self.insert_pair(a, b, BTreeSet::from([id]));
+            } else {
+                self.dependency_work.subscription_edits += 2;
+                self.nodes[a].equality_watchers.insert(id);
+                self.nodes[b].equality_watchers.insert(id);
+                self.takes[id]
+                    .watched
+                    .extend([self.nodes[a].handles[0], self.nodes[b].handles[0]]);
+            }
         }
-        for &node in deps.descriptor.union(&deps.equality) {
-            // Stable handles keep unsubscription valid after endpoint repair.
+        for node in deps.descriptor {
             self.takes[id].watched.push(self.nodes[node].handles[0]);
         }
         if matched.is_some() {
             self.ready.insert(id);
+        }
+    }
+    fn relocate_pairs(
+        &mut self,
+        old: usize,
+        new: usize,
+        partners: BTreeSet<usize>,
+        gained_descriptor: bool,
+        wake: &mut BTreeSet<usize>,
+    ) {
+        let mut changed = BTreeSet::new();
+        for other in partners {
+            self.dependency_work.incident_visits += 1;
+            self.dependency_work.moved_relations += 1;
+            self.dependency_work.pair_operations += 1;
+            let ids = self
+                .pairs
+                .remove(&Self::pair_key(old, other))
+                .expect("incident relation missing");
+            self.dependency_work.moved_subscribers += ids.len();
+            self.nodes[other].partners.remove(&old);
+            self.dependency_work.incident_edits += 1;
+            if other == new {
+                self.dependency_work.notifications += ids.len();
+                wake.extend(ids);
+            } else {
+                self.insert_pair(new, other, ids);
+                changed.insert(other);
+            }
+        }
+        // A newly described winner can enable its pre-existing relations too.
+        // Otherwise only relocated relations acquired a different endpoint.
+        if gained_descriptor {
+            changed = self.nodes[new].partners.clone();
+        }
+        for other in changed {
+            self.dependency_work.incident_visits += 1;
+            if self.nodes[new].descriptor.is_some() && self.nodes[other].descriptor.is_some() {
+                self.dependency_work.pair_operations += 1;
+                let ids = &self.pairs[&Self::pair_key(new, other)];
+                self.dependency_work.notifications += ids.len();
+                wake.extend(ids);
+            }
+        }
+    }
+    pub fn assert_dependency_integrity(&self) {
+        for (node, n) in self.nodes.iter().enumerate() {
+            for &other in &n.partners {
+                assert!(self.nodes[other].partners.contains(&node));
+                assert!(self.pairs.contains_key(&Self::pair_key(node, other)));
+            }
+            for &id in &n.descriptor_watchers {
+                let r = &self.takes[id];
+                assert!(r.live && n.descriptor.is_none());
+                assert!(r.watched.iter().any(|&h| self.targets[h] == node));
+            }
+            for &id in &n.equality_watchers {
+                let r = &self.takes[id];
+                assert!(r.live);
+                let (a, b) = r.awaiting.expect("endpoint watcher without equality");
+                assert!(self.targets[a] == node || self.targets[b] == node);
+            }
+        }
+        for (&(a, b), ids) in &self.pairs {
+            assert!(a < b && !ids.is_empty());
+            assert!(self.nodes[a].descriptor.is_none() || self.nodes[b].descriptor.is_none());
+            assert!(self.nodes[a].partners.contains(&b) && self.nodes[b].partners.contains(&a));
+            for &id in ids {
+                let r = &self.takes[id];
+                assert!(r.live);
+                let (x, y) = r.awaiting.expect("indexed request without equality");
+                assert_eq!(Self::pair_key(self.targets[x], self.targets[y]), (a, b));
+            }
+        }
+        for (id, r) in self.takes.iter().enumerate() {
+            if let Some((a, b)) = r.awaiting {
+                assert!(r.live);
+                let (a, b) = (self.targets[a], self.targets[b]);
+                if self.mode == DependencyMode::Indexed {
+                    assert!(
+                        self.pairs
+                            .get(&Self::pair_key(a, b))
+                            .is_some_and(|ids| ids.contains(&id))
+                    );
+                } else {
+                    assert!(
+                        self.nodes[a].equality_watchers.contains(&id)
+                            && self.nodes[b].equality_watchers.contains(&id)
+                    );
+                }
+            }
         }
     }
     fn reaches(&self, start: usize, target: usize) -> bool {
@@ -240,21 +436,39 @@ impl Run {
         if self.nodes[a].handles.len() < self.nodes[b].handles.len() {
             std::mem::swap(&mut a, &mut b);
         }
+        if let (Some(x), Some(y)) = (&self.nodes[a].descriptor, &self.nodes[b].descriptor)
+            && (x.name != y.name || x.children.len() != y.children.len())
+        {
+            self.failed = true;
+            return;
+        }
+        let gained_descriptor =
+            self.nodes[a].descriptor.is_none() && self.nodes[b].descriptor.is_some();
         let loser = std::mem::take(&mut self.nodes[b]);
         for &handle in &loser.handles {
             self.targets[handle] = a;
             self.repaired_handles += 1;
         }
         self.nodes[a].handles.extend(loser.handles);
+        self.dependency_work.notifications +=
+            self.nodes[a].equality_watchers.len() + loser.equality_watchers.len();
         let mut wake = self.nodes[a].equality_watchers.clone();
         wake.extend(&loser.equality_watchers);
         // Only watchers whose previously unknown class gains a descriptor
         // have new constructor information. Unknown/unknown aliases do not.
         match (&self.nodes[a].descriptor, &loser.descriptor) {
-            (None, Some(_)) => wake.extend(&self.nodes[a].descriptor_watchers),
-            (Some(_), None) => wake.extend(&loser.descriptor_watchers),
+            (None, Some(_)) => {
+                self.dependency_work.notifications += self.nodes[a].descriptor_watchers.len();
+                wake.extend(&self.nodes[a].descriptor_watchers);
+            }
+            (Some(_), None) => {
+                self.dependency_work.notifications += loser.descriptor_watchers.len();
+                wake.extend(&loser.descriptor_watchers);
+            }
             _ => (),
         }
+        self.dependency_work.moved_endpoint_subscriptions +=
+            loser.descriptor_watchers.len() + loser.equality_watchers.len();
         self.nodes[a]
             .descriptor_watchers
             .extend(loser.descriptor_watchers);
@@ -263,17 +477,26 @@ impl Run {
             .extend(loser.equality_watchers);
         match (&self.nodes[a].descriptor, loser.descriptor) {
             (Some(x), Some(y)) => {
-                if x.name != y.name || x.children.len() != y.children.len() {
-                    self.failed = true;
-                    return;
-                }
                 self.equations
                     .extend(x.children.iter().copied().zip(y.children));
             }
             (None, Some(y)) => self.nodes[a].descriptor = Some(y),
             _ => (),
         }
+        if self.mode == DependencyMode::Indexed {
+            self.relocate_pairs(b, a, loser.partners, gained_descriptor, &mut wake);
+        }
         for id in wake {
+            if self.mode == DependencyMode::Filtered
+                && let Some((x, y)) = self.takes[id].awaiting
+            {
+                let (x, y) = (self.targets[x], self.targets[y]);
+                if x != y
+                    && (self.nodes[x].descriptor.is_none() || self.nodes[y].descriptor.is_none())
+                {
+                    continue;
+                }
+            }
             self.inspect(id);
         }
     }

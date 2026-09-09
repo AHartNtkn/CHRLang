@@ -264,7 +264,7 @@ All new results link raw inputs, commands, freezes, validation and unfavorable o
 
 ## Current execution order
 
-**T072 is active for equality-dependent discovery.** The [local dependency repair](results/S02-local-dependency-repair.md) establishes the constructor-wait improvement and an adverse repeated-equality witness. Its four-package breadth review selects indexed value-pair dependencies against endpoint subscriptions and event filtering, charging discovery and maintenance before interpreting reduced inspections. Broader integrated sources and complete costs remain required.
+**T072 is active for broader source-derived integrated execution.** The [equality-dependency gate](results/S02-equality-dependencies.md) now qualifies endpoint, filtered and indexed controls with independent answers and explicit discovery/maintenance accounting. Its selection moves to constructor equations and subsequent consuming applications, with prepared sources, fresh identities and source scheduling. Broader complete lifecycles, general source support and architectural comparisons remain required.
 
 The [ordered remaining sequence](remaining-investigations.md#execution-order) records the completed bounded restoration/reunion comparisons and remaining investigation boundaries. T077 stays required for broader restoration, adaptive splitting, repeated dynamic reunion, inference and sustained lifetime. Broader lowering and structural theories, discovery, reuse, direct graphs and connected parallelism remain required. Language and lifetime comparisons accompany every candidate; priority is reconsidered at each package boundary.
 

@@ -1,6 +1,6 @@
 # Unanswered architecture questions and experimental ownership
 
-The [local dependency repair](results/S02-local-dependency-repair.md) reduces the width-64 constructor witness from 2,207 to 128 inspections with independent complete-source agreement and subscription release. All 46 package tests pass. An adverse repeated-equality witness still produces 4,160 inspections before useful information; T072 next compares indexed value-pair dependencies while charging discovery and maintenance. This is diagnostic work evidence, not a timing or architecture ranking.
+The [equality-dependency comparison](results/S02-equality-dependencies.md) passes 49 tests, 600 independent pattern-source configurations and 36 exact diagnostic replays. Filtering reduces inspections but retains 4,096 irrelevant notifications at width64; indexing avoids those notifications while charging pair/incident maintenance and adverse relocation. No timing or allocation ranking follows. T072 next extends source-derived body execution beyond the single capture equation; broader architecture obligations remain required.
 
 ## How unanswered variants remain accountable
 
@@ -79,6 +79,6 @@ No aggregate benchmark weights, universal winner, automatic hybrid routing or ad
 
 ## Current selection
 
-**T072 is active for equality-dependent discovery.** The [four-package review](results/S02-local-dependency-repair.md#four-package-breadth-review-and-next-selection) chooses a bounded pair-index comparison against the observed endpoint-watcher cost. Constructor waiting now avoids irrelevant aliases; repeated equality still has a demonstrated broad-notification confound. Compare indexed relations with endpoint subscriptions and event filtering, charging all discovery and repair work before broader integrated source/cost comparisons.
+**T072 is active for broader source-derived integrated execution.** The [dependency comparison and selection](results/S02-equality-dependencies.md#architectural-consequence-and-next-investigation) qualify endpoint, filtered and indexed controls. Next register source-derived constructor equations and further consuming applications, with immutable prepared rules, changed queries, fresh identities, source scheduling and independently checked complete observations. A narrower lifecycle matrix must not attribute unequal source specialization to representation.
 
 T077's [complete-cost pilot](results/S04-reunion-complete-pilot.md) is bounded evidence. Restoration policies, adaptive splitting, repeated dynamic reunion, inferred boundaries and sustained lifetime remain required. T072 likewise remains responsible for broader heads, effects, history, scheduling and full costs after the repair gate. Existing call-reuse, structural-solving and graph trials retain their stated scope; all review assignments above remain in force.
