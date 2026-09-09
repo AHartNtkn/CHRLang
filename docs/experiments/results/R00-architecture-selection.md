@@ -1,5 +1,8 @@
 # R00: architectural alternatives and first experiment selection
 
+Current selection: **T076 compact structural solving**. The [complete-call pilot](S05-caller-cost-pilot.md) validates 3,220 processes and 476 exact allocation replays. Repeated call keys reduce traffic, while distinct keys and one-query lifetimes add overhead; timing remains exploratory. The [breadth review](S05-caller-breadth-review.md) selects a distinct way to avoid enumeration before more cache refinement. T075 remains pending for broader eligibility, effects and lifetime. The architecture decision remains open.
+
+
 The [complete-caller ownership gate](S05-caller-ownership-gate.md) separates prepared-cache retention from returned answers and canceled caller state. The full path now has semantic and disposal evidence, but no comparative native timings.
 
 The [checked private-phase entry](S05-call-entry-gate.md) supplies an explicit source boundary for call reuse and exposes why selecting the first rule or checking disjoint variables is insufficient. T075 now requires complete resumed-caller lifecycle evidence; general continuation extraction remains open.

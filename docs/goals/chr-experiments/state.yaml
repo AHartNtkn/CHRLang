@@ -64,14 +64,37 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T075
+active_task: T076
 tasks:
-  - id: T075
+  - id: T076
     type: pm
     assignee: PM
     status: active
+    objective: Investigate compact finite structural spaces, intersection and finite path equality against explicit enumeration, with independently specified denotation, source multiplicity correspondence, favorable and adverse sources and complete lifecycle costs.
+    inputs:
+      - docs/experiments/results/S05-caller-breadth-review.md
+      - docs/experiments/results/S05-caller-cost-pilot.md
+      - docs/experiments/remaining-investigations.md
+      - docs/experiments/sequence.md
+      - docs/experiments/coverage.md
+    allowed_files:
+      - research/
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    verify:
+      - Independent finite denotation and exhaustive small oracle
+      - Explicit value versus source-alternative multiplicity contract
+      - Selective intersection and adverse unselective sources
+      - Separate construction, witness and complete enumeration endpoints
+      - Prospective bounded cost registration after source gate
+  - id: T075
+    type: pm
+    assignee: PM
+    status: pending
     objective: Investigate sound generalized call and continuation reuse after different histories, including renaming, relevance, resource and output identity obligations, against competent recomputation and sharing controls.
     inputs:
+      - docs/experiments/results/S05-caller-cost-pilot.md
+      - docs/experiments/results/S05-caller-breadth-review.md
       - docs/experiments/results/S05-caller-ownership-gate.md
       - docs/experiments/registrations/S05-caller-ownership-gate.md
       - docs/experiments/results/S05-call-entry-gate.md

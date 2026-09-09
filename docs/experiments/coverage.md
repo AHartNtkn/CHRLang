@@ -1,6 +1,9 @@
 # Unanswered architecture questions and experimental ownership
 
-The [next experimental sequence](remaining-investigations.md#execution-order) now separates pending work from completed bounded evidence. It starts with the outstanding complete-call audit, then gives structural solving, restoration/reunion and integrated execution distinct comparisons. The remaining mechanism tables and all 57 assignments below remain required; sequencing is not resolution.
+The [complete-call pilot](results/S05-caller-cost-pilot.md) now has 3,220 audited processes and 476 exact allocation replays. Memoization lowers requested traffic in all 16 repeated-key/eight-query configurations and raises it in all 48 distinct-key or one-query configurations. Timings remain exploratory; exact-source elimination has the lowest median in all 64 configurations. The [breadth review](results/S05-caller-breadth-review.md) selects T076 compact structural solving. Broader call reuse remains required.
+
+
+The [next experimental sequence](remaining-investigations.md#execution-order) now separates pending work from completed bounded evidence. Its complete-call audit is now recorded; structural solving, restoration/reunion and integrated execution receive distinct comparisons. The remaining mechanism tables and all 57 assignments below remain required; sequencing is not resolution.
 
 
 The [reclamation lifecycle pilot](results/S08-reclamation-lifecycle-sizing.md) completes4,818 processes and1,584 exact allocation replays. Reclamation lowers dependency-graph peak requested memory in all144 configurations, while traffic and single-sample timing effects vary. All1,056 consumer-independent owner groups and disposal baselines validate. The [four-package breadth review](results/S08-lifetime-breadth-review.md) selects T072 distinct integrated execution next. T074/T075 remain unfinished; no general timing or architecture winner follows.
