@@ -934,3 +934,146 @@ fn common_work_discrimination_and_no_choice_have_independent_complete_answers() 
         }
     }
 }
+
+#[test]
+fn derivation_identity_fresh_locals_cannot_be_shared_between_calls() {
+    let rules = vec![Rule::simplify(
+        "make",
+        [c("make", [atom("k"), v(0)])],
+        eq(v(0), t("box", [v(1)])),
+    )];
+    for independent in [false, true] {
+        let second = if independent { 101 } else { 100 };
+        let mut constraints = vec![c("make", [atom("k"), v(100)])];
+        if independent {
+            constraints.push(c("make", [atom("k"), v(101)]));
+        }
+        constraints.push(c("pair", [v(100), v(second)]));
+        let expected = Answer {
+            outputs: vec![],
+            residual: vec![c(
+                "pair",
+                [
+                    t("box", [v(900)]),
+                    t("box", [v(if independent { 901 } else { 900 })]),
+                ],
+            )],
+        };
+        let incorrect = Answer {
+            outputs: vec![],
+            residual: vec![c(
+                "pair",
+                [
+                    t("box", [v(900)]),
+                    t("box", [v(if independent { 900 } else { 901 })]),
+                ],
+            )],
+        };
+        assert!(!chr_observe::equivalent(
+            &expected,
+            &incorrect,
+            &mut Default::default()
+        ));
+        check_all_source_engines(
+            rules.clone(),
+            Query {
+                constraints,
+                outputs: vec![],
+            },
+            vec![expected],
+        );
+        println!(
+            "derivation fresh-locals independent={independent}: complete answers agree; opposite alias prediction rejected"
+        );
+    }
+}
+
+#[test]
+fn derivation_identity_equal_inputs_do_not_merge_choice_births() {
+    let rules = vec![Rule::simplify(
+        "make",
+        [c("make", [atom("k"), v(0)])],
+        or(eq(v(0), atom("a")), eq(v(0), atom("b"))),
+    )];
+    for independent in [false, true] {
+        let mut constraints = vec![c("make", [atom("k"), v(100)])];
+        if independent {
+            constraints.push(c("make", [atom("k"), v(101)]));
+        }
+        constraints.push(c("pair", [v(100), v(if independent { 101 } else { 100 })]));
+        let expected: Vec<_> = ["a", "b"]
+            .into_iter()
+            .flat_map(|left| {
+                ["a", "b"]
+                    .into_iter()
+                    .filter(move |right| independent || left == *right)
+                    .map(move |right| Answer {
+                        outputs: vec![],
+                        residual: vec![c("pair", [atom(left), atom(right)])],
+                    })
+            })
+            .collect();
+        assert_eq!(expected.len(), if independent { 4 } else { 2 });
+        let correlated: Vec<_> = expected
+            .iter()
+            .filter(|a| a.residual[0].args[0] == a.residual[0].args[1])
+            .cloned()
+            .collect();
+        assert_eq!(same_answers(&expected, &correlated), !independent);
+        check_all_source_engines(
+            rules.clone(),
+            Query {
+                constraints,
+                outputs: vec![],
+            },
+            expected,
+        );
+        println!(
+            "derivation choice-birth independent={independent}: expected raw={}",
+            if independent { 4 } else { 2 }
+        );
+    }
+}
+
+#[test]
+fn derivation_identity_result_reuse_does_not_grant_resource_claims() {
+    let rules = vec![Rule {
+        name: "take".into(),
+        kept: vec![c("ask", [atom("k")])],
+        removed: vec![c("token", [atom("k")])],
+        guards: vec![],
+        body: c("out", [atom("k")]).into(),
+    }];
+    for tokens in [1, 2] {
+        let mut constraints = vec![c("ask", [atom("k")]); 2];
+        constraints.extend(vec![c("token", [atom("k")]); tokens]);
+        let mut residual = vec![c("ask", [atom("k")]); 2];
+        residual.extend(vec![c("out", [atom("k")]); tokens]);
+        let expected = Answer {
+            outputs: vec![],
+            residual,
+        };
+        let mut incorrect = expected.clone();
+        if tokens == 1 {
+            incorrect.residual.push(c("out", [atom("k")]));
+        } else {
+            incorrect.residual.pop();
+        }
+        assert!(!chr_observe::equivalent(
+            &expected,
+            &incorrect,
+            &mut Default::default()
+        ));
+        check_all_source_engines(
+            rules.clone(),
+            Query {
+                constraints,
+                outputs: vec![],
+            },
+            vec![expected],
+        );
+        println!(
+            "derivation resource-claims tokens={tokens}: exact out multiplicity={tokens}; replay/collapse prediction rejected"
+        );
+    }
+}

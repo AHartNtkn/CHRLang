@@ -1,0 +1,18 @@
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 3.21s
+     Running tests/direct_graph_entry.rs (target/debug/deps/direct_graph_entry-8c0dd575e30323bf)
+
+running 3 tests
+derivation fresh-locals independent=false: complete answers agree; opposite alias prediction rejected
+derivation resource-claims tokens=1: exact out multiplicity=1; replay/collapse prediction rejected
+derivation choice-birth independent=false: expected raw=2
+derivation fresh-locals independent=true: complete answers agree; opposite alias prediction rejected
+derivation resource-claims tokens=2: exact out multiplicity=2; replay/collapse prediction rejected
+test derivation_identity_fresh_locals_cannot_be_shared_between_calls ... ok
+test derivation_identity_result_reuse_does_not_grant_resource_claims ... ok
+derivation choice-birth independent=true: expected raw=4
+test derivation_identity_equal_inputs_do_not_merge_choice_births ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 14 filtered out; finished in 0.00s
+

@@ -33,3 +33,7 @@ After semantic feasibility and bounded sizing, register favorable/adverse comple
 Return to selection after the first discriminating mechanism/semantic result. If two named designs are equivalent under the relevant contract, document the argument and avoid a redundant implementation. If a prototype fails, separate a repairable implementation defect from a contradiction in the proposed mechanism. If the available fragment cannot exercise its intended benefit, improve the witness before treating a loss as architectural evidence.
 
 Then compare the value of completing the cost contrast with contextual/local-rewrite integration, which remains the strongest distinct following alternative. T071 does not close S03 as a whole; sustainable lifetime, compressed supports, native correspondence and whole-architecture challenges retain their sequence obligations.
+
+## First semantic result
+
+The [derivation identity experiment](S03-derivation-identity.md) separates reuse of one application result from instantiation of another application, including fresh unknowns in deterministic rules. Six source inputs agree across five independent/control execution paths. T071 now proceeds to suspended source applications and context-valid result reuse; no demand-driven candidate has yet been measured. The result records the selection review and remaining obligations.
