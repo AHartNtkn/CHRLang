@@ -1,10 +1,10 @@
 # The comparisons still needed to choose the architecture
 
-The [demand discovery attribution](results/S10-demand-discovery.md) completes 1008 processes and 144 exact allocation pairs. It avoids the contextual fused explosion but exposes repeated-history costs. T078 now broadens mixed-source lifecycle qualification with eager and demand controls; resumable and conditional discovery remain required.
+The [broader mixed pilot and export repair](results/S10-broad-mixed-lifecycle.md) validate 4116 primary processes plus 168 repair allocation processes. T078 next qualifies substantial common execution after choice; the source must demonstrate avoided repeated work before architectural judgment.
 
 ## Starting evidence and immediate decision
 
-The next package qualifies sources combining guards/history, alias changes, search, early failure and answer retention. The [latest selection](results/S10-demand-discovery.md#next-architectural-decision) explains why broader composition now precedes further discovery refinement. Compare conventional, contextual eager/demand and direct conditional organizations without assuming a universal discovery policy.
+The next package varies common post-choice work independently of choice count, including consuming effects, branch-local guards/failure and full residuals. The [selection rationale](results/S10-broad-mixed-lifecycle.md#next-give-conditional-sharing-a-substantive-opportunity) retains selective conditional and resumable contextual discovery while requiring a credible favorable sharing witness.
 
 The completed [restoration pilot](results/S04-resident-cost-pilot.md), [reunion source gate](results/S04-reunion-source-gate.md), [ownership/identity comparison](results/S04-reunion-identity-attribution.md), [strong-control gate](results/S04-reunion-strong-controls.md) and [complete-cost pilot](results/S04-reunion-complete-pilot.md) supply controls. They do not resolve repeated dynamic reunion or general source inference.
 
@@ -18,13 +18,13 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-**Broader mixed-source lifecycle qualification is selected under T078/S10.** Complete-source gates and the initial lifecycle pilot provide controls. The goal remains comparison of complete architectural alternatives; this attribution must determine whether their current discovery costs are avoidable.
+**Common post-choice work qualification is selected under T078/S10.** Complete-source gates and the initial lifecycle pilot provide controls. The goal remains comparison of complete architectural alternatives; this attribution must determine whether their current discovery costs are avoidable.
 
 The order below incorporates the latest component evidence and the S10 entry decision. Each numbered row has a separate architectural question and completion boundary. The detailed mechanism specifications later in this document define its controls and adverse cases. A row containing several mechanisms requires a conclusion for each; completing one does not complete the row.
 
 | Order | Required investigation | What its result must decide |
 |---|---|---|
-| Current | **Broader mixed-source qualification (T078 / S10).** Include guards/history, aliases, search, failure and retention with eager/demand controls. | Which discovery and ownership costs dominate complete sources beyond the fusion family; reconsider unresolved resumable and conditional discovery. |
+| Current | **Common post-choice work (T078 / S10).** Qualify substantial shared execution with effectful and failure controls. | Whether conditional execution avoids consequential repeated source work; reconsider discovery repairs and full costs against that demonstrated opportunity. |
 | 1 | **Bounded pilot complete; broader restoration remains required (T077 / S04-A).** Compare copying, persistence/COW, undo, root replay and checkpoint intervals on read-heavy and mutation-heavy states, shallow/wide and deep search, early/late failure, changed queries and cancellation. | Whether avoiding sole-branch reconstruction changes the time–memory tradeoff once preparation, switching, complete answers and disposal count. The [source gate](results/S04-resident-replay-source-gate.md) and [cost pilot](results/S04-resident-cost-pilot.md) now supply bounded evidence. Alternative policies and broader state/lifetime regimes remain required. |
 | 2 | **Bounded reunion costs complete; broader reunion and adaptive splitting remain required (T077 / S04-B/C).** Repeated dynamic reunion has bounded source/work/allocation evidence; adaptive splitting and broader lifetime remain required before general conclusions. Use same-predicate independent occurrences, late aliases/calls and shared consumables. Compare ordinary execution, permanent factoring and temporary separation; separately compare fixed and demand-sensitive splitting. | Whether temporary independence or economical split timing can replace retained shared execution. Include frequent reunion, immediate failure and no useful separation. Preserve correlation, source progress, resource claims and propagation history. Checkpoints alone cannot answer either question. |
 | 3 | **Complete integrated execution (T072 / S02-A/B).** Carry the corrected dependency lifecycle controls into broader source/ownership comparison, then compare CHR-expressed equality, strategic local rewrites and the strongest contextual/scanned/indexed controls on full equality-enabled consuming sources. | Which service boundaries actually disappear, whether interleaving avoids useful work, and what repair/ownership costs remain. Keep scheduling differences explicit. An isolated equality operation cannot decide the complete organization. |

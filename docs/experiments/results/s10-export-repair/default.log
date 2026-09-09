@@ -1,0 +1,49 @@
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.06s
+     Running unittests src/lib.rs (target/debug/deps/chr_direct_conditional-65dd69453b1ad3ba)
+
+running 12 tests
+test matching::tests::first_slot_keeps_conditional_value_opaque_and_repetition_demands_equality ... ok
+test resources::tests::emitted_frame_finishes_the_job_without_certifying_remaining_eligibility ... ok
+test engine::tests::starts_share_compiled_rules_and_own_independent_query_state ... ok
+test support::tests::canonical_reduction_and_complement_have_boolean_meaning ... ok
+test support::tests::construction_rejects_out_of_bounds_handles - should panic ... ok
+test support::tests::construction_rejects_an_earlier_child_variable - should panic ... ok
+test engine::tests::finite_sibling_is_published_beside_symbolic_rewrite_loop ... ok
+test support::tests::independent_jobs_interleave_and_finished_jobs_do_no_more_work ... ok
+test support::tests::long_negation_yields_with_at_most_one_node_allocation_per_tick ... ok
+test equality::tests::deep_occurs_check_and_demand_are_resumable_and_nonbinding ... ok
+test engine::publication_flow_tests::cancellation_with_bulk_observer_owned_preserves_delivered_answer ... ok
+test engine::publication_flow_tests::publication_priority_preserves_answers_but_withholds_runnable_sibling ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+
+     Running tests/broad_mixed.rs (target/debug/deps/broad_mixed-f9625490fd459b36)
+
+running 1 test
+test independently_constructed_complete_mixed_observations ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.31s
+
+     Running tests/runtime.rs (target/debug/deps/runtime-001210167e3a9059)
+
+running 7 tests
+test finite_sibling_publishes_beside_recursive_activity ... ok
+test supported_application_projection_and_shared_consumption ... ok
+test adversarial_dependency_and_priority_witnesses ... ok
+test independent_full_source_witnesses ... ok
+test publication_is_not_repeated_when_divergent_support_adds_births ... ok
+test repeated_dynamic_births_and_prepared_query_independence ... ok
+test finite_crossing_corpus ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.07s
+
+     Running tests/streaming.rs (target/debug/deps/streaming-eb58f70bf7a2ceae)
+
+running 3 tests
+test closed_form_checker_rejects_wrong_values_multiplicity_and_aliases ... ok
+test conditional_finite_generator_has_exact_raw_count_and_exhaustion ... ok
+test conditional_unbounded_prefixes_preserve_duplicates_and_consumer_ownership ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.13s
+

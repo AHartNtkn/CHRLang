@@ -278,7 +278,7 @@ Exact sizes follow exploratory sizing under the common rules above. The comparat
 
 ## Current execution order
 
-**T078 is active for broader mixed-source lifecycle qualification.** The [demand attribution](results/S10-demand-discovery.md) exposes both avoidable fused enumeration and costly repeated history traversal. Carry eager and demand contextual controls alongside conventional and conditional execution into sources combining guards/history, aliases, search, failure and retention. Reconsider unresolved resumable and conditional discovery at that package boundary.
+**T078 is active for substantial common-work qualification after source choice.** The [broader mixed pilot and export repair](results/S10-broad-mixed-lifecycle.md) expose discovery, history and observation costs but do not yet give conditional execution a sufficient shared-work opportunity. Establish that mechanism with effectful favorable and adverse controls, then reconsider selective discovery and complete lifecycle costs.
 
 The [ordered remaining sequence](remaining-investigations.md#execution-order) records the completed bounded restoration/reunion comparisons and remaining investigation boundaries. T077 stays required for broader restoration, adaptive splitting, repeated dynamic reunion, inference and sustained lifetime. Broader lowering and structural theories, discovery, reuse, direct graphs and connected parallelism remain required. Language and lifetime comparisons accompany every candidate; priority is reconsidered at each package boundary.
 

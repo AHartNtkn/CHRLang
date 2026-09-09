@@ -1,0 +1,7 @@
+# Known-arity export allocation repair
+
+The answer-capacity audit accounts exactly for the deep retained-answer difference as unused vector capacity. Reserve known output count, constructor arity and constraint arity when those export owners are created. Preserve incremental traversal, condition evaluation, unknown-variable identity and publication. Do not guess the final support-dependent residual count or add a bulk publication compaction pass.
+
+Validate full runtime and streaming suites plus the broader mixed-source gate in ordinary and feature-off configurations. Re-run the capacity audit after repair. Compare conditional requested allocation to the frozen broader pilot on all 84 conditional configurations: seven families × counts 0/1/3 × reuse 1/4 × two consumers. Two fresh allocation processes per configuration, seed 7832, exact phase replay and every owner baseline required. Use the same runner, scalar/constructed oracle, bounds and phase definitions. No post-repair comparative timing run: the earlier timings describe the pre-repair implementation and cannot support speed attribution to this repair.
+
+Expected evidence: changed traffic/retention only where known-size exported data are allocated, with preserved complete answers and service behavior. Explain remaining excess capacity and any added allocation. Preserve baseline source provenance through commit 0bd36f86f; runtime source hashes differ intentionally. Broader architecture ranking must use repaired allocation evidence and retain unresolved conditional discovery costs.

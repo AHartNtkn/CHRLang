@@ -1,6 +1,6 @@
 # Unanswered architecture questions and experimental ownership
 
-Current S10 evidence: [demand discovery attribution](results/S10-demand-discovery.md) validates 1008 processes and 144 exact allocation pairs. Demand avoids the contextual fused explosion but repeats costly propagation-history work. T078 next broadens mixed-source lifecycle qualification with both credible controls; resumable and conditional discovery remain unresolved.
+Current S10 evidence: [broader mixed lifecycle and export repair](results/S10-broad-mixed-lifecycle.md) completes 4116 primary processes and 168 repair allocation processes. Contextual traffic/peak tradeoffs persist; known-arity export overhead is repaired. T078 next qualifies substantial common work after choice before judging conditional sharing. Compilation, sustained lifetime and all unresolved directions remain required.
 
 The [resource-fusion lifecycle pilot](results/S06-resource-fusion-lifecycle.md) completes 1350 processes and 180 exact allocation pairs. Inference and certification can outweigh execution savings; timing remains exploratory with clock-overhead evidence. All owners restore. The [S10 entry](results/S10-composition-entry.md) selects T078 coherent-path capability and mixed-source qualification. T073 and the other unresolved component directions remain required.
 

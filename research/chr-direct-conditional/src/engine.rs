@@ -903,7 +903,9 @@ impl Observation {
             ObserveState::History => match self.histories.tick(births, arena) {
                 HistoryEvent::Progress => ObserveState::History,
                 HistoryEvent::Exhausted => return ObservationEvent::Done,
-                HistoryEvent::History(world) => ObserveState::Export(Export::new(world)),
+                HistoryEvent::History(world) => {
+                    ObserveState::Export(Export::new(world, outputs.len()))
+                }
             },
             ObserveState::Export(mut export) => {
                 if let Some(answer) = export.tick(
@@ -962,11 +964,11 @@ enum ExportState {
     Finish,
 }
 impl Export {
-    fn new(world: Vec<bool>) -> Self {
+    fn new(world: Vec<bool>, outputs: usize) -> Self {
         Self {
             world,
             answer: Answer {
-                outputs: vec![],
+                outputs: Vec::with_capacity(outputs),
                 residual: vec![],
             },
             free: BTreeMap::new(),
@@ -1021,7 +1023,8 @@ impl Export {
                 }
                 Decision::Done(true) => {
                     self.arg = 0;
-                    self.args.clear();
+                    self.args =
+                        Vec::with_capacity(resources.occurrences()[self.occurrence].args.len());
                     ExportState::Args
                 }
             },
@@ -1107,8 +1110,8 @@ impl TermExport {
                 TermView::Variable(variable) => {
                     self.tasks.push(TermTask::Binding { variable, index: 0 })
                 }
-                TermView::Constructor { name, .. } => {
-                    self.values.push(vec![]);
+                TermView::Constructor { name, args } => {
+                    self.values.push(Vec::with_capacity(args.len()));
                     self.tasks.push(TermTask::Finish { name: name.into() });
                     self.tasks.push(TermTask::Fields { term, index: 0 });
                 }
