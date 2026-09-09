@@ -1,6 +1,6 @@
 # Unanswered architecture questions and experimental ownership
 
-The [general matching ownership gate](results/S02-multihead-ownership.md) completes 504 allocation runs, 126 preflights and 252 exact pairs, plus 252 exact runner-integration replays. Partial joins have sparse/nested traffic regimes; conventional Scan remains strong, and dense cache setup dominates allocation. All owner baselines restore. The [four-package breadth review](results/S02-multihead-breadth-review.md) selects T073 source-derived resource-aware lowering; T072 timing and broader integration remain unfinished.
+The [resource-fusion gate](results/S06-resource-fusion-gate.md) infers an effectful producer/consumer fusion with a per-query counted-resource certificate. A 360-query matrix admits 280 and rejects 80 insufficient-resource cases; independent before/after answers and generic/specialized Scan agree. Six traced applications become three. Availability, key ownership and source order are substantive conditions. T073 next charges inference, query certification and complete lifecycle; no cost or architecture ranking follows.
 
 ## How unanswered variants remain accountable
 

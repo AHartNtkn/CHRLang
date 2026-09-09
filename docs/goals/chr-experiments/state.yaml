@@ -218,9 +218,11 @@ tasks:
     type: pm
     assignee: PM
     status: active
-    next_action: Inspect existing source-derived lowering and resource derivation controls, then register a source gate beyond pure prefixes/single recursive carriers. Include consuming dependencies, competing consumers, duplicate occurrences and late aliases with scalar and competent Scan controls. Establish actual eliminated work and explicit eligibility before costs; reconsider native integrated matching, adaptive reunion and coherent composition at that boundary.
+    progress: Source-derived private effectful fusion passes a 360-query matrix with 280 admitted and 80 insufficient-resource rejections. Independent before/after answers and generic/specialized Scan agree; key partition, late aliases, fresh capture and source boundaries validate. A trace reduces six applications to three. No lifecycle cost ranking follows.
+    next_action: Register original/fused complete lifecycle costs with generic/specialized Scan and Indexed contrast. Charge inference, emitted preparation and per-query count certification across zero/one/many firings, aliases, duplicate alternatives and spare resources. Reconsider native integrated costs, adaptive reunion and coherent composition after this bounded package.
     objective: Derive a source-driven lowering transformation beyond exact schemas, with explicit dependency/resource conditions, independent complete-answer checks and consequential language-property boundaries before cost measurement.
     inputs:
+      - docs/experiments/results/S06-resource-fusion-gate.md
       - docs/experiments/results/S02-multihead-breadth-review.md
       - docs/experiments/results/S06-recursive-access-confirmation.md
       - docs/experiments/results/S06-access-next-investigation.md
@@ -2312,15 +2314,15 @@ checks:
   dirty_fingerprint: unrelated_untracked_files_preserved
   last_verification:
     result: passed
-    task: T072
-    scope: Complete general matching allocation/ownership and four-package breadth review.
+    task: T073
+    scope: Source-derived resource fusion and counted query eligibility.
     commands:
-      - 504 measured allocation runs and 126 independent-source preflights
-      - 252 exact allocation pairs and 252 exact runner-integration replays
-      - Default/all-feature relational test targets and scoped strict Clippy
-      - Phase/cell/source audit, formatting and evidence links
+      - cargo test -p chr-compiled --lib --test pure_prefix --test resource_fusion
+      - cargo test -p chr-compiled --lib --test pure_prefix --test resource_fusion --no-default-features
+      - cargo clippy -p chr-compiled --test resource_fusion --no-deps -- -D warnings
+      - Explicit-file formatting, evidence links and query-count receipt
     evidence:
-      - docs/experiments/results/S02-multihead-ownership.md
-      - docs/experiments/results/S02-multihead-breadth-review.md
-      - docs/experiments/results/s02-multihead-ownership/audit.json
-      - docs/experiments/results/s02-multihead-ownership/runner-replay-audit.json
+      - docs/experiments/results/S06-resource-fusion-gate.md
+      - docs/experiments/results/s06-resource-fusion-gate/default.log
+      - docs/experiments/results/s06-resource-fusion-gate/counter-free.log
+      - docs/experiments/results/s06-resource-fusion-gate/clippy.log
