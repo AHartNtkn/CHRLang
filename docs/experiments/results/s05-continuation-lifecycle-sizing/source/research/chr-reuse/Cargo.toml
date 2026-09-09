@@ -1,0 +1,18 @@
+[package]
+name = "chr-reuse"
+version.workspace = true
+edition.workspace = true
+[features]
+default = ["metrics"]
+metrics = ["chr-persistent/metrics", "chr-observe/metrics"]
+alloc-meter = ["chr-compiled/alloc-meter"]
+[dependencies]
+chr-syntax = { path = "../../crates/chr-syntax" }
+chr-persistent = { path = "../chr-persistent", default-features = false }
+chr-observe = { path = "../chr-observe", default-features = false }
+[dev-dependencies]
+chr-compiled = { path = "../chr-compiled", default-features = false }
+chr-direct-conditional = { path = "../chr-direct-conditional", default-features = false }
+chr-direct-choice = { path = "../chr-direct-choice" }
+chr-reference = { path = "../../crates/chr-reference" }
+chr-cases = { path = "../chr-cases" }
