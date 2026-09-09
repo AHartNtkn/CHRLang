@@ -26,6 +26,8 @@ The [machine-readable summary](S03-derivation-sizing-summary.json) includes inde
 
 **The compiler currently copies ground terms recursively when binding and substituting arguments.** This is visible in `Budget::copy`, `matches` and `term` in the frozen template source. Repeated countdown suffixes and duplicated accumulator subtrees therefore incur construction work that a shared internal representation could avoid. This is a concrete implementation hypothesis, not yet a measured attribution of the timing differences. Instantiation and complete output construction may remain material afterward.
 
+The subsequent [paired attribution](S03-shared-template-attribution.md) now tests this copying hypothesis. The sizing observations above retain their original implementation scope.
+
 ## Next experiment and its limits
 
 First compare the current owned-tree compiler with a shared immutable representation of its internal terms. Establish that repeated ground subterms are shared, while each template application still creates independent unknowns and dynamic choices. Preserve actual resource claims, off-output obligations, bounded continuation and the recorded scheduling distinction. Sharing immutable terms must not share a source effect or a fresh logical identity.
