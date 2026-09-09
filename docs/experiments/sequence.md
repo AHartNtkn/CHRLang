@@ -8,9 +8,35 @@ This is the governing sequence for the renewed investigation. Existing E/R measu
 
 ## Read the sequence at two levels
 
-The [ordered investigation cycle](remaining-investigations.md#execution-order) gives the next twelve steps from the current worktree. Start there for the practical order and why each comparison matters. The stage specifications below define the required depth, controls and exit evidence; the [named-mechanism comparisons](remaining-investigations.md#distinctions-that-must-not-disappear-inside-a-stage) account for alternatives grouped within review entries.
+Start with the roadmap below for the high-level reasoning. The [ordered investigation cycle](remaining-investigations.md#execution-order) records completed bounded work and the remaining execution order. The stage specifications below define the required depth, controls and exit evidence; the [named-mechanism comparisons](remaining-investigations.md#distinctions-that-must-not-disappear-inside-a-stage) account for alternatives grouped within review entries.
 
 The sequence reuses existing trustworthy controls and measurements. It requires new implementations where the missing architectural mechanism needs one; it does not require another production baseline. Exact sizes and repetitions are registered after correctness and exploratory sizing, before comparative confirmation. The common measurement rules below constrain those registrations now.
+
+## The remaining sequence in plain language
+
+**First test ways of doing fundamentally different work; then compare the complete architectures they make possible.** Existing measurements provide controls for these experiments. They also identify implementation defects and adverse regimes that the next comparisons must account for.
+
+1. **Move choices through real applications, and separately test reusable derivations (S03).** Implement the local graph operation that duplicates an application around the same named choice. Test whether it saves repeated work once correlation, consumed resources, failure and answer delivery count. Separately investigate reusing a derivation across fresh applications: reusing one application's cached result does not answer that question. This is the current next package because its central operation remains untested, while another refinement of prefix compilation would improve a mechanism already measured.
+
+2. **Make equality, matching and resource changes work together directly (S02).** Test the remaining contextual and local graph-rewrite organizations. The experiment must show a boundary or repeated work actually disappearing. Compare useful interleaving with cases where partial information creates overhead, and distinguish new deductions shared across contexts from sharing immutable input. Existing relational and contextual results constrain these trials without deciding them.
+
+3. **Eliminate more execution through source analysis and direct solving (S06).** Extend beyond finite tables and pure prefixes to resource-aware derivations and recursive or contextual lowering. Test reusable query artifacts as well as changed queries that require preparation. Charge analysis and compilation, and examine programs just outside the accepted fragment. This asks how much of the work in both conventional and graph execution is avoidable.
+
+4. **Reuse equivalent future computations after different histories (S05).** Compare call-level and whole-state reuse, including renaming and ignoring state that provably cannot affect the future. Use real reconvergence and near misses with different bindings or resources. Measure recognizing, validating, retaining and replaying a reusable result. Exact-identity cache results cannot decide these broader keys.
+
+5. **Restore, split and reconnect search state more intelligently (S04).** Compare checkpoints and replay with competent copying, persistence and undo. Test adaptive splitting and temporary independence followed by reconnection. Include read-heavy and mutation-heavy sources. This determines whether economical explicit search can provide benefits otherwise attributed to shared graphs.
+
+6. **Solve compact descriptions of structural possibilities (S06).** Test lazy construction, intersection, reduction and finite path equalities against enumeration. Investigate projection and richer structural theories separately where their meaning differs. Include selective problems where solving can avoid search and unselective problems where its machinery may not repay its cost.
+
+7. **Test the remaining ways to retain and discover work (S01, S03, S05).** Compare intermediate joins, broader access plans, compressed choice conditions and cache eviction against the stronger controls established above. Vary update density, selectivity, correlation and actual reuse independently. These mechanisms remain required even when full-pair retention, one code generator or one cache has already been measured.
+
+8. **Test native graph execution and connected parallel work (S03, S09).** Establish source correspondence and resource ownership before timing. Then compare serial, one-worker and multiple-worker execution, including reused workers, useful work that survives lowering, contested resources and cancellation. Independent-region parallelism does not answer connected-work parallelism. Begin feasibility checks earlier when they determine whether a proposed organization is implementable.
+
+9. **Complete the language and sustained-lifetime comparisons (S07, S08).** These run alongside the preceding experiments. Compare inferred properties, checked declarations and mandatory restrictions through the programs and runtime obligations they change. Test long streams with immediate answer release, bounded retention and retained answers; account for reclamation, exact observation and publication. A short runtime gain cannot settle these choices.
+
+10. **Compare complete alternatives and try to overturn the recommendation (S10, S11).** Build at least two coherent execution paths, including a serious alternative to the favored organization. Test interactions and necessary complexity, then freeze policies and challenge them on new sources and parameter regions. Any proposed combination must justify its extra machinery against a simpler organization. The final report must account for every reviewed direction and every consequential variant within it.
+
+**An unfinished question stays required even when its next experiment comes later.** Each package ends with a comparison against the strongest ready alternative before selecting more work. A loss prompts investigation of consequential defects or missing favorable conditions; a gain prompts adverse and lifetime tests. An analytical resolution can replace implementation only when its argument applies to the actual mechanism. The research remains open while feasible investigation could materially change the architectural choice.
 
 ## What changes in research selection
 
