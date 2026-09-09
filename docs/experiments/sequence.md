@@ -264,6 +264,8 @@ All new results link raw inputs, commands, freezes, validation and unfavorable o
 
 ## Current execution order
 
+The [CHR constructor/consumption gate](results/S02-chr-constructors-gate.md) validates finite-tree consistency and equality-enabled consuming execution, and records a descriptor-order resource-selection counterexample. T072 remains active for the distinct local rewrite comparison; no cost ranking follows.
+
 The [CHR-expressed forest gate](results/S02-chr-forest-gate.md) establishes ground-identifier partition correctness, actual path compression and stale-link repair. Constructor consistency and consuming execution remain the next T072 source comparison; this gate supplies no timing or architecture ranking.
 
 **T072 is active: distinct integrated equality, matching and consuming execution.** The [reclamation breadth review](results/S08-lifetime-breadth-review.md) selects this investigation after the bounded lifetime pilot. Existing relational and contextual measurements supply controls; they do not resolve union-find expressed through CHR or strategic port rewriting.

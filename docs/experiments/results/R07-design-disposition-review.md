@@ -88,6 +88,8 @@ Each numbered entry gives the result, the reason I stopped or limited adoption, 
 
 ### 9. Integrate equality, constructors, matching and consuming execution — Measured limit of the R02 implementation
 
+The subsequent [CHR-expressed constructor/consumption gate](S02-chr-constructors-gate.md) directly tests another mechanism: source-rule class merging and descriptor repair. It has independent bounded correctness evidence and an explicit resource-scheduling boundary, but no comparative costs. Strategic local rewriting and broader source correspondence remain unresolved.
+
 **Result.** R02 demonstrated real interleaving: source rules could run while equality deductions and constructor repairs remained pending. After correcting redundant congruence work, the size-64 nested case still took 2.05 ms versus 1.71 ms for dedicated scanned execution. At size 256, the relevant stronger indexed control also beat nested integration; batch timing remained inconclusive. Integrated storage was higher in the reported comparisons.
 
 **Why I stopped.** I judged the demonstrated integration benefit insufficient to repay this implementation's setup, maintenance and disposal. That supports a bounded negative cost result. It does **not** establish that separating equality is architecturally necessary, or resolve a different integrated representation that eliminates more boundaries. [Corrected integration comparison](R02-congruence-witness-pilot.md)

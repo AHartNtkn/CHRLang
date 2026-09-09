@@ -93,6 +93,8 @@ No aggregate benchmark weights, universal winner, automatic hybrid routing or ad
 
 ## Current selection
 
+The [CHR constructor/consumption gate](results/S02-chr-constructors-gate.md) validates finite-tree consistency and equality-enabled consuming execution, and records a descriptor-order resource-selection counterexample. T072 remains active for the distinct local rewrite comparison; no cost ranking follows.
+
 The [CHR-expressed forest gate](results/S02-chr-forest-gate.md) establishes ground-identifier partition correctness, actual path compression and stale-link repair. Constructor consistency and consuming execution remain the next T072 source comparison; this gate supplies no timing or architecture ranking.
 
 T072 is active for distinct integrated execution. The [next discriminating comparisons](remaining-investigations.md#next-discriminating-comparisons) specify its complete-source gate and comparison, followed by call-level reuse, structural solving and restoration/reconnection. These are outstanding work, not new measured dispositions. All review-entry mappings above remain required.

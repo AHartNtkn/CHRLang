@@ -1,0 +1,46 @@
+warning: method `access_key` is never used
+   --> research/chr-integrated/../chr-compiled/src/generate.rs:229:8
+    |
+227 | impl Emit {
+    | --------- method in this implementation
+228 |     /// A key exists only when every source-pattern component is established.
+229 |     fn access_key(&mut self, term: &Term) -> String {
+    |        ^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `emit_access` is never used
+   --> research/chr-integrated/../chr-compiled/src/generate.rs:255:8
+    |
+255 | pub fn emit_access(name: &str, rules: &[Rule]) -> Result<String, String> {
+    |        ^^^^^^^^^^^
+
+warning: function `update_columns` is never used
+   --> research/chr-integrated/../chr-compiled/src/generate.rs:400:8
+    |
+400 | pub fn update_columns(rules: &[Rule]) -> BTreeMap<(String, usize), BTreeSet<usize>> {
+    |        ^^^^^^^^^^^^^^
+
+warning: `chr-integrated` (build script) generated 3 warnings
+   Compiling chr-relational v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-relational)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.28s
+     Running tests/chr_constructors.rs (target/debug/deps/chr_constructors-38f0999488686d52)
+
+running 1 test
+reverse=false access=Scan source=[("v1", App("a", [])), ("v3", Var(Var(1)))] kernel=[("v1", App("a", [])), ("v3", Var(Var(3)))]
+reverse=false access=Indexed source=[("v1", App("a", [])), ("v3", Var(Var(1)))] kernel=[("v1", App("a", [])), ("v3", Var(Var(3)))]
+reverse=true access=Scan source=[("v1", Var(Var(0))), ("v3", App("b", []))] kernel=[("v1", App("a", [])), ("v3", Var(Var(3)))]
+
+thread 'competing_consumers_expose_descriptor_order_as_a_scheduling_choice' (119) panicked at research/chr-relational/tests/../../chr-direct-conditional/tests/runtime_support/mod.rs:273:32:
+missing full observation Answer { outputs: [("v1", Var(Var(0))), ("v3", App("b", []))], residual: [Constraint { name: "take", args: [App("f", [App("a", [])]), Var(Var(0))] }] }; remaining [Answer { outputs: [("v1", App("a", [])), ("v3", Var(Var(3)))], residual: [Constraint { name: "take", args: [App("f", [App("b", [])]), Var(Var(3))] }] }]
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test competing_consumers_expose_descriptor_order_as_a_scheduling_choice ... FAILED
+
+failures:
+
+failures:
+    competing_consumers_expose_descriptor_order_as_a_scheduling_choice
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 3 filtered out; finished in 0.01s
+
+error: test failed, to rerun pass `-p chr-relational --test chr_constructors`

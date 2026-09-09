@@ -1,5 +1,7 @@
 # R00: architectural alternatives and first experiment selection
 
+The [CHR-expressed constructor gate](S02-chr-constructors-gate.md) now demonstrates source-rule merging, descriptor repair and consuming execution with independent checks. It exposes source scheduling as a responsibility: descriptor ordering can select a different consumer. Distinct local rewriting and complete costs remain unresolved under T072.
+
 The [reclamation lifecycle pilot](S08-reclamation-lifecycle-sizing.md) completes4,818 processes and1,584 exact allocation replays. Reclamation lowers dependency-graph peak requested memory in all144 configurations, while traffic and single-sample timing effects vary. All1,056 consumer-independent owner groups and disposal baselines validate. The [four-package breadth review](S08-lifetime-breadth-review.md) selects T072 distinct integrated execution next. T074/T075 remain unfinished; no general timing or architecture winner follows.
 
 The [history-order attribution](S05-history-order-attribution.md) completes 2,044 paired lifecycle processes and two exactly replayed 90-cell key diagnostics. Early consumption reduces AlphaLive execution from 550 to 160 steps, yet it loses to direct, specialized and graph controls in all 32 configurations. Key export requests about 3.16 MB versus 0.39 MB for source steps in the diagnostic. The subsequent compact-key gate and breadth review now address that representation alternative; generalized reuse is not rejected.
