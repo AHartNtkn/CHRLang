@@ -6,6 +6,8 @@ The [serial-body attribution](results/S07-serial-body-allocation.md) completes 9
 
 The [non-overlap obligation gate](results/S07-overlap-obligations.md) demonstrates kept-head interference despite disjoint consumed sets, equality-driven guard activation and favorable independent consumption. Both diagnostic and counter-free builds pass. After five language-property packages, T074 sustained observation/retention is selected next; T079 certificates and broader language choices remain unfinished.
 
+The [cross-query ownership gate](results/S08-cross-query-ownership.md) completes 216 allocation processes and 108 exact replays over eight changing queries. All 216 output-owner groups have equal retained bytes across engines, while conditional execution retains much more engine state and allocates substantially more on the alias witness. All owners restore. T074 next attributes engine costs and future-live state before timing or reclamation; no speed claim follows.
+
 ## Starting evidence and immediate decision
 
 The [S07 premise audit](results/S07-resource-premises.md) now supplies accepted/rejected sources and counterexamples: privacy and groundness differ from the stronger optimization certificate. The [executable contract gate](results/S07-resource-contract.md) now enforces those separate properties at preparation and search admission. The bounded declaration lifecycle pilot charges their checking costs. No language policy is adopted. The selective lifecycle pilot supplies a stronger control. Equality invalidation and source elimination now have full pilot costs and a dynamic-identity attribution; support-aware joining has bounded lifecycle evidence; broader joins remain required.
@@ -22,7 +24,7 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-**Sustained observation and retention are selected under T074/S08.** The [language-property breadth review](results/S07-overlap-obligations.md#selection-after-the-gate) selects a source/ownership comparison across immediate release, bounded answer windows and retained answers. T079 remains unfinished and returns at this gate for priority review.
+**Sustained observation and retention are selected under T074/S08.** The [language-property breadth review](results/S07-overlap-obligations.md#selection-after-the-gate) selects a source/ownership comparison across immediate release, bounded answer windows and retained answers. The completed cross-query owner gate selects engine-cost and future-root attribution next. T079 remains unfinished and returns at that attribution boundary for priority review.
 
 The order below incorporates the latest component evidence and the S10 entry decision. Each numbered row has a separate architectural question and completion boundary. The detailed mechanism specifications later in this document define its controls and adverse cases. A row containing several mechanisms requires a conclusion for each; completing one does not complete the row.
 

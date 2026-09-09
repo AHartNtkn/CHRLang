@@ -78,6 +78,8 @@ The [serial-body attribution](S07-serial-body-allocation.md) completes 96 alloca
 
 The [non-overlap obligation gate](S07-overlap-obligations.md) demonstrates kept-head interference despite disjoint consumed sets, equality-driven guard activation and favorable independent consumption. Both diagnostic and counter-free builds pass. After five language-property packages, T074 sustained observation/retention is selected next; T079 certificates and broader language choices remain unfinished.
 
+The [cross-query ownership gate](S08-cross-query-ownership.md) completes 216 allocation processes and 108 exact replays over eight changing queries. All 216 output-owner groups have equal retained bytes across engines, while conditional execution retains much more engine state and allocates substantially more on the alias witness. All owners restore. T074 next attributes engine costs and future-live state before timing or reclamation; no speed claim follows.
+
 ## Generated incremental execution with explicit search state
 
 Rules compile to occurrence entry points and partner-access plans. Query constraints become distinct live occurrences; term constructors use a shared immutable arena and logical variables use context-specific binding identities. Introductions and changed variable classes activate relevant entry points. Nonbinding matching reads established structure; unsuccessful matches retain sufficient dependencies to be reconsidered when bindings or partners arrive.

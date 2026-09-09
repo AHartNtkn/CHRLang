@@ -8,6 +8,8 @@ The [serial-body attribution](results/S07-serial-body-allocation.md) completes 9
 
 The [non-overlap obligation gate](results/S07-overlap-obligations.md) demonstrates kept-head interference despite disjoint consumed sets, equality-driven guard activation and favorable independent consumption. Both diagnostic and counter-free builds pass. After five language-property packages, T074 sustained observation/retention is selected next; T079 certificates and broader language choices remain unfinished.
 
+The [cross-query ownership gate](results/S08-cross-query-ownership.md) completes 216 allocation processes and 108 exact replays over eight changing queries. All 216 output-owner groups have equal retained bytes across engines, while conditional execution retains much more engine state and allocates substantially more on the alias witness. All owners restore. T074 next attributes engine costs and future-live state before timing or reclamation; no speed claim follows.
+
 ## How unanswered variants remain accountable
 
 The [entry-by-entry experiment map](question-to-experiment-map.md) gives all 57 reviewed decisions a specific required comparison and decision criterion. The stage assignments below remain the ownership summary; results must state which individual propositions and variants they resolve.
