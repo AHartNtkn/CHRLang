@@ -8,7 +8,7 @@ mod local;
 #[path = "../../chr-direct-conditional/tests/runtime_support/mod.rs"]
 mod oracle;
 use chr_syntax::{Answer, Query, Rule, Term, Var, and, atom, c, eq, t, v};
-fn take_plan() -> local::Plan {
+fn take_plan() -> std::sync::Arc<local::Plan> {
     local::Plan::compile(&Rule::simplify(
         "take",
         [c("take", [t("f", [v(0)]), v(1)]), c("token", [])],
@@ -833,13 +833,16 @@ fn source_plan_rejects_unimplemented_effects_and_ownership() {
     );
     assert!(local::Plan::compile(&good).is_ok());
     let mut body = good.clone();
-    body.body = chr_syntax::Goal::True;
+    body.body = chr_syntax::Goal::Or(
+        Box::new(chr_syntax::Goal::True),
+        Box::new(chr_syntax::Goal::True),
+    );
     let mut kept = good.clone();
     kept.kept.push(c("extra", []));
     let mut resource = good.clone();
     resource.removed[1] = c("token", [v(9)]);
     let mut fresh = good.clone();
-    fresh.body = eq(v(1), v(9));
+    fresh.guards.push(chr_syntax::Guard::Equal(v(0), v(9)));
     let mut bound_output = good.clone();
     bound_output.removed[0].args[0] = t("f", [v(1)]);
     for rejected in [body, kept, resource, fresh, bound_output] {
@@ -1405,5 +1408,305 @@ fn described_winner_awakens_relocated_pairs_without_binding_a_match() {
             run.answer(&[out]).into_iter().collect(),
             oracle::run(&source, &q, 200_000),
         );
+    }
+}
+
+#[test]
+fn source_body_constructor_equation_is_an_executable_plan() {
+    let bodies = vec![
+        chr_syntax::Goal::True,
+        chr_syntax::Goal::Fail,
+        eq(v(1), t("g", [v(0), v(2), v(2)])),
+        and([
+            eq(v(1), t("g", [v(0), v(2), v(2)])),
+            c("note", [v(1), v(2)]).into(),
+            c("note", [v(1), v(2)]).into(),
+        ]),
+        and([eq(v(1), v(2)), eq(v(2), t("cycle", [v(2)]))]),
+        eq(atom("a"), atom("b")),
+        and([
+            chr_syntax::Goal::True,
+            and([
+                eq(v(1), v(0)),
+                c("take", [v(0), v(1), v(2)]).into(),
+                c("token", [v(2)]).into(),
+            ]),
+        ]),
+    ];
+    let values = [
+        atom("a"),
+        atom("b"),
+        v(50),
+        t("h", [v(50), v(50)]),
+        t("h", [v(50), v(51)]),
+    ];
+    for (body_id, body) in bodies.into_iter().enumerate() {
+        let rule = Rule::simplify(
+            "body",
+            [c("take", [t("f", [v(0)]), v(1)]), c("token", [])],
+            body,
+        );
+        let plan = local::Plan::compile(&rule).unwrap();
+        let prepared = chr_compiled::PreparedRuleset::new(vec![rule.clone()], None).unwrap();
+        let eligibility = prepared.region_eligibility();
+        for (name, arity) in [("take", 2), ("token", 0)] {
+            let e = eligibility
+                .iter()
+                .find(|e| e.predicate.0 == name && e.predicate.1 == arity)
+                .unwrap();
+            assert!(!e.eligible);
+            println!(
+                "BODY_ELIGIBILITY {body_id} {name}/{arity}: {}",
+                e.reason.as_deref().unwrap()
+            );
+        }
+        for value in &values {
+            for calls in [1, 3] {
+                let mut constraints = Vec::new();
+                let mut outputs = Vec::new();
+                for i in 0..calls {
+                    constraints.extend([
+                        c("take", [t("f", [value.clone()]), v(100 + i)]),
+                        c("token", []),
+                    ]);
+                    outputs.push((format!("result{i}"), Var(100 + i)));
+                }
+                outputs.extend([
+                    ("input".into(), Var(50)),
+                    ("other".into(), Var(51)),
+                    ("unused".into(), Var(9999)),
+                ]);
+                let q = Query {
+                    constraints,
+                    outputs,
+                };
+                for alias_output in [false, true] {
+                    let mut q = q.clone();
+                    if alias_output {
+                        for c in &mut q.constraints {
+                            if c.name == "take" {
+                                c.args[1] = v(50);
+                            }
+                        }
+                        for (name, var) in &mut q.outputs {
+                            if name.starts_with("result") {
+                                *var = Var(50);
+                            }
+                        }
+                    }
+                    let expected = oracle::run(std::slice::from_ref(&rule), &q, 200_000);
+                    for access in [chr_compiled::Access::Scan, chr_compiled::Access::Indexed] {
+                        let mut engine = prepared
+                            .start_search(q.clone(), chr_compiled::Policy::Global, access)
+                            .unwrap();
+                        let mut answers = vec![];
+                        let mut ended = false;
+                        for _ in 0..200_000 {
+                            match engine.tick() {
+                                chr_compiled::SearchEvent::Complete(mut b) => {
+                                    answers.push(b.engine.observe().unwrap())
+                                }
+                                chr_compiled::SearchEvent::Exhausted => {
+                                    ended = true;
+                                    break;
+                                }
+                                _ => (),
+                            }
+                        }
+                        assert!(ended);
+                        oracle::same_raw(answers, expected.clone());
+                    }
+                    for mode in [
+                        local::DependencyMode::Endpoint,
+                        local::DependencyMode::Filtered,
+                        local::DependencyMode::Indexed,
+                    ] {
+                        let mut engine = plan.start(&q, mode);
+                        engine.settle();
+                        assert!(!engine.body_pending());
+                        oracle::same_raw(engine.observe().into_iter().collect(), expected.clone());
+                        if engine.observe().is_some() {
+                            engine.assert_dependency_integrity();
+                        }
+                    }
+                    assert_eq!(
+                        std::sync::Arc::strong_count(&plan),
+                        1,
+                        "query retained prepared state after disposal"
+                    );
+                }
+            }
+        }
+    }
+}
+
+#[test]
+fn source_bodies_post_chained_consumers_and_preserve_fresh_residual_aliases() {
+    let rule = Rule::simplify(
+        "chain",
+        [c("take", [t("f", [v(0)]), v(1)]), c("token", [])],
+        and([
+            eq(v(1), t("g", [v(0)])),
+            c("take", [v(0), v(2)]).into(),
+            c("token", []).into(),
+            c("link", [v(1), v(2), v(2)]).into(),
+        ]),
+    );
+    let plan = local::Plan::compile(&rule).unwrap();
+    for depth in [0, 1, 4, 12] {
+        for leaf in [atom("a"), v(90)] {
+            let input = (0..depth).fold(leaf, |x, _| t("f", [x]));
+            let q = Query {
+                constraints: vec![c("take", [input, v(100)]), c("token", [])],
+                outputs: vec![("result".into(), Var(100)), ("leaf".into(), Var(90))],
+            };
+            let expected = oracle::run(std::slice::from_ref(&rule), &q, 200_000);
+            for access in [chr_compiled::Access::Scan, chr_compiled::Access::Indexed] {
+                oracle::same_raw(run(vec![rule.clone()], q.clone(), access), expected.clone());
+            }
+            for mode in [
+                local::DependencyMode::Endpoint,
+                local::DependencyMode::Filtered,
+                local::DependencyMode::Indexed,
+            ] {
+                let mut e = plan.start(&q, mode);
+                e.settle();
+                e.assert_dependency_integrity();
+                assert!(!e.body_pending());
+                assert_eq!(e.consumed_tokens.len(), depth);
+                oracle::same_raw(e.observe().into_iter().collect(), expected.clone());
+                assert_eq!(
+                    e.observe()
+                        .unwrap()
+                        .residual
+                        .iter()
+                        .filter(|c| c.name == "link")
+                        .count(),
+                    depth
+                );
+            }
+        }
+    }
+}
+
+#[test]
+fn body_barrier_preserves_the_older_consumer_that_becomes_ready_late() {
+    let rule = Rule::simplify(
+        "body-order",
+        [
+            c("take", [t("go", [v(0), v(1), v(2)]), v(3)]),
+            c("token", []),
+        ],
+        and([
+            c("take", [v(0), v(4)]).into(),
+            eq(v(1), v(2)),
+            eq(v(3), v(2)),
+            c("record", [v(3), v(4)]).into(),
+        ]),
+    );
+    let older = t("go", [atom("stop"), v(50), atom("older")]);
+    let newer = t("go", [atom("stop"), v(50), atom("newer")]);
+    let trigger = t("go", [newer, v(51), older]);
+    let q = Query {
+        constraints: vec![
+            c("take", [v(51), v(52)]),
+            c("take", [trigger, v(53)]),
+            c("token", []),
+            c("token", []),
+        ],
+        outputs: vec![
+            ("winner".into(), Var(50)),
+            ("older-output".into(), Var(52)),
+            ("trigger-output".into(), Var(53)),
+        ],
+    };
+    let expected = oracle::run(std::slice::from_ref(&rule), &q, 200_000);
+    assert_eq!(expected[0].outputs[0].1, atom("older"));
+    for access in [chr_compiled::Access::Scan, chr_compiled::Access::Indexed] {
+        oracle::same_raw(run(vec![rule.clone()], q.clone(), access), expected.clone());
+    }
+    let plan = local::Plan::compile(&rule).unwrap();
+    for mode in [
+        local::DependencyMode::Endpoint,
+        local::DependencyMode::Filtered,
+        local::DependencyMode::Indexed,
+    ] {
+        let mut e = plan.start(&q, mode);
+        e.settle();
+        e.assert_dependency_integrity();
+        assert!(!e.body_pending());
+        assert_eq!(e.consumed_tokens, vec![0, 1]);
+        oracle::same_raw(e.observe().into_iter().collect(), expected.clone());
+    }
+    // Exposing an ordinary continuation constraint between body phases makes
+    // the emitted request compete before the late equation. It changes meaning.
+    let split = Rule::simplify(
+        "split-body",
+        rule.removed.clone(),
+        and([
+            c("take", [v(0), v(4)]).into(),
+            c("resume", [v(1), v(2), v(3), v(4)]).into(),
+        ]),
+    );
+    let resume = Rule::simplify(
+        "resume",
+        [c("resume", [v(1), v(2), v(3), v(4)])],
+        and([
+            eq(v(1), v(2)),
+            eq(v(3), v(2)),
+            c("record", [v(3), v(4)]).into(),
+        ]),
+    );
+    let split_answer = oracle::run(&[split, resume], &q, 200_000);
+    assert_eq!(split_answer[0].outputs[0].1, atom("newer"));
+    println!("BODY_ORDER complete=older exposed-continuation=newer");
+    assert!(!chr_observe::equivalent(
+        &expected[0],
+        &split_answer[0],
+        &mut Default::default()
+    ));
+}
+
+#[test]
+fn prepared_body_ownership_and_forked_queries_are_independent() {
+    let rule = Rule::simplify(
+        "fresh",
+        [c("take", [t("f", [v(0)]), v(1)]), c("token", [])],
+        and([
+            eq(v(1), t("g", [v(0), v(2)])),
+            c("fresh", [v(2), v(2)]).into(),
+        ]),
+    );
+    for mode in [
+        local::DependencyMode::Endpoint,
+        local::DependencyMode::Filtered,
+        local::DependencyMode::Indexed,
+    ] {
+        let plan = local::Plan::compile(&rule).unwrap();
+        let weak = std::sync::Arc::downgrade(&plan);
+        let q = Query {
+            constraints: vec![c("take", [t("f", [atom("a")]), v(20)]), c("token", [])],
+            outputs: vec![("result".into(), Var(20))],
+        };
+        let mut one = plan.start(&q, mode);
+        let mut two = one.clone();
+        drop(plan);
+        assert!(weak.upgrade().is_some());
+        one.settle();
+        assert!(!one.body_pending());
+        assert!(two.consumed_tokens.is_empty());
+        let hidden = two.value();
+        two.describe(hidden, "loop", vec![hidden]);
+        two.settle();
+        assert!(two.observe().is_none());
+        assert!(!two.body_pending());
+        oracle::same_raw(
+            one.observe().into_iter().collect(),
+            oracle::run(std::slice::from_ref(&rule), &q, 200_000),
+        );
+        drop(one);
+        assert!(weak.upgrade().is_some());
+        drop(two);
+        assert!(weak.upgrade().is_none());
     }
 }

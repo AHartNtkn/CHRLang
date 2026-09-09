@@ -1,6 +1,6 @@
 # Unanswered architecture questions and experimental ownership
 
-The [equality-dependency comparison](results/S02-equality-dependencies.md) passes 49 tests, 600 independent pattern-source configurations and 36 exact diagnostic replays. Filtering reduces inspections but retains 4,096 irrelevant notifications at width64; indexing avoids those notifications while charging pair/incident maintenance and adverse relocation. No timing or allocation ranking follows. T072 next extends source-derived body execution beyond the single capture equation; broader architecture obligations remain required.
+The [integrated-body gate](results/S02-integrated-bodies.md) passes 53 tests and 745 complete-answer comparisons across 149 finite configurations. Prepared source bodies create constructor equations, fresh aliases, residual facts and further consuming requests directly on handles. A body-order counterexample distinguishes older versus newer consumers. Existing inferred specialization rejects these two-head rules; T072 next qualifies an equally specialized compiled consuming selector before lifecycle costs. No architecture or performance ranking follows.
 
 ## How unanswered variants remain accountable
 
@@ -79,6 +79,6 @@ No aggregate benchmark weights, universal winner, automatic hybrid routing or ad
 
 ## Current selection
 
-**T072 is active for broader source-derived integrated execution.** The [dependency comparison and selection](results/S02-equality-dependencies.md#architectural-consequence-and-next-investigation) qualify endpoint, filtered and indexed controls. Next register source-derived constructor equations and further consuming applications, with immutable prepared rules, changed queries, fresh identities, source scheduling and independently checked complete observations. A narrower lifecycle matrix must not attribute unequal source specialization to representation.
+**T072 is active for equivalent consuming-selector qualification.** The [body gate and selection](results/S02-integrated-bodies.md#next-selection) establish source effects and a preserved body barrier. Existing single-head specialization rejects the patterned occurrence plus nullary consumable. Qualify this source-derived two-head case in the existing compiled engine, including actual specialized execution, missing resources, aliases and body ordering, before attributing cost differences to representation. Counter-free local preparation and lifecycle ownership remain required.
 
 T077's [complete-cost pilot](results/S04-reunion-complete-pilot.md) is bounded evidence. Restoration policies, adaptive splitting, repeated dynamic reunion, inferred boundaries and sustained lifetime remain required. T072 likewise remains responsible for broader heads, effects, history, scheduling and full costs after the repair gate. Existing call-reuse, structural-solving and graph trials retain their stated scope; all review assignments above remain in force.

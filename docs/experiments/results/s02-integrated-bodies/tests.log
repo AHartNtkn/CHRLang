@@ -1,0 +1,218 @@
+warning: method `access_key` is never used
+   --> research/chr-integrated/../chr-compiled/src/generate.rs:229:8
+    |
+227 | impl Emit {
+    | --------- method in this implementation
+228 |     /// A key exists only when every source-pattern component is established.
+229 |     fn access_key(&mut self, term: &Term) -> String {
+    |        ^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `emit_access` is never used
+   --> research/chr-integrated/../chr-compiled/src/generate.rs:255:8
+    |
+255 | pub fn emit_access(name: &str, rules: &[Rule]) -> Result<String, String> {
+    |        ^^^^^^^^^^^
+
+warning: function `update_columns` is never used
+   --> research/chr-integrated/../chr-compiled/src/generate.rs:400:8
+    |
+400 | pub fn update_columns(rules: &[Rule]) -> BTreeMap<(String, usize), BTreeSet<usize>> {
+    |        ^^^^^^^^^^^^^^
+
+warning: `chr-integrated` (build script) generated 3 warnings
+   Compiling chr-relational v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-relational)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.38s
+     Running unittests src/lib.rs (target/debug/deps/chr_relational-01bc1605d4c8412b)
+
+running 5 tests
+test contextual::ownership_tests::cached_maps_do_not_keep_their_arena_alive ... ok
+test execute::interleaving_tests::merged_constructor_facts_are_unique_but_source_occurrences_are_not ... ok
+test contextual_execute::shared_deduction_tests::source_execution_reuses_post_fork_equality_states ... ok
+depth=4 deep=false fail=false interleaved=5 settled=5
+depth=4 deep=false fail=true interleaved=2 settled=5
+depth=4 deep=true fail=false interleaved=5 settled=5
+depth=4 deep=true fail=true interleaved=5 settled=5
+depth=16 deep=false fail=false interleaved=17 settled=17
+depth=16 deep=false fail=true interleaved=2 settled=17
+test contextual_execute::deduction_cost_source_tests::measured_sources_exercise_reuse_and_adverse_keys ... ok
+depth=16 deep=true fail=false interleaved=17 settled=17
+depth=16 deep=true fail=true interleaved=17 settled=17
+depth=64 deep=false fail=false interleaved=65 settled=65
+depth=64 deep=false fail=true interleaved=2 settled=65
+depth=64 deep=true fail=false interleaved=65 settled=65
+depth=64 deep=true fail=true interleaved=65 settled=65
+test execute::interleaving_tests::useful_early_failure_and_settlement_dependent_control ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.10s
+
+     Running tests/chr_constructors.rs (target/debug/deps/chr_constructors-38f0999488686d52)
+
+running 23 tests
+WORK relocated Endpoint 8 {"inspections":16,"notifications":8,"pair_operations":0,"membership_edits":0,"subscription_edits":64,"incident_visits":0,"incident_edits":0,"moved_relations":0,"moved_subscribers":0,"moved_endpoint_subscriptions":8,"pattern_nodes":48,"equality_nodes":16,"repaired_handles":17}
+constructor width=1: inspections=2
+WORK stable Endpoint 8 {"inspections":72,"notifications":64,"pair_operations":0,"membership_edits":0,"subscription_edits":400,"incident_visits":0,"incident_edits":0,"moved_relations":0,"moved_subscribers":0,"moved_endpoint_subscriptions":0,"pattern_nodes":216,"equality_nodes":72,"repaired_handles":16}
+equality width=8: inspections before useful equality=72
+test indexed_equality_must_deliver_identity_notifications_and_release_relations ... ok
+constructor width=8: inspections=16
+WORK coalesced Endpoint 8 {"inspections":51,"notifications":43,"pair_operations":0,"membership_edits":0,"subscription_edits":274,"incident_visits":0,"incident_edits":0,"moved_relations":0,"moved_subscribers":0,"moved_endpoint_subscriptions":15,"pattern_nodes":153,"equality_nodes":51,"repaired_handles":24}
+WORK described Endpoint 8 {"inspections":67,"notifications":59,"pair_operations":0,"membership_edits":0,"subscription_edits":370,"incident_visits":0,"incident_edits":0,"moved_relations":0,"moved_subscribers":0,"moved_endpoint_subscriptions":15,"pattern_nodes":201,"equality_nodes":75,"repaired_handles":26}
+test local_forks_preserve_fresh_handles_and_isolate_hidden_failure ... ok
+test nested_source_pattern_waits_for_inner_information ... ok
+WORK supplied Endpoint 8 {"inspections":108,"notifications":108,"pair_operations":0,"membership_edits":0,"subscription_edits":600,"incident_visits":0,"incident_edits":0,"moved_relations":0,"moved_subscribers":0,"moved_endpoint_subscriptions":8,"pattern_nodes":324,"equality_nodes":108,"repaired_handles":32}
+test described_winner_awakens_relocated_pairs_without_binding_a_match ... ok
+test local_decomposition_preserves_cross_child_aliases_and_arity ... ok
+test prepared_body_ownership_and_forked_queries_are_independent ... ok
+BODY_ELIGIBILITY 0 take/2: rule 0 does not have one removed head and no kept heads
+BODY_ELIGIBILITY 0 token/0: rule 0 does not have one removed head and no kept heads
+test source_plan_rejects_unimplemented_effects_and_ownership ... ok
+BODY_ORDER complete=older exposed-continuation=newer
+WORK completed Endpoint 8 {"inspections":75,"notifications":75,"pair_operations":0,"membership_edits":0,"subscription_edits":402,"incident_visits":0,"incident_edits":0,"moved_relations":0,"moved_subscribers":0,"moved_endpoint_subscriptions":23,"pattern_nodes":225,"equality_nodes":91,"repaired_handles":35}
+reverse=false access=Scan source=[("v1", App("a", [])), ("v3", Var(Var(1)))] kernel=[("v1", App("a", [])), ("v3", Var(Var(3)))]
+constructor width=64: inspections=128
+test body_barrier_preserves_the_older_consumer_that_becomes_ready_late ... ok
+test local_handle_repair_wakes_only_the_affected_region ... ok
+test registering_a_known_input_does_not_revisit_existing_requests ... ok
+test descriptor_waits_follow_both_merge_directions_and_nested_information ... ok
+test a_hidden_constructor_cycle_cannot_publish_or_poison_its_sibling ... ok
+WORK relocated Endpoint 64 {"inspections":128,"notifications":64,"pair_operations":0,"membership_edits":0,"subscription_edits":512,"incident_visits":0,"incident_edits":0,"moved_relations":0,"moved_subscribers":0,"moved_endpoint_subscriptions":64,"pattern_nodes":384,"equality_nodes":128,"repaired_handles":73}
+reverse=false access=Indexed source=[("v1", App("a", [])), ("v3", Var(Var(1)))] kernel=[("v1", App("a", [])), ("v3", Var(Var(3)))]
+test unresolved_equality_observes_descendants_and_releases_consumed_dependencies ... ok
+BODY_ELIGIBILITY 1 take/2: rule 0 does not have one removed head and no kept heads
+BODY_ELIGIBILITY 1 token/0: rule 0 does not have one removed head and no kept heads
+reverse=true access=Scan source=[("v1", Var(Var(0))), ("v3", App("b", []))] kernel=[("v1", App("a", [])), ("v3", Var(Var(3)))]
+constructor width=256: inspections=512
+constructor width=1: inspections=2
+constructor width=8: inspections=16
+constructor width=64: inspections=128
+BODY_ELIGIBILITY 2 take/2: rule 0 does not have one removed head and no kept heads
+BODY_ELIGIBILITY 2 token/0: rule 0 does not have one removed head and no kept heads
+test source_bodies_post_chained_consumers_and_preserve_fresh_residual_aliases ... ok
+reverse=true access=Indexed source=[("v1", Var(Var(0))), ("v3", App("b", []))] kernel=[("v1", App("a", [])), ("v3", Var(Var(3)))]
+test competing_consumers_expose_descriptor_order_as_a_scheduling_choice ... ok
+constructor width=256: inspections=512
+constructor width=1: inspections=2
+constructor width=8: inspections=16
+constructor width=64: inspections=128
+constructor width=256: inspections=512
+test local_broad_merge_repairs_every_alias_and_services_all_consumers ... ok
+BODY_ELIGIBILITY 3 take/2: rule 0 does not have one removed head and no kept heads
+BODY_ELIGIBILITY 3 token/0: rule 0 does not have one removed head and no kept heads
+WORK coalesced Endpoint 64 {"inspections":2207,"notifications":2143,"pair_operations":0,"membership_edits":0,"subscription_edits":12986,"incident_visits":0,"incident_edits":0,"moved_relations":0,"moved_subscribers":0,"moved_endpoint_subscriptions":127,"pattern_nodes":6621,"equality_nodes":2207,"repaired_handles":136}
+WORK described Endpoint 64 {"inspections":2335,"notifications":2271,"pair_operations":0,"membership_edits":0,"subscription_edits":13754,"incident_visits":0,"incident_edits":0,"moved_relations":0,"moved_subscribers":0,"moved_endpoint_subscriptions":127,"pattern_nodes":7005,"equality_nodes":2399,"repaired_handles":138}
+BODY_ELIGIBILITY 4 take/2: rule 0 does not have one removed head and no kept heads
+BODY_ELIGIBILITY 4 token/0: rule 0 does not have one removed head and no kept heads
+BODY_ELIGIBILITY 5 take/2: rule 0 does not have one removed head and no kept heads
+BODY_ELIGIBILITY 5 token/0: rule 0 does not have one removed head and no kept heads
+WORK completed Endpoint 64 {"inspections":2399,"notifications":2399,"pair_operations":0,"membership_edits":0,"subscription_edits":14010,"incident_visits":0,"incident_edits":0,"moved_relations":0,"moved_subscribers":0,"moved_endpoint_subscriptions":191,"pattern_nodes":7197,"equality_nodes":2527,"repaired_handles":203}
+WORK relocated Filtered 8 {"inspections":8,"notifications":8,"pair_operations":0,"membership_edits":0,"subscription_edits":16,"incident_visits":0,"incident_edits":0,"moved_relations":0,"moved_subscribers":0,"moved_endpoint_subscriptions":8,"pattern_nodes":24,"equality_nodes":8,"repaired_handles":17}
+WORK coalesced Filtered 8 {"inspections":8,"notifications":43,"pair_operations":0,"membership_edits":0,"subscription_edits":16,"incident_visits":0,"incident_edits":0,"moved_relations":0,"moved_subscribers":0,"moved_endpoint_subscriptions":15,"pattern_nodes":24,"equality_nodes":8,"repaired_handles":24}
+WORK described Filtered 8 {"inspections":16,"notifications":59,"pair_operations":0,"membership_edits":0,"subscription_edits":64,"incident_visits":0,"incident_edits":0,"moved_relations":0,"moved_subscribers":0,"moved_endpoint_subscriptions":15,"pattern_nodes":48,"equality_nodes":24,"repaired_handles":26}
+BODY_ELIGIBILITY 6 take/2: rule 0 does not have one removed head and no kept heads
+BODY_ELIGIBILITY 6 token/0: rule 0 does not have one removed head and no kept heads
+WORK completed Filtered 8 {"inspections":24,"notifications":75,"pair_operations":0,"membership_edits":0,"subscription_edits":96,"incident_visits":0,"incident_edits":0,"moved_relations":0,"moved_subscribers":0,"moved_endpoint_subscriptions":23,"pattern_nodes":72,"equality_nodes":40,"repaired_handles":35}
+WORK relocated Filtered 64 {"inspections":64,"notifications":64,"pair_operations":0,"membership_edits":0,"subscription_edits":128,"incident_visits":0,"incident_edits":0,"moved_relations":0,"moved_subscribers":0,"moved_endpoint_subscriptions":64,"pattern_nodes":192,"equality_nodes":64,"repaired_handles":73}
+WORK coalesced Filtered 64 {"inspections":64,"notifications":2143,"pair_operations":0,"membership_edits":0,"subscription_edits":128,"incident_visits":0,"incident_edits":0,"moved_relations":0,"moved_subscribers":0,"moved_endpoint_subscriptions":127,"pattern_nodes":192,"equality_nodes":64,"repaired_handles":136}
+WORK stable Endpoint 64 {"inspections":4160,"notifications":4096,"pair_operations":0,"membership_edits":0,"subscription_edits":24704,"incident_visits":0,"incident_edits":0,"moved_relations":0,"moved_subscribers":0,"moved_endpoint_subscriptions":0,"pattern_nodes":12480,"equality_nodes":4160,"repaired_handles":128}
+equality width=64: inspections before useful equality=4160
+WORK described Filtered 64 {"inspections":128,"notifications":2271,"pair_operations":0,"membership_edits":0,"subscription_edits":512,"incident_visits":0,"incident_edits":0,"moved_relations":0,"moved_subscribers":0,"moved_endpoint_subscriptions":127,"pattern_nodes":384,"equality_nodes":192,"repaired_handles":138}
+test source_body_constructor_equation_is_an_executable_plan ... ok
+test source_patterns_preserve_nonbinding_repeated_variables_and_late_aliases ... ok
+WORK completed Filtered 64 {"inspections":192,"notifications":2399,"pair_operations":0,"membership_edits":0,"subscription_edits":768,"incident_visits":0,"incident_edits":0,"moved_relations":0,"moved_subscribers":0,"moved_endpoint_subscriptions":191,"pattern_nodes":576,"equality_nodes":320,"repaired_handles":203}
+WORK relocated Indexed 8 {"inspections":8,"notifications":0,"pair_operations":24,"membership_edits":16,"subscription_edits":0,"incident_visits":16,"incident_edits":40,"moved_relations":8,"moved_subscribers":8,"moved_endpoint_subscriptions":0,"pattern_nodes":24,"equality_nodes":8,"repaired_handles":17}
+WORK coalesced Indexed 8 {"inspections":8,"notifications":0,"pair_operations":38,"membership_edits":23,"subscription_edits":0,"incident_visits":30,"incident_edits":61,"moved_relations":15,"moved_subscribers":15,"moved_endpoint_subscriptions":0,"pattern_nodes":24,"equality_nodes":8,"repaired_handles":24}
+WORK described Indexed 8 {"inspections":16,"notifications":8,"pair_operations":56,"membership_edits":39,"subscription_edits":0,"incident_visits":32,"incident_edits":79,"moved_relations":15,"moved_subscribers":15,"moved_endpoint_subscriptions":0,"pattern_nodes":48,"equality_nodes":24,"repaired_handles":26}
+WORK completed Indexed 8 {"inspections":24,"notifications":16,"pair_operations":65,"membership_edits":39,"subscription_edits":0,"incident_visits":33,"incident_edits":80,"moved_relations":16,"moved_subscribers":23,"moved_endpoint_subscriptions":0,"pattern_nodes":72,"equality_nodes":40,"repaired_handles":35}
+WORK relocated Indexed 64 {"inspections":64,"notifications":0,"pair_operations":192,"membership_edits":128,"subscription_edits":0,"incident_visits":128,"incident_edits":320,"moved_relations":64,"moved_subscribers":64,"moved_endpoint_subscriptions":0,"pattern_nodes":192,"equality_nodes":64,"repaired_handles":73}
+WORK coalesced Indexed 64 {"inspections":64,"notifications":0,"pair_operations":318,"membership_edits":191,"subscription_edits":0,"incident_visits":254,"incident_edits":509,"moved_relations":127,"moved_subscribers":127,"moved_endpoint_subscriptions":0,"pattern_nodes":192,"equality_nodes":64,"repaired_handles":136}
+WORK described Indexed 64 {"inspections":128,"notifications":64,"pair_operations":448,"membership_edits":319,"subscription_edits":0,"incident_visits":256,"incident_edits":639,"moved_relations":127,"moved_subscribers":127,"moved_endpoint_subscriptions":0,"pattern_nodes":384,"equality_nodes":192,"repaired_handles":138}
+WORK supplied Endpoint 64 {"inspections":6240,"notifications":6240,"pair_operations":0,"membership_edits":0,"subscription_edits":37056,"incident_visits":0,"incident_edits":0,"moved_relations":0,"moved_subscribers":0,"moved_endpoint_subscriptions":64,"pattern_nodes":18720,"equality_nodes":6240,"repaired_handles":256}
+test equality_enables_consumption_which_enables_another_consumption ... ok
+test choice_keeps_consumption_local_and_checks_cycles ... ok
+WORK completed Indexed 64 {"inspections":192,"notifications":128,"pair_operations":513,"membership_edits":319,"subscription_edits":0,"incident_visits":257,"incident_edits":640,"moved_relations":128,"moved_subscribers":191,"moved_endpoint_subscriptions":0,"pattern_nodes":576,"equality_nodes":320,"repaired_handles":203}
+test equality_index_charges_relocation_coalescence_and_descendant_progress ... ok
+WORK stable Filtered 8 {"inspections":8,"notifications":64,"pair_operations":0,"membership_edits":0,"subscription_edits":16,"incident_visits":0,"incident_edits":0,"moved_relations":0,"moved_subscribers":0,"moved_endpoint_subscriptions":0,"pattern_nodes":24,"equality_nodes":8,"repaired_handles":16}
+equality width=8: inspections before useful equality=8
+WORK supplied Filtered 8 {"inspections":16,"notifications":108,"pair_operations":0,"membership_edits":0,"subscription_edits":48,"incident_visits":0,"incident_edits":0,"moved_relations":0,"moved_subscribers":0,"moved_endpoint_subscriptions":8,"pattern_nodes":48,"equality_nodes":16,"repaired_handles":32}
+WORK stable Filtered 64 {"inspections":64,"notifications":4096,"pair_operations":0,"membership_edits":0,"subscription_edits":128,"incident_visits":0,"incident_edits":0,"moved_relations":0,"moved_subscribers":0,"moved_endpoint_subscriptions":0,"pattern_nodes":192,"equality_nodes":64,"repaired_handles":128}
+equality width=64: inspections before useful equality=64
+WORK supplied Filtered 64 {"inspections":128,"notifications":6240,"pair_operations":0,"membership_edits":0,"subscription_edits":384,"incident_visits":0,"incident_edits":0,"moved_relations":0,"moved_subscribers":0,"moved_endpoint_subscriptions":64,"pattern_nodes":384,"equality_nodes":128,"repaired_handles":256}
+WORK stable Indexed 8 {"inspections":8,"notifications":0,"pair_operations":8,"membership_edits":8,"subscription_edits":0,"incident_visits":0,"incident_edits":16,"moved_relations":0,"moved_subscribers":0,"moved_endpoint_subscriptions":0,"pattern_nodes":24,"equality_nodes":8,"repaired_handles":16}
+equality width=8: inspections before useful equality=8
+WORK supplied Indexed 8 {"inspections":16,"notifications":8,"pair_operations":24,"membership_edits":8,"subscription_edits":0,"incident_visits":8,"incident_edits":24,"moved_relations":8,"moved_subscribers":8,"moved_endpoint_subscriptions":0,"pattern_nodes":48,"equality_nodes":16,"repaired_handles":32}
+WORK stable Indexed 64 {"inspections":64,"notifications":0,"pair_operations":64,"membership_edits":64,"subscription_edits":0,"incident_visits":0,"incident_edits":128,"moved_relations":0,"moved_subscribers":0,"moved_endpoint_subscriptions":0,"pattern_nodes":192,"equality_nodes":64,"repaired_handles":128}
+equality width=64: inspections before useful equality=64
+WORK supplied Indexed 64 {"inspections":128,"notifications":64,"pair_operations":192,"membership_edits":64,"subscription_edits":0,"incident_visits":64,"incident_edits":192,"moved_relations":64,"moved_subscribers":64,"moved_endpoint_subscriptions":0,"pattern_nodes":384,"equality_nodes":128,"repaired_handles":256}
+test equality_alias_overhead_is_explicit_and_both_forks_preserve_source_answers ... ok
+test constructor_classes_agree_with_independent_finite_tree_substitution ... ok
+
+test result: ok. 23 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.08s
+
+     Running tests/chr_forest.rs (target/debug/deps/chr_forest-342f0cbcd410ea53)
+
+running 3 tests
+test stale_representatives_require_source_redirects ... ok
+test source_compression_shortens_a_real_path ... ok
+test chr_rules_compute_graph_connectivity_without_host_class_unification ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.05s
+
+     Running tests/contextual.rs (target/debug/deps/contextual-b5cc8388b7cf8373)
+
+running 6 tests
+test posting_cycles_and_partial_visibility_remain_context_local ... ok
+test deduction_reuse_preserves_pending_work_and_rejects_changed_bindings ... ok
+test shared_nodes_do_not_share_bindings_or_consumption ... ok
+test newly_derived_equality_is_shared_without_sharing_claims ... ok
+test deduction_cap_keeps_existing_hits_and_correct_misses ... ok
+test ordered_equations_and_forks_match_independent_substitution ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.28s
+
+     Running tests/contextual_source.rs (target/debug/deps/contextual_source-3c02ea4b9e30ef58)
+
+running 4 tests
+test propagation_history_and_late_guard_enablement_are_context_local ... ok
+test finite_sibling_publishes_while_other_source_keeps_running ... ok
+test source_forks_preserve_consumption_fresh_outputs_and_failed_alternatives ... ok
+test common_fresh_prefix_and_consuming_siblings_have_complete_answers ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/head_plan.rs (target/debug/deps/head_plan-9852e7df7b0da6e5)
+
+running 4 tests
+test duplicate_constructor_proofs_do_not_duplicate_resources ... ok
+test changed_equality_snapshots_preserve_nonbinding_eligibility ... ok
+test selective_constructor_can_drive_the_source_join ... ok
+test plans_match_exhaustive_heads_across_unknown_and_equal_value_snapshots ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/source.rs (target/debug/deps/source-359095ab3150cef6)
+
+running 3 tests
+test finite_sibling_publishes_beside_ongoing_rule_work ... ok
+test candidate_reuse_preserves_priority_arrivals_guards_and_consumption ... ok
+test complete_sources_match_independent_owned_semantics ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running tests/store.rs (target/debug/deps/store-11131fd820c7f630)
+
+running 5 tests
+test stale_atomic_claims_and_distinct_equal_valued_resources ... ok
+test parent_congruence_and_incident_key_repair_enable_repeated_variables ... ok
+test equality_enables_indexed_join_before_unrelated_work_finishes ... ok
+test finite_tree_failure_and_forked_consumption_are_isolated ... ok
+test ordered_equation_pairs_match_owned_substitution_and_repaired_joins ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.09s
+
+   Doc-tests chr_relational
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

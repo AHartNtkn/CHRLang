@@ -1,0 +1,87 @@
+warning: method `access_key` is never used
+   --> research/chr-integrated/../chr-compiled/src/generate.rs:229:8
+    |
+227 | impl Emit {
+    | --------- method in this implementation
+228 |     /// A key exists only when every source-pattern component is established.
+229 |     fn access_key(&mut self, term: &Term) -> String {
+    |        ^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `emit_access` is never used
+   --> research/chr-integrated/../chr-compiled/src/generate.rs:255:8
+    |
+255 | pub fn emit_access(name: &str, rules: &[Rule]) -> Result<String, String> {
+    |        ^^^^^^^^^^^
+
+warning: function `update_columns` is never used
+   --> research/chr-integrated/../chr-compiled/src/generate.rs:400:8
+    |
+400 | pub fn update_columns(rules: &[Rule]) -> BTreeMap<(String, usize), BTreeSet<usize>> {
+    |        ^^^^^^^^^^^^^^
+
+warning: `chr-integrated` (build script) generated 3 warnings
+   Compiling chr-relational v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-relational)
+warning: method `start` is never used
+  --> research/chr-relational/tests/support/local_ports.rs:66:12
+   |
+18 | impl Plan {
+   | --------- method in this implementation
+...
+66 |     pub fn start(self: &Arc<Self>, query: &Query, mode: DependencyMode) -> Run {
+   |            ^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: field `query_outputs` is never read
+   --> research/chr-relational/tests/support/local_ports.rs:150:5
+    |
+146 | pub struct Run {
+    |            --- field in this struct
+...
+150 |     query_outputs: Vec<(String, usize)>,
+    |     ^^^^^^^^^^^^^
+    |
+    = note: `Run` has a derived impl for the trait `Clone`, but this is intentionally ignored during dead code analysis
+
+warning: methods `body_pending` and `observe` are never used
+   --> research/chr-relational/tests/support/local_ports.rs:588:12
+    |
+166 | impl Run {
+    | -------- methods in this implementation
+...
+588 |     pub fn body_pending(&self) -> bool {
+    |            ^^^^^^^^^^^^
+...
+591 |     pub fn observe(&self) -> Option<Answer> {
+    |            ^^^^^^^
+
+warning: `chr-relational` (test "chr_constructors") generated 3 warnings
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.62s
+     Running tests/chr_constructors.rs (target/debug/deps/chr_constructors-38f0999488686d52)
+
+running 20 tests
+test indexed_equality_must_deliver_identity_notifications_and_release_relations ... ok
+test local_forks_preserve_fresh_handles_and_isolate_hidden_failure ... ok
+test local_decomposition_preserves_cross_child_aliases_and_arity ... ok
+test described_winner_awakens_relocated_pairs_without_binding_a_match ... ok
+test source_body_constructor_equation_is_an_executable_plan ... ok
+test source_plan_rejects_unimplemented_effects_and_ownership ... ok
+test nested_source_pattern_waits_for_inner_information ... ok
+test local_handle_repair_wakes_only_the_affected_region ... ok
+test registering_a_known_input_does_not_revisit_existing_requests ... ok
+test descriptor_waits_follow_both_merge_directions_and_nested_information ... ok
+test a_hidden_constructor_cycle_cannot_publish_or_poison_its_sibling ... ok
+test unresolved_equality_observes_descendants_and_releases_consumed_dependencies ... ok
+test local_broad_merge_repairs_every_alias_and_services_all_consumers ... ok
+test competing_consumers_expose_descriptor_order_as_a_scheduling_choice ... ok
+test equality_enables_consumption_which_enables_another_consumption ... ok
+test equality_index_charges_relocation_coalescence_and_descendant_progress ... ok
+test source_patterns_preserve_nonbinding_repeated_variables_and_late_aliases ... ok
+test equality_alias_overhead_is_explicit_and_both_forks_preserve_source_answers ... ok
+test choice_keeps_consumption_local_and_checks_cycles ... ok
+test constructor_classes_agree_with_independent_finite_tree_substitution ... ok
+
+test result: ok. 20 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.94s
+
