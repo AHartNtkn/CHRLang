@@ -32,5 +32,5 @@ for mode,family,k,depth,reuse,schedule in cells:
 for kind,reps in [('meter',2),('time',5)]:
     order=json.loads((p/f'{kind}-order.json').read_text());assert len(order)==reps*len(cells);assert set(map(tuple,order))=={(r,*c) for r in range(reps) for c in cells};assert len(list((p/kind).glob('*.json')))==reps*len(cells)
 with (p/'summary.csv').open('w') as f:
-    w=csv.DictWriter(f,fieldnames=rows[0]);w.writeheader();w.writerows(rows)
+    w=csv.DictWriter(f,fieldnames=rows[0],lineterminator="\n");w.writeheader();w.writerows(rows)
 print('7056 processes; 1008 exact allocation pairs; complete observations, admission counts, phase order and all owner checks passed; frozen sources unchanged; timing exploratory')
