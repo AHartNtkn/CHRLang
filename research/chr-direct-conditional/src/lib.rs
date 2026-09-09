@@ -9,3 +9,6 @@ pub mod matching;
 pub mod resources;
 
 pub mod engine;
+
+#[cfg(feature = "prefix-join")]
+mod prefix_join;

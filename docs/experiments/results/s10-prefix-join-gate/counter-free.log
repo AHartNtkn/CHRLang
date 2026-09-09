@@ -1,0 +1,75 @@
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.66s
+     Running unittests src/lib.rs (target/debug/deps/chr_direct_conditional-046df7601362b162)
+
+running 13 tests
+test engine::tests::starts_share_compiled_rules_and_own_independent_query_state ... ok
+test support::tests::canonical_reduction_and_complement_have_boolean_meaning ... ok
+test engine::tests::finite_sibling_is_published_beside_symbolic_rewrite_loop ... ok
+test support::tests::independent_jobs_interleave_and_finished_jobs_do_no_more_work ... ok
+test resources::tests::emitted_frame_finishes_the_job_without_certifying_remaining_eligibility ... ok
+test support::tests::construction_rejects_an_earlier_child_variable - should panic ... ok
+test matching::tests::first_slot_keeps_conditional_value_opaque_and_repetition_demands_equality ... ok
+test support::tests::construction_rejects_out_of_bounds_handles - should panic ... ok
+test prefix_join::tests::ordered_distinct_tuples_agree_with_independent_truth_assignments ... ok
+test support::tests::long_negation_yields_with_at_most_one_node_allocation_per_tick ... ok
+test equality::tests::deep_occurs_check_and_demand_are_resumable_and_nonbinding ... ok
+test engine::publication_flow_tests::cancellation_with_bulk_observer_owned_preserves_delivered_answer ... ok
+test engine::publication_flow_tests::publication_priority_preserves_answers_but_withholds_runnable_sibling ... ok
+
+test result: ok. 13 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+     Running tests/broad_mixed.rs (target/debug/deps/broad_mixed-8b1dfacb714087a9)
+
+running 1 test
+test independently_constructed_complete_mixed_observations ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.33s
+
+     Running tests/composition_progress.rs (target/debug/deps/composition_progress-c8c1b255dd8f1202)
+
+running 2 tests
+test finite_mixed_sibling_and_owned_answer_survive_ongoing_work ... ok
+test certified_fusion_and_ineligible_queries_across_organizations ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.29s
+
+     Running tests/matching_resources.rs (target/debug/deps/matching_resources-1068c723415fb3c1)
+
+running 12 tests
+test acknowledgement_keeps_other_pending_support_and_cancelled_prepare_has_no_effect ... ok
+test occurrence_identity_and_body_readiness_are_preserved ... ok
+test guard_locals_are_rigid_fresh_identities_without_head_bindings ... ok
+test opaque_slot_does_not_partition_conditional_values ... ok
+test one_frame_completion_is_distinct_from_exhaustive_ineligibility ... ok
+test propagation_keys_preserve_ordered_ids_and_pending_support_is_local ... ok
+test simpagation_keeps_only_declared_kept_occurrence ... ok
+test rejecting_a_guard_frame_does_not_discard_an_eligible_alternative ... ok
+test tokens_reject_foreign_and_stale_owners_without_partial_effects ... ok
+test two_birth_consumption_intersects_crossing_supports ... ok
+test propagation_resource_truth_masks_preserve_exact_effects_and_pending_body ... ok
+test symbolic_matching_matches_independent_joint_slot_environments ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+     Running tests/runtime.rs (target/debug/deps/runtime-e404688c9abe3896)
+
+running 7 tests
+test finite_sibling_publishes_beside_recursive_activity ... ok
+test supported_application_projection_and_shared_consumption ... ok
+test adversarial_dependency_and_priority_witnesses ... ok
+test repeated_dynamic_births_and_prepared_query_independence ... ok
+test publication_is_not_repeated_when_divergent_support_adds_births ... ok
+test independent_full_source_witnesses ... ok
+test finite_crossing_corpus ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s
+
+     Running tests/support_join.rs (target/debug/deps/support_join-c13a21e9380bf86d)
+
+running 2 tests
+test correlation_controls_which_occurrences_can_join ... ok
+test three_head_suffix_products_preserve_full_answers ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+

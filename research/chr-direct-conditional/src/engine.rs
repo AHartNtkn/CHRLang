@@ -142,10 +142,12 @@ struct Discovery {
     digits: Option<Vec<usize>>,
     #[cfg(feature = "selective-discovery")]
     pools: Option<DiscoveryPools>,
-    #[cfg(feature = "support-join")]
+    #[cfg(all(feature = "support-join", not(feature = "prefix-join")))]
     check: Option<DiscoveryCheck>,
+    #[cfg(feature = "prefix-join")]
+    prefix: Option<crate::prefix_join::Cursor>,
 }
-#[cfg(feature = "support-join")]
+#[cfg(all(feature = "support-join", not(feature = "prefix-join")))]
 struct DiscoveryCheck {
     key: Key,
     anchor_live: Support,
@@ -354,8 +356,10 @@ impl Engine {
             digits: None,
             #[cfg(feature = "selective-discovery")]
             pools: None,
-            #[cfg(feature = "support-join")]
+            #[cfg(all(feature = "support-join", not(feature = "prefix-join")))]
             check: None,
+            #[cfg(feature = "prefix-join")]
+            prefix: None,
         });
     }
     #[cfg(not(feature = "selective-discovery"))]
@@ -437,7 +441,7 @@ impl Engine {
     #[cfg(feature = "selective-discovery")]
     fn discovery_tick(&mut self) {
         let mut d = self.discoveries.pop_front().unwrap();
-        #[cfg(feature = "support-join")]
+        #[cfg(all(feature = "support-join", not(feature = "prefix-join")))]
         if let Some(mut check) = d.check.take() {
             // Lives only shrink; an empty intersection can never recover.
             // Discovery drains before execution, so the checked lives stay stable.
@@ -540,64 +544,92 @@ impl Engine {
             self.discoveries.push_front(d);
             return;
         }
-        let digits = d.digits.get_or_insert_with(|| vec![0; heads.len()]);
-        let ids: Vec<_> = digits
-            .iter()
-            .enumerate()
-            .map(|(i, &j)| pools.ids[i][j])
-            .collect();
-        if ids.iter().copied().collect::<BTreeSet<_>>().len() == ids.len() {
-            let key = Key { rule: d.rule, ids };
-            #[cfg(feature = "support-join")]
-            if !self.known.contains(&key) {
-                // Identical conditions and unconditional occurrences cannot
-                // narrow the nonempty anchor support. This includes unary heads.
-                let trivial = key.ids.iter().all(|&id| {
-                    let other = self.resources.occurrence(id).unwrap().live;
-                    other == Support::TRUE || other == live
-                });
-                if trivial {
-                    self.known.insert(key.clone());
+        #[cfg(feature = "prefix-join")]
+        {
+            let cursor = d
+                .prefix
+                .get_or_insert_with(|| crate::prefix_join::Cursor::new(live));
+            match cursor.tick(&pools.ids, &self.resources, &mut self.arena) {
+                crate::prefix_join::Event::Progress => (),
+                crate::prefix_join::Event::Tuple(ids) => {
+                    let key = Key { rule: d.rule, ids };
+                    if self.known.insert(key.clone()) {
+                        self.pending.entry(key).or_default().push(live);
+                        if METRICS {
+                            self.stats.discovered_tuples += 1;
+                        }
+                    }
+                }
+                crate::prefix_join::Event::Done => {
+                    d.anchor += 1;
+                    d.digits = None;
+                    d.pools = None;
+                    d.prefix = None;
+                }
+            }
+            self.discoveries.push_front(d);
+        }
+        #[cfg(not(feature = "prefix-join"))]
+        {
+            let digits = d.digits.get_or_insert_with(|| vec![0; heads.len()]);
+            let ids: Vec<_> = digits
+                .iter()
+                .enumerate()
+                .map(|(i, &j)| pools.ids[i][j])
+                .collect();
+            if ids.iter().copied().collect::<BTreeSet<_>>().len() == ids.len() {
+                let key = Key { rule: d.rule, ids };
+                #[cfg(all(feature = "support-join", not(feature = "prefix-join")))]
+                if !self.known.contains(&key) {
+                    // Identical conditions and unconditional occurrences cannot
+                    // narrow the nonempty anchor support. This includes unary heads.
+                    let trivial = key.ids.iter().all(|&id| {
+                        let other = self.resources.occurrence(id).unwrap().live;
+                        other == Support::TRUE || other == live
+                    });
+                    if trivial {
+                        self.known.insert(key.clone());
+                        self.pending.entry(key).or_default().push(live);
+                        if METRICS {
+                            self.stats.discovered_tuples += 1;
+                        }
+                    } else {
+                        d.check = Some(DiscoveryCheck {
+                            key,
+                            anchor_live: live,
+                            region: live,
+                            index: 0,
+                            wait: None,
+                        });
+                    }
+                }
+                #[cfg(not(feature = "support-join"))]
+                if self.known.insert(key.clone()) {
                     self.pending.entry(key).or_default().push(live);
                     if METRICS {
                         self.stats.discovered_tuples += 1;
                     }
-                } else {
-                    d.check = Some(DiscoveryCheck {
-                        key,
-                        anchor_live: live,
-                        region: live,
-                        index: 0,
-                        wait: None,
-                    });
                 }
             }
-            #[cfg(not(feature = "support-join"))]
-            if self.known.insert(key.clone()) {
-                self.pending.entry(key).or_default().push(live);
-                if METRICS {
-                    self.stats.discovered_tuples += 1;
+            let mut carry = true;
+            for i in (0..digits.len()).rev() {
+                if i == d.anchor {
+                    continue;
                 }
+                digits[i] += 1;
+                if digits[i] < pools.ids[i].len() {
+                    carry = false;
+                    break;
+                }
+                digits[i] = 0;
             }
-        }
-        let mut carry = true;
-        for i in (0..digits.len()).rev() {
-            if i == d.anchor {
-                continue;
+            if carry {
+                d.anchor += 1;
+                d.digits = None;
+                d.pools = None;
             }
-            digits[i] += 1;
-            if digits[i] < pools.ids[i].len() {
-                carry = false;
-                break;
-            }
-            digits[i] = 0;
+            self.discoveries.push_front(d);
         }
-        if carry {
-            d.anchor += 1;
-            d.digits = None;
-            d.pools = None;
-        }
-        self.discoveries.push_front(d);
     }
     fn notification_tick(&mut self) {
         let mut n = self.notification.take().unwrap();

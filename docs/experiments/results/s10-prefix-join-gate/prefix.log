@@ -1,0 +1,74 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.01s
+     Running unittests src/lib.rs (target/debug/deps/chr_direct_conditional-a03147a7849f2d83)
+
+running 13 tests
+
+thread 'support::tests::construction_rejects_out_of_bounds_handles' (2323) panicked at research/chr-direct-conditional/src/support.rs:109:14:
+support handle is outside arena bounds
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+thread 'support::tests::construction_rejects_an_earlier_child_variable' (2322) panicked at research/chr-direct-conditional/src/support.rs:78:17:
+support children violate variable ordering
+test engine::tests::starts_share_compiled_rules_and_own_independent_query_state ... ok
+test resources::tests::emitted_frame_finishes_the_job_without_certifying_remaining_eligibility ... ok
+test engine::tests::finite_sibling_is_published_beside_symbolic_rewrite_loop ... ok
+test prefix_join::tests::ordered_distinct_tuples_agree_with_independent_truth_assignments ... ok
+test support::tests::canonical_reduction_and_complement_have_boolean_meaning ... ok
+test matching::tests::first_slot_keeps_conditional_value_opaque_and_repetition_demands_equality ... ok
+test support::tests::construction_rejects_out_of_bounds_handles - should panic ... ok
+test support::tests::construction_rejects_an_earlier_child_variable - should panic ... ok
+test support::tests::independent_jobs_interleave_and_finished_jobs_do_no_more_work ... ok
+test equality::tests::deep_occurs_check_and_demand_are_resumable_and_nonbinding ... ok
+test support::tests::long_negation_yields_with_at_most_one_node_allocation_per_tick ... ok
+test engine::publication_flow_tests::cancellation_with_bulk_observer_owned_preserves_delivered_answer ... ok
+T041 Receipt { choices: 0, strict: false, bulk: 1, sibling: 1, bulk_before_sibling: Some(1), queued_apps: Some(2), drained_apps: Some(2), queued_pending: 1, sibling_discovered_with_bulk_owned: false, exhausted: true }
+T041 Receipt { choices: 0, strict: true, bulk: 1, sibling: 1, bulk_before_sibling: Some(1), queued_apps: Some(2), drained_apps: Some(2), queued_pending: 1, sibling_discovered_with_bulk_owned: false, exhausted: true }
+T041 Receipt { choices: 2, strict: false, bulk: 4, sibling: 1, bulk_before_sibling: Some(4), queued_apps: Some(2), drained_apps: Some(4), queued_pending: 1, sibling_discovered_with_bulk_owned: false, exhausted: true }
+T041 Receipt { choices: 2, strict: true, bulk: 4, sibling: 1, bulk_before_sibling: Some(4), queued_apps: Some(2), drained_apps: Some(2), queued_pending: 1, sibling_discovered_with_bulk_owned: false, exhausted: true }
+T041 Receipt { choices: 4, strict: false, bulk: 16, sibling: 1, bulk_before_sibling: Some(16), queued_apps: Some(2), drained_apps: Some(11), queued_pending: 1, sibling_discovered_with_bulk_owned: false, exhausted: true }
+T041 Receipt { choices: 4, strict: true, bulk: 16, sibling: 1, bulk_before_sibling: Some(16), queued_apps: Some(2), drained_apps: Some(2), queued_pending: 1, sibling_discovered_with_bulk_owned: false, exhausted: true }
+T041 Receipt { choices: 8, strict: false, bulk: 256, sibling: 1, bulk_before_sibling: Some(27), queued_apps: Some(2), drained_apps: Some(18), queued_pending: 1, sibling_discovered_with_bulk_owned: true, exhausted: true }
+T041 Receipt { choices: 8, strict: true, bulk: 256, sibling: 1, bulk_before_sibling: Some(256), queued_apps: Some(2), drained_apps: Some(2), queued_pending: 1, sibling_discovered_with_bulk_owned: false, exhausted: true }
+test engine::publication_flow_tests::publication_priority_preserves_answers_but_withholds_runnable_sibling ... ok
+
+test result: ok. 13 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+     Running tests/selective_discovery.rs (target/debug/deps/selective_discovery-e8d274be0d56276f)
+
+running 3 tests
+depth=1 tuples=4 ticks=445
+depth=4 tuples=13 ticks=814
+dense tuples=30 ticks=8712
+depth=16 tuples=139 ticks=3280
+test dense_unknown_head_patterns_keep_all_distinct_occurrence_pairs ... ok
+test immutable_heads_and_consumed_occurrences_do_not_need_candidate_entries ... ok
+family=common choices=3 depth=16 tuples=139 ticks=4523
+family=independent choices=3 depth=16 tuples=1512 ticks=37049
+family=early choices=3 depth=16 tuples=139 ticks=4867
+test branching_sources_preserve_answers_while_exposing_discovery_work ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+     Running tests/support_join.rs (target/debug/deps/support_join-00fac07eb7b3a543)
+
+running 2 tests
+family=incompatible tuples=1 ticks=143
+suffix family=incompatible n=0 tuples=1 ticks=141
+suffix family=incompatible n=1 tuples=1 ticks=171
+family=correlated tuples=3 ticks=431
+suffix family=incompatible n=8 tuples=1 ticks=339
+family=independent tuples=5 ticks=931
+test correlation_controls_which_occurrences_can_join ... ok
+suffix family=correlated n=0 tuples=1 ticks=198
+suffix family=correlated n=1 tuples=3 ticks=505
+suffix family=correlated n=8 tuples=17 ticks=3361
+suffix family=independent n=0 tuples=1 ticks=282
+suffix family=independent n=1 tuples=5 ticks=1059
+suffix family=independent n=8 tuples=33 ticks=8850
+suffix family=dense n=0 tuples=1 ticks=113
+suffix family=dense n=1 tuples=2 ticks=259
+suffix family=dense n=8 tuples=9 ticks=1638
+test three_head_suffix_products_preserve_full_answers ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+

@@ -4,6 +4,7 @@ version.workspace = true
 edition.workspace = true
 
 [features]
+prefix-join = ["support-join"]
 support-join = ["selective-discovery"]
 equality-invalidation = ["chr-relational/precise-invalidation"]
 selective-discovery = []

@@ -113,3 +113,101 @@ fn correlation_controls_which_occurrences_can_join() {
         );
     }
 }
+
+#[test]
+fn three_head_suffix_products_preserve_full_answers() {
+    for family in ["incompatible", "correlated", "independent", "dense"] {
+        for n in [0, 1, 8] {
+            let post = |p: &str, x: &str| c(p, [atom(x)]).into();
+            let body = match family {
+                "incompatible" => or(post("p", "a"), post("q", "b")),
+                "correlated" => or(
+                    and([post("p", "a"), post("q", "a")]),
+                    and([post("p", "b"), post("q", "b")]),
+                ),
+                "independent" => and([
+                    or(post("p", "a"), post("p", "b")),
+                    or(post("q", "a"), post("q", "b")),
+                ]),
+                _ => and([post("p", "a"), post("q", "a")]),
+            };
+            let rules = vec![
+                Rule::simplify("start", [c("start", [])], body),
+                Rule::propagate(
+                    "join",
+                    [c("p", [v(0)]), c("q", [v(1)]), c("r", [v(2)])],
+                    c("seen", [v(0), v(1), v(2)]).into(),
+                ),
+            ];
+            let suffix = (0..n)
+                .map(|i| c("r", [atom(&format!("r{i}"))]))
+                .collect::<Vec<_>>();
+            let mut constraints = suffix.clone();
+            constraints.push(c("start", []));
+            let query = Query {
+                constraints,
+                outputs: vec![],
+            };
+            let pairs = match family {
+                "incompatible" => vec![(Some("a"), None), (None, Some("b"))],
+                "correlated" => vec![(Some("a"), Some("a")), (Some("b"), Some("b"))],
+                "independent" => vec![
+                    (Some("a"), Some("a")),
+                    (Some("a"), Some("b")),
+                    (Some("b"), Some("a")),
+                    (Some("b"), Some("b")),
+                ],
+                _ => vec![(Some("a"), Some("a"))],
+            };
+            let expected = pairs
+                .into_iter()
+                .map(|(x, y)| {
+                    let mut residual = suffix.clone();
+                    if let Some(x) = x {
+                        residual.push(c("p", [atom(x)]));
+                    }
+                    if let Some(y) = y {
+                        residual.push(c("q", [atom(y)]));
+                    }
+                    if let (Some(x), Some(y)) = (x, y) {
+                        for i in 0..n {
+                            residual.push(c("seen", [atom(x), atom(y), atom(&format!("r{i}"))]));
+                        }
+                    }
+                    Answer {
+                        outputs: vec![],
+                        residual,
+                    }
+                })
+                .collect::<Vec<_>>();
+            runtime_support::same_raw(
+                runtime_support::run(&rules, &query, 500_000),
+                expected.clone(),
+            );
+            runtime_support::same_raw(
+                composition_support::Engine::new(0, &rules, &query).collect(),
+                expected.clone(),
+            );
+            let mut e = PreparedRuleset::new(rules).unwrap().start(query).unwrap();
+            let mut actual = vec![];
+            let mut exhausted = false;
+            for _ in 0..500_000 {
+                match e.tick() {
+                    Event::Answer(a) => actual.push(a),
+                    Event::Exhausted => {
+                        exhausted = true;
+                        break;
+                    }
+                    Event::Progress => (),
+                }
+            }
+            assert!(exhausted);
+            runtime_support::same_raw(actual, expected);
+            println!(
+                "suffix family={family} n={n} tuples={} ticks={}",
+                e.stats().discovered_tuples,
+                e.stats().ticks
+            );
+        }
+    }
+}
