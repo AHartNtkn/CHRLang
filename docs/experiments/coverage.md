@@ -1,6 +1,6 @@
 # Unanswered architecture questions and experimental ownership
 
-The [repeated-alias comparison](results/S02-repeated-alias-lifecycle.md) completes two 784-process matrices and 140 calibration processes. Filtering before notification allocation removes an apparent pair-index traffic crossover; recorded work and other controls remain unchanged. Timing remains uncertain even with process CPU measurements. The breadth review selects T077 repeated dynamic separation/reunion next; broader integrated work remains required.
+The [repeated-reunion gate](results/S04-repeated-reunion-gate.md) validates 30 finite repeated-engine configurations, ongoing sibling service and direct ownership/identity checks. Resolved shared unknowns prevent separation until eligible; inherited history and branch correlation survive repeated rounds. All 28 ordinary and 29 diagnostic restoration tests pass. T077 next compares allocation, work and disposal against Copy and initial-phase reunion before timing. Broader integration and resource-aware lowering remain required; no cost ranking follows.
 
 ## How unanswered variants remain accountable
 

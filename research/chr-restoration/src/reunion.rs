@@ -33,7 +33,7 @@ fn transport(t: &Term, fresh: u64, offset: u64) -> Term {
         ),
     }
 }
-fn combine(left: &State, right: &State, fresh: u64) -> Result<State, String> {
+fn combine_at(left: &State, right: &State, fresh: u64, old_occ: usize) -> Result<State, String> {
     assert!(left.pending.is_empty() && right.pending.is_empty());
     let mut merged = left.clone();
     let offset = left.next_var - fresh;
@@ -43,28 +43,33 @@ fn combine(left: &State, right: &State, fresh: u64) -> Result<State, String> {
         .ok_or("variable identity exhausted")?;
     merged.next_occ = left
         .next_occ
-        .checked_add(right.next_occ)
+        .checked_add(right.next_occ - old_occ)
         .ok_or("occurrence identity exhausted")?;
     for (v, t) in &right.bindings {
         let key = if v.0 >= fresh { Var(v.0 + offset) } else { *v };
-        if merged
-            .bindings
-            .insert(
-                key,
-                if offset == 0 {
-                    t.clone()
-                } else {
-                    Arc::new(transport(t, fresh, offset))
-                },
-            )
-            .is_some()
-        {
-            return Err("overlapping component binding owners".into());
+        let value = if offset == 0 {
+            t.clone()
+        } else {
+            Arc::new(transport(t, fresh, offset))
+        };
+        if let Some(prior) = merged.bindings.get(&key) {
+            if **prior != *value {
+                return Err("overlapping component binding owners".into());
+            }
+        } else {
+            merged.bindings.insert(key, value);
         }
     }
+    let relocate = |id: usize| {
+        if id < old_occ {
+            id
+        } else {
+            id + left.next_occ - old_occ
+        }
+    };
     for (id, c) in &right.live {
         merged.live.insert(
-            id + left.next_occ,
+            relocate(*id),
             if offset == 0 {
                 c.clone()
             } else {
@@ -78,7 +83,7 @@ fn combine(left: &State, right: &State, fresh: u64) -> Result<State, String> {
     for (rule, ids) in &right.history {
         merged
             .history
-            .insert((*rule, ids.iter().map(|id| id + left.next_occ).collect()));
+            .insert((*rule, ids.iter().map(|id| relocate(*id)).collect()));
     }
     Ok(merged)
 }
@@ -150,6 +155,8 @@ impl PreparedPhase {
             cursors: VecDeque::new(),
             resumed: VecDeque::new(),
             lane: 0,
+            old_occ: 0,
+            stop_at_body: false,
             #[cfg(feature = "replay-diagnostic")]
             local_steps: 0,
             #[cfg(feature = "replay-diagnostic")]
@@ -192,6 +199,8 @@ pub struct ReunionEngine {
     cursors: VecDeque<ProductCursor>,
     resumed: VecDeque<State>,
     lane: usize,
+    old_occ: usize,
+    stop_at_body: bool,
     #[cfg(feature = "replay-diagnostic")]
     local_steps: usize,
     #[cfg(feature = "replay-diagnostic")]
@@ -200,8 +209,24 @@ pub struct ReunionEngine {
     products: usize,
     error: Option<String>,
 }
+enum PhaseEvent {
+    Progress,
+    Answer(State),
+    Boundary(State),
+    Exhausted,
+}
 impl ReunionEngine {
     pub fn advance(&mut self) -> Result<Step, String> {
+        match self.advance_phase()? {
+            PhaseEvent::Progress => Ok(Step::Progress),
+            PhaseEvent::Answer(s) => Ok(Step::Answer(s.answer(&self.outputs))),
+            PhaseEvent::Exhausted => Ok(Step::Exhausted),
+            PhaseEvent::Boundary(_) => {
+                unreachable!("initial-phase engine does not stop at a body boundary")
+            }
+        }
+    }
+    fn advance_phase(&mut self) -> Result<PhaseEvent, String> {
         if let Some(e) = &self.error {
             return Err(e.clone());
         }
@@ -243,17 +268,23 @@ impl ReunionEngine {
                                 }
                             }
                         }
-                        return Ok(Step::Progress);
+                        return Ok(PhaseEvent::Progress);
                     }
                 }
                 1 => {
                     if let Some(mut cursor) = self.cursors.pop_front() {
                         let mut state = State {
                             next_var: self.fresh,
+                            next_occ: self.old_occ,
                             ..State::default()
                         };
                         for (component, index) in cursor.indices.iter().enumerate() {
-                            match combine(&state, &self.saved[component][*index], self.fresh) {
+                            match combine_at(
+                                &state,
+                                &self.saved[component][*index],
+                                self.fresh,
+                                self.old_occ,
+                            ) {
                                 Ok(next) => state = next,
                                 Err(e) => {
                                     self.error = Some(e.clone());
@@ -269,7 +300,7 @@ impl ReunionEngine {
                         if cursor.next() {
                             self.cursors.push_back(cursor);
                         }
-                        return Ok(Step::Progress);
+                        return Ok(PhaseEvent::Progress);
                     }
                 }
                 2 => {
@@ -279,9 +310,14 @@ impl ReunionEngine {
                             self.reunion_steps += 1;
                         }
                         match state.step(&self.prepared.rules, None, &mut Recorder::new(false)) {
-                            Event::Progress => self.resumed.push_back(state),
+                            Event::Progress => {
+                                if self.stop_at_body && state.pending.is_empty() {
+                                    return Ok(PhaseEvent::Boundary(state));
+                                }
+                                self.resumed.push_back(state);
+                            }
                             Event::Failed => (),
-                            Event::Answer => return Ok(Step::Answer(state.answer(&self.outputs))),
+                            Event::Answer => return Ok(PhaseEvent::Answer(state)),
                             Event::Fork(a, b) => {
                                 let mut other = state.clone();
                                 state.pending.push(a);
@@ -290,13 +326,13 @@ impl ReunionEngine {
                                 self.resumed.push_back(other);
                             }
                         }
-                        return Ok(Step::Progress);
+                        return Ok(PhaseEvent::Progress);
                     }
                 }
                 _ => (),
             }
         }
-        Ok(Step::Exhausted)
+        Ok(PhaseEvent::Exhausted)
     }
 }
 impl PreparedPhase {
@@ -347,7 +383,7 @@ mod tests {
             next_occ: 3,
             ..State::default()
         };
-        let merged = combine(&left, &right, 100).unwrap();
+        let merged = combine_at(&left, &right, 100, 0).unwrap();
         assert!(Arc::ptr_eq(&merged.bindings[&Var(1)], &value));
         assert!(Arc::ptr_eq(&merged.live[&9], &constraint));
         assert!(merged.history.contains(&(0, vec![9])));
@@ -386,5 +422,272 @@ mod tests {
         drop(engine);
         assert!(prepared.upgrade().is_none());
         assert!(saved.iter().all(|w| w.upgrade().is_none()));
+    }
+}
+
+/// A new epoch can share inherited read-only bindings, but not a writable root.
+fn partition_live(state: &State) -> Option<BTreeMap<String, Vec<usize>>> {
+    if !state.pending.is_empty() {
+        return None;
+    }
+    let mut groups: BTreeMap<String, Vec<usize>> = BTreeMap::new();
+    let mut roots = BTreeMap::new();
+    for (id, c) in &state.live {
+        let key = state.resolve(c.args.first()?);
+        let Term::App(name, args) = key else {
+            return None;
+        };
+        if !args.is_empty() {
+            return None;
+        }
+        let mut names = BTreeSet::new();
+        for term in &c.args {
+            vars(&state.resolve(term), &mut names);
+        }
+        for root in names {
+            if roots
+                .insert(root, name.clone())
+                .is_some_and(|prior| prior != name)
+            {
+                return None;
+            }
+        }
+        groups.entry(name).or_default().push(*id);
+    }
+    (groups.len() >= 2).then_some(groups)
+}
+impl PreparedPhase {
+    fn epoch(self: &Arc<Self>, state: &State) -> Option<ReunionEngine> {
+        let groups = partition_live(state)?;
+        let components = groups.len();
+        let mut local = VecDeque::new();
+        for (component, ids) in groups.into_values().enumerate() {
+            let mut private = state.clone();
+            private.live.retain(|id, _| ids.binary_search(id).is_ok());
+            local.push_back((component, private));
+        }
+        Some(ReunionEngine {
+            prepared: self.clone(),
+            outputs: vec![],
+            fresh: state.next_var,
+            old_occ: state.next_occ,
+            stop_at_body: true,
+            local,
+            saved: vec![vec![]; components],
+            cursors: VecDeque::new(),
+            resumed: VecDeque::new(),
+            lane: 0,
+            #[cfg(feature = "replay-diagnostic")]
+            local_steps: 0,
+            #[cfg(feature = "replay-diagnostic")]
+            reunion_steps: 0,
+            #[cfg(feature = "replay-diagnostic")]
+            products: 0,
+            error: None,
+        })
+    }
+    pub fn start_repeated(self: &Arc<Self>, query: &Query) -> Result<RepeatedEngine, String> {
+        let mut engine = RepeatedEngine {
+            prepared: self.clone(),
+            outputs: query.outputs.clone(),
+            jobs: VecDeque::new(),
+            error: None,
+            #[cfg(feature = "replay-diagnostic")]
+            epochs: 0,
+            #[cfg(feature = "replay-diagnostic")]
+            coupled_boundaries: 0,
+        };
+        engine.admit(State::new(query)?);
+        Ok(engine)
+    }
+}
+enum Job {
+    Phase(Box<ReunionEngine>),
+    Coupled(State),
+}
+/// FIFO service of branch-specific epochs and states not currently independent.
+pub struct RepeatedEngine {
+    prepared: Arc<PreparedPhase>,
+    outputs: Vec<(String, Var)>,
+    jobs: VecDeque<Job>,
+    error: Option<String>,
+    #[cfg(feature = "replay-diagnostic")]
+    pub epochs: usize,
+    #[cfg(feature = "replay-diagnostic")]
+    pub coupled_boundaries: usize,
+}
+impl RepeatedEngine {
+    fn admit(&mut self, state: State) {
+        if let Some(epoch) = self.prepared.epoch(&state) {
+            #[cfg(feature = "replay-diagnostic")]
+            {
+                self.epochs += 1;
+            }
+            self.jobs.push_back(Job::Phase(Box::new(epoch)));
+        } else {
+            #[cfg(feature = "replay-diagnostic")]
+            {
+                self.coupled_boundaries += 1;
+            }
+            self.jobs.push_back(Job::Coupled(state));
+        }
+    }
+    pub fn advance(&mut self) -> Result<Step, String> {
+        if let Some(error) = &self.error {
+            return Err(error.clone());
+        }
+        let result = self.step();
+        if let Err(error) = &result {
+            self.error = Some(error.clone());
+        }
+        result
+    }
+    fn step(&mut self) -> Result<Step, String> {
+        let Some(job) = self.jobs.pop_front() else {
+            return Ok(Step::Exhausted);
+        };
+        match job {
+            Job::Phase(mut phase) => {
+                let event = phase.advance_phase()?;
+                if !matches!(event, PhaseEvent::Exhausted) {
+                    self.jobs.push_back(Job::Phase(phase));
+                }
+                match event {
+                    PhaseEvent::Boundary(s) => self.admit(s),
+                    PhaseEvent::Answer(s) => return Ok(Step::Answer(s.answer(&self.outputs))),
+                    _ => (),
+                }
+            }
+            Job::Coupled(mut state) => {
+                match state.step(&self.prepared.rules, None, &mut Recorder::new(false)) {
+                    Event::Progress => {
+                        if state.pending.is_empty() {
+                            self.admit(state);
+                        } else {
+                            self.jobs.push_back(Job::Coupled(state));
+                        }
+                    }
+                    Event::Failed => (),
+                    Event::Answer => return Ok(Step::Answer(state.answer(&self.outputs))),
+                    Event::Fork(a, b) => {
+                        let mut other = state.clone();
+                        state.pending.push(a);
+                        other.pending.push(b);
+                        self.jobs.push_back(Job::Coupled(state));
+                        self.jobs.push_back(Job::Coupled(other));
+                    }
+                }
+            }
+        }
+        Ok(Step::Progress)
+    }
+}
+
+#[cfg(test)]
+mod repeated_tests {
+    use super::*;
+    use chr_syntax::{atom, c, t, v};
+    #[test]
+    fn resolved_nested_roots_and_pending_bodies_control_partition() {
+        let mut state = State::new(&Query {
+            constraints: vec![
+                c("x", [atom("left"), t("box", [v(1)])]),
+                c("x", [atom("right"), v(2)]),
+            ],
+            outputs: vec![],
+        })
+        .unwrap();
+        assert!(partition_live(&state).is_some());
+        state.bindings.insert(Var(2), Arc::new(t("box", [v(1)])));
+        assert!(partition_live(&state).is_none());
+        state.bindings.insert(Var(1), Arc::new(atom("ground")));
+        assert!(partition_live(&state).is_some());
+        state.pending.push(Arc::new(Goal::True));
+        assert!(partition_live(&state).is_none());
+    }
+    #[test]
+    fn reunion_preserves_inherited_identity_and_relocates_only_new_ranges() {
+        let inherited = BTreeMap::from([(Var(1), Arc::new(atom("ground")))]);
+        let history = BTreeSet::from([(9, vec![2, 5])]);
+        let left = State {
+            bindings: inherited.clone(),
+            history: history.clone(),
+            live: BTreeMap::from([
+                (2, Arc::new(c("old", [atom("left")]))),
+                (10, Arc::new(c("new", [atom("left"), v(100)]))),
+            ]),
+            next_occ: 11,
+            next_var: 101,
+            ..State::default()
+        };
+        let mut right = State {
+            bindings: inherited,
+            history,
+            live: BTreeMap::from([
+                (5, Arc::new(c("old", [atom("right")]))),
+                (10, Arc::new(c("new", [atom("right"), v(100)]))),
+            ]),
+            next_occ: 11,
+            next_var: 101,
+            ..State::default()
+        };
+        right.history.insert((10, vec![5, 10]));
+        let merged = combine_at(&left, &right, 100, 10).unwrap();
+        assert_eq!(
+            merged.live.keys().copied().collect::<Vec<_>>(),
+            [2, 5, 10, 11]
+        );
+        assert_eq!(merged.live[&10].args[1], v(100));
+        assert_eq!(merged.live[&11].args[1], v(101));
+        assert_eq!(
+            merged.history,
+            BTreeSet::from([(9, vec![2, 5]), (10, vec![5, 11])])
+        );
+        assert_eq!(merged.bindings.len(), 1);
+        right.bindings.insert(Var(1), Arc::new(atom("conflict")));
+        assert!(combine_at(&left, &right, 100, 10).is_err());
+    }
+    #[test]
+    fn repeated_cancellation_releases_queued_phase_ownership() {
+        let rules = vec![
+            Rule::simplify("unused", [c("unused", [atom("left")])], Goal::True),
+            Rule::simplify(
+                "join",
+                [c("x", [atom("left")]), c("x", [atom("right")])],
+                Goal::True,
+            ),
+        ];
+        let p = PreparedPhase::new(&rules, 1).unwrap();
+        let weak = Arc::downgrade(&p);
+        let q = Query {
+            constraints: vec![c("x", [atom("left")]), c("x", [atom("right")])],
+            outputs: vec![],
+        };
+        let mut engine = p.start_repeated(&q).unwrap();
+        for _ in 0..4 {
+            engine.advance().unwrap();
+        }
+        let saved = engine
+            .jobs
+            .iter()
+            .filter_map(|job| match job {
+                Job::Phase(phase) => Some(
+                    phase
+                        .saved
+                        .iter()
+                        .flatten()
+                        .map(Arc::downgrade)
+                        .collect::<Vec<_>>(),
+                ),
+                _ => None,
+            })
+            .flatten()
+            .collect::<Vec<_>>();
+        assert!(!saved.is_empty());
+        drop(p);
+        assert!(weak.upgrade().is_some());
+        drop(engine);
+        assert!(weak.upgrade().is_none());
+        assert!(saved.iter().all(|s| s.upgrade().is_none()));
     }
 }

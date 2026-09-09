@@ -70,10 +70,11 @@ tasks:
     type: pm
     assignee: PM
     status: active
-    progress: Seventh bounded package completes 4032 processes across 576 configurations, with 576 exact allocation pairs, independent receipt reconstruction and full disposal restoration. Elimination changes long-private-work costs; shortened reunion retains a favorable plain regime with higher peak demand, while short work and payload traffic expose costs. Five ordinary samples per cell remain exploratory. All 23 ordinary and 24 diagnostic tests and strict Clippy pass. No whole-architecture or compilation-inclusive ranking follows.
-    next_action: Register and qualify repeated dynamic separation/reunion using actual source ownership, late links and consuming competition. Include useful separation and frequent reconnection/no-benefit controls; variable disjointness is insufficient. Compare broader integration and resource-aware lowering at the source-gate boundary.
+    progress: Repeated separation now passes 30 finite source configurations, ongoing sibling publication and direct resolved-root, transport/history and cancellation checks. Complete raw answers agree with scalar and existing controls. All 28 ordinary and 29 diagnostic restoration tests and scoped strict Clippy pass. No comparative costs have run for repeated separation.
+    next_action: Register a bounded work/allocation/ownership comparison of Copy, initial-phase reunion and repeated reunion. Include frequent reconnection, substantive private work, late links, inherited history and changed-query reuse. Charge complete measured lifecycle and cancellation before ordinary timing. Reconsider broader integration and resource-aware lowering after this cost gate.
     objective: Investigate corrected checkpoint and replay policies, working-state reuse and temporary separation/reunion against competent copying, persistence and undo, preserving complete source behavior and accounting for preparation, execution, observation and disposal.
     inputs:
+      - docs/experiments/results/S04-repeated-reunion-gate.md
       - docs/experiments/results/S02-repeated-alias-lifecycle.md
       - docs/experiments/results/S04-reunion-complete-pilot.md
       - docs/experiments/results/S04-reunion-next-investigation.md
@@ -2303,15 +2304,15 @@ checks:
   dirty_fingerprint: unrelated_untracked_files_preserved
   last_verification:
     result: passed
-    task: T072
-    scope: Repeated aliases, frozen-binary calibration and filtered notification allocation correction.
+    task: T077
+    scope: Repeated source separation, inherited identity/history and cancellation ownership.
     commands:
-      - Two 784-process matrices and 168 preflight source-work gates
-      - 140 interleaved frozen-binary calibration processes
-      - Independent order, commands, allocation/work replay and restoration audit
-      - Repair changes only 12 Filtered execution-allocation cells
-      - Source tests, scoped strict Clippy and explicit-file formatting
+      - cargo test -p chr-restoration --tests
+      - cargo test -p chr-restoration --tests --features replay-diagnostic
+      - cargo clippy -p chr-restoration --lib --test reunion --features replay-diagnostic --no-deps -- -D warnings
+      - Explicit-file rustfmt and local evidence-link validation
     evidence:
-      - docs/experiments/results/S02-repeated-alias-lifecycle.md
-      - docs/experiments/results/s02-filtered-wake-attribution/audit.json
-      - docs/experiments/results/s02-filtered-wake-attribution/paired-audit.json
+      - docs/experiments/results/S04-repeated-reunion-gate.md
+      - docs/experiments/results/s04-repeated-reunion-gate/default.log
+      - docs/experiments/results/s04-repeated-reunion-gate/diagnostic.log
+      - docs/experiments/results/s04-repeated-reunion-gate/clippy.log

@@ -1,0 +1,11 @@
+# Repeated checked separation and reunion from live source states
+
+Extend the checked fixed-owner local-prefix experiment to repeated boundaries after coupled bodies complete. This tests whether genuine repeated decomposition is feasible, not whether variable disjointness alone certifies it.
+
+At a boundary, require an empty pending body and at least two ground owner groups. Traverse resolved live terms: no unresolved variable root may be reachable from two groups. Ground shared structure is permitted. If independence is absent, keep the state coupled and reconsider only after another complete body. Unknown owner keys similarly prevent separation. Local-prefix rules retain the existing fixed-owner head/body check and precedence over joining rules.
+
+Each private component retains the boundary's binding context and history. Only live occurrences are partitioned. At reunion preserve all pre-boundary variable and occurrence identities, relocate each component's newly allocated ranges, merge identical inherited bindings/history once, and reject conflicting binding ownership. New private alternatives must be combined only within their own boundary epoch, preserving branch correlation and raw multiplicity. A published answer is not a saved continuation.
+
+Validate against the independent scalar evaluator and ordinary Copy, retaining the existing initial-phase engine as a control. Cover repeated round counts, substantive private work, duplicate/distinct alternatives, correlated branches, shared unknowns preventing separation, later ground bindings allowing it, consumed resources, inherited propagation history and fresh residual aliases. Require diagnostic evidence that more than the initial epoch actually separates, and test cancellation/reusable prepared ownership. Preserve existing source gates and counter-free configuration.
+
+No comparative timing or allocation matrix runs in this package. Source service retains explicit bounds; a cutoff is unfinished evidence. Scope the result to the checked local-prefix/owner contract. General dynamic ownership inference, adaptive split policies, lifetime and complete architectures remain required. Reconsider broader integrated execution and resource-aware lowering at the source-gate boundary before selecting costs.

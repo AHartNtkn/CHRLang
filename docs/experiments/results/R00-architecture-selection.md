@@ -1,6 +1,6 @@
 # R00: architectural alternatives and first experiment selection
 
-The [repeated-alias comparison](S02-repeated-alias-lifecycle.md) completes two 784-process matrices and 140 calibration processes. Filtering before notification allocation removes an apparent pair-index traffic crossover; recorded work and other controls remain unchanged. Timing remains uncertain even with process CPU measurements. The breadth review selects T077 repeated dynamic separation/reunion next; broader integrated work remains required.
+The [repeated-reunion gate](S04-repeated-reunion-gate.md) validates 30 finite repeated-engine configurations, ongoing sibling service and direct ownership/identity checks. Resolved shared unknowns prevent separation until eligible; inherited history and branch correlation survive repeated rounds. All 28 ordinary and 29 diagnostic restoration tests pass. T077 next compares allocation, work and disposal against Copy and initial-phase reunion before timing. Broader integration and resource-aware lowering remain required; no cost ranking follows.
 
 The [resident replay gate](S04-resident-replay-source-gate.md) removes repeated reconstruction when only one branch remains: 100 continuing service calls now execute 100 rather than 5,050 source steps. Exact finite/ongoing event traces, independent answers and checkpoint release checks pass; all 72 broader work cells validate. Competing branches still expose large reconstruction counts. T077 remains active for complete cost/ownership comparison and actual temporary reunion; no timing conclusion follows.
 

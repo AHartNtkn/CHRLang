@@ -281,7 +281,20 @@ fn finite_sibling_is_published_while_private_work_continues_and_cancel_is_owned(
         }
     }
     let first = first.expect("finite sibling was blocked");
-    oracle::same_raw(vec![first.clone()], vec![control_first]);
+    oracle::same_raw(vec![first.clone()], vec![control_first.clone()]);
+    let mut repeated = reunion::PreparedPhase::new(&rules, n)
+        .unwrap()
+        .start_repeated(&q)
+        .unwrap();
+    let repeated_first = (0..1000)
+        .find_map(|_| match repeated.advance().unwrap() {
+            Step::Answer(a) => Some(a),
+            Step::Exhausted => panic!("unfinished repeated source exhausted"),
+            Step::Progress => None,
+        })
+        .expect("repeated engine blocked finite sibling");
+    oracle::same_raw(vec![repeated_first], vec![control_first]);
+    drop(repeated);
     assert_eq!(first.residual[0].name, "joined");
     drop(e);
     let (rules, n, q) = source(1, false);
@@ -372,8 +385,125 @@ fn prepared_phase_reuses_rules_across_changed_and_rejected_queries() {
         let original = source(4, false).0;
         let got = prepared.run(&changed, 100_000).unwrap();
         oracle::same_raw(got.answers, oracle::run(&original, &changed, 100_000));
+        oracle::same_raw(
+            repeated_answers(&prepared, &changed).0,
+            ordinary(&original, &changed).0,
+        );
         let mut invalid = changed.clone();
         invalid.constraints[1].args[2] = changed.constraints[0].args[2].clone();
         assert!(prepared.start(&invalid).is_err());
+    }
+}
+
+fn repeated_answers(
+    p: &std::sync::Arc<reunion::PreparedPhase>,
+    q: &Query,
+) -> (Vec<Answer>, reunion::RepeatedEngine) {
+    let mut e = p.start_repeated(q).unwrap();
+    let mut answers = vec![];
+    for _ in 0..200_000 {
+        match e.advance().unwrap() {
+            Step::Answer(a) => answers.push(a),
+            Step::Exhausted => return (answers, e),
+            Step::Progress => (),
+        }
+    }
+    panic!("repeated source gate unfinished at service bound")
+}
+
+#[test]
+fn repeated_rounds_preserve_correlations_history_and_fresh_aliases() {
+    for rounds in 0..=3 {
+        for depth in [0, 1, 4] {
+            for duplicate in [false, true] {
+                let (mut rules, n, mut q) = source(depth, duplicate);
+                // The round token is owned by left; joining consumes both ready
+                // occurrences before posting fresh jobs for the next epoch.
+                q.constraints.push(c("round", [atom("left"), nat(rounds)]));
+                for key in ["left", "right"] {
+                    q.constraints.push(c("stamp", [atom(key)]));
+                }
+                let propagation = ["left", "right"].map(|key| Rule {
+                    name: "remember_once".into(),
+                    kept: vec![c("stamp", [atom(key)])],
+                    removed: vec![],
+                    guards: vec![],
+                    body: c("alias", [atom(key), v(20), v(20)]).into(),
+                });
+                rules.splice(n..n, propagation);
+                let mut next = rules[n + 2].clone();
+                next.removed
+                    .push(c("round", [atom("left"), t("s", [v(4)])]));
+                next.body = and(vec![
+                    eq(v(0), v(1)),
+                    c("record", [atom("left"), v(0), v(2), v(2)]).into(),
+                    c("round", [atom("left"), v(4)]).into(),
+                    c("job", [atom("left"), nat(depth), v(5)]).into(),
+                    c("job", [atom("right"), nat(depth), v(6)]).into(),
+                ]);
+                rules.insert(n + 2, next);
+                let p = reunion::PreparedPhase::new(&rules, n + 2).unwrap();
+                let (got, _e) = repeated_answers(&p, &q);
+                oracle::same_raw(got.clone(), oracle::run(&rules, &q, 200_000));
+                oracle::same_raw(got.clone(), ordinary(&rules, &q).0);
+                oracle::same_raw(got.clone(), p.run(&q, 200_000).unwrap().answers);
+                assert_eq!(
+                    got.len(),
+                    if duplicate { 4usize } else { 2usize }.pow(rounds as u32 + 1)
+                );
+                for a in &got {
+                    assert_eq!(a.residual.iter().filter(|c| c.name == "alias").count(), 2);
+                    assert_eq!(
+                        a.residual.iter().filter(|c| c.name == "record").count(),
+                        rounds
+                    );
+                }
+                #[cfg(feature = "replay-diagnostic")]
+                if rounds > 0 {
+                    assert!(_e.epochs > 1);
+                }
+            }
+        }
+    }
+}
+
+#[test]
+fn shared_unknown_stays_coupled_and_ground_binding_allows_separation() {
+    let rules = vec![
+        Rule::simplify(
+            "private",
+            [c("job", [atom("left"), atom("a")])],
+            c("done", [atom("left")]).into(),
+        ),
+        Rule::simplify(
+            "bind",
+            [
+                c("link", [atom("left"), v(0)]),
+                c("link", [atom("right"), v(1)]),
+            ],
+            and(vec![eq(v(0), v(1)), eq(v(0), atom("a"))]),
+        ),
+    ];
+    let p = reunion::PreparedPhase::new(&rules, 1).unwrap();
+    for shared in [false, true] {
+        let q = Query {
+            constraints: vec![
+                c("job", [atom("left"), v(100)]),
+                c("keep", [atom("right"), v(if shared { 100 } else { 200 })]),
+                c("link", [atom("left"), v(100)]),
+                c("link", [atom("right"), v(if shared { 100 } else { 200 })]),
+            ],
+            outputs: vec![("x".into(), Var(100))],
+        };
+        let (got, _e) = repeated_answers(&p, &q);
+        oracle::same_raw(got.clone(), oracle::run(&rules, &q, 200_000));
+        oracle::same_raw(got, ordinary(&rules, &q).0);
+        #[cfg(feature = "replay-diagnostic")]
+        {
+            assert!(_e.epochs > 0);
+            if shared {
+                assert!(_e.coupled_boundaries > 0);
+            }
+        }
     }
 }

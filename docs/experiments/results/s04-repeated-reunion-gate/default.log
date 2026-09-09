@@ -1,0 +1,54 @@
+   Compiling chr-restoration v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-restoration)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.53s
+     Running unittests src/lib.rs (target/debug/deps/chr_restoration-ed04e2e2269500f5)
+
+running 9 tests
+test reunion::repeated_tests::resolved_nested_roots_and_pending_bodies_control_partition ... ok
+test reunion::repeated_tests::reunion_preserves_inherited_identity_and_relocates_only_new_ranges ... ok
+test reunion::tests::identity_transport_shares_values_but_relocates_occurrences_and_history ... ok
+test reunion::repeated_tests::repeated_cancellation_releases_queued_phase_ownership ... ok
+test tests::change_sequence_restores_all_mutable_state_then_redoes_it ... ok
+test reunion::tests::cancellation_releases_saved_states_and_prepared_owner ... ok
+test tests::lone_branch_releases_obsolete_checkpoint_and_trail_history ... ok
+test tests::returning_to_a_sole_branch_releases_its_saved_checkpoint ... ok
+test tests::root_precheck_preserves_full_matching_with_aliases_and_pattern_scopes ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.41s
+
+     Running tests/reunion.rs (target/debug/deps/reunion-6d95d41fd1c3d4c4)
+
+running 11 tests
+test rejects_shared_variables_unknown_ownership_and_local_escape ... ok
+test ongoing_local_work_returns_unfinished_error ... ok
+test shared_unknown_stays_coupled_and_ground_binding_allows_separation ... ok
+test finite_sibling_is_published_while_private_work_continues_and_cancel_is_owned ... ok
+test lazy_products_preserve_multiplicity_with_more_than_two_components ... ok
+test a_late_join_binding_reactivates_private_rules ... ok
+test source_priority_and_initial_occurrence_order_are_preserved_within_owners ... ok
+test prepared_phase_reuses_rules_across_changed_and_rejected_queries ... ok
+test reunited_binding_consumes_resources_preserves_freshness_and_avoids_repeated_work ... ok
+test history_fresh_aliases_and_competing_consumers_survive_reunion ... ok
+test repeated_rounds_preserve_correlations_history_and_fresh_aliases ... ok
+
+test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.58s
+
+     Running tests/reunion_controls.rs (target/debug/deps/reunion_controls-f4dbb0b0533748ca)
+
+running 3 tests
+test shortcut_rejects_queries_or_effects_outside_its_proof ... ok
+test passive_data_and_observations_are_preserved_but_late_watchers_are_checked ... ok
+test qualify_complete_controls_and_shortcut_against_independent_source_answers ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 8.27s
+
+     Running tests/source.rs (target/debug/deps/source-b33c8851d7223abe)
+
+running 5 tests
+test unsupported_rules_and_exhausted_initial_identity_are_explicit_errors ... ok
+test fair_finite_sibling_and_cancelled_query_reuse ... ok
+test nested_choices_restore_pending_tails_and_failed_branches ... ok
+test all_compatible_partners_preserve_large_values_and_joint_unknowns ... ok
+test complete_source_modes_preserve_rollback_and_multiplicity ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+

@@ -1,10 +1,10 @@
 # The comparisons still needed to choose the architecture
 
-The [repeated-alias comparison](results/S02-repeated-alias-lifecycle.md) completes two 784-process matrices and 140 calibration processes. Filtering before notification allocation removes an apparent pair-index traffic crossover; recorded work and other controls remain unchanged. Timing remains uncertain even with process CPU measurements. The breadth review selects T077 repeated dynamic separation/reunion next; broader integrated work remains required.
+The [repeated-reunion gate](results/S04-repeated-reunion-gate.md) validates 30 finite repeated-engine configurations, ongoing sibling service and direct ownership/identity checks. Resolved shared unknowns prevent separation until eligible; inherited history and branch correlation survive repeated rounds. All 28 ordinary and 29 diagnostic restoration tests pass. T077 next compares allocation, work and disposal against Copy and initial-phase reunion before timing. Broader integration and resource-aware lowering remain required; no cost ranking follows.
 
 ## Starting evidence and immediate decision
 
-The next bounded package qualifies repeated dynamic separation/reunion under T077. The [integrated comparison](results/S02-repeated-alias-lifecycle.md) supplies a corrected lower-memory control with explicit timing uncertainty. Investigate actual source ownership, late links and consuming competition using the finite reunion controls. Reconsider broader integration and resource-aware lowering at the source-gate boundary.
+The next bounded package charges repeated separation against ordinary Copy and initial-phase reunion. Include frequent reconnection with little private work, substantive private work, late links and growing inherited histories. Validate requested-allocation ownership and cancellation before timing. The [source-gate decision](results/S04-repeated-reunion-gate.md#next-decision-charge-repeated-separation-before-generalizing-it) compares this selection with broader integration and resource-aware lowering.
 
 The completed [restoration pilot](results/S04-resident-cost-pilot.md), [reunion source gate](results/S04-reunion-source-gate.md), [ownership/identity comparison](results/S04-reunion-identity-attribution.md), [strong-control gate](results/S04-reunion-strong-controls.md) and [complete-cost pilot](results/S04-reunion-complete-pilot.md) supply controls. They do not resolve repeated dynamic reunion or general source inference.
 
