@@ -1,6 +1,6 @@
 # Unanswered architecture questions and experimental ownership
 
-Current evidence: the [prefix-join gate](results/S10-prefix-join-gate.md) preserves ordered compatible tuples and full source answers. Larger suffix products save service work, while small/dense and mixed independent sources expose overhead. All 125 crate tests and 37 selected counter-free tests pass. T078 next registers paired join lifecycle costs; broader architecture obligations remain open.
+Current evidence: the [join lifecycle and attribution](results/S10-join-lifecycle.md) complete 3108 processes and 504 exact allocation pairs. Prefix pruning has bounded allocation gains and adverse cases; Scan/contextual controls remain competitive. All owners restore, including live discovery cancellation. The [breadth review](results/S10-join-breadth-review.md) selects T079 head/overlap language properties. T078 and the architecture goal remain unfinished.
 
 The [resource-fusion lifecycle pilot](results/S06-resource-fusion-lifecycle.md) completes 1350 processes and 180 exact allocation pairs. Inference and certification can outweigh execution savings; timing remains exploratory with clock-overhead evidence. All owners restore. The [S10 entry](results/S10-composition-entry.md) selects T078 coherent-path capability and mixed-source qualification. T073 and the other unresolved component directions remain required.
 

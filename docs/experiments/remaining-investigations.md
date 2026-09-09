@@ -1,6 +1,6 @@
 # The comparisons still needed to choose the architecture
 
-The [prefix-join gate](results/S10-prefix-join-gate.md) establishes favorable suffix products and adverse small/dense/mixed cases. T078 next registers lifecycle costs for filtered, direct and prefix discovery against complete-path controls; broader obligations remain required.
+The [join lifecycle](results/S10-join-lifecycle.md) completes 3108 processes with exact allocation and ownership checks. The [breadth review](results/S10-join-breadth-review.md) selects T079 head/overlap language-property comparisons; T078 and broader architecture obligations remain required.
 
 ## Starting evidence and immediate decision
 
@@ -18,13 +18,13 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-**Paired join lifecycle attribution is selected under T078/S10.** Direct and prefix controls now pass source/work gates with contrary regimes. Register preparation, changing queries, delivery, cancellation and disposal costs before choosing between them.
+**Head and overlap properties are selected under T079/S07.** Compare inferred properties, optional checked declarations and a required-property interface through actual eliminated responsibilities, excluded programs and realistic reformulations. No language restriction is adopted.
 
 The order below incorporates the latest component evidence and the S10 entry decision. Each numbered row has a separate architectural question and completion boundary. The detailed mechanism specifications later in this document define its controls and adverse cases. A row containing several mechanisms requires a conclusion for each; completing one does not complete the row.
 
 | Order | Required investigation | What its result must decide |
 |---|---|---|
-| Current | **Support-aware conditional joining (T078 / S10).** Compare early compatibility checks and partial-prefix pruning with existing filtered discovery. | Whether impossible combinations can be avoided without losing later-enabled applications or paying more for compatible work. |
+| Current | **Head/overlap language properties (T079 / S07).** Compare inference, checked optional declarations and required properties with executable beneficiaries. | Which responsibilities disappear, what checking costs, and which programs or compositions are excluded. |
 | 1 | **Bounded pilot complete; broader restoration remains required (T077 / S04-A).** Compare copying, persistence/COW, undo, root replay and checkpoint intervals on read-heavy and mutation-heavy states, shallow/wide and deep search, early/late failure, changed queries and cancellation. | Whether avoiding sole-branch reconstruction changes the time–memory tradeoff once preparation, switching, complete answers and disposal count. The [source gate](results/S04-resident-replay-source-gate.md) and [cost pilot](results/S04-resident-cost-pilot.md) now supply bounded evidence. Alternative policies and broader state/lifetime regimes remain required. |
 | 2 | **Bounded reunion costs complete; broader reunion and adaptive splitting remain required (T077 / S04-B/C).** Repeated dynamic reunion has bounded source/work/allocation evidence; adaptive splitting and broader lifetime remain required before general conclusions. Use same-predicate independent occurrences, late aliases/calls and shared consumables. Compare ordinary execution, permanent factoring and temporary separation; separately compare fixed and demand-sensitive splitting. | Whether temporary independence or economical split timing can replace retained shared execution. Include frequent reunion, immediate failure and no useful separation. Preserve correlation, source progress, resource claims and propagation history. Checkpoints alone cannot answer either question. |
 | 3 | **Complete integrated execution (T072 / S02-A/B).** Carry the corrected dependency lifecycle controls into broader source/ownership comparison, then compare CHR-expressed equality, strategic local rewrites and the strongest contextual/scanned/indexed controls on full equality-enabled consuming sources. | Which service boundaries actually disappear, whether interleaving avoids useful work, and what repair/ownership costs remain. Keep scheduling differences explicit. An isolated equality operation cannot decide the complete organization. |
@@ -66,7 +66,7 @@ The order below incorporates the latest component evidence and the S10 entry dec
 
 ## Next discriminating comparisons
 
-**The specifications below are organized by question; their numbers are not the execution order.** T078 investigates support-aware joining within the complete-path comparison. Broader T079 language properties remain unfinished. Integrated execution, broader call reuse and structural solving remain required beyond their bounded source and cost gates.
+**The specifications below are organized by question; their numbers are not the execution order.** T079 investigates head/overlap language properties. T078 coherent architectures and broader language properties remain unfinished. Integrated execution, broader call reuse and structural solving remain required beyond their bounded source and cost gates.
 
 These are experiment specifications, not claims of results. Each comparison requires a source gate, exploratory sizing, prospective confirmation and a decision record. Exact sizes follow sizing; thresholds and repetitions must be fixed before confirmation under the [common measurement rules](sequence.md#registration-bounds-and-interpretation).
 

@@ -1,0 +1,7 @@
+# Registered attribution of prefix head-list reconstruction
+
+Registered after the primary 2940-process pilot and before revised comparative runs. Inspection finds each active prefix tick reconstructs a vector of prepared head references although the cursor uses only its existing occurrence pools. Move active cursor processing before head-list construction; preserve traversal steps, candidate order, conditions and owners. This is not a new join algorithm.
+
+Run the same 84 prefix/conditional cells: seven primary families, n=0/1/3, reuse=1/4, query/prepared consumers. Two allocation processes per cell (168), seed 7832, must replay all memory readings exactly. No revised timing is registered; primary timings describe the original implementation. Use a new frozen prefix-meter binary with the primary release/counter-free/precise-equality configuration. Preserve the primary engine source snapshot and its hash so original receipts remain auditable.
+
+All primary source validation, service/process bounds, three cancellation probes, observation, phase and ownership requirements apply. Compare phase allocation pointwise against the primary prefix readings. H1: traffic falls only while active discovery executes; input/preparation/setup retain their original allocation readings. H2: candidate/service work is unchanged; replay the existing source/work gate in diagnostic builds to verify this. Do not attribute a timing gain from allocation changes. Complete the breadth review before another join refinement.

@@ -1,0 +1,67 @@
+{
+  "positive_snapshots": {
+    "filtered-pools": 20,
+    "direct-pools": 28,
+    "direct-checks": 4,
+    "prefix-pools": 28,
+    "prefix-prefixes": 8
+  },
+  "examples": {
+    "filtered-pools": {
+      "mode": "conditional",
+      "family": "dense_suffix",
+      "n": 3,
+      "reuse": 4,
+      "consumer": "prepared",
+      "steps": 64,
+      "pools": 1,
+      "checks": 0,
+      "prefixes": 0
+    },
+    "direct-pools": {
+      "mode": "conditional",
+      "family": "dense_suffix",
+      "n": 3,
+      "reuse": 4,
+      "consumer": "prepared",
+      "steps": 64,
+      "pools": 1,
+      "checks": 0,
+      "prefixes": 0
+    },
+    "direct-checks": {
+      "mode": "conditional",
+      "family": "independent_suffix",
+      "n": 3,
+      "reuse": 4,
+      "consumer": "prepared",
+      "steps": 256,
+      "pools": 1,
+      "checks": 1,
+      "prefixes": 0
+    },
+    "prefix-pools": {
+      "mode": "conditional",
+      "family": "delayed",
+      "n": 1,
+      "reuse": 4,
+      "consumer": "prepared",
+      "steps": 256,
+      "pools": 1,
+      "checks": 0,
+      "prefixes": 1
+    },
+    "prefix-prefixes": {
+      "mode": "conditional",
+      "family": "delayed",
+      "n": 1,
+      "reuse": 4,
+      "consumer": "prepared",
+      "steps": 256,
+      "pools": 1,
+      "checks": 0,
+      "prefixes": 1
+    }
+  },
+  "repeats_agree": true
+}

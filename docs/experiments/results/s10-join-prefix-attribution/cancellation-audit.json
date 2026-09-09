@@ -1,0 +1,31 @@
+{
+  "positive_snapshots": {
+    "prefix-pools": 28,
+    "prefix-prefixes": 8
+  },
+  "examples": {
+    "prefix-pools": {
+      "mode": "conditional",
+      "family": "delayed",
+      "n": 1,
+      "reuse": 4,
+      "consumer": "prepared",
+      "steps": 256,
+      "pools": 1,
+      "checks": 0,
+      "prefixes": 1
+    },
+    "prefix-prefixes": {
+      "mode": "conditional",
+      "family": "delayed",
+      "n": 1,
+      "reuse": 4,
+      "consumer": "prepared",
+      "steps": 256,
+      "pools": 1,
+      "checks": 0,
+      "prefixes": 1
+    }
+  },
+  "repeats_agree": true
+}

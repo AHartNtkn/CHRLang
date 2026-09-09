@@ -294,6 +294,32 @@ impl Engine {
     pub fn trace(&self) -> &[Trace] {
         self.trace.as_deref().unwrap_or(&[])
     }
+    /// Read-only ownership diagnostic: queued pools, tuple checks, prefix cursors.
+    #[cfg(feature = "selective-discovery")]
+    pub fn discovery_retention(&self) -> (usize, usize, usize) {
+        let pools = self
+            .discoveries
+            .iter()
+            .filter(|d| d.pools.is_some())
+            .count();
+        #[cfg(all(feature = "support-join", not(feature = "prefix-join")))]
+        let checks = self
+            .discoveries
+            .iter()
+            .filter(|d| d.check.is_some())
+            .count();
+        #[cfg(not(all(feature = "support-join", not(feature = "prefix-join"))))]
+        let checks = 0;
+        #[cfg(feature = "prefix-join")]
+        let prefixes = self
+            .discoveries
+            .iter()
+            .filter(|d| d.prefix.is_some())
+            .count();
+        #[cfg(not(feature = "prefix-join"))]
+        let prefixes = 0;
+        (pools, checks, prefixes)
+    }
     pub fn stats(&self) -> &Stats {
         &self.stats
     }
@@ -438,9 +464,43 @@ impl Engine {
         }
         self.discoveries.push_front(d);
     }
+    #[cfg(feature = "prefix-join")]
+    fn prefix_tick(&mut self, mut d: Discovery) {
+        let live = self.resources.occurrence(d.occurrence).unwrap().live;
+        let cursor = d.prefix.as_mut().unwrap();
+        match cursor.tick(
+            &d.pools.as_ref().unwrap().ids,
+            &self.resources,
+            &mut self.arena,
+        ) {
+            crate::prefix_join::Event::Progress => (),
+            crate::prefix_join::Event::Tuple(ids) => {
+                let key = Key { rule: d.rule, ids };
+                if self.known.insert(key.clone()) {
+                    self.pending.entry(key).or_default().push(live);
+                    if METRICS {
+                        self.stats.discovered_tuples += 1;
+                    }
+                }
+            }
+            crate::prefix_join::Event::Done => {
+                d.anchor += 1;
+                d.digits = None;
+                d.pools = None;
+                d.prefix = None;
+            }
+        }
+        self.discoveries.push_front(d);
+    }
     #[cfg(feature = "selective-discovery")]
     fn discovery_tick(&mut self) {
         let mut d = self.discoveries.pop_front().unwrap();
+        #[cfg(feature = "prefix-join")]
+        if d.prefix.is_some() {
+            self.prefix_tick(d);
+            return;
+        }
+
         #[cfg(all(feature = "support-join", not(feature = "prefix-join")))]
         if let Some(mut check) = d.check.take() {
             // Lives only shrink; an empty intersection can never recover.
@@ -546,28 +606,8 @@ impl Engine {
         }
         #[cfg(feature = "prefix-join")]
         {
-            let cursor = d
-                .prefix
-                .get_or_insert_with(|| crate::prefix_join::Cursor::new(live));
-            match cursor.tick(&pools.ids, &self.resources, &mut self.arena) {
-                crate::prefix_join::Event::Progress => (),
-                crate::prefix_join::Event::Tuple(ids) => {
-                    let key = Key { rule: d.rule, ids };
-                    if self.known.insert(key.clone()) {
-                        self.pending.entry(key).or_default().push(live);
-                        if METRICS {
-                            self.stats.discovered_tuples += 1;
-                        }
-                    }
-                }
-                crate::prefix_join::Event::Done => {
-                    d.anchor += 1;
-                    d.digits = None;
-                    d.pools = None;
-                    d.prefix = None;
-                }
-            }
-            self.discoveries.push_front(d);
+            d.prefix = Some(crate::prefix_join::Cursor::new(live));
+            self.prefix_tick(d);
         }
         #[cfg(not(feature = "prefix-join"))]
         {
