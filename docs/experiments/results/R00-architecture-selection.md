@@ -1,16 +1,6 @@
 # R00: architectural alternatives and first experiment selection
 
-The [stronger reunion controls](S04-reunion-strong-controls.md) now pass 960 complete-answer comparisons over 96 queries per build. Inferred specialization executes under Scan/Indexed; the existing carrier checker rejects owner-keyed loops, but a checked finite source shortcut eliminates their countdown work. Four-owner plain source calls are 3124 for Copy, 888 for reunion, 244 for shortened Copy and 120 for shortened reunion. T077 next registers complete costs with these controls; no runtime ranking follows.
-
-
-The [reunion ownership gate](S04-reunion-ownership-gate.md) and [identity-copy attribution](S04-reunion-identity-attribution.md) complete 960 matrix processes, 480 exact allocation replays and 384 unchanged-control pairs. Reusable preparation and query/consumer disposal validate. Identity sharing lowers traffic in all 48 reunion configurations, while short payload and peak-memory tradeoffs remain. T077 next qualifies stronger specialization/elimination controls before timing; integrated execution remains the strongest separate alternative.
-
-
-The [temporary reunion source gate](S04-reunion-source-gate.md) now executes checked private components and resumes consuming rules from their combined states. All 55 finite configurations agree with independent and ordinary controls; finite-sibling service and weak-owner cancellation checks pass. A depth12 witness uses 142 rather than 198 source-transition calls, excluding product/ownership costs. T077 remains active for reusable preparation and complete allocation/cost evidence; broader dynamic reunion remains required.
-
-
-The [corrected restoration pilot](S04-resident-cost-pilot.md) completes 1,344 processes and 192 exact allocation replays with live-byte continuity and full disposal restoration. Branching replay remains costly; Copy and Indexed expose opposing time/peak-memory regimes. T077 remains active for actual temporary separation/reunion, with integrated dependency repair as the strongest ready alternative. No universal policy or architecture is selected.
-
+The [complete reunion pilot](S04-reunion-complete-pilot.md) completes 4,032 audited processes with 576 exact allocation pairs and full disposal restoration. Countdown elimination changes the long-private-work comparison; shortened reunion retains a favorable plain regime, while short work, payload traffic and peak demand expose costs. Timings remain exploratory. The [selection review](S04-reunion-next-investigation.md) makes T072 active for precise integrated dependencies; broader T077 restoration/reunion remains required.
 
 The [resident replay gate](S04-resident-replay-source-gate.md) removes repeated reconstruction when only one branch remains: 100 continuing service calls now execute 100 rather than 5,050 source steps. Exact finite/ongoing event traces, independent answers and checkpoint release checks pass; all 72 broader work cells validate. Competing branches still expose large reconstruction counts. T077 remains active for complete cost/ownership comparison and actual temporary reunion; no timing conclusion follows.
 

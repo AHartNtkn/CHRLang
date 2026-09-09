@@ -94,7 +94,9 @@ fn qualify_complete_controls_and_shortcut_against_independent_source_answers() {
                 assert!(!walk.eligible);
                 println!("{f}/{owners} carrier walk: {:?}", walk.reason);
             }
-            let short = shortcut::Checked::new(f, owners, &rules).unwrap();
+            let (verified_rules, short) = shortcut::Checked::new(f, owners, &rules)
+                .unwrap()
+                .into_parts();
             for depth in [0, 12, 48] {
                 for seed in 0..4 {
                     let q = fixture::query(f, owners, depth, seed);
@@ -112,7 +114,7 @@ fn qualify_complete_controls_and_shortcut_against_independent_source_answers() {
                     let lowered = short.lower(&q).unwrap();
                     let shortened_reunion = reunion.run(&lowered, 200_000).unwrap();
                     oracle::same_raw(shortened_reunion.answers, expected.clone());
-                    let (actual, after) = copied(short.rules(), &lowered);
+                    let (actual, after) = copied(&verified_rules, &lowered);
                     let (original, before) = copied(&rules, &q);
                     oracle::same_raw(actual, expected.clone());
                     oracle::same_raw(original, expected.clone());
@@ -144,7 +146,9 @@ fn qualify_complete_controls_and_shortcut_against_independent_source_answers() {
 #[test]
 fn shortcut_rejects_queries_or_effects_outside_its_proof() {
     let (mut rules, _) = fixture::source("plain", 2);
-    let short = shortcut::Checked::new("plain", 2, &rules).unwrap();
+    let (_, short) = shortcut::Checked::new("plain", 2, &rules)
+        .unwrap()
+        .into_parts();
     let q = fixture::query("plain", 2, 12, 0);
     let mut bad = q.clone();
     bad.constraints[0].args[1] = v(9000);
@@ -172,7 +176,9 @@ fn shortcut_rejects_queries_or_effects_outside_its_proof() {
 #[test]
 fn passive_data_and_observations_are_preserved_but_late_watchers_are_checked() {
     let (rules, _) = fixture::source("payload", 2);
-    let short = shortcut::Checked::new("payload", 2, &rules).unwrap();
+    let (verified_rules, short) = shortcut::Checked::new("payload", 2, &rules)
+        .unwrap()
+        .into_parts();
     let mut q = fixture::query("payload", 2, 4, 0);
     q.constraints
         .push(c("payload", [atom("owner0"), v(7000), v(7000)]));
@@ -180,11 +186,13 @@ fn passive_data_and_observations_are_preserved_but_late_watchers_are_checked() {
     q.outputs.push(("unbound".into(), chr_syntax::Var(8000)));
     let lower = short.lower(&q).unwrap();
     oracle::same_raw(
-        copied(short.rules(), &lower).0,
+        copied(&verified_rules, &lower).0,
         oracle::run(&rules, &q, 200_000),
     );
     let (rules, _) = fixture::source("late", 2);
-    let short = shortcut::Checked::new("late", 2, &rules).unwrap();
+    let (_, short) = shortcut::Checked::new("late", 2, &rules)
+        .unwrap()
+        .into_parts();
     let mut q = fixture::query("late", 2, 4, 0);
     q.constraints
         .iter_mut()

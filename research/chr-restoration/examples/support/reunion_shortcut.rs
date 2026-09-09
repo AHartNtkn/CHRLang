@@ -3,6 +3,9 @@ use chr_syntax::{Constraint, Query, Rule, Term, Var, atom};
 use std::collections::BTreeMap;
 pub struct Checked {
     rules: Vec<Rule>,
+    query_check: QueryCheck,
+}
+pub struct QueryCheck {
     keys: Vec<String>,
     late: bool,
     payload: bool,
@@ -41,14 +44,18 @@ impl Checked {
         }
         Ok(Self {
             rules: rules.to_vec(),
-            keys: (0..owners).map(|i| format!("owner{i}")).collect(),
-            late: family == "late",
-            payload: family == "payload",
+            query_check: QueryCheck {
+                keys: (0..owners).map(|i| format!("owner{i}")).collect(),
+                late: family == "late",
+                payload: family == "payload",
+            },
         })
     }
-    pub fn rules(&self) -> &[Rule] {
-        &self.rules
+    pub fn into_parts(self) -> (Vec<Rule>, QueryCheck) {
+        (self.rules, self.query_check)
     }
+}
+impl QueryCheck {
     pub fn lower(&self, query: &Query) -> Result<Query, String> {
         let mut jobs = vec![None; self.keys.len()];
         let mut waits = vec![None; self.keys.len()];
