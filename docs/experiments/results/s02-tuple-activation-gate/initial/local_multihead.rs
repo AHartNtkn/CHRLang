@@ -59,27 +59,20 @@ impl Program {
 }
 type Tuple = (usize, Vec<usize>);
 type Env = BTreeMap<Var, usize>;
-struct Waiting {
-    descriptors: Vec<usize>,
-    equality: Option<(usize, usize)>,
-}
 #[derive(Default)]
 struct Cache {
     tuples: BTreeMap<Tuple, Vec<usize>>,
     ready: BTreeMap<Tuple, Env>,
-    conditions: BTreeMap<Tuple, Waiting>,
     watchers: BTreeMap<usize, BTreeSet<Tuple>>,
     incident: BTreeMap<usize, BTreeSet<Tuple>>,
 }
 #[derive(Default, Debug)]
 pub struct Work {
     pub head_attempts: Cell<usize>,
-    pub fact_visits: Cell<usize>,
     pub combinations: Cell<usize>,
     pub inspections: usize,
     pub registrations: usize,
     pub notifications: usize,
-    pub wakeups: usize,
     pub changed_handles: usize,
     pub peak_tuples: usize,
 }
@@ -126,9 +119,6 @@ impl<const METRICS: bool> Execution<METRICS> {
             return (!self.history.contains(&(rule, ids.clone()))).then(|| (ids.clone(), env));
         }
         for (&id, fact) in &self.live {
-            if METRICS {
-                self.work.fact_visits.set(self.work.fact_visits.get() + 1);
-            }
             let head = heads[0];
             if ids.contains(&id) || head.name != fact.name || head.args.len() != fact.args.len() {
                 continue;
@@ -251,47 +241,37 @@ impl<const METRICS: bool> Execution<METRICS> {
         rule: usize,
         heads: &[&Constraint],
         ids: &mut Vec<usize>,
-        anchor: Option<(usize, usize)>,
+        required: Option<usize>,
         out: &mut Vec<Tuple>,
     ) {
         if heads.is_empty() {
             if METRICS {
                 self.work.combinations.set(self.work.combinations.get() + 1);
             }
-            out.push((rule, ids.clone()));
+            if required.is_none_or(|id| ids.contains(&id)) {
+                out.push((rule, ids.clone()));
+            }
             return;
         }
-        use std::ops::Bound::{Included, Unbounded};
-        let bounds = match anchor {
-            Some((position, id)) if position == ids.len() => (Included(id), Included(id)),
-            _ => (Unbounded, Unbounded),
-        };
-        for (&id, f) in self.live.range(bounds) {
-            if METRICS {
-                self.work.fact_visits.set(self.work.fact_visits.get() + 1);
-            }
+        for (&id, f) in &self.live {
             if ids.contains(&id) || heads[0].name != f.name || heads[0].args.len() != f.args.len() {
                 continue;
             }
             ids.push(id);
-            self.combinations(rule, &heads[1..], ids, anchor, out);
+            self.combinations(rule, &heads[1..], ids, required, out);
             ids.pop();
         }
     }
     fn register(&mut self, required: Option<usize>) {
         let mut keys = vec![];
         for (i, r) in self.program.rules.iter().enumerate() {
-            let heads = r.kept.iter().chain(&r.removed).collect::<Vec<_>>();
-            if let Some(id) = required {
-                let fact = &self.live[&id];
-                for (position, head) in heads.iter().enumerate() {
-                    if head.name == fact.name && head.args.len() == fact.args.len() {
-                        self.combinations(i, &heads, &mut vec![], Some((position, id)), &mut keys);
-                    }
-                }
-            } else {
-                self.combinations(i, &heads, &mut vec![], None, &mut keys);
-            }
+            self.combinations(
+                i,
+                &r.kept.iter().chain(&r.removed).collect::<Vec<_>>(),
+                &mut vec![],
+                required,
+                &mut keys,
+            );
         }
         for key in keys {
             let cache = self.cache.as_mut().unwrap();
@@ -311,7 +291,6 @@ impl<const METRICS: bool> Execution<METRICS> {
     }
     fn unsubscribe_tuple(&mut self, key: &Tuple) {
         let cache = self.cache.as_mut().unwrap();
-        cache.conditions.remove(key);
         let handles = std::mem::take(cache.tuples.get_mut(key).unwrap());
         for h in handles {
             let xs = cache.watchers.get_mut(&h).unwrap();
@@ -350,24 +329,6 @@ impl<const METRICS: bool> Execution<METRICS> {
             cache.ready.insert(key.clone(), env);
             return;
         }
-        let descriptor_handles = deps
-            .descriptor
-            .iter()
-            .map(|&n| self.graph.nodes[n].handles[0])
-            .collect();
-        let pair = deps.equality.map(|(a, b)| {
-            (
-                self.graph.nodes[a].handles[0],
-                self.graph.nodes[b].handles[0],
-            )
-        });
-        cache.conditions.insert(
-            key.clone(),
-            Waiting {
-                descriptors: descriptor_handles,
-                equality: pair,
-            },
-        );
         let mut nodes = deps.descriptor;
         if let Some((a, b)) = deps.equality {
             nodes.insert(a);
@@ -407,18 +368,7 @@ impl<const METRICS: bool> Execution<METRICS> {
             }
         }
         for key in wake {
-            let waiting = &self.cache.as_ref().unwrap().conditions[&key];
-            let known = |h: usize| self.graph.nodes[self.graph.targets[h]].descriptor.is_some();
-            let possible = waiting.descriptors.iter().any(|&h| known(h))
-                || waiting.equality.is_some_and(|(a, b)| {
-                    self.graph.targets[a] == self.graph.targets[b] || known(a) && known(b)
-                });
-            if possible {
-                if METRICS {
-                    self.work.wakeups += 1;
-                }
-                self.inspect_tuple(&key);
-            }
+            self.inspect_tuple(&key);
         }
         for id in std::mem::take(&mut self.new_occ) {
             self.register(Some(id));

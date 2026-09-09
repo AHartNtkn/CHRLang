@@ -1,6 +1,6 @@
 # Unanswered architecture questions and experimental ownership
 
-The [multi-head/history gate](results/S02-multihead-history-gate.md) validates 47 finite source configurations over the local equality graph against scalar, scanned and indexed controls. Distinct occurrence identities, ordered propagation history, fresh body values and consuming priority agree. Tuple selection currently scans; T072 next compares selective activation and its repair responsibilities before costs. Broader integration, resource-aware lowering and adaptive reunion remain required.
+The [tuple-activation gate](results/S02-tuple-activation-gate.md) validates 59 finite configurations and 24 work cells. Anchored registration and filtered wakeups reduce repeated work, but the cold-prefix control requires 64 scanning checks versus 4096 full-tuple checks and retained tuples. T072 next compares source-derived partial joins before native costs. Notification discovery remains visible; no architecture ranking follows.
 
 ## How unanswered variants remain accountable
 

@@ -1,0 +1,57 @@
+warning: method `access_key` is never used
+   --> research/chr-integrated/../chr-compiled/src/generate.rs:229:8
+    |
+227 | impl Emit {
+    | --------- method in this implementation
+228 |     /// A key exists only when every source-pattern component is established.
+229 |     fn access_key(&mut self, term: &Term) -> String {
+    |        ^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `emit_access` is never used
+   --> research/chr-integrated/../chr-compiled/src/generate.rs:255:8
+    |
+255 | pub fn emit_access(name: &str, rules: &[Rule]) -> Result<String, String> {
+    |        ^^^^^^^^^^^
+
+warning: function `update_columns` is never used
+   --> research/chr-integrated/../chr-compiled/src/generate.rs:400:8
+    |
+400 | pub fn update_columns(rules: &[Rule]) -> BTreeMap<(String, usize), BTreeSet<usize>> {
+    |        ^^^^^^^^^^^^^^
+
+warning: `chr-integrated` (build script) generated 3 warnings
+   Compiling chr-relational v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-relational)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.55s
+     Running tests/multihead.rs (target/debug/deps/multihead-87ea71fc20a7ef62)
+
+running 7 tests
+test unsupported_search_and_guards_are_rejected ... ok
+{"family":"sparse","width":4,"selective":false,"heads":38,"combinations":0,"inspections":0,"registrations":0,"notifications":0,"changed_handles":0,"peak_tuples":0}
+{"family":"sparse","width":4,"selective":true,"heads":17,"combinations":35,"inspections":16,"registrations":15,"notifications":1,"changed_handles":2,"peak_tuples":7}
+test body_completion_and_occurrence_order_select_the_actual_consumer ... ok
+test body_barrier_freshness_and_failure ... ok
+{"family":"sparse","width":16,"selective":false,"heads":332,"combinations":0,"inspections":0,"registrations":0,"notifications":0,"changed_handles":0,"peak_tuples":0}
+test duplicate_kept_occurrences_generate_ordered_history_entries ... ok
+test kept_and_removed_heads_require_distinct_occurrences_and_keep_identity ... ok
+{"family":"sparse","width":16,"selective":true,"heads":53,"combinations":323,"inspections":52,"registrations":51,"notifications":1,"changed_handles":2,"peak_tuples":19}
+test ordered_multiheads_history_and_late_aliases ... ok
+{"family":"sparse","width":64,"selective":false,"heads":4388,"combinations":0,"inspections":0,"registrations":0,"notifications":0,"changed_handles":0,"peak_tuples":0}
+{"family":"sparse","width":64,"selective":true,"heads":197,"combinations":4355,"inspections":196,"registrations":195,"notifications":1,"changed_handles":2,"peak_tuples":67}
+{"family":"broad","width":4,"selective":false,"heads":51,"combinations":0,"inspections":0,"registrations":0,"notifications":0,"changed_handles":0,"peak_tuples":0}
+{"family":"broad","width":4,"selective":true,"heads":35,"combinations":50,"inspections":31,"registrations":18,"notifications":13,"changed_handles":14,"peak_tuples":10}
+{"family":"broad","width":16,"selective":false,"heads":579,"combinations":0,"inspections":0,"registrations":0,"notifications":0,"changed_handles":0,"peak_tuples":0}
+{"family":"broad","width":16,"selective":true,"heads":233,"combinations":578,"inspections":217,"registrations":66,"notifications":151,"changed_handles":152,"peak_tuples":34}
+{"family":"broad","width":64,"selective":false,"heads":8451,"combinations":0,"inspections":0,"registrations":0,"notifications":0,"changed_handles":0,"peak_tuples":0}
+{"family":"broad","width":64,"selective":true,"heads":2465,"combinations":8450,"inspections":2401,"registrations":258,"notifications":2143,"changed_handles":2144,"peak_tuples":130}
+{"family":"nested","width":4,"selective":false,"heads":38,"combinations":0,"inspections":0,"registrations":0,"notifications":0,"changed_handles":0,"peak_tuples":0}
+{"family":"nested","width":4,"selective":true,"heads":17,"combinations":35,"inspections":16,"registrations":15,"notifications":2,"changed_handles":2,"peak_tuples":7}
+{"family":"nested","width":16,"selective":false,"heads":332,"combinations":0,"inspections":0,"registrations":0,"notifications":0,"changed_handles":0,"peak_tuples":0}
+{"family":"nested","width":16,"selective":true,"heads":53,"combinations":323,"inspections":52,"registrations":51,"notifications":2,"changed_handles":2,"peak_tuples":19}
+{"family":"nested","width":64,"selective":false,"heads":4388,"combinations":0,"inspections":0,"registrations":0,"notifications":0,"changed_handles":0,"peak_tuples":0}
+{"family":"nested","width":64,"selective":true,"heads":197,"combinations":4355,"inspections":196,"registrations":195,"notifications":2,"changed_handles":2,"peak_tuples":67}
+test selective_sparse_broad_and_nested_work ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.41s
+

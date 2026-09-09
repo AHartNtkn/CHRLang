@@ -17,6 +17,16 @@ fn check(rules: &[Rule], q: &Query) -> Vec<Answer> {
     }
     assert!(done, "unfinished multihead source");
     let got = e.answer().into_iter().collect::<Vec<_>>();
+    let mut activated = p.start_mode::<true>(q, true);
+    let mut done = false;
+    for _ in 0..200_000 {
+        if activated.advance() {
+            done = true;
+            break;
+        }
+    }
+    assert!(done, "unfinished selective source");
+    oracle::same_raw(activated.answer().into_iter().collect(), got.clone());
     oracle::same_raw(got.clone(), oracle::run(rules, q, 200_000));
     for access in [chr_compiled::Access::Scan, chr_compiled::Access::Indexed] {
         let p = chr_compiled::PreparedRuleset::new(rules.to_vec(), None).unwrap();
@@ -261,5 +271,119 @@ fn body_completion_and_occurrence_order_select_the_actual_consumer() {
                 .residual
                 .contains(&c("winner", [atom(if reverse { "b" } else { "a" })]))
         );
+    }
+}
+
+#[test]
+fn selective_sparse_broad_and_nested_work() {
+    fn nat(n: usize) -> chr_syntax::Term {
+        (0..n).fold(atom("z"), |x, _| t("s", [x]))
+    }
+    for family in ["sparse", "broad", "nested", "cold"] {
+        for width in [4, 16, 64] {
+            let pattern = if family == "nested" {
+                t("pair", [v(0), v(0)])
+            } else {
+                t("f", [v(0)])
+            };
+            let mut rules = vec![
+                Rule::simplify(
+                    "consume",
+                    [c("request", [pattern]), c("permit", [])],
+                    c("hit", [v(0)]).into(),
+                ),
+                Rule::simplify(
+                    "tick",
+                    [c("tick", [t("s", [v(0)])])],
+                    c("tick", [v(0)]).into(),
+                ),
+                Rule::simplify("end_tick", [c("tick", [atom("z")])], Goal::True),
+                Rule::simplify("link", [c("link", [v(0), v(1)])], eq(v(0), v(1))),
+                Rule::simplify("bind", [c("bind", [v(0)])], eq(v(0), t("f", [atom("a")]))),
+            ];
+            let mut constraints = vec![c("permit", []), c("tick", [nat(width)])];
+            for i in 0..width {
+                let input = if family == "nested" {
+                    t("pair", [v(100 + i as u64), v(1000 + i as u64)])
+                } else {
+                    v(100 + i as u64)
+                };
+                constraints.push(c("request", [input]));
+            }
+            if family == "broad" {
+                for i in 1..width {
+                    constraints.push(c("link", [v(100), v(100 + i as u64)]));
+                }
+            }
+            if family == "nested" {
+                constraints.push(c(
+                    "link",
+                    [v(100 + width as u64 / 2), v(1000 + width as u64 / 2)],
+                ));
+            } else {
+                constraints.push(c("bind", [v(100 + width as u64 / 2)]));
+            }
+            if family == "cold" {
+                rules = vec![Rule::simplify(
+                    "cold",
+                    [c("request", [t("f", [v(0)])]), c("partner", [v(0)])],
+                    Goal::True,
+                )];
+                constraints.retain(|c| c.name == "request");
+                for _ in 0..width {
+                    constraints.push(c("partner", [atom("a")]));
+                }
+            }
+            let q = Query {
+                constraints,
+                outputs: vec![],
+            };
+            let expected = check(&rules, &q);
+            let p = local::multihead::Program::compile(&rules).unwrap();
+            for selective in [false, true] {
+                let mut e = p.start_mode::<true>(&q, selective);
+                let mut done = false;
+                for _ in 0..200_000 {
+                    e.assert_cache_integrity();
+                    if e.advance() {
+                        done = true;
+                        break;
+                    }
+                }
+                assert!(done);
+                e.assert_cache_integrity();
+                oracle::same_raw(e.answer().into_iter().collect(), expected.clone());
+                if family == "cold" {
+                    assert_eq!(
+                        e.work.head_attempts.get(),
+                        if selective { width * width } else { width }
+                    );
+                }
+                println!(
+                    "{{\"family\":\"{family}\",\"width\":{width},\"selective\":{selective},\"heads\":{},\"fact_visits\":{},\"combinations\":{},\"inspections\":{},\"registrations\":{},\"notifications\":{},\"wakeups\":{},\"changed_handles\":{},\"peak_tuples\":{}}}",
+                    e.work.head_attempts.get(),
+                    e.work.fact_visits.get(),
+                    e.work.combinations.get(),
+                    e.work.inspections,
+                    e.work.registrations,
+                    e.work.notifications,
+                    e.work.wakeups,
+                    e.work.changed_handles,
+                    e.work.peak_tuples
+                );
+                let mut off = p.start_mode::<false>(&q, selective);
+                let mut done = false;
+                for _ in 0..200_000 {
+                    if off.advance() {
+                        done = true;
+                        break;
+                    }
+                }
+                assert!(done);
+                oracle::same_raw(off.answer().into_iter().collect(), expected.clone());
+                assert_eq!(off.work.head_attempts.get(), 0);
+                assert_eq!(off.work.registrations, 0);
+            }
+        }
     }
 }

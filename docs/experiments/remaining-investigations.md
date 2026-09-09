@@ -1,10 +1,10 @@
 # The comparisons still needed to choose the architecture
 
-The [multi-head/history gate](results/S02-multihead-history-gate.md) validates 47 finite source configurations over the local equality graph against scalar, scanned and indexed controls. Distinct occurrence identities, ordered propagation history, fresh body values and consuming priority agree. Tuple selection currently scans; T072 next compares selective activation and its repair responsibilities before costs. Broader integration, resource-aware lowering and adaptive reunion remain required.
+The [tuple-activation gate](results/S02-tuple-activation-gate.md) validates 59 finite configurations and 24 work cells. Anchored registration and filtered wakeups reduce repeated work, but the cold-prefix control requires 64 scanning checks versus 4096 full-tuple checks and retained tuples. T072 next compares source-derived partial joins before native costs. Notification discovery remains visible; no architecture ranking follows.
 
 ## Starting evidence and immediate decision
 
-The next bounded package compares selective head-tuple activation against scanning over the same local equality graph. Preserve occurrence identity, kept-head history, body barriers and complete raw answers under sparse updates, broad merges and consumption. The [source-gate decision](results/S02-multihead-history-gate.md#next-comparison-selective-tuple-activation) retains resource-aware lowering and adaptive reunion as distinct required alternatives.
+The next bounded package compares source-derived partial joins with scanning and full-tuple activation. A failed prefix must suspend before enumerating remaining partners, then extend under late equality without changing tuple priority, history or consumption. The [full-tuple adverse witness](results/S02-tuple-activation-gate.md#next-decision-compare-partial-joins-before-measuring-native-costs) makes this necessary before a representative native comparison. Resource-aware lowering and adaptive reunion remain required alternatives.
 
 The completed [restoration pilot](results/S04-resident-cost-pilot.md), [reunion source gate](results/S04-reunion-source-gate.md), [ownership/identity comparison](results/S04-reunion-identity-attribution.md), [strong-control gate](results/S04-reunion-strong-controls.md) and [complete-cost pilot](results/S04-reunion-complete-pilot.md) supply controls. They do not resolve repeated dynamic reunion or general source inference.
 
