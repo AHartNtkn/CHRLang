@@ -236,7 +236,7 @@ All new results link raw inputs, commands, freezes, validation and unfavorable o
 
 ## Current execution order
 
-The active task is [T073 source-driven lowering beyond exact schemas](results/S06-source-driven-lowering-entry.md), selected after the [contextual confirmation](results/S02-contextual-confirmation.md). T073’s [pure-prefix gate](results/S06-pure-prefix-gate.md) now establishes source-derived call elimination and a resource-priority counterexample; lifecycle costs remain unmeasured. T072 now has complete-source and bounded lifecycle evidence, including a lower requested-memory peak and higher allocation traffic than scanning on branching sources. Exact-schema lowering is stronger than contextual execution throughout the registered comparison. Broader contextual deduction reuse, local rewrites and lifetime remain open.
+The active task is [T071 actual local pull-tab source execution](results/S03-local-pulltab-entry.md), selected by the [lowering breadth review](results/S06-first-breadth-review.md). T073 now has [source-derived prefix lifecycle evidence](results/S06-prefix-lifecycle.md), a consequential preparation correction and contrary short-chain cases. Query-artifact reuse and broader lowering remain open. T072 retains complete-source and bounded contextual costs; new contextual deductions, local rewrites and lifetime remain open.
 
 The [demand lifecycle comparison](results/S03-demand-lifecycle.md) establishes opaque gains and discriminating losses against scanning after a consequential copying correction. T071 remains unresolved for actual local pull-tab operations, fresh derivation templates, broader aliases and sustainable lifetime. The T073 selection record compares these alternatives and requires reconsideration after its source gate.
 
@@ -244,4 +244,4 @@ T070's [native cost pilot](results/S01-native-cost-pilot.md) and [direct amortiz
 
 Other completed bounded investigations include S02 relational integration, S03 direct graphs, S04 restoration/replay, S05 stable-identity reuse, S06 finite-table compilation and S09 reusable workers with factored serial controls. Each retains contrary cases and unanswered mechanisms in the [coverage map](coverage.md). A bounded trial does not complete its stage.
 
-The [ordered remaining investigations](remaining-investigations.md) govern the subsequent cycle and dependencies. Review selection after T073’s source/eligibility gate and before broadening its fragment or starting costs. Lower priority never changes an item's evidence status. The overall goal remains active under S11's closure requirements.
+The [ordered remaining investigations](remaining-investigations.md) govern the subsequent cycle and dependencies. Review selection after T071’s local-rewrite/source gate and before broadening its fragment or starting costs. Lower priority never changes an item's evidence status. The overall goal remains active under S11's closure requirements.

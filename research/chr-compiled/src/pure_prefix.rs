@@ -58,29 +58,32 @@ fn goal_vars(g: &Goal, out: &mut BTreeSet<Var>) {
         _ => (),
     }
 }
-fn acyclic(
-    k: &Key,
-    defs: &BTreeMap<Key, Rule>,
-    active: &mut BTreeSet<Key>,
-    done: &mut BTreeSet<Key>,
-) -> bool {
-    if done.contains(k) {
-        return true;
+// The greatest required prefix position, or None for a cycle/foreign call.
+// Each candidate's dependency set is visited once, including failed candidates.
+fn dependency_bound(
+    i: usize,
+    edges: &[Vec<Option<usize>>],
+    state: &mut [u8],
+    bounds: &mut [Option<usize>],
+) -> Option<usize> {
+    if state[i] == 1 {
+        return None;
     }
-    if !active.insert(k.clone()) {
-        return false;
+    if state[i] == 2 {
+        return bounds[i];
     }
-    let Some(r) = defs.get(k) else {
-        return false;
-    };
-    let mut deps = BTreeSet::new();
-    calls(&r.body, &mut deps);
-    if !deps.iter().all(|d| acyclic(d, defs, active, done)) {
-        return false;
+    state[i] = 1;
+    let mut result = Some(i + 1);
+    for edge in &edges[i] {
+        let next = edge.and_then(|j| dependency_bound(j, edges, state, bounds));
+        result = result.zip(next).map(|(a, b)| a.max(b));
+        if result.is_none() {
+            break;
+        }
     }
-    active.remove(k);
-    done.insert(k.clone());
-    true
+    state[i] = 2;
+    bounds[i] = result;
+    result
 }
 pub struct Program {
     source: Vec<Rule>,
@@ -96,7 +99,6 @@ impl Program {
             }
         }
         let mut candidates = BTreeMap::new();
-        let mut best = None;
         for (i, r) in source.iter().enumerate() {
             if !r.kept.is_empty() || r.removed.len() != 1 || !r.guards.is_empty() {
                 break;
@@ -111,16 +113,37 @@ impl Program {
             {
                 break;
             }
-            candidates.insert(key(h), r.clone());
-            let mut done = BTreeSet::new();
-            if candidates
-                .keys()
-                .all(|k| acyclic(k, &candidates, &mut BTreeSet::new(), &mut done))
-            {
-                best = Some((i + 1, candidates.clone()));
+            candidates.insert(key(h), i);
+        }
+        let count = candidates.len();
+        let edges = source[..count]
+            .iter()
+            .map(|r| {
+                let mut deps = BTreeSet::new();
+                calls(&r.body, &mut deps);
+                deps.iter()
+                    .map(|k| candidates.get(k).copied())
+                    .collect::<Vec<_>>()
+            })
+            .collect::<Vec<_>>();
+        let mut state = vec![0; count];
+        let mut bounds = vec![None; count];
+        let mut required = 0;
+        let mut best = None;
+        for i in 0..count {
+            let Some(bound) = dependency_bound(i, &edges, &mut state, &mut bounds) else {
+                break;
+            };
+            required = required.max(bound);
+            if required <= i + 1 {
+                best = Some(i + 1);
             }
         }
-        let (prefix, defs) = best.ok_or("no closed acyclic private pure prefix")?;
+        let prefix = best.ok_or("no closed acyclic private pure prefix")?;
+        let defs = source[..prefix]
+            .iter()
+            .map(|r| (key(&r.removed[0]), r.clone()))
+            .collect();
         Ok(Self {
             source: source.to_vec(),
             defs,

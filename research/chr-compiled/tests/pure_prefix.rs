@@ -277,3 +277,52 @@ fn emitted_program_eliminates_private_applications_in_actual_execution() {
         assert!(checked);
     }
 }
+
+#[test]
+fn prefix_selection_agrees_with_bounded_dependency_graphs() {
+    // Each rule is an equation, one of three calls, or a foreign residual.
+    for encoding in 0..125 {
+        let mut n = encoding;
+        let mut edges = vec![];
+        for _ in 0..3 {
+            edges.push(n % 5);
+            n /= 5;
+        }
+        fn valid(i: usize, k: usize, edges: &[usize], path: &mut Vec<usize>) -> bool {
+            if i >= k || path.contains(&i) {
+                return false;
+            }
+            path.push(i);
+            let ok = match edges[i] {
+                0 => true,
+                1..=3 => valid(edges[i] - 1, k, edges, path),
+                _ => false,
+            };
+            path.pop();
+            ok
+        }
+        let expected = (1..=3)
+            .filter(|k| (0..*k).all(|i| valid(i, *k, &edges, &mut vec![])))
+            .max();
+        let rules = (0..3)
+            .map(|i| {
+                Rule::simplify(
+                    &format!("p{i}"),
+                    [c(&format!("p{i}"), [v(0)])],
+                    match edges[i] {
+                        0 => eq(v(0), atom("a")),
+                        1..=3 => c(&format!("p{}", edges[i] - 1), [v(0)]).into(),
+                        _ => c("external", [v(0)]).into(),
+                    },
+                )
+            })
+            .collect::<Vec<_>>();
+        assert_eq!(
+            Program::new(&rules)
+                .ok()
+                .map(|p| p.eliminated_predicates().len()),
+            expected,
+            "graph {edges:?}"
+        );
+    }
+}
