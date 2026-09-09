@@ -721,32 +721,24 @@ impl Run {
                                 self.resources[id].consumed.push(ctx.clone());
                             }
                         }
-                        let support = if clause.reusable_static_match {
-                            match self.reuse {
-                                Reuse::StaticBirth
-                                    if clause
-                                        .inputs
-                                        .iter()
-                                        .zip(&args)
-                                        .all(|(p, id)| self.static_match(p, *id)) =>
-                                {
-                                    self.obligations[origin].0.clone()
-                                }
+                        let mut support = self.obligations[origin].0.clone();
+                        let reusable = clause.reusable_static_match
+                            && match self.reuse {
+                                Reuse::CurrentContext => false,
+                                Reuse::StaticBirth => clause
+                                    .inputs
+                                    .iter()
+                                    .zip(&args)
+                                    .all(|(p, id)| self.static_match(p, *id)),
                                 Reuse::MatchDependencies => {
-                                    let mut support = self.obligations[origin].0.clone();
-                                    if clause.inputs.iter().zip(&args).all(|(p, id)| {
+                                    clause.inputs.iter().zip(&args).all(|(p, id)| {
                                         self.match_dependencies(p, *id, ctx, &mut support)
-                                    }) {
-                                        support
-                                    } else {
-                                        ctx.clone()
-                                    }
+                                    })
                                 }
-                                _ => ctx.clone(),
-                            }
-                        } else {
-                            ctx.clone()
-                        };
+                            };
+                        if !reusable {
+                            support = ctx.clone();
+                        }
                         let value = self.expand(&clause.body, &mut env, &support, output);
                         self.nodes[id].results.push((support, value));
                         return Err(Signal::Progress);
@@ -812,14 +804,8 @@ impl Run {
     // Follow only already available edges: nested demand and resource settlement
     // are not direct-argument redexes. Never force additional source work here.
     fn pull_argument(&mut self, call: Id, index: usize, label: usize, ctx: &Context) -> bool {
-        let Node::Call(name, args, output, origin) = self.nodes[call].node.clone() else {
+        let Node::Call(name, args, output, _) = self.nodes[call].node.clone() else {
             unreachable!()
-        };
-        let dependencies = self.reuse == Reuse::MatchDependencies;
-        let mut validity = if dependencies {
-            self.obligations[origin].0.clone()
-        } else {
-            ctx.clone()
         };
         let mut at = args[index];
         let (left, right) = loop {
@@ -830,26 +816,17 @@ impl Run {
             match &self.nodes[at].node {
                 Node::Alias(next) => at = *next,
                 Node::Call(..) => {
-                    let Some((support, next)) =
+                    let Some((_, next)) =
                         self.nodes[at].results.iter().rev().find(|(support, _)| {
                             support.iter().all(|(k, v)| ctx.get(k) == Some(v))
                         })
                     else {
                         return false;
                     };
-                    if dependencies {
-                        validity.extend(support.iter().map(|(k, v)| (*k, *v)));
-                    }
                     at = *next;
                 }
                 Node::Choice(found, a, b) => {
-                    if dependencies {
-                        validity.extend(self.births[*found].iter().map(|(k, v)| (*k, *v)));
-                    }
                     if let Some(side) = ctx.get(found) {
-                        if dependencies {
-                            validity.insert(*found, *side);
-                        }
                         at = if *side { *b } else { *a };
                     } else if *found == label {
                         break (*a, *b);
@@ -862,14 +839,14 @@ impl Run {
         };
         let mut children = Vec::with_capacity(2);
         for (side, argument) in [(false, left), (true, right)] {
-            let mut support = validity.clone();
+            let mut support = ctx.clone();
             support.insert(label, side);
             let mut substituted = args.clone();
             substituted[index] = argument;
             children.push(self.call(name.clone(), substituted, output, &support));
         }
         let lifted = self.push(Node::Choice(label, children[0], children[1]));
-        self.nodes[call].results.push((validity, lifted));
+        self.nodes[call].results.push((ctx.clone(), lifted));
         true
     }
     fn normal(&mut self, id: Id, ctx: &Context) -> Result<Term, Signal> {
@@ -1069,7 +1046,7 @@ mod pull_tab_tests {
             Context::from([(0, false), (1, true)])
         );
         let other = Context::from([(0, false), (1, true), (2, true)]);
-        assert!(run.force(call, &other).is_ok());
+        assert!(matches!(run.force(call, &other), Ok(_)));
         assert_eq!(run.nodes[call].results.len(), 1);
         let opposite = Context::from([(0, true), (1, true), (2, true)]);
         assert!(matches!(run.force(call, &opposite), Ok(id) if id == output));
@@ -1082,67 +1059,6 @@ mod pull_tab_tests {
         );
         assert!(matches!(run.force(born, &ctx), Err(Signal::Progress)));
         assert_eq!(run.nodes[born].results[0].0, ctx);
-    }
-
-    #[test]
-    fn lifted_calls_do_not_inherit_unrelated_rewrite_choices() {
-        let rules = vec![Rule::simplify(
-            "use",
-            [c("use", [atom("a"), v(0)])],
-            eq(v(0), atom("done")),
-        )];
-        let mut run = Prepared::with_reuse(rules, Reuse::MatchDependencies)
-            .unwrap()
-            .with_pull_tabs()
-            .start(Query {
-                constraints: vec![],
-                outputs: vec![],
-            })
-            .unwrap();
-        run.births = vec![
-            Context::new(),
-            Context::new(),
-            Context::new(),
-            Context::from([(0, true)]),
-            Context::new(),
-        ];
-        let a = run.push(Node::App("a".into(), vec![]));
-        let b = run.push(Node::App("b".into(), vec![]));
-        let choice = run.push(Node::Choice(3, a, b));
-        let out = run.push(Node::Unknown(1));
-        let producer = run.call("producer".into(), vec![], out, &Context::from([(1, false)]));
-        run.nodes[producer]
-            .results
-            .push((Context::from([(1, false)]), choice));
-        let call = run.call(
-            "use".into(),
-            vec![producer],
-            out,
-            &Context::from([(2, true)]),
-        );
-        assert!(matches!(
-            run.force(
-                call,
-                &Context::from([(0, true), (1, false), (2, true), (4, false)])
-            ),
-            Err(Signal::Split(3))
-        ));
-        assert_eq!(
-            run.nodes[call].results[0].0,
-            Context::from([(0, true), (1, false), (2, true)])
-        );
-        let Node::Choice(_, left, right) = run.nodes[run.nodes[call].results[0].1].node else {
-            panic!()
-        };
-        for (side, child) in [(false, left), (true, right)] {
-            let Node::Call(_, _, _, origin) = run.nodes[child].node else {
-                panic!()
-            };
-            assert_eq!(
-                run.obligations[origin].0,
-                Context::from([(0, true), (1, false), (2, true), (3, side)])
-            );
-        }
     }
 
     #[test]

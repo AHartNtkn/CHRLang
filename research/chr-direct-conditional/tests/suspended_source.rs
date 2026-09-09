@@ -64,6 +64,17 @@ fn collect(rules: Vec<Rule>, query: Query, expected: Vec<Answer>) {
             expected.clone(),
         );
     }
+    for pull in [false, true] {
+        runtime_support::same_raw(
+            demand_strategy(
+                rules.clone(),
+                query.clone(),
+                chr_direct_choice::demand::Reuse::MatchDependencies,
+                pull,
+            ),
+            expected.clone(),
+        );
+    }
     runtime_support::same_raw(demand_answers(rules, query), expected);
 }
 fn demand_answers(rules: Vec<Rule>, query: Query) -> Vec<Answer> {
@@ -931,50 +942,55 @@ fn pulled_demand_preserves_finite_service_and_off_output_failure() {
         Rule::simplify("loop", [c("loop", [v(0)])], c("loop", [v(0)]).into()),
         Rule::simplify("bad", [c("bad", [v(0)])], Goal::Fail),
     ];
-    for pull_tabs in [false, true] {
-        for failing in [false, true] {
-            let mut constraints = vec![c("make", [v(100)]), c("take", [v(100), v(101)])];
-            if failing {
-                constraints.push(c("bad", [v(102)]));
-            }
-            let prepared = Prepared::new(rules.clone()).unwrap();
-            let prepared = if pull_tabs {
-                prepared.with_pull_tabs()
-            } else {
-                prepared
-            };
-            let mut run = prepared
-                .start(Query {
-                    constraints,
-                    outputs: vec![("x".into(), Var(101))],
-                })
-                .unwrap();
-            let mut answers = vec![];
-            let mut exhausted = false;
-            for _ in 0..128 {
-                match run.tick() {
-                    Event::Progress => {}
-                    Event::Answer(a) => answers.push(a),
-                    Event::Exhausted => {
-                        exhausted = true;
-                        break;
+    for policy in [
+        chr_direct_choice::demand::Reuse::StaticBirth,
+        chr_direct_choice::demand::Reuse::MatchDependencies,
+    ] {
+        for pull_tabs in [false, true] {
+            for failing in [false, true] {
+                let mut constraints = vec![c("make", [v(100)]), c("take", [v(100), v(101)])];
+                if failing {
+                    constraints.push(c("bad", [v(102)]));
+                }
+                let prepared = Prepared::with_reuse(rules.clone(), policy).unwrap();
+                let prepared = if pull_tabs {
+                    prepared.with_pull_tabs()
+                } else {
+                    prepared
+                };
+                let mut run = prepared
+                    .start(Query {
+                        constraints,
+                        outputs: vec![("x".into(), Var(101))],
+                    })
+                    .unwrap();
+                let mut answers = vec![];
+                let mut exhausted = false;
+                for _ in 0..128 {
+                    match run.tick() {
+                        Event::Progress => {}
+                        Event::Answer(a) => answers.push(a),
+                        Event::Exhausted => {
+                            exhausted = true;
+                            break;
+                        }
                     }
                 }
-            }
-            if failing {
-                assert!(
-                    exhausted && answers.is_empty(),
-                    "off-output failure must terminate"
-                );
-            } else {
-                assert!(!exhausted, "loop must remain unfinished");
-                runtime_support::same_raw(
-                    answers,
-                    vec![Answer {
-                        outputs: vec![("x".into(), atom("ok"))],
-                        residual: vec![],
-                    }],
-                );
+                if failing {
+                    assert!(
+                        exhausted && answers.is_empty(),
+                        "off-output failure must terminate"
+                    );
+                } else {
+                    assert!(!exhausted, "loop must remain unfinished");
+                    runtime_support::same_raw(
+                        answers,
+                        vec![Answer {
+                            outputs: vec![("x".into(), atom("ok"))],
+                            residual: vec![],
+                        }],
+                    );
+                }
             }
         }
     }

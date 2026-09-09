@@ -24,7 +24,10 @@ for argument in sys.argv[1:]:
             for key in ["family", "consumers", "independent", "depth", "reverse", "answers"]:
                 assert a[key] == b[key]
         summary[family] = {}
-        for metric in ["expansions", "force_entries", "nodes", "calls", "lifts", "lift_walk_entries"]:
+        metrics = ["expansions", "force_entries", "nodes", "calls", "lifts", "lift_walk_entries"]
+        if "dependency_entries" in rows[0]:
+            metrics.append("dependency_entries")
+        for metric in metrics:
             differences = [int(b[metric]) - int(a[metric]) for a, b in pairs]
             summary[family][metric] = {
                 "min_delta": min(differences), "max_delta": max(differences),

@@ -721,32 +721,24 @@ impl Run {
                                 self.resources[id].consumed.push(ctx.clone());
                             }
                         }
-                        let support = if clause.reusable_static_match {
-                            match self.reuse {
-                                Reuse::StaticBirth
-                                    if clause
-                                        .inputs
-                                        .iter()
-                                        .zip(&args)
-                                        .all(|(p, id)| self.static_match(p, *id)) =>
-                                {
-                                    self.obligations[origin].0.clone()
-                                }
+                        let mut support = self.obligations[origin].0.clone();
+                        let reusable = clause.reusable_static_match
+                            && match self.reuse {
+                                Reuse::CurrentContext => false,
+                                Reuse::StaticBirth => clause
+                                    .inputs
+                                    .iter()
+                                    .zip(&args)
+                                    .all(|(p, id)| self.static_match(p, *id)),
                                 Reuse::MatchDependencies => {
-                                    let mut support = self.obligations[origin].0.clone();
-                                    if clause.inputs.iter().zip(&args).all(|(p, id)| {
+                                    clause.inputs.iter().zip(&args).all(|(p, id)| {
                                         self.match_dependencies(p, *id, ctx, &mut support)
-                                    }) {
-                                        support
-                                    } else {
-                                        ctx.clone()
-                                    }
+                                    })
                                 }
-                                _ => ctx.clone(),
-                            }
-                        } else {
-                            ctx.clone()
-                        };
+                            };
+                        if !reusable {
+                            support = ctx.clone();
+                        }
                         let value = self.expand(&clause.body, &mut env, &support, output);
                         self.nodes[id].results.push((support, value));
                         return Err(Signal::Progress);
@@ -1069,7 +1061,7 @@ mod pull_tab_tests {
             Context::from([(0, false), (1, true)])
         );
         let other = Context::from([(0, false), (1, true), (2, true)]);
-        assert!(run.force(call, &other).is_ok());
+        assert!(matches!(run.force(call, &other), Ok(_)));
         assert_eq!(run.nodes[call].results.len(), 1);
         let opposite = Context::from([(0, true), (1, true), (2, true)]);
         assert!(matches!(run.force(call, &opposite), Ok(id) if id == output));
@@ -1099,38 +1091,17 @@ mod pull_tab_tests {
                 outputs: vec![],
             })
             .unwrap();
-        run.births = vec![
-            Context::new(),
-            Context::new(),
-            Context::new(),
-            Context::from([(0, true)]),
-            Context::new(),
-        ];
+        run.births = vec![Context::new(), Context::new()];
         let a = run.push(Node::App("a".into(), vec![]));
         let b = run.push(Node::App("b".into(), vec![]));
-        let choice = run.push(Node::Choice(3, a, b));
+        let choice = run.push(Node::Choice(0, a, b));
         let out = run.push(Node::Unknown(1));
-        let producer = run.call("producer".into(), vec![], out, &Context::from([(1, false)]));
-        run.nodes[producer]
-            .results
-            .push((Context::from([(1, false)]), choice));
-        let call = run.call(
-            "use".into(),
-            vec![producer],
-            out,
-            &Context::from([(2, true)]),
-        );
+        let call = run.call("use".into(), vec![choice], out, &Context::new());
         assert!(matches!(
-            run.force(
-                call,
-                &Context::from([(0, true), (1, false), (2, true), (4, false)])
-            ),
-            Err(Signal::Split(3))
+            run.force(call, &Context::from([(1, false)])),
+            Err(Signal::Split(0))
         ));
-        assert_eq!(
-            run.nodes[call].results[0].0,
-            Context::from([(0, true), (1, false), (2, true)])
-        );
+        assert_eq!(run.nodes[call].results[0].0, Context::new());
         let Node::Choice(_, left, right) = run.nodes[run.nodes[call].results[0].1].node else {
             panic!()
         };
@@ -1138,10 +1109,7 @@ mod pull_tab_tests {
             let Node::Call(_, _, _, origin) = run.nodes[child].node else {
                 panic!()
             };
-            assert_eq!(
-                run.obligations[origin].0,
-                Context::from([(0, true), (1, false), (2, true), (3, side)])
-            );
+            assert_eq!(run.obligations[origin].0, Context::from([(0, side)]));
         }
     }
 

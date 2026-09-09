@@ -140,7 +140,7 @@ Each numbered entry gives the result, the reason I stopped or limited adoption, 
 
 **Other named representation alternatives.** Flat relational e-matching, contextual/colored equality overlays, union-find expressed through CHR, specialized incidence rewrites and strategic port graphs were identified as distinct possibilities. E18's explicit equality-closure gate established finite denotation, not their relative efficiency. R02 tests one integrated organization, not every one of these alternatives. There is no direct rejection result for each named design. [Representation assessment](E18-source-assessment.md)
 
-**Current follow-up.** The [direct-argument pull-tab source gate](S03-local-pulltab-source.md) implements an actual local rewrite and passes bounded effect/progress checks after a resource-scheduling repair. The [work attribution](S03-pulltab-work.md) isolates a cache-validity advantage that requires a stronger ordinary-demand control. Costs, broader demand and fresh derivation reuse remain unresolved; these bounded results supply no whole-architecture ranking.
+**Current follow-up.** The [direct-argument pull-tab source gate](S03-local-pulltab-source.md) implements an actual local rewrite and passes bounded effect/progress checks after a resource-scheduling repair. The [work attribution](S03-pulltab-work.md) isolated a cache-validity advantage; the [matched dependency control and lift repair](S03-match-dependencies.md) remove the expansion difference in all 72 registered configurations. Total-cost comparison remains required. Costs, broader demand and fresh derivation reuse remain unresolved; these bounded results supply no whole-architecture ranking.
 
 ### 17. Copied versus persistent snapshots — Positive storage result, limited scope
 

@@ -1,0 +1,57 @@
+[package]
+name = "chr-direct-conditional"
+version.workspace = true
+edition.workspace = true
+
+[features]
+default = ["metrics"]
+work-diagnostics = ["chr-direct-choice/work-diagnostics"]
+metrics = ["chr-compiled?/metrics", "chr-observe?/metrics"]
+experiment = ["dep:chr-compiled", "dep:chr-observe", "dep:chr-direct-choice"]
+alloc-meter = ["experiment"]
+fork-diagnostics = ["chr-compiled?/fork-diagnostics"]
+carrier-contraction = ["chr-compiled?/carrier-contraction"]
+arena-cow = ["chr-compiled?/arena-cow"]
+
+[[bin]]
+name = "chr-conditional-cost"
+path = "experiments/main.rs"
+required-features = ["experiment"]
+
+[dependencies]
+chr-syntax = { path = "../../crates/chr-syntax" }
+
+chr-compiled = { path = "../chr-compiled", default-features = false, optional = true }
+chr-observe = { path = "../chr-observe", default-features = false, optional = true }
+
+chr-direct-choice = { path = "../chr-direct-choice", optional = true }
+
+[dev-dependencies]
+chr-compiled = { path = "../chr-compiled", default-features = false }
+chr-direct-choice = { path = "../chr-direct-choice" }
+chr-observe = { path = "../chr-observe", default-features = false }
+
+[[bin]]
+name = "chr-stream-cost"
+path = "experiments/stream.rs"
+required-features = ["experiment"]
+
+[[bin]]
+name = "chr-mixed-cost"
+path = "experiments/mixed.rs"
+required-features = ["experiment"]
+
+[[bin]]
+name = "chr-carrier-cost"
+path = "experiments/carrier_mixed.rs"
+required-features = ["experiment"]
+
+[[bin]]
+name = "chr-equation-cost"
+path = "experiments/equation_mixed.rs"
+required-features = ["experiment"]
+
+[[bin]]
+name = "chr-demand-cost"
+path = "experiments/demand_cost.rs"
+required-features = ["experiment"]
