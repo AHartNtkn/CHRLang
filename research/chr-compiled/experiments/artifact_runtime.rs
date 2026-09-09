@@ -153,7 +153,7 @@ fn run(mut code: Option<Compiled>) -> Result<(), String> {
     let family = args[1].as_str();
     let size: usize = args[2].parse().map_err(|_| "invalid size")?;
     let queries: usize = args[3].parse().map_err(|_| "invalid query count")?;
-    if size > 4096 || !(1..=1024).contains(&queries) {
+    if size > 4096 || !(1..=16_384).contains(&queries) {
         return Err("artifact probe bounds exceeded".into());
     }
     let cancel_steps = args
@@ -206,6 +206,18 @@ fn run(mut code: Option<Compiled>) -> Result<(), String> {
         print!("");
     }
     let oracle_source = rules(family)?;
+    // Oracle answers are reusable only after exact source-query equality. Engine
+    // answers remain independently checked on every completed query.
+    let oracle_cases = if ["chain", "payload"].contains(&family) {
+        Some(
+            [query(family, size, 0), query(family, size + 1, 1)].map(|input| {
+                let answer = oracle::run(&oracle_source, &input, 2_000_000);
+                (input, answer)
+            }),
+        )
+    } else {
+        None
+    };
     #[cfg(feature = "alloc-meter")]
     let prepared_baseline = live();
     let start = Phase::begin();
@@ -251,10 +263,21 @@ fn run(mut code: Option<Compiled>) -> Result<(), String> {
         };
         let input = query(family, current_size, round);
         let cancel_this = cancel_steps.is_some() && round % 2 == 0;
-        let expected = if cancel_this {
-            Vec::new()
-        } else {
+        let expected_owned = if !cancel_this && oracle_cases.is_none() {
             oracle::run(&oracle_source, &input, 2_000_000)
+        } else {
+            Vec::new()
+        };
+        let expected = if cancel_this {
+            &[][..]
+        } else if let Some(cases) = &oracle_cases {
+            &cases
+                .iter()
+                .find(|(known, _)| known == &input)
+                .ok_or("query does not match reusable independent oracle input")?
+                .1[..]
+        } else {
+            &expected_owned[..]
         };
         let start = Phase::begin();
         let mut engine = prepared.start(input)?;
@@ -273,7 +296,7 @@ fn run(mut code: Option<Compiled>) -> Result<(), String> {
             drop(engine);
             let engine_drop_measurement = start.finish();
             let engine_drop_ns = engine_drop_measurement.ns;
-            drop(expected);
+            drop(expected_owned);
             #[cfg(feature = "alloc-meter")]
             if live() != query_baseline {
                 return Err(format!(
@@ -328,7 +351,7 @@ fn run(mut code: Option<Compiled>) -> Result<(), String> {
         let answer_drop_ns = answer_drop_measurement.ns;
         let query_ns = setup_ns + execute_ns + observation_ns + engine_drop_ns + answer_drop_ns;
         total += query_ns;
-        drop(expected);
+        drop(expected_owned);
         #[cfg(feature = "alloc-meter")]
         if live() != query_baseline {
             return Err(format!(

@@ -1,0 +1,27 @@
+{
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "",
+  "command": [
+    "rustc",
+    "--edition",
+    "2024",
+    "-C",
+    "opt-level=3",
+    "research/chr-compiled/experiments/artifact_oracle_diagnosis.rs",
+    "--extern",
+    "chr_compiled=target/s01-native-amortization/ordinary/release/libchr_compiled.rlib",
+    "-L",
+    "dependency=target/s01-native-amortization/ordinary/release/deps",
+    "-o",
+    "target/s01-native-amortization/oracle-diagnosis",
+    "--extern",
+    "chr_syntax=target/s01-native-amortization/ordinary/release/deps/libchr_syntax-3a7769d61373c4e6.rlib",
+    "--extern",
+    "chr_observe=target/s01-native-amortization/ordinary/release/deps/libchr_observe-5353dea68172bda6.rlib"
+  ],
+  "wall_seconds": 0.5569804729893804,
+  "child_cpu_seconds": 1.832279,
+  "address_space_bytes": 4294967296,
+  "cpu": null
+}

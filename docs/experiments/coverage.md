@@ -17,7 +17,7 @@ At that review, apply the [six adequacy questions](sequence.md#what-counts-as-in
 | Stage | Evidence now available | Still required |
 |---|---|---|
 | S00 contracts | [Contracts and candidate sketches](results/S00-contracts-and-candidates.md), [first-cycle feasibility](results/S00-first-cycle-feasibility.md) | Apply and extend contracts when a new mechanism or language option changes the comparison |
-| S01 discovery | [Selective/consuming source gate](results/S01-selective-consuming-gate.md), [ownership correction](results/S01-script-ownership-repair.md), [request crossover](results/S01-request-crossover.md), [subscription lifecycle pilot](results/S01-subscription-lifecycle.md), [low-yield follow-up](results/S01-subscription-low-yield.md) | Other intermediate stages and broad active-demand populations, broader access/wake plans, compilation/lifecycle costs and source-property selection |
+| S01 discovery | [Selective/consuming source gate](results/S01-selective-consuming-gate.md), [ownership correction](results/S01-script-ownership-repair.md), [request crossover](results/S01-request-crossover.md), [subscription lifecycle pilot](results/S01-subscription-lifecycle.md), [low-yield follow-up](results/S01-subscription-low-yield.md), [native cost pilot](results/S01-native-cost-pilot.md), [measured amortization](results/S01-native-amortization.md) | Other intermediate stages and broad active-demand populations, broader access/wake plans, larger ThinLTO reuse and source-property selection |
 | S02 integration | [Source gate](results/S02-relational-source.md), [lifecycle pilot](results/S02-lifecycle-pilot.md), [candidate reuse correction](results/S02-candidate-reuse.md) | Distinct contextual/local-rewrite mechanisms and interleaving that changes useful work |
 | S03 direct graphs | [Source executor](results/S03-source-executor.md), [lifecycle pilot](results/S03-lifecycle-pilot.md), [context repair](results/S03-context-repair.md) | Pull-tabbing, derivation reuse, backend correspondence and sustainable lifetime |
 | S04 restoration | [Source gate](results/S04-restoration-source-gate.md), [full lifecycle pilot](results/S04-lifecycle-pilot.md), [paired matcher correction](results/S04-matcher-paired-cost.md) | Stronger restoration/replay policies, adaptive splitting and temporary separation/reunion |
@@ -61,36 +61,6 @@ The review's [coverage check](results/R07-design-disposition-review.md#coverage-
 
 No aggregate benchmark weights, universal winner, automatic hybrid routing or additional production baseline is selected by this map.
 
-## Current selection after the operation crossover
+## Current selection
 
-The [616-process S05 crossover](results/S05-operation-crossover.md) completes T067's bounded trial with favorable repeated-operation runtime, adverse unique requests and a graph peak-memory countercase. It does not resolve broader S05. T068 selects [demand-driven matching subscriptions](results/S01-subscription-entry.md), with reusable workers and corrected replay still required alternatives. All 57 review assignments remain in force.
-
-The [subscription lifecycle pilot](results/S01-subscription-lifecycle.md) completes 1,008 processes with exact allocation replay in all 144 cells. That pilot motivated the now-completed [low-yield follow-up](results/S01-subscription-low-yield.md), using a competent two-endpoint access control. Subscription losses against cheap indexed discovery alone did not settle that mechanism.
-
-The [861-process low-yield follow-up](results/S01-subscription-low-yield.md) completes T068's bounded trial with practical retention gains and demand-lifetime countercases. T069 selects [reusable parallel workers](results/S09-reusable-workers-entry.md). Broader matching, generated access, restoration and the remaining S00–S11 obligations remain open.
-
-## Current selection after the bounded worker comparison
-
-T069 completes the [factored-contraction comparison](results/S09-factored-lowering.md) with all ten wall/CPU comparisons favoring the stronger serial organization over four persistent workers. This resolves the tested contractible family, not S09. T070 selects [generated multihead access](results/S01-generated-access-entry.md); direct graph mechanisms and broader S08/S09 obligations remain required.
-
-## S01 generated continuation evidence
-
-T070's [first native continuation gate](results/S01-native-continuation-gate.md) establishes source-derived rollback and streaming access without generic frame snapshots, candidate vectors or interpreted key templates. Independent finite effects, explicit branch replay, live-demand traces and a separately compiled artifact pass; three source faults are detected. Generated update repair, competent multi-endpoint plans and full compilation/runtime costs remain required. This is correctness and work evidence, not a cost ranking or stage completion.
-
-## S01 update analysis and the scheduling boundary
-
-The [update gate](results/S01-generated-update-gate.md) validates source-projected repair in generated code and a prepared data plan. Both reduce Global dependency work while preserving full source effects; the prepared plan needs no user-program native compilation. An eligibility-only Active wake elision changes consuming competition, and missing Global key watches lose enabled applications. This informs S01/S07's scheduling and source-property comparisons. Compilation/lifecycle costs, broader access plans and other sequence obligations remain open; T070 stays active.
-
-The [independent artifact gate](results/S01-artifact-boundary-gate.md) validates 168 changed queries with a fixed shared runtime and reconciled runtime phases. Remaining cross-crate primitive calls require a compiler-configuration control before native cost confirmation. This is accounting/correctness evidence; T070 and the broader architecture comparison remain open.
-
-The [ThinLTO gate and four-package breadth review](results/S01-link-optimization-gate.md) establish 336 checked queries under both link configurations. ThinLTO changes generated call boundaries and adds compilation work; both configurations proceed to lifecycle sizing. The next selection boundary is the first complete cost contrast, with direct pull-tabbing/derivation reuse still the strongest distinct ready alternative.
-
-[Lifecycle sizing](results/S01-lifecycle-sizing.md) completes 280 processes and 2,380 checked queries without cutoffs. Source-equivalent retained controls, separate installed-plan allocation diagnostics and cancellation/artifact-lifetime accounting are next prerequisites to the complete cost contrast. Sizing supplies feasible cells, not runtime rankings.
-
-The [retained artifact gate](results/S01-retained-artifact-gate.md) puts indexed rediscovery, eager retention and demand subscriptions on the same source/query boundary as native execution: 240 changed queries pass across ten modes and both compiler configurations. Installed-plan allocation and cancellation/artifact-lifetime accounting remain open before the complete cost contrast.
-
-The [installed-plan allocation gate](results/S01-artifact-allocation-gate.md) validates 544 queries and exact phase replay in 34 diagnostic cells, with query/prepared live-byte restoration and separate ordinary builds. Cancellation and artifact-file lifetime remain next before comparative confirmation; requested heap bytes are not RSS or runtime rankings.
-
-The [interruption/lifetime gate and breadth review](results/S01-cancellation-artifact-lifetime.md) validate 544 interrupted lifetimes and subsequent complete answers. The next package is the registered cost pilot, including low-yield favorable/adverse source profiles; further standalone accounting gates have lower value now. The first complete cost contrast remains the next architectural selection boundary.
-
-The [native cost pilot](results/S01-native-cost-pilot.md) completes 286 timing cells and 143 exact allocation replay cells. Native improves runtime on most tested sources but has higher compilation-inclusive totals at observed reuse; dedicated subscription controls remain stronger. A targeted long-reuse chain/payload comparison is next because modeled amortization is feasible but unobserved. Direct pull-tabbing/derivation reuse remains the strongest distinct alternative after that result.
+[T071 demand-driven execution and derivation reuse](results/S03-demand-execution-entry.md) is active. [T070's amortization result](results/S01-native-amortization.md) completes its bounded cost contrast without closing broader S01. All 57 review assignments remain in force. The next selection boundary is T071's first discriminating mechanism/semantic result, with contextual/local-rewrite integration the strongest distinct following alternative.

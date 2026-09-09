@@ -1,0 +1,387 @@
+{
+  "results": [
+    {
+      "family": "chain",
+      "size": 32,
+      "queries": 1024,
+      "runtime": {
+        "median_ratio": 0.8865731929988135,
+        "min_ratio": 0.8525944682849604,
+        "max_ratio": 0.8939268771329191,
+        "status": "gain"
+      },
+      "compilation_inclusive": {
+        "median_ratio": 1.1401609967373356,
+        "min_ratio": 1.1043608633658082,
+        "max_ratio": 1.1492345837264692,
+        "status": "loss"
+      },
+      "runtime_ns": {
+        "planned": [
+          693047579,
+          702795891,
+          697748020,
+          712255302,
+          700085163,
+          700857419,
+          701142146
+        ],
+        "native": [
+          619533858,
+          599199889,
+          618604690,
+          610961680,
+          611649138,
+          622408038,
+          624045208
+        ]
+      },
+      "artifact_cost_ns": [
+        170051471.9195665,
+        169091570.92995167,
+        180559314.96616924,
+        180120853.99549806,
+        176940387.95470238
+      ],
+      "allocation": {
+        "planned": {
+          "requested_bytes": 582633939,
+          "absolute_requested_peak": 162509
+        },
+        "native": {
+          "requested_bytes": 364063173,
+          "absolute_requested_peak": 162327
+        }
+      },
+      "process_wall_seconds": {
+        "planned": [
+          0.7758665200090036,
+          0.787603163975291,
+          0.7952020370867103,
+          0.8041573649970815,
+          0.7853250929620117,
+          0.7851599110290408,
+          0.7836865790886804
+        ],
+        "native": [
+          0.7121713749365881,
+          0.6842899980256334,
+          0.7032315229298547,
+          0.6955583119997755,
+          0.6976392059586942,
+          0.709148991969414,
+          0.7106358980527148
+        ]
+      },
+      "amortized_across_observed_ranges": false,
+      "not_amortized_across_observed_ranges": true
+    },
+    {
+      "family": "chain",
+      "size": 32,
+      "queries": 8192,
+      "runtime": {
+        "median_ratio": 0.8784548300341105,
+        "min_ratio": 0.8724451220506805,
+        "max_ratio": 0.8817810483572415,
+        "status": "gain"
+      },
+      "compilation_inclusive": {
+        "median_ratio": 0.9100297050817063,
+        "min_ratio": 0.9040046281685411,
+        "max_ratio": 0.9134542928645418,
+        "status": "unresolved"
+      },
+      "runtime_ns": {
+        "planned": [
+          5606563908,
+          5603834938,
+          5584861622,
+          5586430778,
+          5630051066,
+          5714127640,
+          5664964703
+        ],
+        "native": [
+          4891419333,
+          4922715868,
+          4913371801,
+          4926008788,
+          4920262262,
+          5008237776,
+          4994917735
+        ]
+      },
+      "artifact_cost_ns": [
+        170051471.9195665,
+        169091570.92995167,
+        180559314.96616924,
+        180120853.99549806,
+        176940387.95470238
+      ],
+      "allocation": {
+        "planned": {
+          "requested_bytes": 4660914131,
+          "absolute_requested_peak": 162509
+        },
+        "native": {
+          "requested_bytes": 2912348101,
+          "absolute_requested_peak": 162327
+        }
+      },
+      "process_wall_seconds": {
+        "planned": [
+          6.186234871973284,
+          6.187786002992652,
+          6.16943851695396,
+          6.175739930011332,
+          6.215920192073099,
+          6.306650641956367,
+          6.274673166917637
+        ],
+        "native": [
+          5.483314838027582,
+          5.522627313039266,
+          5.5069731689291075,
+          5.519191733095795,
+          5.51693553593941,
+          5.605782726081088,
+          5.593518279027194
+        ]
+      },
+      "amortized_across_observed_ranges": true,
+      "not_amortized_across_observed_ranges": false
+    },
+    {
+      "family": "chain",
+      "size": 32,
+      "queries": 16384,
+      "runtime": {
+        "median_ratio": 0.8811441409688291,
+        "min_ratio": 0.8778100581346795,
+        "max_ratio": 0.8970766770999349,
+        "status": "gain"
+      },
+      "compilation_inclusive": {
+        "median_ratio": 0.8970472857555984,
+        "min_ratio": 0.8935431028978496,
+        "max_ratio": 0.9127920125572341,
+        "status": "gain"
+      },
+      "runtime_ns": {
+        "planned": [
+          11098003885,
+          11095984552,
+          11149088855,
+          11126125702,
+          11246417373,
+          11253562728,
+          11259090742
+        ],
+        "native": [
+          9817487779,
+          9769735490,
+          9806082936,
+          9803720474,
+          9872218288,
+          9945795540,
+          10100267710
+        ]
+      },
+      "artifact_cost_ns": [
+        170051471.9195665,
+        169091570.92995167,
+        180559314.96616924,
+        180120853.99549806,
+        176940387.95470238
+      ],
+      "allocation": {
+        "planned": {
+          "requested_bytes": 9321805779,
+          "absolute_requested_peak": 162510
+        },
+        "native": {
+          "requested_bytes": 5824673733,
+          "absolute_requested_peak": 162328
+        }
+      },
+      "process_wall_seconds": {
+        "planned": [
+          12.275335903977975,
+          12.265199539018795,
+          12.312914873939008,
+          12.29887320403941,
+          12.393159507075325,
+          12.406940593966283,
+          12.443408058956265
+        ],
+        "native": [
+          11.003171682008542,
+          10.945213443948887,
+          10.99195820488967,
+          10.977958780014887,
+          11.051583748077974,
+          11.124505412997678,
+          11.298104558023624
+        ]
+      },
+      "amortized_across_observed_ranges": true,
+      "not_amortized_across_observed_ranges": false
+    },
+    {
+      "family": "payload",
+      "size": 64,
+      "queries": 1024,
+      "runtime": {
+        "median_ratio": 0.6951740518637537,
+        "min_ratio": 0.6434605325891737,
+        "max_ratio": 0.7361199421443607,
+        "status": "gain"
+      },
+      "compilation_inclusive": {
+        "median_ratio": 2.006814150141516,
+        "min_ratio": 1.881725930885412,
+        "max_ratio": 2.0798337349302107,
+        "status": "loss"
+      },
+      "runtime_ns": {
+        "planned": [
+          126942300,
+          130450868,
+          120213692,
+          122857057,
+          123153292,
+          130159603,
+          123656024
+        ],
+        "native": [
+          86170214,
+          83939985,
+          88491696,
+          89160379,
+          85612973,
+          85900965,
+          88099914
+        ]
+      },
+      "artifact_cost_ns": [
+        175076894.9878968,
+        162847988.01518613,
+        161532796.02211,
+        147983741.0552504,
+        156047471.02698123
+      ],
+      "allocation": {
+        "planned": {
+          "requested_bytes": 159001912,
+          "absolute_requested_peak": 80236
+        },
+        "native": {
+          "requested_bytes": 118135517,
+          "absolute_requested_peak": 80054
+        }
+      },
+      "process_wall_seconds": {
+        "planned": [
+          0.13890655699651688,
+          0.14202740299515426,
+          0.13139710202813148,
+          0.13454107102006674,
+          0.13428441109135747,
+          0.14203787897713482,
+          0.13513740000780672
+        ],
+        "native": [
+          0.0975536850746721,
+          0.09528102504555136,
+          0.10018075502011925,
+          0.10096539405640215,
+          0.09701500297524035,
+          0.09708247205708176,
+          0.09919751400593668
+        ]
+      },
+      "amortized_across_observed_ranges": false,
+      "not_amortized_across_observed_ranges": true
+    },
+    {
+      "family": "payload",
+      "size": 64,
+      "queries": 8192,
+      "runtime": {
+        "median_ratio": 0.7095635463342297,
+        "min_ratio": 0.6982385380008873,
+        "max_ratio": 0.7221921060817423,
+        "status": "gain"
+      },
+      "compilation_inclusive": {
+        "median_ratio": 0.8723585406227619,
+        "min_ratio": 0.8621776377023447,
+        "max_ratio": 0.8878599560666989,
+        "status": "gain"
+      },
+      "runtime_ns": {
+        "planned": [
+          965771476,
+          972997044,
+          985321966,
+          992246701,
+          975040094,
+          979474783,
+          992291884
+        ],
+        "native": [
+          688018951,
+          684079941,
+          687989769,
+          704062088,
+          704166259,
+          696510660,
+          702595552
+        ]
+      },
+      "artifact_cost_ns": [
+        175076894.9878968,
+        162847988.01518613,
+        161532796.02211,
+        147983741.0552504,
+        156047471.02698123
+      ],
+      "allocation": {
+        "planned": {
+          "requested_bytes": 1271970104,
+          "absolute_requested_peak": 80236
+        },
+        "native": {
+          "requested_bytes": 945043165,
+          "absolute_requested_peak": 80054
+        }
+      },
+      "process_wall_seconds": {
+        "planned": [
+          1.0430033990414813,
+          1.0483654459239915,
+          1.0540573770413175,
+          1.0597045220201835,
+          1.0498700099997222,
+          1.0567662570392713,
+          1.077120314934291
+        ],
+        "native": [
+          0.7540493429405615,
+          0.7487073770025745,
+          0.7581629860214889,
+          0.7699660829966888,
+          0.7698266500374302,
+          0.7621033899486065,
+          0.7781205110950395
+        ]
+      },
+      "amortized_across_observed_ranges": true,
+      "not_amortized_across_observed_ranges": false
+    }
+  ],
+  "complete_queries": 696320,
+  "diagnostic_replay_cells": 10,
+  "interpretation": "Observed query counts and descriptive paired criterion; no universal crossover or architecture ranking"
+}

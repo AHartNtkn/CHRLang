@@ -1,0 +1,27 @@
+{
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "",
+  "command": [
+    "rustc",
+    "--edition",
+    "2024",
+    "-C",
+    "opt-level=3",
+    "-C",
+    "codegen-units=1",
+    "-C",
+    "lto=off",
+    "/home/ahart/Documents/CHRLang/target/s01-native-amortization-cached-oracle/metered-chain-0.rs",
+    "--extern",
+    "chr_compiled=/home/ahart/Documents/CHRLang/target/s01-native-amortization-cached-oracle/metered/release/libchr_compiled.rlib",
+    "-L",
+    "dependency=/home/ahart/Documents/CHRLang/target/s01-native-amortization-cached-oracle/metered/release/deps",
+    "-o",
+    "/home/ahart/Documents/CHRLang/target/s01-native-amortization-cached-oracle/metered-chain-0"
+  ],
+  "wall_seconds": 0.17483342997729778,
+  "child_cpu_seconds": 0.20159799999999173,
+  "address_space_bytes": 4294967296,
+  "cpu": null
+}
