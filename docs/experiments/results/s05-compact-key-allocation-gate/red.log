@@ -1,0 +1,39 @@
+   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)
+error[E0599]: no method named `compact_key` found for struct `Machine` in the current scope
+  --> research/chr-persistent/tests/compact_continuation_keys.rs:14:54
+   |
+14 |   let owned=machine.key(&cursor);let compact=machine.compact_key(&cursor);
+   |                                                      ^^^^^^^^^^^ method not found in `Machine`
+
+error[E0599]: no method named `expand_compact_key` found for struct `Machine` in the current scope
+  --> research/chr-persistent/tests/compact_continuation_keys.rs:15:28
+   |
+15 |   assert_eq!(owned,machine.expand_compact_key(compact.clone()));
+   |                            ^^^^^^^^^^^^^^^^^^ method not found in `Machine`
+
+error[E0599]: no method named `expand_compact_key` found for struct `Machine` in the current scope
+  --> research/chr-persistent/tests/compact_continuation_keys.rs:16:44
+   |
+16 |   assert_eq!(owned.clone().alpha(),machine.expand_compact_key(compact.clone().alpha()));
+   |                                            ^^^^^^^^^^^^^^^^^^ method not found in `Machine`
+
+error[E0599]: no method named `expand_compact_key` found for struct `Machine` in the current scope
+  --> research/chr-persistent/tests/compact_continuation_keys.rs:17:57
+   |
+17 |   assert_eq!(owned.clone().alpha_live_history(),machine.expand_compact_key(compact.clone().alpha_live_history()));
+   |                                                         ^^^^^^^^^^^^^^^^^^ method not found in `Machine`
+
+error[E0599]: no method named `compact_key` found for struct `Machine` in the current scope
+  --> research/chr-persistent/tests/compact_continuation_keys.rs:27:49
+   |
+27 |  assert_eq!(a.key(&ca),b.key(&cb));assert_ne!(a.compact_key(&ca),b.compact_key(&cb));
+   |                                                 ^^^^^^^^^^^ method not found in `Machine`
+
+error[E0599]: no method named `compact_key` found for struct `Machine` in the current scope
+  --> research/chr-persistent/tests/compact_continuation_keys.rs:27:68
+   |
+27 |  assert_eq!(a.key(&ca),b.key(&cb));assert_ne!(a.compact_key(&ca),b.compact_key(&cb));
+   |                                                                    ^^^^^^^^^^^ method not found in `Machine`
+
+For more information about this error, try `rustc --explain E0599`.
+error: could not compile `chr-persistent` (test "compact_continuation_keys") due to 6 previous errors
