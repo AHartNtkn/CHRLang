@@ -50,17 +50,7 @@ struct Node {
 /// serviced frames, result ID (usize::MAX while unfinished).
 #[cfg(feature = "support-trace")]
 pub type OperationTrace = [usize; 6];
-#[cfg(feature = "support-result-cache")]
-static NEXT_ARENA: std::sync::atomic::AtomicU64 = std::sync::atomic::AtomicU64::new(1);
 pub struct Arena {
-    #[cfg(feature = "support-result-cache")]
-    identity: u64,
-    #[cfg(feature = "support-result-cache")]
-    result_cache: BTreeMap<(Kind, Support, Support), Support>,
-    #[cfg(feature = "support-result-cache")]
-    result_order: std::collections::VecDeque<(Kind, Support, Support)>,
-    #[cfg(feature = "support-result-cache")]
-    result_capacity: usize,
     #[cfg(feature = "support-trace")]
     trace: std::cell::RefCell<Vec<OperationTrace>>,
     nodes: Vec<Node>,
@@ -75,20 +65,6 @@ impl Default for Arena {
 impl Arena {
     pub fn new() -> Self {
         Self {
-            #[cfg(feature = "support-result-cache")]
-            identity: NEXT_ARENA
-                .fetch_update(
-                    std::sync::atomic::Ordering::Relaxed,
-                    std::sync::atomic::Ordering::Relaxed,
-                    |n| n.checked_add(1),
-                )
-                .expect("arena identity overflow"),
-            #[cfg(feature = "support-result-cache")]
-            result_cache: BTreeMap::new(),
-            #[cfg(feature = "support-result-cache")]
-            result_order: std::collections::VecDeque::new(),
-            #[cfg(feature = "support-result-cache")]
-            result_capacity: 256,
             #[cfg(feature = "support-trace")]
             trace: std::cell::RefCell::new(vec![]),
             nodes: vec![
@@ -108,31 +84,6 @@ impl Arena {
     #[cfg(feature = "support-trace")]
     pub fn operation_trace(&self) -> std::cell::Ref<'_, Vec<OperationTrace>> {
         self.trace.borrow()
-    }
-    #[cfg(feature = "support-result-cache")]
-    pub fn with_result_cache_capacity(capacity: usize) -> Self {
-        let mut arena = Self::new();
-        arena.result_capacity = capacity;
-        arena
-    }
-    #[cfg(feature = "support-result-cache")]
-    pub fn result_cache_len(&self) -> usize {
-        self.result_cache.len()
-    }
-    #[cfg(feature = "support-result-cache")]
-    fn remember_result(&mut self, key: (Kind, Support, Support), value: Support) {
-        if self.result_capacity == 0 || self.result_cache.contains_key(&key) {
-            return;
-        }
-        if self.result_cache.len() == self.result_capacity {
-            let old = self
-                .result_order
-                .pop_front()
-                .expect("cache insertion order");
-            self.result_cache.remove(&old);
-        }
-        self.result_cache.insert(key, value);
-        self.result_order.push_back(key);
     }
     pub fn fresh_variable(&mut self) -> (usize, Support) {
         let variable = self.variables;
@@ -237,18 +188,6 @@ impl Arena {
         self.inspect(a);
         self.inspect(b);
         let root = kind.key(a, b);
-        #[cfg(feature = "support-result-cache")]
-        let cached = if kind.simple(root).is_none() {
-            self.result_cache.get(&(kind, root.0, root.1)).copied()
-        } else {
-            None
-        };
-        #[cfg(not(feature = "support-result-cache"))]
-        let cached = None;
-        #[cfg(feature = "support-identities")]
-        let result = kind.simple(root).or(cached);
-        #[cfg(not(feature = "support-identities"))]
-        let result = cached;
         #[cfg(feature = "support-trace")]
         let trace_index = {
             let mut trace = self.trace.borrow_mut();
@@ -259,24 +198,18 @@ impl Arena {
                 root.1.index(),
                 usize::from(kind.simple(root).is_some()),
                 0,
-                result.map_or(usize::MAX, Support::index),
+                usize::MAX,
             ]);
             index
         };
         Job {
-            #[cfg(feature = "support-result-cache")]
-            owner: self.identity,
             #[cfg(feature = "support-trace")]
             trace_index,
             kind,
             root,
-            frames: if result.is_some() {
-                vec![]
-            } else {
-                vec![Frame::Evaluate(root)]
-            },
+            frames: vec![Frame::Evaluate(root)],
             memo: BTreeMap::new(),
-            result,
+            result: None,
             work: Work::default(),
         }
     }
@@ -301,7 +234,7 @@ pub struct Work {
     pub memo_hits: u64,
     pub created_nodes: u64,
 }
-#[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord)]
+#[derive(Clone, Copy)]
 enum Kind {
     Not,
     And,
@@ -345,8 +278,6 @@ enum Frame {
 /// An apply job owns its continuation and memo table. Interleaved jobs share only
 /// immutable nodes and the arena's canonical node table, never projected worlds.
 pub struct Job {
-    #[cfg(feature = "support-result-cache")]
-    owner: u64,
     #[cfg(feature = "support-trace")]
     trace_index: usize,
     kind: Kind,
@@ -366,8 +297,6 @@ impl Job {
     pub fn tick(&mut self, arena: &mut Arena) -> Status {
         #[cfg(feature = "support-allocation")]
         let _scope = allocation_domain::enter(2);
-        #[cfg(feature = "support-result-cache")]
-        assert_eq!(self.owner, arena.identity, "foreign support job");
         if let Some(result) = self.result {
             return Status::Complete(result);
         }
@@ -459,10 +388,6 @@ impl Job {
         if self.frames.is_empty() {
             let result = self.memo[&self.root];
             self.result = Some(result);
-            #[cfg(feature = "support-result-cache")]
-            if self.kind.simple(self.root).is_none() {
-                arena.remember_result((self.kind, self.root.0, self.root.1), result);
-            }
             #[cfg(feature = "support-trace")]
             {
                 arena.trace.borrow_mut()[self.trace_index][5] = result.index();
@@ -580,133 +505,5 @@ mod tests {
         let mut arena = Arena::new();
         let (x, _) = arena.fresh_variable();
         arena.mk(x, FALSE, Support(usize::MAX));
-    }
-}
-
-#[cfg(all(test, feature = "support-result-cache"))]
-mod result_cache_tests {
-    use super::*;
-    fn complete(arena: &mut Arena, op: Operation) -> (Support, usize) {
-        let mut job = arena.job(op);
-        for ticks in 1..1000 {
-            if let Status::Complete(value) = job.tick(arena) {
-                return (value, ticks);
-            }
-        }
-        panic!("finite Boolean job");
-    }
-    #[test]
-    fn truth_tables_survive_reuse_and_eviction() {
-        for capacity in [0, 1, 4] {
-            let mut arena = Arena::with_result_cache_capacity(capacity);
-            arena.fresh_variable();
-            arena.fresh_variable();
-            let mut values = vec![];
-            for bits in 0u8..16 {
-                let leaf = |bit| {
-                    if bits & (1u8 << bit) != 0u8 {
-                        TRUE
-                    } else {
-                        FALSE
-                    }
-                };
-                let low = arena.mk(1, leaf(0), leaf(1));
-                let high = arena.mk(1, leaf(2), leaf(3));
-                values.push(arena.mk(0, low, high));
-            }
-            for a in 0..16 {
-                for b in 0..16 {
-                    for (op, want) in [
-                        (Operation::Not(values[a]), !a & 15),
-                        (Operation::And(values[a], values[b]), a & b),
-                        (Operation::Or(values[a], values[b]), a | b),
-                        (Operation::Difference(values[a], values[b]), a & (!b & 15)),
-                    ] {
-                        assert_eq!(complete(&mut arena, op).0, values[want]);
-                        assert_eq!(complete(&mut arena, op).0, values[want]);
-                        assert!(arena.result_cache_len() <= capacity);
-                    }
-                }
-            }
-        }
-    }
-    #[test]
-    fn only_completed_results_are_reused_and_arenas_are_independent() {
-        let mut a = Arena::with_result_cache_capacity(1);
-        let (_, x) = a.fresh_variable();
-        let (_, y) = a.fresh_variable();
-        let op = Operation::And(x, y);
-        let mut interrupted = a.job(op);
-        assert_eq!(interrupted.tick(&mut a), Status::Pending);
-        assert_eq!(a.result_cache_len(), 0);
-        drop(interrupted);
-        let (value, cold) = complete(&mut a, op);
-        assert!(cold > 1);
-        assert_eq!(complete(&mut a, op), (value, 1));
-        // New nodes do not change an existing operation's Boolean meaning.
-        a.fresh_variable();
-        assert_eq!(complete(&mut a, op), (value, 1));
-        complete(&mut a, Operation::Or(x, y));
-        assert!(complete(&mut a, op).1 > 1); // capacity-one eviction recomputes
-        let mut b = Arena::with_result_cache_capacity(1);
-        let (_, bx) = b.fresh_variable();
-        let (_, by) = b.fresh_variable();
-        assert_eq!(b.result_cache_len(), 0);
-        assert!(complete(&mut b, Operation::And(bx, by)).1 > 1);
-    }
-}
-
-#[cfg(all(test, feature = "support-identities"))]
-mod direct_identity_tests {
-    use super::*;
-    #[test]
-    fn cheap_roots_need_no_continuation_or_memo_allocation() {
-        let mut arena = Arena::new();
-        let (_, x) = arena.fresh_variable();
-        for (op, want) in [
-            (Operation::And(x, TRUE), x),
-            (Operation::Or(x, FALSE), x),
-            (Operation::Difference(x, x), FALSE),
-            (Operation::Not(TRUE), FALSE),
-        ] {
-            let mut job = arena.job(op);
-            assert!(job.frames.is_empty() && job.memo.is_empty());
-            assert_eq!(job.tick(&mut arena), Status::Complete(want));
-        }
-    }
-}
-#[cfg(all(test, feature = "support-result-cache"))]
-mod cache_owner_tests {
-    use super::*;
-    #[test]
-    fn interleaved_jobs_agree_and_foreign_jobs_cannot_publish_results() {
-        let mut a = Arena::new();
-        let (_, x) = a.fresh_variable();
-        let (_, y) = a.fresh_variable();
-        let mut first = a.job(Operation::And(x, y));
-        let mut second = a.job(Operation::And(x, y));
-        let mut results = [None, None];
-        for _ in 0..100 {
-            if let Status::Complete(v) = first.tick(&mut a) {
-                results[0] = Some(v);
-            }
-            if let Status::Complete(v) = second.tick(&mut a) {
-                results[1] = Some(v);
-            }
-            if results.iter().all(Option::is_some) {
-                break;
-            }
-        }
-        assert!(results[0].is_some());
-        assert_eq!(results[0], results[1]);
-        assert_eq!(a.result_cache_len(), 1);
-        let mut cached = a.job(Operation::And(x, y));
-        let mut b = Arena::new();
-        b.fresh_variable();
-        b.fresh_variable();
-        assert!(
-            std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| cached.tick(&mut b))).is_err()
-        );
-        assert_eq!(b.result_cache_len(), 0);
     }
 }

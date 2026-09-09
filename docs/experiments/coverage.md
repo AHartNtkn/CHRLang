@@ -16,6 +16,8 @@ The [support-operation attribution](results/S08-support-allocation-attribution.m
 
 The [Boolean repetition and breadth review](results/S08-support-repetition.md) completes32 processes/16 exact traces. Depth64 repeats8,544 substantive roots for576,600 later frames; depth0 has only185 cheap jobs. The fourth-package review selects an independent comparison of direct cheap-root handling and bounded completed-result reuse, with correctness/ownership gates before cost claims.
 
+The [support optimization gate](results/S08-support-optimization-gate.md) implements independent direct-identity and256-entry completed-result controls. Boolean truth tables, ownership/eviction and complete source suites pass. At depth64 the cache lowers service calls from1,257,853 to779,212; cheap identities preserve service counts. Lifecycle costs remain unmeasured and are selected next under T074.
+
 ## How unanswered variants remain accountable
 
 The [entry-by-entry experiment map](question-to-experiment-map.md) gives all 57 reviewed decisions a specific required comparison and decision criterion. The stage assignments below remain the ownership summary; results must state which individual propositions and variants they resolve.
