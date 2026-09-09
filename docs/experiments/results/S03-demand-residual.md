@@ -2,6 +2,8 @@
 
 **Unmatched calls now appear in complete answers with their aliases and multiplicity intact.** Source-call identity and result identity are represented separately, so a tail call can replace an occurrence while preserving its output variable. This advances the demand evaluator's source semantics; it provides no performance ranking.
 
+Current extension: [shared-resource claims](S03-demand-resource.md) now have bounded source evidence; the next selection is recorded in the [breadth review](S03-first-breadth-review.md).
+
 ## What changed and why
 
 Every query, producer and tail call is registered once with its activation context. A recorded application result justifies consumption of that call in compatible contexts. Without such a result, the occurrence remains available for the final residual store. An unknown input or a known constructor nonmatch does not mean failure.

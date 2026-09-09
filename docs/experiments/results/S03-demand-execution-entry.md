@@ -45,3 +45,7 @@ The [first executable source gate](S03-suspended-source.md) now passes on a chec
 ## Residual occurrence extension
 
 The [residual gate](S03-demand-residual.md) now preserves unmatched calls, tail replacement, context-local occurrence survival and joint aliases. Fourteen source tests pass, including service regressions; consuming effects and source competition are next. T071 remains active.
+
+## Resource integration and breadth checkpoint
+
+The [shared-resource gate](S03-demand-resource.md) adds contextual multihead claims and an explicit committed-policy probe. After four T071 packages, the [breadth review](S03-first-breadth-review.md) selects work attribution and bounded lifecycle sizing before further language extensions. Contextual/local consuming rewrites remain the strongest following alternative.

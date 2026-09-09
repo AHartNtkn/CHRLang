@@ -12,16 +12,29 @@ enum Plan {
     Value(Term),
     Call(String, Vec<Term>),
     Choice(Box<Plan>, Box<Plan>),
-    Producers(Vec<(Var, String, Vec<Term>)>, Box<Plan>),
+    Producers(Vec<Action>, Box<Plan>),
     Fail,
+}
+#[derive(Clone)]
+enum Action {
+    Call(Var, String, Vec<Term>),
+    Post(Constraint),
+}
+struct Resource {
+    constraint: String,
+    args: Vec<Id>,
+    birth: Context,
+    consumed: Vec<Context>,
 }
 struct Clause {
     name: String,
     inputs: Vec<Term>,
     body: Plan,
+    partners: Vec<(Constraint, bool)>,
 }
 pub struct Prepared {
     clauses: Rc<Vec<Clause>>,
+    resource_signatures: BTreeSet<(String, usize)>,
 }
 #[derive(Clone)]
 enum Node {
@@ -43,7 +56,8 @@ pub struct Run {
     obligations: Vec<(Context, Id)>,
     outputs: Vec<(String, Id)>,
     fresh: u64,
-    labels: usize,
+    births: Vec<Context>,
+    resources: Vec<Resource>,
 }
 pub enum Event {
     Progress,
@@ -75,7 +89,12 @@ fn cycle(v: Var, edges: &BTreeMap<Var, Vec<Var>>, path: &mut BTreeSet<Var>) -> b
     path.remove(&v);
     yes
 }
-fn plan(g: &Goal, output: Var, inputs: &BTreeSet<Var>) -> Result<Plan, String> {
+fn plan(
+    g: &Goal,
+    output: Var,
+    inputs: &BTreeSet<Var>,
+    resources: &BTreeSet<(String, usize)>,
+) -> Result<Plan, String> {
     let valid_value = |t: &Term| {
         let mut vs = vec![];
         variables(t, &mut vs);
@@ -95,8 +114,8 @@ fn plan(g: &Goal, output: Var, inputs: &BTreeSet<Var>) -> Result<Plan, String> {
             ))
         }
         Goal::Or(a, b) => Ok(Plan::Choice(
-            Box::new(plan(a, output, inputs)?),
-            Box::new(plan(b, output, inputs)?),
+            Box::new(plan(a, output, inputs, resources)?),
+            Box::new(plan(b, output, inputs, resources)?),
         )),
         Goal::Fail => Ok(Plan::Fail),
         Goal::And(goals) if !goals.is_empty() => {
@@ -107,6 +126,17 @@ fn plan(g: &Goal, output: Var, inputs: &BTreeSet<Var>) -> Result<Plan, String> {
                 let Goal::Constraint(c) = g else {
                     return Err("body prefix must contain fresh-output calls".into());
                 };
+                if resources.contains(&(c.name.clone(), c.args.len())) {
+                    let mut used = vec![];
+                    for t in &c.args {
+                        variables(t, &mut used)
+                    }
+                    if !used.is_empty() {
+                        return Err("passive body posts must be ground in this certificate".into());
+                    }
+                    producers.push(Action::Post(c.clone()));
+                    continue;
+                }
                 let Some(Term::Var(v)) = c.args.last() else {
                     return Err("producer needs variable output".into());
                 };
@@ -120,10 +150,17 @@ fn plan(g: &Goal, output: Var, inputs: &BTreeSet<Var>) -> Result<Plan, String> {
                 if used.contains(v) || used.contains(&output) {
                     return Err("cyclic producer/output dependence".into());
                 }
-                producers.push((*v, c.name.clone(), c.args[..c.args.len() - 1].to_vec()));
+                producers.push(Action::Call(
+                    *v,
+                    c.name.clone(),
+                    c.args[..c.args.len() - 1].to_vec(),
+                ));
             }
             let mut edges = BTreeMap::new();
-            for (out, _, args) in &producers {
+            for action in &producers {
+                let Action::Call(out, _, args) = action else {
+                    continue;
+                };
                 let mut deps = vec![];
                 for t in args {
                     variables(t, &mut deps)
@@ -137,7 +174,7 @@ fn plan(g: &Goal, output: Var, inputs: &BTreeSet<Var>) -> Result<Plan, String> {
             }
             Ok(Plan::Producers(
                 producers,
-                Box::new(plan(goals.last().unwrap(), output, &bound)?),
+                Box::new(plan(goals.last().unwrap(), output, &bound, resources)?),
             ))
         }
         _ => Err("unsupported body or output assignment".into()),
@@ -151,7 +188,10 @@ fn calls(p: &Plan, out: &mut Vec<(String, usize)>) {
             calls(b, out)
         }
         Plan::Producers(ps, p) => {
-            out.extend(ps.iter().map(|(_, n, a)| (n.clone(), a.len())));
+            out.extend(ps.iter().filter_map(|action| match action {
+                Action::Call(_, n, a) => Some((n.clone(), a.len())),
+                Action::Post(_) => None,
+            }));
             calls(p, out)
         }
         _ => {}
@@ -159,11 +199,23 @@ fn calls(p: &Plan, out: &mut Vec<(String, usize)>) {
 }
 impl Prepared {
     pub fn new(rules: Vec<Rule>) -> Result<Self, String> {
+        let mut resource_signatures = BTreeSet::new();
+        for rule in &rules {
+            if rule.removed.is_empty() || !rule.guards.is_empty() {
+                return Err("requires a removed primary head without guards".into());
+            }
+            for c in rule.kept.iter().chain(rule.removed.iter().skip(1)) {
+                resource_signatures.insert((c.name.clone(), c.args.len()));
+            }
+        }
+        for rule in &rules {
+            let c = &rule.removed[0];
+            if resource_signatures.contains(&(c.name.clone(), c.args.len())) {
+                return Err("call and passive resource signatures must be disjoint".into());
+            }
+        }
         let mut clauses = vec![];
         for rule in rules {
-            if !rule.kept.is_empty() || rule.removed.len() != 1 || !rule.guards.is_empty() {
-                return Err("requires single removed head without guards".into());
-            }
             let head = &rule.removed[0];
             let Some(Term::Var(output)) = head.args.last() else {
                 return Err("head needs distinct variable output".into());
@@ -173,14 +225,32 @@ impl Prepared {
             for t in &inputs {
                 variables(t, &mut vs);
             }
-            let set: BTreeSet<_> = vs.iter().copied().collect();
+            let mut set: BTreeSet<_> = vs.iter().copied().collect();
             if set.len() != vs.len() || set.contains(output) {
                 return Err("input patterns must be linear and exclude output".into());
+            }
+            let partners: Vec<_> = rule
+                .kept
+                .iter()
+                .cloned()
+                .map(|c| (c, false))
+                .chain(rule.removed.iter().skip(1).cloned().map(|c| (c, true)))
+                .collect();
+            for (c, _) in &partners {
+                let mut vars = vec![];
+                for t in &c.args {
+                    variables(t, &mut vars)
+                }
+                if vars.contains(output) {
+                    return Err("primary output cannot occur in a resource head".into());
+                }
+                set.extend(vars);
             }
             clauses.push(Clause {
                 name: head.name.clone(),
                 inputs,
-                body: plan(&rule.body, *output, &set)?,
+                body: plan(&rule.body, *output, &set, &resource_signatures)?,
+                partners,
             });
         }
         // Linear input patterns overlap iff no constructor position separates them.
@@ -216,6 +286,7 @@ impl Prepared {
         }
         Ok(Self {
             clauses: Rc::new(clauses),
+            resource_signatures,
         })
     }
     pub fn start(&self, query: Query) -> Result<Run, String> {
@@ -226,12 +297,19 @@ impl Prepared {
             obligations: vec![],
             outputs: vec![],
             fresh: 0,
-            labels: 0,
+            births: vec![],
+            resources: vec![],
         };
         let mut env = Env::new();
         let mut writers = BTreeSet::new();
         let mut edges = BTreeMap::new();
         for c in &query.constraints {
+            if self
+                .resource_signatures
+                .contains(&(c.name.clone(), c.args.len()))
+            {
+                continue;
+            }
             let Some(Term::Var(out)) = c.args.last() else {
                 return Err("query requires variable call outputs".into());
             };
@@ -256,7 +334,37 @@ impl Prepared {
                 return Err("cyclic query dependencies".into());
             }
         }
+        for c in &query.constraints {
+            if self
+                .resource_signatures
+                .contains(&(c.name.clone(), c.args.len()))
+            {
+                let mut vars = vec![];
+                for t in &c.args {
+                    variables(t, &mut vars)
+                }
+                if vars.iter().any(|v| writers.contains(v)) {
+                    return Err(
+                        "passive query resources cannot depend on call outputs in this certificate"
+                            .into(),
+                    );
+                }
+            }
+        }
         for c in query.constraints {
+            if self
+                .resource_signatures
+                .contains(&(c.name.clone(), c.args.len()))
+            {
+                let args = c.args.iter().map(|t| run.term(t, &mut env)).collect();
+                run.resources.push(Resource {
+                    constraint: c.name,
+                    args,
+                    birth: Context::new(),
+                    consumed: vec![],
+                });
+                continue;
+            }
             let Term::Var(out) = c.args.last().unwrap() else {
                 unreachable!()
             };
@@ -339,8 +447,8 @@ impl Run {
             }
             Plan::Fail => self.push(Node::Fail),
             Plan::Choice(a, b) => {
-                let label = self.labels;
-                self.labels += 1;
+                let label = self.births.len();
+                self.births.push(ctx.clone());
                 let mut left = ctx.clone();
                 left.insert(label, false);
                 let mut right = ctx.clone();
@@ -350,9 +458,22 @@ impl Run {
                 self.push(Node::Choice(label, a, b))
             }
             Plan::Producers(ps, p) => {
-                for (v, n, args) in ps {
-                    let args = args.iter().map(|t| self.term(t, env)).collect();
-                    self.producer(n.clone(), args, *v, env, ctx);
+                for action in ps {
+                    match action {
+                        Action::Call(v, n, args) => {
+                            let args = args.iter().map(|t| self.term(t, env)).collect();
+                            self.producer(n.clone(), args, *v, env, ctx);
+                        }
+                        Action::Post(c) => {
+                            let args = c.args.iter().map(|t| self.term(t, env)).collect();
+                            self.resources.push(Resource {
+                                constraint: c.name.clone(),
+                                args,
+                                birth: ctx.clone(),
+                                consumed: vec![],
+                            });
+                        }
+                    }
                 }
                 self.expand(p, env, ctx, output)
             }
@@ -361,6 +482,9 @@ impl Run {
     fn matches(&mut self, p: &Term, id: Id, ctx: &Context, env: &mut Env) -> Result<bool, Signal> {
         match p {
             Term::Var(v) => {
+                if let Some(old) = env.get(v).copied() {
+                    return Ok(self.normal(old, ctx)? == self.normal(id, ctx)?);
+                }
                 env.insert(*v, id);
                 Ok(true)
             }
@@ -380,6 +504,52 @@ impl Run {
                 }
             }
         }
+    }
+    fn live(&self, id: usize, ctx: &Context) -> bool {
+        let r = &self.resources[id];
+        r.birth.iter().all(|(k, v)| ctx.get(k) == Some(v))
+            && !r
+                .consumed
+                .iter()
+                .any(|c| c.iter().all(|(k, v)| ctx.get(k) == Some(v)))
+    }
+    fn partners(
+        &mut self,
+        heads: &[(Constraint, bool)],
+        selected: Vec<usize>,
+        env: Env,
+        ctx: &Context,
+    ) -> Result<Option<(Vec<usize>, Env)>, Signal> {
+        if selected.len() == heads.len() {
+            return Ok(Some((selected, env)));
+        }
+        let head = &heads[selected.len()].0;
+        for id in 0..self.resources.len() {
+            if selected.contains(&id) || !self.live(id, ctx) {
+                continue;
+            }
+            let row = &self.resources[id];
+            if row.constraint != head.name || row.args.len() != head.args.len() {
+                continue;
+            }
+            let args = row.args.clone();
+            let mut next = env.clone();
+            let mut matched = true;
+            for (p, arg) in head.args.iter().zip(args) {
+                if !self.matches(p, arg, ctx, &mut next)? {
+                    matched = false;
+                    break;
+                }
+            }
+            if matched {
+                let mut ids = selected.clone();
+                ids.push(id);
+                if let Some(found) = self.partners(heads, ids, next, ctx)? {
+                    return Ok(Some(found));
+                }
+            }
+        }
+        Ok(None)
     }
     fn force(&mut self, id: Id, ctx: &Context) -> Result<Id, Signal> {
         match self.nodes[id].node.clone() {
@@ -414,6 +584,26 @@ impl Run {
                         }
                     }
                     if matched {
+                        if !clause.partners.is_empty()
+                            && let Some((label, _)) =
+                                self.births.iter().enumerate().find(|(label, birth)| {
+                                    !ctx.contains_key(label)
+                                        && birth.iter().all(|(k, v)| ctx.get(k) == Some(v))
+                                })
+                        {
+                            return Err(Signal::Split(label));
+                        }
+                        let Some((ids, mut env)) =
+                            self.partners(&clause.partners, vec![], env, ctx)?
+                        else {
+                            continue;
+                        };
+                        // No evaluation intervenes between completed matching and claims.
+                        for (id, (_, removed)) in ids.into_iter().zip(&clause.partners) {
+                            if *removed {
+                                self.resources[id].consumed.push(ctx.clone());
+                            }
+                        }
                         let value = self.expand(&clause.body, &mut env, ctx, output);
                         self.nodes[id].results.push((ctx.clone(), value));
                         return Err(Signal::Progress);
@@ -466,6 +656,18 @@ impl Run {
                 .map(|id| self.normal(id, ctx))
                 .collect::<Result<Vec<_>, _>>()?;
             args.push(self.normal(output, ctx)?);
+            residual.push(Constraint { name, args });
+        }
+        for id in 0..self.resources.len() {
+            if !self.live(id, ctx) {
+                continue;
+            }
+            let name = self.resources[id].constraint.clone();
+            let ids = self.resources[id].args.clone();
+            let args = ids
+                .into_iter()
+                .map(|id| self.normal(id, ctx))
+                .collect::<Result<Vec<_>, _>>()?;
             residual.push(Constraint { name, args });
         }
         Ok(Answer { outputs, residual })

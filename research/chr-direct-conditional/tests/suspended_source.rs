@@ -47,16 +47,16 @@ fn collect(rules: Vec<Rule>, query: Query, expected: Vec<Answer>) {
     }
     assert!(exhausted, "direct graph control cutoff");
     runtime_support::same_raw(actual, expected.clone());
+    runtime_support::same_raw(demand_answers(rules, query), expected);
+}
+fn demand_answers(rules: Vec<Rule>, query: Query) -> Vec<Answer> {
     let mut run = Prepared::new(rules).unwrap().start(query).unwrap();
     let mut answers = vec![];
     for _ in 0..100_000 {
         match run.tick() {
             Event::Progress => {}
             Event::Answer(a) => answers.push(a),
-            Event::Exhausted => {
-                runtime_support::same_raw(answers, expected);
-                return;
-            }
+            Event::Exhausted => return answers,
         }
     }
     panic!("suspended source gate cutoff");
@@ -154,7 +154,7 @@ fn fresh_locals_and_unused_failure_are_source_obligations() {
     );
 }
 #[test]
-fn finite_sibling_is_serviced_and_effectful_sources_are_rejected() {
+fn finite_sibling_is_serviced_and_pure_propagation_is_rejected() {
     let rules = vec![
         Rule::simplify("loop", [c("loop", [v(0)])], c("loop", [v(0)]).into()),
         Rule::simplify(
@@ -568,4 +568,310 @@ fn inactive_choice_arm_calls_do_not_leak_into_residuals() {
             },
         ],
     );
+}
+
+#[test]
+fn shared_resource_claims_preserve_distinct_requests_and_tokens() {
+    let rules = vec![Rule::simplify(
+        "take",
+        [c("take", [v(0), v(1)]), c("token", [v(0)])],
+        eq(v(1), atom("ok")),
+    )];
+    for tokens in [1, 2] {
+        let mut constraints = vec![
+            c("take", [atom("k"), v(100)]),
+            c("take", [atom("k"), v(101)]),
+        ];
+        constraints.extend(vec![c("token", [atom("k")]); tokens]);
+        let expected = Answer {
+            outputs: vec![
+                ("x".into(), atom("ok")),
+                ("again".into(), atom("ok")),
+                ("y".into(), if tokens == 2 { atom("ok") } else { v(900) }),
+            ],
+            residual: if tokens == 2 {
+                vec![]
+            } else {
+                vec![c("take", [atom("k"), v(900)])]
+            },
+        };
+        collect(
+            rules.clone(),
+            Query {
+                constraints,
+                outputs: vec![
+                    ("x".into(), Var(100)),
+                    ("again".into(), Var(100)),
+                    ("y".into(), Var(101)),
+                ],
+            },
+            vec![expected],
+        );
+    }
+}
+#[test]
+fn resource_tuple_is_atomic_and_kept_heads_survive() {
+    let rules = vec![Rule {
+        name: "take".into(),
+        kept: vec![c("permit", [v(0)])],
+        removed: vec![
+            c("take", [v(0), v(1)]),
+            c("token", [v(0)]),
+            c("token", [v(0)]),
+        ],
+        guards: vec![],
+        body: eq(v(1), atom("ok")),
+    }];
+    for tokens in [1, 2] {
+        let mut constraints = vec![c("take", [atom("k"), v(100)]), c("permit", [atom("k")])];
+        constraints.extend(vec![c("token", [atom("k")]); tokens]);
+        let mut residual = vec![c("permit", [atom("k")])];
+        if tokens == 1 {
+            residual.extend([c("take", [atom("k"), v(900)]), c("token", [atom("k")])]);
+        }
+        collect(
+            rules.clone(),
+            Query {
+                constraints,
+                outputs: vec![("x".into(), Var(100))],
+            },
+            vec![Answer {
+                outputs: vec![("x".into(), if tokens == 2 { atom("ok") } else { v(900) })],
+                residual,
+            }],
+        );
+    }
+}
+
+#[test]
+fn conditional_claims_and_late_posts_follow_source_choices() {
+    let take = Rule::simplify(
+        "take",
+        [c("take", [v(0), v(1)]), c("token", [v(0)])],
+        eq(v(1), atom("ok")),
+    );
+    let supply = Rule::simplify(
+        "supply",
+        [c("supply", [v(0)])],
+        or(
+            and([c("token", [atom("a")]).into(), eq(v(0), atom("a"))]),
+            eq(v(0), atom("b")),
+        ),
+    );
+    collect(
+        vec![take, supply],
+        Query {
+            constraints: vec![c("take", [atom("a"), v(100)]), c("supply", [v(101)])],
+            outputs: vec![("x".into(), Var(100)), ("arm".into(), Var(101))],
+        },
+        vec![
+            Answer {
+                outputs: vec![("x".into(), atom("ok")), ("arm".into(), atom("a"))],
+                residual: vec![],
+            },
+            Answer {
+                outputs: vec![("x".into(), v(900)), ("arm".into(), atom("b"))],
+                residual: vec![c("take", [atom("a"), v(900)])],
+            },
+        ],
+    );
+    let rules = vec![Rule::simplify(
+        "take",
+        [c("take", [atom("k"), v(0)]), c("token", [atom("k")])],
+        or(eq(v(0), atom("a")), eq(v(0), atom("b"))),
+    )];
+    collect(
+        rules,
+        Query {
+            constraints: vec![
+                c("take", [atom("k"), v(100)]),
+                c("take", [atom("k"), v(101)]),
+                c("token", [atom("k")]),
+            ],
+            outputs: vec![("first".into(), Var(100)), ("second".into(), Var(101))],
+        },
+        ["a", "b"]
+            .into_iter()
+            .map(|a| Answer {
+                outputs: vec![("first".into(), atom(a)), ("second".into(), v(900))],
+                residual: vec![c("take", [atom("k"), v(900)])],
+            })
+            .collect(),
+    );
+}
+#[test]
+fn resource_keys_are_nonbinding_and_can_become_available() {
+    let take = Rule::simplify(
+        "take",
+        [c("take", [v(0), v(1)]), c("token", [v(0)])],
+        eq(v(1), atom("ok")),
+    );
+    for bind in [false, true] {
+        let rules = vec![
+            Rule::simplify("make", [c("make", [v(0)])], eq(v(0), atom("a"))),
+            take.clone(),
+        ];
+        let mut constraints = vec![c("take", [v(100), v(101)]), c("token", [atom("a")])];
+        if bind {
+            constraints.push(c("make", [v(100)]));
+        }
+        collect(
+            rules,
+            Query {
+                constraints,
+                outputs: vec![("key".into(), Var(100)), ("out".into(), Var(101))],
+            },
+            vec![if bind {
+                Answer {
+                    outputs: vec![("key".into(), atom("a")), ("out".into(), atom("ok"))],
+                    residual: vec![],
+                }
+            } else {
+                Answer {
+                    outputs: vec![("key".into(), v(900)), ("out".into(), v(901))],
+                    residual: vec![c("take", [v(900), v(901)]), c("token", [atom("a")])],
+                }
+            }],
+        );
+    }
+}
+
+#[test]
+fn nonconfluent_resource_competition_has_an_explicit_committed_policy() {
+    let rules = vec![
+        Rule::simplify("a", [c("a", [v(0)]), c("token", [])], eq(v(0), atom("a"))),
+        Rule::simplify("b", [c("b", [v(0)]), c("token", [])], eq(v(0), atom("b"))),
+    ];
+    let query = Query {
+        constraints: vec![c("b", [v(101)]), c("a", [v(100)]), c("token", [])],
+        outputs: vec![("a".into(), Var(100)), ("b".into(), Var(101))],
+    };
+    let a_wins = Answer {
+        outputs: vec![("a".into(), atom("a")), ("b".into(), v(900))],
+        residual: vec![c("b", [v(900)])],
+    };
+    let b_wins = Answer {
+        outputs: vec![("a".into(), v(900)), ("b".into(), atom("b"))],
+        residual: vec![c("a", [v(900)])],
+    };
+    // A commits first under the scalar declaration-priority policy.
+    runtime_support::same_raw(
+        runtime_support::run(&rules, &query, 200_000),
+        vec![a_wins.clone()],
+    );
+    // B's request is the first serviced demand. Its two heads are available,
+    // so this is a valid committed step, not an implicit alternative to A.
+    runtime_support::same_raw(
+        demand_answers(rules.clone(), query.clone()),
+        vec![b_wins.clone()],
+    );
+    let mut alternate_policy = rules;
+    alternate_policy.reverse();
+    runtime_support::same_raw(
+        runtime_support::run(&alternate_policy, &query, 200_000),
+        vec![b_wins.clone()],
+    );
+    assert!(!chr_observe::equivalent(
+        &a_wins,
+        &b_wins,
+        &mut Default::default()
+    ));
+    println!(
+        "nonconfluent probe: declaration priority gives a; demand service gives b; alternate scalar priority gives b; these endpoints are not interchangeable timing controls"
+    );
+}
+#[test]
+fn shared_resource_certificate_rejects_unimplemented_alias_updates() {
+    let take = Rule::simplify(
+        "take",
+        [c("take", [v(0), v(1)]), c("token", [v(0)])],
+        eq(v(1), atom("ok")),
+    );
+    let prepared = Prepared::new(vec![take.clone()]).unwrap();
+    assert!(
+        prepared
+            .start(Query {
+                constraints: vec![c("take", [atom("a"), v(100)]), c("token", [v(100)])],
+                outputs: vec![]
+            })
+            .is_err()
+    );
+    let supply = Rule::simplify(
+        "supply",
+        [c("supply", [v(0), v(1)])],
+        and([c("token", [v(0)]).into(), eq(v(1), atom("ok"))]),
+    );
+    assert!(Prepared::new(vec![take, supply]).is_err());
+}
+
+#[test]
+fn a_sibling_claim_cannot_consume_the_other_siblings_resource() {
+    let rules = vec![
+        Rule::simplify(
+            "take",
+            [c("take", [atom("k"), v(0)]), c("token", [atom("k")])],
+            eq(v(0), atom("ok")),
+        ),
+        Rule::simplify(
+            "outer",
+            [c("outer", [v(0)])],
+            or(c("take", [atom("k"), v(0)]).into(), eq(v(0), atom("pass"))),
+        ),
+    ];
+    collect(
+        rules,
+        Query {
+            constraints: vec![c("outer", [v(100)]), c("token", [atom("k")])],
+            outputs: vec![("x".into(), Var(100))],
+        },
+        vec![
+            Answer {
+                outputs: vec![("x".into(), atom("ok"))],
+                residual: vec![],
+            },
+            Answer {
+                outputs: vec![("x".into(), atom("pass"))],
+                residual: vec![c("token", [atom("k")])],
+            },
+        ],
+    );
+}
+#[test]
+fn unknown_resource_handles_preserve_aliases_without_binding() {
+    let rules = vec![Rule {
+        name: "take".into(),
+        kept: vec![c("permit", [v(1)])],
+        removed: vec![c("take", [v(0)]), c("token", [v(1)])],
+        guards: vec![],
+        body: eq(v(0), t("box", [v(1)])),
+    }];
+    for same in [false, true] {
+        let expected = if same {
+            Answer {
+                outputs: vec![("x".into(), t("box", [v(900)]))],
+                residual: vec![c("permit", [v(900)])],
+            }
+        } else {
+            Answer {
+                outputs: vec![("x".into(), v(902))],
+                residual: vec![
+                    c("take", [v(902)]),
+                    c("permit", [v(900)]),
+                    c("token", [v(901)]),
+                ],
+            }
+        };
+        collect(
+            rules.clone(),
+            Query {
+                constraints: vec![
+                    c("take", [v(100)]),
+                    c("permit", [v(200)]),
+                    c("token", [v(if same { 200 } else { 201 })]),
+                ],
+                outputs: vec![("x".into(), Var(100))],
+            },
+            vec![expected],
+        );
+    }
 }
