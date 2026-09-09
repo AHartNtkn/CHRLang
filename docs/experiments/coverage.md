@@ -14,6 +14,8 @@ At that review, apply the [six adequacy questions](sequence.md#what-counts-as-in
 
 ## Current evidence and next work
 
+The [recursive boundary probes](results/S06-recursive-boundary-probes.md) establish two semantic counterexamples: eager ground completion can reorder competing resource claims, and hoisting a late input binding can change the winning consumer despite identical final output bindings. Fifty bounded pure ground cases agree, and unknown-tail suspension/reactivation passes independent checks. The source-derived resumable recursive implementation remains next; the mechanism package is still in progress.
+
 The [reusable-prefix confirmation](results/S06-reusable-prefix-confirmation.md) now completes 3,036 processes with 336 exact allocation replays. Reusable preparation gains in all 14 long/repeated configurations against all five alternatives, but has 21 losses against ordinary execution across the suite. One-shot lowering comparisons remain unresolved. The [next-package selection](results/S06-reusable-prefix-next.md) chooses recursive source lowering with explicit unknown-input and consuming boundaries; unplanned signatures and sustained lifetime remain required.
 
 The [reusable-prefix lifecycle sizing](results/S06-reusable-prefix-sizing.md) now completes 1,524 corrected processes with 504 exact allocation replays and complete cancellation/disposal checks. Reuse reduces repeated setup and allocation in long-prefix examples but exposes initial preparation and peak-retention costs. A depth-reporting correction is validated by a full repeated matrix; all allocation totals agree. Single timings remain exploratory. The subsequent paired confirmation retains those adverse cases; unplanned signatures and broader lowering remain open.

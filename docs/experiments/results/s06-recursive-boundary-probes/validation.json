@@ -1,0 +1,25 @@
+{
+  "source_hashes": {
+    "research/chr-compiled/tests/recursive_boundary.rs": "3e2062571836d185eb9a7acb6ca18f093a89e0c17be610517a5fad62c80f1956",
+    "research/chr-direct-conditional/tests/runtime_support/mod.rs": "03633e8d666fadcdd08ddfe4900aa8116b32e434fb0a5dcb1c5faa23ff5976b2",
+    "docs/experiments/registrations/S06-recursive-boundary-probes.md": "42f95c67be19c692bf2d2891e29fdc20c30647223bfeb0cbba7891e6f96a399d"
+  },
+  "tests_per_configuration": 4,
+  "feature_configurations": [
+    "default",
+    "no-default-features"
+  ],
+  "independent_scalar_and_compiled_access": [
+    "Scan",
+    "Indexed"
+  ],
+  "ground_pure_depth_order_pairs": 50,
+  "unknown_tail_cases": 10,
+  "counterexamples": [
+    "ground completion effects reorder claims",
+    "late binding hoisting changes consumer with equal final output bindings"
+  ],
+  "finite_service_bound": 10000,
+  "comparative_timing": false,
+  "recursive_compiler_implemented": false
+}

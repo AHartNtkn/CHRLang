@@ -1,0 +1,11 @@
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.29s
+     Running tests/recursive_boundary.rs (target/debug/deps/recursive_boundary-26b84c4a1b8d373c)
+
+running 4 tests
+test hoisting_a_late_recursive_input_binding_changes_pure_result_consumption ... ok
+test ground_recursive_completion_effects_can_change_the_resource_winner ... ok
+test an_unknown_recursive_tail_is_suspended_and_later_binding_resumes_it ... ok
+test pure_recursive_results_preserve_the_bounded_consuming_observations ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
