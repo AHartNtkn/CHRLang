@@ -1,0 +1,9 @@
+# S10 demand-sensitive contextual discovery gate
+
+The lifecycle pilot exposes full-tuple enumeration after fusion. Test a concrete competing policy: traverse ordered live occurrence tuples and stop at the first match whose guards and propagation history permit firing. Recompute discovery after each application rather than retaining all candidates. This trades retained work for repeated traversal; it is not presumed better.
+
+Preserve ordered head identities and nonbinding matching, including multiple partial constructor descriptions. For each occurrence prefix carry all possible matching environments, then enumerate complete environments in the same order as the existing match set. Guard/history rejection must continue traversal; returning the first structural match alone is unsound. Keep the eager path as an explicit experimental control.
+
+Before implementation, add a failing interface test. Then compare selected matches against the eager ordered set under rejection predicates, aliases and constructor information. Run the independent complete mixed-source and progress/fusion gates with demand execution included. Add history-heavy propagation and late guard activation witnesses so repetition and invalidation obligations remain observable. Run relevant relational suites and scoped Clippy.
+
+A separate diagnostic must count actual full candidates offered by demand traversal on the wide fused source and on a history-heavy adverse source. Counters exist in the test callback, not primary execution. No timing or allocation conclusions follow from this semantic gate. After qualification, register a paired lifecycle attribution against the frozen eager control and reconsider broader S10 sources. Direct conditional discovery remains independent work: its support-sensitive completion obligations cannot inherit this branch-local argument.

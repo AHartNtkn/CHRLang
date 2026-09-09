@@ -54,8 +54,8 @@ fn finite_mixed_sibling_and_owned_answer_survive_ongoing_work() {
                 ],
                 residual: vec![c("permit", []), c("mark", []), c("fresh", [v(100), v(100)])],
             };
-            for mode in 0..6 {
-                let mut e = Engine::new(mode, &rules, &q);
+            for mode in 0..7 {
+                let mut e = candidate(mode, &rules, &q);
                 let mut found = None;
                 for _ in 0..200000 {
                     match e.step() {
@@ -124,13 +124,13 @@ fn certified_fusion_and_ineligible_queries_across_organizations() {
                     }
                 };
                 let expected = runtime_support::run(&rules, &q, 200000);
-                for mode in 0..6 {
+                for mode in 0..7 {
                     runtime_support::same_raw(
-                        Engine::new(mode, &rules, &q).collect(),
+                        candidate(mode, &rules, &q).collect(),
                         expected.clone(),
                     );
                     runtime_support::same_raw(
-                        Engine::new(mode, selected, &q).collect(),
+                        candidate(mode, selected, &q).collect(),
                         expected.clone(),
                     );
                     executions += 2;
@@ -141,4 +141,16 @@ fn certified_fusion_and_ineligible_queries_across_organizations() {
     println!(
         "certificates admitted={admitted} rejected={rejected}; candidate executions={executions}"
     );
+}
+
+fn candidate(mode: usize, rules: &[Rule], q: &Query) -> Engine {
+    if mode == 6 {
+        Engine::Contextual(
+            chr_relational::contextual_execute::Prepared::new(rules)
+                .unwrap()
+                .start_demand(q),
+        )
+    } else {
+        Engine::new(mode, rules, q)
+    }
 }

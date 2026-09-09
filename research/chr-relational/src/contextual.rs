@@ -339,6 +339,78 @@ impl Store {
             }
         }
     }
+    /// Select the first accepted match in occurrence-tuple/environment order.
+    /// Prefix environments retain alternative partial constructor descriptions;
+    /// only the complete accepted tuple is returned to the caller.
+    pub fn find_match(
+        &self,
+        kept: &[Constraint],
+        removed: &[Constraint],
+        mut accept: impl FnMut(&Match) -> bool,
+    ) -> Option<Match> {
+        fn walk(
+            store: &Store,
+            heads: &[&Constraint],
+            kept: usize,
+            ids: &mut Vec<Occurrence>,
+            environments: BTreeSet<BTreeMap<Var, Value>>,
+            accept: &mut impl FnMut(&Match) -> bool,
+        ) -> Option<Match> {
+            if ids.len() == heads.len() {
+                for bindings in environments {
+                    let candidate = Match {
+                        kept: ids[..kept].to_vec(),
+                        removed: ids[kept..].to_vec(),
+                        bindings,
+                    };
+                    if accept(&candidate) {
+                        return Some(candidate);
+                    }
+                }
+                return None;
+            }
+            let head = heads[ids.len()];
+            for (id, resource) in store.live.iter() {
+                if ids.contains(id)
+                    || head.name != resource.name
+                    || head.args.len() != resource.args.len()
+                {
+                    continue;
+                }
+                let mut next = environments.clone();
+                for (pattern, value) in head.args.iter().zip(&resource.args) {
+                    next = next
+                        .into_iter()
+                        .flat_map(|env| store.pattern(pattern, *value, &env))
+                        .collect();
+                    if next.is_empty() {
+                        break;
+                    }
+                }
+                if next.is_empty() {
+                    continue;
+                }
+                ids.push(*id);
+                let found = walk(store, heads, kept, ids, next, accept);
+                ids.pop();
+                if found.is_some() {
+                    return found;
+                }
+            }
+            None
+        }
+        if self.failed {
+            return None;
+        }
+        walk(
+            self,
+            &kept.iter().chain(removed).collect::<Vec<_>>(),
+            kept.len(),
+            &mut Vec::with_capacity(kept.len() + removed.len()),
+            BTreeSet::from([BTreeMap::new()]),
+            &mut accept,
+        )
+    }
     pub fn matches(&self, kept: &[Constraint], removed: &[Constraint]) -> Vec<Match> {
         if self.failed {
             return vec![];

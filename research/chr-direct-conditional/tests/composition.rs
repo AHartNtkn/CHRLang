@@ -134,6 +134,7 @@ fn mixed_resources_aliases_history_and_choice() {
                         runtime_support::same_raw(answers, expected.clone());
                         for mut e in [
                             contextual.start(&q),
+                            contextual.start_demand(&q),
                             contextual.start_shared_deductions(&q),
                             contextual.start_persistent_equality(&q, false),
                             contextual.start_persistent_equality(&q, true),

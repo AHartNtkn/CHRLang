@@ -1,3 +1,5 @@
+// This build uses one emitter from the shared generator module.
+#[allow(dead_code)]
 #[path = "../chr-compiled/src/generate.rs"]
 mod generate;
 #[allow(dead_code)]

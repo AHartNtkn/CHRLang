@@ -1,6 +1,6 @@
 # Unanswered architecture questions and experimental ownership
 
-Current S10 evidence: [complete-path pilot](results/S10-composition-lifecycle.md) has 2520 processes and 360 exact allocation pairs. Wider fused heads increase contextual/conditional discovery and traffic; a separate probe supports an avoidable-discovery hypothesis. T078 next qualifies demand-sensitive discovery before architecture ranking. Timing is exploratory; broader sources, lifetime and compilation remain required.
+Current S10 evidence: [demand discovery attribution](results/S10-demand-discovery.md) validates 1008 processes and 144 exact allocation pairs. Demand avoids the contextual fused explosion but repeats costly propagation-history work. T078 next broadens mixed-source lifecycle qualification with both credible controls; resumable and conditional discovery remain unresolved.
 
 The [resource-fusion lifecycle pilot](results/S06-resource-fusion-lifecycle.md) completes 1350 processes and 180 exact allocation pairs. Inference and certification can outweigh execution savings; timing remains exploratory with clock-overhead evidence. All owners restore. The [S10 entry](results/S10-composition-entry.md) selects T078 coherent-path capability and mixed-source qualification. T073 and the other unresolved component directions remain required.
 

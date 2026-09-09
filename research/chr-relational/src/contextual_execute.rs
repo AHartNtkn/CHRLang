@@ -41,16 +41,26 @@ impl Prepared {
         }))
     }
     pub fn start(self: &Arc<Self>, query: &Query) -> Engine {
-        self.start_mode(query, false, false)
+        self.start_mode(query, false, false, false)
     }
     pub fn start_shared_deductions(self: &Arc<Self>, query: &Query) -> Engine {
-        self.start_mode(query, true, false)
+        self.start_mode(query, true, false, false)
     }
     pub fn start_persistent_equality(self: &Arc<Self>, query: &Query, shared: bool) -> Engine {
-        self.start_mode(query, shared, true)
+        self.start_mode(query, shared, true, false)
     }
-    fn start_mode(self: &Arc<Self>, query: &Query, shared: bool, persistent: bool) -> Engine {
+    pub fn start_demand(self: &Arc<Self>, query: &Query) -> Engine {
+        self.start_mode(query, false, false, true)
+    }
+    fn start_mode(
+        self: &Arc<Self>,
+        query: &Query,
+        shared: bool,
+        persistent: bool,
+        demand: bool,
+    ) -> Engine {
         let mut state = State {
+            demand,
             candidates: vec![None; self.rules.len()],
             ..State::default()
         };
@@ -91,6 +101,7 @@ enum Effect {
 }
 #[derive(Default, Clone)]
 struct State {
+    demand: bool,
     store: Store,
     pending: Vec<Effect>,
     history: BTreeSet<(usize, Vec<Occurrence>)>,
@@ -145,10 +156,31 @@ impl State {
     }
     fn application(&mut self, p: &Prepared) -> bool {
         for (ri, rule) in p.rules.iter().enumerate() {
-            if self.candidates[ri].is_none() {
+            if !self.demand && self.candidates[ri].is_none() {
                 self.candidates[ri] = Some(self.store.matches(&rule.kept, &rule.removed).into());
             }
-            while let Some(candidate) = self.candidates[ri].as_mut().unwrap().pop_front() {
+            loop {
+                let candidate = if self.demand {
+                    self.store
+                        .find_match(&rule.kept, &rule.removed, |candidate| {
+                            let ids = candidate
+                                .kept
+                                .iter()
+                                .chain(&candidate.removed)
+                                .copied()
+                                .collect::<Vec<_>>();
+                            !(rule.removed.is_empty() && self.history.contains(&(ri, ids)))
+                                && rule.guards.iter().all(|Guard::Equal(a, b)| {
+                                    self.guard(a, &candidate.bindings)
+                                        == self.guard(b, &candidate.bindings)
+                                })
+                        })
+                } else {
+                    self.candidates[ri].as_mut().unwrap().pop_front()
+                };
+                let Some(candidate) = candidate else {
+                    break;
+                };
                 let ids = candidate
                     .kept
                     .iter()
