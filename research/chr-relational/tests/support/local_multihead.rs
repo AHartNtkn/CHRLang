@@ -29,6 +29,17 @@ impl Program {
         q: &Query,
         selective: bool,
     ) -> Execution<METRICS> {
+        self.start_impl(q, selective, false)
+    }
+    pub fn start_partial<const METRICS: bool>(self: &Arc<Self>, q: &Query) -> Execution<METRICS> {
+        self.start_impl(q, true, true)
+    }
+    fn start_impl<const METRICS: bool>(
+        self: &Arc<Self>,
+        q: &Query,
+        selective: bool,
+        partial: bool,
+    ) -> Execution<METRICS> {
         let mut e = Execution {
             program: self.clone(),
             graph: Run::with_dependencies(DependencyMode::Indexed),
@@ -38,6 +49,7 @@ impl Program {
             outputs: vec![],
             firings: 0,
             cache: selective.then(Cache::default),
+            partial,
             new_occ: vec![],
             changed: BTreeSet::new(),
             work: Work::default(),
@@ -67,6 +79,7 @@ struct Waiting {
 struct Cache {
     tuples: BTreeMap<Tuple, Vec<usize>>,
     ready: BTreeMap<Tuple, Env>,
+    prefixes: BTreeMap<Tuple, Env>,
     conditions: BTreeMap<Tuple, Waiting>,
     watchers: BTreeMap<usize, BTreeSet<Tuple>>,
     incident: BTreeMap<usize, BTreeSet<Tuple>>,
@@ -92,6 +105,7 @@ pub struct Execution<const METRICS: bool = true> {
     outputs: Vec<(String, usize)>,
     pub firings: usize,
     cache: Option<Cache>,
+    partial: bool,
     new_occ: Vec<usize>,
     changed: BTreeSet<usize>,
     pub work: Work,
@@ -279,6 +293,10 @@ impl<const METRICS: bool> Execution<METRICS> {
         }
     }
     fn register(&mut self, required: Option<usize>) {
+        if self.partial {
+            self.register_prefixes(required);
+            return;
+        }
         let mut keys = vec![];
         for (i, r) in self.program.rules.iter().enumerate() {
             let heads = r.kept.iter().chain(&r.removed).collect::<Vec<_>>();
@@ -294,20 +312,23 @@ impl<const METRICS: bool> Execution<METRICS> {
             }
         }
         for key in keys {
-            let cache = self.cache.as_mut().unwrap();
-            if cache.tuples.contains_key(&key) || self.history.contains(&key) {
-                continue;
-            }
-            for id in &key.1 {
-                cache.incident.entry(*id).or_default().insert(key.clone());
-            }
-            cache.tuples.insert(key.clone(), vec![]);
-            if METRICS {
-                self.work.registrations += 1;
-                self.work.peak_tuples = self.work.peak_tuples.max(cache.tuples.len());
-            }
-            self.inspect_tuple(&key);
+            self.add_entry(key);
         }
+    }
+    fn add_entry(&mut self, key: Tuple) {
+        let cache = self.cache.as_mut().unwrap();
+        if cache.tuples.contains_key(&key) || self.history.contains(&key) {
+            return;
+        }
+        for id in &key.1 {
+            cache.incident.entry(*id).or_default().insert(key.clone());
+        }
+        cache.tuples.insert(key.clone(), vec![]);
+        if METRICS {
+            self.work.registrations += 1;
+            self.work.peak_tuples = self.work.peak_tuples.max(cache.tuples.len());
+        }
+        self.inspect_tuple(&key);
     }
     fn unsubscribe_tuple(&mut self, key: &Tuple) {
         let cache = self.cache.as_mut().unwrap();
@@ -327,13 +348,22 @@ impl<const METRICS: bool> Execution<METRICS> {
             self.work.inspections += 1;
         }
         let r = &self.program.rules[key.0];
-        let mut env = Env::new();
+        let (skip, mut env) = if self.partial && key.1.len() > 1 {
+            let parent = (key.0, key.1[..key.1.len() - 1].to_vec());
+            (
+                key.1.len() - 1,
+                self.cache.as_ref().unwrap().prefixes[&parent].clone(),
+            )
+        } else {
+            (0, Env::new())
+        };
         let mut deps = Dependencies::default();
         let success = r
             .kept
             .iter()
             .chain(&r.removed)
             .zip(&key.1)
+            .skip(skip)
             .all(|(head, id)| {
                 if METRICS {
                     self.work
@@ -347,7 +377,12 @@ impl<const METRICS: bool> Execution<METRICS> {
             });
         let cache = self.cache.as_mut().unwrap();
         if success {
-            cache.ready.insert(key.clone(), env);
+            if self.partial && key.1.len() < r.kept.len() + r.removed.len() {
+                cache.prefixes.insert(key.clone(), env);
+                self.extend_prefix(key, None);
+            } else {
+                cache.ready.insert(key.clone(), env);
+            }
             return;
         }
         let descriptor_handles = deps
@@ -386,6 +421,7 @@ impl<const METRICS: bool> Execution<METRICS> {
         self.unsubscribe_tuple(key);
         let cache = self.cache.as_mut().unwrap();
         cache.ready.remove(key);
+        cache.prefixes.remove(key);
         cache.tuples.remove(key);
         for id in &key.1 {
             let xs = cache.incident.get_mut(id).unwrap();
@@ -471,9 +507,92 @@ impl<const METRICS: bool> Execution<METRICS> {
                 assert!(cache.tuples[key].contains(h));
             }
         }
+        for key in cache.prefixes.keys() {
+            assert!(self.partial);
+            assert!(cache.tuples.contains_key(key));
+            assert!(cache.tuples[key].is_empty());
+            assert!(!cache.ready.contains_key(key));
+            let r = &self.program.rules[key.0];
+            assert!(key.1.len() < r.kept.len() + r.removed.len());
+        }
+        if self.partial {
+            for key in cache.tuples.keys() {
+                if key.1.len() > 1 {
+                    assert!(
+                        cache
+                            .prefixes
+                            .contains_key(&(key.0, key.1[..key.1.len() - 1].to_vec()))
+                    );
+                }
+            }
+        }
         for key in cache.ready.keys() {
             assert!(cache.tuples.contains_key(key));
             assert!(cache.tuples[key].is_empty());
+        }
+    }
+}
+
+impl<const METRICS: bool> Execution<METRICS> {
+    fn register_prefixes(&mut self, required: Option<usize>) {
+        // Existing successful prefixes can accept this new partner. A prefix
+        // built below recursively considers all currently live partners itself.
+        if let Some(id) = required {
+            let prefixes = self
+                .cache
+                .as_ref()
+                .unwrap()
+                .prefixes
+                .keys()
+                .cloned()
+                .collect::<Vec<_>>();
+            for key in prefixes {
+                self.extend_prefix(&key, Some(id));
+            }
+        }
+        let mut keys = vec![];
+        for (rule, r) in self.program.rules.iter().enumerate() {
+            let head = r.kept.iter().chain(&r.removed).next().unwrap();
+            use std::ops::Bound::{Included, Unbounded};
+            let bounds = required.map_or((Unbounded, Unbounded), |id| (Included(id), Included(id)));
+            for (&id, fact) in self.live.range(bounds) {
+                if METRICS {
+                    self.work.fact_visits.set(self.work.fact_visits.get() + 1);
+                }
+                if head.name == fact.name && head.args.len() == fact.args.len() {
+                    if METRICS {
+                        self.work.combinations.set(self.work.combinations.get() + 1);
+                    }
+                    keys.push((rule, vec![id]));
+                }
+            }
+        }
+        for key in keys {
+            self.add_entry(key);
+        }
+    }
+    fn extend_prefix(&mut self, key: &Tuple, required: Option<usize>) {
+        let r = &self.program.rules[key.0];
+        let head = r.kept.iter().chain(&r.removed).nth(key.1.len()).unwrap();
+        let mut keys = vec![];
+        use std::ops::Bound::{Included, Unbounded};
+        let bounds = required.map_or((Unbounded, Unbounded), |id| (Included(id), Included(id)));
+        for (&id, fact) in self.live.range(bounds) {
+            if METRICS {
+                self.work.fact_visits.set(self.work.fact_visits.get() + 1);
+            }
+            if !key.1.contains(&id) && head.name == fact.name && head.args.len() == fact.args.len()
+            {
+                if METRICS {
+                    self.work.combinations.set(self.work.combinations.get() + 1);
+                }
+                let mut ids = key.1.clone();
+                ids.push(id);
+                keys.push((key.0, ids));
+            }
+        }
+        for key in keys {
+            self.add_entry(key);
         }
     }
 }

@@ -256,10 +256,11 @@ tasks:
     type: pm
     assignee: PM
     status: active
-    progress: Scanning and selective direct-graph execution pass 59 finite configurations against scalar and conventional controls, with 24 work cells and metrics-off counterparts. Anchored registration and wake filtering address consequential repeated work. Cold prefixes expose N versus N-squared head checks and retained tuples, requiring a partial-join competitor before costs.
-    next_action: Register source-derived partial joins against scanning and full-tuple activation. Suspend failed prefixes before partner enumeration; extend under late equality while preserving history, source tuple priority and consumed-occurrence invalidation. Include sparse/broad updates, late prefix eligibility and consumed prefixes. Reconsider resource-aware lowering and adaptive reunion at the gate boundary.
+    progress: Partial joins pass all 70 finite configurations with independent scalar/conventional controls and 45 work cells with metrics-off counterparts. All 24 prior scanning/full-tuple controls are unchanged. Cold-prefix products become linear; dense prefixes retain N plus N-squared cached entries. Three-head late partner and consumed-prefix behavior validates. No native cost ranking follows.
+    next_action: Register an allocation/ownership gate comparing direct scanning, full tuples, partial joins and conventional Scan/Indexed on identical sources. Include cold/dense prefixes, sparse updates, broad repair, three-head consumption and changed-query reuse. Charge preparation, observation, cancellation and all disposal owners before timing. The ownership package will be fourth in the broader integrated-matching cycle and must trigger breadth review against resource-aware lowering and adaptive reunion.
     objective: Establish a contextual equality and local consuming-rewrite source comparison that demonstrates useful interleaving, distinct resource ownership and independent complete-answer correctness before cost registration.
     inputs:
+      - docs/experiments/results/S02-partial-join-gate.md
       - docs/experiments/results/S02-tuple-activation-gate.md
       - docs/experiments/results/S02-multihead-history-gate.md
       - docs/experiments/results/S02-repeated-alias-lifecycle.md
@@ -2308,13 +2309,13 @@ checks:
   last_verification:
     result: passed
     task: T072
-    scope: Selective head tuples, anchored registration, dependency wakeups and adverse product materialization.
+    scope: Source-derived partial joins, prefix ownership and cold/dense product controls.
     commands:
       - cargo test -p chr-relational --tests
       - cargo test -p chr-relational --test multihead -- --nocapture
       - cargo clippy -p chr-relational --test multihead --no-deps -- -D warnings
-      - Work cell audit, explicit-file formatting and local evidence links
+      - Work cell/control audit, explicit-file formatting and evidence links
     evidence:
-      - docs/experiments/results/S02-tuple-activation-gate.md
-      - docs/experiments/results/s02-tuple-activation-gate/audit.json
-      - docs/experiments/results/s02-tuple-activation-gate/package.log
+      - docs/experiments/results/S02-partial-join-gate.md
+      - docs/experiments/results/s02-partial-join-gate/audit.json
+      - docs/experiments/results/s02-partial-join-gate/package.log

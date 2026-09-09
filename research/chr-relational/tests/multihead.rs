@@ -27,6 +27,17 @@ fn check(rules: &[Rule], q: &Query) -> Vec<Answer> {
     }
     assert!(done, "unfinished selective source");
     oracle::same_raw(activated.answer().into_iter().collect(), got.clone());
+    let mut partial = p.start_partial::<true>(q);
+    let mut done = false;
+    for _ in 0..200_000 {
+        partial.assert_cache_integrity();
+        if partial.advance() {
+            done = true;
+            break;
+        }
+    }
+    assert!(done, "unfinished partial join");
+    oracle::same_raw(partial.answer().into_iter().collect(), got.clone());
     oracle::same_raw(got.clone(), oracle::run(rules, q, 200_000));
     for access in [chr_compiled::Access::Scan, chr_compiled::Access::Indexed] {
         let p = chr_compiled::PreparedRuleset::new(rules.to_vec(), None).unwrap();
@@ -279,7 +290,7 @@ fn selective_sparse_broad_and_nested_work() {
     fn nat(n: usize) -> chr_syntax::Term {
         (0..n).fold(atom("z"), |x, _| t("s", [x]))
     }
-    for family in ["sparse", "broad", "nested", "cold"] {
+    for family in ["sparse", "broad", "nested", "cold", "dense"] {
         for width in [4, 16, 64] {
             let pattern = if family == "nested" {
                 t("pair", [v(0), v(0)])
@@ -334,14 +345,32 @@ fn selective_sparse_broad_and_nested_work() {
                     constraints.push(c("partner", [atom("a")]));
                 }
             }
+            if family == "dense" {
+                rules = vec![Rule::simplify(
+                    "dense",
+                    [c("left", [v(0)]), c("right", [t("f", [v(0)])])],
+                    Goal::True,
+                )];
+                constraints.clear();
+                for i in 0..width {
+                    constraints.push(c("left", [v(100)]));
+                    constraints.push(c("right", [v(1000 + i as u64)]));
+                }
+            }
             let q = Query {
                 constraints,
                 outputs: vec![],
             };
             let expected = check(&rules, &q);
             let p = local::multihead::Program::compile(&rules).unwrap();
-            for selective in [false, true] {
-                let mut e = p.start_mode::<true>(&q, selective);
+            for mode in 0..3 {
+                let selective = mode > 0;
+                let partial = mode == 2;
+                let mut e = if partial {
+                    p.start_partial::<true>(&q)
+                } else {
+                    p.start_mode::<true>(&q, selective)
+                };
                 let mut done = false;
                 for _ in 0..200_000 {
                     e.assert_cache_integrity();
@@ -356,11 +385,21 @@ fn selective_sparse_broad_and_nested_work() {
                 if family == "cold" {
                     assert_eq!(
                         e.work.head_attempts.get(),
-                        if selective { width * width } else { width }
+                        if selective && !partial {
+                            width * width
+                        } else {
+                            width
+                        }
+                    );
+                }
+                if family == "dense" && selective {
+                    assert_eq!(
+                        e.work.peak_tuples,
+                        width * width + if partial { width } else { 0 }
                     );
                 }
                 println!(
-                    "{{\"family\":\"{family}\",\"width\":{width},\"selective\":{selective},\"heads\":{},\"fact_visits\":{},\"combinations\":{},\"inspections\":{},\"registrations\":{},\"notifications\":{},\"wakeups\":{},\"changed_handles\":{},\"peak_tuples\":{}}}",
+                    "{{\"family\":\"{family}\",\"width\":{width},\"selective\":{selective},\"partial\":{partial},\"heads\":{},\"fact_visits\":{},\"combinations\":{},\"inspections\":{},\"registrations\":{},\"notifications\":{},\"wakeups\":{},\"changed_handles\":{},\"peak_tuples\":{}}}",
                     e.work.head_attempts.get(),
                     e.work.fact_visits.get(),
                     e.work.combinations.get(),
@@ -371,7 +410,11 @@ fn selective_sparse_broad_and_nested_work() {
                     e.work.changed_handles,
                     e.work.peak_tuples
                 );
-                let mut off = p.start_mode::<false>(&q, selective);
+                let mut off = if partial {
+                    p.start_partial::<false>(&q)
+                } else {
+                    p.start_mode::<false>(&q, selective)
+                };
                 let mut done = false;
                 for _ in 0..200_000 {
                     if off.advance() {
@@ -383,6 +426,64 @@ fn selective_sparse_broad_and_nested_work() {
                 oracle::same_raw(off.answer().into_iter().collect(), expected.clone());
                 assert_eq!(off.work.head_attempts.get(), 0);
                 assert_eq!(off.work.registrations, 0);
+            }
+        }
+    }
+}
+
+#[test]
+fn three_head_prefixes_accept_new_partners_and_consumption_invalidates_waiters() {
+    for initially_known in [false, true] {
+        for killed in [false, true] {
+            for middle_count in [1, 3] {
+                let rules = vec![
+                    Rule {
+                        name: "join_three".into(),
+                        kept: vec![c("left", [t("f", [v(0)])]), c("middle", [v(0)])],
+                        removed: vec![c("right", [v(0)])],
+                        guards: vec![],
+                        body: c("hit", [v(0), v(1), v(1)]).into(),
+                    },
+                    Rule::simplify("kill", [c("left", [v(0)]), c("kill", [])], Goal::True),
+                    Rule::simplify(
+                        "go",
+                        [c("go", [v(0)])],
+                        and(vec![
+                            eq(v(0), t("f", [atom("a")])),
+                            c("middle", [atom("a")]).into(),
+                            c("right", [atom("a")]).into(),
+                            c("right", [atom("a")]).into(),
+                        ]),
+                    ),
+                ];
+                let mut constraints = vec![
+                    c(
+                        "left",
+                        [if initially_known {
+                            t("f", [atom("a")])
+                        } else {
+                            v(100)
+                        }],
+                    ),
+                    c("go", [v(100)]),
+                ];
+                for _ in 0..middle_count {
+                    constraints.push(c("middle", [atom("a")]));
+                }
+                if killed {
+                    constraints.push(c("kill", []));
+                }
+                let got = check(
+                    &rules,
+                    &Query {
+                        constraints,
+                        outputs: vec![("x".into(), Var(100))],
+                    },
+                );
+                assert_eq!(
+                    got[0].residual.iter().filter(|c| c.name == "hit").count(),
+                    if killed { 0 } else { 2 }
+                );
             }
         }
     }

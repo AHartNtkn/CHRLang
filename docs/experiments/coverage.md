@@ -1,6 +1,6 @@
 # Unanswered architecture questions and experimental ownership
 
-The [tuple-activation gate](results/S02-tuple-activation-gate.md) validates 59 finite configurations and 24 work cells. Anchored registration and filtered wakeups reduce repeated work, but the cold-prefix control requires 64 scanning checks versus 4096 full-tuple checks and retained tuples. T072 next compares source-derived partial joins before native costs. Notification discovery remains visible; no architecture ranking follows.
+The [partial-join gate](results/S02-partial-join-gate.md) validates 70 finite configurations and 45 work cells, with all 24 earlier controls unchanged. Cold prefixes require N entries instead of N-squared full tuples; dense prefixes retain N plus N-squared entries. T072 next charges scanning, full tuples and partial joins through allocation/ownership before timing. Broad dependency repair and broader language/architecture questions remain open.
 
 ## How unanswered variants remain accountable
 

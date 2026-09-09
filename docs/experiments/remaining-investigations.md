@@ -1,10 +1,10 @@
 # The comparisons still needed to choose the architecture
 
-The [tuple-activation gate](results/S02-tuple-activation-gate.md) validates 59 finite configurations and 24 work cells. Anchored registration and filtered wakeups reduce repeated work, but the cold-prefix control requires 64 scanning checks versus 4096 full-tuple checks and retained tuples. T072 next compares source-derived partial joins before native costs. Notification discovery remains visible; no architecture ranking follows.
+The [partial-join gate](results/S02-partial-join-gate.md) validates 70 finite configurations and 45 work cells, with all 24 earlier controls unchanged. Cold prefixes require N entries instead of N-squared full tuples; dense prefixes retain N plus N-squared entries. T072 next charges scanning, full tuples and partial joins through allocation/ownership before timing. Broad dependency repair and broader language/architecture questions remain open.
 
 ## Starting evidence and immediate decision
 
-The next bounded package compares source-derived partial joins with scanning and full-tuple activation. A failed prefix must suspend before enumerating remaining partners, then extend under late equality without changing tuple priority, history or consumption. The [full-tuple adverse witness](results/S02-tuple-activation-gate.md#next-decision-compare-partial-joins-before-measuring-native-costs) makes this necessary before a representative native comparison. Resource-aware lowering and adaptive reunion remain required alternatives.
+The next bounded package compares complete allocation/ownership of scanning, full tuples and partial joins with conventional controls. Include cold/dense prefixes, sparse updates, broad repair, three-head consumption, changed-query preparation reuse and cancellation. The [partial-join decision](results/S02-partial-join-gate.md#next-decision-charge-the-three-general-matching-organizations) schedules a breadth review after that package against resource-aware lowering and adaptive reunion.
 
 The completed [restoration pilot](results/S04-resident-cost-pilot.md), [reunion source gate](results/S04-reunion-source-gate.md), [ownership/identity comparison](results/S04-reunion-identity-attribution.md), [strong-control gate](results/S04-reunion-strong-controls.md) and [complete-cost pilot](results/S04-reunion-complete-pilot.md) supply controls. They do not resolve repeated dynamic reunion or general source inference.
 
