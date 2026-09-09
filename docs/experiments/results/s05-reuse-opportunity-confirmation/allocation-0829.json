@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/tmp/chr-opportunity-confirm-21aae3fc9/off/meter",
+    "compact-live",
+    "distinct",
+    "32",
+    "2",
+    "1",
+    "0",
+    "1",
+    "32"
+  ],
+  "returncode": 0,
+  "stdout": "{\"event\":\"start\",\"mode\":\"compact-live\"}\n{\"event\":\"result\",\"mode\":\"compact-live\",\"family\":\"distinct\",\"resource\":true,\"alternatives\":1,\"payload_depth\":32,\"meter\":true,\"counters\":false,\"source_build\":{\"ns\":1730,\"memory\":{\"live_start\":11111,\"live_end\":14209,\"peak_live\":14505,\"allocation_calls\":39,\"requested_bytes\":4168,\"deallocation_calls\":5}},\"preparation\":{\"ns\":2256,\"memory\":{\"live_start\":14209,\"live_end\":14249,\"peak_live\":14353,\"allocation_calls\":2,\"requested_bytes\":144,\"deallocation_calls\":1}},\"prepared_drop\":{\"ns\":3066,\"memory\":{\"live_start\":14249,\"live_end\":11111,\"peak_live\":14249,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":34}},\"samples\":[{\"depth\":32,\"complete\":true,\"answers\":1,\"first_answer_ns\":241170,\"input_build\":{\"ns\":3256,\"memory\":{\"live_start\":14249,\"live_end\":17971,\"peak_live\":17971,\"allocation_calls\":139,\"requested_bytes\":3770,\"deallocation_calls\":0}},\"setup\":{\"ns\":37185,\"memory\":{\"live_start\":17971,\"live_end\":34345,\"peak_live\":34729,\"allocation_calls\":308,\"requested_bytes\":33886,\"deallocation_calls\":145}},\"execute_observe\":{\"ns\":241627,\"memory\":{\"live_start\":34345,\"live_end\":171019,\"peak_live\":173847,\"allocation_calls\":3567,\"requested_bytes\":315934,\"deallocation_calls\":2702}},\"engine_drop\":{\"ns\":14256,\"memory\":{\"live_start\":171019,\"live_end\":14574,\"peak_live\":171019,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":984}},\"answer_drop\":{\"ns\":186,\"memory\":{\"live_start\":14574,\"live_end\":14249,\"peak_live\":14574,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":6}}},{\"depth\":33,\"complete\":true,\"answers\":1,\"first_answer_ns\":193440,\"input_build\":{\"ns\":4956,\"memory\":{\"live_start\":14249,\"live_end\":18020,\"peak_live\":18020,\"allocation_calls\":141,\"requested_bytes\":3819,\"deallocation_calls\":0}},\"setup\":{\"ns\":29274,\"memory\":{\"live_start\":18020,\"live_end\":34379,\"peak_live\":35047,\"allocation_calls\":312,\"requested_bytes\":33920,\"deallocation_calls\":147}},\"execute_observe\":{\"ns\":193543,\"memory\":{\"live_start\":34379,\"live_end\":176575,\"peak_live\":179491,\"allocation_calls\":3722,\"requested_bytes\":329573,\"deallocation_calls\":2830}},\"engine_drop\":{\"ns\":13362,\"memory\":{\"live_start\":176575,\"live_end\":14574,\"peak_live\":176575,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":1007}},\"answer_drop\":{\"ns\":162,\"memory\":{\"live_start\":14574,\"live_end\":14249,\"peak_live\":14574,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":6}}}]}\n",
+  "stderr": "",
+  "wall_seconds": 0.003580610966309905
+}
