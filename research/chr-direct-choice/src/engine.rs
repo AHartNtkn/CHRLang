@@ -420,6 +420,9 @@ impl Engine {
         }
         self.published.push(region);
     }
+    pub fn retained_constructors(&self) -> BTreeMap<String, usize> {
+        self.graph.retained_constructors()
+    }
     pub fn tick(&mut self) -> Event {
         if let Some(answer) = self.answers.pop_front() {
             return Event::Answer(answer);

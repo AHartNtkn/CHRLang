@@ -1,0 +1,46 @@
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.16s
+     Running tests/demand_work.rs (target/debug/deps/demand_work-de9f86494fc52939)
+
+running 1 test
+WORK_HEADER,family,bits,depth,work_first,resource,answers,graph_boxes,demand_boxes,demand_work_results
+WORK,plain,0,0,false,false,1,0,0,1
+WORK,plain,0,0,false,true,1,0,0,1
+WORK,plain,0,0,true,false,1,0,0,1
+WORK,plain,0,0,true,true,1,0,0,1
+WORK,plain,0,1,false,false,1,1,1,2
+WORK,plain,0,1,false,true,1,1,1,2
+WORK,plain,0,1,true,false,1,1,1,2
+WORK,plain,0,1,true,true,1,1,1,2
+WORK,plain,0,8,false,false,1,8,8,9
+WORK,plain,0,8,false,true,1,8,8,9
+WORK,plain,0,8,true,false,1,8,8,9
+WORK,plain,0,8,true,true,1,8,8,9
+WORK,plain,0,32,false,false,1,32,32,33
+WORK,plain,0,32,false,true,1,32,32,33
+WORK,plain,0,32,true,false,1,32,32,33
+WORK,plain,0,32,true,true,1,32,32,33
+WORK,opaque,1,0,false,false,2,0,0,1
+WORK,opaque,1,0,false,true,2,0,0,1
+WORK,opaque,1,0,true,false,2,0,0,1
+WORK,opaque,1,0,true,true,2,0,0,1
+WORK,opaque,1,1,false,false,2,1,1,3
+WORK,opaque,1,1,false,true,2,1,1,3
+WORK,opaque,1,1,true,false,2,1,1,3
+WORK,opaque,1,1,true,true,2,1,1,3
+
+thread 'registered_work_attribution' (118) panicked at research/chr-direct-conditional/tests/demand_work.rs:150:25:
+assertion `left == right` failed: opaque static matches should not repeat a common call expansion in sibling contexts
+  left: Some(15)
+ right: Some(8)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test registered_work_attribution ... FAILED
+
+failures:
+
+failures:
+    registered_work_attribution
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+error: test failed, to rerun pass `-p chr-direct-conditional --test demand_work`

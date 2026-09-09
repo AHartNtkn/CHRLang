@@ -47,10 +47,28 @@ fn collect(rules: Vec<Rule>, query: Query, expected: Vec<Answer>) {
     }
     assert!(exhausted, "direct graph control cutoff");
     runtime_support::same_raw(actual, expected.clone());
+    runtime_support::same_raw(
+        demand_with_policy(
+            rules.clone(),
+            query.clone(),
+            chr_direct_choice::demand::Reuse::CurrentContext,
+        ),
+        expected.clone(),
+    );
     runtime_support::same_raw(demand_answers(rules, query), expected);
 }
 fn demand_answers(rules: Vec<Rule>, query: Query) -> Vec<Answer> {
-    let mut run = Prepared::new(rules).unwrap().start(query).unwrap();
+    demand_with_policy(rules, query, chr_direct_choice::demand::Reuse::StaticBirth)
+}
+fn demand_with_policy(
+    rules: Vec<Rule>,
+    query: Query,
+    policy: chr_direct_choice::demand::Reuse,
+) -> Vec<Answer> {
+    let mut run = Prepared::with_reuse(rules, policy)
+        .unwrap()
+        .start(query)
+        .unwrap();
     let mut answers = vec![];
     for _ in 0..100_000 {
         match run.tick() {

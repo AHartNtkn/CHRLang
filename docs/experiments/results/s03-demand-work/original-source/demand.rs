@@ -31,13 +31,6 @@ struct Clause {
     inputs: Vec<Term>,
     body: Plan,
     partners: Vec<(Constraint, bool)>,
-    reusable_static_match: bool,
-}
-/// Experimental result validity policies; neither selects a language architecture.
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum Reuse {
-    CurrentContext,
-    StaticBirth,
 }
 pub struct Prepared {
     clauses: Rc<Vec<Clause>>,
@@ -48,7 +41,7 @@ enum Node {
     Unknown(u64),
     App(String, Vec<Id>),
     Alias(Id),
-    Call(String, Vec<Id>, Id, usize),
+    Call(String, Vec<Id>, Id),
     Choice(usize, Id, Id),
     Fail,
 }
@@ -206,9 +199,6 @@ fn calls(p: &Plan, out: &mut Vec<(String, usize)>) {
 }
 impl Prepared {
     pub fn new(rules: Vec<Rule>) -> Result<Self, String> {
-        Self::with_reuse(rules, Reuse::StaticBirth)
-    }
-    pub fn with_reuse(rules: Vec<Rule>, reuse: Reuse) -> Result<Self, String> {
         let mut resource_signatures = BTreeSet::new();
         for rule in &rules {
             if rule.removed.is_empty() || !rule.guards.is_empty() {
@@ -261,7 +251,6 @@ impl Prepared {
                 inputs,
                 body: plan(&rule.body, *output, &set, &resource_signatures)?,
                 partners,
-                reusable_static_match: false,
             });
         }
         // Linear input patterns overlap iff no constructor position separates them.
@@ -294,44 +283,6 @@ impl Prepared {
             if used.iter().any(|s| !signatures.contains(s)) {
                 return Err("body call has no checked definition".into());
             }
-        }
-        fn pure_plan(p: &Plan, allowed: &BTreeSet<(String, usize)>) -> bool {
-            match p {
-                Plan::Value(_) | Plan::Fail => true,
-                Plan::Call(n, args) => allowed.contains(&(n.clone(), args.len())),
-                Plan::Choice(_, _) => false,
-                Plan::Producers(actions, p) => {
-                    actions.iter().all(|a| match a {
-                        Action::Call(_, n, args) => allowed.contains(&(n.clone(), args.len())),
-                        Action::Post(_) => false,
-                    }) && pure_plan(p, allowed)
-                }
-            }
-        }
-        let mut pure = if reuse == Reuse::StaticBirth {
-            signatures.clone()
-        } else {
-            BTreeSet::new()
-        };
-        if reuse == Reuse::StaticBirth {
-            loop {
-                let invalid = clauses
-                    .iter()
-                    .filter(|c| !c.partners.is_empty() || !pure_plan(&c.body, &pure))
-                    .map(|c| (c.name.clone(), c.inputs.len()))
-                    .collect::<Vec<_>>();
-                let mut changed = false;
-                for signature in invalid {
-                    changed |= pure.remove(&signature)
-                }
-                if !changed {
-                    break;
-                }
-            }
-        }
-        for clause in &mut clauses {
-            clause.reusable_static_match =
-                pure.contains(&(clause.name.clone(), clause.inputs.len()));
         }
         Ok(Self {
             clauses: Rc::new(clauses),
@@ -445,7 +396,7 @@ impl Run {
         }
     }
     fn call(&mut self, name: String, args: Vec<Id>, output: Id, ctx: &Context) -> Id {
-        let call = self.push(Node::Call(name, args, output, self.obligations.len()));
+        let call = self.push(Node::Call(name, args, output));
         self.obligations.push((ctx.clone(), call));
         call
     }
@@ -600,19 +551,6 @@ impl Run {
         }
         Ok(None)
     }
-    // This certificate reads no context-sensitive node. Captured variable
-    // arguments may still contain choices: their pointers stay opaque in the result.
-    fn static_match(&self, pattern: &Term, id: Id) -> bool {
-        match (pattern, &self.nodes[id].node) {
-            (Term::Var(_), _) => true,
-            (Term::App(n, ps), Node::App(m, args)) => {
-                n == m
-                    && ps.len() == args.len()
-                    && ps.iter().zip(args).all(|(p, id)| self.static_match(p, *id))
-            }
-            _ => false,
-        }
-    }
     fn force(&mut self, id: Id, ctx: &Context) -> Result<Id, Signal> {
         match self.nodes[id].node.clone() {
             Node::Unknown(_) | Node::App(_, _) => Ok(id),
@@ -623,7 +561,7 @@ impl Run {
                 Some(true) => self.force(b, ctx),
                 None => Err(Signal::Split(label)),
             },
-            Node::Call(name, args, output, origin) => {
+            Node::Call(name, args, output) => {
                 if let Some((_, next)) = self.nodes[id]
                     .results
                     .iter()
@@ -666,19 +604,8 @@ impl Run {
                                 self.resources[id].consumed.push(ctx.clone());
                             }
                         }
-                        let support = if clause.reusable_static_match
-                            && clause
-                                .inputs
-                                .iter()
-                                .zip(&args)
-                                .all(|(p, id)| self.static_match(p, *id))
-                        {
-                            self.obligations[origin].0.clone()
-                        } else {
-                            ctx.clone()
-                        };
-                        let value = self.expand(&clause.body, &mut env, &support, output);
-                        self.nodes[id].results.push((support, value));
+                        let value = self.expand(&clause.body, &mut env, ctx, output);
+                        self.nodes[id].results.push((ctx.clone(), value));
                         return Err(Signal::Progress);
                     }
                 }
@@ -721,7 +648,7 @@ impl Run {
             {
                 continue;
             }
-            let Node::Call(name, args, output, _) = self.nodes[id].node.clone() else {
+            let Node::Call(name, args, output) = self.nodes[id].node.clone() else {
                 unreachable!("obligations are source calls")
             };
             let mut args = args
@@ -749,7 +676,7 @@ impl Run {
     pub fn retained_application_results(&self) -> BTreeMap<String, usize> {
         let mut counts = BTreeMap::new();
         for cell in &self.nodes {
-            if let Node::Call(name, _, _, _) = &cell.node {
+            if let Node::Call(name, _, _) = &cell.node {
                 *counts.entry(name.clone()).or_default() += cell.results.len();
             }
         }

@@ -86,6 +86,16 @@ pub struct Graph {
     failed: Vec<Context>,
 }
 impl Graph {
+    /// Post-execution retained constructor inventory; not an execution counter.
+    pub fn retained_constructors(&self) -> BTreeMap<String, usize> {
+        let mut counts = BTreeMap::new();
+        for node in &self.nodes {
+            if let Node::App(name, _) = node {
+                *counts.entry(name.clone()).or_default() += 1;
+            }
+        }
+        counts
+    }
     /// A fresh dynamic event, even for equal arms. Its activation must include
     /// the ancestors of every selected conditional birth.
     pub fn birth(&mut self, active: Context) -> Label {

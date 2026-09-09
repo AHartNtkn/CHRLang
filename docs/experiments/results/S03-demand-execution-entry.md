@@ -49,3 +49,7 @@ The [residual gate](S03-demand-residual.md) now preserves unmatched calls, tail 
 ## Resource integration and breadth checkpoint
 
 The [shared-resource gate](S03-demand-resource.md) adds contextual multihead claims and an explicit committed-policy probe. After four T071 packages, the [breadth review](S03-first-breadth-review.md) selects work attribution and bounded lifecycle sizing before further language extensions. Contextual/local consuming rewrites remain the strongest following alternative.
+
+## Work attribution result
+
+The [80-case structural comparison](S03-demand-work-attribution.md) identifies and corrects repeated opaque expansion caused by whole-context cache keys. Corrected box counts match the graph; discrimination remains adverse. Full lifecycle sizing with a direct-lowering control is next, before further source extensions.
