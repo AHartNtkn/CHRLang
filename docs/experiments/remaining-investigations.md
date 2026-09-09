@@ -1,10 +1,10 @@
 # The comparisons still needed to choose the architecture
 
-The [filtered-discovery lifecycle](results/S10-selective-discovery-lifecycle.md) completes its bounded comparison with favorable and adverse regimes. T078 now investigates [resumable contextual discovery](results/S10-resumable-contextual-entry.md); broader language and architecture obligations remain required.
+The [resumable contextual gate](results/S10-resumable-contextual-gate.md) establishes saved source-level matching progress and an equality-reset adverse control. T078 next measures lifecycle costs; broader language and architecture obligations remain required.
 
 ## Starting evidence and immediate decision
 
-The [S07 premise audit](results/S07-resource-premises.md) now supplies accepted/rejected sources and counterexamples: privacy and groundness differ from the stronger optimization certificate. The [executable contract gate](results/S07-resource-contract.md) now enforces those separate properties at preparation and search admission. The bounded declaration lifecycle pilot charges their checking costs. No language policy is adopted. The selective lifecycle pilot now passes with favorable and adverse costs; resumable contextual matching is selected next.
+The [S07 premise audit](results/S07-resource-premises.md) now supplies accepted/rejected sources and counterexamples: privacy and groundness differ from the stronger optimization certificate. The [executable contract gate](results/S07-resource-contract.md) now enforces those separate properties at preparation and search admission. The bounded declaration lifecycle pilot charges their checking costs. No language policy is adopted. The selective lifecycle pilot supplies a stronger control. The resumable source/work gate now passes; its costs are next.
 
 The completed [restoration pilot](results/S04-resident-cost-pilot.md), [reunion source gate](results/S04-reunion-source-gate.md), [ownership/identity comparison](results/S04-reunion-identity-attribution.md), [strong-control gate](results/S04-reunion-strong-controls.md) and [complete-cost pilot](results/S04-reunion-complete-pilot.md) supply controls. They do not resolve repeated dynamic reunion or general source inference.
 
@@ -18,7 +18,7 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-**Resumable contextual discovery is selected under T078/S10.** Existing eager, restarting-demand, filtered conditional and Scan paths provide controls. Test whether retained matching progress avoids repeated history work without losing newly enabled earlier applications.
+**Resumable contextual discovery is selected under T078/S10.** Existing eager, restarting-demand, filtered conditional and Scan paths provide controls. Measure whether retained matching progress repays cursor construction and invalidation while preserving newly enabled earlier applications.
 
 The order below incorporates the latest component evidence and the S10 entry decision. Each numbered row has a separate architectural question and completion boundary. The detailed mechanism specifications later in this document define its controls and adverse cases. A row containing several mechanisms requires a conclusion for each; completing one does not complete the row.
 

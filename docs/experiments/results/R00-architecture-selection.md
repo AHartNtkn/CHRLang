@@ -1,6 +1,6 @@
 # R00: architectural alternatives and first experiment selection
 
-Current evidence: the [filtered-discovery lifecycle](S10-selective-discovery-lifecycle.md) validates 2100 processes and 300 exact allocation pairs. It reduces branch-specific conditional costs but adds dense/counting overhead; stronger Scan controls remain consequential. T078 next investigates [resumable contextual discovery](S10-resumable-contextual-entry.md). Broader language, lifetime and architecture questions remain required.
+Current evidence: the [resumable contextual gate](S10-resumable-contextual-gate.md) avoids repeated history offers on stable sources, while equality resets expose an adverse regime. Full source/progress and counter-free gates pass. T078 next measures cursor lifecycle costs; broader language, lifetime and architecture questions remain required.
 
 The [resource-fusion lifecycle pilot](S06-resource-fusion-lifecycle.md) completes 1350 processes and 180 exact allocation pairs. Inference and certification can outweigh execution savings; timing remains exploratory with clock-overhead evidence. All owners restore. The [S10 entry](S10-composition-entry.md) selects T078 coherent-path capability and mixed-source qualification. T073 and the other unresolved component directions remain required.
 

@@ -53,6 +53,7 @@ fn independently_constructed_complete_mixed_observations() {
                     ),
                     Engine::Contextual(contextual.start(&q)),
                     Engine::Contextual(contextual.start_demand(&q)),
+                    Engine::Contextual(contextual.start_resumable(&q)),
                     Engine::Contextual(contextual.start_persistent_equality(&q, true)),
                     Engine::Conditional(conditional.start(q.clone()).unwrap()),
                 ];

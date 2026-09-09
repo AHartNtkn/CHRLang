@@ -278,7 +278,7 @@ Exact sizes follow exploratory sizing under the common rules above. The comparat
 
 ## Current execution order
 
-**T078 is active for resumable contextual discovery.** The [filtered-discovery lifecycle](results/S10-selective-discovery-lifecycle.md) supplies stronger conditional costs and adverse controls. The [next source/work gate](results/S10-resumable-contextual-entry.md) tests retained matching progress against eager and restarting-demand discovery. Reconsider support-aware conditional joining after that gate. Broader T079 language properties, sustained lifetime and complete architecture comparison remain required.
+**T078 is active for resumable contextual discovery.** The [source/work gate](results/S10-resumable-contextual-gate.md) preserves complete observations and avoids repeated history offers while progress remains valid; equality resets supply a contrary regime. The next lifecycle pilot compares eager, restarting-demand and resumable paths with stronger controls. Reconsider precise invalidation and support-aware conditional joining afterward. Broader T079 language properties, sustained lifetime and complete architecture comparison remain required.
 
 The [ordered remaining sequence](remaining-investigations.md#execution-order) records the completed bounded restoration/reunion comparisons and remaining investigation boundaries. T077 stays required for broader restoration, adaptive splitting, repeated dynamic reunion, inference and sustained lifetime. Broader lowering and structural theories, discovery, reuse, direct graphs and connected parallelism remain required. Language and lifetime comparisons accompany every candidate; priority is reconsidered at each package boundary.
 

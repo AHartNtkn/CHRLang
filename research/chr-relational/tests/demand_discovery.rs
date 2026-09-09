@@ -119,7 +119,7 @@ fn source_history_and_late_guard_activation_match_independent_answers() {
             residual,
         };
         let p = Prepared::new(&rules).unwrap();
-        for mut e in [p.start(&q), p.start_demand(&q)] {
+        for mut e in [p.start(&q), p.start_demand(&q), p.start_resumable(&q)] {
             let mut answers = vec![];
             let mut exhausted = false;
             for _ in 0..10000 {

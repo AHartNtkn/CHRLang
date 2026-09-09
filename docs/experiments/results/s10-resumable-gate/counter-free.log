@@ -1,0 +1,35 @@
+   Compiling chr-relational v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-relational)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.19s
+     Running unittests src/lib.rs (target/debug/deps/chr_relational-01bc1605d4c8412b)
+
+running 6 tests
+test contextual::ownership_tests::cached_maps_do_not_keep_their_arena_alive ... ok
+test execute::interleaving_tests::merged_constructor_facts_are_unique_but_source_occurrences_are_not ... ok
+test contextual::cursor_order_tests::cursor_retains_all_partial_constructor_environments_in_order ... ok
+test contextual_execute::shared_deduction_tests::source_execution_reuses_post_fork_equality_states ... ok
+test contextual_execute::deduction_cost_source_tests::measured_sources_exercise_reuse_and_adverse_keys ... ok
+test execute::interleaving_tests::useful_early_failure_and_settlement_dependent_control ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.11s
+
+     Running tests/demand_discovery.rs (target/debug/deps/demand_discovery-4dc23c5c0a85b47b)
+
+running 4 tests
+test partial_constructor_environments_keep_tuple_then_binding_order ... ok
+test history_rejection_exposes_recomputation_cost ... ok
+test source_history_and_late_guard_activation_match_independent_answers ... ok
+test demand_selection_follows_order_and_continues_after_rejection ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/resumable_discovery.rs (target/debug/deps/resumable_discovery-b2fafe8e04b27d7b)
+
+running 6 tests
+test inserting_a_head_reopens_an_exhausted_earlier_rule ... ok
+test consuming_the_first_prefix_advances_to_the_next_live_pair ... ok
+test consuming_a_suffix_preserves_the_live_prefix_and_distinctness ... ok
+test equality_invalidation_is_an_adverse_control_for_saved_progress ... ok
+test retained_progress_avoids_repeated_source_history ... ok
+test dense_duplicate_occurrences_keep_ordered_pair_multiplicity ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s

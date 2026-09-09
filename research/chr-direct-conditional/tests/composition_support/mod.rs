@@ -39,6 +39,11 @@ impl Engine {
                     .start(query.clone())
                     .unwrap(),
             ),
+            7 => Self::Contextual(
+                chr_relational::contextual_execute::Prepared::new(rules)
+                    .unwrap()
+                    .start_resumable(query),
+            ),
             _ => panic!("unknown candidate"),
         }
     }

@@ -480,6 +480,102 @@ impl Store {
     }
 }
 
+/// Owned depth-first continuation. Only the executor may use it: matching-head
+/// insertion and any equality work must invalidate it. Consumption is monotone.
+#[derive(Clone)]
+pub(crate) struct MatchCursor {
+    heads: Vec<Constraint>,
+    kept: usize,
+    ids: Vec<Occurrence>,
+    frames: Vec<MatchFrame>,
+    done: bool,
+}
+#[derive(Clone)]
+struct MatchFrame {
+    after: Option<Occurrence>,
+    environments: BTreeSet<BTreeMap<Var, Value>>,
+}
+impl MatchCursor {
+    pub(crate) fn new(kept: &[Constraint], removed: &[Constraint]) -> Self {
+        Self {
+            heads: kept.iter().chain(removed).cloned().collect(),
+            kept: kept.len(),
+            ids: vec![],
+            frames: vec![MatchFrame {
+                after: None,
+                environments: BTreeSet::from([BTreeMap::new()]),
+            }],
+            done: false,
+        }
+    }
+    fn backtrack(&mut self) {
+        self.frames.pop();
+        if self.ids.pop().is_none() {
+            self.done = true;
+        }
+    }
+    pub(crate) fn next(&mut self, store: &Store) -> Option<Match> {
+        use std::ops::Bound::{Excluded, Unbounded};
+        if self.done || store.failed {
+            return None;
+        }
+        // Removal cannot enable an earlier tuple. Skip the whole subtree whose
+        // selected prefix includes a consumed occurrence, retaining its successor.
+        if let Some(i) = self.ids.iter().position(|id| !store.live.contains_key(id)) {
+            self.ids.truncate(i);
+            self.frames.truncate(i + 1);
+        }
+        while !self.done {
+            if self.ids.len() == self.heads.len() {
+                if let Some(bindings) = self.frames.last_mut().unwrap().environments.pop_first() {
+                    return Some(Match {
+                        kept: self.ids[..self.kept].to_vec(),
+                        removed: self.ids[self.kept..].to_vec(),
+                        bindings,
+                    });
+                }
+                self.backtrack();
+                continue;
+            }
+            let frame = self.frames.last_mut().unwrap();
+            let next = match frame.after {
+                Some(id) => store.live.range((Excluded(id), Unbounded)).next(),
+                None => store.live.iter().next(),
+            };
+            let Some((&id, resource)) = next else {
+                self.backtrack();
+                continue;
+            };
+            frame.after = Some(id);
+            let head = &self.heads[self.ids.len()];
+            if self.ids.contains(&id)
+                || head.name != resource.name
+                || head.args.len() != resource.args.len()
+            {
+                continue;
+            }
+            let mut environments = frame.environments.clone();
+            for (p, v) in head.args.iter().zip(&resource.args) {
+                environments = environments
+                    .into_iter()
+                    .flat_map(|env| store.pattern(p, *v, &env))
+                    .collect();
+                if environments.is_empty() {
+                    break;
+                }
+            }
+            if !environments.is_empty() {
+                self.ids.push(id);
+                self.frames.push(MatchFrame {
+                    after: None,
+                    environments,
+                });
+            }
+        }
+        None
+    }
+}
+
 #[cfg(test)]
 mod ownership_tests {
     use super::*;
@@ -497,5 +593,41 @@ mod ownership_tests {
         assert!(weak.upgrade().is_some());
         drop(branch);
         assert!(weak.upgrade().is_none());
+    }
+}
+
+#[cfg(test)]
+mod cursor_order_tests {
+    use super::*;
+    use chr_syntax::{c, t, v};
+    #[test]
+    fn cursor_retains_all_partial_constructor_environments_in_order() {
+        let mut s = Store::default();
+        let x = s.unknown();
+        let y = s.unknown();
+        let fx = s.constructor("f", &[x]);
+        let fy = s.constructor("f", &[y]);
+        s.post("open", &[fx]);
+        s.post("open", &[fy]);
+        s.post("other", &[x]);
+        s.post("other", &[y]);
+        s.equate(fx, fy);
+        assert!(s.step());
+        assert!(s.pending() > 0);
+        let heads = [c("open", [t("f", [v(0)])]), c("other", [v(1)])];
+        for settled in [false, true] {
+            if settled {
+                while s.step() {}
+            }
+            let expected = s.matches(&heads[..1], &heads[1..]);
+            assert!(!expected.is_empty());
+            let mut cursor = MatchCursor::new(&heads[..1], &heads[1..]);
+            let mut actual = vec![];
+            while let Some(m) = cursor.next(&s) {
+                actual.push(m);
+            }
+            assert_eq!(actual, expected);
+            assert!(cursor.next(&s).is_none());
+        }
     }
 }

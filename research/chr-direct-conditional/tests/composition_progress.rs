@@ -54,7 +54,7 @@ fn finite_mixed_sibling_and_owned_answer_survive_ongoing_work() {
                 ],
                 residual: vec![c("permit", []), c("mark", []), c("fresh", [v(100), v(100)])],
             };
-            for mode in 0..7 {
+            for mode in 0..8 {
                 let mut e = candidate(mode, &rules, &q);
                 let mut found = None;
                 for _ in 0..200000 {
@@ -124,7 +124,7 @@ fn certified_fusion_and_ineligible_queries_across_organizations() {
                     }
                 };
                 let expected = runtime_support::run(&rules, &q, 200000);
-                for mode in 0..7 {
+                for mode in 0..8 {
                     runtime_support::same_raw(
                         candidate(mode, &rules, &q).collect(),
                         expected.clone(),

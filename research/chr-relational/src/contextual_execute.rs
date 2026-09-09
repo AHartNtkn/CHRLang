@@ -4,7 +4,10 @@
 #[allow(dead_code)]
 #[path = "../examples/support/deduction_source.rs"]
 mod cost_source;
-use crate::{Match, Occurrence, Value, contextual::Store};
+use crate::{
+    Match, Occurrence, Value,
+    contextual::{MatchCursor, Store},
+};
 use chr_syntax::{Answer, Goal, Guard, Query, Rule, Term, Var};
 use std::collections::{BTreeMap, BTreeSet, VecDeque};
 use std::sync::Arc;
@@ -41,16 +44,19 @@ impl Prepared {
         }))
     }
     pub fn start(self: &Arc<Self>, query: &Query) -> Engine {
-        self.start_mode(query, false, false, false)
+        self.start_mode(query, false, false, false, false)
     }
     pub fn start_shared_deductions(self: &Arc<Self>, query: &Query) -> Engine {
-        self.start_mode(query, true, false, false)
+        self.start_mode(query, true, false, false, false)
     }
     pub fn start_persistent_equality(self: &Arc<Self>, query: &Query, shared: bool) -> Engine {
-        self.start_mode(query, shared, true, false)
+        self.start_mode(query, shared, true, false, false)
     }
     pub fn start_demand(self: &Arc<Self>, query: &Query) -> Engine {
-        self.start_mode(query, false, false, true)
+        self.start_mode(query, false, false, true, false)
+    }
+    pub fn start_resumable(self: &Arc<Self>, query: &Query) -> Engine {
+        self.start_mode(query, false, false, true, true)
     }
     fn start_mode(
         self: &Arc<Self>,
@@ -58,9 +64,16 @@ impl Prepared {
         shared: bool,
         persistent: bool,
         demand: bool,
+        resumable: bool,
     ) -> Engine {
         let mut state = State {
             demand,
+            resumable,
+            cursors: if resumable {
+                vec![None; self.rules.len()]
+            } else {
+                vec![]
+            },
             candidates: vec![None; self.rules.len()],
             ..State::default()
         };
@@ -87,6 +100,7 @@ impl Prepared {
         Engine {
             prepared: self.clone(),
             frontier: VecDeque::from([state]),
+            discovery_stats: DiscoveryStats::default(),
         }
     }
 }
@@ -102,6 +116,8 @@ enum Effect {
 #[derive(Default, Clone)]
 struct State {
     demand: bool,
+    resumable: bool,
+    cursors: Vec<Option<MatchCursor>>,
     store: Store,
     pending: Vec<Effect>,
     history: BTreeSet<(usize, Vec<Occurrence>)>,
@@ -154,15 +170,22 @@ impl State {
             }
         }
     }
-    fn application(&mut self, p: &Prepared) -> bool {
+    fn application(&mut self, p: &Prepared, stats: &mut DiscoveryStats) -> bool {
         for (ri, rule) in p.rules.iter().enumerate() {
             if !self.demand && self.candidates[ri].is_none() {
                 self.candidates[ri] = Some(self.store.matches(&rule.kept, &rule.removed).into());
             }
             loop {
-                let candidate = if self.demand {
+                let candidate = if self.resumable {
+                    let cursor = self.cursors[ri]
+                        .get_or_insert_with(|| MatchCursor::new(&rule.kept, &rule.removed));
+                    cursor.next(&self.store)
+                } else if self.demand {
                     self.store
                         .find_match(&rule.kept, &rule.removed, |candidate| {
+                            if cfg!(feature = "local-work") {
+                                stats.offered += 1;
+                            }
                             let ids = candidate
                                 .kept
                                 .iter()
@@ -181,6 +204,9 @@ impl State {
                 let Some(candidate) = candidate else {
                     break;
                 };
+                if cfg!(feature = "local-work") && (self.resumable || !self.demand) {
+                    stats.offered += 1;
+                }
                 let ids = candidate
                     .kept
                     .iter()
@@ -229,11 +255,20 @@ pub enum Step {
     Answer(Answer),
     Exhausted,
 }
+#[derive(Default, Debug)]
+pub struct DiscoveryStats {
+    /// Complete candidates offered to history/guard checking; zero without local-work.
+    pub offered: u64,
+}
 pub struct Engine {
     prepared: Arc<Prepared>,
     frontier: VecDeque<State>,
+    discovery_stats: DiscoveryStats,
 }
 impl Engine {
+    pub fn discovery_stats(&self) -> &DiscoveryStats {
+        &self.discovery_stats
+    }
     pub fn advance(&mut self) -> Step {
         let Some(mut state) = self.frontier.pop_front() else {
             return Step::Exhausted;
@@ -242,6 +277,7 @@ impl Engine {
             // Equality changes both canonical keys and positive guard entailment.
             // Conservatively invalidate even when this queued deduction is redundant.
             state.candidates.fill(None);
+            state.cursors.fill(None);
         }
         if state.store.failed() {
             return Step::Progress;
@@ -252,6 +288,9 @@ impl Engine {
                     if let Some(readers) = self.prepared.arrivals.get(&(n.clone(), xs.len())) {
                         for ri in readers {
                             state.candidates[*ri] = None;
+                            if state.resumable {
+                                state.cursors[*ri] = None;
+                            }
                         }
                     }
                     state.store.post(&n, &xs);
@@ -269,7 +308,9 @@ impl Engine {
                 Effect::True => (),
                 Effect::Fail => return Step::Progress,
             }
-        } else if !state.application(&self.prepared) && state.store.pending() == 0 {
+        } else if !state.application(&self.prepared, &mut self.discovery_stats)
+            && state.store.pending() == 0
+        {
             return Step::Answer(state.answer());
         }
         self.frontier.push_back(state);
