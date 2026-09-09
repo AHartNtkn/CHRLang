@@ -1,0 +1,31 @@
+{
+  "positive_snapshots": {
+    "off-pools": 8,
+    "on-pools": 8
+  },
+  "examples": {
+    "off-pools": {
+      "mode": "conditional",
+      "family": "history",
+      "n": 3,
+      "reuse": 4,
+      "consumer": "prepared",
+      "steps": 64,
+      "pools": 1,
+      "checks": 0,
+      "prefixes": 0
+    },
+    "on-pools": {
+      "mode": "conditional",
+      "family": "history",
+      "n": 3,
+      "reuse": 4,
+      "consumer": "prepared",
+      "steps": 64,
+      "pools": 1,
+      "checks": 0,
+      "prefixes": 0
+    }
+  },
+  "repeats_agree": true
+}

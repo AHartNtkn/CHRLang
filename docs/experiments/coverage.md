@@ -1,6 +1,6 @@
 # Unanswered architecture questions and experimental ownership
 
-Current evidence: the [head-dispatch beneficiary](results/S07-head-dispatch-gate.md) removes query buckets, discovery jobs and known-tuple deduplication for unary sources, and exploits unary rules locally in mixed sources. Inferred and checked/required valid declarations share execution. All 136 crate tests and 18 selected counter-free tests pass. T079 next measures lifecycle costs; non-overlap and broader architecture questions remain open.
+Current evidence: the [head-dispatch lifecycle](results/S07-head-dispatch-lifecycle.md) completes 3612 processes and 516 exact allocation pairs. Inference lowers completed-query traffic in 76/84 cells; valid declared/required allocation readings equal inference in all 96 pairs. Cancellation is reported separately. T079 next investigates [non-overlap/resource conflicts](results/S07-overlap-entry.md); no language restriction is adopted.
 
 The [resource-fusion lifecycle pilot](results/S06-resource-fusion-lifecycle.md) completes 1350 processes and 180 exact allocation pairs. Inference and certification can outweigh execution savings; timing remains exploratory with clock-overhead evidence. All owners restore. The [S10 entry](results/S10-composition-entry.md) selects T078 coherent-path capability and mixed-source qualification. T073 and the other unresolved component directions remain required.
 

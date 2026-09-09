@@ -1,6 +1,6 @@
 # The comparisons still needed to choose the architecture
 
-The [head-dispatch gate](results/S07-head-dispatch-gate.md) establishes a real local-inference beneficiary and checked-admission comparison. T079 next registers complete costs; non-overlap and broader architecture obligations remain required.
+The [head-dispatch lifecycle](results/S07-head-dispatch-lifecycle.md) validates 3612 processes, distinct preparation/cancellation costs and identical valid declaration/inference allocation. T079 next investigates [non-overlap/resource conflicts](results/S07-overlap-entry.md); broader obligations remain required.
 
 ## Starting evidence and immediate decision
 
@@ -18,7 +18,7 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-**Head-dispatch lifecycle attribution is selected under T079/S07.** Local inference and checked admission now share an executable beneficiary, including mixed-source use. Measure preparation, changing queries and all owners before drawing a cost conclusion. Non-overlap remains separate; no language restriction is adopted.
+**Non-overlap/resource-conflict properties are selected under T079/S07.** Head dispatch now has complete pilot costs without a mandatory-declaration advantage in allocation. Identify the distinct responsibility a stronger property could remove, with contrary sources and explicit partial-information semantics.
 
 The order below incorporates the latest component evidence and the S10 entry decision. Each numbered row has a separate architectural question and completion boundary. The detailed mechanism specifications later in this document define its controls and adverse cases. A row containing several mechanisms requires a conclusion for each; completing one does not complete the row.
 
