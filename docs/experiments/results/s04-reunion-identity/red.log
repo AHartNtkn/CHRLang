@@ -1,0 +1,22 @@
+   Compiling chr-restoration v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-restoration)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.46s
+     Running unittests src/lib.rs (target/debug/deps/chr_restoration-ed04e2e2269500f5)
+
+running 1 test
+test reunion::tests::identity_transport_shares_values_but_relocates_occurrences_and_history ... FAILED
+
+failures:
+
+---- reunion::tests::identity_transport_shares_values_but_relocates_occurrences_and_history stdout ----
+
+thread 'reunion::tests::identity_transport_shares_values_but_relocates_occurrences_and_history' (451) panicked at research/chr-restoration/src/reunion.rs:329:9:
+assertion failed: Arc::ptr_eq(&merged.bindings[&Var(1)], &value)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    reunion::tests::identity_transport_shares_values_but_relocates_occurrences_and_history
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 5 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p chr-restoration --lib`

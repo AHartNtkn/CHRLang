@@ -2,8 +2,11 @@
 use super::*;
 pub struct Outcome {
     pub answers: Vec<Answer>,
+    #[cfg(feature = "replay-diagnostic")]
     pub local_steps: usize,
+    #[cfg(feature = "replay-diagnostic")]
     pub reunion_steps: usize,
+    #[cfg(feature = "replay-diagnostic")]
     pub products: usize,
     pub components: usize,
 }
@@ -46,7 +49,14 @@ fn combine(left: &State, right: &State, fresh: u64) -> Result<State, String> {
         let key = if v.0 >= fresh { Var(v.0 + offset) } else { *v };
         if merged
             .bindings
-            .insert(key, Arc::new(transport(t, fresh, offset)))
+            .insert(
+                key,
+                if offset == 0 {
+                    t.clone()
+                } else {
+                    Arc::new(transport(t, fresh, offset))
+                },
+            )
             .is_some()
         {
             return Err("overlapping component binding owners".into());
@@ -55,10 +65,14 @@ fn combine(left: &State, right: &State, fresh: u64) -> Result<State, String> {
     for (id, c) in &right.live {
         merged.live.insert(
             id + left.next_occ,
-            Arc::new(Constraint {
-                name: c.name.clone(),
-                args: c.args.iter().map(|t| transport(t, fresh, offset)).collect(),
-            }),
+            if offset == 0 {
+                c.clone()
+            } else {
+                Arc::new(Constraint {
+                    name: c.name.clone(),
+                    args: c.args.iter().map(|t| transport(t, fresh, offset)).collect(),
+                })
+            },
         );
     }
     for (rule, ids) in &right.history {
@@ -68,69 +82,83 @@ fn combine(left: &State, right: &State, fresh: u64) -> Result<State, String> {
     }
     Ok(merged)
 }
-/// Check ownership and start fair local/product/reunited service.
-pub fn start(rules: &[Rule], local_rules: usize, query: &Query) -> Result<ReunionEngine, String> {
-    if local_rules == 0 || local_rules >= rules.len() {
-        return Err("expected local prefix followed by joining rules".into());
-    }
-    let prepared = Prepared::new(rules)?;
-    for (i, r) in rules.iter().enumerate() {
-        let heads = r.kept.iter().chain(&r.removed).collect::<Vec<_>>();
-        let key = owner(heads[0])?;
-        for head in &heads {
-            let next = owner(head)?;
-            if i < local_rules && next != key {
-                return Err("local rule crosses ownership boundary".into());
+/// Rules and the checked private-prefix boundary, reusable across queries.
+pub struct PreparedPhase {
+    rules: Vec<Rule>,
+    local_rules: usize,
+}
+impl PreparedPhase {
+    pub fn new(rules: &[Rule], local_rules: usize) -> Result<Arc<Self>, String> {
+        if local_rules == 0 || local_rules >= rules.len() {
+            return Err("expected local prefix followed by joining rules".into());
+        }
+        for (i, r) in rules.iter().enumerate() {
+            let heads = r.kept.iter().chain(&r.removed).collect::<Vec<_>>();
+            let key = owner(heads.first().ok_or("empty-head rules unsupported")?)?;
+            for head in &heads {
+                let next = owner(head)?;
+                if i < local_rules && next != key {
+                    return Err("local rule crosses ownership boundary".into());
+                }
+            }
+            if i < local_rules && !preserves(&r.body, key) {
+                return Err("local rule emits foreign or unknown ownership".into());
             }
         }
-        if i < local_rules && !preserves(&r.body, key) {
-            return Err("local rule emits foreign or unknown ownership".into());
-        }
+        Ok(Arc::new(Self {
+            rules: rules.to_vec(),
+            local_rules,
+        }))
     }
-    let fresh = State::new(query)?.next_var;
-    let mut groups: BTreeMap<String, Vec<Constraint>> = BTreeMap::new();
-    let mut owners = BTreeMap::new();
-    for c in &query.constraints {
-        let key = owner(c)?;
-        let mut names = BTreeSet::new();
-        for t in &c.args {
-            vars(t, &mut names);
-        }
-        for v in names {
-            if owners.insert(v, key).is_some_and(|prior| prior != key) {
-                return Err("initial variables cross ownership boundary".into());
+    /// Validate each query's variable ownership and create its private states.
+    pub fn start(self: &Arc<Self>, query: &Query) -> Result<ReunionEngine, String> {
+        let fresh = State::new(query)?.next_var;
+        let mut groups: BTreeMap<String, Vec<Constraint>> = BTreeMap::new();
+        let mut owners = BTreeMap::new();
+        for c in &query.constraints {
+            let key = owner(c)?;
+            let mut names = BTreeSet::new();
+            for t in &c.args {
+                vars(t, &mut names);
             }
+            for v in names {
+                if owners.insert(v, key).is_some_and(|prior| prior != key) {
+                    return Err("initial variables cross ownership boundary".into());
+                }
+            }
+            groups.entry(key.to_owned()).or_default().push(c.clone());
         }
-        groups.entry(key.to_owned()).or_default().push(c.clone());
+        if groups.len() < 2 {
+            return Err("at least two component owners required".into());
+        }
+        let components = groups.len();
+        let mut local = VecDeque::new();
+        for (component, constraints) in groups.into_values().enumerate() {
+            let mut initial = State::new(&Query {
+                constraints,
+                outputs: vec![],
+            })?;
+            initial.next_var = fresh;
+            local.push_back((component, initial));
+        }
+        Ok(ReunionEngine {
+            prepared: self.clone(),
+            outputs: query.outputs.clone(),
+            fresh,
+            local,
+            saved: vec![vec![]; components],
+            cursors: VecDeque::new(),
+            resumed: VecDeque::new(),
+            lane: 0,
+            #[cfg(feature = "replay-diagnostic")]
+            local_steps: 0,
+            #[cfg(feature = "replay-diagnostic")]
+            reunion_steps: 0,
+            #[cfg(feature = "replay-diagnostic")]
+            products: 0,
+            error: None,
+        })
     }
-    if groups.len() < 2 {
-        return Err("at least two component owners required".into());
-    }
-    let components = groups.len();
-    let mut local = VecDeque::new();
-    for (component, constraints) in groups.into_values().enumerate() {
-        let mut initial = State::new(&Query {
-            constraints,
-            outputs: vec![],
-        })?;
-        initial.next_var = fresh;
-        local.push_back((component, initial));
-    }
-    Ok(ReunionEngine {
-        prepared,
-        local_rules,
-        outputs: query.outputs.clone(),
-        fresh,
-        local,
-        saved: vec![vec![]; components],
-        cursors: VecDeque::new(),
-        resumed: VecDeque::new(),
-        lane: 0,
-        local_steps: 0,
-        reunion_steps: 0,
-        products: 0,
-        error: None,
-    })
 }
 
 struct ProductCursor {
@@ -156,8 +184,7 @@ impl ProductCursor {
 /// Owns private alternatives, lazy product cursors and reunited source states.
 /// Service alternates the three queues; it is not a constant wall-time quantum.
 pub struct ReunionEngine {
-    prepared: Arc<Prepared>,
-    local_rules: usize,
+    prepared: Arc<PreparedPhase>,
     outputs: Vec<(String, Var)>,
     fresh: u64,
     local: VecDeque<(usize, State)>,
@@ -165,8 +192,11 @@ pub struct ReunionEngine {
     cursors: VecDeque<ProductCursor>,
     resumed: VecDeque<State>,
     lane: usize,
+    #[cfg(feature = "replay-diagnostic")]
     local_steps: usize,
+    #[cfg(feature = "replay-diagnostic")]
     reunion_steps: usize,
+    #[cfg(feature = "replay-diagnostic")]
     products: usize,
     error: Option<String>,
 }
@@ -181,9 +211,12 @@ impl ReunionEngine {
             match lane {
                 0 => {
                     if let Some((component, mut state)) = self.local.pop_front() {
-                        self.local_steps += 1;
+                        #[cfg(feature = "replay-diagnostic")]
+                        {
+                            self.local_steps += 1;
+                        }
                         match state.step(
-                            &self.prepared.rules[..self.local_rules],
+                            &self.prepared.rules[..self.prepared.local_rules],
                             None,
                             &mut Recorder::new(false),
                         ) {
@@ -228,7 +261,10 @@ impl ReunionEngine {
                                 }
                             }
                         }
-                        self.products += 1;
+                        #[cfg(feature = "replay-diagnostic")]
+                        {
+                            self.products += 1;
+                        }
                         self.resumed.push_back(state);
                         if cursor.next() {
                             self.cursors.push_back(cursor);
@@ -238,7 +274,10 @@ impl ReunionEngine {
                 }
                 2 => {
                     if let Some(mut state) = self.resumed.pop_front() {
-                        self.reunion_steps += 1;
+                        #[cfg(feature = "replay-diagnostic")]
+                        {
+                            self.reunion_steps += 1;
+                        }
                         match state.step(&self.prepared.rules, None, &mut Recorder::new(false)) {
                             Event::Progress => self.resumed.push_back(state),
                             Event::Failed => (),
@@ -260,37 +299,61 @@ impl ReunionEngine {
         Ok(Step::Exhausted)
     }
 }
-/// Complete finite observations within a service budget, otherwise return an error.
-pub fn run(
-    rules: &[Rule],
-    local_rules: usize,
-    query: &Query,
-    limit: usize,
-) -> Result<Outcome, String> {
-    let mut e = start(rules, local_rules, query)?;
-    let mut answers = vec![];
-    for _ in 0..limit {
-        match e.advance()? {
-            Step::Progress => (),
-            Step::Answer(a) => answers.push(a),
-            Step::Exhausted => {
-                return Ok(Outcome {
-                    answers,
-                    local_steps: e.local_steps,
-                    reunion_steps: e.reunion_steps,
-                    products: e.products,
-                    components: e.saved.len(),
-                });
+impl PreparedPhase {
+    /// Complete finite observations within a service budget or report unfinished work.
+    pub fn run(self: &Arc<Self>, query: &Query, limit: usize) -> Result<Outcome, String> {
+        let mut e = self.start(query)?;
+        let mut answers = vec![];
+        for _ in 0..limit {
+            match e.advance()? {
+                Step::Progress => (),
+                Step::Answer(a) => answers.push(a),
+                Step::Exhausted => {
+                    return Ok(Outcome {
+                        answers,
+                        #[cfg(feature = "replay-diagnostic")]
+                        local_steps: e.local_steps,
+                        #[cfg(feature = "replay-diagnostic")]
+                        reunion_steps: e.reunion_steps,
+                        #[cfg(feature = "replay-diagnostic")]
+                        products: e.products,
+                        components: e.saved.len(),
+                    });
+                }
             }
         }
+        Err("source/service budget exhausted".into())
     }
-    Err("source/service budget exhausted".into())
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
     use chr_syntax::{atom, c};
+    #[test]
+    fn identity_transport_shares_values_but_relocates_occurrences_and_history() {
+        let left = State {
+            next_var: 100,
+            next_occ: 7,
+            ..State::default()
+        };
+        let value = Arc::new(Term::Var(Var(100)));
+        let constraint = Arc::new(c("saved", [atom("right"), Term::Var(Var(100))]));
+        let right = State {
+            bindings: BTreeMap::from([(Var(1), value.clone())]),
+            live: BTreeMap::from([(2, constraint.clone())]),
+            history: BTreeSet::from([(0, vec![2])]),
+            next_var: 101,
+            next_occ: 3,
+            ..State::default()
+        };
+        let merged = combine(&left, &right, 100).unwrap();
+        assert!(Arc::ptr_eq(&merged.bindings[&Var(1)], &value));
+        assert!(Arc::ptr_eq(&merged.live[&9], &constraint));
+        assert!(merged.history.contains(&(0, vec![9])));
+        assert_eq!(merged.next_var, 101);
+        assert_eq!(merged.next_occ, 10);
+    }
     #[test]
     fn cancellation_releases_saved_states_and_prepared_owner() {
         let rules = vec![
@@ -305,7 +368,7 @@ mod tests {
             constraints: vec![c("value", [atom("left")]), c("value", [atom("right")])],
             outputs: vec![],
         };
-        let mut engine = start(&rules, 1, &q).unwrap();
+        let mut engine = PreparedPhase::new(&rules, 1).unwrap().start(&q).unwrap();
         let prepared = Arc::downgrade(&engine.prepared);
         for _ in 0..10 {
             engine.advance().unwrap();

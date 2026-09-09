@@ -1,0 +1,11 @@
+# Attribute identity transport before ranking reunion costs
+
+The fourth T077 package now supplies a complete requested-allocation gate: 480 successful processes and 240 exact replays. Reunion saves traffic on substantial private work but has an adverse short payload regime. Investigate the identity-transport copy before interpreting that regime as a cost of temporary separation itself.
+
+The inspected four-owner/four-query plain source at depth48 requests about 10.00 MiB under reunion versus 35.59 MiB under Copy and 17.45 MiB under Indexed. With payloads at depth0, reunion requests 15.60 MiB versus Copy's 8.26 MiB. These are requested bytes, not speed or RSS. All query, cancellation and prepared baselines restore.
+
+The implementation reconstructs owned constraint/binding terms during product transport even when the variable offset is zero. With zero offset, the renaming function is identity on both original and private variables; immutable Arc values can be shared while occurrence/history indices are still relocated. That is a direct correctness argument for a small representation repair. It could substantially change the adverse payload result without changing the source's distinctive mechanism.
+
+The strongest ready alternative is T072 integrated dependency repair and complete consuming-source costs. Integration could change service boundaries and has a known broad-merge repair hypothesis. The identity attribution is selected first because its implementation is small, the complete controls and allocator are already validated, and the candidate's measured disadvantage may be dominated by this correctable copy. Preserve the baseline source and binaries, establish the ownership test, and repeat the full matched matrix. All unchanged control allocations must match exactly.
+
+This does not authorize an open-ended reunion optimization cycle. The attribution is the fifth T077 package, following resident correctness, restoration costs, reunion correspondence and this ownership gate. After the attribution, choose between a bounded ordinary-time endpoint and integrated execution; another local repair requires a consequential unresolved result. Larger source scope, repeated dynamic reunion, adaptive splitting, language inference and sustained lifetime remain required. No allocation result chooses the architecture.

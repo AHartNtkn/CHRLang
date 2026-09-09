@@ -1,0 +1,9 @@
+   Compiling chr-restoration v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-restoration)
+error[E0433]: cannot find `PreparedPhase` in `reunion`
+   --> research/chr-restoration/tests/reunion.rs:355:27
+    |
+355 |     let prepared=reunion::PreparedPhase::new(&rules,n).unwrap();
+    |                           ^^^^^^^^^^^^^ could not find `PreparedPhase` in `reunion`
+
+For more information about this error, try `rustc --explain E0433`.
+error: could not compile `chr-restoration` (test "reunion") due to 1 previous error

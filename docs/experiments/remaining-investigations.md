@@ -1,5 +1,8 @@
 # The comparisons still needed to choose the architecture
 
+The [reunion ownership gate](results/S04-reunion-ownership-gate.md) and [identity-copy attribution](results/S04-reunion-identity-attribution.md) complete 960 matrix processes, 480 exact allocation replays and 384 unchanged-control pairs. Reusable preparation and query/consumer disposal validate. Identity sharing lowers traffic in all 48 reunion configurations, while short payload and peak-memory tradeoffs remain. T077 next qualifies stronger specialization/elimination controls before timing; integrated execution remains the strongest separate alternative.
+
+
 The [temporary reunion source gate](results/S04-reunion-source-gate.md) now executes checked private components and resumes consuming rules from their combined states. All 55 finite configurations agree with independent and ordinary controls; finite-sibling service and weak-owner cancellation checks pass. A depth12 witness uses 142 rather than 198 source-transition calls, excluding product/ownership costs. T077 remains active for reusable preparation and complete allocation/cost evidence; broader dynamic reunion remains required.
 
 
@@ -14,7 +17,7 @@ The work has three parts: test the distinct execution mechanisms, compare their 
 
 ## Execution order
 
-**The checked reunion source gate now passes; next establish its complete ownership and costs, then reassess integrated execution.** The current worktree already supplies bounded call-reuse and structural-solving trials. Their broader questions remain required, but those completed trials are evidence to build on, not experiments to start again.
+**Reunion source and allocation gates pass; next qualify stronger specialization/elimination controls before ordinary timing, then reassess integrated execution.** The current worktree already supplies bounded call-reuse and structural-solving trials. Their broader questions remain required, but those completed trials are evidence to build on, not experiments to start again.
 
 The order below is the next sequence from source revision `5ee63c7ce`. Each numbered row has a separate architectural question and completion boundary. The detailed mechanism specifications later in this document define its controls and adverse cases. A row containing several mechanisms requires a conclusion for each; completing one does not complete the row.
 
