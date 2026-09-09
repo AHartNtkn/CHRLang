@@ -343,14 +343,15 @@ fn ground_entry_does_not_restrict_result_unknowns_or_branch_resource_outcomes() 
 fn optional_and_required_admission_enforce_the_same_declared_boundary() {
     use chr_compiled::resource_contract::{Admission, PreparedContract};
     let rules = source::rules("common", 0);
-    assert!(PreparedContract::new(rules.clone(), None, Admission::Required).is_err());
-    let unrestricted = PreparedContract::new(rules.clone(), None, Admission::Optional).unwrap();
+    assert!(PreparedContract::new(rules.clone(), None, Admission::Required, false).is_err());
+    let unrestricted =
+        PreparedContract::new(rules.clone(), None, Admission::Optional, false).unwrap();
     let mut bad = declaration();
     bad.access_rules = vec![];
     for admission in [Admission::Optional, Admission::Required] {
-        assert!(PreparedContract::new(rules.clone(), Some(bad.clone()), admission).is_err());
+        assert!(PreparedContract::new(rules.clone(), Some(bad.clone()), admission, false).is_err());
         let prepared =
-            PreparedContract::new(rules.clone(), Some(declaration()), admission).unwrap();
+            PreparedContract::new(rules.clone(), Some(declaration()), admission, false).unwrap();
         for d in [0, 1, 4] {
             let q = source::query("common", 0, d, 0);
             let mut engine = prepared.start(q, Policy::Global, Access::Scan).unwrap();
@@ -407,5 +408,52 @@ fn optional_and_required_admission_enforce_the_same_declared_boundary() {
                 ],
             }],
         );
+    }
+}
+
+#[test]
+fn counted_contract_checks_original_input_and_reuses_its_own_source() {
+    use chr_compiled::resource_contract::{Admission, PreparedContract};
+    for family in ["common", "independent"] {
+        for declared in [false, true] {
+            let rules = source::rules(family, 2);
+            let p =
+                PreparedContract::new(rules, declared.then(declaration), Admission::Optional, true)
+                    .unwrap();
+            for depth in [0, 1, 4] {
+                let mut search = p
+                    .start(
+                        source::query(family, 2, depth, 0),
+                        Policy::Global,
+                        Access::Scan,
+                    )
+                    .unwrap();
+                let mut answers = vec![];
+                let mut exhausted = false;
+                for _ in 0..200_000 {
+                    match search.tick() {
+                        SearchEvent::Complete(mut b) => answers.push(b.engine.observe().unwrap()),
+                        SearchEvent::Exhausted => {
+                            exhausted = true;
+                            break;
+                        }
+                        _ => (),
+                    }
+                }
+                assert!(exhausted);
+                scalar::same_raw(answers, source::expected(family, 2, depth, 0));
+            }
+            let mut unknown = source::query(family, 2, 4, 0);
+            unknown
+                .constraints
+                .iter_mut()
+                .find(|c| c.name == "start")
+                .unwrap()
+                .args[0] = v(900);
+            assert_eq!(
+                p.start(unknown, Policy::Global, Access::Scan).is_err(),
+                declared
+            );
+        }
     }
 }

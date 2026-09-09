@@ -1,0 +1,27 @@
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.75s
+     Running tests/resource_count.rs (target/debug/deps/resource_count-4ee4b549388c359e)
+
+running 4 tests
+test insufficient_unknown_absent_and_mismatched_queries_are_rejected ... ok
+test active_entry_effects_cannot_race_the_shortened_terminal ... ok
+test competing_effects_and_observable_depth_are_rejected_with_counterexample ... ok
+test branch_specific_shortage_preserves_suspended_residuals ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/resource_properties.rs (target/debug/deps/resource_properties-d042e9fba7f99f79)
+
+running 10 tests
+test ground_private_input_can_still_suspend_when_resources_are_insufficient ... ok
+test declarations_are_rechecked_against_the_complete_linked_rule_set ... ok
+test ground_entry_does_not_restrict_result_unknowns_or_branch_resource_outcomes ... ok
+test observable_depth_cannot_be_changed_without_preserving_the_observation ... ok
+test checked_properties_allow_queries_that_counting_cannot_lower ... ok
+test optional_and_required_admission_enforce_the_same_declared_boundary ... ok
+test counted_contract_checks_original_input_and_reuses_its_own_source ... ok
+test late_groundness_has_a_valid_ordinary_execution_and_a_specific_reformulation ... ok
+test a_silent_resource_reader_does_not_require_private_fuel ... ok
+test an_independent_active_entry_effect_can_commute_with_counting ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s

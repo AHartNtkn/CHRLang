@@ -278,7 +278,7 @@ Exact sizes follow exploratory sizing under the common rules above. The comparat
 
 ## Current execution order
 
-**T079 is active for S07 resource privacy and ground-entry contracts.** The [resource-count lifecycle and breadth review](results/S10-resource-count-lifecycle.md) establish enough cost and boundary evidence to compare inferred properties, checked declarations and mandatory restrictions. The [entry specification](results/S07-resource-properties-entry.md) requires executable correctness, expressiveness and responsibility evidence; no language option is selected. T078 and the wider architecture obligations remain unfinished.
+**T078 is active for selective conditional discovery.** The [checked-contract lifecycle](results/S07-resource-contract-lifecycle.md) completes the bounded privacy/ground-submission comparison: small fixed heap cost, preserved ineligible-source behavior and explicit unknown-input rejection. The [next discovery gate](results/S10-selective-discovery-entry.md) investigates remaining branch-specific costs before further small-check timing refinements. Broader T079 language properties, sustained lifetime and complete architecture comparison remain required.
 
 The [ordered remaining sequence](remaining-investigations.md#execution-order) records the completed bounded restoration/reunion comparisons and remaining investigation boundaries. T077 stays required for broader restoration, adaptive splitting, repeated dynamic reunion, inference and sustained lifetime. Broader lowering and structural theories, discovery, reuse, direct graphs and connected parallelism remain required. Language and lifetime comparisons accompany every candidate; priority is reconsidered at each package boundary.
 

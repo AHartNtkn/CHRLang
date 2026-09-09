@@ -114,6 +114,7 @@ pub enum Admission {
 /// The checked source and actual submitted queries cannot change behind it.
 pub struct PreparedContract {
     prepared: crate::PreparedRuleset,
+    counting: Option<crate::resource_count::Program>,
     declaration: Option<Declaration>,
 }
 impl PreparedContract {
@@ -121,15 +122,20 @@ impl PreparedContract {
         rules: Vec<Rule>,
         declaration: Option<Declaration>,
         admission: Admission,
+        counting: bool,
     ) -> Result<Self, String> {
         if let Some(d) = &declaration {
             CheckedSource::check(&rules, d.clone())?;
         } else if matches!(admission, Admission::Required) {
             return Err("resource and ground-entry declaration required".into());
         }
+        let counting = counting
+            .then(|| crate::resource_count::Program::infer(&rules).ok())
+            .flatten();
         let prepared = crate::PreparedRuleset::new(rules, None)?;
         Ok(Self {
             prepared,
+            counting,
             declaration,
         })
     }
@@ -142,6 +148,13 @@ impl PreparedContract {
         if let Some(d) = &self.declaration {
             check_query(d, &query)?;
         }
+        // Validate the submitted input before any transformation. The inferred
+        // program belongs to these same immutable rules, never caller-supplied.
+        let query = self
+            .counting
+            .as_ref()
+            .and_then(|p| p.lower(&query).ok())
+            .unwrap_or(query);
         self.prepared.start_search(query, policy, access)
     }
 }
