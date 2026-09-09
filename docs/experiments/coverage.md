@@ -10,6 +10,8 @@ The [ordered cycle](remaining-investigations.md#execution-order) assigns the nex
 
 The stage assignments below cover all 57 entries. They must be read together with these mechanism-level obligations and the [required decision record](remaining-investigations.md#evidence-required-before-a-question-can-leave-the-sequence). Coverage means every question has an investigation; resolution requires the linked evidence and its scope. Review breadth after every four completed experimental packages, as specified by the ordered cycle.
 
+At that review, apply the [six adequacy questions](sequence.md#what-counts-as-investigating-a-design-thoroughly) to each direction proposed as resolved. Check distinct variants inside a review entry, not only its number. In particular, prepared access plans and native generation, contextual equality and relational integration, pull-tabbing and derivation reuse, and direct solving and trace encoding cannot stand in for one another without an explicit equivalence argument. The [selection record](sequence.md#how-priority-is-justified) makes implementation cost and repeated refinement visible alongside decision value.
+
 ## Current evidence and next work
 
 | Stage | Evidence now available | Still required |

@@ -4,6 +4,8 @@ The next experiments must test the alternatives that could change the architectu
 
 Read the **decision** column first. The other columns explain what would make the test informative. Numbers refer to the [57-entry design review](results/R07-design-disposition-review.md); the [governing sequence](sequence.md) supplies semantic, measurement and closure requirements.
 
+The work has three parts: test the distinct execution mechanisms, compare their language and lifetime costs alongside those trials, then challenge complete architectures on new sources. Existing bounded results supply controls and useful limits. The unanswered parts below still require evidence even when an earlier implementation in the same family lost.
+
 ## Execution order
 
 **The cycle now advances to generated multihead access, T070.** The [factored-contraction comparison](results/S09-factored-lowering.md) completes T069's bounded worker investigation. The remaining worker variants are still assigned to S08/S09; they are not resolved by that result.
@@ -67,6 +69,7 @@ The review includes several alternatives within a single numbered entry. The fol
 | **Finer independence and persistent fact interfaces (S04-C/S09-A; 21, 22)** | Place independent occurrences under the same predicate, then add a delayed linking call or shared consumable. Compare whole-predicate grouping with occurrence/ownership analysis and reused fact preparation. | Validate both accepted regions and rejected near misses. Measure analysis cost, missed decomposition opportunities and reunion. Present disjoint variables alone never certify future independence. |
 | **Solver learning and compatible-prefix reuse (S06-A; 28, 29, 34)** | Compare direct derivations, a credible learning solver and native finite solving on repeated related constraints, sparse one-shot work and changed assumptions. | Separate relation construction from incremental solving. Establish whether learned information remains valid across changed queries and include its retention/invalidations. A trace-encoding loss supplies no result for this mechanism. |
 | **Exact observation indexing and symmetry refinement (S08-B; 41, 42)** | Compare mapping-sensitive reuse and exact refinement on repeated shared outputs, distinct outputs and symmetric residual graphs. Include equal local fingerprints with unequal global correlation. | Every equality claim has an exact check. Charge preprocessing and retained mappings as well as export/comparison; require complete aliases and residual multiplicity. |
+| **Join order, discrimination and source-derived access policies (S01-B; 2, 3, 6, 8)** | Separate native code generation from the access plan it executes. Compare source-order and selectivity-informed partner discovery, shared constructor discrimination and selective index/wake maintenance. Use many competing rules, changing key availability, equal-key collisions and broad aliases. | Preserve permitted rule competition and nonbinding matching. Charge analysis, preparation, maintenance and code growth. Compare a prepared data representation of the same plan where credible; distinguish savings from choosing better work from savings in executing that work. Freeze any inferred policy before held-out confirmation. |
 
 ## Compilation and language choices
 
@@ -94,6 +97,8 @@ Language properties are investigated alongside their executable beneficiaries. A
 
 ## How each investigation becomes an experiment
 
+**Select a bounded question without shrinking the architecture obligation.** Use the [priority comparison](sequence.md#how-priority-is-justified) to choose between this investigation and the strongest ready alternative. A package may establish correctness, diagnose a consequential cost or make a comparative measurement. State which purpose it serves before starting, and return to selection at that boundary.
+
 **First establish the mechanism and correctness.** State the architecture decision, the responsibilities the candidate removes and introduces, its source contract and an independent oracle. Include a favorable witness that activates the mechanism, an adverse witness charging its overhead, and tests capable of detecting an incorrect implementation.
 
 **Then register the comparison before its timings.** Freeze exact sources, sizes, seeds, configurations, controls, endpoints, repetition counts, practical thresholds, resource limits and analysis. The [sequence's measurement rules](sequence.md#registration-bounds-and-interpretation) require counter-free ordinary-allocator timing, separate diagnostics and complete lifecycle accounting. Sizing is exploratory; confirmation uses a prospective configuration.
@@ -101,6 +106,18 @@ Language properties are investigated alongside their executable beneficiaries. A
 **Investigate consequential outcomes.** A loss triggers an attribution check: inherent obligation, repairable defect, weak control, missing eligibility or insufficient measurement. Repair and rerun when the defect could change the decision. A favorable result requires adverse controls and sensitivity, not automatic adoption. A cutoff requires diagnosis; it does not establish architectural inferiority.
 
 **Finish with a bounded decision and explicit remaining scope.** Link raw evidence and state what would reverse the conclusion. If feasible work could materially change the architecture decision, keep that question open and scheduled. Finishing a test package, this plan, or the first breadth cycle does not finish the research goal.
+
+### Follow-up is determined by what the experiment learned
+
+| Outcome | Required next investigation or disposition |
+|---|---|
+| The candidate violates the agreed source contract | Determine whether the mechanism requires that violation or the implementation is defective. Repair the latter. A different language contract receives a separate S07 comparison. |
+| The candidate loses, but its intended benefit never occurs | Establish a source where the mechanism actually operates, or demonstrate why the promised benefit cannot occur under its premises. The first loss answers only the tested source. |
+| The candidate loses with a consequential avoidable cost | Correct the cost and rerun the affected contrast. Use a bounded attribution experiment before broadening the matrix. |
+| The candidate wins in its intended regime | Test adverse placement, preparation/reuse, retention and source restrictions. Carry the surviving advantage into S10; do not infer that combining winners is economical. |
+| Both directions have credible favorable regimes | Measure the consequential boundary and test whether source analysis can identify it. Report the tradeoff even if no reliable selection policy exists. |
+| Measurements overlap or reach a limit | Diagnose variance or unfinished work. Increase precision or bounds when it could change the decision; otherwise give a sensitivity argument for the bounded conclusion. |
+| Further precision cannot affect a supported bounded decision | Record why, preserve the broader unresolved mechanisms, and advance to the next investigation. |
 
 ## Evidence required before a question can leave the sequence
 

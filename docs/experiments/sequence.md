@@ -22,6 +22,34 @@ The sequence reuses existing trustworthy controls and measurements. It requires 
 
 **Complexity and language design participate from the start.** Each candidate names the responsibilities it eliminates and introduces, its accepted programs and its observation/progress contract. A faster component with more cross-system machinery is not automatically a better architecture. No feature count, source-line total or invented workload score decides the tradeoff.
 
+### How priority is justified
+
+Before starting an experimental package, record the following comparison with the strongest ready alternative. Keep it short enough to read alongside the result.
+
+| Selection question | Required answer |
+|---|---|
+| What could change? | Name the representation, execution responsibility or language tradeoff that each investigation could change. Include a plausible result against the current recommendation. |
+| What is actually unknown? | Separate an untested mechanism from uncertainty about a measured parameter or an implementation defect. Link the evidence that makes this distinction. |
+| Is the comparison ready? | Identify the source witness, credible control, independent correctness check and missing implementation. An unfamiliar implementation is a cost to estimate, not negative architectural evidence. |
+| Why spend the effort here first? | Compare expected implementation and measurement effort with the consequence of the unresolved question. Explain any preference for a local refinement over a distinct architecture. Do not invent numerical probabilities or workload weights. |
+| What follows each outcome? | State the next action for a credible gain, credible loss, overlap, correctness failure and resource cutoff. Specify the boundary at which selection is reconsidered. |
+| What remains scheduled? | Name the displaced investigation and its next review point. Priority changes order, not its obligation or evidence status. |
+
+A result justifies another refinement only if the unresolved cost could change the decision, invalidate a control or obstruct a required comparison. Otherwise carry the bounded finding forward and advance to the next distinct mechanism. Review breadth after every four completed packages, counting correctness and attribution packages as well as timing pilots; do not reset the count by renaming a task. This review can authorize further depth, but must explain why it is more valuable than the strongest ready alternative.
+
+### What counts as investigating a design thoroughly
+
+A design has received an adequate architectural trial only when the evidence addresses all six questions below. An analytical impossibility or demonstrated equivalence can settle an applicable question without implementing another prototype; its premises must be explicit.
+
+1. **Did its distinctive mechanism run?** Show the source work it avoids or reorganizes. A wrapper around the incumbent engine cannot represent an architecture whose proposed benefit is eliminating that engine.
+2. **Was it a credible implementation?** Check consequential allocation, discovery, scheduling and representation costs. Separate intrinsic obligations from correctable choices, and compare against the strongest applicable existing control.
+3. **Did it get both an opportunity and a challenge?** Include a favorable source, an overhead-dominated source and independent variation of the properties expected to cause a crossover. One application's shape cannot define the language's intended domain.
+4. **Were the total costs and obligations exposed?** Cover preparation and compilation where applicable, changing queries, execution, complete observation, cancellation and disposal. Include sustained memory and required source restrictions, with paired language studies where meaning differs.
+5. **Does the conclusion survive its strongest plausible objection?** Investigate a repair, stronger competitor or new regime when it could reverse the architectural consequence. A cutoff or unresolved overlap is not a loss.
+6. **What remains unanswered?** Give each consequential gap an investigation and dependency. A bounded result can stand while the broader direction and research goal remain open.
+
+These questions govern the depth of each stage below. They do not require exhaustive parameter enumeration or multiple implementations of mechanisms whose relevant equivalence has been established.
+
 ## Order and dependencies
 
 Begin with S00, then S01. After that, use the dependencies below and choose the next ready investigation by its likely effect on the architecture decision. Reordering requires a short recorded rationale; it cannot silently remove a group.
