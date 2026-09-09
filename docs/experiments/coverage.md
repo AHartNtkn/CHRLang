@@ -1,6 +1,6 @@
 # Unanswered architecture questions and experimental ownership
 
-Current S10 evidence: [post-choice work](results/S10-post-choice-work.md) demonstrates real sharing and validates 672 allocation processes/336 exact pairs. Avoided source applications do not establish lower total allocation. T078 next qualifies source-derived resource-count elimination; conditional discovery and all broader obligations remain unresolved.
+Current S10 evidence: [source-derived resource counting](results/S10-resource-count-gate.md) qualifies elimination of the common traversal with explicit resource and scheduling boundaries. Full renamed-source and suspension observations pass across competing organizations. T078 next measures inference/transformation and complete lifecycle costs; no efficiency superiority follows yet.
 
 The [resource-fusion lifecycle pilot](results/S06-resource-fusion-lifecycle.md) completes 1350 processes and 180 exact allocation pairs. Inference and certification can outweigh execution savings; timing remains exploratory with clock-overhead evidence. All owners restore. The [S10 entry](results/S10-composition-entry.md) selects T078 coherent-path capability and mixed-source qualification. T073 and the other unresolved component directions remain required.
 

@@ -1,10 +1,10 @@
 # The comparisons still needed to choose the architecture
 
-The [post-choice source and allocation gate](results/S10-post-choice-work.md) validates real conditional work sharing, 672 processes and 336 exact allocation pairs. T078 next qualifies a source-derived resource-count elimination control before architectural interpretation; conditional selective discovery remains required.
+The [source-derived resource-count gate](results/S10-resource-count-gate.md) qualifies common-depth elimination and its explicit observer/scheduling boundaries. T078 next measures complete lifecycle costs against ordinary execution. Broader source, discovery, language and lifetime questions remain required.
 
 ## Starting evidence and immediate decision
 
-The next package derives a checked private-traversal transformation from actual source structure, including query eligibility and competing effects. The [selection rationale](results/S10-post-choice-work.md#why-source-derived-elimination-comes-next) explains why eliminating the work may change the value of both sharing and discovery improvements.
+The next package measures the certificate and query transformation alongside preparation, execution, observation and disposal. The [selection rationale](results/S10-resource-count-gate.md#next-decision) keeps selective conditional discovery and resumable contextual matching accountable while testing whether the repeated work survives a validated source transformation.
 
 The completed [restoration pilot](results/S04-resident-cost-pilot.md), [reunion source gate](results/S04-reunion-source-gate.md), [ownership/identity comparison](results/S04-reunion-identity-attribution.md), [strong-control gate](results/S04-reunion-strong-controls.md) and [complete-cost pilot](results/S04-reunion-complete-pilot.md) supply controls. They do not resolve repeated dynamic reunion or general source inference.
 
@@ -18,13 +18,13 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-**Source-derived resource-count elimination qualification is selected under T078/S10.** Complete-source gates and the initial lifecycle pilot provide controls. The goal remains comparison of complete architectural alternatives; this attribution must determine whether their current discovery costs are avoidable.
+**Paired resource-counting lifecycle measurement is selected under T078/S10.** Complete-source gates and the initial lifecycle pilot provide controls. The goal remains comparison of complete architectural alternatives; this attribution must determine whether their current discovery costs are avoidable.
 
 The order below incorporates the latest component evidence and the S10 entry decision. Each numbered row has a separate architectural question and completion boundary. The detailed mechanism specifications later in this document define its controls and adverse cases. A row containing several mechanisms requires a conclusion for each; completing one does not complete the row.
 
 | Order | Required investigation | What its result must decide |
 |---|---|---|
-| Current | **Source-derived resource-count elimination (T078 / S10).** Qualify the private traversal transformation and its eligibility boundaries. | Whether source analysis eliminates the work being shared; reconsider conditional discovery and full costs against this stronger control. |
+| Current | **Resource-counting lifecycle (T078 / S10).** Compare inference/transformation and complete execution costs with ordinary paths. | Whether the validated elimination repays certificate and artifact costs across reuse, rejected queries and complete ownership; then reconsider discovery. |
 | 1 | **Bounded pilot complete; broader restoration remains required (T077 / S04-A).** Compare copying, persistence/COW, undo, root replay and checkpoint intervals on read-heavy and mutation-heavy states, shallow/wide and deep search, early/late failure, changed queries and cancellation. | Whether avoiding sole-branch reconstruction changes the time–memory tradeoff once preparation, switching, complete answers and disposal count. The [source gate](results/S04-resident-replay-source-gate.md) and [cost pilot](results/S04-resident-cost-pilot.md) now supply bounded evidence. Alternative policies and broader state/lifetime regimes remain required. |
 | 2 | **Bounded reunion costs complete; broader reunion and adaptive splitting remain required (T077 / S04-B/C).** Repeated dynamic reunion has bounded source/work/allocation evidence; adaptive splitting and broader lifetime remain required before general conclusions. Use same-predicate independent occurrences, late aliases/calls and shared consumables. Compare ordinary execution, permanent factoring and temporary separation; separately compare fixed and demand-sensitive splitting. | Whether temporary independence or economical split timing can replace retained shared execution. Include frequent reunion, immediate failure and no useful separation. Preserve correlation, source progress, resource claims and propagation history. Checkpoints alone cannot answer either question. |
 | 3 | **Complete integrated execution (T072 / S02-A/B).** Carry the corrected dependency lifecycle controls into broader source/ownership comparison, then compare CHR-expressed equality, strategic local rewrites and the strongest contextual/scanned/indexed controls on full equality-enabled consuming sources. | Which service boundaries actually disappear, whether interleaving avoids useful work, and what repair/ownership costs remain. Keep scheduling differences explicit. An isolated equality operation cannot decide the complete organization. |

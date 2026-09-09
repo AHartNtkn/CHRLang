@@ -1,0 +1,35 @@
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.61s
+     Running unittests src/lib.rs (target/debug/deps/chr_compiled-c0aa192dcc5b7583)
+
+running 5 tests
+test regions::tests::sealed_selection_bypasses_tuple_cursor_and_history ... ok
+test search::tests::failure_is_branch_local_and_raw_duplicates_are_preserved ... ok
+test search::tests::finite_sibling_receives_service_beside_divergence ... ok
+test search::tests::each_child_owns_live_indexed_resources_and_segment_counters ... ok
+test search::tests::ordinary_engine_stops_at_explicit_split_then_search_separates_bindings ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/resource_count.rs (target/debug/deps/resource_count-37cd863b49c96969)
+
+running 4 tests
+test insufficient_unknown_absent_and_mismatched_queries_are_rejected ... ok
+test active_entry_effects_cannot_race_the_shortened_terminal ... ok
+test competing_effects_and_observable_depth_are_rejected_with_counterexample ... ok
+test branch_specific_shortage_preserves_suspended_residuals ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/resource_fusion.rs (target/debug/deps/resource_fusion-7bd68d09f90c2984)
+
+running 6 tests
+test checked_variable_bounds_and_source_restrictions ... ok
+test insufficient_resources_are_a_semantic_counterexample_not_an_empty_result ... ok
+test unknown_keys_initial_intermediates_and_competing_owners_are_rejected ... ok
+test actual_resource_applications_are_eliminated ... ok
+test keys_partition_resources_and_late_payload_aliases_remain_ordinary_effects ... ok
+test renamed_resource_counts_choices_freshness_and_aliases ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.13s
+

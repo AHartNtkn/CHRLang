@@ -278,7 +278,7 @@ Exact sizes follow exploratory sizing under the common rules above. The comparat
 
 ## Current execution order
 
-**T078 is active for source-derived resource-count elimination qualification.** The [post-choice gate and allocation pilot](results/S10-post-choice-work.md) demonstrate real conditional sharing but larger allocation costs on substantive sources. A checked source transformation could eliminate the private traversal altogether; qualify it before deciding the value of further discovery tuning. Competing effects, insufficient resources and unknown depths must remain explicit boundaries.
+**T078 is active for paired resource-counting lifecycle measurement.** The [source gate](results/S10-resource-count-gate.md) qualifies common-depth elimination, preserves branch-specific suspension and demonstrates necessary observer/scheduling boundaries. Register full inference, transformation, execution and disposal costs before judging the value of sharing or discovery improvements.
 
 The [ordered remaining sequence](remaining-investigations.md#execution-order) records the completed bounded restoration/reunion comparisons and remaining investigation boundaries. T077 stays required for broader restoration, adaptive splitting, repeated dynamic reunion, inference and sustained lifetime. Broader lowering and structural theories, discovery, reuse, direct graphs and connected parallelism remain required. Language and lifetime comparisons accompany every candidate; priority is reconsidered at each package boundary.
 
