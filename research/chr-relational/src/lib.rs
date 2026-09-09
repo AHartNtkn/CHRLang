@@ -1,5 +1,6 @@
 //! Experimental joins over constructor and source-occurrence relations.
 //! A View belongs to one consistent, canonical equality interpretation.
+pub mod contextual;
 pub mod execute;
 pub mod store;
 use chr_syntax::{Constraint, Term, Var};

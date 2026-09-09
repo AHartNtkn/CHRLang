@@ -1,0 +1,5 @@
+# Context-local equality and claims over shared immutable nodes
+
+This gate tests an ownership mechanism before a complete executor or cost comparison. Alternatives share an append-only constructor/unknown arena. Equality parents and merged-class descriptors are context-local maps; live source occurrences are context-local. Forks share map snapshots until mutation. This does not promise constant-time updates: first mutation may copy a map, and direct matching may scan occurrences.
+
+Require common facts to remain physically shared; different sibling bindings, atomic kept/removed claims, equal-valued occurrence multiplicity, branch-local posting, and later contradiction to remain isolated. Validate settled exports and match sets against the independent owned-substitution gate and existing relational store where applicable. Include finite-tree cycles and partial-equality visibility. Do not call this a complete CHR executor or claim local port rewriting; source effects, propagation history, fairness and full lifecycle costs still need integration and measurement.

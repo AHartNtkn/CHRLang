@@ -27,3 +27,5 @@ T071's demand cost package is measured, but its actual local pull-tab operations
 ## First evidence
 
 The [useful-interleaving control](S02-useful-interleaving-control.md) shows the existing relational executor already avoids equality work through consuming early failure. It also repairs duplicate constructor facts exposed by deep matching. Next establish shared contextual consequences with context-local resource claims; partial access and incidence indexing alone cannot distinguish a new organization from this corrected control.
+
+The [contextual store ownership gate](S02-contextual-store-gate.md) now validates shared immutable constructors and isolated equality/resource updates. Integrating complete source effects and fair service is next; no timing comparison or cross-context deduction-reuse result is established by that gate.
