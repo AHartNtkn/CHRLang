@@ -1,0 +1,16 @@
+[package]
+name = "chr-relational"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+chr-persistent = { path = "../chr-persistent", default-features = false }
+chr-syntax = { path = "../../crates/chr-syntax" }
+
+[dev-dependencies]
+chr-observe = { path = "../chr-observe", default-features = false }
+chr-integrated = { path = "../chr-integrated", default-features = false }
+chr-compiled = { path = "../chr-compiled", default-features = false }
+
+[features]
+alloc-meter = []

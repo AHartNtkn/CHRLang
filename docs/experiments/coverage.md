@@ -14,6 +14,8 @@ At that review, apply the [six adequacy questions](sequence.md#what-counts-as-in
 
 ## Current evidence and next work
 
+The [complete-control confirmation](results/S02-deduction-confirmation.md) now records 5,220 successful processes: persistent shared deductions lose to scanning and specialization in all 32 substantive cases, while exact-source elimination wins all 64 comparisons against persistent sharing. Compatible reuse remains beneficial within contextual execution. The [four-package breadth review](results/S02-deduction-breadth-review.md) selects T073 reusable source-derived lowering next. T072 remains unfinished for broader validity and distinct local rewrite organizations.
+
 | Stage | Evidence now available | Still required |
 |---|---|---|
 | S00 contracts | [Contracts and candidate sketches](results/S00-contracts-and-candidates.md), [first-cycle feasibility](results/S00-first-cycle-feasibility.md) | Apply and extend contracts when a new mechanism or language option changes the comparison |
