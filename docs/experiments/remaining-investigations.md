@@ -8,7 +8,7 @@ The work has three parts: test the distinct execution mechanisms, compare their 
 
 ## Execution order
 
-**The cycle now returns to actual local pull-tab execution, T071.** The [prefix lifecycle result](results/S06-prefix-lifecycle.md) and [breadth review](results/S06-first-breadth-review.md) support this order. The [direct-argument source gate](results/S03-local-pulltab-source.md) now passes after a resource-scheduling repair; work attribution is next before lifecycle registration. The broader local pull-tab and derivation mechanisms remain open. T072's broader integration and T073's artifact reuse/lowering questions remain unfinished. T070's bounded native amortization evidence retains its stated scope.
+**The cycle now returns to actual local pull-tab execution, T071.** The [prefix lifecycle result](results/S06-prefix-lifecycle.md) and [breadth review](results/S06-first-breadth-review.md) support this order. The [direct-argument source gate](results/S03-local-pulltab-source.md) now passes after a resource-scheduling repair; the [work attribution](results/S03-pulltab-work.md) selects a stronger ordinary-demand dependency-validity control before lifecycle registration. The broader local pull-tab and derivation mechanisms remain open. T072's broader integration and T073's artifact reuse/lowering questions remain unfinished. T070's bounded native amortization evidence retains its stated scope.
 
 | Order | Investigation | Why it comes here; what it must deliver |
 |---|---|---|

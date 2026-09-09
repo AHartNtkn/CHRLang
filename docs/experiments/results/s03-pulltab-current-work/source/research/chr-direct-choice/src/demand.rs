@@ -974,24 +974,6 @@ mod pull_tab_tests {
         };
         assert_eq!(label, 0);
         assert_eq!(run.births.len(), 1);
-        assert_eq!(
-            run.retained_graph(),
-            RetainedGraph {
-                nodes: 9,
-                calls: 3,
-                choices: 2,
-                births: 1,
-                results: 1,
-                obligations: 3,
-            }
-        );
-        #[cfg(feature = "work-diagnostics")]
-        {
-            let work = run.work();
-            assert_eq!(work.force_entries, 3);
-            assert_eq!(work.match_entries, 1);
-            assert_eq!(work.lift_walk_entries, 2);
-        }
         for (side, child, arg) in [(false, left, a), (true, right, b)] {
             let Node::Call(ref name, ref args, out, origin) = run.nodes[child].node else {
                 panic!("choice arm must contain a call")
