@@ -25,6 +25,7 @@ pub mod carriers;
 pub mod experiment;
 pub mod fixtures;
 pub mod generate;
+pub mod pure_prefix;
 pub mod recursive;
 pub mod regions;
 pub mod search;

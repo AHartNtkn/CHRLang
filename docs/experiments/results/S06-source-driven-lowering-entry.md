@@ -23,3 +23,7 @@ Compare inferred eligibility with a checked source property only when the declar
 ## Unfinished directions retain ownership
 
 T073 owns this source-driven lowering investigation under S06-B/S07. T072 remains unresolved for new cross-context deductions, more local discovery/rewrites and sustained retention; its current bounded cost comparison is complete. T071 remains unresolved for actual local pull-tabbing and fresh cross-application templates. Their remaining obligations persist in the ordered mechanism ledger and return at the next selection review.
+
+## First evidence
+
+The [pure-prefix source gate](S06-pure-prefix-gate.md) derives finite private-call elimination from source structure and demonstrates why priority matters for consuming effects. Next measure compilation, entry and changed-query lifecycle costs against original sources, including cold and single-call cases. Effectful recursion and broader eligibility remain open.
