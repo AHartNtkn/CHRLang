@@ -1,5 +1,8 @@
 # R00: architectural alternatives and first experiment selection
 
+The [corrected restoration pilot](S04-resident-cost-pilot.md) completes 1,344 processes and 192 exact allocation replays with live-byte continuity and full disposal restoration. Branching replay remains costly; Copy and Indexed expose opposing time/peak-memory regimes. T077 remains active for actual temporary separation/reunion, with integrated dependency repair as the strongest ready alternative. No universal policy or architecture is selected.
+
+
 The [resident replay gate](S04-resident-replay-source-gate.md) removes repeated reconstruction when only one branch remains: 100 continuing service calls now execute 100 rather than 5,050 source steps. Exact finite/ongoing event traces, independent answers and checkpoint release checks pass; all 72 broader work cells validate. Competing branches still expose large reconstruction counts. T077 remains active for complete cost/ownership comparison and actual temporary reunion; no timing conclusion follows.
 
 

@@ -264,7 +264,7 @@ All new results link raw inputs, commands, freezes, validation and unfavorable o
 
 ## Current execution order
 
-**T077 is active for corrected restoration costs and actual temporary reunion.** The [resident replay gate](results/S04-resident-replay-source-gate.md) validates sole-branch working-state reuse and complete source behavior; it establishes no timing ranking. The [ordered remaining sequence](remaining-investigations.md#execution-order) starts from this current evidence and specifies twelve investigation boundaries through complete architectures and held-out challenges.
+**T077 is active for actual temporary separation and reunion.** The [corrected restoration pilot](results/S04-resident-cost-pilot.md) now completes ordinary timing and allocation evidence across 192 configurations. The [resident replay gate](results/S04-resident-replay-source-gate.md) validates sole-branch working-state reuse and complete source behavior; it establishes no timing ranking. The [ordered remaining sequence](remaining-investigations.md#execution-order) starts from this current evidence and specifies twelve investigation boundaries through complete architectures and held-out challenges.
 
 The first comparisons are corrected restoration, actual separation/reunion and adaptive splitting, then complete integrated execution. Broader lowering and structural theories, discovery, reuse, direct graphs and connected parallelism follow. Language and sustained-lifetime comparisons accompany each candidate from its first executable gate. At every boundary, reconsider this order against the strongest ready alternative using the selection criteria above.
 

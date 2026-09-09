@@ -1,0 +1,16 @@
+{
+  "command": [
+    "cargo",
+    "clippy",
+    "-p",
+    "chr-restoration",
+    "--all-targets",
+    "--all-features",
+    "--",
+    "-D",
+    "warnings"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "    Checking chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax)\n    Checking chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe)\n    Checking chr-restoration v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-restoration)\n   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)\n    Checking chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.40s\n"
+}
