@@ -1,24 +1,5 @@
 //! Canonical ordered Boolean supports with resumable Boolean operations.
 use std::collections::BTreeMap;
-/// Allocation attribution domains; zero outside support operations, one for job
-/// construction, two for servicing a job. Thread-local and allocation-free.
-#[cfg(feature = "support-allocation")]
-pub mod allocation_domain {
-    use std::cell::Cell;
-    thread_local! { static DOMAIN: Cell<usize> = const { Cell::new(0) }; }
-    pub fn current() -> usize {
-        DOMAIN.try_with(Cell::get).unwrap_or(0)
-    }
-    pub(super) struct Scope(usize);
-    pub(super) fn enter(domain: usize) -> Scope {
-        Scope(DOMAIN.with(|d| d.replace(domain)))
-    }
-    impl Drop for Scope {
-        fn drop(&mut self) {
-            DOMAIN.with(|d| d.set(self.0));
-        }
-    }
-}
 
 /// Handles are scoped to their originating arena. Both terminal handles are universal.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
@@ -165,8 +146,6 @@ impl Arena {
         }
     }
     pub fn job(&self, operation: Operation) -> Job {
-        #[cfg(feature = "support-allocation")]
-        let _scope = allocation_domain::enter(1);
         let (kind, a, b) = match operation {
             Operation::Not(a) => (Kind::Not, a, FALSE),
             Operation::And(a, b) => (Kind::And, a, b),
@@ -265,8 +244,6 @@ impl Job {
     /// Map lookups and allocation retain their usual size-dependent cost; this is
     /// an algorithmic service boundary, not a hard real-time latency guarantee.
     pub fn tick(&mut self, arena: &mut Arena) -> Status {
-        #[cfg(feature = "support-allocation")]
-        let _scope = allocation_domain::enter(2);
         if let Some(result) = self.result {
             return Status::Complete(result);
         }

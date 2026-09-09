@@ -1,4 +1,4 @@
-#[path = "../../chr-compiled/experiments/meter.rs"]
+#[path = "support/support_meter.rs"]
 #[allow(dead_code)]
 mod meter;
 #[allow(dead_code)]
@@ -29,9 +29,9 @@ fn owners(e: &Engine) -> [usize; 11] {
         discovery,
     ]
 }
-#[allow(clippy::assertions_on_constants)]
 fn main() {
     // Keep the diagnostic feature rejection at runtime, like other cost runners.
+    #[allow(clippy::assertions_on_constants)]
     assert!(!cfg!(feature = "metrics"));
     meter::self_check().unwrap();
     let args = std::env::args().collect::<Vec<_>>();
@@ -85,6 +85,7 @@ fn main() {
     let p = prepare();
     let mut e = p.start(schema.query(n, false)).unwrap();
     let mut stages = [[0usize; 3]; 7];
+    let mut support = [[0usize; 2]; 7];
     let mut snapshots = [(0usize, [0usize; 11]); 5];
     let mut ns = 0;
     let execution = meter::begin();
@@ -92,9 +93,14 @@ fn main() {
     let mut done = false;
     for _ in 0..2_000_000 {
         let stage = e.allocation_stage();
+        let before = meter::domains();
         let tick = meter::begin();
         let event = e.tick();
         let reading = meter::end(tick);
+        let after = meter::domains();
+        for k in 0..2 {
+            support[stage][k] += after[k] - before[k];
+        }
         stages[stage][0] += 1;
         stages[stage][1] += reading.requested_bytes;
         stages[stage][2] += reading.allocation_calls;
@@ -137,7 +143,7 @@ fn main() {
         .collect::<Vec<_>>()
         .join(",");
     println!(
-        "{{\"mode\":\"{mode}\",\"family\":\"{family}\",\"depth\":{n},\"stages\":{stages:?},\"execution\":{},\"snapshots\":[{snapshots}],\"restored\":{}}}",
+        "{{\"mode\":\"{mode}\",\"family\":\"{family}\",\"depth\":{n},\"stages\":{stages:?},\"support_bytes\":{support:?},\"execution\":{},\"snapshots\":[{snapshots}],\"restored\":{}}}",
         measured.json(),
         restored.json()
     );

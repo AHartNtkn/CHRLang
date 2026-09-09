@@ -12,6 +12,8 @@ The [cross-query ownership gate](results/S08-cross-query-ownership.md) completes
 
 The [stream stage attribution](results/S08-stream-allocation-attribution.md) completes16 processes/eight exact replays. Body and application stages dominate requested traffic; observation and discovery are much smaller. Support/binding populations remain after exhaustion, but earlier reclaimability is unproven. T074 next distinguishes Boolean-job traffic from other body/application work before selecting a remedy.
 
+The [support-operation attribution](results/S08-support-allocation-attribution.md) completes16 processes/eight exact replays with unchanged prior allocation, service and owner counts. Support jobs account for98.2% of execution allocation on the inferred depth64 alias stream. T074 next measures repeated operation identities before choosing an optimization; breadth review follows that fourth package.
+
 ## How unanswered variants remain accountable
 
 The [entry-by-entry experiment map](question-to-experiment-map.md) gives all 57 reviewed decisions a specific required comparison and decision criterion. The stage assignments below remain the ownership summary; results must state which individual propositions and variants they resolve.

@@ -82,6 +82,8 @@ The [cross-query ownership gate](S08-cross-query-ownership.md) completes 216 all
 
 The [stream stage attribution](S08-stream-allocation-attribution.md) completes16 processes/eight exact replays. Body and application stages dominate requested traffic; observation and discovery are much smaller. Support/binding populations remain after exhaustion, but earlier reclaimability is unproven. T074 next distinguishes Boolean-job traffic from other body/application work before selecting a remedy.
 
+The [support-operation attribution](S08-support-allocation-attribution.md) completes16 processes/eight exact replays with unchanged prior allocation, service and owner counts. Support jobs account for98.2% of execution allocation on the inferred depth64 alias stream. T074 next measures repeated operation identities before choosing an optimization; breadth review follows that fourth package.
+
 ## Generated incremental execution with explicit search state
 
 Rules compile to occurrence entry points and partner-access plans. Query constraints become distinct live occurrences; term constructors use a shared immutable arena and logical variables use context-specific binding identities. Introductions and changed variable classes activate relevant entry points. Nonbinding matching reads established structure; unsuccessful matches retain sufficient dependencies to be reconsidered when bindings or partners arrive.

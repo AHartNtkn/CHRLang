@@ -10,6 +10,8 @@ The [cross-query ownership gate](results/S08-cross-query-ownership.md) completes
 
 The [stream stage attribution](results/S08-stream-allocation-attribution.md) completes16 processes/eight exact replays. Body and application stages dominate requested traffic; observation and discovery are much smaller. Support/binding populations remain after exhaustion, but earlier reclaimability is unproven. T074 next distinguishes Boolean-job traffic from other body/application work before selecting a remedy.
 
+The [support-operation attribution](results/S08-support-allocation-attribution.md) completes16 processes/eight exact replays with unchanged prior allocation, service and owner counts. Support jobs account for98.2% of execution allocation on the inferred depth64 alias stream. T074 next measures repeated operation identities before choosing an optimization; breadth review follows that fourth package.
+
 ## Starting evidence and immediate decision
 
 The [S07 premise audit](results/S07-resource-premises.md) now supplies accepted/rejected sources and counterexamples: privacy and groundness differ from the stronger optimization certificate. The [executable contract gate](results/S07-resource-contract.md) now enforces those separate properties at preparation and search admission. The bounded declaration lifecycle pilot charges their checking costs. No language policy is adopted. The selective lifecycle pilot supplies a stronger control. Equality invalidation and source elimination now have full pilot costs and a dynamic-identity attribution; support-aware joining has bounded lifecycle evidence; broader joins remain required.

@@ -29,9 +29,9 @@ fn owners(e: &Engine) -> [usize; 11] {
         discovery,
     ]
 }
-#[allow(clippy::assertions_on_constants)]
 fn main() {
     // Keep the diagnostic feature rejection at runtime, like other cost runners.
+    #[allow(clippy::assertions_on_constants)]
     assert!(!cfg!(feature = "metrics"));
     meter::self_check().unwrap();
     let args = std::env::args().collect::<Vec<_>>();
