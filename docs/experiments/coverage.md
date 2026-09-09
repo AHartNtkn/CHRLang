@@ -14,6 +14,8 @@ At that review, apply the [six adequacy questions](sequence.md#what-counts-as-in
 
 ## Current evidence and next work
 
+The [recursive allocation gate](results/S06-recursive-allocation-gate.md) now validates 1,300 processes, 600 exact allocation replays and query/prepared live-byte restoration across ten families and five feature/mode controls. Constructor-update examples reduce requested traffic; competing-call controls expose overhead. Ordinary timing and separate work diagnostics remain next; meter elapsed times are not performance evidence.
+
 The [recursive accumulator gate](results/S06-recursive-accumulator-gate.md) now extends the existing source-derived loop to constructor updates over head variables. Unknown-tail suspension, terminal effects, source identities and diagnostic replay pass; 143 package tests pass with default and counter-free contraction. A mid-inspection tracing defect is corrected. The [four-package breadth review](results/S06-recursive-breadth-review.md) selects bounded complete-cost measurement next, including allocation/cancellation gates and feature-off controls. Broader recursion and architecture questions remain open.
 
 The [recursive boundary probes](results/S06-recursive-boundary-probes.md) establish two semantic counterexamples: eager ground completion can reorder competing resource claims, and hoisting a late input binding can change the winning consumer despite identical final output bindings. Fifty bounded pure ground cases agree, and unknown-tail suspension/reactivation passes independent checks. The subsequent recursive accumulator gate now implements a bounded resumable operation; total costs remain unmeasured.
