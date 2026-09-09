@@ -1,0 +1,6588 @@
+{
+  "counts": {
+    "persistent-shared/shared": {
+      "gain": 28,
+      "loss": 0,
+      "unresolved": 36
+    },
+    "persistent/contextual": {
+      "gain": 0,
+      "loss": 28,
+      "unresolved": 36
+    },
+    "shared/contextual": {
+      "gain": 8,
+      "loss": 26,
+      "unresolved": 30
+    },
+    "persistent-shared/persistent": {
+      "gain": 8,
+      "loss": 8,
+      "unresolved": 48
+    }
+  },
+  "results": [
+    {
+      "config": [
+        "single",
+        0,
+        1,
+        false,
+        false
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.022879,
+          "inclusive_median_ms": 0.023942,
+          "requested_bytes": 7174,
+          "peak_requested_growth_bytes": 3770,
+          "first_answer_median_ms": 0.009797,
+          "phase_median_ms": {
+            "setup": 0.006795,
+            "execute_observe": 0.009941,
+            "engine_drop": 0.000152,
+            "answer_drop": 0.000268
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.024431,
+          "inclusive_median_ms": 0.025327,
+          "requested_bytes": 7630,
+          "peak_requested_growth_bytes": 4226,
+          "first_answer_median_ms": 0.009623,
+          "phase_median_ms": {
+            "setup": 0.006753,
+            "execute_observe": 0.009785,
+            "engine_drop": 0.000142,
+            "answer_drop": 0.000223
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.020647,
+          "inclusive_median_ms": 0.021706,
+          "requested_bytes": 6742,
+          "peak_requested_growth_bytes": 3400,
+          "first_answer_median_ms": 0.008367,
+          "phase_median_ms": {
+            "setup": 0.007088,
+            "execute_observe": 0.008488,
+            "engine_drop": 0.000127,
+            "answer_drop": 0.000238
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.021608,
+          "inclusive_median_ms": 0.022613,
+          "requested_bytes": 7198,
+          "peak_requested_growth_bytes": 3714,
+          "first_answer_median_ms": 0.008479,
+          "phase_median_ms": {
+            "setup": 0.005928,
+            "execute_observe": 0.008626,
+            "engine_drop": 0.000138,
+            "answer_drop": 0.000233
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.8977046269821451,
+          "interval95": [
+            0.8122030114137277,
+            0.9919891447789989
+          ],
+          "classification": "unresolved"
+        },
+        "persistent/contextual": {
+          "ratio": 0.8252157416164702,
+          "interval95": [
+            0.7081048551377189,
+            0.9506492776228533
+          ],
+          "classification": "unresolved"
+        },
+        "shared/contextual": {
+          "ratio": 0.9255583532062774,
+          "interval95": [
+            0.8107082785655435,
+            1.0413883738336804
+          ],
+          "classification": "unresolved"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 1.006861568815554,
+          "interval95": [
+            0.9234071381103143,
+            1.1253034535806004
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "single",
+        0,
+        1,
+        false,
+        true
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.018995,
+          "inclusive_median_ms": 0.020146,
+          "requested_bytes": 7174,
+          "peak_requested_growth_bytes": 3770,
+          "first_answer_median_ms": 0.008842,
+          "phase_median_ms": {
+            "setup": 0.00573,
+            "execute_observe": 0.008998,
+            "engine_drop": 0.000124,
+            "answer_drop": 0.000231
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.020383,
+          "inclusive_median_ms": 0.021297,
+          "requested_bytes": 7630,
+          "peak_requested_growth_bytes": 4226,
+          "first_answer_median_ms": 0.00944,
+          "phase_median_ms": {
+            "setup": 0.005773,
+            "execute_observe": 0.009594,
+            "engine_drop": 0.000124,
+            "answer_drop": 0.000226
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.020295,
+          "inclusive_median_ms": 0.021284,
+          "requested_bytes": 6742,
+          "peak_requested_growth_bytes": 3400,
+          "first_answer_median_ms": 0.008066,
+          "phase_median_ms": {
+            "setup": 0.006257,
+            "execute_observe": 0.008191,
+            "engine_drop": 0.00013,
+            "answer_drop": 0.000259
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.023176,
+          "inclusive_median_ms": 0.024129,
+          "requested_bytes": 7198,
+          "peak_requested_growth_bytes": 3714,
+          "first_answer_median_ms": 0.008396,
+          "phase_median_ms": {
+            "setup": 0.006256,
+            "execute_observe": 0.008525,
+            "engine_drop": 0.000116,
+            "answer_drop": 0.00024
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 1.152853831608485,
+          "interval95": [
+            0.9560633680268942,
+            1.5061253677361148
+          ],
+          "classification": "unresolved"
+        },
+        "persistent/contextual": {
+          "ratio": 1.0645697506319614,
+          "interval95": [
+            0.9572430910849715,
+            1.2236924563833282
+          ],
+          "classification": "unresolved"
+        },
+        "shared/contextual": {
+          "ratio": 1.0504839255818963,
+          "interval95": [
+            0.9978589696490447,
+            1.108604501479399
+          ],
+          "classification": "unresolved"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 1.1375998781961376,
+          "interval95": [
+            0.9464551103719255,
+            1.5138544583777582
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "single",
+        0,
+        1,
+        true,
+        false
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.026619,
+          "inclusive_median_ms": 0.027828,
+          "requested_bytes": 9545,
+          "peak_requested_growth_bytes": 4937,
+          "first_answer_median_ms": 0.011227,
+          "phase_median_ms": {
+            "setup": 0.005897,
+            "execute_observe": 0.011379,
+            "engine_drop": 0.000168,
+            "answer_drop": 0.000288
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.022838,
+          "inclusive_median_ms": 0.024064,
+          "requested_bytes": 10001,
+          "peak_requested_growth_bytes": 5393,
+          "first_answer_median_ms": 0.009447,
+          "phase_median_ms": {
+            "setup": 0.005556,
+            "execute_observe": 0.009575,
+            "engine_drop": 0.000113,
+            "answer_drop": 0.000286
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.024179,
+          "inclusive_median_ms": 0.025606,
+          "requested_bytes": 9113,
+          "peak_requested_growth_bytes": 4425,
+          "first_answer_median_ms": 0.009779,
+          "phase_median_ms": {
+            "setup": 0.006524,
+            "execute_observe": 0.009899,
+            "engine_drop": 0.000131,
+            "answer_drop": 0.000259
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.022778,
+          "inclusive_median_ms": 0.024396,
+          "requested_bytes": 9569,
+          "peak_requested_growth_bytes": 4881,
+          "first_answer_median_ms": 0.009923,
+          "phase_median_ms": {
+            "setup": 0.005717,
+            "execute_observe": 0.010055,
+            "engine_drop": 0.000123,
+            "answer_drop": 0.000269
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 1.0257103087797597,
+          "interval95": [
+            0.9338942534984596,
+            1.1796778617277008
+          ],
+          "classification": "unresolved"
+        },
+        "persistent/contextual": {
+          "ratio": 0.9612716140638589,
+          "interval95": [
+            0.8753497504443237,
+            1.0436004123262554
+          ],
+          "classification": "unresolved"
+        },
+        "shared/contextual": {
+          "ratio": 0.9222637879745067,
+          "interval95": [
+            0.8331378385782376,
+            1.0043798242954454
+          ],
+          "classification": "unresolved"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 0.984087599071535,
+          "interval95": [
+            0.9116557769903314,
+            1.1002228965339538
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "single",
+        0,
+        1,
+        true,
+        true
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.024134,
+          "inclusive_median_ms": 0.025524,
+          "requested_bytes": 9545,
+          "peak_requested_growth_bytes": 4937,
+          "first_answer_median_ms": 0.010046,
+          "phase_median_ms": {
+            "setup": 0.006195,
+            "execute_observe": 0.010172,
+            "engine_drop": 0.000127,
+            "answer_drop": 0.000326
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.024646,
+          "inclusive_median_ms": 0.026097,
+          "requested_bytes": 10001,
+          "peak_requested_growth_bytes": 5393,
+          "first_answer_median_ms": 0.010163,
+          "phase_median_ms": {
+            "setup": 0.005986,
+            "execute_observe": 0.01032,
+            "engine_drop": 0.000131,
+            "answer_drop": 0.000317
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.025383,
+          "inclusive_median_ms": 0.026799,
+          "requested_bytes": 9113,
+          "peak_requested_growth_bytes": 4425,
+          "first_answer_median_ms": 0.009729,
+          "phase_median_ms": {
+            "setup": 0.006405,
+            "execute_observe": 0.009871,
+            "engine_drop": 0.000134,
+            "answer_drop": 0.000257
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.024333,
+          "inclusive_median_ms": 0.025733,
+          "requested_bytes": 9569,
+          "peak_requested_growth_bytes": 4881,
+          "first_answer_median_ms": 0.009823,
+          "phase_median_ms": {
+            "setup": 0.005824,
+            "execute_observe": 0.00998,
+            "engine_drop": 0.000128,
+            "answer_drop": 0.000261
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 1.098265009362896,
+          "interval95": [
+            1.0046565847210653,
+            1.2015533204288789
+          ],
+          "classification": "unresolved"
+        },
+        "persistent/contextual": {
+          "ratio": 1.0168104430435652,
+          "interval95": [
+            0.9055087857058193,
+            1.1324815791505778
+          ],
+          "classification": "unresolved"
+        },
+        "shared/contextual": {
+          "ratio": 0.9754142387542962,
+          "interval95": [
+            0.8842430929330841,
+            1.075122551908747
+          ],
+          "classification": "unresolved"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 1.0535526413867593,
+          "interval95": [
+            0.9410573571247288,
+            1.1625381895801294
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "single",
+        0,
+        4,
+        false,
+        false
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.033896,
+          "inclusive_median_ms": 0.035389,
+          "requested_bytes": 26883,
+          "peak_requested_growth_bytes": 4190,
+          "first_answer_median_ms": 0.0038305,
+          "phase_median_ms": {
+            "setup": 0.009687,
+            "execute_observe": 0.018083,
+            "engine_drop": 0.00024,
+            "answer_drop": 0.000586
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.03757,
+          "inclusive_median_ms": 0.039142,
+          "requested_bytes": 30423,
+          "peak_requested_growth_bytes": 5504,
+          "first_answer_median_ms": 0.00503,
+          "phase_median_ms": {
+            "setup": 0.01009,
+            "execute_observe": 0.021457,
+            "engine_drop": 0.000259,
+            "answer_drop": 0.0006
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.037055,
+          "inclusive_median_ms": 0.038626,
+          "requested_bytes": 26509,
+          "peak_requested_growth_bytes": 3645,
+          "first_answer_median_ms": 0.0035605,
+          "phase_median_ms": {
+            "setup": 0.009077,
+            "execute_observe": 0.019575,
+            "engine_drop": 0.00024,
+            "answer_drop": 0.000498
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.037248,
+          "inclusive_median_ms": 0.038811,
+          "requested_bytes": 28541,
+          "peak_requested_growth_bytes": 4464,
+          "first_answer_median_ms": 0.004221,
+          "phase_median_ms": {
+            "setup": 0.010452,
+            "execute_observe": 0.020621,
+            "engine_drop": 0.000222,
+            "answer_drop": 0.000476
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.9078859417210008,
+          "interval95": [
+            0.7610039042860174,
+            1.0587549691190887
+          ],
+          "classification": "unresolved"
+        },
+        "persistent/contextual": {
+          "ratio": 0.9557156537517356,
+          "interval95": [
+            0.8393301479598182,
+            1.095017950610472
+          ],
+          "classification": "unresolved"
+        },
+        "shared/contextual": {
+          "ratio": 1.221034495556214,
+          "interval95": [
+            1.065117938576987,
+            1.4330952603322336
+          ],
+          "classification": "unresolved"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 1.1599266460899142,
+          "interval95": [
+            1.0625151969570263,
+            1.3220474592772016
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "single",
+        0,
+        4,
+        false,
+        true
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.034891,
+          "inclusive_median_ms": 0.036398,
+          "requested_bytes": 26883,
+          "peak_requested_growth_bytes": 4190,
+          "first_answer_median_ms": 0.004179,
+          "phase_median_ms": {
+            "setup": 0.008285,
+            "execute_observe": 0.020602,
+            "engine_drop": 0.000306,
+            "answer_drop": 0.000622
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.038804,
+          "inclusive_median_ms": 0.040258,
+          "requested_bytes": 30423,
+          "peak_requested_growth_bytes": 5504,
+          "first_answer_median_ms": 0.0057315,
+          "phase_median_ms": {
+            "setup": 0.00954,
+            "execute_observe": 0.022731,
+            "engine_drop": 0.000227,
+            "answer_drop": 0.000598
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.034079,
+          "inclusive_median_ms": 0.035598,
+          "requested_bytes": 26509,
+          "peak_requested_growth_bytes": 3645,
+          "first_answer_median_ms": 0.0045825,
+          "phase_median_ms": {
+            "setup": 0.009791,
+            "execute_observe": 0.018003,
+            "engine_drop": 0.000229,
+            "answer_drop": 0.000523
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.039539,
+          "inclusive_median_ms": 0.041076,
+          "requested_bytes": 28541,
+          "peak_requested_growth_bytes": 4464,
+          "first_answer_median_ms": 0.004961,
+          "phase_median_ms": {
+            "setup": 0.010511,
+            "execute_observe": 0.02069,
+            "engine_drop": 0.000252,
+            "answer_drop": 0.000523
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 1.0227418632011294,
+          "interval95": [
+            0.8621918176419333,
+            1.2561503514873587
+          ],
+          "classification": "unresolved"
+        },
+        "persistent/contextual": {
+          "ratio": 0.9868637055808565,
+          "interval95": [
+            0.8563587856704803,
+            1.145796853907791
+          ],
+          "classification": "unresolved"
+        },
+        "shared/contextual": {
+          "ratio": 1.1389827991780086,
+          "interval95": [
+            1.0456012670648769,
+            1.222235936333366
+          ],
+          "classification": "unresolved"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 1.1803913586017598,
+          "interval95": [
+            0.9468736954542087,
+            1.6012240136813976
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "single",
+        0,
+        4,
+        true,
+        false
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.035185,
+          "inclusive_median_ms": 0.037069,
+          "requested_bytes": 34849,
+          "peak_requested_growth_bytes": 5357,
+          "first_answer_median_ms": 0.004024,
+          "phase_median_ms": {
+            "setup": 0.007053,
+            "execute_observe": 0.02032,
+            "engine_drop": 0.000239,
+            "answer_drop": 0.000892
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.043225,
+          "inclusive_median_ms": 0.045364,
+          "requested_bytes": 38389,
+          "peak_requested_growth_bytes": 6671,
+          "first_answer_median_ms": 0.004873,
+          "phase_median_ms": {
+            "setup": 0.009254,
+            "execute_observe": 0.025138,
+            "engine_drop": 0.000265,
+            "answer_drop": 0.000585
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.037484,
+          "inclusive_median_ms": 0.039354,
+          "requested_bytes": 34475,
+          "peak_requested_growth_bytes": 4733,
+          "first_answer_median_ms": 0.0043195,
+          "phase_median_ms": {
+            "setup": 0.007423,
+            "execute_observe": 0.020916,
+            "engine_drop": 0.00022,
+            "answer_drop": 0.000569
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.03934,
+          "inclusive_median_ms": 0.041114,
+          "requested_bytes": 36507,
+          "peak_requested_growth_bytes": 5631,
+          "first_answer_median_ms": 0.0054215,
+          "phase_median_ms": {
+            "setup": 0.008146,
+            "execute_observe": 0.024062,
+            "engine_drop": 0.000273,
+            "answer_drop": 0.000494
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.9680574276434875,
+          "interval95": [
+            0.8800889527867245,
+            1.05710878047733
+          ],
+          "classification": "unresolved"
+        },
+        "persistent/contextual": {
+          "ratio": 1.0143136721113741,
+          "interval95": [
+            0.9832600458734604,
+            1.0473811751047193
+          ],
+          "classification": "unresolved"
+        },
+        "shared/contextual": {
+          "ratio": 1.130428730479228,
+          "interval95": [
+            1.037686930320044,
+            1.240766583851421
+          ],
+          "classification": "unresolved"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 1.0788772339863082,
+          "interval95": [
+            1.0137285333899142,
+            1.143374191229168
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "single",
+        0,
+        4,
+        true,
+        true
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.051187,
+          "inclusive_median_ms": 0.053743,
+          "requested_bytes": 34849,
+          "peak_requested_growth_bytes": 5357,
+          "first_answer_median_ms": 0.0048355,
+          "phase_median_ms": {
+            "setup": 0.008902,
+            "execute_observe": 0.030121,
+            "engine_drop": 0.000275,
+            "answer_drop": 0.001023
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.043163,
+          "inclusive_median_ms": 0.04535,
+          "requested_bytes": 38389,
+          "peak_requested_growth_bytes": 6671,
+          "first_answer_median_ms": 0.005381,
+          "phase_median_ms": {
+            "setup": 0.008552,
+            "execute_observe": 0.025524,
+            "engine_drop": 0.000262,
+            "answer_drop": 0.000588
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.040795,
+          "inclusive_median_ms": 0.042977,
+          "requested_bytes": 34475,
+          "peak_requested_growth_bytes": 4733,
+          "first_answer_median_ms": 0.00483,
+          "phase_median_ms": {
+            "setup": 0.007424,
+            "execute_observe": 0.02406,
+            "engine_drop": 0.000248,
+            "answer_drop": 0.000595
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.04552,
+          "inclusive_median_ms": 0.047761,
+          "requested_bytes": 36507,
+          "peak_requested_growth_bytes": 5631,
+          "first_answer_median_ms": 0.005906,
+          "phase_median_ms": {
+            "setup": 0.008614,
+            "execute_observe": 0.027415,
+            "engine_drop": 0.000269,
+            "answer_drop": 0.00059
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 1.0706882620574003,
+          "interval95": [
+            0.9635350186391796,
+            1.1971046875058708
+          ],
+          "classification": "unresolved"
+        },
+        "persistent/contextual": {
+          "ratio": 0.8592918782553556,
+          "interval95": [
+            0.7420553113738251,
+            0.9887815677685821
+          ],
+          "classification": "unresolved"
+        },
+        "shared/contextual": {
+          "ratio": 0.9180648798097493,
+          "interval95": [
+            0.8158800650197636,
+            1.0198372056084293
+          ],
+          "classification": "unresolved"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 1.1439201457543977,
+          "interval95": [
+            1.0611903429056533,
+            1.2336144883791749
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "single",
+        32,
+        1,
+        false,
+        false
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.137817,
+          "inclusive_median_ms": 0.140587,
+          "requested_bytes": 121782,
+          "peak_requested_growth_bytes": 20010,
+          "first_answer_median_ms": 0.114341,
+          "phase_median_ms": {
+            "setup": 0.014349,
+            "execute_observe": 0.114522,
+            "engine_drop": 0.000155,
+            "answer_drop": 0.000272
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.259433,
+          "inclusive_median_ms": 0.261657,
+          "requested_bytes": 247486,
+          "peak_requested_growth_bytes": 145714,
+          "first_answer_median_ms": 0.234615,
+          "phase_median_ms": {
+            "setup": 0.017886,
+            "execute_observe": 0.234774,
+            "engine_drop": 0.000173,
+            "answer_drop": 0.00025
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.167539,
+          "inclusive_median_ms": 0.16989,
+          "requested_bytes": 169522,
+          "peak_requested_growth_bytes": 17926,
+          "first_answer_median_ms": 0.144686,
+          "phase_median_ms": {
+            "setup": 0.015859,
+            "execute_observe": 0.144856,
+            "engine_drop": 0.000173,
+            "answer_drop": 0.000258
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.184752,
+          "inclusive_median_ms": 0.187172,
+          "requested_bytes": 175242,
+          "peak_requested_growth_bytes": 58442,
+          "first_answer_median_ms": 0.163613,
+          "phase_median_ms": {
+            "setup": 0.015216,
+            "execute_observe": 0.163787,
+            "engine_drop": 0.000153,
+            "answer_drop": 0.000257
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.7375528038069273,
+          "interval95": [
+            0.6588726573604778,
+            0.853555675917178
+          ],
+          "classification": "gain"
+        },
+        "persistent/contextual": {
+          "ratio": 1.5220481111665156,
+          "interval95": [
+            1.3402778385643197,
+            1.7586842908915257
+          ],
+          "classification": "loss"
+        },
+        "shared/contextual": {
+          "ratio": 2.020371504078052,
+          "interval95": [
+            1.8060410412038403,
+            2.267067293162108
+          ],
+          "classification": "loss"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 0.9790299377739987,
+          "interval95": [
+            0.8521417663935422,
+            1.1146334876489747
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "single",
+        32,
+        1,
+        false,
+        true
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.123563,
+          "inclusive_median_ms": 0.125881,
+          "requested_bytes": 121782,
+          "peak_requested_growth_bytes": 20010,
+          "first_answer_median_ms": 0.10463,
+          "phase_median_ms": {
+            "setup": 0.013099,
+            "execute_observe": 0.104795,
+            "engine_drop": 0.000158,
+            "answer_drop": 0.000256
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.271423,
+          "inclusive_median_ms": 0.273871,
+          "requested_bytes": 247486,
+          "peak_requested_growth_bytes": 145714,
+          "first_answer_median_ms": 0.237295,
+          "phase_median_ms": {
+            "setup": 0.015486,
+            "execute_observe": 0.237461,
+            "engine_drop": 0.000174,
+            "answer_drop": 0.000257
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.147953,
+          "inclusive_median_ms": 0.14991,
+          "requested_bytes": 169522,
+          "peak_requested_growth_bytes": 17926,
+          "first_answer_median_ms": 0.124712,
+          "phase_median_ms": {
+            "setup": 0.012929,
+            "execute_observe": 0.12485,
+            "engine_drop": 0.000155,
+            "answer_drop": 0.000256
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.16756,
+          "inclusive_median_ms": 0.169514,
+          "requested_bytes": 175242,
+          "peak_requested_growth_bytes": 58442,
+          "first_answer_median_ms": 0.146968,
+          "phase_median_ms": {
+            "setup": 0.013046,
+            "execute_observe": 0.14712,
+            "engine_drop": 0.000165,
+            "answer_drop": 0.000218
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.6993277202003045,
+          "interval95": [
+            0.6422566198438397,
+            0.75223622497835
+          ],
+          "classification": "gain"
+        },
+        "persistent/contextual": {
+          "ratio": 1.2878924034577188,
+          "interval95": [
+            1.1700470766745257,
+            1.4248841748043009
+          ],
+          "classification": "loss"
+        },
+        "shared/contextual": {
+          "ratio": 2.0590518170195544,
+          "interval95": [
+            1.8342595043966219,
+            2.3247342054131157
+          ],
+          "classification": "loss"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 1.118068566212995,
+          "interval95": [
+            1.0124589112106006,
+            1.232255240486304
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "single",
+        32,
+        1,
+        true,
+        false
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.13075,
+          "inclusive_median_ms": 0.133438,
+          "requested_bytes": 125497,
+          "peak_requested_growth_bytes": 20516,
+          "first_answer_median_ms": 0.108682,
+          "phase_median_ms": {
+            "setup": 0.015096,
+            "execute_observe": 0.108838,
+            "engine_drop": 0.000165,
+            "answer_drop": 0.000288
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.247456,
+          "inclusive_median_ms": 0.250043,
+          "requested_bytes": 251201,
+          "peak_requested_growth_bytes": 146220,
+          "first_answer_median_ms": 0.222255,
+          "phase_median_ms": {
+            "setup": 0.015568,
+            "execute_observe": 0.222425,
+            "engine_drop": 0.000153,
+            "answer_drop": 0.000252
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.173549,
+          "inclusive_median_ms": 0.176443,
+          "requested_bytes": 173237,
+          "peak_requested_growth_bytes": 18432,
+          "first_answer_median_ms": 0.147936,
+          "phase_median_ms": {
+            "setup": 0.015779,
+            "execute_observe": 0.1481,
+            "engine_drop": 0.000151,
+            "answer_drop": 0.000262
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.189266,
+          "inclusive_median_ms": 0.191607,
+          "requested_bytes": 178957,
+          "peak_requested_growth_bytes": 58948,
+          "first_answer_median_ms": 0.164167,
+          "phase_median_ms": {
+            "setup": 0.015446,
+            "execute_observe": 0.164322,
+            "engine_drop": 0.000197,
+            "answer_drop": 0.000258
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.772985511166891,
+          "interval95": [
+            0.7316420192085316,
+            0.8172435263244628
+          ],
+          "classification": "gain"
+        },
+        "persistent/contextual": {
+          "ratio": 1.4291003043447477,
+          "interval95": [
+            1.2504983159656076,
+            1.6667389546466431
+          ],
+          "classification": "loss"
+        },
+        "shared/contextual": {
+          "ratio": 1.8966577404315514,
+          "interval95": [
+            1.773564744488846,
+            2.0284682737697945
+          ],
+          "classification": "loss"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 1.0258824720272768,
+          "interval95": [
+            0.9232643555900099,
+            1.1136785304540655
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "single",
+        32,
+        1,
+        true,
+        true
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.131571,
+          "inclusive_median_ms": 0.134234,
+          "requested_bytes": 125497,
+          "peak_requested_growth_bytes": 20516,
+          "first_answer_median_ms": 0.107533,
+          "phase_median_ms": {
+            "setup": 0.014833,
+            "execute_observe": 0.107701,
+            "engine_drop": 0.000135,
+            "answer_drop": 0.000283
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.246965,
+          "inclusive_median_ms": 0.249493,
+          "requested_bytes": 251201,
+          "peak_requested_growth_bytes": 146220,
+          "first_answer_median_ms": 0.223235,
+          "phase_median_ms": {
+            "setup": 0.015138,
+            "execute_observe": 0.223402,
+            "engine_drop": 0.000133,
+            "answer_drop": 0.000227
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.170288,
+          "inclusive_median_ms": 0.172914,
+          "requested_bytes": 173237,
+          "peak_requested_growth_bytes": 18432,
+          "first_answer_median_ms": 0.146745,
+          "phase_median_ms": {
+            "setup": 0.015423,
+            "execute_observe": 0.146903,
+            "engine_drop": 0.000151,
+            "answer_drop": 0.00026
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.190356,
+          "inclusive_median_ms": 0.193033,
+          "requested_bytes": 178957,
+          "peak_requested_growth_bytes": 58948,
+          "first_answer_median_ms": 0.165175,
+          "phase_median_ms": {
+            "setup": 0.014962,
+            "execute_observe": 0.16533,
+            "engine_drop": 0.000151,
+            "answer_drop": 0.000242
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.780520779577473,
+          "interval95": [
+            0.7388121985788574,
+            0.8328765577390714
+          ],
+          "classification": "gain"
+        },
+        "persistent/contextual": {
+          "ratio": 1.3738101171179313,
+          "interval95": [
+            1.2624246692094971,
+            1.4983284749789325
+          ],
+          "classification": "loss"
+        },
+        "shared/contextual": {
+          "ratio": 1.8962774616999858,
+          "interval95": [
+            1.7996210091214686,
+            1.9898607328988367
+          ],
+          "classification": "loss"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 1.077357011903713,
+          "interval95": [
+            0.9798938073636297,
+            1.1702965181816005
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "single",
+        32,
+        4,
+        false,
+        false
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.430965,
+          "inclusive_median_ms": 0.435879,
+          "requested_bytes": 494307,
+          "peak_requested_growth_bytes": 20238,
+          "first_answer_median_ms": 0.0911825,
+          "phase_median_ms": {
+            "setup": 0.031288,
+            "execute_observe": 0.393565,
+            "engine_drop": 0.000284,
+            "answer_drop": 0.000548
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.885531,
+          "inclusive_median_ms": 0.894673,
+          "requested_bytes": 1012119,
+          "peak_requested_growth_bytes": 153440,
+          "first_answer_median_ms": 0.1854365,
+          "phase_median_ms": {
+            "setup": 0.094595,
+            "execute_observe": 0.782635,
+            "engine_drop": 0.000317,
+            "answer_drop": 0.000608
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.566663,
+          "inclusive_median_ms": 0.574112,
+          "requested_bytes": 687011,
+          "peak_requested_growth_bytes": 18186,
+          "first_answer_median_ms": 0.124854,
+          "phase_median_ms": {
+            "setup": 0.029978,
+            "execute_observe": 0.526951,
+            "engine_drop": 0.000271,
+            "answer_drop": 0.000566
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.602104,
+          "inclusive_median_ms": 0.606704,
+          "requested_bytes": 710099,
+          "peak_requested_growth_bytes": 59218,
+          "first_answer_median_ms": 0.1354085,
+          "phase_median_ms": {
+            "setup": 0.03,
+            "execute_observe": 0.572618,
+            "engine_drop": 0.000281,
+            "answer_drop": 0.000544
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.7115341810663385,
+          "interval95": [
+            0.6386127668434709,
+            0.8030758604626795
+          ],
+          "classification": "gain"
+        },
+        "persistent/contextual": {
+          "ratio": 1.3436793341823716,
+          "interval95": [
+            1.285322631838362,
+            1.4360783984153391
+          ],
+          "classification": "loss"
+        },
+        "shared/contextual": {
+          "ratio": 2.1144867097578834,
+          "interval95": [
+            1.994555022871993,
+            2.2845017951362645
+          ],
+          "classification": "loss"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 1.1197087959373413,
+          "interval95": [
+            1.0730468993602877,
+            1.1714220189726476
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "single",
+        32,
+        4,
+        false,
+        true
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.408183,
+          "inclusive_median_ms": 0.413037,
+          "requested_bytes": 494307,
+          "peak_requested_growth_bytes": 20238,
+          "first_answer_median_ms": 0.0912215,
+          "phase_median_ms": {
+            "setup": 0.030507,
+            "execute_observe": 0.362695,
+            "engine_drop": 0.000312,
+            "answer_drop": 0.000523
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.747076,
+          "inclusive_median_ms": 0.754963,
+          "requested_bytes": 1012119,
+          "peak_requested_growth_bytes": 153440,
+          "first_answer_median_ms": 0.1631835,
+          "phase_median_ms": {
+            "setup": 0.079982,
+            "execute_observe": 0.661245,
+            "engine_drop": 0.00027,
+            "answer_drop": 0.00053
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.550217,
+          "inclusive_median_ms": 0.556945,
+          "requested_bytes": 687011,
+          "peak_requested_growth_bytes": 18186,
+          "first_answer_median_ms": 0.1221845,
+          "phase_median_ms": {
+            "setup": 0.028075,
+            "execute_observe": 0.515478,
+            "engine_drop": 0.000276,
+            "answer_drop": 0.000573
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.543779,
+          "inclusive_median_ms": 0.548486,
+          "requested_bytes": 710099,
+          "peak_requested_growth_bytes": 59218,
+          "first_answer_median_ms": 0.132144,
+          "phase_median_ms": {
+            "setup": 0.025556,
+            "execute_observe": 0.515005,
+            "engine_drop": 0.000251,
+            "answer_drop": 0.000506
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.7214242351547617,
+          "interval95": [
+            0.6976118126740445,
+            0.7461236640992686
+          ],
+          "classification": "gain"
+        },
+        "persistent/contextual": {
+          "ratio": 1.2518308757329413,
+          "interval95": [
+            1.1415578017041155,
+            1.3470470408833652
+          ],
+          "classification": "loss"
+        },
+        "shared/contextual": {
+          "ratio": 1.7936015986377916,
+          "interval95": [
+            1.5624346142006438,
+            1.9812467947575847
+          ],
+          "classification": "loss"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 1.0336441499831406,
+          "interval95": [
+            0.9970377254535456,
+            1.0699567267861336
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "single",
+        32,
+        4,
+        true,
+        false
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.385189,
+          "inclusive_median_ms": 0.390392,
+          "requested_bytes": 507841,
+          "peak_requested_growth_bytes": 20744,
+          "first_answer_median_ms": 0.0892585,
+          "phase_median_ms": {
+            "setup": 0.029454,
+            "execute_observe": 0.348461,
+            "engine_drop": 0.000261,
+            "answer_drop": 0.000518
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.824182,
+          "inclusive_median_ms": 0.832676,
+          "requested_bytes": 1025653,
+          "peak_requested_growth_bytes": 153946,
+          "first_answer_median_ms": 0.178455,
+          "phase_median_ms": {
+            "setup": 0.083459,
+            "execute_observe": 0.729039,
+            "engine_drop": 0.000281,
+            "answer_drop": 0.000601
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.60904,
+          "inclusive_median_ms": 0.618037,
+          "requested_bytes": 700545,
+          "peak_requested_growth_bytes": 18692,
+          "first_answer_median_ms": 0.136748,
+          "phase_median_ms": {
+            "setup": 0.029902,
+            "execute_observe": 0.562864,
+            "engine_drop": 0.000316,
+            "answer_drop": 0.008365
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.593851,
+          "inclusive_median_ms": 0.599635,
+          "requested_bytes": 723633,
+          "peak_requested_growth_bytes": 59724,
+          "first_answer_median_ms": 0.1366905,
+          "phase_median_ms": {
+            "setup": 0.026287,
+            "execute_observe": 0.559019,
+            "engine_drop": 0.000281,
+            "answer_drop": 0.000551
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.6871791999539358,
+          "interval95": [
+            0.6495597136053753,
+            0.7299727005402059
+          ],
+          "classification": "gain"
+        },
+        "persistent/contextual": {
+          "ratio": 1.4729567052252504,
+          "interval95": [
+            1.3577407212252917,
+            1.6168274894111667
+          ],
+          "classification": "loss"
+        },
+        "shared/contextual": {
+          "ratio": 2.0641615080691045,
+          "interval95": [
+            2.013641457642515,
+            2.1233887874192563
+          ],
+          "classification": "loss"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 0.9629942609030875,
+          "interval95": [
+            0.8758422215255195,
+            1.0384633299375856
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "single",
+        32,
+        4,
+        true,
+        true
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.450084,
+          "inclusive_median_ms": 0.457816,
+          "requested_bytes": 507841,
+          "peak_requested_growth_bytes": 20744,
+          "first_answer_median_ms": 0.0960645,
+          "phase_median_ms": {
+            "setup": 0.035377,
+            "execute_observe": 0.404767,
+            "engine_drop": 0.000271,
+            "answer_drop": 0.000621
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.842599,
+          "inclusive_median_ms": 0.851261,
+          "requested_bytes": 1025653,
+          "peak_requested_growth_bytes": 153946,
+          "first_answer_median_ms": 0.187609,
+          "phase_median_ms": {
+            "setup": 0.0858,
+            "execute_observe": 0.748267,
+            "engine_drop": 0.00029,
+            "answer_drop": 0.000627
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.600254,
+          "inclusive_median_ms": 0.60954,
+          "requested_bytes": 700545,
+          "peak_requested_growth_bytes": 18692,
+          "first_answer_median_ms": 0.1328385,
+          "phase_median_ms": {
+            "setup": 0.036262,
+            "execute_observe": 0.550921,
+            "engine_drop": 0.000267,
+            "answer_drop": 0.004697
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.594946,
+          "inclusive_median_ms": 0.600572,
+          "requested_bytes": 723633,
+          "peak_requested_growth_bytes": 59724,
+          "first_answer_median_ms": 0.131788,
+          "phase_median_ms": {
+            "setup": 0.029297,
+            "execute_observe": 0.520384,
+            "engine_drop": 0.000276,
+            "answer_drop": 0.000509
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.7417088931876125,
+          "interval95": [
+            0.6719198439528341,
+            0.8842410122396536
+          ],
+          "classification": "gain"
+        },
+        "persistent/contextual": {
+          "ratio": 1.2137055232196838,
+          "interval95": [
+            0.9854097957027858,
+            1.4064814757984945
+          ],
+          "classification": "unresolved"
+        },
+        "shared/contextual": {
+          "ratio": 1.795670510952894,
+          "interval95": [
+            1.4976182779451988,
+            2.053933342172182
+          ],
+          "classification": "loss"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 1.0973541454070113,
+          "interval95": [
+            0.9626684576400689,
+            1.3448815840824637
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "shared",
+        0,
+        1,
+        false,
+        false
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.02963,
+          "inclusive_median_ms": 0.032587,
+          "requested_bytes": 17329,
+          "peak_requested_growth_bytes": 7969,
+          "first_answer_median_ms": 0.012123,
+          "phase_median_ms": {
+            "setup": 0.00679,
+            "execute_observe": 0.015384,
+            "engine_drop": 0.000152,
+            "answer_drop": 0.000461
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.029193,
+          "inclusive_median_ms": 0.032098,
+          "requested_bytes": 14403,
+          "peak_requested_growth_bytes": 8425,
+          "first_answer_median_ms": 0.011819,
+          "phase_median_ms": {
+            "setup": 0.005262,
+            "execute_observe": 0.01491,
+            "engine_drop": 0.000163,
+            "answer_drop": 0.000487
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.030583,
+          "inclusive_median_ms": 0.033364,
+          "requested_bytes": 15361,
+          "peak_requested_growth_bytes": 7377,
+          "first_answer_median_ms": 0.011669,
+          "phase_median_ms": {
+            "setup": 0.005669,
+            "execute_observe": 0.014802,
+            "engine_drop": 0.000167,
+            "answer_drop": 0.000476
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.030192,
+          "inclusive_median_ms": 0.033088,
+          "requested_bytes": 13891,
+          "peak_requested_growth_bytes": 7833,
+          "first_answer_median_ms": 0.012005,
+          "phase_median_ms": {
+            "setup": 0.005702,
+            "execute_observe": 0.014719,
+            "engine_drop": 0.000165,
+            "answer_drop": 0.000475
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 1.0664373518544408,
+          "interval95": [
+            0.9581931471993014,
+            1.2060539051728576
+          ],
+          "classification": "unresolved"
+        },
+        "persistent/contextual": {
+          "ratio": 0.9777724257564189,
+          "interval95": [
+            0.9285450151739748,
+            1.0173248327650561
+          ],
+          "classification": "unresolved"
+        },
+        "shared/contextual": {
+          "ratio": 0.9409385226626988,
+          "interval95": [
+            0.8862845071097859,
+            0.9976110546625198
+          ],
+          "classification": "unresolved"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 1.0262633307438112,
+          "interval95": [
+            0.8574107812099823,
+            1.2775843751110734
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "shared",
+        0,
+        1,
+        false,
+        true
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.029999,
+          "inclusive_median_ms": 0.033014,
+          "requested_bytes": 17329,
+          "peak_requested_growth_bytes": 7969,
+          "first_answer_median_ms": 0.011905,
+          "phase_median_ms": {
+            "setup": 0.005567,
+            "execute_observe": 0.015342,
+            "engine_drop": 0.00016,
+            "answer_drop": 0.000479
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.025773,
+          "inclusive_median_ms": 0.028389,
+          "requested_bytes": 14403,
+          "peak_requested_growth_bytes": 8425,
+          "first_answer_median_ms": 0.011771,
+          "phase_median_ms": {
+            "setup": 0.00504,
+            "execute_observe": 0.014453,
+            "engine_drop": 0.000146,
+            "answer_drop": 0.0004
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.025712,
+          "inclusive_median_ms": 0.028164,
+          "requested_bytes": 15361,
+          "peak_requested_growth_bytes": 7377,
+          "first_answer_median_ms": 0.011106,
+          "phase_median_ms": {
+            "setup": 0.006137,
+            "execute_observe": 0.013684,
+            "engine_drop": 0.000146,
+            "answer_drop": 0.000416
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.028886,
+          "inclusive_median_ms": 0.031673,
+          "requested_bytes": 13891,
+          "peak_requested_growth_bytes": 7833,
+          "first_answer_median_ms": 0.011949,
+          "phase_median_ms": {
+            "setup": 0.006299,
+            "execute_observe": 0.014394,
+            "engine_drop": 0.000154,
+            "answer_drop": 0.000443
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.9878615953815317,
+          "interval95": [
+            0.794108851625598,
+            1.1789753019396092
+          ],
+          "classification": "unresolved"
+        },
+        "persistent/contextual": {
+          "ratio": 0.9393924535630374,
+          "interval95": [
+            0.8694012724176584,
+            1.0239717131954165
+          ],
+          "classification": "unresolved"
+        },
+        "shared/contextual": {
+          "ratio": 0.9918374581330262,
+          "interval95": [
+            0.8518684408476265,
+            1.2208983714565227
+          ],
+          "classification": "unresolved"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 1.0430125662966119,
+          "interval95": [
+            0.9457865766062364,
+            1.1753254502975445
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "shared",
+        0,
+        1,
+        true,
+        false
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.038917,
+          "inclusive_median_ms": 0.042596,
+          "requested_bytes": 25484,
+          "peak_requested_growth_bytes": 12167,
+          "first_answer_median_ms": 0.019167,
+          "phase_median_ms": {
+            "setup": 0.006113,
+            "execute_observe": 0.021893,
+            "engine_drop": 0.000143,
+            "answer_drop": 0.00047
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.039443,
+          "inclusive_median_ms": 0.043342,
+          "requested_bytes": 22558,
+          "peak_requested_growth_bytes": 10124,
+          "first_answer_median_ms": 0.019165,
+          "phase_median_ms": {
+            "setup": 0.005975,
+            "execute_observe": 0.021623,
+            "engine_drop": 0.000152,
+            "answer_drop": 0.000477
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.036848,
+          "inclusive_median_ms": 0.040689,
+          "requested_bytes": 23516,
+          "peak_requested_growth_bytes": 10119,
+          "first_answer_median_ms": 0.0171,
+          "phase_median_ms": {
+            "setup": 0.006315,
+            "execute_observe": 0.019284,
+            "engine_drop": 0.000149,
+            "answer_drop": 0.000481
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.037211,
+          "inclusive_median_ms": 0.040906,
+          "requested_bytes": 22046,
+          "peak_requested_growth_bytes": 9612,
+          "first_answer_median_ms": 0.01803,
+          "phase_median_ms": {
+            "setup": 0.005852,
+            "execute_observe": 0.020325,
+            "engine_drop": 0.000157,
+            "answer_drop": 0.000476
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.9679064895773184,
+          "interval95": [
+            0.8549006084843389,
+            1.0945618196642792
+          ],
+          "classification": "unresolved"
+        },
+        "persistent/contextual": {
+          "ratio": 0.9535886026905434,
+          "interval95": [
+            0.8919834207380285,
+            1.0306508571348214
+          ],
+          "classification": "unresolved"
+        },
+        "shared/contextual": {
+          "ratio": 0.9987817025600247,
+          "interval95": [
+            0.8797007260303483,
+            1.1325285103487481
+          ],
+          "classification": "unresolved"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 1.0137781521835694,
+          "interval95": [
+            0.8934566815756294,
+            1.1199606525270602
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "shared",
+        0,
+        1,
+        true,
+        true
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.036285,
+          "inclusive_median_ms": 0.040058,
+          "requested_bytes": 25484,
+          "peak_requested_growth_bytes": 12167,
+          "first_answer_median_ms": 0.018371,
+          "phase_median_ms": {
+            "setup": 0.00575,
+            "execute_observe": 0.020832,
+            "engine_drop": 0.000143,
+            "answer_drop": 0.00047
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.03467,
+          "inclusive_median_ms": 0.038739,
+          "requested_bytes": 22558,
+          "peak_requested_growth_bytes": 10124,
+          "first_answer_median_ms": 0.017023,
+          "phase_median_ms": {
+            "setup": 0.005669,
+            "execute_observe": 0.019504,
+            "engine_drop": 0.000148,
+            "answer_drop": 0.000501
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.037184,
+          "inclusive_median_ms": 0.040822,
+          "requested_bytes": 23516,
+          "peak_requested_growth_bytes": 10119,
+          "first_answer_median_ms": 0.017455,
+          "phase_median_ms": {
+            "setup": 0.00615,
+            "execute_observe": 0.019726,
+            "engine_drop": 0.000148,
+            "answer_drop": 0.000504
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.034,
+          "inclusive_median_ms": 0.03741,
+          "requested_bytes": 22046,
+          "peak_requested_growth_bytes": 9612,
+          "first_answer_median_ms": 0.01609,
+          "phase_median_ms": {
+            "setup": 0.005961,
+            "execute_observe": 0.01854,
+            "engine_drop": 0.000142,
+            "answer_drop": 0.000421
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.9870720164536103,
+          "interval95": [
+            0.9185075761461554,
+            1.061398280359818
+          ],
+          "classification": "unresolved"
+        },
+        "persistent/contextual": {
+          "ratio": 1.0166238264933836,
+          "interval95": [
+            0.873968838600685,
+            1.213947128549839
+          ],
+          "classification": "unresolved"
+        },
+        "shared/contextual": {
+          "ratio": 0.9029858712523711,
+          "interval95": [
+            0.8124883434683206,
+            0.9945269591205343
+          ],
+          "classification": "unresolved"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 0.8767373550948334,
+          "interval95": [
+            0.7523359076765986,
+            0.9991222052932149
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "shared",
+        0,
+        4,
+        false,
+        false
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.061543,
+          "inclusive_median_ms": 0.064506,
+          "requested_bytes": 68739,
+          "peak_requested_growth_bytes": 11051,
+          "first_answer_median_ms": 0.0074245,
+          "phase_median_ms": {
+            "setup": 0.008018,
+            "execute_observe": 0.045662,
+            "engine_drop": 0.000221,
+            "answer_drop": 0.001472
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.057692,
+          "inclusive_median_ms": 0.060979,
+          "requested_bytes": 54593,
+          "peak_requested_growth_bytes": 9815,
+          "first_answer_median_ms": 0.0059665,
+          "phase_median_ms": {
+            "setup": 0.009568,
+            "execute_observe": 0.037905,
+            "engine_drop": 0.000237,
+            "answer_drop": 0.001403
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.060575,
+          "inclusive_median_ms": 0.064048,
+          "requested_bytes": 66283,
+          "peak_requested_growth_bytes": 8970,
+          "first_answer_median_ms": 0.0070805,
+          "phase_median_ms": {
+            "setup": 0.008915,
+            "execute_observe": 0.043911,
+            "engine_drop": 0.00028,
+            "answer_drop": 0.001449
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.056518,
+          "inclusive_median_ms": 0.0599,
+          "requested_bytes": 52391,
+          "peak_requested_growth_bytes": 8775,
+          "first_answer_median_ms": 0.005885,
+          "phase_median_ms": {
+            "setup": 0.009174,
+            "execute_observe": 0.038103,
+            "engine_drop": 0.000262,
+            "answer_drop": 0.001477
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 1.0086184779995024,
+          "interval95": [
+            0.9137736919485056,
+            1.110017782175637
+          ],
+          "classification": "unresolved"
+        },
+        "persistent/contextual": {
+          "ratio": 1.0731352850337332,
+          "interval95": [
+            0.9610358411222716,
+            1.2465207361385007
+          ],
+          "classification": "unresolved"
+        },
+        "shared/contextual": {
+          "ratio": 0.9285586763894964,
+          "interval95": [
+            0.8990434752096256,
+            0.969431098752918
+          ],
+          "classification": "unresolved"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 0.8727338034400447,
+          "interval95": [
+            0.7645618743835583,
+            0.9895578416254435
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "shared",
+        0,
+        4,
+        false,
+        true
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.062362,
+          "inclusive_median_ms": 0.065966,
+          "requested_bytes": 68739,
+          "peak_requested_growth_bytes": 11051,
+          "first_answer_median_ms": 0.007539,
+          "phase_median_ms": {
+            "setup": 0.007974,
+            "execute_observe": 0.043763,
+            "engine_drop": 0.000255,
+            "answer_drop": 0.001467
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.058367,
+          "inclusive_median_ms": 0.06171,
+          "requested_bytes": 54593,
+          "peak_requested_growth_bytes": 9815,
+          "first_answer_median_ms": 0.006314,
+          "phase_median_ms": {
+            "setup": 0.009024,
+            "execute_observe": 0.041584,
+            "engine_drop": 0.000256,
+            "answer_drop": 0.001433
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.062396,
+          "inclusive_median_ms": 0.06577,
+          "requested_bytes": 66283,
+          "peak_requested_growth_bytes": 8970,
+          "first_answer_median_ms": 0.0065355,
+          "phase_median_ms": {
+            "setup": 0.009395,
+            "execute_observe": 0.043545,
+            "engine_drop": 0.000282,
+            "answer_drop": 0.001434
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.056099,
+          "inclusive_median_ms": 0.059324,
+          "requested_bytes": 52391,
+          "peak_requested_growth_bytes": 8775,
+          "first_answer_median_ms": 0.0068755,
+          "phase_median_ms": {
+            "setup": 0.00838,
+            "execute_observe": 0.039068,
+            "engine_drop": 0.000296,
+            "answer_drop": 0.001484
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.9810814760752636,
+          "interval95": [
+            0.8226755367295102,
+            1.1493727681996
+          ],
+          "classification": "unresolved"
+        },
+        "persistent/contextual": {
+          "ratio": 1.0130459863001444,
+          "interval95": [
+            0.969921070062838,
+            1.0718424841277985
+          ],
+          "classification": "unresolved"
+        },
+        "shared/contextual": {
+          "ratio": 0.9940462807802589,
+          "interval95": [
+            0.8913104230437326,
+            1.101781436932036
+          ],
+          "classification": "unresolved"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 0.9626812658296039,
+          "interval95": [
+            0.8750566739788957,
+            1.0755827847509996
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "shared",
+        0,
+        4,
+        true,
+        false
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.077745,
+          "inclusive_median_ms": 0.080641,
+          "requested_bytes": 98653,
+          "peak_requested_growth_bytes": 13409,
+          "first_answer_median_ms": 0.0105585,
+          "phase_median_ms": {
+            "setup": 0.008427,
+            "execute_observe": 0.057466,
+            "engine_drop": 0.00031,
+            "answer_drop": 0.001464
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.071137,
+          "inclusive_median_ms": 0.074615,
+          "requested_bytes": 84507,
+          "peak_requested_growth_bytes": 11594,
+          "first_answer_median_ms": 0.0092845,
+          "phase_median_ms": {
+            "setup": 0.008225,
+            "execute_observe": 0.050926,
+            "engine_drop": 0.001146,
+            "answer_drop": 0.001463
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.075409,
+          "inclusive_median_ms": 0.078957,
+          "requested_bytes": 96197,
+          "peak_requested_growth_bytes": 10913,
+          "first_answer_median_ms": 0.010629,
+          "phase_median_ms": {
+            "setup": 0.007775,
+            "execute_observe": 0.054515,
+            "engine_drop": 0.001165,
+            "answer_drop": 0.001513
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.06896,
+          "inclusive_median_ms": 0.072607,
+          "requested_bytes": 82305,
+          "peak_requested_growth_bytes": 10554,
+          "first_answer_median_ms": 0.008933,
+          "phase_median_ms": {
+            "setup": 0.008977,
+            "execute_observe": 0.048999,
+            "engine_drop": 0.000288,
+            "answer_drop": 0.001555
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.9815355955665578,
+          "interval95": [
+            0.8925234984406085,
+            1.1191778178459624
+          ],
+          "classification": "unresolved"
+        },
+        "persistent/contextual": {
+          "ratio": 0.9432862411527619,
+          "interval95": [
+            0.8811882325318097,
+            0.9979290974675387
+          ],
+          "classification": "unresolved"
+        },
+        "shared/contextual": {
+          "ratio": 0.9342661497348788,
+          "interval95": [
+            0.884360290804242,
+            1.0013582975784243
+          ],
+          "classification": "unresolved"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 0.9721497480733333,
+          "interval95": [
+            0.9068102797058516,
+            1.0751954597276832
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "shared",
+        0,
+        4,
+        true,
+        true
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.076716,
+          "inclusive_median_ms": 0.080002,
+          "requested_bytes": 98653,
+          "peak_requested_growth_bytes": 13409,
+          "first_answer_median_ms": 0.011037,
+          "phase_median_ms": {
+            "setup": 0.008607,
+            "execute_observe": 0.055701,
+            "engine_drop": 0.000311,
+            "answer_drop": 0.001403
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.067774,
+          "inclusive_median_ms": 0.070835,
+          "requested_bytes": 84507,
+          "peak_requested_growth_bytes": 11594,
+          "first_answer_median_ms": 0.00922,
+          "phase_median_ms": {
+            "setup": 0.007646,
+            "execute_observe": 0.049266,
+            "engine_drop": 0.000269,
+            "answer_drop": 0.001212
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.070285,
+          "inclusive_median_ms": 0.073158,
+          "requested_bytes": 96197,
+          "peak_requested_growth_bytes": 10913,
+          "first_answer_median_ms": 0.010641,
+          "phase_median_ms": {
+            "setup": 0.008749,
+            "execute_observe": 0.050263,
+            "engine_drop": 0.001119,
+            "answer_drop": 0.001309
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.080517,
+          "inclusive_median_ms": 0.084324,
+          "requested_bytes": 82305,
+          "peak_requested_growth_bytes": 10554,
+          "first_answer_median_ms": 0.010947,
+          "phase_median_ms": {
+            "setup": 0.010001,
+            "execute_observe": 0.05847,
+            "engine_drop": 0.000345,
+            "answer_drop": 0.001765
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 1.574468246882375,
+          "interval95": [
+            1.0765827229255922,
+            2.643362645041935
+          ],
+          "classification": "unresolved"
+        },
+        "persistent/contextual": {
+          "ratio": 0.9248849582249732,
+          "interval95": [
+            0.836399768503303,
+            1.0082299222375228
+          ],
+          "classification": "unresolved"
+        },
+        "shared/contextual": {
+          "ratio": 0.9030396936531687,
+          "interval95": [
+            0.8126177769939875,
+            1.0080896664853398
+          ],
+          "classification": "unresolved"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 1.5372801889437309,
+          "interval95": [
+            1.0639702217637366,
+            2.4579414675836957
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "shared",
+        32,
+        1,
+        false,
+        false
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.365885,
+          "inclusive_median_ms": 0.375623,
+          "requested_bytes": 436401,
+          "peak_requested_growth_bytes": 53313,
+          "first_answer_median_ms": 0.336566,
+          "phase_median_ms": {
+            "setup": 0.011942,
+            "execute_observe": 0.346805,
+            "engine_drop": 0.000176,
+            "answer_drop": 0.000447
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.234203,
+          "inclusive_median_ms": 0.243845,
+          "requested_bytes": 258483,
+          "peak_requested_growth_bytes": 149641,
+          "first_answer_median_ms": 0.192386,
+          "phase_median_ms": {
+            "setup": 0.012975,
+            "execute_observe": 0.215763,
+            "engine_drop": 0.000166,
+            "answer_drop": 0.000433
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.451296,
+          "inclusive_median_ms": 0.461121,
+          "requested_bytes": 627121,
+          "peak_requested_growth_bytes": 45373,
+          "first_answer_median_ms": 0.421176,
+          "phase_median_ms": {
+            "setup": 0.013709,
+            "execute_observe": 0.430678,
+            "engine_drop": 0.000169,
+            "answer_drop": 0.000437
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.207868,
+          "inclusive_median_ms": 0.220018,
+          "requested_bytes": 186159,
+          "peak_requested_growth_bytes": 62369,
+          "first_answer_median_ms": 0.167329,
+          "phase_median_ms": {
+            "setup": 0.014684,
+            "execute_observe": 0.182456,
+            "engine_drop": 0.000171,
+            "answer_drop": 0.000479
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.8291759100533782,
+          "interval95": [
+            0.7627146734166305,
+            0.9206976414625447
+          ],
+          "classification": "unresolved"
+        },
+        "persistent/contextual": {
+          "ratio": 1.3257360864323684,
+          "interval95": [
+            1.2133296032538807,
+            1.4963801869369802
+          ],
+          "classification": "loss"
+        },
+        "shared/contextual": {
+          "ratio": 0.6703630179746157,
+          "interval95": [
+            0.6325381646850652,
+            0.7124928293809324
+          ],
+          "classification": "gain"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 0.4192756546222199,
+          "interval95": [
+            0.3500879421364163,
+            0.4933553315351917
+          ],
+          "classification": "gain"
+        }
+      }
+    },
+    {
+      "config": [
+        "shared",
+        32,
+        1,
+        false,
+        true
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.34601,
+          "inclusive_median_ms": 0.355722,
+          "requested_bytes": 436401,
+          "peak_requested_growth_bytes": 53313,
+          "first_answer_median_ms": 0.317294,
+          "phase_median_ms": {
+            "setup": 0.012016,
+            "execute_observe": 0.325812,
+            "engine_drop": 0.000144,
+            "answer_drop": 0.00048
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.288332,
+          "inclusive_median_ms": 0.300144,
+          "requested_bytes": 258483,
+          "peak_requested_growth_bytes": 149641,
+          "first_answer_median_ms": 0.231628,
+          "phase_median_ms": {
+            "setup": 0.015922,
+            "execute_observe": 0.260333,
+            "engine_drop": 0.000211,
+            "answer_drop": 0.000518
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.515861,
+          "inclusive_median_ms": 0.527059,
+          "requested_bytes": 627121,
+          "peak_requested_growth_bytes": 45373,
+          "first_answer_median_ms": 0.482006,
+          "phase_median_ms": {
+            "setup": 0.014708,
+            "execute_observe": 0.493709,
+            "engine_drop": 0.000209,
+            "answer_drop": 0.000499
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.212071,
+          "inclusive_median_ms": 0.223642,
+          "requested_bytes": 186159,
+          "peak_requested_growth_bytes": 62369,
+          "first_answer_median_ms": 0.171267,
+          "phase_median_ms": {
+            "setup": 0.014671,
+            "execute_observe": 0.186043,
+            "engine_drop": 0.000164,
+            "answer_drop": 0.000497
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.7487725897106333,
+          "interval95": [
+            0.6897006915127316,
+            0.8139576071696524
+          ],
+          "classification": "gain"
+        },
+        "persistent/contextual": {
+          "ratio": 1.344308974536227,
+          "interval95": [
+            1.2089129382526256,
+            1.4793057373190306
+          ],
+          "classification": "loss"
+        },
+        "shared/contextual": {
+          "ratio": 0.6909915198617239,
+          "interval95": [
+            0.55156026777257,
+            0.8040749538076606
+          ],
+          "classification": "gain"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 0.3848784167891505,
+          "interval95": [
+            0.3284767378805646,
+            0.4334024625212646
+          ],
+          "classification": "gain"
+        }
+      }
+    },
+    {
+      "config": [
+        "shared",
+        32,
+        1,
+        true,
+        false
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.37372,
+          "inclusive_median_ms": 0.3787,
+          "requested_bytes": 449932,
+          "peak_requested_growth_bytes": 54215,
+          "first_answer_median_ms": 0.34503,
+          "phase_median_ms": {
+            "setup": 0.010807,
+            "execute_observe": 0.353109,
+            "engine_drop": 0.000154,
+            "answer_drop": 0.000425
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.255457,
+          "inclusive_median_ms": 0.260333,
+          "requested_bytes": 272014,
+          "peak_requested_growth_bytes": 150543,
+          "first_answer_median_ms": 0.212091,
+          "phase_median_ms": {
+            "setup": 0.010469,
+            "execute_observe": 0.236514,
+            "engine_drop": 0.000161,
+            "answer_drop": 0.000459
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.461893,
+          "inclusive_median_ms": 0.466942,
+          "requested_bytes": 640652,
+          "peak_requested_growth_bytes": 46275,
+          "first_answer_median_ms": 0.428277,
+          "phase_median_ms": {
+            "setup": 0.012634,
+            "execute_observe": 0.437653,
+            "engine_drop": 0.000178,
+            "answer_drop": 0.000421
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.209006,
+          "inclusive_median_ms": 0.214882,
+          "requested_bytes": 199690,
+          "peak_requested_growth_bytes": 63271,
+          "first_answer_median_ms": 0.173982,
+          "phase_median_ms": {
+            "setup": 0.010709,
+            "execute_observe": 0.188148,
+            "engine_drop": 0.000154,
+            "answer_drop": 0.000489
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.7496737766363881,
+          "interval95": [
+            0.6732611885822166,
+            0.8120761513883359
+          ],
+          "classification": "gain"
+        },
+        "persistent/contextual": {
+          "ratio": 1.2328858548272108,
+          "interval95": [
+            1.1637642051988595,
+            1.3294920720766013
+          ],
+          "classification": "loss"
+        },
+        "shared/contextual": {
+          "ratio": 0.7108456112708755,
+          "interval95": [
+            0.6426248217924349,
+            0.7980075937908266
+          ],
+          "classification": "gain"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 0.43223978271818647,
+          "interval95": [
+            0.3990244067084884,
+            0.46698582803753613
+          ],
+          "classification": "gain"
+        }
+      }
+    },
+    {
+      "config": [
+        "shared",
+        32,
+        1,
+        true,
+        true
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.384075,
+          "inclusive_median_ms": 0.388043,
+          "requested_bytes": 449932,
+          "peak_requested_growth_bytes": 54215,
+          "first_answer_median_ms": 0.357265,
+          "phase_median_ms": {
+            "setup": 0.009801,
+            "execute_observe": 0.365382,
+            "engine_drop": 0.000165,
+            "answer_drop": 0.000462
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.292515,
+          "inclusive_median_ms": 0.298063,
+          "requested_bytes": 272014,
+          "peak_requested_growth_bytes": 150543,
+          "first_answer_median_ms": 0.238224,
+          "phase_median_ms": {
+            "setup": 0.012659,
+            "execute_observe": 0.267812,
+            "engine_drop": 0.000173,
+            "answer_drop": 0.000485
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.519706,
+          "inclusive_median_ms": 0.524577,
+          "requested_bytes": 640652,
+          "peak_requested_growth_bytes": 46275,
+          "first_answer_median_ms": 0.483538,
+          "phase_median_ms": {
+            "setup": 0.011898,
+            "execute_observe": 0.494795,
+            "engine_drop": 0.000169,
+            "answer_drop": 0.000474
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.214478,
+          "inclusive_median_ms": 0.219954,
+          "requested_bytes": 199690,
+          "peak_requested_growth_bytes": 63271,
+          "first_answer_median_ms": 0.17823,
+          "phase_median_ms": {
+            "setup": 0.011379,
+            "execute_observe": 0.192955,
+            "engine_drop": 0.000155,
+            "answer_drop": 0.000494
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.7095128635163004,
+          "interval95": [
+            0.6402002037404587,
+            0.7833797228596077
+          ],
+          "classification": "gain"
+        },
+        "persistent/contextual": {
+          "ratio": 1.3320814453810967,
+          "interval95": [
+            1.2527917550439087,
+            1.439504785272428
+          ],
+          "classification": "loss"
+        },
+        "shared/contextual": {
+          "ratio": 0.7481993164611915,
+          "interval95": [
+            0.6931192276514028,
+            0.8139615156920141
+          ],
+          "classification": "gain"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 0.39851695355717925,
+          "interval95": [
+            0.3621318492603884,
+            0.43596798881898835
+          ],
+          "classification": "gain"
+        }
+      }
+    },
+    {
+      "config": [
+        "shared",
+        32,
+        4,
+        false,
+        false
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 1.563662,
+          "inclusive_median_ms": 1.570964,
+          "requested_bytes": 1782531,
+          "peak_requested_growth_bytes": 55851,
+          "first_answer_median_ms": 0.357326,
+          "phase_median_ms": {
+            "setup": 0.053421,
+            "execute_observe": 1.500299,
+            "engine_drop": 0.000367,
+            "answer_drop": 0.001395
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.886155,
+          "inclusive_median_ms": 0.895013,
+          "requested_bytes": 1052417,
+          "peak_requested_growth_bytes": 157367,
+          "first_answer_median_ms": 0.166294,
+          "phase_median_ms": {
+            "setup": 0.085985,
+            "execute_observe": 0.791196,
+            "engine_drop": 0.000294,
+            "answer_drop": 0.001357
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 1.761858,
+          "inclusive_median_ms": 1.768021,
+          "requested_bytes": 2552387,
+          "peak_requested_growth_bytes": 46359,
+          "first_answer_median_ms": 0.4141765,
+          "phase_median_ms": {
+            "setup": 0.025788,
+            "execute_observe": 1.714343,
+            "engine_drop": 0.000281,
+            "answer_drop": 0.001315
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.737899,
+          "inclusive_median_ms": 0.745119,
+          "requested_bytes": 750077,
+          "peak_requested_growth_bytes": 63145,
+          "first_answer_median_ms": 0.1501775,
+          "phase_median_ms": {
+            "setup": 0.058009,
+            "execute_observe": 0.672088,
+            "engine_drop": 0.00031,
+            "answer_drop": 0.001407
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.8558357692153009,
+          "interval95": [
+            0.7770475248002455,
+            0.9817410447762479
+          ],
+          "classification": "unresolved"
+        },
+        "persistent/contextual": {
+          "ratio": 1.1768078012374925,
+          "interval95": [
+            1.0859314725264695,
+            1.2573799315091359
+          ],
+          "classification": "unresolved"
+        },
+        "shared/contextual": {
+          "ratio": 0.5880471083191312,
+          "interval95": [
+            0.5371979844801751,
+            0.6383147595459943
+          ],
+          "classification": "gain"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 0.42765840671171024,
+          "interval95": [
+            0.3937123481294523,
+            0.4889014925440646
+          ],
+          "classification": "gain"
+        }
+      }
+    },
+    {
+      "config": [
+        "shared",
+        32,
+        4,
+        false,
+        true
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 1.38098,
+          "inclusive_median_ms": 1.388652,
+          "requested_bytes": 1782531,
+          "peak_requested_growth_bytes": 55851,
+          "first_answer_median_ms": 0.3132455,
+          "phase_median_ms": {
+            "setup": 0.049115,
+            "execute_observe": 1.322847,
+            "engine_drop": 0.000358,
+            "answer_drop": 0.001335
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.92452,
+          "inclusive_median_ms": 0.933847,
+          "requested_bytes": 1052417,
+          "peak_requested_growth_bytes": 157367,
+          "first_answer_median_ms": 0.174989,
+          "phase_median_ms": {
+            "setup": 0.090032,
+            "execute_observe": 0.823333,
+            "engine_drop": 0.000283,
+            "answer_drop": 0.001329
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 1.648117,
+          "inclusive_median_ms": 1.6555,
+          "requested_bytes": 2552387,
+          "peak_requested_growth_bytes": 46359,
+          "first_answer_median_ms": 0.405522,
+          "phase_median_ms": {
+            "setup": 0.024571,
+            "execute_observe": 1.616251,
+            "engine_drop": 0.000278,
+            "answer_drop": 0.001276
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.76612,
+          "inclusive_median_ms": 0.77392,
+          "requested_bytes": 750077,
+          "peak_requested_growth_bytes": 63145,
+          "first_answer_median_ms": 0.150763,
+          "phase_median_ms": {
+            "setup": 0.061686,
+            "execute_observe": 0.694845,
+            "engine_drop": 0.000323,
+            "answer_drop": 0.001374
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.8098119083970083,
+          "interval95": [
+            0.776597825763413,
+            0.8454310034726419
+          ],
+          "classification": "gain"
+        },
+        "persistent/contextual": {
+          "ratio": 1.2893333599149857,
+          "interval95": [
+            1.1749074499712733,
+            1.4442647494176128
+          ],
+          "classification": "loss"
+        },
+        "shared/contextual": {
+          "ratio": 0.6447800140596892,
+          "interval95": [
+            0.604595292559904,
+            0.6898865788593082
+          ],
+          "classification": "gain"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 0.40497713773291005,
+          "interval95": [
+            0.34092484335478224,
+            0.4679019942417628
+          ],
+          "classification": "gain"
+        }
+      }
+    },
+    {
+      "config": [
+        "shared",
+        32,
+        4,
+        true,
+        false
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 1.376991,
+          "inclusive_median_ms": 1.385793,
+          "requested_bytes": 1834717,
+          "peak_requested_growth_bytes": 56753,
+          "first_answer_median_ms": 0.339114,
+          "phase_median_ms": {
+            "setup": 0.038672,
+            "execute_observe": 1.329892,
+            "engine_drop": 0.000357,
+            "answer_drop": 0.001478
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.883059,
+          "inclusive_median_ms": 0.89197,
+          "requested_bytes": 1104603,
+          "peak_requested_growth_bytes": 158269,
+          "first_answer_median_ms": 0.1685545,
+          "phase_median_ms": {
+            "setup": 0.080694,
+            "execute_observe": 0.788574,
+            "engine_drop": 0.000306,
+            "answer_drop": 0.001338
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 1.705975,
+          "inclusive_median_ms": 1.712954,
+          "requested_bytes": 2604573,
+          "peak_requested_growth_bytes": 47261,
+          "first_answer_median_ms": 0.415824,
+          "phase_median_ms": {
+            "setup": 0.037118,
+            "execute_observe": 1.658144,
+            "engine_drop": 0.000342,
+            "answer_drop": 0.001339
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.785161,
+          "inclusive_median_ms": 0.793247,
+          "requested_bytes": 802263,
+          "peak_requested_growth_bytes": 64047,
+          "first_answer_median_ms": 0.164449,
+          "phase_median_ms": {
+            "setup": 0.04685,
+            "execute_observe": 0.723322,
+            "engine_drop": 0.0003,
+            "answer_drop": 0.001462
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.8833704514670013,
+          "interval95": [
+            0.8335161294933796,
+            0.9541242545976563
+          ],
+          "classification": "unresolved"
+        },
+        "persistent/contextual": {
+          "ratio": 1.2005490272865302,
+          "interval95": [
+            1.1457191846298227,
+            1.2469668924916613
+          ],
+          "classification": "loss"
+        },
+        "shared/contextual": {
+          "ratio": 0.6096223628075295,
+          "interval95": [
+            0.5690556704710966,
+            0.6494085625796219
+          ],
+          "classification": "gain"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 0.44856342358198453,
+          "interval95": [
+            0.42935869310593483,
+            0.46603845149457934
+          ],
+          "classification": "gain"
+        }
+      }
+    },
+    {
+      "config": [
+        "shared",
+        32,
+        4,
+        true,
+        true
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 1.408354,
+          "inclusive_median_ms": 1.41766,
+          "requested_bytes": 1834717,
+          "peak_requested_growth_bytes": 56753,
+          "first_answer_median_ms": 0.3195235,
+          "phase_median_ms": {
+            "setup": 0.040803,
+            "execute_observe": 1.3568,
+            "engine_drop": 0.000263,
+            "answer_drop": 0.001506
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.864473,
+          "inclusive_median_ms": 0.874281,
+          "requested_bytes": 1104603,
+          "peak_requested_growth_bytes": 158269,
+          "first_answer_median_ms": 0.1716195,
+          "phase_median_ms": {
+            "setup": 0.08261,
+            "execute_observe": 0.775567,
+            "engine_drop": 0.000339,
+            "answer_drop": 0.001359
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 1.795089,
+          "inclusive_median_ms": 1.803096,
+          "requested_bytes": 2604573,
+          "peak_requested_growth_bytes": 47261,
+          "first_answer_median_ms": 0.4310115,
+          "phase_median_ms": {
+            "setup": 0.037365,
+            "execute_observe": 1.740459,
+            "engine_drop": 0.000366,
+            "answer_drop": 0.001352
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.778695,
+          "inclusive_median_ms": 0.785825,
+          "requested_bytes": 802263,
+          "peak_requested_growth_bytes": 64047,
+          "first_answer_median_ms": 0.1665895,
+          "phase_median_ms": {
+            "setup": 0.050649,
+            "execute_observe": 0.710886,
+            "engine_drop": 0.000359,
+            "answer_drop": 0.001465
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.8703865068786806,
+          "interval95": [
+            0.8405530189653554,
+            0.9012988456028651
+          ],
+          "classification": "unresolved"
+        },
+        "persistent/contextual": {
+          "ratio": 1.2868666615462303,
+          "interval95": [
+            1.212261830137425,
+            1.3778606554519692
+          ],
+          "classification": "loss"
+        },
+        "shared/contextual": {
+          "ratio": 0.6398734562096896,
+          "interval95": [
+            0.5987701738033762,
+            0.6844924600935743
+          ],
+          "classification": "gain"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 0.4327854928851402,
+          "interval95": [
+            0.4036673836608542,
+            0.46390264816917637
+          ],
+          "classification": "gain"
+        }
+      }
+    },
+    {
+      "config": [
+        "distinct",
+        0,
+        1,
+        false,
+        false
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.037339,
+          "inclusive_median_ms": 0.042003,
+          "requested_bytes": 22324,
+          "peak_requested_growth_bytes": 9442,
+          "first_answer_median_ms": 0.015681,
+          "phase_median_ms": {
+            "setup": 0.007412,
+            "execute_observe": 0.019443,
+            "engine_drop": 0.000165,
+            "answer_drop": 0.000632
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.033852,
+          "inclusive_median_ms": 0.038401,
+          "requested_bytes": 23044,
+          "peak_requested_growth_bytes": 11909,
+          "first_answer_median_ms": 0.014978,
+          "phase_median_ms": {
+            "setup": 0.006253,
+            "execute_observe": 0.019957,
+            "engine_drop": 0.000166,
+            "answer_drop": 0.000594
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.035279,
+          "inclusive_median_ms": 0.040069,
+          "requested_bytes": 20356,
+          "peak_requested_growth_bytes": 8850,
+          "first_answer_median_ms": 0.014568,
+          "phase_median_ms": {
+            "setup": 0.007496,
+            "execute_observe": 0.018025,
+            "engine_drop": 0.000156,
+            "answer_drop": 0.000636
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.035159,
+          "inclusive_median_ms": 0.039963,
+          "requested_bytes": 21076,
+          "peak_requested_growth_bytes": 9861,
+          "first_answer_median_ms": 0.014624,
+          "phase_median_ms": {
+            "setup": 0.007811,
+            "execute_observe": 0.019101,
+            "engine_drop": 0.000144,
+            "answer_drop": 0.000643
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 1.0300724426346908,
+          "interval95": [
+            0.9609053098678692,
+            1.122137082406077
+          ],
+          "classification": "unresolved"
+        },
+        "persistent/contextual": {
+          "ratio": 0.9906146034655666,
+          "interval95": [
+            0.9065039379530195,
+            1.091149009368242
+          ],
+          "classification": "unresolved"
+        },
+        "shared/contextual": {
+          "ratio": 0.9819517986811452,
+          "interval95": [
+            0.9043392032926967,
+            1.1117366020725352
+          ],
+          "classification": "unresolved"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 1.0210645838234649,
+          "interval95": [
+            0.9642209320189298,
+            1.0993698315482983
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "distinct",
+        0,
+        1,
+        false,
+        true
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.033816,
+          "inclusive_median_ms": 0.038323,
+          "requested_bytes": 22324,
+          "peak_requested_growth_bytes": 9442,
+          "first_answer_median_ms": 0.013764,
+          "phase_median_ms": {
+            "setup": 0.006846,
+            "execute_observe": 0.017798,
+            "engine_drop": 0.000166,
+            "answer_drop": 0.000618
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.033329,
+          "inclusive_median_ms": 0.037857,
+          "requested_bytes": 23044,
+          "peak_requested_growth_bytes": 11909,
+          "first_answer_median_ms": 0.013366,
+          "phase_median_ms": {
+            "setup": 0.006874,
+            "execute_observe": 0.018301,
+            "engine_drop": 0.000166,
+            "answer_drop": 0.000621
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.032517,
+          "inclusive_median_ms": 0.036848,
+          "requested_bytes": 20356,
+          "peak_requested_growth_bytes": 8850,
+          "first_answer_median_ms": 0.014395,
+          "phase_median_ms": {
+            "setup": 0.006848,
+            "execute_observe": 0.017719,
+            "engine_drop": 0.000157,
+            "answer_drop": 0.000619
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.032967,
+          "inclusive_median_ms": 0.03759,
+          "requested_bytes": 21076,
+          "peak_requested_growth_bytes": 9861,
+          "first_answer_median_ms": 0.013038,
+          "phase_median_ms": {
+            "setup": 0.00794,
+            "execute_observe": 0.017393,
+            "engine_drop": 0.000149,
+            "answer_drop": 0.000599
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.947707493614366,
+          "interval95": [
+            0.8056738695668524,
+            1.0942962412527222
+          ],
+          "classification": "unresolved"
+        },
+        "persistent/contextual": {
+          "ratio": 0.9417023020160591,
+          "interval95": [
+            0.8159498623603236,
+            1.0641502634171087
+          ],
+          "classification": "unresolved"
+        },
+        "shared/contextual": {
+          "ratio": 0.968697768530964,
+          "interval95": [
+            0.8478864537248836,
+            1.1036564859432043
+          ],
+          "classification": "unresolved"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 0.9748751089584291,
+          "interval95": [
+            0.9126628990642196,
+            1.031520401699344
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "distinct",
+        0,
+        1,
+        true,
+        false
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.042471,
+          "inclusive_median_ms": 0.045583,
+          "requested_bytes": 30479,
+          "peak_requested_growth_bytes": 13250,
+          "first_answer_median_ms": 0.02132,
+          "phase_median_ms": {
+            "setup": 0.007471,
+            "execute_observe": 0.024059,
+            "engine_drop": 0.000159,
+            "answer_drop": 0.000628
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.040549,
+          "inclusive_median_ms": 0.043939,
+          "requested_bytes": 31199,
+          "peak_requested_growth_bytes": 13970,
+          "first_answer_median_ms": 0.019974,
+          "phase_median_ms": {
+            "setup": 0.006515,
+            "execute_observe": 0.023193,
+            "engine_drop": 0.000152,
+            "answer_drop": 0.000627
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.036235,
+          "inclusive_median_ms": 0.039164,
+          "requested_bytes": 28511,
+          "peak_requested_growth_bytes": 11202,
+          "first_answer_median_ms": 0.016921,
+          "phase_median_ms": {
+            "setup": 0.006963,
+            "execute_observe": 0.019602,
+            "engine_drop": 0.000141,
+            "answer_drop": 0.000577
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.041417,
+          "inclusive_median_ms": 0.044599,
+          "requested_bytes": 29231,
+          "peak_requested_growth_bytes": 11922,
+          "first_answer_median_ms": 0.018852,
+          "phase_median_ms": {
+            "setup": 0.007439,
+            "execute_observe": 0.021961,
+            "engine_drop": 0.000157,
+            "answer_drop": 0.000629
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 1.0104862276356439,
+          "interval95": [
+            0.8868769422322498,
+            1.1534404778731762
+          ],
+          "classification": "unresolved"
+        },
+        "persistent/contextual": {
+          "ratio": 0.8462617628615975,
+          "interval95": [
+            0.7664720517216964,
+            0.9258906824027258
+          ],
+          "classification": "unresolved"
+        },
+        "shared/contextual": {
+          "ratio": 1.0506336955855131,
+          "interval95": [
+            0.945152677674002,
+            1.1740766976525905
+          ],
+          "classification": "unresolved"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 1.2545183136824876,
+          "interval95": [
+            1.0722875400604206,
+            1.482767610319864
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "distinct",
+        0,
+        1,
+        true,
+        true
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.04046,
+          "inclusive_median_ms": 0.043674,
+          "requested_bytes": 30479,
+          "peak_requested_growth_bytes": 13250,
+          "first_answer_median_ms": 0.019311,
+          "phase_median_ms": {
+            "setup": 0.006879,
+            "execute_observe": 0.02231,
+            "engine_drop": 0.000151,
+            "answer_drop": 0.00062
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.040894,
+          "inclusive_median_ms": 0.044015,
+          "requested_bytes": 31199,
+          "peak_requested_growth_bytes": 13970,
+          "first_answer_median_ms": 0.019998,
+          "phase_median_ms": {
+            "setup": 0.006198,
+            "execute_observe": 0.023229,
+            "engine_drop": 0.000151,
+            "answer_drop": 0.000667
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.038555,
+          "inclusive_median_ms": 0.041609,
+          "requested_bytes": 28511,
+          "peak_requested_growth_bytes": 11202,
+          "first_answer_median_ms": 0.017239,
+          "phase_median_ms": {
+            "setup": 0.007134,
+            "execute_observe": 0.019842,
+            "engine_drop": 0.000156,
+            "answer_drop": 0.000617
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.041589,
+          "inclusive_median_ms": 0.044696,
+          "requested_bytes": 29231,
+          "peak_requested_growth_bytes": 11922,
+          "first_answer_median_ms": 0.020369,
+          "phase_median_ms": {
+            "setup": 0.007343,
+            "execute_observe": 0.023233,
+            "engine_drop": 0.000153,
+            "answer_drop": 0.000672
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.9932707044548356,
+          "interval95": [
+            0.8984313457965524,
+            1.1029784474033184
+          ],
+          "classification": "unresolved"
+        },
+        "persistent/contextual": {
+          "ratio": 0.9806384457359766,
+          "interval95": [
+            0.9139694148638493,
+            1.0873100543986605
+          ],
+          "classification": "unresolved"
+        },
+        "shared/contextual": {
+          "ratio": 1.0614016933170356,
+          "interval95": [
+            0.9490313090205587,
+            1.1938955679480596
+          ],
+          "classification": "unresolved"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 1.0750743173640698,
+          "interval95": [
+            0.9669457017743127,
+            1.1734431626846356
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "distinct",
+        0,
+        4,
+        false,
+        false
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.074608,
+          "inclusive_median_ms": 0.081935,
+          "requested_bytes": 89595,
+          "peak_requested_growth_bytes": 12962,
+          "first_answer_median_ms": 0.007668,
+          "phase_median_ms": {
+            "setup": 0.012179,
+            "execute_observe": 0.049131,
+            "engine_drop": 0.00138,
+            "answer_drop": 0.002057
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.077841,
+          "inclusive_median_ms": 0.085262,
+          "requested_bytes": 99339,
+          "peak_requested_growth_bytes": 17021,
+          "first_answer_median_ms": 0.0083895,
+          "phase_median_ms": {
+            "setup": 0.012576,
+            "execute_observe": 0.053062,
+            "engine_drop": 0.001209,
+            "answer_drop": 0.0019
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.07064,
+          "inclusive_median_ms": 0.077886,
+          "requested_bytes": 86991,
+          "peak_requested_growth_bytes": 10802,
+          "first_answer_median_ms": 0.009247,
+          "phase_median_ms": {
+            "setup": 0.012034,
+            "execute_observe": 0.047792,
+            "engine_drop": 0.000535,
+            "answer_drop": 0.001819
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.080775,
+          "inclusive_median_ms": 0.088257,
+          "requested_bytes": 90703,
+          "peak_requested_growth_bytes": 13149,
+          "first_answer_median_ms": 0.0084225,
+          "phase_median_ms": {
+            "setup": 0.014329,
+            "execute_observe": 0.054337,
+            "engine_drop": 0.001424,
+            "answer_drop": 0.00205
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 1.0353335870946063,
+          "interval95": [
+            0.9612332010397716,
+            1.1107281012396986
+          ],
+          "classification": "unresolved"
+        },
+        "persistent/contextual": {
+          "ratio": 0.9971319527568228,
+          "interval95": [
+            0.929024688701261,
+            1.0772214080780662
+          ],
+          "classification": "unresolved"
+        },
+        "shared/contextual": {
+          "ratio": 1.0693460410616766,
+          "interval95": [
+            1.0116810841536332,
+            1.1312854710630702
+          ],
+          "classification": "unresolved"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 1.1103143064233998,
+          "interval95": [
+            1.0770519172170592,
+            1.1479405511560334
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "distinct",
+        0,
+        4,
+        false,
+        true
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.07413,
+          "inclusive_median_ms": 0.084917,
+          "requested_bytes": 89595,
+          "peak_requested_growth_bytes": 12962,
+          "first_answer_median_ms": 0.008819,
+          "phase_median_ms": {
+            "setup": 0.012001,
+            "execute_observe": 0.052451,
+            "engine_drop": 0.001447,
+            "answer_drop": 0.001974
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.078797,
+          "inclusive_median_ms": 0.087819,
+          "requested_bytes": 99339,
+          "peak_requested_growth_bytes": 17021,
+          "first_answer_median_ms": 0.008383,
+          "phase_median_ms": {
+            "setup": 0.012338,
+            "execute_observe": 0.055544,
+            "engine_drop": 0.001288,
+            "answer_drop": 0.001922
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.070172,
+          "inclusive_median_ms": 0.077696,
+          "requested_bytes": 86991,
+          "peak_requested_growth_bytes": 10802,
+          "first_answer_median_ms": 0.008969,
+          "phase_median_ms": {
+            "setup": 0.012184,
+            "execute_observe": 0.048464,
+            "engine_drop": 0.000651,
+            "answer_drop": 0.001916
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.079968,
+          "inclusive_median_ms": 0.087036,
+          "requested_bytes": 90703,
+          "peak_requested_growth_bytes": 13149,
+          "first_answer_median_ms": 0.008838,
+          "phase_median_ms": {
+            "setup": 0.015231,
+            "execute_observe": 0.054032,
+            "engine_drop": 0.001387,
+            "answer_drop": 0.00218
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 1.070625740563925,
+          "interval95": [
+            1.013987743395201,
+            1.1482084241932435
+          ],
+          "classification": "unresolved"
+        },
+        "persistent/contextual": {
+          "ratio": 0.949416514719529,
+          "interval95": [
+            0.8620200541990407,
+            1.0257802991216252
+          ],
+          "classification": "unresolved"
+        },
+        "shared/contextual": {
+          "ratio": 1.0047642434946922,
+          "interval95": [
+            0.9030210527318703,
+            1.0844443987282915
+          ],
+          "classification": "unresolved"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 1.1330395517729552,
+          "interval95": [
+            1.0685871430266118,
+            1.2059042480017372
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "distinct",
+        0,
+        4,
+        true,
+        false
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.08857,
+          "inclusive_median_ms": 0.09591,
+          "requested_bytes": 119509,
+          "peak_requested_growth_bytes": 14930,
+          "first_answer_median_ms": 0.012838,
+          "phase_median_ms": {
+            "setup": 0.010813,
+            "execute_observe": 0.065811,
+            "engine_drop": 0.000576,
+            "answer_drop": 0.001996
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.101934,
+          "inclusive_median_ms": 0.108686,
+          "requested_bytes": 129253,
+          "peak_requested_growth_bytes": 19082,
+          "first_answer_median_ms": 0.01597,
+          "phase_median_ms": {
+            "setup": 0.013034,
+            "execute_observe": 0.076259,
+            "engine_drop": 0.000307,
+            "answer_drop": 0.002077
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.090732,
+          "inclusive_median_ms": 0.097663,
+          "requested_bytes": 116905,
+          "peak_requested_growth_bytes": 12722,
+          "first_answer_median_ms": 0.012978,
+          "phase_median_ms": {
+            "setup": 0.013963,
+            "execute_observe": 0.065015,
+            "engine_drop": 0.000299,
+            "answer_drop": 0.002163
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.095734,
+          "inclusive_median_ms": 0.102603,
+          "requested_bytes": 120617,
+          "peak_requested_growth_bytes": 15210,
+          "first_answer_median_ms": 0.0141705,
+          "phase_median_ms": {
+            "setup": 0.010806,
+            "execute_observe": 0.0716,
+            "engine_drop": 0.001479,
+            "answer_drop": 0.002149
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.9249987899331162,
+          "interval95": [
+            0.8214270275144384,
+            1.005629850130879
+          ],
+          "classification": "unresolved"
+        },
+        "persistent/contextual": {
+          "ratio": 1.0436753428373289,
+          "interval95": [
+            0.9591747780674184,
+            1.1468799829419676
+          ],
+          "classification": "unresolved"
+        },
+        "shared/contextual": {
+          "ratio": 1.158064931230627,
+          "interval95": [
+            1.0597965771872109,
+            1.282834010359406
+          ],
+          "classification": "unresolved"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 1.026381113057751,
+          "interval95": [
+            0.9555944166929019,
+            1.0867222680337658
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "distinct",
+        0,
+        4,
+        true,
+        true
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.096119,
+          "inclusive_median_ms": 0.103625,
+          "requested_bytes": 119509,
+          "peak_requested_growth_bytes": 14930,
+          "first_answer_median_ms": 0.0142475,
+          "phase_median_ms": {
+            "setup": 0.013058,
+            "execute_observe": 0.070389,
+            "engine_drop": 0.000307,
+            "answer_drop": 0.002174
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.098566,
+          "inclusive_median_ms": 0.105343,
+          "requested_bytes": 129253,
+          "peak_requested_growth_bytes": 19082,
+          "first_answer_median_ms": 0.015661,
+          "phase_median_ms": {
+            "setup": 0.01281,
+            "execute_observe": 0.073698,
+            "engine_drop": 0.000289,
+            "answer_drop": 0.002104
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.090716,
+          "inclusive_median_ms": 0.097809,
+          "requested_bytes": 116905,
+          "peak_requested_growth_bytes": 12722,
+          "first_answer_median_ms": 0.0130025,
+          "phase_median_ms": {
+            "setup": 0.012504,
+            "execute_observe": 0.066054,
+            "engine_drop": 0.000274,
+            "answer_drop": 0.00277
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.09566,
+          "inclusive_median_ms": 0.101547,
+          "requested_bytes": 120617,
+          "peak_requested_growth_bytes": 15210,
+          "first_answer_median_ms": 0.0158845,
+          "phase_median_ms": {
+            "setup": 0.011638,
+            "execute_observe": 0.072706,
+            "engine_drop": 0.00146,
+            "answer_drop": 0.002174
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 1.0574903834752023,
+          "interval95": [
+            0.9443342430895073,
+            1.2248310296900207
+          ],
+          "classification": "unresolved"
+        },
+        "persistent/contextual": {
+          "ratio": 0.8962807846356002,
+          "interval95": [
+            0.8592188479415336,
+            0.9380514483650912
+          ],
+          "classification": "unresolved"
+        },
+        "shared/contextual": {
+          "ratio": 0.9883152655698243,
+          "interval95": [
+            0.9184238256550529,
+            1.0622257594320372
+          ],
+          "classification": "unresolved"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 1.166078652022813,
+          "interval95": [
+            1.0515018926986408,
+            1.3259692354052786
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "distinct",
+        32,
+        1,
+        false,
+        false
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.414886,
+          "inclusive_median_ms": 0.423347,
+          "requested_bytes": 480756,
+          "peak_requested_growth_bytes": 74562,
+          "first_answer_median_ms": 0.355765,
+          "phase_median_ms": {
+            "setup": 0.038466,
+            "execute_observe": 0.368547,
+            "engine_drop": 0.000174,
+            "answer_drop": 0.00069
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.823931,
+          "inclusive_median_ms": 0.830668,
+          "requested_bytes": 982740,
+          "peak_requested_growth_bytes": 578133,
+          "first_answer_median_ms": 0.678076,
+          "phase_median_ms": {
+            "setup": 0.036266,
+            "execute_observe": 0.783435,
+            "engine_drop": 0.000215,
+            "answer_drop": 0.000532
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.621706,
+          "inclusive_median_ms": 0.630216,
+          "requested_bytes": 689527,
+          "peak_requested_growth_bytes": 66040,
+          "first_answer_median_ms": 0.544664,
+          "phase_median_ms": {
+            "setup": 0.041403,
+            "execute_observe": 0.562176,
+            "engine_drop": 0.0002,
+            "answer_drop": 0.000743
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.624005,
+          "inclusive_median_ms": 0.631243,
+          "requested_bytes": 711575,
+          "peak_requested_growth_bytes": 247709,
+          "first_answer_median_ms": 0.534722,
+          "phase_median_ms": {
+            "setup": 0.033393,
+            "execute_observe": 0.584313,
+            "engine_drop": 0.000157,
+            "answer_drop": 0.000551
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.728485488030139,
+          "interval95": [
+            0.6710853974840276,
+            0.7737973053211371
+          ],
+          "classification": "gain"
+        },
+        "persistent/contextual": {
+          "ratio": 1.5140748878423447,
+          "interval95": [
+            1.3411541897574932,
+            1.7133405522171898
+          ],
+          "classification": "loss"
+        },
+        "shared/contextual": {
+          "ratio": 2.1667756326755176,
+          "interval95": [
+            1.9060053363581881,
+            2.4632156406724626
+          ],
+          "classification": "loss"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 1.0425274316984758,
+          "interval95": [
+            0.9349325001155643,
+            1.1664086474838298
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "distinct",
+        32,
+        1,
+        false,
+        true
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.450224,
+          "inclusive_median_ms": 0.458389,
+          "requested_bytes": 480756,
+          "peak_requested_growth_bytes": 74562,
+          "first_answer_median_ms": 0.390284,
+          "phase_median_ms": {
+            "setup": 0.039405,
+            "execute_observe": 0.402603,
+            "engine_drop": 0.000186,
+            "answer_drop": 0.000696
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.896988,
+          "inclusive_median_ms": 0.905409,
+          "requested_bytes": 982740,
+          "peak_requested_growth_bytes": 578133,
+          "first_answer_median_ms": 0.736688,
+          "phase_median_ms": {
+            "setup": 0.038916,
+            "execute_observe": 0.850869,
+            "engine_drop": 0.000241,
+            "answer_drop": 0.000601
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.593977,
+          "inclusive_median_ms": 0.602036,
+          "requested_bytes": 689527,
+          "peak_requested_growth_bytes": 66040,
+          "first_answer_median_ms": 0.526234,
+          "phase_median_ms": {
+            "setup": 0.039381,
+            "execute_observe": 0.542705,
+            "engine_drop": 0.000209,
+            "answer_drop": 0.000689
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.72093,
+          "inclusive_median_ms": 0.72922,
+          "requested_bytes": 711575,
+          "peak_requested_growth_bytes": 247709,
+          "first_answer_median_ms": 0.606807,
+          "phase_median_ms": {
+            "setup": 0.040321,
+            "execute_observe": 0.671,
+            "engine_drop": 0.000172,
+            "answer_drop": 0.000613
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.6975847310697296,
+          "interval95": [
+            0.5656846736116032,
+            0.7958478356158618
+          ],
+          "classification": "gain"
+        },
+        "persistent/contextual": {
+          "ratio": 1.233829206407913,
+          "interval95": [
+            1.045269322759965,
+            1.3742465034572946
+          ],
+          "classification": "unresolved"
+        },
+        "shared/contextual": {
+          "ratio": 2.0437331626992967,
+          "interval95": [
+            1.7677568116554812,
+            2.3219582541022987
+          ],
+          "classification": "loss"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 1.1554897884371669,
+          "interval95": [
+            0.996278415914634,
+            1.2647813559760153
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "distinct",
+        32,
+        1,
+        true,
+        false
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.435975,
+          "inclusive_median_ms": 0.443926,
+          "requested_bytes": 494287,
+          "peak_requested_growth_bytes": 75464,
+          "first_answer_median_ms": 0.382163,
+          "phase_median_ms": {
+            "setup": 0.038537,
+            "execute_observe": 0.392753,
+            "engine_drop": 0.000171,
+            "answer_drop": 0.000704
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.841974,
+          "inclusive_median_ms": 0.84964,
+          "requested_bytes": 996271,
+          "peak_requested_growth_bytes": 578939,
+          "first_answer_median_ms": 0.704202,
+          "phase_median_ms": {
+            "setup": 0.0332,
+            "execute_observe": 0.799355,
+            "engine_drop": 0.000184,
+            "answer_drop": 0.000552
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.568198,
+          "inclusive_median_ms": 0.576118,
+          "requested_bytes": 703058,
+          "peak_requested_growth_bytes": 66942,
+          "first_answer_median_ms": 0.51041,
+          "phase_median_ms": {
+            "setup": 0.037019,
+            "execute_observe": 0.524799,
+            "engine_drop": 0.000184,
+            "answer_drop": 0.000605
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.637684,
+          "inclusive_median_ms": 0.644824,
+          "requested_bytes": 725106,
+          "peak_requested_growth_bytes": 248515,
+          "first_answer_median_ms": 0.536083,
+          "phase_median_ms": {
+            "setup": 0.038717,
+            "execute_observe": 0.587578,
+            "engine_drop": 0.000184,
+            "answer_drop": 0.000535
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.7786258063582666,
+          "interval95": [
+            0.7295827221951595,
+            0.8227447254868939
+          ],
+          "classification": "gain"
+        },
+        "persistent/contextual": {
+          "ratio": 1.321470786775604,
+          "interval95": [
+            1.2634744351987306,
+            1.3793419562595655
+          ],
+          "classification": "loss"
+        },
+        "shared/contextual": {
+          "ratio": 1.9863133102868482,
+          "interval95": [
+            1.9152082663686296,
+            2.0534312023035874
+          ],
+          "classification": "loss"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 1.1703586779061192,
+          "interval95": [
+            1.090192932247578,
+            1.2763339147319626
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "distinct",
+        32,
+        1,
+        true,
+        true
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.387397,
+          "inclusive_median_ms": 0.395569,
+          "requested_bytes": 494287,
+          "peak_requested_growth_bytes": 75464,
+          "first_answer_median_ms": 0.335309,
+          "phase_median_ms": {
+            "setup": 0.032747,
+            "execute_observe": 0.345798,
+            "engine_drop": 0.000152,
+            "answer_drop": 0.000619
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.854176,
+          "inclusive_median_ms": 0.861688,
+          "requested_bytes": 996271,
+          "peak_requested_growth_bytes": 578939,
+          "first_answer_median_ms": 0.703831,
+          "phase_median_ms": {
+            "setup": 0.03338,
+            "execute_observe": 0.81228,
+            "engine_drop": 0.000186,
+            "answer_drop": 0.000657
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.582926,
+          "inclusive_median_ms": 0.591195,
+          "requested_bytes": 703058,
+          "peak_requested_growth_bytes": 66942,
+          "first_answer_median_ms": 0.524414,
+          "phase_median_ms": {
+            "setup": 0.036866,
+            "execute_observe": 0.541131,
+            "engine_drop": 0.000193,
+            "answer_drop": 0.000689
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.663212,
+          "inclusive_median_ms": 0.670464,
+          "requested_bytes": 725106,
+          "peak_requested_growth_bytes": 248515,
+          "first_answer_median_ms": 0.534768,
+          "phase_median_ms": {
+            "setup": 0.034175,
+            "execute_observe": 0.62014,
+            "engine_drop": 0.000153,
+            "answer_drop": 0.000536
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.7680032310828908,
+          "interval95": [
+            0.7262961828058224,
+            0.8165280954771009
+          ],
+          "classification": "gain"
+        },
+        "persistent/contextual": {
+          "ratio": 1.4487237566440272,
+          "interval95": [
+            1.3533113782307893,
+            1.5624757742062418
+          ],
+          "classification": "loss"
+        },
+        "shared/contextual": {
+          "ratio": 2.150551445856737,
+          "interval95": [
+            2.048401741183948,
+            2.2638783860463354
+          ],
+          "classification": "loss"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 1.1400589321831534,
+          "interval95": [
+            1.0862641519086413,
+            1.2007051988231936
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "distinct",
+        32,
+        4,
+        false,
+        false
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 1.453633,
+          "inclusive_median_ms": 1.477839,
+          "requested_bytes": 1959291,
+          "peak_requested_growth_bytes": 77154,
+          "first_answer_median_ms": 0.319965,
+          "phase_median_ms": {
+            "setup": 0.099669,
+            "execute_observe": 1.343732,
+            "engine_drop": 0.000284,
+            "answer_drop": 0.001821
+          }
+        },
+        "shared": {
+          "primary_median_ms": 2.924576,
+          "inclusive_median_ms": 2.954309,
+          "requested_bytes": 4027211,
+          "peak_requested_growth_bytes": 609037,
+          "first_answer_median_ms": 0.513512,
+          "phase_median_ms": {
+            "setup": 0.298031,
+            "execute_observe": 2.617744,
+            "engine_drop": 0.000402,
+            "answer_drop": 0.001946
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 1.951785,
+          "inclusive_median_ms": 1.981899,
+          "requested_bytes": 2773909,
+          "peak_requested_growth_bytes": 67080,
+          "first_answer_median_ms": 0.433427,
+          "phase_median_ms": {
+            "setup": 0.105862,
+            "execute_observe": 1.821959,
+            "engine_drop": 0.000365,
+            "answer_drop": 0.001972
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 2.40829,
+          "inclusive_median_ms": 2.432671,
+          "requested_bytes": 2862933,
+          "peak_requested_growth_bytes": 247709,
+          "first_answer_median_ms": 0.505709,
+          "phase_median_ms": {
+            "setup": 0.205551,
+            "execute_observe": 2.195244,
+            "engine_drop": 0.000389,
+            "answer_drop": 0.001827
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.8359286733016268,
+          "interval95": [
+            0.7976070838323905,
+            0.8773934950602547
+          ],
+          "classification": "gain"
+        },
+        "persistent/contextual": {
+          "ratio": 1.3363840983147803,
+          "interval95": [
+            1.294730413030925,
+            1.3917347863943283
+          ],
+          "classification": "loss"
+        },
+        "shared/contextual": {
+          "ratio": 1.9765633837913803,
+          "interval95": [
+            1.9038280379526733,
+            2.053457729362769
+          ],
+          "classification": "loss"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 1.2363705982380806,
+          "interval95": [
+            1.190473546441342,
+            1.2829062325075733
+          ],
+          "classification": "loss"
+        }
+      }
+    },
+    {
+      "config": [
+        "distinct",
+        32,
+        4,
+        false,
+        true
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 1.430045,
+          "inclusive_median_ms": 1.454356,
+          "requested_bytes": 1959291,
+          "peak_requested_growth_bytes": 77154,
+          "first_answer_median_ms": 0.317386,
+          "phase_median_ms": {
+            "setup": 0.108101,
+            "execute_observe": 1.322254,
+            "engine_drop": 0.00027,
+            "answer_drop": 0.00186
+          }
+        },
+        "shared": {
+          "primary_median_ms": 2.934376,
+          "inclusive_median_ms": 2.962374,
+          "requested_bytes": 4027211,
+          "peak_requested_growth_bytes": 609037,
+          "first_answer_median_ms": 0.561237,
+          "phase_median_ms": {
+            "setup": 0.317709,
+            "execute_observe": 2.606954,
+            "engine_drop": 0.000425,
+            "answer_drop": 0.001984
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 2.054661,
+          "inclusive_median_ms": 2.088396,
+          "requested_bytes": 2773909,
+          "peak_requested_growth_bytes": 67080,
+          "first_answer_median_ms": 0.47261,
+          "phase_median_ms": {
+            "setup": 0.10704,
+            "execute_observe": 1.935837,
+            "engine_drop": 0.000431,
+            "answer_drop": 0.002097
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 2.373168,
+          "inclusive_median_ms": 2.39782,
+          "requested_bytes": 2862933,
+          "peak_requested_growth_bytes": 247709,
+          "first_answer_median_ms": 0.5029865,
+          "phase_median_ms": {
+            "setup": 0.20719,
+            "execute_observe": 2.156299,
+            "engine_drop": 0.00036,
+            "answer_drop": 0.001733
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.7995007494122581,
+          "interval95": [
+            0.7319656160995939,
+            0.8702820200887194
+          ],
+          "classification": "gain"
+        },
+        "persistent/contextual": {
+          "ratio": 1.4252208105525712,
+          "interval95": [
+            1.3670975678726158,
+            1.4822766187850867
+          ],
+          "classification": "loss"
+        },
+        "shared/contextual": {
+          "ratio": 2.069089805130656,
+          "interval95": [
+            1.916740244721963,
+            2.212375933397532
+          ],
+          "classification": "loss"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 1.1606895139019606,
+          "interval95": [
+            1.1304122170305586,
+            1.1909886055146626
+          ],
+          "classification": "loss"
+        }
+      }
+    },
+    {
+      "config": [
+        "distinct",
+        32,
+        4,
+        true,
+        false
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 1.521358,
+          "inclusive_median_ms": 1.548443,
+          "requested_bytes": 2011477,
+          "peak_requested_growth_bytes": 78056,
+          "first_answer_median_ms": 0.3430305,
+          "phase_median_ms": {
+            "setup": 0.107862,
+            "execute_observe": 1.403477,
+            "engine_drop": 0.000297,
+            "answer_drop": 0.002063
+          }
+        },
+        "shared": {
+          "primary_median_ms": 2.973849,
+          "inclusive_median_ms": 3.003437,
+          "requested_bytes": 4079397,
+          "peak_requested_growth_bytes": 609843,
+          "first_answer_median_ms": 0.547549,
+          "phase_median_ms": {
+            "setup": 0.313444,
+            "execute_observe": 2.668568,
+            "engine_drop": 0.000467,
+            "answer_drop": 0.00197
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 2.240725,
+          "inclusive_median_ms": 2.278598,
+          "requested_bytes": 2826095,
+          "peak_requested_growth_bytes": 67982,
+          "first_answer_median_ms": 0.4938045,
+          "phase_median_ms": {
+            "setup": 0.111239,
+            "execute_observe": 2.115226,
+            "engine_drop": 0.000459,
+            "answer_drop": 0.002166
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 2.29824,
+          "inclusive_median_ms": 2.326271,
+          "requested_bytes": 2915119,
+          "peak_requested_growth_bytes": 248515,
+          "first_answer_median_ms": 0.473648,
+          "phase_median_ms": {
+            "setup": 0.16686,
+            "execute_observe": 2.119521,
+            "engine_drop": 0.000375,
+            "answer_drop": 0.00182
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.7853118149237244,
+          "interval95": [
+            0.7424662207869275,
+            0.8312658045230044
+          ],
+          "classification": "gain"
+        },
+        "persistent/contextual": {
+          "ratio": 1.4497562840880598,
+          "interval95": [
+            1.3799558731546382,
+            1.5340370468225357
+          ],
+          "classification": "loss"
+        },
+        "shared/contextual": {
+          "ratio": 1.988473245029491,
+          "interval95": [
+            1.906341701806588,
+            2.067798694027654
+          ],
+          "classification": "loss"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 1.0771269282434275,
+          "interval95": [
+            1.054315624740098,
+            1.1003408266519334
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "distinct",
+        32,
+        4,
+        true,
+        true
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 1.669329,
+          "inclusive_median_ms": 1.69849,
+          "requested_bytes": 2011477,
+          "peak_requested_growth_bytes": 78056,
+          "first_answer_median_ms": 0.357171,
+          "phase_median_ms": {
+            "setup": 0.118501,
+            "execute_observe": 1.527518,
+            "engine_drop": 0.000317,
+            "answer_drop": 0.002171
+          }
+        },
+        "shared": {
+          "primary_median_ms": 2.886866,
+          "inclusive_median_ms": 2.916636,
+          "requested_bytes": 4079397,
+          "peak_requested_growth_bytes": 609843,
+          "first_answer_median_ms": 0.5165265,
+          "phase_median_ms": {
+            "setup": 0.291293,
+            "execute_observe": 2.570036,
+            "engine_drop": 0.000448,
+            "answer_drop": 0.001879
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 2.161564,
+          "inclusive_median_ms": 2.194069,
+          "requested_bytes": 2826095,
+          "peak_requested_growth_bytes": 67982,
+          "first_answer_median_ms": 0.5049635,
+          "phase_median_ms": {
+            "setup": 0.109543,
+            "execute_observe": 2.048507,
+            "engine_drop": 0.000411,
+            "answer_drop": 0.002343
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 2.486022,
+          "inclusive_median_ms": 2.51626,
+          "requested_bytes": 2915119,
+          "peak_requested_growth_bytes": 248515,
+          "first_answer_median_ms": 0.530593,
+          "phase_median_ms": {
+            "setup": 0.17451,
+            "execute_observe": 2.295064,
+            "engine_drop": 0.000432,
+            "answer_drop": 0.00193
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.8379556227159974,
+          "interval95": [
+            0.8021647296535857,
+            0.8775575128934425
+          ],
+          "classification": "gain"
+        },
+        "persistent/contextual": {
+          "ratio": 1.3872367187407753,
+          "interval95": [
+            1.2791405994294824,
+            1.4978535145303256
+          ],
+          "classification": "loss"
+        },
+        "shared/contextual": {
+          "ratio": 1.8870892443808667,
+          "interval95": [
+            1.7802754558962524,
+            1.9866646593403234
+          ],
+          "classification": "loss"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 1.1398898411016742,
+          "interval95": [
+            1.0580448394578275,
+            1.2279072167623333
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "changed",
+        0,
+        1,
+        false,
+        false
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.035481,
+          "inclusive_median_ms": 0.038615,
+          "requested_bytes": 21081,
+          "peak_requested_growth_bytes": 11436,
+          "first_answer_median_ms": 0.016691,
+          "phase_median_ms": {
+            "setup": 0.005996,
+            "execute_observe": 0.020878,
+            "engine_drop": 0.000145,
+            "answer_drop": 0.000446
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.039438,
+          "inclusive_median_ms": 0.042585,
+          "requested_bytes": 24933,
+          "peak_requested_growth_bytes": 14856,
+          "first_answer_median_ms": 0.017652,
+          "phase_median_ms": {
+            "setup": 0.006033,
+            "execute_observe": 0.023531,
+            "engine_drop": 0.000144,
+            "answer_drop": 0.000454
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.038334,
+          "inclusive_median_ms": 0.041552,
+          "requested_bytes": 21349,
+          "peak_requested_growth_bytes": 9241,
+          "first_answer_median_ms": 0.015506,
+          "phase_median_ms": {
+            "setup": 0.006965,
+            "execute_observe": 0.020902,
+            "engine_drop": 0.000148,
+            "answer_drop": 0.000428
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.036347,
+          "inclusive_median_ms": 0.039528,
+          "requested_bytes": 22421,
+          "peak_requested_growth_bytes": 10696,
+          "first_answer_median_ms": 0.018123,
+          "phase_median_ms": {
+            "setup": 0.006264,
+            "execute_observe": 0.022968,
+            "engine_drop": 0.000138,
+            "answer_drop": 0.000444
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 1.006720906997714,
+          "interval95": [
+            0.9280706087514276,
+            1.132085411761512
+          ],
+          "classification": "unresolved"
+        },
+        "persistent/contextual": {
+          "ratio": 1.1901179773613186,
+          "interval95": [
+            1.0472771980155706,
+            1.459637249638833
+          ],
+          "classification": "unresolved"
+        },
+        "shared/contextual": {
+          "ratio": 1.1408296700789657,
+          "interval95": [
+            1.0713106974403654,
+            1.231833968244109
+          ],
+          "classification": "unresolved"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 0.9650279233141245,
+          "interval95": [
+            0.7925563196874719,
+            1.134628146621407
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "changed",
+        0,
+        1,
+        false,
+        true
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.032807,
+          "inclusive_median_ms": 0.035441,
+          "requested_bytes": 21081,
+          "peak_requested_growth_bytes": 11436,
+          "first_answer_median_ms": 0.015497,
+          "phase_median_ms": {
+            "setup": 0.006045,
+            "execute_observe": 0.018763,
+            "engine_drop": 0.000136,
+            "answer_drop": 0.000408
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.036844,
+          "inclusive_median_ms": 0.040159,
+          "requested_bytes": 24933,
+          "peak_requested_growth_bytes": 14856,
+          "first_answer_median_ms": 0.017438,
+          "phase_median_ms": {
+            "setup": 0.006107,
+            "execute_observe": 0.022743,
+            "engine_drop": 0.000146,
+            "answer_drop": 0.000426
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.03142,
+          "inclusive_median_ms": 0.034202,
+          "requested_bytes": 21349,
+          "peak_requested_growth_bytes": 9241,
+          "first_answer_median_ms": 0.013784,
+          "phase_median_ms": {
+            "setup": 0.006254,
+            "execute_observe": 0.018123,
+            "engine_drop": 0.000132,
+            "answer_drop": 0.000405
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.034555,
+          "inclusive_median_ms": 0.037305,
+          "requested_bytes": 22421,
+          "peak_requested_growth_bytes": 10696,
+          "first_answer_median_ms": 0.016344,
+          "phase_median_ms": {
+            "setup": 0.005736,
+            "execute_observe": 0.021265,
+            "engine_drop": 0.000143,
+            "answer_drop": 0.000399
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.9607203113199818,
+          "interval95": [
+            0.8383226348469671,
+            1.1264803945763282
+          ],
+          "classification": "unresolved"
+        },
+        "persistent/contextual": {
+          "ratio": 0.9992281154771842,
+          "interval95": [
+            0.918351634193214,
+            1.0791463103921424
+          ],
+          "classification": "unresolved"
+        },
+        "shared/contextual": {
+          "ratio": 1.143827950004283,
+          "interval95": [
+            1.0880952575275056,
+            1.2084994218525178
+          ],
+          "classification": "unresolved"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 1.0997476223933402,
+          "interval95": [
+            0.9789967626561776,
+            1.2738876115741384
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "changed",
+        0,
+        1,
+        true,
+        false
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.035179,
+          "inclusive_median_ms": 0.038431,
+          "requested_bytes": 29236,
+          "peak_requested_growth_bytes": 13787,
+          "first_answer_median_ms": 0.017328,
+          "phase_median_ms": {
+            "setup": 0.005507,
+            "execute_observe": 0.019956,
+            "engine_drop": 0.000135,
+            "answer_drop": 0.000437
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.040797,
+          "inclusive_median_ms": 0.044576,
+          "requested_bytes": 33088,
+          "peak_requested_growth_bytes": 17639,
+          "first_answer_median_ms": 0.02149,
+          "phase_median_ms": {
+            "setup": 0.005045,
+            "execute_observe": 0.024978,
+            "engine_drop": 0.000142,
+            "answer_drop": 0.000452
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.03307,
+          "inclusive_median_ms": 0.036783,
+          "requested_bytes": 29504,
+          "peak_requested_growth_bytes": 11099,
+          "first_answer_median_ms": 0.016965,
+          "phase_median_ms": {
+            "setup": 0.005156,
+            "execute_observe": 0.019086,
+            "engine_drop": 0.000126,
+            "answer_drop": 0.000398
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.040604,
+          "inclusive_median_ms": 0.044353,
+          "requested_bytes": 30576,
+          "peak_requested_growth_bytes": 13479,
+          "first_answer_median_ms": 0.021558,
+          "phase_median_ms": {
+            "setup": 0.005727,
+            "execute_observe": 0.024829,
+            "engine_drop": 0.000148,
+            "answer_drop": 0.000468
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.9927896508618794,
+          "interval95": [
+            0.8911657430217135,
+            1.1212712704164445
+          ],
+          "classification": "unresolved"
+        },
+        "persistent/contextual": {
+          "ratio": 0.9781248038402396,
+          "interval95": [
+            0.8760135868676396,
+            1.1024505581316175
+          ],
+          "classification": "unresolved"
+        },
+        "shared/contextual": {
+          "ratio": 1.1393119125466316,
+          "interval95": [
+            1.0494057968131325,
+            1.242859204734219
+          ],
+          "classification": "unresolved"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 1.1563934085293845,
+          "interval95": [
+            1.0132483703590411,
+            1.2879390396821453
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "changed",
+        0,
+        1,
+        true,
+        true
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.039913,
+          "inclusive_median_ms": 0.043566,
+          "requested_bytes": 29236,
+          "peak_requested_growth_bytes": 13787,
+          "first_answer_median_ms": 0.020691,
+          "phase_median_ms": {
+            "setup": 0.005485,
+            "execute_observe": 0.023827,
+            "engine_drop": 0.00015,
+            "answer_drop": 0.000468
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.041156,
+          "inclusive_median_ms": 0.04446,
+          "requested_bytes": 33088,
+          "peak_requested_growth_bytes": 17639,
+          "first_answer_median_ms": 0.021584,
+          "phase_median_ms": {
+            "setup": 0.005316,
+            "execute_observe": 0.025248,
+            "engine_drop": 0.000131,
+            "answer_drop": 0.000416
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.037618,
+          "inclusive_median_ms": 0.041041,
+          "requested_bytes": 29504,
+          "peak_requested_growth_bytes": 11099,
+          "first_answer_median_ms": 0.019708,
+          "phase_median_ms": {
+            "setup": 0.005435,
+            "execute_observe": 0.02207,
+            "engine_drop": 0.00014,
+            "answer_drop": 0.000425
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.035676,
+          "inclusive_median_ms": 0.038787,
+          "requested_bytes": 30576,
+          "peak_requested_growth_bytes": 13479,
+          "first_answer_median_ms": 0.018891,
+          "phase_median_ms": {
+            "setup": 0.005069,
+            "execute_observe": 0.02163,
+            "engine_drop": 0.00013,
+            "answer_drop": 0.00041
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.8747075762826125,
+          "interval95": [
+            0.7664967324825879,
+            0.9826292543107651
+          ],
+          "classification": "unresolved"
+        },
+        "persistent/contextual": {
+          "ratio": 0.967764191330114,
+          "interval95": [
+            0.8610432439521877,
+            1.0900656890688425
+          ],
+          "classification": "unresolved"
+        },
+        "shared/contextual": {
+          "ratio": 1.074290217308412,
+          "interval95": [
+            0.9600379813020904,
+            1.2211001863114814
+          ],
+          "classification": "unresolved"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 0.9709904547247546,
+          "interval95": [
+            0.8596883016720187,
+            1.077479748953577
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "changed",
+        0,
+        4,
+        false,
+        false
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.069085,
+          "inclusive_median_ms": 0.072855,
+          "requested_bytes": 80975,
+          "peak_requested_growth_bytes": 12294,
+          "first_answer_median_ms": 0.0088625,
+          "phase_median_ms": {
+            "setup": 0.008265,
+            "execute_observe": 0.051667,
+            "engine_drop": 0.000298,
+            "answer_drop": 0.001487
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.090069,
+          "inclusive_median_ms": 0.095744,
+          "requested_bytes": 105351,
+          "peak_requested_growth_bytes": 20198,
+          "first_answer_median_ms": 0.0113875,
+          "phase_median_ms": {
+            "setup": 0.008834,
+            "execute_observe": 0.068918,
+            "engine_drop": 0.00051,
+            "answer_drop": 0.001553
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.075634,
+          "inclusive_median_ms": 0.079653,
+          "requested_bytes": 89943,
+          "peak_requested_growth_bytes": 10172,
+          "first_answer_median_ms": 0.009476,
+          "phase_median_ms": {
+            "setup": 0.009663,
+            "execute_observe": 0.05665,
+            "engine_drop": 0.000302,
+            "answer_drop": 0.001365
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.086096,
+          "inclusive_median_ms": 0.090478,
+          "requested_bytes": 96727,
+          "peak_requested_growth_bytes": 14790,
+          "first_answer_median_ms": 0.010511,
+          "phase_median_ms": {
+            "setup": 0.008928,
+            "execute_observe": 0.066117,
+            "engine_drop": 0.000282,
+            "answer_drop": 0.001266
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.9553656689355359,
+          "interval95": [
+            0.8418910895413199,
+            1.1095236890272737
+          ],
+          "classification": "unresolved"
+        },
+        "persistent/contextual": {
+          "ratio": 1.0211084892859468,
+          "interval95": [
+            0.8577869061582917,
+            1.1966166388161212
+          ],
+          "classification": "unresolved"
+        },
+        "shared/contextual": {
+          "ratio": 1.2344411750173343,
+          "interval95": [
+            1.084086704499575,
+            1.398829025354025
+          ],
+          "classification": "unresolved"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 1.1549631907934774,
+          "interval95": [
+            1.0547700275884488,
+            1.2721285116325785
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "changed",
+        0,
+        4,
+        false,
+        true
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.073179,
+          "inclusive_median_ms": 0.077639,
+          "requested_bytes": 80975,
+          "peak_requested_growth_bytes": 12294,
+          "first_answer_median_ms": 0.00953,
+          "phase_median_ms": {
+            "setup": 0.008892,
+            "execute_observe": 0.054013,
+            "engine_drop": 0.000312,
+            "answer_drop": 0.001475
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.086397,
+          "inclusive_median_ms": 0.091073,
+          "requested_bytes": 105351,
+          "peak_requested_growth_bytes": 20198,
+          "first_answer_median_ms": 0.0105935,
+          "phase_median_ms": {
+            "setup": 0.008592,
+            "execute_observe": 0.066802,
+            "engine_drop": 0.000503,
+            "answer_drop": 0.001552
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.079447,
+          "inclusive_median_ms": 0.084149,
+          "requested_bytes": 89943,
+          "peak_requested_growth_bytes": 10172,
+          "first_answer_median_ms": 0.0101305,
+          "phase_median_ms": {
+            "setup": 0.008966,
+            "execute_observe": 0.060744,
+            "engine_drop": 0.000308,
+            "answer_drop": 0.001443
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.086734,
+          "inclusive_median_ms": 0.091072,
+          "requested_bytes": 96727,
+          "peak_requested_growth_bytes": 14790,
+          "first_answer_median_ms": 0.010992,
+          "phase_median_ms": {
+            "setup": 0.008756,
+            "execute_observe": 0.065582,
+            "engine_drop": 0.000313,
+            "answer_drop": 0.001477
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 1.022032502754645,
+          "interval95": [
+            0.93731511124788,
+            1.1337921323501428
+          ],
+          "classification": "unresolved"
+        },
+        "persistent/contextual": {
+          "ratio": 1.1541120864159153,
+          "interval95": [
+            0.9789522325243531,
+            1.411929069804358
+          ],
+          "classification": "unresolved"
+        },
+        "shared/contextual": {
+          "ratio": 1.1813482205209715,
+          "interval95": [
+            1.1140962321474088,
+            1.2526034694113466
+          ],
+          "classification": "loss"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 1.0461516629578769,
+          "interval95": [
+            0.8638999512436545,
+            1.2556908194700256
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "changed",
+        0,
+        4,
+        true,
+        false
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.082806,
+          "inclusive_median_ms": 0.086116,
+          "requested_bytes": 110889,
+          "peak_requested_growth_bytes": 14645,
+          "first_answer_median_ms": 0.011928,
+          "phase_median_ms": {
+            "setup": 0.00764,
+            "execute_observe": 0.064137,
+            "engine_drop": 0.000279,
+            "answer_drop": 0.00155
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.098903,
+          "inclusive_median_ms": 0.102682,
+          "requested_bytes": 135265,
+          "peak_requested_growth_bytes": 22981,
+          "first_answer_median_ms": 0.0176095,
+          "phase_median_ms": {
+            "setup": 0.007718,
+            "execute_observe": 0.079353,
+            "engine_drop": 0.000309,
+            "answer_drop": 0.001496
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.093282,
+          "inclusive_median_ms": 0.097475,
+          "requested_bytes": 119857,
+          "peak_requested_growth_bytes": 12085,
+          "first_answer_median_ms": 0.014109,
+          "phase_median_ms": {
+            "setup": 0.009143,
+            "execute_observe": 0.070319,
+            "engine_drop": 0.000305,
+            "answer_drop": 0.001508
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.096681,
+          "inclusive_median_ms": 0.100267,
+          "requested_bytes": 126641,
+          "peak_requested_growth_bytes": 17573,
+          "first_answer_median_ms": 0.014441,
+          "phase_median_ms": {
+            "setup": 0.008693,
+            "execute_observe": 0.075448,
+            "engine_drop": 0.000308,
+            "answer_drop": 0.001477
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.8698106217039276,
+          "interval95": [
+            0.7509160431930079,
+            0.9816091673739452
+          ],
+          "classification": "unresolved"
+        },
+        "persistent/contextual": {
+          "ratio": 1.1246110872411992,
+          "interval95": [
+            1.0460985062505759,
+            1.2208190899184121
+          ],
+          "classification": "unresolved"
+        },
+        "shared/contextual": {
+          "ratio": 1.3008237959929148,
+          "interval95": [
+            1.1834485284957437,
+            1.4793465541468747
+          ],
+          "classification": "loss"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 1.006099235154695,
+          "interval95": [
+            0.8682452842463043,
+            1.0977500944617418
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "changed",
+        0,
+        4,
+        true,
+        true
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.086671,
+          "inclusive_median_ms": 0.090303,
+          "requested_bytes": 110889,
+          "peak_requested_growth_bytes": 14645,
+          "first_answer_median_ms": 0.013451,
+          "phase_median_ms": {
+            "setup": 0.008646,
+            "execute_observe": 0.065618,
+            "engine_drop": 0.000287,
+            "answer_drop": 0.00148
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.099122,
+          "inclusive_median_ms": 0.102781,
+          "requested_bytes": 135265,
+          "peak_requested_growth_bytes": 22981,
+          "first_answer_median_ms": 0.01549,
+          "phase_median_ms": {
+            "setup": 0.008522,
+            "execute_observe": 0.079681,
+            "engine_drop": 0.000314,
+            "answer_drop": 0.001486
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.085994,
+          "inclusive_median_ms": 0.089601,
+          "requested_bytes": 119857,
+          "peak_requested_growth_bytes": 12085,
+          "first_answer_median_ms": 0.0149015,
+          "phase_median_ms": {
+            "setup": 0.008868,
+            "execute_observe": 0.066314,
+            "engine_drop": 0.000321,
+            "answer_drop": 0.001387
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.099345,
+          "inclusive_median_ms": 0.103117,
+          "requested_bytes": 126641,
+          "peak_requested_growth_bytes": 17573,
+          "first_answer_median_ms": 0.0165925,
+          "phase_median_ms": {
+            "setup": 0.008948,
+            "execute_observe": 0.078168,
+            "engine_drop": 0.000316,
+            "answer_drop": 0.001505
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 1.042504565666106,
+          "interval95": [
+            0.981020131837117,
+            1.1052216762783154
+          ],
+          "classification": "unresolved"
+        },
+        "persistent/contextual": {
+          "ratio": 0.9871880724079877,
+          "interval95": [
+            0.9407460871049643,
+            1.031000440968553
+          ],
+          "classification": "unresolved"
+        },
+        "shared/contextual": {
+          "ratio": 1.0739356577147512,
+          "interval95": [
+            0.9510116083907526,
+            1.196008537797906
+          ],
+          "classification": "unresolved"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 1.134113000036893,
+          "interval95": [
+            1.0484944791351363,
+            1.2255440673005418
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "changed",
+        32,
+        1,
+        false,
+        false
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.390157,
+          "inclusive_median_ms": 0.401238,
+          "requested_bytes": 439385,
+          "peak_requested_growth_bytes": 56236,
+          "first_answer_median_ms": 0.357382,
+          "phase_median_ms": {
+            "setup": 0.014392,
+            "execute_observe": 0.366632,
+            "engine_drop": 0.000166,
+            "answer_drop": 0.000453
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.89938,
+          "inclusive_median_ms": 0.910027,
+          "requested_bytes": 963509,
+          "peak_requested_growth_bytes": 579928,
+          "first_answer_median_ms": 0.762134,
+          "phase_median_ms": {
+            "setup": 0.013503,
+            "execute_observe": 0.875037,
+            "engine_drop": 0.000202,
+            "answer_drop": 0.000454
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.476778,
+          "inclusive_median_ms": 0.48743,
+          "requested_bytes": 649589,
+          "peak_requested_growth_bytes": 46672,
+          "first_answer_median_ms": 0.444084,
+          "phase_median_ms": {
+            "setup": 0.013703,
+            "execute_observe": 0.454002,
+            "engine_drop": 0.000157,
+            "answer_drop": 0.000443
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.643414,
+          "inclusive_median_ms": 0.653559,
+          "requested_bytes": 671989,
+          "peak_requested_growth_bytes": 226552,
+          "first_answer_median_ms": 0.573702,
+          "phase_median_ms": {
+            "setup": 0.014449,
+            "execute_observe": 0.620233,
+            "engine_drop": 0.000176,
+            "answer_drop": 0.000473
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.7220293686649896,
+          "interval95": [
+            0.6829361846840339,
+            0.7666154945510436
+          ],
+          "classification": "gain"
+        },
+        "persistent/contextual": {
+          "ratio": 1.211931619385018,
+          "interval95": [
+            1.1279872145429506,
+            1.3013738930349616
+          ],
+          "classification": "loss"
+        },
+        "shared/contextual": {
+          "ratio": 2.3533891859222233,
+          "interval95": [
+            2.1624094080873295,
+            2.5934395610313237
+          ],
+          "classification": "loss"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 1.4020725930037916,
+          "interval95": [
+            1.2736840395903408,
+            1.6247840813540648
+          ],
+          "classification": "loss"
+        }
+      }
+    },
+    {
+      "config": [
+        "changed",
+        32,
+        1,
+        false,
+        true
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.44618,
+          "inclusive_median_ms": 0.456791,
+          "requested_bytes": 439385,
+          "peak_requested_growth_bytes": 56236,
+          "first_answer_median_ms": 0.379503,
+          "phase_median_ms": {
+            "setup": 0.016812,
+            "execute_observe": 0.390268,
+            "engine_drop": 0.000183,
+            "answer_drop": 0.000501
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.912513,
+          "inclusive_median_ms": 0.923002,
+          "requested_bytes": 963509,
+          "peak_requested_growth_bytes": 579928,
+          "first_answer_median_ms": 0.772341,
+          "phase_median_ms": {
+            "setup": 0.013586,
+            "execute_observe": 0.889026,
+            "engine_drop": 0.000189,
+            "answer_drop": 0.000465
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.523997,
+          "inclusive_median_ms": 0.552003,
+          "requested_bytes": 649589,
+          "peak_requested_growth_bytes": 46672,
+          "first_answer_median_ms": 0.489156,
+          "phase_median_ms": {
+            "setup": 0.015516,
+            "execute_observe": 0.500812,
+            "engine_drop": 0.000174,
+            "answer_drop": 0.000461
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.598313,
+          "inclusive_median_ms": 0.608839,
+          "requested_bytes": 671989,
+          "peak_requested_growth_bytes": 226552,
+          "first_answer_median_ms": 0.535871,
+          "phase_median_ms": {
+            "setup": 0.014358,
+            "execute_observe": 0.575457,
+            "engine_drop": 0.000161,
+            "answer_drop": 0.000428
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.7091871734004648,
+          "interval95": [
+            0.6692563781962636,
+            0.7467637729897803
+          ],
+          "classification": "gain"
+        },
+        "persistent/contextual": {
+          "ratio": 1.2218034281925951,
+          "interval95": [
+            1.0649386005578003,
+            1.4183530071883477
+          ],
+          "classification": "unresolved"
+        },
+        "shared/contextual": {
+          "ratio": 2.122478714651009,
+          "interval95": [
+            1.9001351484654383,
+            2.3831801430213906
+          ],
+          "classification": "loss"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 1.2319777842436435,
+          "interval95": [
+            1.1411538593820716,
+            1.321197111824811
+          ],
+          "classification": "loss"
+        }
+      }
+    },
+    {
+      "config": [
+        "changed",
+        32,
+        1,
+        true,
+        false
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.390657,
+          "inclusive_median_ms": 0.394289,
+          "requested_bytes": 452916,
+          "peak_requested_growth_bytes": 57138,
+          "first_answer_median_ms": 0.361431,
+          "phase_median_ms": {
+            "setup": 0.01031,
+            "execute_observe": 0.370328,
+            "engine_drop": 0.000151,
+            "answer_drop": 0.000463
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.850082,
+          "inclusive_median_ms": 0.854221,
+          "requested_bytes": 977040,
+          "peak_requested_growth_bytes": 580734,
+          "first_answer_median_ms": 0.730189,
+          "phase_median_ms": {
+            "setup": 0.012785,
+            "execute_observe": 0.826493,
+            "engine_drop": 0.000289,
+            "answer_drop": 0.000443
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.51211,
+          "inclusive_median_ms": 0.515884,
+          "requested_bytes": 663120,
+          "peak_requested_growth_bytes": 47574,
+          "first_answer_median_ms": 0.477151,
+          "phase_median_ms": {
+            "setup": 0.01112,
+            "execute_observe": 0.487914,
+            "engine_drop": 0.000155,
+            "answer_drop": 0.000467
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.606838,
+          "inclusive_median_ms": 0.610838,
+          "requested_bytes": 685520,
+          "peak_requested_growth_bytes": 227358,
+          "first_answer_median_ms": 0.540156,
+          "phase_median_ms": {
+            "setup": 0.013562,
+            "execute_observe": 0.582114,
+            "engine_drop": 0.000141,
+            "answer_drop": 0.000448
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.672940588135847,
+          "interval95": [
+            0.5932819351058037,
+            0.7306591155465609
+          ],
+          "classification": "gain"
+        },
+        "persistent/contextual": {
+          "ratio": 1.2922206032078498,
+          "interval95": [
+            1.1537659401010814,
+            1.4258438897934458
+          ],
+          "classification": "loss"
+        },
+        "shared/contextual": {
+          "ratio": 2.219221421521951,
+          "interval95": [
+            1.9177511677363603,
+            2.536772283202301
+          ],
+          "classification": "loss"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 1.1556882508260418,
+          "interval95": [
+            1.0686391019319845,
+            1.257458964947436
+          ],
+          "classification": "unresolved"
+        }
+      }
+    },
+    {
+      "config": [
+        "changed",
+        32,
+        1,
+        true,
+        true
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 0.40111,
+          "inclusive_median_ms": 0.404559,
+          "requested_bytes": 452916,
+          "peak_requested_growth_bytes": 57138,
+          "first_answer_median_ms": 0.370745,
+          "phase_median_ms": {
+            "setup": 0.010803,
+            "execute_observe": 0.380919,
+            "engine_drop": 0.000151,
+            "answer_drop": 0.000493
+          }
+        },
+        "shared": {
+          "primary_median_ms": 0.884935,
+          "inclusive_median_ms": 0.888891,
+          "requested_bytes": 977040,
+          "peak_requested_growth_bytes": 580734,
+          "first_answer_median_ms": 0.768179,
+          "phase_median_ms": {
+            "setup": 0.012652,
+            "execute_observe": 0.862742,
+            "engine_drop": 0.000175,
+            "answer_drop": 0.000467
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 0.537606,
+          "inclusive_median_ms": 0.542287,
+          "requested_bytes": 663120,
+          "peak_requested_growth_bytes": 47574,
+          "first_answer_median_ms": 0.495195,
+          "phase_median_ms": {
+            "setup": 0.01245,
+            "execute_observe": 0.507059,
+            "engine_drop": 0.000176,
+            "answer_drop": 0.000499
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 0.621214,
+          "inclusive_median_ms": 0.624805,
+          "requested_bytes": 685520,
+          "peak_requested_growth_bytes": 227358,
+          "first_answer_median_ms": 0.551806,
+          "phase_median_ms": {
+            "setup": 0.012129,
+            "execute_observe": 0.601227,
+            "engine_drop": 0.000161,
+            "answer_drop": 0.000493
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.6779546209787504,
+          "interval95": [
+            0.6509246385086546,
+            0.7069634642840015
+          ],
+          "classification": "gain"
+        },
+        "persistent/contextual": {
+          "ratio": 1.284842250486706,
+          "interval95": [
+            1.1822267740754997,
+            1.381510138025141
+          ],
+          "classification": "loss"
+        },
+        "shared/contextual": {
+          "ratio": 2.2006684711761597,
+          "interval95": [
+            1.9936086588366244,
+            2.363445026541567
+          ],
+          "classification": "loss"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 1.1611957489029945,
+          "interval95": [
+            1.1020412723731903,
+            1.2176364657983252
+          ],
+          "classification": "loss"
+        }
+      }
+    },
+    {
+      "config": [
+        "changed",
+        32,
+        4,
+        false,
+        false
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 1.438505,
+          "inclusive_median_ms": 1.445161,
+          "requested_bytes": 1793231,
+          "peak_requested_growth_bytes": 57094,
+          "first_answer_median_ms": 0.335418,
+          "phase_median_ms": {
+            "setup": 0.041242,
+            "execute_observe": 1.389195,
+            "engine_drop": 0.000266,
+            "answer_drop": 0.001365
+          }
+        },
+        "shared": {
+          "primary_median_ms": 2.88489,
+          "inclusive_median_ms": 2.892589,
+          "requested_bytes": 3951815,
+          "peak_requested_growth_bytes": 611830,
+          "first_answer_median_ms": 0.5540425,
+          "phase_median_ms": {
+            "setup": 0.235847,
+            "execute_observe": 2.638882,
+            "engine_drop": 0.000424,
+            "answer_drop": 0.001603
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 1.743745,
+          "inclusive_median_ms": 1.749306,
+          "requested_bytes": 2641583,
+          "peak_requested_growth_bytes": 47658,
+          "first_answer_median_ms": 0.436664,
+          "phase_median_ms": {
+            "setup": 0.024169,
+            "execute_observe": 1.712879,
+            "engine_drop": 0.00032,
+            "answer_drop": 0.001385
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 1.997,
+          "inclusive_median_ms": 2.003126,
+          "requested_bytes": 2733679,
+          "peak_requested_growth_bytes": 230838,
+          "first_answer_median_ms": 0.4366925,
+          "phase_median_ms": {
+            "setup": 0.090715,
+            "execute_observe": 1.909181,
+            "engine_drop": 0.000261,
+            "answer_drop": 0.001291
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.6325188951876103,
+          "interval95": [
+            0.5026759356578068,
+            0.7272690926408335
+          ],
+          "classification": "gain"
+        },
+        "persistent/contextual": {
+          "ratio": 1.243790100240718,
+          "interval95": [
+            1.1735950663143668,
+            1.31158785907501
+          ],
+          "classification": "loss"
+        },
+        "shared/contextual": {
+          "ratio": 2.265795790293427,
+          "interval95": [
+            2.015801968847818,
+            2.7419227963376427
+          ],
+          "classification": "loss"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 1.1522512116150219,
+          "interval95": [
+            1.1026937215711248,
+            1.2064783446597958
+          ],
+          "classification": "loss"
+        }
+      }
+    },
+    {
+      "config": [
+        "changed",
+        32,
+        4,
+        false,
+        true
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 1.372243,
+          "inclusive_median_ms": 1.378357,
+          "requested_bytes": 1793231,
+          "peak_requested_growth_bytes": 57094,
+          "first_answer_median_ms": 0.3201575,
+          "phase_median_ms": {
+            "setup": 0.043159,
+            "execute_observe": 1.319508,
+            "engine_drop": 0.000289,
+            "answer_drop": 0.001403
+          }
+        },
+        "shared": {
+          "primary_median_ms": 2.877808,
+          "inclusive_median_ms": 2.88458,
+          "requested_bytes": 3951815,
+          "peak_requested_growth_bytes": 611830,
+          "first_answer_median_ms": 0.5250005,
+          "phase_median_ms": {
+            "setup": 0.236843,
+            "execute_observe": 2.632023,
+            "engine_drop": 0.000391,
+            "answer_drop": 0.001535
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 1.808028,
+          "inclusive_median_ms": 1.813739,
+          "requested_bytes": 2641583,
+          "peak_requested_growth_bytes": 47658,
+          "first_answer_median_ms": 0.426174,
+          "phase_median_ms": {
+            "setup": 0.025156,
+            "execute_observe": 1.771475,
+            "engine_drop": 0.0003,
+            "answer_drop": 0.001392
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 2.002623,
+          "inclusive_median_ms": 2.00843,
+          "requested_bytes": 2733679,
+          "peak_requested_growth_bytes": 230838,
+          "first_answer_median_ms": 0.448833,
+          "phase_median_ms": {
+            "setup": 0.079089,
+            "execute_observe": 1.916423,
+            "engine_drop": 0.000286,
+            "answer_drop": 0.001311
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.7145214248430938,
+          "interval95": [
+            0.6734547886351983,
+            0.7511651651691175
+          ],
+          "classification": "gain"
+        },
+        "persistent/contextual": {
+          "ratio": 1.286604505981269,
+          "interval95": [
+            1.2072160916955659,
+            1.3603695085212872
+          ],
+          "classification": "loss"
+        },
+        "shared/contextual": {
+          "ratio": 2.0807339254330466,
+          "interval95": [
+            1.9808246316252112,
+            2.195619032493255
+          ],
+          "classification": "loss"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 1.1555446620994725,
+          "interval95": [
+            1.1151250945422015,
+            1.1924909372312
+          ],
+          "classification": "loss"
+        }
+      }
+    },
+    {
+      "config": [
+        "changed",
+        32,
+        4,
+        true,
+        false
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 1.485242,
+          "inclusive_median_ms": 1.492081,
+          "requested_bytes": 1845417,
+          "peak_requested_growth_bytes": 57996,
+          "first_answer_median_ms": 0.3274425,
+          "phase_median_ms": {
+            "setup": 0.036797,
+            "execute_observe": 1.429243,
+            "engine_drop": 0.000277,
+            "answer_drop": 0.005544
+          }
+        },
+        "shared": {
+          "primary_median_ms": 2.952411,
+          "inclusive_median_ms": 2.959769,
+          "requested_bytes": 4004001,
+          "peak_requested_growth_bytes": 612636,
+          "first_answer_median_ms": 0.573232,
+          "phase_median_ms": {
+            "setup": 0.236079,
+            "execute_observe": 2.72073,
+            "engine_drop": 0.000387,
+            "answer_drop": 0.001468
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 1.79755,
+          "inclusive_median_ms": 1.804303,
+          "requested_bytes": 2693769,
+          "peak_requested_growth_bytes": 48560,
+          "first_answer_median_ms": 0.424097,
+          "phase_median_ms": {
+            "setup": 0.037231,
+            "execute_observe": 1.738673,
+            "engine_drop": 0.000256,
+            "answer_drop": 0.00135
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 2.115139,
+          "inclusive_median_ms": 2.121552,
+          "requested_bytes": 2785865,
+          "peak_requested_growth_bytes": 231644,
+          "first_answer_median_ms": 0.4459375,
+          "phase_median_ms": {
+            "setup": 0.079237,
+            "execute_observe": 2.025974,
+            "engine_drop": 0.000292,
+            "answer_drop": 0.001455
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.6405779224811373,
+          "interval95": [
+            0.5365011899072594,
+            0.7221462964482718
+          ],
+          "classification": "gain"
+        },
+        "persistent/contextual": {
+          "ratio": 1.2468243734097186,
+          "interval95": [
+            1.218289740956047,
+            1.2796600960285438
+          ],
+          "classification": "loss"
+        },
+        "shared/contextual": {
+          "ratio": 2.4640958614771096,
+          "interval95": [
+            2.0219056099856045,
+            3.3594937948648926
+          ],
+          "classification": "loss"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 1.2659725310171515,
+          "interval95": [
+            1.1605839788988228,
+            1.4530627984328843
+          ],
+          "classification": "loss"
+        }
+      }
+    },
+    {
+      "config": [
+        "changed",
+        32,
+        4,
+        true,
+        true
+      ],
+      "modes": {
+        "contextual": {
+          "primary_median_ms": 1.490136,
+          "inclusive_median_ms": 1.497055,
+          "requested_bytes": 1845417,
+          "peak_requested_growth_bytes": 57996,
+          "first_answer_median_ms": 0.3423155,
+          "phase_median_ms": {
+            "setup": 0.038024,
+            "execute_observe": 1.439282,
+            "engine_drop": 0.000259,
+            "answer_drop": 0.003426
+          }
+        },
+        "shared": {
+          "primary_median_ms": 2.855576,
+          "inclusive_median_ms": 2.862927,
+          "requested_bytes": 4004001,
+          "peak_requested_growth_bytes": 612636,
+          "first_answer_median_ms": 0.544983,
+          "phase_median_ms": {
+            "setup": 0.226578,
+            "execute_observe": 2.625633,
+            "engine_drop": 0.000377,
+            "answer_drop": 0.001483
+          }
+        },
+        "persistent": {
+          "primary_median_ms": 1.901748,
+          "inclusive_median_ms": 1.908972,
+          "requested_bytes": 2693769,
+          "peak_requested_growth_bytes": 48560,
+          "first_answer_median_ms": 0.4421385,
+          "phase_median_ms": {
+            "setup": 0.03888,
+            "execute_observe": 1.851483,
+            "engine_drop": 0.000362,
+            "answer_drop": 0.00134
+          }
+        },
+        "persistent-shared": {
+          "primary_median_ms": 2.151734,
+          "inclusive_median_ms": 2.158547,
+          "requested_bytes": 2785865,
+          "peak_requested_growth_bytes": 231644,
+          "first_answer_median_ms": 0.473249,
+          "phase_median_ms": {
+            "setup": 0.078389,
+            "execute_observe": 2.062384,
+            "engine_drop": 0.000293,
+            "answer_drop": 0.001416
+          }
+        }
+      },
+      "contrasts": {
+        "persistent-shared/shared": {
+          "ratio": 0.7425409128395241,
+          "interval95": [
+            0.6988457513636269,
+            0.7889427342218505
+          ],
+          "classification": "gain"
+        },
+        "persistent/contextual": {
+          "ratio": 1.2794020868624079,
+          "interval95": [
+            1.2464912850522099,
+            1.3051084147442424
+          ],
+          "classification": "loss"
+        },
+        "shared/contextual": {
+          "ratio": 1.9884067850903138,
+          "interval95": [
+            1.8764157378072475,
+            2.107980931123003
+          ],
+          "classification": "loss"
+        },
+        "persistent-shared/persistent": {
+          "ratio": 1.1540339072903598,
+          "interval95": [
+            1.07579775587741,
+            1.2407856305308493
+          ],
+          "classification": "unresolved"
+        }
+      }
+    }
+  ],
+  "calibration": [
+    {
+      "config": [
+        "contextual",
+        "single",
+        32,
+        4,
+        true,
+        false
+      ],
+      "contrast": {
+        "ratio": 0.9817835313804105,
+        "interval95": [
+          0.9211291700865226,
+          1.0440196616561783
+        ],
+        "classification": "unresolved"
+      },
+      "before": {
+        "primary_median_ms": 0.416567,
+        "inclusive_median_ms": 0.422534,
+        "requested_bytes": 507777,
+        "peak_requested_growth_bytes": 20728,
+        "first_answer_median_ms": 0.092277,
+        "phase_median_ms": {
+          "setup": 0.034763,
+          "execute_observe": 0.368683,
+          "engine_drop": 0.000425,
+          "answer_drop": 0.00049
+        }
+      },
+      "after": {
+        "primary_median_ms": 0.408138,
+        "inclusive_median_ms": 0.414746,
+        "requested_bytes": 507841,
+        "peak_requested_growth_bytes": 20744,
+        "first_answer_median_ms": 0.088547,
+        "phase_median_ms": {
+          "setup": 0.033345,
+          "execute_observe": 0.36104,
+          "engine_drop": 0.000429,
+          "answer_drop": 0.000532
+        }
+      }
+    },
+    {
+      "config": [
+        "contextual",
+        "shared",
+        32,
+        4,
+        true,
+        false
+      ],
+      "contrast": {
+        "ratio": 1.030608362916421,
+        "interval95": [
+          0.9365492149962915,
+          1.1369403832357226
+        ],
+        "classification": "unresolved"
+      },
+      "before": {
+        "primary_median_ms": 1.367533,
+        "inclusive_median_ms": 1.376279,
+        "requested_bytes": 1834397,
+        "peak_requested_growth_bytes": 56689,
+        "first_answer_median_ms": 0.316486,
+        "phase_median_ms": {
+          "setup": 0.043587,
+          "execute_observe": 1.305712,
+          "engine_drop": 0.000476,
+          "answer_drop": 0.001269
+        }
+      },
+      "after": {
+        "primary_median_ms": 1.413597,
+        "inclusive_median_ms": 1.422824,
+        "requested_bytes": 1834717,
+        "peak_requested_growth_bytes": 56753,
+        "first_answer_median_ms": 0.3284165,
+        "phase_median_ms": {
+          "setup": 0.040934,
+          "execute_observe": 1.357295,
+          "engine_drop": 0.000374,
+          "answer_drop": 0.001586
+        }
+      }
+    },
+    {
+      "config": [
+        "contextual",
+        "distinct",
+        32,
+        4,
+        true,
+        false
+      ],
+      "contrast": {
+        "ratio": 1.0894754218768705,
+        "interval95": [
+          0.9761764630809713,
+          1.3187070123946731
+        ],
+        "classification": "unresolved"
+      },
+      "before": {
+        "primary_median_ms": 1.501922,
+        "inclusive_median_ms": 1.527797,
+        "requested_bytes": 2011157,
+        "peak_requested_growth_bytes": 77992,
+        "first_answer_median_ms": 0.3340345,
+        "phase_median_ms": {
+          "setup": 0.109257,
+          "execute_observe": 1.376269,
+          "engine_drop": 0.00046,
+          "answer_drop": 0.001913
+        }
+      },
+      "after": {
+        "primary_median_ms": 1.463157,
+        "inclusive_median_ms": 1.488853,
+        "requested_bytes": 2011477,
+        "peak_requested_growth_bytes": 78056,
+        "first_answer_median_ms": 0.32883,
+        "phase_median_ms": {
+          "setup": 0.107749,
+          "execute_observe": 1.342844,
+          "engine_drop": 0.000414,
+          "answer_drop": 0.001993
+        }
+      }
+    },
+    {
+      "config": [
+        "contextual",
+        "changed",
+        32,
+        4,
+        true,
+        false
+      ],
+      "contrast": {
+        "ratio": 1.0301582183131561,
+        "interval95": [
+          1.0033652505172233,
+          1.053986755527622
+        ],
+        "classification": "unresolved"
+      },
+      "before": {
+        "primary_median_ms": 1.4548,
+        "inclusive_median_ms": 1.462102,
+        "requested_bytes": 1845097,
+        "peak_requested_growth_bytes": 57932,
+        "first_answer_median_ms": 0.32818,
+        "phase_median_ms": {
+          "setup": 0.038545,
+          "execute_observe": 1.406271,
+          "engine_drop": 0.000447,
+          "answer_drop": 0.001436
+        }
+      },
+      "after": {
+        "primary_median_ms": 1.52935,
+        "inclusive_median_ms": 1.536695,
+        "requested_bytes": 1845417,
+        "peak_requested_growth_bytes": 57996,
+        "first_answer_median_ms": 0.341217,
+        "phase_median_ms": {
+          "setup": 0.040361,
+          "execute_observe": 1.454579,
+          "engine_drop": 0.000422,
+          "answer_drop": 0.005593
+        }
+      }
+    },
+    {
+      "config": [
+        "shared",
+        "single",
+        32,
+        4,
+        true,
+        false
+      ],
+      "contrast": {
+        "ratio": 1.0018878714875985,
+        "interval95": [
+          0.9181676743579188,
+          1.1000450078370936
+        ],
+        "classification": "unresolved"
+      },
+      "before": {
+        "primary_median_ms": 0.896946,
+        "inclusive_median_ms": 0.906891,
+        "requested_bytes": 1023445,
+        "peak_requested_growth_bytes": 153386,
+        "first_answer_median_ms": 0.181284,
+        "phase_median_ms": {
+          "setup": 0.094525,
+          "execute_observe": 0.786118,
+          "engine_drop": 0.000407,
+          "answer_drop": 0.000557
+        }
+      },
+      "after": {
+        "primary_median_ms": 0.837416,
+        "inclusive_median_ms": 0.847074,
+        "requested_bytes": 1025653,
+        "peak_requested_growth_bytes": 153946,
+        "first_answer_median_ms": 0.18275,
+        "phase_median_ms": {
+          "setup": 0.088453,
+          "execute_observe": 0.734844,
+          "engine_drop": 0.000377,
+          "answer_drop": 0.000607
+        }
+      }
+    },
+    {
+      "config": [
+        "shared",
+        "shared",
+        32,
+        4,
+        true,
+        false
+      ],
+      "contrast": {
+        "ratio": 0.9755980050223674,
+        "interval95": [
+          0.9267641893882729,
+          1.0130942439099333
+        ],
+        "classification": "unresolved"
+      },
+      "before": {
+        "primary_median_ms": 0.86412,
+        "inclusive_median_ms": 0.874043,
+        "requested_bytes": 1102139,
+        "peak_requested_growth_bytes": 157661,
+        "first_answer_median_ms": 0.161578,
+        "phase_median_ms": {
+          "setup": 0.083752,
+          "execute_observe": 0.764511,
+          "engine_drop": 0.000444,
+          "answer_drop": 0.00124
+        }
+      },
+      "after": {
+        "primary_median_ms": 0.860859,
+        "inclusive_median_ms": 0.870006,
+        "requested_bytes": 1104603,
+        "peak_requested_growth_bytes": 158269,
+        "first_answer_median_ms": 0.1594105,
+        "phase_median_ms": {
+          "setup": 0.081234,
+          "execute_observe": 0.767644,
+          "engine_drop": 0.00044,
+          "answer_drop": 0.001286
+        }
+      }
+    },
+    {
+      "config": [
+        "shared",
+        "distinct",
+        32,
+        4,
+        true,
+        false
+      ],
+      "contrast": {
+        "ratio": 1.046151826716634,
+        "interval95": [
+          0.9709786329855525,
+          1.1777984728926791
+        ],
+        "classification": "unresolved"
+      },
+      "before": {
+        "primary_median_ms": 2.977657,
+        "inclusive_median_ms": 3.009988,
+        "requested_bytes": 4070501,
+        "peak_requested_growth_bytes": 607603,
+        "first_answer_median_ms": 0.527332,
+        "phase_median_ms": {
+          "setup": 0.294257,
+          "execute_observe": 2.658151,
+          "engine_drop": 0.000772,
+          "answer_drop": 0.001875
+        }
+      },
+      "after": {
+        "primary_median_ms": 2.936633,
+        "inclusive_median_ms": 2.969261,
+        "requested_bytes": 4079397,
+        "peak_requested_growth_bytes": 609843,
+        "first_answer_median_ms": 0.5198065,
+        "phase_median_ms": {
+          "setup": 0.29726,
+          "execute_observe": 2.610119,
+          "engine_drop": 0.000464,
+          "answer_drop": 0.001942
+        }
+      }
+    },
+    {
+      "config": [
+        "shared",
+        "changed",
+        32,
+        4,
+        true,
+        false
+      ],
+      "contrast": {
+        "ratio": 0.9941378764651141,
+        "interval95": [
+          0.9605243120460866,
+          1.037005216992861
+        ],
+        "classification": "unresolved"
+      },
+      "before": {
+        "primary_median_ms": 2.930181,
+        "inclusive_median_ms": 2.938444,
+        "requested_bytes": 3994849,
+        "peak_requested_growth_bytes": 610332,
+        "first_answer_median_ms": 0.54657,
+        "phase_median_ms": {
+          "setup": 0.226677,
+          "execute_observe": 2.69439,
+          "engine_drop": 0.000506,
+          "answer_drop": 0.00136
+        }
+      },
+      "after": {
+        "primary_median_ms": 2.876222,
+        "inclusive_median_ms": 2.883241,
+        "requested_bytes": 4004001,
+        "peak_requested_growth_bytes": 612636,
+        "first_answer_median_ms": 0.5187735,
+        "phase_median_ms": {
+          "setup": 0.230231,
+          "execute_observe": 2.631035,
+          "engine_drop": 0.000597,
+          "answer_drop": 0.001435
+        }
+      }
+    }
+  ]
+}

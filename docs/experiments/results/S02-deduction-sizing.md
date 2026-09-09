@@ -36,6 +36,8 @@ The exact requested-allocation figures for these same substantive configurations
 
 These are cumulative primary requested bytes, not RSS or live footprint. The favorable family saves three of four computations and requests fewer bytes, but still has lookup, state ownership and retained-map costs. Requested bytes alone do not establish total efficiency.
 
+The subsequent [paired map attribution](S02-equality-map-attribution.md) now tests this representation question; the sizing above retains its original binary scope.
+
 ## Consequential implementation question
 
 The current cache pins the parent and descriptor maps after each newly computed equality transition. The next mutation through `Rc::make_mut` must copy a pinned map. Repeatedly retaining growing ordered maps can therefore introduce copying proportional to the accumulated map sizes. Without retention, a uniquely owned map can mutate in place.
