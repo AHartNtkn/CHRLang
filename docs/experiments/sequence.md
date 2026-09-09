@@ -278,7 +278,7 @@ Exact sizes follow exploratory sizing under the common rules above. The comparat
 
 ## Current execution order
 
-**T078 is active for paired resource-counting lifecycle measurement.** The [source gate](results/S10-resource-count-gate.md) qualifies common-depth elimination, preserves branch-specific suspension and demonstrates necessary observer/scheduling boundaries. Register full inference, transformation, execution and disposal costs before judging the value of sharing or discovery improvements.
+**T079 is active for S07 resource privacy and ground-entry contracts.** The [resource-count lifecycle and breadth review](results/S10-resource-count-lifecycle.md) establish enough cost and boundary evidence to compare inferred properties, checked declarations and mandatory restrictions. The [entry specification](results/S07-resource-properties-entry.md) requires executable correctness, expressiveness and responsibility evidence; no language option is selected. T078 and the wider architecture obligations remain unfinished.
 
 The [ordered remaining sequence](remaining-investigations.md#execution-order) records the completed bounded restoration/reunion comparisons and remaining investigation boundaries. T077 stays required for broader restoration, adaptive splitting, repeated dynamic reunion, inference and sustained lifetime. Broader lowering and structural theories, discovery, reuse, direct graphs and connected parallelism remain required. Language and lifetime comparisons accompany every candidate; priority is reconsidered at each package boundary.
 

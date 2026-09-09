@@ -1,10 +1,10 @@
 # The comparisons still needed to choose the architecture
 
-The [source-derived resource-count gate](results/S10-resource-count-gate.md) qualifies common-depth elimination and its explicit observer/scheduling boundaries. T078 next measures complete lifecycle costs against ordinary execution. Broader source, discovery, language and lifetime questions remain required.
+The [resource-count lifecycle](results/S10-resource-count-lifecycle.md) completes 7056 processes and 1008 exact allocation pairs, with deeper gains and shallow overhead. The breadth review selects [T079/S07 resource properties](results/S07-resource-properties-entry.md). T078 remains unfinished for the broader architectural comparison.
 
 ## Starting evidence and immediate decision
 
-The next package measures the certificate and query transformation alongside preparation, execution, observation and disposal. The [selection rationale](results/S10-resource-count-gate.md#next-decision) keeps selective conditional discovery and resumable contextual matching accountable while testing whether the repeated work survives a validated source transformation.
+The next bounded package compares inferred privacy/groundness, checked declarations and mandatory restrictions through actual accepted/rejected sources and checking responsibilities. No language policy is adopted. Selective conditional discovery and resumable contextual matching remain strong alternatives, reconsidered after the first executable S07 gate.
 
 The completed [restoration pilot](results/S04-resident-cost-pilot.md), [reunion source gate](results/S04-reunion-source-gate.md), [ownership/identity comparison](results/S04-reunion-identity-attribution.md), [strong-control gate](results/S04-reunion-strong-controls.md) and [complete-cost pilot](results/S04-reunion-complete-pilot.md) supply controls. They do not resolve repeated dynamic reunion or general source inference.
 
@@ -18,13 +18,13 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-**Paired resource-counting lifecycle measurement is selected under T078/S10.** Complete-source gates and the initial lifecycle pilot provide controls. The goal remains comparison of complete architectural alternatives; this attribution must determine whether their current discovery costs are avoidable.
+**Resource privacy and ground-entry contract comparison is selected under T079/S07.** Complete-source gates and the initial lifecycle pilot provide controls. The comparison must establish which programs each contract accepts and which checking or execution responsibilities it actually removes. Selective discovery remains required within the broader architectural comparison.
 
 The order below incorporates the latest component evidence and the S10 entry decision. Each numbered row has a separate architectural question and completion boundary. The detailed mechanism specifications later in this document define its controls and adverse cases. A row containing several mechanisms requires a conclusion for each; completing one does not complete the row.
 
 | Order | Required investigation | What its result must decide |
 |---|---|---|
-| Current | **Resource-counting lifecycle (T078 / S10).** Compare inference/transformation and complete execution costs with ordinary paths. | Whether the validated elimination repays certificate and artifact costs across reuse, rejected queries and complete ownership; then reconsider discovery. |
+| Current | **Language-property comparison (T079 / S07).** Compare inference, checked declarations and mandatory properties for resources and ground entry. | Which programs remain expressible and which checking/runtime responsibilities actually disappear; then reconsider discovery and broader architecture. |
 | 1 | **Bounded pilot complete; broader restoration remains required (T077 / S04-A).** Compare copying, persistence/COW, undo, root replay and checkpoint intervals on read-heavy and mutation-heavy states, shallow/wide and deep search, early/late failure, changed queries and cancellation. | Whether avoiding sole-branch reconstruction changes the time–memory tradeoff once preparation, switching, complete answers and disposal count. The [source gate](results/S04-resident-replay-source-gate.md) and [cost pilot](results/S04-resident-cost-pilot.md) now supply bounded evidence. Alternative policies and broader state/lifetime regimes remain required. |
 | 2 | **Bounded reunion costs complete; broader reunion and adaptive splitting remain required (T077 / S04-B/C).** Repeated dynamic reunion has bounded source/work/allocation evidence; adaptive splitting and broader lifetime remain required before general conclusions. Use same-predicate independent occurrences, late aliases/calls and shared consumables. Compare ordinary execution, permanent factoring and temporary separation; separately compare fixed and demand-sensitive splitting. | Whether temporary independence or economical split timing can replace retained shared execution. Include frequent reunion, immediate failure and no useful separation. Preserve correlation, source progress, resource claims and propagation history. Checkpoints alone cannot answer either question. |
 | 3 | **Complete integrated execution (T072 / S02-A/B).** Carry the corrected dependency lifecycle controls into broader source/ownership comparison, then compare CHR-expressed equality, strategic local rewrites and the strongest contextual/scanned/indexed controls on full equality-enabled consuming sources. | Which service boundaries actually disappear, whether interleaving avoids useful work, and what repair/ownership costs remain. Keep scheduling differences explicit. An isolated equality operation cannot decide the complete organization. |
@@ -66,7 +66,7 @@ The order below incorporates the latest component evidence and the S10 entry dec
 
 ## Next discriminating comparisons
 
-**The specifications below are organized by question; their numbers are not the execution order.** T078 discovery attribution within the complete-path comparison is active, as recorded in the current selection above. Integrated execution, broader call reuse and structural solving remain required beyond their bounded source and cost gates.
+**The specifications below are organized by question; their numbers are not the execution order.** T079 compares resource privacy and ground-entry contracts, as recorded in the current selection above. T078 remains unfinished for the broader complete-path comparison. Integrated execution, broader call reuse and structural solving remain required beyond their bounded source and cost gates.
 
 These are experiment specifications, not claims of results. Each comparison requires a source gate, exploratory sizing, prospective confirmation and a decision record. Exact sizes follow sizing; thresholds and repetitions must be fixed before confirmation under the [common measurement rules](sequence.md#registration-bounds-and-interpretation).
 

@@ -1,6 +1,6 @@
 # Unanswered architecture questions and experimental ownership
 
-Current S10 evidence: [source-derived resource counting](results/S10-resource-count-gate.md) qualifies elimination of the common traversal with explicit resource and scheduling boundaries. Full renamed-source and suspension observations pass across competing organizations. T078 next measures inference/transformation and complete lifecycle costs; no efficiency superiority follows yet.
+Current evidence: [resource-count lifecycle](results/S10-resource-count-lifecycle.md) validates 7056 processes and 1008 exact pairs, with deeper gains and shallow costs. The breadth review selects [T079/S07 resource properties](results/S07-resource-properties-entry.md): compare inference, checked declarations and mandatory restrictions without adopting a language policy. T078 and all consequential broader directions remain unfinished.
 
 The [resource-fusion lifecycle pilot](results/S06-resource-fusion-lifecycle.md) completes 1350 processes and 180 exact allocation pairs. Inference and certification can outweigh execution savings; timing remains exploratory with clock-overhead evidence. All owners restore. The [S10 entry](results/S10-composition-entry.md) selects T078 coherent-path capability and mixed-source qualification. T073 and the other unresolved component directions remain required.
 
