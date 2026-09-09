@@ -484,7 +484,7 @@ impl Store {
 /// insertion and any equality work must invalidate it. Consumption is monotone.
 #[derive(Clone)]
 pub(crate) struct MatchCursor {
-    heads: Vec<Constraint>,
+    head_count: usize,
     kept: usize,
     ids: Vec<Occurrence>,
     frames: Vec<MatchFrame>,
@@ -498,7 +498,7 @@ struct MatchFrame {
 impl MatchCursor {
     pub(crate) fn new(kept: &[Constraint], removed: &[Constraint]) -> Self {
         Self {
-            heads: kept.iter().chain(removed).cloned().collect(),
+            head_count: kept.len() + removed.len(),
             kept: kept.len(),
             ids: vec![],
             frames: vec![MatchFrame {
@@ -514,7 +514,14 @@ impl MatchCursor {
             self.done = true;
         }
     }
-    pub(crate) fn next(&mut self, store: &Store) -> Option<Match> {
+    pub(crate) fn next(
+        &mut self,
+        store: &Store,
+        kept: &[Constraint],
+        removed: &[Constraint],
+    ) -> Option<Match> {
+        debug_assert_eq!(kept.len(), self.kept);
+        debug_assert_eq!(kept.len() + removed.len(), self.head_count);
         use std::ops::Bound::{Excluded, Unbounded};
         if self.done || store.failed {
             return None;
@@ -526,7 +533,7 @@ impl MatchCursor {
             self.frames.truncate(i + 1);
         }
         while !self.done {
-            if self.ids.len() == self.heads.len() {
+            if self.ids.len() == self.head_count {
                 if let Some(bindings) = self.frames.last_mut().unwrap().environments.pop_first() {
                     return Some(Match {
                         kept: self.ids[..self.kept].to_vec(),
@@ -547,7 +554,12 @@ impl MatchCursor {
                 continue;
             };
             frame.after = Some(id);
-            let head = &self.heads[self.ids.len()];
+            let depth = self.ids.len();
+            let head = if depth < self.kept {
+                &kept[depth]
+            } else {
+                &removed[depth - self.kept]
+            };
             if self.ids.contains(&id)
                 || head.name != resource.name
                 || head.args.len() != resource.args.len()
@@ -623,11 +635,11 @@ mod cursor_order_tests {
             assert!(!expected.is_empty());
             let mut cursor = MatchCursor::new(&heads[..1], &heads[1..]);
             let mut actual = vec![];
-            while let Some(m) = cursor.next(&s) {
+            while let Some(m) = cursor.next(&s, &heads[..1], &heads[1..]) {
                 actual.push(m);
             }
             assert_eq!(actual, expected);
-            assert!(cursor.next(&s).is_none());
+            assert!(cursor.next(&s, &heads[..1], &heads[1..]).is_none());
         }
     }
 }

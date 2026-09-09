@@ -179,7 +179,7 @@ impl State {
                 let candidate = if self.resumable {
                     let cursor = self.cursors[ri]
                         .get_or_insert_with(|| MatchCursor::new(&rule.kept, &rule.removed));
-                    cursor.next(&self.store)
+                    cursor.next(&self.store, &rule.kept, &rule.removed)
                 } else if self.demand {
                     self.store
                         .find_match(&rule.kept, &rule.removed, |candidate| {

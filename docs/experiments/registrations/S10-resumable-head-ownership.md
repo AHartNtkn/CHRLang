@@ -1,0 +1,9 @@
+# Registered allocation attribution: immutable head ownership
+
+The completed 4200-process cursor pilot finds stable-history gains but mixed-source overhead. The cursor stores immutable head syntax even though its rule position already identifies the immutable prepared rule. Move that syntax ownership to the existing prepared source, leaving the cursor with counts, occurrence positions and environments. Its private executor supplies the same rule's heads when resuming. This is an ownership attribution, not a different matching or invalidation policy.
+
+Before comparative reruns, preserve exact baseline source snapshots and verify their hashes against the original freeze. Re-run all 360 contextual/eager, demand and resumable cells from the original registration (ten families, n=0/1/3, reuse=1/4, query/prepared consumers). Two counter-free allocation processes per cell, seed 7812: 720 processes. Eager and restarting-demand memory readings must remain exactly equal to their baseline readings; each new cell must replay exactly. Record all raw phases and frozen revised sources/binary.
+
+Retain the original 1 GiB address-space, 60 CPU-second, 75 wall-second and 500,000 service-call bounds, complete independent observations and every lifecycle owner check. No ordinary timing rerun is performed in this attribution, so do not transfer the original time samples to the revised cursor or claim a revised time ranking.
+
+H1: sharing the already-prepared head syntax reduces cursor construction/branch-clone traffic and peak without changing candidate order or source behavior. H2: remaining environment and invalidation costs can still leave cursor execution worse than eager. Do not assume the repair removes the measured mixed-source penalty. Reconsider the next architectural investigation after exact attribution and semantic validation.
