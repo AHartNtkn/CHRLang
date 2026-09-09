@@ -178,3 +178,5 @@ pub mod equation_search;
 pub mod failure;
 pub mod failure_search;
 pub mod parallel_equations;
+
+pub mod calls;

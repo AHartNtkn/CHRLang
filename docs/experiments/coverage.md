@@ -93,6 +93,8 @@ No aggregate benchmark weights, universal winner, automatic hybrid routing or ad
 
 ## Current selection
 
+The [call-level transport gate](results/S05-call-transport-gate.md) now reuses work across different callers with independently checked fresh-result transport. It also demonstrates that private-family membership does not justify moving a call before input supply. T075 remains active for valid caller-boundary integration before cost registration.
+
 **T075 is active for call-level reuse across different callers.** The [four-package integrated breadth review](results/S02-local-rewrite-breadth-review.md) selects this distinct mechanism after the [nested-pattern source gate](results/S02-local-pattern-gate.md). T072 remains pending for broader source execution, precise dependency repair and full costs.
 
 The [local handle-rewrite gate](results/S02-local-ports-gate.md) now directly tests a distinct representation without parent-chain lookup or relational match tuples. Independent constructor/consuming checks, selective and broad activation, and a registration-cost correction pass. General rule derivation and full costs remain open; T072 remains unfinished.

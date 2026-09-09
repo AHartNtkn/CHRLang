@@ -296,6 +296,8 @@ The subsequent [CHR-expressed constructor/consumption gate](S02-chr-constructors
 
 ### 40. General reconvergence, alpha-equivalent tables and selective recomputation — Not directly resolved
 
+The subsequent [call-level transport gate](S05-call-transport-gate.md) directly tests reuse across different caller states and fresh-result transport. It exposes a call-entry scheduling counterexample; general relevance, effectful replay, retention and complete costs remain unresolved.
+
 **Result.** Exact tables, occurrence caches and failure proofs cover separate bounded mechanisms. There is no complete comparison that chooses among generalized caller projections, state renaming, recomputation, cache eviction and semantic dependency tracking across the whole evaluator.
 
 **Why I stopped.** I cited key construction, retained state and validity responsibilities as reasons to demand a more specific motivating case. Those are real engineering obligations, but their existence is not a measured unfavorable cost balance for every unimplemented design. [Continuation limits](E12-continuations.md), [observation and state-reuse analysis](../../goals/chr-sharing/notes/T016-observation-and-state-reuse.md)

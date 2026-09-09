@@ -1,0 +1,177 @@
+   Compiling chr-reuse v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-reuse)
+warning: variable does not need to be mutable
+   --> research/chr-reuse/tests/call_reuse.rs:266:9
+    |
+266 |     let mut direct = Table::new(family.clone(), false).unwrap();
+    |         ----^^^^^^
+    |         |
+    |         help: remove this `mut`
+    |
+    = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `direct`
+   --> research/chr-reuse/tests/call_reuse.rs:266:9
+    |
+266 |     let mut direct = Table::new(family.clone(), false).unwrap();
+    |         ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_direct`
+    |
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: `chr-reuse` (test "call_reuse") generated 2 warnings (run `cargo fix --test "call_reuse" -p chr-reuse` to apply 2 suggestions)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.55s
+     Running unittests src/lib.rs (target/debug/deps/chr_reuse-4d1348acb6a33994)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/call_reuse.rs (target/debug/deps/call_reuse-91de1129c4d17ef2)
+
+running 6 tests
+test a_private_family_does_not_authorize_moving_a_call_before_input_supply ... ok
+test resource_access_suspension_and_cutoff_do_not_become_cached_answers ... ok
+test reuse_transports_two_independent_fresh_results_into_one_caller ... ok
+test distinct_callers_reuse_work_and_preserve_fresh_aliases ... ok
+test call_reuse_succeeds_where_complete_caller_keys_differ ... ok
+test call_keys_distinguish_aliases_bindings_and_preserve_caller_only_variables ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running tests/certificates.rs (target/debug/deps/certificates-593d0dfd57d98731)
+
+running 5 tests
+test occurs_proof_preserves_the_alias_and_rejects_empty_paths ... ok
+test structural_gate_explicitly_does_not_claim_late_alias_proofs ... ok
+test structural_proofs_generalize_only_when_current_assumptions_hold ... ok
+test path_observation_checker_agrees_with_owned_checker ... ok
+test all_small_path_certificates_are_sound_against_independent_execution ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running tests/continuation_lifecycle.rs (target/debug/deps/continuation_lifecycle-160a79186d42980b)
+
+running 1 test
+test preparation_reuses_rules_but_not_query_answers_or_identities ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/continuations.rs (target/debug/deps/continuations-ebe58ed7271bafbb)
+
+running 4 tests
+test reconvergent_continuation_keeps_each_later_choice_lineage ... ok
+test aliased_and_independent_continuations_have_different_futures ... ok
+test both_modes_preserve_every_registered_prefix_and_raw_lineage ... ok
+test duplicated_choice_workloads_match_independent_reference_and_keep_raw_counts ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.40s
+
+     Running tests/equation_search.rs (target/debug/deps/equation_search-4be155feff1ac7d1)
+
+running 3 tests
+test cached_bindings_wake_suspended_constraints_and_preserve_other_aliases ... ok
+test all_modes_preserve_registered_observations_and_prefixes ... ok
+test repeated_unique_and_identity_workloads_have_registered_results_and_hits ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 5.40s
+
+     Running tests/failure_search.rs (target/debug/deps/failure_search-bddba7bf89dcc9c3)
+
+running 4 tests
+test learned_failure_never_prunes_an_unposted_equation ... ok
+test failure_workloads_account_for_current_unification_work ... ok
+test learning_preserves_registered_prefixes_answers_and_failure_counts ... ok
+test registered_structural_failure_grid_matches_independent_execution ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.14s
+
+     Running tests/generalized_continuations.rs (target/debug/deps/generalized_continuations-bda4b13ab073d2fa)
+
+running 3 tests
+test different_histories_reuse_future_work_without_merging_raw_answers ... ok
+test consumed_history_remains_distinct_without_relevance_projection ... ok
+test aliases_resources_history_and_fresh_replay_match_independent_raw_semantics ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.15s
+
+     Running tests/operations.rs (target/debug/deps/operations-8636bd932f631ac5)
+
+running 5 tests
+test cached_failure_is_local_to_the_equation_and_freshening_is_exact ... ok
+test renamed_hits_preserve_caller_variables_and_aliases ... ok
+test a_later_pair_detects_a_cycle_through_an_earlier_alias ... ok
+test repeated_holes_and_stronger_callers_have_distinct_keys ... ok
+test exhaustive_finite_pairs_match_independent_reference_observations ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+
+     Running tests/parallel_equations.rs (target/debug/deps/parallel_equations-8f45e7ff4098c6cc)
+
+running 6 tests
+test repeated_prepare_is_inert_even_when_first_pass_issues_nothing ... ok
+test prefix_reply_cleanup_alone_does_not_commit_or_publish ... ok
+test buffered_reply_keeps_reservation_until_commit ... ok
+test reverse_receipt_does_not_bypass_fifo_commit_or_exhaust_parked_frontier ... ok
+test unknown_and_duplicate_replies_are_errors_without_source_effects ... ok
+test aliases_dependent_equations_failures_and_wakeup_match_owned_and_reference ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/parallel_transport.rs (target/debug/deps/parallel_transport-66eaa7e4f7d5a384)
+
+running 3 tests
+test worker_panic_is_an_execution_error_with_other_workers_alive ... ok
+test two_workers_enter_the_real_solver_before_either_is_released ... ok
+test prefix_shutdown_finishes_accepted_work_without_committing_it ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/parallel_workloads.rs (target/debug/deps/parallel_workloads-6a041a0641630bb3)
+
+running 2 tests
+test prefix_pilot_leaves_accepted_equations_for_shutdown ... ok
+test pilot_workloads_have_independent_reference_answers ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.16s
+
+     Running tests/stable.rs (target/debug/deps/stable-ddccbfe87ae45b91)
+
+running 4 tests
+test changed_bindings_occurs_failure_and_foreign_handles_are_not_reused_unsafely ... ok
+test bounded_eviction_recomputes_without_changing_results ... ok
+test hits_replay_bindings_and_unrelated_changes_distinguish_validity_policies ... ok
+test ordered_equations_and_changed_contexts_match_independent_reference ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.07s
+
+     Running tests/stable_source.rs (target/debug/deps/stable_source-ee43feff83d0e014)
+
+running 7 tests
+test foreign_cursor_is_rejected_before_equation_service - should panic ... ok
+test one_cache_cannot_accept_another_machines_constructor_numbers ... ok
+test changing_binding_invalidates_cached_success ... ok
+test common_failure_does_not_fail_a_finite_sibling ... ok
+test successful_hits_enable_consumption_and_preserve_duplicate_alternatives ... ok
+test prepared_rules_are_reused_across_changed_queries_without_cache_identity_leakage ... ok
+test registered_sources_preserve_full_observations_raw_multiplicity_and_progress ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.10s
+
+     Running tests/stream_delivery.rs (target/debug/deps/stream_delivery-4b93b26ebfad2891)
+
+running 7 tests
+test reclamation_preserves_lifted_argument_choices ... ok
+test reclamation_preserves_competing_consumers_and_shared_choices ... ok
+test completed_histories_have_conditions_no_pending_task_can_select ... ok
+test a_consumed_resource_needed_by_a_pending_answer_stays_consumed ... ok
+test consumer_release_and_cancellation_preserve_valid_delivery ... ok
+test progressive_source_has_independent_complete_answers ... ok
+test reclamation_preserves_independent_answers_and_each_service_boundary ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 10.35s
+
+   Doc-tests chr_reuse
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

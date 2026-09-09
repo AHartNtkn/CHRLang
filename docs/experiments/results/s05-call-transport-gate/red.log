@@ -1,0 +1,31 @@
+   Compiling chr-reuse v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-reuse)
+warning: unused imports: `Constraint`, `Goal`, and `and`
+ --> research/chr-reuse/tests/call_reuse.rs:5:18
+  |
+5 | use chr_syntax::{and,atom,c,eq,or,t,v,Constraint,Goal,Query,Rule,Term,Var};
+  |                  ^^^                  ^^^^^^^^^^ ^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `chr-reuse` (test "call_reuse") generated 1 warning (run `cargo fix --test "call_reuse" -p chr-reuse` to apply 1 suggestion)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.49s
+     Running tests/call_reuse.rs (target/debug/deps/call_reuse-91de1129c4d17ef2)
+
+running 1 test
+test distinct_callers_reuse_work_and_preserve_fresh_aliases ... FAILED
+
+failures:
+
+---- distinct_callers_reuse_work_and_preserve_fresh_aliases stdout ----
+
+thread 'distinct_callers_reuse_work_and_preserve_fresh_aliases' (264) panicked at research/chr-reuse/src/calls.rs:11:99:
+not yet implemented
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    distinct_callers_reuse_work_and_preserve_fresh_aliases
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p chr-reuse --test call_reuse`
