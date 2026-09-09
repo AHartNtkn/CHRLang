@@ -700,7 +700,9 @@ impl Run {
         }
     }
     fn answer(&mut self, ctx: &Context) -> Result<Answer, Signal> {
-        for (support, id) in self.obligations.clone() {
+        for index in 0..self.obligations.len() {
+            let (support, id) = &self.obligations[index];
+            let id = *id;
             if support.iter().all(|(k, v)| ctx.get(k) == Some(v)) {
                 self.force(id, ctx)?;
             }
@@ -710,7 +712,9 @@ impl Run {
             outputs.push((name, self.normal(id, ctx)?));
         }
         let mut residual = vec![];
-        for (support, id) in self.obligations.clone() {
+        for index in 0..self.obligations.len() {
+            let (support, id) = &self.obligations[index];
+            let id = *id;
             if !support.iter().all(|(k, v)| ctx.get(k) == Some(v)) {
                 continue;
             }
@@ -781,7 +785,8 @@ impl Run {
         while cursor < round_end {
             let index = cursor;
             cursor += 1;
-            let (support, id) = self.obligations[index].clone();
+            let (support, id) = &self.obligations[index];
+            let id = *id;
             if support.iter().all(|(k, v)| ctx.get(k) == Some(v)) {
                 serviced = self.force(id, &ctx);
                 break;

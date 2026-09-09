@@ -6,7 +6,7 @@ edition.workspace = true
 [features]
 default = ["metrics"]
 metrics = ["chr-compiled?/metrics", "chr-observe?/metrics"]
-experiment = ["dep:chr-compiled", "dep:chr-observe"]
+experiment = ["dep:chr-compiled", "dep:chr-observe", "dep:chr-direct-choice"]
 alloc-meter = ["experiment"]
 fork-diagnostics = ["chr-compiled?/fork-diagnostics"]
 carrier-contraction = ["chr-compiled?/carrier-contraction"]
@@ -22,6 +22,8 @@ chr-syntax = { path = "../../crates/chr-syntax" }
 
 chr-compiled = { path = "../chr-compiled", default-features = false, optional = true }
 chr-observe = { path = "../chr-observe", default-features = false, optional = true }
+
+chr-direct-choice = { path = "../chr-direct-choice", optional = true }
 
 [dev-dependencies]
 chr-compiled = { path = "../chr-compiled", default-features = false }
@@ -46,4 +48,9 @@ required-features = ["experiment"]
 [[bin]]
 name = "chr-equation-cost"
 path = "experiments/equation_mixed.rs"
+required-features = ["experiment"]
+
+[[bin]]
+name = "chr-demand-cost"
+path = "experiments/demand_cost.rs"
 required-features = ["experiment"]

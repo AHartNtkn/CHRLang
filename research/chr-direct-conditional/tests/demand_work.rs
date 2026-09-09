@@ -1,47 +1,10 @@
 #[allow(dead_code)]
 mod runtime_support;
-use chr_syntax::{Answer, Query, Rule, Var, and, atom, c, eq, or, t, v};
-fn rules(discriminate: bool, bits: usize, resource: bool) -> Vec<Rule> {
-    let mut rules = vec![
-        Rule::simplify(
-            "choose",
-            [c("choose", [v(0)])],
-            or(eq(v(0), atom("a")), eq(v(0), atom("b"))),
-        ),
-        Rule::simplify("base", [c("work", [atom("z"), v(0), v(1)])], eq(v(1), v(0))),
-        Rule::simplify(
-            "step",
-            [c("work", [t("s", [v(0)]), v(1), v(2)])],
-            and([
-                c("work", [v(0), v(1), v(3)]).into(),
-                eq(v(2), t("box", [v(3)])),
-            ]),
-        ),
-    ];
-    if discriminate {
-        for mask in 0..1 << bits {
-            let value = t(
-                "pack",
-                (0..bits)
-                    .map(|i| atom(if mask & (1 << i) == 0 { "a" } else { "b" }))
-                    .collect::<Vec<_>>(),
-            );
-            rules.push(Rule::simplify(
-                &format!("gate{mask}"),
-                [c("gate", [v(0), value.clone(), v(1)])],
-                c("work", [v(0), value, v(1)]).into(),
-            ));
-        }
-    }
-    if resource {
-        rules.push(Rule::simplify(
-            "take",
-            [c("take", [v(0), v(1)]), c("token", [])],
-            eq(v(1), v(0)),
-        ))
-    }
-    rules
-}
+use chr_syntax::{Answer, Query, Var, atom, c, t, v};
+#[path = "../experiments/demand_source.rs"]
+#[allow(dead_code)]
+mod source;
+use source::rules;
 #[test]
 fn registered_work_attribution() {
     println!(
