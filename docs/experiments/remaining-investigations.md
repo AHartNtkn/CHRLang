@@ -8,6 +8,8 @@ The work has three parts: test the distinct execution mechanisms, compare their 
 
 ## Execution order
 
+**T077 restoration/reunion is now active.** The [structural timing pilot](results/S06-finite-timing-pilot.md) supplies the missing ordinary CPU endpoint for the current fragment. The [next selection](results/S06-finite-next-investigation.md) reuses existing root replay/configurable checkpoint controls and investigates policies plus actual reconnection. T076 remains pending for broader structural sources and lifetime.
+
 The [structural breadth review](results/S06-structural-breadth-review.md) selects one bounded ordinary-timing pilot after source, ownership and overlap-attribution gates. Its low remaining setup cost and missing CPU endpoint justify completing this comparison now. Restoration/reunion remains the strongest distinct alternative at its boundary; another reducer refinement requires a consequential result.
 
 The [finite-cost ownership gate](results/S06-finite-cost-ownership-gate.md) now passes with exact replays and prepared/query/consumer accounting. T076's overlap attribution now validates factoring of structurally different proofs before ordinary timing. Preserve correlation and source multiplicity when reducing them; compare the remaining cost against competent fresh/reused enumeration. Restoration/reunion remains the strongest distinct alternative at the next selection boundary.

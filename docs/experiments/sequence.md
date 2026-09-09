@@ -264,6 +264,8 @@ All new results link raw inputs, commands, freezes, validation and unfavorable o
 
 ## Current execution order
 
+**T077 is active for restoration policies and temporary reunion.** The [ordinary structural pilot](results/S06-finite-timing-pilot.md) now has 1,800 audited processes and conditional CPU/memory evidence. The [selection record](results/S06-finite-next-investigation.md) moves to the distinct restoration comparison. Root replay and configurable checkpoints already exist; extend their evidence and implement actual reunion where needed. Broader T076 structural work remains required.
+
 The [overlap attribution](results/S06-overlap-factor-attribution.md) now corrects a consequential representation cost while preserving child correlation and source multiplicity. The [four-package breadth review](results/S06-structural-breadth-review.md) selects a bounded ordinary-timing pilot over the validated complete controls before returning to restoration/reunion. T076 remains active; broader structural and other architectural questions remain required.
 
 The [finite-cost ownership gate](results/S06-finite-cost-ownership-gate.md) now validates counter-free controls, changing queries, consumer ownership and cancellation. A paired correction makes exact-family preparation retain only needed state. Overlapping membership proofs exposed a consequential allocation cost; the subsequent factoring attribution now supplies the sound stronger reduction and paired evidence. T076 remains active.

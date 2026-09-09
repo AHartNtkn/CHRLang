@@ -64,16 +64,41 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T076
+active_task: T077
 tasks:
-  - id: T076
+  - id: T077
     type: pm
     assignee: PM
     status: active
-    progress: Overlap factoring preserves correlation and source counts in 32064 independent solver comparisons; all 26 package tests pass default and counter-free. Its 720-process allocation gate has 360 exact replays and owner restoration, with all 576 non-reduced controls unchanged. Six-bit overlap traffic falls from 61.3 MB to 3.72 MB while preparation overhead rises. The four-package breadth review selects a bounded ordinary-timing pilot; no comparative ordinary timing matrix has run.
-    next_action: Register and run the bounded ordinary-allocator structural cost pilot over validated controls, including preparation, changing queries, first/full observation, cancellation and disposal. Reassess consequential uncertainty versus checkpointed restoration/reunion at that boundary; broader structural theories and integrated repair remain required.
+    objective: Investigate corrected checkpoint and replay policies, working-state reuse and temporary separation/reunion against competent copying, persistence and undo, preserving complete source behavior and accounting for preparation, execution, observation and disposal.
+    inputs:
+      - docs/experiments/results/S06-finite-next-investigation.md
+      - docs/experiments/results/S06-finite-timing-pilot.md
+      - docs/experiments/results/S04-matcher-paired-cost.md
+      - research/chr-restoration/src/lib.rs
+      - docs/experiments/remaining-investigations.md
+      - docs/experiments/sequence.md
+    allowed_files:
+      - research/
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    verify:
+      - Reuse existing Replay and configurable Checkpoint controls
+      - Independent full source observations and restoration invariants
+      - Read-heavy and mutation-heavy favorable/adverse cases
+      - Actual temporary separation and reconnection with resources and aliases
+      - Prospective complete lifecycle comparisons
+      - Preserve reference interpreter independence
+  - id: T076
+    type: pm
+    assignee: PM
+    status: pending
+    progress: The ordinary structural pilot completes 1800 audited processes with five samples per cell. Lazy solving has a favorable equality regime and contrary unselective/overlap cases; exact-family elimination is a strong control. Source, allocation and disposal evidence remains valid. No universal ranking or compilation-inclusive claim follows.
+    next_action: Investigate broader correlated structural sources, larger descriptions, sustained reuse/retention and source-derived eligibility. These remain required after the selected restoration/reunion comparison; do not treat this bounded pilot as S06 closure.
     objective: Investigate compact finite structural spaces, intersection and finite path equality against explicit enumeration, with independently specified denotation, source multiplicity correspondence, favorable and adverse sources and complete lifecycle costs.
     inputs:
+      - docs/experiments/results/S06-finite-timing-pilot.md
+      - docs/experiments/results/S06-finite-next-investigation.md
       - docs/experiments/results/S06-overlap-factor-attribution.md
       - docs/experiments/results/S06-structural-breadth-review.md
       - docs/experiments/registrations/S06-overlap-factor-attribution.md

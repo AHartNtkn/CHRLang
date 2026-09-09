@@ -1,5 +1,8 @@
 # Unanswered architecture questions and experimental ownership
 
+The [ordinary structural pilot](results/S06-finite-timing-pilot.md) now completes 1,800 audited processes. Lazy solving has a favorable six-bit equality regime; reused enumeration is cheaper on unselective/overlap cases, and the exact-family control is stronger in the inspected examples. Timings are exploratory, with separate allocation evidence. T077 restoration/reunion is selected next; T076 remains pending for broader structural scope and lifetime. The architecture decision remains open.
+
+
 The [overlap factoring attribution](results/S06-overlap-factor-attribution.md) preserves child correlation and source counts across 32,064 independent solver comparisons. Its 720-process allocation gate exactly replays, with all 576 unchanged-control runs matching the prior gate. Six-bit overlap traffic falls from 61.3 MB to 3.72 MB; preparation costs increase and enumeration remains cheaper in requested bytes there. The four-package structural breadth review selects a bounded ordinary-timing pilot. T076 remains active; no speed or architecture ordering is established.
 
 
