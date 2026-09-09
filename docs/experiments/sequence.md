@@ -278,7 +278,7 @@ Exact sizes follow exploratory sizing under the common rules above. The comparat
 
 ## Current execution order
 
-**T078 is active for substantial common-work qualification after source choice.** The [broader mixed pilot and export repair](results/S10-broad-mixed-lifecycle.md) expose discovery, history and observation costs but do not yet give conditional execution a sufficient shared-work opportunity. Establish that mechanism with effectful favorable and adverse controls, then reconsider selective discovery and complete lifecycle costs.
+**T078 is active for source-derived resource-count elimination qualification.** The [post-choice gate and allocation pilot](results/S10-post-choice-work.md) demonstrate real conditional sharing but larger allocation costs on substantive sources. A checked source transformation could eliminate the private traversal altogether; qualify it before deciding the value of further discovery tuning. Competing effects, insufficient resources and unknown depths must remain explicit boundaries.
 
 The [ordered remaining sequence](remaining-investigations.md#execution-order) records the completed bounded restoration/reunion comparisons and remaining investigation boundaries. T077 stays required for broader restoration, adaptive splitting, repeated dynamic reunion, inference and sustained lifetime. Broader lowering and structural theories, discovery, reuse, direct graphs and connected parallelism remain required. Language and lifetime comparisons accompany every candidate; priority is reconsidered at each package boundary.
 

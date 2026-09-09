@@ -1,0 +1,72 @@
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+warning: function `run` is never used
+   --> research/chr-direct-conditional/tests/runtime_support/mod.rs:169:8
+    |
+169 | pub fn run(rules: &[Rule], query: &Query, bound: usize) -> Vec<Answer> {
+    |        ^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `chr-direct-conditional` (test "post_choice_work") generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.51s
+     Running tests/post_choice_work.rs (target/debug/deps/post_choice_work-aeb3803fcb28c820)
+
+running 1 test
+family=common choices=0 depth=0 seed=0 explicit=0 conditional=0
+family=common choices=0 depth=0 seed=1 explicit=0 conditional=0
+family=common choices=0 depth=4 seed=0 explicit=4 conditional=4
+family=common choices=0 depth=4 seed=1 explicit=4 conditional=4
+family=common choices=0 depth=16 seed=0 explicit=16 conditional=16
+family=common choices=0 depth=16 seed=1 explicit=16 conditional=16
+family=common choices=1 depth=0 seed=0 explicit=0 conditional=0
+family=common choices=1 depth=0 seed=1 explicit=0 conditional=0
+family=common choices=1 depth=4 seed=0 explicit=8 conditional=4
+family=common choices=1 depth=4 seed=1 explicit=8 conditional=4
+family=common choices=1 depth=16 seed=0 explicit=32 conditional=16
+family=common choices=1 depth=16 seed=1 explicit=32 conditional=16
+family=common choices=3 depth=0 seed=0 explicit=0 conditional=0
+family=common choices=3 depth=0 seed=1 explicit=0 conditional=0
+family=common choices=3 depth=4 seed=0 explicit=32 conditional=4
+family=common choices=3 depth=4 seed=1 explicit=32 conditional=4
+family=common choices=3 depth=16 seed=0 explicit=128 conditional=16
+family=common choices=3 depth=16 seed=1 explicit=128 conditional=16
+family=independent choices=0 depth=0 seed=0 explicit=0 conditional=0
+family=independent choices=0 depth=0 seed=1 explicit=0 conditional=0
+family=independent choices=0 depth=4 seed=0 explicit=4 conditional=4
+family=independent choices=0 depth=4 seed=1 explicit=4 conditional=4
+family=independent choices=0 depth=16 seed=0 explicit=16 conditional=16
+family=independent choices=0 depth=16 seed=1 explicit=16 conditional=16
+family=independent choices=1 depth=0 seed=0 explicit=1 conditional=1
+family=independent choices=1 depth=0 seed=1 explicit=1 conditional=1
+family=independent choices=1 depth=4 seed=0 explicit=9 conditional=9
+family=independent choices=1 depth=4 seed=1 explicit=9 conditional=9
+family=independent choices=1 depth=16 seed=0 explicit=33 conditional=33
+family=independent choices=1 depth=16 seed=1 explicit=33 conditional=33
+family=independent choices=3 depth=0 seed=0 explicit=12 conditional=12
+family=independent choices=3 depth=0 seed=1 explicit=12 conditional=12
+family=independent choices=3 depth=4 seed=0 explicit=44 conditional=44
+family=independent choices=3 depth=4 seed=1 explicit=44 conditional=44
+family=independent choices=3 depth=16 seed=0 explicit=140 conditional=140
+family=independent choices=3 depth=16 seed=1 explicit=140 conditional=140
+family=early choices=0 depth=0 seed=0 explicit=0 conditional=0
+family=early choices=0 depth=0 seed=1 explicit=0 conditional=0
+family=early choices=0 depth=4 seed=0 explicit=4 conditional=4
+family=early choices=0 depth=4 seed=1 explicit=4 conditional=4
+family=early choices=0 depth=16 seed=0 explicit=16 conditional=16
+family=early choices=0 depth=16 seed=1 explicit=16 conditional=16
+family=early choices=1 depth=0 seed=0 explicit=0 conditional=0
+family=early choices=1 depth=0 seed=1 explicit=0 conditional=0
+family=early choices=1 depth=4 seed=0 explicit=4 conditional=4
+family=early choices=1 depth=4 seed=1 explicit=4 conditional=4
+family=early choices=1 depth=16 seed=0 explicit=16 conditional=16
+family=early choices=1 depth=16 seed=1 explicit=16 conditional=16
+family=early choices=3 depth=0 seed=0 explicit=0 conditional=0
+family=early choices=3 depth=0 seed=1 explicit=0 conditional=0
+family=early choices=3 depth=4 seed=0 explicit=16 conditional=4
+family=early choices=3 depth=4 seed=1 explicit=16 conditional=4
+family=early choices=3 depth=16 seed=0 explicit=64 conditional=16
+family=early choices=3 depth=16 seed=1 explicit=64 conditional=16
+test common_continuation_has_complete_answers_and_measured_shared_work ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.34s
+

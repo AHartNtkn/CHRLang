@@ -1,6 +1,6 @@
 # R00: architectural alternatives and first experiment selection
 
-Current S10 evidence: [broader mixed lifecycle and export repair](S10-broad-mixed-lifecycle.md) completes 4116 primary processes and 168 repair allocation processes. Contextual traffic/peak tradeoffs persist; known-arity export overhead is repaired. T078 next qualifies substantial common work after choice before judging conditional sharing. Compilation, sustained lifetime and all unresolved directions remain required.
+Current S10 evidence: [post-choice work](S10-post-choice-work.md) demonstrates real sharing and validates 672 allocation processes/336 exact pairs. Avoided source applications do not establish lower total allocation. T078 next qualifies source-derived resource-count elimination; conditional discovery and all broader obligations remain unresolved.
 
 The [resource-fusion lifecycle pilot](S06-resource-fusion-lifecycle.md) completes 1350 processes and 180 exact allocation pairs. Inference and certification can outweigh execution savings; timing remains exploratory with clock-overhead evidence. All owners restore. The [S10 entry](S10-composition-entry.md) selects T078 coherent-path capability and mixed-source qualification. T073 and the other unresolved component directions remain required.
 
