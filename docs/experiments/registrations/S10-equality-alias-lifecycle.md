@@ -1,0 +1,9 @@
+# Registered dynamic-alias attribution
+
+Registered after the 5376-process equality pilot and before this follow-up. The ground dynamic source shows byte-identical costs under conservative and precise builds. Its alias binds X to an atom in one constraint, while the item contains a separate occurrence of the same atom. These are structurally equal but distinct nodes. Test whether actual shared variable identity changes that result, as predicted by the earlier source/work gate.
+
+Use dynamic_alias: 16n pairs of fresh unknown variables, each pair occurring in both a consumed alias constraint and a propagation item. Alias equates the pair first; the propagation equation X=Y now joins the same roots. Expected residuals preserve each pair's alias and independence between pairs. Query-specific tags vary across prepared reuse. Independent scalar and explicit raw expectations validate each query, including residual variable identities.
+
+Cross Scan/eager/demand/resumable, n=0/3, reuse=1/4, query/prepared consumers, original/eliminated and conservative/precise: 128 cells. Two allocation repeats (256 processes), seed 7822, then five ordinary timing repeats (640 processes), seed 7823. Total 896. Use the same phase, ownership, metric-disabled, preparation/source-analysis, cancellation, validation and resource rules as S10-equality-lifecycle.md. Separate example and binaries preserve the primary pilot's frozen sources. Freeze all follow-up sources and binaries. Timing remains exploratory.
+
+H1: true dynamic aliases benefit from same-root detection while syntactic elimination only adds analysis overhead. H2: eager and resumable may still incur different total costs despite identical candidate counts. If H1 fails, inspect queue processing and matching environments rather than declaring dynamic equality unhelpful. This follow-up qualifies the dynamic result; it does not add general structural-relevance detection or close architecture selection.

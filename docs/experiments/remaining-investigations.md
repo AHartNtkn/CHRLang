@@ -1,10 +1,10 @@
 # The comparisons still needed to choose the architecture
 
-The [equality invalidation/source-elimination gate](results/S10-equality-invalidation-gate.md) establishes different work savings from runtime detection and source analysis. T078 next registers their bounded lifecycle attribution; broader language and architecture obligations remain required.
+The [equality lifecycle](results/S10-equality-lifecycle.md) completes 6272 processes with exact allocation and owner checks. T078 next investigates [support-aware conditional joining](results/S10-support-join-entry.md); broader language and architecture obligations remain required.
 
 ## Starting evidence and immediate decision
 
-The [S07 premise audit](results/S07-resource-premises.md) now supplies accepted/rejected sources and counterexamples: privacy and groundness differ from the stronger optimization certificate. The [executable contract gate](results/S07-resource-contract.md) now enforces those separate properties at preparation and search admission. The bounded declaration lifecycle pilot charges their checking costs. No language policy is adopted. The selective lifecycle pilot supplies a stronger control. The resumable lifecycle now passes; equality invalidation and source elimination are the next stronger controls.
+The [S07 premise audit](results/S07-resource-premises.md) now supplies accepted/rejected sources and counterexamples: privacy and groundness differ from the stronger optimization certificate. The [executable contract gate](results/S07-resource-contract.md) now enforces those separate properties at preparation and search admission. The bounded declaration lifecycle pilot charges their checking costs. No language policy is adopted. The selective lifecycle pilot supplies a stronger control. Equality invalidation and source elimination now have full pilot costs and a dynamic-identity attribution; support-aware joining is selected next.
 
 The completed [restoration pilot](results/S04-resident-cost-pilot.md), [reunion source gate](results/S04-reunion-source-gate.md), [ownership/identity comparison](results/S04-reunion-identity-attribution.md), [strong-control gate](results/S04-reunion-strong-controls.md) and [complete-cost pilot](results/S04-reunion-complete-pilot.md) supply controls. They do not resolve repeated dynamic reunion or general source inference.
 
@@ -18,13 +18,13 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-**Equality invalidation and source elimination remain selected under T078/S10.** The source/work gate passes. Register and measure full lifecycle costs of the two controls, including meaningful-change and mixed-source adverse cases, before attributing the previous reset penalty to an architecture.
+**Support-aware conditional joining is selected under T078/S10.** Equality controls now correct the large reset attribution. Investigate incompatible combinations before tuple matching, with compatible, late-information and consuming controls.
 
 The order below incorporates the latest component evidence and the S10 entry decision. Each numbered row has a separate architectural question and completion boundary. The detailed mechanism specifications later in this document define its controls and adverse cases. A row containing several mechanisms requires a conclusion for each; completing one does not complete the row.
 
 | Order | Required investigation | What its result must decide |
 |---|---|---|
-| Current | **Equality invalidation / source elimination (T078 / S10).** Compare change-sensitive matching invalidation with source-side trivial equality elimination. | Which repeated work is avoidable without losing partial deductions, canonical changes, guard activation or source progress. |
+| Current | **Support-aware conditional joining (T078 / S10).** Compare early compatibility checks and partial-prefix pruning with existing filtered discovery. | Whether impossible combinations can be avoided without losing later-enabled applications or paying more for compatible work. |
 | 1 | **Bounded pilot complete; broader restoration remains required (T077 / S04-A).** Compare copying, persistence/COW, undo, root replay and checkpoint intervals on read-heavy and mutation-heavy states, shallow/wide and deep search, early/late failure, changed queries and cancellation. | Whether avoiding sole-branch reconstruction changes the time–memory tradeoff once preparation, switching, complete answers and disposal count. The [source gate](results/S04-resident-replay-source-gate.md) and [cost pilot](results/S04-resident-cost-pilot.md) now supply bounded evidence. Alternative policies and broader state/lifetime regimes remain required. |
 | 2 | **Bounded reunion costs complete; broader reunion and adaptive splitting remain required (T077 / S04-B/C).** Repeated dynamic reunion has bounded source/work/allocation evidence; adaptive splitting and broader lifetime remain required before general conclusions. Use same-predicate independent occurrences, late aliases/calls and shared consumables. Compare ordinary execution, permanent factoring and temporary separation; separately compare fixed and demand-sensitive splitting. | Whether temporary independence or economical split timing can replace retained shared execution. Include frequent reunion, immediate failure and no useful separation. Preserve correlation, source progress, resource claims and propagation history. Checkpoints alone cannot answer either question. |
 | 3 | **Complete integrated execution (T072 / S02-A/B).** Carry the corrected dependency lifecycle controls into broader source/ownership comparison, then compare CHR-expressed equality, strategic local rewrites and the strongest contextual/scanned/indexed controls on full equality-enabled consuming sources. | Which service boundaries actually disappear, whether interleaving avoids useful work, and what repair/ownership costs remain. Keep scheduling differences explicit. An isolated equality operation cannot decide the complete organization. |
@@ -66,7 +66,7 @@ The order below incorporates the latest component evidence and the S10 entry dec
 
 ## Next discriminating comparisons
 
-**The specifications below are organized by question; their numbers are not the execution order.** T078 investigates equality invalidation and source elimination within the complete-path comparison. Broader T079 language properties remain unfinished. Integrated execution, broader call reuse and structural solving remain required beyond their bounded source and cost gates.
+**The specifications below are organized by question; their numbers are not the execution order.** T078 investigates support-aware joining within the complete-path comparison. Broader T079 language properties remain unfinished. Integrated execution, broader call reuse and structural solving remain required beyond their bounded source and cost gates.
 
 These are experiment specifications, not claims of results. Each comparison requires a source gate, exploratory sizing, prospective confirmation and a decision record. Exact sizes follow sizing; thresholds and repetitions must be fixed before confirmation under the [common measurement rules](sequence.md#registration-bounds-and-interpretation).
 

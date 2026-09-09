@@ -1,0 +1,11 @@
+# Next: avoid joining occurrences that cannot coexist
+
+Select support-aware conditional joining under T078/S10. Existing per-head filtering removes permanently dead occurrences and immutable constructor mismatches, but still forms combinations whose choice conditions cannot hold together. Test whether compatibility can reject a partial join before expensive matching, history and guard work.
+
+The strongest ready alternative is broader equality invalidation: detect when distinct-root merges cannot affect relevant heads. The equality lifecycle now supplies same-root and source-elimination controls for its large reset penalty, while mixed-source disadvantages remain. Joining can change a different architectural responsibility and has no direct result yet. This justifies its next position, not rejection of broader equality tracking.
+
+Inspect discovery scheduling, support representation, occurrence lifetime and matching dependencies before implementation. Distinguish current compatibility from permanent incompatibility: a skipped join must not lose an application enabled by later information. Preserve source correlation, local consuming claims, repeated-variable/constructor matching, late guards and complete residual observations. Keep the scalar/reference independent.
+
+Establish source witnesses with individually live but jointly incompatible occurrences, compatible correlated choices, independent choices, later binding and consumption. Include dense compatible joins where extra support checks have no pruning benefit. Compare the existing filtered conditional path and conventional Scan; carry current contextual controls when whole-path costs are registered. Charge support conjunction, retained intermediate state, rebuilding and disposal. A work gate must show which operation actually disappears, followed by registered full lifecycle measurement if consequential.
+
+Do not adopt a cache or retained join table by assumption. Compare a direct compatibility check at tuple construction with partial-prefix pruning if each can change the result; document why any unimplemented variant is equivalent or remains required. Reassess priorities after this bounded package. Language properties, sustained lifetime, other access mechanisms, coherent architectures and held-out closure remain obligations.

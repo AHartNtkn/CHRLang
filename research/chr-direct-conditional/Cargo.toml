@@ -4,6 +4,7 @@ version.workspace = true
 edition.workspace = true
 
 [features]
+equality-invalidation = ["chr-relational/precise-invalidation"]
 selective-discovery = []
 default = ["metrics"]
 work-diagnostics = ["chr-direct-choice/work-diagnostics"]

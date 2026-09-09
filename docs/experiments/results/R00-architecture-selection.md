@@ -1,6 +1,6 @@
 # R00: architectural alternatives and first experiment selection
 
-Current evidence: the [equality invalidation/source-elimination gate](S10-equality-invalidation-gate.md) distinguishes complementary controls. Dynamic-alias eager/resumable offers fall from 153 to 17 with same-root detection; constructor self-equality falls to 16 only with source elimination. Full-answer and progress gates pass. Lifecycle costs remain unmeasured; T078 stays active.
+Current evidence: the [equality lifecycle and alias attribution](S10-equality-lifecycle.md) complete 6272 processes and 896 exact allocation pairs. Same-root detection removes most reset-history traffic; source elimination handles constructor reflexivity; actual aliases differ from structurally equal separate nodes. Mixed-source penalties remain. T078 next investigates [support-aware joining](S10-support-join-entry.md).
 
 The [resource-fusion lifecycle pilot](S06-resource-fusion-lifecycle.md) completes 1350 processes and 180 exact allocation pairs. Inference and certification can outweigh execution savings; timing remains exploratory with clock-overhead evidence. All owners restore. The [S10 entry](S10-composition-entry.md) selects T078 coherent-path capability and mixed-source qualification. T073 and the other unresolved component directions remain required.
 
