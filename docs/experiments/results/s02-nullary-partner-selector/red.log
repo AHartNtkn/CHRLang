@@ -1,0 +1,38 @@
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+warning: unused import: `SearchEvent`
+ --> research/chr-compiled/tests/nullary_partner_regions.rs:5:53
+  |
+5 | use chr_compiled::{Access, Policy, PreparedRuleset, SearchEvent};
+  |                                                     ^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `Goal`
+ --> research/chr-compiled/tests/nullary_partner_regions.rs:6:18
+  |
+6 | use chr_syntax::{Goal, Query, Rule, Var, c, eq, t, v};
+  |                  ^^^^
+
+warning: `chr-compiled` (test "nullary_partner_regions") generated 2 warnings (run `cargo fix --test "nullary_partner_regions" -p chr-compiled` to apply 2 suggestions)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.66s
+     Running tests/nullary_partner_regions.rs (target/debug/deps/nullary_partner_regions-220054134612b982)
+
+running 1 test
+test inferred_pair_consumes_both_occurrences_and_executes_direct_selection ... FAILED
+
+failures:
+
+---- inferred_pair_consumes_both_occurrences_and_executes_direct_selection stdout ----
+
+thread 'inferred_pair_consumes_both_occurrences_and_executes_direct_selection' (269) panicked at research/chr-compiled/tests/nullary_partner_regions.rs:11:5:
+assertion failed: prepared.region_eligibility().iter().find(|e|
+                e.predicate == ("job".into(), 2)).unwrap().eligible
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    inferred_pair_consumes_both_occurrences_and_executes_direct_selection
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p chr-compiled --test nullary_partner_regions`

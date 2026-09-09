@@ -207,7 +207,15 @@ fn eligibility_checks_every_head_use_and_arity() {
             .unwrap()
             .eligible
     );
-    for pred in [("p".into(), 2), ("q".into(), 0), ("token".into(), 0)] {
+    assert!(
+        reports
+            .iter()
+            .find(|r| r.predicate == ("p".into(), 2))
+            .unwrap()
+            .eligible
+    );
+    assert!(p.specialize_checked(&[("p".into(), 2)]).is_ok());
+    for pred in [("q".into(), 0), ("token".into(), 0)] {
         assert!(
             !reports
                 .iter()

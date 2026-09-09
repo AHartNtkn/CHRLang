@@ -1,0 +1,68 @@
+{
+  "base_head": "17930dd3d0f4e5bf8210ab3ea8e625edd75e07b2",
+  "toolchain": "rustc 1.97.1 (8bab26f4f 2026-07-14)",
+  "tests": {
+    "compiled-default": {
+      "passed": 126,
+      "failed": 0,
+      "ignored": 0
+    },
+    "compiled-off": {
+      "passed": 126,
+      "failed": 0,
+      "ignored": 0
+    },
+    "compiled-all-features": {
+      "passed": 151,
+      "failed": 0,
+      "ignored": 0
+    },
+    "relational-off": {
+      "passed": 53,
+      "failed": 0,
+      "ignored": 0
+    },
+    "relational-work": {
+      "passed": 23,
+      "failed": 0,
+      "ignored": 0
+    },
+    "body-diagnostics": {
+      "passed": 23,
+      "failed": 0,
+      "ignored": 0
+    }
+  },
+  "body_configurations": 149,
+  "controls_per_configuration": 7,
+  "complete_answer_comparisons_per_constructor_run": 1043,
+  "dedicated_shape_configurations": 72,
+  "unchanged_dependency_work_records": 36,
+  "body_order_counterexample_preserved": true,
+  "local_executor_and_independent_scalar_unchanged": true,
+  "comparative_timings_run": false,
+  "allocation_matrix_run": false,
+  "source_hashes": {
+    "research/chr-compiled/src/regions.rs": "d3e223738c04710bf9fb14170b267b8dd375bb1e084d9cd21710f34d93b81f8a",
+    "research/chr-compiled/tests/nullary_partner_regions.rs": "6d2e1de2eb248ada3a892fc47d05b6245c1e0399e6c0739bf6e0ccca554c18ba",
+    "research/chr-compiled/tests/single_head_regions.rs": "ad9ea2e6348d55b6772fb34db438bc5ea48c1335ef986f570c47c5b845d2e0cd",
+    "research/chr-relational/tests/chr_constructors.rs": "741f9cb97e0c11ba7c7813445f06bf61ec59dabe1fe67dcd0da27b1041f4bcb3",
+    "research/chr-relational/Cargo.toml": "2baf828f96a888f187f00336c14242d57e9e06bba4287bccf6c07bb37ed257d5",
+    "research/chr-relational/tests/support/local_ports.rs": "d976ff9420c0fdc359dd99309ae12d766a8f30184cc8d6e44757d5b936358f7d",
+    "research/chr-direct-conditional/tests/runtime_support/mod.rs": "03633e8d666fadcdd08ddfe4900aa8116b32e434fb0a5dcb1c5faa23ff5976b2",
+    "docs/experiments/registrations/S02-nullary-partner-selector.md": "d40465fd6a3bf3fab5dc61893e391d0033b3f91e240ff792149ab7c258dc9ae2"
+  },
+  "commands": [
+    "cargo test -p chr-compiled",
+    "cargo test -p chr-compiled --no-default-features",
+    "cargo test -p chr-compiled --all-features",
+    "cargo test -p chr-relational",
+    "cargo test -p chr-relational --features compiled-work --test chr_constructors",
+    "cargo test -p chr-relational --features compiled-work --test chr_constructors -- --nocapture",
+    "cargo clippy -p chr-compiled --all-targets --all-features -- -D warnings",
+    "cargo clippy -p chr-relational --all-targets --features compiled-work -- -D warnings (fails on three existing dependency build-script unused helpers)",
+    "cargo clippy -p chr-relational --test chr_constructors --features compiled-work --no-deps -- -D warnings",
+    "rustfmt --check --edition 2024 --config skip_children=true research/chr-compiled/src/regions.rs research/chr-compiled/tests/nullary_partner_regions.rs research/chr-compiled/tests/single_head_regions.rs research/chr-relational/tests/chr_constructors.rs"
+  ],
+  "log_format": "Terminal blank lines normalized; command output content preserved."
+}

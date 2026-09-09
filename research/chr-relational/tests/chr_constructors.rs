@@ -1411,6 +1411,57 @@ fn described_winner_awakens_relocated_pairs_without_binding_a_match() {
     }
 }
 
+// These deterministic body sources contain no disjunction. Check both success
+// and failure work so a failing source cannot evade direct-path qualification.
+fn check_body_controls(
+    prepared: &chr_compiled::PreparedRuleset,
+    query: &Query,
+    expected: &[Answer],
+    applies: bool,
+) {
+    let specialized = prepared.specialize_inferred();
+    for (direct, rules) in [(false, prepared), (true, &specialized)] {
+        for access in [chr_compiled::Access::Scan, chr_compiled::Access::Indexed] {
+            let mut search = rules
+                .start_search(query.clone(), chr_compiled::Policy::Global, access)
+                .unwrap();
+            let mut answers = vec![];
+            let mut applications = 0;
+            let mut cursor_steps = 0;
+            let mut ended = false;
+            for _ in 0..200_000 {
+                let terminal = match search.tick() {
+                    chr_compiled::SearchEvent::Complete(mut b) => {
+                        answers.push(b.engine.observe().unwrap());
+                        Some(b)
+                    }
+                    chr_compiled::SearchEvent::Failed(b) => Some(b),
+                    chr_compiled::SearchEvent::Exhausted => {
+                        ended = true;
+                        break;
+                    }
+                    chr_compiled::SearchEvent::Split { .. } => {
+                        panic!("deterministic body source unexpectedly split")
+                    }
+                    chr_compiled::SearchEvent::Progress => None,
+                };
+                if let Some(b) = terminal {
+                    applications += b.engine.stats().specialized_applications;
+                    cursor_steps += b.engine.stats().cursor_steps;
+                }
+            }
+            assert!(ended, "compiled body source cutoff");
+            oracle::same_raw(answers, expected.to_vec());
+            if chr_compiled::COLLECT_METRICS {
+                assert_eq!(applications > 0, direct && applies);
+                if direct {
+                    assert_eq!(cursor_steps, 0, "specialized source used generic tuples");
+                }
+            }
+        }
+    }
+}
+
 #[test]
 fn source_body_constructor_equation_is_an_executable_plan() {
     let bodies = vec![
@@ -1454,10 +1505,10 @@ fn source_body_constructor_equation_is_an_executable_plan() {
                 .iter()
                 .find(|e| e.predicate.0 == name && e.predicate.1 == arity)
                 .unwrap();
-            assert!(!e.eligible);
+            assert_eq!(e.eligible, name == "take");
             println!(
                 "BODY_ELIGIBILITY {body_id} {name}/{arity}: {}",
-                e.reason.as_deref().unwrap()
+                e.reason.as_deref().unwrap_or("eligible")
             );
         }
         for value in &values {
@@ -1495,27 +1546,7 @@ fn source_body_constructor_equation_is_an_executable_plan() {
                         }
                     }
                     let expected = oracle::run(std::slice::from_ref(&rule), &q, 200_000);
-                    for access in [chr_compiled::Access::Scan, chr_compiled::Access::Indexed] {
-                        let mut engine = prepared
-                            .start_search(q.clone(), chr_compiled::Policy::Global, access)
-                            .unwrap();
-                        let mut answers = vec![];
-                        let mut ended = false;
-                        for _ in 0..200_000 {
-                            match engine.tick() {
-                                chr_compiled::SearchEvent::Complete(mut b) => {
-                                    answers.push(b.engine.observe().unwrap())
-                                }
-                                chr_compiled::SearchEvent::Exhausted => {
-                                    ended = true;
-                                    break;
-                                }
-                                _ => (),
-                            }
-                        }
-                        assert!(ended);
-                        oracle::same_raw(answers, expected.clone());
-                    }
+                    check_body_controls(&prepared, &q, &expected, true);
                     for mode in [
                         local::DependencyMode::Endpoint,
                         local::DependencyMode::Filtered,
@@ -1561,9 +1592,8 @@ fn source_bodies_post_chained_consumers_and_preserve_fresh_residual_aliases() {
                 outputs: vec![("result".into(), Var(100)), ("leaf".into(), Var(90))],
             };
             let expected = oracle::run(std::slice::from_ref(&rule), &q, 200_000);
-            for access in [chr_compiled::Access::Scan, chr_compiled::Access::Indexed] {
-                oracle::same_raw(run(vec![rule.clone()], q.clone(), access), expected.clone());
-            }
+            let prepared = chr_compiled::PreparedRuleset::new(vec![rule.clone()], None).unwrap();
+            check_body_controls(&prepared, &q, &expected, depth > 0);
             for mode in [
                 local::DependencyMode::Endpoint,
                 local::DependencyMode::Filtered,
@@ -1622,9 +1652,8 @@ fn body_barrier_preserves_the_older_consumer_that_becomes_ready_late() {
     };
     let expected = oracle::run(std::slice::from_ref(&rule), &q, 200_000);
     assert_eq!(expected[0].outputs[0].1, atom("older"));
-    for access in [chr_compiled::Access::Scan, chr_compiled::Access::Indexed] {
-        oracle::same_raw(run(vec![rule.clone()], q.clone(), access), expected.clone());
-    }
+    let prepared = chr_compiled::PreparedRuleset::new(vec![rule.clone()], None).unwrap();
+    check_body_controls(&prepared, &q, &expected, true);
     let plan = local::Plan::compile(&rule).unwrap();
     for mode in [
         local::DependencyMode::Endpoint,

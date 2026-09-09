@@ -1,7 +1,7 @@
-//! Checked sealed predicates with direct ordered single-occurrence selection.
+//! Checked leading predicates with direct ordered occurrence selection.
 //!
-//! Eligibility is a whole-program fact: every head use of a predicate must be
-//! the sole removed head of its rule. Selection uses prepared register operations,
+//! Eligibility is a whole-program fact: every head use must lead a fully
+//! consuming rule, alone or with a distinct nullary second head. Selection uses prepared register operations,
 //! not generic tuple cursors or source-pattern interpretation. Other predicates
 //! retain ordinary selection. Source rules, occurrence order and body boundaries
 //! remain those of Policy::Global; Active is explicitly unsupported.
@@ -21,10 +21,12 @@ impl PreparedRuleset {
             .map(|(pred, predicate)| {
                 let reason = match self.dispatch.get(&pred) {
                     None => Some("predicate has no source head uses".into()),
-                    Some(uses) => uses.iter().find_map(|&(rule, _)| {
+                    Some(uses) => uses.iter().find_map(|&(rule, head)| {
                         let r = &self.rules[rule];
-                        (r.kept != 0 || r.heads.len() != 1).then(|| {
-                            format!("rule {rule} does not have one removed head and no kept heads")
+                        let shape = r.heads.len() == 1 || (r.heads.len() == 2
+                            && r.heads[1].args.is_empty() && r.heads[0].pred != r.heads[1].pred);
+                        (head != 0 || r.kept != 0 || !shape).then(|| {
+                            format!("rule {rule} requires a leading removed head, no kept heads, and at most one distinct nullary partner")
                         })
                     }),
                 };
@@ -219,7 +221,7 @@ enum Bucket {
     Predicate(usize),
     Argument(IndexKey),
 }
-/// An ordered successor only: no tuple frames, partner pools or history keys.
+/// Ordered leading occurrence and optional nullary resource: no tuple frames or history keys.
 #[derive(Clone)]
 pub(crate) struct DirectCursor {
     bucket: Bucket,
@@ -242,6 +244,22 @@ impl DirectCursor {
         }
     }
     pub(crate) fn tick(&mut self, core: &mut Core, rule: usize) -> Selection {
+        // A nullary partner cannot affect bindings or guards. Its oldest live
+        // occurrence is the same one selected by ordinary source-order tuples.
+        let partner = match core.rules[rule].heads.get(1) {
+            None => None,
+            Some(head) => {
+                let Some(id) = core
+                    .pools
+                    .get(&head.pred)
+                    .and_then(|pool| pool.first())
+                    .copied()
+                else {
+                    return Selection::Done;
+                };
+                Some(id)
+            }
+        };
         let bucket = match self.bucket {
             Bucket::Predicate(p) => core.pools.get(&p),
             Bucket::Argument(k) => core.index.get(&k),
@@ -277,9 +295,11 @@ impl DirectCursor {
             return Selection::Yield;
         };
         let body = core.body(&desc.body, &mut frame);
+        let mut ids = vec![id];
+        ids.extend(partner);
         Selection::Found(Application {
             rule,
-            ids: vec![id],
+            ids,
             body,
             next: frame.next,
         })

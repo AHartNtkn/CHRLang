@@ -1,0 +1,35 @@
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+warning: unused import: `SearchEvent`
+ --> research/chr-compiled/tests/nullary_partner_regions.rs:5:53
+  |
+5 | use chr_compiled::{Access, Policy, PreparedRuleset, SearchEvent};
+  |                                                     ^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `Goal`
+ --> research/chr-compiled/tests/nullary_partner_regions.rs:6:18
+  |
+6 | use chr_syntax::{Goal, Query, Rule, Var, c, eq, t, v};
+  |                  ^^^^
+
+warning: `chr-compiled` (test "nullary_partner_regions") generated 2 warnings (run `cargo fix --test "nullary_partner_regions" -p chr-compiled` to apply 2 suggestions)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.95s
+     Running tests/nullary_partner_regions.rs (target/debug/deps/nullary_partner_regions-220054134612b982)
+
+running 1 test
+test inferred_pair_consumes_both_occurrences_and_executes_direct_selection ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/single_head_regions.rs (target/debug/deps/single_head_regions-baf958e4c6a1b140)
+
+running 6 tests
+test eligibility_checks_every_head_use_and_arity ... ok
+test selected_calls_bypass_tuple_cursor_and_history ... ok
+test mixed_context_and_nonground_source_cases ... ok
+test generated_mixed_plans_and_prepared_query_leases ... ok
+test recursive_choices_and_guard_local_identity ... ok
+test guard_and_constructor_crossing_corpus ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s

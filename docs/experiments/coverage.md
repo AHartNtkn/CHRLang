@@ -1,6 +1,6 @@
 # Unanswered architecture questions and experimental ownership
 
-The [integrated-body gate](results/S02-integrated-bodies.md) passes 53 tests and 745 complete-answer comparisons across 149 finite configurations. Prepared source bodies create constructor equations, fresh aliases, residual facts and further consuming requests directly on handles. A body-order counterexample distinguishes older versus newer consumers. Existing inferred specialization rejects these two-head rules; T072 next qualifies an equally specialized compiled consuming selector before lifecycle costs. No architecture or performance ranking follows.
+The [consuming-selector gate](results/S02-nullary-partner-selector.md) qualifies an equally specialized compiled control for the integrated body sources. All 149 configurations agree across seven controls (1,043 complete-answer comparisons); separate diagnostics verify actual specialized applications without generic tuple discovery. Source order, absent resources and body completion are preserved. T072 next establishes counter-free local measurement and complete lifecycle/ownership accounting. No performance ranking follows.
 
 ## How unanswered variants remain accountable
 

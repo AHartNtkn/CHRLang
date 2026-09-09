@@ -13,4 +13,5 @@ chr-integrated = { path = "../chr-integrated", default-features = false }
 chr-compiled = { path = "../chr-compiled", default-features = false }
 
 [features]
+compiled-work = ["chr-compiled/metrics"]
 alloc-meter = []
