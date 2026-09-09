@@ -1,0 +1,9 @@
+# Conditional stream allocation attribution
+
+Purpose: identify consequential operations and retained owner populations behind the cross-query allocation gap, before timing or reclamation. This is diagnostic attribution, not a new speed comparison or proof of reclaimability.
+
+Run conditional/inferred modes, aliases/distinct families and depths16/64, with resource=true, work4, payload8 and successful terminals. One complete query per cell, two exact repeats:16 processes. Fixed order is acceptable for untimed exact allocation diagnostics. Release every answer immediately. Source and analytical expected raw answers are independently checked in an unmeasured replay. Bound each process to1GiB,120CPU/150wall seconds, and each query to2million service calls. Freeze code, registration and binary before execution.
+
+Classify the branch of each next tick by the scheduler's current state without advancing it: observation, discovery, notification, body, application, scheduler or exhausted. Requested bytes/calls measured around the tick are summed by branch; answer disposal occurs outside it. Require branch sums to equal the whole execution requested bytes. Record support nodes, variables, bindings, change records, occurrences/live occurrences, history, pending bodies and discovery owners at common delivery counts and exhaustion. Counts establish populations, not heap-byte ownership or deadness. Preserve complete observations and final ownership restoration; no collection or behavior changes are introduced.
+
+The recorded cross-query results remain controls. A dominant stage selects inspection/attribution within that stage. A large retained population requires a future-root argument before reclamation. If no consequential attribution emerges, reconsider the distinct non-overlap/effect analysis rather than refining a timing estimate.

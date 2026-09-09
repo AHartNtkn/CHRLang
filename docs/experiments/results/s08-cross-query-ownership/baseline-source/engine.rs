@@ -410,28 +410,6 @@ impl Engine {
     pub fn supports(&self) -> &Arena {
         &self.arena
     }
-    /// Allocation attribution only: the branch selected by the next public tick.
-    /// Does not advance state, allocate, or change the service policy.
-    #[cfg(feature = "alloc-meter")]
-    pub fn allocation_stage(&self) -> usize {
-        if !self.observations.is_empty()
-            && (!self.observation_turn || matches!(self.phase, Phase::Done))
-        {
-            0 // observation
-        } else if matches!(self.phase, Phase::Done) {
-            6 // exhausted
-        } else if !self.discoveries.is_empty() {
-            1 // discovery
-        } else if self.notification.is_some() || self.change_cursor < self.store.changes().len() {
-            2 // notification
-        } else if self.body.is_some() {
-            3 // body
-        } else if self.active.is_some() {
-            4 // application
-        } else {
-            5 // scheduler
-        }
-    }
     pub fn tick(&mut self) -> Event {
         if METRICS {
             self.stats.ticks += 1;

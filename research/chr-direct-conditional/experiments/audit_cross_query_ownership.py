@@ -15,7 +15,11 @@ random.Random(7860).shuffle(jobs)
 assert json.loads((root/'order.json').read_text()) == [list(j) for j in jobs]
 assert len(list(root.glob('run-*.json'))) == 216
 for path,h in json.loads((root/'freeze.json').read_text()).items():
-    assert hashlib.sha256(Path(path).read_bytes()).hexdigest() == h,path
+    data=Path(path).read_bytes()
+    if hashlib.sha256(data).hexdigest()!=h:
+        mapping=json.loads((root/'source-snapshots.json').read_text())
+        data=Path(mapping[path]).read_bytes()
+    assert hashlib.sha256(data).hexdigest()==h,path
 records={}
 rows=[]
 for i,(_,m,f,n,resource,keep,cancel,fail) in enumerate(jobs):

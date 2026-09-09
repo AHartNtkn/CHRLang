@@ -10,6 +10,8 @@ The [non-overlap obligation gate](results/S07-overlap-obligations.md) demonstrat
 
 The [cross-query ownership gate](results/S08-cross-query-ownership.md) completes 216 allocation processes and 108 exact replays over eight changing queries. All 216 output-owner groups have equal retained bytes across engines, while conditional execution retains much more engine state and allocates substantially more on the alias witness. All owners restore. T074 next attributes engine costs and future-live state before timing or reclamation; no speed claim follows.
 
+The [stream stage attribution](results/S08-stream-allocation-attribution.md) completes16 processes/eight exact replays. Body and application stages dominate requested traffic; observation and discovery are much smaller. Support/binding populations remain after exhaustion, but earlier reclaimability is unproven. T074 next distinguishes Boolean-job traffic from other body/application work before selecting a remedy.
+
 ## How unanswered variants remain accountable
 
 The [entry-by-entry experiment map](question-to-experiment-map.md) gives all 57 reviewed decisions a specific required comparison and decision criterion. The stage assignments below remain the ownership summary; results must state which individual propositions and variants they resolve.

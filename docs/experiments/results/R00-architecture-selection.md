@@ -80,6 +80,8 @@ The [non-overlap obligation gate](S07-overlap-obligations.md) demonstrates kept-
 
 The [cross-query ownership gate](S08-cross-query-ownership.md) completes 216 allocation processes and 108 exact replays over eight changing queries. All 216 output-owner groups have equal retained bytes across engines, while conditional execution retains much more engine state and allocates substantially more on the alias witness. All owners restore. T074 next attributes engine costs and future-live state before timing or reclamation; no speed claim follows.
 
+The [stream stage attribution](S08-stream-allocation-attribution.md) completes16 processes/eight exact replays. Body and application stages dominate requested traffic; observation and discovery are much smaller. Support/binding populations remain after exhaustion, but earlier reclaimability is unproven. T074 next distinguishes Boolean-job traffic from other body/application work before selecting a remedy.
+
 ## Generated incremental execution with explicit search state
 
 Rules compile to occurrence entry points and partner-access plans. Query constraints become distinct live occurrences; term constructors use a shared immutable arena and logical variables use context-specific binding identities. Introductions and changed variable classes activate relevant entry points. Nonbinding matching reads established structure; unsuccessful matches retain sufficient dependencies to be reconsidered when bindings or partners arrive.
