@@ -1,0 +1,70 @@
+   Compiling chr-structural v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-structural)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.31s
+     Running unittests src/lib.rs (target/debug/deps/chr_structural-20b321bb339cd4a7)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/finite_cost.rs (target/debug/deps/finite_cost-20cc1726ef7815e1)
+
+running 1 test
+test all_five_paths_preserve_changed_queries_and_complete_owned_answers ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+     Running tests/finite_paths.rs (target/debug/deps/finite_paths-490a44feadd05955)
+
+running 16 tests
+test cancellation_preserves_reusable_grammar_and_returned_values_are_owned ... ok
+test absent_paths_and_proper_subtree_equality_have_no_finite_witness ... ok
+test feature_off_preserves_answers_without_collecting_solver_counts ... ok
+test factoring_one_child_preserves_overlap_counts_and_two_child_correlation ... ok
+test invalid_grammar_and_request_are_errors_not_empty_languages ... ok
+test path_equality_correlates_occurrences_without_losing_source_multiplicity ... ok
+test nested_and_transitive_path_equalities_preserve_all_solutions ... ok
+test service_budget_is_resumable_and_zero_is_not_exhaustion ... ok
+test merging_existing_nested_paths_is_independent_of_equality_order ... ok
+test source_duplicates_count_but_overlapping_filter_proofs_do_not ... ok
+test reducing_membership_proofs_preserves_source_counts ... ok
+test equality_selects_two_values_from_a_64_bit_description ... ok
+test finite_path_values_and_counts_match_160_actual_chr_sources ... ok
+test impossible_derivations_do_not_overflow_and_real_overflow_is_sticky ... ok
+test exhaustive_7840_requests_match_independent_enumeration ... ok
+test exhaustive_overlapping_products_preserve_correlation_and_counts ... ok
+
+test result: ok. 16 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.15s
+
+     Running tests/noc.rs (target/debug/deps/noc-55fac0ec054457cd)
+
+running 4 tests
+test partial_residuals_keep_multiplicity_and_unknown_constructor_boundaries ... ok
+test exact_identity_memoization_reuses_ground_proof_work ... ok
+test external_observers_invalidate_the_closed_operation ... ok
+test bounded_term_denotations_match_the_independent_reference ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.15s
+
+     Running tests/regular.rs (target/debug/deps/regular-52671623f252c0b7)
+
+running 2 tests
+test cyclic_grammars_denote_finite_trees_and_intersection_is_exact ... ok
+test generated_small_automata_intersect_pointwise_on_independent_test_trees ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+
+     Running tests/spaces.rs (target/debug/deps/spaces-1f40f2498145576b)
+
+running 3 tests
+test merging_holes_intersects_their_candidate_languages ... ok
+test sharing_a_domain_is_not_equality_of_its_independent_holes ... ok
+test finite_skeletons_match_an_explicit_chr_generator ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+   Doc-tests chr_structural
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

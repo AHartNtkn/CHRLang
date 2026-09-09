@@ -1,5 +1,8 @@
 # Unanswered architecture questions and experimental ownership
 
+The [overlap factoring attribution](results/S06-overlap-factor-attribution.md) preserves child correlation and source counts across 32,064 independent solver comparisons. Its 720-process allocation gate exactly replays, with all 576 unchanged-control runs matching the prior gate. Six-bit overlap traffic falls from 61.3 MB to 3.72 MB; preparation costs increase and enumeration remains cheaper in requested bytes there. The four-package structural breadth review selects a bounded ordinary-timing pilot. T076 remains active; no speed or architecture ordering is established.
+
+
 The [finite-cost ownership gate](results/S06-finite-cost-ownership-gate.md) validates five controls across 1,440 initial/corrected processes, with 720 exact allocation replays and full disposal restoration. Reused enumeration trades retained candidates for lower repeated traffic; lazy equality solving has lower peak growth in the inspected case. Structurally different overlap exposes a consequential remaining proof/representation cost. T076 remains active for that attribution before ordinary timing; no speed ranking follows.
 
 

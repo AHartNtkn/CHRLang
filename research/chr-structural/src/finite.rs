@@ -52,10 +52,72 @@ impl Grammar {
             membership: None,
         })
     }
-    /// Merge identical bottom-up membership descriptions and duplicate transitions.
+    /// Reduce identical descriptions and factor alternatives differing in one child.
     /// Original source alternatives stay intact for derivation counting.
     /// This is structural reduction, not complete language minimization.
     pub fn reduce_membership(mut self) -> Self {
+        fn intern_factored(
+            transitions: Vec<Transition>,
+            states: &mut Vec<Vec<Transition>>,
+            intern: &mut BTreeMap<Vec<Transition>, usize>,
+        ) -> usize {
+            let mut transitions = transitions
+                .into_iter()
+                .collect::<BTreeSet<_>>()
+                .into_iter()
+                .collect::<Vec<_>>();
+            if let Some(&id) = intern.get(&transitions) {
+                return id;
+            }
+            loop {
+                let pair = (0..transitions.len()).find_map(|a| {
+                    (a + 1..transitions.len()).find_map(|b| {
+                        let (x, y) = (&transitions[a], &transitions[b]);
+                        if x.symbol != y.symbol || x.children.len() != y.children.len() {
+                            return None;
+                        }
+                        let mut different = x
+                            .children
+                            .iter()
+                            .zip(&y.children)
+                            .enumerate()
+                            .filter(|(_, (x, y))| x != y);
+                        let (index, _) = different.next()?;
+                        if different.next().is_some() {
+                            None
+                        } else {
+                            Some((a, b, index))
+                        }
+                    })
+                });
+                let Some((a, b, index)) = pair else {
+                    break;
+                };
+                let left = transitions[a].children[index];
+                let right = transitions[b].children[index];
+                // Children are lower-rank acyclic languages. Their union can be
+                // normalized recursively without introducing a parent reference.
+                let union = states[left].iter().chain(&states[right]).cloned().collect();
+                let child = intern_factored(union, states, intern);
+                let mut merged = transitions[a].clone();
+                merged.children[index] = child;
+                transitions.remove(b);
+                transitions.remove(a);
+                transitions.push(merged);
+                transitions = transitions
+                    .into_iter()
+                    .collect::<BTreeSet<_>>()
+                    .into_iter()
+                    .collect();
+            }
+            if let Some(&id) = intern.get(&transitions) {
+                return id;
+            }
+            let id = states.len();
+            states.push(transitions.clone());
+            intern.insert(transitions, id);
+            id
+        }
         fn reduce(
             g: &Grammar,
             id: usize,
@@ -79,14 +141,7 @@ impl Grammar {
                 .collect::<BTreeSet<_>>()
                 .into_iter()
                 .collect::<Vec<_>>();
-            let new = if let Some(&id) = intern.get(&transitions) {
-                id
-            } else {
-                let id = states.len();
-                states.push(transitions.clone());
-                intern.insert(transitions, id);
-                id
-            };
+            let new = intern_factored(transitions, states, intern);
             mapping[id] = new;
             new
         }

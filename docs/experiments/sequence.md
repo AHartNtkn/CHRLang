@@ -264,7 +264,9 @@ All new results link raw inputs, commands, freezes, validation and unfavorable o
 
 ## Current execution order
 
-The [finite-cost ownership gate](results/S06-finite-cost-ownership-gate.md) now validates counter-free controls, changing queries, consumer ownership and cancellation. A paired correction makes exact-family preparation retain only needed state. Overlapping membership proofs expose a consequential allocation cost; attribute that cost and establish a sound stronger reduction before broad ordinary-timing confirmation. T076 remains active.
+The [overlap attribution](results/S06-overlap-factor-attribution.md) now corrects a consequential representation cost while preserving child correlation and source multiplicity. The [four-package breadth review](results/S06-structural-breadth-review.md) selects a bounded ordinary-timing pilot over the validated complete controls before returning to restoration/reunion. T076 remains active; broader structural and other architectural questions remain required.
+
+The [finite-cost ownership gate](results/S06-finite-cost-ownership-gate.md) now validates counter-free controls, changing queries, consumer ownership and cancellation. A paired correction makes exact-family preparation retain only needed state. Overlapping membership proofs exposed a consequential allocation cost; the subsequent factoring attribution now supplies the sound stronger reduction and paired evidence. T076 remains active.
 
 The [finite-path source gate](results/S06-finite-path-source-gate.md) now implements the next distinct mechanism. T076 remains active for the bounded complete-cost/ownership comparison, including structural reduction and the strongest applicable source-derived control. Its favorable enumeration-avoidance witness and redundant-proof repair establish capability, not architectural superiority. Restoration/reunion remains the strongest distinct alternative at the next selection boundary.
 

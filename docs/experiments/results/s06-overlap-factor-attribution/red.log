@@ -1,0 +1,24 @@
+   Compiling chr-structural v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-structural)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.33s
+     Running tests/finite_paths.rs (target/debug/deps/finite_paths-67b6c21aa07f1fd5)
+
+running 1 test
+test factoring_one_child_preserves_overlap_counts_and_two_child_correlation ... FAILED
+
+failures:
+
+---- factoring_one_child_preserves_overlap_counts_and_two_child_correlation stdout ----
+
+thread 'factoring_one_child_preserves_overlap_counts_and_two_child_correlation' (142) panicked at research/chr-structural/tests/finite_paths.rs:741:5:
+assertion `left == right` failed
+  left: 1
+ right: 0
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    factoring_one_child_preserves_overlap_counts_and_two_child_correlation
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 14 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p chr-structural --test finite_paths`

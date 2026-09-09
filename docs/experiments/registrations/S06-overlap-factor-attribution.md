@@ -1,0 +1,11 @@
+# Factor overlapping membership alternatives: paired attribution
+
+Test whether exact constructor factoring reduces repeated membership proofs and requested allocation. This is the fourth bounded package since structural solving was selected and triggers a breadth review. No timing conclusion is registered.
+
+The transformation combines two transitions only when they have the same constructor/arity and every child state but one is identical. Replace the differing child with the union of its two languages. Recursively normalize that union; retain the original source grammar for multiplicity. Do not independently union several differing children: that can admit cross-products absent from the original alternatives. This is a finite acyclic membership transformation, not general language minimization.
+
+First require a failing overlap witness, a correlated-child counterexample, independent exhaustive denotation/count checks and the existing CHR source gate. Compare default and counter-free builds. Then repeat the existing 720-process ownership matrix with the stronger reducer in the reduced mode only: six families, widths 0/4/6, four changing queries, immediate/retained consumers and full/first-answer cancellation. Use the same two repetitions, seeds, 60-second/1-GiB process bounds and 2,000,000-unit query bounds. Freeze source and a new meter binary before execution.
+
+Use the previous corrected ownership gate as the allocation baseline; its two exact replays remain available. Require exact baseline-normalized allocation readings for all 576 non-reduced control runs. Compare reduced-mode preparation, setup, execution, disposal and peak growth separately. Require complete answers and exact allocation replay for all new cells. Allocation-meter elapsed times are not speed evidence.
+
+A reduction in repeated proofs must not lose source derivations or alter joint path equality. Extra preparation or retained representation counts against the transformation. If the intended benefit disappears under complete accounting, investigate the responsible obligation. After the paired result, reassess the next cost comparison against restoration/reunion and integrated dependency repair; unresolved mechanisms remain required.

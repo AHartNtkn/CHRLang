@@ -720,3 +720,93 @@ fn feature_off_preserves_answers_without_collecting_solver_counts() {
         );
     }
 }
+
+#[test]
+fn factoring_one_child_preserves_overlap_counts_and_two_child_correlation() {
+    let g = Grammar::new(vec![
+        vec![Transition::new("a", [])],
+        vec![Transition::new("b", [])],
+        vec![Transition::new("a", []), Transition::new("b", [])],
+        vec![
+            Transition::new("pair", [0, 0]),
+            Transition::new("pair", [1, 1]),
+        ],
+        vec![
+            Transition::new("pair", [0, 0]),
+            Transition::new("pair", [2, 0]),
+        ],
+    ])
+    .unwrap();
+    // Unioning both child columns would incorrectly add pair(a,b)/pair(b,a).
+    assert_eq!(collect(&g, vec![3], vec![]), exhaustive(&g, &[3], &[]));
+    assert_eq!(collect(&g, vec![3], vec![]).len(), 2);
+    let reduced = g.clone().reduce_membership();
+    let mut search = Search::new(
+        &reduced,
+        Request {
+            roots: vec![4],
+            equalities: vec![],
+        },
+    )
+    .unwrap();
+    let batch = search.advance(1000).unwrap();
+    assert!(batch.exhausted);
+    let mut actual = batch
+        .answers
+        .into_iter()
+        .map(|a| (a.term, a.multiplicity))
+        .collect::<Vec<_>>();
+    actual.sort();
+    assert_eq!(
+        actual,
+        vec![
+            (t("pair", [atom("a"), atom("a")]), 2),
+            (t("pair", [atom("b"), atom("a")]), 1)
+        ]
+    );
+    assert_eq!(search.stats().duplicate_values, 0);
+}
+
+#[test]
+fn exhaustive_overlapping_products_preserve_correlation_and_counts() {
+    let mut checked = 0;
+    for mask in 0..512 {
+        for reverse in [false, true] {
+            let mut alternatives = vec![];
+            for a in 0..3 {
+                for b in 0..3 {
+                    if mask & (1 << (3 * a + b)) != 0 {
+                        alternatives.push(Transition::new("pair", [a, b]));
+                    }
+                }
+            }
+            if reverse {
+                alternatives.reverse();
+            }
+            let g = Grammar::new(vec![
+                vec![Transition::new("a", [])],
+                vec![Transition::new("b", [])],
+                vec![Transition::new("a", []), Transition::new("b", [])],
+                alternatives,
+                vec![Transition::new("pair", [2, 2])],
+            ])
+            .unwrap();
+            for roots in [vec![3], vec![3, 4]] {
+                for eqs in [
+                    vec![],
+                    vec![(vec![0], vec![1])],
+                    vec![(vec![0], vec![0])],
+                    vec![(vec![2], vec![2])],
+                ] {
+                    assert_eq!(
+                        collect(&g, roots.clone(), eqs.clone()),
+                        exhaustive(&g, &roots, &eqs),
+                        "mask {mask} reverse {reverse}"
+                    );
+                    checked += 1;
+                }
+            }
+        }
+    }
+    assert_eq!(checked, 8192);
+}
