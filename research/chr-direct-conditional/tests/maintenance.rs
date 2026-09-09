@@ -63,7 +63,13 @@ fn countdown_candidate_selection_is_linear_in_both_source_orders() {
     }
     for (n, selected, deferred, discovered) in results {
         if cfg!(feature = "metrics") {
-            assert_eq!(discovered, 2 * (n + 1));
+            // Selective discovery keeps only the matching immutable constructor.
+            let per_occurrence = if cfg!(feature = "selective-discovery") {
+                1
+            } else {
+                2
+            };
+            assert_eq!(discovered, per_occurrence * (n + 1));
             assert!(selected <= 4 * n + 8, "n={n}: selected={selected}");
             assert!(deferred <= 2 * n + 2, "n={n}: deferred={deferred}");
         } else {

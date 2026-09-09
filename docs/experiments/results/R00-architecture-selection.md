@@ -1,6 +1,6 @@
 # R00: architectural alternatives and first experiment selection
 
-Current evidence: the [checked-contract lifecycle](S07-resource-contract-lifecycle.md) completes 672 processes and 96 exact allocation pairs. Equivalent-work declarations add 34 requested bytes and retain 17; unknown-input rejection changes admission, not equivalent-work efficiency. T078 resumes with [selective conditional discovery](S10-selective-discovery-entry.md). Broader language, lifetime and architecture comparisons remain required.
+Current evidence: the [selective discovery gate](S10-selective-discovery-gate.md) preserves full-source tests while reducing branch-specific candidates, but adds ticks on dense and early-failure controls. T078 next measures lifecycle costs against existing conditional execution and stronger controls. Broader language, lifetime and architecture comparisons remain required.
 
 The [resource-fusion lifecycle pilot](S06-resource-fusion-lifecycle.md) completes 1350 processes and 180 exact allocation pairs. Inference and certification can outweigh execution savings; timing remains exploratory with clock-overhead evidence. All owners restore. The [S10 entry](S10-composition-entry.md) selects T078 coherent-path capability and mixed-source qualification. T073 and the other unresolved component directions remain required.
 

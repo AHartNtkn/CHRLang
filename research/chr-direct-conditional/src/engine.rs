@@ -140,6 +140,30 @@ struct Discovery {
     rule: usize,
     anchor: usize,
     digits: Option<Vec<usize>>,
+    #[cfg(feature = "selective-discovery")]
+    pools: Option<DiscoveryPools>,
+}
+#[cfg(feature = "selective-discovery")]
+struct DiscoveryPools {
+    ids: Vec<Vec<u64>>,
+    head: usize,
+    offset: usize,
+}
+// Inspect only immutable constructor structure. Unknowns are deliberately kept:
+// future supported bindings may make them match, so they still need dependencies.
+#[cfg(feature = "selective-discovery")]
+fn possible_head(pattern: &Source, term: Term, store: &Store) -> bool {
+    match (pattern, store.inspect(term)) {
+        (Source::Var(_), _) | (_, TermView::Variable(_)) => true,
+        (Source::App(name, fields), TermView::Constructor { name: actual, args }) => {
+            name == actual
+                && fields.len() == args.len()
+                && fields
+                    .iter()
+                    .zip(args)
+                    .all(|(p, t)| possible_head(p, *t, store))
+        }
+    }
 }
 struct Notification {
     change: Change,
@@ -318,8 +342,11 @@ impl Engine {
             rule: 0,
             anchor: 0,
             digits: None,
+            #[cfg(feature = "selective-discovery")]
+            pools: None,
         });
     }
+    #[cfg(not(feature = "selective-discovery"))]
     fn discovery_tick(&mut self) {
         let mut d = self.discoveries.pop_front().unwrap();
         if d.rule >= self.resources.rules.len() {
@@ -392,6 +419,112 @@ impl Engine {
         if carry {
             d.anchor += 1;
             d.digits = None;
+        }
+        self.discoveries.push_front(d);
+    }
+    #[cfg(feature = "selective-discovery")]
+    fn discovery_tick(&mut self) {
+        let mut d = self.discoveries.pop_front().unwrap();
+        if d.rule >= self.resources.rules.len() {
+            return;
+        }
+        let rule = &self.resources.rules[d.rule].source;
+        let heads: Vec<_> = rule.kept.iter().chain(&rule.removed).collect();
+        if d.anchor >= heads.len() {
+            d.rule += 1;
+            d.anchor = 0;
+            d.digits = None;
+            d.pools = None;
+            self.discoveries.push_front(d);
+            return;
+        }
+        let occurrence = self.resources.occurrence(d.occurrence).unwrap();
+        let anchor = heads[d.anchor];
+        let possible = |h: &Constraint, o: &crate::resources::Occurrence| {
+            o.live != Support::FALSE
+                && h.name == o.predicate
+                && h.args.len() == o.args.len()
+                && h.args
+                    .iter()
+                    .zip(&o.args)
+                    .all(|(p, t)| possible_head(p, *t, &self.store))
+        };
+        if !possible(anchor, occurrence) {
+            d.anchor += 1;
+            d.digits = None;
+            d.pools = None;
+            self.discoveries.push_front(d);
+            return;
+        }
+        let live = occurrence.live;
+        let pools = d.pools.get_or_insert_with(|| {
+            let mut ids = vec![vec![]; heads.len()];
+            ids[d.anchor].push(d.occurrence);
+            DiscoveryPools {
+                ids,
+                head: 0,
+                offset: 0,
+            }
+        });
+        // Discovery drains before execution resumes, so these pools cannot lose
+        // live support while being built. Later posts anchor their own discovery.
+        // Each call inspects at most one bucket occurrence; a structural check is
+        // bounded by the finite prepared head pattern, not the query's full term.
+        if pools.head < heads.len() {
+            if pools.head == d.anchor {
+                pools.head += 1;
+                pools.offset = 0;
+            } else {
+                let h = heads[pools.head];
+                let bucket = self.index.get(&(h.name.clone(), h.args.len()));
+                if let Some(&id) = bucket.and_then(|b| b.get(pools.offset)) {
+                    pools.offset += 1;
+                    if possible(h, self.resources.occurrence(id).unwrap()) {
+                        pools.ids[pools.head].push(id);
+                    }
+                } else if pools.ids[pools.head].is_empty() {
+                    d.anchor += 1;
+                    d.digits = None;
+                    d.pools = None;
+                } else {
+                    pools.head += 1;
+                    pools.offset = 0;
+                }
+            }
+            self.discoveries.push_front(d);
+            return;
+        }
+        let digits = d.digits.get_or_insert_with(|| vec![0; heads.len()]);
+        let ids: Vec<_> = digits
+            .iter()
+            .enumerate()
+            .map(|(i, &j)| pools.ids[i][j])
+            .collect();
+        if ids.iter().copied().collect::<BTreeSet<_>>().len() == ids.len() {
+            let key = Key { rule: d.rule, ids };
+            if self.known.insert(key.clone()) {
+                self.pending.entry(key).or_default().push(live);
+                if METRICS {
+                    self.stats.discovered_tuples += 1;
+                }
+            }
+        }
+        let mut carry = true;
+        for i in (0..digits.len()).rev() {
+            if i == d.anchor {
+                continue;
+            }
+            digits[i] += 1;
+            if digits[i] < pools.ids[i].len() {
+                carry = false;
+                break;
+            }
+            digits[i] = 0;
+        }
+        if carry {
+            d.anchor += 1;
+            d.digits = None;
+            d.pools = None;
         }
         self.discoveries.push_front(d);
     }

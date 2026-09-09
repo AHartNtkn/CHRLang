@@ -4,6 +4,7 @@ version.workspace = true
 edition.workspace = true
 
 [features]
+selective-discovery = []
 default = ["metrics"]
 work-diagnostics = ["chr-direct-choice/work-diagnostics"]
 metrics = ["chr-compiled?/metrics", "chr-observe?/metrics"]

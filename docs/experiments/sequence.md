@@ -278,7 +278,7 @@ Exact sizes follow exploratory sizing under the common rules above. The comparat
 
 ## Current execution order
 
-**T078 is active for selective conditional discovery.** The [checked-contract lifecycle](results/S07-resource-contract-lifecycle.md) completes the bounded privacy/ground-submission comparison: small fixed heap cost, preserved ineligible-source behavior and explicit unknown-input rejection. The [next discovery gate](results/S10-selective-discovery-entry.md) investigates remaining branch-specific costs before further small-check timing refinements. Broader T079 language properties, sustained lifetime and complete architecture comparison remain required.
+**T078 is active for selective conditional discovery.** The [source/work gate](results/S10-selective-discovery-gate.md) preserves complete observations and exposes both candidate reductions and added service work. The next registered lifecycle pilot must charge filtered-list construction and retention against existing conditional execution and stronger Scan/counting controls. Reconsider resumable contextual discovery after that pilot. Broader T079 language properties, sustained lifetime and complete architecture comparison remain required.
 
 The [ordered remaining sequence](remaining-investigations.md#execution-order) records the completed bounded restoration/reunion comparisons and remaining investigation boundaries. T077 stays required for broader restoration, adaptive splitting, repeated dynamic reunion, inference and sustained lifetime. Broader lowering and structural theories, discovery, reuse, direct graphs and connected parallelism remain required. Language and lifetime comparisons accompany every candidate; priority is reconsidered at each package boundary.
 

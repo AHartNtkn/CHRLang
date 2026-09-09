@@ -1,0 +1,16 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.01s
+     Running tests/selective_discovery.rs (target/debug/deps/selective_discovery-c2a61a5f6570156f)
+
+running 3 tests
+depth=1 tuples=6 ticks=436
+depth=4 tuples=27 ticks=853
+depth=16 tuples=291 ticks=4141
+test immutable_heads_and_consumed_occurrences_do_not_need_candidate_entries ... ok
+dense tuples=30 ticks=8460
+test dense_unknown_head_patterns_keep_all_distinct_occurrence_pairs ... ok
+family=common choices=3 depth=16 tuples=291 ticks=5384
+family=independent choices=3 depth=16 tuples=2962 ticks=44700
+family=early choices=3 depth=16 tuples=291 ticks=5808
+test branching_sources_preserve_answers_while_exposing_discovery_work ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s

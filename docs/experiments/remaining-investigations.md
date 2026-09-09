@@ -1,10 +1,10 @@
 # The comparisons still needed to choose the architecture
 
-The [checked-contract lifecycle](results/S07-resource-contract-lifecycle.md) supplies bounded semantic and cost evidence. T078 now resumes with [selective conditional discovery](results/S10-selective-discovery-entry.md); broader T079 language properties remain required.
+The [selective discovery gate](results/S10-selective-discovery-gate.md) reduces candidate tuples on recursive sources but adds ticks on dense and early-failure controls. T078 next measures the implemented filter’s lifecycle costs. Broader T079 language properties remain required.
 
 ## Starting evidence and immediate decision
 
-The [S07 premise audit](results/S07-resource-premises.md) now supplies accepted/rejected sources and counterexamples: privacy and groundness differ from the stronger optimization certificate. The [executable contract gate](results/S07-resource-contract.md) now enforces those separate properties at preparation and search admission. The bounded lifecycle pilot now charges their checking costs; the discovery review selects conditional execution next. No language policy is adopted. Selective conditional discovery is current; resumable contextual matching is reconsidered after its first source/work gate.
+The [S07 premise audit](results/S07-resource-premises.md) now supplies accepted/rejected sources and counterexamples: privacy and groundness differ from the stronger optimization certificate. The [executable contract gate](results/S07-resource-contract.md) now enforces those separate properties at preparation and search admission. The bounded lifecycle pilot now charges their checking costs; the discovery review selects conditional execution next. No language policy is adopted. The first selective source/work gate passes with favorable and adverse work counts; resumable contextual matching is reconsidered after the bounded cost pilot.
 
 The completed [restoration pilot](results/S04-resident-cost-pilot.md), [reunion source gate](results/S04-reunion-source-gate.md), [ownership/identity comparison](results/S04-reunion-identity-attribution.md), [strong-control gate](results/S04-reunion-strong-controls.md) and [complete-cost pilot](results/S04-reunion-complete-pilot.md) supply controls. They do not resolve repeated dynamic reunion or general source inference.
 
