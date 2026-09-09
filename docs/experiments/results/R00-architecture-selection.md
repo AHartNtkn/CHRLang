@@ -1,6 +1,6 @@
 # R00: architectural alternatives and first experiment selection
 
-Current evidence: the [join lifecycle and attribution](S10-join-lifecycle.md) complete 3108 processes and 504 exact allocation pairs. Prefix pruning has bounded allocation gains and adverse cases; Scan/contextual controls remain competitive. All owners restore, including live discovery cancellation. The [breadth review](S10-join-breadth-review.md) selects T079 head/overlap language properties. T078 and the architecture goal remain unfinished.
+Current evidence: the [head-property source gate](S07-head-property-gate.md) separates unary rules, conflicting applications and intermediate matching environments. Bundled unary sources preserve tested closed inputs but require coordinated linked updates. Seven tests pass in diagnostic/counter-free builds. T079 next connects property inference/checking to actual removed runtime responsibilities; no restriction is adopted.
 
 The [resource-fusion lifecycle pilot](S06-resource-fusion-lifecycle.md) completes 1350 processes and 180 exact allocation pairs. Inference and certification can outweigh execution savings; timing remains exploratory with clock-overhead evidence. All owners restore. The [S10 entry](S10-composition-entry.md) selects T078 coherent-path capability and mixed-source qualification. T073 and the other unresolved component directions remain required.
 

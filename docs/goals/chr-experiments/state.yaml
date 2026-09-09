@@ -71,9 +71,10 @@ tasks:
     assignee: PM
     status: active
     objective: Compare remaining language properties through inferred eligibility, checked optional declarations and required-property interfaces, connecting head/overlap and other restrictions to expressiveness, correctness, necessary responsibilities and complete costs.
-    progress: Checked-contract lifecycle completes 672 processes and 96 exact allocation pairs. Every equivalent-work pair adds 34 requested bytes in preparation and retains 17 bytes; no query allocation difference. Original inputs are checked before counting tied to the same prepared source. Unknown-input rejection remains a semantic difference, not an efficiency gain. Timing exploratory. Ten property and four boundary tests pass in two builds; Clippy passes.
-    next_action: Establish independent source gates for separate single-head and overlap properties. Inspect actual matching, guards, multiplicity and source priority; compare inference, optional checking and required admission with real execution beneficiaries. Include competing unary rules, atomic multi-head consumption, late information, propagation history and linking extensions. Test realistic reformulations; adopt no language policy.
+    progress: Head-property gate passes seven tests in diagnostic and counter-free builds with strict Clippy. Twenty finite source configurations per build agree with independent expectations, scalar, Scan and three contextual/conditional paths. Unary rules still compete and require late activation/multiplicity/history; one multihead rule has conflicting instances; unary constructor matching can have multiple intermediate environments. Bundled closed inputs agree but unchanged linked producers change the resource winner; coordinated unary updates restore the witness.
+    next_action: Implement property inference/checking with a real compiler beneficiary. Distinguish head count, conflicting applications and environment multiplicity; account for same-rule instances, guards, partial information and linked extensions. Compare inferred, optional-checked and required admission on the same prepared source. Demonstrate actual removed join/dispatch/history/dependency responsibilities and charge source encoding/coordination. No restriction is adopted; broader properties remain required.
     inputs:
+      - docs/experiments/results/S07-head-property-gate.md
       - docs/experiments/results/S10-join-breadth-review.md
       - docs/experiments/results/S10-join-lifecycle.md
       - docs/experiments/results/S07-resource-contract-lifecycle.md
@@ -2381,15 +2382,13 @@ checks:
   dirty_fingerprint: unrelated_untracked_files_preserved
   last_verification:
     result: passed
-    task: T078
-    scope: Join lifecycle, live discovery cancellation and prefix head-list attribution.
+    task: T079
+    scope: Head/overlap property distinctions and bounded unary reformulation source gate.
     commands:
-      - 3108 registered processes and 504 exact allocation pairs
-      - Complete source observations, phase and ownership restoration audits
-      - Live pool/check/cursor cancellation snapshots repeat across processes
-      - 125 crate tests, 37 selected counter-free tests and 22 unchanged work signatures
-      - Scoped strict Clippy, formatting, Python syntax, source hashes and evidence links
+      - Seven tests each in diagnostic and counter-free builds
+      - Twenty source configurations per build with independent expected/scalar/Scan/contextual/conditional checks
+      - Conflicting-instance and partial-environment store probes
+      - Scoped strict Clippy, explicit formatting, source hashes and evidence links
     evidence:
-      - docs/experiments/results/S10-join-lifecycle.md
-      - docs/experiments/results/s10-join-lifecycle/
-      - docs/experiments/results/s10-join-prefix-attribution/
+      - docs/experiments/results/S07-head-property-gate.md
+      - docs/experiments/results/s07-head-property-gate/

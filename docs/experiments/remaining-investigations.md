@@ -1,6 +1,6 @@
 # The comparisons still needed to choose the architecture
 
-The [join lifecycle](results/S10-join-lifecycle.md) completes 3108 processes with exact allocation and ownership checks. The [breadth review](results/S10-join-breadth-review.md) selects T079 head/overlap language-property comparisons; T078 and broader architecture obligations remain required.
+The [head-property source gate](results/S07-head-property-gate.md) supplies competing-rule, late-binding, multiplicity, partial-environment and reformulation witnesses. T079 next establishes the property/compiler beneficiary comparison; broader architecture obligations remain required.
 
 ## Starting evidence and immediate decision
 
@@ -18,7 +18,7 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-**Head and overlap properties are selected under T079/S07.** Compare inferred properties, optional checked declarations and a required-property interface through actual eliminated responsibilities, excluded programs and realistic reformulations. No language restriction is adopted.
+**Head and overlap properties remain selected under T079/S07.** The source gate distinguishes head count, application conflict and matching-environment multiplicity. Connect inference/checking/admission to actual eliminated execution responsibilities, including coordinated-update costs for reformulations. No language restriction is adopted.
 
 The order below incorporates the latest component evidence and the S10 entry decision. Each numbered row has a separate architectural question and completion boundary. The detailed mechanism specifications later in this document define its controls and adverse cases. A row containing several mechanisms requires a conclusion for each; completing one does not complete the row.
 
