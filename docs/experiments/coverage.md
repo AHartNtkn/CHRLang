@@ -1,5 +1,8 @@
 # Unanswered architecture questions and experimental ownership
 
+The [temporary reunion source gate](results/S04-reunion-source-gate.md) now executes checked private components and resumes consuming rules from their combined states. All 55 finite configurations agree with independent and ordinary controls; finite-sibling service and weak-owner cancellation checks pass. A depth12 witness uses 142 rather than 198 source-transition calls, excluding product/ownership costs. T077 remains active for reusable preparation and complete allocation/cost evidence; broader dynamic reunion remains required.
+
+
 The [corrected restoration pilot](results/S04-resident-cost-pilot.md) completes 1,344 processes and 192 exact allocation replays with live-byte continuity and full disposal restoration. Branching replay remains costly; Copy and Indexed expose opposing time/peak-memory regimes. T077 remains active for actual temporary separation/reunion, with integrated dependency repair as the strongest ready alternative. No universal policy or architecture is selected.
 
 

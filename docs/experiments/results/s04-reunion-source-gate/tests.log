@@ -1,0 +1,16 @@
+   Compiling chr-restoration v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-restoration)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.52s
+     Running tests/reunion.rs (target/debug/deps/reunion-6d95d41fd1c3d4c4)
+
+running 6 tests
+test rejects_shared_variables_unknown_ownership_and_local_escape ... ok
+test ongoing_local_work_returns_unfinished_error ... ok
+test finite_sibling_is_published_while_private_work_continues_and_cancel_is_owned ... ok
+test a_late_join_binding_reactivates_private_rules ... ok
+duplicate=false local=124 resumed=18 coupled=198 products=4
+duplicate=true local=124 resumed=24 coupled=204 products=4
+test reunited_binding_consumes_resources_preserves_freshness_and_avoids_repeated_work ... ok
+test history_fresh_aliases_and_competing_consumers_survive_reunion ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
