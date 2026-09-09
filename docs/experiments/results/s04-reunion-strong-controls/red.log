@@ -1,0 +1,29 @@
+   Compiling chr-restoration v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-restoration)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.40s
+     Running tests/reunion_controls.rs (target/debug/deps/reunion_controls-f4dbb0b0533748ca)
+
+running 2 tests
+test shortcut_rejects_queries_or_effects_outside_its_proof ... FAILED
+test qualify_complete_controls_and_shortcut_against_independent_source_answers ... FAILED
+
+failures:
+
+---- shortcut_rejects_queries_or_effects_outside_its_proof stdout ----
+
+thread 'shortcut_rejects_queries_or_effects_outside_its_proof' (197) panicked at research/chr-restoration/tests/reunion_controls.rs:46:55:
+assertion failed: shortcut::Checked::new("plain", 2, &rules).is_err()
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- qualify_complete_controls_and_shortcut_against_independent_source_answers stdout ----
+
+thread 'qualify_complete_controls_and_shortcut_against_independent_source_answers' (196) panicked at research/chr-restoration/tests/reunion_controls.rs:31:41:
+called `Result::unwrap()` on an `Err` value: "shortcut not implemented"
+
+
+failures:
+    qualify_complete_controls_and_shortcut_against_independent_source_answers
+    shortcut_rejects_queries_or_effects_outside_its_proof
+
+test result: FAILED. 0 passed; 2 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p chr-restoration --test reunion_controls`

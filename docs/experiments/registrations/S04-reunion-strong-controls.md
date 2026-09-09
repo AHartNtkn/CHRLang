@@ -1,0 +1,13 @@
+# S04: qualify specialization and private-work elimination controls
+
+Before ordinary reunion timing, determine whether stronger existing execution and source-family elimination can change its comparison. This is a correctness/eligibility/work gate, not comparative timing or a general compiler implementation.
+
+Use exactly the source generator from the reunion ownership matrix, shared with its harness. Compare generic and inferred-specialized compiled execution with Scan and Indexed access. Query the existing carrier checker's eligibility; scope any rejection to its implemented premises.
+
+Separately implement a checked source-family control. Require exact plain/equal/late/payload rules for the stated owner count; one ground-natural job per owner; disjoint variable ownership; no additional active ready/walk/unknown occurrences; and only the family's permitted passive payload/wait constraints. The fixed walk recursion only strips its counter and preserves all carried values. For accepted input, shorten that counter to zero and execute the same source, including all choices, joins, resource effects, failure and output publication. Unknown/improper counters or changed source effects must be rejected explicitly. No fallback to a different contract is allowed.
+
+Validate four families × two/four owners × base depths0/12/48 × seeds0/1/2/3 = 96 complete queries. Check full raw answers independently, not just counts, across original generic/specialized Scan/Indexed paths and the shortcut over Copy and specialized paths. Count ordinary source-transition calls separately where useful. Include rejected unknown/corrupt counters, aliases crossing owners, duplicate/extra active occurrences and an effect-bearing rule mutation. Retain the existing reunion regressions, including ongoing-sibling progress and cancellation.
+
+The shortcut only handles complete finite inputs under its explicit premise. Its inspection/preparation and transformed-query costs must be charged in a later lifecycle comparison. Shortened event traces are not equal service traces; it makes no ongoing-source or first-answer latency equivalence claim. Unknown-tail resumable contraction remains a distinct design.
+
+Run ordinary tests and a separate carrier-control feature gate, plus strict all-target/all-feature Clippy and formatting. Bound each finite execution at 200,000 services and the whole targeted test command at 120 seconds initially; preserve and diagnose any failure or cutoff. No runtime ranking is inferred from test duration. The next selection must compare complete control timing with T072 integrated dependency repair and explicitly carry broader dynamic reunion/language/lifetime obligations forward.

@@ -15,6 +15,8 @@ chr-compiled = { path = "../chr-compiled", default-features = false }
 alloc-meter = ["chr-compiled/alloc-meter"]
 arena-cow = ["chr-compiled/arena-cow"]
 replay-diagnostic = []
+carrier-control = ["chr-compiled/carrier-contraction"]
+compiled-work = ["chr-compiled/metrics"]
 
 [[example]]
 name = "reunion_cost"

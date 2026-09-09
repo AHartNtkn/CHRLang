@@ -1,5 +1,8 @@
 # Unanswered architecture questions and experimental ownership
 
+The [stronger reunion controls](results/S04-reunion-strong-controls.md) now pass 960 complete-answer comparisons over 96 queries per build. Inferred specialization executes under Scan/Indexed; the existing carrier checker rejects owner-keyed loops, but a checked finite source shortcut eliminates their countdown work. Four-owner plain source calls are 3124 for Copy, 888 for reunion, 244 for shortened Copy and 120 for shortened reunion. T077 next registers complete costs with these controls; no runtime ranking follows.
+
+
 The [reunion ownership gate](results/S04-reunion-ownership-gate.md) and [identity-copy attribution](results/S04-reunion-identity-attribution.md) complete 960 matrix processes, 480 exact allocation replays and 384 unchanged-control pairs. Reusable preparation and query/consumer disposal validate. Identity sharing lowers traffic in all 48 reunion configurations, while short payload and peak-memory tradeoffs remain. T077 next qualifies stronger specialization/elimination controls before timing; integrated execution remains the strongest separate alternative.
 
 
