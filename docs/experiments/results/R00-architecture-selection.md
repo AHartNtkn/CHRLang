@@ -1,6 +1,6 @@
 # R00: architectural alternatives and first experiment selection
 
-The [partial-join gate](S02-partial-join-gate.md) validates 70 finite configurations and 45 work cells, with all 24 earlier controls unchanged. Cold prefixes require N entries instead of N-squared full tuples; dense prefixes retain N plus N-squared entries. T072 next charges scanning, full tuples and partial joins through allocation/ownership before timing. Broad dependency repair and broader language/architecture questions remain open.
+The [general matching ownership gate](S02-multihead-ownership.md) completes 504 allocation runs, 126 preflights and 252 exact pairs, plus 252 exact runner-integration replays. Partial joins have sparse/nested traffic regimes; conventional Scan remains strong, and dense cache setup dominates allocation. All owner baselines restore. The [four-package breadth review](S02-multihead-breadth-review.md) selects T073 source-derived resource-aware lowering; T072 timing and broader integration remain unfinished.
 
 The [resident replay gate](S04-resident-replay-source-gate.md) removes repeated reconstruction when only one branch remains: 100 continuing service calls now execute 100 rather than 5,050 source steps. Exact finite/ongoing event traces, independent answers and checkpoint release checks pass; all 72 broader work cells validate. Competing branches still expose large reconstruction counts. T077 remains active for complete cost/ownership comparison and actual temporary reunion; no timing conclusion follows.
 

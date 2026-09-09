@@ -27,3 +27,9 @@ required-features = ["alloc-meter"]
 name = "local_lifecycle"
 path = "tests/local_lifecycle.rs"
 harness = false
+
+[[test]]
+name = "multihead_ownership"
+path = "tests/multihead_ownership.rs"
+harness = false
+required-features = ["alloc-meter"]

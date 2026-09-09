@@ -1,6 +1,6 @@
 # Unanswered architecture questions and experimental ownership
 
-The [partial-join gate](results/S02-partial-join-gate.md) validates 70 finite configurations and 45 work cells, with all 24 earlier controls unchanged. Cold prefixes require N entries instead of N-squared full tuples; dense prefixes retain N plus N-squared entries. T072 next charges scanning, full tuples and partial joins through allocation/ownership before timing. Broad dependency repair and broader language/architecture questions remain open.
+The [general matching ownership gate](results/S02-multihead-ownership.md) completes 504 allocation runs, 126 preflights and 252 exact pairs, plus 252 exact runner-integration replays. Partial joins have sparse/nested traffic regimes; conventional Scan remains strong, and dense cache setup dominates allocation. All owner baselines restore. The [four-package breadth review](results/S02-multihead-breadth-review.md) selects T073 source-derived resource-aware lowering; T072 timing and broader integration remain unfinished.
 
 ## How unanswered variants remain accountable
 
