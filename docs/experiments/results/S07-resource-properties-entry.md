@@ -13,3 +13,5 @@ Implement the smallest real checking/composition path needed to expose those con
 The first gate must also inventory necessary implementation responsibilities: source analysis, query checking, representation of resources, runtime matching/history, ordinary-path boundaries, preparation and retained artifacts. A declaration can improve predictability without removing a service; distinguish that from actual architectural simplification. Register checking/linking and boundary costs once the alternatives are concrete.
 
 After this bounded gate, reconsider selective conditional discovery, resumable contextual matching and the broader S07/S08 obligations. T078 remains unfinished for complete architecture comparison beyond its bounded pilots. Every other consequential unresolved direction and held-out closure remains required.
+
+The [executable premise audit](S07-resource-premises.md) now establishes checker-conservative examples, a late-ground reformulation, and distinct observation/resource-sufficiency obligations. Concrete declaration and boundary implementations remain next.

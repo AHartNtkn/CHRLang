@@ -1,6 +1,6 @@
 # R00: architectural alternatives and first experiment selection
 
-Current evidence: [resource-count lifecycle](S10-resource-count-lifecycle.md) validates 7056 processes and 1008 exact pairs, with deeper gains and shallow costs. The breadth review selects [T079/S07 resource properties](S07-resource-properties-entry.md): compare inference, checked declarations and mandatory restrictions without adopting a language policy. T078 and all consequential broader directions remain unfinished.
+Current evidence: [resource-count lifecycle](S10-resource-count-lifecycle.md) validates 7056 processes and 1008 exact pairs, with deeper gains and shallow costs. The breadth review selects [T079/S07 resource properties](S07-resource-properties-entry.md): compare inference, checked declarations and mandatory restrictions without adopting a language policy. T078 and all consequential broader directions remain unfinished. The [S07 premise audit](S07-resource-premises.md) separates checker conservatism from necessary observation and resource-sufficiency obligations; concrete checked contracts are next.
 
 The [resource-fusion lifecycle pilot](S06-resource-fusion-lifecycle.md) completes 1350 processes and 180 exact allocation pairs. Inference and certification can outweigh execution savings; timing remains exploratory with clock-overhead evidence. All owners restore. The [S10 entry](S10-composition-entry.md) selects T078 coherent-path capability and mixed-source qualification. T073 and the other unresolved component directions remain required.
 
