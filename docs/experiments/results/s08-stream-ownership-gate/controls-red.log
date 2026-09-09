@@ -1,0 +1,33 @@
+   Compiling chr-reuse v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-reuse)
+warning: variants `Progress`, `Answer`, and `Done` are never constructed
+ --> research/chr-reuse/tests/../examples/support/stream_run.rs:4:18
+  |
+4 | pub enum Event { Progress, Answer(Answer), Done }
+  |          -----   ^^^^^^^^  ^^^^^^          ^^^^
+  |          |
+  |          variants in this enum
+  |
+  = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `chr-reuse` (test "stream_delivery") generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.17s
+     Running tests/stream_delivery.rs (target/debug/deps/stream_delivery-4b93b26ebfad2891)
+
+running 1 test
+test progressive_source_has_independent_complete_answers ... FAILED
+
+failures:
+
+---- progressive_source_has_independent_complete_answers stdout ----
+
+thread 'progressive_source_has_independent_complete_answers' (121) panicked at research/chr-reuse/tests/../examples/support/stream_run.rs:8:75:
+not yet implemented: stream controls
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    progressive_source_has_independent_complete_answers
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p chr-reuse --test stream_delivery`

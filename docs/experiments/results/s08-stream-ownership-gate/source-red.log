@@ -1,0 +1,42 @@
+   Compiling chr-reuse v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-reuse)
+warning: fields `family`, `resource`, `fail_tail`, `work`, and `payload` are never read
+ --> research/chr-reuse/tests/../examples/support/stream_source.rs:5:9
+  |
+4 | pub struct Schema {
+  |            ------ fields in this struct
+5 |     pub family: &'static str,
+  |         ^^^^^^
+6 |     pub resource: bool,
+  |         ^^^^^^^^
+7 |     pub fail_tail: bool,
+  |         ^^^^^^^^^
+8 |     pub work: usize,
+  |         ^^^^
+9 |     pub payload: usize,
+  |         ^^^^^^^
+  |
+  = note: `Schema` has a derived impl for the trait `Clone`, but this is intentionally ignored during dead code analysis
+  = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `chr-reuse` (test "stream_delivery") generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.42s
+     Running tests/stream_delivery.rs (target/debug/deps/stream_delivery-4b93b26ebfad2891)
+
+running 1 test
+test progressive_source_has_independent_complete_answers ... FAILED
+
+failures:
+
+---- progressive_source_has_independent_complete_answers stdout ----
+
+thread 'progressive_source_has_independent_complete_answers' (263) panicked at research/chr-reuse/tests/../examples/support/stream_source.rs:12:39:
+not yet implemented: progressive source
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    progressive_source_has_independent_complete_answers
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p chr-reuse --test stream_delivery`
