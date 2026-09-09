@@ -1,0 +1,24 @@
+   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)
+   Compiling chr-reuse v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-reuse)
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.82s
+     Running tests/continuations.rs (target/debug/deps/continuations-ebe58ed7271bafbb)
+
+running 4 tests
+test reconvergent_continuation_keeps_each_later_choice_lineage ... ok
+test aliased_and_independent_continuations_have_different_futures ... ok
+test both_modes_preserve_every_registered_prefix_and_raw_lineage ... ok
+test duplicated_choice_workloads_match_independent_reference_and_keep_raw_counts ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.33s
+
+     Running tests/generalized_continuations.rs (target/debug/deps/generalized_continuations-bda4b13ab073d2fa)
+
+running 3 tests
+history projection executed Direct/Exact/Alpha/AlphaLive: [15, 15, 15, 12]
+renaming executed Direct/Exact/Alpha/AlphaLive: [13, 13, 9, 9]
+test consumed_history_remains_distinct_without_relevance_projection ... ok
+test different_histories_reuse_future_work_without_merging_raw_answers ... ok
+test aliases_resources_history_and_fresh_replay_match_independent_raw_semantics ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s

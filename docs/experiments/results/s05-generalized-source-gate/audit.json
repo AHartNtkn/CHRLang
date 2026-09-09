@@ -1,0 +1,36 @@
+{
+  "base_commit": "6956295f0",
+  "source_hashes": {
+    "research/chr-persistent/src/continuations.rs": "ff25282224d9c9fb91b1414bab23c923ca3c65c708ad8f280681469469d8c35d",
+    "research/chr-persistent/src/state.rs": "657873a615bf749052c1009cb04cc4277622a96ca5c7b1897bc3da45d2ddb4bd",
+    "research/chr-reuse/src/continuations.rs": "506dce6796e81a4eab38990586f7adbe3f17765cf444c621c4d632d7082b945f",
+    "research/chr-reuse/tests/generalized_continuations.rs": "aabf5891c5540960c3ad64baa0284cb64179e71f6d8ce2b1aa0df0d767cf7384",
+    "research/chr-reuse/tests/continuations.rs": "b6237e77de0c73ba69df0c474b956ef1d56835ef06a47ce484db3ecbd56d955e",
+    "research/chr-reuse/examples/continuation_probe.rs": "9e8e46a6a0629821a5bcc8701e3a0d37f0afa354c82b278bea8f394f6b1f335e",
+    "research/chr-direct-conditional/tests/runtime_support/mod.rs": "03633e8d666fadcdd08ddfe4900aa8116b32e434fb0a5dcb1c5faa23ff5976b2"
+  },
+  "independent_source_configurations": 384,
+  "modes": 4,
+  "source_executions": 1536,
+  "package_tests": 64,
+  "counterfree_continuation_tests": 7,
+  "clippy": "pass",
+  "renaming_executed": [
+    13,
+    13,
+    9,
+    9
+  ],
+  "history_projection_executed": [
+    15,
+    15,
+    15,
+    12
+  ],
+  "timing_comparison": "not run",
+  "commands": [
+    "cargo test -p chr-reuse -p chr-persistent",
+    "cargo test -p chr-reuse --no-default-features --test generalized_continuations --test continuations",
+    "cargo clippy -p chr-reuse -p chr-persistent --all-targets -- -D warnings"
+  ]
+}

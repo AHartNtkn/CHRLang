@@ -1,0 +1,35 @@
+   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+   Compiling chr-reuse v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-reuse)
+error[E0599]: no variant, associated function, or constant named `Alpha` found for enum `chr_reuse::continuations::Mode` in the current scope
+  --> research/chr-reuse/tests/generalized_continuations.rs:21:54
+   |
+21 |     for mode in [Mode::Direct, Mode::ExactIds, Mode::Alpha] {
+   |                                                      ^^^^^ variant, associated function, or constant not found in `chr_reuse::continuations::Mode`
+
+error[E0609]: no field `raw_answers` on type `chr_reuse::continuations::Batch`
+  --> research/chr-reuse/tests/generalized_continuations.rs:25:26
+   |
+25 |         assert_eq!(batch.raw_answers.len(), 2);
+   |                          ^^^^^^^^^^^ unknown field
+   |
+   = note: available fields are: `answers`, `exhausted`
+
+error[E0609]: no field `raw_answers` on type `chr_reuse::continuations::Batch`
+  --> research/chr-reuse/tests/generalized_continuations.rs:26:30
+   |
+26 |         for answer in &batch.raw_answers {
+   |                              ^^^^^^^^^^^ unknown field
+   |
+   = note: available fields are: `answers`, `exhausted`
+
+error[E0599]: no variant, associated function, or constant named `Alpha` found for enum `chr_reuse::continuations::Mode` in the current scope
+  --> research/chr-reuse/tests/generalized_continuations.rs:31:33
+   |
+31 |         if matches!(mode, Mode::Alpha) { assert!(run.stats().hits > 0); }
+   |                                 ^^^^^ variant, associated function, or constant not found in `chr_reuse::continuations::Mode`
+
+Some errors have detailed explanations: E0599, E0609.
+For more information about an error, try `rustc --explain E0599`.
+error: could not compile `chr-reuse` (test "generalized_continuations") due to 4 previous errors

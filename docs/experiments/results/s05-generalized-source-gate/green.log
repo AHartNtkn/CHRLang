@@ -1,0 +1,24 @@
+   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)
+   Compiling chr-reuse v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-reuse)
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.33s
+     Running tests/generalized_continuations.rs (target/debug/deps/generalized_continuations-bda4b13ab073d2fa)
+
+running 1 test
+test different_histories_reuse_future_work_without_merging_raw_answers ... FAILED
+
+failures:
+
+---- different_histories_reuse_future_work_without_merging_raw_answers stdout ----
+
+thread 'different_histories_reuse_future_work_without_merging_raw_answers' (485) panicked at research/chr-reuse/tests/generalized_continuations.rs:31:42:
+assertion failed: run.stats().hits > 0
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    different_histories_reuse_future_work_without_merging_raw_answers
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p chr-reuse --test generalized_continuations`
