@@ -1,0 +1,58 @@
+warning: method `access_key` is never used
+   --> research/chr-integrated/../chr-compiled/src/generate.rs:229:8
+    |
+227 | impl Emit {
+    | --------- method in this implementation
+228 |     /// A key exists only when every source-pattern component is established.
+229 |     fn access_key(&mut self, term: &Term) -> String {
+    |        ^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `emit_access` is never used
+   --> research/chr-integrated/../chr-compiled/src/generate.rs:255:8
+    |
+255 | pub fn emit_access(name: &str, rules: &[Rule]) -> Result<String, String> {
+    |        ^^^^^^^^^^^
+
+warning: function `update_columns` is never used
+   --> research/chr-integrated/../chr-compiled/src/generate.rs:400:8
+    |
+400 | pub fn update_columns(rules: &[Rule]) -> BTreeMap<(String, usize), BTreeSet<usize>> {
+    |        ^^^^^^^^^^^^^^
+
+warning: `chr-integrated` (build script) generated 3 warnings
+   Compiling chr-relational v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-relational)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.47s
+     Running tests/chr_constructors.rs (target/debug/deps/chr_constructors-38f0999488686d52)
+
+running 16 tests
+constructor width=1: inspections=2
+equality width=8: inspections before useful equality=72
+constructor width=8: inspections=16
+test local_forks_preserve_fresh_handles_and_isolate_hidden_failure ... ok
+test local_decomposition_preserves_cross_child_aliases_and_arity ... ok
+test descriptor_waits_follow_both_merge_directions_and_nested_information ... ok
+test nested_source_pattern_waits_for_inner_information ... ok
+test source_plan_rejects_unimplemented_effects_and_ownership ... ok
+test local_handle_repair_wakes_only_the_affected_region ... ok
+constructor width=64: inspections=128
+test registering_a_known_input_does_not_revisit_existing_requests ... ok
+reverse=false access=Scan source=[("v1", App("a", [])), ("v3", Var(Var(1)))] kernel=[("v1", App("a", [])), ("v3", Var(Var(3)))]
+test a_hidden_constructor_cycle_cannot_publish_or_poison_its_sibling ... ok
+constructor width=256: inspections=512
+test local_broad_merge_repairs_every_alias_and_services_all_consumers ... ok
+reverse=false access=Indexed source=[("v1", App("a", [])), ("v3", Var(Var(1)))] kernel=[("v1", App("a", [])), ("v3", Var(Var(3)))]
+test unresolved_equality_observes_descendants_and_releases_consumed_dependencies ... ok
+reverse=true access=Scan source=[("v1", Var(Var(0))), ("v3", App("b", []))] kernel=[("v1", App("a", [])), ("v3", Var(Var(3)))]
+reverse=true access=Indexed source=[("v1", Var(Var(0))), ("v3", App("b", []))] kernel=[("v1", App("a", [])), ("v3", Var(Var(3)))]
+test competing_consumers_expose_descriptor_order_as_a_scheduling_choice ... ok
+equality width=64: inspections before useful equality=4160
+test source_patterns_preserve_nonbinding_repeated_variables_and_late_aliases ... ok
+test equality_alias_overhead_is_explicit_and_both_forks_preserve_source_answers ... ok
+test choice_keeps_consumption_local_and_checks_cycles ... ok
+test equality_enables_consumption_which_enables_another_consumption ... ok
+test constructor_classes_agree_with_independent_finite_tree_substitution ... ok
+
+test result: ok. 16 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.53s
+

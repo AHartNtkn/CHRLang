@@ -1,5 +1,5 @@
 //! Local handle rewriting: no parent forest or relational match tuples.
-use chr_syntax::{c, t, v, Answer, Goal, Rule, Term, Var};
+use chr_syntax::{Answer, Goal, Rule, Term, Var, c, t, v};
 use std::collections::{BTreeMap, BTreeSet, VecDeque};
 #[derive(Clone)]
 pub struct Plan {
@@ -49,7 +49,13 @@ struct Descriptor {
 struct Node {
     handles: Vec<usize>,
     descriptor: Option<Descriptor>,
-    watchers: BTreeSet<usize>,
+    descriptor_watchers: BTreeSet<usize>,
+    equality_watchers: BTreeSet<usize>,
+}
+#[derive(Default)]
+struct Dependencies {
+    descriptor: BTreeSet<usize>,
+    equality: BTreeSet<usize>,
 }
 #[derive(Clone)]
 struct Take {
@@ -76,6 +82,12 @@ pub struct Run {
     pub consumed_tokens: Vec<usize>,
 }
 impl Run {
+    pub fn subscriptions(&self) -> usize {
+        self.nodes
+            .iter()
+            .map(|n| n.descriptor_watchers.len() + n.equality_watchers.len())
+            .sum()
+    }
     pub fn value(&mut self) -> usize {
         let handle = self.targets.len();
         self.targets.push(self.nodes.len());
@@ -112,10 +124,8 @@ impl Run {
         self.tokens.push_back(self.next_token);
         self.next_token += 1;
     }
-    fn equal(&self, a: usize, b: usize, deps: &mut BTreeSet<usize>) -> bool {
+    fn equal(&self, a: usize, b: usize, deps: &mut Dependencies) -> bool {
         let (a, b) = (self.targets[a], self.targets[b]);
-        deps.insert(a);
-        deps.insert(b);
         if a == b {
             return true;
         }
@@ -125,6 +135,11 @@ impl Run {
                 .iter()
                 .zip(&y.children)
                 .all(|(&x, &y)| self.equal(x, y, deps)),
+            (None, _) | (_, None) => {
+                deps.equality.insert(a);
+                deps.equality.insert(b);
+                false
+            }
             _ => false,
         }
     }
@@ -133,7 +148,7 @@ impl Run {
         pattern: &Term,
         handle: usize,
         env: &mut BTreeMap<Var, usize>,
-        deps: &mut BTreeSet<usize>,
+        deps: &mut Dependencies,
     ) -> bool {
         match pattern {
             Term::Var(v) => match env.get(v) {
@@ -145,21 +160,26 @@ impl Run {
             },
             Term::App(name, args) => {
                 let node = self.targets[handle];
-                deps.insert(node);
-                self.nodes[node].descriptor.as_ref().is_some_and(|d| {
+                let Some(d) = self.nodes[node].descriptor.as_ref() else {
+                    deps.descriptor.insert(node);
+                    return false;
+                };
+                {
                     d.name == *name
                         && d.children.len() == args.len()
                         && args
                             .iter()
                             .zip(&d.children)
                             .all(|(p, &h)| self.matches(p, h, env, deps))
-                })
+                }
             }
         }
     }
     fn unsubscribe(&mut self, id: usize) {
         for handle in std::mem::take(&mut self.takes[id].watched) {
-            self.nodes[self.targets[handle]].watchers.remove(&id);
+            let node = &mut self.nodes[self.targets[handle]];
+            node.descriptor_watchers.remove(&id);
+            node.equality_watchers.remove(&id);
         }
     }
     fn inspect(&mut self, id: usize) {
@@ -171,28 +191,23 @@ impl Run {
         self.visited_requests += 1;
         let request = &self.takes[id];
         let mut env = BTreeMap::new();
-        let mut deps = BTreeSet::new();
+        let mut deps = Dependencies::default();
         let matched = self
             .matches(&request.plan.pattern, request.input, &mut env, &mut deps)
             .then(|| env[&request.plan.result]);
         self.takes[id].matched = matched;
-        for node in deps {
-            self.nodes[node].watchers.insert(id);
-            // A registered handle survives a merge even when its old node retires.
+        for &node in &deps.descriptor {
+            self.nodes[node].descriptor_watchers.insert(id);
+        }
+        for &node in &deps.equality {
+            self.nodes[node].equality_watchers.insert(id);
+        }
+        for &node in deps.descriptor.union(&deps.equality) {
+            // Stable handles keep unsubscription valid after endpoint repair.
             self.takes[id].watched.push(self.nodes[node].handles[0]);
         }
         if matched.is_some() {
             self.ready.insert(id);
-        }
-    }
-    fn wake(&mut self, node: usize) {
-        let watchers = self.nodes[node]
-            .watchers
-            .iter()
-            .copied()
-            .collect::<Vec<_>>();
-        for id in watchers {
-            self.inspect(id);
         }
     }
     fn reaches(&self, start: usize, target: usize) -> bool {
@@ -231,7 +246,21 @@ impl Run {
             self.repaired_handles += 1;
         }
         self.nodes[a].handles.extend(loser.handles);
-        self.nodes[a].watchers.extend(loser.watchers);
+        let mut wake = self.nodes[a].equality_watchers.clone();
+        wake.extend(&loser.equality_watchers);
+        // Only watchers whose previously unknown class gains a descriptor
+        // have new constructor information. Unknown/unknown aliases do not.
+        match (&self.nodes[a].descriptor, &loser.descriptor) {
+            (None, Some(_)) => wake.extend(&self.nodes[a].descriptor_watchers),
+            (Some(_), None) => wake.extend(&loser.descriptor_watchers),
+            _ => (),
+        }
+        self.nodes[a]
+            .descriptor_watchers
+            .extend(loser.descriptor_watchers);
+        self.nodes[a]
+            .equality_watchers
+            .extend(loser.equality_watchers);
         match (&self.nodes[a].descriptor, loser.descriptor) {
             (Some(x), Some(y)) => {
                 if x.name != y.name || x.children.len() != y.children.len() {
@@ -244,7 +273,9 @@ impl Run {
             (None, Some(y)) => self.nodes[a].descriptor = Some(y),
             _ => (),
         }
-        self.wake(a);
+        for id in wake {
+            self.inspect(id);
+        }
     }
     pub fn settle(&mut self) {
         for _ in 0..200_000 {

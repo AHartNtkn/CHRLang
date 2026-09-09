@@ -264,7 +264,7 @@ All new results link raw inputs, commands, freezes, validation and unfavorable o
 
 ## Current execution order
 
-**T072 is active for precise integrated dependencies.** The [complete reunion pilot](results/S04-reunion-complete-pilot.md) now supplies 4,032 audited lifecycle processes with the stronger controls. The [selection review](results/S04-reunion-next-investigation.md) chooses the known broad-merge dependency defect before more reunion refinement. This is a causal correctness/work package before broader integrated source and cost comparisons.
+**T072 is active for equality-dependent discovery.** The [local dependency repair](results/S02-local-dependency-repair.md) establishes the constructor-wait improvement and an adverse repeated-equality witness. Its four-package breadth review selects indexed value-pair dependencies against endpoint subscriptions and event filtering, charging discovery and maintenance before interpreting reduced inspections. Broader integrated sources and complete costs remain required.
 
 The [ordered remaining sequence](remaining-investigations.md#execution-order) records the completed bounded restoration/reunion comparisons and remaining investigation boundaries. T077 stays required for broader restoration, adaptive splitting, repeated dynamic reunion, inference and sustained lifetime. Broader lowering and structural theories, discovery, reuse, direct graphs and connected parallelism remain required. Language and lifetime comparisons accompany every candidate; priority is reconsidered at each package boundary.
 

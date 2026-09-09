@@ -1,6 +1,6 @@
 # Unanswered architecture questions and experimental ownership
 
-The [complete reunion pilot](results/S04-reunion-complete-pilot.md) completes 4,032 audited processes with 576 exact allocation pairs and full disposal restoration. Countdown elimination changes the long-private-work comparison; shortened reunion retains a favorable plain regime, while short work, payload traffic and peak demand expose costs. Timings remain exploratory. The [selection review](results/S04-reunion-next-investigation.md) makes T072 active for precise integrated dependencies; broader T077 restoration/reunion remains required.
+The [local dependency repair](results/S02-local-dependency-repair.md) reduces the width-64 constructor witness from 2,207 to 128 inspections with independent complete-source agreement and subscription release. All 46 package tests pass. An adverse repeated-equality witness still produces 4,160 inspections before useful information; T072 next compares indexed value-pair dependencies while charging discovery and maintenance. This is diagnostic work evidence, not a timing or architecture ranking.
 
 ## How unanswered variants remain accountable
 
@@ -79,6 +79,6 @@ No aggregate benchmark weights, universal winner, automatic hybrid routing or ad
 
 ## Current selection
 
-**T072 is active for precise integrated dependencies.** The [selection review](results/S04-reunion-next-investigation.md) compares this ready causal repair with further reunion confirmation, broader dynamic decomposition and source-derived elimination. The [nested-pattern gate](results/S02-local-pattern-gate.md) supplies independent source cases and the broad-alias reinspection witness. A repair must preserve equality-enabled repeated matches while avoiding unaffected constructor rechecks.
+**T072 is active for equality-dependent discovery.** The [four-package review](results/S02-local-dependency-repair.md#four-package-breadth-review-and-next-selection) chooses a bounded pair-index comparison against the observed endpoint-watcher cost. Constructor waiting now avoids irrelevant aliases; repeated equality still has a demonstrated broad-notification confound. Compare indexed relations with endpoint subscriptions and event filtering, charging all discovery and repair work before broader integrated source/cost comparisons.
 
 T077's [complete-cost pilot](results/S04-reunion-complete-pilot.md) is bounded evidence. Restoration policies, adaptive splitting, repeated dynamic reunion, inferred boundaries and sustained lifetime remain required. T072 likewise remains responsible for broader heads, effects, history, scheduling and full costs after the repair gate. Existing call-reuse, structural-solving and graph trials retain their stated scope; all review assignments above remain in force.

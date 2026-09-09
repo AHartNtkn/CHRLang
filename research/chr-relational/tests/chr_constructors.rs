@@ -7,7 +7,7 @@ mod local;
 #[allow(dead_code)]
 #[path = "../../chr-direct-conditional/tests/runtime_support/mod.rs"]
 mod oracle;
-use chr_syntax::{and, atom, c, eq, t, v, Answer, Query, Rule, Term, Var};
+use chr_syntax::{Answer, Query, Rule, Term, Var, and, atom, c, eq, t, v};
 fn take_plan() -> local::Plan {
     local::Plan::compile(&Rule::simplify(
         "take",
@@ -267,12 +267,16 @@ fn equality_enables_consumption_which_enables_another_consumption() {
             .collect::<Vec<_>>();
         assert_eq!(takes.len(), tokens.min(2));
         if takes.len() == 2 {
-            assert!(trace[takes[0] + 1..takes[1]]
-                .iter()
-                .any(|&i| rules[i].name == "link-roots"));
-            assert!(trace[takes[0] + 1..takes[1]]
-                .iter()
-                .any(|&i| rules[i].name == "repair-take-0"));
+            assert!(
+                trace[takes[0] + 1..takes[1]]
+                    .iter()
+                    .any(|&i| rules[i].name == "link-roots")
+            );
+            assert!(
+                trace[takes[0] + 1..takes[1]]
+                    .iter()
+                    .any(|&i| rules[i].name == "repair-take-0")
+            );
         }
         for access in [chr_compiled::Access::Scan, chr_compiled::Access::Indexed] {
             let actual = run(
@@ -585,7 +589,7 @@ fn local_forks_preserve_fresh_handles_and_isolate_hidden_failure() {
 
 #[test]
 fn local_broad_merge_repairs_every_alias_and_services_all_consumers() {
-    for width in [1, 8, 64] {
+    for width in [1, 8, 64, 256] {
         let mut run = local::Run::default();
         let values = (0..width).map(|_| run.value()).collect::<Vec<_>>();
         let outputs = (0..width).map(|_| run.value()).collect::<Vec<_>>();
@@ -599,6 +603,10 @@ fn local_broad_merge_repairs_every_alias_and_services_all_consumers() {
         run.settle();
         assert_eq!(run.repaired_handles, width - 1);
         assert!(run.consumed_tokens.is_empty());
+        assert_eq!(
+            run.visited_requests, width,
+            "descriptor-free aliases cannot enable a constructor match"
+        );
         let leaf = run.value();
         run.describe(leaf, "a", vec![]);
         run.describe(values[0], "f", vec![leaf]);
@@ -606,10 +614,11 @@ fn local_broad_merge_repairs_every_alias_and_services_all_consumers() {
         let answer = run.answer(&outputs).unwrap();
         assert!(answer.outputs.iter().all(|(_, term)| *term == atom("a")));
         assert!(answer.residual.is_empty());
-        assert_eq!(
-            run.visited_requests,
-            2 * width + width * (width + 1) / 2 - 1
-        ); // registration, conservative alias rechecks, activation
+        assert_eq!(run.visited_requests, 2 * width); // registration and descriptor activation only
+        println!(
+            "constructor width={width}: inspections={}",
+            run.visited_requests
+        );
         assert_eq!(run.consumed_tokens, (0..width).collect::<Vec<_>>());
     }
 }
@@ -819,5 +828,280 @@ fn source_plan_rejects_unimplemented_effects_and_ownership() {
     bound_output.removed[0].args[0] = t("f", [v(1)]);
     for rejected in [body, kept, resource, fresh, bound_output] {
         assert!(local::Plan::compile(&rejected).is_err());
+    }
+}
+
+#[test]
+fn descriptor_waits_follow_both_merge_directions_and_nested_information() {
+    let rule = Rule::simplify(
+        "nested",
+        [c("take", [t("f", [t("g", [v(0)])]), v(1)]), c("token", [])],
+        eq(v(1), v(0)),
+    );
+    let plan = local::Plan::compile(&rule).unwrap();
+    for large_input in [false, true] {
+        for large_inner in [false, true] {
+            let mut run = local::Run::default();
+            let input = run.value();
+            let output = run.value();
+            let described = run.value();
+            let inner = run.value();
+            let inner_alias = run.value();
+            let leaf = run.value();
+            for _ in 0..8 {
+                let h = run.value();
+                run.equate(if large_input { input } else { described }, h);
+                let h = run.value();
+                run.equate(if large_inner { inner } else { inner_alias }, h);
+            }
+            run.settle();
+            run.post(&plan, input, output);
+            run.token();
+            run.describe(described, "f", vec![inner]);
+            run.settle();
+            assert_eq!(run.visited_requests, 1);
+            run.equate(input, described);
+            run.settle();
+            assert_eq!(run.visited_requests, 2);
+            assert!(run.consumed_tokens.is_empty());
+            run.equate(inner, inner_alias);
+            run.settle();
+            assert_eq!(run.visited_requests, 2);
+            run.describe(leaf, "a", vec![]);
+            run.describe(inner_alias, "g", vec![leaf]);
+            run.settle();
+            assert_eq!(run.visited_requests, 3);
+            assert_eq!(
+                run.subscriptions(),
+                0,
+                "consumed nested request retains subscriptions"
+            );
+            assert_eq!(run.consumed_tokens, vec![0]);
+            let source = vec![
+                rule.clone(),
+                Rule::simplify(
+                    "supply",
+                    [c("supply", [v(0)])],
+                    eq(v(0), t("f", [t("g", [atom("a")])])),
+                ),
+            ];
+            let q = Query {
+                constraints: vec![c("take", [v(0), v(1)]), c("token", []), c("supply", [v(0)])],
+                outputs: vec![("v0".into(), Var(0)), ("v1".into(), Var(1))],
+            };
+            oracle::same_raw(
+                run.answer(&[input, output]).into_iter().collect(),
+                oracle::run(&source, &q, 200_000),
+            );
+            // Neither a consumed request nor its former nested subscriptions
+            // may be revisited by later endpoint repair.
+            let extra = run.value();
+            run.equate(inner, extra);
+            run.settle();
+            assert_eq!(run.visited_requests, 3);
+        }
+    }
+}
+
+#[test]
+fn unresolved_equality_observes_descendants_and_releases_consumed_dependencies() {
+    fn wrapped(depth: usize, leaf: Term) -> Term {
+        (0..depth).fold(leaf, |child, _| t("f", [child]))
+    }
+    fn graph_wrap(run: &mut local::Run, depth: usize, leaf: usize) -> usize {
+        (0..depth).fold(leaf, |child, _| {
+            let h = run.value();
+            run.describe(h, "f", vec![child]);
+            h
+        })
+    }
+    let rule = Rule::simplify(
+        "repeat",
+        [
+            c("take", [t("pair", [v(10), v(10)]), v(11)]),
+            c("token", []),
+        ],
+        eq(v(11), v(10)),
+    );
+    let plan = local::Plan::compile(&rule).unwrap();
+    for depth in [0, 1, 3] {
+        for late in 0..3 {
+            for reverse in [false, true] {
+                let mut run = local::Run::default();
+                let out = run.value();
+                let a = run.value();
+                let b = run.value();
+                let left = graph_wrap(&mut run, depth, a);
+                let right = graph_wrap(&mut run, depth, b);
+                let input = run.value();
+                run.describe(input, "pair", vec![left, right]);
+                run.settle();
+                run.post(&plan, input, out);
+                run.token();
+                run.settle();
+                assert!(run.consumed_tokens.is_empty());
+                // Endpoint aliases can relocate subscriptions before the useful change.
+                for _ in 0..4 {
+                    let h = run.value();
+                    run.equate(if reverse { b } else { a }, h);
+                }
+                run.settle();
+                assert!(run.consumed_tokens.is_empty());
+                let change = match late {
+                    0 => {
+                        run.equate(if reverse { b } else { a }, if reverse { a } else { b });
+                        eq(v(1), v(2))
+                    }
+                    1 => {
+                        run.describe(a, "z", vec![]);
+                        run.describe(b, "z", vec![]);
+                        and([eq(v(1), atom("z")), eq(v(2), atom("z"))])
+                    }
+                    _ => {
+                        run.describe(a, "z", vec![]);
+                        run.describe(b, "w", vec![]);
+                        and([eq(v(1), atom("z")), eq(v(2), atom("w"))])
+                    }
+                };
+                run.settle();
+                let source = vec![
+                    rule.clone(),
+                    Rule::simplify("supply", [c("supply", [v(1), v(2)])], change),
+                ];
+                let q = Query {
+                    constraints: vec![
+                        c(
+                            "take",
+                            [
+                                t("pair", [wrapped(depth, v(1)), wrapped(depth, v(2))]),
+                                v(0),
+                            ],
+                        ),
+                        c("token", []),
+                        c("supply", [v(1), v(2)]),
+                    ],
+                    outputs: vec![
+                        ("v0".into(), Var(0)),
+                        ("v1".into(), Var(1)),
+                        ("v2".into(), Var(2)),
+                    ],
+                };
+                oracle::same_raw(
+                    run.answer(&[out, a, b]).into_iter().collect(),
+                    oracle::run(&source, &q, 200_000),
+                );
+                assert_eq!(run.consumed_tokens.len(), usize::from(late != 2));
+                assert_eq!(
+                    run.subscriptions(),
+                    0,
+                    "resolved request retains subscriptions"
+                );
+                let inspections = run.visited_requests;
+                let extra = run.value();
+                run.equate(a, extra);
+                run.settle();
+                assert_eq!(
+                    run.visited_requests, inspections,
+                    "resolved equality or mismatch retained dependencies"
+                );
+                if late == 0 {
+                    run.describe(a, "z", vec![]);
+                    run.settle();
+                    assert_eq!(run.visited_requests, inspections);
+                    assert_eq!(
+                        run.answer(&[out]).unwrap().outputs[0].1,
+                        wrapped(depth, atom("z"))
+                    );
+                }
+            }
+        }
+    }
+}
+
+#[test]
+fn equality_alias_overhead_is_explicit_and_both_forks_preserve_source_answers() {
+    let rule = Rule::simplify(
+        "repeat",
+        [
+            c("take", [t("pair", [v(100), v(100)]), v(101)]),
+            c("token", []),
+        ],
+        eq(v(101), v(100)),
+    );
+    let plan = local::Plan::compile(&rule).unwrap();
+    for width in [8, 64] {
+        let mut run = local::Run::default();
+        let common = run.value();
+        let others = (0..width).map(|_| run.value()).collect::<Vec<_>>();
+        let outputs = (0..width).map(|_| run.value()).collect::<Vec<_>>();
+        for (&other, &output) in others.iter().zip(&outputs) {
+            let pair = run.value();
+            run.describe(pair, "pair", vec![common, other]);
+            run.settle();
+            run.post(&plan, pair, output);
+            run.token();
+        }
+        for _ in 0..width {
+            let h = run.value();
+            run.equate(common, h);
+        }
+        run.settle();
+        assert_eq!(run.visited_requests, width + width * width);
+        assert!(run.consumed_tokens.is_empty());
+        println!(
+            "equality width={width}: inspections before useful equality={}",
+            run.visited_requests
+        );
+        let untouched = run.clone();
+        let mut constraints = Vec::new();
+        for i in 0..width {
+            constraints.push(c(
+                "take",
+                [
+                    t("pair", [v(0), v((i + 1) as u64)]),
+                    v((width + 1 + i) as u64),
+                ],
+            ));
+            constraints.push(c("token", []));
+        }
+        let q = Query {
+            constraints,
+            outputs: (0..width)
+                .map(|i| (format!("v{i}"), Var((width + 1 + i) as u64)))
+                .collect(),
+        };
+        oracle::same_raw(
+            untouched.answer(&outputs).into_iter().collect(),
+            oracle::run(std::slice::from_ref(&rule), &q, 200_000),
+        );
+        for &h in &others {
+            run.equate(common, h);
+        }
+        run.settle();
+        assert_eq!(run.consumed_tokens, (0..width).collect::<Vec<_>>());
+        assert_eq!(run.subscriptions(), 0);
+        assert!(untouched.subscriptions() > 0);
+        let arguments = (0..=width).map(|i| v(i as u64)).collect::<Vec<_>>();
+        let mut supplied = q.clone();
+        supplied.constraints.push(c("supply", arguments.clone()));
+        let source = vec![
+            rule.clone(),
+            Rule::simplify(
+                "supply",
+                [c("supply", arguments)],
+                and((0..width)
+                    .map(|i| eq(v(0), v((i + 1) as u64)))
+                    .collect::<Vec<_>>()),
+            ),
+        ];
+        oracle::same_raw(
+            run.answer(&outputs).into_iter().collect(),
+            oracle::run(&source, &supplied, 200_000),
+        );
+        assert!(untouched.consumed_tokens.is_empty());
+        oracle::same_raw(
+            untouched.answer(&outputs).into_iter().collect(),
+            oracle::run(std::slice::from_ref(&rule), &q, 200_000),
+        );
     }
 }
