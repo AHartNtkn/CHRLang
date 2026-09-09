@@ -150,6 +150,32 @@ impl Program {
             prefix,
         })
     }
+    /// Prepare once for an ordered predicate signature. Argument terms, aliases,
+    /// and output variables remain query inputs, never artifact cache keys.
+    pub fn prepare_shape(&self, shape: &[(String, usize)]) -> Result<Artifact, String> {
+        let mut next = 0u64;
+        let mut constraints = Vec::new();
+        for (name, arity) in shape {
+            let mut args = Vec::new();
+            for _ in 0..*arity {
+                args.push(Term::Var(Var(next)));
+                next = next.checked_add(1).ok_or("variable identity exhausted")?;
+            }
+            constraints.push(Constraint {
+                name: name.clone(),
+                args,
+            });
+        }
+        let (rules, query) = self.lower(&Query {
+            constraints,
+            outputs: Vec::new(),
+        })?;
+        Ok(Artifact {
+            shape: shape.to_vec(),
+            entry: query.constraints[0].name.clone(),
+            prepared: crate::PreparedRuleset::new(rules, None)?,
+        })
+    }
     pub fn eliminated_predicates(&self) -> Vec<Key> {
         self.defs.keys().cloned().collect()
     }
@@ -222,6 +248,47 @@ impl Program {
         ))
     }
 }
+/// Source-derived execution prepared for a query's predicate order and arities.
+/// Owns its target rules independently of the compiler that produced it.
+pub struct Artifact {
+    shape: Vec<Key>,
+    entry: String,
+    prepared: crate::PreparedRuleset,
+}
+impl Artifact {
+    pub fn start(
+        &self,
+        query: &Query,
+        access: crate::Access,
+    ) -> Result<crate::SearchEngine, String> {
+        if query.constraints.len() != self.shape.len()
+            || query
+                .constraints
+                .iter()
+                .zip(&self.shape)
+                .any(|(c, k)| &key(c) != k)
+        {
+            return Err("query predicate order or arity differs from prepared shape".into());
+        }
+        let args = query
+            .constraints
+            .iter()
+            .flat_map(|c| c.args.iter().cloned())
+            .collect();
+        self.prepared.start_search(
+            Query {
+                constraints: vec![Constraint {
+                    name: self.entry.clone(),
+                    args,
+                }],
+                outputs: query.outputs.clone(),
+            },
+            crate::Policy::Global,
+            access,
+        )
+    }
+}
+
 struct Expansion<'a> {
     defs: &'a BTreeMap<Key, Rule>,
     next: u64,

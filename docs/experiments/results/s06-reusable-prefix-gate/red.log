@@ -1,0 +1,9 @@
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+error[E0599]: no method named `prepare_shape` found for struct `Program` in the current scope
+   --> research/chr-compiled/tests/pure_prefix.rs:337:50
+    |
+337 |     let artifact = Program::new(&rules).unwrap().prepare_shape(&[
+    |                    ------------------------------^^^^^^^^^^^^^ method not found in `Program`
+
+For more information about this error, try `rustc --explain E0599`.
+error: could not compile `chr-compiled` (test "pure_prefix") due to 1 previous error

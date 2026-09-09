@@ -1,0 +1,18 @@
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.82s
+     Running tests/pure_prefix.rs (target/debug/deps/pure_prefix-55acf910c0d8e883)
+
+running 11 tests
+test observers_late_heads_and_recursive_prefixes_are_not_eliminated ... ok
+test resource_priority_is_a_required_condition ... ok
+test fresh_variables_from_distinct_calls_remain_distinct ... ok
+test emitted_program_eliminates_private_applications_in_actual_execution ... ok
+test reusable_artifact_eliminates_execution_and_keeps_finite_service ... ok
+test body_calls_and_finite_sibling_survive_ordinary_recursion ... ok
+test reusable_artifacts_preserve_failures_names_source_changes_and_empty_queries ... ok
+test prefix_selection_agrees_with_bounded_dependency_graphs ... ok
+test reusable_artifact_accepts_changed_terms_aliases_and_resources ... ok
+test independent_calls_can_bind_competing_resource_consumers ... ok
+test source_derived_prefix_preserves_consumption_choices_and_fresh_aliases ... ok
+
+test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s

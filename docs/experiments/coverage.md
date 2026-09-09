@@ -14,6 +14,8 @@ At that review, apply the [six adequacy questions](sequence.md#what-counts-as-in
 
 ## Current evidence and next work
 
+The [reusable-prefix gate](results/S06-reusable-prefix-gate.md) now prepares source-derived target rules once per ordered predicate signature and accepts changed argument terms, aliases and outputs. Independent complete-answer, fresh-identity, resource and finite-service checks pass; all 118 compiled-package tests pass with default and counter-free features. Lifecycle sizing is next; no cost advantage is claimed. Broader recursive/effectful lowering remains required.
+
 The [complete-control confirmation](results/S02-deduction-confirmation.md) now records 5,220 successful processes: persistent shared deductions lose to scanning and specialization in all 32 substantive cases, while exact-source elimination wins all 64 comparisons against persistent sharing. Compatible reuse remains beneficial within contextual execution. The [four-package breadth review](results/S02-deduction-breadth-review.md) selects T073 reusable source-derived lowering next. T072 remains unfinished for broader validity and distinct local rewrite organizations.
 
 | Stage | Evidence now available | Still required |

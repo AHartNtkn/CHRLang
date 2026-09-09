@@ -326,3 +326,212 @@ fn prefix_selection_agrees_with_bounded_dependency_graphs() {
         );
     }
 }
+
+#[test]
+fn reusable_artifact_accepts_changed_terms_aliases_and_resources() {
+    let rules = vec![
+        Rule::simplify(
+            "fresh",
+            [c("fresh", [v(0), v(1)])],
+            or(
+                eq(v(1), t("pair", [v(0), v(2), v(2)])),
+                eq(v(1), atom("other")),
+            ),
+        ),
+        Rule::simplify(
+            "use",
+            [c("ready", [v(0)]), c("token", [v(0)])],
+            c("done", [v(0)]).into(),
+        ),
+    ];
+    let artifact = Program::new(&rules)
+        .unwrap()
+        .prepare_shape(&[
+            ("fresh".into(), 2),
+            ("fresh".into(), 2),
+            ("ready".into(), 1),
+            ("ready".into(), 1),
+            ("token".into(), 1),
+        ])
+        .unwrap();
+    for access in [chr_compiled::Access::Scan, chr_compiled::Access::Indexed] {
+        for alias in [false, true] {
+            for value in [atom("a"), t("f", [v(99)])] {
+                let y = if alias { v(10) } else { v(11) };
+                let q = Query {
+                    constraints: vec![
+                        c("fresh", [value.clone(), v(10)]),
+                        c("fresh", [value.clone(), y]),
+                        c("ready", [value.clone()]),
+                        c("ready", [value.clone()]),
+                        c("token", [value]),
+                    ],
+                    outputs: vec![
+                        ("x".into(), Var(10)),
+                        ("y".into(), Var(11)),
+                        ("free".into(), Var(99)),
+                    ],
+                };
+                let expected = oracle::run(&rules, &q, 10000);
+                for _ in 0..2 {
+                    let mut e = artifact.start(&q, access).unwrap();
+                    let mut answers = vec![];
+                    let mut complete = false;
+                    for _ in 0..10000 {
+                        match e.tick() {
+                            chr_compiled::SearchEvent::Complete(mut b) => {
+                                answers.push(b.engine.observe().unwrap())
+                            }
+                            chr_compiled::SearchEvent::Exhausted => {
+                                complete = true;
+                                break;
+                            }
+                            _ => (),
+                        }
+                    }
+                    assert!(complete);
+                    oracle::same_raw(answers, expected.clone());
+                }
+            }
+        }
+    }
+    assert!(
+        artifact
+            .start(
+                &Query {
+                    constraints: vec![],
+                    outputs: vec![]
+                },
+                chr_compiled::Access::Scan
+            )
+            .is_err()
+    );
+}
+
+#[test]
+fn reusable_artifacts_preserve_failures_names_source_changes_and_empty_queries() {
+    for color in ["a", "b"] {
+        let rules = vec![Rule::simplify(
+            "bind",
+            [c("bind", [v(0)])],
+            eq(v(0), atom(color)),
+        )];
+        let p = Program::new(&rules).unwrap();
+        let shape = [("bind".into(), 1), ("__prefix_entry".into(), 0)];
+        let artifact = p.prepare_shape(&shape).unwrap();
+        for term in [v(70), atom("a"), atom("b")] {
+            let q = Query {
+                constraints: vec![c("bind", [term]), c("__prefix_entry", [])],
+                outputs: vec![("x".into(), Var(70))],
+            };
+            for access in [chr_compiled::Access::Scan, chr_compiled::Access::Indexed] {
+                oracle::same_raw(
+                    collect(artifact.start(&q, access).unwrap()),
+                    oracle::run(&rules, &q, 10000),
+                );
+            }
+        }
+        for constraints in [
+            vec![c("bind", []), c("__prefix_entry", [])],
+            vec![c("__prefix_entry", []), c("bind", [v(70)])],
+            vec![c("wrong", [v(70)]), c("__prefix_entry", [])],
+        ] {
+            assert!(
+                artifact
+                    .start(
+                        &Query {
+                            constraints,
+                            outputs: vec![]
+                        },
+                        chr_compiled::Access::Scan
+                    )
+                    .is_err()
+            );
+        }
+        let empty = Query {
+            constraints: vec![],
+            outputs: vec![("free".into(), Var(80))],
+        };
+        let artifact = p.prepare_shape(&[]).unwrap();
+        oracle::same_raw(
+            collect(artifact.start(&empty, chr_compiled::Access::Scan).unwrap()),
+            oracle::run(&rules, &empty, 10000),
+        );
+    }
+}
+
+fn collect(mut engine: chr_compiled::SearchEngine) -> Vec<chr_syntax::Answer> {
+    let mut answers = vec![];
+    for _ in 0..10000 {
+        match engine.tick() {
+            chr_compiled::SearchEvent::Complete(mut b) => answers.push(b.engine.observe().unwrap()),
+            chr_compiled::SearchEvent::Exhausted => return answers,
+            _ => (),
+        }
+    }
+    panic!("finite artifact bound");
+}
+
+#[test]
+fn reusable_artifact_eliminates_execution_and_keeps_finite_service() {
+    let rules = vec![
+        Rule::simplify("p", [c("p", [v(0)])], c("q", [v(0)]).into()),
+        Rule::simplify("q", [c("q", [v(0)])], eq(v(0), atom("a"))),
+        Rule::simplify(
+            "start",
+            [c("start", [v(0)])],
+            or(c("loop", []).into(), c("p", [v(0)]).into()),
+        ),
+        Rule::simplify("loop", [c("loop", [])], c("loop", []).into()),
+    ];
+    let program = Program::new(&rules).unwrap();
+    let direct = program.prepare_shape(&[("p".into(), 1)]).unwrap();
+    let branching = program.prepare_shape(&[("start".into(), 1)]).unwrap();
+    drop(program);
+    for access in [chr_compiled::Access::Scan, chr_compiled::Access::Indexed] {
+        let query = Query {
+            constraints: vec![c("p", [v(50)])],
+            outputs: vec![("x".into(), Var(50))],
+        };
+        let mut engine = direct.start(&query, access).unwrap();
+        engine.enable_trace();
+        let mut seen = false;
+        for _ in 0..1000 {
+            if let chr_compiled::SearchEvent::Complete(mut b) = engine.tick() {
+                assert_eq!(b.engine.trace().len(), 1);
+                oracle::same_raw(
+                    vec![b.engine.observe().unwrap()],
+                    oracle::run(&rules, &query, 10000),
+                );
+                seen = true;
+                break;
+            }
+        }
+        assert!(seen);
+        let query = Query {
+            constraints: vec![c("start", [v(50)])],
+            outputs: vec![("x".into(), Var(50))],
+        };
+        let mut engine = branching.start(&query, access).unwrap();
+        let mut answer = None;
+        for _ in 0..500 {
+            if let chr_compiled::SearchEvent::Complete(mut b) = engine.tick() {
+                answer = Some(b.engine.observe().unwrap());
+                break;
+            }
+        }
+        assert_eq!(
+            answer,
+            Some(chr_syntax::Answer {
+                outputs: vec![("x".into(), atom("a"))],
+                residual: vec![]
+            })
+        );
+        for _ in 0..32 {
+            assert!(!matches!(
+                engine.tick(),
+                chr_compiled::SearchEvent::Exhausted
+            ));
+        }
+    }
+}

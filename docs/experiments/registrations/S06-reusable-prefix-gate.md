@@ -1,0 +1,9 @@
+# Reusable source-derived prefix: mechanism and correctness gate
+
+Test whether the existing private acyclic prefix transformation can prepare target execution once across changed queries. This is T073's next source gate, selected in the S02 deduction breadth review. No comparative timing is authorized by this registration; register lifecycle sizes and repetitions after correctness and sizing.
+
+Derive an artifact from the source plus the ordered predicate names/arities of a query. Replace each argument position with a distinct formal variable before lowering and preparing. At execution, pass actual terms into the prepared synthetic entry, preserving aliases and output variables. The artifact owns its prepared rules; queries own bindings and fresh locals. Predicate order, count or arity changes require new preparation. Source changes require a new Program and artifact. Preserve the existing source eligibility and Global source-order policy.
+
+Compare complete answers to the independent scalar evaluator on original source, and to existing per-query lowering where useful. Include changed constants and constructor shapes, aliases and independent unknowns, duplicate occurrences and resource competition, empty queries, synthetic-name collisions, changed sources, failures and independent choices. Check actual execution eliminates private rule applications. Retain scan and indexed access. Explicitly reject mismatched query signatures before execution; do not select a fallback.
+
+A prepared artifact must survive dropping its compiler and starting multiple independent searches. Inspect the ownership path to ensure starting queries does not perform lowering or target preparation again. A correctness gate is not evidence of speed, general recursion, or sustained lifetime. Existing pure-prefix eligibility rejection and finite-sibling tests remain required, and a reusable-artifact finite-sibling witness must preserve service.
