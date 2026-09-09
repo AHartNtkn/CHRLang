@@ -64,14 +64,16 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T072
+active_task: T075
 tasks:
   - id: T075
     type: pm
     assignee: PM
-    status: pending
+    status: active
     objective: Investigate sound generalized call and continuation reuse after different histories, including renaming, relevance, resource and output identity obligations, against competent recomputation and sharing controls.
     inputs:
+      - docs/experiments/results/S02-local-rewrite-breadth-review.md
+      - docs/experiments/results/S02-local-pattern-gate.md
       - docs/experiments/results/S05-reuse-opportunity-confirmation.md
       - docs/experiments/results/S05-opportunity-next.md
       - docs/experiments/results/S05-reuse-opportunity-sizing.md
@@ -174,9 +176,11 @@ tasks:
   - id: T072
     type: pm
     assignee: PM
-    status: active
+    status: pending
     objective: Establish a contextual equality and local consuming-rewrite source comparison that demonstrates useful interleaving, distinct resource ownership and independent complete-answer correctness before cost registration.
     inputs:
+      - docs/experiments/results/S02-local-pattern-gate.md
+      - docs/experiments/results/S02-local-rewrite-breadth-review.md
       - docs/experiments/results/S02-local-ports-gate.md
       - docs/experiments/results/S02-chr-constructors-gate.md
       - docs/experiments/results/S02-chr-forest-gate.md

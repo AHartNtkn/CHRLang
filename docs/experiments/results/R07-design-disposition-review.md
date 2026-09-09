@@ -88,6 +88,8 @@ Each numbered entry gives the result, the reason I stopped or limited adoption, 
 
 ### 9. Integrate equality, constructors, matching and consuming execution — Measured limit of the R02 implementation
 
+The [source-derived nested-pattern gate](S02-local-pattern-gate.md) adds independently checked nonbinding matching and late-alias dependencies. Its broad control exposes avoidable conservative rechecking. The [breadth review](S02-local-rewrite-breadth-review.md) schedules call-level reuse next while retaining broader integrated execution and costs as required work.
+
 The [local handle-rewrite gate](S02-local-ports-gate.md) subsequently tests direct handle repair and attached-request activation without a parent forest. It establishes bounded source correctness, not a general strategic-rewrite architecture or a cost ranking. Broader source rules and lifecycle remain required.
 
 The subsequent [CHR-expressed constructor/consumption gate](S02-chr-constructors-gate.md) directly tests another mechanism: source-rule class merging and descriptor repair. It has independent bounded correctness evidence and an explicit resource-scheduling boundary, but no comparative costs. Strategic local rewriting and broader source correspondence remain unresolved.

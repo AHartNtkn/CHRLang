@@ -93,13 +93,15 @@ No aggregate benchmark weights, universal winner, automatic hybrid routing or ad
 
 ## Current selection
 
-The [local handle-rewrite gate](results/S02-local-ports-gate.md) now directly tests a distinct representation without parent-chain lookup or relational match tuples. Independent constructor/consuming checks, selective and broad activation, and a registration-cost correction pass. General rule derivation and full costs remain open; T072 stays active.
+**T075 is active for call-level reuse across different callers.** The [four-package integrated breadth review](results/S02-local-rewrite-breadth-review.md) selects this distinct mechanism after the [nested-pattern source gate](results/S02-local-pattern-gate.md). T072 remains pending for broader source execution, precise dependency repair and full costs.
 
-The [CHR constructor/consumption gate](results/S02-chr-constructors-gate.md) validates finite-tree consistency and equality-enabled consuming execution, and records a descriptor-order resource-selection counterexample. T072 remains active for the distinct local rewrite comparison; no cost ranking follows.
+The [local handle-rewrite gate](results/S02-local-ports-gate.md) now directly tests a distinct representation without parent-chain lookup or relational match tuples. Independent constructor/consuming checks, selective and broad activation, and a registration-cost correction pass. General rule derivation and full costs remain open; T072 remains unfinished.
+
+The [CHR constructor/consumption gate](results/S02-chr-constructors-gate.md) validates finite-tree consistency and equality-enabled consuming execution, and records a descriptor-order resource-selection counterexample. T072 remains unfinished for broader source and cost comparisons; no cost ranking follows.
 
 The [CHR-expressed forest gate](results/S02-chr-forest-gate.md) establishes ground-identifier partition correctness, actual path compression and stale-link repair. Constructor consistency and consuming execution remain the next T072 source comparison; this gate supplies no timing or architecture ranking.
 
-T072 is active for distinct integrated execution. The [next discriminating comparisons](remaining-investigations.md#next-discriminating-comparisons) specify its complete-source gate and comparison, followed by call-level reuse, structural solving and restoration/reconnection. These are outstanding work, not new measured dispositions. All review-entry mappings above remain required.
+T072 has bounded integrated source evidence and remains unfinished. The [next discriminating comparisons](remaining-investigations.md#next-discriminating-comparisons) specify its complete-source gate and comparison, followed by call-level reuse, structural solving and restoration/reconnection. These are outstanding work, not new measured dispositions. All review-entry mappings above remain required.
 
 [T072 shared-deduction gate](results/S02-shared-deduction-gate.md) now demonstrates reuse of newly computed equality transitions with local resource effects, compatible caller queues and unchanged source service events. Independent substitution, complete-source and arena-release checks pass. The [1,148-process lifecycle sizing](results/S02-deduction-sizing.md) verifies compatible reuse and adverse keys, with exact allocation replay. The [2,464-process persistent-map attribution](results/S02-equality-map-attribution.md) establishes opposing representation regimes: 28 cached gains and 28 uncached losses. The [complete-control confirmation](results/S02-deduction-confirmation.md) supplies the bounded comparison; distinct integrated mechanisms remain outstanding. Broader validity keys, union-find through CHR and strategic port rewrites remain unresolved.
 

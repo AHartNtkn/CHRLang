@@ -8,7 +8,7 @@ The work has three parts: test the distinct execution mechanisms, compare their 
 
 ## Execution order
 
-**T072 remains the active investigation.** The [latest breadth review](results/S08-lifetime-breadth-review.md) selects distinct integrated execution after bounded reclamation measurements. The next comparisons below turn the outstanding architecture questions into executable packages. Earlier source gates and cost results remain available through the [coverage map](coverage.md); each carries its original scope.
+**T075 is active for call-level reuse.** The [four-package integrated breadth review](results/S02-local-rewrite-breadth-review.md) selects its source validity and result-transport gate. T072 now has distinct local and CHR-expressed operation evidence, but general source execution, precise dependencies and lifecycle comparisons remain required. Structural solving and restoration/reconnection remain next distinct alternatives. The numbered investigations below retain their scope; this selection changes their order, not their evidence status.
 
 | Order | Investigation | Why it comes here; what it must deliver |
 |---|---|---|
@@ -33,7 +33,7 @@ The work has three parts: test the distinct execution mechanisms, compare their 
 
 ## Next discriminating comparisons
 
-**Start with a mechanism that could replace the current execution organization.** T072 comes first because the existing relational and contextual trials leave two materially different implementations untested. Call-level reuse is the strongest ready alternative: it may obtain sharing benefits without graph execution. Reconsider it after the integrated entry gate; it is the default next distinct investigation unless the evidence justifies completing the integrated cost comparison first. Compact structural solving then tests a different way to avoid enumeration, before further refinements of measured caches or graphs.
+**The current entry is comparison 2: call-level reuse.** Four integrated packages establish the CHR-expressed and local handle mechanisms for bounded source fragments. The [selection review](results/S02-local-rewrite-breadth-review.md) compares further integrated implementation and cost work with call-level validity/transport. Comparison 1 remains required for broader source support and fair complete costs; it is not resolved by these gates.
 
 These are experiment specifications, not claims of results. Each comparison requires a source gate, exploratory sizing, prospective confirmation and a decision record. Exact sizes follow sizing; thresholds and repetitions must be fixed before confirmation under the [common measurement rules](sequence.md#registration-bounds-and-interpretation).
 

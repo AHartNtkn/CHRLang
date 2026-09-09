@@ -1,5 +1,7 @@
 # R00: architectural alternatives and first experiment selection
 
+The [four-package integrated breadth review](S02-local-rewrite-breadth-review.md) selects T075 call-level validity and transport next. The [nested-pattern gate](S02-local-pattern-gate.md) establishes deeper matching dependencies and exposes conservative alias-recheck costs. T072 remains required; no integrated architecture is selected or rejected.
+
 The [local handle-rewrite gate](S02-local-ports-gate.md) supplies a distinct bounded counterpart to CHR-expressed merging: registered handles are repaired directly, and attached requests are activated locally. It has independent source checks and explicit specialization/lifetime limits, but no comparative cost result.
 
 The [CHR-expressed constructor gate](S02-chr-constructors-gate.md) now demonstrates source-rule merging, descriptor repair and consuming execution with independent checks. It exposes source scheduling as a responsibility: descriptor ordering can select a different consumer. Distinct local rewriting and complete costs remain unresolved under T072.

@@ -8,6 +8,14 @@ mod local;
 #[path = "../../chr-direct-conditional/tests/runtime_support/mod.rs"]
 mod oracle;
 use chr_syntax::{and, atom, c, eq, t, v, Answer, Query, Rule, Term, Var};
+fn take_plan() -> local::Plan {
+    local::Plan::compile(&Rule::simplify(
+        "take",
+        [c("take", [t("f", [v(0)]), v(1)]), c("token", [])],
+        eq(v(1), v(0)),
+    ))
+    .unwrap()
+}
 fn node(i: usize) -> Term {
     atom(&format!("n{i}"))
 }
@@ -212,8 +220,8 @@ fn equality_enables_consumption_which_enables_another_consumption() {
         );
         let mut local = local::Run::default();
         let values = (0..3).map(|_| local.value()).collect::<Vec<_>>();
-        local.take(values[0], values[1]);
-        local.take(values[1], values[2]);
+        local.post(&take_plan(), values[0], values[1]);
+        local.post(&take_plan(), values[1], values[2]);
         for _ in 0..tokens {
             local.token();
         }
@@ -398,7 +406,7 @@ fn competing_consumers_expose_descriptor_order_as_a_scheduling_choice() {
         local.describe(values[0], "f", vec![values[4]]);
         local.describe(values[2], "f", vec![values[5]]);
         for i in if reverse_requests { [2, 0] } else { [0, 2] } {
-            local.take(values[i], values[i + 1]);
+            local.post(&take_plan(), values[i], values[i + 1]);
         }
         local.token();
         local.settle();
@@ -518,11 +526,11 @@ fn local_handle_repair_wakes_only_the_affected_region() {
         let mut run = local::Run::default();
         let target = run.value();
         let result = run.value();
-        run.take(target, result);
+        run.post(&take_plan(), target, result);
         for _ in 0..unrelated {
             let a = run.value();
             let b = run.value();
-            run.take(a, b);
+            run.post(&take_plan(), a, b);
         }
         run.token();
         run.settle();
@@ -548,7 +556,7 @@ fn local_forks_preserve_fresh_handles_and_isolate_hidden_failure() {
     let mut base = local::Run::default();
     let x = base.value();
     let y = base.value();
-    base.take(x, y);
+    base.post(&take_plan(), x, y);
     base.token();
     base.settle();
     let mut good = base.clone();
@@ -582,7 +590,7 @@ fn local_broad_merge_repairs_every_alias_and_services_all_consumers() {
         let values = (0..width).map(|_| run.value()).collect::<Vec<_>>();
         let outputs = (0..width).map(|_| run.value()).collect::<Vec<_>>();
         for (&input, &output) in values.iter().zip(&outputs) {
-            run.take(input, output);
+            run.post(&take_plan(), input, output);
             run.token();
         }
         for &other in &values[1..] {
@@ -598,7 +606,10 @@ fn local_broad_merge_repairs_every_alias_and_services_all_consumers() {
         let answer = run.answer(&outputs).unwrap();
         assert!(answer.outputs.iter().all(|(_, term)| *term == atom("a")));
         assert!(answer.residual.is_empty());
-        assert_eq!(run.visited_requests, 2 * width); // registration + activation
+        assert_eq!(
+            run.visited_requests,
+            2 * width + width * (width + 1) / 2 - 1
+        ); // registration, conservative alias rechecks, activation
         assert_eq!(run.consumed_tokens, (0..width).collect::<Vec<_>>());
     }
 }
@@ -658,7 +669,7 @@ fn registering_a_known_input_does_not_revisit_existing_requests() {
     for _ in 0..64 {
         let out = run.value();
         outputs.push(out);
-        run.take(x, out);
+        run.post(&take_plan(), x, out);
         run.token();
     }
     assert_eq!(run.visited_requests, 64);
@@ -666,4 +677,147 @@ fn registering_a_known_input_does_not_revisit_existing_requests() {
     let answer = run.answer(&outputs).unwrap();
     assert!(answer.outputs.iter().all(|(_, value)| *value == atom("a")));
     assert!(answer.residual.is_empty());
+}
+
+#[test]
+fn nested_source_pattern_waits_for_inner_information() {
+    let rule = Rule::simplify(
+        "nested",
+        [c("take", [t("f", [t("g", [v(0)])]), v(1)]), c("token", [])],
+        eq(v(1), v(0)),
+    );
+    let plan = local::Plan::compile(&rule).unwrap();
+    let mut run = local::Run::default();
+    let x = run.value();
+    let y = run.value();
+    let inner = run.value();
+    let leaf = run.value();
+    run.post(&plan, x, y);
+    run.token();
+    run.describe(x, "f", vec![inner]);
+    run.settle();
+    assert!(
+        run.consumed_tokens.is_empty(),
+        "outer constructor is insufficient"
+    );
+    run.describe(leaf, "a", vec![]);
+    run.describe(inner, "g", vec![leaf]);
+    run.settle();
+    let ordinary = vec![
+        rule,
+        Rule::simplify(
+            "supply",
+            [c("supply", [v(0)])],
+            eq(v(0), t("f", [t("g", [atom("a")])])),
+        ),
+    ];
+    let expected = oracle::run(
+        &ordinary,
+        &Query {
+            constraints: vec![c("take", [v(0), v(1)]), c("token", []), c("supply", [v(0)])],
+            outputs: vec![("v0".into(), Var(0)), ("v1".into(), Var(1))],
+        },
+        200_000,
+    );
+    oracle::same_raw(run.answer(&[x, y]).into_iter().collect(), expected);
+}
+
+#[test]
+fn source_patterns_preserve_nonbinding_repeated_variables_and_late_aliases() {
+    fn embed(run: &mut local::Run, term: &Term, vars: &[usize]) -> usize {
+        match term {
+            Term::Var(Var(v)) => vars[*v as usize],
+            Term::App(name, args) => {
+                let children = args.iter().map(|t| embed(run, t, vars)).collect();
+                let h = run.value();
+                run.describe(h, name, children);
+                h
+            }
+        }
+    }
+    let terms = [atom("a"), atom("b"), v(2), t("f", [v(2)]), t("f", [v(3)])];
+    for repeated in [false, true] {
+        let pattern = t("pair", [v(100), v(if repeated { 100 } else { 101 })]);
+        let rule = Rule::simplify(
+            "capture",
+            [c("take", [pattern, v(102)]), c("token", [])],
+            eq(v(102), v(100)),
+        );
+        let plan = local::Plan::compile(&rule).unwrap();
+        for a in &terms {
+            for b in &terms {
+                for late in 0..4 {
+                    let input = t("pair", [a.clone(), b.clone()]);
+                    let change = match late {
+                        0 => chr_syntax::Goal::True,
+                        1 => eq(v(2), v(3)),
+                        2 => eq(v(2), atom("a")),
+                        _ => eq(v(3), atom("b")),
+                    };
+                    let source = vec![
+                        rule.clone(),
+                        Rule::simplify("supply", [c("supply", [v(2), v(3)])], change),
+                    ];
+                    let expected = oracle::run(
+                        &source,
+                        &Query {
+                            constraints: vec![
+                                c("take", [input.clone(), v(0)]),
+                                c("token", []),
+                                c("supply", [v(2), v(3)]),
+                            ],
+                            outputs: vec![
+                                ("v0".into(), Var(0)),
+                                ("v1".into(), Var(2)),
+                                ("v2".into(), Var(3)),
+                            ],
+                        },
+                        200_000,
+                    );
+                    let mut run = local::Run::default();
+                    let vars = (0..4).map(|_| run.value()).collect::<Vec<_>>();
+                    let input = embed(&mut run, &input, &vars);
+                    run.post(&plan, input, vars[0]);
+                    run.token();
+                    run.settle();
+                    match late {
+                        0 => (),
+                        1 => run.equate(vars[2], vars[3]),
+                        2 => run.describe(vars[2], "a", vec![]),
+                        _ => run.describe(vars[3], "b", vec![]),
+                    }
+                    run.settle();
+                    oracle::same_raw(
+                        run.answer(&[vars[0], vars[2], vars[3]])
+                            .into_iter()
+                            .collect(),
+                        expected,
+                    );
+                }
+            }
+        }
+    }
+}
+
+#[test]
+fn source_plan_rejects_unimplemented_effects_and_ownership() {
+    let good = Rule::simplify(
+        "capture",
+        [c("take", [t("f", [v(0)]), v(1)]), c("token", [])],
+        eq(v(1), v(0)),
+    );
+    assert!(local::Plan::compile(&good).is_ok());
+    let mut body = good.clone();
+    body.body = chr_syntax::Goal::True;
+    let mut kept = good.clone();
+    kept.kept.push(c("extra", []));
+    let mut resource = good.clone();
+    resource.removed[1] = c("token", [v(9)]);
+    let mut fresh = good.clone();
+    fresh.body = eq(v(1), v(9));
+    let mut bound_output = good.clone();
+    bound_output.removed[0].args[0] = t("f", [v(1)]);
+    for rejected in [body, kept, resource, fresh, bound_output] {
+        assert!(local::Plan::compile(&rejected).is_err());
+    }
 }
