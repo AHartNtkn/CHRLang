@@ -1,0 +1,23 @@
+{
+  "command": [
+    "rustc",
+    "--edition",
+    "2024",
+    "-C",
+    "opt-level=3",
+    "-C",
+    "codegen-units=1",
+    "/home/ahart/Documents/CHRLang/target/s01-artifact-allocation-gate/payload-ordinary.rs",
+    "--extern",
+    "chr_compiled=/home/ahart/Documents/CHRLang/target/s01-artifact-allocation-gate/ordinary/release/libchr_compiled.rlib",
+    "-L",
+    "dependency=/home/ahart/Documents/CHRLang/target/s01-artifact-allocation-gate/ordinary/release/deps",
+    "-o",
+    "/home/ahart/Documents/CHRLang/target/s01-artifact-allocation-gate/payload-ordinary"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 0.15465324197430164,
+  "address_space_bytes": 4294967296,
+  "stdout": "",
+  "stderr": ""
+}

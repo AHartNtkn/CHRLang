@@ -90,9 +90,53 @@ pub fn entry(code: Option<Compiled>) {
         std::process::exit(2);
     }
 }
+#[cfg(feature = "alloc-meter")]
+use crate::experiment::meter;
+struct Phase {
+    clock: Instant,
+    #[cfg(feature = "alloc-meter")]
+    memory: meter::Start,
+}
+impl Phase {
+    fn begin() -> Self {
+        #[cfg(feature = "alloc-meter")]
+        let memory = meter::begin();
+        Self {
+            clock: Instant::now(),
+            #[cfg(feature = "alloc-meter")]
+            memory,
+        }
+    }
+    fn finish(self) -> Measurement {
+        let ns = self.clock.elapsed().as_nanos();
+        Measurement {
+            ns,
+            #[cfg(feature = "alloc-meter")]
+            memory: meter::end(self.memory),
+        }
+    }
+}
+struct Measurement {
+    ns: u128,
+    #[cfg(feature = "alloc-meter")]
+    memory: meter::Reading,
+}
+#[cfg(feature = "alloc-meter")]
+fn live() -> usize {
+    let start = meter::begin();
+    meter::end(start).live_start
+}
+#[cfg(feature = "alloc-meter")]
+fn memory_json(phases: &[(&str, &Measurement)]) -> String {
+    phases
+        .iter()
+        .map(|(name, phase)| format!("{name:?}:{}", phase.memory.json()))
+        .collect::<Vec<_>>()
+        .join(",")
+}
 fn run(mut code: Option<Compiled>) -> Result<(), String> {
     if crate::COLLECT_METRICS || crate::COLLECT_KERNEL_METRICS || chr_observe::COLLECT_METRICS {
-        return Err("artifact probe requires counter-free ordinary allocation".into());
+        return Err("artifact probe requires disabled engine/kernel/observer counters".into());
     }
     let args = std::env::args().skip(1).collect::<Vec<_>>();
     if args.len() != 4 {
@@ -131,11 +175,20 @@ fn run(mut code: Option<Compiled>) -> Result<(), String> {
     if mode == "native-generic-repair" {
         code.as_mut().unwrap().updates = None;
     }
+    #[cfg(feature = "alloc-meter")]
+    {
+        meter::self_check()?;
+        // Initialize process-owned output buffering before checking runtime ownership.
+        print!("");
+    }
     let oracle_source = rules(family)?;
-    let start = Instant::now();
+    #[cfg(feature = "alloc-meter")]
+    let prepared_baseline = live();
+    let start = Phase::begin();
     let source = rules(family)?;
-    let source_ns = start.elapsed().as_nanos();
-    let start = Instant::now();
+    let source_measurement = start.finish();
+    let source_ns = source_measurement.ns;
+    let start = Phase::begin();
     let prepare_source = source;
     let prepared = if mode.starts_with("retained-") {
         let plan = retained::Prepared::new(&prepare_source)?;
@@ -160,27 +213,34 @@ fn run(mut code: Option<Compiled>) -> Result<(), String> {
         }
         Prepared::Compiled(plan)
     };
-    let prepare_ns = start.elapsed().as_nanos();
+    let prepare_measurement = start.finish();
+    let prepare_ns = prepare_measurement.ns;
     let mut total = source_ns + prepare_ns;
     for round in 0..queries {
         // Inputs and independent complete answers are constructed outside runtime phases.
+        #[cfg(feature = "alloc-meter")]
+        let query_baseline = live();
         let input = query(family, size + round % 2, round);
         let expected = oracle::run(&oracle_source, &input, 2_000_000);
-        let start = Instant::now();
+        let start = Phase::begin();
         let mut engine = prepared.start(input)?;
-        let setup_ns = start.elapsed().as_nanos();
-        let start = Instant::now();
+        let setup_measurement = start.finish();
+        let setup_ns = setup_measurement.ns;
+        let start = Phase::begin();
         let status = engine.advance(2_000_000);
-        let execute_ns = start.elapsed().as_nanos();
+        let execute_measurement = start.finish();
+        let execute_ns = execute_measurement.ns;
         if !status {
             return Err("unfinished artifact query at service bound".into());
         }
-        let start = Instant::now();
+        let start = Phase::begin();
         let answer = engine.observe()?;
-        let observation_ns = start.elapsed().as_nanos();
-        let start = Instant::now();
+        let observation_measurement = start.finish();
+        let observation_ns = observation_measurement.ns;
+        let start = Phase::begin();
         drop(engine);
-        let engine_drop_ns = start.elapsed().as_nanos();
+        let engine_drop_measurement = start.finish();
+        let engine_drop_ns = engine_drop_measurement.ns;
         // Exact observations, including aliases and residual multiplicity, are checked
         // before timing answer disposal. Expected answers are never passed to the engine.
         if expected.len() != usize::from(answer.is_some()) {
@@ -191,22 +251,68 @@ fn run(mut code: Option<Compiled>) -> Result<(), String> {
         {
             return Err("independent full-answer mismatch".into());
         }
-        let start = Instant::now();
+        let start = Phase::begin();
         drop(answer);
-        let answer_drop_ns = start.elapsed().as_nanos();
+        let answer_drop_measurement = start.finish();
+        let answer_drop_ns = answer_drop_measurement.ns;
         let query_ns = setup_ns + execute_ns + observation_ns + engine_drop_ns + answer_drop_ns;
         total += query_ns;
+        drop(expected);
+        #[cfg(feature = "alloc-meter")]
+        if live() != query_baseline {
+            return Err(format!(
+                "query ownership mismatch: baseline {query_baseline}, end {}",
+                live()
+            ));
+        }
+        #[cfg(feature = "alloc-meter")]
+        let memory = format!(
+            ",\"memory\":{{{}}},\"query_restored\":true",
+            memory_json(&[
+                ("setup", &setup_measurement),
+                ("execute", &execute_measurement),
+                ("observation", &observation_measurement),
+                ("engine_drop", &engine_drop_measurement),
+                ("answer_drop", &answer_drop_measurement)
+            ])
+        );
+        #[cfg(not(feature = "alloc-meter"))]
+        let memory = "";
         println!(
-            "{{\"query\":{round},\"size\":{},\"setup_ns\":{setup_ns},\"execute_ns\":{execute_ns},\"observation_ns\":{observation_ns},\"engine_drop_ns\":{engine_drop_ns},\"answer_drop_ns\":{answer_drop_ns},\"query_ns\":{query_ns},\"validated\":true}}",
+            "{{\"query\":{round},\"size\":{},\"setup_ns\":{setup_ns},\"execute_ns\":{execute_ns},\"observation_ns\":{observation_ns},\"engine_drop_ns\":{engine_drop_ns},\"answer_drop_ns\":{answer_drop_ns},\"query_ns\":{query_ns},\"validated\":true{memory}}}",
             size + round % 2
         );
     }
-    let start = Instant::now();
+    let start = Phase::begin();
     drop(prepared);
-    let prepared_drop_ns = start.elapsed().as_nanos();
+    let prepared_drop_measurement = start.finish();
+    let prepared_drop_ns = prepared_drop_measurement.ns;
     total += prepared_drop_ns;
+    #[cfg(feature = "alloc-meter")]
+    if live() != prepared_baseline {
+        return Err(format!(
+            "prepared ownership mismatch: baseline {prepared_baseline}, end {}",
+            live()
+        ));
+    }
+    #[cfg(feature = "alloc-meter")]
+    let memory = format!(
+        ",\"memory\":{{{}}},\"prepared_restored\":true",
+        memory_json(&[
+            ("source", &source_measurement),
+            ("prepare", &prepare_measurement),
+            ("prepared_drop", &prepared_drop_measurement)
+        ])
+    );
+    #[cfg(not(feature = "alloc-meter"))]
+    let memory = "";
+    let allocator = if cfg!(feature = "alloc-meter") {
+        "requested-meter"
+    } else {
+        "ordinary"
+    };
     println!(
-        "{{\"mode\":{mode:?},\"family\":{family:?},\"queries\":{queries},\"source_ns\":{source_ns},\"prepare_ns\":{prepare_ns},\"prepared_drop_ns\":{prepared_drop_ns},\"source_disposal\":\"included in preparation\",\"lifecycle_ns\":{total},\"counters\":false,\"allocator\":\"ordinary\"}}"
+        "{{\"mode\":{mode:?},\"family\":{family:?},\"queries\":{queries},\"source_ns\":{source_ns},\"prepare_ns\":{prepare_ns},\"prepared_drop_ns\":{prepared_drop_ns},\"source_disposal\":\"included in preparation\",\"lifecycle_ns\":{total},\"counters\":false,\"allocator\":{allocator:?}{memory}}}"
     );
     Ok(())
 }

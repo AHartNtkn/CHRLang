@@ -1,10 +1,11 @@
 {
-  "parent_commit": "f29811858c3ea8e987f5f427b129a472f365c896",
+  "parent_commit": "2946aefda114badb489fc9b01c52cadd35487c7e",
   "source": {
     "Cargo.lock": "67af0a3eafdc94427d22f7774577ae744fbab95e4688c882275955196b77bb3d",
     "Cargo.toml": "2a40b31dec44673fec8e093f99867e207e6f152b3cc19791b96555e6505b1853",
     "crates/chr-syntax/Cargo.toml": "d29d87af16b9999f3d3c25edb6d8a0c76bc6061f76c0e0daff8427ede4d4f8f1",
     "crates/chr-syntax/src/lib.rs": "9b380518e3071aeea80b8644aa5cf12f91d919f0bffdedd5c17122e27dffd48e",
+    "docs/experiments/registrations/S01-artifact-allocation-gate.md": "7c3a762567b2e70c78a5a0823a8eb8154896dc33952cfee94f2a7158e2c034e8",
     "docs/experiments/registrations/S01-lifecycle-sizing.md": "eeba739036396b805ffcd09bc5051ee74b4461fd48e9a7c14c26fac02185a80e",
     "docs/experiments/registrations/S01-retained-artifact-gate.md": "38f8568de64c78729a42807639a83478d1095aa55819ecc92240da38c1652b90",
     "research/chr-cases/Cargo.toml": "039dfd83b0bb2fefce6cb3fac5ce3bd88058f73bf3454f19ad031d3dff92e116",
@@ -23,11 +24,12 @@
     "research/chr-compiled/examples/search_diagnosis.rs": "9362302c39a83b6b67d805598cad8bca8de24a914dd1124b698c847f83688d27",
     "research/chr-compiled/examples/search_gate.rs": "47de8b832464d8d2042981ac2da00d7dce8fbad62d0adf9497c2839c46a700ca",
     "research/chr-compiled/experiments/access_source.rs": "891ff57e5bdd4d85d20465b18a197ac2ca734b9a0e3cd56b292aa5397d4340b9",
+    "research/chr-compiled/experiments/artifact_allocation_gate.py": "25f74f73501765e1135c26f681efc33a73a93762c9ff3c3fe089319b4516e077",
     "research/chr-compiled/experiments/artifact_boundary.py": "63b4ad27157e287fec107f1dac06b339edba19dfd548c81f8c06276ac84a3a49",
     "research/chr-compiled/experiments/artifact_emit.rs": "3a459ccd580a9bd144b869112ae153fd7bd2d0afae2856b69961b4e86ca6282a",
     "research/chr-compiled/experiments/artifact_lto.py": "3750156461fdbc8b49858700c47e8bfbc5769a8f4a85526de8f7dd68aa8c3a2c",
     "research/chr-compiled/experiments/artifact_retained_gate.py": "1602f4d0ddf634193b39a3804e9c0771ce922a9229dbf64571a3f0cb31a55ab8",
-    "research/chr-compiled/experiments/artifact_runtime.rs": "21e07cb825bdfe0678984a80040066fb2caac44919fc5784400ec80fd5583950",
+    "research/chr-compiled/experiments/artifact_runtime.rs": "a9c7d9777d8d8fbcda472d8ed01035338ee583d87c2a6029a8e500c3a2374a22",
     "research/chr-compiled/experiments/artifact_sizing.py": "c9791970a9b4e7dd21858e5328ea1347a122baa49881d0375bc754b93c445786",
     "research/chr-compiled/experiments/artifact_verify.py": "ef220b16ba92acaceb812b50e53376c4b71956418ea3b9fdd0fd765b635389f3",
     "research/chr-compiled/experiments/join_screen.rs": "823b750adc85e06d034f78d4d186a6dd9528ab483acb80ace67e36067d83fddd",
@@ -116,6 +118,5 @@
     "research/chr-persistent/tests/graph_cost_cases.rs": "4917039ca477356fcf3f8be2a51bc561dd457e0313c4c4c61fb76c356a798442",
     "research/chr-persistent/tests/graph_registry.rs": "c1d5f13b206b0f2752068a7c6def9d404f3f95e2229b77ac75d0830968be51cf"
   },
-  "scope": "Retained artifact controls and independent source gate; no comparative timing",
-  "source_commit": "2946aefda114badb489fc9b01c52cadd35487c7e"
+  "scope": "Installed-plan allocation gate, phase runner and independent source oracle"
 }
