@@ -1,5 +1,8 @@
 # Unanswered architecture questions and experimental ownership
 
+The [finite-cost ownership gate](results/S06-finite-cost-ownership-gate.md) validates five controls across 1,440 initial/corrected processes, with 720 exact allocation replays and full disposal restoration. Reused enumeration trades retained candidates for lower repeated traffic; lazy equality solving has lower peak growth in the inspected case. Structurally different overlap exposes a consequential remaining proof/representation cost. T076 remains active for that attribution before ordinary timing; no speed ranking follows.
+
+
 The [finite-path source gate](results/S06-finite-path-source-gate.md) now establishes lazy constructor-language intersection and path equality in unreduced/reduced modes: 15,680 small solver comparisons and 160 CHR source checks agree, including raw multiplicity. A selective 64-bit description produces two values after 66 requirement steps; reduction cuts a redundant-filter witness from 280 to 17 steps without changing source counts. These are correctness/mechanism results, not timing. T076 remains active for complete costs and ownership; broader source semantics and structural theories remain required.
 
 

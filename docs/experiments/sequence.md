@@ -264,6 +264,8 @@ All new results link raw inputs, commands, freezes, validation and unfavorable o
 
 ## Current execution order
 
+The [finite-cost ownership gate](results/S06-finite-cost-ownership-gate.md) now validates counter-free controls, changing queries, consumer ownership and cancellation. A paired correction makes exact-family preparation retain only needed state. Overlapping membership proofs expose a consequential allocation cost; attribute that cost and establish a sound stronger reduction before broad ordinary-timing confirmation. T076 remains active.
+
 The [finite-path source gate](results/S06-finite-path-source-gate.md) now implements the next distinct mechanism. T076 remains active for the bounded complete-cost/ownership comparison, including structural reduction and the strongest applicable source-derived control. Its favorable enumeration-avoidance witness and redundant-proof repair establish capability, not architectural superiority. Restoration/reunion remains the strongest distinct alternative at the next selection boundary.
 
 **T076 is active for compact structural solving.** The [complete-call pilot](results/S05-caller-cost-pilot.md) now has 3,220 audited records, 476 exact allocation replays and full disposal restoration. Repeated keys reduce allocation; distinct and one-query keys add overhead. Timing remains exploratory. The [four-package breadth review](results/S05-caller-breadth-review.md) selects the distinct solver mechanism before further call refinement.

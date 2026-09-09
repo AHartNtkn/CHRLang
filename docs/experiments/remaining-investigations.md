@@ -8,6 +8,8 @@ The work has three parts: test the distinct execution mechanisms, compare their 
 
 ## Execution order
 
+The [finite-cost ownership gate](results/S06-finite-cost-ownership-gate.md) now passes with exact replays and prepared/query/consumer accounting. T076's next bounded comparison attributes structurally different overlapping proofs before ordinary timing. Preserve correlation and source multiplicity when reducing them; compare the remaining cost against competent fresh/reused enumeration. Restoration/reunion remains the strongest distinct alternative at the next selection boundary.
+
 The [finite-path gate](results/S06-finite-path-source-gate.md) now passes in unreduced and reduced modes with independent denotation and CHR multiplicity checks. The current S06-C package moves from capability to complete cost and ownership. Include reduction preparation, source counting and retained exact observations; no timing conclusion follows from the gate. Reassess against restoration/reunion after that bounded comparison.
 
 **The call pilot audit is complete; T076 is active for compact structural solving.** Give distinct unanswered mechanisms direct trials. The following sequence governs the next selections; the detailed comparisons below and the S-stage specifications supply their full scope. Completed bounded trials remain evidence, not substitutes for these investigations.

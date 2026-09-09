@@ -1,0 +1,144 @@
+diff --git a/research/chr-structural/Cargo.toml b/research/chr-structural/Cargo.toml
+index d7e65bfc2..23c482f76 100644
+--- a/research/chr-structural/Cargo.toml
++++ b/research/chr-structural/Cargo.toml
+@@ -2,6 +2,10 @@
+ name = "chr-structural"
+ version.workspace = true
+ edition.workspace = true
++[features]
++default = ["metrics"]
++metrics = []
++alloc-meter = []
+ [dependencies]
+ chr-syntax = { path = "../../crates/chr-syntax" }
+ [dev-dependencies]
+diff --git a/research/chr-structural/src/finite.rs b/research/chr-structural/src/finite.rs
+index d9fea990d..b34b5a5f9 100644
+--- a/research/chr-structural/src/finite.rs
++++ b/research/chr-structural/src/finite.rs
+@@ -1,6 +1,7 @@
+ //! Acyclic constructor descriptions with finite-path equality.
+ //! Membership filters denote sets; multiplicity comes only from the source state.
+ use chr_syntax::Term;
++pub const COLLECT_METRICS: bool = cfg!(feature = "metrics");
+ use std::collections::{BTreeMap, BTreeSet};
+ 
+ #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord)]
+@@ -111,7 +112,7 @@ impl Grammar {
+     pub fn states(&self) -> &[Vec<Transition>] {
+         &self.states
+     }
+-    fn multiplicity(&self, state: usize, term: &Term) -> Result<u128, String> {
++    pub fn multiplicity(&self, state: usize, term: &Term) -> Result<u128, String> {
+         // None means a positive count exceeds u128. Zero still annihilates it:
+         // an impossible sibling makes the entire derivation contribute zero.
+         fn count(
+@@ -150,6 +151,7 @@ impl Grammar {
+             .ok_or_else(|| "source multiplicity overflow".into())
+     }
+ }
++#[derive(Clone, Debug, PartialEq, Eq)]
+ pub struct Request {
+     pub roots: Vec<usize>,
+     pub equalities: Vec<(Vec<usize>, Vec<usize>)>,
+@@ -346,16 +348,22 @@ impl<'g> Search<'g> {
+                 })
+                 .min();
+             if let Some((_, id, required)) = pending {
+-                self.stats.requirements += 1;
++                if COLLECT_METRICS {
++                    self.stats.requirements += 1;
++                }
+                 state.nodes[id].done.insert(required);
+                 for transition in self.grammar.membership_states()[required].iter().rev() {
+-                    self.stats.transition_trials += 1;
++                    if COLLECT_METRICS {
++                        self.stats.transition_trials += 1;
++                    }
+                     let mut child = state.clone();
+                     if child.apply(id, transition) {
+                         self.frontier.push(child);
+                     }
+                 }
+-                self.stats.peak_frontier = self.stats.peak_frontier.max(self.frontier.len());
++                if COLLECT_METRICS {
++                    self.stats.peak_frontier = self.stats.peak_frontier.max(self.frontier.len());
++                }
+             } else {
+                 let term = state.materialize(0);
+                 if self.seen.insert(term.clone()) {
+@@ -367,10 +375,14 @@ impl<'g> Search<'g> {
+                         }
+                     };
+                     assert!(multiplicity > 0, "source membership preserved");
+-                    self.stats.emitted += 1;
++                    if COLLECT_METRICS {
++                        self.stats.emitted += 1;
++                    }
+                     answers.push(Answer { term, multiplicity });
+                 } else {
+-                    self.stats.duplicate_values += 1;
++                    if COLLECT_METRICS {
++                        self.stats.duplicate_values += 1;
++                    }
+                 }
+             }
+         }
+diff --git a/research/chr-structural/tests/finite_paths.rs b/research/chr-structural/tests/finite_paths.rs
+index 110eef878..7cc25255b 100644
+--- a/research/chr-structural/tests/finite_paths.rs
++++ b/research/chr-structural/tests/finite_paths.rs
+@@ -609,9 +609,13 @@ fn reducing_membership_proofs_preserves_source_counts() {
+     assert_eq!(a, b);
+     assert_eq!(a.len(), 1);
+     assert_eq!(a[0].1, 1);
+-    assert_eq!(duplicates, 255);
++    if cfg!(feature = "metrics") {
++        assert_eq!(duplicates, 255);
++    }
+     assert_eq!(reduced_duplicates, 0);
+-    assert!(after < before);
++    if cfg!(feature = "metrics") {
++        assert!(after < before);
++    }
+     // Swapping the first state changes source derivations, not membership.
+     let (b, _, _) = run(&reduced, vec![filter, source]);
+     assert_eq!(b[0].1, 256);
+@@ -683,3 +687,36 @@ fn merging_existing_nested_paths_is_independent_of_equality_order() {
+         assert_eq!(collect(&g, vec![2], constraints), expected);
+     }
+ }
++
++#[test]
++fn feature_off_preserves_answers_without_collecting_solver_counts() {
++    let g = grammar();
++    let mut search = Search::new(
++        &g,
++        Request {
++            roots: vec![1],
++            equalities: vec![],
++        },
++    )
++    .unwrap();
++    let b = search.advance(1000).unwrap();
++    assert!(b.exhausted);
++    assert_eq!(b.answers.len(), 4);
++    assert_eq!(
++        chr_structural::finite::COLLECT_METRICS,
++        cfg!(feature = "metrics")
++    );
++    if !cfg!(feature = "metrics") {
++        let s = search.stats();
++        assert_eq!(
++            (
++                s.requirements,
++                s.transition_trials,
++                s.duplicate_values,
++                s.emitted,
++                s.peak_frontier
++            ),
++            (0, 0, 0, 0, 0)
++        );
++    }
++}

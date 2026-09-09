@@ -609,9 +609,13 @@ fn reducing_membership_proofs_preserves_source_counts() {
     assert_eq!(a, b);
     assert_eq!(a.len(), 1);
     assert_eq!(a[0].1, 1);
-    assert_eq!(duplicates, 255);
+    if cfg!(feature = "metrics") {
+        assert_eq!(duplicates, 255);
+    }
     assert_eq!(reduced_duplicates, 0);
-    assert!(after < before);
+    if cfg!(feature = "metrics") {
+        assert!(after < before);
+    }
     // Swapping the first state changes source derivations, not membership.
     let (b, _, _) = run(&reduced, vec![filter, source]);
     assert_eq!(b[0].1, 256);
@@ -681,5 +685,38 @@ fn merging_existing_nested_paths_is_independent_of_equality_order() {
     ] {
         let constraints = order.into_iter().map(|i| eqs[i].clone()).collect();
         assert_eq!(collect(&g, vec![2], constraints), expected);
+    }
+}
+
+#[test]
+fn feature_off_preserves_answers_without_collecting_solver_counts() {
+    let g = grammar();
+    let mut search = Search::new(
+        &g,
+        Request {
+            roots: vec![1],
+            equalities: vec![],
+        },
+    )
+    .unwrap();
+    let b = search.advance(1000).unwrap();
+    assert!(b.exhausted);
+    assert_eq!(b.answers.len(), 4);
+    assert_eq!(
+        chr_structural::finite::COLLECT_METRICS,
+        cfg!(feature = "metrics")
+    );
+    if !cfg!(feature = "metrics") {
+        let s = search.stats();
+        assert_eq!(
+            (
+                s.requirements,
+                s.transition_trials,
+                s.duplicate_values,
+                s.emitted,
+                s.peak_frontier
+            ),
+            (0, 0, 0, 0, 0)
+        );
     }
 }
