@@ -1,7 +1,7 @@
 //! Experimental suspended applications for a checked equation-producing source fragment.
 //! Context-indexed results preserve application identity. This is not yet a
-//! consuming CHR executor or an implementation of local pull-tab rewrites.
-use chr_syntax::{Answer, Goal, Query, Rule, Term, Var};
+//! general multihead CHR executor or an implementation of local pull-tab rewrites.
+use chr_syntax::{Answer, Constraint, Goal, Query, Rule, Term, Var};
 use std::collections::{BTreeMap, BTreeSet, VecDeque};
 use std::rc::Rc;
 type Id = usize;
@@ -28,7 +28,7 @@ enum Node {
     Unknown(u64),
     App(String, Vec<Id>),
     Alias(Id),
-    Call(String, Vec<Id>),
+    Call(String, Vec<Id>, Id),
     Choice(usize, Id, Id),
     Fail,
 }
@@ -39,7 +39,7 @@ struct Cell {
 pub struct Run {
     clauses: Rc<Vec<Clause>>,
     nodes: Vec<Cell>,
-    tasks: VecDeque<(Context, usize)>,
+    tasks: VecDeque<(Context, usize, usize)>,
     obligations: Vec<(Context, Id)>,
     outputs: Vec<(String, Id)>,
     fresh: u64,
@@ -49,13 +49,11 @@ pub enum Event {
     Progress,
     Answer(Answer),
     Exhausted,
-    Stuck,
 }
 enum Signal {
     Progress,
     Split(usize),
     Fail,
-    Stuck,
 }
 fn variables(t: &Term, vars: &mut Vec<Var>) {
     match t {
@@ -224,7 +222,7 @@ impl Prepared {
         let mut run = Run {
             clauses: self.clauses.clone(),
             nodes: vec![],
-            tasks: VecDeque::from([(Context::new(), 0)]),
+            tasks: VecDeque::from([(Context::new(), 0, 0)]),
             obligations: vec![],
             outputs: vec![],
             fresh: 0,
@@ -266,9 +264,7 @@ impl Prepared {
                 .iter()
                 .map(|t| run.term(t, &mut env))
                 .collect();
-            let call = run.push(Node::Call(c.name, args));
-            run.bind(*out, call, &mut env);
-            run.obligations.push((Context::new(), call));
+            run.producer(c.name, args, *out, &mut env, &Context::new());
         }
         for (name, var) in query.outputs {
             let id = run.term(&Term::Var(var), &mut env);
@@ -291,6 +287,30 @@ impl Run {
             self.nodes[old].node = Node::Alias(id)
         }
     }
+    fn call(&mut self, name: String, args: Vec<Id>, output: Id, ctx: &Context) -> Id {
+        let call = self.push(Node::Call(name, args, output));
+        self.obligations.push((ctx.clone(), call));
+        call
+    }
+    fn producer(
+        &mut self,
+        name: String,
+        args: Vec<Id>,
+        out: Var,
+        env: &mut Env,
+        ctx: &Context,
+    ) -> Id {
+        let placeholder = self.term(&Term::Var(out), env);
+        let Node::Unknown(logical) = self.nodes[placeholder].node else {
+            unreachable!("checked unique output writer")
+        };
+        // The logical output and the reference redirected to its producer are
+        // separate nodes. A residual call can expose the former without a cycle.
+        let output = self.push(Node::Unknown(logical));
+        let call = self.call(name, args, output, ctx);
+        self.bind(out, call, env);
+        call
+    }
     fn term(&mut self, t: &Term, env: &mut Env) -> Id {
         match t {
             Term::Var(v) => {
@@ -310,12 +330,12 @@ impl Run {
             }
         }
     }
-    fn expand(&mut self, p: &Plan, env: &mut Env, ctx: &Context) -> Id {
+    fn expand(&mut self, p: &Plan, env: &mut Env, ctx: &Context, output: Id) -> Id {
         match p {
             Plan::Value(t) => self.term(t, env),
             Plan::Call(n, args) => {
                 let args = args.iter().map(|t| self.term(t, env)).collect();
-                self.push(Node::Call(n.clone(), args))
+                self.call(n.clone(), args, output, ctx)
             }
             Plan::Fail => self.push(Node::Fail),
             Plan::Choice(a, b) => {
@@ -325,18 +345,16 @@ impl Run {
                 left.insert(label, false);
                 let mut right = ctx.clone();
                 right.insert(label, true);
-                let a = self.expand(a, &mut env.clone(), &left);
-                let b = self.expand(b, &mut env.clone(), &right);
+                let a = self.expand(a, &mut env.clone(), &left, output);
+                let b = self.expand(b, &mut env.clone(), &right, output);
                 self.push(Node::Choice(label, a, b))
             }
             Plan::Producers(ps, p) => {
                 for (v, n, args) in ps {
                     let args = args.iter().map(|t| self.term(t, env)).collect();
-                    let call = self.push(Node::Call(n.clone(), args));
-                    self.bind(*v, call, env);
-                    self.obligations.push((ctx.clone(), call));
+                    self.producer(n.clone(), args, *v, env, ctx);
                 }
-                self.expand(p, env, ctx)
+                self.expand(p, env, ctx, output)
             }
         }
     }
@@ -373,7 +391,7 @@ impl Run {
                 Some(true) => self.force(b, ctx),
                 None => Err(Signal::Split(label)),
             },
-            Node::Call(name, args) => {
+            Node::Call(name, args, output) => {
                 if let Some((_, next)) = self.nodes[id]
                     .results
                     .iter()
@@ -396,12 +414,12 @@ impl Run {
                         }
                     }
                     if matched {
-                        let value = self.expand(&clause.body, &mut env, ctx);
+                        let value = self.expand(&clause.body, &mut env, ctx, output);
                         self.nodes[id].results.push((ctx.clone(), value));
                         return Err(Signal::Progress);
                     }
                 }
-                Err(Signal::Stuck)
+                Ok(output)
             }
         }
     }
@@ -428,20 +446,45 @@ impl Run {
         for (name, id) in self.outputs.clone() {
             outputs.push((name, self.normal(id, ctx)?));
         }
-        Ok(Answer {
-            outputs,
-            residual: vec![],
-        })
+        let mut residual = vec![];
+        for (support, id) in self.obligations.clone() {
+            if !support.iter().all(|(k, v)| ctx.get(k) == Some(v)) {
+                continue;
+            }
+            if self.nodes[id]
+                .results
+                .iter()
+                .any(|(support, _)| support.iter().all(|(k, v)| ctx.get(k) == Some(v)))
+            {
+                continue;
+            }
+            let Node::Call(name, args, output) = self.nodes[id].node.clone() else {
+                unreachable!("obligations are source calls")
+            };
+            let mut args = args
+                .into_iter()
+                .map(|id| self.normal(id, ctx))
+                .collect::<Result<Vec<_>, _>>()?;
+            args.push(self.normal(output, ctx)?);
+            residual.push(Constraint { name, args });
+        }
+        Ok(Answer { outputs, residual })
     }
     pub fn tick(&mut self) -> Event {
-        let Some((ctx, mut cursor)) = self.tasks.pop_front() else {
+        let Some((ctx, mut cursor, mut round_end)) = self.tasks.pop_front() else {
             return Event::Exhausted;
         };
         // Service an active obligation independently of the observation demand.
         // Child obligations are eligible only after their enclosing choice is selected.
         let mut serviced = Ok(0);
-        for _ in 0..self.obligations.len() {
-            let index = cursor % self.obligations.len();
+        if cursor >= round_end {
+            cursor = 0;
+            round_end = self.obligations.len();
+        }
+        // Freeze the endpoint: freshly appended tail calls cannot keep a round
+        // from returning to an older failure or unresolved occurrence.
+        while cursor < round_end {
+            let index = cursor;
             cursor += 1;
             let (support, id) = self.obligations[index].clone();
             if support.iter().all(|(k, v)| ctx.get(k) == Some(v)) {
@@ -453,27 +496,23 @@ impl Run {
             Err(Signal::Progress | Signal::Split(_) | Signal::Fail) => {
                 serviced.map(|_| unreachable!())
             }
-            Ok(_) | Err(Signal::Stuck) => self.answer(&ctx),
+            Ok(_) => self.answer(&ctx),
         };
         match result {
             Ok(a) => Event::Answer(a),
             Err(Signal::Progress) => {
-                self.tasks.push_back((ctx, cursor));
+                self.tasks.push_back((ctx, cursor, round_end));
                 Event::Progress
             }
             Err(Signal::Split(label)) => {
                 for value in [false, true] {
                     let mut child = ctx.clone();
                     child.insert(label, value);
-                    self.tasks.push_back((child, cursor));
+                    self.tasks.push_back((child, cursor, round_end));
                 }
                 Event::Progress
             }
             Err(Signal::Fail) => Event::Progress,
-            Err(Signal::Stuck) => {
-                self.tasks.push_back((ctx, cursor));
-                Event::Stuck
-            }
         }
     }
 }

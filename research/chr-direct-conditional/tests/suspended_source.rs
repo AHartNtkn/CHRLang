@@ -7,6 +7,46 @@ fn collect(rules: Vec<Rule>, query: Query, expected: Vec<Answer>) {
         runtime_support::run(&rules, &query, 200_000),
         expected.clone(),
     );
+    let prepared = chr_compiled::PreparedRuleset::new(rules.clone(), None).unwrap();
+    for access in [chr_compiled::Access::Scan, chr_compiled::Access::Indexed] {
+        let mut search = prepared
+            .start_search(query.clone(), chr_compiled::Policy::Global, access)
+            .unwrap();
+        let mut actual = vec![];
+        let mut exhausted = false;
+        for _ in 0..100_000 {
+            match search.tick() {
+                chr_compiled::SearchEvent::Complete(mut b) => {
+                    actual.push(b.engine.observe().unwrap())
+                }
+                chr_compiled::SearchEvent::Exhausted => {
+                    exhausted = true;
+                    break;
+                }
+                _ => {}
+            }
+        }
+        assert!(exhausted, "compiled control cutoff");
+        runtime_support::same_raw(actual, expected.clone());
+    }
+    let mut graph = chr_direct_choice::engine::PreparedRuleset::new(rules.clone())
+        .unwrap()
+        .start(query.clone())
+        .unwrap();
+    let mut actual = vec![];
+    let mut exhausted = false;
+    for _ in 0..100_000 {
+        match graph.tick() {
+            chr_direct_choice::engine::Event::Answer(a) => actual.push(a),
+            chr_direct_choice::engine::Event::Exhausted => {
+                exhausted = true;
+                break;
+            }
+            chr_direct_choice::engine::Event::Progress => {}
+        }
+    }
+    assert!(exhausted, "direct graph control cutoff");
+    runtime_support::same_raw(actual, expected.clone());
     let mut run = Prepared::new(rules).unwrap().start(query).unwrap();
     let mut answers = vec![];
     for _ in 0..100_000 {
@@ -17,7 +57,6 @@ fn collect(rules: Vec<Rule>, query: Query, expected: Vec<Answer>) {
                 runtime_support::same_raw(answers, expected);
                 return;
             }
-            Event::Stuck => panic!("finite source unexpectedly stuck"),
         }
     }
     panic!("suspended source gate cutoff");
@@ -249,8 +288,17 @@ fn nested_duplicate_choices_and_unresolved_demands_remain_honest() {
             outputs: vec![("x".into(), Var(101))],
         })
         .unwrap();
-    assert!(matches!(run.tick(), Event::Stuck));
-    assert!(matches!(run.tick(), Event::Stuck));
+    let Event::Answer(answer) = run.tick() else {
+        panic!("quiescent nonmatch must publish its residual")
+    };
+    runtime_support::same_raw(
+        vec![answer],
+        vec![Answer {
+            outputs: vec![("x".into(), v(901))],
+            residual: vec![c("only", [v(900), v(901)])],
+        }],
+    );
+    assert!(matches!(run.tick(), Event::Exhausted));
     assert!(
         prepared
             .start(Query {
@@ -359,4 +407,165 @@ fn constructor_demand_can_refute_before_unrelated_producer_finishes() {
         }
     }
     panic!("constructor demand waited for an unrelated producer");
+}
+
+#[test]
+fn residual_calls_keep_joint_aliases_and_occurrence_multiplicity() {
+    let rules = vec![Rule::simplify(
+        "only",
+        [c("only", [atom("a"), v(0)])],
+        eq(v(0), atom("ok")),
+    )];
+    for input in [v(200), atom("b")] {
+        let residual_input = if input == v(200) {
+            v(900)
+        } else {
+            input.clone()
+        };
+        collect(
+            rules.clone(),
+            Query {
+                constraints: vec![
+                    c("only", [input.clone(), v(100)]),
+                    c("only", [input, v(101)]),
+                ],
+                outputs: vec![("x".into(), Var(100)), ("y".into(), Var(101))],
+            },
+            vec![Answer {
+                outputs: vec![("x".into(), v(901)), ("y".into(), v(902))],
+                residual: vec![
+                    c("only", [residual_input.clone(), v(901)]),
+                    c("only", [residual_input, v(902)]),
+                ],
+            }],
+        );
+    }
+}
+#[test]
+fn tail_replacement_and_branch_local_residuals_preserve_outputs() {
+    let rules = vec![
+        Rule::simplify("only", [c("only", [atom("a"), v(0)])], eq(v(0), atom("ok"))),
+        Rule::simplify(
+            "forward",
+            [c("forward", [v(0), v(1)])],
+            c("only", [v(0), v(1)]).into(),
+        ),
+        Rule::simplify(
+            "choose",
+            [c("choose", [v(0)])],
+            or(eq(v(0), atom("a")), eq(v(0), atom("b"))),
+        ),
+    ];
+    collect(
+        rules.clone(),
+        Query {
+            constraints: vec![c("forward", [v(100), v(101)])],
+            outputs: vec![("x".into(), Var(100)), ("y".into(), Var(101))],
+        },
+        vec![Answer {
+            outputs: vec![("x".into(), v(900)), ("y".into(), v(901))],
+            residual: vec![c("only", [v(900), v(901)])],
+        }],
+    );
+    collect(
+        rules,
+        Query {
+            constraints: vec![c("forward", [v(100), v(101)]), c("choose", [v(100)])],
+            outputs: vec![("x".into(), Var(100)), ("y".into(), Var(101))],
+        },
+        vec![
+            Answer {
+                outputs: vec![("x".into(), atom("a")), ("y".into(), atom("ok"))],
+                residual: vec![],
+            },
+            Answer {
+                outputs: vec![("x".into(), atom("b")), ("y".into(), v(900))],
+                residual: vec![c("only", [atom("b"), v(900)])],
+            },
+        ],
+    );
+}
+#[test]
+fn residual_does_not_hide_later_producer_or_independent_failure() {
+    let only = Rule::simplify("only", [c("only", [atom("a"), v(0)])], eq(v(0), atom("ok")));
+    collect(
+        vec![
+            only.clone(),
+            Rule::simplify("make", [c("make", [v(0)])], eq(v(0), atom("a"))),
+        ],
+        Query {
+            constraints: vec![c("only", [v(100), v(101)]), c("make", [v(100)])],
+            outputs: vec![("x".into(), Var(101))],
+        },
+        vec![Answer {
+            outputs: vec![("x".into(), atom("ok"))],
+            residual: vec![],
+        }],
+    );
+    collect(
+        vec![only, Rule::simplify("bad", [c("bad", [v(0)])], Goal::Fail)],
+        Query {
+            constraints: vec![c("only", [atom("b"), v(100)]), c("bad", [v(101)])],
+            outputs: vec![("x".into(), Var(100))],
+        },
+        vec![],
+    );
+}
+
+#[test]
+fn producer_residual_has_its_own_output_and_one_occurrence() {
+    let rules = vec![
+        Rule::simplify("only", [c("only", [atom("a"), v(0)])], eq(v(0), atom("ok"))),
+        Rule::simplify(
+            "outer",
+            [c("outer", [v(0)])],
+            and([
+                c("only", [atom("b"), v(1)]).into(),
+                eq(v(0), t("box", [v(1)])),
+            ]),
+        ),
+    ];
+    collect(
+        rules,
+        Query {
+            constraints: vec![c("outer", [v(100)])],
+            outputs: vec![("x".into(), Var(100))],
+        },
+        vec![Answer {
+            outputs: vec![("x".into(), t("box", [v(900)]))],
+            residual: vec![c("only", [atom("b"), v(900)])],
+        }],
+    );
+}
+
+#[test]
+fn inactive_choice_arm_calls_do_not_leak_into_residuals() {
+    let rules = vec![
+        Rule::simplify("only", [c("only", [atom("a"), v(0)])], eq(v(0), atom("ok"))),
+        Rule::simplify(
+            "outer",
+            [c("outer", [v(0)])],
+            or(
+                c("only", [atom("a"), v(0)]).into(),
+                c("only", [atom("b"), v(0)]).into(),
+            ),
+        ),
+    ];
+    collect(
+        rules,
+        Query {
+            constraints: vec![c("outer", [v(100)])],
+            outputs: vec![("x".into(), Var(100))],
+        },
+        vec![
+            Answer {
+                outputs: vec![("x".into(), atom("ok"))],
+                residual: vec![],
+            },
+            Answer {
+                outputs: vec![("x".into(), v(900))],
+                residual: vec![c("only", [atom("b"), v(900)])],
+            },
+        ],
+    );
 }

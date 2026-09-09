@@ -2,6 +2,8 @@
 
 **The first demand evaluator now executes source-derived application nodes and preserves their results across compatible demands.** Two counterexamples establish why it needs separate value-demand and source-completion paths, and why general rule competition cannot be replaced by ordinary function evaluation. This is executable semantic evidence, not an architecture ranking.
 
+Current extension: the [residual-occurrence gate](S03-demand-residual.md) now publishes unmatched calls and preserves tail-call output identity. The account below records the first implementation and its original limits.
+
 ## What is implemented
 
 The [demand module](../../../research/chr-direct-choice/src/demand.rs) compiles equation-producing CHR rules into suspended calls. It accepts single removed heads, linear nonoverlapping input patterns, a distinct output variable, output equations, checked calls, choices and failure. Bodies can produce intermediate call results. Distinct applications instantiate fresh locals; calls retain results with their choice context and may reuse a result in a compatible descendant context.

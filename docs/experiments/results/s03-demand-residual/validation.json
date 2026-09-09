@@ -1,0 +1,33 @@
+{
+  "base_commit": "b3341c01f04047ea827127cf98df9796f794d513",
+  "rustc": "rustc 1.97.1 (8bab26f4f 2026-07-14)",
+  "kind": "residual source correspondence; no comparative timing",
+  "tests_per_configuration": 14,
+  "new_finite_inputs": 8,
+  "checked_execution_paths": [
+    "scalar oracle",
+    "compiled global scan",
+    "compiled global indexed",
+    "direct choice graph",
+    "suspended source"
+  ],
+  "commands": [
+    "timeout 60 cargo test -p chr-direct-conditional --test suspended_source -- --nocapture",
+    "timeout 60 cargo test -p chr-direct-conditional --no-default-features --test suspended_source -- --nocapture",
+    "cargo clippy -p chr-direct-choice -p chr-direct-conditional --test suspended_source -- -D warnings"
+  ],
+  "sha256": {
+    "research/chr-direct-choice/src/demand.rs": "7aee04d78c24559068a938502dd4f9dfb84acd570fd5a95a2aa9e1fd5a88020e",
+    "research/chr-direct-conditional/tests/suspended_source.rs": "094f344fdb3d1fd825b9705c981addd4e010ac77b8b79f49cbb066ef4af38bd6",
+    "research/chr-direct-conditional/tests/runtime_support/mod.rs": "03633e8d666fadcdd08ddfe4900aa8116b32e434fb0a5dcb1c5faa23ff5976b2",
+    "docs/experiments/registrations/S03-demand-residual-gate.md": "1ca0949ec9f94812c218beb966c500ceb700a300e832a2a486604172f6d8b492"
+  },
+  "remaining": [
+    "source competition",
+    "shared-resource consumption",
+    "general source eligibility",
+    "pull-tab distinction/equivalence",
+    "derivation templates",
+    "full lifecycle costs"
+  ]
+}

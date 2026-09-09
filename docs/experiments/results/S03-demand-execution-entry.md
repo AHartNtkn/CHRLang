@@ -41,3 +41,7 @@ The [derivation identity experiment](S03-derivation-identity.md) separates reuse
 ## Suspended applications implemented
 
 The [first executable source gate](S03-suspended-source.md) now passes on a checked equation-producing fragment. It establishes separate value-demand/completion paths and an overlapping-rule counterexample. Next is integration with source competition, consuming effects and residual obligations; comparative costs and actual pull-tab transformation remain unmeasured.
+
+## Residual occurrence extension
+
+The [residual gate](S03-demand-residual.md) now preserves unmatched calls, tail replacement, context-local occurrence survival and joint aliases. Fourteen source tests pass, including service regressions; consuming effects and source competition are next. T071 remains active.

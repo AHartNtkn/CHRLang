@@ -1,0 +1,22 @@
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.24s
+     Running tests/suspended_source.rs (target/debug/deps/suspended_source-45b58cb1383c630b)
+
+running 14 tests
+test cyclic_producer_graph_is_rejected_and_nested_failure_is_serviced ... ok
+test demand_must_not_enable_a_rule_ahead_of_an_already_enabled_competitor ... ok
+test independent_failure_is_serviced_beside_an_ongoing_output ... ok
+test constructor_demand_can_refute_before_unrelated_producer_finishes ... ok
+test nested_duplicate_choices_and_unresolved_demands_remain_honest ... ok
+test inactive_choice_arm_calls_do_not_leak_into_residuals ... ok
+test producer_residual_has_its_own_output_and_one_occurrence ... ok
+test fresh_locals_and_unused_failure_are_source_obligations ... ok
+test branch_local_producers_do_not_overwrite_sibling_results ... ok
+test residual_does_not_hide_later_producer_or_independent_failure ... ok
+test residual_calls_keep_joint_aliases_and_occurrence_multiplicity ... ok
+test finite_sibling_is_serviced_and_effectful_sources_are_rejected ... ok
+test tail_replacement_and_branch_local_residuals_preserve_outputs ... ok
+test opaque_recursive_calls_preserve_shared_and_independent_births ... ok
+
+test result: ok. 14 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
