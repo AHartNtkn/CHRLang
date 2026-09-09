@@ -1,5 +1,7 @@
 # Unanswered architecture questions and experimental ownership
 
+The [forcing-copy attribution](results/S08-force-copy-attribution.md) completes 2,896 registered processes with 320 exact allocation replays. Avoiding copies of exposed graph values reduces requested allocation in all 160 mode/source comparisons, entirely during execution/observation. Each graph mode has eight practical timing gains, no losses and 72 unresolved cases. T074 remains active for the separate normalization-copy hypothesis, then fresh complete-engine controls; broader observation and lifetime questions remain required.
+
 The architecture decision remains open. The [experimental sequence](sequence.md) defines the comparison requirements; the [remaining investigations](remaining-investigations.md) separate the experiments still needed within each stage. The [design review](results/R07-design-disposition-review.md) explains all 57 earlier dispositions.
 
 Existing measurements count within their demonstrated scope. Completion of a bounded trial does not resolve its whole stage. The earlier R07 closure assessments do not govern current research status.

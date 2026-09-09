@@ -1,5 +1,7 @@
 # R00: architectural alternatives and first experiment selection
 
+The [forcing-copy attribution](S08-force-copy-attribution.md) completes 2,896 registered processes with 320 exact allocation replays. Avoiding copies of exposed graph values reduces requested allocation in all 160 mode/source comparisons, entirely during execution/observation. Each graph mode has eight practical timing gains, no losses and 72 unresolved cases. T074 remains active for the separate normalization-copy hypothesis, then fresh complete-engine controls; broader observation and lifetime questions remain required.
+
 > Current status: this assessment predates the [design-disposition review](R07-design-disposition-review.md). Architecture selection and research closure remain unresolved. The [renewed sequence](../sequence.md) and [current coverage map](../coverage.md) govern further investigation; recommendations and stopping judgments below are subject to that review.
 
 The [architecture checkpoint](R07-architecture-checkpoint.md) and [closure audit](R07-closure-audit.md) record earlier assessments. The governing sequence above supplies the current investigation requirements. Existing measurements retain their stated scope; the current evidence does not support whole-goal closure.

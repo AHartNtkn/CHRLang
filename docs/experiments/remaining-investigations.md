@@ -1,5 +1,7 @@
 # The comparisons still needed to choose the architecture
 
+The [forcing-copy attribution](results/S08-force-copy-attribution.md) completes 2,896 registered processes with 320 exact allocation replays. Avoiding copies of exposed graph values reduces requested allocation in all 160 mode/source comparisons, entirely during execution/observation. Each graph mode has eight practical timing gains, no losses and 72 unresolved cases. T074 remains active for the separate normalization-copy hypothesis, then fresh complete-engine controls; broader observation and lifetime questions remain required.
+
 The next experiments must test the alternatives that could change the architecture, including alternatives that earlier trials did not implement. Existing results narrow these questions; they do not answer them all. This schedule gives each distinct mechanism a comparison and keeps unfinished investigations visible.
 
 Read the **decision** column first. The other columns explain what would make the test informative. Numbers refer to the [57-entry design review](results/R07-design-disposition-review.md); the [governing sequence](sequence.md) supplies semantic, measurement and closure requirements.

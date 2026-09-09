@@ -1,0 +1,326 @@
+   Compiling chr-direct-choice v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-choice)
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 3.02s
+     Running unittests src/lib.rs (target/debug/deps/chr_direct_choice-9be38ef2c3d7cf03)
+
+running 9 tests
+test demand::pull_tab_tests::demanded_choice_becomes_choice_over_conditional_calls ... ok
+test demand::pull_tab_tests::consuming_match_keeps_full_context_validity ... ok
+test demand::pull_tab_tests::lifted_calls_do_not_inherit_unrelated_rewrite_choices ... ok
+test demand::pull_tab_tests::derivation_shares_growing_terms_without_exhausting_construction_budget ... ok
+test demand::pull_tab_tests::pure_match_records_observed_choice_and_producer_support ... ok
+test demand::pull_tab_tests::fresh_derivation_eliminates_recursive_call_expansion ... ok
+test demand::pull_tab_tests::shared_derivation_retains_call_at_fuel_bound ... ok
+test demand::pull_tab_tests::template_entry_limit_preserves_distinct_and_repeated_requests ... ok
+test demand::pull_tab_tests::shared_derivation_size_limit_keeps_ordinary_execution ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/equality.rs (target/debug/deps/equality-fc444baf98e6dc86)
+
+running 5 tests
+test disconnected_failure_and_constructor_arity_affect_complete_observations ... ok
+test finite_tree_occurs_checks_follow_aliases_and_preserve_good_arms ... ok
+test nonbinding_equality_never_instantiates_or_fails_a_region ... ok
+test reflexive_choice_arm_is_not_a_constructor_cycle ... ok
+test bindings_aliases_and_failures_are_context_local ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/equality_oracle.rs (target/debug/deps/equality_oracle-026424ea44a29335)
+
+running 1 test
+test equation_pairs_match_scalar_finite_tree_solutions_in_every_assignment ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+     Running tests/kernel.rs (target/debug/deps/kernel-d55ff3e33e232f4a)
+
+running 6 tests
+test conditional_birth_rejects_missing_causal_ancestor - should panic ... ok
+test conflicting_consumers_and_late_contexts_match_scalar_resources ... ok
+test opaque_access_preserves_correlated_and_independent_choices ... ok
+test dynamic_births_preserve_raw_multiplicity_without_inactive_assignments ... ok
+test constructor_demand_consumes_only_matching_contexts_then_accepts_late_births ... ok
+test context_algebra_matches_boolean_truth_tables ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.06s
+
+     Running unittests src/lib.rs (target/debug/deps/chr_direct_conditional-1059758b112eefc4)
+
+running 12 tests
+test engine::tests::starts_share_compiled_rules_and_own_independent_query_state ... ok
+test support::tests::canonical_reduction_and_complement_have_boolean_meaning ... ok
+test engine::tests::finite_sibling_is_published_beside_symbolic_rewrite_loop ... ok
+test support::tests::construction_rejects_out_of_bounds_handles - should panic ... ok
+test matching::tests::first_slot_keeps_conditional_value_opaque_and_repetition_demands_equality ... ok
+test equality::tests::deep_occurs_check_and_demand_are_resumable_and_nonbinding ... ok
+test resources::tests::emitted_frame_finishes_the_job_without_certifying_remaining_eligibility ... ok
+test support::tests::construction_rejects_an_earlier_child_variable - should panic ... ok
+test support::tests::independent_jobs_interleave_and_finished_jobs_do_no_more_work ... ok
+test engine::publication_flow_tests::cancellation_with_bulk_observer_owned_preserves_delivered_answer ... ok
+test support::tests::long_negation_yields_with_at_most_one_node_allocation_per_tick ... ok
+test engine::publication_flow_tests::publication_priority_preserves_answers_but_withholds_runnable_sibling ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+     Running unittests experiments/carrier_mixed.rs (target/debug/deps/chr_carrier_cost-a1cf439202d5c9ea)
+
+running 4 tests
+test tests::observer_diagnostics_follow_measurement_configuration ... ok
+test adverse::tests::oracle_rejects_bound_or_identified_unknowns_and_wrong_residuals ... ok
+test tests::reusable_preparation_validates_complete_queries_and_lifecycle_records ... ok
+test tests::unknown_tail_retains_exact_unbound_controls_and_raw_assignments ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running unittests experiments/main.rs (target/debug/deps/chr_conditional_cost-cf6ac9fe0ab9c5f7)
+
+running 1 test
+test tests::full_paths_match_independent_workload_answers ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.06s
+
+     Running unittests experiments/demand_cost.rs (target/debug/deps/chr_demand_cost-59cf087a050d1fd7)
+
+running 2 tests
+test tests::lowering_rejects_source_and_query_near_misses ... ok
+test tests::all_paths_and_lowering_match_source_and_survive_interruption ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.13s
+
+     Running unittests experiments/derivation_cost.rs (target/debug/deps/chr_derivation_cost-71cc3b3919bdfa20)
+
+running 2 tests
+test tests::exact_control_rejects_changed_source_and_query ... ok
+test tests::complete_sources_and_changed_queries_match_all_controls ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.18s
+
+     Running unittests experiments/equation_mixed.rs (target/debug/deps/chr_equation_cost-a0e78787e44e8305)
+
+running 1 test
+test tests::full_lifecycles_success_clash_and_changed_queries ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+
+     Running unittests experiments/mixed.rs (target/debug/deps/chr_mixed_cost-2c369bcb5d3fa649)
+
+running 2 tests
+test tests::observer_diagnostics_follow_measurement_configuration ... ok
+test tests::reusable_preparation_validates_complete_queries_and_lifecycle_records ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running unittests experiments/pulltab_cost.rs (target/debug/deps/chr_pulltab_cost-0a1e3ff73ea9e059)
+
+running 1 test
+test tests::complete_sources_and_changed_queries_match_all_controls ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.89s
+
+     Running unittests experiments/stream.rs (target/debug/deps/chr_stream_cost-6d1a172a30a8c002)
+
+running 2 tests
+test tests::tick_limit_reports_incomplete_without_fabricating_an_answer ... ok
+test tests::small_streams_observe_validate_consume_and_dispose_all_backends ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/births.rs (target/debug/deps/births-0d0b31ce5d28ad0e)
+
+running 5 tests
+test a_cursor_keeps_its_birth_prefix_when_other_work_introduces_births ... ok
+test independent_births_are_cartesian_and_cancelled_cursor_does_not_consume_them ... ok
+test nested_inactive_birth_has_three_histories_and_equal_arms_still_count ... ok
+test independent_64_birth_single_cube_finishes_with_linear_service ... ok
+test all_three_birth_causal_guards_match_independent_reachable_histories ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/demand_work.rs (target/debug/deps/demand_work-f7a6b042d01e0d1f)
+
+running 1 test
+test registered_work_attribution ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.52s
+
+     Running tests/direct_graph_entry.rs (target/debug/deps/direct_graph_entry-24ff3f1a5d12e7a7)
+
+running 17 tests
+test active_nonchoice_trace_explains_missing_token_observation ... ok
+test oracle_preserves_correlation_aliases_and_raw_multiplicity ... ok
+test mixed_kept_consumed_heads_preserve_joint_output_identity ... ok
+test effectful_choices_competing_consumers_and_late_arrivals ... ok
+test derivation_identity_fresh_locals_cannot_be_shared_between_calls ... ok
+test derivation_identity_result_reuse_does_not_grant_resource_claims ... ok
+test disconnected_failure_prevents_early_answer_publication ... ok
+test derivation_identity_equal_inputs_do_not_merge_choice_births ... ok
+test nonbinding_heads_and_guards_wait_for_real_aliases ... ok
+test propagation_respects_occurrence_identity_and_fresh_application_unknowns ... ok
+test finite_sibling_is_observed_without_claiming_global_completion ... ok
+test active_policy_word_screen_records_complete_answer_agreement ... ok
+test dynamic_births_resources_and_complete_observations ... ok
+test compiled_global_controls_publish_finite_sibling_without_exhaustion ... ok
+test word_lowering_handles_asymmetric_queries_and_rejects_uncertified_inputs ... ok
+test direct_graph_publishes_finite_sibling_without_claiming_exhaustion ... ok
+test common_work_discrimination_and_no_choice_have_independent_complete_answers ... ok
+
+test result: ok. 17 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.30s
+
+     Running tests/equality_oracle.rs (target/debug/deps/equality_oracle-16b36a904224c5ea)
+
+running 9 tests
+test equality_demand_is_nonbinding_and_reports_support_expansion_dependencies ... ok
+test alias_dependencies_intersect_later_binding_and_new_support_notifications ... ok
+test partial_commit_notifications_survive_interruption_and_restart ... ok
+test stale_writer_must_restart_and_cannot_commit_from_old_binding_state ... ok
+test unfinished_equality_jobs_reject_a_different_store_with_colliding_handles ... ok
+test three_edge_cycle_fails_only_on_intersection_and_field_clash_is_local ... ok
+test mutation_during_deep_occurs_continuation_rejects_stale_effects ... ok
+test entails_matches_resolved_tree_equality_without_adding_bindings ... ok
+test supported_equation_pairs_match_independent_finite_tree_substitutions ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.20s
+
+     Running tests/equation_mixed.rs (target/debug/deps/equation_mixed-633ede140c1ec312)
+
+running 4 tests
+test full_oracle_rejects_alias_tuple_and_multiplicity_mutations ... ok
+test naive_hoist_does_not_preserve_failed_source_tree ... ok
+test specialized_source_replay_conserves_success_and_failed_lineages ... ok
+test conditional_equation_placements_complete_and_preserve_joint_aliases ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s
+
+     Running tests/maintenance.rs (target/debug/deps/maintenance-841ed81162d59993)
+
+running 2 tests
+test partial_liveness_keeps_genuine_deferred_work_in_both_choice_regions ... ok
+test countdown_candidate_selection_is_linear_in_both_source_orders ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/matching_resources.rs (target/debug/deps/matching_resources-04c9aa317af89a1d)
+
+running 12 tests
+test opaque_slot_does_not_partition_conditional_values ... ok
+test acknowledgement_keeps_other_pending_support_and_cancelled_prepare_has_no_effect ... ok
+test occurrence_identity_and_body_readiness_are_preserved ... ok
+test guard_locals_are_rigid_fresh_identities_without_head_bindings ... ok
+test one_frame_completion_is_distinct_from_exhaustive_ineligibility ... ok
+test rejecting_a_guard_frame_does_not_discard_an_eligible_alternative ... ok
+test simpagation_keeps_only_declared_kept_occurrence ... ok
+test tokens_reject_foreign_and_stale_owners_without_partial_effects ... ok
+test propagation_keys_preserve_ordered_ids_and_pending_support_is_local ... ok
+test two_birth_consumption_intersects_crossing_supports ... ok
+test propagation_resource_truth_masks_preserve_exact_effects_and_pending_body ... ok
+test symbolic_matching_matches_independent_joint_slot_environments ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+
+     Running tests/mixed_pipeline.rs (target/debug/deps/mixed_pipeline-35d6f2a6914879f6)
+
+running 3 tests
+test checker_rejects_wrong_correlations_aliases_and_residual_multiplicity ... ok
+test specialized_mixed_phases_preserve_all_choices_and_joint_aliases ... ok
+test conditional_mixed_phases_preserve_all_choices_and_joint_aliases ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+
+     Running tests/pulltab_work.rs (target/debug/deps/pulltab_work-c243d2d9df39514d)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/restricted_births.rs (target/debug/deps/restricted_births-8fd63436ff3a2627)
+
+running 4 tests
+test empty_prefix_handles_false_and_true_regions ... ok
+test region_cannot_reference_a_variable_outside_the_birth_ledger - should panic ... ok
+test a_restricted_cursor_keeps_its_frozen_prefix_when_later_births_are_added ... ok
+test all_causal_guard_combinations_and_support_masks_preserve_exact_ordered_histories ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.10s
+
+     Running tests/runtime.rs (target/debug/deps/runtime-18d4537c803cf60d)
+
+running 7 tests
+test finite_sibling_publishes_beside_recursive_activity ... ok
+test supported_application_projection_and_shared_consumption ... ok
+test adversarial_dependency_and_priority_witnesses ... ok
+test repeated_dynamic_births_and_prepared_query_independence ... ok
+test independent_full_source_witnesses ... ok
+test publication_is_not_repeated_when_divergent_support_adds_births ... ok
+test finite_crossing_corpus ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.07s
+
+     Running tests/streaming.rs (target/debug/deps/streaming-666c0996511006c5)
+
+running 5 tests
+test closed_form_checker_rejects_wrong_values_multiplicity_and_aliases ... ok
+test explicit::specialized_unbounded_prefixes_preserve_duplicates_and_consumer_ownership ... ok
+test explicit::specialized_finite_generator_has_exact_raw_count_and_exhaustion ... ok
+test conditional_finite_generator_has_exact_raw_count_and_exhaustion ... ok
+test conditional_unbounded_prefixes_preserve_duplicates_and_consumer_ownership ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.14s
+
+     Running tests/support_truth.rs (target/debug/deps/support_truth-214265162ad848ca)
+
+running 2 tests
+test cancelled_boolean_job_leaves_valid_nodes_for_interleaving_and_restart ... ok
+test every_three_variable_function_and_pair_matches_independent_truth_tables ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.61s
+
+     Running tests/suspended_source.rs (target/debug/deps/suspended_source-4dff54191bc4ad02)
+
+running 31 tests
+test demand_must_not_enable_a_rule_ahead_of_an_already_enabled_competitor ... ok
+test constructor_demand_can_refute_before_unrelated_producer_finishes ... ok
+test cyclic_producer_graph_is_rejected_and_nested_failure_is_serviced ... ok
+test independent_failure_is_serviced_beside_an_ongoing_output ... ok
+test nonconfluent_resource_competition_has_an_explicit_committed_policy ... ok
+test derivation_contraction_exposes_a_resource_scheduling_difference ... ok
+test pull_tab_resource_competition_matches_demand_control ... ok
+test nested_duplicate_choices_and_unresolved_demands_remain_honest ... ok
+test inactive_choice_arm_calls_do_not_leak_into_residuals ... ok
+test producer_residual_has_its_own_output_and_one_occurrence ... ok
+test a_sibling_claim_cannot_consume_the_other_siblings_resource ... ok
+test fresh_locals_and_unused_failure_are_source_obligations ... ok
+test branch_local_producers_do_not_overwrite_sibling_results ... ok
+test shared_resource_certificate_rejects_unimplemented_alias_updates ... ok
+test fresh_derivation_boundary_preserves_residual_occurrences ... ok
+test residual_calls_keep_joint_aliases_and_occurrence_multiplicity ... ok
+test pulled_nonmatching_arm_preserves_one_residual_occurrence ... ok
+test residual_does_not_hide_later_producer_or_independent_failure ... ok
+test resource_keys_are_nonbinding_and_can_become_available ... ok
+test finite_sibling_is_serviced_and_pure_propagation_is_rejected ... ok
+test resource_tuple_is_atomic_and_kept_heads_survive ... ok
+test conditional_claims_and_late_posts_follow_source_choices ... ok
+test pulled_calls_keep_correlation_and_consume_distinct_tokens ... ok
+test shared_resource_claims_preserve_distinct_requests_and_tokens ... ok
+test tail_replacement_and_branch_local_residuals_preserve_outputs ... ok
+test unknown_resource_handles_preserve_aliases_without_binding ... ok
+test derivation_templates_retain_resource_claims_and_off_output_failure ... ok
+test opaque_recursive_calls_preserve_shared_and_independent_births ... ok
+test pulled_demand_preserves_finite_service_and_off_output_failure ... ok
+test fresh_derivation_templates_preserve_unknowns_choices_and_call_identity ... ok
+test fresh_derivation_size_bound_preserves_complete_source_result ... ok
+
+test result: ok. 31 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s
+
+   Doc-tests chr_direct_choice
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests chr_direct_conditional
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
