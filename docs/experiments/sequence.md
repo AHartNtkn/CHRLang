@@ -8,6 +8,10 @@ The outcome is evidence for choosing the CHR language's architecture: total effi
 
 This is the governing sequence for the renewed investigation. Existing E/R measurements retain their stated scope. The [coverage map](coverage.md) tracks all 57 reviewed decisions. The [remaining investigations](remaining-investigations.md) give distinct mechanisms their own comparisons and specify the next selection cycle. Experimental implementation and runs are already authorized; this document defines the work and its gates, not results from new runs. S-numbers distinguish this sequence from completed experimental receipts.
 
+## Account for every reviewed question
+
+The [entry-by-entry experiment map](question-to-experiment-map.md) specifies the required comparison and decision for each of the 57 reviewed designs. Use it alongside the roadmap: a stage covers several questions, and a result for one does not discharge the others. Established counterexamples and bounded measurements remain controls; the map identifies the broader claim that still needs evidence.
+
 ## Read the sequence at two levels
 
 Start with the roadmap below for the high-level reasoning. The [ordered investigation cycle](remaining-investigations.md#execution-order) records completed bounded work and the remaining execution order. The stage specifications below define the required depth, controls and exit evidence; the [named-mechanism comparisons](remaining-investigations.md#distinctions-that-must-not-disappear-inside-a-stage) account for alternatives grouped within review entries.
@@ -261,6 +265,16 @@ Start with bounded sizing, explicitly nonconfirmatory. For native pilots, use fi
 If a pilot reaches a bound, inspect progress and the responsible cost. Choose a justified larger bound, a paired representation correction, or an analytical limit before confirmation. If uncertainty spans a consequential crossover, obtain more evidence; overlapping ranges are not an excuse to stop. Do not repeatedly broaden a matrix when all plausible outcomes leave the same bounded decision unchanged—write the sensitivity argument instead.
 
 All new results link raw inputs, commands, freezes, validation and unfavorable outcomes. Correct consequential defects and rerun affected comparisons. Preserve reference independence. No new architecture adopts implementation interfaces merely because they make cross-engine testing easier.
+
+## The next complete comparison
+
+The immediate S02 investigation has three separate gates. They qualify a comparison of integrated execution against a competent existing compiled control; none alone resolves general integrated architecture.
+
+1. **Equivalent executable capability.** Qualify the source-derived two-head consuming selector and prove that it actually executes. Check complete answers, occurrence ownership, missing resources, source order, body completion, aliases and fresh values independently. Reject unsupported source shapes explicitly. Do not interpret an ineligible compiler path as evidence against compilation.
+2. **Full lifecycle and ownership.** Establish counter-free integrated timing and separate allocation/work builds. Reuse prepared rules over changing queries. Account for preparation, setup, execution, first/full observation, cancellation and disposal, with exact owner release checks. Register favorable equality-enabled consumption, broad repair, mostly distinct small work and competing-consumer controls before comparative runs. Any additional source capability must pass the first gate before entering the matrix.
+3. **Decision and breadth review.** Attribute consequential differences to source specialization, representation, discovery, repair or lifetime. State which responsibility can change and which general heads, history or scheduling questions remain. Compare the value of extending those questions with the strongest ready distinct investigation in the ordered sequence, including resource-aware lowering and repeated dynamic reunion. A faster fragment does not automatically authorize an indefinite series of local refinements.
+
+Exact sizes follow exploratory sizing under the common rules above. The comparative registration must freeze those sizes, sources, controls, repetitions, practical thresholds and bounds before confirmation. These gates are planned work, not claims that the current uncommitted implementation has passed them.
 
 ## Current execution order
 

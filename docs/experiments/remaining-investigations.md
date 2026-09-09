@@ -14,6 +14,8 @@ Start with the execution order below, then read the **decision** column in the m
 
 The work has three parts: test the distinct execution mechanisms, compare their language and lifetime costs alongside those trials, then challenge complete architectures on new sources. Existing bounded results supply controls and useful limits. The unanswered parts below still require evidence even when an earlier implementation in the same family lost.
 
+For a particular design, use the [57-question experiment map](question-to-experiment-map.md). It identifies the comparison needed within each stage and prevents a result for one grouped mechanism from standing in for its neighbors.
+
 ## Execution order
 
 **The integrated body gate passes; equivalent consuming-selector qualification is selected before lifecycle measurements.** The current worktree already supplies bounded call-reuse and structural-solving trials. Their broader questions remain required, but those completed trials are evidence to build on, not experiments to start again.

@@ -4,6 +4,8 @@ The [integrated-body gate](results/S02-integrated-bodies.md) passes 53 tests and
 
 ## How unanswered variants remain accountable
 
+The [entry-by-entry experiment map](question-to-experiment-map.md) gives all 57 reviewed decisions a specific required comparison and decision criterion. The stage assignments below remain the ownership summary; results must state which individual propositions and variants they resolve.
+
 The [ordered cycle](remaining-investigations.md#execution-order) assigns the next comparisons from the current worktree. The [named-mechanism ledger](remaining-investigations.md#distinctions-that-must-not-disappear-inside-a-stage) expands grouped entries for compressed supports, integrated representations, distributed resource ownership, call-level reuse, finer independence, solver learning and exact observation indexing. S06-D separately owns projection and richer structural theories within entry 34.
 
 The stage assignments below cover all 57 entries. They must be read together with these mechanism-level obligations and the [required decision record](remaining-investigations.md#evidence-required-before-a-question-can-leave-the-sequence). Coverage means every question has an investigation; resolution requires the linked evidence and its scope. Review breadth after every four completed experimental packages, as specified by the ordered cycle.
