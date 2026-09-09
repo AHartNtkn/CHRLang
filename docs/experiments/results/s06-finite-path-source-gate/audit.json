@@ -1,0 +1,30 @@
+{
+  "purpose": "correctness and mechanism gate; no timing comparison",
+  "finite_path_tests": 13,
+  "package_tests": 22,
+  "exhaustive_requests": 7840,
+  "membership_modes": 2,
+  "candidate_exhaustive_runs": 15680,
+  "chr_sources": 160,
+  "independent_oracles": [
+    "owned exhaustive derivation enumeration",
+    "scalar CHR raw answers",
+    "reference CHR distinct answers and completed-branch totals"
+  ],
+  "selective_64_bit": {
+    "denoted_values": "2^64",
+    "returned_values": 2,
+    "requirements": 66,
+    "transition_trials": 67,
+    "duplicate_values": 0,
+    "peak_frontier": 2
+  },
+  "redundant_filter": {
+    "requirements_before": 280,
+    "requirements_after": 17,
+    "duplicates_before": 255,
+    "duplicates_after": 0,
+    "source_count": 1,
+    "swapped_source_count": 256
+  }
+}

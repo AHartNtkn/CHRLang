@@ -1,5 +1,8 @@
 # Unanswered architecture questions and experimental ownership
 
+The [finite-path source gate](results/S06-finite-path-source-gate.md) now establishes lazy constructor-language intersection and path equality in unreduced/reduced modes: 15,680 small solver comparisons and 160 CHR source checks agree, including raw multiplicity. A selective 64-bit description produces two values after 66 requirement steps; reduction cuts a redundant-filter witness from 280 to 17 steps without changing source counts. These are correctness/mechanism results, not timing. T076 remains active for complete costs and ownership; broader source semantics and structural theories remain required.
+
+
 The [complete-call pilot](results/S05-caller-cost-pilot.md) now has 3,220 audited processes and 476 exact allocation replays. Memoization lowers requested traffic in all 16 repeated-key/eight-query configurations and raises it in all 48 distinct-key or one-query configurations. Timings remain exploratory; exact-source elimination has the lowest median in all 64 configurations. The [breadth review](results/S05-caller-breadth-review.md) selects T076 compact structural solving. Broader call reuse remains required.
 
 

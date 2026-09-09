@@ -264,6 +264,8 @@ All new results link raw inputs, commands, freezes, validation and unfavorable o
 
 ## Current execution order
 
+The [finite-path source gate](results/S06-finite-path-source-gate.md) now implements the next distinct mechanism. T076 remains active for the bounded complete-cost/ownership comparison, including structural reduction and the strongest applicable source-derived control. Its favorable enumeration-avoidance witness and redundant-proof repair establish capability, not architectural superiority. Restoration/reunion remains the strongest distinct alternative at the next selection boundary.
+
 **T076 is active for compact structural solving.** The [complete-call pilot](results/S05-caller-cost-pilot.md) now has 3,220 audited records, 476 exact allocation replays and full disposal restoration. Repeated keys reduce allocation; distinct and one-query keys add overhead. Timing remains exploratory. The [four-package breadth review](results/S05-caller-breadth-review.md) selects the distinct solver mechanism before further call refinement.
 
 Follow the [ordered sequence](remaining-investigations.md#execution-order): structural solving, restoration/reunion and required integrated source execution and costs, followed by the remaining mechanisms and complete-architecture challenges. T075 remains pending for broader call boundaries, effects and lifetime; no general reuse conclusion follows from this pilot.

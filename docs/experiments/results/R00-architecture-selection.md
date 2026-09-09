@@ -1,5 +1,8 @@
 # R00: architectural alternatives and first experiment selection
 
+The [finite-path source gate](S06-finite-path-source-gate.md) now establishes lazy constructor-language intersection and path equality in unreduced/reduced modes: 15,680 small solver comparisons and 160 CHR source checks agree, including raw multiplicity. A selective 64-bit description produces two values after 66 requirement steps; reduction cuts a redundant-filter witness from 280 to 17 steps without changing source counts. These are correctness/mechanism results, not timing. T076 remains active for complete costs and ownership; broader source semantics and structural theories remain required.
+
+
 Current selection: **T076 compact structural solving**. The [complete-call pilot](S05-caller-cost-pilot.md) validates 3,220 processes and 476 exact allocation replays. Repeated call keys reduce traffic, while distinct keys and one-query lifetimes add overhead; timing remains exploratory. The [breadth review](S05-caller-breadth-review.md) selects a distinct way to avoid enumeration before more cache refinement. T075 remains pending for broader eligibility, effects and lifetime. The architecture decision remains open.
 
 

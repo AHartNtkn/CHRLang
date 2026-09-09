@@ -1,0 +1,65 @@
+   Compiling chr-structural v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-structural)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.19s
+     Running tests/finite_paths.rs (target/debug/deps/finite_paths-490a44feadd05955)
+
+running 6 tests
+test nested_and_transitive_path_equalities_preserve_all_solutions ... FAILED
+test service_budget_is_resumable_and_zero_is_not_exhaustion ... FAILED
+test invalid_grammar_and_request_are_errors_not_empty_languages ... FAILED
+test source_duplicates_count_but_overlapping_filter_proofs_do_not ... FAILED
+test absent_paths_and_proper_subtree_equality_have_no_finite_witness ... FAILED
+test path_equality_correlates_occurrences_without_losing_source_multiplicity ... FAILED
+
+failures:
+
+---- nested_and_transitive_path_equalities_preserve_all_solutions stdout ----
+
+thread 'nested_and_transitive_path_equalities_preserve_all_solutions' (101) panicked at research/chr-structural/tests/finite_paths.rs:55:5:
+assertion `left == right` failed
+  left: []
+ right: [(App("triple", [App("f", [App("a", [])]), App("f", [App("a", [])]), App("a", [])]), 1), (App("triple", [App("f", [App("b", [])]), App("f", [App("b", [])]), App("b", [])]), 1)]
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- service_budget_is_resumable_and_zero_is_not_exhaustion stdout ----
+
+thread 'service_budget_is_resumable_and_zero_is_not_exhaustion' (103) panicked at research/chr-structural/tests/finite_paths.rs:63:41:
+assertion failed: !zero.exhausted
+
+---- invalid_grammar_and_request_are_errors_not_empty_languages stdout ----
+
+thread 'invalid_grammar_and_request_are_errors_not_empty_languages' (100) panicked at research/chr-structural/tests/finite_paths.rs:72:5:
+assertion failed: Grammar::new(vec![vec![Transition::new("f",[0])]]).is_err()
+
+---- source_duplicates_count_but_overlapping_filter_proofs_do_not stdout ----
+
+thread 'source_duplicates_count_but_overlapping_filter_proofs_do_not' (104) panicked at research/chr-structural/tests/finite_paths.rs:36:5:
+assertion `left == right` failed
+  left: []
+ right: [(App("pair", [App("a", []), App("a", [])]), 4)]
+
+---- absent_paths_and_proper_subtree_equality_have_no_finite_witness stdout ----
+
+thread 'absent_paths_and_proper_subtree_equality_have_no_finite_witness' (99) panicked at research/chr-structural/tests/finite_paths.rs:46:5:
+assertion `left == right` failed
+  left: 0
+ right: 4
+
+---- path_equality_correlates_occurrences_without_losing_source_multiplicity stdout ----
+
+thread 'path_equality_correlates_occurrences_without_losing_source_multiplicity' (102) panicked at research/chr-structural/tests/finite_paths.rs:18:5:
+assertion `left == right` failed
+  left: []
+ right: [(App("pair", [App("a", []), App("a", [])]), 1), (App("pair", [App("b", []), App("b", [])]), 1)]
+
+
+failures:
+    absent_paths_and_proper_subtree_equality_have_no_finite_witness
+    invalid_grammar_and_request_are_errors_not_empty_languages
+    nested_and_transitive_path_equalities_preserve_all_solutions
+    path_equality_correlates_occurrences_without_losing_source_multiplicity
+    service_budget_is_resumable_and_zero_is_not_exhaustion
+    source_duplicates_count_but_overlapping_filter_proofs_do_not
+
+test result: FAILED. 0 passed; 6 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p chr-structural --test finite_paths`

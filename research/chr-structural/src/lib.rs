@@ -198,3 +198,5 @@ impl NoC {
 pub mod regular;
 
 pub mod space;
+
+pub mod finite;

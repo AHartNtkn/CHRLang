@@ -8,6 +8,8 @@ The work has three parts: test the distinct execution mechanisms, compare their 
 
 ## Execution order
 
+The [finite-path gate](results/S06-finite-path-source-gate.md) now passes in unreduced and reduced modes with independent denotation and CHR multiplicity checks. The current S06-C package moves from capability to complete cost and ownership. Include reduction preparation, source counting and retained exact observations; no timing conclusion follows from the gate. Reassess against restoration/reunion after that bounded comparison.
+
 **The call pilot audit is complete; T076 is active for compact structural solving.** Give distinct unanswered mechanisms direct trials. The following sequence governs the next selections; the detailed comparisons below and the S-stage specifications supply their full scope. Completed bounded trials remain evidence, not substitutes for these investigations.
 
 The [call pilot audit](results/S05-caller-cost-pilot.md) validates 3,220 records and 476 exact allocation replays. The [breadth review](results/S05-caller-breadth-review.md) selects row 2 next; broader T075 work remains required.
