@@ -557,8 +557,30 @@ impl<const METRICS: bool> Run<METRICS> {
             self.dependency_work.notifications +=
                 self.nodes[a].equality_watchers.len() + loser.equality_watchers.len();
         }
-        let mut wake = self.nodes[a].equality_watchers.clone();
-        wake.extend(&loser.equality_watchers);
+        let mut wake = if self.mode == DependencyMode::Filtered {
+            // Targets already point at the merged class. Account for the
+            // descriptor it will receive before allocating notification storage.
+            let known = |node: usize| {
+                self.nodes[node].descriptor.is_some() || (node == a && loser.descriptor.is_some())
+            };
+            self.nodes[a]
+                .equality_watchers
+                .iter()
+                .chain(&loser.equality_watchers)
+                .copied()
+                .filter(|&id| match self.takes[id].awaiting {
+                    Some((x, y)) => {
+                        let (x, y) = (self.targets[x], self.targets[y]);
+                        x == y || (known(x) && known(y))
+                    }
+                    None => true,
+                })
+                .collect()
+        } else {
+            let mut wake = self.nodes[a].equality_watchers.clone();
+            wake.extend(&loser.equality_watchers);
+            wake
+        };
         // Only watchers whose previously unknown class gains a descriptor
         // have new constructor information. Unknown/unknown aliases do not.
         match (&self.nodes[a].descriptor, &loser.descriptor) {

@@ -278,7 +278,7 @@ Exact sizes follow exploratory sizing under the common rules above. The comparat
 
 ## Current execution order
 
-**T072 is active for repeated source-driven update costs.** The [corrected local lifecycle sizing](results/S02-local-lifecycle-sizing.md) validates two registered 1624-process matrices and exposes a time–memory tradeoff. Its paired validation attribution preserves all normalized allocation and work signatures. Vary alias-update count independently from suspended requests before selecting a dependency organization; current low-yield sources contain only one update. General heads/history, multiple-rule scheduling, ownership attribution, sustained lifetime and complete architectures remain required.
+**T077 is active for repeated dynamic separation/reunion.** The [repeated-alias comparison and breadth review](results/S02-repeated-alias-lifecycle.md) corrects a Filtered control cost and retains explicit timing uncertainty. Investigate actual ownership, late links and consuming competition across repeated separation/reconnection. T072 remains required for broader integrated sources, alternative organizations, peak ownership, larger update regimes and sustained lifetime.
 
 The [ordered remaining sequence](remaining-investigations.md#execution-order) records the completed bounded restoration/reunion comparisons and remaining investigation boundaries. T077 stays required for broader restoration, adaptive splitting, repeated dynamic reunion, inference and sustained lifetime. Broader lowering and structural theories, discovery, reuse, direct graphs and connected parallelism remain required. Language and lifetime comparisons accompany every candidate; priority is reconsidered at each package boundary.
 

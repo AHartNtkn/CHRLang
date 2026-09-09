@@ -1,6 +1,6 @@
 # Unanswered architecture questions and experimental ownership
 
-The [local lifecycle sizing](results/S02-local-lifecycle-sizing.md) completes two registered 1624-process matrices. Borrowed exact validation corrects a between-query allocator effect; all 224 normalized allocation cells and 168 work cells remain identical. Local execution has lower sampled times on the tested fragment, while specialized scanning often requests fewer bytes and reaches a lower peak. T072 next tests repeated source-driven alias updates before selecting a dependency organization. No complete architecture is selected.
+The [repeated-alias comparison](results/S02-repeated-alias-lifecycle.md) completes two 784-process matrices and 140 calibration processes. Filtering before notification allocation removes an apparent pair-index traffic crossover; recorded work and other controls remain unchanged. Timing remains uncertain even with process CPU measurements. The breadth review selects T077 repeated dynamic separation/reunion next; broader integrated work remains required.
 
 ## How unanswered variants remain accountable
 

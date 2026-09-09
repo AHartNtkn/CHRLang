@@ -13,11 +13,12 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[3]
 NAME = sys.argv[1] if len(sys.argv) == 2 else 's02-local-lifecycle-sizing'
-assert NAME in ['s02-local-lifecycle-sizing', 's02-local-validation-attribution']
+assert NAME in ['s02-local-lifecycle-sizing', 's02-local-validation-attribution', 's02-repeated-alias-lifecycle', 's02-filtered-wake-attribution']
+REPEATED = NAME in ['s02-repeated-alias-lifecycle', 's02-filtered-wake-attribution']
 OUT = ROOT / 'docs/experiments/results' / NAME
 BIN = ROOT / 'target' / NAME
 MODES = ['endpoint', 'filtered', 'local-indexed', 'scan', 'indexed', 'special-scan', 'special-indexed']
-FAMILIES = ['chain', 'flat', 'shared', 'lowyield']
+FAMILIES = ['aliases-1', 'aliases-8', 'aliases-32'] if REPEATED else ['chain', 'flat', 'shared', 'lowyield']
 FEATURES = {'time': [], 'meter': ['alloc-meter'], 'work': ['local-work', 'compiled-work']}
 CPU = min(os.sched_getaffinity(0))
 
@@ -40,7 +41,7 @@ def invoke(binary, cell):
     if receipt['meter']:
         assert receipt['restored'] and not receipt['metrics']
     if receipt['metrics'] and stop == 'complete':
-        applications = n if family in ['chain', 'flat'] else n + 1 if family == 'shared' else 1
+        applications = int(family.split('-')[1]) if family.startswith('aliases-') else n if family in ['chain', 'flat'] else n + 1 if family == 'shared' else 1
         assert len(receipt['work']) == reuse
         for w in receipt['work']:
             assert w['applications'] == applications, (cell, w)
@@ -66,29 +67,35 @@ def main():
         binaries[kind] = dest
         builds[kind] = {'command': cmd, 'binary': str(dest.relative_to(ROOT)), 'sha256': sha(dest)}
         smoke = subprocess.run([str(dest)], cwd=ROOT, capture_output=True, text=True, check=True, timeout=60, preexec_fn=limits)
-        assert '84 independent source comparisons pass' in smoke.stdout
+        assert '147 independent source comparisons pass' in smoke.stdout
         (OUT / f'smoke-{kind}.log').write_text(smoke.stdout)
         # Complete phase/restoration checks for each control before the matrix.
         for mode in MODES:
             invoke(dest, (mode, 'shared', 4, 1, 'complete'))
     paths = subprocess.check_output(['rg', '--files', 'research/chr-relational', 'research/chr-compiled', 'research/chr-persistent', 'research/chr-observe', 'research/chr-direct-conditional/tests/runtime_support', 'crates/chr-syntax'], cwd=ROOT, text=True).splitlines()
-    paths += ['Cargo.toml', 'Cargo.lock', 'rust-toolchain.toml', 'docs/experiments/registrations/S02-local-lifecycle-sizing.md', 'docs/experiments/registrations/S02-local-validation-attribution.md']
+    paths += ['Cargo.toml', 'Cargo.lock', 'rust-toolchain.toml', 'docs/experiments/registrations/S02-local-lifecycle-sizing.md', 'docs/experiments/registrations/S02-local-validation-attribution.md', 'docs/experiments/registrations/S02-repeated-alias-lifecycle.md', 'docs/experiments/registrations/S02-filtered-wake-attribution.md']
     source_hashes = {p: sha(ROOT / p) for p in sorted(set(paths)) if (ROOT / p).is_file()}
     order = []
-    rng = random.Random(7204)
-    cells = list(itertools.product(MODES, FAMILIES, [4, 32, 128], [1, 4], ['complete']))
+    rng = random.Random(7205 if REPEATED else 7204)
+    cells = list(itertools.product(MODES, FAMILIES, [32, 128] if REPEATED else [4, 32, 128], [1, 4], ['complete']))
     for kind, repetitions in [('time', 5), ('meter', 2), ('work', 2)]:
         for rep in range(repetitions):
             block = cells.copy()
             rng.shuffle(block)
             order += [(kind, rep, cell) for cell in block]
     for rep in range(2):
-        block = list(itertools.product(MODES, FAMILIES, [32], [1], ['setup', 'cancel']))
+        block = list(itertools.product(MODES, ['aliases-32'] if REPEATED else FAMILIES, [128] if REPEATED else [32], [1], ['setup', 'cancel']))
         rng.shuffle(block)
         order += [('meter', rep, cell) for cell in block]
-    assert len(order) == 1624
+    assert len(order) == (784 if REPEATED else 1624)
     manifest = {'base_head': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(), 'builds': builds, 'source_hashes': source_hashes, 'cpu': CPU, 'timeout_seconds': 60, 'address_space_bytes': 1024**3, 'toolchain': subprocess.check_output(['rustc', '--version'], text=True).strip(), 'order': order}
     (OUT / 'manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')
+    if REPEATED:
+        with (OUT / 'work-gate.jsonl').open('x') as gate:
+            for cell in cells:
+                cmd, receipt = invoke(binaries['work'], cell)
+                gate.write(json.dumps({'cell': cell, 'command': cmd, 'receipt': receipt}) + '\n')
+        print('84 full-cell diagnostic source gates pass before the matrix.', flush=True)
     with (OUT / 'runs.jsonl').open('x') as log:
         for i, (kind, rep, cell) in enumerate(order):
             cmd, receipt = invoke(binaries[kind], cell)

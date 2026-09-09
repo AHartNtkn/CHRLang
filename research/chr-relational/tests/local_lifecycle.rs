@@ -15,21 +15,42 @@ const WORK: bool = cfg!(feature = "local-work");
 #[derive(Clone, Copy)]
 struct Phase {
     ns: u128,
+    cpu_ns: u128,
     #[cfg(feature = "alloc-meter")]
     heap: meter::Reading,
+}
+// The registered runner targets Linux; process CPU time excludes descheduling.
+#[repr(C)]
+struct Timespec {
+    seconds: i64,
+    nanos: i64,
+}
+unsafe extern "C" {
+    fn clock_gettime(clock: i32, time: *mut Timespec) -> i32;
+}
+fn cpu_time() -> u128 {
+    let mut time = Timespec {
+        seconds: 0,
+        nanos: 0,
+    };
+    assert_eq!(unsafe { clock_gettime(2, &mut time) }, 0);
+    time.seconds as u128 * 1_000_000_000 + time.nanos as u128
 }
 fn phase<T>(f: impl FnOnce() -> T) -> (T, Phase) {
     #[cfg(feature = "alloc-meter")]
     let start = meter::begin();
+    let cpu = cpu_time();
     let clock = Instant::now();
     let result = black_box(f());
     let ns = clock.elapsed().as_nanos();
+    let cpu_ns = cpu_time() - cpu;
     #[cfg(feature = "alloc-meter")]
     let heap = meter::end(start);
     (
         result,
         Phase {
             ns,
+            cpu_ns,
             #[cfg(feature = "alloc-meter")]
             heap,
         },
@@ -38,9 +59,14 @@ fn phase<T>(f: impl FnOnce() -> T) -> (T, Phase) {
 impl Phase {
     fn json(self) -> String {
         #[cfg(feature = "alloc-meter")]
-        return format!("{{\"ns\":{},\"heap\":{}}}", self.ns, self.heap.json());
+        return format!(
+            "{{\"ns\":{},\"cpu_ns\":{},\"heap\":{}}}",
+            self.ns,
+            self.cpu_ns,
+            self.heap.json()
+        );
         #[cfg(not(feature = "alloc-meter"))]
-        format!("{{\"ns\":{}}}", self.ns)
+        format!("{{\"ns\":{},\"cpu_ns\":{}}}", self.ns, self.cpu_ns)
     }
 }
 trait Backend: Sized {
@@ -116,6 +142,14 @@ impl<const INDEX: bool, const SPECIAL: bool> Backend for Compiled<INDEX, SPECIAL
     }
 }
 fn source(family: &str, n: usize, query: usize) -> (Rule, Query) {
+    let (family, updates) = match family.strip_prefix("aliases-") {
+        Some(count) => (
+            "lowyield",
+            count.parse::<usize>().expect("alias update count"),
+        ),
+        None => (family, 1),
+    };
+    assert!([1, 8, 32].contains(&updates));
     if family == "chain" {
         let rule = Rule::simplify(
             "chain",
@@ -170,17 +204,23 @@ fn source(family: &str, n: usize, query: usize) -> (Rule, Query) {
         }
     }
     if family != "flat" {
-        let x = if family == "shared" {
-            label
-        } else {
-            v(base + 1)
-        };
-        constraints.extend([
-            c("take", [t("pair", [x.clone(), x]), v(base)]),
-            c("token", []),
-        ]);
         outputs.push(("shared".into(), Var(base)));
         outputs.push(("seed".into(), Var(base + 1)));
+        for j in 0..updates as u64 {
+            let seed = if j == 0 { base + 1 } else { base + 2000 + j };
+            let x = if family == "shared" {
+                label.clone()
+            } else {
+                v(seed)
+            };
+            constraints.extend([
+                c("take", [t("pair", [x.clone(), x]), v(base)]),
+                c("token", []),
+            ]);
+            if j > 0 {
+                outputs.push((format!("seed{j}"), Var(seed)));
+            }
+        }
     }
     (
         rule,
@@ -315,7 +355,15 @@ fn check<B: Backend>(rule: &Rule, q: &Query, expected: &[Answer]) {
     scalar::same_raw(B::observe(&mut s).into_iter().collect(), expected.to_vec());
 }
 fn smoke() {
-    for family in ["chain", "flat", "shared", "lowyield"] {
+    for family in [
+        "chain",
+        "flat",
+        "shared",
+        "lowyield",
+        "aliases-1",
+        "aliases-8",
+        "aliases-32",
+    ] {
         for n in [0, 1, 4] {
             let (rule, q) = source(family, n, 2);
             let expected = scalar::run(std::slice::from_ref(&rule), &q, 200_000);
@@ -328,5 +376,5 @@ fn smoke() {
             check::<Compiled<true, true>>(&rule, &q, &expected);
         }
     }
-    println!("84 independent source comparisons pass");
+    println!("147 independent source comparisons pass");
 }
