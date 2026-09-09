@@ -1,0 +1,16 @@
+{
+  "exit_code": 0,
+  "stdout": "{\"query\":0,\"size\":8,\"setup_ns\":196704,\"execute_ns\":83219,\"observation_ns\":128400,\"engine_drop_ns\":47414,\"answer_drop_ns\":22788,\"query_ns\":478525,\"validated\":true,\"memory\":{\"setup\":{\"live_start\":122821,\"live_end\":231187,\"peak_live\":244272,\"allocation_calls\":2619,\"requested_bytes\":150664,\"deallocation_calls\":1437},\"execute\":{\"live_start\":231187,\"live_end\":264969,\"peak_live\":265263,\"allocation_calls\":1625,\"requested_bytes\":63773,\"deallocation_calls\":786},\"observation\":{\"live_start\":264969,\"live_end\":333714,\"peak_live\":333762,\"allocation_calls\":2998,\"requested_bytes\":100570,\"deallocation_calls\":1286},\"engine_drop\":{\"live_start\":333714,\"live_end\":142600,\"peak_live\":333714,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":3287},\"answer_drop\":{\"live_start\":142600,\"live_end\":73855,\"peak_live\":142600,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":1710}},\"query_restored\":true}\n{\"mode\":\"retained-eager\",\"family\":\"low-stable\",\"queries\":1,\"cancelled_queries\":0,\"source_ns\":8997,\"prepare_ns\":17039,\"prepared_drop_ns\":49,\"source_disposal\":\"included in preparation\",\"lifecycle_ns\":504610,\"counters\":false,\"allocator\":\"requested-meter\",\"memory\":{\"source\":{\"live_start\":14086,\"live_end\":26478,\"peak_live\":26478,\"allocation_calls\":179,\"requested_bytes\":16016,\"deallocation_calls\":12},\"prepare\":{\"live_start\":26478,\"live_end\":14086,\"peak_live\":38870,\"allocation_calls\":179,\"requested_bytes\":16016,\"deallocation_calls\":342},\"prepared_drop\":{\"live_start\":14086,\"live_end\":14086,\"peak_live\":14086,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":0}},\"prepared_restored\":true}\n",
+  "stderr": "",
+  "command": [
+    "/home/ahart/Documents/CHRLang/target/s01-native-cost-pilot/metered-off-generic-0",
+    "retained-eager",
+    "low-stable",
+    "8",
+    "1"
+  ],
+  "wall_seconds": 0.05509422707837075,
+  "child_cpu_seconds": 0.054431000000157326,
+  "address_space_bytes": 1073741824,
+  "cpu": 0
+}

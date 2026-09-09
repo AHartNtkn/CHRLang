@@ -1,0 +1,27 @@
+{
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "",
+  "command": [
+    "rustc",
+    "--edition",
+    "2024",
+    "-C",
+    "opt-level=3",
+    "-C",
+    "codegen-units=1",
+    "-C",
+    "lto=off",
+    "/home/ahart/Documents/CHRLang/target/s01-native-cost-pilot/metered-off-generic-0.rs",
+    "--extern",
+    "chr_compiled=/home/ahart/Documents/CHRLang/target/s01-native-cost-pilot/metered/release/libchr_compiled.rlib",
+    "-L",
+    "dependency=/home/ahart/Documents/CHRLang/target/s01-native-cost-pilot/metered/release/deps",
+    "-o",
+    "/home/ahart/Documents/CHRLang/target/s01-native-cost-pilot/metered-off-generic-0"
+  ],
+  "wall_seconds": 0.0578209439991042,
+  "child_cpu_seconds": 0.08490599999990245,
+  "address_space_bytes": 4294967296,
+  "cpu": null
+}

@@ -6,6 +6,8 @@ mod access_source;
 #[allow(dead_code)]
 #[path = "subscription_join.rs"]
 mod join;
+#[path = "subscription_low_yield.rs"]
+mod low_yield;
 #[allow(dead_code)]
 #[path = "../../chr-direct-conditional/tests/runtime_support/mod.rs"]
 mod oracle;
@@ -42,11 +44,16 @@ pub fn rules(family: &str) -> Result<Vec<Rule>, String> {
     match family {
         "chain" => Ok(fixtures::programs()[1].clone()),
         "payload" => Ok(access_source::payload_rules()),
-        "subscription" => Ok(source::source_rules(false)),
+        "subscription" | "low-stable" | "low-reopen" | "low-churn" => {
+            Ok(source::source_rules(false))
+        }
         _ => Err("unknown artifact source family".into()),
     }
 }
 fn query(family: &str, size: usize, round: usize) -> Query {
+    if low_yield::FAMILIES.contains(&family) {
+        return low_yield::query(family, size, 64, round);
+    }
     if let Some(width) = dispatch_width(family) {
         return Query {
             constraints: vec![
@@ -159,6 +166,9 @@ fn run(mut code: Option<Compiled>) -> Result<(), String> {
     if cancel_steps.is_some_and(|steps| steps > 2_000_000) {
         return Err("cancellation budget exceeds service bound".into());
     }
+    if low_yield::FAMILIES.contains(&family) && ![4, 8, 16].contains(&size) {
+        return Err("low-yield size must be 4, 8 or 16".into());
+    }
     let mut cancelled_queries = 0;
     let native = mode.starts_with("native");
     if native != code.is_some() {
@@ -180,7 +190,10 @@ fn run(mut code: Option<Compiled>) -> Result<(), String> {
     {
         return Err("unknown mode".into());
     }
-    if mode.starts_with("retained-") && family != "subscription" {
+    if mode.starts_with("retained-")
+        && family != "subscription"
+        && !low_yield::FAMILIES.contains(&family)
+    {
         return Err("retained mode requires subscription source".into());
     }
     if mode == "native-generic-repair" {
@@ -231,7 +244,12 @@ fn run(mut code: Option<Compiled>) -> Result<(), String> {
         // Inputs and independent complete answers are constructed outside runtime phases.
         #[cfg(feature = "alloc-meter")]
         let query_baseline = live();
-        let input = query(family, size + round % 2, round);
+        let current_size = if low_yield::FAMILIES.contains(&family) {
+            size
+        } else {
+            size + round % 2
+        };
+        let input = query(family, current_size, round);
         let cancel_this = cancel_steps.is_some() && round % 2 == 0;
         let expected = if cancel_this {
             Vec::new()
@@ -279,7 +297,7 @@ fn run(mut code: Option<Compiled>) -> Result<(), String> {
             let memory = "";
             println!(
                 "{{\"query\":{round},\"size\":{},\"cancelled\":true,\"exhausted_before_cancel\":{status},\"setup_ns\":{setup_ns},\"execute_ns\":{execute_ns},\"engine_drop_ns\":{engine_drop_ns},\"query_ns\":{query_ns}{memory}}}",
-                size + round % 2
+                current_size
             );
             continue;
         }
@@ -333,7 +351,7 @@ fn run(mut code: Option<Compiled>) -> Result<(), String> {
         let memory = "";
         println!(
             "{{\"query\":{round},\"size\":{},\"setup_ns\":{setup_ns},\"execute_ns\":{execute_ns},\"observation_ns\":{observation_ns},\"engine_drop_ns\":{engine_drop_ns},\"answer_drop_ns\":{answer_drop_ns},\"query_ns\":{query_ns},\"validated\":true{memory}}}",
-            size + round % 2
+            current_size
         );
     }
     let start = Phase::begin();

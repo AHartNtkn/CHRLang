@@ -1,0 +1,16 @@
+{
+  "exit_code": 0,
+  "stdout": "{\"query\":0,\"size\":32,\"setup_ns\":43980,\"execute_ns\":684780,\"observation_ns\":20331,\"engine_drop_ns\":12272,\"answer_drop_ns\":5824,\"query_ns\":767187,\"validated\":true,\"memory\":{\"setup\":{\"live_start\":39399,\"live_end\":42215,\"peak_live\":48747,\"allocation_calls\":343,\"requested_bytes\":36860,\"deallocation_calls\":412},\"execute\":{\"live_start\":42215,\"live_end\":102399,\"peak_live\":116151,\"allocation_calls\":8742,\"requested_bytes\":313472,\"deallocation_calls\":8239},\"observation\":{\"live_start\":102399,\"live_end\":120720,\"peak_live\":120720,\"allocation_calls\":460,\"requested_bytes\":18321,\"deallocation_calls\":0},\"engine_drop\":{\"live_start\":120720,\"live_end\":42245,\"peak_live\":120720,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":681},\"answer_drop\":{\"live_start\":42245,\"live_end\":23924,\"peak_live\":42245,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":460}},\"query_restored\":true}\n{\"mode\":\"native-generic-repair\",\"family\":\"chain\",\"queries\":1,\"cancelled_queries\":0,\"source_ns\":11759,\"prepare_ns\":19523,\"prepared_drop_ns\":1253,\"source_disposal\":\"included in preparation\",\"lifecycle_ns\":799722,\"counters\":false,\"allocator\":\"requested-meter\",\"memory\":{\"source\":{\"live_start\":2935,\"live_end\":4173,\"peak_live\":18362,\"allocation_calls\":246,\"requested_bytes\":16003,\"deallocation_calls\":223},\"prepare\":{\"live_start\":4173,\"live_end\":5315,\"peak_live\":7066,\"allocation_calls\":53,\"requested_bytes\":5978,\"deallocation_calls\":41},\"prepared_drop\":{\"live_start\":5315,\"live_end\":2935,\"peak_live\":5315,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":26}},\"prepared_restored\":true}\n",
+  "stderr": "",
+  "command": [
+    "/home/ahart/Documents/CHRLang/target/s01-native-cost-pilot/metered-off-chain-0",
+    "native-generic-repair",
+    "chain",
+    "32",
+    "1"
+  ],
+  "wall_seconds": 0.01218804600648582,
+  "child_cpu_seconds": 0.011643000000049142,
+  "address_space_bytes": 1073741824,
+  "cpu": 0
+}
