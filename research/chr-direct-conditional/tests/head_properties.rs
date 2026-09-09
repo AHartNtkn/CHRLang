@@ -269,3 +269,90 @@ fn a_unary_constructor_head_can_have_multiple_intermediate_environments() {
     assert!(store.step());
     assert_eq!(store.root(x), store.root(y));
 }
+
+#[test]
+fn disjoint_consumed_sets_can_conflict_through_kept_heads() {
+    // The first application reads p and consumes q; the second consumes p.
+    // Their write sets are disjoint, but write/read interference changes output.
+    let observe = Rule {
+        name: "observe".into(),
+        kept: vec![c("p", [])],
+        removed: vec![c("q", [])],
+        guards: vec![],
+        body: c("mark", []).into(),
+    };
+    let take = Rule::simplify("take", [c("p", [])], chr_syntax::Goal::True);
+    use chr_relational::contextual::Store;
+    let mut store = Store::default();
+    store.post("p", &[]);
+    store.post("q", &[]);
+    let readers = store.matches(&observe.kept, &observe.removed);
+    let writers = store.matches(&take.kept, &take.removed);
+    assert_eq!(readers.len(), 1);
+    assert_eq!(writers.len(), 1);
+    assert!(
+        readers[0]
+            .removed
+            .iter()
+            .all(|id| !writers[0].removed.contains(id))
+    );
+    check(
+        &[observe.clone(), take.clone()],
+        vec![c("p", []), c("q", [])],
+        vec![c("mark", [])],
+    );
+    check(
+        &[take, observe],
+        vec![c("p", []), c("q", [])],
+        vec![c("q", [])],
+    );
+}
+
+#[test]
+fn nonoverlapping_consumption_still_requires_guard_reactivation() {
+    let guarded = Rule {
+        name: "guarded".into(),
+        kept: vec![],
+        removed: vec![c("p", [v(0)])],
+        guards: vec![chr_syntax::Guard::Equal(v(0), atom("a"))],
+        body: c("mark", []).into(),
+    };
+    let bind = Rule::simplify("bind", [c("bind", [v(0)])], eq(v(0), atom("a")));
+    // Distinct head predicates cannot share occurrence IDs. The body still
+    // changes another application's eligibility through an aliased argument.
+    check(
+        std::slice::from_ref(&guarded),
+        vec![c("p", [v(100)])],
+        vec![c("p", [v(100)])],
+    );
+    check(
+        &[guarded.clone(), bind.clone()],
+        vec![c("p", [v(100)]), c("bind", [v(100)])],
+        vec![c("mark", [])],
+    );
+    check(
+        &[bind, guarded],
+        vec![c("p", [v(100)]), c("bind", [v(100)])],
+        vec![c("mark", [])],
+    );
+}
+
+#[test]
+fn independent_consuming_effects_commute_with_duplicate_occurrences() {
+    let left = Rule::simplify("left", [c("p", [v(0)])], c("left", [v(0)]).into());
+    let right = Rule::simplify("right", [c("q", [v(0)])], c("right", [v(0)]).into());
+    for count in 0..=3 {
+        let mut input = vec![];
+        let mut output = vec![];
+        for _ in 0..count {
+            input.extend([c("p", [atom("a")]), c("q", [atom("b")])]);
+            output.extend([c("left", [atom("a")]), c("right", [atom("b")])]);
+        }
+        check(
+            &[left.clone(), right.clone()],
+            input.clone(),
+            output.clone(),
+        );
+        check(&[right.clone(), left.clone()], input, output);
+    }
+}

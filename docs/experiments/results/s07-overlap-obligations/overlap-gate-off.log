@@ -1,0 +1,18 @@
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.26s
+     Running tests/head_properties.rs (target/debug/deps/head_properties-c9307dd477aaf357)
+
+running 10 tests
+test a_unary_constructor_head_can_have_multiple_intermediate_environments ... ok
+test disjoint_unary_patterns_still_need_late_activation_and_multiplicity ... ok
+test a_single_unary_propagation_rule_still_requires_once_per_occurrence_history ... ok
+test one_multihead_rule_has_conflicting_instances ... ok
+test disjoint_consumed_sets_can_conflict_through_kept_heads ... ok
+test unary_rules_can_compete_and_source_priority_changes_the_winner ... ok
+test sequential_reservation_changes_atomic_join_behavior ... ok
+test nonoverlapping_consumption_still_requires_guard_reactivation ... ok
+test independent_consuming_effects_commute_with_duplicate_occurrences ... ok
+test bundling_moves_the_join_to_an_input_and_update_contract ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+

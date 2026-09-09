@@ -1,10 +1,12 @@
 # Unanswered architecture questions and experimental ownership
 
-Current evidence: the [head-dispatch lifecycle](results/S07-head-dispatch-lifecycle.md) completes 3612 processes and 516 exact allocation pairs. Inference lowers completed-query traffic in 76/84 cells; valid declared/required allocation readings equal inference in all 96 pairs. Cancellation is reported separately. T079 next investigates [non-overlap/resource conflicts](results/S07-overlap-entry.md); no language restriction is adopted.
+Current evidence: the [head-dispatch lifecycle](results/S07-head-dispatch-lifecycle.md) completes 3612 processes and 516 exact allocation pairs. Inference lowers completed-query traffic in 76/84 cells; valid declared/required allocation readings equal inference in all 96 pairs. Cancellation is reported separately. T079 retains unfinished investigation of [non-overlap/resource conflicts](results/S07-overlap-entry.md); no language restriction is adopted.
 
 The [resource-fusion lifecycle pilot](results/S06-resource-fusion-lifecycle.md) completes 1350 processes and 180 exact allocation pairs. Inference and certification can outweigh execution savings; timing remains exploratory with clock-overhead evidence. All owners restore. The [S10 entry](results/S10-composition-entry.md) selects T078 coherent-path capability and mixed-source qualification. T073 and the other unresolved component directions remain required.
 
 The [serial-body attribution](results/S07-serial-body-allocation.md) completes 96 allocation processes and 48 exact repeats. Existing scheduler identities reduce completed-query traffic in all 12 nonempty comparisons without a non-overlap restriction; 12 empty comparisons are unchanged. This strengthens the unrestricted control. Non-overlap/resource-conflict certification and sustained observation remain required; no speed result is claimed.
+
+The [non-overlap obligation gate](results/S07-overlap-obligations.md) demonstrates kept-head interference despite disjoint consumed sets, equality-driven guard activation and favorable independent consumption. Both diagnostic and counter-free builds pass. After five language-property packages, T074 sustained observation/retention is selected next; T079 certificates and broader language choices remain unfinished.
 
 ## How unanswered variants remain accountable
 
