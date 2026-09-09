@@ -1,0 +1,38 @@
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.57s
+     Running tests/head_dispatch.rs (target/debug/deps/head_dispatch-1162e48c5bfc30ba)
+
+running 4 tests
+test linked_multihead_source_must_be_rechecked ... ok
+test finite_answers_and_query_owners_survive_continuing_unary_work ... ok
+test inferred_and_declared_unary_sources_remove_discovery_owners ... ok
+test reused_preparation_preserves_history_priority_and_changed_queries ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/head_properties.rs (target/debug/deps/head_properties-6bcf2acddd89bf0b)
+
+running 7 tests
+test a_unary_constructor_head_can_have_multiple_intermediate_environments ... ok
+test one_multihead_rule_has_conflicting_instances ... ok
+test unary_rules_can_compete_and_source_priority_changes_the_winner ... ok
+test a_single_unary_propagation_rule_still_requires_once_per_occurrence_history ... ok
+test sequential_reservation_changes_atomic_join_behavior ... ok
+test disjoint_unary_patterns_still_need_late_activation_and_multiplicity ... ok
+test bundling_moves_the_join_to_an_input_and_update_contract ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/runtime.rs (target/debug/deps/runtime-23128f0f7354caaa)
+
+running 7 tests
+test finite_sibling_publishes_beside_recursive_activity ... ok
+test supported_application_projection_and_shared_consumption ... ok
+test adversarial_dependency_and_priority_witnesses ... ok
+test repeated_dynamic_births_and_prepared_query_independence ... ok
+test publication_is_not_repeated_when_divergent_support_adds_births ... ok
+test independent_full_source_witnesses ... ok
+test finite_crossing_corpus ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.13s
+

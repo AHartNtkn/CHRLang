@@ -23,50 +23,66 @@ fn check(name: &str, rules: Vec<Rule>, input: Query, count: usize) {
     use chr_direct_conditional::engine::Trace;
     let expected = runtime_support::run_traced(&rules, &input, 100_000);
     assert_eq!(expected.len(), count, "oracle count: {name}");
-    let mut engine = PreparedRuleset::new(rules).unwrap().start(input).unwrap();
-    engine.enable_trace();
-    let mut actual = vec![];
-    let mut done = false;
-    for _ in 0..1_000_000 {
-        match engine.tick() {
-            Event::Progress => (),
-            Event::Answer(a) => actual.push(a),
-            Event::Exhausted => {
-                done = true;
-                break;
+    let prepareds = vec![PreparedRuleset::new(rules.clone()).unwrap()];
+    #[cfg(feature = "head-dispatch")]
+    let prepareds = {
+        let mut ps = prepareds;
+        ps.push(
+            PreparedRuleset::with_head_contract(
+                rules,
+                None,
+                chr_direct_conditional::engine::HeadAdmission::Optional,
+            )
+            .unwrap(),
+        );
+        ps
+    };
+    for prepared in prepareds {
+        let mut engine = prepared.start(input.clone()).unwrap();
+        engine.enable_trace();
+        let mut actual = vec![];
+        let mut done = false;
+        for _ in 0..1_000_000 {
+            match engine.tick() {
+                Event::Progress => (),
+                Event::Answer(a) => actual.push(a),
+                Event::Exhausted => {
+                    done = true;
+                    break;
+                }
             }
         }
-    }
-    assert!(done, "candidate cutoff: {name}");
-    runtime_support::same_raw(actual, expected.iter().map(|(a, _)| a.clone()).collect());
-    // Projection is test-only: the execution engine never discovers work this way.
-    let variables = engine.supports().variable_count();
-    assert!(variables < 16, "bounded trace projection");
-    let mut projected = vec![];
-    for bits in 0..(1usize << variables) {
-        let world: Vec<_> = (0..variables).map(|i| bits & (1 << i) != 0).collect();
-        let eval = |s| engine.supports().eval(s, &world);
-        if eval(engine.store().failed()) || engine.trace().iter().any(|event| {
+        assert!(done, "candidate cutoff: {name}");
+        runtime_support::same_raw(actual, expected.iter().map(|(a, _)| a.clone()).collect());
+        // Projection is test-only: the execution engine never discovers work this way.
+        let variables = engine.supports().variable_count();
+        assert!(variables < 16, "bounded trace projection");
+        let mut projected = vec![];
+        for bits in 0..(1usize << variables) {
+            let world: Vec<_> = (0..variables).map(|i| bits & (1 << i) != 0).collect();
+            let eval = |s| engine.supports().eval(s, &world);
+            if eval(engine.store().failed()) || engine.trace().iter().any(|event| {
             matches!(event, Trace::Birth {support, choice} if !eval(*support) && eval(*choice))
         }) { continue; }
-        projected.push(
-            engine
-                .trace()
-                .iter()
-                .filter_map(|event| match event {
-                    Trace::Application { rule, support, .. } if eval(*support) => Some(*rule),
-                    _ => None,
-                })
-                .collect::<Vec<_>>(),
+            projected.push(
+                engine
+                    .trace()
+                    .iter()
+                    .filter_map(|event| match event {
+                        Trace::Application { rule, support, .. } if eval(*support) => Some(*rule),
+                        _ => None,
+                    })
+                    .collect::<Vec<_>>(),
+            );
+        }
+        let mut expected_traces: Vec<_> = expected.iter().map(|(_, trace)| trace.clone()).collect();
+        projected.sort();
+        expected_traces.sort();
+        assert_eq!(
+            projected, expected_traces,
+            "source application projections: {name}"
         );
     }
-    let mut expected_traces: Vec<_> = expected.into_iter().map(|(_, trace)| trace).collect();
-    projected.sort();
-    expected_traces.sort();
-    assert_eq!(
-        projected, expected_traces,
-        "source application projections: {name}"
-    );
 }
 #[test]
 fn independent_full_source_witnesses() {

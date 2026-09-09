@@ -53,17 +53,82 @@ pub enum Event {
     Answer(Answer),
     Exhausted,
 }
+#[cfg(feature = "head-dispatch")]
+#[derive(Clone, Copy, Debug)]
+pub enum HeadDeclaration {
+    Single,
+}
+#[cfg(feature = "head-dispatch")]
+#[derive(Clone, Copy, Debug)]
+pub enum HeadAdmission {
+    Optional,
+    Required,
+}
+#[cfg(feature = "head-dispatch")]
+struct HeadDispatch {
+    readers: BTreeMap<(String, usize), Vec<usize>>,
+    general: BTreeSet<(String, usize)>,
+}
 /// Immutable source and lowered matching plans, prepared once and shared by all queries.
 /// Query engines retain this allocation after the public prepared handle is dropped.
 #[derive(Clone)]
 pub struct PreparedRuleset {
     pub(crate) rules: Arc<Vec<crate::resources::Prepared>>,
+    #[cfg(feature = "head-dispatch")]
+    head_dispatch: Option<Arc<HeadDispatch>>,
 }
 impl PreparedRuleset {
     pub fn new(rules: Vec<Rule>) -> Result<Self, String> {
         Ok(Self {
             rules: Arc::new(crate::resources::compile(rules)?),
+            #[cfg(feature = "head-dispatch")]
+            head_dispatch: None,
         })
+    }
+    /// Inference exploits unary rules locally; a declaration checks the whole source.
+    #[cfg(feature = "head-dispatch")]
+    pub fn with_head_contract(
+        rules: Vec<Rule>,
+        declaration: Option<HeadDeclaration>,
+        admission: HeadAdmission,
+    ) -> Result<Self, String> {
+        if declaration.is_none() && matches!(admission, HeadAdmission::Required) {
+            return Err("single-head declaration required".into());
+        }
+        let single = rules.iter().all(|r| r.kept.len() + r.removed.len() == 1);
+        if declaration.is_some() && !single {
+            return Err("single-head declaration contradicted by source".into());
+        }
+        let mut readers = BTreeMap::<_, Vec<usize>>::new();
+        let mut general = BTreeSet::new();
+        for (ri, r) in rules.iter().enumerate() {
+            if r.kept.len() + r.removed.len() == 1 {
+                let h = r.kept.first().or_else(|| r.removed.first()).unwrap();
+                readers
+                    .entry((h.name.clone(), h.args.len()))
+                    .or_default()
+                    .push(ri);
+            } else {
+                for h in r.kept.iter().chain(&r.removed) {
+                    general.insert((h.name.clone(), h.args.len()));
+                }
+            }
+        }
+        let mut prepared = Self::new(rules)?;
+        prepared.head_dispatch = Some(Arc::new(HeadDispatch { readers, general }));
+        Ok(prepared)
+    }
+    #[cfg(feature = "head-dispatch")]
+    pub fn has_only_direct_head_dispatch(&self) -> bool {
+        self.head_dispatch
+            .as_ref()
+            .is_some_and(|d| d.general.is_empty())
+    }
+    #[cfg(feature = "head-dispatch")]
+    pub fn direct_head_rule_count(&self) -> usize {
+        self.head_dispatch
+            .as_ref()
+            .map_or(0, |d| d.readers.values().map(Vec::len).sum())
     }
     /// Input preparation lowers a finite owned query. Subsequent tick work is
     /// incremental; copies of source syntax are bounded by prepared rule size.
@@ -107,6 +172,8 @@ impl PreparedRuleset {
             active: None,
             body: None,
             discoveries: VecDeque::new(),
+            #[cfg(feature = "head-dispatch")]
+            head_dispatch: self.head_dispatch.clone(),
             change_cursor: 0,
             notification: None,
             observations: VecDeque::new(),
@@ -280,6 +347,8 @@ pub struct Engine {
     active: Option<Active>,
     body: Option<Body>,
     discoveries: VecDeque<Discovery>,
+    #[cfg(feature = "head-dispatch")]
+    head_dispatch: Option<Arc<HeadDispatch>>,
     change_cursor: usize,
     notification: Option<Notification>,
     observations: VecDeque<Observation>,
@@ -319,6 +388,15 @@ impl Engine {
         #[cfg(not(feature = "prefix-join"))]
         let prefixes = 0;
         (pools, checks, prefixes)
+    }
+    /// Query-owned predicate bucket entries, deduplication keys and queued discovery.
+    #[cfg(feature = "head-dispatch")]
+    pub fn discovery_owners(&self) -> (usize, usize, usize) {
+        (
+            self.index.values().map(Vec::len).sum(),
+            self.known.len(),
+            self.discoveries.len(),
+        )
     }
     pub fn stats(&self) -> &Stats {
         &self.stats
@@ -374,6 +452,39 @@ impl Engine {
             .resources
             .insert(name, args, scope, &self.store)
             .expect("owned store");
+        #[cfg(feature = "head-dispatch")]
+        if let Some(dispatch) = &self.head_dispatch {
+            if let Some(readers) = dispatch.readers.get(&key) {
+                for &ri in readers {
+                    let r = &self.resources.rules[ri].source;
+                    let h = r.kept.first().or_else(|| r.removed.first()).unwrap();
+                    let o = self.resources.occurrence(id).unwrap();
+                    if scope != Support::FALSE
+                        && h.args
+                            .iter()
+                            .zip(&o.args)
+                            .all(|(p, t)| possible_head(p, *t, &self.store))
+                    {
+                        // A fresh occurrence has exactly one tuple per unary rule.
+                        // No other anchor can rediscover it; late dependencies still
+                        // use the ordinary candidate and notification pipeline.
+                        self.pending
+                            .entry(Key {
+                                rule: ri,
+                                ids: vec![id],
+                            })
+                            .or_default()
+                            .push(scope);
+                        if METRICS {
+                            self.stats.discovered_tuples += 1;
+                        }
+                    }
+                }
+            }
+            if !dispatch.general.contains(&key) {
+                return;
+            }
+        }
         self.index.entry(key).or_default().push(id);
         self.discoveries.push_back(Discovery {
             occurrence: id,
@@ -539,6 +650,14 @@ impl Engine {
             return;
         }
         let rule = &self.resources.rules[d.rule].source;
+        #[cfg(feature = "head-dispatch")]
+        if self.head_dispatch.is_some() && rule.kept.len() + rule.removed.len() == 1 {
+            d.rule += 1;
+            d.anchor = 0;
+            self.discoveries.push_front(d);
+            return;
+        }
+
         let heads: Vec<_> = rule.kept.iter().chain(&rule.removed).collect();
         if d.anchor >= heads.len() {
             d.rule += 1;

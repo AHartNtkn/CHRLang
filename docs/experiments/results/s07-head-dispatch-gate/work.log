@@ -1,0 +1,31 @@
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.18s
+     Running tests/head_dispatch.rs (target/debug/deps/head_dispatch-b31777750981935f)
+
+running 4 tests
+history n=0 ordinary=(18, 0) direct=(18, 0)
+history n=1 ordinary=(117, 1) direct=(108, 1)
+test linked_multihead_source_must_be_rechecked ... ok
+declaration=None admission=Optional ticks=370
+declaration=Some(Single) admission=Optional ticks=370
+test finite_answers_and_query_owners_survive_continuing_unary_work ... ok
+declaration=Some(Single) admission=Required ticks=370
+test inferred_and_declared_unary_sources_remove_discovery_owners ... ok
+history n=16 ordinary=(2802, 16) direct=(2658, 16)
+test reused_preparation_preserves_history_priority_and_changed_queries ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/head_properties.rs (target/debug/deps/head_properties-98195ca776f0d076)
+
+running 7 tests
+test a_unary_constructor_head_can_have_multiple_intermediate_environments ... ok
+test unary_rules_can_compete_and_source_priority_changes_the_winner ... ok
+test disjoint_unary_patterns_still_need_late_activation_and_multiplicity ... ok
+test one_multihead_rule_has_conflicting_instances ... ok
+test a_single_unary_propagation_rule_still_requires_once_per_occurrence_history ... ok
+test sequential_reservation_changes_atomic_join_behavior ... ok
+test bundling_moves_the_join_to_an_input_and_update_contract ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+

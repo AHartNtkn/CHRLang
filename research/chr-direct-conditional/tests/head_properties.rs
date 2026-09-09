@@ -18,6 +18,19 @@ fn check(
         residual,
     }];
     runtime_support::same_raw(runtime_support::run(rules, &q, 100_000), expected.clone());
+    #[cfg(feature = "head-dispatch")]
+    {
+        let p = chr_direct_conditional::engine::PreparedRuleset::with_head_contract(
+            rules.to_vec(),
+            None,
+            chr_direct_conditional::engine::HeadAdmission::Optional,
+        )
+        .unwrap();
+        runtime_support::same_raw(
+            composition_support::Engine::Conditional(p.start(q.clone()).unwrap()).collect(),
+            expected.clone(),
+        );
+    }
     for mode in [0, 1, 5, 7] {
         runtime_support::same_raw(
             composition_support::Engine::new(mode, rules, &q).collect(),

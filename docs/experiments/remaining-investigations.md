@@ -1,6 +1,6 @@
 # The comparisons still needed to choose the architecture
 
-The [head-property source gate](results/S07-head-property-gate.md) supplies competing-rule, late-binding, multiplicity, partial-environment and reformulation witnesses. T079 next establishes the property/compiler beneficiary comparison; broader architecture obligations remain required.
+The [head-dispatch gate](results/S07-head-dispatch-gate.md) establishes a real local-inference beneficiary and checked-admission comparison. T079 next registers complete costs; non-overlap and broader architecture obligations remain required.
 
 ## Starting evidence and immediate decision
 
@@ -18,7 +18,7 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-**Head and overlap properties remain selected under T079/S07.** The source gate distinguishes head count, application conflict and matching-environment multiplicity. Connect inference/checking/admission to actual eliminated execution responsibilities, including coordinated-update costs for reformulations. No language restriction is adopted.
+**Head-dispatch lifecycle attribution is selected under T079/S07.** Local inference and checked admission now share an executable beneficiary, including mixed-source use. Measure preparation, changing queries and all owners before drawing a cost conclusion. Non-overlap remains separate; no language restriction is adopted.
 
 The order below incorporates the latest component evidence and the S10 entry decision. Each numbered row has a separate architectural question and completion boundary. The detailed mechanism specifications later in this document define its controls and adverse cases. A row containing several mechanisms requires a conclusion for each; completing one does not complete the row.
 

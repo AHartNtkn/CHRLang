@@ -1,6 +1,6 @@
 # Unanswered architecture questions and experimental ownership
 
-Current evidence: the [head-property source gate](results/S07-head-property-gate.md) separates unary rules, conflicting applications and intermediate matching environments. Bundled unary sources preserve tested closed inputs but require coordinated linked updates. Seven tests pass in diagnostic/counter-free builds. T079 next connects property inference/checking to actual removed runtime responsibilities; no restriction is adopted.
+Current evidence: the [head-dispatch beneficiary](results/S07-head-dispatch-gate.md) removes query buckets, discovery jobs and known-tuple deduplication for unary sources, and exploits unary rules locally in mixed sources. Inferred and checked/required valid declarations share execution. All 136 crate tests and 18 selected counter-free tests pass. T079 next measures lifecycle costs; non-overlap and broader architecture questions remain open.
 
 The [resource-fusion lifecycle pilot](results/S06-resource-fusion-lifecycle.md) completes 1350 processes and 180 exact allocation pairs. Inference and certification can outweigh execution savings; timing remains exploratory with clock-overhead evidence. All owners restore. The [S10 entry](results/S10-composition-entry.md) selects T078 coherent-path capability and mixed-source qualification. T073 and the other unresolved component directions remain required.
 
