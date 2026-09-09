@@ -31,3 +31,5 @@ The [useful-interleaving control](S02-useful-interleaving-control.md) shows the 
 The [contextual store ownership gate](S02-contextual-store-gate.md) now validates shared immutable constructors and isolated equality/resource updates. Integrating complete source effects and fair service is next; no timing comparison or cross-context deduction-reuse result is established by that gate.
 
 The [complete contextual source gate](S02-contextual-source-gate.md) now passes 61 finite source configurations and finite-sibling service. The next package measures lifecycle and ownership costs against corrected controls; the following breadth review counts this as T072’s third package.
+
+[Lifecycle sizing](S02-contextual-sizing.md) is complete without cutoffs. The [four-package breadth review](S02-first-breadth-review.md) selects an exact-schema lowering control and registered confirmation before further implementation refinements. The observed memory tradeoff is bounded; timing ranks are not yet confirmed.
