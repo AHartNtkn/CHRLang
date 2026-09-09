@@ -1,3 +1,6 @@
+#[path = "experiments/access_source.rs"]
+#[allow(dead_code)]
+mod access_source;
 #[path = "src/fixtures.rs"]
 #[allow(dead_code)]
 mod fixtures;
@@ -14,6 +17,7 @@ fn main() {
     println!("cargo:rerun-if-changed=src/fixtures.rs");
     println!("cargo:rerun-if-changed=src/search_fixtures.rs");
     println!("cargo:rerun-if-changed=experiments/subscription_source.rs");
+    println!("cargo:rerun-if-changed=experiments/access_source.rs");
     let programs = fixtures::programs();
     let mut text = String::from(
         "#[allow(unused_variables,unused_mut)] mod native { use super::{Core,Cursor,Candidate,Selection,Application,Work,Compiled};\n",
@@ -49,6 +53,7 @@ fn main() {
     text.push_str("_=>panic!(\"unknown access source\")}}\n");
     for (family, sources) in [
         ("search", search_programs),
+        ("payload", vec![access_source::payload_rules()]),
         (
             "subscription",
             vec![

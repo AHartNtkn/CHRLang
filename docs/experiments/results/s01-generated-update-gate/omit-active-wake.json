@@ -1,0 +1,21 @@
+{
+  "fault": "omit-active-wake",
+  "file": "research/chr-compiled/src/generate.rs",
+  "original_sha256": "7442f57148bc804ebd04f4c6628995644b47b2f0e67b04930774ef9f24ffcbe5",
+  "old": "if core.update_active() {{core.update_watch(id,{arg},&mut work);}}",
+  "new": "if false && core.update_active() {{core.update_watch(id,{arg},&mut work);}}",
+  "command": [
+    "cargo",
+    "test",
+    "-p",
+    "chr-compiled",
+    "--test",
+    "generated_access_artifact",
+    "--",
+    "--nocapture"
+  ],
+  "exit_code": 101,
+  "stdout": "\nrunning 1 test\ntest independent_artifact_preserves_rollback_and_changed_queries ... FAILED\n\nfailures:\n\nfailures:\n    independent_artifact_preserves_rollback_and_changed_queries\n\ntest result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.14s\n\n",
+  "stderr": "   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.93s\n     Running tests/generated_access_artifact.rs (target/debug/deps/generated_access_artifact-e13475ca45aff457)\n\nthread 'independent_artifact_preserves_rollback_and_changed_queries' (377) panicked at research/chr-compiled/tests/generated_access_artifact.rs:104:5:\n\n\nthread 'main' (378) panicked at src/main.rs:384:3:\nassertion `left == right` failed: wake queue competition Active Scan\n  left: [(2, [1]), (1, [2, 3])]\n right: [(2, [1]), (0, [0, 3])]\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\nerror: test failed, to rerun pass `-p chr-compiled --test generated_access_artifact`\n",
+  "source_restored": true
+}

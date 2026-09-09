@@ -1,0 +1,20 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "-p",
+    "chr-compiled",
+    "--features",
+    "fork-diagnostics,carrier-contraction,arena-cow",
+    "--test",
+    "fork_diagnostics",
+    "--test",
+    "single_head_regions",
+    "--test",
+    "generated_access"
+  ],
+  "exit_code": 101,
+  "elapsed_seconds": 3.2656363240676,
+  "stdout": "\nrunning 1 test\ntest failed_branch_interning_is_counted_once_and_siblings_stay_independent ... FAILED\n\nfailures:\n\n---- failed_branch_interning_is_counted_once_and_siblings_stay_independent stdout ----\n\nthread 'failed_branch_interning_is_counted_once_and_siblings_stay_independent' (901) panicked at research/chr-compiled/tests/fork_diagnostics.rs:78:9:\nassertion `left == right` failed\n  left: 20\n right: 19\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n\n\nfailures:\n    failed_branch_interning_is_counted_once_and_siblings_stay_independent\n\ntest result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n",
+  "stderr": "   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)\n   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 3.25s\n     Running tests/fork_diagnostics.rs (target/debug/deps/fork_diagnostics-667384981d841b74)\nerror: test failed, to rerun pass `-p chr-compiled --test fork_diagnostics`\n"
+}

@@ -1,0 +1,12 @@
+{
+  "command": [
+    "cargo",
+    "check",
+    "--workspace",
+    "--all-targets"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 1.5000378040131181,
+  "stdout": "",
+  "stderr": "warning: method `access_key` is never used\n   --> research/chr-integrated/../chr-compiled/src/generate.rs:229:8\n    |\n227 | impl Emit {\n    | --------- method in this implementation\n228 |     /// A key exists only when every source-pattern component is established.\n229 |     fn access_key(&mut self, term: &Term) -> String {\n    |        ^^^^^^^^^^\n    |\n    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default\n\nwarning: function `emit_access` is never used\n   --> research/chr-integrated/../chr-compiled/src/generate.rs:255:8\n    |\n255 | pub fn emit_access(name: &str, rules: &[Rule]) -> Result<String, String> {\n    |        ^^^^^^^^^^^\n\nwarning: function `update_columns` is never used\n   --> research/chr-integrated/../chr-compiled/src/generate.rs:400:8\n    |\n400 | pub fn update_columns(rules: &[Rule]) -> BTreeMap<(String, usize), BTreeSet<usize>> {\n    |        ^^^^^^^^^^^^^^\n\nwarning: `chr-integrated` (build script) generated 3 warnings\n    Checking chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)\nwarning: method `same_root` is never used\n   --> research/chr-boxes/src/../../chr-persistent/src/map.rs:181:12\n    |\n178 | impl<K: Ord + Clone + Hash, V: Clone> Map<K, V> {\n    | ----------------------------------------------- method in this implementation\n...\n181 |     pub fn same_root(&self, other: &Self) -> bool {\n    |            ^^^^^^^^^\n    |\n    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default\n\nwarning: `chr-boxes` (lib) generated 1 warning\nwarning: `chr-boxes` (lib test) generated 1 warning (1 duplicate)\n    Checking chr-relational v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-relational)\n    Checking chr-reuse v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-reuse)\n    Checking chr-direct-relation v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-relation)\n    Checking chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)\n    Checking chr-restoration v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-restoration)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.48s\n"
+}

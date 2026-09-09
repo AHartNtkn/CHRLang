@@ -1,0 +1,20 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "-p",
+    "chr-compiled",
+    "--features",
+    "fork-diagnostics,carrier-contraction,arena-cow",
+    "--test",
+    "fork_diagnostics",
+    "--test",
+    "single_head_regions",
+    "--test",
+    "generated_access"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 0.3052462940104306,
+  "stdout": "\nrunning 1 test\ntest failed_branch_interning_is_counted_once_and_siblings_stay_independent ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 4 tests\ntest source_derived_updates_do_not_index_head_local_output_arguments ... ok\ntest independent_native_queries_outlive_preparation_and_abandoned_work ... ok\ntest native_continuations_preserve_finite_source_effects_without_frame_snapshots ... ok\ntest projected_updates_preserve_late_keys_and_opaque_payload_bindings ... ok\n\ntest result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.06s\n\n\nrunning 6 tests\ntest eligibility_checks_every_head_use_and_arity ... ok\ntest selected_calls_bypass_tuple_cursor_and_history ... ok\ntest mixed_context_and_nonground_source_cases ... ok\ntest generated_mixed_plans_and_prepared_query_leases ... ok\ntest recursive_choices_and_guard_local_identity ... ok\ntest guard_and_constructor_crossing_corpus ... ok\n\ntest result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s\n\n",
+  "stderr": "   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.21s\n     Running tests/fork_diagnostics.rs (target/debug/deps/fork_diagnostics-667384981d841b74)\n     Running tests/generated_access.rs (target/debug/deps/generated_access-9e41b9d6ae1708d0)\n     Running tests/single_head_regions.rs (target/debug/deps/single_head_regions-9e3805479c34158b)\n"
+}

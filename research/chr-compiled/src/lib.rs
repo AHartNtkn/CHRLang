@@ -1,6 +1,7 @@
 //! Experimental indexed CHR execution with explicit source-disjunction search.
 pub use chr_persistent::COLLECT_KERNEL_METRICS;
 pub mod native_access;
+pub mod native_updates;
 #[cfg(feature = "fork-diagnostics")]
 use chr_persistent::kernel::{ForkObserver, NoopForkObserver, observed_clone};
 use chr_persistent::{
@@ -133,6 +134,7 @@ pub struct Compiled {
     pub source: &'static str,
     pub selectors: &'static [RuleSelector],
     pub native: Option<&'static [native_access::Factory]>,
+    pub updates: Option<&'static [native_updates::Spec]>,
 }
 #[derive(Clone)]
 struct Occurrence {
@@ -274,6 +276,7 @@ pub struct Core {
     store: BTreeMap<u64, Occurrence>,
     pools: BTreeMap<usize, BTreeSet<u64>>,
     dispatch: Arc<BTreeMap<usize, Vec<(usize, usize)>>>,
+    updates: Option<native_updates::Plan>,
     history: BTreeSet<(usize, Vec<u64>)>,
     pending: Vec<Work>,
     outputs: Vec<(String, Term)>,
@@ -368,6 +371,7 @@ impl Core {
             store: copied!(store),
             pools: copied!(pools),
             dispatch: copied!(dispatch),
+            updates: copied!(updates),
             history: copied!(history),
             pending: copied!(pending),
             outputs: copied!(outputs),
@@ -727,6 +731,20 @@ impl Core {
             return;
         };
         let pred = occ.pred;
+        match &self.updates {
+            Some(native_updates::Plan::Generated(updates)) => {
+                let repair = updates[&pred];
+                repair(self, id);
+                return;
+            }
+            Some(native_updates::Plan::Columns(updates)) => {
+                // Keep immutable source metadata available across mutable term work.
+                let updates = updates.clone();
+                self.update_from_columns(id, &updates[&pred]);
+                return;
+            }
+            None => (),
+        }
         let index_args = (self.access == Access::Indexed).then(|| occ.args.clone());
         let mut todo = occ.args.clone();
         let mut vars = BTreeSet::new();
@@ -1170,6 +1188,7 @@ pub struct PreparedRuleset {
     rules: Arc<Vec<Prepared>>,
     regions: Option<Arc<Vec<Option<regions::Plan>>>>,
     dispatch: Arc<BTreeMap<usize, Vec<(usize, usize)>>>,
+    updates: Option<native_updates::Plan>,
     predicates: Arc<Vec<(String, usize)>>,
     code: Option<Compiled>,
 }
@@ -1298,13 +1317,54 @@ impl PreparedRuleset {
                 body_preds,
             });
         }
+        let updates = if let Some(specs) = code.and_then(|c| c.updates) {
+            let mut entries = BTreeMap::new();
+            for &(name, arity, repair) in specs {
+                let pred = arena
+                    .predicates()
+                    .iter()
+                    .position(|(n, a)| n == name && *a == arity)
+                    .ok_or("unknown generated update predicate")?;
+                if entries.insert(pred, repair).is_some() {
+                    return Err("duplicate generated update predicate".into());
+                }
+            }
+            if entries.keys().copied().collect::<BTreeSet<_>>()
+                != dispatch.keys().copied().collect()
+            {
+                return Err("generated updates do not cover exactly the source heads".into());
+            }
+            Some(native_updates::Plan::Generated(Arc::new(entries)))
+        } else {
+            None
+        };
         Ok(Self {
+            updates,
             rules: Arc::new(prepared),
             regions: None,
             dispatch: Arc::new(dispatch),
             predicates: Arc::new(arena.into_predicates()),
             code,
         })
+    }
+    /// Apply the same source projection as generated updates, using data plans.
+    /// This control requires source analysis but no native compiler invocation.
+    pub fn new_with_update_plan(rules: Vec<Rule>, code: Option<Compiled>) -> Result<Self, String> {
+        let columns = generate::update_columns(&rules);
+        let mut prepared = Self::new(rules, code)?;
+        let plans = columns
+            .into_iter()
+            .map(|((name, arity), columns)| {
+                let pred = prepared
+                    .predicates
+                    .iter()
+                    .position(|(n, a)| *n == name && *a == arity)
+                    .expect("prepared source predicate");
+                (pred, (0..arity).map(|a| columns.contains(&a)).collect())
+            })
+            .collect();
+        prepared.updates = Some(native_updates::Plan::Columns(Arc::new(plans)));
+        Ok(prepared)
     }
     pub fn stats(&self) -> PreparationStats {
         PreparationStats {
@@ -1362,6 +1422,7 @@ impl PreparedRuleset {
             store: BTreeMap::new(),
             pools: BTreeMap::new(),
             dispatch: self.dispatch.clone(),
+            updates: self.updates.clone(),
             history: BTreeSet::new(),
             pending: vec![],
             outputs: vec![],

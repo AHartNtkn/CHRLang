@@ -1,0 +1,21 @@
+{
+  "fault": "omit-global-key-watch",
+  "file": "research/chr-compiled/src/generate.rs",
+  "original_sha256": "7442f57148bc804ebd04f4c6628995644b47b2f0e67b04930774ef9f24ffcbe5",
+  "old": "if core.update_active() || core.access_indexed()",
+  "new": "if core.update_active()",
+  "command": [
+    "cargo",
+    "test",
+    "-p",
+    "chr-compiled",
+    "--test",
+    "generated_access",
+    "--",
+    "--nocapture"
+  ],
+  "exit_code": 101,
+  "stdout": "\nrunning 4 tests\ntest source_derived_updates_do_not_index_head_local_output_arguments ... ok\ntest projected_updates_preserve_late_keys_and_opaque_payload_bindings ... FAILED\ntest independent_native_queries_outlive_preparation_and_abandoned_work ... ok\ntest native_continuations_preserve_finite_source_effects_without_frame_snapshots ... FAILED\n\nfailures:\n\nfailures:\n    native_continuations_preserve_finite_source_effects_without_frame_snapshots\n    projected_updates_preserve_late_keys_and_opaque_payload_bindings\n\ntest result: FAILED. 2 passed; 2 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s\n\n",
+  "stderr": "   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.99s\n     Running tests/generated_access.rs (target/debug/deps/generated_access-adb18cdf7cfc4c0b)\n\nthread 'projected_updates_preserve_late_keys_and_opaque_payload_bindings' (1133) panicked at research/chr-compiled/tests/generated_access.rs:195:21:\nassertion `left == right` failed\n  left: 2\n right: 0\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n\nthread 'native_continuations_preserve_finite_source_effects_without_frame_snapshots' (1132) panicked at research/chr-compiled/tests/generated_access.rs:37:21:\nassertion `left == right` failed: id=2 n=1 Global Indexed\n  left: [(1, [0, 2]), (2, [4])]\n right: [(1, [0, 2]), (2, [4]), (0, [0, 1]), (1, [6, 3])]\nerror: test failed, to rerun pass `-p chr-compiled --test generated_access`\n",
+  "source_restored": true
+}

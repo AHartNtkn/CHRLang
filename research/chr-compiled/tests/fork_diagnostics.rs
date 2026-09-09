@@ -6,6 +6,7 @@ use chr_syntax::{Query, Rule, Var, and, atom, c, eq, or, t, v};
 struct Observer {
     active: Option<&'static str>,
     count: usize,
+    owners: Vec<&'static str>,
     segments: Vec<(&'static str, ForkSegment)>,
 }
 impl ForkObserver for Observer {
@@ -19,6 +20,7 @@ impl ForkObserver for Observer {
     fn after(&mut self, owner: &'static str) {
         assert_eq!(self.active.take(), Some(owner));
         self.count += 1;
+        self.owners.push(owner);
     }
 }
 #[test]
@@ -77,7 +79,15 @@ fn failed_branch_interning_is_counted_once_and_siblings_stay_independent() {
         assert_eq!((splits, failures, complete, exhausted), (1, 1, 1, true));
         assert_eq!(
             observer.count,
-            if cfg!(feature = "arena-cow") { 19 } else { 23 }
+            if cfg!(feature = "arena-cow") { 20 } else { 24 }
+        );
+        assert_eq!(
+            observer
+                .owners
+                .iter()
+                .filter(|&&owner| owner == "updates")
+                .count(),
+            1
         );
         assert!(observer.active.is_none());
         assert_eq!(observer.segments.len(), 2);

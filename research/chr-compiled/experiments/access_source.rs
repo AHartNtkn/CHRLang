@@ -45,3 +45,51 @@ pub fn query(rotation: usize, guarded: bool, delayed: bool) -> Query {
         outputs: vec![("unused".into(), Var(99)), ("key".into(), Var(10))],
     }
 }
+
+/// A binding-irrelevant wake still changes Active queue competition.
+pub fn wake_rules() -> Vec<Rule> {
+    vec![
+        Rule::simplify("left", [c("p", [v(0)]), c("q", [])], c("left", []).into()),
+        Rule::simplify("right", [c("r", []), c("q", [])], c("right", []).into()),
+        Rule::simplify(
+            "seed",
+            [c("seed", [v(0)])],
+            chr_syntax::and([eq(v(0), atom("a")), c("r", []).into(), c("q", []).into()]),
+        ),
+    ]
+}
+pub fn wake_query() -> Query {
+    Query {
+        constraints: vec![c("p", [v(10)]), c("seed", [v(10)])],
+        outputs: vec![("x".into(), Var(10))],
+    }
+}
+
+pub fn payload_rules() -> Vec<Rule> {
+    vec![
+        Rule::propagate(
+            "publish",
+            [c("p", [v(0), v(1)]), c("q", [v(0)])],
+            c("out", [v(1)]).into(),
+        ),
+        Rule::simplify("bind", [c("bind", [v(0), v(1)])], eq(v(0), v(1))),
+    ]
+}
+pub fn payload_query(width: usize, late_key: bool) -> Query {
+    let key = if late_key { v(10) } else { atom("k") };
+    let payload = t(
+        "payload",
+        (0..width).map(|i| v(100 + i as u64)).collect::<Vec<_>>(),
+    );
+    let mut constraints = vec![c("p", [key, payload]), c("q", [atom("k")])];
+    for i in 0..width {
+        constraints.push(c("bind", [v(100 + i as u64), atom("value")]));
+    }
+    if late_key {
+        constraints.push(c("bind", [v(10), atom("k")]));
+    }
+    Query {
+        constraints,
+        outputs: vec![("key".into(), Var(10))],
+    }
+}

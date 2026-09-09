@@ -1,0 +1,44 @@
+{
+  "final_checks": [
+    "final-default",
+    "final-counter-free",
+    "final-work",
+    "final-clippy",
+    "final-features",
+    "final-workspace",
+    "final-owner-classic",
+    "final-owner-cow"
+  ],
+  "passed_test_counts": {
+    "final-default": 107,
+    "final-counter-free": 18,
+    "final-work": 4,
+    "final-clippy": 0,
+    "final-features": 11,
+    "final-workspace": 0,
+    "final-owner-classic": 0,
+    "final-owner-cow": 0
+  },
+  "source_freeze": "freeze.json",
+  "faults": [
+    "omit-active-wake.json",
+    "omit-global-key-watch.json"
+  ],
+  "restored_source": {
+    "command": [
+      "cargo",
+      "test",
+      "-p",
+      "chr-compiled",
+      "--test",
+      "generated_access",
+      "--test",
+      "generated_access_artifact",
+      "--",
+      "--nocapture"
+    ],
+    "exit_code": 0,
+    "log": "restored-source.log"
+  },
+  "qualification": "Earlier receipts document the implementation and accounting checks as they developed. Final checks cover both generated and prepared data plans. Meter cases validate owner accounting and restoration with no update map installed, not native/data-plan lifecycle costs."
+}

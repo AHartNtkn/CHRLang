@@ -1,0 +1,18 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "-p",
+    "chr-compiled",
+    "--features",
+    "fork-diagnostics,carrier-contraction",
+    "--test",
+    "fork_diagnostics",
+    "--test",
+    "generated_access"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 3.2568638960365206,
+  "stdout": "\nrunning 1 test\ntest failed_branch_interning_is_counted_once_and_siblings_stay_independent ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 4 tests\ntest source_derived_updates_do_not_index_head_local_output_arguments ... ok\ntest independent_native_queries_outlive_preparation_and_abandoned_work ... ok\ntest native_continuations_preserve_finite_source_effects_without_frame_snapshots ... ok\ntest projected_updates_preserve_late_keys_and_opaque_payload_bindings ... ok\n\ntest result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.06s\n\n",
+  "stderr": "   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)\n   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 3.18s\n     Running tests/fork_diagnostics.rs (target/debug/deps/fork_diagnostics-29dcd15122c307f8)\n     Running tests/generated_access.rs (target/debug/deps/generated_access-3aa4720f3b37e642)\n"
+}

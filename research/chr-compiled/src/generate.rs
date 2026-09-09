@@ -216,7 +216,7 @@ pub fn emit(name: &str, rules: &[Rule]) -> Result<String, String> {
     }
     writeln!(
         text,
-        "pub fn {name}_code()->Compiled{{Compiled{{source:{:?},selectors:&[{}],native:None}}}}",
+        "pub fn {name}_code()->Compiled{{Compiled{{source:{:?},selectors:&[{}],native:None,updates:None}}}}",
         format!("{rules:?}"),
         funcs.join(",")
     )
@@ -369,6 +369,58 @@ pub fn emit_access(name: &str, rules: &[Rule]) -> Result<String, String> {
         writeln!(e.text,"Selection::Found(Application{{rule:{r},ids:self.ids.to_vec(),body:{body},next:self.frame.next}}) }}, _=>unreachable!(),}} }} }}").unwrap();
         text.push_str(&e.text);
     }
-    writeln!(text,"pub fn {name}_code()->Compiled{{Compiled{{source:{:?},selectors:&[],native:Some(&[{}])}}}}",format!("{rules:?}"),factories.join(",")).unwrap();
+    let mut updates = Vec::new();
+    for (i, ((predicate, arity), columns)) in update_columns(rules).into_iter().enumerate() {
+        let repair = format!("{name}_update_{i}");
+        writeln!(
+            text,
+            "fn {repair}(core:&mut Core,id:u64){{let mut work=core.update_start();"
+        )
+        .unwrap();
+        for arg in 0..arity {
+            if columns.contains(&arg) {
+                writeln!(text,"if core.update_active() || core.access_indexed() {{core.update_watch(id,{arg},&mut work);}}\nif core.access_indexed() {{core.update_index(id,{arg},&mut work);}}").unwrap();
+            } else {
+                writeln!(
+                    text,
+                    "if core.update_active() {{core.update_watch(id,{arg},&mut work);}}"
+                )
+                .unwrap();
+            }
+        }
+        text.push_str("core.update_finish(id,work);}\n");
+        updates.push(format!("({predicate:?},{arity},{repair})"));
+    }
+    writeln!(text,"pub fn {name}_code()->Compiled{{Compiled{{source:{:?},selectors:&[],native:Some(&[{}]),updates:Some(&[{}])}}}}",format!("{rules:?}"),factories.join(","),updates.join(",")).unwrap();
     Ok(text)
+}
+
+/// Conservatively usable ground-key columns across every source head and anchor.
+/// Variables occurring only in the selected head cannot be supplied before lookup.
+pub fn update_columns(rules: &[Rule]) -> BTreeMap<(String, usize), BTreeSet<usize>> {
+    let mut plans: BTreeMap<_, BTreeSet<usize>> = BTreeMap::new();
+    for rule in rules {
+        let heads: Vec<_> = rule.kept.iter().chain(&rule.removed).collect();
+        for (h, head) in heads.iter().enumerate() {
+            let mut available = BTreeSet::new();
+            for (other, desc) in heads.iter().enumerate() {
+                if other != h {
+                    for term in &desc.args {
+                        collect_term(term, &mut available);
+                    }
+                }
+            }
+            let columns = plans
+                .entry((head.name.clone(), head.args.len()))
+                .or_default();
+            for (arg, term) in head.args.iter().enumerate() {
+                let mut needed = BTreeSet::new();
+                collect_term(term, &mut needed);
+                if needed.is_subset(&available) {
+                    columns.insert(arg);
+                }
+            }
+        }
+    }
+    plans
 }

@@ -1,0 +1,16 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "-p",
+    "chr-compiled",
+    "--test",
+    "generated_access",
+    "--",
+    "--nocapture"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 0.10893248103093356,
+  "stdout": "\nrunning 4 tests\npayload width=0 late=false policy=Global native_visits=2 control_visits=3 native_refresh=2 control_refresh=2 native_indexes=2 control_indexes=3\ntest source_derived_updates_do_not_index_head_local_output_arguments ... ok\npayload width=0 late=false policy=Active native_visits=3 control_visits=3 native_refresh=2 control_refresh=2 native_indexes=2 control_indexes=3\npayload width=0 late=true policy=Global native_visits=4 control_visits=8 native_refresh=5 control_refresh=5 native_indexes=2 control_indexes=5\npayload width=0 late=true policy=Active native_visits=8 control_visits=8 native_refresh=5 control_refresh=5 native_indexes=2 control_indexes=5\npayload width=1 late=false policy=Global native_visits=2 control_visits=10 native_refresh=4 control_refresh=5 native_indexes=2 control_indexes=5\ntest independent_native_queries_outlive_preparation_and_abandoned_work ... ok\npayload width=1 late=false policy=Active native_visits=10 control_visits=10 native_refresh=5 control_refresh=5 native_indexes=3 control_indexes=5\npayload width=1 late=true policy=Global native_visits=4 control_visits=17 native_refresh=7 control_refresh=8 native_indexes=2 control_indexes=6\npayload width=1 late=true policy=Active native_visits=17 control_visits=17 native_refresh=8 control_refresh=8 native_indexes=2 control_indexes=6\npayload width=16 late=false policy=Global native_visits=2 control_visits=475 native_refresh=34 control_refresh=50 native_indexes=2 control_indexes=35\npayload width=16 late=false policy=Active native_visits=475 control_visits=475 native_refresh=50 control_refresh=50 native_indexes=18 control_indexes=35\npayload width=16 late=true policy=Global native_visits=4 control_visits=512 native_refresh=37 control_refresh=53 native_indexes=2 control_indexes=21\npayload width=16 late=true policy=Active native_visits=512 control_visits=512 native_refresh=53 control_refresh=53 native_indexes=2 control_indexes=21\npayload width=64 late=false policy=Global native_visits=2 control_visits=6499 native_refresh=130 control_refresh=194 native_indexes=2 control_indexes=131\nconfigurations=192 native_slot_copies=0 native_pool_entries=0 native_template_visits=0 control_slot_copies=4554\ntest native_continuations_preserve_finite_source_effects_without_frame_snapshots ... ok\npayload width=64 late=false policy=Active native_visits=6499 control_visits=6499 native_refresh=194 control_refresh=194 native_indexes=66 control_indexes=131\npayload width=64 late=true policy=Global native_visits=4 control_visits=6632 native_refresh=133 control_refresh=197 native_indexes=2 control_indexes=69\npayload width=64 late=true policy=Active native_visits=6632 control_visits=6632 native_refresh=197 control_refresh=197 native_indexes=2 control_indexes=69\ntest projected_updates_preserve_late_keys_and_opaque_payload_bindings ... ok\n\ntest result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.09s\n\n",
+  "stderr": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.01s\n     Running tests/generated_access.rs (target/debug/deps/generated_access-adb18cdf7cfc4c0b)\n"
+}

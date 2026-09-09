@@ -354,3 +354,7 @@ The [worker lifecycle gate](S09-worker-lifecycle-gate.md) preserves prepared sou
 ## S01 source-generated continuation gate
 
 The [native continuation gate](S01-native-continuation-gate.md) establishes that source-derived rollback and ordered range traversal can avoid generic frame snapshots, candidate vectors and key-template interpretation. The 192-case finite corpus, independent 112-case artifact, branch replay and live-demand checks preserve the tested source effects; three deliberate selection/rollback faults are detected. Compilation, generated update repair, range-lookup costs and complete lifetime costs remain open. T070 continues toward a competent indexed/retained comparison; no architecture ranking follows from eliminating those work counts.
+
+## S01 update analysis does not require native compilation
+
+The [source-projected update gate](S01-generated-update-gate.md) finds the same dependency/index work reduction in generated repair and a prepared data plan inside the ordinary executor. Global dependency visits fall from 6,499 to 2 on a 64-variable private payload, with full observations and source traces preserved. The fixed Active wake policy keeps those visits: omitting a binding-irrelevant wake changes which competing rule consumes q. These are work and semantic findings, not time or language-adoption results. T070 continues with the stronger prepared control, source-eligible specialization, compilation accounting and full lifecycle costs; broader S01/S07 questions and the architecture goal remain open.

@@ -74,13 +74,18 @@ fn check(q: &Query, consuming: bool, expected: Vec<Constraint>) -> Answer {
     }
     for access in [chr_compiled::Access::Scan, chr_compiled::Access::Indexed] {
         let mut traces = vec![];
-        for code in [
-            None,
-            Some(chr_compiled::access_subscription_bundled(usize::from(
-                consuming,
-            ))),
-        ] {
-            let p = chr_compiled::PreparedRuleset::new(rules.clone(), code).unwrap();
+        for mode in 0..3 {
+            let p = match mode {
+                0 => chr_compiled::PreparedRuleset::new(rules.clone(), None),
+                1 => chr_compiled::PreparedRuleset::new(
+                    rules.clone(),
+                    Some(chr_compiled::access_subscription_bundled(usize::from(
+                        consuming,
+                    ))),
+                ),
+                _ => chr_compiled::PreparedRuleset::new_with_update_plan(rules.clone(), None),
+            }
+            .unwrap();
             let mut engine = p
                 .start(q.clone(), chr_compiled::Policy::Global, access)
                 .unwrap();
@@ -93,6 +98,10 @@ fn check(q: &Query, consuming: bool, expected: Vec<Constraint>) -> Answer {
         assert_eq!(
             traces[0], traces[1],
             "generated access changed source occurrence competition"
+        );
+        assert_eq!(
+            traces[0], traces[2],
+            "prepared update plan changed source occurrence competition"
         );
     }
     answer

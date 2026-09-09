@@ -26,7 +26,7 @@ fn independent_artifact_preserves_rollback_and_changed_queries() {
     }
     fs::write(scratch.join("Cargo.toml"), manifest).unwrap();
     let mut main = String::from(
-        "use chr_compiled::{Core,Frame,Selection,Application,Work,Compiled,PreparedRuleset,Policy,Access}; use chr_compiled::native_access::{Continuation,Range};\n",
+        "#![allow(unused_variables,unused_mut,unused_labels,non_camel_case_types,dead_code)]\nuse chr_compiled::{Core,Frame,Selection,Application,Work,Compiled,PreparedRuleset,Policy,Access}; use chr_compiled::native_access::{Continuation,Range};\n",
     );
     writeln!(
         main,
@@ -49,6 +49,7 @@ fn independent_artifact_preserves_rollback_and_changed_queries() {
         .unwrap();
         main.push_str(&code);
     }
+    main.push_str(&chr_compiled::generate::emit_access("wake", &source::wake_rules()).unwrap());
     main.push_str(r#"
 fn main() {
  let mut checked=0;
@@ -72,7 +73,21 @@ fn main() {
    }}
   }}
  }
- assert_eq!(checked,112);
+ let rules=source::wake_rules(); let query=source::wake_query();
+ let prepared=PreparedRuleset::new(rules.clone(),Some(wake_code())).unwrap();
+ let control=PreparedRuleset::new(rules.clone(),None).unwrap();
+ let expected=oracle::run(&rules,&query,100_000);
+ assert!(expected[0].residual.iter().any(|c|c.name=="left"));
+ for policy in [Policy::Global,Policy::Active] {for access in [Access::Scan,Access::Indexed] {
+  let mut a=prepared.start(query.clone(),policy,access).unwrap();
+  let mut b=control.start(query.clone(),policy,access).unwrap();
+  a.enable_trace();b.enable_trace();
+  assert!(a.advance(100_000).exhausted);assert!(b.advance(100_000).exhausted);
+  assert_eq!(a.trace(),b.trace(),"wake queue competition {policy:?} {access:?}");
+  oracle::same_raw(a.observe().into_iter().collect(),expected.clone());
+  checked+=1;
+ }}
+ assert_eq!(checked,116);
  println!("independent artifact: {checked} complete source/trace checks");
 }
 "#);
@@ -92,7 +107,7 @@ fn main() {
         String::from_utf8_lossy(&output.stdout),
         String::from_utf8_lossy(&output.stderr)
     );
-    assert!(String::from_utf8_lossy(&output.stdout).contains("112 complete source/trace checks"));
+    assert!(String::from_utf8_lossy(&output.stdout).contains("116 complete source/trace checks"));
     print!("{}", String::from_utf8_lossy(&output.stdout));
     fs::remove_dir_all(scratch).unwrap();
 }

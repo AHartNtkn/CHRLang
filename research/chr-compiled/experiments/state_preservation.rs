@@ -24,7 +24,7 @@ mod fork_diagnostics {
     use super::*;
     use chr_persistent::kernel::{ForkInterning, ForkObserver, ForkSegment};
     #[cfg(feature = "arena-cow")]
-    const OWNERS: [&str; 19] = [
+    const OWNERS: [&str; 20] = [
         "rules",
         "regions",
         "arena_shared",
@@ -32,6 +32,7 @@ mod fork_diagnostics {
         "store",
         "pools",
         "dispatch",
+        "updates",
         "history",
         "pending",
         "outputs",
@@ -46,7 +47,7 @@ mod fork_diagnostics {
         "search",
     ];
     #[cfg(not(feature = "arena-cow"))]
-    const OWNERS: [&str; 23] = [
+    const OWNERS: [&str; 24] = [
         "rules",
         "regions",
         "arena_nodes",
@@ -58,6 +59,7 @@ mod fork_diagnostics {
         "store",
         "pools",
         "dispatch",
+        "updates",
         "history",
         "pending",
         "outputs",

@@ -58,3 +58,37 @@ that work. These are mechanism observations, not performance results. Add direct
 rollback/anchor/consumption faults and subscription sources before declaring the
 full T070 source gate complete. Independent compilation and selective update code
 remain subsequent obligations; this first candidate retains generic update repair.
+
+## Generated update projection
+
+The next candidate derives index columns from source heads. A column can be used
+only if all variables in that argument also occur in another head of the same
+rule, or the argument is ground syntax. This is conservative across source-ordered
+prefixes and all possible active anchors. Union the needed columns across every
+head use of a predicate; repeated positions within one head alone do not make a
+key available before selecting that head. Guards do not supply lookup bindings.
+Generate per-predicate watch/key operations for these columns.
+
+Global indexed execution requires watches to repair the retained keys; ordinary
+source selection resumes after equality work. Active execution retains watches
+for every argument, even where eligibility does not depend on that argument.
+Removing an otherwise redundant wake-up can reorder competing consumption:
+`p(X), q <=> left` competes with `r, q <=> right`; after p has been tried, a seed
+posting `X=a, r, q` wakes p ahead of r under the existing Active policy. Omitting
+that wake lets r consume q first. Test this exact premise independently; eligibility
+alone is not a certificate for preserving that scheduling contract.
+
+Before costs, check the projection against finite/full-effect gates and a separate
+artifact with changed queries, alias updates, guard failure and competing firings.
+Require an adverse missed-key repair fault and the omitted-wake witness to fail.
+Compare the same native continuation with generic repair to attribute the effect
+of update generation. Compilation and memory accounting must include the prepared
+predicate-to-update mapping. No mandatory language restriction is introduced.
+
+
+The [update gate](S01-generated-update-gate.md) now validates both generated repair
+and a prepared column-map control inside the ordinary executor. Both achieve the
+same dependency/index work reduction. The Active competition counterexample and
+missed Global key-repair fault fail as predicted. The next comparison must therefore
+isolate native compilation from source analysis, and include source-eligible
+specialization and complete preparation/artifact costs.
