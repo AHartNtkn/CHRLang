@@ -1,6 +1,6 @@
 //! Experimental suspended applications for a checked equation-producing source fragment.
 //! Context-indexed results preserve application identity. This is not yet a
-//! general multihead CHR executor or an implementation of local pull-tab rewrites.
+//! general multihead CHR executor. Optional local pull-tabs lift directly demanded choices.
 use chr_syntax::{Answer, Constraint, Goal, Query, Rule, Term, Var};
 use std::collections::{BTreeMap, BTreeSet, VecDeque};
 use std::rc::Rc;
@@ -40,6 +40,7 @@ pub enum Reuse {
     StaticBirth,
 }
 pub struct Prepared {
+    pull_tabs: bool,
     clauses: Rc<Vec<Clause>>,
     resource_signatures: BTreeSet<(String, usize)>,
 }
@@ -57,6 +58,7 @@ struct Cell {
     results: Vec<(Context, Id)>,
 }
 pub struct Run {
+    pull_tabs: bool,
     clauses: Rc<Vec<Clause>>,
     nodes: Vec<Cell>,
     tasks: VecDeque<(Context, usize, usize)>,
@@ -334,12 +336,19 @@ impl Prepared {
                 pure.contains(&(clause.name.clone(), clause.inputs.len()));
         }
         Ok(Self {
+            pull_tabs: false,
             clauses: Rc::new(clauses),
             resource_signatures,
         })
     }
+    /// Enable the experimental direct-argument local rewrite, independently of cache validity.
+    pub fn with_pull_tabs(mut self) -> Self {
+        self.pull_tabs = true;
+        self
+    }
     pub fn start(&self, query: Query) -> Result<Run, String> {
         let mut run = Run {
+            pull_tabs: self.pull_tabs,
             clauses: self.clauses.clone(),
             nodes: vec![],
             tasks: VecDeque::from([(Context::new(), 0, 0)]),
@@ -639,8 +648,18 @@ impl Run {
                 {
                     let mut env = Env::new();
                     let mut matched = true;
-                    for (pattern, arg) in clause.inputs.iter().zip(&args) {
-                        if !self.matches(pattern, *arg, ctx, &mut env)? {
+                    for (index, (pattern, arg)) in clause.inputs.iter().zip(&args).enumerate() {
+                        let matches = match self.matches(pattern, *arg, ctx, &mut env) {
+                            Err(Signal::Split(label))
+                                if self.pull_tabs && self.pull_argument(id, index, label, ctx) =>
+                            {
+                                // The graph rewrite is administrative: preserve the
+                                // control's service point for competing source requests.
+                                return Err(Signal::Split(label));
+                            }
+                            result => result?,
+                        };
+                        if !matches {
                             matched = false;
                             break;
                         }
@@ -685,6 +704,50 @@ impl Run {
                 Ok(output)
             }
         }
+    }
+    // Follow only already available edges: nested demand and resource settlement
+    // are not direct-argument redexes. Never force additional source work here.
+    fn pull_argument(&mut self, call: Id, index: usize, label: usize, ctx: &Context) -> bool {
+        let Node::Call(name, args, output, _) = self.nodes[call].node.clone() else {
+            unreachable!()
+        };
+        let mut at = args[index];
+        let (left, right) = loop {
+            match &self.nodes[at].node {
+                Node::Alias(next) => at = *next,
+                Node::Call(..) => {
+                    let Some((_, next)) =
+                        self.nodes[at].results.iter().rev().find(|(support, _)| {
+                            support.iter().all(|(k, v)| ctx.get(k) == Some(v))
+                        })
+                    else {
+                        return false;
+                    };
+                    at = *next;
+                }
+                Node::Choice(found, a, b) => {
+                    if let Some(side) = ctx.get(found) {
+                        at = if *side { *b } else { *a };
+                    } else if *found == label {
+                        break (*a, *b);
+                    } else {
+                        return false;
+                    }
+                }
+                _ => return false,
+            }
+        };
+        let mut children = Vec::with_capacity(2);
+        for (side, argument) in [(false, left), (true, right)] {
+            let mut support = ctx.clone();
+            support.insert(label, side);
+            let mut substituted = args.clone();
+            substituted[index] = argument;
+            children.push(self.call(name.clone(), substituted, output, &support));
+        }
+        let lifted = self.push(Node::Choice(label, children[0], children[1]));
+        self.nodes[call].results.push((ctx.clone(), lifted));
+        true
     }
     fn normal(&mut self, id: Id, ctx: &Context) -> Result<Term, Signal> {
         let id = self.force(id, ctx)?;
@@ -813,6 +876,56 @@ impl Run {
                 Event::Progress
             }
             Err(Signal::Fail) => Event::Progress,
+        }
+    }
+}
+
+#[cfg(test)]
+mod pull_tab_tests {
+    use super::*;
+    use chr_syntax::{atom, c, eq, v};
+
+    #[test]
+    fn demanded_choice_becomes_choice_over_conditional_calls() {
+        let rules = vec![Rule::simplify(
+            "take",
+            [c("take", [atom("a"), v(0)])],
+            eq(v(0), atom("done")),
+        )];
+        let mut run = Prepared::new(rules)
+            .unwrap()
+            .with_pull_tabs()
+            .start(Query {
+                constraints: vec![],
+                outputs: vec![],
+            })
+            .unwrap();
+        let ctx = Context::new();
+        let a = run.push(Node::App("a".into(), vec![]));
+        let b = run.push(Node::App("b".into(), vec![]));
+        run.births.push(ctx.clone());
+        let choice = run.push(Node::Choice(0, a, b));
+        let alias = run.push(Node::Alias(choice));
+        let output = run.push(Node::Unknown(0));
+        let call = run.call("take".into(), vec![alias], output, &ctx);
+        assert!(
+            matches!(run.force(call, &ctx), Err(Signal::Split(0))),
+            "the rewrite must preserve the control split service point"
+        );
+        let lifted = run.nodes[call].results[0].1;
+        let Node::Choice(label, left, right) = run.nodes[lifted].node else {
+            panic!("expected a choice over copied calls")
+        };
+        assert_eq!(label, 0);
+        assert_eq!(run.births.len(), 1);
+        for (side, child, arg) in [(false, left, a), (true, right, b)] {
+            let Node::Call(ref name, ref args, out, origin) = run.nodes[child].node else {
+                panic!("choice arm must contain a call")
+            };
+            assert_eq!(name, "take");
+            assert_eq!(args, &[arg]);
+            assert_eq!(out, output);
+            assert_eq!(run.obligations[origin], (Context::from([(0, side)]), child));
         }
     }
 }

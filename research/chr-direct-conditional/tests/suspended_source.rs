@@ -55,6 +55,15 @@ fn collect(rules: Vec<Rule>, query: Query, expected: Vec<Answer>) {
         ),
         expected.clone(),
     );
+    for policy in [
+        chr_direct_choice::demand::Reuse::CurrentContext,
+        chr_direct_choice::demand::Reuse::StaticBirth,
+    ] {
+        runtime_support::same_raw(
+            demand_strategy(rules.clone(), query.clone(), policy, true),
+            expected.clone(),
+        );
+    }
     runtime_support::same_raw(demand_answers(rules, query), expected);
 }
 fn demand_answers(rules: Vec<Rule>, query: Query) -> Vec<Answer> {
@@ -65,10 +74,21 @@ fn demand_with_policy(
     query: Query,
     policy: chr_direct_choice::demand::Reuse,
 ) -> Vec<Answer> {
-    let mut run = Prepared::with_reuse(rules, policy)
-        .unwrap()
-        .start(query)
-        .unwrap();
+    demand_strategy(rules, query, policy, false)
+}
+fn demand_strategy(
+    rules: Vec<Rule>,
+    query: Query,
+    policy: chr_direct_choice::demand::Reuse,
+    pull_tabs: bool,
+) -> Vec<Answer> {
+    let prepared = Prepared::with_reuse(rules, policy).unwrap();
+    let prepared = if pull_tabs {
+        prepared.with_pull_tabs()
+    } else {
+        prepared
+    };
+    let mut run = prepared.start(query).unwrap();
     let mut answers = vec![];
     for _ in 0..100_000 {
         match run.tick() {
@@ -892,4 +912,174 @@ fn unknown_resource_handles_preserve_aliases_without_binding() {
             vec![expected],
         );
     }
+}
+
+#[test]
+fn pulled_demand_preserves_finite_service_and_off_output_failure() {
+    let rules = vec![
+        Rule::simplify(
+            "make",
+            [c("make", [v(0)])],
+            or(eq(v(0), atom("a")), eq(v(0), atom("b"))),
+        ),
+        Rule::simplify(
+            "a",
+            [c("take", [atom("a"), v(0)])],
+            c("loop", [v(0)]).into(),
+        ),
+        Rule::simplify("b", [c("take", [atom("b"), v(0)])], eq(v(0), atom("ok"))),
+        Rule::simplify("loop", [c("loop", [v(0)])], c("loop", [v(0)]).into()),
+        Rule::simplify("bad", [c("bad", [v(0)])], Goal::Fail),
+    ];
+    for pull_tabs in [false, true] {
+        for failing in [false, true] {
+            let mut constraints = vec![c("make", [v(100)]), c("take", [v(100), v(101)])];
+            if failing {
+                constraints.push(c("bad", [v(102)]));
+            }
+            let prepared = Prepared::new(rules.clone()).unwrap();
+            let prepared = if pull_tabs {
+                prepared.with_pull_tabs()
+            } else {
+                prepared
+            };
+            let mut run = prepared
+                .start(Query {
+                    constraints,
+                    outputs: vec![("x".into(), Var(101))],
+                })
+                .unwrap();
+            let mut answers = vec![];
+            let mut exhausted = false;
+            for _ in 0..128 {
+                match run.tick() {
+                    Event::Progress => {}
+                    Event::Answer(a) => answers.push(a),
+                    Event::Exhausted => {
+                        exhausted = true;
+                        break;
+                    }
+                }
+            }
+            if failing {
+                assert!(
+                    exhausted && answers.is_empty(),
+                    "off-output failure must terminate"
+                );
+            } else {
+                assert!(!exhausted, "loop must remain unfinished");
+                runtime_support::same_raw(
+                    answers,
+                    vec![Answer {
+                        outputs: vec![("x".into(), atom("ok"))],
+                        residual: vec![],
+                    }],
+                );
+            }
+        }
+    }
+}
+
+#[test]
+fn pulled_nonmatching_arm_preserves_one_residual_occurrence() {
+    collect(
+        vec![
+            Rule::simplify(
+                "make",
+                [c("make", [v(0)])],
+                or(eq(v(0), atom("a")), eq(v(0), atom("b"))),
+            ),
+            Rule::simplify("take", [c("take", [atom("a"), v(0)])], eq(v(0), atom("ok"))),
+        ],
+        Query {
+            constraints: vec![c("make", [v(100)]), c("take", [v(100), v(101)])],
+            outputs: vec![("x".into(), Var(101))],
+        },
+        vec![
+            Answer {
+                outputs: vec![("x".into(), atom("ok"))],
+                residual: vec![],
+            },
+            Answer {
+                outputs: vec![("x".into(), v(900))],
+                residual: vec![c("take", [atom("b"), v(900)])],
+            },
+        ],
+    );
+}
+
+#[test]
+fn pulled_calls_keep_correlation_and_consume_distinct_tokens() {
+    let rules = vec![
+        Rule::simplify(
+            "make",
+            [c("make", [v(0)])],
+            or(eq(v(0), atom("a")), eq(v(0), atom("b"))),
+        ),
+        Rule::simplify(
+            "a",
+            [c("take", [atom("a"), v(0)]), c("token", [])],
+            eq(v(0), atom("a")),
+        ),
+        Rule::simplify(
+            "b",
+            [c("take", [atom("b"), v(0)]), c("token", [])],
+            eq(v(0), atom("b")),
+        ),
+    ];
+    collect(
+        rules,
+        Query {
+            constraints: vec![
+                c("make", [v(100)]),
+                c("take", [v(100), v(101)]),
+                c("take", [v(100), v(102)]),
+                c("token", []),
+                c("token", []),
+            ],
+            outputs: vec![("x".into(), Var(101)), ("y".into(), Var(102))],
+        },
+        ["a", "b"]
+            .into_iter()
+            .map(|value| Answer {
+                outputs: vec![("x".into(), atom(value)), ("y".into(), atom(value))],
+                residual: vec![],
+            })
+            .collect(),
+    );
+}
+
+#[test]
+fn pull_tab_resource_competition_matches_demand_control() {
+    let rules = vec![
+        Rule::simplify(
+            "make",
+            [c("make", [v(0)])],
+            or(eq(v(0), atom("a")), eq(v(0), atom("b"))),
+        ),
+        Rule::simplify(
+            "a",
+            [c("take", [atom("a"), v(0)]), c("token", [])],
+            eq(v(0), atom("a")),
+        ),
+        Rule::simplify(
+            "b",
+            [c("take", [atom("b"), v(0)]), c("token", [])],
+            eq(v(0), atom("b")),
+        ),
+    ];
+    let query = Query {
+        constraints: vec![
+            c("make", [v(100)]),
+            c("take", [v(100), v(101)]),
+            c("take", [v(100), v(102)]),
+            c("token", []),
+        ],
+        outputs: vec![("x".into(), Var(101)), ("y".into(), Var(102))],
+    };
+    let policy = chr_direct_choice::demand::Reuse::StaticBirth;
+    runtime_support::same_raw(
+        demand_strategy(rules.clone(), query.clone(), policy, true),
+        demand_strategy(rules, query, policy, false),
+    );
 }
