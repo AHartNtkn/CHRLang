@@ -56,6 +56,7 @@ pub struct Stats {
 }
 pub struct Table {
     prepared: PreparedMachine,
+    rules: Vec<Rule>,
     family: BTreeSet<(String, usize)>,
     memo: bool,
     cache: BTreeMap<Constraint, Vec<Vec<Term>>>,
@@ -86,15 +87,65 @@ impl Table {
             return Err("call body reaches outside its private family".into());
         }
         Ok(Self {
-            prepared: PreparedMachine::new(rules)?,
+            prepared: PreparedMachine::new(rules.clone())?,
+            rules,
             family,
             memo,
             cache: BTreeMap::new(),
             stats: Stats::default(),
         })
     }
-    /// Expand at an already selected source call, or a separately justified
-    /// commutation boundary. Arguments must be resolved in the caller's current
+    /// Checked contraction at an initial query boundary. This does not inspect
+    /// an arbitrary live cursor. A complete private rule-priority phase permits
+    /// shared caller variables; every interface binding must be replayed.
+    pub fn expand_query(
+        &mut self,
+        query: &Query,
+        selected: usize,
+        global_rules: &[Rule],
+        bound: usize,
+    ) -> Result<Vec<Bindings>, String> {
+        let call = query
+            .constraints
+            .get(selected)
+            .ok_or("missing selected call")?;
+        if !self.family.contains(&(call.name.clone(), call.args.len())) {
+            return Err("selected call is outside prepared family".into());
+        }
+        let touching = global_rules
+            .iter()
+            .filter(|r| {
+                r.kept
+                    .iter()
+                    .chain(&r.removed)
+                    .any(|c| self.family.contains(&(c.name.clone(), c.args.len())))
+            })
+            .collect::<Vec<_>>();
+        if touching.len() != self.rules.len()
+            || touching.iter().zip(&self.rules).any(|(a, b)| *a != b)
+        {
+            return Err(
+                "private family ownership or rule order differs from caller program".into(),
+            );
+        }
+        if global_rules.get(..self.rules.len()) != Some(self.rules.as_slice()) {
+            return Err("private phase must be a rule-priority prefix".into());
+        }
+        if query
+            .constraints
+            .iter()
+            .filter(|c| self.family.contains(&(c.name.clone(), c.args.len())))
+            .count()
+            != 1
+        {
+            return Err("private phase requires exactly one initial family occurrence".into());
+        }
+        let mut fresh = Fresh::for_query(query);
+        self.expand(call, &mut fresh, bound)
+    }
+    /// Expand within an independently justified complete call-execution phase
+    /// or commutation boundary. Selection of its first rule alone is insufficient.
+    /// Arguments must be resolved in the caller's current
     /// environment. `fresh` must cover every live caller variable and remain
     /// coordinated with its allocator. The family check proves none of these
     /// caller-side preconditions; see the scheduling counterexample in the gate.

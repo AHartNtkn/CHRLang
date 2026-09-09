@@ -1,5 +1,7 @@
 # R00: architectural alternatives and first experiment selection
 
+The [checked private-phase entry](S05-call-entry-gate.md) supplies an explicit source boundary for call reuse and exposes why selecting the first rule or checking disjoint variables is insufficient. T075 now requires complete resumed-caller lifecycle evidence; general continuation extraction remains open.
+
 The [call-level transport gate](S05-call-transport-gate.md) now demonstrates reuse where complete caller keys differ, with preserved raw answers and fresh aliases. A scheduling counterexample keeps automatic call extraction unresolved; no lifecycle or architecture ranking follows.
 
 The [four-package integrated breadth review](S02-local-rewrite-breadth-review.md) selects T075 call-level validity and transport next. The [nested-pattern gate](S02-local-pattern-gate.md) establishes deeper matching dependencies and exposes conservative alias-recheck costs. T072 remains required; no integrated architecture is selected or rejected.

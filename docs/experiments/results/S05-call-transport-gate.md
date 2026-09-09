@@ -32,7 +32,7 @@ Consider a family whose first rule returns `known` for input `f(a)` and whose fa
 
 Expanding the private call before that supply commits to the fallback and returns `unknown`. Applying the same later supply does not undo that committed choice. The executable counterexample asserts these distinct outputs and their inequality. There is no resource access outside the family, so the family check alone cannot establish commutation with caller work.
 
-The favorable tests use a stated call-entry arrangement with complete independent answers. They do not authorize this speculative early extraction. An integrated optimizer must either invoke reuse at an already selected source call, or establish a sufficient independence/commutation condition for moving it. A different permitted scheduling policy must remain an explicit architectural/language comparison, never an unnoticed change in a timing control.
+The favorable tests use a stated call-entry arrangement with complete independent answers. They do not authorize this speculative early extraction. The subsequent [entry gate](S05-call-entry-gate.md) demonstrates that selection of the first call rule is insufficient. An integrated optimizer needs a complete execution-phase or sufficient commutation argument. A different permitted scheduling policy must remain an explicit architectural/language comparison, never an unnoticed change in a timing control.
 
 ## Validation and limitations
 

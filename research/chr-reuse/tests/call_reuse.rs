@@ -290,3 +290,276 @@ fn a_private_family_does_not_authorize_moving_a_call_before_input_supply() {
         &mut Default::default()
     ));
 }
+
+#[test]
+fn checked_query_entry_rejects_priority_interference_and_external_consumers() {
+    let call = c("work", [depth(3), v(7), v(8)]);
+    let independent = Query {
+        constraints: vec![call.clone(), c("caller", [v(1000)])],
+        outputs: vec![("result".into(), Var(8))],
+    };
+    let mut table = Table::new(rules(), true).unwrap();
+    assert_eq!(
+        table
+            .expand_query(&independent, 0, &rules(), 200_000)
+            .unwrap()
+            .len(),
+        2
+    );
+    let mut shared = independent.clone();
+    shared.constraints[1] = c("supply", [v(7)]);
+    let mut preceding = vec![Rule::simplify(
+        "supply",
+        [c("supply", [v(0)])],
+        eq(v(0), atom("a")),
+    )];
+    preceding.extend(rules());
+    assert!(table
+        .expand_query(&shared, 0, &preceding, 200_000)
+        .unwrap_err()
+        .contains("prefix"));
+    let mut two = independent.clone();
+    two.constraints.push(call.clone());
+    assert!(table
+        .expand_query(&two, 0, &rules(), 200_000)
+        .unwrap_err()
+        .contains("one initial"));
+    let mut external = rules();
+    external.push(Rule::simplify(
+        "steal",
+        [call.clone(), c("token", [])],
+        chr_syntax::Goal::True,
+    ));
+    assert!(table
+        .expand_query(&independent, 0, &external, 200_000)
+        .unwrap_err()
+        .contains("ownership"));
+}
+
+#[test]
+fn selecting_the_first_call_rule_does_not_make_the_whole_call_atomic() {
+    let family = vec![
+        Rule::simplify(
+            "step",
+            [c("work", [t("s", [v(0)]), v(1), v(2)])],
+            c("work", [v(0), v(1), v(2)]).into(),
+        ),
+        Rule::simplify(
+            "supply",
+            [c("supply", [v(0)])],
+            eq(v(0), t("f", [atom("a")])),
+        ),
+        Rule::simplify(
+            "known",
+            [c("work", [atom("z"), t("f", [atom("a")]), v(0)])],
+            eq(v(0), atom("known")),
+        ),
+        Rule::simplify(
+            "unknown",
+            [c("work", [atom("z"), v(0), v(1)])],
+            eq(v(1), atom("unknown")),
+        ),
+    ];
+    let call = c("work", [depth(1), v(0), v(1)]);
+    let query = Query {
+        constraints: vec![call.clone(), c("supply", [v(0)])],
+        outputs: vec![("input".into(), Var(0)), ("result".into(), Var(1))],
+    };
+    let trace = oracle::run_traced(&family, &query, 200_000);
+    assert_eq!(trace.len(), 1);
+    assert_eq!(trace[0].1[0], 0, "the call really is selected first");
+    assert_eq!(trace[0].0.outputs[1].1, atom("known"));
+    let mut table = Table::new(family.clone(), true).unwrap();
+    assert!(table.expand_query(&query, 0, &family, 200_000).is_err());
+    let mut fresh = Fresh::for_query(&query);
+    let isolated = table.expand(&call, &mut fresh, 200_000).unwrap();
+    assert_eq!(
+        isolated[0].iter().find(|(v, _)| *v == Var(1)).unwrap().1,
+        atom("unknown")
+    );
+}
+
+#[test]
+fn disjoint_call_contraction_preserves_independent_choice_products() {
+    let bind = Rule::simplify("bind", [c("bind", [v(0), v(1)])], eq(v(0), v(1)));
+    for n in [0, 1, 8] {
+        for reverse in [false, true] {
+            for failure in [false, true] {
+                for offset in [0, 100] {
+                    let choice = Rule::simplify(
+                        "choice",
+                        [c("choice", [v(0)])],
+                        or(
+                            eq(v(0), atom("a")),
+                            if failure {
+                                chr_syntax::Goal::Fail
+                            } else {
+                                eq(v(0), atom("b"))
+                            },
+                        ),
+                    );
+                    let mut global = rules();
+                    global.push(choice.clone());
+                    let call = c("work", [depth(n), v(offset + 7), v(offset + 8)]);
+                    let mut query = Query {
+                        constraints: vec![call, c("choice", [v(offset + 1000)])],
+                        outputs: vec![
+                            ("input".into(), Var(offset + 7)),
+                            ("result".into(), Var(offset + 8)),
+                            ("unrelated".into(), Var(offset + 1000)),
+                        ],
+                    };
+                    if reverse {
+                        query.constraints.reverse();
+                    }
+                    let selected = usize::from(reverse);
+                    let expected = oracle::run(&global, &query, 200_000);
+                    let mut table = Table::new(rules(), true).unwrap();
+                    let mut actual = vec![];
+                    for bindings in table
+                        .expand_query(&query, selected, &global, 200_000)
+                        .unwrap()
+                    {
+                        let mut q = query.clone();
+                        q.constraints.remove(selected);
+                        q.constraints.extend(
+                            bindings
+                                .into_iter()
+                                .map(|(var, t)| c("bind", [Term::Var(var), t])),
+                        );
+                        actual.extend(oracle::run(&[bind.clone(), choice.clone()], &q, 200_000));
+                    }
+                    oracle::same_raw(actual, expected);
+                }
+            }
+        }
+    }
+}
+
+#[test]
+fn private_phase_accepts_shared_observation_variables() {
+    let call = c("work", [depth(3), v(7), v(8)]);
+    // observer has no rule: it cannot write the shared parameter, and work only
+    // carries that parameter opaquely into its result in this source family.
+    let query = Query {
+        constraints: vec![call.clone(), c("observer", [v(7)])],
+        outputs: vec![("result".into(), Var(8))],
+    };
+    let mut table = Table::new(rules(), true).unwrap();
+    let expected = oracle::run(&rules(), &query, 200_000);
+    let actual = table
+        .expand_query(&query, 0, &rules(), 200_000)
+        .unwrap()
+        .into_iter()
+        .flat_map(|b| replay(b, query.clone()))
+        .collect();
+    oracle::same_raw(actual, expected);
+}
+
+#[test]
+fn disjoint_variables_do_not_prove_a_source_progress_boundary() {
+    let family = vec![Rule::simplify(
+        "fail",
+        [c("work", [])],
+        chr_syntax::Goal::Fail,
+    )];
+    let mut global = vec![Rule::simplify(
+        "spin",
+        [c("spin", [])],
+        c("spin", []).into(),
+    )];
+    global.extend(family.clone());
+    let query = Query {
+        constraints: vec![c("work", []), c("spin", [])],
+        outputs: vec![],
+    };
+    let mut ordinary = chr_reuse::continuations::Search::new(
+        global.clone(),
+        query.clone(),
+        chr_reuse::continuations::Mode::Direct,
+    )
+    .unwrap();
+    assert!(!ordinary.advance(1000).exhausted);
+    let mut table = Table::new(family, true).unwrap();
+    let mut fresh = Fresh::for_query(&query);
+    assert!(table
+        .expand(&query.constraints[0], &mut fresh, 1000)
+        .unwrap()
+        .is_empty());
+    assert!(
+        table.expand_query(&query, 0, &global, 1000).is_err(),
+        "disjointness alone admits early failure across an infinite priority prefix"
+    );
+}
+
+#[test]
+fn private_phase_replays_bindings_before_shared_caller_updates() {
+    let mut table = Table::new(rules(), true).unwrap();
+    for (target, value) in [(7, "a"), (7, "b"), (8, "a")] {
+        let supply = Rule::simplify("supply", [c("supply", [v(0)])], eq(v(0), atom(value)));
+        let mut global = rules();
+        global.push(supply.clone());
+        let query = Query {
+            constraints: vec![c("work", [depth(3), v(7), v(8)]), c("supply", [v(target)])],
+            outputs: vec![("input".into(), Var(7)), ("result".into(), Var(8))],
+        };
+        let expected = oracle::run(&global, &query, 200_000);
+        let mut actual = vec![];
+        for bindings in table.expand_query(&query, 0, &global, 200_000).unwrap() {
+            let mut replayed = query.clone();
+            replayed.constraints.remove(0);
+            replayed.constraints.extend(
+                bindings
+                    .into_iter()
+                    .map(|(var, t)| c("bind", [Term::Var(var), t])),
+            );
+            let bind = Rule::simplify("bind", [c("bind", [v(0), v(1)])], eq(v(0), v(1)));
+            actual.extend(oracle::run(&[bind, supply.clone()], &replayed, 200_000));
+        }
+        oracle::same_raw(actual, expected);
+    }
+    if chr_reuse::continuations::COLLECT_METRICS {
+        assert_eq!(table.stats().computed, 1);
+        assert_eq!(table.stats().hits, 2);
+    }
+}
+
+#[test]
+fn resumed_caller_can_start_another_private_phase() {
+    let later = Rule::simplify(
+        "later",
+        [c("later", [v(0), v(1)])],
+        c("work", [depth(1), v(0), v(1)]).into(),
+    );
+    let mut global = rules();
+    global.push(later);
+    let query = Query {
+        constraints: vec![c("work", [depth(3), v(7), v(8)]), c("later", [v(7), v(9)])],
+        outputs: vec![
+            ("first".into(), Var(8)),
+            ("second".into(), Var(9)),
+            ("input".into(), Var(7)),
+        ],
+    };
+    let expected = oracle::run(&global, &query, 200_000);
+    assert_eq!(expected.len(), 4);
+    let mut table = Table::new(rules(), true).unwrap();
+    let mut actual = vec![];
+    for bindings in table.expand_query(&query, 0, &global, 200_000).unwrap() {
+        let mut q = query.clone();
+        q.constraints.remove(0);
+        q.constraints.extend(
+            bindings
+                .into_iter()
+                .map(|(v, t)| c("bind", [Term::Var(v), t])),
+        );
+        let mut continuation = vec![Rule::simplify(
+            "bind",
+            [c("bind", [v(0), v(1)])],
+            eq(v(0), v(1)),
+        )];
+        continuation.extend(global.clone());
+        actual.extend(oracle::run(&continuation, &q, 200_000));
+    }
+    oracle::same_raw(actual, expected);
+}
