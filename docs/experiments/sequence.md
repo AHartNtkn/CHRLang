@@ -264,6 +264,8 @@ All new results link raw inputs, commands, freezes, validation and unfavorable o
 
 ## Current execution order
 
+The [complete-caller ownership gate](results/S05-caller-ownership-gate.md) now executes replay and caller work directly, with exact allocation replay across 16 configurations and all disposal baselines restored. T075 is ready for prospective full-caller lifecycle comparison; no timing matrix has run for this path.
+
 The [checked call-entry gate](results/S05-call-entry-gate.md) now establishes a complete initial private phase with shared caller variables and resumed source work. First-rule selection and variable disjointness each have counterexamples. T075 remains active for complete caller lifecycle preparation before timing registration.
 
 The [call-level transport gate](results/S05-call-transport-gate.md) now reuses work across different callers with independently checked fresh-result transport. It also demonstrates that private-family membership does not justify moving a call before input supply. T075 remains active for valid caller-boundary integration before cost registration.

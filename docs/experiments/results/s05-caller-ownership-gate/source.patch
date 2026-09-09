@@ -1,0 +1,339 @@
+diff --git a/research/chr-persistent/src/continuations.rs b/research/chr-persistent/src/continuations.rs
+index 592e20bd2..cec7c7567 100644
+--- a/research/chr-persistent/src/continuations.rs
++++ b/research/chr-persistent/src/continuations.rs
+@@ -1,5 +1,5 @@
+ //! Experimental source-step interface. Cursors belong to their creating machine.
+-use crate::{Snapshot, Stats, state, terms};
++use crate::{state, terms, Snapshot, Stats};
+ use chr_syntax::{Answer, Query, Rule, Term, Var};
+ use std::collections::BTreeMap;
+ 
+@@ -243,6 +243,15 @@ impl PreparedMachine {
+         })
+     }
+     pub fn start(&self, query: Query) -> Result<(Machine, Cursor), String> {
++        self.start_replaying(query, vec![])
++    }
++    /// Import validated interface equations and the remaining caller through
++    /// one scope. Equations execute before any resumed source work.
++    pub fn start_replaying(
++        &self,
++        query: Query,
++        equations: Vec<(Var, Term)>,
++    ) -> Result<(Machine, Cursor), String> {
+         let mut names = std::collections::BTreeSet::new();
+         for (name, _) in &query.outputs {
+             if !names.insert(name) {
+@@ -254,7 +263,7 @@ impl PreparedMachine {
+             max_frontier: usize::from(crate::COLLECT_METRICS),
+             ..Stats::default()
+         };
+-        let state = state::State::new(query, &mut arena, &mut stats);
++        let state = state::State::new_replaying(query, equations, &mut arena, &mut stats);
+         let owner = std::rc::Rc::new(());
+         let cursor = Cursor(state, owner.clone());
+         Ok((
+diff --git a/research/chr-persistent/src/state.rs b/research/chr-persistent/src/state.rs
+index 873180ec9..38ca1e827 100644
+--- a/research/chr-persistent/src/state.rs
++++ b/research/chr-persistent/src/state.rs
+@@ -1,7 +1,7 @@
+ use crate::{
+-    Snapshot, Stats,
+     map::Map,
+-    terms::{Arena, Bindings, Scope, Term, deref},
++    terms::{deref, Arena, Bindings, Scope, Term},
++    Snapshot, Stats,
+ };
+ use chr_syntax::{Answer, Constraint, Goal, Guard, Query, Rule, Term as Source, Var};
+ use std::rc::Rc;
+@@ -108,6 +108,14 @@ struct Application {
+ }
+ impl State {
+     pub fn new(query: Query, arena: &mut Arena, stats: &mut Stats) -> Self {
++        Self::new_replaying(query, vec![], arena, stats)
++    }
++    pub fn new_replaying(
++        query: Query,
++        equations: Vec<(Var, Source)>,
++        arena: &mut Arena,
++        stats: &mut Stats,
++    ) -> Self {
+         let mut scope = Scope::new();
+         let mut next_var = 0;
+         let initial = query
+@@ -137,6 +145,16 @@ impl State {
+         for w in initial.into_iter().rev() {
+             pending.push(w, stats);
+         }
++        for (var, value) in equations.into_iter().rev() {
++            let equation = work(
++                &Goal::Unify(Source::Var(var), value),
++                arena,
++                &mut scope,
++                &mut next_var,
++                stats,
++            );
++            pending.push(equation, stats);
++        }
+         Self {
+             pending,
+             store: Map::default(),
+diff --git a/research/chr-reuse/Cargo.toml b/research/chr-reuse/Cargo.toml
+index 28a8154f9..09e6e908a 100644
+--- a/research/chr-reuse/Cargo.toml
++++ b/research/chr-reuse/Cargo.toml
+@@ -29,3 +29,7 @@ required-features = ["metrics", "carrier-contraction"]
+ [[example]]
+ name = "stream_ownership"
+ required-features = ["alloc-meter"]
++
++[[example]]
++name = "call_ownership"
++required-features = ["alloc-meter"]
+diff --git a/research/chr-reuse/src/calls.rs b/research/chr-reuse/src/calls.rs
+index 72c80f765..85b53d0ed 100644
+--- a/research/chr-reuse/src/calls.rs
++++ b/research/chr-reuse/src/calls.rs
+@@ -261,3 +261,112 @@ impl Table {
+         self.stats.clone()
+     }
+ }
++
++/// Prepared complete-caller path for the checked initial private phase.
++pub struct Caller {
++    table: Table,
++    program: PreparedMachine,
++    rules: Vec<Rule>,
++    owner: std::rc::Rc<()>,
++}
++pub struct CallerRun {
++    owner: std::rc::Rc<()>,
++    query: Option<Query>,
++    machines: VecDeque<(
++        chr_persistent::continuations::Machine,
++        VecDeque<chr_persistent::continuations::Cursor>,
++    )>,
++    call_bound: usize,
++    remaining: usize,
++    error: Option<String>,
++}
++#[derive(Debug)]
++pub enum CallerEvent {
++    Progress,
++    Answer(chr_syntax::Answer),
++    Done,
++}
++impl Caller {
++    pub fn new(rules: Vec<Rule>, private_rules: usize, memo: bool) -> Result<Self, String> {
++        let family = rules
++            .get(..private_rules)
++            .ok_or("invalid private rule count")?
++            .to_vec();
++        Ok(Self {
++            table: Table::new(family, memo)?,
++            program: PreparedMachine::new(rules.clone())?,
++            rules,
++            owner: std::rc::Rc::new(()),
++        })
++    }
++    pub fn start(&self, query: Query, call_bound: usize, caller_bound: usize) -> CallerRun {
++        CallerRun {
++            owner: self.owner.clone(),
++            query: Some(query),
++            machines: VecDeque::new(),
++            call_bound,
++            remaining: caller_bound,
++            error: None,
++        }
++    }
++    pub fn stats(&self) -> Stats {
++        self.table.stats()
++    }
++    pub fn step(&mut self, run: &mut CallerRun) -> Result<CallerEvent, String> {
++        assert!(
++            std::rc::Rc::ptr_eq(&self.owner, &run.owner),
++            "caller run belongs to a different prepared program"
++        );
++        if let Some(error) = &run.error {
++            return Err(error.clone());
++        }
++        let result = self.step_inner(run);
++        if let Err(error) = &result {
++            run.error = Some(error.clone());
++        }
++        result
++    }
++    fn step_inner(&mut self, run: &mut CallerRun) -> Result<CallerEvent, String> {
++        if let Some(mut query) = run.query.take() {
++            let selected = query
++                .constraints
++                .iter()
++                .position(|c| self.table.family.contains(&(c.name.clone(), c.args.len())))
++                .ok_or("query has no private call")?;
++            let answers = self
++                .table
++                .expand_query(&query, selected, &self.rules, run.call_bound)?;
++            query.constraints.remove(selected);
++            for bindings in answers {
++                let (machine, cursor) = self.program.start_replaying(query.clone(), bindings)?;
++                run.machines.push_back((machine, VecDeque::from([cursor])));
++            }
++            return Ok(CallerEvent::Progress);
++        }
++        while run
++            .machines
++            .front()
++            .is_some_and(|(_, cursors)| cursors.is_empty())
++        {
++            run.machines.pop_front();
++        }
++        let Some((machine, cursors)) = run.machines.front_mut() else {
++            return Ok(CallerEvent::Done);
++        };
++        if run.remaining == 0 {
++            return Err("resumed caller reached its service bound".into());
++        }
++        run.remaining -= 1;
++        let cursor = cursors.pop_front().unwrap();
++        match machine.step(cursor) {
++            Step::Continue(c) => cursors.push_back(c),
++            Step::Split(a, b) => {
++                cursors.push_back(a);
++                cursors.push_back(b);
++            }
++            Step::Failed => (),
++            Step::Answer(answer) => return Ok(CallerEvent::Answer(answer)),
++        }
++        Ok(CallerEvent::Progress)
++    }
++}
+diff --git a/research/chr-reuse/tests/call_reuse.rs b/research/chr-reuse/tests/call_reuse.rs
+index 7d0e2713e..9dee03978 100644
+--- a/research/chr-reuse/tests/call_reuse.rs
++++ b/research/chr-reuse/tests/call_reuse.rs
+@@ -563,3 +563,123 @@ fn resumed_caller_can_start_another_private_phase() {
+     }
+     oracle::same_raw(actual, expected);
+ }
++
++#[test]
++fn resumed_machine_imports_replay_and_caller_in_one_variable_scope() {
++    use chr_persistent::continuations::{PreparedMachine, Step};
++    use std::collections::VecDeque;
++    let supply = Rule::simplify("supply", [c("supply", [v(0)])], eq(v(0), atom("a")));
++    let query = Query {
++        constraints: vec![c("supply", [v(7)]), c("observer", [v(8), v(1000)])],
++        outputs: vec![
++            ("input".into(), Var(7)),
++            ("result".into(), Var(8)),
++            ("unrelated".into(), Var(1000)),
++        ],
++    };
++    let bindings = vec![(Var(8), t("pair", [v(7), v(2000), v(2000)]))];
++    let prepared = PreparedMachine::new(vec![supply]).unwrap();
++    let (mut machine, cursor) = prepared.start_replaying(query, bindings).unwrap();
++    let mut frontier = VecDeque::from([cursor]);
++    let mut answers = vec![];
++    for _ in 0..200_000 {
++        let Some(c) = frontier.pop_front() else {
++            break;
++        };
++        match machine.step(c) {
++            Step::Continue(c) => frontier.push_back(c),
++            Step::Split(a, b) => {
++                frontier.push_back(a);
++                frontier.push_back(b);
++            }
++            Step::Failed => (),
++            Step::Answer(a) => answers.push(a),
++        }
++    }
++    assert!(frontier.is_empty());
++    let pair = t("pair", [atom("a"), v(2000), v(2000)]);
++    let expected = chr_syntax::Answer {
++        outputs: vec![
++            ("input".into(), atom("a")),
++            ("result".into(), pair.clone()),
++            ("unrelated".into(), v(1000)),
++        ],
++        residual: vec![c("observer", [pair, v(1000)])],
++    };
++    oracle::same_raw(answers, vec![expected]);
++}
++
++#[test]
++fn complete_caller_path_agrees_and_cancellation_does_not_poison_reuse() {
++    use chr_reuse::calls::{Caller, CallerEvent};
++    for memo in [false, true] {
++        for n in [0, 3, 8] {
++            for conflict in [false, true] {
++                let supply = Rule::simplify("supply", [c("supply", [v(0)])], eq(v(0), atom("a")));
++                let mut global = rules();
++                global.push(supply);
++                let query = Query {
++                    constraints: vec![
++                        c("work", [depth(n), v(7), v(8)]),
++                        c("supply", [v(if conflict { 8 } else { 7 })]),
++                    ],
++                    outputs: vec![("input".into(), Var(7)), ("result".into(), Var(8))],
++                };
++                let expected = oracle::run(&global, &query, 200_000);
++                let mut caller = Caller::new(global, 2, memo).unwrap();
++                // Cancellation before expansion and after expansion retain no caller
++                // effects in prepared rules or cached interface answers.
++                drop(caller.start(query.clone(), 200_000, 200_000));
++                let mut canceled = caller.start(query.clone(), 200_000, 200_000);
++                assert!(matches!(
++                    caller.step(&mut canceled).unwrap(),
++                    CallerEvent::Progress
++                ));
++                drop(canceled);
++                let mut run = caller.start(query, 200_000, 200_000);
++                let mut answers = vec![];
++                let mut done = false;
++                for _ in 0..200_000 {
++                    match caller.step(&mut run).unwrap() {
++                        CallerEvent::Progress => (),
++                        CallerEvent::Answer(a) => answers.push(a),
++                        CallerEvent::Done => {
++                            done = true;
++                            break;
++                        }
++                    }
++                }
++                assert!(done);
++                drop(run);
++                drop(caller);
++                oracle::same_raw(answers, expected);
++            }
++        }
++    }
++}
++
++#[test]
++fn caller_limits_are_terminal_errors_not_exhaustion() {
++    use chr_reuse::calls::{Caller, CallerEvent};
++    let query = Query {
++        constraints: vec![c("work", [depth(8), v(7), v(8)])],
++        outputs: vec![("result".into(), Var(8))],
++    };
++    let mut caller = Caller::new(rules(), 2, true).unwrap();
++    let mut short = caller.start(query.clone(), 1, 200_000);
++    assert!(caller
++        .step(&mut short)
++        .unwrap_err()
++        .contains("service bound"));
++    assert!(caller.step(&mut short).is_err());
++    let mut short = caller.start(query, 200_000, 0);
++    assert!(matches!(
++        caller.step(&mut short).unwrap(),
++        CallerEvent::Progress
++    ));
++    assert!(caller
++        .step(&mut short)
++        .unwrap_err()
++        .contains("resumed caller"));
++    assert!(caller.step(&mut short).is_err());
++}

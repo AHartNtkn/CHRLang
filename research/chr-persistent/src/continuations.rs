@@ -1,5 +1,5 @@
 //! Experimental source-step interface. Cursors belong to their creating machine.
-use crate::{Snapshot, Stats, state, terms};
+use crate::{state, terms, Snapshot, Stats};
 use chr_syntax::{Answer, Query, Rule, Term, Var};
 use std::collections::BTreeMap;
 
@@ -243,6 +243,15 @@ impl PreparedMachine {
         })
     }
     pub fn start(&self, query: Query) -> Result<(Machine, Cursor), String> {
+        self.start_replaying(query, vec![])
+    }
+    /// Import validated interface equations and the remaining caller through
+    /// one scope. Equations execute before any resumed source work.
+    pub fn start_replaying(
+        &self,
+        query: Query,
+        equations: Vec<(Var, Term)>,
+    ) -> Result<(Machine, Cursor), String> {
         let mut names = std::collections::BTreeSet::new();
         for (name, _) in &query.outputs {
             if !names.insert(name) {
@@ -254,7 +263,7 @@ impl PreparedMachine {
             max_frontier: usize::from(crate::COLLECT_METRICS),
             ..Stats::default()
         };
-        let state = state::State::new(query, &mut arena, &mut stats);
+        let state = state::State::new_replaying(query, equations, &mut arena, &mut stats);
         let owner = std::rc::Rc::new(());
         let cursor = Cursor(state, owner.clone());
         Ok((

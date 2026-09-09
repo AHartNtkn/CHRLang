@@ -1,5 +1,7 @@
 # R00: architectural alternatives and first experiment selection
 
+The [complete-caller ownership gate](S05-caller-ownership-gate.md) separates prepared-cache retention from returned answers and canceled caller state. The full path now has semantic and disposal evidence, but no comparative native timings.
+
 The [checked private-phase entry](S05-call-entry-gate.md) supplies an explicit source boundary for call reuse and exposes why selecting the first rule or checking disjoint variables is insufficient. T075 now requires complete resumed-caller lifecycle evidence; general continuation extraction remains open.
 
 The [call-level transport gate](S05-call-transport-gate.md) now demonstrates reuse where complete caller keys differ, with preserved raw answers and fresh aliases. A scheduling counterexample keeps automatic call extraction unresolved; no lifecycle or architecture ranking follows.

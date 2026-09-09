@@ -296,6 +296,8 @@ The subsequent [CHR-expressed constructor/consumption gate](S02-chr-constructors
 
 ### 40. General reconvergence, alpha-equivalent tables and selective recomputation — Not directly resolved
 
+The [complete-caller ownership gate](S05-caller-ownership-gate.md) executes fresh replay and caller continuations directly and verifies prepared-cache/consumer lifetime separation. This enables a full lifecycle pilot; it does not establish a reuse or architecture winner.
+
 The [checked initial-phase entry](S05-call-entry-gate.md) accepts shared caller variables under an explicit priority/ownership contract and validates full resumption. Counterexamples bound simpler admission arguments. General continuation extraction, effects and lifecycle costs remain required.
 
 The subsequent [call-level transport gate](S05-call-transport-gate.md) directly tests reuse across different caller states and fresh-result transport. It exposes a call-entry scheduling counterexample; general relevance, effectful replay, retention and complete costs remain unresolved.

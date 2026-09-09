@@ -563,3 +563,123 @@ fn resumed_caller_can_start_another_private_phase() {
     }
     oracle::same_raw(actual, expected);
 }
+
+#[test]
+fn resumed_machine_imports_replay_and_caller_in_one_variable_scope() {
+    use chr_persistent::continuations::{PreparedMachine, Step};
+    use std::collections::VecDeque;
+    let supply = Rule::simplify("supply", [c("supply", [v(0)])], eq(v(0), atom("a")));
+    let query = Query {
+        constraints: vec![c("supply", [v(7)]), c("observer", [v(8), v(1000)])],
+        outputs: vec![
+            ("input".into(), Var(7)),
+            ("result".into(), Var(8)),
+            ("unrelated".into(), Var(1000)),
+        ],
+    };
+    let bindings = vec![(Var(8), t("pair", [v(7), v(2000), v(2000)]))];
+    let prepared = PreparedMachine::new(vec![supply]).unwrap();
+    let (mut machine, cursor) = prepared.start_replaying(query, bindings).unwrap();
+    let mut frontier = VecDeque::from([cursor]);
+    let mut answers = vec![];
+    for _ in 0..200_000 {
+        let Some(c) = frontier.pop_front() else {
+            break;
+        };
+        match machine.step(c) {
+            Step::Continue(c) => frontier.push_back(c),
+            Step::Split(a, b) => {
+                frontier.push_back(a);
+                frontier.push_back(b);
+            }
+            Step::Failed => (),
+            Step::Answer(a) => answers.push(a),
+        }
+    }
+    assert!(frontier.is_empty());
+    let pair = t("pair", [atom("a"), v(2000), v(2000)]);
+    let expected = chr_syntax::Answer {
+        outputs: vec![
+            ("input".into(), atom("a")),
+            ("result".into(), pair.clone()),
+            ("unrelated".into(), v(1000)),
+        ],
+        residual: vec![c("observer", [pair, v(1000)])],
+    };
+    oracle::same_raw(answers, vec![expected]);
+}
+
+#[test]
+fn complete_caller_path_agrees_and_cancellation_does_not_poison_reuse() {
+    use chr_reuse::calls::{Caller, CallerEvent};
+    for memo in [false, true] {
+        for n in [0, 3, 8] {
+            for conflict in [false, true] {
+                let supply = Rule::simplify("supply", [c("supply", [v(0)])], eq(v(0), atom("a")));
+                let mut global = rules();
+                global.push(supply);
+                let query = Query {
+                    constraints: vec![
+                        c("work", [depth(n), v(7), v(8)]),
+                        c("supply", [v(if conflict { 8 } else { 7 })]),
+                    ],
+                    outputs: vec![("input".into(), Var(7)), ("result".into(), Var(8))],
+                };
+                let expected = oracle::run(&global, &query, 200_000);
+                let mut caller = Caller::new(global, 2, memo).unwrap();
+                // Cancellation before expansion and after expansion retain no caller
+                // effects in prepared rules or cached interface answers.
+                drop(caller.start(query.clone(), 200_000, 200_000));
+                let mut canceled = caller.start(query.clone(), 200_000, 200_000);
+                assert!(matches!(
+                    caller.step(&mut canceled).unwrap(),
+                    CallerEvent::Progress
+                ));
+                drop(canceled);
+                let mut run = caller.start(query, 200_000, 200_000);
+                let mut answers = vec![];
+                let mut done = false;
+                for _ in 0..200_000 {
+                    match caller.step(&mut run).unwrap() {
+                        CallerEvent::Progress => (),
+                        CallerEvent::Answer(a) => answers.push(a),
+                        CallerEvent::Done => {
+                            done = true;
+                            break;
+                        }
+                    }
+                }
+                assert!(done);
+                drop(run);
+                drop(caller);
+                oracle::same_raw(answers, expected);
+            }
+        }
+    }
+}
+
+#[test]
+fn caller_limits_are_terminal_errors_not_exhaustion() {
+    use chr_reuse::calls::{Caller, CallerEvent};
+    let query = Query {
+        constraints: vec![c("work", [depth(8), v(7), v(8)])],
+        outputs: vec![("result".into(), Var(8))],
+    };
+    let mut caller = Caller::new(rules(), 2, true).unwrap();
+    let mut short = caller.start(query.clone(), 1, 200_000);
+    assert!(caller
+        .step(&mut short)
+        .unwrap_err()
+        .contains("service bound"));
+    assert!(caller.step(&mut short).is_err());
+    let mut short = caller.start(query, 200_000, 0);
+    assert!(matches!(
+        caller.step(&mut short).unwrap(),
+        CallerEvent::Progress
+    ));
+    assert!(caller
+        .step(&mut short)
+        .unwrap_err()
+        .contains("resumed caller"));
+    assert!(caller.step(&mut short).is_err());
+}

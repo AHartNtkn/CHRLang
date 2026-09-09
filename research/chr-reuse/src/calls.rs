@@ -261,3 +261,112 @@ impl Table {
         self.stats.clone()
     }
 }
+
+/// Prepared complete-caller path for the checked initial private phase.
+pub struct Caller {
+    table: Table,
+    program: PreparedMachine,
+    rules: Vec<Rule>,
+    owner: std::rc::Rc<()>,
+}
+pub struct CallerRun {
+    owner: std::rc::Rc<()>,
+    query: Option<Query>,
+    machines: VecDeque<(
+        chr_persistent::continuations::Machine,
+        VecDeque<chr_persistent::continuations::Cursor>,
+    )>,
+    call_bound: usize,
+    remaining: usize,
+    error: Option<String>,
+}
+#[derive(Debug)]
+pub enum CallerEvent {
+    Progress,
+    Answer(chr_syntax::Answer),
+    Done,
+}
+impl Caller {
+    pub fn new(rules: Vec<Rule>, private_rules: usize, memo: bool) -> Result<Self, String> {
+        let family = rules
+            .get(..private_rules)
+            .ok_or("invalid private rule count")?
+            .to_vec();
+        Ok(Self {
+            table: Table::new(family, memo)?,
+            program: PreparedMachine::new(rules.clone())?,
+            rules,
+            owner: std::rc::Rc::new(()),
+        })
+    }
+    pub fn start(&self, query: Query, call_bound: usize, caller_bound: usize) -> CallerRun {
+        CallerRun {
+            owner: self.owner.clone(),
+            query: Some(query),
+            machines: VecDeque::new(),
+            call_bound,
+            remaining: caller_bound,
+            error: None,
+        }
+    }
+    pub fn stats(&self) -> Stats {
+        self.table.stats()
+    }
+    pub fn step(&mut self, run: &mut CallerRun) -> Result<CallerEvent, String> {
+        assert!(
+            std::rc::Rc::ptr_eq(&self.owner, &run.owner),
+            "caller run belongs to a different prepared program"
+        );
+        if let Some(error) = &run.error {
+            return Err(error.clone());
+        }
+        let result = self.step_inner(run);
+        if let Err(error) = &result {
+            run.error = Some(error.clone());
+        }
+        result
+    }
+    fn step_inner(&mut self, run: &mut CallerRun) -> Result<CallerEvent, String> {
+        if let Some(mut query) = run.query.take() {
+            let selected = query
+                .constraints
+                .iter()
+                .position(|c| self.table.family.contains(&(c.name.clone(), c.args.len())))
+                .ok_or("query has no private call")?;
+            let answers = self
+                .table
+                .expand_query(&query, selected, &self.rules, run.call_bound)?;
+            query.constraints.remove(selected);
+            for bindings in answers {
+                let (machine, cursor) = self.program.start_replaying(query.clone(), bindings)?;
+                run.machines.push_back((machine, VecDeque::from([cursor])));
+            }
+            return Ok(CallerEvent::Progress);
+        }
+        while run
+            .machines
+            .front()
+            .is_some_and(|(_, cursors)| cursors.is_empty())
+        {
+            run.machines.pop_front();
+        }
+        let Some((machine, cursors)) = run.machines.front_mut() else {
+            return Ok(CallerEvent::Done);
+        };
+        if run.remaining == 0 {
+            return Err("resumed caller reached its service bound".into());
+        }
+        run.remaining -= 1;
+        let cursor = cursors.pop_front().unwrap();
+        match machine.step(cursor) {
+            Step::Continue(c) => cursors.push_back(c),
+            Step::Split(a, b) => {
+                cursors.push_back(a);
+                cursors.push_back(b);
+            }
+            Step::Failed => (),
+            Step::Answer(answer) => return Ok(CallerEvent::Answer(answer)),
+        }
+        Ok(CallerEvent::Progress)
+    }
+}

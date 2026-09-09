@@ -1,7 +1,7 @@
 use crate::{
-    Snapshot, Stats,
     map::Map,
-    terms::{Arena, Bindings, Scope, Term, deref},
+    terms::{deref, Arena, Bindings, Scope, Term},
+    Snapshot, Stats,
 };
 use chr_syntax::{Answer, Constraint, Goal, Guard, Query, Rule, Term as Source, Var};
 use std::rc::Rc;
@@ -108,6 +108,14 @@ struct Application {
 }
 impl State {
     pub fn new(query: Query, arena: &mut Arena, stats: &mut Stats) -> Self {
+        Self::new_replaying(query, vec![], arena, stats)
+    }
+    pub fn new_replaying(
+        query: Query,
+        equations: Vec<(Var, Source)>,
+        arena: &mut Arena,
+        stats: &mut Stats,
+    ) -> Self {
         let mut scope = Scope::new();
         let mut next_var = 0;
         let initial = query
@@ -136,6 +144,16 @@ impl State {
         let mut pending = Pending::default();
         for w in initial.into_iter().rev() {
             pending.push(w, stats);
+        }
+        for (var, value) in equations.into_iter().rev() {
+            let equation = work(
+                &Goal::Unify(Source::Var(var), value),
+                arena,
+                &mut scope,
+                &mut next_var,
+                stats,
+            );
+            pending.push(equation, stats);
         }
         Self {
             pending,
