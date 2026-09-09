@@ -1,6 +1,6 @@
 # Unanswered architecture questions and experimental ownership
 
-The [repeated-reunion gate](results/S04-repeated-reunion-gate.md) validates 30 finite repeated-engine configurations, ongoing sibling service and direct ownership/identity checks. Resolved shared unknowns prevent separation until eligible; inherited history and branch correlation survive repeated rounds. All 28 ordinary and 29 diagnostic restoration tests pass. T077 next compares allocation, work and disposal against Copy and initial-phase reunion before timing. Broader integration and resource-aware lowering remain required; no cost ranking follows.
+The [repeated-reunion ownership gate](results/S04-repeated-reunion-ownership.md) completes 216 allocation processes, 54 preflights, 108 exact pairs and 108 instrumentation-off replays. Longer independent work reduces traffic; frequent reconnection and late shared unknowns expose losses and higher peak demand. Separate work counts attribute the late-link loss to no avoided source steps plus repeated boundary checks. T072 broader integrated heads/history is selected next; adaptive reunion and resource-aware lowering remain required. No timing or architecture ranking follows.
 
 ## How unanswered variants remain accountable
 

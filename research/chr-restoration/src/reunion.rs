@@ -202,9 +202,9 @@ pub struct ReunionEngine {
     old_occ: usize,
     stop_at_body: bool,
     #[cfg(feature = "replay-diagnostic")]
-    local_steps: usize,
+    pub local_steps: usize,
     #[cfg(feature = "replay-diagnostic")]
-    reunion_steps: usize,
+    pub reunion_steps: usize,
     #[cfg(feature = "replay-diagnostic")]
     products: usize,
     error: Option<String>,
@@ -496,6 +496,8 @@ impl PreparedPhase {
             epochs: 0,
             #[cfg(feature = "replay-diagnostic")]
             coupled_boundaries: 0,
+            #[cfg(feature = "replay-diagnostic")]
+            work: RepeatedWork::default(),
         };
         engine.admit(State::new(query)?);
         Ok(engine)
@@ -506,6 +508,15 @@ enum Job {
     Coupled(State),
 }
 /// FIFO service of branch-specific epochs and states not currently independent.
+#[cfg(feature = "replay-diagnostic")]
+#[derive(Default, Debug)]
+pub struct RepeatedWork {
+    pub private_steps: usize,
+    pub coupled_steps: usize,
+    pub boundary_checks: usize,
+    pub inherited_bindings: usize,
+    pub inherited_history: usize,
+}
 pub struct RepeatedEngine {
     prepared: Arc<PreparedPhase>,
     outputs: Vec<(String, Var)>,
@@ -515,13 +526,21 @@ pub struct RepeatedEngine {
     pub epochs: usize,
     #[cfg(feature = "replay-diagnostic")]
     pub coupled_boundaries: usize,
+    #[cfg(feature = "replay-diagnostic")]
+    pub work: RepeatedWork,
 }
 impl RepeatedEngine {
     fn admit(&mut self, state: State) {
+        #[cfg(feature = "replay-diagnostic")]
+        {
+            self.work.boundary_checks += 1;
+        }
         if let Some(epoch) = self.prepared.epoch(&state) {
             #[cfg(feature = "replay-diagnostic")]
             {
                 self.epochs += 1;
+                self.work.inherited_bindings += state.bindings.len() * epoch.saved.len();
+                self.work.inherited_history += state.history.len() * epoch.saved.len();
             }
             self.jobs.push_back(Job::Phase(Box::new(epoch)));
         } else {
@@ -548,7 +567,14 @@ impl RepeatedEngine {
         };
         match job {
             Job::Phase(mut phase) => {
+                #[cfg(feature = "replay-diagnostic")]
+                let before = (phase.local_steps, phase.reunion_steps);
                 let event = phase.advance_phase()?;
+                #[cfg(feature = "replay-diagnostic")]
+                {
+                    self.work.private_steps += phase.local_steps - before.0;
+                    self.work.coupled_steps += phase.reunion_steps - before.1;
+                }
                 if !matches!(event, PhaseEvent::Exhausted) {
                     self.jobs.push_back(Job::Phase(phase));
                 }
@@ -559,6 +585,10 @@ impl RepeatedEngine {
                 }
             }
             Job::Coupled(mut state) => {
+                #[cfg(feature = "replay-diagnostic")]
+                {
+                    self.work.coupled_steps += 1;
+                }
                 match state.step(&self.prepared.rules, None, &mut Recorder::new(false)) {
                     Event::Progress => {
                         if state.pending.is_empty() {

@@ -64,16 +64,17 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T077
+active_task: T072
 tasks:
   - id: T077
     type: pm
     assignee: PM
-    status: active
-    progress: Repeated separation now passes 30 finite source configurations, ongoing sibling publication and direct resolved-root, transport/history and cancellation checks. Complete raw answers agree with scalar and existing controls. All 28 ordinary and 29 diagnostic restoration tests and scoped strict Clippy pass. No comparative costs have run for repeated separation.
-    next_action: Register a bounded work/allocation/ownership comparison of Copy, initial-phase reunion and repeated reunion. Include frequent reconnection, substantive private work, late links, inherited history and changed-query reuse. Charge complete measured lifecycle and cancellation before ordinary timing. Reconsider broader integration and resource-aware lowering after this cost gate.
+    status: pending
+    progress: Repeated reunion has 216 allocation runs, 54 preflights, 108 exact pairs and 108 instrumentation-off replays. All ownership baselines pass. Separate work counts expose late-link overhead without avoided source steps; longer independent work reduces traffic with higher peak demand. No timing conclusion follows.
+    next_action: Adaptive splitting must distinguish benefit from eligibility and charge boundary checks, retained history and cancellation. Broader ownership, lifetime and complete costs remain required. T072 broader integrated heads/history is selected next.
     objective: Investigate corrected checkpoint and replay policies, working-state reuse and temporary separation/reunion against competent copying, persistence and undo, preserving complete source behavior and accounting for preparation, execution, observation and disposal.
     inputs:
+      - docs/experiments/results/S04-repeated-reunion-ownership.md
       - docs/experiments/results/S04-repeated-reunion-gate.md
       - docs/experiments/results/S02-repeated-alias-lifecycle.md
       - docs/experiments/results/S04-reunion-complete-pilot.md
@@ -254,9 +255,9 @@ tasks:
   - id: T072
     type: pm
     assignee: PM
-    status: pending
+    status: active
     progress: Two 784-process matrices, 168 preflight work gates and 140 frozen-binary calibration processes complete. Filtering before queue materialization changes only Filtered execution allocation; all 84 work cells and 86 other allocation cells agree. CPU timing exposes some scheduling delay but near-mode ranges remain uncertain. The four-package review authorized this correction; T077 is selected next.
-    next_action: Broader integrated heads/history, alternative organizations, peak ownership, larger update regimes and sustained lifetime remain required. Carry the corrected Filtered control and conditional allocation findings forward. Reconsider these against resource-aware lowering at the next T077 source-gate boundary.
+    next_action: Register a source gate combining equality updates with multi-head matching, occurrence-sensitive propagation history and competing consumers. Compare the local rewrite organization with conventional execution and independent scalar answers. Reconsider resource-aware lowering and adaptive reunion at its boundary.
     objective: Establish a contextual equality and local consuming-rewrite source comparison that demonstrates useful interleaving, distinct resource ownership and independent complete-answer correctness before cost registration.
     inputs:
       - docs/experiments/results/S02-repeated-alias-lifecycle.md
@@ -2305,14 +2306,14 @@ checks:
   last_verification:
     result: passed
     task: T077
-    scope: Repeated source separation, inherited identity/history and cancellation ownership.
+    scope: Repeated reunion allocation, source work and disposal ownership.
     commands:
-      - cargo test -p chr-restoration --tests
-      - cargo test -p chr-restoration --tests --features replay-diagnostic
-      - cargo clippy -p chr-restoration --lib --test reunion --features replay-diagnostic --no-deps -- -D warnings
-      - Explicit-file rustfmt and local evidence-link validation
+      - 216 allocation processes and 54 independent-source preflights
+      - 108 exact allocation pairs and 108 instrumentation-off exact replays
+      - 54 scalar-validated diagnostic work configurations
+      - Ordinary and diagnostic restoration tests; scoped Clippy with constant feature-guard assertions allowed
+      - Explicit-file formatting, evidence links and allocation receipt audit
     evidence:
-      - docs/experiments/results/S04-repeated-reunion-gate.md
-      - docs/experiments/results/s04-repeated-reunion-gate/default.log
-      - docs/experiments/results/s04-repeated-reunion-gate/diagnostic.log
-      - docs/experiments/results/s04-repeated-reunion-gate/clippy.log
+      - docs/experiments/results/S04-repeated-reunion-ownership.md
+      - docs/experiments/results/s04-repeated-reunion-ownership/audit.json
+      - docs/experiments/results/s04-repeated-reunion-ownership/instrumentation-audit.json
