@@ -1,5 +1,8 @@
 # Unanswered architecture questions and experimental ownership
 
+The [resident replay gate](results/S04-resident-replay-source-gate.md) removes repeated reconstruction when only one branch remains: 100 continuing service calls now execute 100 rather than 5,050 source steps. Exact finite/ongoing event traces, independent answers and checkpoint release checks pass; all 72 broader work cells validate. Competing branches still expose large reconstruction counts. T077 remains active for complete cost/ownership comparison and actual temporary reunion; no timing conclusion follows.
+
+
 The [ordinary structural pilot](results/S06-finite-timing-pilot.md) now completes 1,800 audited processes. Lazy solving has a favorable six-bit equality regime; reused enumeration is cheaper on unselective/overlap cases, and the exact-family control is stronger in the inspected examples. Timings are exploratory, with separate allocation evidence. T077 restoration/reunion is selected next; T076 remains pending for broader structural scope and lifetime. The architecture decision remains open.
 
 

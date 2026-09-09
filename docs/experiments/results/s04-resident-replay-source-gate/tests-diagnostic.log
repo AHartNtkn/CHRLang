@@ -1,0 +1,30 @@
+   Compiling chr-restoration v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-restoration)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.23s
+     Running unittests src/lib.rs (target/debug/deps/chr_restoration-9887f0d29b573ccc)
+
+running 5 tests
+test tests::change_sequence_restores_all_mutable_state_then_redoes_it ... ok
+test tests::returning_to_a_sole_branch_releases_its_saved_checkpoint ... ok
+test tests::lone_branch_releases_obsolete_checkpoint_and_trail_history ... ok
+test tests::sole_replay_branch_executes_one_source_step_per_service ... ok
+test tests::root_precheck_preserves_full_matching_with_aliases_and_pattern_scopes ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.41s
+
+     Running tests/source.rs (target/debug/deps/source-1f1d3b86c30c4e48)
+
+running 5 tests
+test unsupported_rules_and_exhausted_initial_identity_are_explicit_errors ... ok
+test fair_finite_sibling_and_cancelled_query_reuse ... ok
+test all_compatible_partners_preserve_large_values_and_joint_unknowns ... ok
+test nested_choices_restore_pending_tails_and_failed_branches ... ok
+test complete_source_modes_preserve_rollback_and_multiplicity ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+   Doc-tests chr_restoration
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

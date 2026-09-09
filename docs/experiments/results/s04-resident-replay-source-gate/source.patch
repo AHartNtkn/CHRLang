@@ -1,0 +1,365 @@
+diff --git a/research/chr-restoration/src/lib.rs b/research/chr-restoration/src/lib.rs
+index 3366bb3ec..dbeeaa7f7 100644
+--- a/research/chr-restoration/src/lib.rs
++++ b/research/chr-restoration/src/lib.rs
+@@ -434,11 +434,8 @@ impl Prepared {
+                     Mode::Checkpoint(n) => Some(n),
+                     _ => None,
+                 },
+-                frontier: VecDeque::from([Recipe {
+-                    checkpoint: Arc::new(initial),
+-                    choices: vec![],
+-                    steps: 0,
+-                }]),
++                frontier: VecDeque::new(),
++                resident: Some(initial),
+             },
+             Mode::Trail => {
+                 let root = Arc::new(Node {
+@@ -503,6 +500,7 @@ struct Recipe {
+     choices: Vec<bool>,
+     steps: usize,
+ }
++
+ enum Backend {
+     Copy(VecDeque<State>),
+     Trail {
+@@ -513,8 +511,11 @@ enum Backend {
+     Replay {
+         interval: Option<NonZeroUsize>,
+         frontier: VecDeque<Recipe>,
++        // Mutually exclusive with pending saved recipes: the sole working state.
++        resident: Option<State>,
+     },
+ }
++#[derive(Debug, PartialEq, Eq)]
+ pub enum Step {
+     Progress,
+     Answer(Answer),
+@@ -575,30 +576,54 @@ impl Engine {
+                     }
+                 }
+             }
+-            Backend::Replay { interval, frontier } => {
+-                let Some(recipe) = frontier.pop_front() else {
+-                    return Step::Exhausted;
+-                };
+-                let mut state = recipe.checkpoint.as_ref().clone();
+-                let mut choices = recipe.choices.iter();
+-                for _ in 0..recipe.steps {
+-                    let choice = if state.needs_choice() {
+-                        Some(*choices.next().expect("recorded choice"))
+-                    } else {
+-                        None
++            Backend::Replay {
++                interval,
++                frontier,
++                resident,
++            } => {
++                let (mut state, saved) = if let Some(state) = resident.take() {
++                    assert!(frontier.is_empty(), "resident replay state must be sole");
++                    (state, None)
++                } else {
++                    let Some(Recipe {
++                        checkpoint,
++                        choices,
++                        steps,
++                    }) = frontier.pop_front()
++                    else {
++                        return Step::Exhausted;
+                     };
+-                    assert!(
+-                        matches!(
+-                            state.step(&self.prepared.rules, choice, &mut Recorder::new(false)),
+-                            Event::Progress
+-                        ),
+-                        "replayed nonterminal prefix"
+-                    );
+-                }
+-                assert!(choices.next().is_none());
++                    let mut state = checkpoint.as_ref().clone();
++                    let mut decisions = choices.iter();
++                    for _ in 0..steps {
++                        let choice = if state.needs_choice() {
++                            Some(*decisions.next().expect("recorded choice"))
++                        } else {
++                            None
++                        };
++                        assert!(
++                            matches!(
++                                state.step(&self.prepared.rules, choice, &mut Recorder::new(false)),
++                                Event::Progress
++                            ),
++                            "replayed nonterminal prefix"
++                        );
++                    }
++                    assert!(decisions.next().is_none());
++                    (state, Some((checkpoint, choices, steps)))
++                };
++                // A sole live branch needs a checkpoint only if it now forks.
++                // Retain the actual pending choice to restore the pre-fork state.
++                let pending_choice = if saved.is_none() && state.needs_choice() {
++                    state.pending.last().cloned()
++                } else {
++                    None
++                };
+                 match state.step(&self.prepared.rules, None, &mut Recorder::new(false)) {
++                    Event::Progress if frontier.is_empty() => *resident = Some(state),
+                     Event::Progress => {
+-                        if interval.is_some_and(|n| recipe.steps + 1 >= n.get()) {
++                        let (checkpoint, choices, steps) = saved.expect("competing saved branch");
++                        if interval.is_some_and(|n| steps + 1 >= n.get()) {
+                             frontier.push_back(Recipe {
+                                 checkpoint: Arc::new(state),
+                                 choices: vec![],
+@@ -606,21 +631,30 @@ impl Engine {
+                             });
+                         } else {
+                             frontier.push_back(Recipe {
+-                                steps: recipe.steps + 1,
+-                                ..recipe
++                                checkpoint,
++                                choices,
++                                steps: steps + 1,
+                             });
+                         }
+                     }
+                     Event::Failed => (),
+                     Event::Answer => return Step::Answer(state.answer(&self.outputs)),
+                     Event::Fork(_, _) => {
++                        let (checkpoint, choices, steps) = if let Some(saved) = saved {
++                            saved
++                        } else {
++                            state
++                                .pending
++                                .push(pending_choice.expect("fork had a pending choice"));
++                            (Arc::new(state), vec![], 0)
++                        };
+                         for choice in [false, true] {
+-                            let mut choices = recipe.choices.clone();
+-                            choices.push(choice);
++                            let mut child_choices = choices.clone();
++                            child_choices.push(choice);
+                             frontier.push_back(Recipe {
+-                                checkpoint: recipe.checkpoint.clone(),
+-                                choices,
+-                                steps: recipe.steps + 1,
++                                checkpoint: checkpoint.clone(),
++                                choices: child_choices,
++                                steps: steps + 1,
+                             });
+                         }
+                     }
+@@ -635,6 +669,32 @@ impl Engine {
+ mod tests {
+     use super::*;
+     use chr_syntax::{and, atom, c, eq, v};
++    #[cfg(feature = "replay-diagnostic")]
++    #[test]
++    fn sole_replay_branch_executes_one_source_step_per_service() {
++        let rules = [Rule::simplify(
++            "loop",
++            [c("loop", [])],
++            c("loop", []).into(),
++        )];
++        let p = Prepared::new(&rules).unwrap();
++        let q = Query {
++            constraints: vec![c("loop", [])],
++            outputs: vec![],
++        };
++        for mode in [
++            Mode::Replay,
++            Mode::Checkpoint(4.try_into().unwrap()),
++            Mode::Checkpoint(16.try_into().unwrap()),
++        ] {
++            let mut engine = p.start(&q, mode).unwrap();
++            diagnostics::reset();
++            for _ in 0..100 {
++                assert_eq!(engine.advance(), Step::Progress);
++            }
++            assert_eq!(diagnostics::steps(), 100);
++        }
++    }
+     #[test]
+     fn root_precheck_preserves_full_matching_with_aliases_and_pattern_scopes() {
+         use chr_syntax::t;
+@@ -719,19 +779,14 @@ mod tests {
+             let mut engine = prepared
+                 .start(&q, Mode::Checkpoint(NonZeroUsize::new(interval).unwrap()))
+                 .unwrap();
+-            let old = match &engine.backend {
+-                Backend::Replay { frontier, .. } => Arc::downgrade(&frontier[0].checkpoint),
+-                _ => unreachable!(),
+-            };
+-            for _ in 0..interval {
+-                assert!(matches!(engine.advance(), Step::Progress));
++            for _ in 0..100 {
++                assert_eq!(engine.advance(), Step::Progress);
+             }
+-            assert!(old.upgrade().is_none(), "obsolete checkpoint retained");
+             match &engine.backend {
+-                Backend::Replay { frontier, .. } => {
+-                    assert_eq!(frontier.len(), 1);
+-                    assert_eq!(frontier[0].steps, 0);
+-                    assert!(frontier[0].choices.is_empty());
++                Backend::Replay {
++                    frontier, resident, ..
++                } => {
++                    assert!(frontier.is_empty() && resident.is_some())
+                 }
+                 _ => unreachable!(),
+             }
+@@ -757,6 +812,55 @@ mod tests {
+         }
+     }
+     #[test]
++    fn returning_to_a_sole_branch_releases_its_saved_checkpoint() {
++        use chr_syntax::{Goal, or};
++        let rules = [
++            Rule::simplify(
++                "start",
++                [c("start", [])],
++                or(Goal::Fail, c("loop", []).into()),
++            ),
++            Rule::simplify("loop", [c("loop", [])], c("loop", []).into()),
++        ];
++        let prepared = Prepared::new(&rules).unwrap();
++        let query = Query {
++            constraints: vec![c("start", [])],
++            outputs: vec![],
++        };
++        for mode in [
++            Mode::Replay,
++            Mode::Checkpoint(1.try_into().unwrap()),
++            Mode::Checkpoint(16.try_into().unwrap()),
++        ] {
++            let mut engine = prepared.start(&query, mode).unwrap();
++            let mut saved = None;
++            for _ in 0..20 {
++                assert_eq!(engine.advance(), Step::Progress);
++                if let Backend::Replay { frontier, .. } = &engine.backend
++                    && let Some(Recipe { checkpoint, .. }) = frontier.front()
++                {
++                    saved = Some(Arc::downgrade(checkpoint));
++                    break;
++                }
++            }
++            let saved = saved.expect("fork must create a shared checkpoint");
++            assert!(saved.upgrade().is_some());
++            for _ in 0..100 {
++                assert_eq!(engine.advance(), Step::Progress);
++            }
++            assert!(
++                saved.upgrade().is_none(),
++                "sole branch retained saved history"
++            );
++            match &engine.backend {
++                Backend::Replay {
++                    frontier, resident, ..
++                } => assert!(frontier.is_empty() && resident.is_some()),
++                _ => unreachable!(),
++            }
++        }
++    }
++    #[test]
+     fn change_sequence_restores_all_mutable_state_then_redoes_it() {
+         let rules = vec![
+             Rule::propagate("watch", [c("token", [v(0)])], c("seen", [v(0)]).into()),
+@@ -852,7 +956,7 @@ pub mod diagnostics {
+         pub answers: Vec<Answer>,
+     }
+     pub fn project(rules: &[Rule], query: &Query, bound: usize) -> Projection {
+-        let mut frontier = VecDeque::from([(State::new(query).unwrap(), 0u64)]);
++        let mut frontier = VecDeque::from([(State::new(query).unwrap(), None::<u64>)]);
+         let mut result = Projection {
+             service_steps: 0,
+             root_replay_steps: 0,
+@@ -863,17 +967,24 @@ pub mod diagnostics {
+                 return result;
+             };
+             result.service_steps += 1;
+-            result.root_replay_steps += prefix + 1;
++            result.root_replay_steps += prefix.map_or(1, |n| n + 1);
+             match state.step(rules, None, &mut Recorder::new(false)) {
+-                Event::Progress => frontier.push_back((state, prefix + 1)),
++                Event::Progress => {
++                    let next = if frontier.is_empty() {
++                        None
++                    } else {
++                        Some(prefix.expect("saved competing branch") + 1)
++                    };
++                    frontier.push_back((state, next));
++                }
+                 Event::Failed => (),
+                 Event::Answer => result.answers.push(state.answer(&query.outputs)),
+                 Event::Fork(a, b) => {
+                     let mut right = state.clone();
+                     state.pending.push(a);
+                     right.pending.push(b);
+-                    frontier.push_back((state, prefix + 1));
+-                    frontier.push_back((right, prefix + 1));
++                    frontier.push_back((state, Some(prefix.map_or(1, |n| n + 1))));
++                    frontier.push_back((right, Some(prefix.map_or(1, |n| n + 1))));
+                 }
+             }
+         }
+diff --git a/research/chr-restoration/tests/source.rs b/research/chr-restoration/tests/source.rs
+index 2732ceaf2..0bd4c7040 100644
+--- a/research/chr-restoration/tests/source.rs
++++ b/research/chr-restoration/tests/source.rs
+@@ -41,10 +41,36 @@ fn control(rules: &[Rule], q: &Query, access: chr_compiled::Access) -> Vec<Answe
+     }
+     panic!("dedicated source control cutoff");
+ }
++fn trace(p: &std::sync::Arc<Prepared>, q: &Query, mode: Mode) -> Vec<Step> {
++    let mut engine = p.start(q, mode).unwrap();
++    let mut events = vec![];
++    for _ in 0..100000 {
++        let event = engine.advance();
++        let done = matches!(event, Step::Exhausted);
++        events.push(event);
++        if done {
++            return events;
++        }
++    }
++    panic!("event trace cutoff");
++}
+ fn compare(rules: &[Rule], q: &Query, expected: &[Answer]) {
+     let prepared = Prepared::new(rules).unwrap();
++    let expected_trace = trace(&prepared, q, Mode::Copy);
+     for mode in modes() {
+-        oracle::same_raw(run(&prepared, q, mode), expected.to_vec());
++        let events = trace(&prepared, q, mode);
++        assert_eq!(events, expected_trace, "service order changes in {mode:?}");
++        let answers = events
++            .into_iter()
++            .filter_map(|e| {
++                if let Step::Answer(a) = e {
++                    Some(a)
++                } else {
++                    None
++                }
++            })
++            .collect();
++        oracle::same_raw(answers, expected.to_vec());
+     }
+     for access in [chr_compiled::Access::Scan, chr_compiled::Access::Indexed] {
+         oracle::same_raw(control(rules, q, access), expected.to_vec());
+@@ -216,11 +242,15 @@ fn fair_finite_sibling_and_cancelled_query_reuse() {
+         constraints: vec![c("start", [v(50)])],
+         outputs: vec![("x".into(), Var(50))],
+     };
++    let mut copying = p.start(&q, Mode::Copy).unwrap();
++    let expected_events = (0..100).map(|_| copying.advance()).collect::<Vec<_>>();
+     for mode in modes() {
+         let mut e = p.start(&q, mode).unwrap();
+         let mut answers = Vec::new();
+-        for _ in 0..100 {
+-            match e.advance() {
++        for expected_event in &expected_events {
++            let event = e.advance();
++            assert_eq!(&event, expected_event);
++            match event {
+                 Step::Answer(a) => answers.push(a),
+                 Step::Progress => (),
+                 Step::Exhausted => panic!("ongoing branch exhausted"),

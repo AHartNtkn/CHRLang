@@ -41,10 +41,36 @@ fn control(rules: &[Rule], q: &Query, access: chr_compiled::Access) -> Vec<Answe
     }
     panic!("dedicated source control cutoff");
 }
+fn trace(p: &std::sync::Arc<Prepared>, q: &Query, mode: Mode) -> Vec<Step> {
+    let mut engine = p.start(q, mode).unwrap();
+    let mut events = vec![];
+    for _ in 0..100000 {
+        let event = engine.advance();
+        let done = matches!(event, Step::Exhausted);
+        events.push(event);
+        if done {
+            return events;
+        }
+    }
+    panic!("event trace cutoff");
+}
 fn compare(rules: &[Rule], q: &Query, expected: &[Answer]) {
     let prepared = Prepared::new(rules).unwrap();
+    let expected_trace = trace(&prepared, q, Mode::Copy);
     for mode in modes() {
-        oracle::same_raw(run(&prepared, q, mode), expected.to_vec());
+        let events = trace(&prepared, q, mode);
+        assert_eq!(events, expected_trace, "service order changes in {mode:?}");
+        let answers = events
+            .into_iter()
+            .filter_map(|e| {
+                if let Step::Answer(a) = e {
+                    Some(a)
+                } else {
+                    None
+                }
+            })
+            .collect();
+        oracle::same_raw(answers, expected.to_vec());
     }
     for access in [chr_compiled::Access::Scan, chr_compiled::Access::Indexed] {
         oracle::same_raw(control(rules, q, access), expected.to_vec());
@@ -216,11 +242,15 @@ fn fair_finite_sibling_and_cancelled_query_reuse() {
         constraints: vec![c("start", [v(50)])],
         outputs: vec![("x".into(), Var(50))],
     };
+    let mut copying = p.start(&q, Mode::Copy).unwrap();
+    let expected_events = (0..100).map(|_| copying.advance()).collect::<Vec<_>>();
     for mode in modes() {
         let mut e = p.start(&q, mode).unwrap();
         let mut answers = Vec::new();
-        for _ in 0..100 {
-            match e.advance() {
+        for expected_event in &expected_events {
+            let event = e.advance();
+            assert_eq!(&event, expected_event);
+            match event {
                 Step::Answer(a) => answers.push(a),
                 Step::Progress => (),
                 Step::Exhausted => panic!("ongoing branch exhausted"),

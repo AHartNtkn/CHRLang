@@ -264,6 +264,8 @@ All new results link raw inputs, commands, freezes, validation and unfavorable o
 
 ## Current execution order
 
+The [resident replay gate](results/S04-resident-replay-source-gate.md) now keeps a sole working branch without reconstructing its prefix, preserving public event order and checkpoint ownership. T077's next bounded comparison measures complete costs across checkpoint intervals and adverse state shapes. Actual separation/reunion remains independent required work; the source-step reduction is not a runtime ranking.
+
 **T077 is active for restoration policies and temporary reunion.** The [ordinary structural pilot](results/S06-finite-timing-pilot.md) now has 1,800 audited processes and conditional CPU/memory evidence. The [selection record](results/S06-finite-next-investigation.md) moves to the distinct restoration comparison. Root replay and configurable checkpoints already exist; extend their evidence and implement actual reunion where needed. Broader T076 structural work remains required.
 
 The [overlap attribution](results/S06-overlap-factor-attribution.md) now corrects a consequential representation cost while preserving child correlation and source multiplicity. The [four-package breadth review](results/S06-structural-breadth-review.md) selects a bounded ordinary-timing pilot over the validated complete controls before returning to restoration/reunion. T076 remains active; broader structural and other architectural questions remain required.
