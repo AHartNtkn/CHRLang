@@ -264,6 +264,8 @@ All new results link raw inputs, commands, freezes, validation and unfavorable o
 
 ## Current execution order
 
+The [CHR-expressed forest gate](results/S02-chr-forest-gate.md) establishes ground-identifier partition correctness, actual path compression and stale-link repair. Constructor consistency and consuming execution remain the next T072 source comparison; this gate supplies no timing or architecture ranking.
+
 **T072 is active: distinct integrated equality, matching and consuming execution.** The [reclamation breadth review](results/S08-lifetime-breadth-review.md) selects this investigation after the bounded lifetime pilot. Existing relational and contextual measurements supply controls; they do not resolve union-find expressed through CHR or strategic port rewriting.
 
 Follow the [next discriminating comparisons](remaining-investigations.md#next-discriminating-comparisons) for concrete source gates, controls and follow-through. The default next distinct investigations are call-level reuse, structural solving, and restoration with reconnection. Language and lifetime costs accompany each. Return to the remaining mechanism schedule afterward; no stage is discharged by completing this cycle.
