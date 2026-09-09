@@ -46,13 +46,7 @@ struct Node {
     view: NodeView,
     max_variable: Option<usize>,
 }
-/// Diagnostic row: operation tag, canonical operand IDs, cheap-root flag,
-/// serviced frames, result ID (usize::MAX while unfinished).
-#[cfg(feature = "support-trace")]
-pub type OperationTrace = [usize; 6];
 pub struct Arena {
-    #[cfg(feature = "support-trace")]
-    trace: std::cell::RefCell<Vec<OperationTrace>>,
     nodes: Vec<Node>,
     unique: BTreeMap<(usize, Support, Support), Support>,
     variables: usize,
@@ -65,8 +59,6 @@ impl Default for Arena {
 impl Arena {
     pub fn new() -> Self {
         Self {
-            #[cfg(feature = "support-trace")]
-            trace: std::cell::RefCell::new(vec![]),
             nodes: vec![
                 Node {
                     view: NodeView::False,
@@ -80,10 +72,6 @@ impl Arena {
             unique: BTreeMap::new(),
             variables: 0,
         }
-    }
-    #[cfg(feature = "support-trace")]
-    pub fn operation_trace(&self) -> std::cell::Ref<'_, Vec<OperationTrace>> {
-        self.trace.borrow()
     }
     pub fn fresh_variable(&mut self) -> (usize, Support) {
         let variable = self.variables;
@@ -188,23 +176,7 @@ impl Arena {
         self.inspect(a);
         self.inspect(b);
         let root = kind.key(a, b);
-        #[cfg(feature = "support-trace")]
-        let trace_index = {
-            let mut trace = self.trace.borrow_mut();
-            let index = trace.len();
-            trace.push([
-                kind as usize,
-                root.0.index(),
-                root.1.index(),
-                usize::from(kind.simple(root).is_some()),
-                0,
-                usize::MAX,
-            ]);
-            index
-        };
         Job {
-            #[cfg(feature = "support-trace")]
-            trace_index,
             kind,
             root,
             frames: vec![Frame::Evaluate(root)],
@@ -278,8 +250,6 @@ enum Frame {
 /// An apply job owns its continuation and memo table. Interleaved jobs share only
 /// immutable nodes and the arena's canonical node table, never projected worlds.
 pub struct Job {
-    #[cfg(feature = "support-trace")]
-    trace_index: usize,
     kind: Kind,
     root: Key,
     frames: Vec<Frame>,
@@ -303,10 +273,6 @@ impl Job {
         #[cfg(feature = "metrics")]
         {
             self.work.ticks += 1;
-        }
-        #[cfg(feature = "support-trace")]
-        {
-            arena.trace.borrow_mut()[self.trace_index][4] += 1;
         }
         match self
             .frames
@@ -388,10 +354,6 @@ impl Job {
         if self.frames.is_empty() {
             let result = self.memo[&self.root];
             self.result = Some(result);
-            #[cfg(feature = "support-trace")]
-            {
-                arena.trace.borrow_mut()[self.trace_index][5] = result.index();
-            }
             Status::Complete(result)
         } else {
             Status::Pending

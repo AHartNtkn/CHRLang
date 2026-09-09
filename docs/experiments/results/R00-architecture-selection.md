@@ -84,6 +84,8 @@ The [stream stage attribution](S08-stream-allocation-attribution.md) completes16
 
 The [support-operation attribution](S08-support-allocation-attribution.md) completes16 processes/eight exact replays with unchanged prior allocation, service and owner counts. Support jobs account for98.2% of execution allocation on the inferred depth64 alias stream. T074 next measures repeated operation identities before choosing an optimization; breadth review follows that fourth package.
 
+The [Boolean repetition and breadth review](S08-support-repetition.md) completes32 processes/16 exact traces. Depth64 repeats8,544 substantive roots for576,600 later frames; depth0 has only185 cheap jobs. The fourth-package review selects an independent comparison of direct cheap-root handling and bounded completed-result reuse, with correctness/ownership gates before cost claims.
+
 ## Generated incremental execution with explicit search state
 
 Rules compile to occurrence entry points and partner-access plans. Query constraints become distinct live occurrences; term constructors use a shared immutable arena and logical variables use context-specific binding identities. Introductions and changed variable classes activate relevant entry points. Nonbinding matching reads established structure; unsuccessful matches retain sufficient dependencies to be reconsidered when bindings or partners arrive.

@@ -74,19 +74,3 @@ required-features = ["experiment"]
 name = "chr-derivation-cost"
 path = "experiments/derivation_cost.rs"
 required-features = ["experiment"]
-
-[[example]]
-name = "support_repetition"
-required-features = ["experiment", "support-trace", "head-dispatch"]
-
-[[example]]
-name = "support_attribution"
-required-features = ["support-allocation", "head-dispatch"]
-
-[[example]]
-name = "stream_attribution"
-required-features = ["alloc-meter", "head-dispatch"]
-
-[[example]]
-name = "sustained_ownership"
-required-features = ["alloc-meter", "head-dispatch"]

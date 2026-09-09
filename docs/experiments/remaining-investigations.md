@@ -12,6 +12,8 @@ The [stream stage attribution](results/S08-stream-allocation-attribution.md) com
 
 The [support-operation attribution](results/S08-support-allocation-attribution.md) completes16 processes/eight exact replays with unchanged prior allocation, service and owner counts. Support jobs account for98.2% of execution allocation on the inferred depth64 alias stream. T074 next measures repeated operation identities before choosing an optimization; breadth review follows that fourth package.
 
+The [Boolean repetition and breadth review](results/S08-support-repetition.md) completes32 processes/16 exact traces. Depth64 repeats8,544 substantive roots for576,600 later frames; depth0 has only185 cheap jobs. The fourth-package review selects an independent comparison of direct cheap-root handling and bounded completed-result reuse, with correctness/ownership gates before cost claims.
+
 ## Starting evidence and immediate decision
 
 The [S07 premise audit](results/S07-resource-premises.md) now supplies accepted/rejected sources and counterexamples: privacy and groundness differ from the stronger optimization certificate. The [executable contract gate](results/S07-resource-contract.md) now enforces those separate properties at preparation and search admission. The bounded declaration lifecycle pilot charges their checking costs. No language policy is adopted. The selective lifecycle pilot supplies a stronger control. Equality invalidation and source elimination now have full pilot costs and a dynamic-identity attribution; support-aware joining has bounded lifecycle evidence; broader joins remain required.

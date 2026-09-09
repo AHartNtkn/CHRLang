@@ -14,6 +14,8 @@ The [stream stage attribution](results/S08-stream-allocation-attribution.md) com
 
 The [support-operation attribution](results/S08-support-allocation-attribution.md) completes16 processes/eight exact replays with unchanged prior allocation, service and owner counts. Support jobs account for98.2% of execution allocation on the inferred depth64 alias stream. T074 next measures repeated operation identities before choosing an optimization; breadth review follows that fourth package.
 
+The [Boolean repetition and breadth review](results/S08-support-repetition.md) completes32 processes/16 exact traces. Depth64 repeats8,544 substantive roots for576,600 later frames; depth0 has only185 cheap jobs. The fourth-package review selects an independent comparison of direct cheap-root handling and bounded completed-result reuse, with correctness/ownership gates before cost claims.
+
 ## How unanswered variants remain accountable
 
 The [entry-by-entry experiment map](question-to-experiment-map.md) gives all 57 reviewed decisions a specific required comparison and decision criterion. The stage assignments below remain the ownership summary; results must state which individual propositions and variants they resolve.
