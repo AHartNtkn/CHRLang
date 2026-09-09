@@ -1,0 +1,26 @@
+{
+  "command": [
+    "rustc",
+    "--edition",
+    "2024",
+    "-C",
+    "opt-level=3",
+    "-C",
+    "codegen-units=1",
+    "-C",
+    "lto=off",
+    "/home/ahart/Documents/CHRLang/target/s01-artifact-boundary/dispatch16.rs",
+    "--extern",
+    "chr_compiled=/home/ahart/Documents/CHRLang/target/s01-link-optimization/runtime/release/libchr_compiled.rlib",
+    "-L",
+    "dependency=/home/ahart/Documents/CHRLang/target/s01-link-optimization/runtime/release/deps",
+    "-o",
+    "/home/ahart/Documents/CHRLang/target/s01-link-optimization/dispatch16-off"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 0.5313426749780774,
+  "address_space_bytes": 4294967296,
+  "stdout": "",
+  "stderr": "",
+  "child_cpu_seconds": 0.559404000000003
+}
