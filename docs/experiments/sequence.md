@@ -278,7 +278,7 @@ Exact sizes follow exploratory sizing under the common rules above. The comparat
 
 ## Current execution order
 
-**T078 is active for coherent execution-path capability and mixed-source qualification under S10.** The [resource-fusion lifecycle pilot](results/S06-resource-fusion-lifecycle.md) and [S10 entry decision](results/S10-composition-entry.md) motivate this selection. Audit actual complete-path responsibilities, select credible alternatives and independently test interacting mechanisms before whole-path costs. This is not a final held-out evaluation or closure of earlier stages.
+**T078 is active for discovery attribution within the complete-path S10 comparison.** The [whole-path pilot](results/S10-composition-lifecycle.md) validates 2520 processes and exposes wider-head discovery costs after fusion. Next qualify demand-sensitive discovery with guards, consuming history, choices and finite service intact, then reconsider broader mixed-source costs. This is not final held-out evaluation or closure of earlier stages.
 
 The [ordered remaining sequence](remaining-investigations.md#execution-order) records the completed bounded restoration/reunion comparisons and remaining investigation boundaries. T077 stays required for broader restoration, adaptive splitting, repeated dynamic reunion, inference and sustained lifetime. Broader lowering and structural theories, discovery, reuse, direct graphs and connected parallelism remain required. Language and lifetime comparisons accompany every candidate; priority is reconsidered at each package boundary.
 

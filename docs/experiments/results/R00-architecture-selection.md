@@ -1,6 +1,6 @@
 # R00: architectural alternatives and first experiment selection
 
-Current S10 evidence: [mixed-source entry](S10-mixed-source-entry.md) and [progress/lowering composition](S10-progress-lowering.md) qualify three execution organizations on bounded sources. Finite-sibling service passes; fusion admits 32 changed queries and rejects 28 with ordinary semantics preserved. T078 next registers whole-path lifecycle costs; no cost ranking follows.
+Current S10 evidence: [complete-path pilot](S10-composition-lifecycle.md) has 2520 processes and 360 exact allocation pairs. Wider fused heads increase contextual/conditional discovery and traffic; a separate probe supports an avoidable-discovery hypothesis. T078 next qualifies demand-sensitive discovery before architecture ranking. Timing is exploratory; broader sources, lifetime and compilation remain required.
 
 The [resource-fusion lifecycle pilot](S06-resource-fusion-lifecycle.md) completes 1350 processes and 180 exact allocation pairs. Inference and certification can outweigh execution savings; timing remains exploratory with clock-overhead evidence. All owners restore. The [S10 entry](S10-composition-entry.md) selects T078 coherent-path capability and mixed-source qualification. T073 and the other unresolved component directions remain required.
 
