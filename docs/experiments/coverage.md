@@ -1,6 +1,6 @@
 # Unanswered architecture questions and experimental ownership
 
-The [local measurement entry](results/S02-local-measurement-entry.md) validates counter-free execution across 149 source configurations and preserves all 36 diagnostic work records. Four isolated allocation processes exactly replay 288 query and 24 prepared-plan restoration checks, including pending equations/bodies and independently retained answers. The four-package breadth review selects an ordinary-allocator lifecycle runner and prospectively registered sizing against the qualified compiled controls. No comparative timings ran.
+The [local lifecycle sizing](results/S02-local-lifecycle-sizing.md) completes two registered 1624-process matrices. Borrowed exact validation corrects a between-query allocator effect; all 224 normalized allocation cells and 168 work cells remain identical. Local execution has lower sampled times on the tested fragment, while specialized scanning often requests fewer bytes and reaches a lower peak. T072 next tests repeated source-driven alias updates before selecting a dependency organization. No complete architecture is selected.
 
 ## How unanswered variants remain accountable
 
