@@ -2,6 +2,7 @@
 //! The engine module connects this kernel to source rules. IDs belong to their creating arena.
 //! Observation requires a caller-established completion boundary; it does not run
 //! pending source effects. Recursive traversal is bounded only by the input graph.
+pub mod demand;
 pub mod engine;
 mod equality;
 pub mod words;

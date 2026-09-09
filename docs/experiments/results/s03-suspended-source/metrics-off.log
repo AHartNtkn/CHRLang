@@ -1,0 +1,17 @@
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.36s
+     Running tests/suspended_source.rs (target/debug/deps/suspended_source-45b58cb1383c630b)
+
+running 9 tests
+test cyclic_producer_graph_is_rejected_and_nested_failure_is_serviced ... ok
+test demand_must_not_enable_a_rule_ahead_of_an_already_enabled_competitor ... ok
+test constructor_demand_can_refute_before_unrelated_producer_finishes ... ok
+test branch_local_producers_do_not_overwrite_sibling_results ... ok
+test independent_failure_is_serviced_beside_an_ongoing_output ... ok
+test nested_duplicate_choices_and_unresolved_demands_remain_honest ... ok
+test fresh_locals_and_unused_failure_are_source_obligations ... ok
+test opaque_recursive_calls_preserve_shared_and_independent_births ... ok
+test finite_sibling_is_serviced_and_effectful_sources_are_rejected ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

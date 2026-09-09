@@ -37,3 +37,7 @@ Then compare the value of completing the cost contrast with contextual/local-rew
 ## First semantic result
 
 The [derivation identity experiment](S03-derivation-identity.md) separates reuse of one application result from instantiation of another application, including fresh unknowns in deterministic rules. Six source inputs agree across five independent/control execution paths. T071 now proceeds to suspended source applications and context-valid result reuse; no demand-driven candidate has yet been measured. The result records the selection review and remaining obligations.
+
+## Suspended applications implemented
+
+The [first executable source gate](S03-suspended-source.md) now passes on a checked equation-producing fragment. It establishes separate value-demand/completion paths and an overlapping-rule counterexample. Next is integration with source competition, consuming effects and residual obligations; comparative costs and actual pull-tab transformation remain unmeasured.
