@@ -1,6 +1,6 @@
 # The comparisons still needed to choose the architecture
 
-The [capacity cost pilot](results/S06-capacity-costs.md) completes2,880 primary processes and records138 practical gains, six unresolved zero-request contrasts and no losses against four ordinary controls. The result includes preparation and successful output-heavy cases but is restricted to the closed source fragment. After four capacity packages, T075 resumes with applicability of existing renaming-aware call reuse to the finite-learning workload. Broader capacity phases, compilation and lifetime return at that semantic gate; the goal remains active.
+The [finite call-entry gate](results/S05-finite-call-entry.md) validates 864 complete queries per build through the existing call table, preserving domains, aliases, weights and changed callers. Independent call completion loses valid answers; an explicit whole-phase bundle agrees. T075 next qualifies result reuse using the same direct finite plan as learning, so executor differences cannot decide that comparison. Broader capacity phases, compilation and lifetime return at that boundary; the goal remains active.
 
 ## Earlier experimental checkpoints
 
@@ -86,7 +86,7 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-The [current execution order](next-cycle.md#the-order-and-why) owns scheduling. T075 is active for existing call-reuse applicability and a finite-phase semantic gate. T073 broader capacity phases, compilation and lifetime return at that gate or an obstruction. Broad architecture obligations remain required.
+The [current execution order](next-cycle.md#the-order-and-why) owns scheduling. T075 is active for completed-result reuse with the same direct finite plan as learning. The bundled call table supplies a qualified complete-path control. T073 broader capacity phases, compilation and lifetime return at that gate or an obstruction. Broad architecture obligations remain required.
 
 ### Depth, breadth and stopping within this sequence
 

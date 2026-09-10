@@ -10,11 +10,11 @@ The [design review](results/R07-design-disposition-review.md) distinguishes meas
 
 Several useful comparisons now exist. [Integrated graph scanning](results/S02-multihead-scale.md) has favorable measured regimes. [Finite solving](results/S06-finite-lifecycle.md) has selective benefits and unselective costs. [Support ordering](results/S08-order-lifecycle.md) has opposing regimes. These findings supply stronger controls, not a complete architecture ranking.
 
-The [capacity cost pilot](results/S06-capacity-costs.md) completes 2,880 primary processes and records 138 practical gains, six unresolved zero-request contrasts and no losses against four ordinary controls. The result includes preparation and successful output-heavy cases but is restricted to the closed source fragment. After four capacity packages, T075 resumes with applicability of existing renaming-aware call reuse to the finite-learning workload. Broader capacity phases, compilation and lifetime return at that semantic gate; the goal remains active.
+The [finite call-entry gate](results/S05-finite-call-entry.md) validates 864 complete queries per build through the existing call table, preserving domains, aliases, weights and changed callers. Independent call completion loses valid answers; an explicit whole-phase bundle agrees. T075 next qualifies result reuse using the same direct finite plan as learning, so executor differences cannot decide that comparison. Broader capacity phases, compilation and lifetime return at that boundary; the goal remains active.
 
 ## The order, and why
 
-Resume investigation 5 with existing renaming-aware call reuse applied to the finite-learning comparison. Investigation 2 retains broader capacity phases, compilation and lifetime after its bounded cost result. Review those alternatives at the reuse applicability/semantic gate or an obstruction.
+Continue investigation 5 with completed-result reuse using the same direct finite plan as learning. Investigation 2 retains broader capacity phases, compilation and lifetime after its bounded cost result. Review those alternatives at the finite-plan reuse semantic/ownership gate or an obstruction.
 
 | Order | Investigation | Architectural decision it could change |
 |---|---|---|
@@ -58,16 +58,16 @@ Resume investigation 5 with existing renaming-aware call reuse applied to the fi
 
 ## The next concrete experiments
 
-**Next establish a credible renaming-aware reusable-result control for the finite-learning workload.** Existing call reuse already has source entry, fresh-identity transport and lifecycle evidence. The new question concerns multiple initial private goals and changed finite domains; identify the actual admission gap before implementation.
+**Next qualify completed-result reuse using the same direct finite plan as learning.** The existing call table now handles the registered multi-goal family through an explicit bundle. Its persistent executor differs from the finite solver; control that difference before interpreting a cache-versus-learning loss. Carry the bundle path forward as a complete-path competitor.
 
 | Package | Required comparison and checks | Decision and review point |
 |---|---|---|
-| **Existing reuse applicability / finite-phase semantic gate — T075, active** | Inspect call-table admission, keys, transport and existing caller measurements. Determine whether the learning workload can use that boundary soundly or needs a justified generalization. Preserve ordered source phases, aliases, finite weights, full caller results and fresh identities; challenge changed domains, outside effects and cancellation. | Can recognizing a renamed equivalent result compete with failure-region learning without changing source semantics? At this gate or an obstruction, compare its lifecycle costs with broader capacity phases and compilation. |
+| **Reuse with the same finite plan — T075, active** | Qualify normalized completed-result keys and caller transport at the direct finite-phase boundary. Carry the existing bundled call table as a separate complete-path control. Preserve domains, aliases, weights, full caller results and incomplete-query behavior; qualify retained owners before timing. | Does result reuse compete with learning when both execute the same finite plan? At the semantic/ownership boundary or an obstruction, reconsider broader capacity phases and compilation. |
 | **Matched reuse versus learning costs — required after semantic and ownership qualification** | Compare recomputation, eager/covered learning and the strongest admitted reusable-result control. Include repeated normalized shapes, genuinely different domains, near misses and retention/eviction; charge keys, remapping and all owners. | Does learning remain preferable when a result cache is applicable, and where does its more general failure-region reuse matter? Register exact comparisons only after qualification. |
 | **Broader resource phases and compilation — T073, required** | Carry capacity gains and R05/S01 compilation evidence forward. Test surrounding effects, resource interference, publication and richer source admission where they could change necessary runtime machinery. | Can the measured benefits compose with a broader language? Review at the reuse semantic gate or an obstruction. |
 | **Complete paths and lifetime — T078 and S08, required** | Combine credible mechanisms and test sustained consumers, ongoing siblings, cancellation and complete publication. | Do bounded component gains survive coherent architecture and lifetime obligations? |
 
-**Why reuse now:** four capacity packages establish a bounded mechanism and cost result, including preparation and output-heavy cases. More precision on empty-query timing would not decide the architecture. Existing call reuse makes the missing finite-learning control a concrete investigation; its one-initial-call/single-head restrictions must be checked against the workload's multiple goals and resources. Broader capacity phases could widen language relevance but need a new effect/publication correspondence. Select reuse applicability and source semantics, then reconsider both before a larger campaign.
+**Why reuse now:** the bundle gate supplies a concrete multi-goal correspondence and preserves existing call reuse. A cache-versus-learning comparison still risks measuring different executors. Resolving that confound can change interpretation of the learning gains. Broader capacity phases could widen language relevance but need a new effect/publication correspondence. Select the bounded finite-plan reuse gate, then reconsider both before a larger campaign.
 
 ## 1. Carry the whole-path pilot into broader comparisons
 
@@ -77,7 +77,7 @@ Qualify the current Rust/native runner with existing scanned/indexed, contextual
 
 Use mixed sources with equality-enabled matching, consumed and kept occurrences, choices, failing siblings and irrelevant work. Include tiny/no-choice overhead, substantive work before and after choice discrimination, early and late readiness, and a finite answer beside ongoing work. Unsupported programs remain visible capability exclusions; the shared admitted subset must not become the definition of the language.
 
-**Current boundary:** the qualified complete-query pilot and consequential service attribution are recorded. The current selection is reuse applicability in investigation 5; investigation 2 retains broader resource and compilation work. More runner refinement requires an accounting or correctness defect that could invalidate the comparison. Broader source, progress and lifetime obligations remain required when distinct mechanisms return to complete-path comparison.
+**Current boundary:** the qualified complete-query pilot and consequential service attribution are recorded. The current selection is reuse with the same finite execution plan in investigation 5; investigation 2 retains broader resource and compilation work. More runner refinement requires an accounting or correctness defect that could invalidate the comparison. Broader source, progress and lifetime obligations remain required when distinct mechanisms return to complete-path comparison.
 
 **Deliverable:** a bounded cost and capability comparison, with an owner-by-owner accounting and no complete-lifecycle superiority claim where compilation or host costs remain missing.
 

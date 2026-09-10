@@ -1,0 +1,24 @@
+   Compiling chr-reuse v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-reuse)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.27s
+     Running tests/call_reuse.rs (target/debug/deps/call_reuse-91de1129c4d17ef2)
+
+running 16 tests
+test a_private_family_does_not_authorize_moving_a_call_before_input_supply ... ok
+test checked_query_entry_rejects_priority_interference_and_external_consumers ... ok
+test caller_limits_are_terminal_errors_not_exhaustion ... ok
+test resumed_machine_imports_replay_and_caller_in_one_variable_scope ... ok
+test resource_access_suspension_and_cutoff_do_not_become_cached_answers ... ok
+test private_phase_accepts_shared_observation_variables ... ok
+test selecting_the_first_call_rule_does_not_make_the_whole_call_atomic ... ok
+test resumed_caller_can_start_another_private_phase ... ok
+test reuse_transports_two_independent_fresh_results_into_one_caller ... ok
+test private_phase_replays_bindings_before_shared_caller_updates ... ok
+test distinct_callers_reuse_work_and_preserve_fresh_aliases ... ok
+test call_reuse_succeeds_where_complete_caller_keys_differ ... ok
+test complete_caller_path_agrees_and_cancellation_does_not_poison_reuse ... ok
+test disjoint_call_contraction_preserves_independent_choice_products ... ok
+test disjoint_variables_do_not_prove_a_source_progress_boundary ... ok
+test call_keys_distinguish_aliases_bindings_and_preserve_caller_only_variables ... ok
+
+test result: ok. 16 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+

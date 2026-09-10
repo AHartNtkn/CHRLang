@@ -1,0 +1,26 @@
+{
+  "parent_commit": "922f77493a869377f4b7482709d4505efaa3f02f",
+  "recorded": "after validation; not a pre-run binary freeze",
+  "comparisons_per_build": 864,
+  "primary_cost_measurement": false,
+  "files": {
+    "research/chr-reuse/tests/finite_call_entry.rs": "35ae7ff24be96ff64fb71ad381cd0fd26ca67d5ee489436d0aee7d0602038002",
+    "research/chr-reuse/src/calls.rs": "5c2e1e009c1a0487136b4a354248b06081e4bdaac2e9a17fb6145a2499be52b1",
+    "research/chr-direct-conditional/tests/runtime_support/mod.rs": "03633e8d666fadcdd08ddfe4900aa8116b32e434fb0a5dcb1c5faa23ff5976b2",
+    "docs/experiments/registrations/S05-finite-call-entry.md": "785cb07b90471db4f4e8a55ec5a3a1bf02c028f53b525d269b6cab6550fa5da6"
+  },
+  "commands": {
+    "default.log": "timeout 120 cargo test --offline -p chr-reuse --test finite_call_entry",
+    "metrics-off.log": "timeout 120 cargo test --offline -p chr-reuse --no-default-features --test finite_call_entry --test call_reuse",
+    "call-regressions.log": "timeout 120 cargo test --offline -p chr-reuse --test call_reuse",
+    "clippy.log": "timeout 120 cargo clippy --offline -p chr-reuse --test finite_call_entry --no-deps -- -D warnings",
+    "clippy-metrics-off.log": "timeout 120 cargo clippy --offline -p chr-reuse --no-default-features --test finite_call_entry --no-deps -- -D warnings"
+  },
+  "logs": {
+    "default.log": "e0845ea5fa389cae53c77e57d54ac21badae34d795598d6a65ea482bb58661ee",
+    "metrics-off.log": "9561fe0938fdf57e577dcee873a5e0f6d082b6e19f856c6d498ccfe30955fce3",
+    "call-regressions.log": "bbdd37c5e789ba7356414a7563a5c88926e15e459948087cd0a63173edba49d4",
+    "clippy.log": "e92f83a1064ef9e13f24b4e9d79c381d738cdc39ad5d05b6bf6c0251f646bdee",
+    "clippy-metrics-off.log": "d6c20066dec505cb2ebfa21a88c9ea84bf49b1b66353632ab6834f4b055e9f5f"
+  }
+}
