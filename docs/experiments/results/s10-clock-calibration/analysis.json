@@ -1,0 +1,231 @@
+{
+  "calibration": {
+    "rust": {
+      "0": {
+        "empty_median_ns": 12.0,
+        "empty_p99_range_ns": [
+          13,
+          21
+        ],
+        "bulk_extra_pair_ns": {
+          "min": 23.27481,
+          "median": 24.07415,
+          "max": 29.66394
+        }
+      },
+      "1": {
+        "empty_median_ns": 12.0,
+        "empty_p99_range_ns": [
+          13,
+          16
+        ],
+        "bulk_extra_pair_ns": {
+          "min": 19.71098,
+          "median": 24.53538,
+          "max": 53.69197
+        }
+      }
+    },
+    "native": {
+      "0": {
+        "empty_median_ns": 12.0,
+        "empty_p99_range_ns": [
+          13,
+          14
+        ],
+        "bulk_extra_pair_ns": {
+          "min": 23.26744,
+          "median": 24.33216,
+          "max": 25.49755
+        }
+      },
+      "1": {
+        "empty_median_ns": 12.0,
+        "empty_p99_range_ns": [
+          13,
+          23
+        ],
+        "bulk_extra_pair_ns": {
+          "min": 23.49346,
+          "median": 24.14155,
+          "max": 31.28501
+        }
+      }
+    },
+    "python": {
+      "0": {
+        "empty_median_ns": 30.0,
+        "empty_p99_range_ns": [
+          41,
+          92
+        ],
+        "bulk_extra_pair_ns": {
+          "min": 73.58418,
+          "median": 87.25051,
+          "max": 97.48858
+        }
+      },
+      "1": {
+        "empty_median_ns": 30.0,
+        "empty_p99_range_ns": [
+          42,
+          49
+        ],
+        "bulk_extra_pair_ns": {
+          "min": 82.5198,
+          "median": 88.34749,
+          "max": 90.64959
+        }
+      }
+    }
+  },
+  "screen_threshold_ns": {
+    "rust": 5370,
+    "native": 3129,
+    "python": 9749
+  },
+  "screen": {
+    "rust/setup_ns": {
+      "observations": 2286,
+      "flagged": 1368,
+      "threshold_per_pair_ns": 5370
+    },
+    "rust/query_drop_ns": {
+      "observations": 2286,
+      "flagged": 2252,
+      "threshold_per_pair_ns": 5370
+    },
+    "rust/serialization_per_answer": {
+      "observations": 2286,
+      "flagged": 2286,
+      "threshold_per_pair_ns": 5370
+    },
+    "rust/input_load_ns": {
+      "observations": 267,
+      "flagged": 4,
+      "threshold_per_pair_ns": 5370
+    },
+    "rust/decode_ns": {
+      "observations": 267,
+      "flagged": 1,
+      "threshold_per_pair_ns": 5370
+    },
+    "rust/input_drop_ns": {
+      "observations": 267,
+      "flagged": 267,
+      "threshold_per_pair_ns": 5370
+    },
+    "rust/prepare_ns": {
+      "observations": 267,
+      "flagged": 0,
+      "threshold_per_pair_ns": 5370
+    },
+    "rust/consumer_setup_ns": {
+      "observations": 267,
+      "flagged": 267,
+      "threshold_per_pair_ns": 5370
+    },
+    "rust/query_batch_drop_ns": {
+      "observations": 267,
+      "flagged": 267,
+      "threshold_per_pair_ns": 5370
+    },
+    "rust/prepared_drop_ns": {
+      "observations": 267,
+      "flagged": 260,
+      "threshold_per_pair_ns": 5370
+    },
+    "python/input_load_ns": {
+      "observations": 26,
+      "flagged": 16,
+      "threshold_per_pair_ns": 9749
+    },
+    "python/decode_ns": {
+      "observations": 26,
+      "flagged": 0,
+      "threshold_per_pair_ns": 9749
+    },
+    "python/input_drop_ns": {
+      "observations": 26,
+      "flagged": 26,
+      "threshold_per_pair_ns": 9749
+    },
+    "python/emission_ns": {
+      "observations": 26,
+      "flagged": 0,
+      "threshold_per_pair_ns": 9749
+    },
+    "python/artifact_write_ns": {
+      "observations": 26,
+      "flagged": 0,
+      "threshold_per_pair_ns": 9749
+    },
+    "python/query_encoding_ns": {
+      "observations": 26,
+      "flagged": 0,
+      "threshold_per_pair_ns": 9749
+    },
+    "python/native_process_ns": {
+      "observations": 26,
+      "flagged": 0,
+      "threshold_per_pair_ns": 9749
+    },
+    "python/consumer_assembly_ns": {
+      "observations": 26,
+      "flagged": 0,
+      "threshold_per_pair_ns": 9749
+    },
+    "python/prepared_artifact_drop_ns": {
+      "observations": 26,
+      "flagged": 0,
+      "threshold_per_pair_ns": 9749
+    },
+    "python/publication_ns": {
+      "observations": 26,
+      "flagged": 4,
+      "threshold_per_pair_ns": 9749
+    },
+    "python/consumer_drop_ns": {
+      "observations": 26,
+      "flagged": 26,
+      "threshold_per_pair_ns": 9749
+    },
+    "native/query_setup_ns": {
+      "observations": 479,
+      "flagged": 167,
+      "threshold_per_pair_ns": 3129
+    },
+    "native/observer_setup_ns": {
+      "observations": 479,
+      "flagged": 431,
+      "threshold_per_pair_ns": 3129
+    },
+    "native/pending_drop_ns": {
+      "observations": 479,
+      "flagged": 479,
+      "threshold_per_pair_ns": 3129
+    },
+    "native/export_ns": {
+      "observations": 479,
+      "flagged": 479,
+      "threshold_per_pair_ns": 3129
+    },
+    "native/query_drop_ns": {
+      "observations": 479,
+      "flagged": 43,
+      "threshold_per_pair_ns": 3129
+    },
+    "native/serialization_per_answer": {
+      "observations": 413,
+      "flagged": 407,
+      "threshold_per_pair_ns": 3129
+    }
+  },
+  "screen_is_error_bound": false,
+  "architecture_ranking": false,
+  "input_hashes": {
+    "docs/experiments/results/s10-rust-lifecycle/runs.jsonl": "0368d7adf50f3772b5f5a05a40494dc3a6074f07333082bea44984334ac9e929",
+    "docs/experiments/results/s10-host-session/runs.jsonl": "c75e5caedc633ca377795de4d83202540f3fdb76fad5a5d81ed565a22bc558fd",
+    "research/chr-hvm/clock_calibration/analyze.py": "b00fbef62ca44e57bf7df251a9fc3a9532ec04f7750f17919797507030addf96"
+  }
+}

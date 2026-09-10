@@ -1,0 +1,55 @@
+{
+  "builds": [
+    {
+      "command": [
+        "rustc",
+        "-O",
+        "--edition=2024",
+        "/home/ahart/Documents/CHRLang/research/chr-hvm/clock_calibration/probe.rs",
+        "-o",
+        "/home/ahart/Documents/CHRLang/target/s10-clock-calibration/rust"
+      ],
+      "code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "clang",
+        "-O2",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "/home/ahart/Documents/CHRLang/research/chr-hvm/clock_calibration/probe.c",
+        "-o",
+        "/home/ahart/Documents/CHRLang/target/s10-clock-calibration/native"
+      ],
+      "code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "versions": {
+    "rustc": "rustc 1.97.1 (8bab26f4f 2026-07-14)\n",
+    "clang": "Ubuntu clang version 14.0.0-1ubuntu1.1\nTarget: x86_64-pc-linux-gnu\nThread model: posix\nInstalledDir: /usr/bin\n",
+    "python": "Python 3.11.0rc1\n"
+  },
+  "allowed_cpus": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ]
+}

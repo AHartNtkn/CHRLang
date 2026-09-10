@@ -1,5 +1,7 @@
 # The comparisons still needed to choose the architecture
 
+The [clock calibration](results/S10-clock-calibration.md) audits 42 processes and 420,000 empty intervals. Many small phases and per-answer serialization observations are instrumentation-sensitive. T078 next qualifies primary service timing without repeated serialization clocks, with paired diagnostic replays; allocation diagnostics remain required and no architecture ranking follows.
+
 The [combined native session](results/S10-host-session.md) validates 479 owned query endpoints across 26 sessions with artifact cleanup and unchanged native work signatures. Host artifact writing, process transport and batch publication now have measured boundaries; gross process elapsed remains distinct from nested phases. Allocation diagnostics and clock calibration remain before comparative registration.
 
 The [native host frontend qualification](results/S10-host-frontend.md) reconstructs common source syntax, reproduces 26 frozen native programs and replays 479 queries exactly. Host emission/query encoding now have explicit diagnostic intervals. Combined host transport/lifetime, allocation scope and clock calibration remain before cost registration; no comparative ranking follows.

@@ -1,0 +1,88 @@
+{
+  "calibration": {
+    "rust": {
+      "0": {
+        "empty_median_ns": 12.0,
+        "empty_p99_range_ns": [
+          13,
+          21
+        ],
+        "bulk_extra_pair_ns": {
+          "min": 23.27481,
+          "median": 24.07415,
+          "max": 29.66394
+        }
+      },
+      "1": {
+        "empty_median_ns": 12.0,
+        "empty_p99_range_ns": [
+          13,
+          16
+        ],
+        "bulk_extra_pair_ns": {
+          "min": 19.71098,
+          "median": 24.53538,
+          "max": 53.69197
+        }
+      }
+    },
+    "native": {
+      "0": {
+        "empty_median_ns": 12.0,
+        "empty_p99_range_ns": [
+          13,
+          14
+        ],
+        "bulk_extra_pair_ns": {
+          "min": 23.26744,
+          "median": 24.33216,
+          "max": 25.49755
+        }
+      },
+      "1": {
+        "empty_median_ns": 12.0,
+        "empty_p99_range_ns": [
+          13,
+          23
+        ],
+        "bulk_extra_pair_ns": {
+          "min": 23.49346,
+          "median": 24.14155,
+          "max": 31.28501
+        }
+      }
+    },
+    "python": {
+      "0": {
+        "empty_median_ns": 30.0,
+        "empty_p99_range_ns": [
+          41,
+          92
+        ],
+        "bulk_extra_pair_ns": {
+          "min": 73.58418,
+          "median": 87.25051,
+          "max": 97.48858
+        }
+      },
+      "1": {
+        "empty_median_ns": 30.0,
+        "empty_p99_range_ns": [
+          42,
+          49
+        ],
+        "bulk_extra_pair_ns": {
+          "min": 82.5198,
+          "median": 88.34749,
+          "max": 90.64959
+        }
+      }
+    }
+  },
+  "screen_threshold_ns": {
+    "rust": 5370,
+    "native": 3129,
+    "python": 9749
+  }
+}
+All 42 processes audited; screening is diagnostic, without overhead subtraction.

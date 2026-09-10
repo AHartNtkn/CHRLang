@@ -1,0 +1,19 @@
+{
+  "exploratory": true,
+  "not_an_error_bound": true,
+  "formula": "screen scale * (answer count + 2) / service_ns",
+  "results": {
+    "rust": {
+      "observations": 2286,
+      "above_one_percent": 997,
+      "median": 0.007873088593589504,
+      "maximum": 0.18162344983089068
+    },
+    "native": {
+      "observations": 479,
+      "above_one_percent": 50,
+      "median": 0.0007665407063982508,
+      "maximum": 3.129
+    }
+  }
+}

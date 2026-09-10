@@ -1,0 +1,13 @@
+# Clock calibration for the current lifecycle boundaries
+
+Question: which named lifecycle intervals are close enough to instrumentation cost that an isolated timing interpretation would be untrustworthy? This calibrates measurement; it does not rank architectures or measure allocations.
+
+Use the exact clock families in current runners: Rust Instant::now/elapsed, native CLOCK_MONOTONIC clock_gettime, and Python perf_counter_ns. Compile standalone Rust with rustc -O and C with clang -O2. Record toolchain versions and source/binary hashes. Ordinary allocators, no engine/kernel work counters, no optimization change to engines.
+
+For each clock, run seven independent processes on CPU0 and CPU1, both verified allowed. Shuffle the 42 jobs with seed20260910. Each process records 10,000 empty clock-pair intervals after 1,000 warmup pairs; all raw intervals are retained. Separately time 100,000 loop iterations with and without a clock pair, alternating baseline/pair order by block parity. Use externally observable array writes in both loops. The bulk difference includes inhibition of loop optimization and bookkeeping; it is a diagnostic cost estimate, not a pure clock constant.
+
+Limit each process to 10 seconds wall, 5 CPU seconds and 256 MiB address space. Stop and diagnose invalid samples, unsupported clock behavior or process cutoffs; do not silently replace a clock or CPU. Validate counts, nonnegative intervals, deterministic baseline values and declared order/affinity.
+
+Report per-clock/per-CPU medians and p99 of empty intervals, plus median/min/max additional bulk cost per pair across processes. For a conservative screening scale use the maximum, over both CPUs and all blocks, of p99 empty interval and nonnegative bulk extra cost per pair. Flag previously recorded single-boundary phase observations at or below 100 times this scale as instrumentation-sensitive (a prospective 1% heuristic, not an error bound). Do not classify engine gains/losses from these qualification observations. Report counts and covered phases, not benchmark winners.
+
+Repeated per-answer serialization needs a separate scaling screen: compare its accumulated time with the number of emitted answers times that same threshold. First-observation and service intervals are inclusive; quantify that instrumentation is nested and retain complete-session timing as the primary candidate. No overhead subtraction, significance claim or automatic batching policy follows. Allocation diagnostics and a prospectively registered cost pilot remain required; any proposed batching or instrumentation change must preserve cancellation and output ownership.
