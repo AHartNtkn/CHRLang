@@ -8,7 +8,7 @@ This sequence separates three deliverables: demonstrating a mechanism, measuring
 
 ## Start here: the next experiments
 
-**Reusable symbolic formulas and union/inclusion are active under T076.** The [finite-source comparison](results/S06-diagram-source.md) passes 360 source configurations and 1,440 candidate set checks per build. Allocation and ownership are next, followed by counter-free lifecycle timing against prepared names, projection, symbolic rebuilding and explicit enumeration. The observer witness makes logical-set eligibility explicit. Package two is complete; review the whole portfolio by package four.
+**Reusable symbolic formulas and union/inclusion are active under T076.** The [ownership comparison](results/S06-diagram-ownership.md) validates 6,480 processes but exposes a stronger missing control: every selected source has a simple visible relation. Qualify source-derived graph simplification, including its analysis cost, before primary timing. Use sources that resist the simplification when they expose a consequential architectural question. Package three is complete; the next package requires a full portfolio review.
 
 **Demand remains unfinished under T071.** Targeted CPU/elapsed attribution must investigate consequential timing excursions; all recorded outliers remain in the results. Broader indexing, repeated successful discovery, nonground posts, writable heads, dynamic choices and sustained ownership need direct trials. Timing this qualified subset supplies no general rejection or selection of demand execution.
 

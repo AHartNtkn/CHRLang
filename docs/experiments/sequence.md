@@ -1,6 +1,6 @@
 # Experimental sequence: resolve the remaining architecture questions
 
-The [finite-diagram source comparison](results/S06-diagram-source.md) supplies the current checkpoint. Finite-diagram source correspondence passes 360 configurations per debug/release build, checking full canonical observations and completed-branch totals independently. All 1,440 candidate set comparisons per build agree across diagrams, prepared names, projection and symbolic rebuilding. An observer witness preserves visible values but changes residual effects, so logical-set eligibility remains explicit. T076 next qualifies matched allocation and ownership before timing; package two complete and goal active.
+The [reusable-diagram ownership comparison](results/S06-diagram-ownership.md) supplies the current checkpoint. Reusable-diagram ownership validates 4,320 metered and 2,160 ordinary processes with exact phase repeats, independent answers and final heap restoration. Diagrams request fewer bytes than prepared names in 303 of 432 scenarios but more than explicit enumeration in 345. Analytical simplifications, confirmed on 156 visible pairs, reduce all 24 selected sources to true/equality/difference/false. T076 next qualifies a source-derived simplification control before timing. Package three complete; goal active.
 
 The [relevant-key ownership comparison](results/S02-relevant-ownership.md) supplies the current checkpoint. Relevant-key ownership validates1,008 metered and448 ordinary processes with exact allocation repeats, cancellation/reuse and retained answers surviving producer disposal. Ordered relevant reuse lowers peaks versus exact-state caching in38of64 scenarios but requests more bytes than recomputation in all64. The changed depth16/four-query witness requests1,292,590bytes with72,959peak excess versus669,196/38,976 for recomputation. T072 next attributes key/replay execution costs before timing; package one after breadth review; goal active.
 
@@ -12,7 +12,7 @@ The [dependency work screen](results/S03-dependency-work.md) supplies the curren
 
 The [resource-dependency gate](results/S03-resource-dependencies.md) supplies the current checkpoint. The demand resource-dependency gate passes 48 matrix configurations and eight additional source witnesses in two default and two metrics-off confirmations. Independent scalar and compiled controls expose hidden constructor-cycle and selected-choice alias defects; completed-equation validation and alias-link repair preserve finite failure and output identity. Source, suspended and kernel regressions pass. T071 next measures dependency and validation lifecycle costs; contextual integration follows. This is bounded correctness evidence, not a timing result; goal active.
 
-The [current execution order](next-cycle.md#execution-order-after-the-current-causal-comparison) schedules all missing comparisons. The [immediate packages](next-cycle.md#start-here-the-next-experiments) begin with demand lifecycle and hand off to reusable symbolic solving and checkpoint/replay. Every question retains its detailed evidence obligation.
+The [current execution order](next-cycle.md#portfolio-order-and-dependencies) schedules all missing comparisons. The [immediate packages](next-cycle.md#start-here-the-next-experiments) now qualify source-derived simplification for reusable solving, with the remaining demand and checkpoint/replay work retained. Every question retains its detailed evidence obligation.
 
 Investigate the unanswered mechanisms directly, then compare the complete architectures they enable. Reuse the existing baselines. The research remains active until consequential questions have evidence-backed answers.
 
@@ -286,7 +286,7 @@ All new results link raw inputs, commands, freezes, validation and unfavorable o
 
 ## Current execution order
 
-T076 is active for reusable compiled formulas and symbolic union/inclusion. The [demand timing result](results/S03-dependency-timing.md) completes the bounded comparison selected at the [breadth review](results/S03-dependency-clock-breadth-review.md). The [next cycle](next-cycle.md#start-here-the-next-experiments) preserves targeted demand diagnostics, broader capability and relevant-key repair as required work, with reconsideration at the symbolic result or a concrete obstruction.
+T076 is active for a source-derived simplification control after the [diagram ownership comparison](results/S06-diagram-ownership.md). The selected finite sources all admit simple visible relations; charge the analysis that establishes those relations before interpreting primary timing. Package three is complete. The next package must include the full breadth review, comparing further lifecycle work with T072 relevant-read repair, T071 attribution/capability and checkpoint/replay.
 
 The [57-question map](question-to-experiment-map.md) and [mechanism ledger](remaining-investigations.md) retain every unresolved obligation. The next cycle owns scheduling; historical checkpoint selections describe their own experiment boundaries.
 
