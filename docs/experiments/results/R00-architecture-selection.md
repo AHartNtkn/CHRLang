@@ -1,6 +1,6 @@
 # R00: architectural alternatives and first experiment selection
 
-The [mixed-source pilot](S10-mixed-pilot.md) completes 2,710 primary measurements across 24 batches. The current native path loses to the fastest admitted Rust control in all 24; native service alone exceeds Rust whole-process time on all four substantive batches. T073 now opens independent user-program compilation against prepared execution of the same plan. Learning costs return for review at that entry gate or an obstruction. T078 broader composition, compilation accounting and sustained lifetime remain unfinished; this result does not reject distinct graph mechanisms.
+The [compilation inventory](S06-compilation-inventory.md) revalidates existing independent compiler evidence: R05 recursive artifacts and S01 measured compilation recovery already cover bounded generation-versus-prepared comparisons. T073 now resumes substantive compatible-query learning costs. Broader compilation and direct consuming-resource derivations remain required, with review at the learning source/accounting gate or an obstruction. The mixed HVM pilot remains a bounded loss of its current path; the architecture goal is active.
 
 ## Earlier experimental checkpoints
 
