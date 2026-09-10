@@ -186,6 +186,8 @@ The subsequent [CHR-expressed constructor/consumption gate](S02-chr-constructors
 
 ### 23. General direct Conditional execution — Mixed results, not a general rejection
 
+The [order lifecycle comparison](S08-order-lifecycle.md) adds a contrary complete-source regime: conditional execution allocates much less and has lower exploratory medians on independent choices followed by rejecting checks, while explicit controls remain stronger on the low-sharing stream. Reversing check arrival reverses the favorable diagram order in requested allocation. Stronger lowering/solving controls are selected next; this does not establish a general conditional architecture winner.
+
 **Result.** R03 showed favorable opaque shared work and adverse ordinary computation. A real maintenance defect initially exaggerated some losses; filtering consumed work materially changed the result. Later mixed-work tests favored Conditional for heavy common work before discrimination, while specialized explicit execution won eleven of fourteen placement/reuse pairs. Pure-carrier lowering then changed that comparison again. Finally, substantive equality favored Conditional in all six common pre-discrimination clash cells, while explicit controls won the other eighteen cells.
 
 **Decision and limit.** These results reject “fewer source applications means lower total cost.” They do not establish a universal explicit winner. Conditional has demonstrated advantages and costs whose relevance depends on what work is shared, when it fails, and what a compiler can eliminate. Treating those exceptions as necessarily unimportant would require workload assumptions the research does not supply. [Maintenance correction](R03-conditional-maintenance.md), [mixed work](R05-current-mixed.md), [carrier costs](R05-carrier-prefix-cost.md), [substantive equality](R05-equation-cost.md)
@@ -341,6 +343,8 @@ The subsequent [call-level transport gate](S05-call-transport-gate.md) directly 
 **Decision and limit.** Irrelevant history traversal was unnecessary, and the remaining implementation was poor for these low-sharing streams. The cutoff is not a complete 128-answer timing. This does not establish that Conditional execution intrinsically needs unbounded history or that broader reclamation cannot work. [Restricted publication](R06-restricted-publication.md), [stream lifetime](R06-streaming-lifetime.md)
 
 ### 46. Broad reclamation, compressed histories and alternative output lifetimes — Not directly resolved
+
+The [order lifecycle pilot](S08-order-lifecycle.md) reduces the alias-stream peak from2.83MB to0.20MB by changing support order, with a contrary arrival-order regime. All owners restore. A576-byte cross-engine output difference is exactly explained by spare residual-vector capacity. This is representation and lifecycle evidence, not an intra-query reclamation proof; broader roots and retention remain open.
 
 **Result.** E01, E04, E14 and R06 expose distinct retained owners: answers, event bodies, source arenas and choice/support history. Narrow traversal and export changes do not compare general garbage collection, history compression, bounded consumer retention or regeneration policies.
 

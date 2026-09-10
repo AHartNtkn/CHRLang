@@ -1,6 +1,6 @@
 # R00: architectural alternatives and first experiment selection
 
-Current execution follows the [next experimental cycle](../next-cycle.md). T074 is active for order/observation lifecycle costs; the architecture decision and research goal remain open. The bounded receipts below retain their individual scope.
+Current execution follows the [next experimental cycle](../next-cycle.md). T078 is active for stronger lowering/solving source qualification after the [order lifecycle breadth review](S08-order-lifecycle.md); the architecture decision and research goal remain open. The bounded receipts below retain their individual scope.
 
 Current evidence: the [head-dispatch lifecycle](S07-head-dispatch-lifecycle.md) completes 3612 processes and 516 exact allocation pairs. Inference lowers completed-query traffic in 76/84 cells; valid declared/required allocation readings equal inference in all 96 pairs. Cancellation is reported separately. T079 retains unfinished investigation of [non-overlap/resource conflicts](S07-overlap-entry.md); no language restriction is adopted.
 

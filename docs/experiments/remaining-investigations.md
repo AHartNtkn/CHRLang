@@ -1,5 +1,7 @@
 # The comparisons still needed to choose the architecture
 
+The [order lifecycle pilot and breadth review](results/S08-order-lifecycle.md) identify opposite support-order regimes and a favorable conditional choice/check source. T078 next qualifies stronger source-lowering/solving controls before further support tuning; T074 lifetime and T079 effect certification remain required.
+
 The [head-dispatch lifecycle](results/S07-head-dispatch-lifecycle.md) validates 3612 processes, distinct preparation/cancellation costs and identical valid declaration/inference allocation. T079 retains [non-overlap/resource conflicts](results/S07-overlap-entry.md) as unfinished work; the current selection is T074 sustained observation.
 
 The [serial-body attribution](results/S07-serial-body-allocation.md) completes 96 allocation processes and 48 exact repeats. Existing scheduler identities reduce completed-query traffic in all 12 nonempty comparisons without a non-overlap restriction; 12 empty comparisons are unchanged. This strengthens the unrestricted control. Non-overlap/resource-conflict certification and sustained observation remain required; no speed result is claimed.
@@ -36,9 +38,9 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-The [next experimental cycle](next-cycle.md) is the current execution order. T074 remains active: finish the order/observation lifecycle contrast, then hold the four-package breadth review against non-overlap/effect certification and the strongest ready distinct mechanism. The cycle gives each subsequent investigation its question, controls, adverse cases and decision boundary.
+The [order lifecycle breadth review](results/S08-order-lifecycle.md#four-package-breadth-review-and-next-experiment) selects T078 complete-source qualification of stronger lowering/solving controls on the new choice/check witness and an adverse low-sharing stream. Reconsider T079 effect certification at that qualification boundary. T074 support/lifetime work remains required.
 
-The specifications below retain all required mechanisms. Their numbering organizes questions rather than imposing a second execution order. Language and lifetime studies accompany executable candidates; native feasibility runs early, and complete architecture comparisons start as soon as two credible paths qualify.
+The [next experimental cycle](next-cycle.md) supplies the remaining order and decision boundaries. Language and lifetime studies accompany executable candidates; native feasibility runs early, and complete architecture comparisons start as soon as two credible paths qualify.
 
 ### Depth, breadth and stopping within this sequence
 

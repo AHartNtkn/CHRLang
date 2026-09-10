@@ -270,6 +270,6 @@ All new results link raw inputs, commands, freezes, validation and unfavorable o
 
 ## Current execution order
 
-**T074 remains active for support-order and observation lifecycle costs.** Follow the [next experimental cycle](next-cycle.md), beginning with independently qualified opposite-arrival sources and complete-path controls. The next package triggers the four-package breadth review; non-overlap/effect certification is the next distinct proposed investigation.
+**T078 is active for stronger complete-source controls.** The [order lifecycle comparison and four-package review](results/S08-order-lifecycle.md) select source-lowering/solving qualification on the opposite-arrival choice/check witnesses before further support tuning. Reconsider T079 non-overlap/effect certification at that qualification boundary. T074 observation, support representations and reclamation remain unfinished.
 
-The [remaining-investigations ledger](remaining-investigations.md) supplies detailed mechanism obligations, and the [57-question map](question-to-experiment-map.md) makes coverage auditable. The cycle sequences those obligations without treating earlier bounded results as general resolution. Complete architectures are compared as soon as two qualify, alongside component work.
+The [next experimental cycle](next-cycle.md) and [remaining-investigations ledger](remaining-investigations.md) retain all subsequent mechanisms. The [57-question map](question-to-experiment-map.md) makes coverage auditable. Complete architectures are compared as soon as credible paths qualify; bounded component evidence does not resolve the goal.

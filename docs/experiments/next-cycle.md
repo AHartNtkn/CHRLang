@@ -1,5 +1,7 @@
 # Next experimental cycle: answer the remaining design questions
 
+Current selection: the [order lifecycle breadth review](results/S08-order-lifecycle.md) advances complete-source qualification under T078 (investigation 13) to challenge the new favorable sharing regime with stronger lowering/solving controls. Reconsider effect certification (investigation 2) at that qualification boundary. The numbered investigations below retain their full scope.
+
 Test the mechanisms that remain unanswered, then compare the complete architectures they enable. Reuse the existing baselines and valid results. The research goal remains active.
 
 This is the execution order from the worktree at `39a014ff7`. It makes the next cycle concrete without treating earlier bounded findings as answers to broader designs. The [57-question map](question-to-experiment-map.md) retains every individual obligation; the [mechanism specifications](remaining-investigations.md#distinctions-that-must-not-disappear-inside-a-stage) distinguish variants within those questions. The [governing sequence](sequence.md) supplies the experimental standards.

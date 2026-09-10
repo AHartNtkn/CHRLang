@@ -1,5 +1,7 @@
 # Unanswered architecture questions and experimental ownership
 
+The [order lifecycle pilot and breadth review](results/S08-order-lifecycle.md) identify opposite support-order regimes and a favorable conditional choice/check source. T078 next qualifies stronger source-lowering/solving controls before further support tuning; T074 lifetime and T079 effect certification remain required.
+
 The [next experimental cycle](next-cycle.md) specifies the current order and concrete contrasts; this map retains the evidence and full coverage obligations.
 
 Current evidence: the [head-dispatch lifecycle](results/S07-head-dispatch-lifecycle.md) completes 3612 processes and 516 exact allocation pairs. Inference lowers completed-query traffic in 76/84 cells; valid declared/required allocation readings equal inference in all 96 pairs. Cancellation is reported separately. T079 retains unfinished investigation of [non-overlap/resource conflicts](results/S07-overlap-entry.md); no language restriction is adopted.

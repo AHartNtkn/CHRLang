@@ -1,5 +1,7 @@
 # What experiment answers each reviewed design question?
 
+The [order lifecycle pilot and breadth review](results/S08-order-lifecycle.md) identify opposite support-order regimes and a favorable conditional choice/check source. T078 next qualifies stronger source-lowering/solving controls before further support tuning; T074 lifetime and T079 effect certification remain required.
+
 The [next experimental cycle](next-cycle.md) specifies the current order and concrete contrasts; this map retains the evidence and full coverage obligations.
 
 Every reviewed design has an explicit place in the renewed experimental sequence. A result about one implementation settles only the claim it actually tests. Unanswered architectural questions remain required work.
