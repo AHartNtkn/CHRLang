@@ -1,6 +1,6 @@
 # R00: architectural alternatives and first experiment selection
 
-The [checked kept-read gate](S10-finite-kept-read.md) admits all 48 early-readiness substantive queries and preserves 48 explicit late-readiness exclusions. The common-source caller now retains the full original ruleset for later private work; 264 prior process observations replay exactly. T078 next qualifies equivalent Rust/native lifecycle measurement, with source-derived solving included where admitted.
+The [common owned-answer gate](S10-answer-wire.md) validates 958 native queries and 2,286 admitted Rust checks against a shared binary format. Consumer bytes survive producer disposal; dictionaries remain explicit owners. Checked finite solving remains available on early-readiness sources. T078 next integrates this endpoint into full lifecycle measurement; no comparative cost matrix has run.
 
 The [native choice/identity composition gate](S03-native-choice-identity.md) validates 48 mixed sources, all 77 deterministic regressions and explicit failure/namespace boundaries. Finite siblings progress beside ongoing work. The common-source gate above now supplies the next comparison entry; local native ownership, broader language and lifetime remain required.
 
@@ -12,7 +12,7 @@ The [controlled size/reuse extension](S02-multihead-scale.md) completes 8,820 ad
 
 The [finite-solver lifecycle pilot](S06-finite-lifecycle.md) completes 1,428 processes across 204 configurations. A [paired allocation correction](S06-empty-complement-attribution.md) completes another 252 processes. Selective four-query allocation falls to 0.795 MB, below both conditional orders; the unselective batch still requests 15.77 MB versus specialization’s 9.24 MB. These are bounded results, with compilation and broader solver questions still open.
 
-Current selection: T078 equivalent lifecycle measurement, following the [kept-read gate-boundary review](S10-finite-kept-read.md). Include the checked solver and full caller on admitted sources, preserve late-readiness exclusions, and qualify source costs, consumer endpoints, counters, clock overhead and allocation scope before prospective comparisons. Reassess broader native ownership and source analysis at the cost-runner qualification boundary or a consequential obstruction.
+Current selection: T078 full lifecycle runner using the [qualified owned-answer endpoint](S10-answer-wire.md). Measure per-answer publication, source/dictionary construction and retention, native host frontend costs, query execution and complete disposal with verified counter/allocator settings. Include admitted source-derived controls. Reassess breadth at full runner qualification or a consequential obstruction; broader ownership, language and source-analysis questions remain required.
 
 The [binding-effect certificate](S07-binding-effects-gate.md) removes persistent equality wake-up bookkeeping while preserving consumption conflicts and non-ground observations. T079 subsequently compared admission and lifecycle costs. This is mechanism/correctness evidence, not a language-adoption result.
 

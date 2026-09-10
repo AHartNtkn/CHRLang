@@ -4,8 +4,6 @@ use chr_compiled::{Access, Policy, PreparedRuleset};
 mod engines;
 use chr_syntax::{Constraint, Goal, Query, Rule, Term, Var, and, atom, c, eq, or, v};
 use engines::{Engine, Event};
-#[path = "support/answer_wire.rs"]
-mod answer_wire;
 #[allow(dead_code)]
 #[path = "support/finite_bridge.rs"]
 mod finite_bridge;
@@ -88,7 +86,6 @@ fn goal(s: &str) -> Goal {
 }
 fn main() {
     let mode: usize = std::env::args().nth(1).unwrap().parse().unwrap();
-    let binary_output = std::env::args().nth(2).as_deref() == Some("--wire");
     let mut text = String::new();
     io::stdin().read_to_string(&mut text).unwrap();
     let mut sections = text.split("\nNEXT\n");
@@ -188,14 +185,11 @@ fn main() {
     } else {
         None
     };
-    let source_symbols = binary_output.then(|| answer_wire::Symbols::source(&rules));
-    let mut held_wires = vec![];
     let mut artifacts = std::collections::BTreeMap::new();
     if let Some(p) = &prefix {
         eprintln!("eliminated_predicates={}", p.eliminated_predicates().len());
     }
     for (index, query) in queries.into_iter().enumerate() {
-        let symbols = source_symbols.as_ref().map(|s| s.query(&query));
         let finite_query = if let Some((phase, bridge)) = &finite {
             Some((
                 phase
@@ -231,11 +225,7 @@ fn main() {
                     }
                 }
             }
-            if let Some(symbols) = symbols {
-                held_wires.push((index, true, answer_wire::OwnedWire::new(symbols, answers)));
-            } else {
-                emit_answers(index, true, answers);
-            }
+            emit_answers(index, true, answers);
             continue;
         }
         let mut engine = match mode {
@@ -298,33 +288,7 @@ fn main() {
                 Event::Progress => (),
             }
         }
-        if let Some(symbols) = symbols {
-            held_wires.push((
-                index,
-                exhausted,
-                answer_wire::OwnedWire::new(symbols, answers),
-            ));
-        } else {
-            emit_answers(index, exhausted, answers);
-        }
-    }
-    drop((
-        compiled,
-        contextual,
-        conditional,
-        prefix,
-        finite,
-        kept,
-        artifacts,
-        source_symbols,
-        rules,
-    ));
-    for (index, exhausted, wire) in held_wires {
-        use std::io::Write;
-        println!("WIRE {index} {exhausted} {}", wire.bytes.len());
-        println!("PRED {}", wire.symbols.predicates.join(","));
-        println!("ATOM {}", wire.symbols.atoms.join(","));
-        io::stdout().write_all(&wire.bytes).unwrap();
+        emit_answers(index, exhausted, answers);
     }
 }
 fn emit_answers(index: usize, exhausted: bool, answers: Vec<chr_syntax::Answer>) {
