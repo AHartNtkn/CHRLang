@@ -1,0 +1,17 @@
+--- frozen-native.c
++++ lifecycle-native.c
+@@ -177,10 +177 @@
+-#define ITRS_INC(name) \
+-  do { \
+-    if (CHR_ACTIVE) CHR_VISITS++; \
+-    if (ITRS_ENABLED != 0) { \
+-      if (__builtin_expect(STEPS_ITRS_LIM != 0, 0)) { \
+-        STEPS_LAST_ITR = (name); \
+-      } \
+-      ITRS++; \
+-    } \
+-  } while (0)
++#define ITRS_INC(name) do { if (CHR_ACTIVE) CHR_VISITS++; } while (0)
+@@ -6527 +6518 @@
+-    print_term_quoted(term); printf("\n");
++    emit_answer(term);

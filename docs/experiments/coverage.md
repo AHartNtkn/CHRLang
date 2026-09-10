@@ -1,6 +1,6 @@
 # Unanswered architecture questions and experimental ownership
 
-The [native prepared-query gate](results/S10-native-prepared.md) passes 383 queries across 22 rulesets and 50 additional queries in three successive sessions. Prepared definitions remain unchanged, query storage is reclaimed and retained answers survive session disposal. T078 next qualifies ordinary-allocator lifecycle measurement and substantive cost sources; no cross-architecture cost matrix has run.
+The [ordinary native timing entry](results/S10-native-timing-entry.md) reproduces all 383 prepared queries in ordinary and sanitized builds, plus 50 queries across successive sessions. Service, serialization, first observation and disposal have explicit accounting boundaries. The [ownership gate](results/S10-native-prepared.md) remains valid. T078 next qualifies substantive cost sources and Rust measurement paths; no cross-architecture cost matrix has run.
 
 The [native choice/identity composition gate](results/S03-native-choice-identity.md) validates 48 mixed sources, all 77 deterministic regressions and explicit failure/namespace boundaries. Finite siblings progress beside ongoing work. The common-source gate above now supplies the next comparison entry; local native ownership, broader language and lifetime remain required.
 
@@ -12,7 +12,7 @@ The [controlled size/reuse extension](results/S02-multihead-scale.md) completes 
 
 The [finite-solver lifecycle pilot](results/S06-finite-lifecycle.md) completes 1,428 processes across 204 configurations. A [paired allocation correction](results/S06-empty-complement-attribution.md) completes another 252 processes. Selective four-query allocation falls to 0.795 MB, below both conditional orders; the unselective batch still requests 15.77 MB versus specialization’s 9.24 MB. These are bounded results, with compilation and broader solver questions still open.
 
-Current selection: T078 complete-cost runner and source qualification, following the [prepared reuse and ownership gate](results/S10-native-prepared.md). Separate ordinary-allocator timings from diagnostics, preserve complete observations and qualify useful-work/size/reuse contrasts before prospective cost registration. This comparison now has reusable native and Rust entry points; further native features remain a competing investigation, with local claims, general terms and sustained graph ownership still required.
+Current selection: T078 substantive-source and complete-cost qualification after the [ordinary native measurement entry](results/S10-native-timing-entry.md). Qualify Rust counter settings and equivalent consumer endpoints, source emission, clock overhead and diagnostic allocation scope before prospective comparisons. The next package includes a breadth review against the strongest ready mechanism investigation. Local native claims, general terms and sustained graph ownership remain required.
 
 The [effect lifecycle and breadth review](results/S07-effect-lifecycle.md) validate833 runs and119 allocation pairs. Inference, checked and required admissions have identical accepted-source allocation; a writer demonstrates the expressive cost of forbidding bindings. T073 direct source-derived solving was selected at that checkpoint; broader effects and language adoption remain unresolved.
 

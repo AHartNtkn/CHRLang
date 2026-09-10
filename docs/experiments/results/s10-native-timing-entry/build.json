@@ -1,0 +1,32 @@
+[
+  {
+    "command": [
+      "clang",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "/home/ahart/Documents/CHRLang/target/s10-native-timing-entry/harness.c",
+      "-o",
+      "/home/ahart/Documents/CHRLang/target/s10-native-timing-entry/ordinary"
+    ],
+    "code": 0,
+    "stdout": "",
+    "stderr": "In file included from /home/ahart/Documents/CHRLang/target/s10-native-timing-entry/harness.c:11:\n/home/ahart/Documents/CHRLang/target/s10-native-timing-entry/native.c:3236:39: warning: unused parameter 'depth' [-Wunused-parameter]\nfn Term parse_term_str(PState *s, u32 depth) {\n                                      ^\n/home/ahart/Documents/CHRLang/target/s10-native-timing-entry/native.c:3277:39: warning: unused parameter 'depth' [-Wunused-parameter]\nfn Term parse_term_var(PState *s, u32 depth) {\n                                      ^\n/home/ahart/Documents/CHRLang/target/s10-native-timing-entry/native.c:3864:25: warning: unused parameter 'lab' [-Wunused-parameter]\nfn Term wnf_dup_nam(u32 lab, u64 loc, u8 side, Term nam) {\n                        ^\n/home/ahart/Documents/CHRLang/target/s10-native-timing-entry/native.c:3864:42: warning: unused parameter 'side' [-Wunused-parameter]\nfn Term wnf_dup_nam(u32 lab, u64 loc, u8 side, Term nam) {\n                                         ^\n/home/ahart/Documents/CHRLang/target/s10-native-timing-entry/native.c:4569:49: warning: unused parameter 'b' [-Wunused-parameter]\nfn Term wnf_and_inc(u64 and_loc, Term inc, Term b) {\n                                                ^\n5 warnings generated.\n"
+  },
+  {
+    "command": [
+      "clang",
+      "-O1",
+      "-fsanitize=undefined",
+      "-fno-sanitize-recover=all",
+      "-Wall",
+      "-Wextra",
+      "/home/ahart/Documents/CHRLang/target/s10-native-timing-entry/harness.c",
+      "-o",
+      "/home/ahart/Documents/CHRLang/target/s10-native-timing-entry/ubsan"
+    ],
+    "code": 0,
+    "stdout": "",
+    "stderr": "In file included from /home/ahart/Documents/CHRLang/target/s10-native-timing-entry/harness.c:11:\n/home/ahart/Documents/CHRLang/target/s10-native-timing-entry/native.c:3236:39: warning: unused parameter 'depth' [-Wunused-parameter]\nfn Term parse_term_str(PState *s, u32 depth) {\n                                      ^\n/home/ahart/Documents/CHRLang/target/s10-native-timing-entry/native.c:3277:39: warning: unused parameter 'depth' [-Wunused-parameter]\nfn Term parse_term_var(PState *s, u32 depth) {\n                                      ^\n/home/ahart/Documents/CHRLang/target/s10-native-timing-entry/native.c:3864:25: warning: unused parameter 'lab' [-Wunused-parameter]\nfn Term wnf_dup_nam(u32 lab, u64 loc, u8 side, Term nam) {\n                        ^\n/home/ahart/Documents/CHRLang/target/s10-native-timing-entry/native.c:3864:42: warning: unused parameter 'side' [-Wunused-parameter]\nfn Term wnf_dup_nam(u32 lab, u64 loc, u8 side, Term nam) {\n                                         ^\n/home/ahart/Documents/CHRLang/target/s10-native-timing-entry/native.c:4569:49: warning: unused parameter 'b' [-Wunused-parameter]\nfn Term wnf_and_inc(u64 and_loc, Term inc, Term b) {\n                                                ^\n5 warnings generated.\n"
+  }
+]

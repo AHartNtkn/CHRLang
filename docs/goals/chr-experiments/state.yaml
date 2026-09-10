@@ -139,9 +139,10 @@ tasks:
     assignee: PM
     status: active
     objective: Establish and independently qualify at least two coherent complete execution paths on mixed-mechanism sources, including a serious alternative, with explicit semantic capability and responsibility maps before whole-path cost registration.
-    progress: Common-source qualification supplies ten Rust configurations on all 125 cases, prefix lowering on 20 and finite solving plus caller on four. Native prepared reuse now passes 383 queries across 22 rulesets, including 88 cancellations and 23 reference-checked symbol extensions. Prepared heap/definitions remain unchanged; query storage is poisoned and reclaimed; consumer bytes survive prepared-state disposal. Three successive sessions reproduce 50 standalone queries exactly and reach zero tracked live bytes. The teardown residual is exactly 1314 bytes of interned names and parser paths, now released by the session owner. All 383 query observations and ownership receipts replay exactly under UBSan. No cross-architecture cost matrix has run.
-    next_action: Implement and qualify an ordinary-allocator timing runner with separate allocation/work diagnostics using the validated native prepared/query boundary. Extend complete common-source observations to useful-work, size and query-reuse contrasts; tiny identity obligations alone cannot establish architecture costs. Before comparisons register exact source families, configurations, repetition counts, bounds and interpretation. Charge source construction/emission, parsing/preparation, query setup, first/full observation, cancellation, consumer retention and every disposal phase. Distinguish runtime compilation from source-program compilation. Compare against applicable conventional, contextual/conditional and lowering controls. Broader language, local native claims and retained graph ownership remain required; preserve T080 as unfinished.
+    progress: Common-source qualification supplies ten Rust configurations on all 125 cases, prefix lowering on 20 and finite solving plus caller on four. Native ownership passes 383 queries and 50 successive-session queries with unchanged prepared definitions, reclaimed query storage and retained consumer bytes. The ordinary native timing runner now replays all 383 observations, call counts, pending statuses and heap words exactly; UBSan repeats all 383, and three ordinary sessions repeat 50 more queries. The audit validates 816 phase partitions and only two native-source edits, diagnostic iteration removal and serialized publication. The ownership gate remains valid. No cross-architecture cost matrix has run.
+    next_action: Qualify substantive mixed cost sources and Rust measurement paths, including counter settings and equivalent serialized consumer ownership. Vary useful work, choices, repair/collision pressure and query reuse without relying on tiny identity obligations for architecture costs. Charge source construction/emission and query encoding outside the native runner, and preserve its explicit service-plus-traversal versus serialized-publication distinction. Establish clock-overhead and allocation-diagnostic scope, including libc streams and mapped regions, before prospective comparative registration. The next package includes a breadth review against the strongest ready alternative before committing to a cost matrix. Broader language, native local claims, retained graph ownership and other mapped directions remain required.
     inputs:
+      - docs/experiments/results/S10-native-timing-entry.md
       - docs/experiments/results/S10-native-prepared.md
       - docs/experiments/results/S10-native-common-source.md
       - docs/experiments/results/S03-native-choice-identity.md
@@ -2456,17 +2457,16 @@ checks:
   last_verification:
     result: passed
     task: T078
-    scope: Native prepared-rule reuse, query reclamation and consumer ownership; no comparative costs.
+    scope: Ordinary native lifecycle measurement qualification; no comparative cost conclusions.
     commands:
-      - 383 native queries across 22 rulesets including 88 cancellations
-      - 23 symbol extensions checked against the unchanged reference
-      - 382 earlier query observations and ownership records replay exactly
-      - Three same-process sessions reproduce 50 standalone queries exactly
-      - UBSan reproduces all 383 outputs and ownership receipts without diagnostics
-      - Independent input, complete-answer, multiplicity, ownership and hash audit
+      - All 383 queries replay exact outputs, calls, pending status and heap words with ordinary allocation
+      - UBSan replays all 383 queries without runtime diagnostics
+      - Three successive sessions reproduce 50 standalone queries
+      - Audit validates 816 query phase partitions and the two native-source edits
+      - Prepared ownership audit passes unchanged
+      - Five inherited unused-parameter warnings attributed to the frozen reducer
       - Report links, YAML and sole active T078 validated
     evidence:
-      - docs/experiments/results/S10-native-prepared.md
-      - docs/experiments/results/s10-native-prepared/audit.json
-      - docs/experiments/results/s10-native-prepared/validation.json
-      - docs/experiments/results/s10-native-prepared/ubsan.json
+      - docs/experiments/results/S10-native-timing-entry.md
+      - docs/experiments/results/s10-native-timing-entry/audit.json
+      - docs/experiments/results/s10-native-timing-entry/validation.json
