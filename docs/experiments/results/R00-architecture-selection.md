@@ -1,6 +1,6 @@
 # R00: architectural alternatives and first experiment selection
 
-The [adaptive owner qualification](S04-adaptive-ownership.md) supplies the current evidence. Adaptive ownership qualifies a stateless eager control and 576 paired allocation runs across changing queries, retention and cancellation. The eager/scheduled engines are 88/120 bytes and have identical relative heap traces. Backoff reduces some eager allocations but can still lose to Copy or fixed schedules; history backoff matches eager allocation. All producer owners release and retained outputs remain valid. T077 next registers counter-free lifecycle costs. Control qualification and ownership are two packages in the new breadth cycle; goal active.
+The [adaptive cost pilot](S04-adaptive-cost-pilot.md) and [full breadth review](S04-adaptive-cost-breadth-review.md) supply the current evidence. The adaptive lifecycle pilot validates 768 qualification and 2,688 comparative processes across 384 cells. Most timing comparisons remain unresolved; the median within-cell maximum/minimum ratio is 1.416. Separated gains against eager or Copy do not establish superiority over stronger fixed or ordinary controls. No adaptive policy is selected. The four-package breadth review selects T075 effectful caller reuse next; T077 timing attribution and broader restoration remain required. Goal active.
 
 ## Earlier experimental checkpoints
 

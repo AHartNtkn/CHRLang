@@ -9,7 +9,7 @@ goal:
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
   current_research: >-
-    Adaptive ownership qualifies a stateless eager control and 576 paired allocation runs across changing queries, retention and cancellation. The eager/scheduled engines are 88/120 bytes and have identical relative heap traces. Backoff reduces some eager allocations but can still lose to Copy or fixed schedules; history backoff matches eager allocation. All producer owners release and retained outputs remain valid. T077 next registers counter-free lifecycle costs. Control qualification and ownership are two packages in the new breadth cycle; goal active.
+    The adaptive lifecycle pilot validates 768 qualification and 2,688 comparative processes across 384 cells. Most timing comparisons remain unresolved; the median within-cell maximum/minimum ratio is 1.416. Separated gains against eager or Copy do not establish superiority over stronger fixed or ordinary controls. No adaptive policy is selected. The four-package breadth review selects T075 effectful caller reuse next; T077 timing attribution and broader restoration remain required. Goal active.
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -64,7 +64,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T077
+active_task: T075
 tasks:
   - id: T080
     type: pm
@@ -206,11 +206,13 @@ tasks:
   - id: T077
     type: pm
     assignee: PM
-    status: "active"
-    progress: "Adaptive ownership qualifies a stateless eager control and 576 paired allocation runs across changing queries, retention and cancellation. The eager/scheduled engines are 88/120 bytes and have identical relative heap traces. Backoff reduces some eager allocations but can still lose to Copy or fixed schedules; history backoff matches eager allocation. All producer owners release and retained outputs remain valid. T077 next registers counter-free lifecycle costs. Control qualification and ownership are two packages in the new breadth cycle; goal active."
-    next_action: "Register adaptive counter-free lifecycle costs using stateless eager, scheduled EveryBoundary, fixed skips 1/8, backoff caps 1/8, initial reunion and Copy. Preserve independent raw-answer/progress validation, explicit source/preparation ownership, changing-query reuse, first/full observations, cancellation and retained consumers. Keep allocation/work diagnostics separate from primary timing. History has no backoff allocation benefit; late links expose stronger Copy/fixed controls. No adaptive timing matrix has run. Reconsider incremental projection, native local ownership, conditional equality/lifetime and broader caller reuse at the cost entry or obstruction; two packages complete, full breadth review by package four."
+    status: pending
+    progress: "The adaptive lifecycle pilot validates 768 qualification and 2,688 comparative processes across 384 cells. Most timing comparisons remain unresolved; the median within-cell maximum/minimum ratio is 1.416. Separated gains against eager or Copy do not establish superiority over stronger fixed or ordinary controls. No adaptive policy is selected. The four-package breadth review selects T075 effectful caller reuse next; T077 timing attribution and broader restoration remain required. Goal active."
+    next_action: "Prospectively register targeted paired timing and CPU/elapsed attribution before choosing an adaptive policy. Preserve the pilot and contrary Copy/fixed controls. Reconsider at the T075 effectful source gate or obstruction. Delayed splitting, successful-but-unprofitable checks, checkpoints/replay, wider sources and sustained lifetime remain required."
     objective: Investigate corrected checkpoint and replay policies, working-state reuse and temporary separation/reunion against competent copying, persistence and undo, preserving complete source behavior and accounting for preparation, execution, observation and disposal.
     inputs:
+      - docs/experiments/results/S04-adaptive-cost-pilot.md
+      - docs/experiments/results/S04-adaptive-cost-breadth-review.md
       - docs/experiments/results/S04-adaptive-ownership.md
       - docs/experiments/registrations/S04-adaptive-ownership.md
       - docs/experiments/results/S06-projection-breadth-review.md
@@ -294,11 +296,13 @@ tasks:
   - id: T075
     type: pm
     assignee: PM
-    status: pending
+    status: active
     objective: Investigate sound generalized call and continuation reuse after different histories, including renaming, relevance, resource and output identity obligations, against competent recomputation and sharing controls.
-    progress: "Matched finite reuse timing validates 640 processes: result reuse gains on long successful work; covered learning gains against it on all failure and forced eviction; short queries remain unresolved. Four-package breadth review selects T073 resource-phase composition with ordinary caller effects. T075 broader reuse and all distinct obligations remain required. Goal active."
-    next_action: "Carry matched result-reuse versus failure-learning runtime/allocation tradeoffs into complete architecture comparisons. Broader continuation relevance, source effects, sustained retention and held-out selection remain required. Return at the T073 resource-phase gate or an obstruction; revisit unresolved short-query timing only when it could select a concrete policy or boundary."
+    progress: "Adaptive four-package breadth review selects effectful caller reuse. Private-call tests reject live resource effects; generalized continuation renaming/history relevance already have evidence. Broader dependency validity and effect transport remain required."
+    next_action: "Read current call and continuation implementations and prospectively register an effectful source gate before implementation. Include distinct live consumed tokens, kept facts, competing caller effects, intermediate observations, late bindings, fresh identities and duplicate derivations. Compare complete direct execution independently; do not assume atomic calls. At the gate or obstruction reconsider targeted adaptive timing, native ownership, conditional lifetime and incremental projection. Full breadth review within four packages."
     inputs:
+      - docs/experiments/results/S04-adaptive-cost-pilot.md
+      - docs/experiments/results/S04-adaptive-cost-breadth-review.md
       - docs/experiments/results/S05-finite-reuse-breadth-review.md
       - docs/experiments/results/S05-finite-reuse-costs.md
       - docs/experiments/results/S05-finite-reuse-ownership.md

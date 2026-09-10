@@ -1,0 +1,17 @@
+    Checking chr-restoration v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-restoration)
+error: the loop variable `q` is used to index `counts`
+   --> research/chr-restoration/examples/adaptive_cost.rs:139:14
+    |
+139 |     for q in 0..config.reuse {
+    |              ^^^^^^^^^^^^^^^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.97.0/index.html#needless_range_loop
+    = note: `-D clippy::needless-range-loop` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::needless_range_loop)]`
+help: consider using an iterator and enumerate()
+    |
+139 -     for q in 0..config.reuse {
+139 +     for (q, <item>) in counts.iter().enumerate().take(config.reuse) {
+    |
+
+error: could not compile `chr-restoration` (example "adaptive_cost") due to 1 previous error

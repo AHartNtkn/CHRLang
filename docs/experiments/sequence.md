@@ -10,7 +10,7 @@ This is the governing sequence for the renewed investigation. Existing E/R measu
 
 The [next experimental cycle](next-cycle.md#start-here-the-next-experiments) sets the immediate experiments and their decision boundaries from the verified worktree. Its full programme covers every direction; the numbered investigations are identifiers, not instructions to repeat completed work. It reuses the stage definitions below and the full question map.
 
-The current package is T077 adaptive lifecycle cost comparison after [control and owner qualification](results/S04-adaptive-ownership.md). A stateless eager control now matches scheduled eager service events and relative heap traces. Backoff allocations show favorable and adverse regimes against fixed schedules and Copy; no adaptive timing matrix has run. Two packages are complete in the new breadth cycle; all broader directions remain required.
+The current package is T075 effectful caller reuse, selected by the [adaptive cost breadth review](results/S04-adaptive-cost-breadth-review.md). The adaptive lifecycle pilot validates 768 qualification and 2,688 comparative processes across 384 cells. Most timing comparisons remain unresolved; the median within-cell maximum/minimum ratio is 1.416. Separated gains against eager or Copy do not establish superiority over stronger fixed or ordinary controls. No adaptive policy is selected. The four-package breadth review selects T075 effectful caller reuse next; T077 timing attribution and broader restoration remain required. Goal active.
 
 ## Account for every reviewed question
 
