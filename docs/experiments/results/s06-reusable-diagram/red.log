@@ -1,0 +1,9 @@
+   Compiling chr-structural v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-structural)
+error[E0432]: unresolved import `chr_structural::reusable_diagram`
+ --> research/chr-structural/tests/reusable_diagram.rs:1:21
+  |
+1 | use chr_structural::reusable_diagram::{Diagram, Expr};
+  |                     ^^^^^^^^^^^^^^^^ could not find `reusable_diagram` in `chr_structural`
+
+For more information about this error, try `rustc --explain E0432`.
+error: could not compile `chr-structural` (test "reusable_diagram") due to 1 previous error

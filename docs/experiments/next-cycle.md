@@ -8,7 +8,7 @@ This sequence separates three deliverables: demonstrating a mechanism, measuring
 
 ## Start here: the next experiments
 
-**Reusable symbolic formulas and union/inclusion are now selected under T076.** The [demand timing comparison](results/S03-dependency-timing.md) completes 5,376 primary processes and 224 warmups. Miss reuse earns a practical gain in all four selected delayed-miss scenarios under each policy. Demand still has favorable and adverse regimes against Indexed; arrival reversal changes the large delayed-hit result. The [breadth review](results/S03-dependency-clock-breadth-review.md) selects a distinct representation question next.
+**Reusable symbolic formulas and union/inclusion are active under T076.** The [finite-diagram gate](results/S06-reusable-diagram.md) passes 24,384 independent denotation checks per build. Matched source correspondence is next, followed by complete costs against prepared names, projection, symbolic rebuilding and explicit enumeration. Finite set operations are working; their economics and broader source eligibility remain unanswered.
 
 **Demand remains unfinished under T071.** Targeted CPU/elapsed attribution must investigate consequential timing excursions; all recorded outliers remain in the results. Broader indexing, repeated successful discovery, nonground posts, writable heads, dynamic choices and sustained ownership need direct trials. Timing this qualified subset supplies no general rejection or selection of demand execution.
 
