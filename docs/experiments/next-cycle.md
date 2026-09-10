@@ -14,11 +14,11 @@ The [inert ownership comparison](results/S05-inert-ownership.md) qualifies finit
 
 ## Start here: the next experiments
 
-**Next qualify matched finite-name lifecycle observations under T076.** The [symbolic transport entry](results/S06-symbolic-transport.md) preserves unresolved aliases and hidden formulas. The finite projector instead materializes ground coordinate relations. Their comparison must request the same observation, not compare one symbolic formula with every ground filling.
+**Next investigate passive query resources depending on call outputs under T071.** The [joint ownership comparison](results/S06-joint-ownership.md) and [full breadth review](results/S06-joint-ownership-breadth-review.md) finish the four-package theory cycle. The demand evaluator's existing resource certificate still excludes this dependency; prior lifting and fresh-derivation trials do not answer it.
 
-Register symbolic conjunction, finite projection and independent enumeration paths over the same finite-name formula. Separate membership under caller restrictions from complete finite output. Charge preparation, fresh transport, changed callers, retained answers and disposal. Qualify ownership and allocation diagnostics before timing; carry selective and output-heavy cases forward.
+Register a resource keyed by an unresolved call output, alongside already-known-key controls. Add output aliases, constructors, competing consumers, failures and alternatives. Establish actual dependency discovery/repair and branch-local resource claims before changing admission. Use independent scalar and applicable compiled/local/contextual controls, preserving explicit committed-policy differences.
 
-**The strongest ready alternative is symbolic-union/inclusion analysis.** It could change multi-alternative observation complexity, but the single-conjunction paths already support a consequential matched lifecycle comparison. Union analysis, hidden elimination and general source closure remain required. Reconsider them with local copying and demand-driven choices at the gate. This is package three after guarded-choice breadth review; one further package triggers the full review.
+**The strongest ready alternative is symbolic identity-owner repair and matched runtime costs.** The measured symbolic query traffic alone exceeds the prepared-name total in the inspected case, so eliminating all transport allocation cannot reverse that contrast. The new source-capability gate can change which execution organizations support the language. Reconsider joint costs, local copying and symbolic union at that gate or an obstruction. Review the full breadth after at most four packages.
 
 ## Execution order after the current causal comparison
 
@@ -94,7 +94,7 @@ The numbers below identify detailed specifications, not the execution order. Sev
 
 ## The next concrete experiments
 
-**T076 is the sole active task for joint theory/source integration.** Follow the semantic and source gate above. T072 retains copying/service attribution, broader integrated mechanisms and sustained ownership. T074 remains required for continuing lifetime and publication qualification. T075's finite owner matrix leaves runtime, extraction/key attribution and broader dependencies unresolved; these remain in the reuse comparison.
+**T071 is the sole active task for demand resource dependencies.** Follow the source gate above. T076 retains matched runtime, compiled formula reuse, identity ownership and symbolic union; T072 retains broader integrated comparisons. T074 remains required for continuing lifetime and publication qualification. T075's finite owner matrix leaves runtime, extraction/key attribution and broader dependencies unresolved; these remain in the reuse comparison.
 
 T077 still requires timing attribution, policy challenges, delayed splitting and checkpoints/replay. T076 still requires incremental projection, broader connected shapes and source/theory correspondence. T074 still requires conditional equality/lifetime repair and sustained ownership. T080 still requires native local claims, dynamic choices, failed branches and descriptor lifetime. Broader resource derivation, integrated execution, language restrictions and complete architectures retain their comparisons below.
 

@@ -1,6 +1,6 @@
 # Experimental sequence: resolve the remaining architecture questions
 
-The [current execution order](next-cycle.md#execution-order-after-the-current-causal-comparison) schedules all missing comparisons. The [immediate packages](next-cycle.md#start-here-the-next-experiments) now investigate joint theory/source integration, with explicit reconsideration of branch-copy costs and distinct choice organizations. Every question retains its detailed evidence obligation.
+The [current execution order](next-cycle.md#execution-order-after-the-current-causal-comparison) schedules all missing comparisons. The [immediate packages](next-cycle.md#start-here-the-next-experiments) now investigate demand resource dependencies, with explicit reconsideration of joint-theory costs and local branch-copy costs. Every question retains its detailed evidence obligation.
 
 Investigate the unanswered mechanisms directly, then compare the complete architectures they enable. Reuse the existing baselines. The research remains active until consequential questions have evidence-backed answers.
 
@@ -12,7 +12,7 @@ This is the governing sequence for the renewed investigation. Existing E/R measu
 
 The [next experimental cycle](next-cycle.md#start-here-the-next-experiments) sets the immediate experiments and their decision boundaries from the verified worktree. Its full programme covers every direction; the numbered investigations are identifiers, not instructions to repeat completed work. It reuses the stage definitions below and the full question map.
 
-The [symbolic transport entry](results/S06-symbolic-transport.md) supplies the current checkpoint. Symbolic joint answers pass 12,096 independent membership comparisons per final execution in two default and two metrics-off runs; 65 regressions pass. Transport preserves fresh output holes, intentional caller aliases and hidden finite-name dependencies. Output-only cycles are now checked; invalid mappings and identity exhaustion are transactional. T076 next qualifies matched finite-name lifecycle observations across symbolic, projected and enumerated paths. Package three after guarded-choice breadth review; goal active.
+The [joint ownership comparison](results/S06-joint-ownership.md) and [breadth review](results/S06-joint-ownership-breadth-review.md) supply the current checkpoint. Matched finite-name ownership passes 1,152 allocation processes across symbolic, projected, prepared-name and explicit paths with exact pairs and final restoration. The 128-query symbolic witness retains 768 identity records; even zero transport allocation would not reverse its adverse prepared-name comparison. Four-package breadth review selects T071 call-output dependencies in passive query resources. Joint runtime, identity lifetime and symbolic union remain required; goal active.
 
 ## Account for every reviewed question
 

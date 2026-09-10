@@ -1,6 +1,6 @@
 # The comparisons still needed to choose the architecture
 
-The [symbolic transport entry](results/S06-symbolic-transport.md) supplies the current checkpoint. Symbolic joint answers pass 12,096 independent membership comparisons per final execution in two default and two metrics-off runs; 65 regressions pass. Transport preserves fresh output holes, intentional caller aliases and hidden finite-name dependencies. Output-only cycles are now checked; invalid mappings and identity exhaustion are transactional. T076 next qualifies matched finite-name lifecycle observations across symbolic, projected and enumerated paths. Package three after guarded-choice breadth review; goal active.
+The [joint ownership comparison](results/S06-joint-ownership.md) and [breadth review](results/S06-joint-ownership-breadth-review.md) supply the current checkpoint. Matched finite-name ownership passes 1,152 allocation processes across symbolic, projected, prepared-name and explicit paths with exact pairs and final restoration. The 128-query symbolic witness retains 768 identity records; even zero transport allocation would not reverse its adverse prepared-name comparison. Four-package breadth review selects T071 call-output dependencies in passive query resources. Joint runtime, identity lifetime and symbolic union remain required; goal active.
 
 The [names entry](results/S06-names-entry.md) supplies the current checkpoint. The names entry checks 17,934 finite denotations, 8,967 ground source cases, 183 partial source cases and 1,224 explicit assignments per execution in both builds. Literal root rejection differs from atomic-name membership; fixed names remain observable and logical compression cannot replace residual occurrences. The delayed-binding source extension and 53 structural/lambda regressions pass. T076 next investigates delayed name disequality, finite versus unbounded alphabets and projection/caller dependencies. No timing or architecture conclusion; goal active.
 
@@ -94,7 +94,7 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-The [current execution order](next-cycle.md#start-here-the-next-experiments) owns scheduling. The guarded-choice four-package review selects T076 joint theory/source integration. T072 retains adverse copying/service attribution, broader integrated mechanisms and sustained ownership; the pilot does not close those questions.
+The [current execution order](next-cycle.md#start-here-the-next-experiments) owns scheduling. The joint-theory four-package review selects T071 call-output dependencies in passive query resources. T076 retains matched runtime, reusable compiled constraints, identity lifetime and symbolic union/inclusion; no bounded result closes those questions.
 
 ### Depth, breadth and stopping within this sequence
 
