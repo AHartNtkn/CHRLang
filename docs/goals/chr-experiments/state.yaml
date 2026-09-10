@@ -9,13 +9,13 @@ goal:
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
   current_research: >-
-    Learning ownership passes 432 paired processes with independent complete outcomes and
-    full task-owned requested-heap restoration. Setup allocation can outweigh saved execution.
-    T073 next attributes consequential setup costs and qualifies counter-free paired timing.
-    T078 mixed-source comparison remains required. General conflict learning, resource derivations,
-    independent native compilation, broader integration and graph mechanisms, restoration,
-    language tradeoffs, sustained lifetime, connected parallelism and held-out whole-architecture
-    comparison remain unresolved. No universal architecture is selected; the goal remains active.
+    Full-containment checking attributes avoidable eager subtraction allocation in four cells;
+    all 144 recomputation and covered-state controls are unchanged. T073 next qualifies
+    counter-free timing with a breadth review against T078 mixed-source comparison at that boundary.
+    General conflict learning, resource derivations, independent native compilation, broader
+    integration and graph mechanisms, restoration, language tradeoffs, sustained lifetime,
+    connected parallelism and held-out whole-architecture comparison remain unresolved.
+    No universal architecture is selected; the goal remains active.
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -363,10 +363,11 @@ tasks:
     type: pm
     assignee: PM
     status: active
-    progress: Learning ownership gate completes432 processes over216 configurations with deterministic phase allocation, independent complete outcomes and full task-owned heap restoration. Eager requests more bytes than recomputation in72of72 cells; covered checks request fewer in6 and more in66. Query setup can outweigh avoided execution allocation. Meter self-check and scoped Clippy pass; no timing or RSS claim.
-    next_action: Attribute consequential query-setup allocation, testing sound containment before subtraction and charging candidate key creation. Pair with frozen ownership cases and common-prefix witnesses. Qualify ordinary-allocator timing with learning counters disabled, include cancellation ownership, and prospectively register paired costs. Reconsider T078 mixed-source pilot at this boundary; broader resource derivations, general learning and native compilation remain required.
+    progress: Full-containment check fixes unnecessary eager complement partitions with an independent failing/passing regression. All432 allocation processes restore heap and preserve outcomes. Four eager cells allocate less and68 are unchanged; all144 other control summaries are unchanged. Both feature builds pass33 relevant tests; scoped strict Clippy passes. No timing claim.
+    next_action: Qualify ordinary-allocator timing with learning diagnostics disabled and cancellation ownership accounted. Register common-prefix depth, reuse and capacity cost contrasts prospectively. The four-package learning breadth review selects this bounded qualification over further allocation tuning; reconsider T078 mixed-source pilot at its boundary or obstruction. General learning, resource derivations and native compilation remain required.
     objective: Derive a source-driven lowering transformation beyond exact schemas, with explicit dependency/resource conditions, independent complete-answer checks and consequential language-property boundaries before cost measurement.
     inputs:
+      - docs/experiments/results/S06-learning-setup.md
       - docs/experiments/results/S06-learning-ownership.md
       - docs/experiments/results/S06-covered-learning.md
       - docs/experiments/results/S06-learned-regions.md
@@ -2475,12 +2476,12 @@ checks:
   last_verification:
     result: passed
     task: T073
-    scope: Learning allocation ownership and paired diagnostics; no timing or RSS claims.
+    scope: Eager setup allocation attribution and full-containment regression; no timing claims.
     commands:
-      - python3 research/chr-hvm/learned_regions/ownership_gate.py; 216 configurations and432 processes
-      - Meter self-check; scoped strict Clippy; rustfmt check
-      - Complete independent outcomes, deterministic phase signatures and full heap restoration
-      - Local links, YAML and diff checks
+      - Default and metrics-off finite gates; 33 tests per build
+      - python3 docs/experiments/results/s06-learning-setup/run_gate.py; 432 allocation processes
+      - python3 docs/experiments/results/s06-learning-setup/compare.py
+      - Scoped strict Clippy; rustfmt; links; YAML; hashes; diff checks
     evidence:
-      - docs/experiments/results/S06-learning-ownership.md
-      - docs/experiments/results/s06-learning-ownership/audit.json
+      - docs/experiments/results/S06-learning-setup.md
+      - docs/experiments/results/s06-learning-setup/comparison.json

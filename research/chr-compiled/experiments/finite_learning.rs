@@ -92,11 +92,30 @@ impl<'p> Learner<'p> {
         let candidate = if let Some(initial) = work.queue.first() {
             let (candidate, vars) = region(initial)?;
             original_vars = vars.clone();
+            // A later, larger proof can subsume this whole query. Check before
+            // an older partial region allocates complement states unnecessarily.
+            let covered = self.pruning == Pruning::Eager
+                && self.regions.iter().any(|known| {
+                    self.stats.probes += 1;
+                    candidate.goals == known.goals
+                        && candidate
+                            .domains
+                            .iter()
+                            .zip(&known.domains)
+                            .all(|(input, failed)| input.is_subset(failed))
+                });
+            if covered {
+                work.queue.clear();
+                self.stats.excluded_regions += 1;
+            }
             for known in self
                 .regions
                 .iter()
                 .filter(|_| self.pruning == Pruning::Eager)
             {
+                if work.queue.is_empty() {
+                    break;
+                }
                 self.stats.probes += 1;
                 if candidate.goals != known.goals {
                     continue;

@@ -615,3 +615,40 @@ fn covered_cancellation_and_traversal_errors_never_learn() {
         1
     );
 }
+
+#[test]
+fn covering_failure_avoids_partitions_from_older_partial_regions() {
+    let source = matrix_rules(0, 1);
+    let p = Prepared::new(&source, source.len() - 1).unwrap();
+    let mut learner = Learner::new(&p, 4, Pruning::Eager);
+    let small = matrix_query(3, 3, false, 10);
+    let wide = matrix_query(7, 7, false, 100);
+    assert_eq!(
+        check_source(
+            &source,
+            &small,
+            learner.solve(&small, Limits::default()).unwrap()
+        ),
+        0
+    );
+    assert_eq!(
+        check_source(
+            &source,
+            &wide,
+            learner.solve(&wide, Limits::default()).unwrap()
+        ),
+        0
+    );
+    assert_eq!(learner.retained(), 2);
+    let result = learner
+        .solve(
+            &wide,
+            Limits {
+                partitions: 0,
+                ..Limits::default()
+            },
+        )
+        .unwrap();
+    assert_eq!(result.partitions, 0);
+    assert_eq!(check_source(&source, &wide, result), 0);
+}

@@ -1,0 +1,22 @@
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.36s
+     Running tests/finite_learning_gate.rs (target/debug/deps/finite_learning_gate-cf7d71b6ef27247f)
+
+running 1 test
+test covering_failure_avoids_partitions_from_older_partial_regions ... FAILED
+
+failures:
+
+---- covering_failure_avoids_partitions_from_older_partial_regions stdout ----
+
+thread 'covering_failure_avoids_partitions_from_older_partial_regions' (150) panicked at research/chr-direct-conditional/tests/finite_learning_gate.rs:629:86:
+called `Result::unwrap()` on an `Err` value: Limit("partitions")
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    covering_failure_avoids_partitions_from_older_partial_regions
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 9 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p chr-direct-conditional --test finite_learning_gate`
