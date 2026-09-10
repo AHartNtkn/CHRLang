@@ -1,5 +1,7 @@
 # Unanswered architecture questions and experimental ownership
 
+The [learned-region validity gate](results/S06-learned-regions.md) preserves independent complete answers across 96 seeds and 1,920 follow-up sessions per build. Eager learning saves work on failed queries but can duplicate shared prefixes: the controlled depth16 successful query rises from26 to41 solver steps. T073 next compares later coverage checks against eager subtraction; no timing or allocation advantage is established.
+
 The [primary/diagnostic publication-clock comparison](results/S10-publication-clock.md) preserves full outcomes across both builds and completes 540 pilot processes plus 108 warmups. All 54 timing contrasts are unresolved; no speed claim follows. The five-package breadth review selects T073 compatible-query learning. T078 allocation qualification and mixed-source costs remain required.
 
 The [clock calibration](results/S10-clock-calibration.md) audits 42 processes and 420,000 empty intervals. Many small phases and per-answer serialization observations are instrumentation-sensitive. T078 next qualifies primary service timing without repeated serialization clocks, with paired diagnostic replays; allocation diagnostics remain required and no architecture ranking follows.
