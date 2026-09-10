@@ -1,6 +1,6 @@
 # Unanswered architecture questions and experimental ownership
 
-The [inert residual source gate](results/S05-inert-residual-gate.md) supplies the current evidence. Source-derived inert ground residual separation passes 72 source configurations and 5712 FIFO step comparisons per build. Metrics show 562 separated transition hits versus 380 whole-state hits; readable and late-bound callers remain distinct. Active consumption/history controls and 444 unfinished cancellation/restart pairs qualify per build. Both configurations pass 42 selected tests and strict Clippy; uncached slot retention was repaired. T075 next qualifies complete ownership/allocation costs. Three packages since the adaptive breadth review; the next package must end with full breadth review. Goal active.
+The [inert ownership comparison](results/S05-inert-ownership.md) and [full breadth review](results/S05-inert-ownership-breadth-review.md) supply the current evidence. Inert residual ownership qualifies 720 configurations with 1440 final paired allocation runs; all finite owners release. Separated memo requests fewer bytes than compact whole-state tables in 96 scenarios and more in 48, with lower peaks in 84 and higher in 60. Direct requests fewer bytes and has lower peaks throughout. Prior pre-lint runs are preserved, giving 2592 audited processes. Four-package breadth review selects T074 conditional equality/support lifetime attribution; T075 costs and broader dependencies remain required. Goal active.
 
 ## Earlier experimental checkpoints
 

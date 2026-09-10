@@ -10,19 +10,20 @@ The [design review](results/R07-design-disposition-review.md) distinguishes meas
 
 Several useful comparisons now exist. [Integrated graph scanning](results/S02-multihead-scale.md) has favorable measured regimes. [Finite solving](results/S06-finite-lifecycle.md) has selective benefits and unselective costs. [Support ordering](results/S08-order-lifecycle.md) has opposing regimes. These findings supply stronger controls, not a complete architecture ranking.
 
-The [inert residual source gate](results/S05-inert-residual-gate.md) qualifies a resumable implementation that separates unreadable ground observations from active state. It gains reuse across distinct caller tags while preserving tested FIFO deliveries and active effects. Work savings do not establish total efficiency.
+The [inert ownership comparison](results/S05-inert-ownership.md) qualifies finite release and finds allocation gains against tables in some regimes, while Direct remains smaller throughout. The [full breadth review](results/S05-inert-ownership-breadth-review.md) selects conditional equality/support attribution. Its unresolved continuing-service obstruction could change the feasibility of an architectural alternative.
 
 ## Start here: the next experiments
 
-Qualify complete ownership and allocation costs for the new separation. Preparation, active keys/nodes, cached edge data, per-derivation residuals and retained consumer answers all need an explicit account.
+Explain the observed conditional binding/support growth and test a credible remedy. Existing optimizations still reached only 240 answers under a 20-million-call diagnostic bound. Increasing that bound alone would not distinguish necessary work from representation cost.
 
 | Next | Experiment | Decision and follow-through |
 |---|---|---|
-| 1 — T075 active | Register owner/allocation qualification across changing queries, immediate/window/all retention, cancellation and reusable/adverse sources. Include Direct, whole-state tables and separated execution without memoization. | Does reduced active-state duplication repay extraction, transport and retained edge/output data? Repair consequential owner defects before timing. |
-| At this package boundary | Conduct a full breadth review of every required direction. | Three packages have completed since the adaptive review. Ownership qualification is the fourth; additional attribution work cannot postpone review. |
-| Conditional on qualification and breadth selection | Register ordinary-allocator counter-free timing with qualified complete endpoints. | Do not choose the mechanism from saved transitions or allocation alone. |
+| 1 — T074 active | Revalidate current source/configurations and register attribution of binding iteration, support operations, body service and observation over completed prefixes. | Which operations cause the growth, and which could be avoided without changing contexts, effects or answers? |
+| 2 — guided by attribution | Implement a credible remedy and independently check overlaps, late bindings, resource effects, failure and complete prefixes. | Does the repair remove the causal cost while preserving continuing semantics? A cutoff must remain explicit. |
+| At the causal gate or obstruction | Compare further work with separated-reuse attribution/timing, adaptive timing precision, native ownership and incremental projection. | Inert separation's ownership evidence remains bounded; its allocation tradeoffs do not establish speed. |
+| Within four packages | Review all required directions and every untried mechanism again. | The completed reuse cycle does not reset obligations; attribution, repair, ownership and timing each count. |
 
-Broader variable-dependent observations, call-local effects and cross-query reuse remain required. The [source report](results/S05-inert-residual-gate.md#why-ownership-next) compares the next owner investigation with adaptive timing attribution, native local ownership, conditional equality/lifetime repair and incremental projection.
+The [breadth review](results/S05-inert-ownership-breadth-review.md) explains this selection against the strongest ready alternatives. Broader reuse, source-language questions and complete architecture comparisons remain required.
 
 ## The full programme
 
@@ -70,7 +71,7 @@ The numbers below identify investigations and their detailed specifications late
 
 ## The next concrete experiments
 
-**Next qualify ownership and allocation for inert residual separation — T075.** Follow the owner comparison above and the [source report](results/S05-inert-residual-gate.md). Its measured work savings introduce concrete extraction and output-retention duties; complete accounting can change whether timing or repair is worthwhile. Full breadth review is due at this next package boundary.
+**Next attribute conditional equality/support costs — T074.** Follow the causal package above and the [full breadth review](results/S05-inert-ownership-breadth-review.md). T075's finite owner matrix qualifies but leaves runtime, extraction/key attribution and broader dependencies unresolved. Revisit those at the conditional causal gate or obstruction.
 
 T077 still requires timing attribution, policy challenges, delayed splitting and checkpoints/replay. T076 still requires incremental projection, broader connected shapes and source/theory correspondence. T074 still requires conditional equality/lifetime repair and sustained ownership. T080 still requires native local claims, dynamic choices, failed branches and descriptor lifetime. Broader resource derivation, integrated execution, language restrictions and complete architectures retain their comparisons below.
 

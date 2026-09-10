@@ -364,7 +364,7 @@ The [finite-solver lifecycle pilot](S06-finite-lifecycle.md) completes 1,428 pro
 
 ### 40. General reconvergence, alpha-equivalent tables and selective recomputation — Not directly resolved
 
-**Effectful reuse follow-up.** The source and boundary gates distinguish resource-sensitive keys from scheduling/history and FIFO obligations. The [inert residual implementation](S05-inert-residual-gate.md) now preserves 5712 FIFO step comparisons over 72 sources per build while increasing transition hits from 380 to 562. Readable and late-bound callers remain distinct. Ownership/allocation costs are next; variable-dependent observations, general relevance and coherent-architecture efficiency remain unresolved.
+**Effectful reuse follow-up.** The source gates distinguish key validity, scheduling/history and FIFO duties. The [inert owner comparison](S05-inert-ownership.md) now qualifies 720 configurations. Separated memo allocation beats compact tables in 96 scenarios and loses in 48; Direct stays smaller in every scenario. All finite owners release. Timing, variable-dependent observations and broader relevance remain required; the [breadth review](S05-inert-ownership-breadth-review.md) selects conditional lifetime attribution next.
 
 The [complete-caller ownership gate](S05-caller-ownership-gate.md) executes fresh replay and caller continuations directly and verifies prepared-cache/consumer lifetime separation. This enables a full lifecycle pilot; it does not establish a reuse or architecture winner.
 
