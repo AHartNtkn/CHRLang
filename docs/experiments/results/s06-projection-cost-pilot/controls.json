@@ -1,0 +1,11 @@
+{
+  "command": [
+    "/home/ahart/Documents/CHRLang/target/s06-projection-cost-primary/debug/deps/projection_cost_controls-dd10d6b40888d501",
+    "--test-threads=1",
+    "--nocapture"
+  ],
+  "returncode": 0,
+  "stdout": "\nrunning 2 tests\ntest all_registered_sources_queries_endpoints_and_prefixes_match_independent_oracle ... ok\ntest separability_control_does_not_silently_run_another_engine - should panic ... ok\n\ntest result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.15s\n\n",
+  "stderr": "\nthread 'separability_control_does_not_silently_run_another_engine' (8) panicked at research/chr-structural/tests/../examples/support/projection_cost.rs:213:17:\nseparability control excludes relational filters\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n",
+  "wall_seconds": 1.1499603430274874
+}

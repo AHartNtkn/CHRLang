@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/home/ahart/Documents/CHRLang/target/s06-projection-cost-meter/release/examples/projection_cost",
+    "structural",
+    "star",
+    "10",
+    "1",
+    "expanded",
+    "0"
+  ],
+  "returncode": 0,
+  "stdout": "{\"mode\":\"structural\",\"family\":\"star\",\"n\":10,\"queries\":1,\"endpoint\":\"expanded\",\"cancel\":0,\"total_ns\":3191827,\"observed\":[[513,4140718843381125683]],\"metered\":true}\n{\"phase\":\"source\",\"query\":0,\"ns\":2543,\"memory\":{\"live_start\":3989,\"live_end\":5543,\"peak_live\":5543,\"allocation_calls\":58,\"requested_bytes\":1554,\"deallocation_calls\":0}}\n{\"phase\":\"prepare\",\"query\":0,\"ns\":4584,\"memory\":{\"live_start\":5543,\"live_end\":6612,\"peak_live\":6612,\"allocation_calls\":70,\"requested_bytes\":2018,\"deallocation_calls\":46}}\n{\"phase\":\"source_dispose\",\"query\":0,\"ns\":700,\"memory\":{\"live_start\":6612,\"live_end\":5058,\"peak_live\":6612,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":58}}\n{\"phase\":\"query_start\",\"query\":0,\"ns\":3163900,\"memory\":{\"live_start\":5058,\"live_end\":5530,\"peak_live\":322598,\"allocation_calls\":49289,\"requested_bytes\":4851245,\"deallocation_calls\":49277}}\n{\"phase\":\"first\",\"query\":0,\"ns\":157,\"memory\":{\"live_start\":5530,\"live_end\":5530,\"peak_live\":5532,\"allocation_calls\":1,\"requested_bytes\":2,\"deallocation_calls\":1}}\n{\"phase\":\"remaining\",\"query\":0,\"ns\":19349,\"memory\":{\"live_start\":5530,\"live_end\":5058,\"peak_live\":5532,\"allocation_calls\":508,\"requested_bytes\":1016,\"deallocation_calls\":513}}\n{\"phase\":\"query_dispose\",\"query\":0,\"ns\":185,\"memory\":{\"live_start\":5058,\"live_end\":5058,\"peak_live\":5058,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":0}}\n{\"phase\":\"prepare_dispose\",\"query\":0,\"ns\":409,\"memory\":{\"live_start\":5058,\"live_end\":3989,\"peak_live\":5058,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":23}}\n",
+  "stderr": "",
+  "wall_seconds": 0.009891369030810893
+}

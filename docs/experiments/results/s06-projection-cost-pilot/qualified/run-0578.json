@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/home/ahart/Documents/CHRLang/target/s06-projection-cost-meter/release/examples/projection_cost",
+    "descending",
+    "dense",
+    "10",
+    "1",
+    "weighted",
+    "0"
+  ],
+  "returncode": 0,
+  "stdout": "{\"mode\":\"descending\",\"family\":\"dense\",\"n\":10,\"queries\":1,\"endpoint\":\"weighted\",\"cancel\":0,\"total_ns\":801229,\"observed\":[[1024,1174481699983857152]],\"metered\":true}\n{\"phase\":\"source\",\"query\":0,\"ns\":740,\"memory\":{\"live_start\":3990,\"live_end\":4330,\"peak_live\":4330,\"allocation_calls\":12,\"requested_bytes\":340,\"deallocation_calls\":0}}\n{\"phase\":\"prepare\",\"query\":0,\"ns\":6851,\"memory\":{\"live_start\":4330,\"live_end\":10178,\"peak_live\":10178,\"allocation_calls\":97,\"requested_bytes\":6888,\"deallocation_calls\":42}}\n{\"phase\":\"source_dispose\",\"query\":0,\"ns\":285,\"memory\":{\"live_start\":10178,\"live_end\":9838,\"peak_live\":10178,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":12}}\n{\"phase\":\"query_start\",\"query\":0,\"ns\":742198,\"memory\":{\"live_start\":9838,\"live_end\":101822,\"peak_live\":102092,\"allocation_calls\":11447,\"requested_bytes\":102494,\"deallocation_calls\":10252}}\n{\"phase\":\"first\",\"query\":0,\"ns\":157,\"memory\":{\"live_start\":101822,\"live_end\":101812,\"peak_live\":101822,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":1}}\n{\"phase\":\"remaining\",\"query\":0,\"ns\":49400,\"memory\":{\"live_start\":101812,\"live_end\":9838,\"peak_live\":101812,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":1194}}\n{\"phase\":\"query_dispose\",\"query\":0,\"ns\":240,\"memory\":{\"live_start\":9838,\"live_end\":9838,\"peak_live\":9838,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":0}}\n{\"phase\":\"prepare_dispose\",\"query\":0,\"ns\":1358,\"memory\":{\"live_start\":9838,\"live_end\":3990,\"peak_live\":9838,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":53}}\n",
+  "stderr": "",
+  "wall_seconds": 0.003682322916574776
+}

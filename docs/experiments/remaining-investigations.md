@@ -1,6 +1,6 @@
 # The comparisons still needed to choose the architecture
 
-The [projection ordering and ownership gate](results/S06-projection-lifecycle-gate.md) records the next qualification. Projection ordering and owned expansion pass 12,288 independent weighted-map comparisons per build and 36 exactly paired ownership diagnostics. Greedy ordering selects the connected star’s 28-visit/four-entry path. Dense output retains 91,984 bytes before first expansion; all producer owners release independently of consumers. Grouping preserves multiplicity but does not reconstruct source-choice order. T076 next registers finite-endpoint lifecycle costs; no timing comparison or ordered-CHR claim follows. Package two after descriptor breadth review; goal active.
+The [finite projection lifecycle pilot](results/S06-projection-cost-pilot.md) supplies the current evidence. The 1,904-process finite projection pilot finds a connected/reused weighted gain, stronger separability for independent choices, and streaming gains on dense output and cancellation. Leaf-first connected projection takes 35.58 microseconds median versus enumeration’s 87.54, with higher allocation traffic. These are exploratory finite-endpoint results, not an ordered-CHR or architecture ranking. T077 adaptive ownership qualification is selected next; T076 and broader directions remain required. Comparator qualification and timing complete four packages; the full breadth review selects adaptive ownership to start the next cycle. Goal active.
 
 ## Earlier experimental checkpoints
 
@@ -86,7 +86,7 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-The [current execution order](next-cycle.md#start-here-the-next-experiments) owns scheduling. T076 next registers finite projection lifecycle costs after ordering and owner qualification. Adaptive search ownership follows in the immediate schedule. Package two is complete in this breadth cycle; review native local ownership, conditional equality/lifetime, broader caller reuse and all still-untried mechanisms by package four.
+The [current execution order](next-cycle.md#start-here-the-next-experiments) owns scheduling. T077 is active for adaptive search ownership qualification after the projection cost pilot. T076 retains broader graph shapes, incremental output, source correspondence and richer theories. The four-package breadth review is complete; adaptive ownership begins the next cycle.
 
 ### Depth, breadth and stopping within this sequence
 

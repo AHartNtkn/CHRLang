@@ -1,0 +1,37 @@
+# Finite projection lifecycle pilot
+
+Prospective exploratory pilot, registered before implementation and comparative timing. T076 asks whether eliminating hidden finite choices earns its representation, ordering and output costs. This is package three after the descriptor breadth review if it proceeds through qualification; any separate consequential attribution package counts toward the four-package breadth deadline. Adaptive search ownership/costs are the strongest ready alternative. The previous gate supplies credible endpoints and a concrete output-heavy adverse case, making this cost comparison more discriminating now than another correctness refinement.
+
+## Equivalent requests and hypotheses
+
+Use finite Boolean coordinate domains with counted source alternatives and set-membership filters. Requests return either a map of visible tuples and multiplicities, delivered in tuple order, or the fully expanded multiset in tuple order. These are explicit finite endpoints, not claims about ordered CHR derivations. First output and cancellation are measured within each endpoint separately. Hidden witness provenance and caller effects are outside this pilot.
+
+H1: eliminating many hidden choices may repay projection preparation as hidden work or query reuse grows. H2: a control that recognizes independent choices can eliminate hidden work with much less machinery. H3: connected width and elimination order may change the crossover. H4: dense output and early cancellation may favor streaming enumeration even when projection improves complete weighted observation. Each hypothesis admits the contrary result. Do not infer a complete architecture choice from these finite contrasts.
+
+## Sources and implementations
+
+Three deterministic families at 4 and 10 coordinates: independent Boolean coordinates with only coordinate 0 visible; a star with center 0 and each leaf i restricted to pairs 00,01,10, with the last two leaves visible; and dense output with all coordinates visible and no filters. No workload weights. Sizes vary hidden work, connected width and output size; broader graphs remain a subsequent challenge.
+
+Compare ascending-hidden, descending-hidden and scope-greedy projection using the qualified module. Compare streaming backtracking enumeration that assigns visible coordinates first, validates each relation when its last scoped coordinate becomes available, and prunes before extending inconsistent assignments. Aggregate consecutive equal visible tuples for weighted delivery; expanded delivery can emit before completing hidden enumeration. Precompute relation readiness and unique domain values with choice weights during preparation.
+
+For independent/dense families also use a separability control: verify absence of relational filters, multiply the hidden domain-choice counts, and enumerate only visible values with their multiplicities. This control explicitly rejects the star; do not substitute another engine behind its name. Its detection, preparation and output remain charged.
+
+Include the existing finite structural solver on all three families. Construct the same tuple domain and membership restrictions as an acyclic Grammar, run existing Search unchanged, then collect projected visible multiplicities. The adapter's term construction, search, full-map collection and tuple conversion are charged; it is a complete finite-control path, not an isolated solver kernel. Its current endpoint materializes the projected map, so it is not a streaming-output control. Do not interpret adapter overhead as intrinsic to all structural solvers.
+
+## Matrix and observation
+
+Cross family, size, one versus four queries per preparation, weighted versus expanded delivery, and exhaustion versus cancellation after eight delivered records (or exhaustion if fewer exist). Four-query restrictions are unrestricted, first visible coordinate=0, =1, unrestricted. One-query uses the unrestricted request. A weighted record is one tuple/count pair; an expanded record is one tuple with count 1. Consumers immediately release records. Prior ownership evidence covers retained windows/all outputs; this pilot does not repeat that axis or claim sustained memory.
+
+This gives 48 source/request scenarios. Five modes apply to all 48; separability applies to 32: 272 cells. Execute five ordinary-allocator metrics-off release processes and two separate metrics-off allocation-meter processes per cell: 1,904 processes. Timings from allocation builds are diagnostic only. No work counters in primary execution.
+
+Independently enumerate complete original choice tuples and membership filters outside measured intervals. Preflight every candidate against the entire expected ordered record sequence before measurement. During measurement compute a count and wrapping digest of delivered records; compare both with the independently derived expected full/prefix values afterward. Oracle construction, preflight and JSON reporting are excluded; this is warmed in-process execution, not cold-process startup. Compilation, host process startup and artifacts are not isolated and support no lifecycle-superiority claim about compilation.
+
+Measure source construction, preparation (including ordering/eligibility/grammar creation), source disposal, query setup/start, first record, remaining records, query disposal and preparation disposal separately. Immediate consumer release is included in delivery. Report joint phases honestly where weighted materialization occurs inside start or first record. Full lifecycle is the sum of charged phases. Run each cell in its own process, deterministic shuffled order with Python Random seed 607031; preserve command/source/binary hashes before runs.
+
+Each process has 60-second wall/CPU and 1 GiB address-space bounds; enumeration/service limits are 5,000,000 steps and 100,000 output records per query. Errors/cutoffs are recorded as incomplete, never ranked as completed costs. Begin with qualification of the exact small/large cells and one exploratory sizing process per mode/family at the larger four-query exhaustive expanded endpoint (17 sizing processes). If all fit comfortably, use the registered matrix unchanged. A material failure or impractical bound requires diagnosis and a prospective amendment, preserving prior receipts.
+
+## Interpretation and follow-through
+
+Report five-sample ranges and medians, phase costs and two allocation records with exact diagnostic agreement. Flag a pilot separation only when all five lifecycle observations differ by at least 10% in the same direction; otherwise call it unresolved. This is an exploratory screening rule, not a confidence interval. First-output cost includes source/preparation and query start; also report warm-query first output separately. Allocation traffic, live heap and phase-local peaks are distinct; none is RSS.
+
+A gain needs an adverse case and subsequent held-out confirmation before a broader recommendation. A loss with a plausible avoidable cost needs attribution when that cost could reverse the decision. Different favorable regimes remain conditional tradeoffs without invented weights. At the pilot boundary compare further projection attribution with adaptive ownership, native local ownership, conditional equality/lifetime and broader reuse; full breadth review by package four. General privacy/source correspondence, arbitrary structural paths and richer theories remain required.

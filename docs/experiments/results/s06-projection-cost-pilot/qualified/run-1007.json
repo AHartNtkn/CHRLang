@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/home/ahart/Documents/CHRLang/target/s06-projection-cost-meter/release/examples/projection_cost",
+    "descending",
+    "star",
+    "10",
+    "1",
+    "weighted",
+    "0"
+  ],
+  "returncode": 0,
+  "stdout": "{\"mode\":\"descending\",\"family\":\"star\",\"n\":10,\"queries\":1,\"endpoint\":\"weighted\",\"cancel\":0,\"total_ns\":39409,\"observed\":[[4,14497373535866219525]],\"metered\":true}\n{\"phase\":\"source\",\"query\":0,\"ns\":2758,\"memory\":{\"live_start\":3989,\"live_end\":5543,\"peak_live\":5543,\"allocation_calls\":58,\"requested_bytes\":1554,\"deallocation_calls\":0}}\n{\"phase\":\"prepare\",\"query\":0,\"ns\":32848,\"memory\":{\"live_start\":5543,\"live_end\":7463,\"peak_live\":18349,\"allocation_calls\":402,\"requested_bytes\":36688,\"deallocation_calls\":350}}\n{\"phase\":\"source_dispose\",\"query\":0,\"ns\":999,\"memory\":{\"live_start\":7463,\"live_end\":5909,\"peak_live\":7463,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":58}}\n{\"phase\":\"query_start\",\"query\":0,\"ns\":1660,\"memory\":{\"live_start\":5909,\"live_end\":6381,\"peak_live\":6651,\"allocation_calls\":29,\"requested_bytes\":758,\"deallocation_calls\":24}}\n{\"phase\":\"first\",\"query\":0,\"ns\":124,\"memory\":{\"live_start\":6381,\"live_end\":6379,\"peak_live\":6381,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":1}}\n{\"phase\":\"remaining\",\"query\":0,\"ns\":228,\"memory\":{\"live_start\":6379,\"live_end\":5909,\"peak_live\":6379,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":4}}\n{\"phase\":\"query_dispose\",\"query\":0,\"ns\":199,\"memory\":{\"live_start\":5909,\"live_end\":5909,\"peak_live\":5909,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":0}}\n{\"phase\":\"prepare_dispose\",\"query\":0,\"ns\":593,\"memory\":{\"live_start\":5909,\"live_end\":3989,\"peak_live\":5909,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":27}}\n",
+  "stderr": "",
+  "wall_seconds": 0.0020354760345071554
+}

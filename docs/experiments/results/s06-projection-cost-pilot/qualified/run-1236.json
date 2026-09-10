@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/home/ahart/Documents/CHRLang/target/s06-projection-cost-meter/release/examples/projection_cost",
+    "enumerate",
+    "star",
+    "10",
+    "1",
+    "expanded",
+    "0"
+  ],
+  "returncode": 0,
+  "stdout": "{\"mode\":\"enumerate\",\"family\":\"star\",\"n\":10,\"queries\":1,\"endpoint\":\"expanded\",\"cancel\":0,\"total_ns\":51212,\"observed\":[[513,4140718843381125683]],\"metered\":true}\n{\"phase\":\"source\",\"query\":0,\"ns\":2513,\"memory\":{\"live_start\":3988,\"live_end\":5542,\"peak_live\":5542,\"allocation_calls\":58,\"requested_bytes\":1554,\"deallocation_calls\":0}}\n{\"phase\":\"prepare\",\"query\":0,\"ns\":4120,\"memory\":{\"live_start\":5542,\"live_end\":9188,\"peak_live\":9188,\"allocation_calls\":79,\"requested_bytes\":5822,\"deallocation_calls\":10}}\n{\"phase\":\"source_dispose\",\"query\":0,\"ns\":975,\"memory\":{\"live_start\":9188,\"live_end\":7634,\"peak_live\":9188,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":58}}\n{\"phase\":\"query_start\",\"query\":0,\"ns\":364,\"memory\":{\"live_start\":7634,\"live_end\":7900,\"peak_live\":7900,\"allocation_calls\":3,\"requested_bytes\":266,\"deallocation_calls\":0}}\n{\"phase\":\"first\",\"query\":0,\"ns\":393,\"memory\":{\"live_start\":7900,\"live_end\":7900,\"peak_live\":7902,\"allocation_calls\":1,\"requested_bytes\":2,\"deallocation_calls\":1}}\n{\"phase\":\"remaining\",\"query\":0,\"ns\":41443,\"memory\":{\"live_start\":7900,\"live_end\":7900,\"peak_live\":7902,\"allocation_calls\":512,\"requested_bytes\":1024,\"deallocation_calls\":512}}\n{\"phase\":\"query_dispose\",\"query\":0,\"ns\":230,\"memory\":{\"live_start\":7900,\"live_end\":7634,\"peak_live\":7900,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":3}}\n{\"phase\":\"prepare_dispose\",\"query\":0,\"ns\":1174,\"memory\":{\"live_start\":7634,\"live_end\":3988,\"peak_live\":7634,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":67}}\n",
+  "stderr": "",
+  "wall_seconds": 0.002764861914329231
+}

@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/home/ahart/Documents/CHRLang/target/s06-projection-cost-meter/release/examples/projection_cost",
+    "structural",
+    "star",
+    "4",
+    "1",
+    "expanded",
+    "8"
+  ],
+  "returncode": 0,
+  "stdout": "{\"mode\":\"structural\",\"family\":\"star\",\"n\":4,\"queries\":1,\"endpoint\":\"expanded\",\"cancel\":8,\"total_ns\":56889,\"observed\":[[8,10497840151775658460]],\"metered\":true}\n{\"phase\":\"source\",\"query\":0,\"ns\":1432,\"memory\":{\"live_start\":3988,\"live_end\":4534,\"peak_live\":4534,\"allocation_calls\":22,\"requested_bytes\":546,\"deallocation_calls\":0}}\n{\"phase\":\"prepare\",\"query\":0,\"ns\":3014,\"memory\":{\"live_start\":4534,\"live_end\":5363,\"peak_live\":5363,\"allocation_calls\":40,\"requested_bytes\":1214,\"deallocation_calls\":16}}\n{\"phase\":\"source_dispose\",\"query\":0,\"ns\":395,\"memory\":{\"live_start\":5363,\"live_end\":4817,\"peak_live\":5363,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":22}}\n{\"phase\":\"query_start\",\"query\":0,\"ns\":50646,\"memory\":{\"live_start\":4817,\"live_end\":5289,\"peak_live\":15308,\"allocation_calls\":634,\"requested_bytes\":68954,\"deallocation_calls\":624}}\n{\"phase\":\"first\",\"query\":0,\"ns\":197,\"memory\":{\"live_start\":5289,\"live_end\":5289,\"peak_live\":5291,\"allocation_calls\":1,\"requested_bytes\":2,\"deallocation_calls\":1}}\n{\"phase\":\"remaining\",\"query\":0,\"ns\":443,\"memory\":{\"live_start\":5289,\"live_end\":5283,\"peak_live\":5291,\"allocation_calls\":4,\"requested_bytes\":8,\"deallocation_calls\":7}}\n{\"phase\":\"query_dispose\",\"query\":0,\"ns\":290,\"memory\":{\"live_start\":5283,\"live_end\":4817,\"peak_live\":5283,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":2}}\n{\"phase\":\"prepare_dispose\",\"query\":0,\"ns\":472,\"memory\":{\"live_start\":4817,\"live_end\":3988,\"peak_live\":4817,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":23}}\n",
+  "stderr": "",
+  "wall_seconds": 0.0020905970595777035
+}

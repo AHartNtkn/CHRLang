@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/home/ahart/Documents/CHRLang/target/s06-projection-cost-meter/release/examples/projection_cost",
+    "descending",
+    "independent",
+    "10",
+    "1",
+    "weighted",
+    "0"
+  ],
+  "returncode": 0,
+  "stdout": "{\"mode\":\"descending\",\"family\":\"independent\",\"n\":10,\"queries\":1,\"endpoint\":\"weighted\",\"cancel\":0,\"total_ns\":19980,\"observed\":[[2,16387201288478523419]],\"metered\":true}\n{\"phase\":\"source\",\"query\":0,\"ns\":567,\"memory\":{\"live_start\":3996,\"live_end\":4264,\"peak_live\":4264,\"allocation_calls\":12,\"requested_bytes\":268,\"deallocation_calls\":0}}\n{\"phase\":\"prepare\",\"query\":0,\"ns\":16885,\"memory\":{\"live_start\":4264,\"live_end\":9950,\"peak_live\":11224,\"allocation_calls\":207,\"requested_bytes\":27052,\"deallocation_calls\":157}}\n{\"phase\":\"source_dispose\",\"query\":0,\"ns\":265,\"memory\":{\"live_start\":9950,\"live_end\":9682,\"peak_live\":9950,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":12}}\n{\"phase\":\"query_start\",\"query\":0,\"ns\":1179,\"memory\":{\"live_start\":9682,\"live_end\":10148,\"peak_live\":10418,\"allocation_calls\":17,\"requested_bytes\":738,\"deallocation_calls\":14}}\n{\"phase\":\"first\",\"query\":0,\"ns\":139,\"memory\":{\"live_start\":10148,\"live_end\":10147,\"peak_live\":10148,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":1}}\n{\"phase\":\"remaining\",\"query\":0,\"ns\":166,\"memory\":{\"live_start\":10147,\"live_end\":9682,\"peak_live\":10147,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":2}}\n{\"phase\":\"query_dispose\",\"query\":0,\"ns\":191,\"memory\":{\"live_start\":9682,\"live_end\":9682,\"peak_live\":9682,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":0}}\n{\"phase\":\"prepare_dispose\",\"query\":0,\"ns\":588,\"memory\":{\"live_start\":9682,\"live_end\":3996,\"peak_live\":9682,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":26}}\n",
+  "stderr": "",
+  "wall_seconds": 0.0023086400469765067
+}

@@ -10,7 +10,7 @@ This is the governing sequence for the renewed investigation. Existing E/R measu
 
 The [next experimental cycle](next-cycle.md#start-here-the-next-experiments) sets the immediate experiments and their decision boundaries from the verified worktree. Its full programme covers every direction; the numbered investigations are identifiers, not instructions to repeat completed work. It reuses the stage definitions below and the full question map.
 
-The current package is T076 finite projection lifecycle comparison after [ordering and ownership qualification](results/S06-projection-lifecycle-gate.md). Greedy ordering and owned grouped outputs are qualified; complete source-ordered CHR correspondence remains open. Register primary counter-free costs against competent enumeration and independence-recognizing controls. This is package two after the descriptor breadth review; adaptive costs and all broader questions remain required.
+The current package is T077 adaptive search ownership qualification, selected after the [finite projection cost pilot](results/S06-projection-cost-pilot.md). Projection has a bounded connected/reused benefit, while independent choices favor separability and dense output favors streaming. Broader projection and CHR source correspondence remain required. The four-package breadth review selects adaptive ownership to start the next cycle.
 
 ## Account for every reviewed question
 
@@ -272,7 +272,7 @@ All new results link raw inputs, commands, freezes, validation and unfavorable o
 
 ## Current execution order
 
-T076 is active after projection ordering and ownership qualification. Next register finite weighted-answer and expanded-multiset lifecycle costs, including streaming enumeration and preparation reuse. Source-ordered CHR claims need additional correspondence evidence. Adaptive search ownership is the next distinct comparison; review all directions by package four.
+T077 is active for adaptive search ownership qualification. Compare failed-check backoff with fixed schedules, a competent eager control without adaptive bookkeeping and ordinary execution. Preserve exact source behavior and charge changed execution, checking, retained states and cancellation. The projection cost pilot supplies bounded evidence; broader theories and source mappings remain required. Review alternatives at this next gate; full breadth review is due within four new packages.
 
 The [current execution order](next-cycle.md#start-here-the-next-experiments), [57-question map](question-to-experiment-map.md) and [mechanism ledger](remaining-investigations.md) retain every unresolved obligation. Reordering does not establish an experimental conclusion or complete the goal.
 

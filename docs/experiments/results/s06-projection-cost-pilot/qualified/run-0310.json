@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/home/ahart/Documents/CHRLang/target/s06-projection-cost-meter/release/examples/projection_cost",
+    "enumerate",
+    "dense",
+    "10",
+    "1",
+    "expanded",
+    "0"
+  ],
+  "returncode": 0,
+  "stdout": "{\"mode\":\"enumerate\",\"family\":\"dense\",\"n\":10,\"queries\":1,\"endpoint\":\"expanded\",\"cancel\":0,\"total_ns\":98466,\"observed\":[[1024,1174481699983857152]],\"metered\":true}\n{\"phase\":\"source\",\"query\":0,\"ns\":912,\"memory\":{\"live_start\":3989,\"live_end\":4329,\"peak_live\":4329,\"allocation_calls\":12,\"requested_bytes\":340,\"deallocation_calls\":0}}\n{\"phase\":\"prepare\",\"query\":0,\"ns\":2398,\"memory\":{\"live_start\":4329,\"live_end\":5609,\"peak_live\":5609,\"allocation_calls\":24,\"requested_bytes\":3360,\"deallocation_calls\":10}}\n{\"phase\":\"source_dispose\",\"query\":0,\"ns\":238,\"memory\":{\"live_start\":5609,\"live_end\":5269,\"peak_live\":5609,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":12}}\n{\"phase\":\"query_start\",\"query\":0,\"ns\":459,\"memory\":{\"live_start\":5269,\"live_end\":5535,\"peak_live\":5535,\"allocation_calls\":3,\"requested_bytes\":266,\"deallocation_calls\":0}}\n{\"phase\":\"first\",\"query\":0,\"ns\":244,\"memory\":{\"live_start\":5535,\"live_end\":5535,\"peak_live\":5545,\"allocation_calls\":1,\"requested_bytes\":10,\"deallocation_calls\":1}}\n{\"phase\":\"remaining\",\"query\":0,\"ns\":93675,\"memory\":{\"live_start\":5535,\"live_end\":5535,\"peak_live\":5545,\"allocation_calls\":1023,\"requested_bytes\":10230,\"deallocation_calls\":1023}}\n{\"phase\":\"query_dispose\",\"query\":0,\"ns\":240,\"memory\":{\"live_start\":5535,\"live_end\":5269,\"peak_live\":5535,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":3}}\n{\"phase\":\"prepare_dispose\",\"query\":0,\"ns\":300,\"memory\":{\"live_start\":5269,\"live_end\":3989,\"peak_live\":5269,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":14}}\n",
+  "stderr": "",
+  "wall_seconds": 0.002584554022178054
+}

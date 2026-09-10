@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/home/ahart/Documents/CHRLang/target/s06-projection-cost-meter/release/examples/projection_cost",
+    "enumerate",
+    "independent",
+    "4",
+    "1",
+    "expanded",
+    "8"
+  ],
+  "returncode": 0,
+  "stdout": "{\"mode\":\"enumerate\",\"family\":\"independent\",\"n\":4,\"queries\":1,\"endpoint\":\"expanded\",\"cancel\":8,\"total_ns\":2908,\"observed\":[[8,10755194532256921304]],\"metered\":true}\n{\"phase\":\"source\",\"query\":0,\"ns\":383,\"memory\":{\"live_start\":3994,\"live_end\":4106,\"peak_live\":4106,\"allocation_calls\":6,\"requested_bytes\":112,\"deallocation_calls\":0}}\n{\"phase\":\"prepare\",\"query\":0,\"ns\":685,\"memory\":{\"live_start\":4106,\"live_end\":4594,\"peak_live\":4666,\"allocation_calls\":12,\"requested_bytes\":1320,\"deallocation_calls\":4}}\n{\"phase\":\"source_dispose\",\"query\":0,\"ns\":231,\"memory\":{\"live_start\":4594,\"live_end\":4482,\"peak_live\":4594,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":6}}\n{\"phase\":\"query_start\",\"query\":0,\"ns\":333,\"memory\":{\"live_start\":4482,\"live_end\":4598,\"peak_live\":4598,\"allocation_calls\":3,\"requested_bytes\":116,\"deallocation_calls\":0}}\n{\"phase\":\"first\",\"query\":0,\"ns\":171,\"memory\":{\"live_start\":4598,\"live_end\":4598,\"peak_live\":4599,\"allocation_calls\":1,\"requested_bytes\":1,\"deallocation_calls\":1}}\n{\"phase\":\"remaining\",\"query\":0,\"ns\":629,\"memory\":{\"live_start\":4598,\"live_end\":4598,\"peak_live\":4599,\"allocation_calls\":7,\"requested_bytes\":7,\"deallocation_calls\":7}}\n{\"phase\":\"query_dispose\",\"query\":0,\"ns\":260,\"memory\":{\"live_start\":4598,\"live_end\":4482,\"peak_live\":4598,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":3}}\n{\"phase\":\"prepare_dispose\",\"query\":0,\"ns\":216,\"memory\":{\"live_start\":4482,\"live_end\":3994,\"peak_live\":4482,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":8}}\n",
+  "stderr": "",
+  "wall_seconds": 0.0021790210157632828
+}

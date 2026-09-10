@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/home/ahart/Documents/CHRLang/target/s06-projection-cost-meter/release/examples/projection_cost",
+    "greedy",
+    "star",
+    "10",
+    "1",
+    "expanded",
+    "0"
+  ],
+  "returncode": 0,
+  "stdout": "{\"mode\":\"greedy\",\"family\":\"star\",\"n\":10,\"queries\":1,\"endpoint\":\"expanded\",\"cancel\":0,\"total_ns\":82409,\"observed\":[[513,4140718843381125683]],\"metered\":true}\n{\"phase\":\"source\",\"query\":0,\"ns\":2824,\"memory\":{\"live_start\":3985,\"live_end\":5539,\"peak_live\":5539,\"allocation_calls\":58,\"requested_bytes\":1554,\"deallocation_calls\":0}}\n{\"phase\":\"prepare\",\"query\":0,\"ns\":51282,\"memory\":{\"live_start\":5539,\"live_end\":7459,\"peak_live\":18345,\"allocation_calls\":567,\"requested_bytes\":49288,\"deallocation_calls\":495}}\n{\"phase\":\"source_dispose\",\"query\":0,\"ns\":976,\"memory\":{\"live_start\":7459,\"live_end\":5905,\"peak_live\":7459,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":58}}\n{\"phase\":\"query_start\",\"query\":0,\"ns\":1736,\"memory\":{\"live_start\":5905,\"live_end\":6377,\"peak_live\":6647,\"allocation_calls\":29,\"requested_bytes\":758,\"deallocation_calls\":24}}\n{\"phase\":\"first\",\"query\":0,\"ns\":199,\"memory\":{\"live_start\":6377,\"live_end\":6377,\"peak_live\":6379,\"allocation_calls\":1,\"requested_bytes\":2,\"deallocation_calls\":1}}\n{\"phase\":\"remaining\",\"query\":0,\"ns\":24488,\"memory\":{\"live_start\":6377,\"live_end\":5905,\"peak_live\":6379,\"allocation_calls\":508,\"requested_bytes\":1016,\"deallocation_calls\":513}}\n{\"phase\":\"query_dispose\",\"query\":0,\"ns\":238,\"memory\":{\"live_start\":5905,\"live_end\":5905,\"peak_live\":5905,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":0}}\n{\"phase\":\"prepare_dispose\",\"query\":0,\"ns\":666,\"memory\":{\"live_start\":5905,\"live_end\":3985,\"peak_live\":5905,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":27}}\n",
+  "stderr": "",
+  "wall_seconds": 0.0023942820262163877
+}

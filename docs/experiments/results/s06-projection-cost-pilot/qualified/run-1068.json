@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/home/ahart/Documents/CHRLang/target/s06-projection-cost-meter/release/examples/projection_cost",
+    "ascending",
+    "star",
+    "10",
+    "1",
+    "expanded",
+    "0"
+  ],
+  "returncode": 0,
+  "stdout": "{\"mode\":\"ascending\",\"family\":\"star\",\"n\":10,\"queries\":1,\"endpoint\":\"expanded\",\"cancel\":0,\"total_ns\":1317379,\"observed\":[[513,4140718843381125683]],\"metered\":true}\n{\"phase\":\"source\",\"query\":0,\"ns\":3097,\"memory\":{\"live_start\":3988,\"live_end\":5542,\"peak_live\":5542,\"allocation_calls\":58,\"requested_bytes\":1554,\"deallocation_calls\":0}}\n{\"phase\":\"prepare\",\"query\":0,\"ns\":1280781,\"memory\":{\"live_start\":5542,\"live_end\":7462,\"peak_live\":78212,\"allocation_calls\":10642,\"requested_bytes\":139851,\"deallocation_calls\":10585}}\n{\"phase\":\"source_dispose\",\"query\":0,\"ns\":1274,\"memory\":{\"live_start\":7462,\"live_end\":5908,\"peak_live\":7462,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":58}}\n{\"phase\":\"query_start\",\"query\":0,\"ns\":2334,\"memory\":{\"live_start\":5908,\"live_end\":6380,\"peak_live\":6650,\"allocation_calls\":29,\"requested_bytes\":758,\"deallocation_calls\":24}}\n{\"phase\":\"first\",\"query\":0,\"ns\":201,\"memory\":{\"live_start\":6380,\"live_end\":6380,\"peak_live\":6382,\"allocation_calls\":1,\"requested_bytes\":2,\"deallocation_calls\":1}}\n{\"phase\":\"remaining\",\"query\":0,\"ns\":28708,\"memory\":{\"live_start\":6380,\"live_end\":5908,\"peak_live\":6382,\"allocation_calls\":508,\"requested_bytes\":1016,\"deallocation_calls\":513}}\n{\"phase\":\"query_dispose\",\"query\":0,\"ns\":230,\"memory\":{\"live_start\":5908,\"live_end\":5908,\"peak_live\":5908,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":0}}\n{\"phase\":\"prepare_dispose\",\"query\":0,\"ns\":754,\"memory\":{\"live_start\":5908,\"live_end\":3988,\"peak_live\":5908,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":27}}\n",
+  "stderr": "",
+  "wall_seconds": 0.005030001047998667
+}

@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/home/ahart/Documents/CHRLang/target/s06-projection-cost-meter/release/examples/projection_cost",
+    "separable",
+    "independent",
+    "10",
+    "1",
+    "expanded",
+    "0"
+  ],
+  "returncode": 0,
+  "stdout": "{\"mode\":\"separable\",\"family\":\"independent\",\"n\":10,\"queries\":1,\"endpoint\":\"expanded\",\"cancel\":0,\"total_ns\":53562,\"observed\":[[1024,12297723943299610112]],\"metered\":true}\n{\"phase\":\"source\",\"query\":0,\"ns\":818,\"memory\":{\"live_start\":3995,\"live_end\":4263,\"peak_live\":4263,\"allocation_calls\":12,\"requested_bytes\":268,\"deallocation_calls\":0}}\n{\"phase\":\"prepare\",\"query\":0,\"ns\":929,\"memory\":{\"live_start\":4263,\"live_end\":4415,\"peak_live\":4593,\"allocation_calls\":9,\"requested_bytes\":394,\"deallocation_calls\":4}}\n{\"phase\":\"source_dispose\",\"query\":0,\"ns\":232,\"memory\":{\"live_start\":4415,\"live_end\":4147,\"peak_live\":4415,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":12}}\n{\"phase\":\"query_start\",\"query\":0,\"ns\":299,\"memory\":{\"live_start\":4147,\"live_end\":4188,\"peak_live\":4188,\"allocation_calls\":3,\"requested_bytes\":41,\"deallocation_calls\":0}}\n{\"phase\":\"first\",\"query\":0,\"ns\":254,\"memory\":{\"live_start\":4188,\"live_end\":4189,\"peak_live\":4190,\"allocation_calls\":2,\"requested_bytes\":2,\"deallocation_calls\":1}}\n{\"phase\":\"remaining\",\"query\":0,\"ns\":50625,\"memory\":{\"live_start\":4189,\"live_end\":4188,\"peak_live\":4190,\"allocation_calls\":1022,\"requested_bytes\":1022,\"deallocation_calls\":1023}}\n{\"phase\":\"query_dispose\",\"query\":0,\"ns\":260,\"memory\":{\"live_start\":4188,\"live_end\":4147,\"peak_live\":4188,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":3}}\n{\"phase\":\"prepare_dispose\",\"query\":0,\"ns\":145,\"memory\":{\"live_start\":4147,\"live_end\":3995,\"peak_live\":4147,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":5}}\n",
+  "stderr": "",
+  "wall_seconds": 0.0023613290395587683
+}

@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/home/ahart/Documents/CHRLang/target/s06-projection-cost-meter/release/examples/projection_cost",
+    "separable",
+    "dense",
+    "10",
+    "1",
+    "expanded",
+    "0"
+  ],
+  "returncode": 0,
+  "stdout": "{\"mode\":\"separable\",\"family\":\"dense\",\"n\":10,\"queries\":1,\"endpoint\":\"expanded\",\"cancel\":0,\"total_ns\":109051,\"observed\":[[1024,1174481699983857152]],\"metered\":true}\n{\"phase\":\"source\",\"query\":0,\"ns\":942,\"memory\":{\"live_start\":3989,\"live_end\":4329,\"peak_live\":4329,\"allocation_calls\":12,\"requested_bytes\":340,\"deallocation_calls\":0}}\n{\"phase\":\"prepare\",\"query\":0,\"ns\":3883,\"memory\":{\"live_start\":4329,\"live_end\":5609,\"peak_live\":5949,\"allocation_calls\":36,\"requested_bytes\":3700,\"deallocation_calls\":22}}\n{\"phase\":\"source_dispose\",\"query\":0,\"ns\":228,\"memory\":{\"live_start\":5609,\"live_end\":5269,\"peak_live\":5609,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":12}}\n{\"phase\":\"query_start\",\"query\":0,\"ns\":474,\"memory\":{\"live_start\":5269,\"live_end\":5535,\"peak_live\":5535,\"allocation_calls\":3,\"requested_bytes\":266,\"deallocation_calls\":0}}\n{\"phase\":\"first\",\"query\":0,\"ns\":426,\"memory\":{\"live_start\":5535,\"live_end\":5535,\"peak_live\":5545,\"allocation_calls\":1,\"requested_bytes\":10,\"deallocation_calls\":1}}\n{\"phase\":\"remaining\",\"query\":0,\"ns\":102515,\"memory\":{\"live_start\":5535,\"live_end\":5535,\"peak_live\":5545,\"allocation_calls\":1023,\"requested_bytes\":10230,\"deallocation_calls\":1023}}\n{\"phase\":\"query_dispose\",\"query\":0,\"ns\":237,\"memory\":{\"live_start\":5535,\"live_end\":5269,\"peak_live\":5535,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":3}}\n{\"phase\":\"prepare_dispose\",\"query\":0,\"ns\":346,\"memory\":{\"live_start\":5269,\"live_end\":3989,\"peak_live\":5269,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":14}}\n",
+  "stderr": "",
+  "wall_seconds": 0.0027803319972008467
+}

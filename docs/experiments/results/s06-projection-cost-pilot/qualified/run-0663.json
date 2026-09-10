@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/home/ahart/Documents/CHRLang/target/s06-projection-cost-meter/release/examples/projection_cost",
+    "greedy",
+    "independent",
+    "10",
+    "1",
+    "expanded",
+    "0"
+  ],
+  "returncode": 0,
+  "stdout": "{\"mode\":\"greedy\",\"family\":\"independent\",\"n\":10,\"queries\":1,\"endpoint\":\"expanded\",\"cancel\":0,\"total_ns\":63501,\"observed\":[[1024,12297723943299610112]],\"metered\":true}\n{\"phase\":\"source\",\"query\":0,\"ns\":461,\"memory\":{\"live_start\":3992,\"live_end\":4260,\"peak_live\":4260,\"allocation_calls\":12,\"requested_bytes\":268,\"deallocation_calls\":0}}\n{\"phase\":\"prepare\",\"query\":0,\"ns\":24123,\"memory\":{\"live_start\":4260,\"live_end\":9946,\"peak_live\":11164,\"allocation_calls\":336,\"requested_bytes\":36324,\"deallocation_calls\":284}}\n{\"phase\":\"source_dispose\",\"query\":0,\"ns\":211,\"memory\":{\"live_start\":9946,\"live_end\":9678,\"peak_live\":9946,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":12}}\n{\"phase\":\"query_start\",\"query\":0,\"ns\":923,\"memory\":{\"live_start\":9678,\"live_end\":10144,\"peak_live\":10414,\"allocation_calls\":17,\"requested_bytes\":738,\"deallocation_calls\":14}}\n{\"phase\":\"first\",\"query\":0,\"ns\":133,\"memory\":{\"live_start\":10144,\"live_end\":10144,\"peak_live\":10145,\"allocation_calls\":1,\"requested_bytes\":1,\"deallocation_calls\":1}}\n{\"phase\":\"remaining\",\"query\":0,\"ns\":36914,\"memory\":{\"live_start\":10144,\"live_end\":9678,\"peak_live\":10145,\"allocation_calls\":1021,\"requested_bytes\":1021,\"deallocation_calls\":1024}}\n{\"phase\":\"query_dispose\",\"query\":0,\"ns\":181,\"memory\":{\"live_start\":9678,\"live_end\":9678,\"peak_live\":9678,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":0}}\n{\"phase\":\"prepare_dispose\",\"query\":0,\"ns\":555,\"memory\":{\"live_start\":9678,\"live_end\":3992,\"peak_live\":9678,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":26}}\n",
+  "stderr": "",
+  "wall_seconds": 0.00239433697424829
+}
