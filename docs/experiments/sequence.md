@@ -1,6 +1,6 @@
 # Experimental sequence: resolve the remaining architecture questions
 
-The [near-miss gate and breadth review](results/S02-read-near-miss.md) supply the current checkpoint. The same-input near-miss gate passes 72 complete-source configurations against eight modes in one counter-free and two identical diagnostic confirmations. At 32 alternatives/depth 8, incompatible contexts require 4,464 candidate checks without hits; compatible repetition requires 279 checks with 279 hits. Final-step diagnostic ownership is corrected and a counter-omission mutation is rejected. The breadth review selects one bounded recognition-cost package, retaining demand capability as the strongest distinct alternative. T072 and the architecture goal remain active.
+The [revised experimental sequence](next-cycle.md#start-here-the-next-experiments) starts by reporting the preserved recorded-read cost evidence and checking the strongest applicable control. It then gives broader demand execution, direct integrated organizations, maintained intermediate joins and compact solving separate early trials. Every distinct mechanism retains its own evidence obligation; language, lifetime and complete-architecture comparisons accompany the trials. T072 and the research goal remain active.
 
 The [relevant-key ownership comparison](results/S02-relevant-ownership.md) supplies the current checkpoint. Relevant-key ownership validates1,008 metered and448 ordinary processes with exact allocation repeats, cancellation/reuse and retained answers surviving producer disposal. Ordered relevant reuse lowers peaks versus exact-state caching in38of64 scenarios but requests more bytes than recomputation in all64. The changed depth16/four-query witness requests1,292,590bytes with72,959peak excess versus669,196/38,976 for recomputation. T072 next attributes key/replay execution costs before timing; package one after breadth review; goal active.
 
@@ -12,7 +12,7 @@ The [dependency work screen](results/S03-dependency-work.md) supplies the curren
 
 The [resource-dependency gate](results/S03-resource-dependencies.md) supplies the current checkpoint. The demand resource-dependency gate passes 48 matrix configurations and eight additional source witnesses in two default and two metrics-off confirmations. Independent scalar and compiled controls expose hidden constructor-cycle and selected-choice alias defects; completed-equation validation and alias-link repair preserve finite failure and output identity. Source, suspended and kernel regressions pass. T071 next measures dependency and validation lifecycle costs; contextual integration follows. This is bounded correctness evidence, not a timing result; goal active.
 
-The [current execution order](next-cycle.md#portfolio-order-and-dependencies) schedules all missing comparisons. The [immediate investigations](next-cycle.md#start-here-the-next-experiments) address relevant-read integration, missing demand capability, compact solving beyond current reductions and broader restoration. Every question retains its individual evidence obligation.
+The [current execution order](next-cycle.md#portfolio-order-and-dependencies) assigns separate entry priorities and required trials across all 57 questions. The table distinguishes experiments on different mechanisms from further refinement of the current implementation.
 
 Investigate the unanswered mechanisms directly, then compare the complete architectures they enable. Reuse the existing baselines. The research remains active until consequential questions have evidence-backed answers.
 
@@ -286,9 +286,9 @@ All new results link raw inputs, commands, freezes, validation and unfavorable o
 
 ## Current execution order
 
-The [revised experimental sequence](next-cycle.md#start-here-the-next-experiments) starts with T072 relevant-read costs, then missing demand capability, compact solving beyond current reductions and broader restoration. Its rounds explicitly schedule distinct reuse/discovery/graph mechanisms, source elimination, sustained execution and parallel ownership. Language studies accompany their beneficiaries; whole-architecture comparisons occur at each round boundary.
+The [revised experimental sequence](next-cycle.md#start-here-the-next-experiments) begins with the preserved cost evidence handoff, then demand capability, direct integration, intermediate joins and compact solving. Later entries cover distinct reuse, restoration, choice organizations, compilation, sustained execution and parallel ownership. Language studies accompany their beneficiaries; complete-architecture comparisons occur at each round boundary.
 
-T072 is the sole active experimental task. The archived checkpoint-cost study remains applicable within scope; same-input near misses and recognition cost attribution are next. Each unresolved design retains its individual obligation in the [57-question map](question-to-experiment-map.md).
+T072 is the sole active experimental task. Preserved recorded-read cost runs await report integration and strongest-control applicability review. Each unresolved design retains its individual obligation in the [57-question map](question-to-experiment-map.md).
 
 ## Earlier experimental checkpoints
 
