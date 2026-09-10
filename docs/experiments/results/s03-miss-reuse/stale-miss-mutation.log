@@ -1,0 +1,20 @@
+
+running 1 test
+test miss_reuse_observes_late_posts_and_selected_alternatives ... FAILED
+
+failures:
+
+failures:
+    miss_reuse_observes_late_posts_and_selected_alternatives
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.00s
+
+   Compiling chr-direct-choice v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-choice)
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.45s
+     Running tests/resource_dependencies.rs (target/debug/deps/resource_dependencies-1b8bf7e8914779a3)
+
+thread 'miss_reuse_observes_late_posts_and_selected_alternatives' (214) panicked at research/chr-direct-conditional/tests/runtime_support/mod.rs:273:32:
+missing full observation Answer { outputs: [("take", App("done", [])), ("supply", App("ready", []))], residual: [] }; remaining [Answer { outputs: [("take", Var(Var(0))), ("supply", App("ready", []))], residual: [Constraint { name: "take", args: [Var(Var(0))] }, Constraint { name: "token", args: [App("ready", [])] }] }]
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass `-p chr-direct-conditional --test resource_dependencies`

@@ -79,16 +79,7 @@ fn dependency_validation_work() {
                     Reuse::MatchDependencies,
                 ]
                 .into_iter()
-                .map(|reuse| {
-                    (reuse, {
-                        let p = Prepared::with_reuse(rules.clone(), reuse).unwrap();
-                        if std::env::var("MISS_REUSE").as_deref() == Ok("on") {
-                            p.with_miss_reuse()
-                        } else {
-                            p
-                        }
-                    })
-                })
+                .map(|reuse| (reuse, Prepared::with_reuse(rules.clone(), reuse).unwrap()))
                 .collect();
                 let compiled = chr_compiled::PreparedRuleset::new(rules.clone(), None).unwrap();
                 for value in ["a", "b"] {
@@ -146,10 +137,6 @@ fn dependency_validation_work() {
                             work.match_entries,
                             work.validation_passes,
                             work.validation_entries
-                        );
-                        println!(
-                            "MISS,{kind},{size},{reverse},{reuse:?},{value},{},{},{}",
-                            work.miss_lookups, work.miss_hits, work.miss_inserts
                         );
                         sessions += 1;
                     }

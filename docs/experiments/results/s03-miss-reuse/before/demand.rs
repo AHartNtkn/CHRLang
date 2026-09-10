@@ -44,7 +44,6 @@ pub enum Reuse {
     MatchDependencies,
 }
 pub struct Prepared {
-    miss_reuse: bool,
     derivation_templates: bool,
     reuse: Reuse,
     pull_tabs: bool,
@@ -104,14 +103,8 @@ pub struct Work {
     pub lift_walk_entries: usize,
     pub dependency_entries: usize,
     pub template_hits: usize,
-    pub miss_lookups: usize,
-    pub miss_hits: usize,
-    pub miss_inserts: usize,
 }
 pub struct Run {
-    miss_reuse: bool,
-    misses: BTreeMap<Id, Id>,
-    recursive_probes: Vec<bool>,
     derivation_templates: bool,
     templates: BTreeMap<(String, Vec<Term>), Rc<templates::Template>>,
     reuse: Reuse,
@@ -397,7 +390,6 @@ impl Prepared {
                 pure.contains(&(clause.name.clone(), clause.inputs.len()));
         }
         Ok(Self {
-            miss_reuse: false,
             derivation_templates: false,
             reuse,
             pull_tabs: false,
@@ -415,17 +407,8 @@ impl Prepared {
         self.pull_tabs = true;
         self
     }
-    /// Reuse nonrecursive unsuccessful probes within one source service turn.
-    /// A new turn discards all misses before any further source work.
-    pub fn with_miss_reuse(mut self) -> Self {
-        self.miss_reuse = true;
-        self
-    }
     pub fn start(&self, query: Query) -> Result<Run, String> {
         let mut run = Run {
-            miss_reuse: self.miss_reuse,
-            misses: BTreeMap::new(),
-            recursive_probes: vec![],
             derivation_templates: self.derivation_templates,
             templates: BTreeMap::new(),
             reuse: self.reuse,
@@ -747,9 +730,6 @@ impl Run {
     fn force(&mut self, id: Id, ctx: &Context) -> Result<Id, Signal> {
         if let Node::Call(_, _, output, _) = self.nodes[id].node {
             if self.forcing.contains(&id) {
-                if self.miss_reuse {
-                    self.recursive_probes.fill(true);
-                }
                 // Only completed alias edges imply equality. A recursive matching
                 // dependency with no completed result merely exposes its unknown.
                 let mut path: Vec<Id> = Vec::new();
@@ -794,28 +774,9 @@ impl Run {
                     }
                 }
             }
-            if self.miss_reuse {
-                #[cfg(feature = "work-diagnostics")]
-                {
-                    self.work.miss_lookups += 1;
-                }
-                if let Some(output) = self.misses.get(&id).copied() {
-                    #[cfg(feature = "work-diagnostics")]
-                    {
-                        self.work.miss_hits += 1;
-                    }
-                    return Ok(output);
-                }
-            }
             self.forcing.push(id);
-            if self.miss_reuse {
-                self.recursive_probes.push(false);
-            }
             let result = self.force_body(id, ctx);
             self.forcing.pop();
-            if self.miss_reuse {
-                self.recursive_probes.pop();
-            }
             result
         } else {
             self.force_body(id, ctx)
@@ -933,13 +894,6 @@ impl Run {
                         };
                         self.nodes[id].results.push((support, value));
                         return Err(Signal::Progress);
-                    }
-                }
-                if self.miss_reuse && !self.recursive_probes.last().copied().unwrap_or(true) {
-                    self.misses.insert(id, output);
-                    #[cfg(feature = "work-diagnostics")]
-                    {
-                        self.work.miss_inserts += 1;
                     }
                 }
                 Ok(output)
@@ -1397,7 +1351,6 @@ impl Run {
         counts
     }
     pub fn tick(&mut self) -> Event {
-        self.misses.clear();
         let Some((ctx, mut cursor, mut round_end)) = self.tasks.pop_front() else {
             return Event::Exhausted;
         };

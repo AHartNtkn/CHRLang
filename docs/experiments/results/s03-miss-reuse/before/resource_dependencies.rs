@@ -29,25 +29,22 @@ fn check(rules: Vec<Rule>, q: Query) -> Vec<Answer> {
         Reuse::StaticBirth,
         Reuse::MatchDependencies,
     ] {
-        for memo in [false, true] {
-            let p = Prepared::with_reuse(rules.clone(), reuse).unwrap();
-            let p = if memo { p.with_miss_reuse() } else { p };
-            let mut s = p.start(q.clone()).unwrap();
-            let mut a = vec![];
-            let mut done = false;
-            for _ in 0..200_000 {
-                match s.tick() {
-                    Event::Answer(x) => a.push(x),
-                    Event::Exhausted => {
-                        done = true;
-                        break;
-                    }
-                    _ => (),
+        let p = Prepared::with_reuse(rules.clone(), reuse).unwrap();
+        let mut s = p.start(q.clone()).unwrap();
+        let mut a = vec![];
+        let mut done = false;
+        for _ in 0..200_000 {
+            match s.tick() {
+                Event::Answer(x) => a.push(x),
+                Event::Exhausted => {
+                    done = true;
+                    break;
                 }
+                _ => (),
             }
-            assert!(done);
-            runtime_support::same_raw(a, expected.clone());
         }
+        assert!(done);
+        runtime_support::same_raw(a, expected.clone());
     }
     expected
 }
@@ -269,94 +266,4 @@ fn hidden_cycles_respect_choice_context_and_finite_failure_service() {
             assert_eq!(answers[0].outputs[0].1, answers[0].outputs[1].1);
         }
     }
-}
-
-#[test]
-fn miss_reuse_observes_late_posts_and_selected_alternatives() {
-    use chr_syntax::and;
-    for choice in [false, true] {
-        let post = and([c("token", [atom("ready")]).into(), eq(v(0), atom("ready"))]);
-        let rules = vec![
-            Rule::simplify(
-                "take",
-                [c("take", [v(0)]), c("token", [atom("ready")])],
-                eq(v(0), atom("done")),
-            ),
-            Rule::simplify(
-                "supply",
-                [c("supply", [v(0)])],
-                if choice {
-                    or(post, eq(v(0), atom("none")))
-                } else {
-                    post
-                },
-            ),
-        ];
-        let a = check(
-            rules,
-            Query {
-                constraints: vec![c("take", [v(10)]), c("supply", [v(11)])],
-                outputs: vec![("take".into(), Var(10)), ("supply".into(), Var(11))],
-            },
-        );
-        assert_eq!(a.len(), if choice { 2 } else { 1 });
-        assert!(a.iter().any(|a| a.outputs[0].1 == atom("done")));
-        if choice {
-            assert!(
-                a.iter()
-                    .any(|a| matches!(a.outputs[0].1, chr_syntax::Term::Var(_)))
-            );
-        }
-    }
-}
-
-#[test]
-fn cancelling_missed_work_does_not_contaminate_reused_preparation() {
-    use chr_syntax::and;
-    let rules = vec![
-        Rule::simplify(
-            "take",
-            [c("take", [v(0)]), c("token", [atom("ready")])],
-            eq(v(0), atom("done")),
-        ),
-        Rule::simplify(
-            "supply",
-            [c("supply", [v(0)])],
-            and([c("token", [atom("ready")]).into(), eq(v(0), atom("ready"))]),
-        ),
-        Rule::simplify("loop", [c("loop", [v(0)])], c("loop", [v(0)]).into()),
-    ];
-    let p = Prepared::new(rules.clone()).unwrap().with_miss_reuse();
-    let mut cancelled = p
-        .start(Query {
-            constraints: vec![c("take", [v(10)]), c("loop", [v(11)])],
-            outputs: vec![],
-        })
-        .unwrap();
-    for _ in 0..8 {
-        assert!(matches!(cancelled.tick(), Event::Progress));
-    }
-    drop(cancelled);
-    let q = Query {
-        constraints: vec![c("take", [v(10)]), c("supply", [v(11)])],
-        outputs: vec![("take".into(), Var(10))],
-    };
-    let expected = runtime_support::run(&rules, &q, 200_000);
-    let mut run = p.start(q).unwrap();
-    let mut answers = vec![];
-    let mut exhausted = false;
-    for _ in 0..200_000 {
-        match run.tick() {
-            Event::Answer(a) => answers.push(a),
-            Event::Exhausted => {
-                exhausted = true;
-                break;
-            }
-            Event::Progress => {}
-        }
-    }
-    assert!(exhausted);
-    drop(run);
-    drop(p);
-    runtime_support::same_raw(answers, expected);
 }
