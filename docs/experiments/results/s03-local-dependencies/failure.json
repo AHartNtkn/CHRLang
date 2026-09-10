@@ -1,0 +1,426 @@
+{
+  "error": "AssertionError(('deadlock', ((1, 0), True, (0, 1, 0), (2, -1))))",
+  "admission": [
+    {
+      "case": "disjoint",
+      "cancel": null,
+      "binding_edges": false,
+      "states": 9,
+      "edges": 12,
+      "parallel_admission_states": 4,
+      "groups": [
+        [
+          0
+        ],
+        [
+          1
+        ]
+      ],
+      "outcomes": 1,
+      "missing": 0,
+      "differences": []
+    },
+    {
+      "case": "disjoint",
+      "cancel": null,
+      "binding_edges": true,
+      "states": 9,
+      "edges": 12,
+      "parallel_admission_states": 4,
+      "groups": [
+        [
+          0
+        ],
+        [
+          1
+        ]
+      ],
+      "outcomes": 1,
+      "missing": 0,
+      "differences": []
+    },
+    {
+      "case": "disjoint",
+      "cancel": 0,
+      "binding_edges": false,
+      "states": 12,
+      "edges": 20,
+      "parallel_admission_states": 4,
+      "groups": [
+        [
+          0
+        ],
+        [
+          1
+        ]
+      ],
+      "outcomes": 2,
+      "missing": 0,
+      "differences": []
+    },
+    {
+      "case": "disjoint",
+      "cancel": 0,
+      "binding_edges": true,
+      "states": 12,
+      "edges": 20,
+      "parallel_admission_states": 4,
+      "groups": [
+        [
+          0
+        ],
+        [
+          1
+        ]
+      ],
+      "outcomes": 2,
+      "missing": 0,
+      "differences": []
+    },
+    {
+      "case": "disjoint",
+      "cancel": 1,
+      "binding_edges": false,
+      "states": 12,
+      "edges": 20,
+      "parallel_admission_states": 4,
+      "groups": [
+        [
+          0
+        ],
+        [
+          1
+        ]
+      ],
+      "outcomes": 2,
+      "missing": 0,
+      "differences": []
+    },
+    {
+      "case": "disjoint",
+      "cancel": 1,
+      "binding_edges": true,
+      "states": 12,
+      "edges": 20,
+      "parallel_admission_states": 4,
+      "groups": [
+        [
+          0
+        ],
+        [
+          1
+        ]
+      ],
+      "outcomes": 2,
+      "missing": 0,
+      "differences": []
+    },
+    {
+      "case": "contended",
+      "cancel": null,
+      "binding_edges": false,
+      "states": 3,
+      "edges": 2,
+      "parallel_admission_states": 0,
+      "groups": [
+        [
+          0,
+          1
+        ]
+      ],
+      "outcomes": 1,
+      "missing": 0,
+      "differences": []
+    },
+    {
+      "case": "contended",
+      "cancel": null,
+      "binding_edges": true,
+      "states": 3,
+      "edges": 2,
+      "parallel_admission_states": 0,
+      "groups": [
+        [
+          0,
+          1
+        ]
+      ],
+      "outcomes": 1,
+      "missing": 0,
+      "differences": []
+    },
+    {
+      "case": "contended",
+      "cancel": 0,
+      "binding_edges": false,
+      "states": 6,
+      "edges": 6,
+      "parallel_admission_states": 0,
+      "groups": [
+        [
+          0,
+          1
+        ]
+      ],
+      "outcomes": 2,
+      "missing": 0,
+      "differences": []
+    },
+    {
+      "case": "contended",
+      "cancel": 0,
+      "binding_edges": true,
+      "states": 6,
+      "edges": 6,
+      "parallel_admission_states": 0,
+      "groups": [
+        [
+          0,
+          1
+        ]
+      ],
+      "outcomes": 2,
+      "missing": 0,
+      "differences": []
+    },
+    {
+      "case": "contended",
+      "cancel": 1,
+      "binding_edges": false,
+      "states": 6,
+      "edges": 7,
+      "parallel_admission_states": 0,
+      "groups": [
+        [
+          0,
+          1
+        ]
+      ],
+      "outcomes": 1,
+      "missing": 0,
+      "differences": []
+    },
+    {
+      "case": "contended",
+      "cancel": 1,
+      "binding_edges": true,
+      "states": 6,
+      "edges": 7,
+      "parallel_admission_states": 0,
+      "groups": [
+        [
+          0,
+          1
+        ]
+      ],
+      "outcomes": 1,
+      "missing": 0,
+      "differences": []
+    },
+    {
+      "case": "overlap",
+      "cancel": null,
+      "binding_edges": false,
+      "states": 4,
+      "edges": 3,
+      "parallel_admission_states": 0,
+      "groups": [
+        [
+          0,
+          1
+        ]
+      ],
+      "outcomes": 1,
+      "missing": 0,
+      "differences": []
+    },
+    {
+      "case": "overlap",
+      "cancel": null,
+      "binding_edges": true,
+      "states": 4,
+      "edges": 3,
+      "parallel_admission_states": 0,
+      "groups": [
+        [
+          0,
+          1
+        ]
+      ],
+      "outcomes": 1,
+      "missing": 0,
+      "differences": []
+    },
+    {
+      "case": "overlap",
+      "cancel": 0,
+      "binding_edges": false,
+      "states": 8,
+      "edges": 9,
+      "parallel_admission_states": 0,
+      "groups": [
+        [
+          0,
+          1
+        ]
+      ],
+      "outcomes": 2,
+      "missing": 0,
+      "differences": []
+    },
+    {
+      "case": "overlap",
+      "cancel": 0,
+      "binding_edges": true,
+      "states": 8,
+      "edges": 9,
+      "parallel_admission_states": 0,
+      "groups": [
+        [
+          0,
+          1
+        ]
+      ],
+      "outcomes": 2,
+      "missing": 0,
+      "differences": []
+    },
+    {
+      "case": "overlap",
+      "cancel": 1,
+      "binding_edges": false,
+      "states": 8,
+      "edges": 10,
+      "parallel_admission_states": 0,
+      "groups": [
+        [
+          0,
+          1
+        ]
+      ],
+      "outcomes": 1,
+      "missing": 0,
+      "differences": []
+    },
+    {
+      "case": "overlap",
+      "cancel": 1,
+      "binding_edges": true,
+      "states": 8,
+      "edges": 10,
+      "parallel_admission_states": 0,
+      "groups": [
+        [
+          0,
+          1
+        ]
+      ],
+      "outcomes": 1,
+      "missing": 0,
+      "differences": []
+    },
+    {
+      "case": "kept-reader",
+      "cancel": null,
+      "binding_edges": false,
+      "states": 6,
+      "edges": 5,
+      "parallel_admission_states": 0,
+      "groups": [
+        [
+          0,
+          1
+        ]
+      ],
+      "outcomes": 1,
+      "missing": 0,
+      "differences": []
+    },
+    {
+      "case": "kept-reader",
+      "cancel": null,
+      "binding_edges": true,
+      "states": 6,
+      "edges": 5,
+      "parallel_admission_states": 0,
+      "groups": [
+        [
+          0,
+          1
+        ]
+      ],
+      "outcomes": 1,
+      "missing": 0,
+      "differences": []
+    },
+    {
+      "case": "kept-reader",
+      "cancel": 0,
+      "binding_edges": false,
+      "states": 9,
+      "edges": 10,
+      "parallel_admission_states": 0,
+      "groups": [
+        [
+          0,
+          1
+        ]
+      ],
+      "outcomes": 2,
+      "missing": 0,
+      "differences": []
+    },
+    {
+      "case": "kept-reader",
+      "cancel": 0,
+      "binding_edges": true,
+      "states": 9,
+      "edges": 10,
+      "parallel_admission_states": 0,
+      "groups": [
+        [
+          0,
+          1
+        ]
+      ],
+      "outcomes": 2,
+      "missing": 0,
+      "differences": []
+    },
+    {
+      "case": "kept-reader",
+      "cancel": 1,
+      "binding_edges": false,
+      "states": 10,
+      "edges": 13,
+      "parallel_admission_states": 0,
+      "groups": [
+        [
+          0,
+          1
+        ]
+      ],
+      "outcomes": 2,
+      "missing": 0,
+      "differences": []
+    },
+    {
+      "case": "kept-reader",
+      "cancel": 1,
+      "binding_edges": true,
+      "states": 10,
+      "edges": 13,
+      "parallel_admission_states": 0,
+      "groups": [
+        [
+          0,
+          1
+        ]
+      ],
+      "outcomes": 2,
+      "missing": 0,
+      "differences": []
+    }
+  ],
+  "publication": []
+}

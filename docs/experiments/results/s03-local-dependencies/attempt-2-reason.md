@@ -1,0 +1,1 @@
+The first runner stops at an occurrence-only deadlock before the remaining registered cells. Preserve its frozen files and failure. The second runner records deadlocks with shortest traces as hypothesis outcomes, continues all registered cells, and still rejects any deadlock or oracle mismatch in the binding-aware candidate. No acquisition, admission or commit semantics change.

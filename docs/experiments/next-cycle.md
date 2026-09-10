@@ -10,11 +10,11 @@ The [design review](results/R07-design-disposition-review.md) distinguishes meas
 
 Several useful comparisons now exist. [Integrated graph scanning](results/S02-multihead-scale.md) has favorable measured regimes. [Finite solving](results/S06-finite-lifecycle.md) has selective benefits and unselective costs. [Support ordering](results/S08-order-lifecycle.md) has opposing regimes. These findings supply stronger controls, not a complete architecture ranking.
 
-The [local-claims gate](results/S03-local-claims.md) exhaustively checks 40 configurations, 414 states and 581 transitions against independent atomic effects. Occurrence claims preserve unordered outcomes but permit different winners from source priority; global admission preserves the modeled order while retaining global selection. T080 next tests dependency-aware admission and physical publication before native source integration. This is package one after the continuing-service breadth review; adaptive costs and all broader obligations remain required. The goal is active.
+The [dependency/publication gate](results/S03-local-dependencies.md) checks 40 admission and four observation configurations over 3,010 states. Occurrence-only admission exposes a late-binding deadlock and source-order differences; binding-aware components match the bounded priority oracle while allowing disjoint admission. Status validation excludes mixed single-descriptor snapshots but creates retry obligations. T080 next integrates source-derived dependencies and physical descriptors with real source execution. Package three after the continuing-service breadth review; the goal and other investigations remain active.
 
 ## The order, and why
 
-Continue investigation 4 with T080 dependency-aware admission and physical commit publication. The [local-claims gate](results/S03-local-claims.md) separates atomic ownership from source-priority selection. Register staged owner visibility and binding/kept-read dependencies before extending the model; arbitrary unordered winners cannot be compared as equivalent source execution. Integrate with real source execution after the physical/protocol gate. Reconsider adaptive costs, conditional equality, richer theories and broader reuse there or at an obstruction.
+Continue investigation 4 with actual source integration of T080 local admission and descriptor publication. The [dependency/publication gate](results/S03-local-dependencies.md) establishes bounded obligations, not native implementation. Derive dependencies from admitted sources and validate complete outcomes against independent expectations and the qualified serial path, including multiple descriptors, cancellation and observations between updates. Reconsider adaptive costs, conditional equality, richer theories and broader reuse at this gate or obstruction; breadth review by package four.
 
 | Order | Investigation | Architectural decision it could change |
 |---|---|---|
@@ -58,7 +58,7 @@ Continue investigation 4 with T080 dependency-aware admission and physical commi
 
 ## The next concrete experiments
 
-**Next test the responsibilities abstracted by the local-claims gate.** Compare dependency-aware admission with global source selection and explicitly staged publication. Include observation between owner updates, cancelled partial work and a binder enabling an earlier contender. The passing finite protocol is a prerequisite to source integration, not native architecture evidence. The unfinished ownership matrix, conditional equality costs and stable-size/growing-query trajectories remain required.
+**Next connect local ownership to source execution.** Derive occurrence and equality dependencies from actual admitted programs, implement descriptor visibility and lifetime, and test observations and cancellation between physical updates. Include at least two interacting descriptors and complete ordered source effects; the finite model’s effect bag is not the full language. The unfinished ownership matrix, conditional equality costs and stable-size/growing-query trajectories remain required.
 
 | Package | Required comparison and checks | Decision and review point |
 |---|---|---|

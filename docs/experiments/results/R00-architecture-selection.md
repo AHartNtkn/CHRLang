@@ -1,6 +1,6 @@
 # R00: architectural alternatives and first experiment selection
 
-The [local-claims gate](S03-local-claims.md) exhaustively checks 40 configurations, 414 states and 581 transitions against independent atomic effects. Occurrence claims preserve unordered outcomes but permit different winners from source priority; global admission preserves the modeled order while retaining global selection. T080 next tests dependency-aware admission and physical publication before native source integration. This is package one after the continuing-service breadth review; adaptive costs and all broader obligations remain required. The goal is active.
+The [dependency/publication gate](S03-local-dependencies.md) checks 40 admission and four observation configurations over 3,010 states. Occurrence-only admission exposes a late-binding deadlock and source-order differences; binding-aware components match the bounded priority oracle while allowing disjoint admission. Status validation excludes mixed single-descriptor snapshots but creates retry obligations. T080 next integrates source-derived dependencies and physical descriptors with real source execution. Package three after the continuing-service breadth review; the goal and other investigations remain active.
 
 ## Earlier experimental checkpoints
 

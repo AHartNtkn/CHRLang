@@ -10,7 +10,7 @@ This is the governing sequence for the renewed investigation. Existing E/R measu
 
 The [next experimental cycle](next-cycle.md) sets the current execution order, concrete contrasts and completion boundaries from the verified worktree. It reuses the stage definitions below and the full question map.
 
-The current package is T080 local resource ownership. The [bounded protocol gate](results/S03-local-claims.md) establishes unordered atomic outcomes and records source-priority differences; it does not implement physical publication or native source execution. Next compare dependency-aware admission and staged publication against global priority selection, then integrate the surviving protocol with actual source effects. This is package one after the continuing-service breadth review. Adaptive costs and unfinished lifetime studies remain required.
+The current package is T080 actual source integration of local ownership. The [dependency/publication gate](results/S03-local-dependencies.md) exposes a late-binding admission deadlock and mixed observations, then qualifies bounded dependency-aware admission and status validation. Next implement source-derived dependencies and physical descriptors, preserving complete ordered source outcomes, cancellation and identities. Admission and publication count as separate gates: three packages have now elapsed after the continuing-service breadth review. Adaptive costs and unfinished lifetime studies remain required.
 
 ## Account for every reviewed question
 
