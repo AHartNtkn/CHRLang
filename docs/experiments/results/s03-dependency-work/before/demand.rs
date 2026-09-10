@@ -97,8 +97,6 @@ pub struct ReclaimedSupports {
 #[derive(Debug, Default, Clone, Copy)]
 pub struct Work {
     pub force_entries: usize,
-    pub validation_passes: usize,
-    pub validation_entries: usize,
     pub match_entries: usize,
     pub lift_walk_entries: usize,
     pub dependency_entries: usize,
@@ -1094,19 +1092,14 @@ impl Run {
 
     // Check completed equations independently of output demand. This traversal
     // does not force producers or select choices, so it cannot reorder claims.
-    fn finite_result(&mut self, root: Id, ctx: &Context) -> Result<(), Signal> {
+    fn finite_result(&self, root: Id, ctx: &Context) -> Result<(), Signal> {
         fn visit(
             run: &Run,
             id: Id,
             ctx: &Context,
             path: &mut Vec<Id>,
             done: &mut BTreeSet<Id>,
-            #[cfg(feature = "work-diagnostics")] entries: &mut usize,
         ) -> Result<(), Signal> {
-            #[cfg(feature = "work-diagnostics")]
-            {
-                *entries += 1;
-            }
             if let Some(start) = path.iter().position(|old| *old == id) {
                 return if path[start..]
                     .iter()
@@ -1124,26 +1117,10 @@ impl Run {
             match &run.nodes[id].node {
                 Node::App(_, children) => {
                     for child in children {
-                        visit(
-                            run,
-                            *child,
-                            ctx,
-                            path,
-                            done,
-                            #[cfg(feature = "work-diagnostics")]
-                            entries,
-                        )?;
+                        visit(run, *child, ctx, path, done)?;
                     }
                 }
-                Node::Alias(next) => visit(
-                    run,
-                    *next,
-                    ctx,
-                    path,
-                    done,
-                    #[cfg(feature = "work-diagnostics")]
-                    entries,
-                )?,
+                Node::Alias(next) => visit(run, *next, ctx, path, done)?,
                 Node::Call(..) => {
                     if let Some((_, next)) = run.nodes[id]
                         .results
@@ -1151,28 +1128,12 @@ impl Run {
                         .rev()
                         .find(|(support, _)| support.iter().all(|(k, v)| ctx.get(k) == Some(v)))
                     {
-                        visit(
-                            run,
-                            *next,
-                            ctx,
-                            path,
-                            done,
-                            #[cfg(feature = "work-diagnostics")]
-                            entries,
-                        )?;
+                        visit(run, *next, ctx, path, done)?;
                     }
                 }
                 Node::Choice(label, left, right) => {
                     if let Some(side) = ctx.get(label) {
-                        visit(
-                            run,
-                            if *side { *right } else { *left },
-                            ctx,
-                            path,
-                            done,
-                            #[cfg(feature = "work-diagnostics")]
-                            entries,
-                        )?;
+                        visit(run, if *side { *right } else { *left }, ctx, path, done)?;
                     }
                 }
                 Node::Unknown(_) | Node::Fail => {}
@@ -1181,23 +1142,7 @@ impl Run {
             done.insert(id);
             Ok(())
         }
-        #[cfg(feature = "work-diagnostics")]
-        let mut entries = 0;
-        let result = visit(
-            self,
-            root,
-            ctx,
-            &mut Vec::new(),
-            &mut BTreeSet::new(),
-            #[cfg(feature = "work-diagnostics")]
-            &mut entries,
-        );
-        #[cfg(feature = "work-diagnostics")]
-        {
-            self.work.validation_passes += 1;
-            self.work.validation_entries += entries;
-        }
-        result
+        visit(self, root, ctx, &mut Vec::new(), &mut BTreeSet::new())
     }
 
     fn answer(&mut self, ctx: &Context) -> Result<Answer, Signal> {
