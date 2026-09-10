@@ -75,11 +75,18 @@ struct RelevantDeduction {
     children: Vec<(Value, Value)>,
     failed: bool,
 }
+#[cfg(feature = "deduction-work")]
+#[derive(Default)]
+pub(crate) struct DeductionWork {
+    pub hits: std::cell::Cell<usize>,
+    pub candidates: std::cell::Cell<usize>,
+    pub reads: std::cell::Cell<usize>,
+}
 #[derive(Default)]
 struct Arena {
     relevant: BTreeMap<RelevantKey, Rc<RelevantDeduction>>,
     #[cfg(feature = "deduction-work")]
-    relevant_hits: usize,
+    work: Rc<DeductionWork>,
     nodes: Vec<Option<Descriptor>>,
     next_occurrence: usize,
     next_equality_state: usize,
@@ -175,7 +182,11 @@ impl Store {
             .range(lower..)
             .take_while(|(key, _)| key.inputs == (a, b))
             .find(|(key, _)| {
+                #[cfg(feature = "deduction-work")]
+                arena.work.candidates.set(arena.work.candidates.get() + 1);
                 key.reads.iter().all(|(id, root, descriptions)| {
+                    #[cfg(feature = "deduction-work")]
+                    arena.work.reads.set(arena.work.reads.get() + 1);
                     self.root(*id) == *root && self.descriptions_match(*root, descriptions)
                 })
             })
@@ -183,7 +194,16 @@ impl Store {
     }
     #[cfg(feature = "deduction-work")]
     pub fn relevant_deduction_hits(&self) -> usize {
-        self.arena.borrow().relevant_hits
+        self.arena.borrow().work.hits.get()
+    }
+    #[cfg(feature = "deduction-work")]
+    pub fn relevant_validation_work(&self) -> (usize, usize) {
+        let arena = self.arena.borrow();
+        (arena.work.candidates.get(), arena.work.reads.get())
+    }
+    #[cfg(feature = "deduction-work")]
+    pub(crate) fn deduction_work(&self) -> Rc<DeductionWork> {
+        self.arena.borrow().work.clone()
     }
     fn relevant_key(&self, a: Value, b: Value) -> RelevantKey {
         #[cfg(feature = "deduction-profile")]
@@ -361,7 +381,8 @@ impl Store {
             let _scope = Scope::new(Phase::RelevantReplay);
             #[cfg(feature = "deduction-work")]
             {
-                self.arena.borrow_mut().relevant_hits += 1;
+                let arena = self.arena.borrow();
+                arena.work.hits.set(arena.work.hits.get() + 1);
             }
             self.failed = d.failed;
             if d.failed {

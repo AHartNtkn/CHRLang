@@ -1,0 +1,26 @@
+   Compiling chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax)
+   Compiling chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe)
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+   Compiling chr-integrated v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-integrated)
+   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)
+   Compiling chr-relational v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-relational)
+error[E0599]: no method named `relevant_validation_work` found for struct `chr_relational::contextual::Store` in the current scope
+  --> research/chr-relational/tests/read_near_miss.rs:17:31
+   |
+17 |             let before=branch.relevant_validation_work();
+   |                               ^^^^^^^^^^^^^^^^^^^^^^^^ method not found in `chr_relational::contextual::Store`
+
+error[E0599]: no method named `relevant_validation_work` found for struct `chr_relational::contextual::Store` in the current scope
+  --> research/chr-relational/tests/read_near_miss.rs:19:30
+   |
+19 |             let after=branch.relevant_validation_work();
+   |                              ^^^^^^^^^^^^^^^^^^^^^^^^ method not found in `chr_relational::contextual::Store`
+
+error[E0599]: no method named `relevant_validation_work` found for struct `chr_relational::contextual_execute::Engine` in the current scope
+  --> research/chr-relational/tests/read_near_miss.rs:59:64
+   |
+59 | ...rk")] {let w=engine.relevant_validation_work();work=(work.0.max(w.0),work.1.max(w.1),work.2.max(engine.relevant_deduction_hits()));}
+   |                        ^^^^^^^^^^^^^^^^^^^^^^^^ method not found in `chr_relational::contextual_execute::Engine`
+
+For more information about this error, try `rustc --explain E0599`.
+error: could not compile `chr-relational` (test "read_near_miss") due to 3 previous errors

@@ -1,0 +1,19 @@
+
+running 1 test
+NEAR_OPERATION,1,0,0,0
+NEAR_OPERATION,8,0,0,0
+test same_inputs_examine_each_prior_incompatible_context ... FAILED
+
+failures:
+
+failures:
+    same_inputs_examine_each_prior_incompatible_context
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s
+
+
+thread 'same_inputs_examine_each_prior_incompatible_context' (906) panicked at tests/read_near_miss.rs:38:13:
+assertion `left == right` failed: must inspect all incompatible prior target records
+  left: 0
+ right: 1
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

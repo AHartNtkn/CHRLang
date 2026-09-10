@@ -1,0 +1,74 @@
+{
+  "receipts": [
+    {
+      "kind": "primary",
+      "repeat": 0,
+      "build_command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-relational",
+        "--test",
+        "read_near_miss",
+        "--no-run",
+        "--message-format=json",
+        "--target-dir",
+        "target/s02-read-near-miss"
+      ],
+      "binary": "/home/ahart/Documents/CHRLang/target/s02-read-near-miss/debug/deps/read_near_miss-5ac7cc05a49e567b",
+      "sha256": "15e13cfff7355840a4b7b92b1dd44c353714cb9858cd4798688178c194981311",
+      "exit_code": 0,
+      "cpu_seconds_limit": 120,
+      "wall_seconds_limit": 120,
+      "address_space_limit": 1073741824
+    },
+    {
+      "kind": "diagnostic",
+      "repeat": 0,
+      "build_command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-relational",
+        "--test",
+        "read_near_miss",
+        "--no-run",
+        "--message-format=json",
+        "--target-dir",
+        "target/s02-read-near-miss",
+        "--features",
+        "deduction-work"
+      ],
+      "binary": "/home/ahart/Documents/CHRLang/target/s02-read-near-miss/debug/deps/read_near_miss-a5d19451af72a0ec",
+      "sha256": "c719b7ca4cb85f31707afa0c91283ec061a330c9e29460b472855835f2644649",
+      "exit_code": 0,
+      "cpu_seconds_limit": 120,
+      "wall_seconds_limit": 120,
+      "address_space_limit": 1073741824
+    },
+    {
+      "kind": "diagnostic",
+      "repeat": 1,
+      "build_command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-relational",
+        "--test",
+        "read_near_miss",
+        "--no-run",
+        "--message-format=json",
+        "--target-dir",
+        "target/s02-read-near-miss",
+        "--features",
+        "deduction-work"
+      ],
+      "binary": "/home/ahart/Documents/CHRLang/target/s02-read-near-miss/debug/deps/read_near_miss-a5d19451af72a0ec",
+      "sha256": "c719b7ca4cb85f31707afa0c91283ec061a330c9e29460b472855835f2644649",
+      "exit_code": 0,
+      "cpu_seconds_limit": 120,
+      "wall_seconds_limit": 120,
+      "address_space_limit": 1073741824
+    }
+  ]
+}

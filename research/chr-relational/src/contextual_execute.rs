@@ -121,7 +121,11 @@ impl Prepared {
             .iter()
             .map(|(n, v)| (n.clone(), state.value(&Term::Var(*v), &mut env)))
             .collect();
+        #[cfg(feature = "deduction-work")]
+        let deduction_work = state.store.deduction_work();
         Engine {
+            #[cfg(feature = "deduction-work")]
+            deduction_work,
             prepared: self.clone(),
             frontier: VecDeque::from([state]),
             discovery_stats: DiscoveryStats::default(),
@@ -285,6 +289,8 @@ pub struct DiscoveryStats {
     pub offered: u64,
 }
 pub struct Engine {
+    #[cfg(feature = "deduction-work")]
+    deduction_work: std::rc::Rc<crate::contextual::DeductionWork>,
     prepared: Arc<Prepared>,
     frontier: VecDeque<State>,
     discovery_stats: DiscoveryStats,
@@ -292,9 +298,14 @@ pub struct Engine {
 impl Engine {
     #[cfg(feature = "deduction-work")]
     pub fn relevant_deduction_hits(&self) -> usize {
-        self.frontier
-            .front()
-            .map_or(0, |s| s.store.relevant_deduction_hits())
+        self.deduction_work.hits.get()
+    }
+    #[cfg(feature = "deduction-work")]
+    pub fn relevant_validation_work(&self) -> (usize, usize) {
+        (
+            self.deduction_work.candidates.get(),
+            self.deduction_work.reads.get(),
+        )
     }
     pub fn discovery_stats(&self) -> &DiscoveryStats {
         &self.discovery_stats

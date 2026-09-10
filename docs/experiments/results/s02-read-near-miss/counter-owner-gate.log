@@ -1,0 +1,11 @@
+   Compiling chr-relational v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-relational)
+error[E0609]: no field `validation_candidates` on type `Ref<'_, contextual::Arena>`
+   --> research/chr-relational/src/contextual.rs:187:22
+    |
+187 |                     .validation_candidates
+    |                      ^^^^^^^^^^^^^^^^^^^^^ unknown field
+    |
+    = note: available fields are: `relevant`, `work`, `nodes`, `next_occurrence`, `next_equality_state`, `deductions`
+
+For more information about this error, try `rustc --explain E0609`.
+error: could not compile `chr-relational` (lib) due to 1 previous error
