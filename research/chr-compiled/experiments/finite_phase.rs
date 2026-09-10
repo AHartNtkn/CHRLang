@@ -638,3 +638,7 @@ fn pattern(
 #[allow(dead_code)]
 #[path = "finite_learning.rs"]
 pub mod learning;
+
+#[allow(dead_code)]
+#[path = "finite_reuse.rs"]
+pub mod reuse;

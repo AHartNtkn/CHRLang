@@ -1,0 +1,31 @@
+{
+  "parent_commit": "c238cdd3edbd3df0866d05f639b6a9b0b9e593f0",
+  "recorded": "after final validation; no comparative timing or pre-run binary freeze",
+  "queries_per_build": 432,
+  "files": {
+    "research/chr-compiled/experiments/finite_phase.rs": "6653d06ae19fed7ca3ed716180c90c6fbe462f0571acd1be77615a6e7c0c7aa6",
+    "research/chr-compiled/experiments/finite_reuse.rs": "c4642c9c545b1a62de6009a43d80a5f10d78313ad9f357940e8a647a51cb37f0",
+    "research/chr-direct-conditional/tests/finite_learning_gate.rs": "44580efff0f19ba4712c5c92320931783a387109553fffc10d7dfe7025ddaf14",
+    "research/chr-direct-conditional/tests/runtime_support/mod.rs": "03633e8d666fadcdd08ddfe4900aa8116b32e434fb0a5dcb1c5faa23ff5976b2",
+    "research/chr-direct-conditional/examples/support/finite_bridge.rs": "8893dba79a52ca3e870aa2feac2748f73c10a884c24fa0e1cdbae3a346b44981",
+    "docs/experiments/registrations/S05-finite-result-reuse.md": "4ce941028821aa59ee63a05f88606d957fcba1e1bb8378edfb31fe724cf95108"
+  },
+  "final_commands": {
+    "validated-default.log": "timeout 120 cargo test --offline -p chr-direct-conditional --test finite_learning_gate --test finite_phase_gate --test finite_bridge_gate --test finite_bridge_futures",
+    "validated-metrics-off.log": "timeout 120 cargo test --offline -p chr-direct-conditional --no-default-features --test finite_learning_gate --test finite_phase_gate --test finite_bridge_gate --test finite_bridge_futures",
+    "validated-clippy.log": "timeout 120 cargo clippy --offline -p chr-direct-conditional --test finite_learning_gate --no-deps -- -D warnings",
+    "validated-clippy-metrics-off.log": "timeout 120 cargo clippy --offline -p chr-direct-conditional --no-default-features --test finite_learning_gate --no-deps -- -D warnings"
+  },
+  "logs": {
+    "clippy.log": "081a36c43f8cce4815ba15b55792212eb16e2b027135cb09b7251748104a457b",
+    "metrics-off.log": "6122f1e4de5865bd805b5f1a87134ad7d480c7a7acf526ded433257e24e7767b",
+    "red.log": "8164dc90a46d2c5e50e34a083d83f48db76af26106ae40006fe10f82dc1f43d0",
+    "validated-clippy.log": "56bd67ee06dff0e08f1f9a7134174773980af0e18402ff2d8c323e9aa77c8aa3",
+    "initial.log": "dd5c71df2ccea0af0384d4850ab380921a44e2e972923a576d5ce7145b74f723",
+    "default.log": "66efc48b85a646eece5d593a5394169fc2b882ed3538fe31552e87399f967245",
+    "validated-clippy-metrics-off.log": "9b7e56163bfd2158c249dfbaeadbfe12e0aee327063d65eaeb84421b121a5dd3",
+    "final-default.log": "17ab2dc1473f67dff6ff7b485a9789f257902374411f5a2ad7f0b00daa53219d",
+    "validated-metrics-off.log": "3bde73b2a76d5ec9e93d234cc76a9b892a4a57d55b3a832579fcc15882888c78",
+    "validated-default.log": "28c8a0f5f5ffa2d87e7537ee0647803ca91ee47b79346f13bf59fa352c2c768e"
+  }
+}

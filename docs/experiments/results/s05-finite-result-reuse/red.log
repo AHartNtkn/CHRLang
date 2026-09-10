@@ -1,0 +1,9 @@
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+error[E0432]: unresolved import `phase::reuse`
+   --> research/chr-direct-conditional/tests/finite_learning_gate.rs:734:16
+    |
+734 |     use phase::reuse::Cache;
+    |                ^^^^^ could not find `reuse` in `phase`
+
+For more information about this error, try `rustc --explain E0432`.
+error: could not compile `chr-direct-conditional` (test "finite_learning_gate") due to 1 previous error

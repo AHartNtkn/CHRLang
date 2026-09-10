@@ -9,7 +9,7 @@ goal:
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
   current_research: >-
-    Finite call-entry gate validates 864 complete queries per build using existing call reuse through a source bundle; independent call completion loses valid answers. T075 next qualifies completed-result reuse with the same direct finite plan as learning, including semantic and ownership obligations. Broader capacity phases, compilation and lifetime return at that boundary. Goal active.
+    Direct finite-result reuse validates 432 changed queries per build with full independent answers, equal miss source-work counts and renamed hits. Cancellation, errors, eviction, unobserved bindings and unbound aliases pass. T075 next qualifies ownership/allocation against recomputation and eager/covered learning using the same finite preparation. Broader capacity phases/compilation/lifetime return at that boundary; goal active.
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -275,9 +275,11 @@ tasks:
     assignee: PM
     status: active
     objective: Investigate sound generalized call and continuation reuse after different histories, including renaming, relevance, resource and output identity obligations, against competent recomputation and sharing controls.
-    progress: "Finite call-entry gate validates 864 complete queries per build using existing call reuse through a source bundle; independent call completion loses valid answers. T075 next qualifies completed-result reuse with the same direct finite plan as learning, including semantic and ownership obligations. Broader capacity phases, compilation and lifetime return at that boundary. Goal active."
-    next_action: "Qualify renaming-aware completed-result reuse at the existing direct finite-phase boundary so the learning comparison shares its execution plan. Reuse established whole-phase key and transport arguments; retain bundled persistent call reuse as a complete-path control. Test changed domains, aliases, weights, projected callers, incomplete queries and retained owners before cost registration. Compare broader capacity phases, compilation and lifetime at this semantic/ownership boundary or an obstruction."
+    progress: "Direct finite-result reuse validates 432 changed queries per build with full independent answers, equal miss source-work counts and renamed hits. Cancellation, errors, eviction, unobserved bindings and unbound aliases pass. T075 next qualifies ownership/allocation against recomputation and eager/covered learning using the same finite preparation. Broader capacity phases/compilation/lifetime return at that boundary; goal active."
+    next_action: "Qualify allocation and retained ownership for completed-result reuse, recomputation and eager/covered learning using the same direct finite preparation. Include repeated and distinct normalized queries, changed domains, result-heavy success, capacity/eviction, cancellation followed by reuse, and owned answers surviving preparation disposal. Charge admission, keys, normalization, caller transport and all disposal. Preserve bundled persistent reuse as a complete-path competitor. Reconsider broader capacity phases, compilation and lifetime at this ownership/allocation boundary or an obstruction before primary timing."
     inputs:
+      - docs/experiments/results/S05-finite-result-reuse.md
+      - docs/experiments/registrations/S05-finite-result-reuse.md
       - docs/experiments/results/S05-finite-call-entry.md
       - docs/experiments/registrations/S05-finite-call-entry.md
       - docs/experiments/results/S06-capacity-costs.md

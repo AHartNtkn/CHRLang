@@ -10,11 +10,11 @@ The [design review](results/R07-design-disposition-review.md) distinguishes meas
 
 Several useful comparisons now exist. [Integrated graph scanning](results/S02-multihead-scale.md) has favorable measured regimes. [Finite solving](results/S06-finite-lifecycle.md) has selective benefits and unselective costs. [Support ordering](results/S08-order-lifecycle.md) has opposing regimes. These findings supply stronger controls, not a complete architecture ranking.
 
-The [finite call-entry gate](results/S05-finite-call-entry.md) validates 864 complete queries per build through the existing call table, preserving domains, aliases, weights and changed callers. Independent call completion loses valid answers; an explicit whole-phase bundle agrees. T075 next qualifies result reuse using the same direct finite plan as learning, so executor differences cannot decide that comparison. Broader capacity phases, compilation and lifetime return at that boundary; the goal remains active.
+The [direct finite-result reuse gate](results/S05-finite-result-reuse.md) validates 432 changed queries per build against independent complete answers. Misses match the existing finite solver’s source work; renamed hits preserve domains, aliases, weights and caller effects. T075 next qualifies retained ownership and allocation against recomputation and both learning policies using the same finite preparation. Broader capacity phases, compilation and lifetime return at that boundary; the goal remains active.
 
 ## The order, and why
 
-Continue investigation 5 with completed-result reuse using the same direct finite plan as learning. Investigation 2 retains broader capacity phases, compilation and lifetime after its bounded cost result. Review those alternatives at the finite-plan reuse semantic/ownership gate or an obstruction.
+Continue investigation 5 with retained ownership and allocation for result reuse and learning under the same direct finite preparation. Investigation 2 retains broader capacity phases, compilation and lifetime after its bounded cost result. Review those alternatives at the ownership/allocation gate or an obstruction.
 
 | Order | Investigation | Architectural decision it could change |
 |---|---|---|
@@ -58,16 +58,16 @@ Continue investigation 5 with completed-result reuse using the same direct finit
 
 ## The next concrete experiments
 
-**Next qualify completed-result reuse using the same direct finite plan as learning.** The existing call table now handles the registered multi-goal family through an explicit bundle. Its persistent executor differs from the finite solver; control that difference before interpreting a cache-versus-learning loss. Carry the bundle path forward as a complete-path competitor.
+**Next qualify ownership and allocation for result reuse and learning under the same direct finite preparation.** The semantic gate now preserves full callers, weights and aliases on both misses and renamed hits. Charge input admission, key creation, retained successful and failed results, replay, eviction and disposal. Carry the bundled persistent call table forward as a complete-path competitor.
 
 | Package | Required comparison and checks | Decision and review point |
 |---|---|---|
-| **Reuse with the same finite plan — T075, active** | Qualify normalized completed-result keys and caller transport at the direct finite-phase boundary. Carry the existing bundled call table as a separate complete-path control. Preserve domains, aliases, weights, full caller results and incomplete-query behavior; qualify retained owners before timing. | Does result reuse compete with learning when both execute the same finite plan? At the semantic/ownership boundary or an obstruction, reconsider broader capacity phases and compilation. |
+| **Finite reuse ownership and allocation — T075, active** | Compare recomputation, eager/covered learning and completed-result reuse under the same prepared finite plan. Include changed domains, sparse hits, result-heavy success, capacities, eviction, cancellation/reuse and consumer ownership through preparation disposal. | Do retained results and key/transport costs repay avoided execution? At the ownership/allocation boundary or an obstruction, reconsider broader capacity phases and compilation before primary timing. |
 | **Matched reuse versus learning costs — required after semantic and ownership qualification** | Compare recomputation, eager/covered learning and the strongest admitted reusable-result control. Include repeated normalized shapes, genuinely different domains, near misses and retention/eviction; charge keys, remapping and all owners. | Does learning remain preferable when a result cache is applicable, and where does its more general failure-region reuse matter? Register exact comparisons only after qualification. |
 | **Broader resource phases and compilation — T073, required** | Carry capacity gains and R05/S01 compilation evidence forward. Test surrounding effects, resource interference, publication and richer source admission where they could change necessary runtime machinery. | Can the measured benefits compose with a broader language? Review at the reuse semantic gate or an obstruction. |
 | **Complete paths and lifetime — T078 and S08, required** | Combine credible mechanisms and test sustained consumers, ongoing siblings, cancellation and complete publication. | Do bounded component gains survive coherent architecture and lifetime obligations? |
 
-**Why reuse now:** the bundle gate supplies a concrete multi-goal correspondence and preserves existing call reuse. A cache-versus-learning comparison still risks measuring different executors. Resolving that confound can change interpretation of the learning gains. Broader capacity phases could widen language relevance but need a new effect/publication correspondence. Select the bounded finite-plan reuse gate, then reconsider both before a larger campaign.
+**Why reuse now:** the direct finite-result gate now separates reuse from executor choice at the semantic level. Successful cached answers may save execution while increasing retained memory and transport. Measuring those owners can change interpretation of the learning gains. Broader capacity phases could widen language relevance but need a new effect/publication correspondence. Select ownership/allocation qualification, then reconsider both before primary timing.
 
 ## 1. Carry the whole-path pilot into broader comparisons
 

@@ -728,3 +728,221 @@ fn prefix_matrix_preserves_full_caller_and_learning_outcomes() {
         }
     }
 }
+
+#[test]
+fn completed_result_reuse_uses_the_same_finite_plan_and_transports_changed_callers() {
+    use phase::reuse::Cache;
+    for accepted in [0, 484, 511] {
+        for weight in [1, 2] {
+            for depth in [0, 4] {
+                let rules = matrix_prefix_rules(accepted, weight, depth);
+                let p = Prepared::new(&rules, rules.len() - 1).unwrap();
+                let mut cache = Cache::<true>::new(&p, 32);
+                for base in [10, 1000] {
+                    for left in [1, 3, 7] {
+                        for right in [1, 3, 7] {
+                            for aliased in [false, true] {
+                                let mut q = matrix_query(left, right, aliased, base);
+                                q.constraints
+                                    .push(c("marker", [atom(&format!("m{base}")), v(base + 99)]));
+                                q.outputs.push((format!("unused{base}"), Var(base + 99)));
+                                let report = cache.solve(&q, Limits::default()).unwrap();
+                                if base == 1000 {
+                                    assert_eq!(report.steps, 0);
+                                } else {
+                                    let direct = p.solve(&q, Limits::default()).unwrap();
+                                    assert_eq!(report.steps, direct.steps);
+                                    assert_eq!(report.partitions, direct.partitions);
+                                }
+                                let count = (0..3)
+                                    .flat_map(|i| (0..3).map(move |j| (i, j)))
+                                    .filter(|&(i, j)| {
+                                        left & (1 << i) != 0
+                                            && right & (1 << j) != 0
+                                            && (!aliased || i == j)
+                                            && accepted & (1 << (3 * i + j)) != 0
+                                    })
+                                    .count()
+                                    * weight
+                                    * weight;
+                                assert_eq!(check_source(&rules, &q, report), count);
+                            }
+                        }
+                    }
+                }
+                assert_eq!(cache.stats().computed, 18);
+                assert_eq!(cache.stats().hits, 18);
+                assert_eq!(cache.retained(), 18);
+            }
+        }
+    }
+}
+
+#[test]
+fn result_reuse_preserves_unobserved_bindings_and_unbound_interface_aliases() {
+    use phase::reuse::Cache;
+    let rules = matrix_rules(511, 2);
+    let p = Prepared::new(&rules, rules.len() - 1).unwrap();
+    let mut cache = Cache::<true>::new(&p, 4);
+    for base in [10, 1000] {
+        let mut q = matrix_query(3, 3, false, base);
+        q.outputs.clear();
+        // Both private variables remain semantically relevant through caller
+        // constraints even when neither is a named query output.
+        q.constraints
+            .push(c("payload", [v(base), v(base + 1), v(base + 99)]));
+        assert_eq!(
+            check_source(&rules, &q, cache.solve(&q, Limits::default()).unwrap()),
+            16
+        );
+    }
+    assert_eq!(cache.stats().hits, 1);
+    let rules = vec![
+        Rule::simplify(
+            "domain",
+            [c("domain", [v(0)])],
+            or(eq(v(0), atom("a")), eq(v(0), atom("b"))),
+        ),
+        Rule::simplify("link", [c("link", [v(0), v(1)])], eq(v(0), v(1))),
+    ];
+    let p = Prepared::new(&rules, 2).unwrap();
+    let mut cache = Cache::<true>::new(&p, 4);
+    for base in [10, 1000] {
+        let q = Query {
+            constraints: vec![
+                c("link", [v(base), v(base + 1)]),
+                c("payload", [v(base), v(base + 1), v(base + 9)]),
+            ],
+            outputs: vec![
+                ("a".into(), Var(base)),
+                ("b".into(), Var(base + 1)),
+                ("other".into(), Var(base + 9)),
+            ],
+        };
+        assert_eq!(
+            check_source(&rules, &q, cache.solve(&q, Limits::default()).unwrap()),
+            1
+        );
+    }
+    assert_eq!(cache.stats().hits, 1);
+}
+
+#[test]
+fn result_reuse_cancellation_errors_eviction_and_capacity_are_observable() {
+    use phase::reuse::Cache;
+    let rules = matrix_prefix_rules(511, 1, 4);
+    let p = Prepared::new(&rules, rules.len() - 1).unwrap();
+    let q = matrix_query(7, 7, false, 10);
+    let mut cache = Cache::<true>::new(&p, 1);
+    {
+        let mut pending = cache.start(&q, Limits::default()).unwrap();
+        assert!(matches!(pending.advance().unwrap(), phase::Event::Progress));
+    }
+    assert_eq!(cache.retained(), 0);
+    assert!(
+        cache
+            .solve(
+                &q,
+                Limits {
+                    steps: 0,
+                    ..Limits::default()
+                }
+            )
+            .is_err()
+    );
+    assert_eq!(cache.retained(), 0);
+    assert_eq!(
+        check_source(&rules, &q, cache.solve(&q, Limits::default()).unwrap()),
+        9
+    );
+    assert_eq!(cache.retained(), 1);
+    // Hits must still obey output and input admission bounds.
+    assert!(
+        cache
+            .solve(
+                &q,
+                Limits {
+                    solutions: 1,
+                    ..Limits::default()
+                }
+            )
+            .is_err()
+    );
+    assert!(
+        cache
+            .solve(
+                &q,
+                Limits {
+                    term_nodes: 0,
+                    ..Limits::default()
+                }
+            )
+            .is_err()
+    );
+    assert_eq!(
+        check_source(&rules, &q, cache.solve(&q, Limits::default()).unwrap()),
+        9
+    );
+    let distinct = matrix_query(1, 1, false, 1000);
+    assert_eq!(
+        check_source(
+            &rules,
+            &distinct,
+            cache.solve(&distinct, Limits::default()).unwrap()
+        ),
+        1
+    );
+    let recomputed = cache.solve(&q, Limits::default()).unwrap();
+    assert!(recomputed.steps > 0);
+    assert_eq!(check_source(&rules, &q, recomputed), 9);
+    assert_eq!(cache.retained(), 1);
+    let mut disabled = Cache::<true>::new(&p, 0);
+    for _ in 0..2 {
+        assert_eq!(
+            check_source(&rules, &q, disabled.solve(&q, Limits::default()).unwrap()),
+            9
+        );
+    }
+    assert_eq!(disabled.retained(), 0);
+    assert_eq!(disabled.stats().hits, 0);
+
+    let rules = vec![
+        Rule::simplify(
+            "domain",
+            [c("domain", [v(0)])],
+            or(eq(v(0), atom("a")), eq(v(0), atom("b"))),
+        ),
+        Rule::simplify("only-a", [c("test", [atom("a")])], Goal::True),
+    ];
+    let p = Prepared::new(&rules, 2).unwrap();
+    let mut cache = Cache::<true>::new(&p, 2);
+    let unknown = Query {
+        constraints: vec![c("test", [v(8)])],
+        outputs: vec![("x".into(), Var(8))],
+    };
+    assert!(matches!(
+        cache.solve(&unknown, Limits::default()),
+        Err(phase::Error::Suspended)
+    ));
+    assert_eq!(cache.retained(), 0);
+}
+
+#[test]
+fn primary_result_reuse_preserves_answers_without_diagnostic_counts() {
+    let rules = matrix_rules(484, 2);
+    let p = Prepared::new(&rules, rules.len() - 1).unwrap();
+    let mut primary = phase::reuse::Cache::<false>::new(&p, 2);
+    let mut diagnostic = phase::reuse::Cache::<true>::new(&p, 2);
+    for base in [10, 1000] {
+        let q = matrix_query(7, 7, false, base);
+        let a = primary.solve(&q, Limits::default()).unwrap();
+        let b = diagnostic.solve(&q, Limits::default()).unwrap();
+        assert_eq!((a.steps, a.partitions), (b.steps, b.partitions));
+        assert_eq!(check_source(&rules, &q, a), 20);
+        assert_eq!(check_source(&rules, &q, b), 20);
+    }
+    assert_eq!(primary.stats().hits, 0);
+    assert_eq!(primary.stats().computed, 0);
+    assert_eq!(diagnostic.stats().hits, 1);
+    assert_eq!(diagnostic.stats().computed, 1);
+}

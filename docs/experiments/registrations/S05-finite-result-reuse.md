@@ -1,0 +1,13 @@
+# Reuse completed results from the direct finite plan
+
+T075 investigates a result table using the same `finite_phase::Prepared` computation as finite failure learning. This semantic gate precedes ownership qualification and cost registration. The existing bundled persistent call table remains a whole-path competitor.
+
+Key the ordered private query syntax up to variable renaming, including producer names, constants and alias topology. One table borrows one immutable prepared source. Project outside caller constraints and output labels from the key; all private-variable results must still be returned to each new caller. The finite source forbids fresh body variables, so returned variables must belong to the input interface. Retain both successful and empty completed results with bounded FIFO entry capacity. Incomplete, suspended, cancelled or failed service must not install a result. Capacity is entries, not bytes.
+
+The solver on a miss is the existing direct finite plan. It observes every private input variable for transport, then reconstructs the current caller and original output names. Every returned alternative preserves its weight. A hit may avoid source steps but must still validate input, enforce the result bound and perform transport; it is not a claim of zero work.
+
+Use the existing independent scalar and compiled complete-answer checks. Matrix: accepted masks 0,484,511; choice weights 1,2; prefix depths 0,4; domain masks 1,3,7 on each variable; independent and aliased inputs; identity bases 10,1000 with changed outside markers and output labels. This supplies 432 queries, with one cache per source and 36 queries per cache. Independently enumerate weighted ground-pair counts. Check successful hits and failed hits, changed domains, alias near misses, caller-only variables, unobserved private variables used by a consuming caller, zero capacity, FIFO eviction, errors and cancellation followed by valid reuse. Include a binding result with an unbound interface variable to challenge identity transport.
+
+Register no timing conclusions. Run new and existing finite semantic tests in default and metrics-off configurations and Clippy. Limit each process to 120 seconds; each query uses the existing finite service and output bounds. Diagnose any mismatch before comparative execution.
+
+Selection: the measured learning comparison lacks result reuse with the same execution plan. This gate can change that interpretation without another engine. Broader effectful capacity solving is the strongest ready alternative and needs a separate resource correspondence. Return to selection at the semantic/ownership boundary or an obstruction; this is the second experimental package since the sequence revision.

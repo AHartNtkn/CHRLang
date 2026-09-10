@@ -1,6 +1,6 @@
 # The comparisons still needed to choose the architecture
 
-The [finite call-entry gate](results/S05-finite-call-entry.md) validates 864 complete queries per build through the existing call table, preserving domains, aliases, weights and changed callers. Independent call completion loses valid answers; an explicit whole-phase bundle agrees. T075 next qualifies result reuse using the same direct finite plan as learning, so executor differences cannot decide that comparison. Broader capacity phases, compilation and lifetime return at that boundary; the goal remains active.
+The [direct finite-result reuse gate](results/S05-finite-result-reuse.md) validates 432 changed queries per build against independent complete answers. Misses match the existing finite solver’s source work; renamed hits preserve domains, aliases, weights and caller effects. T075 next qualifies retained ownership and allocation against recomputation and both learning policies using the same finite preparation. Broader capacity phases, compilation and lifetime return at that boundary; the goal remains active.
 
 ## Earlier experimental checkpoints
 
@@ -86,7 +86,7 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-The [current execution order](next-cycle.md#the-order-and-why) owns scheduling. T075 is active for completed-result reuse with the same direct finite plan as learning. The bundled call table supplies a qualified complete-path control. T073 broader capacity phases, compilation and lifetime return at that gate or an obstruction. Broad architecture obligations remain required.
+The [current execution order](next-cycle.md#the-order-and-why) owns scheduling. T075 is active for ownership and allocation of completed-result reuse and learning under the same finite preparation. The semantic gate is qualified; the bundled call table remains a complete-path control. T073 broader capacity phases, compilation and lifetime return at that gate or an obstruction. Broad architecture obligations remain required.
 
 ### Depth, breadth and stopping within this sequence
 

@@ -1,6 +1,6 @@
 # What experiment answers each reviewed design question?
 
-**Current selection: T075 reuse with the same finite execution plan.** The [finite call-entry gate](results/S05-finite-call-entry.md) validates 864 complete queries per build through the existing call table, preserving domains, aliases, weights and changed callers. Independent call completion loses valid answers; an explicit whole-phase bundle agrees. T075 next qualifies result reuse using the same direct finite plan as learning, so executor differences cannot decide that comparison. Broader capacity phases, compilation and lifetime return at that boundary; the goal remains active.
+**Current selection: T075 finite reuse ownership and allocation.** The [direct finite-result reuse gate](results/S05-finite-result-reuse.md) validates 432 changed queries per build against independent complete answers. Misses match the existing finite solver’s source work; renamed hits preserve domains, aliases, weights and caller effects. T075 next qualifies retained ownership and allocation against recomputation and both learning policies using the same finite preparation. Broader capacity phases, compilation and lifetime return at that boundary; the goal remains active.
 
 The [common-source gate and cost design](results/S10-native-common-source.md) qualifies ten Rust configurations on all 125 cases, prefix lowering on 20 and finite solving with its caller on four. Native evidence remains applicable. T078 next establishes native prepared reuse and disposal; no cross-architecture cost matrix has run.
 
