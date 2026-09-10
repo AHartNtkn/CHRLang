@@ -16,13 +16,12 @@ enum Plan<T = Term> {
     Call(String, Vec<T>),
     Choice(Box<Plan<T>>, Box<Plan<T>>),
     Producers(Vec<Action<T>>, Box<Plan<T>>),
-    BindOutput(Var, Box<Plan<T>>),
     Fail,
 }
 #[derive(Clone)]
 enum Action<T = Term> {
     Call(Var, String, Vec<T>),
-    Post(String, Vec<T>),
+    Post(Constraint),
 }
 struct Resource {
     constraint: String,
@@ -60,12 +59,6 @@ enum Node {
     Call(String, Vec<Id>, Id, usize),
     Choice(usize, Id, Id),
     Fail,
-}
-// Follow completed result edges iteratively; source dependency evaluation remains
-// in force_body, under the same active-call and recursive-probe guards.
-enum Forced {
-    Value(Id),
-    Follow(Id),
 }
 struct Cell {
     node: Node,
@@ -204,7 +197,14 @@ fn plan(
                     return Err("body prefix must contain fresh-output calls".into());
                 };
                 if resources.contains(&(c.name.clone(), c.args.len())) {
-                    producers.push(Action::Post(c.name.clone(), c.args.clone()));
+                    let mut used = vec![];
+                    for t in &c.args {
+                        variables(t, &mut used)
+                    }
+                    if !used.is_empty() {
+                        return Err("passive body posts must be ground in this certificate".into());
+                    }
+                    producers.push(Action::Post(c.clone()));
                     continue;
                 }
                 let Some(Term::Var(v)) = c.args.last() else {
@@ -257,11 +257,10 @@ fn calls(p: &Plan, out: &mut Vec<(String, usize)>) {
             calls(a, out);
             calls(b, out)
         }
-        Plan::BindOutput(_, p) => calls(p, out),
         Plan::Producers(ps, p) => {
             out.extend(ps.iter().filter_map(|action| match action {
                 Action::Call(_, n, a) => Some((n.clone(), a.len())),
-                Action::Post(_, _) => None,
+                Action::Post(_) => None,
             }));
             calls(p, out)
         }
@@ -320,33 +319,10 @@ impl Prepared {
                 }
                 set.extend(vars);
             }
-            let mut body = plan(&rule.body, *output, &set, &resource_signatures)?;
-            fn posts_output(p: &Plan, output: Var) -> bool {
-                match p {
-                    Plan::Producers(actions, last) => {
-                        actions.iter().any(|a| {
-                            let Action::Post(_, args) = a else {
-                                return false;
-                            };
-                            let mut vars = vec![];
-                            for t in args {
-                                variables(t, &mut vars);
-                            }
-                            vars.contains(&output)
-                        }) || posts_output(last, output)
-                    }
-                    Plan::Choice(a, b) => posts_output(a, output) || posts_output(b, output),
-                    Plan::BindOutput(_, p) => posts_output(p, output),
-                    _ => false,
-                }
-            }
-            if posts_output(&body, *output) {
-                body = Plan::BindOutput(*output, Box::new(body));
-            }
             clauses.push(Clause {
                 name: head.name.clone(),
                 inputs,
-                body,
+                body: plan(&rule.body, *output, &set, &resource_signatures)?,
                 partners,
                 reusable_static_match: false,
             });
@@ -385,13 +361,12 @@ impl Prepared {
         fn pure_plan(p: &Plan, allowed: &BTreeSet<(String, usize)>) -> bool {
             match p {
                 Plan::Value(_) | Plan::Fail => true,
-                Plan::BindOutput(_, p) => pure_plan(p, allowed),
                 Plan::Call(n, args) => allowed.contains(&(n.clone(), args.len())),
                 Plan::Choice(_, _) => false,
                 Plan::Producers(actions, p) => {
                     actions.iter().all(|a| match a {
                         Action::Call(_, n, args) => allowed.contains(&(n.clone(), args.len())),
-                        Action::Post(_, _) => false,
+                        Action::Post(_) => false,
                     }) && pure_plan(p, allowed)
                 }
             }
@@ -607,14 +582,6 @@ impl Run {
                 self.call(n.clone(), args, output, ctx)
             }
             Plan::Fail => self.push(Node::Fail),
-            Plan::BindOutput(var, body) => {
-                // Posts can precede the equation defining this call's output.
-                // Keep one local reference, then link it to the contextual result.
-                let slot = self.term(&Term::Var(*var), env);
-                let value = self.expand_plan(body, env, ctx, output, term);
-                self.nodes[slot].node = Node::Alias(value);
-                value
-            }
             Plan::Choice(a, b) => {
                 let label = self.births.len();
                 self.births.push(ctx.clone());
@@ -633,10 +600,10 @@ impl Run {
                             let args = args.iter().map(|t| term(self, t, env)).collect();
                             self.producer(n.clone(), args, *v, env, ctx);
                         }
-                        Action::Post(name, args) => {
-                            let args = args.iter().map(|t| term(self, t, env)).collect();
+                        Action::Post(c) => {
+                            let args = c.args.iter().map(|t| self.term(t, env)).collect();
                             self.resources.push(Resource {
-                                constraint: name.clone(),
+                                constraint: c.name.clone(),
                                 args,
                                 birth: ctx.clone(),
                                 consumed: vec![],
@@ -777,89 +744,84 @@ impl Run {
             _ => false,
         }
     }
-    fn force(&mut self, mut id: Id, ctx: &Context) -> Result<Id, Signal> {
-        let forcing_depth = self.forcing.len();
-        let probe_depth = self.recursive_probes.len();
-        let result = (|| {
-            loop {
-                if let Node::Call(_, _, output, _) = self.nodes[id].node {
-                    if self.forcing.contains(&id) {
-                        if self.miss_reuse {
-                            self.recursive_probes.fill(true);
-                        }
-                        // Only completed alias edges imply equality. A recursive matching
-                        // dependency with no completed result merely exposes its unknown.
-                        let mut path: Vec<Id> = Vec::new();
-                        let mut at = id;
-                        loop {
-                            if let Some(start) = path.iter().position(|x| *x == at) {
-                                let canonical = path[start..]
-                                    .iter()
-                                    .filter_map(|i| {
-                                        if let Node::Call(_, _, out, _) = self.nodes[*i].node
-                                            && let Node::Unknown(logical) = self.nodes[out].node
-                                        {
-                                            return Some((logical, out));
-                                        }
-                                        None
-                                    })
-                                    .min()
-                                    .map(|(_, out)| out)
-                                    .unwrap_or(output);
-                                return Ok(canonical);
-                            }
-                            path.push(at);
-                            match &self.nodes[at].node {
-                                Node::Alias(next) => at = *next,
-                                Node::Call(_, _, _, _) => {
-                                    let Some((_, next)) =
-                                        self.nodes[at].results.iter().rev().find(|(support, _)| {
-                                            support.iter().all(|(k, v)| ctx.get(k) == Some(v))
-                                        })
-                                    else {
-                                        return Ok(output);
-                                    };
-                                    at = *next;
-                                }
-                                Node::Choice(label, left, right) => {
-                                    let Some(side) = ctx.get(label) else {
-                                        return Ok(output);
-                                    };
-                                    at = if *side { *right } else { *left };
-                                }
-                                _ => return Ok(output),
-                            }
-                        }
-                    }
-                    if self.miss_reuse {
-                        #[cfg(feature = "work-diagnostics")]
-                        {
-                            self.work.miss_lookups += 1;
-                        }
-                        if let Some(output) = self.misses.get(&id).copied() {
-                            #[cfg(feature = "work-diagnostics")]
-                            {
-                                self.work.miss_hits += 1;
-                            }
-                            return Ok(output);
-                        }
-                    }
-                    self.forcing.push(id);
-                    if self.miss_reuse {
-                        self.recursive_probes.push(false);
-                    }
+    fn force(&mut self, id: Id, ctx: &Context) -> Result<Id, Signal> {
+        if let Node::Call(_, _, output, _) = self.nodes[id].node {
+            if self.forcing.contains(&id) {
+                if self.miss_reuse {
+                    self.recursive_probes.fill(true);
                 }
-                match self.force_body(id, ctx)? {
-                    Forced::Value(value) => return Ok(value),
-                    Forced::Follow(next) => id = next,
+                // Only completed alias edges imply equality. A recursive matching
+                // dependency with no completed result merely exposes its unknown.
+                let mut path: Vec<Id> = Vec::new();
+                let mut at = id;
+                loop {
+                    if let Some(start) = path.iter().position(|x| *x == at) {
+                        let canonical = path[start..]
+                            .iter()
+                            .filter_map(|i| {
+                                if let Node::Call(_, _, out, _) = self.nodes[*i].node
+                                    && let Node::Unknown(logical) = self.nodes[out].node
+                                {
+                                    return Some((logical, out));
+                                }
+                                None
+                            })
+                            .min()
+                            .map(|(_, out)| out)
+                            .unwrap_or(output);
+                        return Ok(canonical);
+                    }
+                    path.push(at);
+                    match &self.nodes[at].node {
+                        Node::Alias(next) => at = *next,
+                        Node::Call(_, _, _, _) => {
+                            let Some((_, next)) =
+                                self.nodes[at].results.iter().rev().find(|(support, _)| {
+                                    support.iter().all(|(k, v)| ctx.get(k) == Some(v))
+                                })
+                            else {
+                                return Ok(output);
+                            };
+                            at = *next;
+                        }
+                        Node::Choice(label, left, right) => {
+                            let Some(side) = ctx.get(label) else {
+                                return Ok(output);
+                            };
+                            at = if *side { *right } else { *left };
+                        }
+                        _ => return Ok(output),
+                    }
                 }
             }
-        })();
-        self.forcing.truncate(forcing_depth);
-        self.recursive_probes.truncate(probe_depth);
-        result
+            if self.miss_reuse {
+                #[cfg(feature = "work-diagnostics")]
+                {
+                    self.work.miss_lookups += 1;
+                }
+                if let Some(output) = self.misses.get(&id).copied() {
+                    #[cfg(feature = "work-diagnostics")]
+                    {
+                        self.work.miss_hits += 1;
+                    }
+                    return Ok(output);
+                }
+            }
+            self.forcing.push(id);
+            if self.miss_reuse {
+                self.recursive_probes.push(false);
+            }
+            let result = self.force_body(id, ctx);
+            self.forcing.pop();
+            if self.miss_reuse {
+                self.recursive_probes.pop();
+            }
+            result
+        } else {
+            self.force_body(id, ctx)
+        }
     }
-    fn force_body(&mut self, id: Id, ctx: &Context) -> Result<Forced, Signal> {
+    fn force_body(&mut self, id: Id, ctx: &Context) -> Result<Id, Signal> {
         #[cfg(feature = "work-diagnostics")]
         {
             self.work.force_entries += 1;
@@ -867,15 +829,15 @@ impl Run {
         // Exposed values already have their result identity. Inspecting them
         // requires neither ownership of the name/children nor graph mutation.
         if matches!(&self.nodes[id].node, Node::Unknown(_) | Node::App(_, _)) {
-            return Ok(Forced::Value(id));
+            return Ok(id);
         }
         match self.nodes[id].node.clone() {
             Node::Unknown(_) | Node::App(_, _) => unreachable!(),
-            Node::Alias(next) => Ok(Forced::Follow(next)),
+            Node::Alias(next) => self.force(next, ctx),
             Node::Fail => Err(Signal::Fail),
             Node::Choice(label, a, b) => match ctx.get(&label) {
-                Some(false) => Ok(Forced::Follow(a)),
-                Some(true) => Ok(Forced::Follow(b)),
+                Some(false) => self.force(a, ctx),
+                Some(true) => self.force(b, ctx),
                 None => Err(Signal::Split(label)),
             },
             Node::Call(name, args, output, origin) => {
@@ -885,7 +847,7 @@ impl Run {
                     .rev()
                     .find(|(support, _)| support.iter().all(|(k, v)| ctx.get(k) == Some(v)))
                 {
-                    return Ok(Forced::Follow(*next));
+                    return self.force(*next, ctx);
                 }
                 let clauses = self.clauses.clone();
                 for clause in clauses
@@ -980,7 +942,7 @@ impl Run {
                         self.work.miss_inserts += 1;
                     }
                 }
-                Ok(Forced::Value(output))
+                Ok(output)
             }
         }
     }

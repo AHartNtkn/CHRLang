@@ -20,7 +20,7 @@ def normalize(v, semantic=False):
 f=read(BASE/'freeze.json')
 for path,digest in f['sources'].items():assert sha(ROOT/path)==digest,path
 parent=read(ROOT/'docs/experiments/results/s02-read-cost/freeze.json')
-for path,digest in parent['sources'].items():assert sha(ROOT/path)==digest,path
+for path,digest in parent['sources'].items():assert any(p.exists() and sha(p)==digest for p in [ROOT/path,ROOT/'docs/experiments/results/s02-read-cost/source-snapshot'/path]),path
 for binary in f['binaries'].values():assert sha(Path(binary['path']))==binary['sha256']
 assert sha(BASE/'order.json')==f['order_hash'] and sha(BASE/'cases.json')==f['cases_hash']
 cases=read(BASE/'cases.json');order=read(BASE/'order.json')

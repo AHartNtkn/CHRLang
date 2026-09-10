@@ -5,7 +5,7 @@ ROOT=Path(__file__).resolve().parents[3];B=ROOT/'docs/experiments/results/s02-re
 def read(p):return json.loads(p.read_text())
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 f=read(B/'freeze.json')
-for p,h in f['sources'].items():assert sha(ROOT/p)==h,p
+for p,h in f['sources'].items():assert any(q.exists() and sha(q)==h for q in [ROOT/p,B/'source-snapshot'/p]),p
 for b in f['binaries'].values():assert sha(Path(b['path']))==b['sha256']
 assert sha(B/'order.json')==f['order_hash'] and sha(B/'scenarios.json')==f['scenarios_hash']
 order=read(B/'order.json');scenarios=read(B/'scenarios.json');rows=[json.loads(l) for l in (B/'results.jsonl').read_text().splitlines()];assert len(rows)==len(order)==2730
@@ -67,7 +67,7 @@ archives=[]
 for name in ['s02-read-cost-initial','s02-read-cost-second']:
  archive=B.parent/name;af=read(archive/'freeze.json')
  for path,h in af['sources'].items():
-  options=[ROOT/path]+[B.parent/n/'source-snapshot'/Path(path).name for n in ['s02-read-cost-initial','s02-read-cost-second']]
+  options=[ROOT/path,B/'source-snapshot'/path]+[B.parent/n/'source-snapshot'/Path(path).name for n in ['s02-read-cost-initial','s02-read-cost-second']]
   assert any(p.exists() and sha(p)==h for p in options),(name,path)
  for binary in af['binaries'].values():assert sha(Path(binary['path']))==binary['sha256']
  assert sha(archive/'order.json')==af['order_hash']==f['order_hash']

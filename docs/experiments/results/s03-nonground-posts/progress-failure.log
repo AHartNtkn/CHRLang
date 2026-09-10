@@ -1,0 +1,21 @@
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.29s
+     Running tests/nonground_posts.rs (target/s03-nonground-posts/debug/deps/nonground_posts-db80bc669f103174)
+
+running 1 test
+progress mode 0
+tick 0
+tick 100
+tick 200
+tick 300
+tick 400
+tick 500
+tick 600
+tick 700
+
+thread 'finite_posted_answer_receives_service_beside_recursion' (104) has overflowed its stack
+fatal runtime error: stack overflow, aborting
+error: test failed, to rerun pass `-p chr-direct-conditional --test nonground_posts`
+
+Caused by:
+  process didn't exit successfully: `/home/ahart/Documents/CHRLang/target/s03-nonground-posts/debug/deps/nonground_posts-db80bc669f103174 finite_posted --nocapture` (signal: 6, SIGABRT: process abort signal)

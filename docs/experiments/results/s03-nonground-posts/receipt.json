@@ -1,0 +1,47 @@
+{
+  "parent_commit": "dc71c79abe79617d121427fedc1497fb4d54b449",
+  "rustc": "rustc 1.97.1 (8bab26f4f 2026-07-14)",
+  "sources": {
+    "research/chr-direct-choice/src/demand.rs": "39b8cbc48a0bf985b30cc616fae85e2499bf90e07f5cd51656a59cceb23f8000",
+    "research/chr-direct-choice/src/demand/templates.rs": "29290529ef136a4ac970f7e82e3d72e09ca531fdbbe62dbb2e3569cc5c1af8f6",
+    "research/chr-direct-conditional/tests/nonground_posts.rs": "58576d6d4d2133a8515438c537c850c3e083dfaeddce75b376bfa69b74fda54c",
+    "research/chr-direct-conditional/tests/suspended_source.rs": "d2851209369b3f4de2eceb0f96f4dd0182f70357a46112408cb6b3ecccb58189",
+    "research/chr-direct-conditional/tests/resource_dependencies.rs": "daa67ce0b23e1ade8ea5514b5195a3030bb150d15c4ee74b844cd7e6c4fa8ab4",
+    "research/chr-direct-conditional/tests/runtime_support/mod.rs": "03633e8d666fadcdd08ddfe4900aa8116b32e434fb0a5dcb1c5faa23ff5976b2",
+    "Cargo.toml": "2a40b31dec44673fec8e093f99867e207e6f152b3cc19791b96555e6505b1853",
+    "Cargo.lock": "228db4ea75a5edcc02186edd97f61bc63a253793366377e664db1c4fe9b7fc51"
+  },
+  "binaries": {
+    "target/s03-nonground-posts-final/release/deps/nonground_posts-edc275860f5591c4": "9851ee17eff23656048f8f3190a8a96091f052b7ba2e92f1127aa4bbf07e91d7",
+    "target/s03-nonground-posts-final/release/deps/resource_dependencies-dc618cd2f2baf756": "78335c50f7d707c4db9724bb7775f8a661ed2b5bc59f79ca7aedc1a3104d2626",
+    "target/s03-nonground-posts-final/release/deps/suspended_source-4bf0a96216e7a4c9": "eb34439fd417b60cf4838d08c1535428c6be969185cb27325afcd05c29c33228",
+    "target/s03-nonground-posts-final/release/deps/nonground_posts-953ccbfa8d91199d": "fa02aa28754f180341d8f72d597b49184660b212240bc56980e207049afc9146",
+    "target/s03-nonground-posts-final/release/deps/resource_dependencies-9324640f744a3157": "a5f0c6aec40ab136733b41055575ed42f2bd9f3ceea2e8950d363483ee9ea3df",
+    "target/s03-nonground-posts-final/release/deps/suspended_source-3bd4572e8db3740f": "ec343af8805049140b83ad4228ee103977d138c39842136592af268975352a00",
+    "target/s03-nonground-posts/debug/deps/chr_direct_choice-d91838636eb13219": "498868e0ee184922ef43bb76532d000e544a7263c8131bb33cea224ef91e7dcf",
+    "target/s03-nonground-posts-final/release/deps/demand_work-c6d81f1077505d0c": "d5b2d813395f2d699dfcfde6abe0d495b451300a64d69af537a81e0f2077aa50",
+    "target/s03-nonground-posts-final/release/deps/dependency_work-2ec879d5039224c6": "67db5e912db3592a2056bfe86139222e6816f1a19b64cde8043a2b3d71205b15",
+    "target/s03-nonground-posts-final/release/deps/pulltab_work-ac3d27a2fa535339": "fdf820b393bf88c7ebfaffb8af7030a760e8c758de1be5dd8d1f61d4b902af66"
+  },
+  "logs": {
+    "green-initial.log": "dda544049d810d9e542199b33b1eb40e6346ded61fb7f7653a3d5389373b211c",
+    "red.log": "fc41b210086108634b38631b9688376e0151295fd815d58a6d7556f640a4b2c1",
+    "plain-progress-red.log": "d00c75e8bdcceff53b9bc39e19d67409f534ebfc48e1af228083b4020bc68cc7",
+    "work-regressions.log": "4c8dcfc2ebb0d20740e1861fd7404c29cb3740206dcd5bb6fb1f0783c286f393",
+    "kernel-work.log": "db700cdf5f22d9c6fe754879be0f508a033b402ac1268fa09733b62f2fa8ebdb",
+    "clippy-source.log": "531bdb499a3567420f6f8f4953de794ca17a1f352792cfe86f5b9f7816e7b9a8",
+    "final-ordinary.log": "03f4e4d69c9267ba3e87b57661be8ae8e61f9289cf3ccc6e6731a411f0d71620",
+    "clippy-kernel.log": "4c1b590d69d4ae8ac72081d18ad460037f0705013fb918b06a8e4cefbbef2c60",
+    "regressions-work.log": "1ec3e3fc9f0799b2e3014080108678512a26a7b388fb6dba64c7c78b6a95be84",
+    "progress-failure.log": "7cd5dce2917f169aa8c868a2979a9ae3c482404c7efce9cc685636606b2b4251",
+    "progress-repair.log": "c6cac1846f946979374d76fc8451ab1a3f598db8b49f66f6503b14b39d200876",
+    "expanded-work.log": "9543a0f864194fc8f7915855296465e91db2e5c7b977a27958b890d73c5448f9",
+    "final-work.log": "11867bd95f19799abd61cff7313af446f45a7ed719a695a33fffdb8c3e4ebdf6"
+  },
+  "scope": "Correctness and bounded progress; no comparative timings",
+  "source_tests_per_build": 9,
+  "resource_dependency_tests_per_build": 7,
+  "suspended_source_tests_per_build": 31,
+  "kernel_work_tests": 10,
+  "work_regression_tests": 3
+}

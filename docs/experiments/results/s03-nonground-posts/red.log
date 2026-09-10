@@ -1,0 +1,49 @@
+   Compiling chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax)
+   Compiling chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe)
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+   Compiling chr-direct-choice v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-choice)
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)
+   Compiling chr-relational v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-relational)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 5.10s
+     Running tests/nonground_posts.rs (target/s03-nonground-posts/debug/deps/nonground_posts-db80bc669f103174)
+
+running 4 tests
+test posted_call_output_tracks_the_result ... FAILED
+test choice_births_and_failed_posts_preserve_complete_answers ... FAILED
+test delayed_input_and_forward_producer_posts_are_consumed ... FAILED
+test fresh_post_variables_share_locally_and_remain_distinct_across_calls ... FAILED
+
+failures:
+
+---- posted_call_output_tracks_the_result stdout ----
+
+thread 'posted_call_output_tracks_the_result' (906) panicked at research/chr-direct-conditional/tests/nonground_posts.rs:47:68:
+called `Result::unwrap()` on an `Err` value: "passive body posts must be ground in this certificate"
+
+---- choice_births_and_failed_posts_preserve_complete_answers stdout ----
+
+thread 'choice_births_and_failed_posts_preserve_complete_answers' (903) panicked at research/chr-direct-conditional/tests/nonground_posts.rs:47:68:
+called `Result::unwrap()` on an `Err` value: "passive body posts must be ground in this certificate"
+
+---- delayed_input_and_forward_producer_posts_are_consumed stdout ----
+
+thread 'delayed_input_and_forward_producer_posts_are_consumed' (904) panicked at research/chr-direct-conditional/tests/nonground_posts.rs:47:68:
+called `Result::unwrap()` on an `Err` value: "passive body posts must be ground in this certificate"
+
+---- fresh_post_variables_share_locally_and_remain_distinct_across_calls stdout ----
+
+thread 'fresh_post_variables_share_locally_and_remain_distinct_across_calls' (905) panicked at research/chr-direct-conditional/tests/nonground_posts.rs:47:68:
+called `Result::unwrap()` on an `Err` value: "passive body posts must be ground in this certificate"
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    choice_births_and_failed_posts_preserve_complete_answers
+    delayed_input_and_forward_producer_posts_are_consumed
+    fresh_post_variables_share_locally_and_remain_distinct_across_calls
+    posted_call_output_tracks_the_result
+
+test result: FAILED. 0 passed; 4 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p chr-direct-conditional --test nonground_posts`

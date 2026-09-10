@@ -844,7 +844,7 @@ fn nonconfluent_resource_competition_has_an_explicit_committed_policy() {
     );
 }
 #[test]
-fn self_dependent_resource_waits_and_nonground_posts_preserve_bindings() {
+fn self_dependent_resource_waits_and_nonground_posts_remain_unimplemented() {
     let take = Rule::simplify(
         "take",
         [c("take", [v(0), v(1)]), c("token", [v(0)])],
@@ -867,13 +867,7 @@ fn self_dependent_resource_waits_and_nonground_posts_preserve_bindings() {
         [c("supply", [v(0), v(1)])],
         and([c("token", [v(0)]).into(), eq(v(1), atom("ok"))]),
     );
-    collect(vec![take, supply], Query {
-        constraints: vec![c("supply", [atom("a"), v(100)]), c("take", [atom("a"), v(101)])],
-        outputs: vec![("supply".into(), Var(100)), ("take".into(), Var(101))],
-    }, vec![Answer {
-        outputs: vec![("supply".into(), atom("ok")), ("take".into(), atom("ok"))],
-        residual: vec![],
-    }]);
+    assert!(Prepared::new(vec![take, supply]).is_err());
 }
 
 #[test]

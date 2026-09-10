@@ -113,25 +113,28 @@ fn instantiate(plan: &Plan, env: &mut Bindings, budget: &mut Budget) -> Option<P
             Box::new(instantiate(b, env, budget)?),
         ),
         Plan::Fail => Plan::Fail,
-        Plan::BindOutput(out, body) => {
-            let local = term(&Term::Var(*out), env, budget)?;
-            let ExprKind::Local(out) = local.kind else {
-                unreachable!("distinct output binder");
-            };
-            Plan::BindOutput(out, Box::new(instantiate(body, env, budget)?))
-        }
         Plan::Producers(actions, last) => {
             let actions = actions
                 .iter()
                 .map(|a| {
                     budget.node()?;
                     Some(match a {
-                        Action::Post(name, args) => Action::Post(
-                            name.clone(),
-                            args.iter()
-                                .map(|x| term(x, env, budget))
-                                .collect::<Option<_>>()?,
-                        ),
+                        // The source certificate permits only ground passive posts.
+                        Action::Post(c) => {
+                            fn charge(t: &Term, budget: &mut Budget) -> Option<()> {
+                                budget.node()?;
+                                if let Term::App(_, xs) = t {
+                                    for x in xs {
+                                        charge(x, budget)?;
+                                    }
+                                }
+                                Some(())
+                            }
+                            for x in &c.args {
+                                charge(x, budget)?;
+                            }
+                            Action::Post(c.clone())
+                        }
                         Action::Call(out, n, args) => {
                             let local = term(&Term::Var(*out), env, budget)?;
                             let ExprKind::Local(out) = &local.kind else {

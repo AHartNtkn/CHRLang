@@ -1,0 +1,19 @@
+   Compiling chr-direct-choice v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-choice)
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.07s
+     Running tests/nonground_posts.rs (target/s03-nonground-posts/debug/deps/nonground_posts-c269e2c1f5112604)
+
+running 7 tests
+test hidden_constructor_failure_through_a_posted_output_is_not_published ... ok
+test posted_call_output_tracks_the_result ... ok
+test fresh_post_variables_share_locally_and_remain_distinct_across_calls ... ok
+test choice_births_and_failed_posts_preserve_complete_answers ... ok
+test competing_consumers_claim_each_posted_occurrence_once ... ok
+test delayed_input_and_forward_producer_posts_are_consumed ... ok
+
+thread 'finite_posted_answer_receives_service_beside_recursion' (517) has overflowed its stack
+fatal runtime error: stack overflow, aborting
+error: test failed, to rerun pass `-p chr-direct-conditional --test nonground_posts`
+
+Caused by:
+  process didn't exit successfully: `/home/ahart/Documents/CHRLang/target/s03-nonground-posts/debug/deps/nonground_posts-c269e2c1f5112604` (signal: 6, SIGABRT: process abort signal)
