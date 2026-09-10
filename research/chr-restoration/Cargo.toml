@@ -12,6 +12,7 @@ chr-observe = { path = "../chr-observe", default-features = false }
 chr-compiled = { path = "../chr-compiled", default-features = false }
 
 [features]
+cpu-clock = []
 alloc-meter = ["chr-compiled/alloc-meter"]
 arena-cow = ["chr-compiled/arena-cow"]
 replay-diagnostic = []

@@ -1,0 +1,43 @@
+{
+  "sources": {
+    "research/chr-restoration/experiments/adaptive_cpu.py": "bb1368615911b4625bdbb0d0c30d91e42f7a64c066c7512c1233a5308bedc004",
+    "research/chr-restoration/examples/adaptive_cost.rs": "87d8a5c837109ac9ef76421b2b0effc3e03204f9d6ef4ba0b30a205138b38c79",
+    "research/chr-restoration/examples/support/repeated_source.rs": "5293a8c32a5df5208eb0f0fafeec3c8204e329b3ca2646627713f0ab2d5623f8",
+    "research/chr-restoration/Cargo.toml": "f38f92335e153d754f6b825fd2fd8b8ac500f19531361ebd62845469eb8e31a2",
+    "Cargo.lock": "228db4ea75a5edcc02186edd97f61bc63a253793366377e664db1c4fe9b7fc51",
+    "docs/experiments/registrations/S04-adaptive-cpu.md": "ed782895e37b233bc1cbf6df99417c711c0db775b78af44fb0833005ca72b871",
+    "research/chr-direct-conditional/tests/runtime_support/mod.rs": "03633e8d666fadcdd08ddfe4900aa8116b32e434fb0a5dcb1c5faa23ff5976b2",
+    "research/chr-restoration/src/lib.rs": "c4d64e7d249f026fe0c469dc9bb32ae57dedce7ebe77d9ed7652282bcd6b194f",
+    "research/chr-restoration/src/reunion.rs": "b046b81052f94509d832614506217460674b86dd742da56a120a42f4dedfb3a9",
+    "research/chr-observe/src/lib.rs": "e36516971166df34ee2ba001cc5967975c54a260bebe9b59ba3ce38671ec916c",
+    "research/chr-observe/src/graph.rs": "e808864fec25405c5c408799fcf9d6756f072b9585c92dc96a0425fe3f3f4e18",
+    "crates/chr-syntax/src/lib.rs": "9b380518e3071aeea80b8644aa5cf12f91d919f0bffdedd5c17122e27dffd48e"
+  },
+  "binaries": {
+    "wall": {
+      "path": "target/s04-adaptive-cpu-wall/release/examples/adaptive_cost",
+      "sha256": "6af763cf394a0ac60789a7744de612b730ad6af63a1679fe377637c2c2215eb6"
+    },
+    "cpu": {
+      "path": "target/s04-adaptive-cpu-cpu/release/examples/adaptive_cost",
+      "sha256": "76984d62b3bb387162cc4d58e6f56f2c0646cd20bb8d9c11b6be6a1b3fc8f076"
+    }
+  },
+  "order_sha256": "08a9100bcbc0250b4c0eac55f60b0410781f862591832b10ef59006b2584ccd8",
+  "scenarios_sha256": "15f8b8802329b930409704849eca6e610c8630dbefb4c2ca4c7b4565f31c49cf",
+  "affinity": [
+    {
+      "cpu": 0,
+      "package": "0",
+      "core": "0"
+    },
+    {
+      "cpu": 2,
+      "package": "0",
+      "core": "4"
+    }
+  ],
+  "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+  "rustc": "rustc 1.97.1 (8bab26f4f 2026-07-14)\nbinary: rustc\ncommit-hash: 8bab26f4f68e0e26f0bb7960be334d5b520ea452\ncommit-date: 2026-07-14\nhost: x86_64-unknown-linux-gnu\nrelease: 1.97.1\nLLVM version: 22.1.6\n",
+  "clock_id_header": "/usr/include/x86_64-linux-gnu/bits/time.h"
+}

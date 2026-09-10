@@ -12,7 +12,64 @@ mod fixture;
 #[allow(dead_code)]
 #[path = "../../chr-direct-conditional/tests/runtime_support/mod.rs"]
 mod oracle;
+#[cfg(feature = "cpu-clock")]
+#[cfg(not(all(target_os = "linux", target_pointer_width = "64")))]
+compile_error!("thread CPU measurement requires the qualified Linux 64-bit ABI");
+#[cfg(feature = "cpu-clock")]
+fn thread_cpu_ns() -> u128 {
+    #[repr(C)]
+    struct Timespec {
+        sec: std::ffi::c_long,
+        nsec: std::ffi::c_long,
+    }
+    unsafe extern "C" {
+        fn clock_gettime(id: std::ffi::c_int, out: *mut Timespec) -> std::ffi::c_int;
+    }
+    let mut t = Timespec { sec: 0, nsec: 0 };
+    // Linux CLOCK_THREAD_CPUTIME_ID, verified against installed bits/time.h.
+    let result = unsafe { clock_gettime(3, &mut t) };
+    assert_eq!(result, 0, "thread CPU clock failed");
+    assert!(t.sec >= 0 && (0..1_000_000_000).contains(&t.nsec));
+    t.sec as u128 * 1_000_000_000 + t.nsec as u128
+}
+#[cfg(feature = "cpu-clock")]
+fn clock_check() {
+    let mut cpu = Vec::with_capacity(100_000);
+    let mut wall = Vec::with_capacity(100_000);
+    for _ in 0..100_000 {
+        let c = thread_cpu_ns();
+        let w = Instant::now();
+        std::hint::black_box(());
+        let elapsed = w.elapsed().as_nanos();
+        cpu.push(thread_cpu_ns() - c);
+        wall.push(elapsed);
+    }
+    cpu.sort_unstable();
+    wall.sort_unstable();
+    let c = thread_cpu_ns();
+    let w = Instant::now();
+    std::thread::sleep(std::time::Duration::from_millis(20));
+    let sleep_wall = w.elapsed().as_nanos();
+    let sleep_cpu = thread_cpu_ns() - c;
+    assert!(sleep_wall >= 15_000_000 && sleep_cpu * 4 < sleep_wall);
+    let c = thread_cpu_ns();
+    let w = Instant::now();
+    let mut acc = 1_u64;
+    while w.elapsed().as_millis() < 20 {
+        acc = std::hint::black_box(acc.wrapping_mul(6364136223846793005).wrapping_add(1));
+    }
+    std::hint::black_box(acc);
+    let busy_wall = w.elapsed().as_nanos();
+    let busy_cpu = thread_cpu_ns() - c;
+    assert!(busy_cpu > 0 && busy_cpu * 10 <= busy_wall * 11);
+    println!(
+        "{{\"cpu_median\":{},\"cpu_p99\":{},\"wall_median\":{},\"wall_p99\":{},\"sleep_cpu\":{sleep_cpu},\"sleep_wall\":{sleep_wall},\"busy_cpu\":{busy_cpu},\"busy_wall\":{busy_wall}}}",
+        cpu[50_000], cpu[99_000], wall[50_000], wall[99_000]
+    );
+}
 struct Row {
+    #[cfg(feature = "cpu-clock")]
+    cpu_ns: u128,
     phase: &'static str,
     query: usize,
     ns: u128,
@@ -22,13 +79,19 @@ struct Row {
 fn measure<T>(rows: &mut Vec<Row>, phase: &'static str, query: usize, f: impl FnOnce() -> T) -> T {
     #[cfg(feature = "alloc-meter")]
     let begin = meter::begin();
+    #[cfg(feature = "cpu-clock")]
+    let cpu_start = thread_cpu_ns();
     let clock = Instant::now();
     let value = f();
     let ns = clock.elapsed().as_nanos();
+    #[cfg(feature = "cpu-clock")]
+    let cpu_ns = thread_cpu_ns() - cpu_start;
     #[cfg(feature = "alloc-meter")]
     let memory = meter::end(begin);
     assert!(rows.len() < rows.capacity());
     rows.push(Row {
+        #[cfg(feature = "cpu-clock")]
+        cpu_ns,
         phase,
         query,
         ns,
@@ -85,6 +148,7 @@ fn run<P, E>(
     let mut rows = Vec::with_capacity(64);
     let mut retained = Vec::new();
     let mut counts = [0usize; 4];
+    let mut service_counts = [0usize; 4];
     #[cfg(feature = "alloc-meter")]
     let owner = meter::begin();
     let (rules, local) = measure(&mut rows, "source", 0, || {
@@ -114,6 +178,7 @@ fn run<P, E>(
                 }
             }
         });
+        service_counts[q] = steps;
         assert_eq!(
             *count,
             if config.cancel {
@@ -177,7 +242,16 @@ fn run<P, E>(
         "{{\"consumer_bytes\":{},\"unreleased_bytes\":0}}",
         held.live_end - held.live_start
     );
+    println!(
+        "{{\"service_counts\":{:?}}}",
+        &service_counts[..config.reuse]
+    );
     for r in rows {
+        #[cfg(feature = "cpu-clock")]
+        println!(
+            "{{\"cpu_phase\":\"{}\",\"query\":{},\"cpu_ns\":{}}}",
+            r.phase, r.query, r.cpu_ns
+        );
         #[cfg(feature = "alloc-meter")]
         println!(
             "{{\"phase\":\"{}\",\"query\":{},\"ns\":{},\"memory\":{}}}",
@@ -200,6 +274,11 @@ fn main() {
     #[cfg(feature = "alloc-meter")]
     meter::self_check().unwrap();
     let args = std::env::args().collect::<Vec<_>>();
+    #[cfg(feature = "cpu-clock")]
+    if args.get(1).is_some_and(|x| x == "clock-check") {
+        clock_check();
+        return;
+    }
     assert_eq!(args.len(), 7, "mode family depth reuse retain cancel");
     let mode = &args[1];
     let family = &args[2];

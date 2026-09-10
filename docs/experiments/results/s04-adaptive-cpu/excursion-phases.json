@@ -1,0 +1,1838 @@
+[
+  {
+    "index": 1141,
+    "cpu": 2,
+    "scenario": 5,
+    "mode": "scheduled",
+    "wall_ns": 3844973,
+    "cpu_ns": 847643,
+    "wall_over_median": 7.714207181586088,
+    "cpu_over_median": 1.701872245590435,
+    "excess_ns": 2997330,
+    "phase_excesses": [
+      {
+        "phase": "first",
+        "query": 0,
+        "ns": 3744990,
+        "cpu_ns": 747207,
+        "excess_ns": 2997783
+      },
+      {
+        "phase": "input_dispose",
+        "query": 0,
+        "ns": 1305,
+        "cpu_ns": 1664,
+        "excess_ns": -359
+      },
+      {
+        "phase": "source_dispose",
+        "query": 0,
+        "ns": 2871,
+        "cpu_ns": 3249,
+        "excess_ns": -378
+      },
+      {
+        "phase": "prepared_dispose",
+        "query": 1,
+        "ns": 3221,
+        "cpu_ns": 3609,
+        "excess_ns": -388
+      },
+      {
+        "phase": "engine_dispose",
+        "query": 0,
+        "ns": 609,
+        "cpu_ns": 1000,
+        "excess_ns": -391
+      },
+      {
+        "phase": "input",
+        "query": 0,
+        "ns": 1073,
+        "cpu_ns": 1492,
+        "excess_ns": -419
+      },
+      {
+        "phase": "setup",
+        "query": 0,
+        "ns": 5111,
+        "cpu_ns": 5539,
+        "excess_ns": -428
+      },
+      {
+        "phase": "consumer_dispose",
+        "query": 1,
+        "ns": 7797,
+        "cpu_ns": 8231,
+        "excess_ns": -434
+      },
+      {
+        "phase": "prepare",
+        "query": 0,
+        "ns": 8020,
+        "cpu_ns": 8473,
+        "excess_ns": -453
+      },
+      {
+        "phase": "remaining",
+        "query": 0,
+        "ns": 99983,
+        "cpu_ns": 100436,
+        "excess_ns": -453
+      },
+      {
+        "phase": "source",
+        "query": 0,
+        "ns": 5119,
+        "cpu_ns": 13085,
+        "excess_ns": -7966
+      }
+    ]
+  },
+  {
+    "index": 2782,
+    "cpu": 2,
+    "scenario": 2,
+    "mode": "backoff8",
+    "wall_ns": 14232861,
+    "cpu_ns": 11234688,
+    "wall_over_median": 1.9996835992801743,
+    "cpu_over_median": 1.57828300938532,
+    "excess_ns": 2998173,
+    "phase_excesses": [
+      {
+        "phase": "first",
+        "query": 0,
+        "ns": 14232861,
+        "cpu_ns": 11234688,
+        "excess_ns": 2998173
+      },
+      {
+        "phase": "prepared_dispose",
+        "query": 1,
+        "ns": 5364,
+        "cpu_ns": 5766,
+        "excess_ns": -402
+      },
+      {
+        "phase": "input_dispose",
+        "query": 0,
+        "ns": 22502,
+        "cpu_ns": 22929,
+        "excess_ns": -427
+      },
+      {
+        "phase": "input",
+        "query": 0,
+        "ns": 26324,
+        "cpu_ns": 26763,
+        "excess_ns": -439
+      },
+      {
+        "phase": "source_dispose",
+        "query": 0,
+        "ns": 3755,
+        "cpu_ns": 4198,
+        "excess_ns": -443
+      },
+      {
+        "phase": "remaining",
+        "query": 0,
+        "ns": 289,
+        "cpu_ns": 753,
+        "excess_ns": -464
+      },
+      {
+        "phase": "setup",
+        "query": 0,
+        "ns": 77002,
+        "cpu_ns": 77497,
+        "excess_ns": -495
+      },
+      {
+        "phase": "prepare",
+        "query": 0,
+        "ns": 10371,
+        "cpu_ns": 10925,
+        "excess_ns": -554
+      },
+      {
+        "phase": "engine_dispose",
+        "query": 0,
+        "ns": 409897,
+        "cpu_ns": 410592,
+        "excess_ns": -695
+      },
+      {
+        "phase": "consumer_dispose",
+        "query": 1,
+        "ns": 19236,
+        "cpu_ns": 19939,
+        "excess_ns": -703
+      },
+      {
+        "phase": "source",
+        "query": 0,
+        "ns": 16200,
+        "cpu_ns": 29200,
+        "excess_ns": -13000
+      }
+    ]
+  },
+  {
+    "index": 1267,
+    "cpu": 0,
+    "scenario": 0,
+    "mode": "fixed8",
+    "wall_ns": 2412907,
+    "cpu_ns": 2414885,
+    "wall_over_median": 1.9637078479316996,
+    "cpu_over_median": 1.9713491772592615,
+    "excess_ns": -1978,
+    "phase_excesses": [
+      {
+        "phase": "remaining",
+        "query": 2,
+        "ns": 30,
+        "cpu_ns": 389,
+        "excess_ns": -359
+      },
+      {
+        "phase": "input",
+        "query": 0,
+        "ns": 1133,
+        "cpu_ns": 1496,
+        "excess_ns": -363
+      },
+      {
+        "phase": "remaining",
+        "query": 3,
+        "ns": 32,
+        "cpu_ns": 404,
+        "excess_ns": -372
+      },
+      {
+        "phase": "setup",
+        "query": 1,
+        "ns": 3680,
+        "cpu_ns": 4056,
+        "excess_ns": -376
+      },
+      {
+        "phase": "input_dispose",
+        "query": 3,
+        "ns": 723,
+        "cpu_ns": 1099,
+        "excess_ns": -376
+      },
+      {
+        "phase": "engine_dispose",
+        "query": 1,
+        "ns": 14421,
+        "cpu_ns": 14805,
+        "excess_ns": -384
+      },
+      {
+        "phase": "setup",
+        "query": 3,
+        "ns": 4344,
+        "cpu_ns": 4740,
+        "excess_ns": -396
+      },
+      {
+        "phase": "input_dispose",
+        "query": 2,
+        "ns": 650,
+        "cpu_ns": 1062,
+        "excess_ns": -412
+      },
+      {
+        "phase": "input",
+        "query": 3,
+        "ns": 903,
+        "cpu_ns": 1317,
+        "excess_ns": -414
+      },
+      {
+        "phase": "input",
+        "query": 2,
+        "ns": 980,
+        "cpu_ns": 1397,
+        "excess_ns": -417
+      },
+      {
+        "phase": "input",
+        "query": 1,
+        "ns": 973,
+        "cpu_ns": 1403,
+        "excess_ns": -430
+      },
+      {
+        "phase": "engine_dispose",
+        "query": 2,
+        "ns": 13568,
+        "cpu_ns": 14000,
+        "excess_ns": -432
+      },
+      {
+        "phase": "setup",
+        "query": 0,
+        "ns": 4300,
+        "cpu_ns": 4736,
+        "excess_ns": -436
+      },
+      {
+        "phase": "input_dispose",
+        "query": 1,
+        "ns": 833,
+        "cpu_ns": 1274,
+        "excess_ns": -441
+      },
+      {
+        "phase": "first",
+        "query": 1,
+        "ns": 600418,
+        "cpu_ns": 600861,
+        "excess_ns": -443
+      },
+      {
+        "phase": "setup",
+        "query": 2,
+        "ns": 4240,
+        "cpu_ns": 4683,
+        "excess_ns": -443
+      },
+      {
+        "phase": "engine_dispose",
+        "query": 0,
+        "ns": 15166,
+        "cpu_ns": 15610,
+        "excess_ns": -444
+      },
+      {
+        "phase": "prepared_dispose",
+        "query": 4,
+        "ns": 3318,
+        "cpu_ns": 3778,
+        "excess_ns": -460
+      },
+      {
+        "phase": "remaining",
+        "query": 1,
+        "ns": 60,
+        "cpu_ns": 522,
+        "excess_ns": -462
+      },
+      {
+        "phase": "engine_dispose",
+        "query": 3,
+        "ns": 13409,
+        "cpu_ns": 13874,
+        "excess_ns": -465
+      },
+      {
+        "phase": "input_dispose",
+        "query": 0,
+        "ns": 669,
+        "cpu_ns": 1141,
+        "excess_ns": -472
+      },
+      {
+        "phase": "remaining",
+        "query": 0,
+        "ns": 182,
+        "cpu_ns": 657,
+        "excess_ns": -475
+      },
+      {
+        "phase": "source_dispose",
+        "query": 0,
+        "ns": 3168,
+        "cpu_ns": 3648,
+        "excess_ns": -480
+      },
+      {
+        "phase": "prepare",
+        "query": 0,
+        "ns": 8611,
+        "cpu_ns": 9096,
+        "excess_ns": -485
+      },
+      {
+        "phase": "first",
+        "query": 3,
+        "ns": 594853,
+        "cpu_ns": 595342,
+        "excess_ns": -489
+      },
+      {
+        "phase": "consumer_dispose",
+        "query": 4,
+        "ns": 2942,
+        "cpu_ns": 3433,
+        "excess_ns": -491
+      },
+      {
+        "phase": "first",
+        "query": 0,
+        "ns": 617531,
+        "cpu_ns": 618037,
+        "excess_ns": -506
+      },
+      {
+        "phase": "first",
+        "query": 2,
+        "ns": 600105,
+        "cpu_ns": 600645,
+        "excess_ns": -540
+      },
+      {
+        "phase": "source",
+        "query": 0,
+        "ns": 6010,
+        "cpu_ns": 14379,
+        "excess_ns": -8369
+      }
+    ]
+  },
+  {
+    "index": 1853,
+    "cpu": 2,
+    "scenario": 0,
+    "mode": "eager",
+    "wall_ns": 3636470,
+    "cpu_ns": 3641304,
+    "wall_over_median": 1.9305290484242155,
+    "cpu_over_median": 1.9319701904006978,
+    "excess_ns": -4834,
+    "phase_excesses": [
+      {
+        "phase": "remaining",
+        "query": 0,
+        "ns": 143,
+        "cpu_ns": 548,
+        "excess_ns": -405
+      },
+      {
+        "phase": "input",
+        "query": 2,
+        "ns": 1867,
+        "cpu_ns": 2273,
+        "excess_ns": -406
+      },
+      {
+        "phase": "input",
+        "query": 0,
+        "ns": 2173,
+        "cpu_ns": 2591,
+        "excess_ns": -418
+      },
+      {
+        "phase": "input_dispose",
+        "query": 1,
+        "ns": 1280,
+        "cpu_ns": 1705,
+        "excess_ns": -425
+      },
+      {
+        "phase": "engine_dispose",
+        "query": 2,
+        "ns": 29159,
+        "cpu_ns": 29584,
+        "excess_ns": -425
+      },
+      {
+        "phase": "prepared_dispose",
+        "query": 4,
+        "ns": 5405,
+        "cpu_ns": 5834,
+        "excess_ns": -429
+      },
+      {
+        "phase": "setup",
+        "query": 0,
+        "ns": 7776,
+        "cpu_ns": 8210,
+        "excess_ns": -434
+      },
+      {
+        "phase": "source_dispose",
+        "query": 0,
+        "ns": 3675,
+        "cpu_ns": 4112,
+        "excess_ns": -437
+      },
+      {
+        "phase": "setup",
+        "query": 3,
+        "ns": 6673,
+        "cpu_ns": 7116,
+        "excess_ns": -443
+      },
+      {
+        "phase": "remaining",
+        "query": 1,
+        "ns": 83,
+        "cpu_ns": 531,
+        "excess_ns": -448
+      },
+      {
+        "phase": "setup",
+        "query": 1,
+        "ns": 6312,
+        "cpu_ns": 6763,
+        "excess_ns": -451
+      },
+      {
+        "phase": "remaining",
+        "query": 3,
+        "ns": 37,
+        "cpu_ns": 490,
+        "excess_ns": -453
+      },
+      {
+        "phase": "engine_dispose",
+        "query": 3,
+        "ns": 26902,
+        "cpu_ns": 27355,
+        "excess_ns": -453
+      },
+      {
+        "phase": "input",
+        "query": 1,
+        "ns": 1918,
+        "cpu_ns": 2372,
+        "excess_ns": -454
+      },
+      {
+        "phase": "input_dispose",
+        "query": 2,
+        "ns": 1224,
+        "cpu_ns": 1683,
+        "excess_ns": -459
+      },
+      {
+        "phase": "input_dispose",
+        "query": 0,
+        "ns": 1508,
+        "cpu_ns": 1970,
+        "excess_ns": -462
+      },
+      {
+        "phase": "input",
+        "query": 3,
+        "ns": 2281,
+        "cpu_ns": 2746,
+        "excess_ns": -465
+      },
+      {
+        "phase": "remaining",
+        "query": 2,
+        "ns": 29,
+        "cpu_ns": 495,
+        "excess_ns": -466
+      },
+      {
+        "phase": "engine_dispose",
+        "query": 1,
+        "ns": 26517,
+        "cpu_ns": 26984,
+        "excess_ns": -467
+      },
+      {
+        "phase": "setup",
+        "query": 2,
+        "ns": 6105,
+        "cpu_ns": 6572,
+        "excess_ns": -467
+      },
+      {
+        "phase": "input_dispose",
+        "query": 3,
+        "ns": 1178,
+        "cpu_ns": 1683,
+        "excess_ns": -505
+      },
+      {
+        "phase": "prepare",
+        "query": 0,
+        "ns": 10639,
+        "cpu_ns": 11167,
+        "excess_ns": -528
+      },
+      {
+        "phase": "consumer_dispose",
+        "query": 4,
+        "ns": 3631,
+        "cpu_ns": 4245,
+        "excess_ns": -614
+      },
+      {
+        "phase": "engine_dispose",
+        "query": 0,
+        "ns": 26854,
+        "cpu_ns": 27526,
+        "excess_ns": -672
+      },
+      {
+        "phase": "first",
+        "query": 1,
+        "ns": 899367,
+        "cpu_ns": 900375,
+        "excess_ns": -1008
+      },
+      {
+        "phase": "first",
+        "query": 3,
+        "ns": 902164,
+        "cpu_ns": 903208,
+        "excess_ns": -1044
+      },
+      {
+        "phase": "first",
+        "query": 2,
+        "ns": 907616,
+        "cpu_ns": 908790,
+        "excess_ns": -1174
+      },
+      {
+        "phase": "first",
+        "query": 0,
+        "ns": 927323,
+        "cpu_ns": 928931,
+        "excess_ns": -1608
+      },
+      {
+        "phase": "source",
+        "query": 0,
+        "ns": 8390,
+        "cpu_ns": 19555,
+        "excess_ns": -11165
+      }
+    ]
+  },
+  {
+    "index": 1854,
+    "cpu": 2,
+    "scenario": 0,
+    "mode": "fixed8",
+    "wall_ns": 2517627,
+    "cpu_ns": 2521961,
+    "wall_over_median": 1.8726442969793373,
+    "cpu_over_median": 1.8781975280691354,
+    "excess_ns": -4334,
+    "phase_excesses": [
+      {
+        "phase": "setup",
+        "query": 3,
+        "ns": 5876,
+        "cpu_ns": 6205,
+        "excess_ns": -329
+      },
+      {
+        "phase": "input_dispose",
+        "query": 2,
+        "ns": 956,
+        "cpu_ns": 1325,
+        "excess_ns": -369
+      },
+      {
+        "phase": "remaining",
+        "query": 1,
+        "ns": 158,
+        "cpu_ns": 536,
+        "excess_ns": -378
+      },
+      {
+        "phase": "remaining",
+        "query": 2,
+        "ns": 109,
+        "cpu_ns": 490,
+        "excess_ns": -381
+      },
+      {
+        "phase": "input",
+        "query": 1,
+        "ns": 1966,
+        "cpu_ns": 2359,
+        "excess_ns": -393
+      },
+      {
+        "phase": "source_dispose",
+        "query": 0,
+        "ns": 3470,
+        "cpu_ns": 3869,
+        "excess_ns": -399
+      },
+      {
+        "phase": "engine_dispose",
+        "query": 3,
+        "ns": 15556,
+        "cpu_ns": 15962,
+        "excess_ns": -406
+      },
+      {
+        "phase": "prepared_dispose",
+        "query": 4,
+        "ns": 5198,
+        "cpu_ns": 5605,
+        "excess_ns": -407
+      },
+      {
+        "phase": "remaining",
+        "query": 3,
+        "ns": 216,
+        "cpu_ns": 624,
+        "excess_ns": -408
+      },
+      {
+        "phase": "setup",
+        "query": 0,
+        "ns": 6598,
+        "cpu_ns": 7007,
+        "excess_ns": -409
+      },
+      {
+        "phase": "input",
+        "query": 2,
+        "ns": 2173,
+        "cpu_ns": 2585,
+        "excess_ns": -412
+      },
+      {
+        "phase": "consumer_dispose",
+        "query": 4,
+        "ns": 3756,
+        "cpu_ns": 4172,
+        "excess_ns": -416
+      },
+      {
+        "phase": "setup",
+        "query": 2,
+        "ns": 5209,
+        "cpu_ns": 5629,
+        "excess_ns": -420
+      },
+      {
+        "phase": "remaining",
+        "query": 0,
+        "ns": 524,
+        "cpu_ns": 957,
+        "excess_ns": -433
+      },
+      {
+        "phase": "input",
+        "query": 0,
+        "ns": 1879,
+        "cpu_ns": 2317,
+        "excess_ns": -438
+      },
+      {
+        "phase": "input",
+        "query": 3,
+        "ns": 2017,
+        "cpu_ns": 2463,
+        "excess_ns": -446
+      },
+      {
+        "phase": "input_dispose",
+        "query": 0,
+        "ns": 1252,
+        "cpu_ns": 1701,
+        "excess_ns": -449
+      },
+      {
+        "phase": "engine_dispose",
+        "query": 2,
+        "ns": 14769,
+        "cpu_ns": 15222,
+        "excess_ns": -453
+      },
+      {
+        "phase": "setup",
+        "query": 1,
+        "ns": 5351,
+        "cpu_ns": 5806,
+        "excess_ns": -455
+      },
+      {
+        "phase": "engine_dispose",
+        "query": 0,
+        "ns": 18468,
+        "cpu_ns": 18928,
+        "excess_ns": -460
+      },
+      {
+        "phase": "engine_dispose",
+        "query": 1,
+        "ns": 16931,
+        "cpu_ns": 17396,
+        "excess_ns": -465
+      },
+      {
+        "phase": "input_dispose",
+        "query": 1,
+        "ns": 1357,
+        "cpu_ns": 1833,
+        "excess_ns": -476
+      },
+      {
+        "phase": "input_dispose",
+        "query": 3,
+        "ns": 1058,
+        "cpu_ns": 1549,
+        "excess_ns": -491
+      },
+      {
+        "phase": "prepare",
+        "query": 0,
+        "ns": 11298,
+        "cpu_ns": 11798,
+        "excess_ns": -500
+      },
+      {
+        "phase": "first",
+        "query": 1,
+        "ns": 629153,
+        "cpu_ns": 630055,
+        "excess_ns": -902
+      },
+      {
+        "phase": "first",
+        "query": 0,
+        "ns": 657354,
+        "cpu_ns": 658304,
+        "excess_ns": -950
+      },
+      {
+        "phase": "first",
+        "query": 3,
+        "ns": 613362,
+        "cpu_ns": 614480,
+        "excess_ns": -1118
+      },
+      {
+        "phase": "first",
+        "query": 2,
+        "ns": 617758,
+        "cpu_ns": 619122,
+        "excess_ns": -1364
+      },
+      {
+        "phase": "source",
+        "query": 0,
+        "ns": 10262,
+        "cpu_ns": 24900,
+        "excess_ns": -14638
+      }
+    ]
+  },
+  {
+    "index": 2186,
+    "cpu": 2,
+    "scenario": 5,
+    "mode": "backoff1",
+    "wall_ns": 939799,
+    "cpu_ns": 941021,
+    "wall_over_median": 1.8699360404788459,
+    "cpu_over_median": 1.8697725525104265,
+    "excess_ns": -1222,
+    "phase_excesses": [
+      {
+        "phase": "input_dispose",
+        "query": 0,
+        "ns": 775,
+        "cpu_ns": 1141,
+        "excess_ns": -366
+      },
+      {
+        "phase": "source_dispose",
+        "query": 0,
+        "ns": 2614,
+        "cpu_ns": 2981,
+        "excess_ns": -367
+      },
+      {
+        "phase": "input",
+        "query": 0,
+        "ns": 1037,
+        "cpu_ns": 1406,
+        "excess_ns": -369
+      },
+      {
+        "phase": "prepare",
+        "query": 0,
+        "ns": 7625,
+        "cpu_ns": 8007,
+        "excess_ns": -382
+      },
+      {
+        "phase": "setup",
+        "query": 0,
+        "ns": 9255,
+        "cpu_ns": 9637,
+        "excess_ns": -382
+      },
+      {
+        "phase": "engine_dispose",
+        "query": 0,
+        "ns": 273,
+        "cpu_ns": 684,
+        "excess_ns": -411
+      },
+      {
+        "phase": "prepared_dispose",
+        "query": 1,
+        "ns": 2642,
+        "cpu_ns": 3063,
+        "excess_ns": -421
+      },
+      {
+        "phase": "consumer_dispose",
+        "query": 1,
+        "ns": 8228,
+        "cpu_ns": 8656,
+        "excess_ns": -428
+      },
+      {
+        "phase": "remaining",
+        "query": 0,
+        "ns": 103800,
+        "cpu_ns": 104333,
+        "excess_ns": -533
+      },
+      {
+        "phase": "first",
+        "query": 0,
+        "ns": 835999,
+        "cpu_ns": 836688,
+        "excess_ns": -689
+      },
+      {
+        "phase": "source",
+        "query": 0,
+        "ns": 5106,
+        "cpu_ns": 10025,
+        "excess_ns": -4919
+      }
+    ]
+  },
+  {
+    "index": 528,
+    "cpu": 2,
+    "scenario": 4,
+    "mode": "reunion",
+    "wall_ns": 7321982,
+    "cpu_ns": 7326603,
+    "wall_over_median": 1.8648226898694442,
+    "cpu_over_median": 1.864754809760269,
+    "excess_ns": -4621,
+    "phase_excesses": [
+      {
+        "phase": "input_dispose",
+        "query": 3,
+        "ns": 1500,
+        "cpu_ns": 1923,
+        "excess_ns": -423
+      },
+      {
+        "phase": "prepared_dispose",
+        "query": 4,
+        "ns": 4308,
+        "cpu_ns": 4739,
+        "excess_ns": -431
+      },
+      {
+        "phase": "input",
+        "query": 0,
+        "ns": 1564,
+        "cpu_ns": 1997,
+        "excess_ns": -433
+      },
+      {
+        "phase": "engine_dispose",
+        "query": 3,
+        "ns": 2866,
+        "cpu_ns": 3300,
+        "excess_ns": -434
+      },
+      {
+        "phase": "engine_dispose",
+        "query": 1,
+        "ns": 2318,
+        "cpu_ns": 2756,
+        "excess_ns": -438
+      },
+      {
+        "phase": "engine_dispose",
+        "query": 2,
+        "ns": 2493,
+        "cpu_ns": 2932,
+        "excess_ns": -439
+      },
+      {
+        "phase": "input_dispose",
+        "query": 0,
+        "ns": 1243,
+        "cpu_ns": 1684,
+        "excess_ns": -441
+      },
+      {
+        "phase": "remaining",
+        "query": 1,
+        "ns": 50917,
+        "cpu_ns": 51366,
+        "excess_ns": -449
+      },
+      {
+        "phase": "input_dispose",
+        "query": 2,
+        "ns": 1207,
+        "cpu_ns": 1658,
+        "excess_ns": -451
+      },
+      {
+        "phase": "input",
+        "query": 2,
+        "ns": 1843,
+        "cpu_ns": 2295,
+        "excess_ns": -452
+      },
+      {
+        "phase": "input",
+        "query": 3,
+        "ns": 1786,
+        "cpu_ns": 2242,
+        "excess_ns": -456
+      },
+      {
+        "phase": "remaining",
+        "query": 3,
+        "ns": 53399,
+        "cpu_ns": 53861,
+        "excess_ns": -462
+      },
+      {
+        "phase": "setup",
+        "query": 0,
+        "ns": 9184,
+        "cpu_ns": 9648,
+        "excess_ns": -464
+      },
+      {
+        "phase": "source_dispose",
+        "query": 0,
+        "ns": 3593,
+        "cpu_ns": 4059,
+        "excess_ns": -466
+      },
+      {
+        "phase": "setup",
+        "query": 2,
+        "ns": 9348,
+        "cpu_ns": 9814,
+        "excess_ns": -466
+      },
+      {
+        "phase": "engine_dispose",
+        "query": 0,
+        "ns": 2636,
+        "cpu_ns": 3106,
+        "excess_ns": -470
+      },
+      {
+        "phase": "input_dispose",
+        "query": 1,
+        "ns": 1250,
+        "cpu_ns": 1725,
+        "excess_ns": -475
+      },
+      {
+        "phase": "remaining",
+        "query": 2,
+        "ns": 53323,
+        "cpu_ns": 53798,
+        "excess_ns": -475
+      },
+      {
+        "phase": "input",
+        "query": 1,
+        "ns": 1781,
+        "cpu_ns": 2261,
+        "excess_ns": -480
+      },
+      {
+        "phase": "setup",
+        "query": 3,
+        "ns": 10812,
+        "cpu_ns": 11294,
+        "excess_ns": -482
+      },
+      {
+        "phase": "setup",
+        "query": 1,
+        "ns": 9424,
+        "cpu_ns": 9907,
+        "excess_ns": -483
+      },
+      {
+        "phase": "remaining",
+        "query": 0,
+        "ns": 46043,
+        "cpu_ns": 46540,
+        "excess_ns": -497
+      },
+      {
+        "phase": "prepare",
+        "query": 0,
+        "ns": 7529,
+        "cpu_ns": 8027,
+        "excess_ns": -498
+      },
+      {
+        "phase": "first",
+        "query": 3,
+        "ns": 1799016,
+        "cpu_ns": 1799611,
+        "excess_ns": -595
+      },
+      {
+        "phase": "consumer_dispose",
+        "query": 4,
+        "ns": 38086,
+        "cpu_ns": 38681,
+        "excess_ns": -595
+      },
+      {
+        "phase": "first",
+        "query": 2,
+        "ns": 1811366,
+        "cpu_ns": 1812021,
+        "excess_ns": -655
+      },
+      {
+        "phase": "first",
+        "query": 1,
+        "ns": 1773539,
+        "cpu_ns": 1774244,
+        "excess_ns": -705
+      },
+      {
+        "phase": "first",
+        "query": 0,
+        "ns": 1734379,
+        "cpu_ns": 1735162,
+        "excess_ns": -783
+      },
+      {
+        "phase": "source",
+        "query": 0,
+        "ns": 5944,
+        "cpu_ns": 13147,
+        "excess_ns": -7203
+      }
+    ]
+  },
+  {
+    "index": 530,
+    "cpu": 2,
+    "scenario": 4,
+    "mode": "backoff8",
+    "wall_ns": 6482383,
+    "cpu_ns": 6487251,
+    "wall_over_median": 1.8319584094837953,
+    "cpu_over_median": 1.8333382789443298,
+    "excess_ns": -4868,
+    "phase_excesses": [
+      {
+        "phase": "remaining",
+        "query": 3,
+        "ns": 106028,
+        "cpu_ns": 106457,
+        "excess_ns": -429
+      },
+      {
+        "phase": "engine_dispose",
+        "query": 3,
+        "ns": 248,
+        "cpu_ns": 686,
+        "excess_ns": -438
+      },
+      {
+        "phase": "input_dispose",
+        "query": 1,
+        "ns": 1276,
+        "cpu_ns": 1730,
+        "excess_ns": -454
+      },
+      {
+        "phase": "input_dispose",
+        "query": 2,
+        "ns": 1313,
+        "cpu_ns": 1771,
+        "excess_ns": -458
+      },
+      {
+        "phase": "setup",
+        "query": 2,
+        "ns": 7035,
+        "cpu_ns": 7497,
+        "excess_ns": -462
+      },
+      {
+        "phase": "engine_dispose",
+        "query": 0,
+        "ns": 319,
+        "cpu_ns": 782,
+        "excess_ns": -463
+      },
+      {
+        "phase": "input",
+        "query": 1,
+        "ns": 1748,
+        "cpu_ns": 2212,
+        "excess_ns": -464
+      },
+      {
+        "phase": "input",
+        "query": 0,
+        "ns": 1550,
+        "cpu_ns": 2018,
+        "excess_ns": -468
+      },
+      {
+        "phase": "input_dispose",
+        "query": 0,
+        "ns": 1353,
+        "cpu_ns": 1825,
+        "excess_ns": -472
+      },
+      {
+        "phase": "engine_dispose",
+        "query": 1,
+        "ns": 292,
+        "cpu_ns": 765,
+        "excess_ns": -473
+      },
+      {
+        "phase": "engine_dispose",
+        "query": 2,
+        "ns": 344,
+        "cpu_ns": 817,
+        "excess_ns": -473
+      },
+      {
+        "phase": "input_dispose",
+        "query": 3,
+        "ns": 1365,
+        "cpu_ns": 1842,
+        "excess_ns": -477
+      },
+      {
+        "phase": "prepared_dispose",
+        "query": 4,
+        "ns": 3975,
+        "cpu_ns": 4452,
+        "excess_ns": -477
+      },
+      {
+        "phase": "setup",
+        "query": 3,
+        "ns": 7302,
+        "cpu_ns": 7780,
+        "excess_ns": -478
+      },
+      {
+        "phase": "input",
+        "query": 3,
+        "ns": 2001,
+        "cpu_ns": 2481,
+        "excess_ns": -480
+      },
+      {
+        "phase": "input",
+        "query": 2,
+        "ns": 1816,
+        "cpu_ns": 2298,
+        "excess_ns": -482
+      },
+      {
+        "phase": "setup",
+        "query": 0,
+        "ns": 6446,
+        "cpu_ns": 6934,
+        "excess_ns": -488
+      },
+      {
+        "phase": "remaining",
+        "query": 1,
+        "ns": 102665,
+        "cpu_ns": 103153,
+        "excess_ns": -488
+      },
+      {
+        "phase": "source_dispose",
+        "query": 0,
+        "ns": 4007,
+        "cpu_ns": 4498,
+        "excess_ns": -491
+      },
+      {
+        "phase": "setup",
+        "query": 1,
+        "ns": 6130,
+        "cpu_ns": 6621,
+        "excess_ns": -491
+      },
+      {
+        "phase": "remaining",
+        "query": 2,
+        "ns": 107071,
+        "cpu_ns": 107590,
+        "excess_ns": -519
+      },
+      {
+        "phase": "prepare",
+        "query": 0,
+        "ns": 7911,
+        "cpu_ns": 8447,
+        "excess_ns": -536
+      },
+      {
+        "phase": "consumer_dispose",
+        "query": 4,
+        "ns": 41063,
+        "cpu_ns": 41640,
+        "excess_ns": -577
+      },
+      {
+        "phase": "remaining",
+        "query": 0,
+        "ns": 105671,
+        "cpu_ns": 106256,
+        "excess_ns": -585
+      },
+      {
+        "phase": "first",
+        "query": 3,
+        "ns": 1528529,
+        "cpu_ns": 1529139,
+        "excess_ns": -610
+      },
+      {
+        "phase": "first",
+        "query": 2,
+        "ns": 1515762,
+        "cpu_ns": 1516441,
+        "excess_ns": -679
+      },
+      {
+        "phase": "first",
+        "query": 1,
+        "ns": 1492146,
+        "cpu_ns": 1492908,
+        "excess_ns": -762
+      },
+      {
+        "phase": "first",
+        "query": 0,
+        "ns": 1524511,
+        "cpu_ns": 1525307,
+        "excess_ns": -796
+      },
+      {
+        "phase": "source",
+        "query": 0,
+        "ns": 6391,
+        "cpu_ns": 13915,
+        "excess_ns": -7524
+      }
+    ]
+  },
+  {
+    "index": 2190,
+    "cpu": 2,
+    "scenario": 5,
+    "mode": "eager",
+    "wall_ns": 901793,
+    "cpu_ns": 842311,
+    "wall_over_median": 1.8263644170089355,
+    "cpu_over_median": 1.7035105246978497,
+    "excess_ns": 59482,
+    "phase_excesses": [
+      {
+        "phase": "first",
+        "query": 0,
+        "ns": 789851,
+        "cpu_ns": 729961,
+        "excess_ns": 59890
+      },
+      {
+        "phase": "engine_dispose",
+        "query": 0,
+        "ns": 281,
+        "cpu_ns": 647,
+        "excess_ns": -366
+      },
+      {
+        "phase": "source_dispose",
+        "query": 0,
+        "ns": 3191,
+        "cpu_ns": 3582,
+        "excess_ns": -391
+      },
+      {
+        "phase": "prepare",
+        "query": 0,
+        "ns": 8025,
+        "cpu_ns": 8423,
+        "excess_ns": -398
+      },
+      {
+        "phase": "prepared_dispose",
+        "query": 1,
+        "ns": 2675,
+        "cpu_ns": 3077,
+        "excess_ns": -402
+      },
+      {
+        "phase": "remaining",
+        "query": 0,
+        "ns": 111942,
+        "cpu_ns": 112350,
+        "excess_ns": -408
+      },
+      {
+        "phase": "consumer_dispose",
+        "query": 1,
+        "ns": 7592,
+        "cpu_ns": 8000,
+        "excess_ns": -408
+      },
+      {
+        "phase": "input_dispose",
+        "query": 0,
+        "ns": 680,
+        "cpu_ns": 1104,
+        "excess_ns": -424
+      },
+      {
+        "phase": "input",
+        "query": 0,
+        "ns": 898,
+        "cpu_ns": 1329,
+        "excess_ns": -431
+      },
+      {
+        "phase": "setup",
+        "query": 0,
+        "ns": 4963,
+        "cpu_ns": 5397,
+        "excess_ns": -434
+      },
+      {
+        "phase": "source",
+        "query": 0,
+        "ns": 5286,
+        "cpu_ns": 11649,
+        "excess_ns": -6363
+      }
+    ]
+  },
+  {
+    "index": 533,
+    "cpu": 2,
+    "scenario": 4,
+    "mode": "copy",
+    "wall_ns": 6962520,
+    "cpu_ns": 6967181,
+    "wall_over_median": 1.8065484696535108,
+    "cpu_over_median": 1.8088399009278924,
+    "excess_ns": -4661,
+    "phase_excesses": [
+      {
+        "phase": "source_dispose",
+        "query": 0,
+        "ns": 3946,
+        "cpu_ns": 4303,
+        "excess_ns": -357
+      },
+      {
+        "phase": "engine_dispose",
+        "query": 3,
+        "ns": 318,
+        "cpu_ns": 684,
+        "excess_ns": -366
+      },
+      {
+        "phase": "engine_dispose",
+        "query": 2,
+        "ns": 334,
+        "cpu_ns": 714,
+        "excess_ns": -380
+      },
+      {
+        "phase": "engine_dispose",
+        "query": 0,
+        "ns": 400,
+        "cpu_ns": 783,
+        "excess_ns": -383
+      },
+      {
+        "phase": "input",
+        "query": 3,
+        "ns": 1773,
+        "cpu_ns": 2157,
+        "excess_ns": -384
+      },
+      {
+        "phase": "input_dispose",
+        "query": 2,
+        "ns": 1199,
+        "cpu_ns": 1593,
+        "excess_ns": -394
+      },
+      {
+        "phase": "input_dispose",
+        "query": 3,
+        "ns": 1287,
+        "cpu_ns": 1682,
+        "excess_ns": -395
+      },
+      {
+        "phase": "input",
+        "query": 0,
+        "ns": 1597,
+        "cpu_ns": 1996,
+        "excess_ns": -399
+      },
+      {
+        "phase": "input",
+        "query": 1,
+        "ns": 1713,
+        "cpu_ns": 2116,
+        "excess_ns": -403
+      },
+      {
+        "phase": "setup",
+        "query": 1,
+        "ns": 2694,
+        "cpu_ns": 3121,
+        "excess_ns": -427
+      },
+      {
+        "phase": "setup",
+        "query": 0,
+        "ns": 2961,
+        "cpu_ns": 3393,
+        "excess_ns": -432
+      },
+      {
+        "phase": "setup",
+        "query": 2,
+        "ns": 2955,
+        "cpu_ns": 3394,
+        "excess_ns": -439
+      },
+      {
+        "phase": "input_dispose",
+        "query": 1,
+        "ns": 1144,
+        "cpu_ns": 1589,
+        "excess_ns": -445
+      },
+      {
+        "phase": "input",
+        "query": 2,
+        "ns": 1592,
+        "cpu_ns": 2038,
+        "excess_ns": -446
+      },
+      {
+        "phase": "setup",
+        "query": 3,
+        "ns": 3436,
+        "cpu_ns": 3883,
+        "excess_ns": -447
+      },
+      {
+        "phase": "prepared_dispose",
+        "query": 4,
+        "ns": 7757,
+        "cpu_ns": 8210,
+        "excess_ns": -453
+      },
+      {
+        "phase": "input_dispose",
+        "query": 0,
+        "ns": 1213,
+        "cpu_ns": 1671,
+        "excess_ns": -458
+      },
+      {
+        "phase": "prepare",
+        "query": 0,
+        "ns": 7292,
+        "cpu_ns": 7752,
+        "excess_ns": -460
+      },
+      {
+        "phase": "remaining",
+        "query": 2,
+        "ns": 44677,
+        "cpu_ns": 45137,
+        "excess_ns": -460
+      },
+      {
+        "phase": "engine_dispose",
+        "query": 1,
+        "ns": 387,
+        "cpu_ns": 852,
+        "excess_ns": -465
+      },
+      {
+        "phase": "remaining",
+        "query": 3,
+        "ns": 40447,
+        "cpu_ns": 40929,
+        "excess_ns": -482
+      },
+      {
+        "phase": "remaining",
+        "query": 0,
+        "ns": 39812,
+        "cpu_ns": 40296,
+        "excess_ns": -484
+      },
+      {
+        "phase": "remaining",
+        "query": 1,
+        "ns": 42127,
+        "cpu_ns": 42633,
+        "excess_ns": -506
+      },
+      {
+        "phase": "first",
+        "query": 3,
+        "ns": 1679058,
+        "cpu_ns": 1679658,
+        "excess_ns": -600
+      },
+      {
+        "phase": "first",
+        "query": 1,
+        "ns": 1689781,
+        "cpu_ns": 1690399,
+        "excess_ns": -618
+      },
+      {
+        "phase": "first",
+        "query": 2,
+        "ns": 1717454,
+        "cpu_ns": 1718159,
+        "excess_ns": -705
+      },
+      {
+        "phase": "consumer_dispose",
+        "query": 4,
+        "ns": 38310,
+        "cpu_ns": 39066,
+        "excess_ns": -756
+      },
+      {
+        "phase": "first",
+        "query": 0,
+        "ns": 1709164,
+        "cpu_ns": 1709970,
+        "excess_ns": -806
+      },
+      {
+        "phase": "source",
+        "query": 0,
+        "ns": 6925,
+        "cpu_ns": 14433,
+        "excess_ns": -7508
+      }
+    ]
+  },
+  {
+    "index": 3002,
+    "cpu": 2,
+    "scenario": 2,
+    "mode": "eager",
+    "wall_ns": 12872850,
+    "cpu_ns": 12874105,
+    "wall_over_median": 1.7972009661411519,
+    "cpu_over_median": 1.7971418363152722,
+    "excess_ns": -1255,
+    "phase_excesses": [
+      {
+        "phase": "source_dispose",
+        "query": 0,
+        "ns": 4666,
+        "cpu_ns": 5118,
+        "excess_ns": -452
+      },
+      {
+        "phase": "remaining",
+        "query": 0,
+        "ns": 201,
+        "cpu_ns": 681,
+        "excess_ns": -480
+      },
+      {
+        "phase": "prepared_dispose",
+        "query": 1,
+        "ns": 9514,
+        "cpu_ns": 9996,
+        "excess_ns": -482
+      },
+      {
+        "phase": "setup",
+        "query": 0,
+        "ns": 79281,
+        "cpu_ns": 79774,
+        "excess_ns": -493
+      },
+      {
+        "phase": "prepare",
+        "query": 0,
+        "ns": 10595,
+        "cpu_ns": 11138,
+        "excess_ns": -543
+      },
+      {
+        "phase": "input_dispose",
+        "query": 0,
+        "ns": 35254,
+        "cpu_ns": 35844,
+        "excess_ns": -590
+      },
+      {
+        "phase": "input",
+        "query": 0,
+        "ns": 28186,
+        "cpu_ns": 28781,
+        "excess_ns": -595
+      },
+      {
+        "phase": "consumer_dispose",
+        "query": 1,
+        "ns": 21200,
+        "cpu_ns": 22075,
+        "excess_ns": -875
+      },
+      {
+        "phase": "first",
+        "query": 0,
+        "ns": 12872850,
+        "cpu_ns": 12874105,
+        "excess_ns": -1255
+      },
+      {
+        "phase": "engine_dispose",
+        "query": 0,
+        "ns": 781143,
+        "cpu_ns": 783125,
+        "excess_ns": -1982
+      },
+      {
+        "phase": "source",
+        "query": 0,
+        "ns": 16487,
+        "cpu_ns": 24530,
+        "excess_ns": -8043
+      }
+    ]
+  },
+  {
+    "index": 971,
+    "cpu": 0,
+    "scenario": 2,
+    "mode": "copy",
+    "wall_ns": 15671677,
+    "cpu_ns": 15661604,
+    "wall_over_median": 1.7832137663025844,
+    "cpu_over_median": 1.7831935056959853,
+    "excess_ns": 10073,
+    "phase_excesses": [
+      {
+        "phase": "first",
+        "query": 0,
+        "ns": 15671677,
+        "cpu_ns": 15661604,
+        "excess_ns": 10073
+      },
+      {
+        "phase": "prepared_dispose",
+        "query": 1,
+        "ns": 7155,
+        "cpu_ns": 7388,
+        "excess_ns": -233
+      },
+      {
+        "phase": "input_dispose",
+        "query": 0,
+        "ns": 8505,
+        "cpu_ns": 8755,
+        "excess_ns": -250
+      },
+      {
+        "phase": "remaining",
+        "query": 0,
+        "ns": 53,
+        "cpu_ns": 322,
+        "excess_ns": -269
+      },
+      {
+        "phase": "prepare",
+        "query": 0,
+        "ns": 6738,
+        "cpu_ns": 7014,
+        "excess_ns": -276
+      },
+      {
+        "phase": "setup",
+        "query": 0,
+        "ns": 30681,
+        "cpu_ns": 30961,
+        "excess_ns": -280
+      },
+      {
+        "phase": "input",
+        "query": 0,
+        "ns": 18183,
+        "cpu_ns": 18476,
+        "excess_ns": -293
+      },
+      {
+        "phase": "source_dispose",
+        "query": 0,
+        "ns": 2536,
+        "cpu_ns": 2842,
+        "excess_ns": -306
+      },
+      {
+        "phase": "engine_dispose",
+        "query": 0,
+        "ns": 36802,
+        "cpu_ns": 37129,
+        "excess_ns": -327
+      },
+      {
+        "phase": "consumer_dispose",
+        "query": 1,
+        "ns": 10006,
+        "cpu_ns": 10487,
+        "excess_ns": -481
+      },
+      {
+        "phase": "source",
+        "query": 0,
+        "ns": 8622,
+        "cpu_ns": 20704,
+        "excess_ns": -12082
+      }
+    ]
+  }
+]

@@ -9,7 +9,7 @@ goal:
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
   current_research: >-
-    Finite-formula timing completes 4,896 primary processes and 204 warmups with independent answers. Simplification gains against projection and symbolic rebuilding in all 17 scenarios, but against explicit execution has two losses, thirteen unresolved contrasts and two insufficient-signal contrasts. Counter/clock qualification and allocation consistency pass. The bounded T076 comparison is complete; T077 restoration and consequential timing attribution are active. Broader theories and targeted T076 uncertainty remain required; goal active.
+    The adaptive CPU/elapsed audit validates 3,072 comparison processes, 192 warmups and five clock controls. Backoff-1 loses to Copy in one first-answer scenario; 65 contrasts remain unresolved. Median CPU spread is 1.588 versus 1.587 elapsed, so time off the executing thread cannot alone explain uncertainty. T077 next qualifies complete checkpoint/replay ownership and lifecycle costs; broader adaptation and the architecture goal remain open.
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -207,8 +207,8 @@ tasks:
     type: pm
     assignee: PM
     status: active
-    progress: "The adaptive lifecycle pilot validates 768 qualification and 2,688 comparative processes; most timing contrasts remain unresolved and stronger fixed/Copy controls remain competitive. The bounded T076 finite-formula comparison is now complete, activating the restoration handoff selected by the breadth review. No adaptive policy or architecture is selected."
-    next_action: "Follow docs/experiments/next-cycle.md: audit the existing uncommitted adaptive CPU/elapsed registration, frozen inputs and raw results before adopting findings; do not restart an existing run. Then qualify and register checkpoint/replay complete costs against competent Copy, persistent/COW and undo controls. Reconsider relevant-read integration, missing demand capability and compact solving at the next result boundary. Count correctness and attribution packages toward the four-package breadth review; language and complete-architecture comparisons accompany the revised rounds."
+    progress: "The adaptive CPU/elapsed audit validates 3,072 comparison processes, 192 warmups and five clock controls. Backoff-1 loses to Copy in one first-answer scenario; 65 contrasts remain unresolved. Median CPU spread is 1.588 versus 1.587 elapsed, so time off the executing thread cannot alone explain uncertainty. T077 next qualifies complete checkpoint/replay ownership and lifecycle costs; broader adaptation and the architecture goal remain open."
+    next_action: "Qualify checkpoint/replay lifecycle measurement and ownership using existing sources and controls. Include source/query construction, independently checked retained answers after producer disposal, changing-query reuse and cancellation. Compare Copy, undo, replay, checkpoint intervals 1/4/16 and applicable persistent/COW controls. Register complete costs only after qualification. Reconsider relevant-read integration at the result boundary; retain missing demand capability and compact solving obligations. No adaptive policy is selected."
     objective: Investigate corrected checkpoint and replay policies, working-state reuse and temporary separation/reunion against competent copying, persistence and undo, preserving complete source behavior and accounting for preparation, execution, observation and disposal.
     inputs:
       - docs/experiments/results/S04-adaptive-cost-pilot.md

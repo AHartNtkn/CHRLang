@@ -1,0 +1,35 @@
+[package]
+name = "chr-restoration"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+chr-syntax = { path = "../../crates/chr-syntax" }
+
+[dev-dependencies]
+chr-factors = { path = "../chr-factors", default-features = false }
+chr-observe = { path = "../chr-observe", default-features = false }
+chr-compiled = { path = "../chr-compiled", default-features = false }
+
+[features]
+alloc-meter = ["chr-compiled/alloc-meter"]
+arena-cow = ["chr-compiled/arena-cow"]
+replay-diagnostic = []
+carrier-control = ["chr-compiled/carrier-contraction"]
+compiled-work = ["chr-compiled/metrics"]
+
+[[example]]
+name = "reunion_cost"
+required-features = ["alloc-meter"]
+
+[[example]]
+name = "repeated_cost"
+required-features = ["alloc-meter"]
+
+[[example]]
+name = "repeated_work"
+required-features = ["replay-diagnostic"]
+
+[[example]]
+name = "adaptive_ownership"
+required-features = ["alloc-meter"]

@@ -1,6 +1,6 @@
 # Unanswered architecture questions and experimental ownership
 
-The [finite-formula timing comparison](results/S06-formula-timing.md) supplies the current checkpoint. Finite-formula timing completes 4,896 primary processes and 204 warmups with independent answers. Simplification gains against projection and symbolic rebuilding in all 17 scenarios, but against explicit execution has two losses, thirteen unresolved contrasts and two insufficient-signal contrasts. Counter/clock qualification and allocation consistency pass. The bounded T076 comparison is complete; T077 restoration and consequential timing attribution are active. Broader theories and targeted T076 uncertainty remain required; goal active.
+The [adaptive CPU/elapsed result](results/S04-adaptive-cpu.md) supplies the current checkpoint. The adaptive CPU/elapsed audit validates 3,072 comparison processes, 192 warmups and five clock controls. Backoff-1 loses to Copy in one first-answer scenario; 65 contrasts remain unresolved. Median CPU spread is 1.588 versus 1.587 elapsed, so time off the executing thread cannot alone explain uncertainty. T077 next qualifies complete checkpoint/replay ownership and lifecycle costs; broader adaptation and the architecture goal remain open.
 
 The [relevant-key ownership comparison](results/S02-relevant-ownership.md) supplies the current checkpoint. Relevant-key ownership validates1,008 metered and448 ordinary processes with exact allocation repeats, cancellation/reuse and retained answers surviving producer disposal. Ordered relevant reuse lowers peaks versus exact-state caching in38of64 scenarios but requests more bytes than recomputation in all64. The changed depth16/four-query witness requests1,292,590bytes with72,959peak excess versus669,196/38,976 for recomputation. T072 next attributes key/replay execution costs before timing; package one after breadth review; goal active.
 
@@ -179,6 +179,6 @@ No aggregate benchmark weights, universal winner, automatic hybrid routing or ad
 
 ## Current selection
 
-Follow the [revised execution sequence](next-cycle.md#start-here-the-next-experiments): T077 restoration first, followed by relevant-read integration, missing demand capability and compact solving beyond current reductions. T077 remains the sole active experimental task. Existing uncommitted CPU/elapsed results require audit before they become findings.
+Follow the [revised execution sequence](next-cycle.md#start-here-the-next-experiments): T077 restoration first, followed by relevant-read integration, missing demand capability and compact solving beyond current reductions. T077 remains the sole active experimental task. The audited CPU/elapsed result leaves policy uncertainty and selects checkpoint/replay lifecycle qualification.
 
 The [portfolio table](next-cycle.md#portfolio-order-and-dependencies) schedules every reviewed question, including distinct variants inside grouped entries. Language studies and complete-architecture comparisons accompany the component investigations. A completed bounded study supplies scoped evidence; all consequential unanswered variants remain required work.

@@ -1,6 +1,6 @@
 # Experimental sequence: resolve the remaining architecture questions
 
-The [finite-formula timing comparison](results/S06-formula-timing.md) supplies the current checkpoint. Finite-formula timing completes 4,896 primary processes and 204 warmups with independent answers. Simplification gains against projection and symbolic rebuilding in all 17 scenarios, but against explicit execution has two losses, thirteen unresolved contrasts and two insufficient-signal contrasts. Counter/clock qualification and allocation consistency pass. The bounded T076 comparison is complete; T077 restoration and consequential timing attribution are active. Broader theories and targeted T076 uncertainty remain required; goal active.
+The [adaptive CPU/elapsed result](results/S04-adaptive-cpu.md) supplies the current checkpoint. The adaptive CPU/elapsed audit validates 3,072 comparison processes, 192 warmups and five clock controls. Backoff-1 loses to Copy in one first-answer scenario; 65 contrasts remain unresolved. Median CPU spread is 1.588 versus 1.587 elapsed, so time off the executing thread cannot alone explain uncertainty. T077 next qualifies complete checkpoint/replay ownership and lifecycle costs; broader adaptation and the architecture goal remain open.
 
 The [relevant-key ownership comparison](results/S02-relevant-ownership.md) supplies the current checkpoint. Relevant-key ownership validates1,008 metered and448 ordinary processes with exact allocation repeats, cancellation/reuse and retained answers surviving producer disposal. Ordered relevant reuse lowers peaks versus exact-state caching in38of64 scenarios but requests more bytes than recomputation in all64. The changed depth16/four-query witness requests1,292,590bytes with72,959peak excess versus669,196/38,976 for recomputation. T072 next attributes key/replay execution costs before timing; package one after breadth review; goal active.
 
@@ -288,7 +288,7 @@ All new results link raw inputs, commands, freezes, validation and unfavorable o
 
 The [revised experimental sequence](next-cycle.md#start-here-the-next-experiments) starts with T077 restoration, then relevant-read integration, missing demand capability and compact solving beyond current reductions. Its rounds explicitly schedule distinct reuse/discovery/graph mechanisms, source elimination, sustained execution and parallel ownership. Language studies accompany their beneficiaries; whole-architecture comparisons occur at each round boundary.
 
-T077 remains the sole active experimental task. Audit the existing uncommitted CPU/elapsed artifacts before reporting them as evidence; do not restart a live run. The sequence revision reports no new measurements and changes no goal completion status. Each unresolved design retains its individual obligation in the [57-question map](question-to-experiment-map.md).
+T077 remains the sole active experimental task. The CPU/elapsed result now qualifies the bounded adaptive comparison; checkpoint/replay ownership and measurement boundaries are next. Each unresolved design retains its individual obligation in the [57-question map](question-to-experiment-map.md).
 
 ## Earlier experimental checkpoints
 
