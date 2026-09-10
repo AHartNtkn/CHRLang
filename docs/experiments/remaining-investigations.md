@@ -1,6 +1,6 @@
 # The comparisons still needed to choose the architecture
 
-The [capacity lifecycle qualification](results/S06-capacity-lifecycle-entry.md) passes all180 configurations in540 final primary/diagnostic processes across capacity and four Scan/Indexed controls. Complete answers survive prepared disposal; diagnostic allocations repeat and task-owned heap restores. T073 next registers a bounded counter-free lifecycle cost pilot. This is measurement readiness, not timing superiority; call reuse and broader compilation return after that pilot or a consequential obstruction.
+The [capacity cost pilot](results/S06-capacity-costs.md) completes2,880 primary processes and records138 practical gains, six unresolved zero-request contrasts and no losses against four ordinary controls. The result includes preparation and successful output-heavy cases but is restricted to the closed source fragment. After four capacity packages, T075 resumes with applicability of existing renaming-aware call reuse to the finite-learning workload. Broader capacity phases, compilation and lifetime return at that semantic gate; the goal remains active.
 
 ## Earlier experimental checkpoints
 
@@ -86,7 +86,7 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-The [current execution order](next-cycle.md#the-order-and-why) owns scheduling. T073 is active for a bounded capacity lifecycle cost registration. Renaming-aware call reuse and broader compilation return after the pilot or an obstruction. Broader composition, language and lifetime remain required.
+The [current execution order](next-cycle.md#the-order-and-why) owns scheduling. T075 is active for existing call-reuse applicability and a finite-phase semantic gate. T073 broader capacity phases, compilation and lifetime return at that gate or an obstruction. Broad architecture obligations remain required.
 
 ### Depth, breadth and stopping within this sequence
 

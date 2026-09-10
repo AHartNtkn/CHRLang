@@ -284,6 +284,6 @@ All new results link raw inputs, commands, freezes, validation and unfavorable o
 
 ## Current execution order
 
-The [capacity lifecycle qualification](results/S06-capacity-lifecycle-entry.md) passes all180 configurations in540 final primary/diagnostic processes across capacity and four Scan/Indexed controls. Complete answers survive prepared disposal; diagnostic allocations repeat and task-owned heap restores. T073 next registers a bounded counter-free lifecycle cost pilot. This is measurement readiness, not timing superiority; call reuse and broader compilation return after that pilot or a consequential obstruction.
+The [capacity cost pilot](results/S06-capacity-costs.md) completes2,880 primary processes and records138 practical gains, six unresolved zero-request contrasts and no losses against four ordinary controls. The result includes preparation and successful output-heavy cases but is restricted to the closed source fragment. After four capacity packages, T075 resumes with applicability of existing renaming-aware call reuse to the finite-learning workload. Broader capacity phases, compilation and lifetime return at that semantic gate; the goal remains active.
 
 The [current execution order](next-cycle.md#the-order-and-why), [57-question map](question-to-experiment-map.md) and [mechanism ledger](remaining-investigations.md) retain every unresolved obligation. Reordering does not establish an experimental conclusion or complete the goal.
