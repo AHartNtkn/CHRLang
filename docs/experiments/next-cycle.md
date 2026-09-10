@@ -10,20 +10,20 @@ The [design review](results/R07-design-disposition-review.md) distinguishes meas
 
 Several useful comparisons now exist. [Integrated graph scanning](results/S02-multihead-scale.md) has favorable measured regimes. [Finite solving](results/S06-finite-lifecycle.md) has selective benefits and unselective costs. [Support ordering](results/S08-order-lifecycle.md) has opposing regimes. These findings supply stronger controls, not a complete architecture ranking.
 
-The [resource-phase ownership comparison](results/S06-capacity-phase-ownership.md) validates 900 processes and 300 exact allocation pairs with full heap restoration. Selective queries allocate less; output-heavy complete queries request 9–12% more bytes than specialized scanning while reaching lower live-heap peaks. T073 next registers a counter-free composed cost pilot. This is package two after the matched-reuse breadth review; distinct alternatives and sustained lifetime remain required, and the goal remains active.
+The [resource-phase cost pilot](results/S06-capacity-phase-costs.md) validates 1,920 processes. All 16 larger/reused scenarios gain against all four whole-source controls, including output-heavy allocation-adverse cases; eight small scenarios remain unresolved against specialized scanning. T077 next qualifies observable adaptive separation/reunion. This is package three after the matched-reuse breadth review; the next package triggers full breadth review. Broader sources, sustained lifetime and architecture selection remain open.
 
 ## The order, and why
 
-Continue investigation 2 with a prospectively registered resource-phase cost pilot. The ownership gate establishes opposing allocation and peak-memory regimes. The qualified runner makes runtime a bounded next question; compare adaptive reunion, local resource claims, richer theories and sustained lifetime again at the pilot or an obstruction.
+Continue investigation 6 with observable adaptive separation/reunion. The resource-phase pilot establishes bounded gains and small-query uncertainty; a distinct adaptive mechanism can now change the comparison more than refining those timings. Reconsider sustained lifetime, local resource claims, richer theories and broader reuse at the next source/progress gate or an obstruction. That package triggers the full breadth review.
 
 | Order | Investigation | Architectural decision it could change |
 |---|---|---|
 | 1 (pilot measured; broader work pending) | Complete lifecycle accounting and one mixed-source pilot | Whether current complete paths retain their apparent advantages once preparation, observation and disposal count |
-| 2 (active: resource-phase composition) | Source analysis, resource derivations and independent native compilation | Whether substantial runtime machinery can disappear rather than merely run faster |
+| 2 (bounded resource-phase costs measured) | Source analysis, resource derivations and independent native compilation | Whether substantial runtime machinery can disappear rather than merely run faster |
 | 3 | Integrated equality, matching and consuming execution | Whether one organization can replace several services and their repair work |
 | 4 | Demand-driven choices, fresh derivations and native local ownership | Whether sharing execution or distributing effects changes the viable architecture |
 | 5 (matched finite reuse costs measured) | Call-level reuse and reusable failures | Whether cheap recognition and reuse can substitute for shared execution |
-| 6 | Restoration, adaptive splitting and repeated reunion | Whether economical explicit search can compete without retaining a shared graph |
+| 6 (active: adaptive separation) | Restoration, adaptive splitting and repeated reunion | Whether economical explicit search can compete without retaining a shared graph |
 | 7 | Retained joins and source-derived discovery plans | When maintaining knowledge beats rediscovering it, including the cost of code generation |
 | 8 | Compact structural solving and richer theories | Whether solving compact descriptions avoids enumeration, and under which language contract |
 | 9 | Sustained lifetime, exact observation and publication | Whether candidate gains survive long execution and realistic consumers |
@@ -52,22 +52,22 @@ Continue investigation 2 with a prospectively registered resource-phase cost pil
 | **Complete architectures — investigation 11** | At least two coherent paths, including a serious replacement for the leading organization and a simpler control for any proposed combination. | Start whenever credible paths exist, and repeat when a new mechanism could change the conclusion. Charge their interactions, duplicated responsibilities and language coverage. Component wins cannot substitute for this comparison. |
 | **Challenge and closure — investigation 12** | Strongest surviving objections, held-out sources and every-question audit. | Freeze policies before challenges. Every consequential mechanism needs a supported bounded conclusion, applicable analytical resolution, demonstrated equivalence or exact external/owner blocker. Otherwise it remains required work. |
 
-**Only genuine prerequisites determine readiness.** Integrated execution, graph mechanisms, restoration and structural solving can proceed independently of the selected reuse comparison. Their position later in the default order is a scheduling choice. Language studies and ownership checks accompany their beneficiaries; hardware feasibility can begin before a parallel implementation is ready.
+**Only genuine prerequisites determine readiness.** Integrated execution, graph mechanisms, restoration and structural solving can proceed independently of the selected adaptive separation comparison. Their position later in the default order is a scheduling choice. Language studies and ownership checks accompany their beneficiaries; hardware feasibility can begin before a parallel implementation is ready.
 
 **The breadth review must examine missing evidence, not just the most recent experiment.** After four packages, list every distinct direction still without a credible trial, identify its first feasible discriminating experiment, and compare it with further refinement of the current candidate. Record which direction receives the next package and the concrete evidence needed to reconsider the others. A correctness gate, allocation qualification and timing pilot count as three packages, even under one task ID. Further depth is justified when it could change a decision or make a required comparison credible; familiarity with the implementation is insufficient.
 
 ## The next concrete experiments
 
-**Next measure the runtime of the ordered resource phase plus its ordinary caller.** Ownership and allocation are now qualified. Freeze paired counter-free configurations and interpretation before runs, including selective gains, output-heavy allocation losses, zero/small overhead and cancellation. The closed solver’s timings do not measure this composition.
+**Next qualify an observable adaptive separation policy against existing explicit-search controls.** Use the repeated-reunion implementation’s private/coupled work and boundary outcomes, without future knowledge or source-family labels. Preserve complete answers, inherited bindings/history and progress before costs.
 
 | Package | Required comparison and checks | Decision and review point |
 |---|---|---|
-| **Resource-phase composed costs — T073, active** | Register paired ordinary-allocator, counter-free runtime comparisons using the qualified endpoint and generic/specialized whole-source controls. Include both head orders and callers, full outputs and cancellation. | Does avoided source execution repay added representation traffic? Reconsider the distinct alternatives below at the pilot or an obstruction. |
-| **Adaptive restoration and reunion — T077, required** | Test observable-work adaptation against existing fixed controls, including late links, early failures and policy overhead. | Strongest alternative to resource composition; requires policy and progress qualification. |
-| **Local claims, richer theories and sustained lifetime — required** | Separate conflict/cancellation protocols, independent denotations and sustained consumer/retention trials. | These under-investigated mechanisms remain explicit candidates at the next gate. Their later position is not a negative result. |
-| **Broader reuse — T075, required** | Carry the matched result/learning tradeoff forward. Investigate continuation relevance and effects beyond repeated finite query shapes when they could change the complete-path comparison. | Current short-query uncertainty returns if an automatic policy or deployment threshold is proposed. |
+| **Adaptive separation/reunion — T077, active** | Specify a policy using observed work; compare eager repeated reunion, initial-phase reunion and ordinary execution on useful private work, late/frequent links, early failures and inherited history. Validate cancellation and finite answers beside continuing work. | Can explicit search avoid unproductive separation without losing useful independence? Review all directions at this source/progress boundary: it is package four. |
+| **Sustained lifetime — strongest alternative** | Compare existing candidates under immediate release, bounded windows and retained-all consumers, including changing queries, cancellation and ongoing work. | Can retention or publication reverse finite-batch gains? Establish the stream endpoint before costs. |
+| **Local claims and richer theories — required** | Separate conflict/cancellation protocols and independent denotations with source witnesses. | Their later position is not negative evidence. Reconsider at the adaptive gate. |
+| **Broader reuse and resource elimination — T075/T073, required** | Carry finite reuse and composed resource tradeoffs into broader source/dependency and complete-path comparisons. | Revisit small-query timing when a concrete routing policy or threshold requires it; broaden source eligibility and lifetime independently. |
 
-**Why composition costs now:** the ownership comparison finds output-heavy allocation losses alongside lower live-memory peaks and selective allocation gains. Runtime could change the resulting architectural tradeoff. The qualified endpoint makes this cheaper to investigate than the strongest alternative, adaptive reunion, which still needs policy/progress qualification. Local claims, richer theories and sustained lifetime remain required; this choice does not supply evidence against them.
+**Why adaptive separation now:** repeated reunion has a concrete adverse regime where boundary checks and state transport avoid no source work. Existing controls and observable work provide a bounded entry for a distinct mechanism. The resource-phase pilot already supports retaining that candidate without universal adoption; more small-query precision would not change that decision. Sustained lifetime is the strongest alternative because it can overturn finite-batch gains, but needs its stream/publication contract qualified. This is a priority judgment; both investigations remain required.
 
 ## Concrete entry experiments for the next breadth review
 
@@ -79,7 +79,7 @@ Compare an observable-work splitting policy with the existing fixed quotas, copy
 
 The policy may use completed source steps, failed children, changes to owned state and detected links. It must not use future outcomes or the generator's case labels. First validate restoration and progress under switches and cancellation. Then charge policy decisions, speculative work, reconnection, retained checkpoints and output products. Freeze the policy before testing new combinations of these axes.
 
-This can change whether explicit search needs expensive shared state to retain common work. A policy that saves execution but loses overall requires attribution; one whose useful regime cannot be recognized cheaply supports a conditional tradeoff. The existing repeated-reunion allocation results remain controls, not evidence that adaptation has been tested. This is the strongest ready alternative at the resource-phase ownership boundary.
+This can change whether explicit search needs expensive shared state to retain common work. A policy that saves execution but loses overall requires attribution; one whose useful regime cannot be recognized cheaply supports a conditional tradeoff. The existing repeated-reunion allocation results remain controls, not evidence that adaptation has been tested. The resource-phase cost boundary now selects this adaptive entry; sustained lifetime is the strongest alternative.
 
 ### Local resource ownership: make competing effects the test
 
@@ -142,7 +142,7 @@ Qualify the current Rust/native runner with existing scanned/indexed, contextual
 
 Use mixed sources with equality-enabled matching, consumed and kept occurrences, choices, failing siblings and irrelevant work. Include tiny/no-choice overhead, substantive work before and after choice discrimination, early and late readiness, and a finite answer beside ongoing work. Unsupported programs remain visible capability exclusions; the shared admitted subset must not become the definition of the language.
 
-**Current boundary:** the qualified complete-query pilot and consequential service attribution are recorded. The current selection is resource-phase composition in investigation 2; matched finite reuse remains a control for broader complete-path work. More runner refinement requires an accounting or correctness defect that could invalidate the comparison. Broader source, progress and lifetime obligations remain required when distinct mechanisms return to complete-path comparison.
+**Current boundary:** the qualified complete-query pilot and consequential service attribution are recorded. The current selection is adaptive separation in investigation 6; matched finite reuse and resource-phase composition remain controls for broader complete-path work. More runner refinement requires an accounting or correctness defect that could invalidate the comparison. Broader source, progress and lifetime obligations remain required when distinct mechanisms return to complete-path comparison.
 
 **Deliverable:** a bounded cost and capability comparison, with an owner-by-owner accounting and no complete-lifecycle superiority claim where compilation or host costs remain missing.
 

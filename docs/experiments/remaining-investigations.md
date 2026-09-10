@@ -1,6 +1,6 @@
 # The comparisons still needed to choose the architecture
 
-The [resource-phase ownership comparison](results/S06-capacity-phase-ownership.md) validates 900 processes and 300 exact allocation pairs with full heap restoration. Selective queries allocate less; output-heavy complete queries request 9–12% more bytes than specialized scanning while reaching lower live-heap peaks. T073 next registers a counter-free composed cost pilot. This is package two after the matched-reuse breadth review; distinct alternatives and sustained lifetime remain required, and the goal remains active.
+The [resource-phase cost pilot](results/S06-capacity-phase-costs.md) validates 1,920 processes. All 16 larger/reused scenarios gain against all four whole-source controls, including output-heavy allocation-adverse cases; eight small scenarios remain unresolved against specialized scanning. T077 next qualifies observable adaptive separation/reunion. This is package three after the matched-reuse breadth review; the next package triggers full breadth review. Broader sources, sustained lifetime and architecture selection remain open.
 
 ## Earlier experimental checkpoints
 
