@@ -1,0 +1,5522 @@
+{
+  "comparisons": [
+    {
+      "config": [
+        "eager",
+        0,
+        0,
+        1
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.27479949989327,
+            "candidate_range": [
+              71270,
+              122967
+            ],
+            "recompute_range": [
+              63513,
+              121776
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 0.9065526997218759,
+            "candidate_range": [
+              69052,
+              676002
+            ],
+            "recompute_range": [
+              66301,
+              89163
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.5545621877465159,
+            "candidate_range": [
+              4475,
+              10589
+            ],
+            "recompute_range": [
+              3619,
+              5255
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.0815525512429132,
+            "candidate_range": [
+              4464,
+              5631
+            ],
+            "recompute_range": [
+              4093,
+              5153
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 82437.0,
+      "recompute_total_median": 79165.0,
+      "candidate_phases": {
+        "caller_prepare": 29191.0,
+        "caller_prepared_drop": 1896.0,
+        "caller_transport_execute_observe_drop": 312.0,
+        "consumer_drop": 87.0,
+        "finite_service": 4862.0,
+        "input_build": 1100.5,
+        "input_drop": 640.0,
+        "learner_drop": 797.5,
+        "learner_setup": 49.0,
+        "prepare": 10468.0,
+        "prepared_drop": 1290.0,
+        "query_setup": 13409.0,
+        "session_drop": 335.5,
+        "source_build": 13889.0,
+        "source_drop": 1192.0
+      },
+      "recompute_phases": {
+        "caller_prepare": 31160.0,
+        "caller_prepared_drop": 3513.5,
+        "caller_transport_execute_observe_drop": 330.5,
+        "consumer_drop": 92.0,
+        "finite_service": 4151.0,
+        "input_build": 1105.5,
+        "input_drop": 646.5,
+        "learner_drop": 41.0,
+        "learner_setup": 74.5,
+        "prepare": 12443.5,
+        "prepared_drop": 1481.5,
+        "query_setup": 5767.5,
+        "session_drop": 150.0,
+        "source_build": 14970.5,
+        "source_drop": 1189.5
+      }
+    },
+    {
+      "config": [
+        "eager",
+        0,
+        0,
+        4
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.0381153407574544,
+            "candidate_range": [
+              81780,
+              104577
+            ],
+            "recompute_range": [
+              67578,
+              91187
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.3258627503473948,
+            "candidate_range": [
+              77522,
+              121063
+            ],
+            "recompute_range": [
+              67155,
+              87163
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.0974852530270103,
+            "candidate_range": [
+              6409,
+              8530
+            ],
+            "recompute_range": [
+              5337,
+              7635
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.2789651293588302,
+            "candidate_range": [
+              6011,
+              9174
+            ],
+            "recompute_range": [
+              5538,
+              7254
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 92773.0,
+      "recompute_total_median": 80437.5,
+      "candidate_phases": {
+        "caller_prepare": 28462.0,
+        "caller_prepared_drop": 1970.5,
+        "caller_transport_execute_observe_drop": 457.0,
+        "consumer_drop": 96.0,
+        "finite_service": 6956.5,
+        "input_build": 1813.5,
+        "input_drop": 1182.0,
+        "learner_drop": 839.0,
+        "learner_setup": 50.0,
+        "prepare": 12116.0,
+        "prepared_drop": 1409.5,
+        "query_setup": 20582.0,
+        "session_drop": 382.0,
+        "source_build": 15460.5,
+        "source_drop": 1141.0
+      },
+      "recompute_phases": {
+        "caller_prepare": 27897.0,
+        "caller_prepared_drop": 3529.0,
+        "caller_transport_execute_observe_drop": 425.5,
+        "consumer_drop": 94.0,
+        "finite_service": 6006.5,
+        "input_build": 1711.5,
+        "input_drop": 1050.5,
+        "learner_drop": 39.0,
+        "learner_setup": 70.5,
+        "prepare": 11781.0,
+        "prepared_drop": 1458.5,
+        "query_setup": 8769.5,
+        "session_drop": 212.5,
+        "source_build": 14353.0,
+        "source_drop": 1090.0
+      }
+    },
+    {
+      "config": [
+        "eager",
+        0,
+        0,
+        16
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.0882298629833438,
+            "candidate_range": [
+              109053,
+              138781
+            ],
+            "recompute_range": [
+              100790,
+              124215
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.0680489394314876,
+            "candidate_range": [
+              107087,
+              130320
+            ],
+            "recompute_range": [
+              102561,
+              121859
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "gain",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.8062015503875969,
+            "candidate_range": [
+              10292,
+              12878
+            ],
+            "recompute_range": [
+              13329,
+              14925
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 0.7855391246191573,
+            "candidate_range": [
+              9477,
+              12557
+            ],
+            "recompute_range": [
+              13448,
+              14542
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 117114.5,
+      "recompute_total_median": 108683.5,
+      "candidate_phases": {
+        "caller_prepare": 28258.5,
+        "caller_prepared_drop": 2020.0,
+        "caller_transport_execute_observe_drop": 661.5,
+        "consumer_drop": 118.0,
+        "finite_service": 10127.0,
+        "input_build": 4184.5,
+        "input_drop": 2644.0,
+        "learner_drop": 796.0,
+        "learner_setup": 48.5,
+        "prepare": 11871.0,
+        "prepared_drop": 1269.0,
+        "query_setup": 40057.5,
+        "session_drop": 749.5,
+        "source_build": 12666.0,
+        "source_drop": 1207.0
+      },
+      "recompute_phases": {
+        "caller_prepare": 29936.5,
+        "caller_prepared_drop": 3607.5,
+        "caller_transport_execute_observe_drop": 637.5,
+        "consumer_drop": 116.0,
+        "finite_service": 12980.0,
+        "input_build": 4208.5,
+        "input_drop": 2557.5,
+        "learner_drop": 39.5,
+        "learner_setup": 71.5,
+        "prepare": 14414.0,
+        "prepared_drop": 1486.0,
+        "query_setup": 23032.0,
+        "session_drop": 417.5,
+        "source_build": 13367.5,
+        "source_drop": 1152.5
+      }
+    },
+    {
+      "config": [
+        "eager",
+        0,
+        16,
+        1
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.1912364104263138,
+            "candidate_range": [
+              144967,
+              171990
+            ],
+            "recompute_range": [
+              127090,
+              221944
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 0.9894626424450484,
+            "candidate_range": [
+              142716,
+              159104
+            ],
+            "recompute_range": [
+              126174,
+              180752
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.5023004918292877,
+            "candidate_range": [
+              27437,
+              30926
+            ],
+            "recompute_range": [
+              17587,
+              29965
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.4408055223958063,
+            "candidate_range": [
+              26519,
+              28227
+            ],
+            "recompute_range": [
+              17460,
+              20254
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 150937.0,
+      "recompute_total_median": 140191.0,
+      "candidate_phases": {
+        "caller_prepare": 53066.5,
+        "caller_prepared_drop": 2825.5,
+        "caller_transport_execute_observe_drop": 331.5,
+        "consumer_drop": 88.5,
+        "finite_service": 27557.5,
+        "input_build": 1211.0,
+        "input_drop": 596.0,
+        "learner_drop": 848.5,
+        "learner_setup": 48.0,
+        "prepare": 26057.0,
+        "prepared_drop": 2334.5,
+        "query_setup": 12290.0,
+        "session_drop": 326.5,
+        "source_build": 21748.5,
+        "source_drop": 1899.0
+      },
+      "recompute_phases": {
+        "caller_prepare": 52654.0,
+        "caller_prepared_drop": 2828.5,
+        "caller_transport_execute_observe_drop": 350.0,
+        "consumer_drop": 101.0,
+        "finite_service": 18890.0,
+        "input_build": 1236.0,
+        "input_drop": 542.0,
+        "learner_drop": 39.0,
+        "learner_setup": 71.0,
+        "prepare": 28739.0,
+        "prepared_drop": 2594.0,
+        "query_setup": 5673.5,
+        "session_drop": 163.0,
+        "source_build": 23905.5,
+        "source_drop": 1833.0
+      }
+    },
+    {
+      "config": [
+        "eager",
+        0,
+        16,
+        4
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.0027621822927801,
+            "candidate_range": [
+              160735,
+              548429
+            ],
+            "recompute_range": [
+              166431,
+              195453
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 0.9785854628700527,
+            "candidate_range": [
+              155006,
+              180022
+            ],
+            "recompute_range": [
+              152602,
+              177701
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "gain",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.665874363327674,
+            "candidate_range": [
+              28080,
+              33946
+            ],
+            "recompute_range": [
+              40050,
+              50557
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 0.706425702811245,
+            "candidate_range": [
+              28186,
+              30996
+            ],
+            "recompute_range": [
+              40703,
+              44773
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 172870.0,
+      "recompute_total_median": 175527.0,
+      "candidate_phases": {
+        "caller_prepare": 55245.5,
+        "caller_prepared_drop": 2798.0,
+        "caller_transport_execute_observe_drop": 472.5,
+        "consumer_drop": 100.0,
+        "finite_service": 29018.5,
+        "input_build": 1892.0,
+        "input_drop": 1058.5,
+        "learner_drop": 853.5,
+        "learner_setup": 43.0,
+        "prepare": 27851.5,
+        "prepared_drop": 2345.5,
+        "query_setup": 19599.0,
+        "session_drop": 437.5,
+        "source_build": 25554.0,
+        "source_drop": 2015.0
+      },
+      "recompute_phases": {
+        "caller_prepare": 57177.0,
+        "caller_prepared_drop": 2711.0,
+        "caller_transport_execute_observe_drop": 373.0,
+        "consumer_drop": 111.0,
+        "finite_service": 42713.0,
+        "input_build": 1833.0,
+        "input_drop": 966.0,
+        "learner_drop": 40.5,
+        "learner_setup": 72.5,
+        "prepare": 27138.0,
+        "prepared_drop": 2424.0,
+        "query_setup": 9990.5,
+        "session_drop": 218.5,
+        "source_build": 23978.0,
+        "source_drop": 1884.0
+      }
+    },
+    {
+      "config": [
+        "eager",
+        0,
+        16,
+        16
+      ],
+      "total": {
+        "direction": "gain",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.6490550796829511,
+            "candidate_range": [
+              173074,
+              198090
+            ],
+            "recompute_range": [
+              274123,
+              305316
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 0.7116426815658757,
+            "candidate_range": [
+              166612,
+              202315
+            ],
+            "recompute_range": [
+              260979,
+              294279
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "gain",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.24231791139606076,
+            "candidate_range": [
+              30937,
+              36790
+            ],
+            "recompute_range": [
+              135922,
+              148273
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 0.2433125311300577,
+            "candidate_range": [
+              29539,
+              35870
+            ],
+            "recompute_range": [
+              116192,
+              145236
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 193987.5,
+      "recompute_total_median": 276435.5,
+      "candidate_phases": {
+        "caller_prepare": 52932.5,
+        "caller_prepared_drop": 2676.0,
+        "caller_transport_execute_observe_drop": 759.0,
+        "consumer_drop": 125.5,
+        "finite_service": 32186.5,
+        "input_build": 4178.5,
+        "input_drop": 2510.0,
+        "learner_drop": 750.5,
+        "learner_setup": 46.5,
+        "prepare": 26935.5,
+        "prepared_drop": 2317.0,
+        "query_setup": 35796.5,
+        "session_drop": 774.0,
+        "source_build": 22433.0,
+        "source_drop": 2195.0
+      },
+      "recompute_phases": {
+        "caller_prepare": 54654.5,
+        "caller_prepared_drop": 2779.0,
+        "caller_transport_execute_observe_drop": 665.0,
+        "consumer_drop": 124.0,
+        "finite_service": 136787.0,
+        "input_build": 4162.5,
+        "input_drop": 2449.0,
+        "learner_drop": 39.0,
+        "learner_setup": 70.5,
+        "prepare": 27209.5,
+        "prepared_drop": 2582.5,
+        "query_setup": 22363.0,
+        "session_drop": 400.5,
+        "source_build": 24729.0,
+        "source_drop": 2221.0
+      }
+    },
+    {
+      "config": [
+        "eager",
+        0,
+        64,
+        1
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.1784913912921549,
+            "candidate_range": [
+              459258,
+              505789
+            ],
+            "recompute_range": [
+              370718,
+              421914
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.132430718165647,
+            "candidate_range": [
+              457841,
+              518503
+            ],
+            "recompute_range": [
+              378039,
+              1033226
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.5383701657458564,
+            "candidate_range": [
+              215226,
+              230875
+            ],
+            "recompute_range": [
+              137105,
+              156043
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.4079863099100474,
+            "candidate_range": [
+              219148,
+              228909
+            ],
+            "recompute_range": [
+              146130,
+              224000
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 476988.5,
+      "recompute_total_median": 418123.5,
+      "candidate_phases": {
+        "caller_prepare": 109666.0,
+        "caller_prepared_drop": 4804.0,
+        "caller_transport_execute_observe_drop": 334.5,
+        "consumer_drop": 93.5,
+        "finite_service": 222042.5,
+        "input_build": 1373.5,
+        "input_drop": 586.5,
+        "learner_drop": 842.5,
+        "learner_setup": 47.5,
+        "prepare": 69223.0,
+        "prepared_drop": 4905.5,
+        "query_setup": 12344.0,
+        "session_drop": 405.5,
+        "source_build": 41130.5,
+        "source_drop": 4508.5
+      },
+      "recompute_phases": {
+        "caller_prepare": 117591.0,
+        "caller_prepared_drop": 15092.0,
+        "caller_transport_execute_observe_drop": 338.0,
+        "consumer_drop": 105.0,
+        "finite_service": 147042.5,
+        "input_build": 1389.5,
+        "input_drop": 556.5,
+        "learner_drop": 40.0,
+        "learner_setup": 77.0,
+        "prepare": 70326.0,
+        "prepared_drop": 5335.5,
+        "query_setup": 5813.0,
+        "session_drop": 130.0,
+        "source_build": 41766.5,
+        "source_drop": 4348.5
+      }
+    },
+    {
+      "config": [
+        "eager",
+        0,
+        64,
+        4
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.7809524714768662,
+            "candidate_range": [
+              462361,
+              501292
+            ],
+            "recompute_range": [
+              583616,
+              826757
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 0.7565951764571821,
+            "candidate_range": [
+              465058,
+              635925
+            ],
+            "recompute_range": [
+              525735,
+              651593
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "gain",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.6130298686643803,
+            "candidate_range": [
+              212069,
+              236665
+            ],
+            "recompute_range": [
+              328479,
+              398201
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 0.6245557107373738,
+            "candidate_range": [
+              219338,
+              261190
+            ],
+            "recompute_range": [
+              308354,
+              384490
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 475170.5,
+      "recompute_total_median": 627155.5,
+      "candidate_phases": {
+        "caller_prepare": 106017.0,
+        "caller_prepared_drop": 4816.0,
+        "caller_transport_execute_observe_drop": 439.0,
+        "consumer_drop": 180.0,
+        "finite_service": 222239.5,
+        "input_build": 2045.0,
+        "input_drop": 1010.0,
+        "learner_drop": 731.5,
+        "learner_setup": 46.5,
+        "prepare": 68371.0,
+        "prepared_drop": 4907.5,
+        "query_setup": 19200.0,
+        "session_drop": 423.0,
+        "source_build": 40745.0,
+        "source_drop": 4564.5
+      },
+      "recompute_phases": {
+        "caller_prepare": 109404.5,
+        "caller_prepared_drop": 14992.5,
+        "caller_transport_execute_observe_drop": 392.0,
+        "consumer_drop": 125.5,
+        "finite_service": 359314.0,
+        "input_build": 1993.5,
+        "input_drop": 1017.5,
+        "learner_drop": 38.5,
+        "learner_setup": 72.5,
+        "prepare": 70096.0,
+        "prepared_drop": 5107.5,
+        "query_setup": 9886.0,
+        "session_drop": 212.0,
+        "source_build": 43945.5,
+        "source_drop": 4677.5
+      }
+    },
+    {
+      "config": [
+        "eager",
+        0,
+        64,
+        16
+      ],
+      "total": {
+        "direction": "gain",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.33340020585105457,
+            "candidate_range": [
+              459390,
+              522322
+            ],
+            "recompute_range": [
+              1454268,
+              1579201
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 0.35342017370743545,
+            "candidate_range": [
+              509399,
+              607551
+            ],
+            "recompute_range": [
+              1443191,
+              3411591
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "gain",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.1808199521036513,
+            "candidate_range": [
+              211459,
+              233736
+            ],
+            "recompute_range": [
+              1209626,
+              1301527
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 0.1905702635775499,
+            "candidate_range": [
+              206942,
+              274991
+            ],
+            "recompute_range": [
+              1172850,
+              3141342
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 509530.0,
+      "recompute_total_median": 1494620.0,
+      "candidate_phases": {
+        "caller_prepare": 110717.5,
+        "caller_prepared_drop": 4885.0,
+        "caller_transport_execute_observe_drop": 691.0,
+        "consumer_drop": 256.0,
+        "finite_service": 226122.5,
+        "input_build": 4341.0,
+        "input_drop": 2523.5,
+        "learner_drop": 845.0,
+        "learner_setup": 47.0,
+        "prepare": 70524.5,
+        "prepared_drop": 5098.0,
+        "query_setup": 35566.0,
+        "session_drop": 726.0,
+        "source_build": 41736.5,
+        "source_drop": 4916.5
+      },
+      "recompute_phases": {
+        "caller_prepare": 105697.0,
+        "caller_prepared_drop": 4926.0,
+        "caller_transport_execute_observe_drop": 594.5,
+        "consumer_drop": 229.5,
+        "finite_service": 1239495.0,
+        "input_build": 4370.0,
+        "input_drop": 2519.5,
+        "learner_drop": 40.0,
+        "learner_setup": 71.0,
+        "prepare": 70871.5,
+        "prepared_drop": 5386.5,
+        "query_setup": 22942.0,
+        "session_drop": 304.5,
+        "source_build": 40785.0,
+        "source_drop": 5101.0
+      }
+    },
+    {
+      "config": [
+        "eager",
+        484,
+        0,
+        1
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.0002371956694849,
+            "candidate_range": [
+              169728,
+              219557
+            ],
+            "recompute_range": [
+              164398,
+              186270
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.069447223170258,
+            "candidate_range": [
+              161128,
+              207078
+            ],
+            "recompute_range": [
+              159964,
+              185142
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.9998372236872091,
+            "candidate_range": [
+              85680,
+              112581
+            ],
+            "recompute_range": [
+              87745,
+              98623
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.0093232350075294,
+            "candidate_range": [
+              83718,
+              101706
+            ],
+            "recompute_range": [
+              85042,
+              92821
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 179427.5,
+      "recompute_total_median": 173810.5,
+      "candidate_phases": {
+        "caller_prepare": 33636.5,
+        "caller_prepared_drop": 2158.5,
+        "caller_transport_execute_observe_drop": 72309.0,
+        "consumer_drop": 677.0,
+        "finite_service": 18029.5,
+        "input_build": 1245.5,
+        "input_drop": 697.0,
+        "learner_drop": 363.5,
+        "learner_setup": 48.0,
+        "prepare": 14361.0,
+        "prepared_drop": 1476.5,
+        "query_setup": 12600.5,
+        "session_drop": 373.0,
+        "source_build": 16263.0,
+        "source_drop": 1408.5
+      },
+      "recompute_phases": {
+        "caller_prepare": 34026.5,
+        "caller_prepared_drop": 2214.0,
+        "caller_transport_execute_observe_drop": 71736.0,
+        "consumer_drop": 762.5,
+        "finite_service": 18592.5,
+        "input_build": 1263.5,
+        "input_drop": 708.0,
+        "learner_drop": 41.0,
+        "learner_setup": 73.5,
+        "prepare": 14998.0,
+        "prepared_drop": 1741.0,
+        "query_setup": 5437.5,
+        "session_drop": 75.0,
+        "source_build": 16912.5,
+        "source_drop": 1372.5
+      }
+    },
+    {
+      "config": [
+        "eager",
+        484,
+        0,
+        4
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.0595822443212002,
+            "candidate_range": [
+              227819,
+              282560
+            ],
+            "recompute_range": [
+              231018,
+              257412
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.0331104292432378,
+            "candidate_range": [
+              220989,
+              274243
+            ],
+            "recompute_range": [
+              222799,
+              264522
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.0275391011680854,
+            "candidate_range": [
+              138613,
+              162610
+            ],
+            "recompute_range": [
+              150677,
+              158961
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 0.9793035479632063,
+            "candidate_range": [
+              134746,
+              162355
+            ],
+            "recompute_range": [
+              141056,
+              169079
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 248565.5,
+      "recompute_total_median": 238343.0,
+      "candidate_phases": {
+        "caller_prepare": 34028.5,
+        "caller_prepared_drop": 2144.0,
+        "caller_transport_execute_observe_drop": 125339.5,
+        "consumer_drop": 1254.5,
+        "finite_service": 25178.5,
+        "input_build": 2006.0,
+        "input_drop": 1280.0,
+        "learner_drop": 503.5,
+        "learner_setup": 47.0,
+        "prepare": 13371.5,
+        "prepared_drop": 1541.5,
+        "query_setup": 20969.5,
+        "session_drop": 379.5,
+        "source_build": 17499.0,
+        "source_drop": 1409.0
+      },
+      "recompute_phases": {
+        "caller_prepare": 35261.0,
+        "caller_prepared_drop": 2192.5,
+        "caller_transport_execute_observe_drop": 122243.5,
+        "consumer_drop": 1272.5,
+        "finite_service": 29994.5,
+        "input_build": 2033.5,
+        "input_drop": 1240.0,
+        "learner_drop": 39.5,
+        "learner_setup": 71.0,
+        "prepare": 15314.0,
+        "prepared_drop": 1770.5,
+        "query_setup": 9957.0,
+        "session_drop": 127.0,
+        "source_build": 17737.5,
+        "source_drop": 1399.5
+      }
+    },
+    {
+      "config": [
+        "eager",
+        484,
+        0,
+        16
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.0081368936114434,
+            "candidate_range": [
+              602585,
+              797101
+            ],
+            "recompute_range": [
+              594627,
+              644209
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.0229285246893485,
+            "candidate_range": [
+              585556,
+              642232
+            ],
+            "recompute_range": [
+              592259,
+              616554
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.9642010707196279,
+            "candidate_range": [
+              470274,
+              618106
+            ],
+            "recompute_range": [
+              487915,
+              521608
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 0.9594200191922945,
+            "candidate_range": [
+              460471,
+              496105
+            ],
+            "recompute_range": [
+              486688,
+              508782
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 618443.0,
+      "recompute_total_median": 608113.5,
+      "candidate_phases": {
+        "caller_prepare": 33336.0,
+        "caller_prepared_drop": 2174.0,
+        "caller_transport_execute_observe_drop": 415176.5,
+        "consumer_drop": 3923.0,
+        "finite_service": 67209.5,
+        "input_build": 4615.0,
+        "input_drop": 3282.5,
+        "learner_drop": 518.0,
+        "learner_setup": 48.0,
+        "prepare": 13822.5,
+        "prepared_drop": 1738.5,
+        "query_setup": 48425.0,
+        "session_drop": 767.5,
+        "source_build": 16411.0,
+        "source_drop": 1468.0
+      },
+      "recompute_phases": {
+        "caller_prepare": 33623.0,
+        "caller_prepared_drop": 2245.5,
+        "caller_transport_execute_observe_drop": 415884.0,
+        "consumer_drop": 3997.0,
+        "finite_service": 82179.0,
+        "input_build": 4523.5,
+        "input_drop": 2995.0,
+        "learner_drop": 38.5,
+        "learner_setup": 74.0,
+        "prepare": 14805.5,
+        "prepared_drop": 1693.0,
+        "query_setup": 25289.5,
+        "session_drop": 355.5,
+        "source_build": 16005.0,
+        "source_drop": 1457.0
+      }
+    },
+    {
+      "config": [
+        "eager",
+        484,
+        16,
+        1
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.9732056134239877,
+            "candidate_range": [
+              259743,
+              321693
+            ],
+            "recompute_range": [
+              269688,
+              333157
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.0527881312577652,
+            "candidate_range": [
+              277991,
+              316892
+            ],
+            "recompute_range": [
+              247353,
+              374753
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.0476527804266682,
+            "candidate_range": [
+              137138,
+              160955
+            ],
+            "recompute_range": [
+              141993,
+              165286
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.0485324336332333,
+            "candidate_range": [
+              143618,
+              161685
+            ],
+            "recompute_range": [
+              132815,
+              198594
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 289338.0,
+      "recompute_total_median": 284579.0,
+      "candidate_phases": {
+        "caller_prepare": 57794.0,
+        "caller_prepared_drop": 2961.0,
+        "caller_transport_execute_observe_drop": 109573.5,
+        "consumer_drop": 658.5,
+        "finite_service": 42850.0,
+        "input_build": 1200.5,
+        "input_drop": 645.0,
+        "learner_drop": 412.5,
+        "learner_setup": 44.0,
+        "prepare": 30030.5,
+        "prepared_drop": 2832.5,
+        "query_setup": 11612.5,
+        "session_drop": 357.5,
+        "source_build": 26858.5,
+        "source_drop": 2121.5
+      },
+      "recompute_phases": {
+        "caller_prepare": 56700.0,
+        "caller_prepared_drop": 3019.0,
+        "caller_transport_execute_observe_drop": 108661.0,
+        "consumer_drop": 675.5,
+        "finite_service": 36861.5,
+        "input_build": 1197.0,
+        "input_drop": 674.0,
+        "learner_drop": 41.5,
+        "learner_setup": 75.5,
+        "prepare": 28248.5,
+        "prepared_drop": 2903.0,
+        "query_setup": 5379.5,
+        "session_drop": 126.5,
+        "source_build": 30903.0,
+        "source_drop": 2145.0
+      }
+    },
+    {
+      "config": [
+        "eager",
+        484,
+        16,
+        4
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.0496823247578377,
+            "candidate_range": [
+              352243,
+              569577
+            ],
+            "recompute_range": [
+              391804,
+              424391
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.035202406316581,
+            "candidate_range": [
+              400404,
+              446838
+            ],
+            "recompute_range": [
+              366187,
+              431134
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.0066432712735913,
+            "candidate_range": [
+              227394,
+              358548
+            ],
+            "recompute_range": [
+              262387,
+              291318
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.0069911276506003,
+            "candidate_range": [
+              265392,
+              282132
+            ],
+            "recompute_range": [
+              251605,
+              279353
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 423174.0,
+      "recompute_total_median": 411052.5,
+      "candidate_phases": {
+        "caller_prepare": 57337.0,
+        "caller_prepared_drop": 3057.5,
+        "caller_transport_execute_observe_drop": 196436.5,
+        "consumer_drop": 1325.0,
+        "finite_service": 74145.5,
+        "input_build": 2070.0,
+        "input_drop": 1296.0,
+        "learner_drop": 541.5,
+        "learner_setup": 45.5,
+        "prepare": 29120.5,
+        "prepared_drop": 2693.0,
+        "query_setup": 20426.0,
+        "session_drop": 441.5,
+        "source_build": 27553.0,
+        "source_drop": 2363.5
+      },
+      "recompute_phases": {
+        "caller_prepare": 56514.5,
+        "caller_prepared_drop": 3008.0,
+        "caller_transport_execute_observe_drop": 196206.5,
+        "consumer_drop": 1278.5,
+        "finite_service": 77026.0,
+        "input_build": 1948.0,
+        "input_drop": 1325.0,
+        "learner_drop": 40.0,
+        "learner_setup": 72.0,
+        "prepare": 27728.0,
+        "prepared_drop": 2814.0,
+        "query_setup": 9447.0,
+        "session_drop": 121.0,
+        "source_build": 26407.5,
+        "source_drop": 2330.0
+      }
+    },
+    {
+      "config": [
+        "eager",
+        484,
+        16,
+        16
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.9887352525954657,
+            "candidate_range": [
+              1103668,
+              1295779
+            ],
+            "recompute_range": [
+              1114798,
+              1225399
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.0166167234809784,
+            "candidate_range": [
+              1108243,
+              1412104
+            ],
+            "recompute_range": [
+              1065215,
+              1188227
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.9655741618083173,
+            "candidate_range": [
+              932139,
+              1052223
+            ],
+            "recompute_range": [
+              946972,
+              1040448
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 0.9930379959156802,
+            "candidate_range": [
+              911984,
+              1147352
+            ],
+            "recompute_range": [
+              907500,
+              1016547
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 1141649.0,
+      "recompute_total_median": 1136333.5,
+      "candidate_phases": {
+        "caller_prepare": 64638.5,
+        "caller_prepared_drop": 3224.5,
+        "caller_transport_execute_observe_drop": 722187.5,
+        "consumer_drop": 4344.0,
+        "finite_service": 234302.5,
+        "input_build": 4917.5,
+        "input_drop": 3731.0,
+        "learner_drop": 652.5,
+        "learner_setup": 49.0,
+        "prepare": 30256.5,
+        "prepared_drop": 3027.5,
+        "query_setup": 52957.5,
+        "session_drop": 827.0,
+        "source_build": 27645.5,
+        "source_drop": 2520.5
+      },
+      "recompute_phases": {
+        "caller_prepare": 57849.5,
+        "caller_prepared_drop": 3038.0,
+        "caller_transport_execute_observe_drop": 711243.5,
+        "consumer_drop": 4029.5,
+        "finite_service": 248060.0,
+        "input_build": 4887.5,
+        "input_drop": 3481.5,
+        "learner_drop": 39.5,
+        "learner_setup": 72.0,
+        "prepare": 29843.0,
+        "prepared_drop": 2865.5,
+        "query_setup": 26324.5,
+        "session_drop": 460.5,
+        "source_build": 28311.5,
+        "source_drop": 2407.0
+      }
+    },
+    {
+      "config": [
+        "eager",
+        484,
+        64,
+        1
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.162994060277187,
+            "candidate_range": [
+              683923,
+              772712
+            ],
+            "recompute_range": [
+              589212,
+              658965
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.1644820222573309,
+            "candidate_range": [
+              679097,
+              921160
+            ],
+            "recompute_range": [
+              600522,
+              715089
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "loss",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.2504566033141098,
+            "candidate_range": [
+              433282,
+              488376
+            ],
+            "recompute_range": [
+              352621,
+              386367
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.224211572414814,
+            "candidate_range": [
+              430353,
+              571847
+            ],
+            "recompute_range": [
+              358862,
+              422602
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 711464.0,
+      "recompute_total_median": 620640.5,
+      "candidate_phases": {
+        "caller_prepare": 113051.0,
+        "caller_prepared_drop": 5183.0,
+        "caller_transport_execute_observe_drop": 198208.0,
+        "consumer_drop": 758.0,
+        "finite_service": 261067.0,
+        "input_build": 1272.5,
+        "input_drop": 709.5,
+        "learner_drop": 504.0,
+        "learner_setup": 47.0,
+        "prepare": 70008.5,
+        "prepared_drop": 5569.0,
+        "query_setup": 12366.5,
+        "session_drop": 341.0,
+        "source_build": 44962.5,
+        "source_drop": 4735.0
+      },
+      "recompute_phases": {
+        "caller_prepare": 108785.5,
+        "caller_prepared_drop": 4971.0,
+        "caller_transport_execute_observe_drop": 195707.0,
+        "consumer_drop": 838.5,
+        "finite_service": 179115.5,
+        "input_build": 1227.0,
+        "input_drop": 656.0,
+        "learner_drop": 40.5,
+        "learner_setup": 72.5,
+        "prepare": 67328.0,
+        "prepared_drop": 5284.0,
+        "query_setup": 4981.0,
+        "session_drop": 144.5,
+        "source_build": 45029.0,
+        "source_drop": 4756.0
+      }
+    },
+    {
+      "config": [
+        "eager",
+        484,
+        64,
+        4
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.9890587291740276,
+            "candidate_range": [
+              1072265,
+              1178110
+            ],
+            "recompute_range": [
+              1044630,
+              1226093
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.037542062740193,
+            "candidate_range": [
+              1027392,
+              1103794
+            ],
+            "recompute_range": [
+              1006904,
+              1119357
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.952282478891496,
+            "candidate_range": [
+              780785,
+              869199
+            ],
+            "recompute_range": [
+              775669,
+              939031
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.0225973808896232,
+            "candidate_range": [
+              744588,
+              817392
+            ],
+            "recompute_range": [
+              748755,
+              835495
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 1082685.0,
+      "recompute_total_median": 1068060.0,
+      "candidate_phases": {
+        "caller_prepare": 122573.0,
+        "caller_prepared_drop": 5239.5,
+        "caller_transport_execute_observe_drop": 365205.0,
+        "consumer_drop": 1677.5,
+        "finite_service": 430400.0,
+        "input_build": 2151.0,
+        "input_drop": 1335.0,
+        "learner_drop": 643.0,
+        "learner_setup": 48.0,
+        "prepare": 70797.0,
+        "prepared_drop": 5509.0,
+        "query_setup": 21870.0,
+        "session_drop": 480.5,
+        "source_build": 45460.5,
+        "source_drop": 5100.0
+      },
+      "recompute_phases": {
+        "caller_prepare": 114544.0,
+        "caller_prepared_drop": 5502.5,
+        "caller_transport_execute_observe_drop": 371855.0,
+        "consumer_drop": 1544.0,
+        "finite_service": 432754.5,
+        "input_build": 2117.0,
+        "input_drop": 1261.5,
+        "learner_drop": 41.0,
+        "learner_setup": 73.5,
+        "prepare": 70867.5,
+        "prepared_drop": 5953.5,
+        "query_setup": 10232.5,
+        "session_drop": 226.5,
+        "source_build": 47599.5,
+        "source_drop": 5069.0
+      }
+    },
+    {
+      "config": [
+        "eager",
+        484,
+        64,
+        16
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.9682963708418758,
+            "candidate_range": [
+              2970897,
+              6197483
+            ],
+            "recompute_range": [
+              2992122,
+              3339399
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.0290614809942282,
+            "candidate_range": [
+              3130427,
+              10914577
+            ],
+            "recompute_range": [
+              2952956,
+              3273411
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.9604615877514683,
+            "candidate_range": [
+              2643899,
+              5667907
+            ],
+            "recompute_range": [
+              2722582,
+              3019014
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.0191179447813947,
+            "candidate_range": [
+              2824170,
+              10238379
+            ],
+            "recompute_range": [
+              2629563,
+              2969296
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 3181575.0,
+      "recompute_total_median": 3165368.5,
+      "candidate_phases": {
+        "caller_prepare": 110330.5,
+        "caller_prepared_drop": 5704.0,
+        "caller_transport_execute_observe_drop": 1410914.0,
+        "consumer_drop": 5236.5,
+        "finite_service": 1449741.0,
+        "input_build": 5069.5,
+        "input_drop": 3819.5,
+        "learner_drop": 686.0,
+        "learner_setup": 47.0,
+        "prepare": 70981.0,
+        "prepared_drop": 5868.5,
+        "query_setup": 52499.5,
+        "session_drop": 770.0,
+        "source_build": 49039.0,
+        "source_drop": 5036.5
+      },
+      "recompute_phases": {
+        "caller_prepare": 116346.0,
+        "caller_prepared_drop": 5769.0,
+        "caller_transport_execute_observe_drop": 1415774.5,
+        "consumer_drop": 5645.0,
+        "finite_service": 1473330.5,
+        "input_build": 4990.5,
+        "input_drop": 3727.5,
+        "learner_drop": 40.0,
+        "learner_setup": 76.0,
+        "prepare": 75092.5,
+        "prepared_drop": 6115.0,
+        "query_setup": 26811.5,
+        "session_drop": 459.5,
+        "source_build": 48555.5,
+        "source_drop": 5143.0
+      }
+    },
+    {
+      "config": [
+        "eager",
+        511,
+        0,
+        1
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.0875437059824677,
+            "candidate_range": [
+              282151,
+              311073
+            ],
+            "recompute_range": [
+              253726,
+              303129
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.0252419955323901,
+            "candidate_range": [
+              257810,
+              298474
+            ],
+            "recompute_range": [
+              254168,
+              301133
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.0435994329054967,
+            "candidate_range": [
+              186781,
+              209906
+            ],
+            "recompute_range": [
+              164283,
+              203284
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.0029764365440264,
+            "candidate_range": [
+              173336,
+              203053
+            ],
+            "recompute_range": [
+              164808,
+              202056
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 293104.5,
+      "recompute_total_median": 281442.0,
+      "candidate_phases": {
+        "caller_prepare": 39690.5,
+        "caller_prepared_drop": 2276.0,
+        "caller_transport_execute_observe_drop": 163690.0,
+        "consumer_drop": 1445.5,
+        "finite_service": 28662.5,
+        "input_build": 1314.0,
+        "input_drop": 673.0,
+        "learner_drop": 65.5,
+        "learner_setup": 47.5,
+        "prepare": 19230.5,
+        "prepared_drop": 1957.5,
+        "query_setup": 8430.5,
+        "session_drop": 381.5,
+        "source_build": 17625.5,
+        "source_drop": 1550.0
+      },
+      "recompute_phases": {
+        "caller_prepare": 40131.0,
+        "caller_prepared_drop": 2163.0,
+        "caller_transport_execute_observe_drop": 161341.5,
+        "consumer_drop": 1387.5,
+        "finite_service": 25590.0,
+        "input_build": 1325.0,
+        "input_drop": 681.0,
+        "learner_drop": 40.0,
+        "learner_setup": 74.0,
+        "prepare": 18105.0,
+        "prepared_drop": 1899.5,
+        "query_setup": 5647.5,
+        "session_drop": 163.5,
+        "source_build": 19854.5,
+        "source_drop": 1482.0
+      }
+    },
+    {
+      "config": [
+        "eager",
+        511,
+        0,
+        4
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.063691182754855,
+            "candidate_range": [
+              348044,
+              485295
+            ],
+            "recompute_range": [
+              409226,
+              960362
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.0689219088091386,
+            "candidate_range": [
+              413821,
+              450753
+            ],
+            "recompute_range": [
+              405245,
+              491523
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.0320764218461491,
+            "candidate_range": [
+              268863,
+              350958
+            ],
+            "recompute_range": [
+              315033,
+              728829
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.039199506147954,
+            "candidate_range": [
+              311664,
+              337776
+            ],
+            "recompute_range": [
+              308534,
+              366471
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 440093.5,
+      "recompute_total_median": 418239.5,
+      "candidate_phases": {
+        "caller_prepare": 40130.0,
+        "caller_prepared_drop": 2295.5,
+        "caller_transport_execute_observe_drop": 282557.0,
+        "consumer_drop": 2468.0,
+        "finite_service": 48399.0,
+        "input_build": 2114.5,
+        "input_drop": 1244.0,
+        "learner_drop": 71.0,
+        "learner_setup": 47.0,
+        "prepare": 18484.0,
+        "prepared_drop": 2079.5,
+        "query_setup": 14950.0,
+        "session_drop": 479.0,
+        "source_build": 19597.5,
+        "source_drop": 1650.5
+      },
+      "recompute_phases": {
+        "caller_prepare": 38043.0,
+        "caller_prepared_drop": 2408.5,
+        "caller_transport_execute_observe_drop": 277308.5,
+        "consumer_drop": 2412.5,
+        "finite_service": 46729.5,
+        "input_build": 2056.5,
+        "input_drop": 1275.0,
+        "learner_drop": 40.0,
+        "learner_setup": 71.0,
+        "prepare": 19213.5,
+        "prepared_drop": 2082.5,
+        "query_setup": 10631.5,
+        "session_drop": 238.0,
+        "source_build": 18642.0,
+        "source_drop": 1688.5
+      }
+    },
+    {
+      "config": [
+        "eager",
+        511,
+        0,
+        16
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.0661130670150247,
+            "candidate_range": [
+              1210150,
+              1301960
+            ],
+            "recompute_range": [
+              1118977,
+              1229038
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.0142056389329983,
+            "candidate_range": [
+              1164818,
+              1240493
+            ],
+            "recompute_range": [
+              1060378,
+              1263871
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.0523835007806077,
+            "candidate_range": [
+              1077507,
+              1154917
+            ],
+            "recompute_range": [
+              998672,
+              1087396
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.0034041754789764,
+            "candidate_range": [
+              1040967,
+              1101008
+            ],
+            "recompute_range": [
+              948580,
+              1107870
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 1239125.5,
+      "recompute_total_median": 1184988.0,
+      "candidate_phases": {
+        "caller_prepare": 44056.5,
+        "caller_prepared_drop": 2366.5,
+        "caller_transport_execute_observe_drop": 940735.0,
+        "consumer_drop": 7841.0,
+        "finite_service": 140675.5,
+        "input_build": 4778.0,
+        "input_drop": 3365.0,
+        "learner_drop": 137.5,
+        "learner_setup": 49.0,
+        "prepare": 18809.0,
+        "prepared_drop": 2162.0,
+        "query_setup": 37297.0,
+        "session_drop": 832.0,
+        "source_build": 18873.0,
+        "source_drop": 1749.0
+      },
+      "recompute_phases": {
+        "caller_prepare": 40706.0,
+        "caller_prepared_drop": 2369.5,
+        "caller_transport_execute_observe_drop": 921913.0,
+        "consumer_drop": 8061.5,
+        "finite_service": 135326.5,
+        "input_build": 4606.0,
+        "input_drop": 3232.5,
+        "learner_drop": 40.5,
+        "learner_setup": 74.0,
+        "prepare": 19002.5,
+        "prepared_drop": 2221.0,
+        "query_setup": 27677.0,
+        "session_drop": 409.0,
+        "source_build": 19923.0,
+        "source_drop": 1757.0
+      }
+    },
+    {
+      "config": [
+        "eager",
+        511,
+        16,
+        1
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.0475334644641334,
+            "candidate_range": [
+              451746,
+              579858
+            ],
+            "recompute_range": [
+              420392,
+              490464
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.0232499457707853,
+            "candidate_range": [
+              440879,
+              498540
+            ],
+            "recompute_range": [
+              433784,
+              474482
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.0234255254453952,
+            "candidate_range": [
+              298531,
+              398181
+            ],
+            "recompute_range": [
+              293327,
+              334283
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.008509079457707,
+            "candidate_range": [
+              308227,
+              330505
+            ],
+            "recompute_range": [
+              305897,
+              328445
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 473581.5,
+      "recompute_total_median": 455689.0,
+      "candidate_phases": {
+        "caller_prepare": 63071.0,
+        "caller_prepared_drop": 3117.5,
+        "caller_transport_execute_observe_drop": 272252.5,
+        "consumer_drop": 1405.5,
+        "finite_service": 50757.5,
+        "input_build": 1327.0,
+        "input_drop": 694.5,
+        "learner_drop": 66.5,
+        "learner_setup": 48.0,
+        "prepare": 34429.0,
+        "prepared_drop": 3121.0,
+        "query_setup": 9275.5,
+        "session_drop": 382.0,
+        "source_build": 32549.0,
+        "source_drop": 2456.5
+      },
+      "recompute_phases": {
+        "caller_prepare": 60604.0,
+        "caller_prepared_drop": 2921.5,
+        "caller_transport_execute_observe_drop": 268968.5,
+        "consumer_drop": 1390.5,
+        "finite_service": 48528.5,
+        "input_build": 1313.5,
+        "input_drop": 678.5,
+        "learner_drop": 39.0,
+        "learner_setup": 70.0,
+        "prepare": 31481.5,
+        "prepared_drop": 2854.0,
+        "query_setup": 5519.5,
+        "session_drop": 79.5,
+        "source_build": 27364.5,
+        "source_drop": 2360.5
+      }
+    },
+    {
+      "config": [
+        "eager",
+        511,
+        16,
+        4
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.9971739549720473,
+            "candidate_range": [
+              719374,
+              827633
+            ],
+            "recompute_range": [
+              670527,
+              772530
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.036978947846526,
+            "candidate_range": [
+              695618,
+              842460
+            ],
+            "recompute_range": [
+              683971,
+              757903
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.0000498390542265,
+            "candidate_range": [
+              559683,
+              633336
+            ],
+            "recompute_range": [
+              531041,
+              609278
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.0076977866415,
+            "candidate_range": [
+              539028,
+              641347
+            ],
+            "recompute_range": [
+              533292,
+              602590
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 729790.0,
+      "recompute_total_median": 728420.0,
+      "candidate_phases": {
+        "caller_prepare": 67409.0,
+        "caller_prepared_drop": 3014.5,
+        "caller_transport_execute_observe_drop": 473662.0,
+        "consumer_drop": 2365.0,
+        "finite_service": 102156.0,
+        "input_build": 2273.0,
+        "input_drop": 1385.0,
+        "learner_drop": 68.0,
+        "learner_setup": 47.0,
+        "prepare": 32373.5,
+        "prepared_drop": 3069.5,
+        "query_setup": 15225.0,
+        "session_drop": 432.5,
+        "source_build": 28054.0,
+        "source_drop": 2393.5
+      },
+      "recompute_phases": {
+        "caller_prepare": 63005.5,
+        "caller_prepared_drop": 3220.5,
+        "caller_transport_execute_observe_drop": 478258.5,
+        "consumer_drop": 2518.0,
+        "finite_service": 100860.5,
+        "input_build": 2202.0,
+        "input_drop": 1436.0,
+        "learner_drop": 39.5,
+        "learner_setup": 72.0,
+        "prepare": 34139.0,
+        "prepared_drop": 3100.5,
+        "query_setup": 10687.0,
+        "session_drop": 205.0,
+        "source_build": 28004.5,
+        "source_drop": 2466.5
+      }
+    },
+    {
+      "config": [
+        "eager",
+        511,
+        16,
+        16
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.9640266008274204,
+            "candidate_range": [
+              1880012,
+              2226398
+            ],
+            "recompute_range": [
+              1996646,
+              2164792
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 0.9934802157187056,
+            "candidate_range": [
+              1956396,
+              2357719
+            ],
+            "recompute_range": [
+              1900268,
+              2591704
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.9621277595827268,
+            "candidate_range": [
+              1700699,
+              2000457
+            ],
+            "recompute_range": [
+              1826339,
+              1977504
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 0.9961410115993825,
+            "candidate_range": [
+              1771694,
+              2152493
+            ],
+            "recompute_range": [
+              1735517,
+              2260422
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 2047972.0,
+      "recompute_total_median": 2043088.0,
+      "candidate_phases": {
+        "caller_prepare": 60824.0,
+        "caller_prepared_drop": 3469.5,
+        "caller_transport_execute_observe_drop": 1529396.5,
+        "consumer_drop": 8768.5,
+        "finite_service": 324983.0,
+        "input_build": 5185.5,
+        "input_drop": 3834.0,
+        "learner_drop": 150.0,
+        "learner_setup": 48.0,
+        "prepare": 31969.0,
+        "prepared_drop": 3643.0,
+        "query_setup": 39745.0,
+        "session_drop": 784.5,
+        "source_build": 27487.5,
+        "source_drop": 2776.5
+      },
+      "recompute_phases": {
+        "caller_prepare": 60632.5,
+        "caller_prepared_drop": 3326.5,
+        "caller_transport_execute_observe_drop": 1540277.5,
+        "consumer_drop": 8353.5,
+        "finite_service": 319824.5,
+        "input_build": 5000.5,
+        "input_drop": 3770.5,
+        "learner_drop": 39.5,
+        "learner_setup": 70.5,
+        "prepare": 32137.5,
+        "prepared_drop": 3347.5,
+        "query_setup": 28585.5,
+        "session_drop": 380.5,
+        "source_build": 26522.5,
+        "source_drop": 2774.5
+      }
+    },
+    {
+      "config": [
+        "eager",
+        511,
+        64,
+        1
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.9994364827339354,
+            "candidate_range": [
+              916895,
+              981483
+            ],
+            "recompute_range": [
+              866108,
+              991037
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.0486919276256548,
+            "candidate_range": [
+              940318,
+              1043829
+            ],
+            "recompute_range": [
+              838310,
+              1060993
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.9776735505242564,
+            "candidate_range": [
+              644891,
+              714029
+            ],
+            "recompute_range": [
+              591740,
+              717061
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.0402819498910838,
+            "candidate_range": [
+              657815,
+              734174
+            ],
+            "recompute_range": [
+              603333,
+              774574
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 968892.5,
+      "recompute_total_median": 944436.5,
+      "candidate_phases": {
+        "caller_prepare": 118413.5,
+        "caller_prepared_drop": 5348.0,
+        "caller_transport_execute_observe_drop": 485513.0,
+        "consumer_drop": 1522.0,
+        "finite_service": 206842.5,
+        "input_build": 1445.0,
+        "input_drop": 699.0,
+        "learner_drop": 67.5,
+        "learner_setup": 48.0,
+        "prepare": 77795.5,
+        "prepared_drop": 5651.5,
+        "query_setup": 8935.0,
+        "session_drop": 408.5,
+        "source_build": 48065.5,
+        "source_drop": 4942.5
+      },
+      "recompute_phases": {
+        "caller_prepare": 114700.5,
+        "caller_prepared_drop": 5188.5,
+        "caller_transport_execute_observe_drop": 482432.5,
+        "consumer_drop": 1701.5,
+        "finite_service": 202253.5,
+        "input_build": 1357.5,
+        "input_drop": 684.0,
+        "learner_drop": 39.0,
+        "learner_setup": 75.0,
+        "prepare": 74865.0,
+        "prepared_drop": 5736.5,
+        "query_setup": 5937.5,
+        "session_drop": 162.5,
+        "source_build": 47545.5,
+        "source_drop": 5054.5
+      }
+    },
+    {
+      "config": [
+        "eager",
+        511,
+        64,
+        4
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.9744702016356687,
+            "candidate_range": [
+              1552529,
+              1697487
+            ],
+            "recompute_range": [
+              1499721,
+              1790574
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.0284603543060322,
+            "candidate_range": [
+              1518630,
+              1743362
+            ],
+            "recompute_range": [
+              1419764,
+              1673132
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.9594635429563995,
+            "candidate_range": [
+              1233438,
+              1418068
+            ],
+            "recompute_range": [
+              1238340,
+              1493863
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.0567733999858075,
+            "candidate_range": [
+              1271999,
+              1408664
+            ],
+            "recompute_range": [
+              1179831,
+              1385851
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 1614461.0,
+      "recompute_total_median": 1636006.5,
+      "candidate_phases": {
+        "caller_prepare": 121765.5,
+        "caller_prepared_drop": 5549.0,
+        "caller_transport_execute_observe_drop": 866823.5,
+        "consumer_drop": 2890.0,
+        "finite_service": 480887.0,
+        "input_build": 2302.0,
+        "input_drop": 1445.5,
+        "learner_drop": 114.0,
+        "learner_setup": 45.5,
+        "prepare": 73090.0,
+        "prepared_drop": 5823.0,
+        "query_setup": 14596.5,
+        "session_drop": 473.0,
+        "source_build": 44368.0,
+        "source_drop": 5313.5
+      },
+      "recompute_phases": {
+        "caller_prepare": 121401.0,
+        "caller_prepared_drop": 5946.0,
+        "caller_transport_execute_observe_drop": 865134.5,
+        "consumer_drop": 3083.0,
+        "finite_service": 486471.5,
+        "input_build": 2267.5,
+        "input_drop": 1464.0,
+        "learner_drop": 39.0,
+        "learner_setup": 75.0,
+        "prepare": 74088.5,
+        "prepared_drop": 6338.5,
+        "query_setup": 11669.5,
+        "session_drop": 234.0,
+        "source_build": 48063.0,
+        "source_drop": 5320.5
+      }
+    },
+    {
+      "config": [
+        "eager",
+        511,
+        64,
+        16
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.04448937514957,
+            "candidate_range": [
+              5031312,
+              5350330
+            ],
+            "recompute_range": [
+              4801346,
+              8247848
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.0319151331157366,
+            "candidate_range": [
+              4742856,
+              5029204
+            ],
+            "recompute_range": [
+              4748649,
+              5004139
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.038868564787509,
+            "candidate_range": [
+              4705468,
+              4991950
+            ],
+            "recompute_range": [
+              4499407,
+              7898997
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.0296107554514342,
+            "candidate_range": [
+              4432295,
+              4656965
+            ],
+            "recompute_range": [
+              4450341,
+              4701776
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 5030258.0,
+      "recompute_total_median": 4819504.0,
+      "candidate_phases": {
+        "caller_prepare": 124526.5,
+        "caller_prepared_drop": 5994.5,
+        "caller_transport_execute_observe_drop": 3015754.5,
+        "consumer_drop": 11961.5,
+        "finite_service": 1669628.5,
+        "input_build": 5627.0,
+        "input_drop": 4091.0,
+        "learner_drop": 158.0,
+        "learner_setup": 47.5,
+        "prepare": 80558.5,
+        "prepared_drop": 6620.0,
+        "query_setup": 44094.5,
+        "session_drop": 868.5,
+        "source_build": 46557.5,
+        "source_drop": 5402.5
+      },
+      "recompute_phases": {
+        "caller_prepare": 111772.5,
+        "caller_prepared_drop": 6167.5,
+        "caller_transport_execute_observe_drop": 2906397.5,
+        "consumer_drop": 10391.5,
+        "finite_service": 1624982.5,
+        "input_build": 5494.5,
+        "input_drop": 3888.0,
+        "learner_drop": 40.5,
+        "learner_setup": 70.5,
+        "prepare": 75839.0,
+        "prepared_drop": 6365.0,
+        "query_setup": 31769.0,
+        "session_drop": 410.0,
+        "source_build": 45954.5,
+        "source_drop": 5236.5
+      }
+    },
+    {
+      "config": [
+        "covered",
+        0,
+        0,
+        1
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.204342390144238,
+            "candidate_range": [
+              73572,
+              89930
+            ],
+            "recompute_range": [
+              63513,
+              121776
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 0.9527189028483745,
+            "candidate_range": [
+              69929,
+              94868
+            ],
+            "recompute_range": [
+              66301,
+              89163
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.4322902971338416,
+            "candidate_range": [
+              5033,
+              7383
+            ],
+            "recompute_range": [
+              3619,
+              5255
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.2307021369385085,
+            "candidate_range": [
+              4479,
+              7184
+            ],
+            "recompute_range": [
+              4093,
+              5153
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 79230.0,
+      "recompute_total_median": 79165.0,
+      "candidate_phases": {
+        "caller_prepare": 30250.5,
+        "caller_prepared_drop": 3693.0,
+        "caller_transport_execute_observe_drop": 387.5,
+        "consumer_drop": 84.0,
+        "finite_service": 5168.5,
+        "input_build": 1080.0,
+        "input_drop": 620.5,
+        "learner_drop": 888.0,
+        "learner_setup": 42.5,
+        "prepare": 10426.0,
+        "prepared_drop": 1504.0,
+        "query_setup": 7925.5,
+        "session_drop": 246.5,
+        "source_build": 14205.0,
+        "source_drop": 1115.5
+      },
+      "recompute_phases": {
+        "caller_prepare": 31160.0,
+        "caller_prepared_drop": 3513.5,
+        "caller_transport_execute_observe_drop": 330.5,
+        "consumer_drop": 92.0,
+        "finite_service": 4151.0,
+        "input_build": 1105.5,
+        "input_drop": 646.5,
+        "learner_drop": 41.0,
+        "learner_setup": 74.5,
+        "prepare": 12443.5,
+        "prepared_drop": 1481.5,
+        "query_setup": 5767.5,
+        "session_drop": 150.0,
+        "source_build": 14970.5,
+        "source_drop": 1189.5
+      }
+    },
+    {
+      "config": [
+        "covered",
+        0,
+        0,
+        4
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.1360118397748502,
+            "candidate_range": [
+              74808,
+              103652
+            ],
+            "recompute_range": [
+              67578,
+              91187
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.143738606086103,
+            "candidate_range": [
+              74055,
+              105514
+            ],
+            "recompute_range": [
+              67155,
+              87163
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.5709407016454517,
+            "candidate_range": [
+              7265,
+              10282
+            ],
+            "recompute_range": [
+              5337,
+              7635
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.321549092077776,
+            "candidate_range": [
+              7349,
+              9382
+            ],
+            "recompute_range": [
+              5538,
+              7254
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 89903.0,
+      "recompute_total_median": 80437.5,
+      "candidate_phases": {
+        "caller_prepare": 30390.5,
+        "caller_prepared_drop": 2058.5,
+        "caller_transport_execute_observe_drop": 465.5,
+        "consumer_drop": 90.5,
+        "finite_service": 7871.5,
+        "input_build": 1783.0,
+        "input_drop": 1104.5,
+        "learner_drop": 816.0,
+        "learner_setup": 44.0,
+        "prepare": 12702.5,
+        "prepared_drop": 1523.0,
+        "query_setup": 14017.5,
+        "session_drop": 439.0,
+        "source_build": 14646.5,
+        "source_drop": 1161.0
+      },
+      "recompute_phases": {
+        "caller_prepare": 27897.0,
+        "caller_prepared_drop": 3529.0,
+        "caller_transport_execute_observe_drop": 425.5,
+        "consumer_drop": 94.0,
+        "finite_service": 6006.5,
+        "input_build": 1711.5,
+        "input_drop": 1050.5,
+        "learner_drop": 39.0,
+        "learner_setup": 70.5,
+        "prepare": 11781.0,
+        "prepared_drop": 1458.5,
+        "query_setup": 8769.5,
+        "session_drop": 212.5,
+        "source_build": 14353.0,
+        "source_drop": 1090.0
+      }
+    },
+    {
+      "config": [
+        "covered",
+        0,
+        0,
+        16
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.1677438416368136,
+            "candidate_range": [
+              105489,
+              132535
+            ],
+            "recompute_range": [
+              100790,
+              124215
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.0556396912373451,
+            "candidate_range": [
+              103476,
+              130805
+            ],
+            "recompute_range": [
+              102561,
+              121859
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.171420213543952,
+            "candidate_range": [
+              13912,
+              17806
+            ],
+            "recompute_range": [
+              13329,
+              14925
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.05498996804637,
+            "candidate_range": [
+              13859,
+              21218
+            ],
+            "recompute_range": [
+              13448,
+              14542
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 117828.0,
+      "recompute_total_median": 108683.5,
+      "candidate_phases": {
+        "caller_prepare": 30107.5,
+        "caller_prepared_drop": 1975.0,
+        "caller_transport_execute_observe_drop": 729.0,
+        "consumer_drop": 113.5,
+        "finite_service": 14199.5,
+        "input_build": 4295.0,
+        "input_drop": 2623.5,
+        "learner_drop": 916.0,
+        "learner_setup": 46.0,
+        "prepare": 12551.0,
+        "prepared_drop": 1503.5,
+        "query_setup": 30687.5,
+        "session_drop": 718.0,
+        "source_build": 14556.5,
+        "source_drop": 1148.5
+      },
+      "recompute_phases": {
+        "caller_prepare": 29936.5,
+        "caller_prepared_drop": 3607.5,
+        "caller_transport_execute_observe_drop": 637.5,
+        "consumer_drop": 116.0,
+        "finite_service": 12980.0,
+        "input_build": 4208.5,
+        "input_drop": 2557.5,
+        "learner_drop": 39.5,
+        "learner_setup": 71.5,
+        "prepare": 14414.0,
+        "prepared_drop": 1486.0,
+        "query_setup": 23032.0,
+        "session_drop": 417.5,
+        "source_build": 13367.5,
+        "source_drop": 1152.5
+      }
+    },
+    {
+      "config": [
+        "covered",
+        0,
+        16,
+        1
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.1616417668949894,
+            "candidate_range": [
+              131055,
+              155825
+            ],
+            "recompute_range": [
+              127090,
+              221944
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 0.9356383377267371,
+            "candidate_range": [
+              132491,
+              149211
+            ],
+            "recompute_range": [
+              126174,
+              180752
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.0968850811782749,
+            "candidate_range": [
+              19440,
+              24042
+            ],
+            "recompute_range": [
+              17587,
+              29965
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.106140032179374,
+            "candidate_range": [
+              20000,
+              21733
+            ],
+            "recompute_range": [
+              17460,
+              20254
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 138833.5,
+      "recompute_total_median": 140191.0,
+      "candidate_phases": {
+        "caller_prepare": 52126.0,
+        "caller_prepared_drop": 2719.5,
+        "caller_transport_execute_observe_drop": 414.5,
+        "consumer_drop": 84.5,
+        "finite_service": 20527.0,
+        "input_build": 1224.0,
+        "input_drop": 577.0,
+        "learner_drop": 866.0,
+        "learner_setup": 39.0,
+        "prepare": 26207.5,
+        "prepared_drop": 2372.0,
+        "query_setup": 8387.5,
+        "session_drop": 264.0,
+        "source_build": 21612.0,
+        "source_drop": 1795.5
+      },
+      "recompute_phases": {
+        "caller_prepare": 52654.0,
+        "caller_prepared_drop": 2828.5,
+        "caller_transport_execute_observe_drop": 350.0,
+        "consumer_drop": 101.0,
+        "finite_service": 18890.0,
+        "input_build": 1236.0,
+        "input_drop": 542.0,
+        "learner_drop": 39.0,
+        "learner_setup": 71.0,
+        "prepare": 28739.0,
+        "prepared_drop": 2594.0,
+        "query_setup": 5673.5,
+        "session_drop": 163.0,
+        "source_build": 23905.5,
+        "source_drop": 1833.0
+      }
+    },
+    {
+      "config": [
+        "covered",
+        0,
+        16,
+        4
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.0366734549218601,
+            "candidate_range": [
+              137792,
+              199992
+            ],
+            "recompute_range": [
+              166431,
+              195453
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 0.8831033053133769,
+            "candidate_range": [
+              132810,
+              178671
+            ],
+            "recompute_range": [
+              152602,
+              177701
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "gain",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.5684436898698358,
+            "candidate_range": [
+              21355,
+              29740
+            ],
+            "recompute_range": [
+              40050,
+              50557
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 0.5543586109142452,
+            "candidate_range": [
+              20757,
+              24592
+            ],
+            "recompute_range": [
+              40703,
+              44773
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 160203.0,
+      "recompute_total_median": 175527.0,
+      "candidate_phases": {
+        "caller_prepare": 54114.5,
+        "caller_prepared_drop": 2760.0,
+        "caller_transport_execute_observe_drop": 379.0,
+        "consumer_drop": 102.5,
+        "finite_service": 23275.5,
+        "input_build": 1915.0,
+        "input_drop": 1035.0,
+        "learner_drop": 819.5,
+        "learner_setup": 40.5,
+        "prepare": 27678.5,
+        "prepared_drop": 2354.0,
+        "query_setup": 13452.5,
+        "session_drop": 415.5,
+        "source_build": 24698.5,
+        "source_drop": 1960.0
+      },
+      "recompute_phases": {
+        "caller_prepare": 57177.0,
+        "caller_prepared_drop": 2711.0,
+        "caller_transport_execute_observe_drop": 373.0,
+        "consumer_drop": 111.0,
+        "finite_service": 42713.0,
+        "input_build": 1833.0,
+        "input_drop": 966.0,
+        "learner_drop": 40.5,
+        "learner_setup": 72.5,
+        "prepare": 27138.0,
+        "prepared_drop": 2424.0,
+        "query_setup": 9990.5,
+        "session_drop": 218.5,
+        "source_build": 23978.0,
+        "source_drop": 1884.0
+      }
+    },
+    {
+      "config": [
+        "covered",
+        0,
+        16,
+        16
+      ],
+      "total": {
+        "direction": "gain",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.6130151624791748,
+            "candidate_range": [
+              146023,
+              189302
+            ],
+            "recompute_range": [
+              274123,
+              305316
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 0.6373496524409369,
+            "candidate_range": [
+              163826,
+              178644
+            ],
+            "recompute_range": [
+              260979,
+              294279
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "gain",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.2224989891988679,
+            "candidate_range": [
+              25821,
+              32706
+            ],
+            "recompute_range": [
+              135922,
+              148273
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 0.21501713984354398,
+            "candidate_range": [
+              28109,
+              30473
+            ],
+            "recompute_range": [
+              116192,
+              145236
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 177222.0,
+      "recompute_total_median": 276435.5,
+      "candidate_phases": {
+        "caller_prepare": 51972.0,
+        "caller_prepared_drop": 2716.0,
+        "caller_transport_execute_observe_drop": 661.5,
+        "consumer_drop": 127.5,
+        "finite_service": 29174.0,
+        "input_build": 4203.5,
+        "input_drop": 2543.0,
+        "learner_drop": 788.5,
+        "learner_setup": 40.5,
+        "prepare": 26670.5,
+        "prepared_drop": 2292.5,
+        "query_setup": 28027.0,
+        "session_drop": 696.5,
+        "source_build": 22490.5,
+        "source_drop": 2018.0
+      },
+      "recompute_phases": {
+        "caller_prepare": 54654.5,
+        "caller_prepared_drop": 2779.0,
+        "caller_transport_execute_observe_drop": 665.0,
+        "consumer_drop": 124.0,
+        "finite_service": 136787.0,
+        "input_build": 4162.5,
+        "input_drop": 2449.0,
+        "learner_drop": 39.0,
+        "learner_setup": 70.5,
+        "prepare": 27209.5,
+        "prepared_drop": 2582.5,
+        "query_setup": 22363.0,
+        "session_drop": 400.5,
+        "source_build": 24729.0,
+        "source_drop": 2221.0
+      }
+    },
+    {
+      "config": [
+        "covered",
+        0,
+        64,
+        1
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.052958497639647,
+            "candidate_range": [
+              384103,
+              454243
+            ],
+            "recompute_range": [
+              370718,
+              421914
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 0.9810479428863019,
+            "candidate_range": [
+              376251,
+              487991
+            ],
+            "recompute_range": [
+              378039,
+              1033226
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.110939226519337,
+            "candidate_range": [
+              143106,
+              178249
+            ],
+            "recompute_range": [
+              137105,
+              156043
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.024721045332519,
+            "candidate_range": [
+              143851,
+              172210
+            ],
+            "recompute_range": [
+              146130,
+              224000
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 424315.5,
+      "recompute_total_median": 418123.5,
+      "candidate_phases": {
+        "caller_prepare": 113794.0,
+        "caller_prepared_drop": 15794.5,
+        "caller_transport_execute_observe_drop": 348.0,
+        "consumer_drop": 104.0,
+        "finite_service": 160410.0,
+        "input_build": 1413.0,
+        "input_drop": 584.5,
+        "learner_drop": 796.5,
+        "learner_setup": 43.0,
+        "prepare": 69370.5,
+        "prepared_drop": 5255.0,
+        "query_setup": 8127.5,
+        "session_drop": 364.5,
+        "source_build": 41676.5,
+        "source_drop": 4632.5
+      },
+      "recompute_phases": {
+        "caller_prepare": 117591.0,
+        "caller_prepared_drop": 15092.0,
+        "caller_transport_execute_observe_drop": 338.0,
+        "consumer_drop": 105.0,
+        "finite_service": 147042.5,
+        "input_build": 1389.5,
+        "input_drop": 556.5,
+        "learner_drop": 40.0,
+        "learner_setup": 77.0,
+        "prepare": 70326.0,
+        "prepared_drop": 5335.5,
+        "query_setup": 5813.0,
+        "session_drop": 130.0,
+        "source_build": 41766.5,
+        "source_drop": 4348.5
+      }
+    },
+    {
+      "config": [
+        "covered",
+        0,
+        64,
+        4
+      ],
+      "total": {
+        "direction": "gain",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.6230954214073208,
+            "candidate_range": [
+              365242,
+              418619
+            ],
+            "recompute_range": [
+              583616,
+              826757
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 0.6476184820621793,
+            "candidate_range": [
+              380249,
+              443791
+            ],
+            "recompute_range": [
+              525735,
+              651593
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "gain",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.42428863338314676,
+            "candidate_range": [
+              133439,
+              158640
+            ],
+            "recompute_range": [
+              328479,
+              398201
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 0.43297678684429874,
+            "candidate_range": [
+              150283,
+              168335
+            ],
+            "recompute_range": [
+              308354,
+              384490
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 397934.5,
+      "recompute_total_median": 627155.5,
+      "candidate_phases": {
+        "caller_prepare": 106806.5,
+        "caller_prepared_drop": 4776.5,
+        "caller_transport_execute_observe_drop": 387.0,
+        "consumer_drop": 116.5,
+        "finite_service": 152867.5,
+        "input_build": 2004.0,
+        "input_drop": 1040.5,
+        "learner_drop": 791.5,
+        "learner_setup": 40.0,
+        "prepare": 66975.0,
+        "prepared_drop": 4923.0,
+        "query_setup": 13050.5,
+        "session_drop": 352.5,
+        "source_build": 39255.5,
+        "source_drop": 4361.5
+      },
+      "recompute_phases": {
+        "caller_prepare": 109404.5,
+        "caller_prepared_drop": 14992.5,
+        "caller_transport_execute_observe_drop": 392.0,
+        "consumer_drop": 125.5,
+        "finite_service": 359314.0,
+        "input_build": 1993.5,
+        "input_drop": 1017.5,
+        "learner_drop": 38.5,
+        "learner_setup": 72.5,
+        "prepare": 70096.0,
+        "prepared_drop": 5107.5,
+        "query_setup": 9886.0,
+        "session_drop": 212.0,
+        "source_build": 43945.5,
+        "source_drop": 4677.5
+      }
+    },
+    {
+      "config": [
+        "covered",
+        0,
+        64,
+        16
+      ],
+      "total": {
+        "direction": "gain",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.30259970826584576,
+            "candidate_range": [
+              409505,
+              471043
+            ],
+            "recompute_range": [
+              1454268,
+              1579201
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 0.28835994721258146,
+            "candidate_range": [
+              417538,
+              1080192
+            ],
+            "recompute_range": [
+              1443191,
+              3411591
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "gain",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.13514747709514424,
+            "candidate_range": [
+              146987,
+              182674
+            ],
+            "recompute_range": [
+              1209626,
+              1301527
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 0.1297435531757659,
+            "candidate_range": [
+              138311,
+              173190
+            ],
+            "recompute_range": [
+              1172850,
+              3141342
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 444179.5,
+      "recompute_total_median": 1494620.0,
+      "candidate_phases": {
+        "caller_prepare": 113797.5,
+        "caller_prepared_drop": 5041.5,
+        "caller_transport_execute_observe_drop": 613.5,
+        "consumer_drop": 170.5,
+        "finite_service": 162183.0,
+        "input_build": 4570.0,
+        "input_drop": 2588.5,
+        "learner_drop": 817.0,
+        "learner_setup": 43.0,
+        "prepare": 75535.0,
+        "prepared_drop": 4982.5,
+        "query_setup": 29314.0,
+        "session_drop": 657.5,
+        "source_build": 43922.5,
+        "source_drop": 4863.0
+      },
+      "recompute_phases": {
+        "caller_prepare": 105697.0,
+        "caller_prepared_drop": 4926.0,
+        "caller_transport_execute_observe_drop": 594.5,
+        "consumer_drop": 229.5,
+        "finite_service": 1239495.0,
+        "input_build": 4370.0,
+        "input_drop": 2519.5,
+        "learner_drop": 40.0,
+        "learner_setup": 71.0,
+        "prepare": 70871.5,
+        "prepared_drop": 5386.5,
+        "query_setup": 22942.0,
+        "session_drop": 304.5,
+        "source_build": 40785.0,
+        "source_drop": 5101.0
+      }
+    },
+    {
+      "config": [
+        "covered",
+        484,
+        0,
+        1
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.976766119422372,
+            "candidate_range": [
+              161035,
+              192330
+            ],
+            "recompute_range": [
+              164398,
+              186270
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.168051452848619,
+            "candidate_range": [
+              166202,
+              201486
+            ],
+            "recompute_range": [
+              159964,
+              185142
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.002376534166748,
+            "candidate_range": [
+              85787,
+              103860
+            ],
+            "recompute_range": [
+              87745,
+              98623
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.1149348923731066,
+            "candidate_range": [
+              85750,
+              107256
+            ],
+            "recompute_range": [
+              85042,
+              92821
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 180445.0,
+      "recompute_total_median": 173810.5,
+      "candidate_phases": {
+        "caller_prepare": 34227.5,
+        "caller_prepared_drop": 2195.0,
+        "caller_transport_execute_observe_drop": 75562.5,
+        "consumer_drop": 696.0,
+        "finite_service": 20958.0,
+        "input_build": 1209.0,
+        "input_drop": 683.0,
+        "learner_drop": 497.5,
+        "learner_setup": 44.0,
+        "prepare": 16027.5,
+        "prepared_drop": 1655.0,
+        "query_setup": 8036.5,
+        "session_drop": 345.5,
+        "source_build": 17601.5,
+        "source_drop": 1318.0
+      },
+      "recompute_phases": {
+        "caller_prepare": 34026.5,
+        "caller_prepared_drop": 2214.0,
+        "caller_transport_execute_observe_drop": 71736.0,
+        "consumer_drop": 762.5,
+        "finite_service": 18592.5,
+        "input_build": 1263.5,
+        "input_drop": 708.0,
+        "learner_drop": 41.0,
+        "learner_setup": 73.5,
+        "prepare": 14998.0,
+        "prepared_drop": 1741.0,
+        "query_setup": 5437.5,
+        "session_drop": 75.0,
+        "source_build": 16912.5,
+        "source_drop": 1372.5
+      }
+    },
+    {
+      "config": [
+        "covered",
+        484,
+        0,
+        4
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.084248103525212,
+            "candidate_range": [
+              238066,
+              266790
+            ],
+            "recompute_range": [
+              231018,
+              257412
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.1338883700763767,
+            "candidate_range": [
+              237979,
+              314206
+            ],
+            "recompute_range": [
+              222799,
+              264522
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.079502408763941,
+            "candidate_range": [
+              152709,
+              164746
+            ],
+            "recompute_range": [
+              150677,
+              158961
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.0532588699080159,
+            "candidate_range": [
+              150176,
+              197891
+            ],
+            "recompute_range": [
+              141056,
+              169079
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 260159.5,
+      "recompute_total_median": 238343.0,
+      "candidate_phases": {
+        "caller_prepare": 35194.5,
+        "caller_prepared_drop": 2119.5,
+        "caller_transport_execute_observe_drop": 130433.0,
+        "consumer_drop": 1272.0,
+        "finite_service": 31909.0,
+        "input_build": 2116.0,
+        "input_drop": 1251.0,
+        "learner_drop": 586.0,
+        "learner_setup": 45.5,
+        "prepare": 14427.5,
+        "prepared_drop": 1740.0,
+        "query_setup": 14000.5,
+        "session_drop": 392.0,
+        "source_build": 18812.0,
+        "source_drop": 1434.0
+      },
+      "recompute_phases": {
+        "caller_prepare": 35261.0,
+        "caller_prepared_drop": 2192.5,
+        "caller_transport_execute_observe_drop": 122243.5,
+        "consumer_drop": 1272.5,
+        "finite_service": 29994.5,
+        "input_build": 2033.5,
+        "input_drop": 1240.0,
+        "learner_drop": 39.5,
+        "learner_setup": 71.0,
+        "prepare": 15314.0,
+        "prepared_drop": 1770.5,
+        "query_setup": 9957.0,
+        "session_drop": 127.0,
+        "source_build": 17737.5,
+        "source_drop": 1399.5
+      }
+    },
+    {
+      "config": [
+        "covered",
+        484,
+        0,
+        16
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.0709273636232406,
+            "candidate_range": [
+              540257,
+              695847
+            ],
+            "recompute_range": [
+              594627,
+              644209
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.068696793031675,
+            "candidate_range": [
+              583638,
+              1011300
+            ],
+            "recompute_range": [
+              592259,
+              616554
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.038995047420448,
+            "candidate_range": [
+              442210,
+              574080
+            ],
+            "recompute_range": [
+              487915,
+              521608
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.0238353992533682,
+            "candidate_range": [
+              463160,
+              816188
+            ],
+            "recompute_range": [
+              486688,
+              508782
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 649774.5,
+      "recompute_total_median": 608113.5,
+      "candidate_phases": {
+        "caller_prepare": 38396.5,
+        "caller_prepared_drop": 2230.0,
+        "caller_transport_execute_observe_drop": 420999.5,
+        "consumer_drop": 4546.5,
+        "finite_service": 90238.5,
+        "input_build": 4599.5,
+        "input_drop": 3144.0,
+        "learner_drop": 577.0,
+        "learner_setup": 42.5,
+        "prepare": 16250.5,
+        "prepared_drop": 1773.0,
+        "query_setup": 33346.0,
+        "session_drop": 781.0,
+        "source_build": 19701.0,
+        "source_drop": 1524.0
+      },
+      "recompute_phases": {
+        "caller_prepare": 33623.0,
+        "caller_prepared_drop": 2245.5,
+        "caller_transport_execute_observe_drop": 415884.0,
+        "consumer_drop": 3997.0,
+        "finite_service": 82179.0,
+        "input_build": 4523.5,
+        "input_drop": 2995.0,
+        "learner_drop": 38.5,
+        "learner_setup": 74.0,
+        "prepare": 14805.5,
+        "prepared_drop": 1693.0,
+        "query_setup": 25289.5,
+        "session_drop": 355.5,
+        "source_build": 16005.0,
+        "source_drop": 1457.0
+      }
+    },
+    {
+      "config": [
+        "covered",
+        484,
+        16,
+        1
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.9373882171685032,
+            "candidate_range": [
+              259057,
+              308495
+            ],
+            "recompute_range": [
+              269688,
+              333157
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.0544982825403786,
+            "candidate_range": [
+              260549,
+              294083
+            ],
+            "recompute_range": [
+              247353,
+              374753
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.9899054573195651,
+            "candidate_range": [
+              138132,
+              167719
+            ],
+            "recompute_range": [
+              141993,
+              165286
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.0281503387759636,
+            "candidate_range": [
+              139415,
+              162770
+            ],
+            "recompute_range": [
+              132815,
+              198594
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 286059.5,
+      "recompute_total_median": 284579.0,
+      "candidate_phases": {
+        "caller_prepare": 57832.5,
+        "caller_prepared_drop": 3016.5,
+        "caller_transport_execute_observe_drop": 109827.5,
+        "consumer_drop": 681.5,
+        "finite_service": 37743.0,
+        "input_build": 1167.5,
+        "input_drop": 656.0,
+        "learner_drop": 427.0,
+        "learner_setup": 42.0,
+        "prepare": 29261.0,
+        "prepared_drop": 2813.5,
+        "query_setup": 7620.0,
+        "session_drop": 275.5,
+        "source_build": 28411.0,
+        "source_drop": 2109.0
+      },
+      "recompute_phases": {
+        "caller_prepare": 56700.0,
+        "caller_prepared_drop": 3019.0,
+        "caller_transport_execute_observe_drop": 108661.0,
+        "consumer_drop": 675.5,
+        "finite_service": 36861.5,
+        "input_build": 1197.0,
+        "input_drop": 674.0,
+        "learner_drop": 41.5,
+        "learner_setup": 75.5,
+        "prepare": 28248.5,
+        "prepared_drop": 2903.0,
+        "query_setup": 5379.5,
+        "session_drop": 126.5,
+        "source_build": 30903.0,
+        "source_drop": 2145.0
+      }
+    },
+    {
+      "config": [
+        "covered",
+        484,
+        16,
+        4
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.0048929011755074,
+            "candidate_range": [
+              369843,
+              524307
+            ],
+            "recompute_range": [
+              391804,
+              424391
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.0135580899862138,
+            "candidate_range": [
+              345167,
+              428425
+            ],
+            "recompute_range": [
+              366187,
+              431134
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.9785797320097809,
+            "candidate_range": [
+              224518,
+              309922
+            ],
+            "recompute_range": [
+              262387,
+              291318
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 0.9975663559913553,
+            "candidate_range": [
+              214238,
+              275789
+            ],
+            "recompute_range": [
+              251605,
+              279353
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 405527.5,
+      "recompute_total_median": 411052.5,
+      "candidate_phases": {
+        "caller_prepare": 55516.5,
+        "caller_prepared_drop": 3073.0,
+        "caller_transport_execute_observe_drop": 205600.5,
+        "consumer_drop": 1285.0,
+        "finite_service": 61725.0,
+        "input_build": 2092.0,
+        "input_drop": 1326.5,
+        "learner_drop": 610.5,
+        "learner_setup": 41.5,
+        "prepare": 30790.5,
+        "prepared_drop": 2728.0,
+        "query_setup": 13656.5,
+        "session_drop": 457.0,
+        "source_build": 25968.5,
+        "source_drop": 2260.5
+      },
+      "recompute_phases": {
+        "caller_prepare": 56514.5,
+        "caller_prepared_drop": 3008.0,
+        "caller_transport_execute_observe_drop": 196206.5,
+        "consumer_drop": 1278.5,
+        "finite_service": 77026.0,
+        "input_build": 1948.0,
+        "input_drop": 1325.0,
+        "learner_drop": 40.0,
+        "learner_setup": 72.0,
+        "prepare": 27728.0,
+        "prepared_drop": 2814.0,
+        "query_setup": 9447.0,
+        "session_drop": 121.0,
+        "source_build": 26407.5,
+        "source_drop": 2330.0
+      }
+    },
+    {
+      "config": [
+        "covered",
+        484,
+        16,
+        16
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.8860510247061286,
+            "candidate_range": [
+              967813,
+              1176371
+            ],
+            "recompute_range": [
+              1114798,
+              1225399
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 0.9678458299315258,
+            "candidate_range": [
+              1033200,
+              1141304
+            ],
+            "recompute_range": [
+              1065215,
+              1188227
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.8721168512232521,
+            "candidate_range": [
+              805621,
+              966574
+            ],
+            "recompute_range": [
+              946972,
+              1040448
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 0.9541447040126136,
+            "candidate_range": [
+              855575,
+              963423
+            ],
+            "recompute_range": [
+              907500,
+              1016547
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 1050807.0,
+      "recompute_total_median": 1136333.5,
+      "candidate_phases": {
+        "caller_prepare": 59149.0,
+        "caller_prepared_drop": 3107.0,
+        "caller_transport_execute_observe_drop": 689370.0,
+        "consumer_drop": 4070.0,
+        "finite_service": 177765.5,
+        "input_build": 4759.0,
+        "input_drop": 3528.0,
+        "learner_drop": 636.5,
+        "learner_setup": 41.5,
+        "prepare": 30863.0,
+        "prepared_drop": 2968.0,
+        "query_setup": 34085.0,
+        "session_drop": 762.5,
+        "source_build": 26207.5,
+        "source_drop": 2281.0
+      },
+      "recompute_phases": {
+        "caller_prepare": 57849.5,
+        "caller_prepared_drop": 3038.0,
+        "caller_transport_execute_observe_drop": 711243.5,
+        "consumer_drop": 4029.5,
+        "finite_service": 248060.0,
+        "input_build": 4887.5,
+        "input_drop": 3481.5,
+        "learner_drop": 39.5,
+        "learner_setup": 72.0,
+        "prepare": 29843.0,
+        "prepared_drop": 2865.5,
+        "query_setup": 26324.5,
+        "session_drop": 460.5,
+        "source_build": 28311.5,
+        "source_drop": 2407.0
+      }
+    },
+    {
+      "config": [
+        "covered",
+        484,
+        64,
+        1
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.068985114028012,
+            "candidate_range": [
+              629146,
+              658725
+            ],
+            "recompute_range": [
+              589212,
+              658965
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.0159930175555447,
+            "candidate_range": [
+              606335,
+              652866
+            ],
+            "recompute_range": [
+              600522,
+              715089
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.0710170354545556,
+            "candidate_range": [
+              367939,
+              394153
+            ],
+            "recompute_range": [
+              352621,
+              386367
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.0148408343641304,
+            "candidate_range": [
+              372468,
+              391220
+            ],
+            "recompute_range": [
+              358862,
+              422602
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 643314.0,
+      "recompute_total_median": 620640.5,
+      "candidate_phases": {
+        "caller_prepare": 111668.5,
+        "caller_prepared_drop": 5253.5,
+        "caller_transport_execute_observe_drop": 199025.0,
+        "consumer_drop": 771.5,
+        "finite_service": 182857.5,
+        "input_build": 1330.5,
+        "input_drop": 653.0,
+        "learner_drop": 528.0,
+        "learner_setup": 39.0,
+        "prepare": 71862.5,
+        "prepared_drop": 5410.0,
+        "query_setup": 8061.5,
+        "session_drop": 359.5,
+        "source_build": 44893.0,
+        "source_drop": 4763.5
+      },
+      "recompute_phases": {
+        "caller_prepare": 108785.5,
+        "caller_prepared_drop": 4971.0,
+        "caller_transport_execute_observe_drop": 195707.0,
+        "consumer_drop": 838.5,
+        "finite_service": 179115.5,
+        "input_build": 1227.0,
+        "input_drop": 656.0,
+        "learner_drop": 40.5,
+        "learner_setup": 72.5,
+        "prepare": 67328.0,
+        "prepared_drop": 5284.0,
+        "query_setup": 4981.0,
+        "session_drop": 144.5,
+        "source_build": 45029.0,
+        "source_drop": 4756.0
+      }
+    },
+    {
+      "config": [
+        "covered",
+        484,
+        64,
+        4
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.8269851376378444,
+            "candidate_range": [
+              885664,
+              947206
+            ],
+            "recompute_range": [
+              1044630,
+              1226093
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 0.8506893459920758,
+            "candidate_range": [
+              849087,
+              1114790
+            ],
+            "recompute_range": [
+              1006904,
+              1119357
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.7611471504269709,
+            "candidate_range": [
+              617778,
+              676874
+            ],
+            "recompute_range": [
+              775669,
+              939031
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 0.7989881002127946,
+            "candidate_range": [
+              590750,
+              804851
+            ],
+            "recompute_range": [
+              748755,
+              835495
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 907684.5,
+      "recompute_total_median": 1068060.0,
+      "candidate_phases": {
+        "caller_prepare": 111850.5,
+        "caller_prepared_drop": 5256.5,
+        "caller_transport_execute_observe_drop": 358307.5,
+        "consumer_drop": 1396.5,
+        "finite_service": 278502.5,
+        "input_build": 2147.5,
+        "input_drop": 1280.0,
+        "learner_drop": 553.0,
+        "learner_setup": 40.0,
+        "prepare": 69540.0,
+        "prepared_drop": 5323.0,
+        "query_setup": 13452.0,
+        "session_drop": 457.0,
+        "source_build": 44520.5,
+        "source_drop": 4887.0
+      },
+      "recompute_phases": {
+        "caller_prepare": 114544.0,
+        "caller_prepared_drop": 5502.5,
+        "caller_transport_execute_observe_drop": 371855.0,
+        "consumer_drop": 1544.0,
+        "finite_service": 432754.5,
+        "input_build": 2117.0,
+        "input_drop": 1261.5,
+        "learner_drop": 41.0,
+        "learner_setup": 73.5,
+        "prepare": 70867.5,
+        "prepared_drop": 5953.5,
+        "query_setup": 10232.5,
+        "session_drop": 226.5,
+        "source_build": 47599.5,
+        "source_drop": 5069.0
+      }
+    },
+    {
+      "config": [
+        "covered",
+        484,
+        64,
+        16
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.8084331790905753,
+            "candidate_range": [
+              2358861,
+              4319780
+            ],
+            "recompute_range": [
+              2992122,
+              3339399
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 0.8245358602091567,
+            "candidate_range": [
+              2509047,
+              3224306
+            ],
+            "recompute_range": [
+              2952956,
+              3273411
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.7919668479426047,
+            "candidate_range": [
+              2054958,
+              3843203
+            ],
+            "recompute_range": [
+              2722582,
+              3019014
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 0.806217505855624,
+            "candidate_range": [
+              2214032,
+              2896204
+            ],
+            "recompute_range": [
+              2629563,
+              2969296
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 2584935.5,
+      "recompute_total_median": 3165368.5,
+      "candidate_phases": {
+        "caller_prepare": 118607.5,
+        "caller_prepared_drop": 5226.5,
+        "caller_transport_execute_observe_drop": 1422430.5,
+        "consumer_drop": 5410.5,
+        "finite_service": 867331.0,
+        "input_build": 5027.5,
+        "input_drop": 3719.0,
+        "learner_drop": 681.0,
+        "learner_setup": 43.0,
+        "prepare": 72689.5,
+        "prepared_drop": 5743.5,
+        "query_setup": 35755.0,
+        "session_drop": 833.0,
+        "source_build": 46269.5,
+        "source_drop": 5153.5
+      },
+      "recompute_phases": {
+        "caller_prepare": 116346.0,
+        "caller_prepared_drop": 5769.0,
+        "caller_transport_execute_observe_drop": 1415774.5,
+        "consumer_drop": 5645.0,
+        "finite_service": 1473330.5,
+        "input_build": 4990.5,
+        "input_drop": 3727.5,
+        "learner_drop": 40.0,
+        "learner_setup": 76.0,
+        "prepare": 75092.5,
+        "prepared_drop": 6115.0,
+        "query_setup": 26811.5,
+        "session_drop": 459.5,
+        "source_build": 48555.5,
+        "source_drop": 5143.0
+      }
+    },
+    {
+      "config": [
+        "covered",
+        511,
+        0,
+        1
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.0141461399873244,
+            "candidate_range": [
+              277226,
+              315127
+            ],
+            "recompute_range": [
+              253726,
+              303129
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 0.9851469701804773,
+            "candidate_range": [
+              263913,
+              317741
+            ],
+            "recompute_range": [
+              254168,
+              301133
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.0271957392443412,
+            "candidate_range": [
+              185496,
+              196833
+            ],
+            "recompute_range": [
+              164283,
+              203284
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.0118075651095495,
+            "candidate_range": [
+              165163,
+              208899
+            ],
+            "recompute_range": [
+              164808,
+              202056
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 281391.5,
+      "recompute_total_median": 281442.0,
+      "candidate_phases": {
+        "caller_prepare": 39091.0,
+        "caller_prepared_drop": 2349.5,
+        "caller_transport_execute_observe_drop": 163457.0,
+        "consumer_drop": 1404.5,
+        "finite_service": 28075.0,
+        "input_build": 1314.0,
+        "input_drop": 673.5,
+        "learner_drop": 64.5,
+        "learner_setup": 47.0,
+        "prepare": 18651.0,
+        "prepared_drop": 1934.0,
+        "query_setup": 8347.0,
+        "session_drop": 364.5,
+        "source_build": 18738.5,
+        "source_drop": 1524.0
+      },
+      "recompute_phases": {
+        "caller_prepare": 40131.0,
+        "caller_prepared_drop": 2163.0,
+        "caller_transport_execute_observe_drop": 161341.5,
+        "consumer_drop": 1387.5,
+        "finite_service": 25590.0,
+        "input_build": 1325.0,
+        "input_drop": 681.0,
+        "learner_drop": 40.0,
+        "learner_setup": 74.0,
+        "prepare": 18105.0,
+        "prepared_drop": 1899.5,
+        "query_setup": 5647.5,
+        "session_drop": 163.5,
+        "source_build": 19854.5,
+        "source_drop": 1482.0
+      }
+    },
+    {
+      "config": [
+        "covered",
+        511,
+        0,
+        4
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.9625658800626751,
+            "candidate_range": [
+              374500,
+              430302
+            ],
+            "recompute_range": [
+              409226,
+              960362
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.023253377258816,
+            "candidate_range": [
+              406843,
+              473130
+            ],
+            "recompute_range": [
+              405245,
+              491523
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.9307869557919153,
+            "candidate_range": [
+              284116,
+              313555
+            ],
+            "recompute_range": [
+              315033,
+              728829
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.003398382382584,
+            "candidate_range": [
+              314002,
+              350202
+            ],
+            "recompute_range": [
+              308534,
+              366471
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 414511.0,
+      "recompute_total_median": 418239.5,
+      "candidate_phases": {
+        "caller_prepare": 37281.0,
+        "caller_prepared_drop": 2094.5,
+        "caller_transport_execute_observe_drop": 268731.0,
+        "consumer_drop": 2474.0,
+        "finite_service": 43436.0,
+        "input_build": 1937.5,
+        "input_drop": 1203.0,
+        "learner_drop": 65.5,
+        "learner_setup": 37.5,
+        "prepare": 16747.5,
+        "prepared_drop": 1790.0,
+        "query_setup": 13377.0,
+        "session_drop": 386.5,
+        "source_build": 17105.0,
+        "source_drop": 1591.5
+      },
+      "recompute_phases": {
+        "caller_prepare": 38043.0,
+        "caller_prepared_drop": 2408.5,
+        "caller_transport_execute_observe_drop": 277308.5,
+        "consumer_drop": 2412.5,
+        "finite_service": 46729.5,
+        "input_build": 2056.5,
+        "input_drop": 1275.0,
+        "learner_drop": 40.0,
+        "learner_setup": 71.0,
+        "prepare": 19213.5,
+        "prepared_drop": 2082.5,
+        "query_setup": 10631.5,
+        "session_drop": 238.0,
+        "source_build": 18642.0,
+        "source_drop": 1688.5
+      }
+    },
+    {
+      "config": [
+        "covered",
+        511,
+        0,
+        16
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.0125470428613688,
+            "candidate_range": [
+              1013683,
+              1209171
+            ],
+            "recompute_range": [
+              1118977,
+              1229038
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.022195321495162,
+            "candidate_range": [
+              1172362,
+              1263494
+            ],
+            "recompute_range": [
+              1060378,
+              1263871
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.0029973030048107,
+            "candidate_range": [
+              886061,
+              1075658
+            ],
+            "recompute_range": [
+              998672,
+              1087396
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.0060439208299314,
+            "candidate_range": [
+              1028101,
+              1117626
+            ],
+            "recompute_range": [
+              948580,
+              1107870
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 1193289.0,
+      "recompute_total_median": 1184988.0,
+      "candidate_phases": {
+        "caller_prepare": 42045.5,
+        "caller_prepared_drop": 2331.5,
+        "caller_transport_execute_observe_drop": 923793.0,
+        "consumer_drop": 7767.5,
+        "finite_service": 134989.5,
+        "input_build": 4778.0,
+        "input_drop": 3276.5,
+        "learner_drop": 75.0,
+        "learner_setup": 43.0,
+        "prepare": 19009.0,
+        "prepared_drop": 2053.0,
+        "query_setup": 36497.5,
+        "session_drop": 803.0,
+        "source_build": 17464.0,
+        "source_drop": 1718.0
+      },
+      "recompute_phases": {
+        "caller_prepare": 40706.0,
+        "caller_prepared_drop": 2369.5,
+        "caller_transport_execute_observe_drop": 921913.0,
+        "consumer_drop": 8061.5,
+        "finite_service": 135326.5,
+        "input_build": 4606.0,
+        "input_drop": 3232.5,
+        "learner_drop": 40.5,
+        "learner_setup": 74.0,
+        "prepare": 19002.5,
+        "prepared_drop": 2221.0,
+        "query_setup": 27677.0,
+        "session_drop": 409.0,
+        "source_build": 19923.0,
+        "source_drop": 1757.0
+      }
+    },
+    {
+      "config": [
+        "covered",
+        511,
+        16,
+        1
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.0416586885759542,
+            "candidate_range": [
+              437031,
+              496704
+            ],
+            "recompute_range": [
+              420392,
+              490464
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.0972584365164038,
+            "candidate_range": [
+              463133,
+              513370
+            ],
+            "recompute_range": [
+              433784,
+              474482
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.01142731261131,
+            "candidate_range": [
+              307937,
+              334871
+            ],
+            "recompute_range": [
+              293327,
+              334283
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.0755534275716025,
+            "candidate_range": [
+              327698,
+              350242
+            ],
+            "recompute_range": [
+              305897,
+              328445
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 491647.5,
+      "recompute_total_median": 455689.0,
+      "candidate_phases": {
+        "caller_prepare": 66173.5,
+        "caller_prepared_drop": 3234.5,
+        "caller_transport_execute_observe_drop": 278512.0,
+        "consumer_drop": 1519.0,
+        "finite_service": 52585.5,
+        "input_build": 1407.0,
+        "input_drop": 708.0,
+        "learner_drop": 68.5,
+        "learner_setup": 41.5,
+        "prepare": 34591.5,
+        "prepared_drop": 3153.5,
+        "query_setup": 9182.5,
+        "session_drop": 338.5,
+        "source_build": 29738.5,
+        "source_drop": 2618.0
+      },
+      "recompute_phases": {
+        "caller_prepare": 60604.0,
+        "caller_prepared_drop": 2921.5,
+        "caller_transport_execute_observe_drop": 268968.5,
+        "consumer_drop": 1390.5,
+        "finite_service": 48528.5,
+        "input_build": 1313.5,
+        "input_drop": 678.5,
+        "learner_drop": 39.0,
+        "learner_setup": 70.0,
+        "prepare": 31481.5,
+        "prepared_drop": 2854.0,
+        "query_setup": 5519.5,
+        "session_drop": 79.5,
+        "source_build": 27364.5,
+        "source_drop": 2360.5
+      }
+    },
+    {
+      "config": [
+        "covered",
+        511,
+        16,
+        4
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.0163598734435209,
+            "candidate_range": [
+              680800,
+              789863
+            ],
+            "recompute_range": [
+              670527,
+              772530
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.0418928202391362,
+            "candidate_range": [
+              708450,
+              784358
+            ],
+            "recompute_range": [
+              683971,
+              757903
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.9933507827309396,
+            "candidate_range": [
+              510103,
+              602883
+            ],
+            "recompute_range": [
+              531041,
+              609278
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.0256325789276874,
+            "candidate_range": [
+              550184,
+              605644
+            ],
+            "recompute_range": [
+              533292,
+              602590
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 738534.0,
+      "recompute_total_median": 728420.0,
+      "candidate_phases": {
+        "caller_prepare": 63102.5,
+        "caller_prepared_drop": 3082.0,
+        "caller_transport_execute_observe_drop": 476006.5,
+        "consumer_drop": 2457.0,
+        "finite_service": 102029.5,
+        "input_build": 2152.5,
+        "input_drop": 1416.5,
+        "learner_drop": 67.5,
+        "learner_setup": 39.0,
+        "prepare": 31865.5,
+        "prepared_drop": 3022.5,
+        "query_setup": 14382.5,
+        "session_drop": 433.0,
+        "source_build": 30748.5,
+        "source_drop": 2450.5
+      },
+      "recompute_phases": {
+        "caller_prepare": 63005.5,
+        "caller_prepared_drop": 3220.5,
+        "caller_transport_execute_observe_drop": 478258.5,
+        "consumer_drop": 2518.0,
+        "finite_service": 100860.5,
+        "input_build": 2202.0,
+        "input_drop": 1436.0,
+        "learner_drop": 39.5,
+        "learner_setup": 72.0,
+        "prepare": 34139.0,
+        "prepared_drop": 3100.5,
+        "query_setup": 10687.0,
+        "session_drop": 205.0,
+        "source_build": 28004.5,
+        "source_drop": 2466.5
+      }
+    },
+    {
+      "config": [
+        "covered",
+        511,
+        16,
+        16
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.061091058394975,
+            "candidate_range": [
+              1967177,
+              2200322
+            ],
+            "recompute_range": [
+              1996646,
+              2164792
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.0827132701021045,
+            "candidate_range": [
+              1974702,
+              4502015
+            ],
+            "recompute_range": [
+              1900268,
+              2591704
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.046093587544188,
+            "candidate_range": [
+              1790432,
+              2007081
+            ],
+            "recompute_range": [
+              1826339,
+              1977504
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.0881402558141025,
+            "candidate_range": [
+              1799933,
+              3723151
+            ],
+            "recompute_range": [
+              1735517,
+              2260422
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 2153525.5,
+      "recompute_total_median": 2043088.0,
+      "candidate_phases": {
+        "caller_prepare": 64696.0,
+        "caller_prepared_drop": 3385.0,
+        "caller_transport_execute_observe_drop": 1607685.0,
+        "consumer_drop": 9234.0,
+        "finite_service": 332411.5,
+        "input_build": 4936.0,
+        "input_drop": 4040.0,
+        "learner_drop": 76.0,
+        "learner_setup": 44.0,
+        "prepare": 33655.5,
+        "prepared_drop": 3351.5,
+        "query_setup": 39504.0,
+        "session_drop": 790.5,
+        "source_build": 27767.0,
+        "source_drop": 2792.0
+      },
+      "recompute_phases": {
+        "caller_prepare": 60632.5,
+        "caller_prepared_drop": 3326.5,
+        "caller_transport_execute_observe_drop": 1540277.5,
+        "consumer_drop": 8353.5,
+        "finite_service": 319824.5,
+        "input_build": 5000.5,
+        "input_drop": 3770.5,
+        "learner_drop": 39.5,
+        "learner_setup": 70.5,
+        "prepare": 32137.5,
+        "prepared_drop": 3347.5,
+        "query_setup": 28585.5,
+        "session_drop": 380.5,
+        "source_build": 26522.5,
+        "source_drop": 2774.5
+      }
+    },
+    {
+      "config": [
+        "covered",
+        511,
+        64,
+        1
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.0092813380821837,
+            "candidate_range": [
+              915555,
+              1002965
+            ],
+            "recompute_range": [
+              866108,
+              991037
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 0.9907802012881929,
+            "candidate_range": [
+              892404,
+              972042
+            ],
+            "recompute_range": [
+              838310,
+              1060993
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.9737535959117003,
+            "candidate_range": [
+              653799,
+              721929
+            ],
+            "recompute_range": [
+              591740,
+              717061
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 0.9761987844734525,
+            "candidate_range": [
+              619256,
+              681579
+            ],
+            "recompute_range": [
+              603333,
+              774574
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 927568.0,
+      "recompute_total_median": 944436.5,
+      "candidate_phases": {
+        "caller_prepare": 116556.0,
+        "caller_prepared_drop": 5105.0,
+        "caller_transport_execute_observe_drop": 466227.0,
+        "consumer_drop": 1493.0,
+        "finite_service": 201299.5,
+        "input_build": 1357.0,
+        "input_drop": 648.0,
+        "learner_drop": 66.0,
+        "learner_setup": 41.0,
+        "prepare": 74889.5,
+        "prepared_drop": 5594.0,
+        "query_setup": 8387.0,
+        "session_drop": 375.5,
+        "source_build": 47253.0,
+        "source_drop": 5117.5
+      },
+      "recompute_phases": {
+        "caller_prepare": 114700.5,
+        "caller_prepared_drop": 5188.5,
+        "caller_transport_execute_observe_drop": 482432.5,
+        "consumer_drop": 1701.5,
+        "finite_service": 202253.5,
+        "input_build": 1357.5,
+        "input_drop": 684.0,
+        "learner_drop": 39.0,
+        "learner_setup": 75.0,
+        "prepare": 74865.0,
+        "prepared_drop": 5736.5,
+        "query_setup": 5937.5,
+        "session_drop": 162.5,
+        "source_build": 47545.5,
+        "source_drop": 5054.5
+      }
+    },
+    {
+      "config": [
+        "covered",
+        511,
+        64,
+        4
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.980849201335078,
+            "candidate_range": [
+              1557650,
+              1671583
+            ],
+            "recompute_range": [
+              1499721,
+              1790574
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.0257154502911534,
+            "candidate_range": [
+              1571800,
+              1694707
+            ],
+            "recompute_range": [
+              1419764,
+              1673132
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 0.9649759728397986,
+            "candidate_range": [
+              1312876,
+              1399652
+            ],
+            "recompute_range": [
+              1238340,
+              1493863
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.056694552421803,
+            "candidate_range": [
+              1256819,
+              1418051
+            ],
+            "recompute_range": [
+              1179831,
+              1385851
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 1614207.5,
+      "recompute_total_median": 1636006.5,
+      "candidate_phases": {
+        "caller_prepare": 114141.0,
+        "caller_prepared_drop": 5489.0,
+        "caller_transport_execute_observe_drop": 856976.0,
+        "consumer_drop": 2850.5,
+        "finite_service": 482736.0,
+        "input_build": 2234.5,
+        "input_drop": 1495.0,
+        "learner_drop": 67.0,
+        "learner_setup": 39.5,
+        "prepare": 71473.5,
+        "prepared_drop": 5771.5,
+        "query_setup": 14760.0,
+        "session_drop": 419.5,
+        "source_build": 46355.5,
+        "source_drop": 5045.5
+      },
+      "recompute_phases": {
+        "caller_prepare": 121401.0,
+        "caller_prepared_drop": 5946.0,
+        "caller_transport_execute_observe_drop": 865134.5,
+        "consumer_drop": 3083.0,
+        "finite_service": 486471.5,
+        "input_build": 2267.5,
+        "input_drop": 1464.0,
+        "learner_drop": 39.0,
+        "learner_setup": 75.0,
+        "prepare": 74088.5,
+        "prepared_drop": 6338.5,
+        "query_setup": 11669.5,
+        "session_drop": 234.0,
+        "source_build": 48063.0,
+        "source_drop": 5320.5
+      }
+    },
+    {
+      "config": [
+        "covered",
+        511,
+        64,
+        16
+      ],
+      "total": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.0097453267634962,
+            "candidate_range": [
+              4825018,
+              5313486
+            ],
+            "recompute_range": [
+              4801346,
+              8247848
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.0392539148437836,
+            "candidate_range": [
+              4804080,
+              5372956
+            ],
+            "recompute_range": [
+              4748649,
+              5004139
+            ]
+          }
+        ]
+      },
+      "service": {
+        "direction": "unresolved",
+        "cpus": [
+          {
+            "cpu": 0,
+            "ratio": 1.0064029083821733,
+            "candidate_range": [
+              4512123,
+              4982053
+            ],
+            "recompute_range": [
+              4499407,
+              7898997
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 1.032354924731834,
+            "candidate_range": [
+              4495365,
+              4954931
+            ],
+            "recompute_range": [
+              4450341,
+              4701776
+            ]
+          }
+        ]
+      },
+      "candidate_total_median": 4961110.0,
+      "recompute_total_median": 4819504.0,
+      "candidate_phases": {
+        "caller_prepare": 117689.5,
+        "caller_prepared_drop": 6206.0,
+        "caller_transport_execute_observe_drop": 2975890.5,
+        "consumer_drop": 10129.0,
+        "finite_service": 1653343.0,
+        "input_build": 5425.0,
+        "input_drop": 3880.5,
+        "learner_drop": 73.0,
+        "learner_setup": 40.0,
+        "prepare": 77807.5,
+        "prepared_drop": 6488.5,
+        "query_setup": 42747.0,
+        "session_drop": 858.5,
+        "source_build": 45237.0,
+        "source_drop": 5155.5
+      },
+      "recompute_phases": {
+        "caller_prepare": 111772.5,
+        "caller_prepared_drop": 6167.5,
+        "caller_transport_execute_observe_drop": 2906397.5,
+        "consumer_drop": 10391.5,
+        "finite_service": 1624982.5,
+        "input_build": 5494.5,
+        "input_drop": 3888.0,
+        "learner_drop": 40.5,
+        "learner_setup": 70.5,
+        "prepare": 75839.0,
+        "prepared_drop": 6365.0,
+        "query_setup": 31769.0,
+        "session_drop": 410.0,
+        "source_build": 45954.5,
+        "source_drop": 5236.5
+      }
+    }
+  ],
+  "counts": {
+    "eager": {
+      "unresolved": 25,
+      "gain": 2
+    },
+    "covered": {
+      "unresolved": 24,
+      "gain": 3
+    }
+  }
+}

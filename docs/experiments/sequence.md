@@ -284,6 +284,6 @@ All new results link raw inputs, commands, freezes, validation and unfavorable o
 
 ## Current execution order
 
-The [common-prefix learning entry](results/S06-learning-prefix-entry.md) passes 216 configurations in 648 primary/diagnostic processes, with independent complete caller outcomes and restored heap ownership. Depth-64 covered-state learning requests 1.231 MB versus recomputation's 1.415 MB in the registered five-query favorable witness; this is not a timing result. T073 next registers a bounded learning timing pilot. Direct resource derivations and broader compilation return after that pilot or a consequential obstruction; the architecture goal remains active.
+The [learning cost pilot and focused confirmation](results/S06-learning-costs.md) complete 1,599 processes. Covered-state learning has a confirmed paired median ratio of0.806 on both CPUs for depth64 mixed success with16 follow-ups, while eager learning remains near recomputation there. Whole-failure reuse benefits both policies; no-failure and short-use contrasts retain uncertainty. T073 next inventories direct consuming-resource derivations; renaming-aware call reuse returns at that entry or an obstruction. No general learning or architecture winner follows.
 
 The [current execution order](next-cycle.md#the-order-and-why), [57-question map](question-to-experiment-map.md) and [mechanism ledger](remaining-investigations.md) retain every unresolved obligation. Reordering does not establish an experimental conclusion or complete the goal.
