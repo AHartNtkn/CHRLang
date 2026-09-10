@@ -1,6 +1,6 @@
 # R00: architectural alternatives and first experiment selection
 
-The [resource-phase source gate](S06-capacity-phase-entry.md) validates 2,880 caller configurations per build. Closed multiset answers are insufficient for resumption: producer order, token order and the first consumer head affect caller choices. The corrected continuation preserves ordered residuals, private bindings, later propagation and fresh aliases. T073 next qualifies composition ownership and costs; other distinct directions remain required and the goal remains active.
+The [resource-phase ownership comparison](S06-capacity-phase-ownership.md) validates 900 processes and 300 exact allocation pairs with full heap restoration. Selective queries allocate less; output-heavy complete queries request 9–12% more bytes than specialized scanning while reaching lower live-heap peaks. T073 next registers a counter-free composed cost pilot. This is package two after the matched-reuse breadth review; distinct alternatives and sustained lifetime remain required, and the goal remains active.
 
 ## Earlier experimental checkpoints
 

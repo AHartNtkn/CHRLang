@@ -1,6 +1,6 @@
 # What experiment answers each reviewed design question?
 
-**Current selection: T073 resource-phase composition ownership.** The [resource-phase source gate](results/S06-capacity-phase-entry.md) validates 2,880 caller configurations per build. Closed multiset answers are insufficient for resumption: producer order, token order and the first consumer head affect caller choices. The corrected continuation preserves ordered residuals, private bindings, later propagation and fresh aliases. T073 next qualifies composition ownership and costs; other distinct directions remain required and the goal remains active.
+**Current selection: T073 resource-phase composed cost registration.** The [resource-phase ownership comparison](results/S06-capacity-phase-ownership.md) validates 900 processes and 300 exact allocation pairs with full heap restoration. Selective queries allocate less; output-heavy complete queries request 9–12% more bytes than specialized scanning while reaching lower live-heap peaks. T073 next registers a counter-free composed cost pilot. This is package two after the matched-reuse breadth review; distinct alternatives and sustained lifetime remain required, and the goal remains active.
 
 The [common-source gate and cost design](results/S10-native-common-source.md) qualifies ten Rust configurations on all 125 cases, prefix lowering on 20 and finite solving with its caller on four. Native evidence remains applicable. T078 next establishes native prepared reuse and disposal; no cross-architecture cost matrix has run.
 

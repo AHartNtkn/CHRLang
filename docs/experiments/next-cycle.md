@@ -10,11 +10,11 @@ The [design review](results/R07-design-disposition-review.md) distinguishes meas
 
 Several useful comparisons now exist. [Integrated graph scanning](results/S02-multihead-scale.md) has favorable measured regimes. [Finite solving](results/S06-finite-lifecycle.md) has selective benefits and unselective costs. [Support ordering](results/S08-order-lifecycle.md) has opposing regimes. These findings supply stronger controls, not a complete architecture ranking.
 
-The [resource-phase source gate](results/S06-capacity-phase-entry.md) validates 2,880 caller configurations per build. Closed multiset answers are insufficient for resumption: producer order, token order and the first consumer head affect caller choices. The corrected continuation preserves ordered residuals, private bindings, later propagation and fresh aliases. T073 next qualifies composition ownership and costs; other distinct directions remain required and the goal remains active.
+The [resource-phase ownership comparison](results/S06-capacity-phase-ownership.md) validates 900 processes and 300 exact allocation pairs with full heap restoration. Selective queries allocate less; output-heavy complete queries request 9–12% more bytes than specialized scanning while reaching lower live-heap peaks. T073 next registers a counter-free composed cost pilot. This is package two after the matched-reuse breadth review; distinct alternatives and sustained lifetime remain required, and the goal remains active.
 
 ## The order, and why
 
-Continue investigation 2 with resource-phase composition ownership. The source gate now preserves both consumer head orders and full caller behavior. Reconsider adaptive reunion, local resource claims, richer theories and sustained lifetime at the ownership boundary or an obstruction.
+Continue investigation 2 with a prospectively registered resource-phase cost pilot. The ownership gate establishes opposing allocation and peak-memory regimes. The qualified runner makes runtime a bounded next question; compare adaptive reunion, local resource claims, richer theories and sustained lifetime again at the pilot or an obstruction.
 
 | Order | Investigation | Architectural decision it could change |
 |---|---|---|
@@ -58,16 +58,16 @@ Continue investigation 2 with resource-phase composition ownership. The source g
 
 ## The next concrete experiments
 
-**Next qualify the ownership and complete costs of the ordered resource phase plus its ordinary caller.** The source gate exposes occurrence-order requirements that terminal multiset answers do not carry. Charge that reconstruction, binding transport, both preparations, retained continuations, full observation and disposal before inferring a benefit from the closed solver’s timings.
+**Next measure the runtime of the ordered resource phase plus its ordinary caller.** Ownership and allocation are now qualified. Freeze paired counter-free configurations and interpretation before runs, including selective gains, output-heavy allocation losses, zero/small overhead and cancellation. The closed solver’s timings do not measure this composition.
 
 | Package | Required comparison and checks | Decision and review point |
 |---|---|---|
-| **Resource-phase composition ownership — T073, active** | Qualify prepared phase/caller owners, ordered residual and binding transport, small/output-heavy cases, failures, later private work and retained outputs through disposal. Compare generic and applicable specialized whole-source controls. | Do ordered continuation and boundary costs preserve the closed solver’s advantage? Reconsider the distinct alternatives below at the ownership gate or an obstruction, before primary timing. |
+| **Resource-phase composed costs — T073, active** | Register paired ordinary-allocator, counter-free runtime comparisons using the qualified endpoint and generic/specialized whole-source controls. Include both head orders and callers, full outputs and cancellation. | Does avoided source execution repay added representation traffic? Reconsider the distinct alternatives below at the pilot or an obstruction. |
 | **Adaptive restoration and reunion — T077, required** | Test observable-work adaptation against existing fixed controls, including late links, early failures and policy overhead. | Strongest alternative to resource composition; requires policy and progress qualification. |
 | **Local claims, richer theories and sustained lifetime — required** | Separate conflict/cancellation protocols, independent denotations and sustained consumer/retention trials. | These under-investigated mechanisms remain explicit candidates at the next gate. Their later position is not a negative result. |
 | **Broader reuse — T075, required** | Carry the matched result/learning tradeoff forward. Investigate continuation relevance and effects beyond repeated finite query shapes when they could change the complete-path comparison. | Current short-query uncertainty returns if an automatic policy or deployment threshold is proposed. |
 
-**Why composition costs now:** the source gate establishes a concrete extra obligation: ordered residual construction must follow the consuming rule’s first head. This can alter the cost of using direct solving inside broader programs. Existing solver and ordinary caller controls make ownership qualification a bounded next comparison. Adaptive reunion remains the strongest alternative; local claims, richer theories and sustained lifetime return at that boundary.
+**Why composition costs now:** the ownership comparison finds output-heavy allocation losses alongside lower live-memory peaks and selective allocation gains. Runtime could change the resulting architectural tradeoff. The qualified endpoint makes this cheaper to investigate than the strongest alternative, adaptive reunion, which still needs policy/progress qualification. Local claims, richer theories and sustained lifetime remain required; this choice does not supply evidence against them.
 
 ## Concrete entry experiments for the next breadth review
 

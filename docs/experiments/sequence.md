@@ -10,7 +10,7 @@ This is the governing sequence for the renewed investigation. Existing E/R measu
 
 The [next experimental cycle](next-cycle.md) sets the current execution order, concrete contrasts and completion boundaries from the verified worktree. It reuses the stage definitions below and the full question map.
 
-The current package is T073 resource-phase composition ownership, following the independently checked ordered-continuation gate. The [concrete entry experiments](next-cycle.md#concrete-entry-experiments-for-the-next-breadth-review) specify the alternatives to assess at that boundary: adaptive search, local resource claims, richer theories, sustained lifetime, broader reuse and integrated/choice mechanisms. The sequence document is complete as a plan; those investigations remain work to execute.
+The current package is T073 resource-phase composed cost registration, following the independently checked ordered-continuation and ownership gates. The [allocation comparison](results/S06-capacity-phase-ownership.md) establishes opposing cumulative-traffic and peak-memory regimes; runtime remains unmeasured. The [concrete entry experiments](next-cycle.md#concrete-entry-experiments-for-the-next-breadth-review) specify the alternatives to assess at that boundary: adaptive search, local resource claims, richer theories, sustained lifetime, broader reuse and integrated/choice mechanisms. The sequence document is complete as a plan; those investigations remain work to execute.
 
 ## Account for every reviewed question
 
