@@ -7,8 +7,6 @@ use engines::{Engine, Event};
 #[allow(dead_code)]
 #[path = "support/finite_bridge.rs"]
 mod finite_bridge;
-#[path = "support/finite_kept_read.rs"]
-mod finite_kept_read;
 #[allow(dead_code)]
 #[path = "../../chr-compiled/experiments/finite_phase.rs"]
 mod finite_phase;
@@ -164,23 +162,11 @@ fn main() {
             .rev()
             .find_map(|n| finite_phase::Prepared::new(&rules, n).ok().map(|p| (n, p)));
         match admitted {
-            Some((_, p)) => Some((p, finite_bridge::Bridge::new(rules.clone()))),
+            Some((n, p)) => Some((p, finite_bridge::Bridge::new(rules[n..].to_vec()))),
             None => {
                 println!("UNSUPPORTED no admitted finite phase");
                 return;
             }
-        }
-    } else {
-        None
-    };
-    let kept = if mode == 12 {
-        match finite_kept_read::Prepared::new(&rules, 1) {
-            Ok(p) => Some((p, finite_bridge::Bridge::new(rules.clone()))),
-            Err(e @ finite_phase::Error::Source(_)) => {
-                println!("UNSUPPORTED {e:?}");
-                return;
-            }
-            Err(e) => panic!("checked finite preparation incomplete: {e:?}"),
         }
     } else {
         None
@@ -190,26 +176,10 @@ fn main() {
         eprintln!("eliminated_predicates={}", p.eliminated_predicates().len());
     }
     for (index, query) in queries.into_iter().enumerate() {
-        let finite_query = if let Some((phase, bridge)) = &finite {
-            Some((
-                phase
-                    .solve(&query, finite_phase::Limits::default())
-                    .unwrap(),
-                bridge,
-            ))
-        } else if let Some((phase, bridge)) = &kept {
-            match phase.solve(&query, finite_phase::Limits::default()) {
-                Ok(report) => Some((report, bridge)),
-                Err(e @ finite_phase::Error::Source(_)) => {
-                    println!("UNSUPPORTED {e:?}");
-                    return;
-                }
-                Err(e) => panic!("checked finite admission incomplete: {e:?}"),
-            }
-        } else {
-            None
-        };
-        if let Some((report, bridge)) = finite_query {
+        if let Some((phase, bridge)) = &finite {
+            let report = phase
+                .solve(&query, finite_phase::Limits::default())
+                .unwrap();
             let mut answers = vec![];
             let mut remaining = 20000;
             for solution in report.solutions {

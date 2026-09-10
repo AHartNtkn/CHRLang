@@ -1,6 +1,6 @@
 # Why designs were set aside—and what the experiments actually establish
 
-The [substantive common-source screen and breadth review](S10-native-substantive.md) validates 96 mixed queries across the reference, ten general Rust configurations and both native paths. All native service cutoffs resolve under a registered bound extension. Current lowering controls reject the kept readiness head; T078 next tests whether a checked kept read can admit finite production before committing to the cost matrix.
+The [checked kept-read gate](S10-finite-kept-read.md) admits all 48 early-readiness substantive queries and preserves 48 explicit late-readiness exclusions. The common-source caller now retains the full original ruleset for later private work; 264 prior process observations replay exactly. T078 next qualifies equivalent Rust/native lifecycle measurement, with source-derived solving included where admitted.
 
 The [native choice/identity composition gate](S03-native-choice-identity.md) validates 48 mixed sources, all 77 deterministic regressions and explicit failure/namespace boundaries. Finite siblings progress beside ongoing work. The common-source gate above now supplies the next comparison entry; local native ownership, broader language and lifetime remain required.
 

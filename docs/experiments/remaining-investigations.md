@@ -1,6 +1,6 @@
 # The comparisons still needed to choose the architecture
 
-The [substantive common-source screen and breadth review](results/S10-native-substantive.md) validates 96 mixed queries across the reference, ten general Rust configurations and both native paths. All native service cutoffs resolve under a registered bound extension. Current lowering controls reject the kept readiness head; T078 next tests whether a checked kept read can admit finite production before committing to the cost matrix.
+The [checked kept-read gate](results/S10-finite-kept-read.md) admits all 48 early-readiness substantive queries and preserves 48 explicit late-readiness exclusions. The common-source caller now retains the full original ruleset for later private work; 264 prior process observations replay exactly. T078 next qualifies equivalent Rust/native lifecycle measurement, with source-derived solving included where admitted.
 
 The [native choice/identity composition gate](results/S03-native-choice-identity.md) validates 48 mixed sources, all 77 deterministic regressions and explicit failure/namespace boundaries. Finite siblings progress beside ongoing work. The common-source gate above now supplies the next comparison entry; local native ownership, broader language and lifetime remain required.
 
@@ -54,7 +54,7 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-Current selection: T078 bounded kept-read eligibility and source qualification, selected by the [substantive-screen breadth review](results/S10-native-substantive.md). Test finite production with an initially present nonconsumed readiness occurrence against absent, late and contested enabling. Preserve complete multiplicity, source priority, finite service and caller residuals. Reassess breadth at that gate boundary; whole-path cost measurement and broader native ownership/language remain required.
+Current selection: T078 equivalent lifecycle measurement, following the [kept-read gate-boundary review](results/S10-finite-kept-read.md). Include the checked solver and full caller on admitted sources, preserve late-readiness exclusions, and qualify source costs, consumer endpoints, counters, clock overhead and allocation scope before prospective comparisons. Reassess broader native ownership and source analysis at the cost-runner qualification boundary or a consequential obstruction.
 
 ### Depth, breadth and stopping within this sequence
 

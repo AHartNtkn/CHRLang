@@ -1,0 +1,31 @@
+[
+  {
+    "command": [
+      "target/debug/examples/native_choice_reference"
+    ],
+    "input": "go:v10\n10\n-;pick:v0;(=:v0:a|=:v0:b)\n-;go:v0;pick:v0\n",
+    "code": 0,
+    "stdout": "true 2\nANSWER\na\nANSWER\nb\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "target/debug/examples/native_common_source",
+      "0"
+    ],
+    "input": "go:v10\n10\n-;pick:v0;(=:v0:a|=:v0:b)\n-;go:v0;pick:v0\n",
+    "code": 0,
+    "stdout": "QUERY 0 true 2\nANSWER\na\nANSWER\nb\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "target/debug/examples/native_common_source",
+      "11"
+    ],
+    "input": "go:v10\n10\n-;pick:v0;(=:v0:a|=:v0:b)\n-;go:v0;pick:v0\n",
+    "code": 0,
+    "stdout": "QUERY 0 true 1\nANSWER\nv0\npick:v0\n",
+    "stderr": ""
+  }
+]

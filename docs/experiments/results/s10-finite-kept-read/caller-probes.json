@@ -1,0 +1,62 @@
+[
+  {
+    "name": "ordinary-later-private",
+    "mode": 11,
+    "input": "go:v10\n10\n-;pick:v0;(=:v0:a|=:v0:b)\n-;go:v0;pick:v0\n",
+    "result": {
+      "code": 0,
+      "stdout": "QUERY 0 true 2\nANSWER\na\nANSWER\nb\n",
+      "stderr": ""
+    },
+    "scan": {
+      "code": 0,
+      "stdout": "QUERY 0 true 2\nANSWER\na\nANSWER\nb\n",
+      "stderr": ""
+    },
+    "reference": {
+      "code": 0,
+      "stdout": "true 2\nANSWER\na\nANSWER\nb\n",
+      "stderr": ""
+    }
+  },
+  {
+    "name": "checked-later-private",
+    "mode": 12,
+    "input": "go:v10,ready\n10\nready;pick:v0;(=:v0:a|=:v0:b)\n-;go:v0;pick:v0\n",
+    "result": {
+      "code": 0,
+      "stdout": "QUERY 0 true 2\nANSWER\na\nready\nANSWER\nb\nready\n",
+      "stderr": ""
+    },
+    "scan": {
+      "code": 0,
+      "stdout": "QUERY 0 true 2\nANSWER\na\nready\nANSWER\nb\nready\n",
+      "stderr": ""
+    },
+    "reference": {
+      "code": 0,
+      "stdout": "true 2\nANSWER\na\nready\nANSWER\nb\nready\n",
+      "stderr": ""
+    }
+  },
+  {
+    "name": "checked-consumed-readiness",
+    "mode": 12,
+    "input": "go:v10,ready\n10\nready;pick:v0;(=:v0:a|=:v0:b)\n-;go:v0,ready;pick:v0\n",
+    "result": {
+      "code": 0,
+      "stdout": "QUERY 0 true 1\nANSWER\nv0\npick:v0\n",
+      "stderr": ""
+    },
+    "scan": {
+      "code": 0,
+      "stdout": "QUERY 0 true 1\nANSWER\nv0\npick:v0\n",
+      "stderr": ""
+    },
+    "reference": {
+      "code": 0,
+      "stdout": "true 1\nANSWER\nv0\npick:v0\n",
+      "stderr": ""
+    }
+  }
+]

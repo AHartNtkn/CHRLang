@@ -1,6 +1,6 @@
 # R00: architectural alternatives and first experiment selection
 
-The [substantive common-source screen and breadth review](S10-native-substantive.md) validates 96 mixed queries across the reference, ten general Rust configurations and both native paths. All native service cutoffs resolve under a registered bound extension. Current lowering controls reject the kept readiness head; T078 next tests whether a checked kept read can admit finite production before committing to the cost matrix.
+The [checked kept-read gate](S10-finite-kept-read.md) admits all 48 early-readiness substantive queries and preserves 48 explicit late-readiness exclusions. The common-source caller now retains the full original ruleset for later private work; 264 prior process observations replay exactly. T078 next qualifies equivalent Rust/native lifecycle measurement, with source-derived solving included where admitted.
 
 The [native choice/identity composition gate](S03-native-choice-identity.md) validates 48 mixed sources, all 77 deterministic regressions and explicit failure/namespace boundaries. Finite siblings progress beside ongoing work. The common-source gate above now supplies the next comparison entry; local native ownership, broader language and lifetime remain required.
 
@@ -12,7 +12,7 @@ The [controlled size/reuse extension](S02-multihead-scale.md) completes 8,820 ad
 
 The [finite-solver lifecycle pilot](S06-finite-lifecycle.md) completes 1,428 processes across 204 configurations. A [paired allocation correction](S06-empty-complement-attribution.md) completes another 252 processes. Selective four-query allocation falls to 0.795 MB, below both conditional orders; the unselective batch still requests 15.77 MB versus specialization’s 9.24 MB. These are bounded results, with compilation and broader solver questions still open.
 
-Current selection: T078 bounded kept-read eligibility and source qualification, selected by the [substantive-screen breadth review](S10-native-substantive.md). Test finite production with an initially present nonconsumed readiness occurrence against absent, late and contested enabling. Preserve complete multiplicity, source priority, finite service and caller residuals. Reassess breadth at that gate boundary; whole-path cost measurement and broader native ownership/language remain required.
+Current selection: T078 equivalent lifecycle measurement, following the [kept-read gate-boundary review](S10-finite-kept-read.md). Include the checked solver and full caller on admitted sources, preserve late-readiness exclusions, and qualify source costs, consumer endpoints, counters, clock overhead and allocation scope before prospective comparisons. Reassess broader native ownership and source analysis at the cost-runner qualification boundary or a consequential obstruction.
 
 The [binding-effect certificate](S07-binding-effects-gate.md) removes persistent equality wake-up bookkeeping while preserving consumption conflicts and non-ground observations. T079 subsequently compared admission and lifecycle costs. This is mechanism/correctness evidence, not a language-adoption result.
 

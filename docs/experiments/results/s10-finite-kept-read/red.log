@@ -1,0 +1,22 @@
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.54s
+     Running tests/finite_kept_read_gate.rs (target/debug/deps/finite_kept_read_gate-16a2f34e2737b5e3)
+
+running 1 test
+test kept_ready_read_is_admitted_with_complete_residuals ... FAILED
+
+failures:
+
+---- kept_ready_read_is_admitted_with_complete_residuals stdout ----
+
+thread 'kept_ready_read_is_admitted_with_complete_residuals' (137) panicked at research/chr-direct-conditional/tests/finite_kept_read_gate.rs:26:57:
+called `Result::unwrap()` on an `Err` value: Source("private rule must be unguarded single-head consumption")
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    kept_ready_read_is_admitted_with_complete_residuals
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 8 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p chr-direct-conditional --test finite_kept_read_gate`
