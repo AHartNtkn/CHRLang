@@ -1,0 +1,28 @@
+   Compiling chr-structural v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-structural)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.24s
+     Running tests/joint_projection.rs (target/debug/deps/joint_projection-4158485752f2c52d)
+
+running 3 tests
+test observation_groundness_and_resource_bounds_are_checked ... ok
+test hidden_dependencies_and_changed_caller_restrictions_survive ... ok
+test exact_joint_sets_match_independent_full_assignments ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.34s
+
+     Running tests/reusable_diagram.rs (target/debug/deps/reusable_diagram-a5429f40d7f2c372)
+
+running 2 tests
+test compactness_and_invalid_requests_have_explicit_outcomes ... ok
+test independent_assignment_union_projection_and_inclusion ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running tests/symbolic_transport.rs (target/debug/deps/symbolic_transport-6c7a8f3dc12faa12)
+
+running 3 tests
+test hidden_capture_is_rejected_and_nonground_output_is_not_ground_decoding ... ok
+test independent_answers_preserve_only_declared_caller_sharing ... ok
+test transported_symbolic_membership_matches_independent_denotations ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.19s
+

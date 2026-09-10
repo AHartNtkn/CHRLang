@@ -1,0 +1,28 @@
+   Compiling chr-structural v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-structural)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.44s
+     Running tests/diagram_source.rs (target/debug/deps/diagram_source-2743aaf8760d6308)
+
+running 2 tests
+
+thread 'residual_observers_and_duplicate_alternatives_prevent_raw_replacement' (119) panicked at research/chr-structural/tests/diagram_source.rs:315:5:
+assertion `left == right` failed
+  left: 4
+ right: 16
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test residual_observers_and_duplicate_alternatives_prevent_raw_replacement ... FAILED
+
+thread 'raw_source_and_all_four_prepared_paths_match_independent_assignments' (118) panicked at research/chr-structural/tests/diagram_source.rs:279:25:
+assertion `left == right` failed: source k=2 branches=[[]] alias=false output=[0, 1] request=[]
+  left: {[App("a0", []), App("a0", [])]: 1, [App("a0", []), App("a1", [])]: 1, [App("a1", []), App("a0", [])]: 1, [App("a1", []), App("a1", [])]: 1}
+ right: {[App("a0", []), App("a0", [])]: 2, [App("a0", []), App("a1", [])]: 2, [App("a1", []), App("a0", [])]: 2, [App("a1", []), App("a1", [])]: 2}
+test raw_source_and_all_four_prepared_paths_match_independent_assignments ... FAILED
+
+failures:
+
+failures:
+    raw_source_and_all_four_prepared_paths_match_independent_assignments
+    residual_observers_and_duplicate_alternatives_prevent_raw_replacement
+
+test result: FAILED. 0 passed; 2 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p chr-structural --test diagram_source`
