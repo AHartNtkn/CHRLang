@@ -1,0 +1,162 @@
+[
+  {
+    "case": "equal-b-1",
+    "result": {
+      "code": 0,
+      "stdout": "0\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "equal-b-a",
+    "result": {
+      "code": 0,
+      "stdout": "0\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "equal-b-b",
+    "result": {
+      "code": 0,
+      "stdout": "1\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "history-7-2-3",
+    "result": {
+      "code": 0,
+      "stdout": "1\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "history-7-3-2",
+    "result": {
+      "code": 0,
+      "stdout": "0\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "history-8-2-3",
+    "result": {
+      "code": 0,
+      "stdout": "0\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "history-7-2-4",
+    "result": {
+      "code": 0,
+      "stdout": "0\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "distinct-",
+    "result": {
+      "code": 0,
+      "stdout": "1\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "distinct-0",
+    "result": {
+      "code": 0,
+      "stdout": "1\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "distinct-01",
+    "result": {
+      "code": 0,
+      "stdout": "1\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "distinct-10",
+    "result": {
+      "code": 0,
+      "stdout": "1\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "distinct-00",
+    "result": {
+      "code": 0,
+      "stdout": "0\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "distinct-010",
+    "result": {
+      "code": 0,
+      "stdout": "0\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "remove-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Cons{#Occ{1,#Var{0}},#Nil{}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "remove-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Cons{#Occ{0,#Var{0}},#Nil{}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "remove-2",
+    "result": {
+      "code": 0,
+      "stdout": "#Cons{#Occ{0,#Var{0}},#Cons{#Occ{1,#Var{0}},#Nil{}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "replacement",
+    "result": {
+      "code": 0,
+      "stdout": "#Store{3,#Cons{#Occ{2,#Var{1}},#Cons{#Occ{1,#Var{0}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "choice",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Atom{0},#Cons{#Var{1},#Cons{#Var{2},#Cons{#Var{3},#Nil{}}}}}}\n#Answer{#Cons{#Atom{1},#Cons{#Var{1},#Cons{#Var{2},#Cons{#Var{3},#Nil{}}}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "duplicate",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Atom{0},#Cons{#Var{1},#Cons{#Var{2},#Cons{#Var{3},#Nil{}}}}}}\n#Answer{#Cons{#Atom{0},#Cons{#Var{1},#Cons{#Var{2},#Cons{#Var{3},#Nil{}}}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "choice-failure",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Atom{0},#Cons{#Var{1},#Cons{#Var{2},#Cons{#Var{3},#Nil{}}}}}}\n#Fail{}\n",
+      "stderr": ""
+    }
+  }
+]

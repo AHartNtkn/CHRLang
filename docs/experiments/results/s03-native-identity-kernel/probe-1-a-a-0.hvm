@@ -1,0 +1,33 @@
+@choose = λ{0: λa.λb.b; λn.λa.λb.a}
+@resolve = λterm.λenv.@resolve_kind(term,env)
+@resolve_kind = λ{#Atom: λx.λenv.#Atom{x}; #Var: λx.λenv.!d9000000&(9000000)=env;@lookup(d9000000₀,x,d9000000₁)}
+@lookup = λ{#Nil: λx.λall.#Var{x}; #Cons: λlink.λrest.λx.λall.@lookup_link(link,rest,x,all)}
+@lookup_link = λ{#Link: λkey.λvalue.λrest.λx.λall.!d9000000&(9000000)=x;!d9000001&(9000001)=all;@choose((key==d9000000₀),@resolve(value,d9000001₀),@lookup(rest,d9000000₁,d9000001₁))}
+@equal = λa.λb.λenv.!d9000000&(9000000)=env;@equal_roots(@resolve(a,d9000000₀),@resolve(b,d9000000₁))
+@equal_roots = λ{#Var: λx.λb.@equal_var(b,x); #Atom: λx.λb.@equal_atom(b,x)}
+@equal_var = λ{#Var: λy.λx.(x==y); #Atom: λy.λx.0}
+@equal_atom = λ{#Var: λy.λx.0; #Atom: λy.λx.(x==y)}
+@bind = λa.λb.λenv.!d9000000&(9000000)=env;!d9000001&(9000001)=d9000000₁;@bind_roots(@resolve(a,d9000000₀),@resolve(b,d9000001₀),d9000001₁)
+@bind_roots = λ{#Var: λx.λb.λenv.@bind_var(b,x,env); #Atom: λx.λb.λenv.@bind_atom(b,x,env)}
+@bind_var = λ{#Var: λy.λx.λenv.!d9000000&(9000000)=y;!d9000001&(9000001)=d9000000₁;!d9000002&(9000002)=d9000001₁;!d9000003&(9000003)=x;!d9000004&(9000004)=d9000003₁;!d9000005&(9000005)=d9000004₁;!d9000006&(9000006)=env;!d9000007&(9000007)=d9000006₁;@choose((d9000003₀==d9000000₀),#Ok{d9000006₀},@choose((d9000004₀<d9000001₀),#Ok{#Cons{#Link{d9000002₀,#Var{d9000005₀}},d9000007₀}},#Ok{#Cons{#Link{d9000005₁,#Var{d9000002₁}},d9000007₁}})); #Atom: λy.λx.λenv.#Ok{#Cons{#Link{x,#Atom{y}},env}}}
+@bind_atom = λ{#Var: λy.λx.λenv.#Ok{#Cons{#Link{y,#Atom{x}},env}}; #Atom: λy.λx.λenv.@choose((x==y),#Ok{env},#Fail)}
+@run = λ{#Nil: λenv.!d9000000&(9000000)=env;!d9000001&(9000001)=d9000000₁;!d9000002&(9000002)=d9000001₁;#Answer{#Cons{@resolve(#Var{0},d9000000₀),#Cons{@resolve(#Var{1},d9000001₀),#Cons{@resolve(#Var{2},d9000002₀),#Cons{@resolve(#Var{3},d9000002₁),#Nil}}}}}; #Cons: λop.λrest.λenv.@action(op,rest,env)}
+@action = λ{#Bind: λa.λb.λrest.λenv.@resume(@bind(a,b,env),rest)}
+@resume = λ{#Fail: λrest.#Fail; #Ok: λenv.λrest.@run(rest,env)}
+@same_list = λ{#Nil: λb.@empty(b); #Cons: λx.λxs.λb.@same_cons(b,x,xs)}
+@empty = λ{#Nil: 1; #Cons: λx.λxs.0}
+@same_cons = λ{#Nil: λx.λxs.0; #Cons: λy.λys.λx.λxs.@choose((x==y),@same_list(xs,ys),0)}
+@seen = λrule.λids.λhistory.@history(history,rule,ids)
+@history = λ{#Nil: λrule.λids.0; #Cons: λreceipt.λrest.λrule.λids.@receipt(receipt,rest,rule,ids)}
+@receipt = λ{#Receipt: λr.λtuple.λrest.λrule.λids.!d9000000&(9000000)=rule;!d9000001&(9000001)=ids;@choose(((r==d9000000₀)&&@same_list(tuple,d9000001₀)),1,@history(rest,d9000000₁,d9000001₁))}
+@member = λx.λxs.@member_list(xs,x)
+@member_list = λ{#Nil: λx.0; #Cons: λy.λys.λx.!d9000000&(9000000)=x;@choose((d9000000₀==y),1,@member_list(ys,d9000000₁))}
+@distinct = λ{#Nil: 1; #Cons: λx.λxs.!d9000000&(9000000)=xs;@choose(@member(x,d9000000₀),0,@distinct(d9000000₁))}
+@remove = λid.λstore.@remove_list(store,id)
+@remove_list = λ{#Nil: λid.#Nil; #Cons: λocc.λrest.λid.@remove_occ(occ,rest,id)}
+@remove_occ = λ{#Occ: λkey.λvalue.λrest.λid.!d9000000&(9000000)=key;!d9000001&(9000001)=rest;!d9000002&(9000002)=id;@choose((d9000000₀==d9000002₀),d9000001₀,#Cons{#Occ{d9000000₁,value},@remove_list(d9000001₁,d9000002₁)})}
+@add = λnext.λvalue.λstore.!d9000000&(9000000)=next;#Store{(d9000000₀+1),#Cons{#Occ{d9000000₁,value},store}}
+
+@after = λ{#Ok: λenv.λk.k(env); #Fail: λk.#Fail}
+
+@main = (λenv.@after(@bind(#Var{0},#Atom{0},env),(λenv.!E&(9100000)=env;#Probe{@equal(#Atom{0},#Var{0},E₀),@run(#Nil,E₁)})))(#Nil)

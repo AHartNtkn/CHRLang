@@ -1,5 +1,7 @@
 # Next experimental cycle: answer the remaining design questions
 
+The [native identity operation gate](results/S03-native-identity-kernel.md) validates 340 cases separating equality, occurrence IDs and ordered history, including nonbinding probes. These are executable prerequisites, not native source correspondence. T080 next integrates actual rule selection against the complete-source obligations; broader architectures remain unresolved.
+
 The [controlled size/reuse extension](results/S02-multihead-scale.md) completes 8,820 additional runs. Graph scan has 52 practical timing gains against Scan, eight unresolved comparisons and no losses. Retained joins lose against graph scan in all smaller-width cases. Native identity correspondence is selected next; memory, broader language support and complete architecture comparisons remain required.
 
 The [finite-solver lifecycle pilot](results/S06-finite-lifecycle.md) completes 1,428 processes across 204 configurations. A [paired allocation correction](results/S06-empty-complement-attribution.md) completes another 252 processes. Selective four-query allocation falls to 0.795 MB, below both conditional orders; the unselective batch still requests 15.77 MB versus specialization’s 9.24 MB. These are bounded results, with compilation and broader solver questions still open.

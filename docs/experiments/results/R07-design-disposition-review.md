@@ -1,5 +1,7 @@
 # Why designs were set aside—and what the experiments actually establish
 
+The [native identity operation gate](S03-native-identity-kernel.md) validates 340 cases separating equality, occurrence IDs and ordered history, including nonbinding probes. These are executable prerequisites, not native source correspondence. T080 next integrates actual rule selection against the complete-source obligations; broader architectures remain unresolved.
+
 The [controlled size/reuse extension](S02-multihead-scale.md) adds 52 qualified graph-scan gains, eight unresolved comparisons and no losses against Scan. It strengthens a bounded integrated candidate while leaving broader language and memory tradeoffs open. The next investigation qualifies native identities and equality; no architecture is selected.
 
 The [general integrated matching lifecycle](S02-multihead-lifecycle.md) now supplies a positive timing result for local graph scanning against conventional Scan in the controlled width 64/four-query cases. Larger heap traffic does not imply slower execution. Retained joins have narrower benefits and dense-setup losses; broader sizes, language support, ownership alternatives and complete architecture comparison remain required.
