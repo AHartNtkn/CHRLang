@@ -1,0 +1,19 @@
+   Compiling chr-restoration v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-restoration)
+warning: unused import: `v`
+ --> research/chr-restoration/tests/adaptive_reunion.rs:8:58
+  |
+8 | use chr_syntax::{Answer, Goal, Query, Rule, atom, c, or, v};
+  |                                                          ^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `chr-restoration` (test "adaptive_reunion") generated 1 warning (run `cargo fix --test "adaptive_reunion" -p chr-restoration` to apply 1 suggestion)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.60s
+     Running tests/adaptive_reunion.rs (target/debug/deps/adaptive_reunion-0a793ec16f128b53)
+
+running 2 tests
+test finite_answer_progress_failure_and_cancelled_query_reuse ... ok
+test adaptive_and_fixed_schedules_preserve_complete_repeated_source_answers ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.97s
+

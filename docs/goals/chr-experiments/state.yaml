@@ -9,7 +9,7 @@ goal:
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
   current_research: >-
-    Resource-phase cost pilot validates 1920 processes: all 16 larger/reused scenarios gain against four whole-source controls; eight small scenarios remain unresolved against specialized scanning. Allocation-adverse output-heavy cases still gain in runtime with lower peaks. Package three after matched-reuse breadth review. T077 adaptive separation is next; goal active.
+    Adaptive separation validates 180 policy/source configurations per build, finite-answer progress and cancellation/reuse. Failed-check backoff reduces checking but can increase source steps; no timing or allocation comparison. Full regressions pass 30 primary and 32 diagnostic tests. Four-package breadth review selects T074 sustained service; goal active.
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -64,7 +64,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T077
+active_task: T074
 tasks:
   - id: T080
     type: pm
@@ -200,11 +200,13 @@ tasks:
   - id: T077
     type: pm
     assignee: PM
-    status: active
-    progress: "Repeated reunion retains qualified favorable/adverse allocation regimes and observed late-link boundary overhead. The resource-phase cost pilot now selects adaptive separation as the next distinct mechanism. This next package triggers the full breadth review. No adaptive policy has been qualified or timed."
-    next_action: "Inspect the repeated-reunion implementation and register an observable adaptive separation policy against eager repeated reunion, initial-phase reunion and ordinary execution. Use observed work and eligibility outcomes without future knowledge or generator labels. Qualify complete raw answers, inherited bindings/history, early failure, late/frequent links, cancellation and finite answers beside ongoing work before costs. Adaptive separation does not discharge delayed choice splitting or checkpoint policies. At this gate perform full breadth review, including sustained lifetime as strongest alternative, local claims, richer theories, broader reuse and complete paths."
+    status: "pending"
+    progress: "Adaptive separation validates 180 policy/source configurations per build, finite-answer progress and cancellation/reuse. Failed-check backoff reduces checking but can increase source steps; no timing or allocation comparison. Full regressions pass 30 primary and 32 diagnostic tests. Four-package breadth review selects T074 sustained service; goal active."
+    next_action: "Qualify adaptive policy ownership and complete costs against fixed skips, eager reunion and ordinary execution. Include missed opportunities and successful-but-unprofitable separation; do not choose cap or claim lower cost from work counts. Reconsider at the T074 sustained source/ownership gate or obstruction. Delayed choice splitting and checkpoint/replay remain distinct required questions."
     objective: Investigate corrected checkpoint and replay policies, working-state reuse and temporary separation/reunion against competent copying, persistence and undo, preserving complete source behavior and accounting for preparation, execution, observation and disposal.
     inputs:
+      - docs/experiments/results/S04-adaptive-entry.md
+      - docs/experiments/results/S04-adaptive-breadth-review.md
       - docs/experiments/results/S06-capacity-phase-costs.md
       - docs/experiments/next-cycle.md
       - docs/experiments/results/S04-repeated-reunion-ownership.md
@@ -328,11 +330,13 @@ tasks:
   - id: T074
     type: pm
     assignee: PM
-    status: pending
-    progress: Order lifecycle completes756 processes and108 exact allocation pairs with216 consumer-independent engine groups and full owner restoration. Reverse order lowers oldest-first traffic but raises newest-first traffic under the same observer. Reverse alias peak falls from2829354 to201755 bytes; explicit controls remain much faster on that stream. Conditional execution has far lower traffic and exploratory medians on the independent-choice/check source. A576-byte retained-output difference is exactly attributed to residual-vector spare capacity. The four-package breadth review selects T078 stronger lowering/solving qualification before architectural inference.
-    next_action: Resume broader support representation, exact observation and reclamation after T078 qualifies stronger lowering/solving controls on the opposite-arrival source. The order lifecycle package triggers the four-package breadth review; its source-dependent sharing opportunity requires a credible elimination control before architectural inference. Reconsider T079 effect certification at that qualification boundary.
+    status: "active"
+    progress: "Existing eight-query ownership and reclamation trials remain scoped controls. The four-package adaptive/resource breadth review selects sustained service and consumer-pressure qualification. No new sustained matrix has run."
+    next_action: "Audit existing stream and cross-query runners before registration. Establish a common independently checked service/consumer contract across credible compiled, graph/contextual and applicable reuse/lowering controls. Separate stable-size changed queries from growing-source controls; qualify immediate release, bounded windows, retained-all consumers, burst demand/backpressure, cancellation/reuse and finite observations beside ongoing work. Keep preparation, engine history and consumer outputs distinct. At this gate compare adaptive ownership/costs as strongest alternative with local claims, richer theories, broader reuse/integration and complete architectures. New breadth cycle; at most four packages before full review."
     objective: Investigate sustained answer delivery, consumer ownership and engine retention across credible graph, compiled and reuse controls, including immediate release, bounded retention, changing queries, cancellation and reclamation costs under independently checked source semantics.
     inputs:
+      - docs/experiments/results/S04-adaptive-entry.md
+      - docs/experiments/results/S04-adaptive-breadth-review.md
       - docs/experiments/next-cycle.md
       - docs/experiments/results/S08-support-order-gate.md
       - docs/experiments/results/S08-support-lifecycle.md

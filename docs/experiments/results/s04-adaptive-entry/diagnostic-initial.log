@@ -1,0 +1,24 @@
+   Compiling chr-restoration v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-restoration)
+warning: unused import: `v`
+ --> research/chr-restoration/tests/adaptive_reunion.rs:8:58
+  |
+8 | use chr_syntax::{Answer, Goal, Query, Rule, atom, c, or, v};
+  |                                                          ^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `chr-restoration` (test "adaptive_reunion") generated 1 warning (run `cargo fix --test "adaptive_reunion" -p chr-restoration` to apply 1 suggestion)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.62s
+     Running tests/adaptive_reunion.rs (target/debug/deps/adaptive_reunion-c962c46d1f5d036a)
+
+running 3 tests
+test finite_answer_progress_failure_and_cancelled_query_reuse ... ok
+FixedSkip(1): checks=128 skipped=127 private=770 coupled=720 epochs=42; eager checks=199
+FixedSkip(8): checks=48 skipped=378 private=332 coupled=1127 epochs=27; eager checks=199
+FailedCheckBackoff { max_skip: 1 }: checks=114 skipped=85 private=872 coupled=606 epochs=29; eager checks=199
+FailedCheckBackoff { max_skip: 8 }: checks=69 skipped=152 private=838 coupled=650 epochs=39; eager checks=199
+test backoff_avoids_failed_attempts_on_late_links ... ok
+test adaptive_and_fixed_schedules_preserve_complete_repeated_source_answers ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.07s
+

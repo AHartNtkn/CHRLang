@@ -1,0 +1,328 @@
+{
+  "policy_configurations_per_build": 180,
+  "source_query_cases_per_build": 36,
+  "regression_tests": {
+    "regressions-primary.log": 30,
+    "regressions-diagnostic.log": 32
+  },
+  "work": [
+    {
+      "family": "plain",
+      "depth": 0,
+      "policy": "EveryBoundary",
+      "checks": 31,
+      "skipped": 0,
+      "private": 420,
+      "coupled": 284,
+      "epochs": 15
+    },
+    {
+      "family": "plain",
+      "depth": 0,
+      "policy": "FixedSkip(1)",
+      "checks": 31,
+      "skipped": 30,
+      "private": 452,
+      "coupled": 364,
+      "epochs": 24
+    },
+    {
+      "family": "plain",
+      "depth": 0,
+      "policy": "FixedSkip(8)",
+      "checks": 18,
+      "skipped": 141,
+      "private": 194,
+      "coupled": 660,
+      "epochs": 16
+    },
+    {
+      "family": "plain",
+      "depth": 0,
+      "policy": "FailedCheckBackoff { max_skip: 1 }",
+      "checks": 23,
+      "skipped": 8,
+      "private": 420,
+      "coupled": 284,
+      "epochs": 15
+    },
+    {
+      "family": "plain",
+      "depth": 0,
+      "policy": "FailedCheckBackoff { max_skip: 8 }",
+      "checks": 19,
+      "skipped": 12,
+      "private": 420,
+      "coupled": 284,
+      "epochs": 15
+    },
+    {
+      "family": "plain",
+      "depth": 4,
+      "policy": "EveryBoundary",
+      "checks": 31,
+      "skipped": 0,
+      "private": 900,
+      "coupled": 284,
+      "epochs": 15
+    },
+    {
+      "family": "plain",
+      "depth": 4,
+      "policy": "FixedSkip(1)",
+      "checks": 30,
+      "skipped": 29,
+      "private": 1054,
+      "coupled": 340,
+      "epochs": 22
+    },
+    {
+      "family": "plain",
+      "depth": 4,
+      "policy": "FixedSkip(8)",
+      "checks": 31,
+      "skipped": 242,
+      "private": 706,
+      "coupled": 830,
+      "epochs": 30
+    },
+    {
+      "family": "plain",
+      "depth": 4,
+      "policy": "FailedCheckBackoff { max_skip: 1 }",
+      "checks": 23,
+      "skipped": 8,
+      "private": 900,
+      "coupled": 284,
+      "epochs": 15
+    },
+    {
+      "family": "plain",
+      "depth": 4,
+      "policy": "FailedCheckBackoff { max_skip: 8 }",
+      "checks": 19,
+      "skipped": 12,
+      "private": 900,
+      "coupled": 284,
+      "epochs": 15
+    },
+    {
+      "family": "history",
+      "depth": 0,
+      "policy": "EveryBoundary",
+      "checks": 31,
+      "skipped": 0,
+      "private": 580,
+      "coupled": 284,
+      "epochs": 31
+    },
+    {
+      "family": "history",
+      "depth": 0,
+      "policy": "FixedSkip(1)",
+      "checks": 31,
+      "skipped": 30,
+      "private": 594,
+      "coupled": 364,
+      "epochs": 31
+    },
+    {
+      "family": "history",
+      "depth": 0,
+      "policy": "FixedSkip(8)",
+      "checks": 18,
+      "skipped": 141,
+      "private": 326,
+      "coupled": 660,
+      "epochs": 18
+    },
+    {
+      "family": "history",
+      "depth": 0,
+      "policy": "FailedCheckBackoff { max_skip: 1 }",
+      "checks": 31,
+      "skipped": 0,
+      "private": 580,
+      "coupled": 284,
+      "epochs": 31
+    },
+    {
+      "family": "history",
+      "depth": 0,
+      "policy": "FailedCheckBackoff { max_skip: 8 }",
+      "checks": 31,
+      "skipped": 0,
+      "private": 580,
+      "coupled": 284,
+      "epochs": 31
+    },
+    {
+      "family": "history",
+      "depth": 4,
+      "policy": "EveryBoundary",
+      "checks": 31,
+      "skipped": 0,
+      "private": 1060,
+      "coupled": 284,
+      "epochs": 31
+    },
+    {
+      "family": "history",
+      "depth": 4,
+      "policy": "FixedSkip(1)",
+      "checks": 30,
+      "skipped": 29,
+      "private": 1198,
+      "coupled": 340,
+      "epochs": 30
+    },
+    {
+      "family": "history",
+      "depth": 4,
+      "policy": "FixedSkip(8)",
+      "checks": 31,
+      "skipped": 242,
+      "private": 836,
+      "coupled": 830,
+      "epochs": 31
+    },
+    {
+      "family": "history",
+      "depth": 4,
+      "policy": "FailedCheckBackoff { max_skip: 1 }",
+      "checks": 31,
+      "skipped": 0,
+      "private": 1060,
+      "coupled": 284,
+      "epochs": 31
+    },
+    {
+      "family": "history",
+      "depth": 4,
+      "policy": "FailedCheckBackoff { max_skip: 8 }",
+      "checks": 31,
+      "skipped": 0,
+      "private": 1060,
+      "coupled": 284,
+      "epochs": 31
+    },
+    {
+      "family": "late",
+      "depth": 0,
+      "policy": "EveryBoundary",
+      "checks": 87,
+      "skipped": 0,
+      "private": 392,
+      "coupled": 382,
+      "epochs": 29
+    },
+    {
+      "family": "late",
+      "depth": 0,
+      "policy": "FixedSkip(1)",
+      "checks": 63,
+      "skipped": 63,
+      "private": 284,
+      "coupled": 491,
+      "epochs": 35
+    },
+    {
+      "family": "late",
+      "depth": 0,
+      "policy": "FixedSkip(8)",
+      "checks": 18,
+      "skipped": 141,
+      "private": 95,
+      "coupled": 642,
+      "epochs": 11
+    },
+    {
+      "family": "late",
+      "depth": 0,
+      "policy": "FailedCheckBackoff { max_skip: 1 }",
+      "checks": 58,
+      "skipped": 29,
+      "private": 392,
+      "coupled": 382,
+      "epochs": 29
+    },
+    {
+      "family": "late",
+      "depth": 0,
+      "policy": "FailedCheckBackoff { max_skip: 8 }",
+      "checks": 63,
+      "skipped": 58,
+      "private": 341,
+      "coupled": 450,
+      "epochs": 46
+    },
+    {
+      "family": "late",
+      "depth": 4,
+      "policy": "EveryBoundary",
+      "checks": 199,
+      "skipped": 0,
+      "private": 872,
+      "coupled": 606,
+      "epochs": 29
+    },
+    {
+      "family": "late",
+      "depth": 4,
+      "policy": "FixedSkip(1)",
+      "checks": 128,
+      "skipped": 127,
+      "private": 770,
+      "coupled": 720,
+      "epochs": 42
+    },
+    {
+      "family": "late",
+      "depth": 4,
+      "policy": "FixedSkip(8)",
+      "checks": 48,
+      "skipped": 378,
+      "private": 332,
+      "coupled": 1127,
+      "epochs": 27
+    },
+    {
+      "family": "late",
+      "depth": 4,
+      "policy": "FailedCheckBackoff { max_skip: 1 }",
+      "checks": 114,
+      "skipped": 85,
+      "private": 872,
+      "coupled": 606,
+      "epochs": 29
+    },
+    {
+      "family": "late",
+      "depth": 4,
+      "policy": "FailedCheckBackoff { max_skip: 8 }",
+      "checks": 69,
+      "skipped": 152,
+      "private": 838,
+      "coupled": 650,
+      "epochs": 39
+    }
+  ],
+  "sha256": {
+    "research/chr-restoration/src/reunion.rs": "6903c621540911f62ae89b14d21a362188fb56cb58939c324fa45eb641fb9813",
+    "research/chr-restoration/src/lib.rs": "c4d64e7d249f026fe0c469dc9bb32ae57dedce7ebe77d9ed7652282bcd6b194f",
+    "research/chr-restoration/tests/adaptive_reunion.rs": "d85ba6ffcd1f0e1df49279c9c9e763245f801a1bcd0ee663329b0397f99ad8c7",
+    "research/chr-restoration/examples/support/repeated_source.rs": "5293a8c32a5df5208eb0f0fafeec3c8204e329b3ca2646627713f0ab2d5623f8",
+    "docs/experiments/registrations/S04-adaptive-entry.md": "c584e51ae6ff7b2f18e9e99fac4abd181781e9555cf71143236fe09124aa6e8b",
+    "docs/experiments/results/s04-adaptive-entry/clippy-diagnostic.log": "0f44dec8de2b818c298866227b5e7d6b9c3b939b77b8ae4767da9e43087e870f",
+    "docs/experiments/results/s04-adaptive-entry/red.log": "11d022f775f2b5f26a4c0f11b6b2df6f63f8c23f33edc620964b1ab7a20f23a0",
+    "docs/experiments/results/s04-adaptive-entry/initial.log": "a0247299b61e1b45b9c4ec4f5c5bc3f8bd046a5ad3811404ce2a72381c573134",
+    "docs/experiments/results/s04-adaptive-entry/checked-primary.log": "ebb6cbf777893431873f903f9d356244e9aaa6f03ac986c644746a08bcec39c4",
+    "docs/experiments/results/s04-adaptive-entry/clippy-primary.log": "744174b8850977597280b7a96064131e182cf8dbe9c6f00abef40b7f4687e963",
+    "docs/experiments/results/s04-adaptive-entry/regressions-primary.log": "dbb0d0f7f6df36e961b269321e88bd16f5d3f788515051cdc17f5f5ca5d718b3",
+    "docs/experiments/results/s04-adaptive-entry/diagnostic-initial.log": "7967703adf9bee6f68b152c38c3fc200796dc655dce6a248ab376e15602bed94",
+    "docs/experiments/results/s04-adaptive-entry/regressions-diagnostic.log": "0be17eb76ca4c0e342fab4ec79018f70cd8bac261da863a18b9eedc1e6656a45",
+    "docs/experiments/results/s04-adaptive-entry/checked-diagnostic.log": "f8f147d8c96da1a591cace91b60be1a318b6338cc499dbfcd30aeb56f32e0453",
+    "research/chr-direct-conditional/tests/runtime_support/mod.rs": "03633e8d666fadcdd08ddfe4900aa8116b32e434fb0a5dcb1c5faa23ff5976b2"
+  },
+  "scope": "Final source/progress qualification; no allocation or timing comparison; hashes recorded after validation"
+}

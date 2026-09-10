@@ -10,7 +10,7 @@ This is the governing sequence for the renewed investigation. Existing E/R measu
 
 The [next experimental cycle](next-cycle.md) sets the current execution order, concrete contrasts and completion boundaries from the verified worktree. It reuses the stage definitions below and the full question map.
 
-The current package is T077 adaptive separation/reunion qualification, following the [resource-phase cost pilot](results/S06-capacity-phase-costs.md). That pilot establishes larger-query gains without resolving small-query thresholds or general source eligibility. The [concrete entry experiments](next-cycle.md#concrete-entry-experiments-for-the-next-breadth-review) specify the alternatives to assess at that boundary: adaptive search, local resource claims, richer theories, sustained lifetime, broader reuse and integrated/choice mechanisms. The sequence document is complete as a plan; those investigations remain work to execute.
+The current package is T074 sustained service and consumer-pressure qualification, selected by the [four-package breadth review](results/S04-adaptive-breadth-review.md). Resource-phase costs and adaptive separation now provide additional qualified candidates; sustainable lifetime remains unmeasured beyond the recorded bounded trials. The [concrete entry experiments](next-cycle.md#concrete-entry-experiments-for-the-next-breadth-review) specify the alternatives to assess at that boundary: adaptive search, local resource claims, richer theories, sustained lifetime, broader reuse and integrated/choice mechanisms. The sequence document is complete as a plan; those investigations remain work to execute.
 
 ## Account for every reviewed question
 

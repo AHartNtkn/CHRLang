@@ -1,6 +1,6 @@
 # R00: architectural alternatives and first experiment selection
 
-The [resource-phase cost pilot](S06-capacity-phase-costs.md) validates 1,920 processes. All 16 larger/reused scenarios gain against all four whole-source controls, including output-heavy allocation-adverse cases; eight small scenarios remain unresolved against specialized scanning. T077 next qualifies observable adaptive separation/reunion. This is package three after the matched-reuse breadth review; the next package triggers full breadth review. Broader sources, sustained lifetime and architecture selection remain open.
+The [adaptive separation gate](S04-adaptive-entry.md) preserves 180 policy/source configurations per build, bounded finite-answer progress and cancellation/reuse. Backoff reduces failed checks but can increase subsequent source work; complete costs remain unmeasured. The [four-package breadth review](S04-adaptive-breadth-review.md) selects T074 sustained service and consumer-pressure qualification. Adaptive costs and all distinct architecture directions remain required; the goal remains active.
 
 ## Earlier experimental checkpoints
 
