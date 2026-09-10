@@ -1,0 +1,303 @@
+[
+  {
+    "group": 0,
+    "cases": [
+      "choice-binding-10-0",
+      "choice-binding-10-1",
+      "choice-binding-1000-0",
+      "choice-binding-1000-1"
+    ],
+    "code": 0,
+    "stdout": "PREFIX 1 Source(\"private rule must be unguarded single-head consumption\")\nPREFIX 2 Source(\"private rule must be unguarded single-head consumption\")\n",
+    "stderr": ""
+  },
+  {
+    "group": 1,
+    "cases": [
+      "choice-correlation-10-0",
+      "choice-correlation-10-1",
+      "choice-correlation-1000-0",
+      "choice-correlation-1000-1"
+    ],
+    "code": 0,
+    "stdout": "PREFIX 1 Source(\"non-producer alternative\")\n",
+    "stderr": ""
+  },
+  {
+    "group": 2,
+    "cases": [
+      "choice-independent-10-0",
+      "choice-independent-10-1",
+      "choice-independent-1000-0",
+      "choice-independent-1000-1"
+    ],
+    "code": 0,
+    "stdout": "PREFIX 1 admitted\n",
+    "stderr": ""
+  },
+  {
+    "group": 3,
+    "cases": [
+      "choice-duplicate-10-0",
+      "choice-duplicate-10-1",
+      "choice-duplicate-1000-0",
+      "choice-duplicate-1000-1"
+    ],
+    "code": 0,
+    "stdout": "PREFIX 1 Source(\"private rule must be unguarded single-head consumption\")\nPREFIX 2 Source(\"private rule must be unguarded single-head consumption\")\n",
+    "stderr": ""
+  },
+  {
+    "group": 4,
+    "cases": [
+      "choice-compete-10-0",
+      "choice-compete-10-1",
+      "choice-compete-1000-0",
+      "choice-compete-1000-1"
+    ],
+    "code": 0,
+    "stdout": "PREFIX 1 Source(\"non-producer alternative\")\nPREFIX 2 Source(\"non-producer alternative\")\nPREFIX 3 Source(\"non-producer alternative\")\n",
+    "stderr": ""
+  },
+  {
+    "group": 5,
+    "cases": [
+      "choice-replacement-10-0",
+      "choice-replacement-10-1",
+      "choice-replacement-1000-0",
+      "choice-replacement-1000-1"
+    ],
+    "code": 0,
+    "stdout": "PREFIX 1 Source(\"private rule must be unguarded single-head consumption\")\nPREFIX 2 Source(\"private rule must be unguarded single-head consumption\")\n",
+    "stderr": ""
+  },
+  {
+    "group": 6,
+    "cases": [
+      "choice-history-choice-10-0",
+      "choice-history-choice-10-1",
+      "choice-history-choice-1000-0",
+      "choice-history-choice-1000-1"
+    ],
+    "code": 0,
+    "stdout": "PREFIX 1 Source(\"private rule must be unguarded single-head consumption\")\n",
+    "stderr": ""
+  },
+  {
+    "group": 7,
+    "cases": [
+      "choice-nested-10-0",
+      "choice-nested-10-1",
+      "choice-nested-1000-0",
+      "choice-nested-1000-1"
+    ],
+    "code": 0,
+    "stdout": "PREFIX 1 Source(\"non-producer alternative\")\n",
+    "stderr": ""
+  },
+  {
+    "group": 8,
+    "cases": [
+      "choice-binding-failure-10-0",
+      "choice-binding-failure-10-1",
+      "choice-binding-failure-1000-0",
+      "choice-binding-failure-1000-1"
+    ],
+    "code": 0,
+    "stdout": "PREFIX 1 Source(\"non-producer alternative\")\n",
+    "stderr": ""
+  },
+  {
+    "group": 9,
+    "cases": [
+      "choice-off-output-failure-10-0",
+      "choice-off-output-failure-10-1",
+      "choice-off-output-failure-1000-0",
+      "choice-off-output-failure-1000-1"
+    ],
+    "code": 0,
+    "stdout": "PREFIX 1 Source(\"non-producer alternative\")\n",
+    "stderr": ""
+  },
+  {
+    "group": 10,
+    "cases": [
+      "choice-loop-0-10-0",
+      "choice-loop-0-10-1",
+      "choice-loop-0-1000-0",
+      "choice-loop-0-1000-1"
+    ],
+    "code": 0,
+    "stdout": "PREFIX 1 Source(\"non-producer alternative\")\nPREFIX 2 Source(\"non-producer alternative\")\n",
+    "stderr": ""
+  },
+  {
+    "group": 11,
+    "cases": [
+      "choice-loop-1-10-0",
+      "choice-loop-1-10-1",
+      "choice-loop-1-1000-0",
+      "choice-loop-1-1000-1"
+    ],
+    "code": 0,
+    "stdout": "PREFIX 1 Source(\"non-producer alternative\")\nPREFIX 2 Source(\"non-producer alternative\")\n",
+    "stderr": ""
+  },
+  {
+    "group": 12,
+    "cases": [
+      "det-replace-0-0",
+      "det-replace-0-1",
+      "det-replace-1-0",
+      "det-replace-1-1",
+      "det-replace-2-0",
+      "det-replace-2-1",
+      "det-replace-3-0",
+      "det-replace-3-1"
+    ],
+    "code": 0,
+    "stdout": "PREFIX 1 Source(\"private rule must be unguarded single-head consumption\")\nPREFIX 2 Source(\"private rule must be unguarded single-head consumption\")\n",
+    "stderr": ""
+  },
+  {
+    "group": 13,
+    "cases": [
+      "det-bind-10-0",
+      "det-bind-10-1",
+      "det-bind-100-0",
+      "det-bind-100-1",
+      "det-bind-1000-0",
+      "det-bind-1000-1"
+    ],
+    "code": 0,
+    "stdout": "PREFIX 1 Source(\"private rule must be unguarded single-head consumption\")\nPREFIX 2 Source(\"private rule must be unguarded single-head consumption\")\n",
+    "stderr": ""
+  },
+  {
+    "group": 14,
+    "cases": [
+      "det-fresh-10-0",
+      "det-fresh-10-1",
+      "det-fresh-100-0",
+      "det-fresh-100-1",
+      "det-fresh-1000-0",
+      "det-fresh-1000-1"
+    ],
+    "code": 0,
+    "stdout": "PREFIX 1 Source(\"private rule must be unguarded single-head consumption\")\nPREFIX 2 Source(\"private rule must be unguarded single-head consumption\")\n",
+    "stderr": ""
+  },
+  {
+    "group": 15,
+    "cases": [
+      "det-pairs-0",
+      "det-pairs-1",
+      "det-pairs-2",
+      "det-pairs-3",
+      "det-pairs-distinct"
+    ],
+    "code": 0,
+    "stdout": "PREFIX 1 Source(\"private rule must be unguarded single-head consumption\")\n",
+    "stderr": ""
+  },
+  {
+    "group": 16,
+    "cases": [
+      "det-order-10-0-0-0",
+      "det-order-10-0-0-1",
+      "det-order-10-1-0-0",
+      "det-order-10-1-0-1",
+      "det-order-100-0-0-0",
+      "det-order-100-0-0-1",
+      "det-order-100-1-0-0",
+      "det-order-100-1-0-1",
+      "det-order-1000-0-0-0",
+      "det-order-1000-0-0-1",
+      "det-order-1000-1-0-0",
+      "det-order-1000-1-0-1"
+    ],
+    "code": 0,
+    "stdout": "PREFIX 1 Source(\"private rule must be unguarded single-head consumption\")\nPREFIX 2 Source(\"private rule must be unguarded single-head consumption\")\nPREFIX 3 Source(\"private rule must be unguarded single-head consumption\")\n",
+    "stderr": ""
+  },
+  {
+    "group": 17,
+    "cases": [
+      "det-order-10-0-1-0",
+      "det-order-10-0-1-1",
+      "det-order-10-1-1-0",
+      "det-order-10-1-1-1",
+      "det-order-100-0-1-0",
+      "det-order-100-0-1-1",
+      "det-order-100-1-1-0",
+      "det-order-100-1-1-1",
+      "det-order-1000-0-1-0",
+      "det-order-1000-0-1-1",
+      "det-order-1000-1-1-0",
+      "det-order-1000-1-1-1"
+    ],
+    "code": 0,
+    "stdout": "PREFIX 1 Source(\"no finite choice producer\")\nPREFIX 2 Source(\"private rule must be unguarded single-head consumption\")\nPREFIX 3 Source(\"private rule must be unguarded single-head consumption\")\n",
+    "stderr": ""
+  },
+  {
+    "group": 18,
+    "cases": [
+      "det-commute-10-0-0",
+      "det-commute-10-0-1",
+      "det-commute-100-0-0",
+      "det-commute-100-0-1",
+      "det-commute-1000-0-0",
+      "det-commute-1000-0-1"
+    ],
+    "code": 0,
+    "stdout": "PREFIX 1 Source(\"no finite choice producer\")\nPREFIX 2 Source(\"no finite choice producer\")\n",
+    "stderr": ""
+  },
+  {
+    "group": 19,
+    "cases": [
+      "det-commute-10-1-0",
+      "det-commute-10-1-1",
+      "det-commute-100-1-0",
+      "det-commute-100-1-1",
+      "det-commute-1000-1-0",
+      "det-commute-1000-1-1"
+    ],
+    "code": 0,
+    "stdout": "PREFIX 1 Source(\"no finite choice producer\")\nPREFIX 2 Source(\"no finite choice producer\")\n",
+    "stderr": ""
+  },
+  {
+    "group": 20,
+    "cases": [
+      "det-compound-10-0-0-0",
+      "det-compound-10-0-0-1",
+      "det-compound-10-1-0-0",
+      "det-compound-10-1-0-1",
+      "det-compound-1000-0-0-0",
+      "det-compound-1000-0-0-1",
+      "det-compound-1000-1-0-0",
+      "det-compound-1000-1-0-1"
+    ],
+    "code": 0,
+    "stdout": "PREFIX 1 Source(\"private rule must be unguarded single-head consumption\")\nPREFIX 2 Source(\"private rule must be unguarded single-head consumption\")\nPREFIX 3 Source(\"private rule must be unguarded single-head consumption\")\nPREFIX 4 Source(\"private rule must be unguarded single-head consumption\")\nPREFIX 5 Source(\"private rule must be unguarded single-head consumption\")\n",
+    "stderr": ""
+  },
+  {
+    "group": 21,
+    "cases": [
+      "det-compound-10-0-1-0",
+      "det-compound-10-0-1-1",
+      "det-compound-10-1-1-0",
+      "det-compound-10-1-1-1",
+      "det-compound-1000-0-1-0",
+      "det-compound-1000-0-1-1",
+      "det-compound-1000-1-1-0",
+      "det-compound-1000-1-1-1"
+    ],
+    "code": 0,
+    "stdout": "PREFIX 1 Source(\"private rule must be unguarded single-head consumption\")\nPREFIX 2 Source(\"private rule must be unguarded single-head consumption\")\nPREFIX 3 Source(\"private rule must be unguarded single-head consumption\")\nPREFIX 4 Source(\"private rule must be unguarded single-head consumption\")\nPREFIX 5 Source(\"private rule must be unguarded single-head consumption\")\n",
+    "stderr": ""
+  }
+]

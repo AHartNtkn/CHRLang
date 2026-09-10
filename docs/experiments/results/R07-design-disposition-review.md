@@ -1,6 +1,8 @@
 # Why designs were set aside—and what the experiments actually establish
 
-The [native choice/identity composition gate](S03-native-choice-identity.md) validates 48 mixed sources, all 77 deterministic regressions and explicit failure/namespace boundaries. Finite siblings progress beside ongoing work. T078 common-source qualification and complete-path cost design is selected next; local native ownership, broader language and lifetime remain required.
+The [common-source gate and cost design](S10-native-common-source.md) qualifies ten Rust configurations on all 125 cases, prefix lowering on 20 and finite solving with its caller on four. Native evidence remains applicable. T078 next establishes native prepared reuse and disposal; no cross-architecture cost matrix has run.
+
+The [native choice/identity composition gate](S03-native-choice-identity.md) validates 48 mixed sources, all 77 deterministic regressions and explicit failure/namespace boundaries. Finite siblings progress beside ongoing work. The common-source gate above now supplies the next comparison entry; local native ownership, broader language and lifetime remain required.
 
 The [native identity-bearing source gate](S03-native-identity-source.md) passes 77 complete sources against independent expectations and the unchanged reference. Serial matching, replacement, equality and ordered histories now execute together. The composition gate above now tests interaction with choices and failure; local ownership and broader architecture comparisons remain required.
 

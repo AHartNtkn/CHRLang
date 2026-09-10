@@ -1,6 +1,8 @@
 # R00: architectural alternatives and first experiment selection
 
-The [native choice/identity composition gate](S03-native-choice-identity.md) validates 48 mixed sources, all 77 deterministic regressions and explicit failure/namespace boundaries. Finite siblings progress beside ongoing work. T078 common-source qualification and complete-path cost design is selected next; local native ownership, broader language and lifetime remain required.
+The [common-source gate and cost design](S10-native-common-source.md) qualifies ten Rust configurations on all 125 cases, prefix lowering on 20 and finite solving with its caller on four. Native evidence remains applicable. T078 next establishes native prepared reuse and disposal; no cross-architecture cost matrix has run.
+
+The [native choice/identity composition gate](S03-native-choice-identity.md) validates 48 mixed sources, all 77 deterministic regressions and explicit failure/namespace boundaries. Finite siblings progress beside ongoing work. The common-source gate above now supplies the next comparison entry; local native ownership, broader language and lifetime remain required.
 
 The [native identity-bearing source gate](S03-native-identity-source.md) passes 77 complete sources against independent expectations and the unchanged reference. Serial matching, replacement, equality and ordered histories now execute together. The composition gate above now tests interaction with choices and failure; local ownership and broader architecture comparisons remain required.
 
@@ -10,7 +12,7 @@ The [controlled size/reuse extension](S02-multihead-scale.md) completes 8,820 ad
 
 The [finite-solver lifecycle pilot](S06-finite-lifecycle.md) completes 1,428 processes across 204 configurations. A [paired allocation correction](S06-empty-complement-attribution.md) completes another 252 processes. Selective four-query allocation falls to 0.795 MB, below both conditional orders; the unselective batch still requests 15.77 MB versus specialization’s 9.24 MB. These are bounded results, with compilation and broader solver questions still open.
 
-Current selection: T078 common-source qualification and complete-path cost design, following the [native composition gate and selection review](S03-native-choice-identity.md). Compare existing conventional controls and native execution, checking applicable integrated/source-derived alternatives. Source emission, query-dependent preparation, parsing, reuse, observation and disposal require explicit accounting before comparative runs.
+Current selection: T078 native preparation/query ownership qualification, following the [common-source gate and lifecycle design](S10-native-common-source.md). Demonstrate changing-query reuse and disposal before registering costs; charge source emission/loading and query-dependent preparation honestly. Broader language, local ownership and complete architecture conclusions remain unresolved.
 
 The [binding-effect certificate](S07-binding-effects-gate.md) removes persistent equality wake-up bookkeeping while preserving consumption conflicts and non-ground observations. T079 subsequently compared admission and lifecycle costs. This is mechanism/correctness evidence, not a language-adoption result.
 
