@@ -10,20 +10,19 @@ The [design review](results/R07-design-disposition-review.md) distinguishes meas
 
 Several useful comparisons now exist. [Integrated graph scanning](results/S02-multihead-scale.md) has favorable measured regimes. [Finite solving](results/S06-finite-lifecycle.md) has selective benefits and unselective costs. [Support ordering](results/S08-order-lifecycle.md) has opposing regimes. These findings supply stronger controls, not a complete architecture ranking.
 
-The [effectful boundary gate](results/S05-effectful-boundary-gate.md) finds complete-answer agreement insufficient for first-answer equivalence. Resumable whole-state tables preserve tested effects and FIFO delivery, but distinct inert caller tags prevent all measured reuse. The next candidate must preserve those tags separately without separating active dependencies.
+The [inert residual source gate](results/S05-inert-residual-gate.md) qualifies a resumable implementation that separates unreadable ground observations from active state. It gains reuse across distinct caller tags while preserving tested FIFO deliveries and active effects. Work savings do not establish total efficiency.
 
 ## Start here: the next experiments
 
-Test source-derived separation of inert ground residuals within resumable execution. This directly addresses the observed missed reuse while retaining caller interleaving, active resources and propagation history.
+Qualify complete ownership and allocation costs for the new separation. Preparation, active keys/nodes, cached edge data, per-derivation residuals and retained consumer answers all need an explicit account.
 
 | Next | Experiment | Decision and follow-through |
 |---|---|---|
-| 1 — T075 active | Register and implement per-derivation ownership of ground residuals whose signatures no prepared rule can read. Compare Direct and existing whole-state tables on different callers and interfering effects. | Can smaller active states share execution without losing the caller's own residual data or changing any FIFO delivery? Include dynamically emitted data and near misses read by a rule. |
-| 2 — conditional on qualification | Qualify variable/binding boundaries, cancellation, output ownership and complete costs. | Does reduced key/state duplication repay residual transport and per-derivation retention? Variable-bearing observations and general call relevance remain distinct required investigations. |
-| At the source gate or obstruction | Reconsider adaptive timing attribution, native local ownership, conditional equality/lifetime repair and incremental projection. | The selected comparison addresses an observed representation obligation. These independent alternatives retain their evidence requirements. |
-| Within two further packages | Review all directions and every missing mechanism below. | Source dependency/scheduling and checked-boundary/resumable qualification are the first two packages after the adaptive review. |
+| 1 — T075 active | Register owner/allocation qualification across changing queries, immediate/window/all retention, cancellation and reusable/adverse sources. Include Direct, whole-state tables and separated execution without memoization. | Does reduced active-state duplication repay extraction, transport and retained edge/output data? Repair consequential owner defects before timing. |
+| At this package boundary | Conduct a full breadth review of every required direction. | Three packages have completed since the adaptive review. Ownership qualification is the fourth; additional attribution work cannot postpone review. |
+| Conditional on qualification and breadth selection | Register ordinary-allocator counter-free timing with qualified complete endpoints. | Do not choose the mechanism from saved transitions or allocation alone. |
 
-The [boundary report](results/S05-effectful-boundary-gate.md#next-comparison-and-its-priority) compares the next implementation with the strongest ready alternatives. Register exact configurations, controls, bounds and interpretation before new runs. No architecture or language restriction is selected.
+Broader variable-dependent observations, call-local effects and cross-query reuse remain required. The [source report](results/S05-inert-residual-gate.md#why-ownership-next) compares the next owner investigation with adaptive timing attribution, native local ownership, conditional equality/lifetime repair and incremental projection.
 
 ## The full programme
 
@@ -71,7 +70,7 @@ The numbers below identify investigations and their detailed specifications late
 
 ## The next concrete experiments
 
-**Next test source-derived residual separation in resumable execution — T075.** Follow the source comparison above and the [boundary report](results/S05-effectful-boundary-gate.md). The strongest ready alternative remains adaptive timing attribution. Separating demonstrably inert data could overcome measured missed reuse while preserving active effects; revisit that judgment at the first gate or obstruction.
+**Next qualify ownership and allocation for inert residual separation — T075.** Follow the owner comparison above and the [source report](results/S05-inert-residual-gate.md). Its measured work savings introduce concrete extraction and output-retention duties; complete accounting can change whether timing or repair is worthwhile. Full breadth review is due at this next package boundary.
 
 T077 still requires timing attribution, policy challenges, delayed splitting and checkpoints/replay. T076 still requires incremental projection, broader connected shapes and source/theory correspondence. T074 still requires conditional equality/lifetime repair and sustained ownership. T080 still requires native local claims, dynamic choices, failed branches and descriptor lifetime. Broader resource derivation, integrated execution, language restrictions and complete architectures retain their comparisons below.
 

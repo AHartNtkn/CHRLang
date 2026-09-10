@@ -1,7 +1,7 @@
 use crate::{
-    Snapshot, Stats,
     map::Map,
-    terms::{Arena, Bindings, Scope, Term, deref},
+    terms::{deref, Arena, Bindings, Scope, Term},
+    Snapshot, Stats,
 };
 use chr_syntax::{Answer, Constraint, Goal, Guard, Query, Rule, Term as Source, Var};
 use std::rc::Rc;
@@ -235,43 +235,6 @@ impl State {
             }
         }
         Event::Complete
-    }
-    /// Move only source-unreadable ground observations out of active execution.
-    pub(crate) fn detach_inert_ground(
-        &mut self,
-        rules: &[Rule],
-        arena: &Arena,
-        stats: &mut Stats,
-    ) -> Vec<Constraint> {
-        fn ground(t: &Source) -> bool {
-            match t {
-                Source::Var(_) => false,
-                Source::App(_, xs) => xs.iter().all(ground),
-            }
-        }
-        let mut detached = vec![];
-        for (key, args) in self.store.entries(&mut stats.storage) {
-            let (name, arity) = &arena.predicates()[key.0];
-            if rules
-                .iter()
-                .flat_map(|r| r.kept.iter().chain(&r.removed))
-                .any(|c| c.name == *name && c.args.len() == *arity)
-            {
-                continue;
-            }
-            let args = args
-                .iter()
-                .map(|&t| arena.export(t, &self.bindings, stats))
-                .collect::<Vec<_>>();
-            if args.iter().all(ground) {
-                self.store.remove(&key, &mut stats.storage);
-                detached.push(Constraint {
-                    name: name.clone(),
-                    args,
-                });
-            }
-        }
-        detached
     }
     pub(crate) fn export_answer(
         &self,

@@ -1,6 +1,6 @@
 # Unanswered architecture questions and experimental ownership
 
-The [effectful boundary gate](results/S05-effectful-boundary-gate.md) supplies the current evidence. Effectful boundary gate finds 48 ordered-delivery differences in 128 priority-phase comparisons despite complete multiset agreement. Existing resumable tables preserve 968 FIFO step comparisons across 24 effectful sources and 192 disposal/restart trials per build, including 176 unfinished drops. Metrics record 192 same-caller transition hits and zero distinct inert-tag hits. T075 next tests source-derived separation of inert ground residuals while retaining active resources/history in resumable execution. Two packages since the adaptive breadth review; goal active.
+The [inert residual source gate](results/S05-inert-residual-gate.md) supplies the current evidence. Source-derived inert ground residual separation passes 72 source configurations and 5712 FIFO step comparisons per build. Metrics show 562 separated transition hits versus 380 whole-state hits; readable and late-bound callers remain distinct. Active consumption/history controls and 444 unfinished cancellation/restart pairs qualify per build. Both configurations pass 42 selected tests and strict Clippy; uncached slot retention was repaired. T075 next qualifies complete ownership/allocation costs. Three packages since the adaptive breadth review; the next package must end with full breadth review. Goal active.
 
 ## Earlier experimental checkpoints
 

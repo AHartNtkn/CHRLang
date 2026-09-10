@@ -1,0 +1,19 @@
+   Compiling chr-reuse v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-reuse)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.32s
+     Running tests/inert_residuals.rs (target/debug/deps/inert_residuals-edbc6339bf5ead12)
+
+running 1 test
+
+thread 'different_callers_reuse_active_work_and_keep_their_own_tags' (109) panicked at research/chr-reuse/tests/inert_residuals.rs:13:5:
+different inert callers must reuse execution
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test different_callers_reuse_active_work_and_keep_their_own_tags ... FAILED
+
+failures:
+
+failures:
+    different_callers_reuse_active_work_and_keep_their_own_tags
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p chr-reuse --test inert_residuals`

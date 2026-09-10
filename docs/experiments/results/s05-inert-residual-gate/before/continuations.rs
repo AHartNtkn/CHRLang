@@ -1,5 +1,5 @@
 //! Experimental source-step interface. Cursors belong to their creating machine.
-use crate::{Snapshot, Stats, state, terms};
+use crate::{state, terms, Snapshot, Stats};
 use chr_syntax::{Answer, Query, Rule, Term, Var};
 use std::collections::BTreeMap;
 
@@ -493,18 +493,6 @@ impl Machine {
             state::Event::Continue => {}
         }
         event
-    }
-    /// Extract owned ground residuals that no head in this machine's fixed
-    /// source can read. Caller retains these per derivation until observation.
-    /// Does not change active occurrence IDs, pending work, bindings or history.
-    pub fn detach_inert_ground(&mut self, cursor: &mut Cursor) -> Vec<chr_syntax::Constraint> {
-        assert!(
-            std::rc::Rc::ptr_eq(&self.owner, &cursor.1),
-            "cursor belongs to a different machine"
-        );
-        cursor
-            .0
-            .detach_inert_ground(&self.rules, &self.arena, &mut self.stats)
     }
     pub fn step(&mut self, mut cursor: Cursor) -> Step {
         match self.transition(&mut cursor) {

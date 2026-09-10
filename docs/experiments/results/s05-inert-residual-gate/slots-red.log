@@ -1,0 +1,16 @@
+   Compiling chr-reuse v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-reuse)
+error[E0308]: mismatched types
+   --> research/chr-reuse/tests/inert_residuals.rs:164:44
+    |
+164 | ...   assert!(c.stats().states as u64 <= c.stats().max_frontier + 2, "uncached separation must not retain a slot for every past tra...
+    |               -----------------------    ^^^^^^^^^^^^^^^^^^^^^^^^^^ expected `u64`, found `usize`
+    |               |
+    |               expected because this is `u64`
+    |
+help: you can convert a `usize` to a `u64` and panic if the converted value doesn't fit
+    |
+164 |         assert!(c.stats().states as u64 <= (c.stats().max_frontier + 2).try_into().unwrap(), "uncached separation must not retain a slot for every past transition");
+    |                                            +                          +++++++++++++++++++++
+
+For more information about this error, try `rustc --explain E0308`.
+error: could not compile `chr-reuse` (test "inert_residuals") due to 1 previous error

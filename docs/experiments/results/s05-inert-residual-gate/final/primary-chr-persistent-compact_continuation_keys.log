@@ -1,0 +1,13 @@
+
+running 4 tests
+test compact_key_identity_is_local_to_its_machine ... ok
+test compact_keys_expand_to_owned_keys_across_bindings_and_branches ... ok
+test expansion_rejects_a_key_from_another_machine - should panic ... ok
+test late_grounding_and_direct_ground_construction_have_identical_keys ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+
+thread 'expansion_rejects_a_key_from_another_machine' (5151) panicked at research/chr-persistent/src/continuations.rs:346:9:
+key belongs to another machine
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

@@ -180,5 +180,3 @@ pub mod failure_search;
 pub mod parallel_equations;
 
 pub mod calls;
-
-pub mod residuals;
