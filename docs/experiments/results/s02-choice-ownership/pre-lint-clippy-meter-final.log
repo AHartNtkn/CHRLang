@@ -1,0 +1,12 @@
+    Checking chr-relational v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-relational)
+error: manual implementation of `.is_multiple_of()`
+   --> research/chr-relational/tests/choice_ownership.rs:112:21
+    |
+112 |     let caller = if i % 2 == 0 { base + 2 } else { base + 1 };
+    |                     ^^^^^^^^^^ help: replace with: `i.is_multiple_of(2)`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.97.0/index.html#manual_is_multiple_of
+    = note: `-D clippy::manual-is-multiple-of` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::manual_is_multiple_of)]`
+
+error: could not compile `chr-relational` (test "choice_ownership") due to 1 previous error

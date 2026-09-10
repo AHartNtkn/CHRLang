@@ -12,7 +12,7 @@ This is the governing sequence for the renewed investigation. Existing E/R measu
 
 The [next experimental cycle](next-cycle.md#start-here-the-next-experiments) sets the immediate experiments and their decision boundaries from the verified worktree. Its full programme covers every direction; the numbered investigations are identifiers, not instructions to repeat completed work. It reuses the stage definitions below and the full question map.
 
-The [local graph guard entry](results/S02-local-guard-entry.md) supplies the current checkpoint. Positive equality guards pass 64 source configurations and named scope, tuple-selection, body-order and failure witnesses against independent scalar, compiled Scan/Indexed and contextual controls. Four confirming runs pass with local counters on/off; 21 regressions pass. T072 next qualifies guarded-choice lifecycle endpoints and ownership before comparative costs. Package two after the normal/neutral breadth review; goal active.
+The [guarded-choice ownership comparison](results/S02-choice-ownership.md) supplies the current checkpoint. Guarded-choice ownership passes 768 allocation processes with identical pairs, 192 ordinary-allocator cases and 16 cancellation/reuse checks across local graph, compiled Scan/Indexed and contextual search. Immediate release restores preparation endpoints; final disposal restores initial live bytes. Local requested traffic is lower than Scan in 60 scenarios and higher in 36, without a timing conclusion. T072 next registers counter-free lifecycle costs; package three after the normal/neutral breadth review. Goal active.
 
 ## Account for every reviewed question
 

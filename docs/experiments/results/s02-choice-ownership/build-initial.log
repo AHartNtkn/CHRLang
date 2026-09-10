@@ -1,0 +1,102 @@
+   Compiling chr-relational v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-relational)
+warning: unused import: `Goal`
+  --> research/chr-relational/tests/choice_ownership.rs:11:26
+   |
+11 | use chr_syntax::{Answer, Goal, Query, Rule, Var, and, atom, c, eq, or, t, v};
+   |                          ^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+error[E0308]: mismatched types
+  --> research/chr-relational/tests/choice_ownership.rs:63:40
+   |
+63 |     let mut constraints=vec![c("go",[v(base),v(base+1)])];
+   |                                      - ^^^^ expected `u64`, found `u32`
+   |                                      |
+   |                                      arguments to this function are incorrect
+   |
+note: function defined here
+  --> crates/chr-syntax/src/lib.rs:12:8
+   |
+12 | pub fn v(id: u64) -> Term {
+   |        ^
+help: you can convert a `u32` to a `u64`
+   |
+63 |     let mut constraints=vec![c("go",[v(base.into()),v(base+1)])];
+   |                                            +++++++
+
+error[E0308]: mismatched types
+  --> research/chr-relational/tests/choice_ownership.rs:63:48
+   |
+63 |     let mut constraints=vec![c("go",[v(base),v(base+1)])];
+   |                                              - ^^^^^^ expected `u64`, found `u32`
+   |                                              |
+   |                                              arguments to this function are incorrect
+   |
+note: function defined here
+  --> crates/chr-syntax/src/lib.rs:12:8
+   |
+12 | pub fn v(id: u64) -> Term {
+   |        ^
+help: you can convert a `u32` to a `u64`
+   |
+63 |     let mut constraints=vec![c("go",[v(base),v((base+1).into())])];
+   |                                                +      ++++++++
+
+error[E0308]: mismatched types
+  --> research/chr-relational/tests/choice_ownership.rs:64:66
+   |
+64 |     for k in 0..payload {constraints.push(c("inert",[t("pair",[v(base+2),atom(&format!("value-{i}-{k}"))])]));}
+   |                                                                - ^^^^^^ expected `u64`, found `u32`
+   |                                                                |
+   |                                                                arguments to this function are incorrect
+   |
+note: function defined here
+  --> crates/chr-syntax/src/lib.rs:12:8
+   |
+12 | pub fn v(id: u64) -> Term {
+   |        ^
+help: you can convert a `u32` to a `u64`
+   |
+64 |     for k in 0..payload {constraints.push(c("inert",[t("pair",[v((base+2).into()),atom(&format!("value-{i}-{k}"))])]));}
+   |                                                                  +      ++++++++
+
+error[E0308]: mismatched types
+  --> research/chr-relational/tests/choice_ownership.rs:65:54
+   |
+65 |     Query{constraints,outputs:vec![("out".into(),Var(base+1)),("caller".into(),Var(base+2))]}
+   |                                                  --- ^^^^^^ expected `u64`, found `u32`
+   |                                                  |
+   |                                                  arguments to this struct are incorrect
+   |
+note: tuple struct defined here
+  --> crates/chr-syntax/src/lib.rs:4:12
+   |
+ 4 | pub struct Var(pub u64);
+   |            ^^^
+help: you can convert a `u32` to a `u64`
+   |
+65 |     Query{constraints,outputs:vec![("out".into(),Var((base+1).into())),("caller".into(),Var(base+2))]}
+   |                                                      +      ++++++++
+
+error[E0308]: mismatched types
+  --> research/chr-relational/tests/choice_ownership.rs:65:84
+   |
+65 |     Query{constraints,outputs:vec![("out".into(),Var(base+1)),("caller".into(),Var(base+2))]}
+   |                                                                                --- ^^^^^^ expected `u64`, found `u32`
+   |                                                                                |
+   |                                                                                arguments to this struct are incorrect
+   |
+note: tuple struct defined here
+  --> crates/chr-syntax/src/lib.rs:4:12
+   |
+ 4 | pub struct Var(pub u64);
+   |            ^^^
+help: you can convert a `u32` to a `u64`
+   |
+65 |     Query{constraints,outputs:vec![("out".into(),Var(base+1)),("caller".into(),Var((base+2).into()))]}
+   |                                                                                    +      ++++++++
+
+For more information about this error, try `rustc --explain E0308`.
+warning: `chr-relational` (test "choice_ownership") generated 1 warning
+error: could not compile `chr-relational` (test "choice_ownership") due to 5 previous errors; 1 warning emitted
