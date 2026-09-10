@@ -1,0 +1,703 @@
+{
+  "status": "passed",
+  "cells": 40,
+  "states": 414,
+  "rows": [
+    {
+      "case": "disjoint",
+      "cancel": null,
+      "priority_admission": false,
+      "states": 9,
+      "edges": 12,
+      "partial_cancel_edges": 0,
+      "terminal_outcomes": 1,
+      "outside_source_priority": 0,
+      "witnesses": []
+    },
+    {
+      "case": "disjoint",
+      "cancel": null,
+      "priority_admission": true,
+      "states": 5,
+      "edges": 4,
+      "partial_cancel_edges": 0,
+      "terminal_outcomes": 1,
+      "outside_source_priority": 0,
+      "witnesses": []
+    },
+    {
+      "case": "disjoint",
+      "cancel": 0,
+      "priority_admission": false,
+      "states": 12,
+      "edges": 20,
+      "partial_cancel_edges": 3,
+      "terminal_outcomes": 2,
+      "outside_source_priority": 0,
+      "witnesses": []
+    },
+    {
+      "case": "disjoint",
+      "cancel": 0,
+      "priority_admission": true,
+      "states": 8,
+      "edges": 8,
+      "partial_cancel_edges": 1,
+      "terminal_outcomes": 2,
+      "outside_source_priority": 0,
+      "witnesses": []
+    },
+    {
+      "case": "disjoint",
+      "cancel": 1,
+      "priority_admission": false,
+      "states": 12,
+      "edges": 20,
+      "partial_cancel_edges": 3,
+      "terminal_outcomes": 2,
+      "outside_source_priority": 0,
+      "witnesses": []
+    },
+    {
+      "case": "disjoint",
+      "cancel": 1,
+      "priority_admission": true,
+      "states": 8,
+      "edges": 10,
+      "partial_cancel_edges": 1,
+      "terminal_outcomes": 2,
+      "outside_source_priority": 0,
+      "witnesses": []
+    },
+    {
+      "case": "contended",
+      "cancel": null,
+      "priority_admission": false,
+      "states": 5,
+      "edges": 4,
+      "partial_cancel_edges": 0,
+      "terminal_outcomes": 2,
+      "outside_source_priority": 1,
+      "witnesses": [
+        {
+          "observation": [
+            [
+              0
+            ],
+            false,
+            [
+              1
+            ],
+            []
+          ],
+          "trace": [
+            "acquire 1:0",
+            "commit 1"
+          ]
+        }
+      ]
+    },
+    {
+      "case": "contended",
+      "cancel": null,
+      "priority_admission": true,
+      "states": 3,
+      "edges": 2,
+      "partial_cancel_edges": 0,
+      "terminal_outcomes": 1,
+      "outside_source_priority": 0,
+      "witnesses": []
+    },
+    {
+      "case": "contended",
+      "cancel": 0,
+      "priority_admission": false,
+      "states": 8,
+      "edges": 10,
+      "partial_cancel_edges": 1,
+      "terminal_outcomes": 2,
+      "outside_source_priority": 0,
+      "witnesses": []
+    },
+    {
+      "case": "contended",
+      "cancel": 0,
+      "priority_admission": true,
+      "states": 6,
+      "edges": 6,
+      "partial_cancel_edges": 1,
+      "terminal_outcomes": 2,
+      "outside_source_priority": 0,
+      "witnesses": []
+    },
+    {
+      "case": "contended",
+      "cancel": 1,
+      "priority_admission": false,
+      "states": 8,
+      "edges": 10,
+      "partial_cancel_edges": 1,
+      "terminal_outcomes": 2,
+      "outside_source_priority": 1,
+      "witnesses": [
+        {
+          "observation": [
+            [
+              0
+            ],
+            false,
+            [
+              1
+            ],
+            []
+          ],
+          "trace": [
+            "acquire 1:0",
+            "commit 1"
+          ]
+        }
+      ]
+    },
+    {
+      "case": "contended",
+      "cancel": 1,
+      "priority_admission": true,
+      "states": 6,
+      "edges": 7,
+      "partial_cancel_edges": 0,
+      "terminal_outcomes": 1,
+      "outside_source_priority": 0,
+      "witnesses": []
+    },
+    {
+      "case": "overlap",
+      "cancel": null,
+      "priority_admission": false,
+      "states": 10,
+      "edges": 12,
+      "partial_cancel_edges": 0,
+      "terminal_outcomes": 2,
+      "outside_source_priority": 1,
+      "witnesses": [
+        {
+          "observation": [
+            [
+              1,
+              0,
+              0
+            ],
+            false,
+            [
+              1
+            ],
+            []
+          ],
+          "trace": [
+            "acquire 1:1",
+            "acquire 1:2",
+            "commit 1"
+          ]
+        }
+      ]
+    },
+    {
+      "case": "overlap",
+      "cancel": null,
+      "priority_admission": true,
+      "states": 4,
+      "edges": 3,
+      "partial_cancel_edges": 0,
+      "terminal_outcomes": 1,
+      "outside_source_priority": 0,
+      "witnesses": []
+    },
+    {
+      "case": "overlap",
+      "cancel": 0,
+      "priority_admission": false,
+      "states": 14,
+      "edges": 24,
+      "partial_cancel_edges": 5,
+      "terminal_outcomes": 2,
+      "outside_source_priority": 0,
+      "witnesses": []
+    },
+    {
+      "case": "overlap",
+      "cancel": 0,
+      "priority_admission": true,
+      "states": 8,
+      "edges": 9,
+      "partial_cancel_edges": 2,
+      "terminal_outcomes": 2,
+      "outside_source_priority": 0,
+      "witnesses": []
+    },
+    {
+      "case": "overlap",
+      "cancel": 1,
+      "priority_admission": false,
+      "states": 14,
+      "edges": 23,
+      "partial_cancel_edges": 4,
+      "terminal_outcomes": 2,
+      "outside_source_priority": 1,
+      "witnesses": [
+        {
+          "observation": [
+            [
+              1,
+              0,
+              0
+            ],
+            false,
+            [
+              1
+            ],
+            []
+          ],
+          "trace": [
+            "acquire 1:1",
+            "acquire 1:2",
+            "commit 1"
+          ]
+        }
+      ]
+    },
+    {
+      "case": "overlap",
+      "cancel": 1,
+      "priority_admission": true,
+      "states": 8,
+      "edges": 10,
+      "partial_cancel_edges": 0,
+      "terminal_outcomes": 1,
+      "outside_source_priority": 0,
+      "witnesses": []
+    },
+    {
+      "case": "kept-reader",
+      "cancel": null,
+      "priority_admission": false,
+      "states": 8,
+      "edges": 7,
+      "partial_cancel_edges": 0,
+      "terminal_outcomes": 2,
+      "outside_source_priority": 1,
+      "witnesses": [
+        {
+          "observation": [
+            [
+              0,
+              1
+            ],
+            false,
+            [
+              1
+            ],
+            []
+          ],
+          "trace": [
+            "acquire 1:0",
+            "commit 1"
+          ]
+        }
+      ]
+    },
+    {
+      "case": "kept-reader",
+      "cancel": null,
+      "priority_admission": true,
+      "states": 6,
+      "edges": 5,
+      "partial_cancel_edges": 0,
+      "terminal_outcomes": 1,
+      "outside_source_priority": 0,
+      "witnesses": []
+    },
+    {
+      "case": "kept-reader",
+      "cancel": 0,
+      "priority_admission": false,
+      "states": 11,
+      "edges": 14,
+      "partial_cancel_edges": 2,
+      "terminal_outcomes": 2,
+      "outside_source_priority": 0,
+      "witnesses": []
+    },
+    {
+      "case": "kept-reader",
+      "cancel": 0,
+      "priority_admission": true,
+      "states": 9,
+      "edges": 10,
+      "partial_cancel_edges": 2,
+      "terminal_outcomes": 2,
+      "outside_source_priority": 0,
+      "witnesses": []
+    },
+    {
+      "case": "kept-reader",
+      "cancel": 1,
+      "priority_admission": false,
+      "states": 12,
+      "edges": 16,
+      "partial_cancel_edges": 2,
+      "terminal_outcomes": 3,
+      "outside_source_priority": 1,
+      "witnesses": [
+        {
+          "observation": [
+            [
+              0,
+              1
+            ],
+            false,
+            [
+              1
+            ],
+            []
+          ],
+          "trace": [
+            "acquire 1:0",
+            "commit 1"
+          ]
+        }
+      ]
+    },
+    {
+      "case": "kept-reader",
+      "cancel": 1,
+      "priority_admission": true,
+      "states": 10,
+      "edges": 13,
+      "partial_cancel_edges": 1,
+      "terminal_outcomes": 2,
+      "outside_source_priority": 0,
+      "witnesses": []
+    },
+    {
+      "case": "late-equality",
+      "cancel": null,
+      "priority_admission": false,
+      "states": 11,
+      "edges": 14,
+      "partial_cancel_edges": 0,
+      "terminal_outcomes": 2,
+      "outside_source_priority": 1,
+      "witnesses": [
+        {
+          "observation": [
+            [
+              0,
+              0
+            ],
+            true,
+            [
+              1,
+              2
+            ],
+            []
+          ],
+          "trace": [
+            "acquire 1:1",
+            "commit 1",
+            "acquire 2:0",
+            "commit 2"
+          ]
+        }
+      ]
+    },
+    {
+      "case": "late-equality",
+      "cancel": null,
+      "priority_admission": true,
+      "states": 5,
+      "edges": 4,
+      "partial_cancel_edges": 0,
+      "terminal_outcomes": 1,
+      "outside_source_priority": 0,
+      "witnesses": []
+    },
+    {
+      "case": "late-equality",
+      "cancel": 0,
+      "priority_admission": false,
+      "states": 20,
+      "edges": 36,
+      "partial_cancel_edges": 1,
+      "terminal_outcomes": 2,
+      "outside_source_priority": 0,
+      "witnesses": []
+    },
+    {
+      "case": "late-equality",
+      "cancel": 0,
+      "priority_admission": true,
+      "states": 10,
+      "edges": 12,
+      "partial_cancel_edges": 1,
+      "terminal_outcomes": 2,
+      "outside_source_priority": 0,
+      "witnesses": []
+    },
+    {
+      "case": "late-equality",
+      "cancel": 1,
+      "priority_admission": false,
+      "states": 14,
+      "edges": 22,
+      "partial_cancel_edges": 3,
+      "terminal_outcomes": 3,
+      "outside_source_priority": 1,
+      "witnesses": [
+        {
+          "observation": [
+            [
+              0,
+              0
+            ],
+            true,
+            [
+              1,
+              2
+            ],
+            []
+          ],
+          "trace": [
+            "acquire 1:1",
+            "commit 1",
+            "acquire 2:0",
+            "commit 2"
+          ]
+        }
+      ]
+    },
+    {
+      "case": "late-equality",
+      "cancel": 1,
+      "priority_admission": true,
+      "states": 8,
+      "edges": 8,
+      "partial_cancel_edges": 1,
+      "terminal_outcomes": 2,
+      "outside_source_priority": 0,
+      "witnesses": []
+    },
+    {
+      "case": "late-equality",
+      "cancel": 2,
+      "priority_admission": false,
+      "states": 16,
+      "edges": 26,
+      "partial_cancel_edges": 3,
+      "terminal_outcomes": 2,
+      "outside_source_priority": 1,
+      "witnesses": [
+        {
+          "observation": [
+            [
+              0,
+              0
+            ],
+            true,
+            [
+              1,
+              2
+            ],
+            []
+          ],
+          "trace": [
+            "acquire 1:1",
+            "commit 1",
+            "acquire 2:0",
+            "commit 2"
+          ]
+        }
+      ]
+    },
+    {
+      "case": "late-equality",
+      "cancel": 2,
+      "priority_admission": true,
+      "states": 10,
+      "edges": 13,
+      "partial_cancel_edges": 0,
+      "terminal_outcomes": 1,
+      "outside_source_priority": 0,
+      "witnesses": []
+    },
+    {
+      "case": "initial-equality",
+      "cancel": null,
+      "priority_admission": false,
+      "states": 15,
+      "edges": 22,
+      "partial_cancel_edges": 0,
+      "terminal_outcomes": 2,
+      "outside_source_priority": 1,
+      "witnesses": [
+        {
+          "observation": [
+            [
+              0,
+              0
+            ],
+            true,
+            [
+              1,
+              2
+            ],
+            []
+          ],
+          "trace": [
+            "acquire 1:1",
+            "commit 1",
+            "acquire 2:0",
+            "commit 2"
+          ]
+        }
+      ]
+    },
+    {
+      "case": "initial-equality",
+      "cancel": null,
+      "priority_admission": true,
+      "states": 5,
+      "edges": 4,
+      "partial_cancel_edges": 0,
+      "terminal_outcomes": 1,
+      "outside_source_priority": 0,
+      "witnesses": []
+    },
+    {
+      "case": "initial-equality",
+      "cancel": 0,
+      "priority_admission": false,
+      "states": 24,
+      "edges": 46,
+      "partial_cancel_edges": 3,
+      "terminal_outcomes": 2,
+      "outside_source_priority": 0,
+      "witnesses": []
+    },
+    {
+      "case": "initial-equality",
+      "cancel": 0,
+      "priority_admission": true,
+      "states": 10,
+      "edges": 10,
+      "partial_cancel_edges": 1,
+      "terminal_outcomes": 2,
+      "outside_source_priority": 0,
+      "witnesses": []
+    },
+    {
+      "case": "initial-equality",
+      "cancel": 1,
+      "priority_admission": false,
+      "states": 20,
+      "edges": 36,
+      "partial_cancel_edges": 5,
+      "terminal_outcomes": 4,
+      "outside_source_priority": 2,
+      "witnesses": [
+        {
+          "observation": [
+            [
+              0,
+              0
+            ],
+            true,
+            [
+              1,
+              2
+            ],
+            []
+          ],
+          "trace": [
+            "acquire 1:1",
+            "commit 1",
+            "acquire 2:0",
+            "commit 2"
+          ]
+        },
+        {
+          "observation": [
+            [
+              0,
+              1
+            ],
+            true,
+            [
+              2
+            ],
+            [
+              1
+            ]
+          ],
+          "trace": [
+            "cancel 1",
+            "acquire 2:0",
+            "commit 2"
+          ]
+        }
+      ]
+    },
+    {
+      "case": "initial-equality",
+      "cancel": 1,
+      "priority_admission": true,
+      "states": 8,
+      "edges": 10,
+      "partial_cancel_edges": 1,
+      "terminal_outcomes": 2,
+      "outside_source_priority": 0,
+      "witnesses": []
+    },
+    {
+      "case": "initial-equality",
+      "cancel": 2,
+      "priority_admission": false,
+      "states": 24,
+      "edges": 46,
+      "partial_cancel_edges": 3,
+      "terminal_outcomes": 2,
+      "outside_source_priority": 1,
+      "witnesses": [
+        {
+          "observation": [
+            [
+              0,
+              0
+            ],
+            true,
+            [
+              1,
+              2
+            ],
+            []
+          ],
+          "trace": [
+            "acquire 1:1",
+            "commit 1",
+            "acquire 2:0",
+            "commit 2"
+          ]
+        }
+      ]
+    },
+    {
+      "case": "initial-equality",
+      "cancel": 2,
+      "priority_admission": true,
+      "states": 10,
+      "edges": 13,
+      "partial_cancel_edges": 0,
+      "terminal_outcomes": 1,
+      "outside_source_priority": 0,
+      "witnesses": []
+    }
+  ]
+}

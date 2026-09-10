@@ -10,7 +10,7 @@ This is the governing sequence for the renewed investigation. Existing E/R measu
 
 The [next experimental cycle](next-cycle.md) sets the current execution order, concrete contrasts and completion boundaries from the verified worktree. It reuses the stage definitions below and the full question map.
 
-The current package is T080 local resource ownership, selected by the [four-package breadth review](results/S08-continuing-breadth-review.md). The [continuing qualification](results/S08-continuing-qualification.md) establishes real reclamation opportunity and separates a harness budget obstruction from engine ownership. The next experiment tests whether local claims can replace the serial source owner, with independent effect and cancellation checks before native integration or parallel costs. Adaptive costs and unfinished lifetime studies remain required.
+The current package is T080 local resource ownership. The [bounded protocol gate](results/S03-local-claims.md) establishes unordered atomic outcomes and records source-priority differences; it does not implement physical publication or native source execution. Next compare dependency-aware admission and staged publication against global priority selection, then integrate the surviving protocol with actual source effects. This is package one after the continuing-service breadth review. Adaptive costs and unfinished lifetime studies remain required.
 
 ## Account for every reviewed question
 

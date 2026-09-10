@@ -10,11 +10,11 @@ The [design review](results/R07-design-disposition-review.md) distinguishes meas
 
 Several useful comparisons now exist. [Integrated graph scanning](results/S02-multihead-scale.md) has favorable measured regimes. [Finite solving](results/S06-finite-lifecycle.md) has selective benefits and unselective costs. [Support ordering](results/S08-order-lifecycle.md) has opposing regimes. These findings supply stronger controls, not a complete architecture ranking.
 
-The [continuing qualification](results/S08-continuing-qualification.md) validates 512 resource/pure gate answers and a separate 512-answer replay; the obstructed dependency measurement now completes with independent process budgets. Reclamation removes real records on the consuming source. One measured configuration separates 8.66 MB of engine/delivery state from 0.20 MB of retained answers; no comparative matrix ran. The [four-package breadth review](results/S08-continuing-breadth-review.md) selects T080 local resource claims. Adaptive costs and the unfinished lifetime comparisons remain required; the goal stays active.
+The [local-claims gate](results/S03-local-claims.md) exhaustively checks 40 configurations, 414 states and 581 transitions against independent atomic effects. Occurrence claims preserve unordered outcomes but permit different winners from source priority; global admission preserves the modeled order while retaining global selection. T080 next tests dependency-aware admission and physical publication before native source integration. This is package one after the continuing-service breadth review; adaptive costs and all broader obligations remain required. The goal is active.
 
 ## The order, and why
 
-Continue investigation 4 with T080 local claim/commit ownership, following the [breadth review](results/S08-continuing-breadth-review.md). Register a bounded independent interleaving model for disjoint/contested consumption, kept reads, equality-enabled contenders and cancellation. Preserve explicit source ordering and observable effects before native integration or timing. Reconsider adaptive costs, conditional equality, richer theories and broader reuse at the gate or a consequential obstruction.
+Continue investigation 4 with T080 dependency-aware admission and physical commit publication. The [local-claims gate](results/S03-local-claims.md) separates atomic ownership from source-priority selection. Register staged owner visibility and binding/kept-read dependencies before extending the model; arbitrary unordered winners cannot be compared as equivalent source execution. Integrate with real source execution after the physical/protocol gate. Reconsider adaptive costs, conditional equality, richer theories and broader reuse there or at an obstruction.
 
 | Order | Investigation | Architectural decision it could change |
 |---|---|---|
@@ -58,7 +58,7 @@ Continue investigation 4 with T080 local claim/commit ownership, following the [
 
 ## The next concrete experiments
 
-**Next qualify local resource ownership.** Test actual competing effects against independent atomic transitions, including abandoned partial claims and fair progress after cancellation. A protocol model is a prerequisite to source integration, not native architecture evidence. The unfinished ownership matrix, conditional equality costs and stable-size/growing-query trajectories remain required.
+**Next test the responsibilities abstracted by the local-claims gate.** Compare dependency-aware admission with global source selection and explicitly staged publication. Include observation between owner updates, cancelled partial work and a binder enabling an earlier contender. The passing finite protocol is a prerequisite to source integration, not native architecture evidence. The unfinished ownership matrix, conditional equality costs and stable-size/growing-query trajectories remain required.
 
 | Package | Required comparison and checks | Decision and review point |
 |---|---|---|

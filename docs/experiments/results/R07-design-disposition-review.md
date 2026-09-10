@@ -1,6 +1,6 @@
 # Why designs were set aside—and what the experiments actually establish
 
-The [continuing qualification](S08-continuing-qualification.md) validates 512 resource/pure gate answers and a separate 512-answer replay; the obstructed dependency measurement now completes with independent process budgets. Reclamation removes real records on the consuming source. One measured configuration separates 8.66 MB of engine/delivery state from 0.20 MB of retained answers; no comparative matrix ran. The [four-package breadth review](S08-continuing-breadth-review.md) selects T080 local resource claims. Adaptive costs and the unfinished lifetime comparisons remain required; the goal stays active.
+The [local-claims gate](S03-local-claims.md) exhaustively checks 40 configurations, 414 states and 581 transitions against independent atomic effects. Occurrence claims preserve unordered outcomes but permit different winners from source priority; global admission preserves the modeled order while retaining global selection. T080 next tests dependency-aware admission and physical publication before native source integration. This is package one after the continuing-service breadth review; adaptive costs and all broader obligations remain required. The goal is active.
 
 ## Earlier experimental checkpoints
 

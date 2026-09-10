@@ -1,0 +1,162 @@
+{
+  "cases": {
+    "disjoint": [
+      3,
+      false,
+      [
+        {
+          "take": [
+            0
+          ],
+          "keep": [],
+          "needs_binding": false,
+          "binds": false
+        },
+        {
+          "take": [
+            1
+          ],
+          "keep": [],
+          "needs_binding": false,
+          "binds": false
+        }
+      ]
+    ],
+    "contended": [
+      1,
+      false,
+      [
+        {
+          "take": [
+            0
+          ],
+          "keep": [],
+          "needs_binding": false,
+          "binds": false
+        },
+        {
+          "take": [
+            0
+          ],
+          "keep": [],
+          "needs_binding": false,
+          "binds": false
+        }
+      ]
+    ],
+    "overlap": [
+      3,
+      false,
+      [
+        {
+          "take": [
+            0,
+            1
+          ],
+          "keep": [],
+          "needs_binding": false,
+          "binds": false
+        },
+        {
+          "take": [
+            1,
+            2
+          ],
+          "keep": [],
+          "needs_binding": false,
+          "binds": false
+        }
+      ]
+    ],
+    "kept-reader": [
+      2,
+      false,
+      [
+        {
+          "take": [
+            1
+          ],
+          "keep": [
+            0
+          ],
+          "needs_binding": false,
+          "binds": false
+        },
+        {
+          "take": [
+            0
+          ],
+          "keep": [],
+          "needs_binding": false,
+          "binds": false
+        }
+      ]
+    ],
+    "late-equality": [
+      2,
+      false,
+      [
+        {
+          "take": [
+            0
+          ],
+          "keep": [],
+          "needs_binding": true,
+          "binds": false
+        },
+        {
+          "take": [
+            1
+          ],
+          "keep": [],
+          "needs_binding": false,
+          "binds": true
+        },
+        {
+          "take": [
+            0
+          ],
+          "keep": [],
+          "needs_binding": false,
+          "binds": false
+        }
+      ]
+    ],
+    "initial-equality": [
+      2,
+      true,
+      [
+        {
+          "take": [
+            0
+          ],
+          "keep": [],
+          "needs_binding": true,
+          "binds": false
+        },
+        {
+          "take": [
+            1
+          ],
+          "keep": [],
+          "needs_binding": false,
+          "binds": true
+        },
+        {
+          "take": [
+            0
+          ],
+          "keep": [],
+          "needs_binding": false,
+          "binds": false
+        }
+      ]
+    ]
+  },
+  "sha256": {
+    "research/chr-local-claims/model.py": "4febb715a8843c28aaf3a98f513370f08ef507144f6423091cb20a978d0cd9a8",
+    "research/chr-local-claims/run.py": "5d4a4983d44b2019224532473d4db2f202e9aa3088a07d6089b4727c8d1c1577",
+    "research/chr-local-claims/oracle.py": "9e96ef006596205e73b693ed8788d702151311eac5e87adbefc61eb1eb446f59",
+    "docs/experiments/registrations/S03-local-claims.md": "491112f1332d14040a02281f25d56e03ba23f4c34446e64be2e57ed1db0b7691"
+  }
+}
