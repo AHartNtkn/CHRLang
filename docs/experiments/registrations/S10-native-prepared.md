@@ -1,0 +1,20 @@
+# Native prepared rules, changing queries and disposal
+
+The common-source gate qualifies observations but native preparation still includes its query. Establish a rules-only prepared graph and construct query data at runtime, using the existing source compiler and reducer without changing matching semantics. Keep measured binaries and earlier compilers intact.
+
+Prepare each of the 22 common rulesets from empty query/output input. Preserve source predicate/atom dictionary IDs; append query-only names in per-query dictionaries. Build the initial native State directly from query data and apply the existing generated selector. Do not emit or parse another matching program for each query.
+
+For all 125 common sources run two ordered rounds per ruleset, retaining the first round's serialized answers through the second round. Add a changing query to each group containing an unused new predicate and atom plus a new selected unknown; its expected observation is the original answer with those residual/output additions. Compare complete raw answers and pending/exhausted status with the registered expectations. Add cancellation at calls 0, 1, 64 and 8192 on each group's first query, followed by a full rerun. Use quota 8, at most 65536 calls, a 15-second/10-CPU-second process bound, and the native runtime's existing 96 GiB virtual-address allowance (reserved address space is not RSS). No comparative timing follows.
+
+Before reusing storage, require byte-identical prepared heap cells, unchanged definition entries and symbol table, no observer frames, and a released reduction stack. Poison the entire used dynamic region, then restore the allocation frontier. Retained results must own bytes outside that region and remain valid after subsequent queries. Track explicit runtime/harness malloc/calloc/realloc/strdup calls by requested live bytes; libc stream internals and virtual mappings are separate. Require query baseline restoration after subtracting newly retained result bytes, and zero tracked live bytes after session disposal. Verify mapped heap/stack owner fields are cleared. This is an ownership gate, not a complete RSS/accounting claim.
+
+First demonstrate the current process-oriented runtime_free leaves tracked name/path allocations alive. The new session owner must release them explicitly; do not interpret process exit as reusable-session reclamation. Preserve failing receipts. A prepared-heap mutation or surviving root blocks simple frontier reset; investigate instead of copying/restoring the snapshot and calling it immutability. Record exact source/build hashes and query receipts. At completion register lifecycle measurements only after any remaining cost-runner instrumentation is qualified.
+
+## Ownership extension after the first 382-query gate
+
+Preserve the initial gate and harness. Extend result retention through complete prepared-state disposal: release definitions, symbols, heap and stack while serialized answer buffers remain owned, then validate and publish those buffers. Recheck all 382 queries. Attribute the initial teardown residual exactly to interned name and parser-path byte counts.
+
+In one process, prepare and dispose the first, last and first ruleset again, using the full registered query schedule for each. Revisit a previously used ruleset after a different preparation to expose stale global IDs, parser paths or counters. Each session must end at zero tracked live bytes and reproduce the standalone outputs and query ownership events. The process uses the same 15-second/10-CPU-second and 96-GiB virtual-address bounds. This tests session reuse; it does not add simultaneous native sessions or thread safety.
+
+
+For the final symbol challenge, also place a new atom in a matched independent-choice input. Both source branches try to bind it to different existing atoms, so the expected result is complete failure; this detects accidental dictionary-ID reuse. The final schedule has 383 queries. Check all 22 unused-symbol extensions and this active-atom challenge against the unchanged reference through its existing adapter before native execution. No additional runtime change is made.

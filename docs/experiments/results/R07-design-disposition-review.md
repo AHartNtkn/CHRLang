@@ -1,6 +1,6 @@
 # Why designs were set aside—and what the experiments actually establish
 
-The [common-source gate and cost design](S10-native-common-source.md) qualifies ten Rust configurations on all 125 cases, prefix lowering on 20 and finite solving with its caller on four. Native evidence remains applicable. T078 next establishes native prepared reuse and disposal; no cross-architecture cost matrix has run.
+The [native prepared-query gate](S10-native-prepared.md) passes 383 queries across 22 rulesets and 50 additional queries in three successive sessions. Prepared definitions remain unchanged, query storage is reclaimed and retained answers survive session disposal. T078 next qualifies ordinary-allocator lifecycle measurement and substantive cost sources; no cross-architecture cost matrix has run.
 
 The [native choice/identity composition gate](S03-native-choice-identity.md) validates 48 mixed sources, all 77 deterministic regressions and explicit failure/namespace boundaries. Finite siblings progress beside ongoing work. The common-source gate above now supplies the next comparison entry; local native ownership, broader language and lifetime remain required.
 

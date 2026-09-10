@@ -1,0 +1,186 @@
+[
+  {
+    "case": "choice-binding-10-0-new-symbols",
+    "result": {
+      "input": "p:v10,go:v10,zzunused:zznewatom:v27\n10,27\np:v0;-;seen:v0\n-;go:v0;(=:v0:a|=:v0:b)\n",
+      "stdout": "true 2\nANSWER\na,v0\np:a\nseen:a\nzzunused:zznewatom:v0\nANSWER\nb,v0\np:b\nseen:b\nzzunused:zznewatom:v0\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "choice-correlation-10-0-new-symbols",
+    "result": {
+      "input": "go:v10:v11,zzunused:zznewatom:v28\n10,11,28\n-;go:v0:v1;(=:v0:a,=:v1:a|=:v0:b,=:v1:b),pair:v0:v1\n",
+      "stdout": "true 2\nANSWER\na,a,v0\npair:a:a\nzzunused:zznewatom:v0\nANSWER\nb,b,v0\npair:b:b\nzzunused:zznewatom:v0\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "choice-independent-10-0-new-symbols",
+    "result": {
+      "input": "go:v10,go:v11,zzunused:zznewatom:v28\n10,11,28\n-;go:v0;(=:v0:a|=:v0:b)\n",
+      "stdout": "true 4\nANSWER\na,a,v0\nzzunused:zznewatom:v0\nANSWER\na,b,v0\nzzunused:zznewatom:v0\nANSWER\nb,a,v0\nzzunused:zznewatom:v0\nANSWER\nb,b,v0\nzzunused:zznewatom:v0\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "choice-independent-10-0-active-new-atom",
+    "result": {
+      "input": "go:zzactiveatom,go:v11\n10,11\n-;go:v0;(=:v0:a|=:v0:b)\n",
+      "stdout": "true 0\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "choice-duplicate-10-0-new-symbols",
+    "result": {
+      "input": "p:v10,go:v10,zzunused:zznewatom:v27\n10,27\np:v0;-;seen:v0\n-;go:v0;(=:v0:a|=:v0:a)\n",
+      "stdout": "true 2\nANSWER\na,v0\np:a\nseen:a\nzzunused:zznewatom:v0\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "choice-compete-10-0-new-symbols",
+    "result": {
+      "input": "go:v10:v11,p:v10,q:v11,token,zzunused:zznewatom:v28\n10,11,28\n-;go:v0:v1;(=:v0:v1|-)\n-;p:v0,q:v0;joined:v0\n-;p:v0,token;taken:v0\n",
+      "stdout": "true 2\nANSWER\nv0,v0,v1\njoined:v0\ntoken\nzzunused:zznewatom:v1\nANSWER\nv0,v1,v2\nq:v1\ntaken:v0\nzzunused:zznewatom:v2\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "choice-replacement-10-0-new-symbols",
+    "result": {
+      "input": "p:v10,ticket,zzunused:zznewatom:v27\n10,27\np:v0;-;seen:v0\n-;ticket,p:v0;(p:v1|p:v0)\n",
+      "stdout": "true 2\nANSWER\nv0,v1\np:v2\nseen:v0\nseen:v2\nzzunused:zznewatom:v1\nANSWER\nv0,v1\np:v0\nseen:v0\nseen:v0\nzzunused:zznewatom:v1\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "choice-history-choice-10-0-new-symbols",
+    "result": {
+      "input": "p:a,p:b,zzunused:zznewatom:v17\n17\np:v0,p:v1;-;(seen:v0:v1|seen:v0:v1)\n",
+      "stdout": "true 4\nANSWER\nv0\np:a\np:b\nseen:a:b\nseen:b:a\nzzunused:zznewatom:v0\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "choice-nested-10-0-new-symbols",
+    "result": {
+      "input": "go:v10,zzunused:zznewatom:v27\n10,27\n-;go:v0;(=:v0:a|(=:v0:b|=:v0:a)),done:v0\n",
+      "stdout": "true 3\nANSWER\na,v0\ndone:a\nzzunused:zznewatom:v0\nANSWER\nb,v0\ndone:b\nzzunused:zznewatom:v0\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "choice-binding-failure-10-0-new-symbols",
+    "result": {
+      "input": "go:v10,zzunused:zznewatom:v27\n10,27\n-;go:v0;(=:v0:a|=:v0:b),=:v0:a,done:v0\n",
+      "stdout": "true 1\nANSWER\na,v0\ndone:a\nzzunused:zznewatom:v0\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "choice-off-output-failure-10-0-new-symbols",
+    "result": {
+      "input": "go,zzunused:zznewatom:v27\n10,27\n-;go;(done|!)\n",
+      "stdout": "true 1\nANSWER\nv0,v1\ndone\nzzunused:zznewatom:v1\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "choice-loop-0-10-0-new-symbols",
+    "result": {
+      "input": "go:v10,zzunused:zznewatom:v27\n10,27\n-;go:v0;(=:v0:a,done:v0|loop:v0)\n-;loop:v0;loop:v0\n",
+      "stdout": "false 1\nANSWER\na,v0\ndone:a\nzzunused:zznewatom:v0\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "choice-loop-1-10-0-new-symbols",
+    "result": {
+      "input": "go:v10,zzunused:zznewatom:v27\n10,27\n-;go:v0;(loop:v0|=:v0:a,done:v0)\n-;loop:v0;loop:v0\n",
+      "stdout": "false 1\nANSWER\na,v0\ndone:a\nzzunused:zznewatom:v0\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "det-replace-0-0-new-symbols",
+    "result": {
+      "input": "p:a,zzunused:zznewatom:v17\n17\np:v0;-;seen:v0\n-;ticket,p:v0;p:v0\n",
+      "stdout": "true 1\nANSWER\nv0\np:a\nseen:a\nzzunused:zznewatom:v0\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "det-bind-10-0-new-symbols",
+    "result": {
+      "input": "p:v10,bind:v10,zzunused:zznewatom:v27\n10,27\np:v0;-;seen:v0\n-;bind:v0;=:v0:a\n",
+      "stdout": "true 1\nANSWER\na,v0\np:a\nseen:a\nzzunused:zznewatom:v0\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "det-fresh-10-0-new-symbols",
+    "result": {
+      "input": "p:v10,ticket,zzunused:zznewatom:v27\n10,27\np:v0;-;seen:v0\n-;ticket,p:v0;p:v1\n",
+      "stdout": "true 1\nANSWER\nv0,v1\np:v2\nseen:v0\nseen:v2\nzzunused:zznewatom:v1\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "det-pairs-0-new-symbols",
+    "result": {
+      "input": "zzunused:zznewatom:v17\n17\np:v0,p:v1;-;seen:v0:v1\n",
+      "stdout": "true 1\nANSWER\nv0\nzzunused:zznewatom:v0\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "det-order-10-0-0-0-new-symbols",
+    "result": {
+      "input": "p:v10,q:v11,bind:v10:v11,token,zzunused:zznewatom:v28\n10,11,28\n-;p:v0,q:v0;joined:v0\n-;p:v0,token;taken:v0\n-;bind:v0:v1;=:v0:v1\n",
+      "stdout": "true 1\nANSWER\nv0,v0,v1\nq:v0\ntaken:v0\nzzunused:zznewatom:v1\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "det-order-10-0-1-0-new-symbols",
+    "result": {
+      "input": "p:v10,q:v11,bind:v10:v11,token,zzunused:zznewatom:v28\n10,11,28\n-;bind:v0:v1;=:v0:v1\n-;p:v0,q:v0;joined:v0\n-;p:v0,token;taken:v0\n",
+      "stdout": "true 1\nANSWER\nv0,v0,v1\njoined:v0\ntoken\nzzunused:zznewatom:v1\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "det-commute-10-0-0-new-symbols",
+    "result": {
+      "input": "left:v10,right:v11,zzunused:zznewatom:v28\n10,11,28\n-;left:v0;=:v0:a,doneleft:v0\n-;right:v0;=:v0:b,doneright:v0\n",
+      "stdout": "true 1\nANSWER\na,b,v0\ndoneleft:a\ndoneright:b\nzzunused:zznewatom:v0\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "det-commute-10-1-0-new-symbols",
+    "result": {
+      "input": "left:v10,right:v11,zzunused:zznewatom:v28\n10,11,28\n-;right:v0;=:v0:b,doneright:v0\n-;left:v0;=:v0:a,doneleft:v0\n",
+      "stdout": "true 1\nANSWER\na,b,v0\ndoneleft:a\ndoneright:b\nzzunused:zznewatom:v0\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "det-compound-10-0-0-0-new-symbols",
+    "result": {
+      "input": "p:v10,q:v11,ticket,bind:v10:v11,zzunused:zznewatom:v28\n10,11,28\np:v0;-;seen:v0\n-;p:v0,q:v0;joined:v0\n-;ticket,p:v0;p:v1,link:v0:v1\n-;link:v0:v1;=:v0:v1\n-;bind:v0:v1;=:v0:v1\n",
+      "stdout": "true 1\nANSWER\nv0,v0,v1\njoined:v0\nseen:v0\nseen:v0\nzzunused:zznewatom:v1\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "det-compound-10-0-1-0-new-symbols",
+    "result": {
+      "input": "p:v10,q:v11,ticket,bind:v10:v11,zzunused:zznewatom:v28\n10,11,28\np:v0;-;seen:v0\n-;bind:v0:v1;=:v0:v1\n-;p:v0,q:v0;joined:v0\n-;ticket,p:v0;p:v1,link:v0:v1\n-;link:v0:v1;=:v0:v1\n",
+      "stdout": "true 1\nANSWER\nv0,v0,v1\njoined:v0\nseen:v0\nticket\nzzunused:zznewatom:v1\n",
+      "stderr": ""
+    }
+  }
+]

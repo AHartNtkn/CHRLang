@@ -139,9 +139,10 @@ tasks:
     assignee: PM
     status: active
     objective: Establish and independently qualify at least two coherent complete execution paths on mixed-mechanism sources, including a serious alternative, with explicit semantic capability and responsibility maps before whole-path cost registration.
-    progress: Common-source qualification completes 264 grouped processes and 1500 candidate/source checks. Ten Rust configurations pass all 125 sources with prepared-rule reuse; prefix lowering passes 20 admitted cases and finite-phase plus caller passes four. The 226 other lowering cases are explicit unsupported admissions, not observation failures. Native source/archive validation remains applicable. Independent audits verify 220 initial and 264 pre-lint exact process replays and 19 adapter admission corrections. Strict scoped Clippy and formatting pass. No native-versus-Rust lifecycle matrix has run; native query-dependent emission and shared static/dynamic heap ownership need qualification first.
-    next_action: Establish a reusable native preparation boundary and explicit query/disposal ownership before cost registration. Inspect parsed-definition storage, dynamic heap state, symbol/dictionary ownership and observer roots. Challenge changing queries, new atoms/predicates, output variables, cancellation and retained answers against complete common-source observations. Do not assume HEAP_NEXT reset or process teardown proves safe prepared reuse. Then register a bounded complete-cost pilot including applicable conventional, contextual/conditional and lowering controls, charging emission/loading, source analysis, query setup, first/full observation and all disposal. Broader language and architecture obligations remain required.
+    progress: Common-source qualification supplies ten Rust configurations on all 125 cases, prefix lowering on 20 and finite solving plus caller on four. Native prepared reuse now passes 383 queries across 22 rulesets, including 88 cancellations and 23 reference-checked symbol extensions. Prepared heap/definitions remain unchanged; query storage is poisoned and reclaimed; consumer bytes survive prepared-state disposal. Three successive sessions reproduce 50 standalone queries exactly and reach zero tracked live bytes. The teardown residual is exactly 1314 bytes of interned names and parser paths, now released by the session owner. All 383 query observations and ownership receipts replay exactly under UBSan. No cross-architecture cost matrix has run.
+    next_action: Implement and qualify an ordinary-allocator timing runner with separate allocation/work diagnostics using the validated native prepared/query boundary. Extend complete common-source observations to useful-work, size and query-reuse contrasts; tiny identity obligations alone cannot establish architecture costs. Before comparisons register exact source families, configurations, repetition counts, bounds and interpretation. Charge source construction/emission, parsing/preparation, query setup, first/full observation, cancellation, consumer retention and every disposal phase. Distinguish runtime compilation from source-program compilation. Compare against applicable conventional, contextual/conditional and lowering controls. Broader language, local native claims and retained graph ownership remain required; preserve T080 as unfinished.
     inputs:
+      - docs/experiments/results/S10-native-prepared.md
       - docs/experiments/results/S10-native-common-source.md
       - docs/experiments/results/S03-native-choice-identity.md
       - docs/experiments/results/S03-native-identity-source.md
@@ -2455,16 +2456,17 @@ checks:
   last_verification:
     result: passed
     task: T078
-    scope: Common-source correctness and prepared Rust query reuse; no cost matrix.
+    scope: Native prepared-rule reuse, query reclamation and consumer ownership; no comparative costs.
     commands:
-      - 264 grouped processes and 1500 candidate/source checks
-      - 1274 complete observations and 226 explicit lowering admission exclusions
-      - 220 initial and 264 pre-lint exact process replays; 19 adapter admissions corrected
-      - Independent complete-answer, multiplicity, grouping, input and native revalidation audits
-      - Strict scoped Clippy and formatting pass
+      - 383 native queries across 22 rulesets including 88 cancellations
+      - 23 symbol extensions checked against the unchanged reference
+      - 382 earlier query observations and ownership records replay exactly
+      - Three same-process sessions reproduce 50 standalone queries exactly
+      - UBSan reproduces all 383 outputs and ownership receipts without diagnostics
+      - Independent input, complete-answer, multiplicity, ownership and hash audit
       - Report links, YAML and sole active T078 validated
     evidence:
-      - docs/experiments/results/S10-native-common-source.md
-      - docs/experiments/results/s10-native-common-source/audit.json
-      - docs/experiments/results/s10-native-common-source/validation.json
-      - docs/experiments/results/s10-native-common-source/native-revalidation.json
+      - docs/experiments/results/S10-native-prepared.md
+      - docs/experiments/results/s10-native-prepared/audit.json
+      - docs/experiments/results/s10-native-prepared/validation.json
+      - docs/experiments/results/s10-native-prepared/ubsan.json

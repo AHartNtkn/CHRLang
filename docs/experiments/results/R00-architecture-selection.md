@@ -1,6 +1,6 @@
 # R00: architectural alternatives and first experiment selection
 
-The [common-source gate and cost design](S10-native-common-source.md) qualifies ten Rust configurations on all 125 cases, prefix lowering on 20 and finite solving with its caller on four. Native evidence remains applicable. T078 next establishes native prepared reuse and disposal; no cross-architecture cost matrix has run.
+The [native prepared-query gate](S10-native-prepared.md) passes 383 queries across 22 rulesets and 50 additional queries in three successive sessions. Prepared definitions remain unchanged, query storage is reclaimed and retained answers survive session disposal. T078 next qualifies ordinary-allocator lifecycle measurement and substantive cost sources; no cross-architecture cost matrix has run.
 
 The [native choice/identity composition gate](S03-native-choice-identity.md) validates 48 mixed sources, all 77 deterministic regressions and explicit failure/namespace boundaries. Finite siblings progress beside ongoing work. The common-source gate above now supplies the next comparison entry; local native ownership, broader language and lifetime remain required.
 
@@ -12,7 +12,7 @@ The [controlled size/reuse extension](S02-multihead-scale.md) completes 8,820 ad
 
 The [finite-solver lifecycle pilot](S06-finite-lifecycle.md) completes 1,428 processes across 204 configurations. A [paired allocation correction](S06-empty-complement-attribution.md) completes another 252 processes. Selective four-query allocation falls to 0.795 MB, below both conditional orders; the unselective batch still requests 15.77 MB versus specialization’s 9.24 MB. These are bounded results, with compilation and broader solver questions still open.
 
-Current selection: T078 native preparation/query ownership qualification, following the [common-source gate and lifecycle design](S10-native-common-source.md). Demonstrate changing-query reuse and disposal before registering costs; charge source emission/loading and query-dependent preparation honestly. Broader language, local ownership and complete architecture conclusions remain unresolved.
+Current selection: T078 complete-cost runner and source qualification, following the [prepared reuse and ownership gate](S10-native-prepared.md). Separate ordinary-allocator timings from diagnostics, preserve complete observations and qualify useful-work/size/reuse contrasts before prospective cost registration. This comparison now has reusable native and Rust entry points; further native features remain a competing investigation, with local claims, general terms and sustained graph ownership still required.
 
 The [binding-effect certificate](S07-binding-effects-gate.md) removes persistent equality wake-up bookkeeping while preserving consumption conflicts and non-ground observations. T079 subsequently compared admission and lifecycle costs. This is mechanism/correctness evidence, not a language-adoption result.
 
