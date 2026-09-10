@@ -83,7 +83,7 @@ Before starting an experimental package, record the following comparison with th
 | What follows each outcome? | State the next action for a credible gain, credible loss, overlap, correctness failure and resource cutoff. Specify the boundary at which selection is reconsidered. |
 | What remains scheduled? | Name the displaced investigation and its next review point. Priority changes order, not its obligation or evidence status. |
 
-A result justifies another refinement only if the unresolved cost could change the decision, invalidate a control or obstruct a required comparison. Otherwise carry the bounded finding forward and advance to the next distinct mechanism. Review breadth after every four completed packages, counting correctness and attribution packages as well as timing pilots; do not reset the count by renaming a task. This review can authorize further depth, but must explain why it is more valuable than the strongest ready alternative.
+A result justifies another refinement only if the unresolved cost could change the decision, invalidate a control or obstruct a required comparison. Otherwise carry the bounded finding forward and advance to the next distinct mechanism. Review breadth after every four completed packages, counting correctness and attribution packages as well as timing pilots; do not reset the count by renaming a task. Use the [current sequence’s breadth review](next-cycle.md#how-the-sequence-reaches-every-unanswered-direction) to compare still-untried directions explicitly, including their first feasible experiments. This review can authorize further depth, but must explain why it is more valuable than the strongest ready alternative.
 
 ### What counts as investigating a design thoroughly
 
