@@ -204,5 +204,3 @@ pub mod finite;
 pub mod projection;
 
 pub mod names;
-
-pub mod name_disequality;

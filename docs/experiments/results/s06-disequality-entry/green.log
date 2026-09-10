@@ -1,0 +1,18 @@
+   Compiling chr-structural v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-structural)
+    Finished `release` profile [optimized] target(s) in 3.24s
+     Running tests/name_disequality.rs (target/release/deps/name_disequality-f8d64e877f451651)
+
+running 4 tests
+clique=3 alphabet=2 attempts=10 full_assignments=8
+clique=3 alphabet=3 attempts=6 full_assignments=27
+clique=4 alphabet=2 attempts=10 full_assignments=16
+clique=4 alphabet=3 attempts=48 full_assignments=81
+test feasibility_work_is_distinct_from_required_output ... ok
+test hidden_names_change_finite_projection_and_late_aliases ... ok
+equality_and_source_checks=5000
+test late_equalities_and_source_residuals_match_the_original_formula ... ok
+finite_projection_checks=22656 unbounded_projection_checks=5184
+test finite_and_unbounded_projection_match_independent_complete_assignments ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.21s
+

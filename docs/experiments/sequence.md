@@ -12,7 +12,7 @@ This is the governing sequence for the renewed investigation. Existing E/R measu
 
 The [next experimental cycle](next-cycle.md#start-here-the-next-experiments) sets the immediate experiments and their decision boundaries from the verified worktree. Its full programme covers every direction; the numbered investigations are identifiers, not instructions to repeat completed work. It reuses the stage definitions below and the full question map.
 
-The [names entry](results/S06-names-entry.md) supplies the current checkpoint. The names entry checks 17,934 finite denotations, 8,967 ground source cases, 183 partial source cases and 1,224 explicit assignments per execution in both builds. Literal root rejection differs from atomic-name membership; fixed names remain observable and logical compression cannot replace residual occurrences. The delayed-binding source extension and 53 structural/lambda regressions pass. T076 next investigates delayed name disequality, finite versus unbounded alphabets and projection/caller dependencies. No timing or architecture conclusion; goal active.
+The [disequality entry](results/S06-disequality-entry.md) supplies the current checkpoint. The atomic-name disequality entry passes 22,656 finite projection checks, 5,184 unbounded projection checks and 5,000 delayed-equality/source cases per confirming execution in both builds. Hidden exclusions can constrain visible values over finite alphabets; unbounded fresh-value extension has a separate exact argument. Fifty-one structural regressions pass. T076 next investigates normal/neutral structure and repeated holes; the next package requires a full breadth review. No timing or architecture selection; goal active.
 
 ## Account for every reviewed question
 

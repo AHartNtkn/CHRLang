@@ -1,0 +1,18 @@
+   Compiling chr-structural v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-structural)
+error[E0432]: unresolved import `chr_structural::name_disequality`
+ --> research/chr-structural/tests/name_disequality.rs:1:21
+  |
+1 | use chr_structural::name_disequality::{Formula, Name};
+  |                     ^^^^^^^^^^^^^^^^ could not find `name_disequality` in `chr_structural`
+
+warning: unused import: `Var`
+ --> research/chr-structural/tests/name_disequality.rs:2:45
+  |
+2 | use chr_syntax::{Answer, Goal, Query, Rule, Var, atom, c, eq, v};
+  |                                             ^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+For more information about this error, try `rustc --explain E0432`.
+warning: `chr-structural` (test "name_disequality") generated 1 warning
+error: could not compile `chr-structural` (test "name_disequality") due to 1 previous error; 1 warning emitted
