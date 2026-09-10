@@ -1,6 +1,6 @@
 # The comparisons still needed to choose the architecture
 
-The [learning cost pilot and focused confirmation](results/S06-learning-costs.md) complete 1,599 processes. Covered-state learning has a confirmed paired median ratio of0.806 on both CPUs for depth64 mixed success with16 follow-ups, while eager learning remains near recomputation there. Whole-failure reuse benefits both policies; no-failure and short-use contrasts retain uncertainty. T073 next inventories direct consuming-resource derivations; renaming-aware call reuse returns at that entry or an obstruction. No general learning or architecture winner follows.
+The [consuming-resource capacity entry](results/S06-resource-capacity-entry.md) validates 1,536 complete source cases per feature mode. Aliased demands cannot be split across values; missing failure sinks and competing token owners are explicit counterexamples to naive capacity reasoning. T073 next implements bounded source inference and direct capacity solving, requiring a witness that avoids a full choice product. This is correctness evidence, not an implemented solver or cost result; call reuse and broader compilation return at that gate.
 
 ## Earlier experimental checkpoints
 
@@ -86,7 +86,7 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-The [current execution order](next-cycle.md#the-order-and-why) owns scheduling. T073 is active for direct consuming-resource derivation inventory and semantic entry. Renaming-aware call reuse, broader compilation and learning lifetime return at that entry or an obstruction. Broader T078 composition remains required.
+The [current execution order](next-cycle.md#the-order-and-why) owns scheduling. T073 is active for a bounded source-derived capacity solver after the semantic entry. Renaming-aware call reuse and broader compilation return at its inference/solver gate or an obstruction. Broader T078 composition and lifetime remain required.
 
 ### Depth, breadth and stopping within this sequence
 

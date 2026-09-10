@@ -1,0 +1,9 @@
+# Direct capacity constraints for consuming choices: semantic entry
+
+Test whether a closed source phase can be characterized by finite value assignments, alias consistency, weighted derivation multiplicity and per-value resource capacity, without interpreting its consuming rule trace. This is a semantic entry, not an implemented source-inference compiler or cost comparison.
+
+Use three finite producers (a, b, a-or-b), a two-head consuming rule need(X),token(X)->done(X), and a lower-priority unmatched-need failure sink. All producers precede consumption; no other rule owns the private predicates. Complete outputs retain unused tokens, produced done occurrences and unrelated noise. Compare independent mathematical assignment/capacity enumeration with independent scalar source semantics and ordinary compiled Global Scan.
+
+Freeze 1,536 cases: request count0..3; domain profiles all-ab, alternating a/ab/b, all-a; capacities0..3 independently for a/b; independent versus fully aliased query variables; choice weights1/2; and two predicate/variable renamings. Check full raw answers, output aliases, residual multiplicity and failures. Add explicit counterexamples for splitting an aliased resource demand, insufficient-resource suspension without a failure sink, and competing token consumption. These constrain any future source checker rather than imposing language semantics.
+
+Bound each source execution to200000 scalar/compiled steps and each test command to180 wall seconds. Run default and metrics-off semantic gates and scoped Clippy. No comparative timings are registered. Do not equate the mathematical enumeration used as an oracle with the intended direct solver: its later discriminating witness must avoid a complete choice product through capacity propagation while preserving complete successful extraction. Revisit renaming-aware call reuse and broader compilation at this gate or an obstruction.
