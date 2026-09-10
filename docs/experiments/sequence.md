@@ -10,7 +10,7 @@ This is the governing sequence for the renewed investigation. Existing E/R measu
 
 The [next experimental cycle](next-cycle.md) sets the current execution order, concrete contrasts and completion boundaries from the verified worktree. It reuses the stage definitions below and the full question map.
 
-The current package is T080 actual source integration of local ownership. The [dependency/publication gate](results/S03-local-dependencies.md) exposes a late-binding admission deadlock and mixed observations, then qualifies bounded dependency-aware admission and status validation. Next implement source-derived dependencies and physical descriptors, preserving complete ordered source outcomes, cancellation and identities. Admission and publication count as separate gates: three packages have now elapsed after the continuing-service breadth review. Adaptive costs and unfinished lifetime studies remain required.
+The current package is T076 existential projection, selected by the [four-package breadth review](results/S03-descriptor-breadth-review.md). The [descriptor source gate](results/S03-descriptor-source.md) connects staged ownership to deterministic source execution while exposing remaining global ordering and observation duties. Projection now receives an independent denotation and source/multiplicity trial. Native local ownership, adaptive costs and unfinished lifetime studies remain required.
 
 ## Account for every reviewed question
 

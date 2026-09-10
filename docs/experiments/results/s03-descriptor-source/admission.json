@@ -1,0 +1,116 @@
+[
+  {
+    "source": {
+      "rules": [
+        {
+          "kept": [],
+          "removed": [
+            [
+              "go",
+              []
+            ]
+          ],
+          "body": [
+            [
+              "or",
+              [],
+              []
+            ]
+          ]
+        }
+      ],
+      "query": [
+        [
+          "go",
+          []
+        ]
+      ],
+      "outputs": []
+    },
+    "rejection": "unsupported body form"
+  },
+  {
+    "source": {
+      "rules": [
+        {
+          "kept": [],
+          "removed": [
+            [
+              "go",
+              []
+            ]
+          ],
+          "body": [
+            [
+              "fail"
+            ]
+          ]
+        }
+      ],
+      "query": [
+        [
+          "go",
+          []
+        ]
+      ],
+      "outputs": []
+    },
+    "rejection": "unsupported body form"
+  },
+  {
+    "source": {
+      "rules": [
+        {
+          "kept": [],
+          "removed": [
+            [
+              "go",
+              []
+            ]
+          ],
+          "body": []
+        }
+      ],
+      "query": [
+        [
+          "go",
+          [
+            [
+              "pair",
+              1,
+              1
+            ]
+          ]
+        ]
+      ],
+      "outputs": []
+    },
+    "rejection": "atom/unknown term required"
+  },
+  {
+    "source": {
+      "rules": [
+        {
+          "kept": [],
+          "removed": [
+            [
+              "go",
+              []
+            ]
+          ],
+          "body": []
+        }
+      ],
+      "query": [
+        [
+          "go",
+          []
+        ]
+      ],
+      "outputs": [
+        "bad"
+      ]
+    },
+    "rejection": "variable outputs required"
+  }
+]

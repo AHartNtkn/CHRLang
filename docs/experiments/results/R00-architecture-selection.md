@@ -1,6 +1,6 @@
 # R00: architectural alternatives and first experiment selection
 
-The [dependency/publication gate](S03-local-dependencies.md) checks 40 admission and four observation configurations over 3,010 states. Occurrence-only admission exposes a late-binding deadlock and source-order differences; binding-aware components match the bounded priority oracle while allowing disjoint admission. Status validation excludes mixed single-descriptor snapshots but creates retry obligations. T080 next integrates source-derived dependencies and physical descriptors with real source execution. Package three after the continuing-service breadth review; the goal and other investigations remain active.
+The [descriptor source gate](S03-descriptor-source.md) validates 632 cooperative executions against 79 fresh reference/native controls. All priority-commit runs preserve raw order; component commit has six order differences. It checks 10,688 snapshots, 1,980 scan retries and 308 application abort/retries, with explicit source boundaries. The [four-package breadth review](S03-descriptor-breadth-review.md) selects T076 existential projection. Native local ownership, global ordering/observation costs and all broader obligations remain required; the goal stays active.
 
 ## Earlier experimental checkpoints
 

@@ -10,11 +10,11 @@ The [design review](results/R07-design-disposition-review.md) distinguishes meas
 
 Several useful comparisons now exist. [Integrated graph scanning](results/S02-multihead-scale.md) has favorable measured regimes. [Finite solving](results/S06-finite-lifecycle.md) has selective benefits and unselective costs. [Support ordering](results/S08-order-lifecycle.md) has opposing regimes. These findings supply stronger controls, not a complete architecture ranking.
 
-The [dependency/publication gate](results/S03-local-dependencies.md) checks 40 admission and four observation configurations over 3,010 states. Occurrence-only admission exposes a late-binding deadlock and source-order differences; binding-aware components match the bounded priority oracle while allowing disjoint admission. Status validation excludes mixed single-descriptor snapshots but creates retry obligations. T080 next integrates source-derived dependencies and physical descriptors with real source execution. Package three after the continuing-service breadth review; the goal and other investigations remain active.
+The [descriptor source gate](results/S03-descriptor-source.md) validates 632 cooperative executions against 79 fresh reference/native controls. All priority-commit runs preserve raw order; component commit has six order differences. It checks 10,688 snapshots, 1,980 scan retries and 308 application abort/retries, with explicit source boundaries. The [four-package breadth review](results/S03-descriptor-breadth-review.md) selects T076 existential projection. Native local ownership, global ordering/observation costs and all broader obligations remain required; the goal stays active.
 
 ## The order, and why
 
-Continue investigation 4 with actual source integration of T080 local admission and descriptor publication. The [dependency/publication gate](results/S03-local-dependencies.md) establishes bounded obligations, not native implementation. Derive dependencies from admitted sources and validate complete outcomes against independent expectations and the qualified serial path, including multiple descriptors, cancellation and observations between updates. Reconsider adaptive costs, conditional equality, richer theories and broader reuse at this gate or obstruction; breadth review by package four.
+Continue investigation 8 with T076 existential projection, following the [breadth review](results/S03-descriptor-breadth-review.md). Specify finite visible/hidden denotations and compare enumeration-then-projection with eliminating hidden coordinates before enumeration. Preserve visible correlations and distinguish logical set projection from raw CHR derivation multiplicity. Reconsider adaptive costs, native local ownership, conditional equality and broader reuse at the entry gate or obstruction.
 
 | Order | Investigation | Architectural decision it could change |
 |---|---|---|
@@ -58,12 +58,13 @@ Continue investigation 4 with actual source integration of T080 local admission 
 
 ## The next concrete experiments
 
-**Next connect local ownership to source execution.** Derive occurrence and equality dependencies from actual admitted programs, implement descriptor visibility and lifetime, and test observations and cancellation between physical updates. Include at least two interacting descriptors and complete ordered source effects; the finite model’s effect bag is not the full language. The unfinished ownership matrix, conditional equality costs and stable-size/growing-query trajectories remain required.
+**Next qualify existential projection independently.** Test collapsed hidden alternatives, visible correlations, empty hidden domains, caller-added constraints and unselective visible outputs. Hidden witness multiplicity and caller-shared identities must remain explicit. Native local ownership, the ownership matrix, conditional equality and changing-query trajectories remain required.
 
 | Package | Required comparison and checks | Decision and review point |
 |---|---|---|
 | **Sustained ownership — T074, required** | Use qualified demand/answer endpoints; register live-heap and allocation trajectories, preparation/query/consumer ownership and existing valid reclamation controls. Validate outside measured intervals. | Does engine history grow when required work and consumer retention stay bounded? Reconsider the alternatives at the ownership gate or obstruction. |
-| **Local claims — T080, active** | Qualify acquisition, validation, commit and cancellation against independent bounded transitions and the serial source contract. | Could local ownership replace a central source owner? Reconsider alternatives at the source/protocol gate or obstruction. |
+| **Local claims — T080, required** | Qualify acquisition, validation, commit and cancellation against independent bounded transitions and the serial source contract. | Could local ownership replace a central source owner? Reconsider alternatives at the source/protocol gate or obstruction. |
+| **Projection — T076, active** | Independently specify visible/hidden denotations, correlations and multiplicity; compare elimination with enumeration. | Can hidden search disappear without changing the selected observation contract? Review at the entry gate or obstruction. |
 | **Adaptive ownership/costs — T077, strongest alternative** | Compare failed-check backoff with fixed schedules and ordinary execution, charging policy work, missed opportunities, retained states and full observation. | Does fewer checking repay changed execution and retention? No policy is economically selected yet. |
 | **Local claims, richer theories and broader reuse — required** | Separate conflict protocols, independent denotations and future-dependency validity beyond finite private query shapes. | These remain distinct mechanisms at the next review. |
 | **Broader resource and complete architectures — T073/T078, required** | Carry the composed phase into broader source and lifetime comparisons, retaining whole-source controls and compilation accounting. | Component results do not select a combined architecture. |
@@ -80,7 +81,7 @@ Compare an observable-work splitting policy with the existing fixed quotas, copy
 
 The policy may use completed source steps, failed children, changes to owned state and detected links. It must not use future outcomes or the generator's case labels. First validate restoration and progress under switches and cancellation. Then charge policy decisions, speculative work, reconnection, retained checkpoints and output products. Freeze the policy before testing new combinations of these axes.
 
-This can change whether explicit search needs expensive shared state to retain common work. A policy that saves execution but loses overall requires attribution; one whose useful regime cannot be recognized cheaply supports a conditional tradeoff. The existing repeated-reunion allocation results remain controls, not evidence that adaptation has been tested. The adaptive entry is now qualified; its ownership/cost comparison is the strongest ready alternative to selected local ownership.
+This can change whether explicit search needs expensive shared state to retain common work. A policy that saves execution but loses overall requires attribution; one whose useful regime cannot be recognized cheaply supports a conditional tradeoff. The existing repeated-reunion allocation results remain controls, not evidence that adaptation has been tested. The adaptive entry is now qualified; its ownership/cost comparison is the strongest ready alternative to selected projection.
 
 ### Local resource ownership: make competing effects the test
 

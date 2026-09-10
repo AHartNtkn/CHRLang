@@ -1,0 +1,7 @@
+# Correct the ordered source control
+
+The first descriptor-source run compares raw residual order with a reference adapter that canonicalizes and sorts residuals. Source inspection of chr-reference/src/answer.rs confirms this endpoint cannot prove insertion order. Preserve the first failure and frozen inputs; do not change the independent reference.
+
+Use the existing serial native source compiler and executable to obtain raw ordered observations for the same79 frozen sources. Require each native answer to match the independently supplied expected answer modulo the established alpha/multiset normalization; also retain exact raw order for descriptor comparison. Run once per source with fuel8, 65536 service calls, existing2-second CPU/3-second wall limit and96GiB virtual address-space ceiling. This is the existing native reservation requirement, not a heap/RSS budget or a cost result. The native-control collection runs separately from the Python executor's1GiB bound. Whole native gate wall limit60 seconds. Freeze compiler/binary/source hashes first. No comparative timing follows.
+
+The next descriptor attempt compares canonical answers with the unchanged reference and raw ordered answers with the qualified native control. Its existing configurations and bounds remain. A mismatch is still a failure for priority commit; component-policy differences remain recorded. This corrects the evidence endpoint rather than weakening the ordered observation requirement.
