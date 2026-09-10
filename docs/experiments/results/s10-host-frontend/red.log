@@ -1,0 +1,82 @@
+EEEEEEE
+======================================================================
+ERROR: test_empty_query_and_body (__main__.SourceText.test_empty_query_and_body)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ahart/Documents/CHRLang/research/chr-hvm/host_frontend/test_frontend.py", line 10, in test_empty_query_and_body
+    self.assertEqual(decode('-\n-\n-;p;-\n'),([dict(kept=[],removed=[['p',[]]],body=[])],[dict(query=[],outputs=[])]))
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ahart/Documents/CHRLang/research/chr-hvm/host_frontend/frontend.py", line 3, in decode
+    raise NotImplementedError('common-text frontend not implemented')
+NotImplementedError: common-text frontend not implemented
+
+======================================================================
+ERROR: test_nested_choices_and_identities (__main__.SourceText.test_nested_choices_and_identities)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ahart/Documents/CHRLang/research/chr-hvm/host_frontend/test_frontend.py", line 6, in test_nested_choices_and_identities
+    rules, queries = decode('p:v7:a\nv7\nwatch:v7;p:v7;(=:v7:a|(!|q:v7)),z\nNEXT\np:v9:b\nv9\n')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ahart/Documents/CHRLang/research/chr-hvm/host_frontend/frontend.py", line 3, in decode
+    raise NotImplementedError('common-text frontend not implemented')
+NotImplementedError: common-text frontend not implemented
+
+======================================================================
+ERROR: test_reject_malformed_structure (__main__.SourceText.test_reject_malformed_structure) (text='p\n-\n-;p;(q|r\n')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ahart/Documents/CHRLang/research/chr-hvm/host_frontend/test_frontend.py", line 13, in test_reject_malformed_structure
+    with self.subTest(text=text),self.assertRaises(ValueError):decode(text)
+                                                               ^^^^^^^^^^^^
+  File "/home/ahart/Documents/CHRLang/research/chr-hvm/host_frontend/frontend.py", line 3, in decode
+    raise NotImplementedError('common-text frontend not implemented')
+NotImplementedError: common-text frontend not implemented
+
+======================================================================
+ERROR: test_reject_malformed_structure (__main__.SourceText.test_reject_malformed_structure) (text='p\n-\n-;p;q)\n')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ahart/Documents/CHRLang/research/chr-hvm/host_frontend/test_frontend.py", line 13, in test_reject_malformed_structure
+    with self.subTest(text=text),self.assertRaises(ValueError):decode(text)
+                                                               ^^^^^^^^^^^^
+  File "/home/ahart/Documents/CHRLang/research/chr-hvm/host_frontend/frontend.py", line 3, in decode
+    raise NotImplementedError('common-text frontend not implemented')
+NotImplementedError: common-text frontend not implemented
+
+======================================================================
+ERROR: test_reject_malformed_structure (__main__.SourceText.test_reject_malformed_structure) (text='p\n-\n-;p;(q|r|s)\n')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ahart/Documents/CHRLang/research/chr-hvm/host_frontend/test_frontend.py", line 13, in test_reject_malformed_structure
+    with self.subTest(text=text),self.assertRaises(ValueError):decode(text)
+                                                               ^^^^^^^^^^^^
+  File "/home/ahart/Documents/CHRLang/research/chr-hvm/host_frontend/frontend.py", line 3, in decode
+    raise NotImplementedError('common-text frontend not implemented')
+NotImplementedError: common-text frontend not implemented
+
+======================================================================
+ERROR: test_reject_malformed_structure (__main__.SourceText.test_reject_malformed_structure) (text='p\n-\n-;p;=:v1\n')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ahart/Documents/CHRLang/research/chr-hvm/host_frontend/test_frontend.py", line 13, in test_reject_malformed_structure
+    with self.subTest(text=text),self.assertRaises(ValueError):decode(text)
+                                                               ^^^^^^^^^^^^
+  File "/home/ahart/Documents/CHRLang/research/chr-hvm/host_frontend/frontend.py", line 3, in decode
+    raise NotImplementedError('common-text frontend not implemented')
+NotImplementedError: common-text frontend not implemented
+
+======================================================================
+ERROR: test_reject_malformed_structure (__main__.SourceText.test_reject_malformed_structure) (text='p\n-\n-;p;q\nNEXT\np\n-\nextra\n')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ahart/Documents/CHRLang/research/chr-hvm/host_frontend/test_frontend.py", line 13, in test_reject_malformed_structure
+    with self.subTest(text=text),self.assertRaises(ValueError):decode(text)
+                                                               ^^^^^^^^^^^^
+  File "/home/ahart/Documents/CHRLang/research/chr-hvm/host_frontend/frontend.py", line 3, in decode
+    raise NotImplementedError('common-text frontend not implemented')
+NotImplementedError: common-text frontend not implemented
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (errors=7)

@@ -10,7 +10,7 @@ The [design review](results/R07-design-disposition-review.md) distinguishes meas
 
 Several useful comparisons now exist. [Integrated graph scanning](results/S02-multihead-scale.md) has favorable measured regimes. [Finite solving](results/S06-finite-lifecycle.md) has selective benefits and unselective costs. [Support ordering](results/S08-order-lifecycle.md) has opposing regimes. These findings supply stronger controls, not a complete architecture ranking.
 
-T078 is active. The [common answer gate](results/S10-answer-wire.md) qualifies a shared observable endpoint, but full Rust/native lifecycle accounting remains under construction. The [Rust runner qualification](results/S10-rust-lifecycle.md) now checks complete observations and cancellation/reuse across all 13 modes; it supplies no comparative cost ordering. Native host preparation and dictionaries, allocation scope, clock overhead and compilation remain material accounting questions.
+T078 is active. The [common answer gate](results/S10-answer-wire.md) qualifies a shared observable endpoint, but full Rust/native lifecycle accounting remains under construction. The [Rust runner qualification](results/S10-rust-lifecycle.md) now checks complete observations and cancellation/reuse across all 13 modes; it supplies no comparative cost ordering. The [native host frontend](results/S10-host-frontend.md) now reconstructs the same source syntax and replays 479 queries exactly. Combined host transport and lifetime, allocation scope, clock overhead and compilation remain material accounting questions.
 
 ## The order, and why
 

@@ -139,9 +139,10 @@ tasks:
     assignee: PM
     status: active
     objective: Establish and independently qualify at least two coherent complete execution paths on mixed-mechanism sources, including a serious alternative, with explicit semantic capability and responsibility maps before whole-path cost registration.
-    progress: Rust lifecycle qualification validates 338 corpus processes with 2286 admitted checks and 587 explicit exclusions. Complete outputs exactly match initial lifecycle and prior batch-wire observations with independent source/dictionary checks. All 39 initial cancellations and 13 full controls pass. The stronger challenge validates 65 retained-consumer queries against 65 standalone controls; all 13 halfway queries interrupt live work and every subsequent full query completes under reused preparation. Named phase arithmetic and actual metrics-off flags pass. Three wire and nine checked finite-read tests pass default/off; scoped strict Clippy and formatting pass. No comparative timing matrix has run.
-    next_action: Complete native host source emission and dictionary lifecycle accounting, qualify separate allocation diagnostics with explicit allocator/mapping scope, and calibrate clock overhead. Reconcile native protocol and Rust syntax/query boundaries; retain unsupported capability exclusions. At full runner qualification compare one bounded mixed-source pilot with broader direct source analysis before selecting more depth. Compilation and artifact lifetime remain unmeasured; broader native ownership, constructors, sustained lifetime and every other consequential mapped mechanism remain required.
+    progress: Native host frontend qualification reconstructs common source syntax for all 26 sessions and matches independently stored ASTs. All 26 emitted programs equal frozen native artifacts. All 479 changing-query observations match prior native bytes, service counts, pending/unsupported flags and graph words; complete answers match independent expectations. Query-only symbols and cancellation schedules are included. Three parser tests and the archive audit pass. Frontend decode, emission, encoding, protocol assembly and reference-count release are separately recorded without comparative timing inference. The qualified Rust lifecycle controls remain available.
+    next_action: Integrate host input reading, artifact writing, native transport and output ownership into the combined lifecycle boundary. Qualify separate host/native allocation diagnostics with explicit allocator/mapping scope and calibrate clocks. At full runner qualification compare one bounded mixed-source pilot with broader direct source analysis before more depth. Compilation/artifact lifetime, local native ownership, constructors, sustained lifetime and all other consequential mapped mechanisms remain required.
     inputs:
+      - docs/experiments/results/S10-host-frontend.md
       - docs/experiments/results/S10-rust-lifecycle.md
       - docs/experiments/results/S10-answer-wire.md
       - docs/experiments/results/S10-finite-kept-read.md
@@ -2461,16 +2462,12 @@ checks:
   last_verification:
     result: passed
     task: T078
-    scope: Rust named lifecycle intervals, complete answer publication and cancellation/reuse qualification; no comparative cost conclusions.
+    scope: Common source-text host preparation and exact native replay; diagnostic phase accounting only.
     commands:
-      - python3 research/chr-hvm/rust_lifecycle/gate.py
-      - python3 research/chr-hvm/rust_lifecycle/reuse.py
-      - python3 research/chr-hvm/rust_lifecycle/audit.py
-      - cargo test -p chr-direct-conditional --no-default-features --test answer_wire_gate --test finite_kept_read_gate
-      - cargo test -p chr-direct-conditional --test answer_wire_gate --test finite_kept_read_gate
-      - cargo clippy -p chr-direct-conditional --no-default-features --example native_lifecycle --test answer_wire_gate --test finite_kept_read_gate -- -D warnings
-      - Scoped rustfmt check; report links, source/evidence hashes and active-task YAML checks
+      - python3 research/chr-hvm/host_frontend/test_frontend.py
+      - python3 research/chr-hvm/host_frontend/gate.py
+      - python3 research/chr-hvm/host_frontend/audit.py
+      - Source/evidence hashes, report links, YAML and diff checks
     evidence:
-      - docs/experiments/results/S10-rust-lifecycle.md
-      - docs/experiments/results/s10-rust-lifecycle/qualification.json
-      - docs/experiments/results/s10-rust-lifecycle/validation.json
+      - docs/experiments/results/S10-host-frontend.md
+      - docs/experiments/results/s10-host-frontend/validation.json

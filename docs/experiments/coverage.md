@@ -1,5 +1,7 @@
 # Unanswered architecture questions and experimental ownership
 
+The [native host frontend qualification](results/S10-host-frontend.md) reconstructs common source syntax, reproduces 26 frozen native programs and replays 479 queries exactly. Host emission/query encoding now have explicit diagnostic intervals. Combined host transport/lifetime, allocation scope and clock calibration remain before cost registration; no comparative ranking follows.
+
 The [Rust lifecycle qualification](results/S10-rust-lifecycle.md) validates 2,286 admitted checks, 587 explicit exclusions and cancellation followed by reused preparation in all 13 modes. Full outputs match prior runners and independent expectations. Native host/frontend accounting, separate allocation diagnostics and clock calibration remain before comparative registration; no architecture ranking follows.
 
 The [common owned-answer gate](results/S10-answer-wire.md) validates 958 native queries and 2,286 admitted Rust checks against a shared binary format. Consumer bytes survive producer disposal; dictionaries remain explicit owners. Checked finite solving remains available on early-readiness sources. T078 next integrates this endpoint into full lifecycle measurement; no comparative cost matrix has run.
