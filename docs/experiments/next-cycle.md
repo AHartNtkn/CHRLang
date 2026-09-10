@@ -10,20 +10,20 @@ The [design review](results/R07-design-disposition-review.md) distinguishes meas
 
 Several useful comparisons now exist. [Integrated graph scanning](results/S02-multihead-scale.md) has favorable measured regimes. [Finite solving](results/S06-finite-lifecycle.md) has selective benefits and unselective costs. [Support ordering](results/S08-order-lifecycle.md) has opposing regimes. These findings supply stronger controls, not a complete architecture ranking.
 
-The [adaptive cost pilot](results/S04-adaptive-cost-pilot.md) validates 768 qualification and 2,688 comparative processes. Most timing comparisons remain unresolved, and stronger controls qualify isolated backoff gains. The [full breadth review](results/S04-adaptive-cost-breadth-review.md) selects effectful caller reuse. No adaptive policy is selected.
+The [effectful source gate](results/S05-effectful-source-gate.md) distinguishes resource recognition from valid execution boundaries. Region keys qualify 288 finite queries, but competing consumption, intermediate observation, earlier bindings and surviving history defeat unchecked contraction. No broader reuse implementation is selected.
 
 ## Start here: the next experiments
 
-Test whether reusable computation can cross caller boundaries with live resource effects. Existing private-call eligibility excludes these cases; existing generalized continuation tests already cover renaming and history relevance. The missing question is how much effect dependency can be validated and transported without redoing the computation or changing source behavior.
+Qualify a checked source boundary and a resumable alternative. A resource-sensitive key alone cannot preserve caller interleaving or history. The source gate narrows the implementation question to those responsibilities.
 
 | Next | Experiment | Decision and follow-through |
 |---|---|---|
-| 1 — T075 active | Register and implement an independent source gate for calls with current consuming resources, kept facts, caller interference, late bindings and fresh returned identities. Compare complete direct execution and the precise proposed reuse transformation. | Can reuse extend beyond private calls while preserving resources, intermediate effects, multiplicity and progress? A counterexample bounds its transformation; it does not reject all reuse. |
-| 2 — conditional on qualification | Qualify entry ownership, invalidation, cancellation and changing-query reuse; then register complete costs against competent recomputation. | Do saved computations repay recognition, dependency checks, effect transport and retained entries? Keep favorable and adverse reuse conditions separate. |
-| At the first gate or obstruction | Reconsider targeted adaptive timing, native local ownership, conditional equality/lifetime repair and incremental projection. | The adaptive pilot needs prospective variation attribution before a policy choice. It remains required; its unresolved comparisons are not economic equivalence. |
-| Within four packages | Review all directions and every missing mechanism below. | Correctness, ownership, attribution and timing count independently. Priority changes the order, never the evidence obligation. |
+| 1 — T075 active | Test a checked initial priority phase with complete resource dependencies; independently compare a design that resumes at effect boundaries for interfering callers. | Can reuse extend beyond private calls while preserving current occurrences, history, intermediate effects and source order? Do not turn the four counterexamples into a claim against all reuse. |
+| 2 — conditional on qualification | Qualify ordered output, interruptible cancellation, entry ownership, invalidation and changing-query reuse; register complete costs against competent recomputation. | Do saved computations repay recognition, dependency checks, transport and retained entries? Complete-answer multiset agreement is insufficient for these endpoints. |
+| At the first gate or obstruction | Reconsider adaptive timing attribution, native local ownership, conditional equality/lifetime repair and incremental projection. | Effectful reuse currently has concrete semantic obligations that can change its scope. Adaptive timing uncertainty remains required work. |
+| Within three further packages | Review all directions and every missing mechanism below. | The effectful source gate is package one after the adaptive review. Correctness, ownership, attribution and timing count independently. |
 
-The adaptive cycle has completed four packages. The selected source gate starts the next cycle. Its registration must name exact configurations, controls, independent oracle, resource bounds and interpretation before runs. Broader architectural and language questions remain required throughout.
+The [source gate report](results/S05-effectful-source-gate.md#which-investigation-comes-next-and-why) compares the next step with the strongest ready alternatives. Exact configurations, bounds and interpretation must be registered before new runs. Broader architectural and language questions remain required throughout.
 
 ## The full programme
 
@@ -71,7 +71,7 @@ The numbers below identify investigations and their detailed specifications late
 
 ## The next concrete experiments
 
-**Next investigate effectful caller reuse — T075.** Follow the source gate above and the [full breadth review](results/S04-adaptive-cost-breadth-review.md). The strongest ready alternative is targeted adaptive timing attribution: it could resolve fixture-level policies, while effectful reuse can change the admitted source boundary. Reconsider that ordering at the first gate or obstruction.
+**Next qualify checked and resumable effectful reuse — T075.** Follow the source gate above and the [full breadth review](results/S04-adaptive-cost-breadth-review.md). The strongest ready alternative is targeted adaptive timing attribution: it could resolve fixture-level policies, while effectful reuse can change the admitted source boundary. Reconsider that ordering at the first gate or obstruction.
 
 T077 still requires timing attribution, policy challenges, delayed splitting and checkpoints/replay. T076 still requires incremental projection, broader connected shapes and source/theory correspondence. T074 still requires conditional equality/lifetime repair and sustained ownership. T080 still requires native local claims, dynamic choices, failed branches and descriptor lifetime. Broader resource derivation, integrated execution, language restrictions and complete architectures retain their comparisons below.
 

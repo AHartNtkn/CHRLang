@@ -1,0 +1,7 @@
+# Effectful source gate: transport and interrupted collection follow-through
+
+Supplement the registered source gate after its first eight-test run. Preserve the original registration and receipts. This remains the same semantic qualification package; it adds no comparative costs.
+
+The 288-query first run shows 252 call-only mismatches, 240 region hits and no uncached/region matrix mismatches. The four challenged scheduling/history contractions fail even without caching. Before reporting the gate, challenge shared versus distinct interface variables in current resources and kept facts; retain multiple prior answers across later queries and table disposal. Add an explicit bounded-collection error endpoint: zero and one phase service call must not publish a partial cache result; a subsequent complete query must recompute and later reuse the complete answer. This is cutoff/reuse qualification, not a claim of interruptible streaming cancellation or full owner accounting.
+
+Run the final deterministic source suite in default and counter-free builds under the original per-process bounds. Preserve both final executables, hashes and logs. Require complete independent raw-answer equivalence for transport/alias controls, explicit errors for cutoff and unchanged challenged failures. Broader interruptible caller cancellation, occurrence/history transport, memory accounting and costs remain required before architectural use.

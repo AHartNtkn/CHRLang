@@ -1,0 +1,11 @@
+   Compiling chr-reuse v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-reuse)
+error[E0593]: closure is expected to take 2 arguments, but it takes 1 argument
+  --> research/chr-reuse/tests/effectful_calls.rs:52:12
+   |
+52 |     (0..n).fold(atom("z"), |n| chr_syntax::t("s", [n]))
+   |            ^^^^            --- takes 1 argument
+   |            |
+   |            expected closure that takes 2 arguments
+
+For more information about this error, try `rustc --explain E0593`.
+error: could not compile `chr-reuse` (test "effectful_calls") due to 1 previous error

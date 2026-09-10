@@ -1,0 +1,33 @@
+
+running 10 tests
+test competing_consumption_requires_a_valid_scheduling_boundary ... challenge=competing-consumer mode=None agrees=false direct=[(Answer { outputs: [], residual: [Constraint { name: "ready", args: [] }, Constraint { name: "stolen", args: [] }] }, [0, 1])] contracted=[Answer { outputs: [], residual: [Constraint { name: "pulse", args: [] }, Constraint { name: "won", args: [] }] }]
+challenge=competing-consumer mode=Region agrees=false direct=[(Answer { outputs: [], residual: [Constraint { name: "ready", args: [] }, Constraint { name: "stolen", args: [] }] }, [0, 1])] contracted=[Answer { outputs: [], residual: [Constraint { name: "pulse", args: [] }, Constraint { name: "won", args: [] }] }]
+challenge=no-competitor mode=None agrees=true direct=[(Answer { outputs: [], residual: [Constraint { name: "won", args: [] }] }, [0, 1, 2])] contracted=[Answer { outputs: [], residual: [Constraint { name: "won", args: [] }] }]
+challenge=no-competitor mode=Region agrees=true direct=[(Answer { outputs: [], residual: [Constraint { name: "won", args: [] }] }, [0, 1, 2])] contracted=[Answer { outputs: [], residual: [Constraint { name: "won", args: [] }] }]
+ok
+test current_resource_values_and_fresh_aliases_survive_cached_transport ... ok
+test held_answers_remain_valid_after_queries_and_table_disposal ... ok
+test intermediate_effects_cannot_be_observed_only_after_contraction ... challenge=intermediate-observer mode=None agrees=false direct=[(Answer { outputs: [], residual: [Constraint { name: "observed", args: [] }] }, [0, 1, 2])] contracted=[Answer { outputs: [], residual: [] }]
+challenge=intermediate-observer mode=Region agrees=false direct=[(Answer { outputs: [], residual: [Constraint { name: "observed", args: [] }] }, [0, 1, 2])] contracted=[Answer { outputs: [], residual: [] }]
+challenge=no-observer mode=None agrees=true direct=[(Answer { outputs: [], residual: [] }, [0, 1])] contracted=[Answer { outputs: [], residual: [] }]
+challenge=no-observer mode=Region agrees=true direct=[(Answer { outputs: [], residual: [] }, [0, 1])] contracted=[Answer { outputs: [], residual: [] }]
+ok
+test interrupted_phase_collection_cannot_publish_partial_results ... ok
+test late_binding_changes_which_rule_may_execute ... challenge=binding-before-call mode=None agrees=false direct=[(Answer { outputs: [("result", App("known", []))], residual: [] }, [0, 1])] contracted=[Answer { outputs: [("result", App("generic", []))], residual: [] }]
+challenge=binding-before-call mode=Region agrees=false direct=[(Answer { outputs: [("result", App("known", []))], residual: [] }, [0, 1])] contracted=[Answer { outputs: [("result", App("generic", []))], residual: [] }]
+challenge=binding-after-call mode=None agrees=true direct=[(Answer { outputs: [("result", App("generic", []))], residual: [] }, [1, 2])] contracted=[Answer { outputs: [("result", App("generic", []))], residual: [] }]
+challenge=binding-after-call mode=Region agrees=true direct=[(Answer { outputs: [("result", App("generic", []))], residual: [] }, [1, 2])] contracted=[Answer { outputs: [("result", App("generic", []))], residual: [] }]
+ok
+test reconstruction_must_preserve_relative_occurrence_order ... challenge=all-token-occurrences mode=None agrees=true direct=[(Answer { outputs: [("selected", App("first", []))], residual: [Constraint { name: "token", args: [App("second", [])] }] }, [1])] contracted=[Answer { outputs: [("selected", App("first", []))], residual: [Constraint { name: "token", args: [App("second", [])] }] }]
+challenge=all-token-occurrences mode=Region agrees=true direct=[(Answer { outputs: [("selected", App("first", []))], residual: [Constraint { name: "token", args: [App("second", [])] }] }, [1])] contracted=[Answer { outputs: [("selected", App("first", []))], residual: [Constraint { name: "token", args: [App("second", [])] }] }]
+relative occurrence order: original=[Answer { outputs: [("selected", App("first", []))], residual: [Constraint { name: "token", args: [App("second", [])] }] }], reordered=[Answer { outputs: [("selected", App("second", []))], residual: [Constraint { name: "token", args: [App("first", [])] }] }]
+ok
+test residual_replay_does_not_transport_propagation_history ... challenge=surviving-history mode=None agrees=false direct=[(Answer { outputs: [], residual: [Constraint { name: "fact", args: [] }, Constraint { name: "recorded", args: [] }] }, [0])] contracted=[Answer { outputs: [], residual: [Constraint { name: "fact", args: [] }, Constraint { name: "recorded", args: [] }, Constraint { name: "recorded", args: [] }] }]
+challenge=surviving-history mode=Region agrees=false direct=[(Answer { outputs: [], residual: [Constraint { name: "fact", args: [] }, Constraint { name: "recorded", args: [] }] }, [0])] contracted=[Answer { outputs: [], residual: [Constraint { name: "fact", args: [] }, Constraint { name: "recorded", args: [] }, Constraint { name: "recorded", args: [] }] }]
+ok
+test resource_phase_matrix_distinguishes_stale_keys_from_transport ... resource matrix: queries=288, direct/uncached/region independent comparisons=864, call-only mismatches=252, region hits=240
+ok
+test shared_resource_interfaces_are_distinct_keys_and_reconnect_the_caller ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s
+

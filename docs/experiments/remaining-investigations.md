@@ -1,6 +1,6 @@
 # The comparisons still needed to choose the architecture
 
-The [adaptive cost pilot](results/S04-adaptive-cost-pilot.md) and [full breadth review](results/S04-adaptive-cost-breadth-review.md) supply the current evidence. The adaptive lifecycle pilot validates 768 qualification and 2,688 comparative processes across 384 cells. Most timing comparisons remain unresolved; the median within-cell maximum/minimum ratio is 1.416. Separated gains against eager or Copy do not establish superiority over stronger fixed or ordinary controls. No adaptive policy is selected. The four-package breadth review selects T075 effectful caller reuse next; T077 timing attribution and broader restoration remain required. Goal active.
+The [effectful source gate](results/S05-effectful-source-gate.md) supplies the current evidence. Effectful reuse source gate passes ten tests in each build. Across 288 queries, uncached and region-keyed contraction agree independently; call-only keys mismatch 252 queries and region keys obtain 240 hits. Competing consumption, intermediate observation, earlier bindings and surviving propagation history invalidate unchecked contraction even without caching. T075 next qualifies a checked source boundary and resumable effects, including ordered delivery and occurrence/history transport. One package since the adaptive breadth review; goal active.
 
 ## Earlier experimental checkpoints
 
