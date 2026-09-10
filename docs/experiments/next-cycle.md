@@ -10,11 +10,11 @@ The [design review](results/R07-design-disposition-review.md) distinguishes meas
 
 Several useful comparisons now exist. [Integrated graph scanning](results/S02-multihead-scale.md) has favorable measured regimes. [Finite solving](results/S06-finite-lifecycle.md) has selective benefits and unselective costs. [Support ordering](results/S08-order-lifecycle.md) has opposing regimes. These findings supply stronger controls, not a complete architecture ranking.
 
-The [direct finite-result reuse gate](results/S05-finite-result-reuse.md) validates 432 changed queries per build against independent complete answers. Misses match the existing finite solver’s source work; renamed hits preserve domains, aliases, weights and caller effects. T075 next qualifies retained ownership and allocation against recomputation and both learning policies using the same finite preparation. Broader capacity phases, compilation and lifetime return at that boundary; the goal remains active.
+The [finite reuse ownership comparison](results/S05-finite-reuse-ownership.md) validates 900 processes and 300 exact allocation pairs. Result reuse lowers allocation on repeated successful work with sufficient capacity; covered learning favors all-failing inputs, and forced eviction exposes result-cache overhead. T075 next registers bounded primary timing across these opposing regimes. The four-package breadth review follows that package; broader capacity, compilation and lifetime remain required and the goal remains active.
 
 ## The order, and why
 
-Continue investigation 5 with retained ownership and allocation for result reuse and learning under the same direct finite preparation. Investigation 2 retains broader capacity phases, compilation and lifetime after its bounded cost result. Review those alternatives at the ownership/allocation gate or an obstruction.
+Continue investigation 5 with a bounded primary cost comparison of result reuse and learning under the same direct finite preparation. Investigation 2 retains broader capacity phases, compilation and lifetime after its bounded cost result. Review those alternatives at the next cost package or an obstruction, including the required four-package breadth review.
 
 | Order | Investigation | Architectural decision it could change |
 |---|---|---|
@@ -58,16 +58,16 @@ Continue investigation 5 with retained ownership and allocation for result reuse
 
 ## The next concrete experiments
 
-**Next qualify ownership and allocation for result reuse and learning under the same direct finite preparation.** The semantic gate now preserves full callers, weights and aliases on both misses and renamed hits. Charge input admission, key creation, retained successful and failed results, replay, eviction and disposal. Carry the bundled persistent call table forward as a complete-path competitor.
+**Next register bounded primary timing across the opposing allocation regimes.** Ownership qualification is complete for the registered finite batches. Compare recomputation, both learning policies and result reuse with ordinary allocation and counters disabled; include short batches, successful reuse, all failure and forced eviction. Carry the bundled persistent call table forward as a separate complete-path competitor.
 
 | Package | Required comparison and checks | Decision and review point |
 |---|---|---|
-| **Finite reuse ownership and allocation — T075, active** | Compare recomputation, eager/covered learning and completed-result reuse under the same prepared finite plan. Include changed domains, sparse hits, result-heavy success, capacities, eviction, cancellation/reuse and consumer ownership through preparation disposal. | Do retained results and key/transport costs repay avoided execution? At the ownership/allocation boundary or an obstruction, reconsider broader capacity phases and compilation before primary timing. |
+| **Matched finite reuse primary costs — T075, active** | Prospectively register paired ordinary-allocator timing for recomputation, eager/covered learning and completed-result reuse across successful reuse, all failure, short queries and forced eviction. Preserve qualified full lifecycle endpoints. | Do allocation differences translate into complete runtime tradeoffs? At this package or an obstruction, perform the four-package breadth review before further reuse refinement. |
 | **Matched reuse versus learning costs — required after semantic and ownership qualification** | Compare recomputation, eager/covered learning and the strongest admitted reusable-result control. Include repeated normalized shapes, genuinely different domains, near misses and retention/eviction; charge keys, remapping and all owners. | Does learning remain preferable when a result cache is applicable, and where does its more general failure-region reuse matter? Register exact comparisons only after qualification. |
 | **Broader resource phases and compilation — T073, required** | Carry capacity gains and R05/S01 compilation evidence forward. Test surrounding effects, resource interference, publication and richer source admission where they could change necessary runtime machinery. | Can the measured benefits compose with a broader language? Review at the reuse semantic gate or an obstruction. |
 | **Complete paths and lifetime — T078 and S08, required** | Combine credible mechanisms and test sustained consumers, ongoing siblings, cancellation and complete publication. | Do bounded component gains survive coherent architecture and lifetime obligations? |
 
-**Why reuse now:** the direct finite-result gate now separates reuse from executor choice at the semantic level. Successful cached answers may save execution while increasing retained memory and transport. Measuring those owners can change interpretation of the learning gains. Broader capacity phases could widen language relevance but need a new effect/publication correspondence. Select ownership/allocation qualification, then reconsider both before primary timing.
+**Why this cost comparison now:** the matched ownership evidence shows opposing allocation regimes and a concrete benefit from broader failure reuse. Lookup and transport costs need not track bytes, so bounded primary timing can change the runtime interpretation. Broader capacity phases need a new effect/publication correspondence. Complete this cost package, then explicitly review still-untried directions before further depth.
 
 ## 1. Carry the whole-path pilot into broader comparisons
 

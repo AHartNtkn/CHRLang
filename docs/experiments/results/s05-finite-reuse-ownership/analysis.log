@@ -1,0 +1,42 @@
+{
+  "recompute": {
+    "lower": 10,
+    "equal": 0,
+    "higher": 62
+  },
+  "eager": {
+    "lower": 24,
+    "equal": 0,
+    "higher": 48
+  },
+  "covered": {
+    "lower": 8,
+    "equal": 0,
+    "higher": 64
+  }
+}
+scenario (484, 1, 4, 16, 'none', 64)
+recompute {'answers': 40, 'regions': 0, 'results': 0, 'requested': 4237446, 'peak': 191554, 'retention_drop': 0}
+eager {'answers': 40, 'regions': 2, 'results': 0, 'requested': 4233175, 'peak': 191554, 'retention_drop': 1808}
+covered {'answers': 40, 'regions': 2, 'results': 0, 'requested': 3497775, 'peak': 191554, 'retention_drop': 1808}
+reuse {'answers': 40, 'regions': 0, 'results': 3, 'requested': 2885380, 'peak': 191554, 'retention_drop': 3877}
+scenario (511, 2, 4, 16, 'none', 64)
+recompute {'answers': 336, 'regions': 0, 'results': 0, 'requested': 6887782, 'peak': 315430, 'retention_drop': 0}
+eager {'answers': 336, 'regions': 0, 'results': 0, 'requested': 6903983, 'peak': 315430, 'retention_drop': 0}
+covered {'answers': 336, 'regions': 0, 'results': 0, 'requested': 6903983, 'peak': 315430, 'retention_drop': 0}
+reuse {'answers': 336, 'regions': 0, 'results': 3, 'requested': 5493919, 'peak': 321533, 'retention_drop': 6391}
+scenario (0, 1, 4, 16, 'none', 64)
+recompute {'answers': 0, 'regions': 0, 'results': 0, 'requested': 1930521, 'peak': 186060, 'retention_drop': 0}
+eager {'answers': 0, 'regions': 3, 'results': 0, 'requested': 706423, 'peak': 186060, 'retention_drop': 2619}
+covered {'answers': 0, 'regions': 3, 'results': 0, 'requested': 612889, 'peak': 186060, 'retention_drop': 2619}
+reuse {'answers': 0, 'regions': 0, 'results': 3, 'requested': 710301, 'peak': 186060, 'retention_drop': 2523}
+scenario (484, 1, 1, 16, 'none', 64)
+recompute {'answers': 40, 'regions': 0, 'results': 0, 'requested': 4237446, 'peak': 191554, 'retention_drop': 0}
+eager {'answers': 40, 'regions': 1, 'results': 0, 'requested': 4262869, 'peak': 191554, 'retention_drop': 999}
+covered {'answers': 40, 'regions': 1, 'results': 0, 'requested': 3507456, 'peak': 191554, 'retention_drop': 999}
+reuse {'answers': 40, 'regions': 0, 'results': 1, 'requested': 4326540, 'peak': 191554, 'retention_drop': 969}
+scenario (484, 1, 4, 1, 'none', 0)
+recompute {'answers': 5, 'regions': 0, 'results': 0, 'requested': 158454, 'peak': 34492, 'retention_drop': 0}
+eager {'answers': 5, 'regions': 1, 'results': 0, 'requested': 159579, 'peak': 35493, 'retention_drop': 1001}
+covered {'answers': 5, 'regions': 1, 'results': 0, 'requested': 159221, 'peak': 35493, 'retention_drop': 1001}
+reuse {'answers': 5, 'regions': 0, 'results': 2, 'requested': 169546, 'peak': 37304, 'retention_drop': 3100}

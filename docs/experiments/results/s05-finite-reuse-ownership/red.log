@@ -1,0 +1,13 @@
+   Compiling chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax)
+   Compiling chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe)
+   Compiling chr-direct-choice v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-choice)
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)
+   Compiling chr-relational v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-relational)
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+    Finished `release` profile [optimized] target(s) in 10.30s
+     Running `target/s05-finite-reuse-ownership/primary/release/examples/learning_ownership reuse 484 1 4 16 none 64`
+
+thread 'main' (6) panicked at research/chr-direct-conditional/examples/learning_ownership.rs:69:9:
+assertion failed: ["recompute", "eager", "covered"].contains(&mode)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

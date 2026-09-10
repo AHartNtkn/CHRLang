@@ -284,6 +284,6 @@ All new results link raw inputs, commands, freezes, validation and unfavorable o
 
 ## Current execution order
 
-The [direct finite-result reuse gate](results/S05-finite-result-reuse.md) validates 432 changed queries per build against independent complete answers. Misses match the existing finite solver’s source work; renamed hits preserve domains, aliases, weights and caller effects. T075 next qualifies retained ownership and allocation against recomputation and both learning policies using the same finite preparation. Broader capacity phases, compilation and lifetime return at that boundary; the goal remains active.
+The [finite reuse ownership comparison](results/S05-finite-reuse-ownership.md) validates 900 processes and 300 exact allocation pairs. Result reuse lowers allocation on repeated successful work with sufficient capacity; covered learning favors all-failing inputs, and forced eviction exposes result-cache overhead. T075 next registers bounded primary timing across these opposing regimes. The four-package breadth review follows that package; broader capacity, compilation and lifetime remain required and the goal remains active.
 
 The [current execution order](next-cycle.md#the-order-and-why), [57-question map](question-to-experiment-map.md) and [mechanism ledger](remaining-investigations.md) retain every unresolved obligation. Reordering does not establish an experimental conclusion or complete the goal.

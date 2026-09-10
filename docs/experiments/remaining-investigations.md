@@ -1,6 +1,6 @@
 # The comparisons still needed to choose the architecture
 
-The [direct finite-result reuse gate](results/S05-finite-result-reuse.md) validates 432 changed queries per build against independent complete answers. Misses match the existing finite solver’s source work; renamed hits preserve domains, aliases, weights and caller effects. T075 next qualifies retained ownership and allocation against recomputation and both learning policies using the same finite preparation. Broader capacity phases, compilation and lifetime return at that boundary; the goal remains active.
+The [finite reuse ownership comparison](results/S05-finite-reuse-ownership.md) validates 900 processes and 300 exact allocation pairs. Result reuse lowers allocation on repeated successful work with sufficient capacity; covered learning favors all-failing inputs, and forced eviction exposes result-cache overhead. T075 next registers bounded primary timing across these opposing regimes. The four-package breadth review follows that package; broader capacity, compilation and lifetime remain required and the goal remains active.
 
 ## Earlier experimental checkpoints
 
@@ -86,7 +86,7 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-The [current execution order](next-cycle.md#the-order-and-why) owns scheduling. T075 is active for ownership and allocation of completed-result reuse and learning under the same finite preparation. The semantic gate is qualified; the bundled call table remains a complete-path control. T073 broader capacity phases, compilation and lifetime return at that gate or an obstruction. Broad architecture obligations remain required.
+The [current execution order](next-cycle.md#the-order-and-why) owns scheduling. T075 is active for bounded primary costs of completed-result reuse and learning under the same finite preparation. Semantic and registered ownership gates are qualified; the next package triggers the four-package breadth review. The bundled call table remains a complete-path control. T073 broader capacity phases, compilation and lifetime return at that gate or an obstruction. Broad architecture obligations remain required.
 
 ### Depth, breadth and stopping within this sequence
 

@@ -66,7 +66,7 @@ mod gate {
         let weight: usize = args[3].parse().unwrap();
         let capacity: usize = args[4].parse().unwrap();
         let count: usize = args[5].parse().unwrap();
-        assert!(["recompute", "eager", "covered"].contains(&mode));
+        assert!(["recompute", "eager", "covered", "reuse"].contains(&mode));
         assert!([0, 273, 238, 484, 511].contains(&accepted));
         assert!([1, 2].contains(&weight) && [0, 1, 4].contains(&capacity));
         assert!([1, 4, 16].contains(&count));
@@ -84,8 +84,8 @@ mod gate {
         let caller = mark(&mut records, 0, "caller_prepare", || {
             bridge::Bridge::new(source.clone())
         });
-        let mut learner = mark(&mut records, 0, "learner_setup", || {
-            (mode != "recompute").then(|| {
+        let (mut learner, mut results) = mark(&mut records, 0, "learner_setup", || {
+            let learner = matches!(mode, "eager" | "covered").then(|| {
                 phase::learning::Learner::<{ cfg!(feature = "learning-diagnostics") }>::new(
                     &prepared,
                     capacity,
@@ -95,7 +95,13 @@ mod gate {
                         Pruning::WhenCovered
                     },
                 )
-            })
+            });
+            let results = (mode == "reuse").then(|| {
+                phase::reuse::Cache::<{ cfg!(feature = "learning-diagnostics") }>::new(
+                    &prepared, capacity,
+                )
+            });
+            (learner, results)
         });
         for index in 0..=count {
             let query_start = Instant::now();
@@ -111,8 +117,29 @@ mod gate {
                 matrix_query(domain, domain, false, 10 + 10 * index as u64)
             });
             let retained_before = learner.as_ref().map_or(0, |l| l.retained());
+            let results_before = results.as_ref().map_or(0, |r| r.retained());
             let installed_before = learner.as_ref().map_or(0, |l| l.stats().learned_regions);
-            let report = if let Some(learner) = learner.as_mut() {
+            let report = if let Some(results) = results.as_mut() {
+                let mut session = mark(&mut records, index, "query_setup", || {
+                    results.start(&q, Limits::default()).unwrap()
+                });
+                let report = mark(&mut records, index, "finite_service", || {
+                    if index == 1 && cancel == "step1" {
+                        assert!(matches!(session.advance().unwrap(), phase::Event::Progress));
+                        None
+                    } else {
+                        loop {
+                            match session.advance().unwrap() {
+                                phase::Event::Progress => (),
+                                phase::Event::Complete(r) => break Some(r),
+                                phase::Event::Exhausted => panic!("missing result"),
+                            }
+                        }
+                    }
+                });
+                mark(&mut records, index, "session_drop", || drop(session));
+                report
+            } else if let Some(learner) = learner.as_mut() {
                 let mut session = mark(&mut records, index, "query_setup", || {
                     learner.start(&q, Limits::default()).unwrap()
                 });
@@ -154,6 +181,7 @@ mod gate {
                 report
             };
             if index == 1 && cancel == "step1" {
+                assert_eq!(results.as_ref().map_or(0, |r| r.retained()), results_before);
                 assert_eq!(
                     learner.as_ref().map_or(0, |l| l.stats().learned_regions),
                     installed_before
@@ -196,7 +224,8 @@ mod gate {
             mark(&mut records, index, "input_drop", || drop(q));
         }
         let retained = learner.as_ref().map_or(0, |l| l.retained());
-        mark(&mut records, 0, "learner_drop", || drop(learner));
+        let retained_results = results.as_ref().map_or(0, |r| r.retained());
+        mark(&mut records, 0, "learner_drop", || drop((learner, results)));
         mark(&mut records, 0, "prepared_drop", || drop(prepared));
         mark(&mut records, 0, "caller_prepared_drop", || drop(caller));
         // Independent observation validation is outside allocation intervals.
@@ -241,7 +270,7 @@ mod gate {
             .collect::<Vec<_>>()
             .join(",");
         println!(
-            "{{\"mode\":\"{mode}\",\"accepted\":{accepted},\"depth\":{depth},\"weight\":{weight},\"capacity\":{capacity},\"queries\":{},\"cancel\":\"{cancel}\",\"answers\":{answer_count},\"retained_regions\":{retained},\"diagnostics\":{},\"allocation_meter\":{},\"baseline\":{baseline},\"first_owned_ns\":[{first_json}],\"phases\":[{}]}}",
+            "{{\"mode\":\"{mode}\",\"accepted\":{accepted},\"depth\":{depth},\"weight\":{weight},\"capacity\":{capacity},\"queries\":{},\"cancel\":\"{cancel}\",\"answers\":{answer_count},\"retained_regions\":{retained},\"retained_results\":{retained_results},\"diagnostics\":{},\"allocation_meter\":{},\"baseline\":{baseline},\"first_owned_ns\":[{first_json}],\"phases\":[{}]}}",
             count + 1,
             cfg!(feature = "learning-diagnostics"),
             cfg!(feature = "alloc-meter"),
