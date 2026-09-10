@@ -1,6 +1,6 @@
 # What experiment answers each reviewed design question?
 
-**Current selection: T078 host/native ownership qualification and bounded mixed-source costs.** The [primary learning gate](results/S06-learning-primary.md) passes756 processes and supplies the explicit boundary selection. T073 comparative learning costs remain unfinished and return for review at T078 allocation qualification or an obstruction.
+**Current selection: T078 native/host allocation qualification before bounded mixed-source costs.** [Primary host composition](results/S10-host-primary.md) preserves479 endpoints and rejects diagnostic clocks before publication. Allocation scopes are source-audited but memory remains unmeasured. T073 learning costs return for selection at the ownership gate or an obstruction.
 
 The [common-source gate and cost design](results/S10-native-common-source.md) qualifies ten Rust configurations on all 125 cases, prefix lowering on 20 and finite solving with its caller on four. Native evidence remains applicable. T078 next establishes native prepared reuse and disposal; no cross-architecture cost matrix has run.
 

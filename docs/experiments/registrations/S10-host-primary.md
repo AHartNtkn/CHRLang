@@ -1,0 +1,7 @@
+# Explicit primary native composition
+
+Qualify the combined source-to-owned-wire host with the already built native primary binary. The host currently selects the serialization-clock diagnostic binary. Make the executable an explicit required input and require null per-answer serialization/derived-compute diagnostics before publication. Retain complete output, dictionary, service and cleanup checks on26 sessions/479 queries. The native executable's bytes must match the publication-clock qualification before replay.
+
+Keep30-second/20-CPU-second outer bounds,15-second/10-CPU-second native bounds and96-GiB address space (the native runtime reserves large mappings). Preserve all existing source service budgets. Timings recorded by qualification are not comparative evidence. Check complete outputs against independent expectations and every endpoint/work signature against frozen frontend evidence. Preserve raw historical runs in their existing directories; write this gate to a separate explicit output directory.
+
+At the same boundary, audit source allocation paths to specify the next diagnostic scope. Distinguish direct native malloc/calloc/realloc/strdup requests, virtual mmap reservations, graph words used, Python-tracked allocations, and OS RSS. Preparation, per-query reset, pending-work cancellation, retained consumers and final disposal need ownership checkpoints. Missing accounting keeps that comparison open; it must not be reported as zero. This package does not claim memory qualification or complete lifecycle superiority.

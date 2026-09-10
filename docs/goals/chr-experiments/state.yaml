@@ -9,12 +9,12 @@ goal:
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
   current_research: >-
-    Primary learning qualification passes 756 release processes, independent outcomes and cancellation/reuse.
-    Diagnostics compile out in the ordinary-allocator build; no comparative timing is claimed.
-    T078 resumes host/native ownership qualification and the bounded mixed-source pilot.
-    T073 learning costs return for selection at that gate or an obstruction. General learning,
-    resource derivations, native compilation, broader integration, graph execution, restoration,
-    language tradeoffs, lifetime, connected parallelism and held-out architecture comparisons remain required.
+    Primary host/native composition passes 26 sessions and 479 query endpoints with explicit
+    binary selection, diagnostic-clock rejection and artifact cleanup. Source allocation audit
+    separates requested table heap, large virtual reservations, graph use and unmeasured RSS.
+    T078 next qualifies native/host memory ownership before the bounded mixed-source cost pilot.
+    T073 learning costs return for review at that gate or obstruction. Broader architecture,
+    compilation, language, lifetime, parallelism and held-out questions remain required.
     No universal architecture is selected; the goal remains active.
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
@@ -145,9 +145,10 @@ tasks:
     assignee: PM
     status: active
     objective: Establish and independently qualify at least two coherent complete execution paths on mixed-mechanism sources, including a serious alternative, with explicit semantic capability and responsibility maps before whole-path cost registration.
-    progress: Primary and diagnostic publication clocks preserve 4572 admitted Rust checks, 1174 exclusions, 130 retained cancellation/reuse queries and 958 native query replays. Primary records unmeasured serialization/derived-compute as null and retains first-publication timing. The registered instrumentation pilot completes 540 processes and 108 excluded warmups over 27 configurations and two CPUs. All 54 contrasts remain unresolved under the practical screen; no speed claim follows. Scoped strict Clippy and formatting pass. The five-package breadth review selects T073 compatible-query learning.
-    next_action: Explicitly compose the qualified primary native binary with the host runner and qualify separate host/native allocation and ownership boundaries for a bounded mixed-source cost registration. Reuse established source and answer gates. Identify any unmeasurable costs honestly; no complete-lifecycle claim without compilation. Reconsider T073 learning pilot at this allocation gate or obstruction, then proceed to the bounded coherent-path pilot if ready.
+    progress: Explicit primary host composition preserves479 query endpoints and all native work signatures across26 sessions. Native binary hash matches prior qualification; diagnostic-clock executable is rejected before host publication with temporary cleanup. Source audit identifies table requests, heap/stack reservations and query-reset ownership separately from RSS. No allocation or comparative timing conclusion follows.
+    next_action: Qualify native direct heap-request and mapping diagnostics with self-checks and complete/canceled/reused-query replay, plus separate Python allocation and process-residency scopes. Keep primary ordinary paths unchanged. At that ownership gate compare one bounded mixed-source pilot with T073 learning costs; do not equate source capacities, requested bytes, graph words or RSS. Compilation and streaming remain required.
     inputs:
+      - docs/experiments/results/S10-host-primary.md
       - docs/experiments/results/S10-publication-clock.md
       - docs/experiments/results/S10-clock-calibration.md
       - docs/experiments/results/S10-host-session.md
@@ -2476,13 +2477,14 @@ checks:
   dirty_fingerprint: unrelated_untracked_files_preserved
   last_verification:
     result: passed
-    task: T073
-    scope: Primary/diagnostic learning qualification and cancellation ownership; no comparative timing.
+    task: T078
+    scope: Explicit primary host/native composition and source-derived memory scopes; no memory measurements or comparative timings.
     commands:
-      - python3 research/chr-hvm/learned_regions/primary_gate.py; 252 configurations and756 processes
-      - Default and metrics-off finite gates; 34 tests per build
-      - Primary and diagnostic strict scoped Clippy; meter self-check; rustfmt
-      - Local links; YAML active T078; source/binary hashes; diff checks
+      - Host gate with explicit primary binary and output; 26 sessions and479 endpoints
+      - Archive audit with explicit input
+      - Diagnostic rejection before publication and temporary cleanup
+      - Source/binary hashes, report links, YAML and diff checks
     evidence:
-      - docs/experiments/results/S06-learning-primary.md
-      - docs/experiments/results/s06-learning-primary/audit.json
+      - docs/experiments/results/S10-host-primary.md
+      - docs/experiments/results/s10-host-primary/validation.json
+      - docs/experiments/results/s10-host-primary/ownership-scope.json

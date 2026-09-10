@@ -1,0 +1,57 @@
+{
+  "kind": "source-derived accounting scope, not a memory measurement",
+  "native_book_and_name_pointer_requests_bytes": 268435456,
+  "heap_mapping_bytes": 34359738368,
+  "evaluator_stack_mapping_bytes_when_initialized": 34359738368,
+  "query_disposal": "unmap evaluator stack; reset HEAP_NEXT to prepared seal; retain runtime heap mapping",
+  "final_disposal": "release tables, names and runtime mapping before held consumer buffers",
+  "source": {
+    "target/s10-publication-clock/native.c": {
+      "sha256": "a920ad6adfffa74f03a83d27753f4d0dbb5e9b94f6d898dc0e5d1092e3e76cd8",
+      "excerpts": [
+        {
+          "first_line": 122,
+          "text": "\n// The high bit of the tag byte is the SUB flag. `term_tag()` returns only the\n// low 7 constructor bits, keeping the public tag space unchanged.\n#define TAG_BITS 8\n#define EXT_BITS 24\n#define VAL_BITS 32\n#define TAG_SHIFT 56\n#define EXT_SHIFT 32\n#define VAL_SHIFT 0\n\n#define TAG_SUB_MASK (1u << (TAG_BITS - 1))\n#define TAG_MASK     (TAG_SUB_MASK - 1u)\n#define EXT_MASK     ((1u << EXT_BITS) - 1u)\n#define VAL_MASK     ((u64)UINT32_MAX)\n\n// Packed ALO pair node (1 word):\n// - high 32 bits: bind-list head location\n// - low 32 bits: static/book term location\n#define ALO_TM_BITS 32\n#define ALO_TM_MASK VAL_MASK\n#define ALO_LS_MASK VAL_MASK\n\n// Capacities\n// ==========\n\n#define HEAP_CAP (1ULL << VAL_BITS)\n#define BOOK_CAP (1ULL << EXT_BITS)\n#define WNF_CAP  (1ULL << 32)\n"
+        },
+        {
+          "first_line": 871,
+          "text": "fn void *sys_mmap_anon(size_t bytes) {\n  int   prot  = PROT_READ | PROT_WRITE;\n  int   flags = MAP_PRIVATE | MAP_ANONYMOUS | MAP_NORESERVE;\n  void *map   = mmap(NULL, bytes, prot, flags, -1, 0);\n  if (map == MAP_FAILED) {\n    return NULL;\n  }\n  return map;\n}\n\nfn void sys_munmap_anon(void *ptr, size_t bytes) {\n  if (ptr == NULL || bytes == 0) {\n    return;\n  }\n  munmap(ptr, bytes);\n}"
+        },
+        {
+          "first_line": 3652,
+          "text": "fn void wnf_stack_init(void) {\n  WnfBank *bank = &WNF_BANK;\n  if (bank->stack) {\n    return;\n  }\n\n  u64 bytes = WNF_CAP * sizeof(Term);\n  Term *stack      = (Term *)sys_mmap_anon(bytes);\n  u8    stack_mmap = 1;\n\n  if (stack == NULL) {\n    stack = (Term *)malloc(bytes);\n    stack_mmap = 0;\n  }\n\n  if (!stack) {\n    fprintf(stderr, \"wnf: stack allocation failed\\n\");\n    exit(1);\n  }\n\n  bank->stack       = stack;\n  bank->stack_bytes = bytes;\n  bank->stack_mmap  = stack_mmap;\n  bank->s_pos       = 1;\n}\n\nfn void wnf_stack_free(void) {\n  WnfBank *bank = &WNF_BANK;\n  if (!bank->stack) {\n    return;\n  }\n  if (bank->stack_mmap) {\n    sys_munmap_anon(bank->stack, bank->stack_bytes);\n  } else {\n    free(bank->stack);\n  }\n  bank->stack       = NULL;\n  bank->stack_bytes = 0;\n  bank->stack_mmap  = 0;\n  bank->s_pos       = 0;\n}"
+        },
+        {
+          "first_line": 5555,
+          "text": "fn void runtime_init(int debug, int silent, int steps_enable) {\n  BOOK       = calloc(BOOK_CAP, sizeof(u64));\n  HEAP       = NULL;\n  TABLE.data = calloc(BOOK_CAP, sizeof(char *));\n\n  if (HEAP_CAP <= ((u64)SIZE_MAX / sizeof(Term))) {\n    size_t heap_bytes = (size_t)(HEAP_CAP * sizeof(Term));\n    void  *heap_map   = sys_mmap_anon(heap_bytes);\n    if (heap_map != NULL) {\n      HEAP = (Term *)heap_map;\n    }\n  }\n\n  if (!BOOK || !HEAP || !TABLE.data) {\n    sys_error(\"Memory allocation failed\");\n  }\n\n  HEAP_NEXT = 1;\n  symbols_init();\n  DEBUG        = debug;\n  SILENT       = silent;\n  STEPS_ENABLE = steps_enable;\n  ITRS         = 0;\n}\n\n// Runtime Session Free\n// --------------------\n// Releases process-global state for one program execution.\n\n// Frees runtime-global allocations for the current process run.\nfn void runtime_free(void) {\n  if (HEAP != NULL) {\n    size_t heap_bytes = (size_t)(HEAP_CAP * sizeof(Term));\n    sys_munmap_anon(HEAP, heap_bytes);\n    HEAP = NULL;\n  }\n  free(BOOK);\n  free(TABLE.data);\n  wnf_stack_free();\n}"
+        }
+      ]
+    },
+    "target/s10-publication-clock/harness.c": {
+      "sha256": "c5cfad5b7c141cb842561913118d1ff243b36d9611d019b7b5b5e51148bdfcb1",
+      "excerpts": [
+        {
+          "first_line": 70,
+          "text": "static void session_free(void){\n for(u32 i=0;i<TABLE.len;i++){free(TABLE.data[i]);TABLE.data[i]=NULL;}TABLE.len=0;\n for(u32 i=0;i<PARSE_SEEN_FILES_LEN;i++){free(PARSE_SEEN_FILES[i]);PARSE_SEEN_FILES[i]=NULL;}PARSE_SEEN_FILES_LEN=0;PARSE_BINDS_LEN=0;PARSE_FRESH_LAB=0x800000u;PARSE_FORK_SIDE=-1;\n runtime_free();BOOK=NULL;TABLE.data=NULL;HEAP_NEXT=1;\n}"
+        },
+        {
+          "first_line": 138,
+          "text": "    OwnedAnswer answer = {.text = (char*)wire.data, .len = len, .capacity = wire.capacity, .present = 1, .query = i};\n    wire = (WireBuffer){0};\n    times.export = now_ns() - start;\n    u64 used = HEAP_NEXT - seal; if (used > peak_words) peak_words = used;\n    start = now_ns(); wnf_stack_free(); HEAP_NEXT = seal;\n    times.drop = now_ns() - start;\n    if (keep) held[i] = answer;\n    else {"
+        },
+        {
+          "first_line": 173,
+          "text": "  start = now_ns(); session_free();\n  uint64_t prepared_drop_ns = now_ns() - start;\n  uint64_t consumer_drop_ns = 0;\n  for (unsigned i = 0; i < count; i++) if (held[i].present) {\n    publish(&held[i]); start = now_ns(); free(held[i].text);\n    consumer_drop_ns += now_ns() - start;\n  }\n  start = now_ns(); free(held); consumer_drop_ns += now_ns() - start;\n  uint64_t lifecycle = runtime_init_ns + source_load_ns + prepare_ns + source_drop_ns +"
+        }
+      ]
+    },
+    "target/s10-publication-clock/wire.h": {
+      "sha256": "199056bcc1ff725b41e735dd1b0a57b38c21d0db32a27904b7443f6b0865c95b",
+      "excerpts": [
+        {
+          "first_line": 1,
+          "text": "// Separate consumer bytes; no native heap locations escape this encoder.\ntypedef struct { unsigned char *data; size_t len, capacity; } WireBuffer;\nstatic void wire_byte(WireBuffer *b, unsigned char x) {\n  if (b->len == b->capacity) {\n    assert(b->capacity <= SIZE_MAX / 2);\n    size_t capacity = b->capacity ? b->capacity * 2 : 8;\n    unsigned char *p = realloc(b->data, capacity); assert(p);\n    b->data = p; b->capacity = capacity;\n  }\n  b->data[b->len++] = x;\n}\nstatic void wire_word(WireBuffer *b, u32 n) {\n  for (unsigned i = 0; i < 4; i++) wire_byte(b, (unsigned char)(n >> (8 * i)));\n}\nstatic int wire_named(Term t, const char *name, unsigned arity) {\n  return term_tag(t) >= C00 && term_tag(t) <= C16 && term_arity(t) == arity &&"
+        }
+      ]
+    }
+  }
+}

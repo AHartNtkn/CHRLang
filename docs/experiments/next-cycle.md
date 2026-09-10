@@ -10,7 +10,7 @@ The [design review](results/R07-design-disposition-review.md) distinguishes meas
 
 Several useful comparisons now exist. [Integrated graph scanning](results/S02-multihead-scale.md) has favorable measured regimes. [Finite solving](results/S06-finite-lifecycle.md) has selective benefits and unselective costs. [Support ordering](results/S08-order-lifecycle.md) has opposing regimes. These findings supply stronger controls, not a complete architecture ranking.
 
-T078 is active for host/native ownership qualification and the bounded mixed-source comparison. The [primary learning gate](results/S06-learning-primary.md) qualifies ordinary-allocator execution and cancellation/reuse without a timing conclusion. T073 remains unfinished; its substantive common-prefix and reuse cost pilot returns for selection at the T078 allocation gate or an obstruction.
+T078 is active for host/native ownership qualification and the bounded mixed-source comparison. [Primary composition](results/S10-host-primary.md) now passes479 endpoints; native heap requests, mappings, host allocations and RSS remain separate pending measurements. The [primary learning gate](results/S06-learning-primary.md) qualifies ordinary-allocator execution and cancellation/reuse without a timing conclusion. T073 remains unfinished; its substantive common-prefix and reuse cost pilot returns for selection at the T078 allocation gate or an obstruction.
 
 ## The order, and why
 

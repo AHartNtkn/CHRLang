@@ -15,7 +15,6 @@ sys.path.insert(0,str(ROOT/'research/chr-hvm/answer_wire'))
 from codec import records
 spec=importlib.util.spec_from_file_location('prepared_gate',ROOT/'research/chr-hvm/prepared/gate.py')
 prepared=importlib.util.module_from_spec(spec);spec.loader.exec_module(prepared)
-BINARY=ROOT/'target/s10-answer-wire/ordinary/run'
 
 
 def bounds():
@@ -24,6 +23,9 @@ def bounds():
 
 
 def main():
+    if len(sys.argv)!=4:
+        raise ValueError('expected budgets, temporary root and native primary executable')
+    binary=Path(sys.argv[3]).resolve(strict=True)
     budgets=[int(x) for x in sys.argv[1].split(',')]
     if not budgets or any(n<0 or n>1048576 for n in budgets):
         raise ValueError('invalid service budgets')
@@ -52,7 +54,7 @@ def main():
         del line,ps,ats,query
         phases['query_encoding_ns']=clock()-start
         start=clock()
-        child=subprocess.run([str(BINARY),str(artifact)],input=protocol,capture_output=True,timeout=15,preexec_fn=bounds)
+        child=subprocess.run([str(binary),str(artifact)],input=protocol,capture_output=True,timeout=15,preexec_fn=bounds)
         phases['native_process_ns']=clock()-start
         if child.returncode:
             raise RuntimeError(f'native child exit {child.returncode}: {child.stderr.decode()}')
@@ -64,6 +66,8 @@ def main():
         consumers=[]
         for i,(ps,ats) in enumerate(dictionaries):
             event=native[i]
+            if event['serialization_ns'] is not None or event['compute_traverse_ns'] is not None:
+                raise ValueError('primary host requires native serialization clocks disabled')
             if event['query']!=i or event['unsupported']:
                 raise ValueError('native unsupported or mismatched query')
             payload=payloads[i]
@@ -83,7 +87,7 @@ def main():
         phases['publication_ns']=clock()-start
         start=clock();del consumer,consumers;phases['consumer_drop_ns']=clock()-start
         elapsed=clock()-begin
-        print(json.dumps(dict(endpoint='batch-owned-wire',phases=phases,named_ns=sum(phases.values()),session_elapsed_ns=elapsed,native=native)),file=sys.stderr)
+        print(json.dumps(dict(endpoint='batch-owned-wire',native_binary=str(binary),phases=phases,named_ns=sum(phases.values()),session_elapsed_ns=elapsed,native=native)),file=sys.stderr)
     finally:
         temporary.cleanup()
 

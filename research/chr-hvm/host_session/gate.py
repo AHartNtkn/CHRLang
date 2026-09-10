@@ -1,4 +1,5 @@
 """Validate combined lifecycle from source text through external owned bytes."""
+import argparse
 import hashlib
 import importlib.util
 import json
@@ -10,7 +11,6 @@ from pathlib import Path
 from time import perf_counter_ns as clock
 sys.dont_write_bytecode = True
 ROOT = Path(__file__).resolve().parents[3]
-OUT = ROOT / 'docs/experiments/results/s10-host-session'
 sys.path.insert(0, str(ROOT / 'research/chr-hvm/host_frontend'))
 spec = importlib.util.spec_from_file_location('frontend_gate', ROOT / 'research/chr-hvm/host_frontend/gate.py')
 frontend = importlib.util.module_from_spec(spec);spec.loader.exec_module(frontend)
@@ -21,6 +21,14 @@ def bounds():
     resource.setrlimit(resource.RLIMIT_CPU, (20, 20))
 
 def main():
+    parser=argparse.ArgumentParser()
+    parser.add_argument('--output',type=Path,required=True)
+    parser.add_argument('--native-binary',type=Path,required=True)
+    args=parser.parse_args()
+    OUT=args.output.resolve();OUT.mkdir(parents=True,exist_ok=True)
+    binary=args.native_binary.resolve()
+    known=json.loads((ROOT/'docs/experiments/results/s10-publication-clock/validation.json').read_text())
+    assert hashlib.sha256(binary.read_bytes()).hexdigest()==known['hashes']['target/s10-publication-clock/native-primary']
     plans = json.loads((ROOT/'docs/experiments/results/s10-native-prepared/plans.json').read_text())
     groups = json.loads((ROOT/'docs/experiments/results/s10-native-substantive/groups.json').read_text())
     old = [json.loads(l) for l in (ROOT/'docs/experiments/results/s10-host-frontend/runs.jsonl').read_text().splitlines()]
@@ -29,7 +37,7 @@ def main():
     with tempfile.TemporaryDirectory(prefix='chr-host-gate-') as directory, (OUT/'runs.jsonl').open('w') as log:
         for (queries, text), previous in zip(inputs, old):
             limits = ','.join(str(q['limit']) for q in queries)
-            command = [sys.executable,str(Path(__file__).with_name('run.py')),limits,directory]
+            command = [sys.executable,str(Path(__file__).with_name('run.py')),limits,directory,str(binary)]
             start=clock()
             p=subprocess.run(command,input=text.encode(),capture_output=True,timeout=30,preexec_fn=bounds)
             elapsed=clock()-start
@@ -38,6 +46,8 @@ def main():
             assert p.returncode==0,row['stderr']
             assert row['temporary_root_empty']
             result=json.loads(row['stderr'])
+            assert result['native_binary']==str(binary)
+            assert all(e['serialization_ns'] is None and e['compute_traverse_ns'] is None for e in result['native'][:-1])
             values=wire.rust_records(p.stdout)
             expected=wire.records(bytes.fromhex(previous['result']['stdout_hex']))
             old_events=[json.loads(l) for l in previous['result']['stderr'].splitlines()]
@@ -56,7 +66,7 @@ def main():
             assert 0<=result['named_ns']<=result['session_elapsed_ns']<=elapsed
             assert result['native'][-1]['lifecycle_ns']<=result['phases']['native_process_ns']
             print(row['family'],row['group'],'combined session passes',flush=True)
-    paths=list(Path(__file__).parent.glob('*.py'))+[OUT/'runs.jsonl',ROOT/'target/s10-answer-wire/ordinary/run',ROOT/'docs/experiments/registrations/S10-host-session.md']
+    paths=list(Path(__file__).parent.glob('*.py'))+[OUT/'runs.jsonl',binary,ROOT/'docs/experiments/registrations/S10-host-primary.md']
     paths += [ROOT/p for p in ['research/chr-hvm/host_frontend/frontend.py','research/chr-hvm/host_frontend/gate.py','research/chr-hvm/prepared/gate.py','research/chr-hvm/source_choice/compiler.py','research/chr-hvm/identity/build_kernel.py','research/chr-hvm/identity/kernel.hvm','docs/experiments/results/s10-host-frontend/runs.jsonl','docs/experiments/results/s10-native-prepared/plans.json','docs/experiments/results/s10-native-prepared/symbol-references.json','docs/experiments/results/s10-native-substantive/groups.json']]
     (OUT/'validation.json').write_text(json.dumps(dict(sessions=26,queries=479,comparative_timing=False,hashes={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}),indent=2)+'\n')
     print('479 combined host/native queries pass.')
