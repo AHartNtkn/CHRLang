@@ -13,7 +13,13 @@ for family,depth in [('oldest-first',8),('newest-first',8),('aliases',64),('dist
   if depth==64 and mode in ('prefix','prepared-prefix'):continue
   for c in cases:cells.append((policy,mode,family,*c))
 assert len(cells)==192
-for file,digest in json.loads((R/'freeze.json').read_text()).items():assert hashlib.sha256(Path(file).read_bytes()).hexdigest()==digest,file
+snapshot_file=R/'source-snapshots.json'
+snapshots=json.loads(snapshot_file.read_text()) if snapshot_file.exists() else {}
+for file,digest in json.loads((R/'freeze.json').read_text()).items():
+ path=Path(file)
+ if hashlib.sha256(path.read_bytes()).hexdigest()!=digest:
+  path=Path(snapshots[file])
+ assert hashlib.sha256(path.read_bytes()).hexdigest()==digest,file
 
 def clean(x):
  if isinstance(x,dict):return {k:clean(v) for k,v in x.items() if k not in ('ns','first_answer_ns')}

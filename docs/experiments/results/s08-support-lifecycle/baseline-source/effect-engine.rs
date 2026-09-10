@@ -69,32 +69,10 @@ struct HeadDispatch {
     readers: BTreeMap<(String, usize), Vec<usize>>,
     general: BTreeSet<(String, usize)>,
 }
-#[cfg(feature = "effect-contract")]
-#[derive(Clone, Copy, Debug)]
-pub enum EffectDeclaration {
-    NoBindings,
-}
-#[cfg(feature = "effect-contract")]
-#[derive(Clone, Copy, Debug)]
-pub enum EffectAdmission {
-    Optional,
-    Required,
-}
-#[cfg(feature = "effect-contract")]
-fn has_no_binding_effects(goal: &Goal) -> bool {
-    match goal {
-        Goal::Unify(_, _) => false,
-        Goal::And(gs) => gs.iter().all(has_no_binding_effects),
-        Goal::Or(a, b) => has_no_binding_effects(a) && has_no_binding_effects(b),
-        Goal::True | Goal::Fail | Goal::Constraint(_) => true,
-    }
-}
 /// Immutable source and lowered matching plans, prepared once and shared by all queries.
 /// Query engines retain this allocation after the public prepared handle is dropped.
 #[derive(Clone)]
 pub struct PreparedRuleset {
-    #[cfg(feature = "effect-contract")]
-    immutable_bindings: bool,
     pub(crate) rules: Arc<Vec<crate::resources::Prepared>>,
     #[cfg(feature = "head-dispatch")]
     head_dispatch: Option<Arc<HeadDispatch>>,
@@ -102,40 +80,10 @@ pub struct PreparedRuleset {
 impl PreparedRuleset {
     pub fn new(rules: Vec<Rule>) -> Result<Self, String> {
         Ok(Self {
-            #[cfg(feature = "effect-contract")]
-            immutable_bindings: false,
             rules: Arc::new(crate::resources::compile(rules)?),
             #[cfg(feature = "head-dispatch")]
             head_dispatch: None,
         })
-    }
-    /// The immutable prepared source contains every possible binding writer.
-    /// Matching and positive guards are nonbinding; allocation and failure do not
-    /// change variable bindings. New occurrences still use ordinary discovery,
-    /// and resource support, propagation history and failure filtering remain.
-    #[cfg(feature = "effect-contract")]
-    pub fn with_effect_contract(
-        mut self,
-        declaration: Option<EffectDeclaration>,
-        admission: EffectAdmission,
-    ) -> Result<Self, String> {
-        if declaration.is_none() && matches!(admission, EffectAdmission::Required) {
-            return Err("no-binding declaration required".into());
-        }
-        let immutable = self
-            .rules
-            .iter()
-            .all(|r| has_no_binding_effects(&r.source.body));
-        if declaration.is_some() && !immutable {
-            return Err("no-binding certificate does not support body equations".into());
-        }
-        self.immutable_bindings = immutable;
-        Ok(self)
-    }
-    #[cfg(feature = "effect-contract")]
-    /// False means uncertified, not evidence that a binding write occurs.
-    pub fn has_immutable_bindings(&self) -> bool {
-        self.immutable_bindings
     }
     /// Inference exploits unary rules locally; a declaration checks the whole source.
     #[cfg(feature = "head-dispatch")]
@@ -208,8 +156,6 @@ impl PreparedRuleset {
             .collect();
         let resources = Resources::new(self, &store);
         let mut e = Engine {
-            #[cfg(feature = "effect-contract")]
-            track_dependencies: !self.immutable_bindings,
             store,
             resources,
             arena: Arena::new(),
@@ -385,8 +331,6 @@ enum BodyState {
     Ack(BodyAckJob),
 }
 pub struct Engine {
-    #[cfg(feature = "effect-contract")]
-    track_dependencies: bool,
     store: Store,
     resources: Resources,
     arena: Arena,
@@ -413,14 +357,6 @@ pub struct Engine {
     trace: Option<Vec<Trace>>,
 }
 impl Engine {
-    #[cfg(feature = "effect-contract")]
-    pub fn dependency_retention(&self) -> (usize, usize) {
-        (
-            self.dependencies.len(),
-            self.dependencies.values().map(BTreeSet::len).sum(),
-        )
-    }
-
     pub fn enable_trace(&mut self) {
         self.trace.get_or_insert_with(Vec::new);
     }
@@ -1139,11 +1075,7 @@ impl Engine {
                 }
             }
             ActiveStage::Drain { job, token } => {
-                #[cfg(feature = "effect-contract")]
-                let track = self.track_dependencies;
-                #[cfg(not(feature = "effect-contract"))]
-                let track = true;
-                if let Some(d) = job.dependencies().get(active.dependency).filter(|_| track) {
+                if let Some(d) = job.dependencies().get(active.dependency) {
                     self.dependencies
                         .entry(d.variable)
                         .or_default()

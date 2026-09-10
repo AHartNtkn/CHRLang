@@ -1,5 +1,7 @@
 # What experiment answers each reviewed design question?
 
+The [binding-effect gate](results/S07-binding-effects-gate.md) demonstrates an additional runtime benefit: immutable bindings eliminate persistent equality wake-up indexing without requiring groundness or non-overlap. T079 next measures checking and lifecycle costs; broader effects, direct solving and mandatory language policy remain unresolved.
+
 The [stronger-control lifecycle pilot](results/S10-arrival-lifecycle.md) validates1,344 runs and192 exact allocation pairs. Specialization improves the substantive explicit control but preserves the conditional choice/check advantage; streams favor explicit execution. T079 effect/ownership beneficiary qualification is selected next. Direct solving, native compilation and broader coherent architectures remain required.
 
 The [stronger-control source gate](results/S10-arrival-controls.md) qualifies specialization and prefix lowering but shows that both retain explicit choice enumeration. T078 next charges their complete lifecycle, including changed artifact signatures. T079 effect certification and direct solving remain required.

@@ -404,6 +404,8 @@ The [order lifecycle pilot](S08-order-lifecycle.md) reduces the alias-stream pea
 
 ### 54. Ownership, linearity, modes, finite domains and stronger certificates — Not comprehensively compared
 
+The [binding-effect gate](S07-binding-effects-gate.md) now implements a distinct beneficiary: certified immutable bindings omit persistent equality wake-up indexing. Groundness and non-overlap are unnecessary for this benefit; consumption interference remains observable. Checking/lifecycle payback and broader property designs remain unresolved.
+
 **Result.** Local immutable closedness, source-derived carrier properties and finite-region certificates remove particular responsibilities. No complete experiment ranks mandatory affine ownership, read/write handle distinctions, inferred modes, explicit relational cases or general finite-service requirements as language-wide designs.
 
 **Why I stopped.** I retained these as possible ways to obtain cheaper execution while avoiding an unauthorized language restriction. That correctly leaves adoption open, but it does not finish investigating their benefits, necessary complexity or coverage costs. [Architecture assumptions](../architecture-assumptions.md), [language opportunities](../../goals/chr-sharing/notes/T016-language-opportunities.md), [backend boundaries](../../goals/chr-sharing/notes/T018-backend-boundaries.md)

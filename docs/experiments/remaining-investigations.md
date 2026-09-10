@@ -42,9 +42,9 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-The [stronger-control lifecycle review](results/S10-arrival-lifecycle.md#next-investigation-and-breadth) selects T079 effect/ownership certification through an additional executable beneficiary. Its source gate must cover kept/removed interference, equality activation and later linking, and compare the concrete benefit against direct source-derived choice elimination. T078 coherent architecture and T074 support/lifetime work remain unfinished.
+The [binding-effect gate](results/S07-binding-effects-gate.md) gives T079 an executable beneficiary: omit persistent equality wake-up bookkeeping when unchanged variable bindings are certified. T079 next compares inference, checked and required admission against feature-off and ordinary controls, with complete lifecycle and adverse writer cases. That package triggers the four-package breadth review against direct source-derived solving and broader ownership/non-overlap effects.
 
-The [next experimental cycle](next-cycle.md) retains all other required mechanisms. Language and lifetime studies accompany executable candidates; native feasibility runs early, and complete architecture comparisons start as soon as credible paths qualify.
+The [next cycle](next-cycle.md) retains all other mechanisms. This certificate does not prove commutation, eliminate source choices, adopt a language restriction or close broader effect/lifetime work.
 
 ### Depth, breadth and stopping within this sequence
 

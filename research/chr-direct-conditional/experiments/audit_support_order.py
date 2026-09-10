@@ -2,7 +2,13 @@
 import hashlib,itertools,json
 from pathlib import Path
 root=Path('docs/experiments/results/s08-support-order-gate')
-for name,h in json.loads((root/'freeze.json').read_text()).items():assert hashlib.sha256(Path(name).read_bytes()).hexdigest()==h,name
+snapshot_file=root/'source-snapshots.json'
+snapshots=json.loads(snapshot_file.read_text()) if snapshot_file.exists() else {}
+for file,digest in json.loads((root/'freeze.json').read_text()).items():
+ path=Path(file)
+ if hashlib.sha256(path.read_bytes()).hexdigest()!=digest:
+  path=Path(snapshots[file])
+ assert hashlib.sha256(path.read_bytes()).hexdigest()==digest,file
 rows=json.loads((root/'summary.json').read_text());assert len(rows)==36
 for order,policy,family,n in itertools.product(['ascending','ascending-general','descending-general'],['ordinary','combined'],['aliases','distinct'],[0,16,64]):
     receipt=json.loads((root/f'{order}-{policy}-{family}-{n}.json').read_text());assert receipt['returncode']==0

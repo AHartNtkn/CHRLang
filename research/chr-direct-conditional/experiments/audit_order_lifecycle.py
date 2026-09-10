@@ -19,8 +19,13 @@ def phases(d):
  for s in d['samples']: a.extend(s[k] for k in ('input_build','setup','execute_observe','engine_drop'))
  return a+[d['consumer_drop'],d['prepared_drop']]
 
+snapshot_file=R/'source-snapshots.json'
+snapshots=json.loads(snapshot_file.read_text()) if snapshot_file.exists() else {}
 for file,digest in json.loads((R/'freeze.json').read_text()).items():
- assert hashlib.sha256(Path(file).read_bytes()).hexdigest()==digest,file
+ path=Path(file)
+ if hashlib.sha256(path.read_bytes()).hexdigest()!=digest:
+  path=Path(snapshots[file])
+ assert hashlib.sha256(path.read_bytes()).hexdigest()==digest,file
 layout=(R/'layout.log').read_text()
 for mode,cap in [(0,1),(5,4),(7,1)]:
  for q in range(4):

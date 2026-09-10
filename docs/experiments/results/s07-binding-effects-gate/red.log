@@ -1,0 +1,66 @@
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+error[E0432]: unresolved imports `chr_direct_conditional::engine::EffectAdmission`, `chr_direct_conditional::engine::EffectDeclaration`
+ --> research/chr-direct-conditional/tests/effect_contract.rs:3:54
+  |
+3 | use chr_direct_conditional::engine::{PreparedRuleset,EffectAdmission,EffectDeclaration,Event};
+  |                                                      ^^^^^^^^^^^^^^^ ^^^^^^^^^^^^^^^^^ no `EffectDeclaration` in `engine`
+  |                                                      |
+  |                                                      no `EffectAdmission` in `engine`
+
+error[E0599]: no method named `dependency_retention` found for struct `Engine` in the current scope
+ --> research/chr-direct-conditional/tests/effect_contract.rs:8:34
+  |
+8 |  assert!(done);let (_,entries)=e.dependency_retention();(answers,entries,calls,format!("{:?}",e.trace()))
+  |                                  ^^^^^^^^^^^^^^^^^^^^ method not found in `Engine`
+
+error[E0599]: no associated function or constant named `with_effect_contract` found for struct `PreparedRuleset` in the current scope
+  --> research/chr-direct-conditional/tests/effect_contract.rs:15:32
+   |
+15 |  let inferred=PreparedRuleset::with_effect_contract(rules.clone(),None,EffectAdmission::Optional).unwrap();
+   |                                ^^^^^^^^^^^^^^^^^^^^ associated function or constant not found in `PreparedRuleset`
+   |
+note: if you're trying to build a new `PreparedRuleset`, consider using `PreparedRuleset::new` which returns `Result<PreparedRuleset, String>`
+  --> research/chr-direct-conditional/src/engine.rs:81:5
+   |
+81 |     pub fn new(rules: Vec<Rule>) -> Result<Self, String> {
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0599]: no associated function or constant named `with_effect_contract` found for struct `PreparedRuleset` in the current scope
+  --> research/chr-direct-conditional/tests/effect_contract.rs:25:27
+   |
+25 |  assert!(PreparedRuleset::with_effect_contract(rules.clone(),Some(EffectDeclaration::NoBindings),EffectAdmission::Optional).is_err());
+   |                           ^^^^^^^^^^^^^^^^^^^^ associated function or constant not found in `PreparedRuleset`
+   |
+note: if you're trying to build a new `PreparedRuleset`, consider using `PreparedRuleset::new` which returns `Result<PreparedRuleset, String>`
+  --> research/chr-direct-conditional/src/engine.rs:81:5
+   |
+81 |     pub fn new(rules: Vec<Rule>) -> Result<Self, String> {
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0599]: no associated function or constant named `with_effect_contract` found for struct `PreparedRuleset` in the current scope
+  --> research/chr-direct-conditional/tests/effect_contract.rs:26:27
+   |
+26 |  assert!(PreparedRuleset::with_effect_contract(rules.clone(),None,EffectAdmission::Required).is_err());
+   |                           ^^^^^^^^^^^^^^^^^^^^ associated function or constant not found in `PreparedRuleset`
+   |
+note: if you're trying to build a new `PreparedRuleset`, consider using `PreparedRuleset::new` which returns `Result<PreparedRuleset, String>`
+  --> research/chr-direct-conditional/src/engine.rs:81:5
+   |
+81 |     pub fn new(rules: Vec<Rule>) -> Result<Self, String> {
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0599]: no associated function or constant named `with_effect_contract` found for struct `PreparedRuleset` in the current scope
+  --> research/chr-direct-conditional/tests/effect_contract.rs:27:25
+   |
+27 |  let p=PreparedRuleset::with_effect_contract(rules.clone(),None,EffectAdmission::Optional).unwrap();assert!(!p.has_immutable_binding...
+   |                         ^^^^^^^^^^^^^^^^^^^^ associated function or constant not found in `PreparedRuleset`
+   |
+note: if you're trying to build a new `PreparedRuleset`, consider using `PreparedRuleset::new` which returns `Result<PreparedRuleset, String>`
+  --> research/chr-direct-conditional/src/engine.rs:81:5
+   |
+81 |     pub fn new(rules: Vec<Rule>) -> Result<Self, String> {
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Some errors have detailed explanations: E0432, E0599.
+For more information about an error, try `rustc --explain E0432`.
+error: could not compile `chr-direct-conditional` (test "effect_contract") due to 6 previous errors

@@ -1,0 +1,20 @@
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.32s
+     Running tests/effect_contract.rs (target/debug/deps/effect_contract-3c9d9708fc3321e7)
+
+running 8 tests
+count=1 baseline_calls=50 certified_calls=49 baseline_dependencies=1 certified_dependencies=0
+test immutable_bindings_remove_dependency_retention_and_drain_work ... ok
+test finite_sibling_remains_available_beside_continuing_work ... ok
+test nested_and_unreachable_writers_are_conservatively_rejected ... ok
+test actual_binding_retains_wakes_and_contradicts_the_declaration ... ok
+count=4 baseline_calls=146 certified_calls=142 baseline_dependencies=4 certified_dependencies=0
+test no_binding_effect_does_not_mean_consumption_commutes ... ok
+test newly_posted_linking_constraints_still_discover_matches ... ok
+count=16 baseline_calls=530 certified_calls=514 baseline_dependencies=16 certified_dependencies=0
+count=64 baseline_calls=2066 certified_calls=2002 baseline_dependencies=64 certified_dependencies=0
+test the_benefit_remains_with_unary_dispatch_and_serial_accounting ... ok
+test choices_failure_guards_aliases_and_propagation_preserve_observations ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+

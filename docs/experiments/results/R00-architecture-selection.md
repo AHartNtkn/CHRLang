@@ -1,5 +1,7 @@
 # R00: architectural alternatives and first experiment selection
 
+The [binding-effect certificate](S07-binding-effects-gate.md) removes persistent equality wake-up bookkeeping while preserving consumption conflicts and non-ground observations. T079 now compares admission and lifecycle costs. This is mechanism/correctness evidence, not a language-adoption result.
+
 Current selection: T079 effect/ownership beneficiary qualification after the [stronger-control lifecycle comparison](S10-arrival-lifecycle.md). Existing specialization and prefix lowering do not erase the conditional favorable regime; direct solving and native generation remain required before broader inference.
 
 The [stronger-control gate](S10-arrival-controls.md) qualifies specialization and prefix lowering but confirms retained choice enumeration. T078 next measures their complete lifecycle; direct solving, native generation and the full architecture comparison remain unresolved.
