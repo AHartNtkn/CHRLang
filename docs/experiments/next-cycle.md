@@ -14,11 +14,11 @@ The [inert ownership comparison](results/S05-inert-ownership.md) qualifies finit
 
 ## Start here: the next experiments
 
-**Next investigate exact nonground output and fresh caller transport under T076.** The [finite joint projection entry](results/S06-joint-projection.md) preserves hidden dependencies and exact ground sets using existing elimination, but its decoder rejects unresolved holes. That exclusion remains a language and architecture question.
+**Next qualify matched finite-name lifecycle observations under T076.** The [symbolic transport entry](results/S06-symbolic-transport.md) preserves unresolved aliases and hidden formulas. The finite projector instead materializes ground coordinate relations. Their comparison must request the same observation, not compare one symbolic formula with every ground filling.
 
-Register a symbolic observation contract that preserves repeated holes within answers, freshness across independent answers/callers and all hidden dependencies required to interpret an answer. Compare it with the finite decoder and the literal CHR observer/consumer controls. Distinguish symbolic summaries from enumerated ground answers; do not treat a finite alphabet as the language's universal domain.
+Register symbolic conjunction, finite projection and independent enumeration paths over the same finite-name formula. Separate membership under caller restrictions from complete finite output. Charge preparation, fresh transport, changed callers, retained answers and disposal. Qualify ownership and allocation diagnostics before timing; carry selective and output-heavy cases forward.
 
-**The strongest ready alternative is finite-interface ownership and lifecycle cost qualification.** It could establish the preparation/output crossover against whole-assignment enumeration, but cannot answer fresh-alias support. The symbolic entry comes first because that capability can change which sources the solver boundary admits. Reconsider finite costs, local branch-copy attribution and demand-driven choices at the gate or an obstruction. This is package two after guarded-choice breadth review; two further packages trigger the next full review.
+**The strongest ready alternative is symbolic-union/inclusion analysis.** It could change multi-alternative observation complexity, but the single-conjunction paths already support a consequential matched lifecycle comparison. Union analysis, hidden elimination and general source closure remain required. Reconsider them with local copying and demand-driven choices at the gate. This is package three after guarded-choice breadth review; one further package triggers the full review.
 
 ## Execution order after the current causal comparison
 

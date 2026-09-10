@@ -1,0 +1,29 @@
+   Compiling chr-structural v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-structural)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.63s
+     Running tests/symbolic_transport.rs (target/debug/deps/symbolic_transport-6c7a8f3dc12faa12)
+
+running 2 tests
+test independent_answers_preserve_only_declared_caller_sharing ... FAILED
+test transported_symbolic_membership_matches_independent_denotations ... FAILED
+
+failures:
+
+---- independent_answers_preserve_only_declared_caller_sharing stdout ----
+
+thread 'independent_answers_preserve_only_declared_caller_sharing' (234) panicked at research/chr-structural/src/symbolic.rs:10:110:
+not implemented: symbolic caller transport
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- transported_symbolic_membership_matches_independent_denotations stdout ----
+
+thread 'transported_symbolic_membership_matches_independent_denotations' (235) panicked at research/chr-structural/src/symbolic.rs:10:110:
+not implemented: symbolic caller transport
+
+
+failures:
+    independent_answers_preserve_only_declared_caller_sharing
+    transported_symbolic_membership_matches_independent_denotations
+
+test result: FAILED. 0 passed; 2 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p chr-structural --test symbolic_transport`

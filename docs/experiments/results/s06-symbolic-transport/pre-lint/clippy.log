@@ -1,0 +1,20 @@
+    Checking chr-structural v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-structural)
+error: usage of `contains_key` followed by `insert` on a `BTreeMap`
+  --> research/chr-structural/src/symbolic.rs:75:13
+   |
+75 | /             if !mapping.contains_key(&x) {
+76 | |                 mapping.insert(x, staged.take()?);
+77 | |             }
+   | |_____________^
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.97.0/index.html#map_entry
+   = note: `-D clippy::map-entry` implied by `-D warnings`
+   = help: to override `-D warnings` add `#[allow(clippy::map_entry)]`
+help: try
+   |
+75 ~             if let std::collections::btree_map::Entry::Vacant(e) = mapping.entry(x) {
+76 +                 e.insert(staged.take()?);
+77 +             }
+   |
+
+error: could not compile `chr-structural` (lib) due to 1 previous error

@@ -12,7 +12,7 @@ This is the governing sequence for the renewed investigation. Existing E/R measu
 
 The [next experimental cycle](next-cycle.md#start-here-the-next-experiments) sets the immediate experiments and their decision boundaries from the verified worktree. Its full programme covers every direction; the numbered investigations are identifiers, not instructions to repeat completed work. It reuses the stage definitions below and the full question map.
 
-The [finite joint projection entry](results/S06-joint-projection.md) supplies the current checkpoint. Finite joint projection passes 1,536 exact-set comparisons per execution in two default and two metrics-off runs; 62 regressions pass. Hidden finite-name dependencies and caller restrictions survive existing factor elimination. The checked logical boundary rejects exposed hidden variables, literal predicate interactions, raw observations and nonground domains. T076 next investigates symbolic output and fresh caller transport; package two after guarded-choice breadth review. Goal active.
+The [symbolic transport entry](results/S06-symbolic-transport.md) supplies the current checkpoint. Symbolic joint answers pass 12,096 independent membership comparisons per final execution in two default and two metrics-off runs; 65 regressions pass. Transport preserves fresh output holes, intentional caller aliases and hidden finite-name dependencies. Output-only cycles are now checked; invalid mappings and identity exhaustion are transactional. T076 next qualifies matched finite-name lifecycle observations across symbolic, projected and enumerated paths. Package three after guarded-choice breadth review; goal active.
 
 ## Account for every reviewed question
 

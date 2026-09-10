@@ -1,0 +1,26 @@
+    Checking chr-structural v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-structural)
+error: this `if` statement can be collapsed
+   --> research/chr-structural/src/symbolic.rs:128:21
+    |
+128 | /                     if let Some(value) = b.get(x) {
+129 | |                         if value != t {
+130 | |                             if !active.insert(*x) {
+131 | |                                 return Err("cyclic output binding".into());
+...   |
+136 | |                     }
+    | |_____________________^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.97.0/index.html#collapsible_if
+    = note: `-D clippy::collapsible-if` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::collapsible_if)]`
+help: collapse nested if block
+    |
+128 ~                     if let Some(value) = b.get(x)
+129 ~                         && value != t {
+130 |                             if !active.insert(*x) {
+...
+134 |                             active.remove(x);
+135 ~                         }
+    |
+
+error: could not compile `chr-structural` (lib) due to 1 previous error

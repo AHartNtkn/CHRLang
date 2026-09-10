@@ -1,0 +1,25 @@
+   Compiling chr-structural v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-structural)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.94s
+     Running tests/symbolic_transport.rs (target/debug/deps/symbolic_transport-6c7a8f3dc12faa12)
+
+running 3 tests
+test independent_answers_preserve_only_declared_caller_sharing ... ok
+test hidden_capture_is_rejected_and_nonground_output_is_not_ground_decoding ... FAILED
+test transported_symbolic_membership_matches_independent_denotations ... ok
+
+failures:
+
+---- hidden_capture_is_rejected_and_nonground_output_is_not_ground_decoding stdout ----
+
+thread 'hidden_capture_is_rejected_and_nonground_output_is_not_ground_decoding' (230) panicked at research/chr-structural/tests/symbolic_transport.rs:200:5:
+assertion failed: instance.consistent(&BTreeMap::from([(Var(103),
+                            t("pair", [v(103), v(103)]))])).is_err()
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    hidden_capture_is_rejected_and_nonground_output_is_not_ground_decoding
+
+test result: FAILED. 2 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.22s
+
+error: test failed, to rerun pass `-p chr-structural --test symbolic_transport`
