@@ -1,0 +1,6348 @@
+{
+  "status": "passed",
+  "audit_source_sha256": "ca36d323d095c6c3f0995d0c4fb30e66897931aa9b942629bc1151367d4fd3ec",
+  "test_totals": {
+    "primary": 32,
+    "diagnostic": 34
+  },
+  "test_processes": 12,
+  "ownership_processes": 576,
+  "cells": [
+    {
+      "cell": [
+        "fixed1",
+        "late",
+        4,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 4889399,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff8",
+        "plain",
+        0,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 2520791,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "copy",
+        "plain",
+        4,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 5254017,
+        "engine_bytes": 192,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "eager",
+        "plain",
+        4,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 6456,
+        "requested_bytes": 4677843,
+        "engine_bytes": 88,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed8",
+        "plain",
+        0,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 2021085,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "copy",
+        "plain",
+        4,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 6456,
+        "requested_bytes": 5254241,
+        "engine_bytes": 192,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed1",
+        "history",
+        0,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 2433312,
+        "requested_bytes": 41602393,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed1",
+        "late",
+        4,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 6091849,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed1",
+        "history",
+        4,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 2433312,
+        "requested_bytes": 44688683,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "scheduled",
+        "late",
+        0,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 6456,
+        "requested_bytes": 2955499,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff8",
+        "late",
+        4,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 5222275,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "scheduled",
+        "late",
+        4,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 6410133,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff1",
+        "history",
+        4,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 152082,
+        "requested_bytes": 34600761,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff8",
+        "late",
+        0,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 2618219,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "eager",
+        "late",
+        4,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 6410133,
+        "engine_bytes": 88,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "copy",
+        "history",
+        0,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 37863951,
+        "engine_bytes": 192,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed8",
+        "late",
+        4,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 4759573,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "eager",
+        "plain",
+        4,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 4410303,
+        "engine_bytes": 88,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed8",
+        "late",
+        0,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 98592,
+        "requested_bytes": 2261093,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "eager",
+        "plain",
+        4,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 4410079,
+        "engine_bytes": 88,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed1",
+        "plain",
+        0,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 2054951,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed8",
+        "plain",
+        0,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 98592,
+        "requested_bytes": 2893577,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "eager",
+        "plain",
+        0,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 2521015,
+        "engine_bytes": 88,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "eager",
+        "plain",
+        0,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 6456,
+        "requested_bytes": 2788555,
+        "engine_bytes": 88,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "reunion",
+        "plain",
+        4,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 98592,
+        "requested_bytes": 5216873,
+        "engine_bytes": 208,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed8",
+        "plain",
+        4,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 5764631,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "scheduled",
+        "plain",
+        4,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 4410303,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff1",
+        "late",
+        0,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 2635239,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "eager",
+        "history",
+        4,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 44544441,
+        "engine_bytes": 88,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed8",
+        "plain",
+        4,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 3524585,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff8",
+        "late",
+        4,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 5222499,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff1",
+        "plain",
+        0,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 2521015,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "copy",
+        "late",
+        4,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 4724961,
+        "engine_bytes": 192,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "eager",
+        "late",
+        0,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 2798861,
+        "engine_bytes": 88,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "copy",
+        "history",
+        0,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 152082,
+        "requested_bytes": 32857505,
+        "engine_bytes": 192,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed8",
+        "history",
+        4,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 27348911,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff1",
+        "late",
+        4,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 5782671,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "scheduled",
+        "history",
+        0,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 32669009,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "eager",
+        "late",
+        0,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 6456,
+        "requested_bytes": 2955499,
+        "engine_bytes": 88,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "copy",
+        "late",
+        4,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 4630835,
+        "engine_bytes": 192,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "scheduled",
+        "history",
+        0,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 42612913,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "eager",
+        "late",
+        4,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 6409909,
+        "engine_bytes": 88,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "copy",
+        "history",
+        0,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 32857281,
+        "engine_bytes": 192,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed1",
+        "history",
+        0,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 152082,
+        "requested_bytes": 23071245,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed8",
+        "history",
+        0,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 21937187,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff8",
+        "late",
+        0,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 98592,
+        "requested_bytes": 2918863,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed8",
+        "history",
+        4,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 152082,
+        "requested_bytes": 27349135,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff8",
+        "late",
+        4,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 6456,
+        "requested_bytes": 5630735,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed1",
+        "history",
+        4,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 152376,
+        "requested_bytes": 44681963,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed8",
+        "history",
+        4,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 51854173,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff1",
+        "plain",
+        0,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 6456,
+        "requested_bytes": 2738395,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "copy",
+        "history",
+        4,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 62405399,
+        "engine_bytes": 192,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed1",
+        "history",
+        0,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 152376,
+        "requested_bytes": 41595673,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "copy",
+        "history",
+        0,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 152082,
+        "requested_bytes": 32857505,
+        "engine_bytes": 192,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff8",
+        "plain",
+        4,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 4410079,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff8",
+        "history",
+        4,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 152082,
+        "requested_bytes": 34600761,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff8",
+        "plain",
+        0,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 2713091,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff1",
+        "late",
+        0,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 2635239,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "scheduled",
+        "late",
+        0,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 2798861,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "copy",
+        "late",
+        0,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 6456,
+        "requested_bytes": 2005945,
+        "engine_bytes": 192,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff8",
+        "history",
+        0,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 2433312,
+        "requested_bytes": 42619857,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed1",
+        "plain",
+        4,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 3962963,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "reunion",
+        "history",
+        4,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 152376,
+        "requested_bytes": 54035375,
+        "engine_bytes": 208,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff1",
+        "late",
+        4,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 5782671,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff1",
+        "history",
+        0,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 2433312,
+        "requested_bytes": 42619857,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "eager",
+        "late",
+        0,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 2955275,
+        "engine_bytes": 88,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "reunion",
+        "late",
+        0,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 6456,
+        "requested_bytes": 2017889,
+        "engine_bytes": 208,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed8",
+        "history",
+        4,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 152376,
+        "requested_bytes": 51854397,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "reunion",
+        "history",
+        0,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 152082,
+        "requested_bytes": 25980889,
+        "engine_bytes": 208,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "reunion",
+        "plain",
+        4,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 5209929,
+        "engine_bytes": 208,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "reunion",
+        "plain",
+        0,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 2406419,
+        "engine_bytes": 208,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "eager",
+        "history",
+        0,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 32669009,
+        "engine_bytes": 88,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "reunion",
+        "history",
+        4,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 152082,
+        "requested_bytes": 49016577,
+        "engine_bytes": 208,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "scheduled",
+        "history",
+        0,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 152376,
+        "requested_bytes": 42613137,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "eager",
+        "history",
+        4,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 152376,
+        "requested_bytes": 44544665,
+        "engine_bytes": 88,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed8",
+        "plain",
+        4,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 6456,
+        "requested_bytes": 5764855,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff1",
+        "plain",
+        0,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 2521015,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed1",
+        "history",
+        4,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 24279097,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "copy",
+        "plain",
+        0,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 2406379,
+        "engine_bytes": 192,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "scheduled",
+        "late",
+        0,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 2798637,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "reunion",
+        "plain",
+        4,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 5103451,
+        "engine_bytes": 208,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "copy",
+        "plain",
+        0,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 2406603,
+        "engine_bytes": 192,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff1",
+        "plain",
+        4,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 4627459,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "scheduled",
+        "plain",
+        0,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 2520791,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed8",
+        "late",
+        4,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 4759573,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed1",
+        "plain",
+        4,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 3963187,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "reunion",
+        "late",
+        4,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 4574619,
+        "engine_bytes": 208,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "scheduled",
+        "plain",
+        0,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 2521015,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed8",
+        "late",
+        0,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 1880291,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff1",
+        "plain",
+        4,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 4410079,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed1",
+        "late",
+        0,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 2099401,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "reunion",
+        "plain",
+        4,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 5103675,
+        "engine_bytes": 208,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "eager",
+        "history",
+        0,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 152376,
+        "requested_bytes": 42613137,
+        "engine_bytes": 88,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "copy",
+        "plain",
+        0,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 6456,
+        "requested_bytes": 2500953,
+        "engine_bytes": 192,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed8",
+        "history",
+        4,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 152082,
+        "requested_bytes": 27349135,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff1",
+        "history",
+        4,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 152376,
+        "requested_bytes": 44544665,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "eager",
+        "plain",
+        4,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 4677619,
+        "engine_bytes": 88,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff1",
+        "late",
+        0,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 6456,
+        "requested_bytes": 2766797,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "copy",
+        "history",
+        4,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 57398729,
+        "engine_bytes": 192,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff8",
+        "history",
+        4,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 152376,
+        "requested_bytes": 44544665,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "scheduled",
+        "late",
+        4,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 6409909,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "reunion",
+        "history",
+        4,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 49016353,
+        "engine_bytes": 208,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "eager",
+        "late",
+        4,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 6566547,
+        "engine_bytes": 88,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff1",
+        "history",
+        0,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 32669009,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff1",
+        "history",
+        0,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 152082,
+        "requested_bytes": 32669233,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "scheduled",
+        "plain",
+        4,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 6456,
+        "requested_bytes": 4677843,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "reunion",
+        "plain",
+        0,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 6456,
+        "requested_bytes": 2512897,
+        "engine_bytes": 208,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "eager",
+        "plain",
+        0,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 2788331,
+        "engine_bytes": 88,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed1",
+        "late",
+        0,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 2099625,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "eager",
+        "late",
+        0,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 98592,
+        "requested_bytes": 2962219,
+        "engine_bytes": 88,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed8",
+        "history",
+        0,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 152082,
+        "requested_bytes": 21937411,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed1",
+        "history",
+        4,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 152082,
+        "requested_bytes": 24279321,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed8",
+        "late",
+        0,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 2254149,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed1",
+        "plain",
+        4,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 98592,
+        "requested_bytes": 5372357,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed8",
+        "plain",
+        0,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 2020861,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff1",
+        "plain",
+        4,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 98592,
+        "requested_bytes": 4634403,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff8",
+        "late",
+        0,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 2911919,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff1",
+        "plain",
+        0,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 2520791,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed1",
+        "late",
+        4,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 4889623,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff1",
+        "late",
+        4,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 5782447,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "scheduled",
+        "history",
+        4,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 152376,
+        "requested_bytes": 44544665,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "scheduled",
+        "late",
+        0,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 98592,
+        "requested_bytes": 2962219,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "reunion",
+        "plain",
+        0,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 98592,
+        "requested_bytes": 2519617,
+        "engine_bytes": 208,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "reunion",
+        "late",
+        0,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 1911187,
+        "engine_bytes": 208,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff1",
+        "history",
+        0,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 152376,
+        "requested_bytes": 42613137,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "eager",
+        "plain",
+        4,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 4410303,
+        "engine_bytes": 88,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "reunion",
+        "history",
+        4,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 2433312,
+        "requested_bytes": 54042095,
+        "engine_bytes": 208,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff8",
+        "plain",
+        4,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 4410303,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed1",
+        "plain",
+        0,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 2054951,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed8",
+        "plain",
+        0,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 2886633,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff1",
+        "plain",
+        4,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 4410303,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff8",
+        "plain",
+        0,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 6456,
+        "requested_bytes": 2713315,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "scheduled",
+        "plain",
+        4,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 4677619,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "eager",
+        "plain",
+        4,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 98592,
+        "requested_bytes": 4684563,
+        "engine_bytes": 88,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "scheduled",
+        "history",
+        0,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 152082,
+        "requested_bytes": 32669233,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff1",
+        "late",
+        4,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 98592,
+        "requested_bytes": 5920949,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "copy",
+        "late",
+        0,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 1911595,
+        "engine_bytes": 192,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed1",
+        "history",
+        0,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 41595449,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff8",
+        "plain",
+        0,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 2521015,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff8",
+        "history",
+        4,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 34600537,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed8",
+        "history",
+        0,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 152082,
+        "requested_bytes": 21937411,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "reunion",
+        "late",
+        4,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 98592,
+        "requested_bytes": 4687817,
+        "engine_bytes": 208,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff8",
+        "late",
+        4,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 98592,
+        "requested_bytes": 5637455,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff1",
+        "plain",
+        0,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 2738171,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "reunion",
+        "history",
+        0,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 2433312,
+        "requested_bytes": 31006407,
+        "engine_bytes": 208,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff8",
+        "late",
+        0,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 2618443,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "scheduled",
+        "history",
+        4,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 44544441,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed1",
+        "plain",
+        0,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 3066419,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff8",
+        "plain",
+        0,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 2521015,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "scheduled",
+        "history",
+        4,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 34600537,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "scheduled",
+        "late",
+        0,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 2955275,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "reunion",
+        "late",
+        4,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 6456,
+        "requested_bytes": 4681097,
+        "engine_bytes": 208,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "copy",
+        "plain",
+        0,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 2406603,
+        "engine_bytes": 192,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "copy",
+        "plain",
+        4,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 5159667,
+        "engine_bytes": 192,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "copy",
+        "late",
+        4,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 98592,
+        "requested_bytes": 4731905,
+        "engine_bytes": 192,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "copy",
+        "plain",
+        4,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 5159891,
+        "engine_bytes": 192,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed1",
+        "history",
+        4,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 152082,
+        "requested_bytes": 24279321,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "scheduled",
+        "late",
+        0,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 2798861,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed8",
+        "plain",
+        4,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 3524361,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed8",
+        "late",
+        4,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 6456,
+        "requested_bytes": 5268513,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "scheduled",
+        "plain",
+        0,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 2788331,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff8",
+        "history",
+        4,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 152082,
+        "requested_bytes": 34600761,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "reunion",
+        "history",
+        0,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 30999463,
+        "engine_bytes": 208,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff8",
+        "plain",
+        4,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 4602379,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "reunion",
+        "plain",
+        0,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 2512673,
+        "engine_bytes": 208,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "eager",
+        "history",
+        4,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 152082,
+        "requested_bytes": 34600761,
+        "engine_bytes": 88,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "eager",
+        "late",
+        4,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 6456,
+        "requested_bytes": 6566771,
+        "engine_bytes": 88,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff1",
+        "plain",
+        4,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 6456,
+        "requested_bytes": 4627683,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "reunion",
+        "late",
+        0,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 98592,
+        "requested_bytes": 2024609,
+        "engine_bytes": 208,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff8",
+        "plain",
+        0,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 98592,
+        "requested_bytes": 2720035,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed8",
+        "plain",
+        0,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 2021085,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "reunion",
+        "history",
+        0,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 152082,
+        "requested_bytes": 25980889,
+        "engine_bytes": 208,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed8",
+        "late",
+        0,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 1880067,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "reunion",
+        "history",
+        0,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 152376,
+        "requested_bytes": 30999687,
+        "engine_bytes": 208,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed8",
+        "late",
+        4,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 4759349,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed8",
+        "plain",
+        4,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 3524585,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "reunion",
+        "plain",
+        0,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 2406195,
+        "engine_bytes": 208,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed1",
+        "history",
+        0,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 23071021,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff1",
+        "late",
+        0,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 98592,
+        "requested_bytes": 2773517,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff8",
+        "history",
+        0,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 152082,
+        "requested_bytes": 32669233,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed8",
+        "late",
+        4,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 98592,
+        "requested_bytes": 5275233,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff1",
+        "plain",
+        4,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 4410303,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "eager",
+        "plain",
+        0,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 2521015,
+        "engine_bytes": 88,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "scheduled",
+        "plain",
+        4,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 4410079,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "scheduled",
+        "history",
+        4,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 152082,
+        "requested_bytes": 34600761,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "reunion",
+        "plain",
+        4,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 6456,
+        "requested_bytes": 5210153,
+        "engine_bytes": 208,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff1",
+        "history",
+        4,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 152082,
+        "requested_bytes": 34600761,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "reunion",
+        "late",
+        0,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 1911411,
+        "engine_bytes": 208,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "eager",
+        "history",
+        4,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 2433312,
+        "requested_bytes": 44551385,
+        "engine_bytes": 88,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff8",
+        "late",
+        0,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 6456,
+        "requested_bytes": 2912143,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "scheduled",
+        "history",
+        4,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 2433312,
+        "requested_bytes": 44551385,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "reunion",
+        "late",
+        0,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 1911411,
+        "engine_bytes": 208,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "copy",
+        "late",
+        0,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 1911371,
+        "engine_bytes": 192,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "copy",
+        "history",
+        4,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 152376,
+        "requested_bytes": 62405623,
+        "engine_bytes": 192,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "eager",
+        "history",
+        0,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 42612913,
+        "engine_bytes": 88,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff8",
+        "late",
+        4,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 5222499,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "reunion",
+        "late",
+        4,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 4574395,
+        "engine_bytes": 208,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "copy",
+        "late",
+        0,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 1911595,
+        "engine_bytes": 192,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed8",
+        "history",
+        0,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 2433312,
+        "requested_bytes": 36886735,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "copy",
+        "history",
+        4,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 152082,
+        "requested_bytes": 57398953,
+        "engine_bytes": 192,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "copy",
+        "plain",
+        0,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 98592,
+        "requested_bytes": 2507673,
+        "engine_bytes": 192,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "copy",
+        "late",
+        4,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 6456,
+        "requested_bytes": 4725185,
+        "engine_bytes": 192,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed8",
+        "late",
+        0,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 1880291,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "copy",
+        "plain",
+        4,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 98592,
+        "requested_bytes": 5260961,
+        "engine_bytes": 192,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed8",
+        "history",
+        0,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 152376,
+        "requested_bytes": 36880015,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "copy",
+        "late",
+        4,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 4630835,
+        "engine_bytes": 192,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "copy",
+        "history",
+        0,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 2433312,
+        "requested_bytes": 37870895,
+        "engine_bytes": 192,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff1",
+        "history",
+        4,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 34600537,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "reunion",
+        "late",
+        0,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 2017665,
+        "engine_bytes": 208,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "scheduled",
+        "plain",
+        0,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 98592,
+        "requested_bytes": 2795275,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "eager",
+        "history",
+        0,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 2433312,
+        "requested_bytes": 42619857,
+        "engine_bytes": 88,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "scheduled",
+        "plain",
+        4,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 4410303,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "copy",
+        "plain",
+        4,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 5159891,
+        "engine_bytes": 192,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff8",
+        "late",
+        0,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 2618443,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed8",
+        "plain",
+        4,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 98592,
+        "requested_bytes": 5771575,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "copy",
+        "late",
+        4,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 4630611,
+        "engine_bytes": 192,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "eager",
+        "plain",
+        0,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 2520791,
+        "engine_bytes": 88,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed1",
+        "late",
+        4,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 98592,
+        "requested_bytes": 6098793,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed1",
+        "plain",
+        0,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 2054727,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed8",
+        "plain",
+        0,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 6456,
+        "requested_bytes": 2886857,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "copy",
+        "history",
+        4,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 2433312,
+        "requested_bytes": 62412343,
+        "engine_bytes": 192,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff1",
+        "history",
+        4,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 2433312,
+        "requested_bytes": 44551385,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed1",
+        "late",
+        4,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 4889623,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff8",
+        "history",
+        4,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 2433312,
+        "requested_bytes": 44551385,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "reunion",
+        "late",
+        4,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 4574619,
+        "engine_bytes": 208,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "scheduled",
+        "late",
+        4,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 6410133,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "eager",
+        "late",
+        0,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 2798861,
+        "engine_bytes": 88,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "reunion",
+        "plain",
+        4,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 5103675,
+        "engine_bytes": 208,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "copy",
+        "history",
+        0,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 152376,
+        "requested_bytes": 37864175,
+        "engine_bytes": 192,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff8",
+        "history",
+        0,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 152376,
+        "requested_bytes": 42613137,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff8",
+        "history",
+        0,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 32669009,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed8",
+        "late",
+        0,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 6456,
+        "requested_bytes": 2254373,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed1",
+        "late",
+        4,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 6456,
+        "requested_bytes": 6092073,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "eager",
+        "late",
+        4,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 6410133,
+        "engine_bytes": 88,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed1",
+        "plain",
+        0,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 98592,
+        "requested_bytes": 3073363,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "reunion",
+        "history",
+        4,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 152082,
+        "requested_bytes": 49016577,
+        "engine_bytes": 208,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "reunion",
+        "late",
+        4,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 4680873,
+        "engine_bytes": 208,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed1",
+        "plain",
+        4,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 3963187,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff8",
+        "plain",
+        4,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 6456,
+        "requested_bytes": 4602603,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "scheduled",
+        "plain",
+        4,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 98592,
+        "requested_bytes": 4684563,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed8",
+        "history",
+        4,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 2433312,
+        "requested_bytes": 51861117,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "scheduled",
+        "late",
+        4,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 6566547,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff1",
+        "late",
+        0,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 2635015,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed1",
+        "late",
+        0,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 98592,
+        "requested_bytes": 2813467,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "reunion",
+        "history",
+        4,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 54035151,
+        "engine_bytes": 208,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "scheduled",
+        "plain",
+        0,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 2521015,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff8",
+        "late",
+        4,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 5630511,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed1",
+        "plain",
+        0,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 6456,
+        "requested_bytes": 3066643,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "reunion",
+        "history",
+        0,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 25980665,
+        "engine_bytes": 208,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff8",
+        "history",
+        0,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 42612913,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "reunion",
+        "plain",
+        0,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 2406419,
+        "engine_bytes": 208,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "eager",
+        "late",
+        0,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 2798637,
+        "engine_bytes": 88,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed8",
+        "history",
+        0,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 36879791,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff1",
+        "history",
+        0,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 152082,
+        "requested_bytes": 32669233,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "scheduled",
+        "history",
+        4,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 152082,
+        "requested_bytes": 34600761,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "copy",
+        "late",
+        0,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 2005721,
+        "engine_bytes": 192,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "eager",
+        "history",
+        4,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 152082,
+        "requested_bytes": 34600761,
+        "engine_bytes": 88,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "eager",
+        "history",
+        0,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 152082,
+        "requested_bytes": 32669233,
+        "engine_bytes": 88,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff8",
+        "plain",
+        4,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 4410303,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "eager",
+        "history",
+        0,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 152082,
+        "requested_bytes": 32669233,
+        "engine_bytes": 88,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "eager",
+        "plain",
+        0,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 98592,
+        "requested_bytes": 2795275,
+        "engine_bytes": 88,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed1",
+        "history",
+        4,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 44681739,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "eager",
+        "history",
+        4,
+        "0",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 34600537,
+        "engine_bytes": 88,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff8",
+        "plain",
+        4,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 98592,
+        "requested_bytes": 4609323,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed1",
+        "late",
+        0,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 6162,
+        "requested_bytes": 2099625,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff1",
+        "plain",
+        0,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 98592,
+        "requested_bytes": 2745115,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed1",
+        "late",
+        0,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 2806523,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed1",
+        "plain",
+        4,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 6456,
+        "requested_bytes": 5365637,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "copy",
+        "plain",
+        0,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 2500729,
+        "engine_bytes": 192,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff1",
+        "history",
+        4,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 44544441,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff1",
+        "late",
+        4,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 6456,
+        "requested_bytes": 5914229,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "copy",
+        "history",
+        4,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 152082,
+        "requested_bytes": 57398953,
+        "engine_bytes": 192,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff8",
+        "history",
+        4,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 44544441,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "scheduled",
+        "late",
+        4,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 98592,
+        "requested_bytes": 6573491,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "copy",
+        "late",
+        0,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 98592,
+        "requested_bytes": 2012665,
+        "engine_bytes": 192,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "scheduled",
+        "history",
+        0,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 2433312,
+        "requested_bytes": 42619857,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff1",
+        "late",
+        4,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 5914005,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "scheduled",
+        "late",
+        4,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 6456,
+        "requested_bytes": 6566771,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff1",
+        "late",
+        0,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 2766573,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "eager",
+        "late",
+        4,
+        "all",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 64,
+        "consumer_bytes": 98592,
+        "requested_bytes": 6573491,
+        "engine_bytes": 88,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff8",
+        "history",
+        0,
+        "4",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 152082,
+        "requested_bytes": 32669233,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "scheduled",
+        "plain",
+        0,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 6456,
+        "requested_bytes": 2788555,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed8",
+        "late",
+        4,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 5268289,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "scheduled",
+        "history",
+        0,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 152082,
+        "requested_bytes": 32669233,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed1",
+        "plain",
+        4,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 5365413,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed1",
+        "history",
+        0,
+        "all",
+        1
+      ],
+      "summary": {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "retained": 4,
+        "consumer_bytes": 152082,
+        "requested_bytes": 23071245,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "fixed1",
+        "late",
+        0,
+        "4",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 4,
+        "consumer_bytes": 6456,
+        "requested_bytes": 2806747,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    },
+    {
+      "cell": [
+        "backoff1",
+        "history",
+        0,
+        "0",
+        0
+      ],
+      "summary": {
+        "counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "retained": 0,
+        "consumer_bytes": 0,
+        "requested_bytes": 42612913,
+        "engine_bytes": 120,
+        "unreleased_bytes": 0
+      }
+    }
+  ]
+}

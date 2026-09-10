@@ -486,22 +486,37 @@ impl PreparedPhase {
             error: None,
         })
     }
-    pub fn start_repeated(self: &Arc<Self>, query: &Query) -> Result<RepeatedEngine, String> {
-        self.start_repeated_with_policy(query, AttemptPolicy::EveryBoundary)
+    pub fn start_repeated(
+        self: &Arc<Self>,
+        query: &Query,
+    ) -> Result<RepeatedEngine<Eager>, String> {
+        self.start_scheduled(query, Eager)
     }
     pub fn start_repeated_with_policy(
         self: &Arc<Self>,
         query: &Query,
         policy: AttemptPolicy,
-    ) -> Result<RepeatedEngine, String> {
+    ) -> Result<RepeatedEngine<Scheduled>, String> {
+        self.start_scheduled(
+            query,
+            Scheduled {
+                policy,
+                skip_remaining: 0,
+                next_failure_skip: 1,
+            },
+        )
+    }
+    fn start_scheduled<S: AttemptSchedule>(
+        self: &Arc<Self>,
+        query: &Query,
+        schedule: S,
+    ) -> Result<RepeatedEngine<S>, String> {
         let mut engine = RepeatedEngine {
             prepared: self.clone(),
             outputs: query.outputs.clone(),
             jobs: VecDeque::new(),
             error: None,
-            policy,
-            skip_remaining: 0,
-            next_failure_skip: 1,
+            schedule,
             #[cfg(feature = "replay-diagnostic")]
             epochs: 0,
             #[cfg(feature = "replay-diagnostic")]
@@ -524,6 +539,47 @@ pub enum AttemptPolicy {
     FixedSkip(usize),
     FailedCheckBackoff { max_skip: usize },
 }
+/// Static schedule choice keeps eager execution free of adaptive state.
+pub trait AttemptSchedule {
+    fn skip(&mut self) -> bool;
+    fn finished(&mut self, independent: bool);
+}
+pub struct Eager;
+impl AttemptSchedule for Eager {
+    fn skip(&mut self) -> bool {
+        false
+    }
+    fn finished(&mut self, _: bool) {}
+}
+pub struct Scheduled {
+    policy: AttemptPolicy,
+    skip_remaining: usize,
+    next_failure_skip: usize,
+}
+impl AttemptSchedule for Scheduled {
+    fn skip(&mut self) -> bool {
+        if self.skip_remaining == 0 {
+            false
+        } else {
+            self.skip_remaining -= 1;
+            true
+        }
+    }
+    fn finished(&mut self, independent: bool) {
+        match self.policy {
+            AttemptPolicy::EveryBoundary => (),
+            AttemptPolicy::FixedSkip(skip) => self.skip_remaining = skip,
+            AttemptPolicy::FailedCheckBackoff { max_skip } => {
+                if independent {
+                    self.next_failure_skip = 1;
+                } else {
+                    self.skip_remaining = self.next_failure_skip.min(max_skip);
+                    self.next_failure_skip = self.next_failure_skip.saturating_mul(2).min(max_skip);
+                }
+            }
+        }
+    }
+}
 /// FIFO service of branch-specific epochs and states not currently independent.
 #[cfg(feature = "replay-diagnostic")]
 #[derive(Default, Debug)]
@@ -535,14 +591,12 @@ pub struct RepeatedWork {
     pub inherited_bindings: usize,
     pub inherited_history: usize,
 }
-pub struct RepeatedEngine {
+pub struct RepeatedEngine<S> {
     prepared: Arc<PreparedPhase>,
     outputs: Vec<(String, Var)>,
     jobs: VecDeque<Job>,
     error: Option<String>,
-    policy: AttemptPolicy,
-    skip_remaining: usize,
-    next_failure_skip: usize,
+    schedule: S,
     #[cfg(feature = "replay-diagnostic")]
     pub epochs: usize,
     #[cfg(feature = "replay-diagnostic")]
@@ -550,10 +604,9 @@ pub struct RepeatedEngine {
     #[cfg(feature = "replay-diagnostic")]
     pub work: RepeatedWork,
 }
-impl RepeatedEngine {
+impl<S: AttemptSchedule> RepeatedEngine<S> {
     fn admit(&mut self, state: State) {
-        if self.skip_remaining > 0 {
-            self.skip_remaining -= 1;
+        if self.schedule.skip() {
             #[cfg(feature = "replay-diagnostic")]
             {
                 self.work.skipped_checks += 1;
@@ -566,7 +619,7 @@ impl RepeatedEngine {
             self.work.boundary_checks += 1;
         }
         if let Some(epoch) = self.prepared.epoch(&state) {
-            self.attempt_finished(true);
+            self.schedule.finished(true);
             #[cfg(feature = "replay-diagnostic")]
             {
                 self.epochs += 1;
@@ -575,26 +628,12 @@ impl RepeatedEngine {
             }
             self.jobs.push_back(Job::Phase(Box::new(epoch)));
         } else {
-            self.attempt_finished(false);
+            self.schedule.finished(false);
             #[cfg(feature = "replay-diagnostic")]
             {
                 self.coupled_boundaries += 1;
             }
             self.jobs.push_back(Job::Coupled(state));
-        }
-    }
-    fn attempt_finished(&mut self, independent: bool) {
-        match self.policy {
-            AttemptPolicy::EveryBoundary => (),
-            AttemptPolicy::FixedSkip(skip) => self.skip_remaining = skip,
-            AttemptPolicy::FailedCheckBackoff { max_skip } => {
-                if independent {
-                    self.next_failure_skip = 1;
-                } else {
-                    self.skip_remaining = self.next_failure_skip.min(max_skip);
-                    self.next_failure_skip = self.next_failure_skip.saturating_mul(2).min(max_skip);
-                }
-            }
         }
     }
     pub fn advance(&mut self) -> Result<Step, String> {

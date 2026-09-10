@@ -256,6 +256,8 @@ The [finite-solver lifecycle pilot](S06-finite-lifecycle.md) completes 1,428 pro
 
 ### 25. Trailing, replay, snapshot intervals, temporary separation and reunion — Not directly resolved
 
+**Adaptive owner follow-up.** The [stateless eager and ownership qualification](S04-adaptive-ownership.md) passes 36 lockstep source cases per build and 576 paired ownership runs. Eager and scheduled-EveryBoundary have identical relative heap traces; the stateless engine carries 32 fewer bytes of schedule state. Backoff reduces some allocations but can still lose to copying or fixed schedules, and history backoff has no allocation benefit. Timing is next; delayed splitting, checkpoint/replay and broader restoration remain distinct required comparisons.
+
 **Result.** No matched architecture comparison established the relative costs of these alternatives. R04 uses trailing inside a finite solver, but that is not a comparison of general CHR search storage. Permanent factoring does not test regions that later reconnect; branch cloning does not test replay.
 
 **Why I stopped.** I selected measured copying owners and immutable arena sharing as a bounded intervention, and did not continue into these broader designs. That is a sequencing decision, not negative experimental evidence. Their recomputation, rollback, retained-state and reconnection tradeoffs remain open. [Storage receipt](E01.md), [factoring receipt](E08.md), [state-preservation design](R03-state-preservation-design.md), [temporary decomposition analysis](../../goals/chr-sharing/notes/T017-temporary-decomposition.md)

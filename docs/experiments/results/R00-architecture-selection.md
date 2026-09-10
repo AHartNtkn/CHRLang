@@ -1,6 +1,6 @@
 # R00: architectural alternatives and first experiment selection
 
-The [finite projection lifecycle pilot](S06-projection-cost-pilot.md) supplies the current evidence. The 1,904-process finite projection pilot finds a connected/reused weighted gain, stronger separability for independent choices, and streaming gains on dense output and cancellation. Leaf-first connected projection takes 35.58 microseconds median versus enumeration’s 87.54, with higher allocation traffic. These are exploratory finite-endpoint results, not an ordered-CHR or architecture ranking. T077 adaptive ownership qualification is selected next; T076 and broader directions remain required. Comparator qualification and timing complete four packages; the full breadth review selects adaptive ownership to start the next cycle. Goal active.
+The [adaptive owner qualification](S04-adaptive-ownership.md) supplies the current evidence. Adaptive ownership qualifies a stateless eager control and 576 paired allocation runs across changing queries, retention and cancellation. The eager/scheduled engines are 88/120 bytes and have identical relative heap traces. Backoff reduces some eager allocations but can still lose to Copy or fixed schedules; history backoff matches eager allocation. All producer owners release and retained outputs remain valid. T077 next registers counter-free lifecycle costs. Control qualification and ownership are two packages in the new breadth cycle; goal active.
 
 ## Earlier experimental checkpoints
 

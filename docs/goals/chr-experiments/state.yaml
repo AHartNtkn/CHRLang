@@ -9,7 +9,7 @@ goal:
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
   current_research: >-
-    The 1,904-process finite projection pilot finds a connected/reused weighted gain, stronger separability for independent choices, and streaming gains on dense output and cancellation. Leaf-first connected projection takes 35.58 microseconds median versus enumeration’s 87.54, with higher allocation traffic. These are exploratory finite-endpoint results, not an ordered-CHR or architecture ranking. T077 adaptive ownership qualification is selected next; T076 and broader directions remain required. Comparator qualification and timing complete four packages; the full breadth review selects adaptive ownership to start the next cycle. Goal active.
+    Adaptive ownership qualifies a stateless eager control and 576 paired allocation runs across changing queries, retention and cancellation. The eager/scheduled engines are 88/120 bytes and have identical relative heap traces. Backoff reduces some eager allocations but can still lose to Copy or fixed schedules; history backoff matches eager allocation. All producer owners release and retained outputs remain valid. T077 next registers counter-free lifecycle costs. Control qualification and ownership are two packages in the new breadth cycle; goal active.
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -207,10 +207,12 @@ tasks:
     type: pm
     assignee: PM
     status: "active"
-    progress: "Adaptive separation already passes 180 policy/source configurations per build, finite progress and cancellation/reuse. The projection cost checkpoint now selects its ownership/cost qualification as the strongest ready distinct investigation. No new adaptive timing or allocation evidence yet; the full four-package breadth review selects this qualification to begin the next cycle."
-    next_action: "Inspect the current adaptive and every-boundary implementations, then register ownership qualification against fixed skips, competent eager execution without adaptive bookkeeping and ordinary execution. Use the existing independent source/progress gate, changing query identities, cancellation and retained outputs. Charge policy work, missed separation opportunities, successful-but-unprofitable separation, changed execution and all owners before comparative timing. Preserve delayed splitting and checkpoint/replay as distinct required questions. Reconsider broader projection, native local ownership, conditional equality/lifetime and caller reuse at this gate; full breadth review within four new packages."
+    progress: "Adaptive ownership qualifies a stateless eager control and 576 paired allocation runs across changing queries, retention and cancellation. The eager/scheduled engines are 88/120 bytes and have identical relative heap traces. Backoff reduces some eager allocations but can still lose to Copy or fixed schedules; history backoff matches eager allocation. All producer owners release and retained outputs remain valid. T077 next registers counter-free lifecycle costs. Control qualification and ownership are two packages in the new breadth cycle; goal active."
+    next_action: "Register adaptive counter-free lifecycle costs using stateless eager, scheduled EveryBoundary, fixed skips 1/8, backoff caps 1/8, initial reunion and Copy. Preserve independent raw-answer/progress validation, explicit source/preparation ownership, changing-query reuse, first/full observations, cancellation and retained consumers. Keep allocation/work diagnostics separate from primary timing. History has no backoff allocation benefit; late links expose stronger Copy/fixed controls. No adaptive timing matrix has run. Reconsider incremental projection, native local ownership, conditional equality/lifetime and broader caller reuse at the cost entry or obstruction; two packages complete, full breadth review by package four."
     objective: Investigate corrected checkpoint and replay policies, working-state reuse and temporary separation/reunion against competent copying, persistence and undo, preserving complete source behavior and accounting for preparation, execution, observation and disposal.
     inputs:
+      - docs/experiments/results/S04-adaptive-ownership.md
+      - docs/experiments/registrations/S04-adaptive-ownership.md
       - docs/experiments/results/S06-projection-breadth-review.md
       - docs/experiments/results/S06-projection-cost-pilot.md
       - docs/experiments/results/S04-adaptive-entry.md

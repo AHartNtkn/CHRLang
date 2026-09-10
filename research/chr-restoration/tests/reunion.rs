@@ -398,7 +398,7 @@ fn prepared_phase_reuses_rules_across_changed_and_rejected_queries() {
 fn repeated_answers(
     p: &std::sync::Arc<reunion::PreparedPhase>,
     q: &Query,
-) -> (Vec<Answer>, reunion::RepeatedEngine) {
+) -> (Vec<Answer>, reunion::RepeatedEngine<reunion::Eager>) {
     let mut e = p.start_repeated(q).unwrap();
     let mut answers = vec![];
     for _ in 0..200_000 {

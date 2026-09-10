@@ -1,0 +1,66 @@
+   Compiling chr-restoration v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-restoration)
+error[E0432]: unresolved imports `chr_restoration::reunion::Eager`, `chr_restoration::reunion::Scheduled`
+ --> research/chr-restoration/tests/eager_schedule.rs:4:52
+  |
+4 | use chr_restoration::{Step,reunion::{AttemptPolicy,Eager,PreparedPhase,RepeatedEngine,Scheduled}};
+  |                                                    ^^^^^ no `Eager` in `reunion`      ^^^^^^^^^ no `Scheduled` in `reunion`
+
+error[E0107]: struct takes 0 generic arguments but 1 generic argument was supplied
+   --> research/chr-restoration/tests/eager_schedule.rs:32:33
+    |
+ 32 |     assert!(std::mem::size_of::<RepeatedEngine<Eager>>() < std::mem::size_of::<RepeatedEngine<Scheduled>>());
+    |                                 ^^^^^^^^^^^^^^------- help: remove the unnecessary generics
+    |                                 |
+    |                                 expected 0 generic arguments
+    |
+note: struct defined here, with 0 generic parameters
+   --> research/chr-restoration/src/reunion.rs:538:12
+    |
+538 | pub struct RepeatedEngine {
+    |            ^^^^^^^^^^^^^^
+
+error[E0107]: struct takes 0 generic arguments but 1 generic argument was supplied
+   --> research/chr-restoration/tests/eager_schedule.rs:32:80
+    |
+ 32 |     assert!(std::mem::size_of::<RepeatedEngine<Eager>>() < std::mem::size_of::<RepeatedEngine<Scheduled>>());
+    |                                                                                ^^^^^^^^^^^^^^----------- help: remove the unnecessary generics
+    |                                                                                |
+    |                                                                                expected 0 generic arguments
+    |
+note: struct defined here, with 0 generic parameters
+   --> research/chr-restoration/src/reunion.rs:538:12
+    |
+538 | pub struct RepeatedEngine {
+    |            ^^^^^^^^^^^^^^
+
+error[E0107]: struct takes 0 generic arguments but 1 generic argument was supplied
+   --> research/chr-restoration/tests/eager_schedule.rs:33:70
+    |
+ 33 |     println!("eager={} scheduled={} schedule={}",std::mem::size_of::<RepeatedEngine<Eager>>(),std::mem::size_of::<RepeatedEngine<Sc...
+    |                                                                      ^^^^^^^^^^^^^^------- help: remove the unnecessary generics
+    |                                                                      |
+    |                                                                      expected 0 generic arguments
+    |
+note: struct defined here, with 0 generic parameters
+   --> research/chr-restoration/src/reunion.rs:538:12
+    |
+538 | pub struct RepeatedEngine {
+    |            ^^^^^^^^^^^^^^
+
+error[E0107]: struct takes 0 generic arguments but 1 generic argument was supplied
+   --> research/chr-restoration/tests/eager_schedule.rs:33:115
+    |
+ 33 | ...e<Eager>>(),std::mem::size_of::<RepeatedEngine<Scheduled>>(),std::mem::size_of::<Scheduled>());
+    |                                    ^^^^^^^^^^^^^^----------- help: remove the unnecessary generics
+    |                                    |
+    |                                    expected 0 generic arguments
+    |
+note: struct defined here, with 0 generic parameters
+   --> research/chr-restoration/src/reunion.rs:538:12
+    |
+538 | pub struct RepeatedEngine {
+    |            ^^^^^^^^^^^^^^
+
+Some errors have detailed explanations: E0107, E0432.
+For more information about an error, try `rustc --explain E0107`.
+error: could not compile `chr-restoration` (test "eager_schedule") due to 5 previous errors

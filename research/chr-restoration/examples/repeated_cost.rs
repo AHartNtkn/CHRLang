@@ -18,7 +18,7 @@ enum Plan {
 enum Running {
     Copy(chr_restoration::Engine),
     Reunion(chr_restoration::reunion::ReunionEngine),
-    Repeated(chr_restoration::reunion::RepeatedEngine),
+    Repeated(chr_restoration::reunion::RepeatedEngine<chr_restoration::reunion::Eager>),
 }
 impl Plan {
     fn new(mode: &str, rules: &[Rule], n: usize) -> Self {

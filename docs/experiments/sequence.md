@@ -10,7 +10,7 @@ This is the governing sequence for the renewed investigation. Existing E/R measu
 
 The [next experimental cycle](next-cycle.md#start-here-the-next-experiments) sets the immediate experiments and their decision boundaries from the verified worktree. Its full programme covers every direction; the numbered investigations are identifiers, not instructions to repeat completed work. It reuses the stage definitions below and the full question map.
 
-The current package is T077 adaptive search ownership qualification, selected after the [finite projection cost pilot](results/S06-projection-cost-pilot.md). Projection has a bounded connected/reused benefit, while independent choices favor separability and dense output favors streaming. Broader projection and CHR source correspondence remain required. The four-package breadth review selects adaptive ownership to start the next cycle.
+The current package is T077 adaptive lifecycle cost comparison after [control and owner qualification](results/S04-adaptive-ownership.md). A stateless eager control now matches scheduled eager service events and relative heap traces. Backoff allocations show favorable and adverse regimes against fixed schedules and Copy; no adaptive timing matrix has run. Two packages are complete in the new breadth cycle; all broader directions remain required.
 
 ## Account for every reviewed question
 
@@ -272,7 +272,7 @@ All new results link raw inputs, commands, freezes, validation and unfavorable o
 
 ## Current execution order
 
-T077 is active for adaptive search ownership qualification. Compare failed-check backoff with fixed schedules, a competent eager control without adaptive bookkeeping and ordinary execution. Preserve exact source behavior and charge changed execution, checking, retained states and cancellation. The projection cost pilot supplies bounded evidence; broader theories and source mappings remain required. Review alternatives at this next gate; full breadth review is due within four new packages.
+T077 is active for registered adaptive lifecycle costs. Carry stateless eager, scheduled EveryBoundary, fixed skips, both backoff caps, initial reunion and Copy into counter-free timing with preparation reuse, first/full observation, cancellation and disposal. The owner gate supplies exact finite conservation and contrary allocation cases; it does not select a policy. Reconsider alternatives at this cost entry or obstruction and review breadth by package four.
 
 The [current execution order](next-cycle.md#start-here-the-next-experiments), [57-question map](question-to-experiment-map.md) and [mechanism ledger](remaining-investigations.md) retain every unresolved obligation. Reordering does not establish an experimental conclusion or complete the goal.
 
