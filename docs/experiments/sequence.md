@@ -10,7 +10,7 @@ This is the governing sequence for the renewed investigation. Existing E/R measu
 
 The [next experimental cycle](next-cycle.md) sets the current execution order, concrete contrasts and completion boundaries from the verified worktree. It reuses the stage definitions below and the full question map.
 
-The current package is T074 sustained ownership qualification. The [entry report](results/S08-continuing-ownership-entry.md) records an incomplete trial and the causal follow-ups required before comparison: separate validation/measurement budgets, conditional equality work and a real reclamation opportunity. Three packages have elapsed since the adaptive breadth review; the next bounded qualification package ends in a full breadth review. The [concrete entry experiments](next-cycle.md#concrete-entry-experiments-for-the-next-breadth-review) preserve the competing investigations. This sequence is a plan; its open investigations remain required work.
+The current package is T080 local resource ownership, selected by the [four-package breadth review](results/S08-continuing-breadth-review.md). The [continuing qualification](results/S08-continuing-qualification.md) establishes real reclamation opportunity and separates a harness budget obstruction from engine ownership. The next experiment tests whether local claims can replace the serial source owner, with independent effect and cancellation checks before native integration or parallel costs. Adaptive costs and unfinished lifetime studies remain required.
 
 ## Account for every reviewed question
 

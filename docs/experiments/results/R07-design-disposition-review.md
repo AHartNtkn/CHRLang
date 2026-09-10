@@ -1,6 +1,6 @@
 # Why designs were set aside—and what the experiments actually establish
 
-The [continuing-ownership entry](S08-continuing-ownership-entry.md) records four passing preflights, a conditional service cutoff and a graph wall-time cutoff; no comparative matrix ran. Attribution locates most conditional service work in body equality. Graph progress reaches 516 answers with the allocation meter, while existing reclamation removes no records on this source. T074 next separates validation/measurement budgets and qualifies real reclamation opportunity. This is package three after the adaptive breadth review; full breadth review follows the next bounded qualification package. The goal remains active.
+The [continuing qualification](S08-continuing-qualification.md) validates 512 resource/pure gate answers and a separate 512-answer replay; the obstructed dependency measurement now completes with independent process budgets. Reclamation removes real records on the consuming source. One measured configuration separates 8.66 MB of engine/delivery state from 0.20 MB of retained answers; no comparative matrix ran. The [four-package breadth review](S08-continuing-breadth-review.md) selects T080 local resource claims. Adaptive costs and the unfinished lifetime comparisons remain required; the goal stays active.
 
 ## Earlier experimental checkpoints
 

@@ -1,0 +1,94 @@
+{
+  "gate_processes": 8,
+  "gate_answers": 512,
+  "independent_replay_answers": 512,
+  "allocation_qualification_processes": 1,
+  "comparative_processes": 0,
+  "counts": [
+    {
+      "mode": "dependencies",
+      "source": "pure",
+      "answers": 64,
+      "calls": 192,
+      "removed_results": 0,
+      "removed_claims": 0
+    },
+    {
+      "mode": "dependencies",
+      "source": "resource",
+      "answers": 64,
+      "calls": 257,
+      "removed_results": 0,
+      "removed_claims": 0
+    },
+    {
+      "mode": "templates",
+      "source": "pure",
+      "answers": 64,
+      "calls": 129,
+      "removed_results": 0,
+      "removed_claims": 0
+    },
+    {
+      "mode": "templates",
+      "source": "resource",
+      "answers": 64,
+      "calls": 194,
+      "removed_results": 0,
+      "removed_claims": 0
+    },
+    {
+      "mode": "dependencies-reclaim",
+      "source": "pure",
+      "answers": 64,
+      "calls": 192,
+      "removed_results": 0,
+      "removed_claims": 0
+    },
+    {
+      "mode": "dependencies-reclaim",
+      "source": "resource",
+      "answers": 64,
+      "calls": 257,
+      "removed_results": 64,
+      "removed_claims": 64
+    },
+    {
+      "mode": "templates-reclaim",
+      "source": "pure",
+      "answers": 64,
+      "calls": 129,
+      "removed_results": 0,
+      "removed_claims": 0
+    },
+    {
+      "mode": "templates-reclaim",
+      "source": "resource",
+      "answers": 64,
+      "calls": 194,
+      "removed_results": 64,
+      "removed_claims": 64
+    }
+  ],
+  "engine_delivery_bytes": 8656968,
+  "consumer_bytes": 201728,
+  "root_restored": true,
+  "retrospective_receipt_sha256": {
+    "build.log": "888dbf4a7023f83ae858c9b492feb6b701d0d46f3d06ce4cffb2e0d7b71cf7b3",
+    "check-examples.log": "bdafeab322d73033cff75095f3aaf8c0884452ff00a8117c9997d39ec6931be3",
+    "clippy.log": "e0bd1e3de62437d340801b0b7553be1f35c297b9bd0fad669ae1b4523bc62ec9",
+    "gate-0.json": "9946f30b4d3fda72f56962e4925670eea392d63c79ab3d1f7934f318d449dff0",
+    "gate-1.json": "40b0f46699e498f15fd222caf5a0ac191e43c19c2c8c3bc41147bd4e283a5c0a",
+    "gate-2.json": "89aa1a7bec645765d1df932393ccffac757229b0e54a08861a58e47670760a0f",
+    "gate-3.json": "5ceb6bca5eb272b2b04eece2d187d3809b9e71c95f5eb4d47a7fd6b9d4d8223e",
+    "gate-4.json": "29878d3314545e930616537450c13e0dcc4db0bbc7a6b7653502c3c97e2923bd",
+    "gate-5.json": "e5b93a67e40ac5af17f15c6a3d676670eeb2432fb2657013ae75c541c26f0b52",
+    "gate-6.json": "60cc757abe8d4592de17f23b13947fa3fc3f02e7d84dba8a1947893f1ab6bc1e",
+    "gate-7.json": "1f5ca015165ee6a667745454c714ec9b909d6ef26b31513c9a7c7b4e29e01352",
+    "manifest.json": "b31961c6f71fc915ac1454e48009e0729a0be5a640b1761aec80615e2bf73c6a",
+    "split-build.log": "088cf23b0a4eb8f2b8ba3e9c71d0061e9c74441d7adec03f4d0ae7291e66efaf",
+    "split-manifest.json": "4b82d46e56952ecaff5567546ff3e90df702c80774eb85b0dede5697f9008729",
+    "split-measure.json": "5f458715f3cab9f212c732e23ef6ce792be500a3c647c64cba2418d40f2cfdb3",
+    "split-validate.json": "c252f7def6aadfcf74b6d0b73d1ab0614178ef118567425ca5da28568eaeab0c"
+  }
+}

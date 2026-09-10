@@ -10,11 +10,11 @@ The [design review](results/R07-design-disposition-review.md) distinguishes meas
 
 Several useful comparisons now exist. [Integrated graph scanning](results/S02-multihead-scale.md) has favorable measured regimes. [Finite solving](results/S06-finite-lifecycle.md) has selective benefits and unselective costs. [Support ordering](results/S08-order-lifecycle.md) has opposing regimes. These findings supply stronger controls, not a complete architecture ranking.
 
-The [continuing-ownership entry](results/S08-continuing-ownership-entry.md) records four passing preflights, a conditional service cutoff and a graph wall-time cutoff; no comparative matrix ran. Attribution locates most conditional service work in body equality. Graph progress reaches 516 answers with the allocation meter, while existing reclamation removes no records on this source. T074 next separates validation/measurement budgets and qualifies real reclamation opportunity. This is package three after the adaptive breadth review; full breadth review follows the next bounded qualification package. The goal remains active.
+The [continuing qualification](results/S08-continuing-qualification.md) validates 512 resource/pure gate answers and a separate 512-answer replay; the obstructed dependency measurement now completes with independent process budgets. Reclamation removes real records on the consuming source. One measured configuration separates 8.66 MB of engine/delivery state from 0.20 MB of retained answers; no comparative matrix ran. The [four-package breadth review](results/S08-continuing-breadth-review.md) selects T080 local resource claims. Adaptive costs and the unfinished lifetime comparisons remain required; the goal stays active.
 
 ## The order, and why
 
-Continue investigation 9 through one bounded ownership qualification package. Register independent validation and measurement process budgets, then qualify a continuing source that actually exercises incompatible-support reclamation alongside the no-opportunity control. Conditional equality work needs causal attribution and a credible repair comparison before its cutoff can inform architecture choice. Reconsider immediately if this becomes a substantial independent implementation. Conduct the full breadth review after that package, before more refinement or a comparative matrix; adaptive costs remain the strongest ready alternative.
+Continue investigation 4 with T080 local claim/commit ownership, following the [breadth review](results/S08-continuing-breadth-review.md). Register a bounded independent interleaving model for disjoint/contested consumption, kept reads, equality-enabled contenders and cancellation. Preserve explicit source ordering and observable effects before native integration or timing. Reconsider adaptive costs, conditional equality, richer theories and broader reuse at the gate or a consequential obstruction.
 
 | Order | Investigation | Architectural decision it could change |
 |---|---|---|
@@ -26,7 +26,7 @@ Continue investigation 9 through one bounded ownership qualification package. Re
 | 6 (adaptive source gate qualified) | Restoration, adaptive splitting and repeated reunion | Whether economical explicit search can compete without retaining a shared graph |
 | 7 | Retained joins and source-derived discovery plans | When maintaining knowledge beats rediscovering it, including the cost of code generation |
 | 8 | Compact structural solving and richer theories | Whether solving compact descriptions avoids enumeration, and under which language contract |
-| 9 (active: sustained ownership) | Sustained lifetime, exact observation and publication | Whether candidate gains survive long execution and realistic consumers |
+| 9 (qualification recorded; broader work pending) | Sustained lifetime, exact observation and publication | Whether candidate gains survive long execution and realistic consumers |
 | 10 | Reused workers and connected parallel work | Whether useful work surviving serial optimization repays coordination and ownership |
 | 11 | Complete architectures and necessary complexity | Whether mechanisms work well together, and whether a simpler organization is preferable |
 | 12 | Held-out challenges and every-question audit | Whether the recommendations withstand plausible contrary evidence |
@@ -58,11 +58,12 @@ Continue investigation 9 through one bounded ownership qualification package. Re
 
 ## The next concrete experiments
 
-**Next qualify the incomplete ownership comparison.** The entry trial supplies failures to investigate, not missing modes to omit. Separate validation and measurement budgets without weakening independent answer checks, establish a genuine reclamation opportunity, and address conditional equality service costs. Stable-size changing queries and growing-source controls remain scheduled alongside continuing prefixes. Keep graph and exact-source lowering capability boundaries explicit.
+**Next qualify local resource ownership.** Test actual competing effects against independent atomic transitions, including abandoned partial claims and fair progress after cancellation. A protocol model is a prerequisite to source integration, not native architecture evidence. The unfinished ownership matrix, conditional equality costs and stable-size/growing-query trajectories remain required.
 
 | Package | Required comparison and checks | Decision and review point |
 |---|---|---|
-| **Sustained ownership — T074, active** | Use qualified demand/answer endpoints; register live-heap and allocation trajectories, preparation/query/consumer ownership and existing valid reclamation controls. Validate outside measured intervals. | Does engine history grow when required work and consumer retention stay bounded? Reconsider the alternatives at the ownership gate or obstruction. |
+| **Sustained ownership — T074, required** | Use qualified demand/answer endpoints; register live-heap and allocation trajectories, preparation/query/consumer ownership and existing valid reclamation controls. Validate outside measured intervals. | Does engine history grow when required work and consumer retention stay bounded? Reconsider the alternatives at the ownership gate or obstruction. |
+| **Local claims — T080, active** | Qualify acquisition, validation, commit and cancellation against independent bounded transitions and the serial source contract. | Could local ownership replace a central source owner? Reconsider alternatives at the source/protocol gate or obstruction. |
 | **Adaptive ownership/costs — T077, strongest alternative** | Compare failed-check backoff with fixed schedules and ordinary execution, charging policy work, missed opportunities, retained states and full observation. | Does fewer checking repay changed execution and retention? No policy is economically selected yet. |
 | **Local claims, richer theories and broader reuse — required** | Separate conflict protocols, independent denotations and future-dependency validity beyond finite private query shapes. | These remain distinct mechanisms at the next review. |
 | **Broader resource and complete architectures — T073/T078, required** | Carry the composed phase into broader source and lifetime comparisons, retaining whole-source controls and compilation accounting. | Component results do not select a combined architecture. |
@@ -79,7 +80,7 @@ Compare an observable-work splitting policy with the existing fixed quotas, copy
 
 The policy may use completed source steps, failed children, changes to owned state and detected links. It must not use future outcomes or the generator's case labels. First validate restoration and progress under switches and cancellation. Then charge policy decisions, speculative work, reconnection, retained checkpoints and output products. Freeze the policy before testing new combinations of these axes.
 
-This can change whether explicit search needs expensive shared state to retain common work. A policy that saves execution but loses overall requires attribution; one whose useful regime cannot be recognized cheaply supports a conditional tradeoff. The existing repeated-reunion allocation results remain controls, not evidence that adaptation has been tested. The adaptive entry is now qualified; its ownership/cost comparison is the strongest alternative to selected sustained service.
+This can change whether explicit search needs expensive shared state to retain common work. A policy that saves execution but loses overall requires attribution; one whose useful regime cannot be recognized cheaply supports a conditional tradeoff. The existing repeated-reunion allocation results remain controls, not evidence that adaptation has been tested. The adaptive entry is now qualified; its ownership/cost comparison is the strongest ready alternative to selected local ownership.
 
 ### Local resource ownership: make competing effects the test
 
