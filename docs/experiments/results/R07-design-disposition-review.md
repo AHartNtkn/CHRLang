@@ -144,6 +144,8 @@ The subsequent [CHR-expressed constructor/consumption gate](S02-chr-constructors
 
 ### 16. Direct choice graphs, derivation nets, pull-tabbing and richer local graph calculi — Not directly tested as complete alternatives
 
+**Identity follow-up.** The [61 source-obligation configurations](S03-native-identity-obligations.md) distinguish occurrence history from current values and final equality from legal effect order. These are reference checks, not a native implementation. The breadth review selects integrated matching timing next while keeping native identity and local ownership required.
+
 **Current follow-up.** The [native ground compiler](S03-native-consuming.md) now carries actual consuming source rules through native choices and retained observation, with independent complete residual checks. Its admitted count quotient does not qualify identity-bearing values, propagation, general equality or local claims/commits. Complete native costs remain unmeasured.
 
 **Result.** E04 tested occurrence-local dispatch and expansion caching; E06 tested services and native mapping hazards; E18 established finite monotone relational feasibility. None supplies a matched whole-path result for a direct distributed choice graph, general derivation-net compiler, memoized pull-tabbing engine, or richer additive/multiport execution architecture. The direct-choice entry did not become a completed semantic gate.

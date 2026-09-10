@@ -1,0 +1,29 @@
+{
+  "source_configurations": 61,
+  "focused_tests": 6,
+  "package_tests": 15,
+  "commands": [
+    {
+      "command": "cargo test -p chr-cases",
+      "exit_code": 0
+    },
+    {
+      "command": "cargo clippy -p chr-cases --test native_identity_obligations -- -D warnings",
+      "exit_code": 0
+    },
+    {
+      "command": "rustfmt --edition 2024 --check research/chr-cases/tests/native_identity_obligations.rs",
+      "exit_code": 0
+    }
+  ],
+  "sha256": {
+    "research/chr-cases/tests/native_identity_obligations.rs": "98d355649c755b8e5b10b6ad5f5b7324e9f22774deae7fbbe9aa3a3c369f2313",
+    "crates/chr-reference/src/lib.rs": "f6a0125683605ddea8a44362bb1d03ba816f0ffef53f717c3aafd8734d38da5e",
+    "crates/chr-reference/src/branch.rs": "c404c1c5741e0e7ebec9103def2c5256341aa24caa4a482def1feac166aa80a1",
+    "crates/chr-reference/src/matching.rs": "c69b54d5ee2d3f56ef05e823dea8cdfdd58c8ca12a5b703e9d7bc47479707d17",
+    "crates/chr-reference/src/instantiate.rs": "94b1e25543ab6e11de34b2b3381b61b4dcf90c0550055f6c6d0808cb0a312777",
+    "crates/chr-reference/src/unify.rs": "8b7e79dcf2fc43ddbc4d1d7f8381f6d266113799a8d3ad9e4c818a41679686f5",
+    "crates/chr-reference/src/answer.rs": "0a11f37265bf8f3a8e7bbece81f21fb6d4a56a3a293edd4bc1cf3cbf17778fee",
+    "crates/chr-syntax/src/lib.rs": "9b380518e3071aeea80b8644aa5cf12f91d919f0bffdedd5c17122e27dffd48e"
+  }
+}
