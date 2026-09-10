@@ -7,8 +7,6 @@ default = ["metrics"]
 metrics = ["chr-persistent/metrics", "chr-observe/metrics"]
 alloc-meter = ["chr-compiled/alloc-meter"]
 carrier-contraction = ["chr-compiled/carrier-contraction"]
-continuing-progress-diagnostics = ["chr-direct-conditional/head-dispatch", "chr-direct-conditional/metrics"]
-continuing-stage-diagnostics = ["chr-direct-conditional/alloc-meter"]
 [dependencies]
 chr-syntax = { path = "../../crates/chr-syntax" }
 chr-persistent = { path = "../chr-persistent", default-features = false }
@@ -38,20 +36,4 @@ required-features = ["alloc-meter"]
 
 [[example]]
 name = "continuing_ownership"
-required-features = ["alloc-meter"]
-
-[[example]]
-name = "continuing_progress_probe"
-required-features = ["continuing-progress-diagnostics"]
-
-[[example]]
-name = "continuing_service_stages"
-required-features = ["continuing-stage-diagnostics"]
-
-[[example]]
-name = "continuing_metered_probe"
-required-features = ["alloc-meter"]
-
-[[example]]
-name = "continuing_ownership_phases"
 required-features = ["alloc-meter"]

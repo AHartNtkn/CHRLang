@@ -1,6 +1,6 @@
 # The comparisons still needed to choose the architecture
 
-The [consumer-pressure gate](results/S08-consumer-pressure-entry.md) validates 18,432 finite queries and 42 continuing-emission sessions per build with bounded delivery, paused demand, retained answers and cancellation/reuse. The graph prototype’s residual-only source admission restriction remains explicit. T074 next qualifies sustained ownership trajectories; queue bounds do not establish bounded engine memory. This is package one after the adaptive breadth review; other architecture directions and the goal remain open.
+The [continuing-ownership entry](results/S08-continuing-ownership-entry.md) records four passing preflights, a conditional service cutoff and a graph wall-time cutoff; no comparative matrix ran. Attribution locates most conditional service work in body equality. Graph progress reaches 516 answers with the allocation meter, while existing reclamation removes no records on this source. T074 next separates validation/measurement budgets and qualifies real reclamation opportunity. This is package three after the adaptive breadth review; full breadth review follows the next bounded qualification package. The goal remains active.
 
 ## Earlier experimental checkpoints
 

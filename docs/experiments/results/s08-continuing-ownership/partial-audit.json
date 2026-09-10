@@ -1,0 +1,188 @@
+{
+  "status": "incomplete; no comparative matrix",
+  "diagnostic_binaries": {
+    "base": {
+      "path": "target/s08-continuing-probe/release/examples/continuing_service_probe",
+      "sha256": "521615a6af5ccabc8df938ad9de5d18da217a7e6261f8787eef33e3f07573a10"
+    },
+    "strong": {
+      "path": "target/s08-continuing-probe-strong/release/examples/continuing_service_probe",
+      "sha256": "1deb6cbfe2084d40bfedaa11301fbeb03045c46167eb904dfdc8015999169443"
+    },
+    "reverse": {
+      "path": "target/s08-continuing-probe-reverse/release/examples/continuing_service_probe",
+      "sha256": "e057925034900520f463c272d3d2b528f3a24c267f6c07e7636c356892d7207c"
+    },
+    "stages": {
+      "path": "target/s08-continuing-probe-stages/release/examples/continuing_service_stages",
+      "sha256": "553c5224ba5b4aaf3d5e61759c1c4681c404b5728258e5c638f795386e6e5728"
+    },
+    "progress": {
+      "path": "target/s08-continuing-progress/release/examples/continuing_progress_probe",
+      "sha256": "d9ad5ee57f23f3b361a198e7079d6289b2f175a774ee7d508eb6b555329a45da"
+    },
+    "metered": {
+      "path": "target/s08-continuing-metered-probe/release/examples/continuing_metered_probe",
+      "sha256": "be9d9d093d1b22f77c17763cd8f49cc8b26058af7fb63f8b3a01df6890185853"
+    },
+    "phases": {
+      "path": "target/s08-continuing-metered-probe/release/examples/continuing_ownership_phases",
+      "sha256": "4d5a955168020055a536bfd5c2a148096490befc02856f1119dd18c3041ad592"
+    }
+  },
+  "successful_preflights": 4,
+  "conditional_service_cutoff": true,
+  "dependency_wall_timeout": true,
+  "unrun_preflights": 3,
+  "comparative_processes": 0,
+  "qualification_peaks": {
+    "direct": 280395,
+    "compact-live": 99241,
+    "scan": 439455,
+    "sealed": 518097
+  },
+  "conditional_at_128": {
+    "service-probe.json": {
+      "answers": 128,
+      "calls": 3198373
+    },
+    "service-probe-strong.json": {
+      "answers": 128,
+      "calls": 3198239
+    },
+    "service-probe-reverse.json": {
+      "answers": 128,
+      "calls": 4606799
+    },
+    "service-probe-stages.json": {
+      "answers": 128,
+      "calls": 3198239,
+      "stages": [
+        818043,
+        520,
+        258,
+        2242262,
+        53948,
+        83208,
+        0
+      ],
+      "supports": 25160,
+      "variables": 131,
+      "occurrences": 130
+    },
+    "progress-conditional-inferred.json": {
+      "answers": 128,
+      "calls": 3197719,
+      "removed": 0,
+      "equality_ticks": 2189877
+    }
+  },
+  "metered_dependency_prefixes": [
+    {
+      "answers": 1,
+      "calls": 3,
+      "removed": 0,
+      "live": 3347
+    },
+    {
+      "answers": 8,
+      "calls": 24,
+      "removed": 0,
+      "live": 13209
+    },
+    {
+      "answers": 32,
+      "calls": 96,
+      "removed": 0,
+      "live": 70649
+    },
+    {
+      "answers": 64,
+      "calls": 192,
+      "removed": 0,
+      "live": 193577
+    },
+    {
+      "answers": 128,
+      "calls": 384,
+      "removed": 0,
+      "live": 635881
+    },
+    {
+      "answers": 256,
+      "calls": 768,
+      "removed": 0,
+      "live": 2301321
+    },
+    {
+      "answers": 512,
+      "calls": 1536,
+      "removed": 0,
+      "live": 8615113
+    },
+    {
+      "answers": 516,
+      "calls": 1548,
+      "removed": 0,
+      "live": 8753809
+    }
+  ],
+  "phase_probe": {
+    "command": [
+      "target/s08-continuing-metered-probe/release/examples/continuing_ownership_phases",
+      "dependencies",
+      "512",
+      "all",
+      "4"
+    ],
+    "sha256": "4d5a955168020055a536bfd5c2a148096490befc02856f1119dd18c3041ad592",
+    "timeout": true,
+    "stderr": "validation-started\nvalidation-complete\n"
+  },
+  "retrospective_sha256": {
+    "docs/experiments/results/s08-continuing-ownership/build-checked.log": "0671f81fc616c03885e222eda0da816defd628731fde9602c5932e5d7478542a",
+    "docs/experiments/results/s08-continuing-ownership/build-final.log": "11c957f18423863370ee0fef655e88764e6f90dd4898d8e2ed9fea0b3a582156",
+    "docs/experiments/results/s08-continuing-ownership/build.log": "07d696734f0254934d22df655109d053f9579a072d19ee49672c5c8332b88582",
+    "docs/experiments/results/s08-continuing-ownership/check-examples-counter-free.log": "33d72251c8c12c929fc3cccfc367d4b0aaffa636a8f7a2010a9ecdbd7aa4fda2",
+    "docs/experiments/results/s08-continuing-ownership/clippy-ownership-checked.log": "9326e642458261ee8abf40d2213e0c1ffccc7d4452f2edb8c13b635bb250d0dd",
+    "docs/experiments/results/s08-continuing-ownership/clippy-ownership.log": "d3303e835444bde836eae178246e501e07af687ab5862b8fd7d36ff31a2ea6de",
+    "docs/experiments/results/s08-continuing-ownership/clippy-phases.log": "68bb23dae6ff5d06e6fe2d591aa24b5b314fd18b59a40bb8b2d32623eaaab781",
+    "docs/experiments/results/s08-continuing-ownership/clippy-probes-checked.log": "37387e9f5d9fbe8f445ce9536fef9d3dbcd2c39df95671f75c1a83149a8cf119",
+    "docs/experiments/results/s08-continuing-ownership/clippy-probes.log": "50be5cde1449e3152c98e7f54d30488fb2970a310dc9bb1458456dbce52add1b",
+    "docs/experiments/results/s08-continuing-ownership/manifest.json": "8588f2605069f15a8d634b9ea3ade4227f20fa5e61ea77d903d92b740a2aa8d7",
+    "docs/experiments/results/s08-continuing-ownership/meter-check.log": "1a35a2a44c6f3710cab07d0b72dc462b8d7fd009b489b41aa8d5e1dec85313e2",
+    "docs/experiments/results/s08-continuing-ownership/metered-probe-build-fixed.log": "086b04733535b701b1b7401b9d20883fdb63473ec40bf954d1714172ad16a3fc",
+    "docs/experiments/results/s08-continuing-ownership/metered-probe-build.log": "d0807e42f74579d22449a501db81b570bdd7f0b995b034045a58853d9d11915d",
+    "docs/experiments/results/s08-continuing-ownership/phase-probe-build.log": "df57674445524efd02286ce7bf515887caedc0c2dc09c0c3de2ef8c678a6d9a1",
+    "docs/experiments/results/s08-continuing-ownership/phases-dependencies.json": "03a435f008b29a0ef5e9bc44191295b2ddadefe02f666494a49a014bea9ea81e",
+    "docs/experiments/results/s08-continuing-ownership/preflight-0.json": "f4865e82388e38b168e09c56e307122b42f5bc6460e12f08972e02a92cfd5d20",
+    "docs/experiments/results/s08-continuing-ownership/preflight-1.json": "1e4ee81f99590c4d084a76d5dcc1fd4bcb8f6c3255b48787238a93f94dc19862",
+    "docs/experiments/results/s08-continuing-ownership/preflight-2.json": "150e0a59d43fe1f172be9e007bbd48069228b4d3c1f4ea5d228a5ae744c4a33e",
+    "docs/experiments/results/s08-continuing-ownership/preflight-3.json": "87ad16a0d2957ba58b1758117bc4b9d256bd42f9bc1241a6cf7c708d46b854b7",
+    "docs/experiments/results/s08-continuing-ownership/preflight-4.json": "65ddd4e59f5b63ea06f316055c368bd89adf4f103e4db493c539f79356c1352d",
+    "docs/experiments/results/s08-continuing-ownership/preflight-5.json": "0b93db210983580e02532564146af4d80d328cb434d734019225ca57dbd37022",
+    "docs/experiments/results/s08-continuing-ownership/probe-build.log": "1b2de47c1063126bbf281941c167f23c99ac9d64022103e3159dbec5f94da254",
+    "docs/experiments/results/s08-continuing-ownership/probe-reverse-build.log": "3e076c927dd6a36a253bf3076652d813cf74eb298e5d771a4cca80cac0adb51a",
+    "docs/experiments/results/s08-continuing-ownership/probe-stages-build.log": "ca4946f1e3aa6c68ea3435f3bd0ead0165ee95e8d4d2b17bb0758764fb70874c",
+    "docs/experiments/results/s08-continuing-ownership/probe-strong-build.log": "fa3570574a2e2658c4e0dbddf22609d94b941fca5be7c0d4844854421eb4a017",
+    "docs/experiments/results/s08-continuing-ownership/progress-build.log": "3e48c1323eca93c5bdb87f4b6c5e06b34e2a33e8e479ad018a7963cad04baf01",
+    "docs/experiments/results/s08-continuing-ownership/progress-conditional-inferred.json": "34de7e3600c2c8abe4ace9831fdbfef59e6c6c4788bcac12f668cd64a7639075",
+    "docs/experiments/results/s08-continuing-ownership/progress-dependencies-reclaim.json": "a4ffdae84ac1c87be8e2122e3fcfeccd8c6e196c2ff7401bfb3f431d01865d5d",
+    "docs/experiments/results/s08-continuing-ownership/progress-dependencies.json": "5b0fcd25b3ec29dee7b5d49dc7158e4000fc9a5a98d3725190e749a1ce7f45f4",
+    "docs/experiments/results/s08-continuing-ownership/progress-metered-dependencies.json": "03dc3f564fb284c56d55e064be6435527b9871b6149aec219ab521bb8453b38b",
+    "docs/experiments/results/s08-continuing-ownership/progress-templates-reclaim.json": "2d6da120e86ce5674056b59ddda64f4fbc2e60f1393e84044a64e8dfdd21f2ef",
+    "docs/experiments/results/s08-continuing-ownership/progress-templates.json": "368d737ca7e945528c0c865b1fe046cc034bd9eebeedd265c6bac413a68435bc",
+    "docs/experiments/results/s08-continuing-ownership/service-probe-reverse.json": "05a2dbdf9748d71167247acccd9f807cd6d9acfefb2c0f6553ec2fc965c97ff0",
+    "docs/experiments/results/s08-continuing-ownership/service-probe-stages.json": "98747a27be03b3ca11c4272e0fabf67cecca718350322b6da317d6c12e64015a",
+    "docs/experiments/results/s08-continuing-ownership/service-probe-strong.json": "26e954909358fef06fc6ce3e691fbc7e5c65e67f8f5fa7ece6485e77bfd5e061",
+    "docs/experiments/results/s08-continuing-ownership/service-probe.json": "7edfd002f17b689dffd5612b316e56c76da391fa0680e2b01b0660160bc55d0c",
+    "research/chr-reuse/Cargo.toml": "a16c7e2e1d453f898d5dc2cd21eb31632e6c76d1ab48cac2cfbc9db19a54ddaa",
+    "research/chr-reuse/examples/continuing_metered_probe.rs": "8d621e010d43328e9d57b9a43a9825dbf8e8e465ac0249de2e123be888e8c48c",
+    "research/chr-reuse/examples/continuing_ownership.rs": "c7bf71d60e4551e1fca91dac0489ea3e125bd8fd1e1360ebf64fc23d18c6e141",
+    "research/chr-reuse/examples/continuing_ownership_phases.rs": "32db150c5415a609de00af6bf97310bfbfc91190636e095d6ea8eac4b6e7d270",
+    "research/chr-reuse/examples/continuing_progress_probe.rs": "0249ba585209e3c259a51d22b5593842dc3958d1a33071e822b8edb3fb92e7f5",
+    "research/chr-reuse/examples/continuing_service_probe.rs": "cbe7490312660aec40487bbcc512b56c36e7c662ed0db2c7ac937bc8961f99fc",
+    "research/chr-reuse/examples/continuing_service_stages.rs": "f39e4e55d2a19cd0b0870302f68002e4fa3bf8d5ff7214e9b05b0c83c3b066e3",
+    "research/chr-reuse/experiments/audit_continuing_entry.py": "8a99f7a372c6b73fd031e99ad9e1ae9900f99df72a3d5e035aff0220e08c1490"
+  }
+}

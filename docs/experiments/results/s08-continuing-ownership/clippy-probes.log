@@ -1,0 +1,35 @@
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+    Checking chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)
+    Checking chr-reuse v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-reuse)
+    Checking chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+error[E0433]: cannot find `HeadAdmission` in `engine`
+  --> research/chr-reuse/examples/continuing_progress_probe.rs:30:53
+   |
+30 |                     chr_direct_conditional::engine::HeadAdmission::Optional,
+   |                                                     ^^^^^^^^^^^^^ could not find `HeadAdmission` in `engine`
+   |
+note: found an item that was configured out
+  --> research/chr-direct-conditional/src/engine.rs:63:10
+   |
+61 | #[cfg(feature = "head-dispatch")]
+   |       ------------------------- the item is gated behind the `head-dispatch` feature
+62 | #[derive(Clone, Copy, Debug)]
+63 | pub enum HeadAdmission {
+   |          ^^^^^^^^^^^^^
+
+error[E0599]: no associated function or constant named `with_head_contract` found for struct `chr_direct_conditional::engine::PreparedRuleset` in the current scope
+   --> research/chr-reuse/examples/continuing_progress_probe.rs:27:66
+    |
+ 27 |                 chr_direct_conditional::engine::PreparedRuleset::with_head_contract(
+    |                                                                  ^^^^^^^^^^^^^^^^^^ associated function or constant not found in `chr_direct_conditional::engine::PreparedRuleset`
+    |
+note: if you're trying to build a new `chr_direct_conditional::engine::PreparedRuleset`, consider using `chr_direct_conditional::engine::PreparedRuleset::new` which returns `std::result::Result<chr_direct_conditional::engine::PreparedRuleset, std::string::String>`
+   --> research/chr-direct-conditional/src/engine.rs:103:5
+    |
+103 |     pub fn new(rules: Vec<Rule>) -> Result<Self, String> {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Some errors have detailed explanations: E0433, E0599.
+For more information about an error, try `rustc --explain E0433`.
+error: could not compile `chr-reuse` (example "continuing_progress_probe") due to 2 previous errors
+warning: build failed, waiting for other jobs to finish...

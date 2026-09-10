@@ -1,0 +1,48 @@
+   Compiling chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax)
+   Compiling chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe)
+   Compiling chr-programs v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-programs)
+   Compiling chr-direct-choice v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-choice)
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+   Compiling chr-reference v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-reference)
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+   Compiling chr-cases v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-cases)
+   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)
+   Compiling chr-reuse v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-reuse)
+error[E0433]: cannot find `HeadAdmission` in `engine`
+  --> research/chr-reuse/examples/continuing_metered_probe.rs:30:53
+   |
+30 |                     chr_direct_conditional::engine::HeadAdmission::Optional,
+   |                                                     ^^^^^^^^^^^^^ could not find `HeadAdmission` in `engine`
+   |
+note: found an item that was configured out
+  --> research/chr-direct-conditional/src/engine.rs:63:10
+   |
+61 | #[cfg(feature = "head-dispatch")]
+   |       ------------------------- the item is gated behind the `head-dispatch` feature
+62 | #[derive(Clone, Copy, Debug)]
+63 | pub enum HeadAdmission {
+   |          ^^^^^^^^^^^^^
+
+error[E0599]: no associated function or constant named `with_head_contract` found for struct `chr_direct_conditional::engine::PreparedRuleset` in the current scope
+   --> research/chr-reuse/examples/continuing_metered_probe.rs:27:66
+    |
+ 27 |                 chr_direct_conditional::engine::PreparedRuleset::with_head_contract(
+    |                                                                  ^^^^^^^^^^^^^^^^^^ associated function or constant not found in `chr_direct_conditional::engine::PreparedRuleset`
+    |
+note: if you're trying to build a new `chr_direct_conditional::engine::PreparedRuleset`, consider using `chr_direct_conditional::engine::PreparedRuleset::new` which returns `Result<chr_direct_conditional::engine::PreparedRuleset, String>`
+   --> research/chr-direct-conditional/src/engine.rs:103:5
+    |
+103 |     pub fn new(rules: Vec<Rule>) -> Result<Self, String> {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0609]: no field `equality_ticks` on type `&chr_direct_conditional::engine::Stats`
+  --> research/chr-reuse/examples/continuing_metered_probe.rs:62:39
+   |
+62 | ...                   e.stats().equality_ticks
+   |                                 ^^^^^^^^^^^^^^ unknown field
+   |
+   = note: available fields are: `ticks`, `applications`, `births`, `answers`, `discovered_tuples` ... and 3 others
+
+Some errors have detailed explanations: E0433, E0599, E0609.
+For more information about an error, try `rustc --explain E0433`.
+error: could not compile `chr-reuse` (example "continuing_metered_probe") due to 3 previous errors

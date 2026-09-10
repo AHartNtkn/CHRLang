@@ -10,7 +10,7 @@ This is the governing sequence for the renewed investigation. Existing E/R measu
 
 The [next experimental cycle](next-cycle.md) sets the current execution order, concrete contrasts and completion boundaries from the verified worktree. It reuses the stage definitions below and the full question map.
 
-The current package is T074 sustained ownership trajectories, following the [consumer-pressure source gate](results/S08-consumer-pressure-entry.md). Bounded delivery and continuing publication are now qualified within explicit source contracts; engine memory and complete service costs remain to be measured. The [concrete entry experiments](next-cycle.md#concrete-entry-experiments-for-the-next-breadth-review) specify the alternatives to assess at that boundary: adaptive search, local resource claims, richer theories, sustained lifetime, broader reuse and integrated/choice mechanisms. The sequence document is complete as a plan; those investigations remain work to execute.
+The current package is T074 sustained ownership qualification. The [entry report](results/S08-continuing-ownership-entry.md) records an incomplete trial and the causal follow-ups required before comparison: separate validation/measurement budgets, conditional equality work and a real reclamation opportunity. Three packages have elapsed since the adaptive breadth review; the next bounded qualification package ends in a full breadth review. The [concrete entry experiments](next-cycle.md#concrete-entry-experiments-for-the-next-breadth-review) preserve the competing investigations. This sequence is a plan; its open investigations remain required work.
 
 ## Account for every reviewed question
 

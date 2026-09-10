@@ -10,11 +10,11 @@ The [design review](results/R07-design-disposition-review.md) distinguishes meas
 
 Several useful comparisons now exist. [Integrated graph scanning](results/S02-multihead-scale.md) has favorable measured regimes. [Finite solving](results/S06-finite-lifecycle.md) has selective benefits and unselective costs. [Support ordering](results/S08-order-lifecycle.md) has opposing regimes. These findings supply stronger controls, not a complete architecture ranking.
 
-The [consumer-pressure gate](results/S08-consumer-pressure-entry.md) validates 18,432 finite queries and 42 continuing-emission sessions per build with bounded delivery, paused demand, retained answers and cancellation/reuse. The graph prototype’s residual-only source admission restriction remains explicit. T074 next qualifies sustained ownership trajectories; queue bounds do not establish bounded engine memory. This is package one after the adaptive breadth review; other architecture directions and the goal remain open.
+The [continuing-ownership entry](results/S08-continuing-ownership-entry.md) records four passing preflights, a conditional service cutoff and a graph wall-time cutoff; no comparative matrix ran. Attribution locates most conditional service work in body equality. Graph progress reaches 516 answers with the allocation meter, while existing reclamation removes no records on this source. T074 next separates validation/measurement budgets and qualifies real reclamation opportunity. This is package three after the adaptive breadth review; full breadth review follows the next bounded qualification package. The goal remains active.
 
 ## The order, and why
 
-Continue investigation 9 with prospectively registered sustained ownership trajectories. Use the qualified bounded-delivery endpoint, independently checked stable-size/growing queries and continuing-emission prefixes. Account separately for prepared data, query/history state, pending delivery and retained answers. Reconsider adaptive costs, local claims, richer theories and broader complete paths at this ownership gate or an obstruction.
+Continue investigation 9 through one bounded ownership qualification package. Register independent validation and measurement process budgets, then qualify a continuing source that actually exercises incompatible-support reclamation alongside the no-opportunity control. Conditional equality work needs causal attribution and a credible repair comparison before its cutoff can inform architecture choice. Reconsider immediately if this becomes a substantial independent implementation. Conduct the full breadth review after that package, before more refinement or a comparative matrix; adaptive costs remain the strongest ready alternative.
 
 | Order | Investigation | Architectural decision it could change |
 |---|---|---|
@@ -58,7 +58,7 @@ Continue investigation 9 with prospectively registered sustained ownership traje
 
 ## The next concrete experiments
 
-**Next measure the retaining owners over sustained service.** The consumer-pressure gate now validates bounded demand across the admitted controls. Register lengths, modes, diagnostics and independent replay before measuring stable-size streams, growing-source controls and continuing-emission prefixes. Keep the graph and exact-source lowering capability boundaries explicit.
+**Next qualify the incomplete ownership comparison.** The entry trial supplies failures to investigate, not missing modes to omit. Separate validation and measurement budgets without weakening independent answer checks, establish a genuine reclamation opportunity, and address conditional equality service costs. Stable-size changing queries and growing-source controls remain scheduled alongside continuing prefixes. Keep graph and exact-source lowering capability boundaries explicit.
 
 | Package | Required comparison and checks | Decision and review point |
 |---|---|---|
