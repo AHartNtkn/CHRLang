@@ -10,11 +10,11 @@ The [design review](results/R07-design-disposition-review.md) distinguishes meas
 
 Several useful comparisons now exist. [Integrated graph scanning](results/S02-multihead-scale.md) has favorable measured regimes. [Finite solving](results/S06-finite-lifecycle.md) has selective benefits and unselective costs. [Support ordering](results/S08-order-lifecycle.md) has opposing regimes. These findings supply stronger controls, not a complete architecture ranking.
 
-The [descriptor source gate](results/S03-descriptor-source.md) validates 632 cooperative executions against 79 fresh reference/native controls. All priority-commit runs preserve raw order; component commit has six order differences. It checks 10,688 snapshots, 1,980 scan retries and 308 application abort/retries, with explicit source boundaries. The [four-package breadth review](results/S03-descriptor-breadth-review.md) selects T076 existential projection. Native local ownership, global ordering/observation costs and all broader obligations remain required; the goal stays active.
+The [projection entry](results/S06-projection-entry.md) validates 8,192 generated order/semantics comparisons per build, existing structural and actual CHR controls, and explicit caller/multiplicity boundaries. Hidden-independent elimination takes46 local assignment visits; the connected witness takes504 or28 with peak tables128 or4, depending on order. A zero-factor overflow defect is repaired. Ten projection and16 finite-path tests pass in both bounded builds. T076 next qualifies representation/lifecycle costs; no timing or architecture ranking follows. Package one after the descriptor breadth review; goal active.
 
 ## The order, and why
 
-Continue investigation 8 with T076 existential projection, following the [breadth review](results/S03-descriptor-breadth-review.md). Specify finite visible/hidden denotations and compare enumeration-then-projection with eliminating hidden coordinates before enumeration. Preserve visible correlations and distinguish logical set projection from raw CHR derivation multiplicity. Reconsider adaptive costs, native local ownership, conditional equality and broader reuse at the entry gate or obstruction.
+Continue investigation 8 with T076 projection representation and lifecycle qualification. The [entry report](results/S06-projection-entry.md) establishes finite-coordinate semantics and real hidden-work elimination, while exposing intermediate-factor width and output-multiplicity costs. Register a scope-based ordering policy against fixed orders and competent enumeration, then qualify preparation/reuse, retained domains/factors, later restrictions, weighted observation and raw-answer expansion. Broader source eligibility is a separate obligation. Reconsider adaptive costs, native local ownership, conditional equality and broader reuse at this gate or obstruction.
 
 | Order | Investigation | Architectural decision it could change |
 |---|---|---|
@@ -58,7 +58,7 @@ Continue investigation 8 with T076 existential projection, following the [breadt
 
 ## The next concrete experiments
 
-**Next qualify existential projection independently.** Test collapsed hidden alternatives, visible correlations, empty hidden domains, caller-added constraints and unselective visible outputs. Hidden witness multiplicity and caller-shared identities must remain explicit. Native local ownership, the ownership matrix, conditional equality and changing-query trajectories remain required.
+**Next account for projection representation and observation.** Keep hidden-independent and connected witnesses, add dense visible outputs and preparation reuse, and distinguish weighted answers from materialized CHR derivations. Charge ordering analysis and retained inputs rather than comparing only eliminated assignments. General source privacy/eligibility, structural paths and richer theories remain required.
 
 | Package | Required comparison and checks | Decision and review point |
 |---|---|---|

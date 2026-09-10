@@ -10,7 +10,7 @@ This is the governing sequence for the renewed investigation. Existing E/R measu
 
 The [next experimental cycle](next-cycle.md) sets the current execution order, concrete contrasts and completion boundaries from the verified worktree. It reuses the stage definitions below and the full question map.
 
-The current package is T076 existential projection, selected by the [four-package breadth review](results/S03-descriptor-breadth-review.md). The [descriptor source gate](results/S03-descriptor-source.md) connects staged ownership to deterministic source execution while exposing remaining global ordering and observation duties. Projection now receives an independent denotation and source/multiplicity trial. Native local ownership, adaptive costs and unfinished lifetime studies remain required.
+The current package is T076 projection representation and lifecycle qualification. The [entry gate](results/S06-projection-entry.md) preserves visible correlations and distinguishes logical answers from counted hidden witnesses. It exposes elimination-order sensitivity and repairs zero-factor arithmetic before comparison. Next qualify an economical ordering policy, retained owners, later restrictions and required raw-answer expansion. This is package one after the descriptor breadth review; adaptive costs, native local ownership and all broader theory/source questions remain required.
 
 ## Account for every reviewed question
 

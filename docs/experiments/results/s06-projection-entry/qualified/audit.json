@@ -1,0 +1,34 @@
+{
+  "status": "passed",
+  "bounded_processes": 4,
+  "rows": [
+    {
+      "build": "default",
+      "test": "projection",
+      "passed": 10,
+      "receipt_sha256": "ad0251ded0a89a59a28c0643d88ca43a010913383f68c94e6e99647e8e3ac753"
+    },
+    {
+      "build": "default",
+      "test": "finite_paths",
+      "passed": 16,
+      "receipt_sha256": "0459ab6e7fdacac4232a9677871bf5b8707e6ddb87b8de5cda1d9d9b76822b54"
+    },
+    {
+      "build": "counter-free",
+      "test": "projection",
+      "passed": 10,
+      "receipt_sha256": "93e47df651e62fdf472072a6d130bbc028bfea7f5a918e700646e5a6886a8c61"
+    },
+    {
+      "build": "counter-free",
+      "test": "finite_paths",
+      "passed": 16,
+      "receipt_sha256": "91f852c51104a906fa0590b48a45da54604d9b2eb3641600909c9f3fe42ecd77"
+    }
+  ],
+  "generated_problems_per_build": 256,
+  "visible_selections_per_build": 2048,
+  "order_semantics_comparisons_per_build": 8192,
+  "scope": "semantic and work-count gate; no comparative cost runs"
+}

@@ -1,0 +1,5 @@
+# Elimination-order qualification before lifecycle work
+
+Extend the projection entry's correctness gate with a connected adverse witness before any cost claim. Eight Boolean coordinates form a star: for every leaf i, the binary membership relation on(0,i) allows00,01,10. Coordinates6 and7 are visible;0..5 are hidden. Compare orders0,1,2,3,4,5 and1,2,3,4,5,0 under counted semantics. Require identical results to independent full-choice enumeration: visible00 has33 witnesses, the other three pairs have32 each. Record elimination assignment visits and largest factor table. These count distinct scopes of work, not comparable elapsed time.
+
+The initial development test run is not the bounded receipt. Compile the final default and metrics-off tests, freeze their source/binary hashes, then execute each test binary directly under60 CPU/wall seconds and1GiB address space. Retain the development logs separately. Exercise the original projection tests plus this order witness and existing finite-path regressions. No comparative timing or allocation matrix runs here.

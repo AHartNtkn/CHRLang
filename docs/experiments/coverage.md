@@ -1,6 +1,6 @@
 # Unanswered architecture questions and experimental ownership
 
-The [descriptor source gate](results/S03-descriptor-source.md) validates 632 cooperative executions against 79 fresh reference/native controls. All priority-commit runs preserve raw order; component commit has six order differences. It checks 10,688 snapshots, 1,980 scan retries and 308 application abort/retries, with explicit source boundaries. The [four-package breadth review](results/S03-descriptor-breadth-review.md) selects T076 existential projection. Native local ownership, global ordering/observation costs and all broader obligations remain required; the goal stays active.
+The [projection entry](results/S06-projection-entry.md) validates 8,192 generated order/semantics comparisons per build, existing structural and actual CHR controls, and explicit caller/multiplicity boundaries. Hidden-independent elimination takes46 local assignment visits; the connected witness takes504 or28 with peak tables128 or4, depending on order. A zero-factor overflow defect is repaired. Ten projection and16 finite-path tests pass in both bounded builds. T076 next qualifies representation/lifecycle costs; no timing or architecture ranking follows. Package one after the descriptor breadth review; goal active.
 
 ## Earlier experimental checkpoints
 

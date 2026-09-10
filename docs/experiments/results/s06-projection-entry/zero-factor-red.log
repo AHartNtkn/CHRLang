@@ -1,0 +1,22 @@
+   Compiling chr-structural v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-structural)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.23s
+     Running tests/projection.rs (target/debug/deps/projection-1e6e9cb3117ec29f)
+
+running 1 test
+test empty_hidden_domain_annihilates_large_witness_products ... FAILED
+
+failures:
+
+---- empty_hidden_domain_annihilates_large_witness_products stdout ----
+
+thread 'empty_hidden_domain_annihilates_large_witness_products' (132) panicked at research/chr-structural/tests/projection.rs:400:32:
+called `Result::unwrap()` on an `Err` value: "count overflow"
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    empty_hidden_domain_annihilates_large_witness_products
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 8 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p chr-structural --test projection`

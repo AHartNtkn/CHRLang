@@ -200,3 +200,5 @@ pub mod regular;
 pub mod space;
 
 pub mod finite;
+
+pub mod projection;
