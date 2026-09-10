@@ -1,8 +1,6 @@
 # Next experimental cycle: answer the remaining design questions
 
-Current selection: the [binding-effect gate](results/S07-binding-effects-gate.md) establishes a runtime beneficiary under investigation2. T079 next charges certification and complete lifecycle costs, then holds the required four-package breadth review. All broader effect and source-elimination obligations remain open.
-
-The [stronger-control lifecycle pilot](results/S10-arrival-lifecycle.md) validates1,344 runs and192 exact allocation pairs. Specialization improves the substantive explicit control but preserves the conditional choice/check advantage; streams favor explicit execution. T079 effect/ownership beneficiary qualification is selected next. Direct solving, native compilation and broader coherent architectures remain required.
+Current selection: the [effect lifecycle four-package review](results/S07-effect-lifecycle.md) selects T073 direct source-derived solving under investigation4. Establish its source/effect boundary before comparative costs, then compare its concrete implementation with the strongest ready distinct alternative. T079 effect precision and broader language choices remain required.
 
 Test the mechanisms that remain unanswered, then compare the complete architectures they enable. Reuse the existing baselines and valid results. The research goal remains active.
 

@@ -42,9 +42,9 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-The [binding-effect gate](results/S07-binding-effects-gate.md) gives T079 an executable beneficiary: omit persistent equality wake-up bookkeeping when unchanged variable bindings are certified. T079 next compares inference, checked and required admission against feature-off and ordinary controls, with complete lifecycle and adverse writer cases. That package triggers the four-package breadth review against direct source-derived solving and broader ownership/non-overlap effects.
+The [effect lifecycle four-package review](results/S07-effect-lifecycle.md#four-package-breadth-review-investigate-direct-source-derived-solving-next) selects T073 direct source-derived solving of private finite choice/check work. Establish a source/semantic entry that distinguishes eligible private computation from linked writers or consumers. Derive the relation from source; the expected-answer generator is not a general solver.
 
-The [next cycle](next-cycle.md) retains all other mechanisms. This certificate does not prove commutation, eliminate source choices, adopt a language restriction or close broader effect/lifetime work.
+At that gate compare the concrete next implementation with native graph/connected execution, broader reuse and effect precision. The [cycle](next-cycle.md) retains all obligations; T079 effect and language choices remain unfinished.
 
 ### Depth, breadth and stopping within this sequence
 

@@ -1,5 +1,7 @@
 # R00: architectural alternatives and first experiment selection
 
+Current selection: T073 direct source-derived solving after the [effect lifecycle breadth review](S07-effect-lifecycle.md). The certificate yields bounded allocation savings but does not eliminate explicit choices; inference and declarations have identical accepted-source allocation. Broader architecture and language decisions remain open.
+
 The [binding-effect certificate](S07-binding-effects-gate.md) removes persistent equality wake-up bookkeeping while preserving consumption conflicts and non-ground observations. T079 now compares admission and lifecycle costs. This is mechanism/correctness evidence, not a language-adoption result.
 
 Current selection: T079 effect/ownership beneficiary qualification after the [stronger-control lifecycle comparison](S10-arrival-lifecycle.md). Existing specialization and prefix lowering do not erase the conditional favorable regime; direct solving and native generation remain required before broader inference.

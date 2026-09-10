@@ -1,5 +1,7 @@
 # Unanswered architecture questions and experimental ownership
 
+The [effect lifecycle and breadth review](results/S07-effect-lifecycle.md) validate833 runs and119 allocation pairs. Inference, checked and required admissions have identical accepted-source allocation; a writer demonstrates the expressive cost of forbidding bindings. T073 direct source-derived solving is selected next; broader effects and language adoption remain unresolved.
+
 The [binding-effect gate](results/S07-binding-effects-gate.md) demonstrates an additional runtime benefit: immutable bindings eliminate persistent equality wake-up indexing without requiring groundness or non-overlap. T079 next measures checking and lifecycle costs; broader effects, direct solving and mandatory language policy remain unresolved.
 
 The [stronger-control lifecycle pilot](results/S10-arrival-lifecycle.md) validates1,344 runs and192 exact allocation pairs. Specialization improves the substantive explicit control but preserves the conditional choice/check advantage; streams favor explicit execution. T079 effect/ownership beneficiary qualification is selected next. Direct solving, native compilation and broader coherent architectures remain required.
