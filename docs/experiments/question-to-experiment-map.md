@@ -1,6 +1,6 @@
 # What experiment answers each reviewed design question?
 
-**Current selection: T075 matched finite reuse primary costs.** The [finite reuse ownership comparison](results/S05-finite-reuse-ownership.md) validates 900 processes and 300 exact allocation pairs. Result reuse lowers allocation on repeated successful work with sufficient capacity; covered learning favors all-failing inputs, and forced eviction exposes result-cache overhead. T075 next registers bounded primary timing across these opposing regimes. The four-package breadth review follows that package; broader capacity, compilation and lifetime remain required and the goal remains active.
+**Current selection: T073 resource-phase composition.** The [matched finite reuse costs](results/S05-finite-reuse-costs.md) validate 640 primary processes. Result reuse gains on long successful work; covered learning gains against it on all failure and forced eviction; short batches remain unresolved. The [four-package breadth review](results/S05-finite-reuse-breadth-review.md) selects T073 resource-phase composition with ordinary caller effects. T075 and the other distinct directions remain required; the goal remains active.
 
 The [common-source gate and cost design](results/S10-native-common-source.md) qualifies ten Rust configurations on all 125 cases, prefix lowering on 20 and finite solving with its caller on four. Native evidence remains applicable. T078 next establishes native prepared reuse and disposal; no cross-architecture cost matrix has run.
 

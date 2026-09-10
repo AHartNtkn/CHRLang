@@ -1,6 +1,6 @@
 # The comparisons still needed to choose the architecture
 
-The [finite reuse ownership comparison](results/S05-finite-reuse-ownership.md) validates 900 processes and 300 exact allocation pairs. Result reuse lowers allocation on repeated successful work with sufficient capacity; covered learning favors all-failing inputs, and forced eviction exposes result-cache overhead. T075 next registers bounded primary timing across these opposing regimes. The four-package breadth review follows that package; broader capacity, compilation and lifetime remain required and the goal remains active.
+The [matched finite reuse costs](results/S05-finite-reuse-costs.md) validate 640 primary processes. Result reuse gains on long successful work; covered learning gains against it on all failure and forced eviction; short batches remain unresolved. The [four-package breadth review](results/S05-finite-reuse-breadth-review.md) selects T073 resource-phase composition with ordinary caller effects. T075 and the other distinct directions remain required; the goal remains active.
 
 ## Earlier experimental checkpoints
 
@@ -86,7 +86,7 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-The [current execution order](next-cycle.md#the-order-and-why) owns scheduling. T075 is active for bounded primary costs of completed-result reuse and learning under the same finite preparation. Semantic and registered ownership gates are qualified; the next package triggers the four-package breadth review. The bundled call table remains a complete-path control. T073 broader capacity phases, compilation and lifetime return at that gate or an obstruction. Broad architecture obligations remain required.
+The [current execution order](next-cycle.md#the-order-and-why) owns scheduling. T073 is active for resource-phase composition with ordinary caller effects, following the four-package reuse review. T075 remains required for broader continuation relevance and effects. Adaptive reunion, local resource claims, richer theories and sustained lifetime return at the resource semantic gate or an obstruction. Broad architecture obligations remain required.
 
 ### Depth, breadth and stopping within this sequence
 

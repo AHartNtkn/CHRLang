@@ -10,19 +10,19 @@ The [design review](results/R07-design-disposition-review.md) distinguishes meas
 
 Several useful comparisons now exist. [Integrated graph scanning](results/S02-multihead-scale.md) has favorable measured regimes. [Finite solving](results/S06-finite-lifecycle.md) has selective benefits and unselective costs. [Support ordering](results/S08-order-lifecycle.md) has opposing regimes. These findings supply stronger controls, not a complete architecture ranking.
 
-The [finite reuse ownership comparison](results/S05-finite-reuse-ownership.md) validates 900 processes and 300 exact allocation pairs. Result reuse lowers allocation on repeated successful work with sufficient capacity; covered learning favors all-failing inputs, and forced eviction exposes result-cache overhead. T075 next registers bounded primary timing across these opposing regimes. The four-package breadth review follows that package; broader capacity, compilation and lifetime remain required and the goal remains active.
+The [matched finite reuse costs](results/S05-finite-reuse-costs.md) validate 640 primary processes. Result reuse gains on long successful work; covered learning gains against it on all failure and forced eviction; short batches remain unresolved. The [four-package breadth review](results/S05-finite-reuse-breadth-review.md) selects T073 resource-phase composition with ordinary caller effects. T075 and the other distinct directions remain required; the goal remains active.
 
 ## The order, and why
 
-Continue investigation 5 with a bounded primary cost comparison of result reuse and learning under the same direct finite preparation. Investigation 2 retains broader capacity phases, compilation and lifetime after its bounded cost result. Review those alternatives at the next cost package or an obstruction, including the required four-package breadth review.
+Return to investigation 2 with resource-phase composition after the four-package reuse review. Qualify the source boundary and complete ordinary caller before costs. Reconsider adaptive reunion, local resource claims, richer theories and sustained lifetime at that gate or an obstruction.
 
 | Order | Investigation | Architectural decision it could change |
 |---|---|---|
 | 1 (pilot measured; broader work pending) | Complete lifecycle accounting and one mixed-source pilot | Whether current complete paths retain their apparent advantages once preparation, observation and disposal count |
-| 2 (bounded capacity costs measured) | Source analysis, resource derivations and independent native compilation | Whether substantial runtime machinery can disappear rather than merely run faster |
+| 2 (active: resource-phase composition) | Source analysis, resource derivations and independent native compilation | Whether substantial runtime machinery can disappear rather than merely run faster |
 | 3 | Integrated equality, matching and consuming execution | Whether one organization can replace several services and their repair work |
 | 4 | Demand-driven choices, fresh derivations and native local ownership | Whether sharing execution or distributing effects changes the viable architecture |
-| 5 (active) | Call-level reuse and reusable failures | Whether cheap recognition and reuse can substitute for shared execution |
+| 5 (matched finite reuse costs measured) | Call-level reuse and reusable failures | Whether cheap recognition and reuse can substitute for shared execution |
 | 6 | Restoration, adaptive splitting and repeated reunion | Whether economical explicit search can compete without retaining a shared graph |
 | 7 | Retained joins and source-derived discovery plans | When maintaining knowledge beats rediscovering it, including the cost of code generation |
 | 8 | Compact structural solving and richer theories | Whether solving compact descriptions avoids enumeration, and under which language contract |
@@ -39,7 +39,7 @@ Continue investigation 5 with a bounded primary cost comparison of result reuse 
 
 | Direction | Next discriminating comparison | Dependency and required follow-through |
 |---|---|---|
-| **Reuse — investigation 5** | Renaming-aware result reuse versus recomputation and failure-region learning, including changed domains and multiple initial goals. | First qualify the source boundary and full caller transport. Then measure keys, useful hits, near misses, eviction and disposal. Continue separately to true continuation reconvergence and relevance projection. |
+| **Reuse — investigation 5** | Broader continuation reconvergence and relevance projection with live effects, using the matched finite-result and learning evidence as controls. | Establish future dependencies beyond repeated private-query shapes, then measure recognition, transport and sustained retention. Preserve the qualified finite tradeoffs and their limits. |
 | **Eliminating execution — investigation 2** | Extend direct resource solving into surrounding effects; compare broader prepared lowering and native generation of the same plan. | Preserve resource competition and progress before timing. Existing compilation receipts supply controls. Measure checking, compilation, changed-query reuse and boundary costs; a closed capacity fragment does not answer general resource derivation. |
 | **Integrated execution — investigation 3** | Contextual equality and local consuming rewrites versus the strongest applicable dedicated and integrated controls. | Does not require reuse or compilation to win. Establish useful interleaving, then vary merge breadth and repair demand. Flat relations, CHR-expressed merging and local port rewrites each need evidence or an operational equivalence argument. |
 | **Graph mechanisms — investigation 4** | Demand-driven choices, fresh-application derivation reuse and local resource claims receive separate source trials. | Begin from their actual source/effect obligations. Serial correctness precedes distributed timing. Success of current native execution does not discharge demand-driven expansion or distributed consumption. |
@@ -58,16 +58,16 @@ Continue investigation 5 with a bounded primary cost comparison of result reuse 
 
 ## The next concrete experiments
 
-**Next register bounded primary timing across the opposing allocation regimes.** Ownership qualification is complete for the registered finite batches. Compare recomputation, both learning policies and result reuse with ordinary allocation and counters disabled; include short batches, successful reuse, all failure and forced eviction. Carry the bundled persistent call table forward as a separate complete-path competitor.
+**Next establish whether consuming-capacity solving composes with ordinary CHR effects.** The closed solver's preparation and runtime benefits are measured. Its complete answers do not yet establish a reusable phase boundary inside a larger source. Inspect that boundary before implementing transport.
 
 | Package | Required comparison and checks | Decision and review point |
 |---|---|---|
-| **Matched finite reuse primary costs — T075, active** | Prospectively register paired ordinary-allocator timing for recomputation, eager/covered learning and completed-result reuse across successful reuse, all failure, short queries and forced eviction. Preserve qualified full lifecycle endpoints. | Do allocation differences translate into complete runtime tradeoffs? At this package or an obstruction, perform the four-package breadth review before further reuse refinement. |
-| **Matched reuse versus learning costs — required after semantic and ownership qualification** | Compare recomputation, eager/covered learning and the strongest admitted reusable-result control. Include repeated normalized shapes, genuinely different domains, near misses and retention/eviction; charge keys, remapping and all owners. | Does learning remain preferable when a result cache is applicable, and where does its more general failure-region reuse matter? Register exact comparisons only after qualification. |
-| **Broader resource phases and compilation — T073, required** | Carry capacity gains and R05/S01 compilation evidence forward. Test surrounding effects, resource interference, publication and richer source admission where they could change necessary runtime machinery. | Can the measured benefits compose with a broader language? Review at the reuse semantic gate or an obstruction. |
-| **Complete paths and lifetime — T078 and S08, required** | Combine credible mechanisms and test sustained consumers, ongoing siblings, cancellation and complete publication. | Do bounded component gains survive coherent architecture and lifetime obligations? |
+| **Resource-phase source gate — T073, active** | Register ordering and ownership premises; compare a solved initial phase followed by ordinary execution with independent complete source behavior. Include consumers of produced facts, shared-variable observers/writers, token competition before/after the boundary, unobserved bindings and later private work. | Can direct resource elimination widen a coherent execution path without changing source behavior? Reconsider the distinct alternatives below at this semantic gate or an obstruction. |
+| **Adaptive restoration and reunion — T077, required** | Test observable-work adaptation against existing fixed controls, including late links, early failures and policy overhead. | Strongest alternative to resource composition; requires policy and progress qualification. |
+| **Local claims, richer theories and sustained lifetime — required** | Separate conflict/cancellation protocols, independent denotations and sustained consumer/retention trials. | These under-investigated mechanisms remain explicit candidates at the next gate. Their later position is not a negative result. |
+| **Broader reuse — T075, required** | Carry the matched result/learning tradeoff forward. Investigate continuation relevance and effects beyond repeated finite query shapes when they could change the complete-path comparison. | Current short-query uncertainty returns if an automatic policy or deployment threshold is proposed. |
 
-**Why this cost comparison now:** the matched ownership evidence shows opposing allocation regimes and a concrete benefit from broader failure reuse. Lookup and transport costs need not track bytes, so bounded primary timing can change the runtime interpretation. Broader capacity phases need a new effect/publication correspondence. Complete this cost package, then explicitly review still-untried directions before further depth.
+**Why resource composition now:** the [breadth review](results/S05-finite-reuse-breadth-review.md) compares all distinct directions. This gate could make direct resource elimination usable in broader programs; an ordering or identity counterexample could also constrain the language boundary. Existing solver, relation and caller controls make the specific comparison feasible. Adaptive reunion is the strongest alternative, with local claims, richer theories and lifetime also due for reconsideration.
 
 ## 1. Carry the whole-path pilot into broader comparisons
 
@@ -77,7 +77,7 @@ Qualify the current Rust/native runner with existing scanned/indexed, contextual
 
 Use mixed sources with equality-enabled matching, consumed and kept occurrences, choices, failing siblings and irrelevant work. Include tiny/no-choice overhead, substantive work before and after choice discrimination, early and late readiness, and a finite answer beside ongoing work. Unsupported programs remain visible capability exclusions; the shared admitted subset must not become the definition of the language.
 
-**Current boundary:** the qualified complete-query pilot and consequential service attribution are recorded. The current selection is reuse with the same finite execution plan in investigation 5; investigation 2 retains broader resource and compilation work. More runner refinement requires an accounting or correctness defect that could invalidate the comparison. Broader source, progress and lifetime obligations remain required when distinct mechanisms return to complete-path comparison.
+**Current boundary:** the qualified complete-query pilot and consequential service attribution are recorded. The current selection is resource-phase composition in investigation 2; matched finite reuse remains a control for broader complete-path work. More runner refinement requires an accounting or correctness defect that could invalidate the comparison. Broader source, progress and lifetime obligations remain required when distinct mechanisms return to complete-path comparison.
 
 **Deliverable:** a bounded cost and capability comparison, with an owner-by-owner accounting and no complete-lifecycle superiority claim where compilation or host costs remain missing.
 

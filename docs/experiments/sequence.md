@@ -284,6 +284,6 @@ All new results link raw inputs, commands, freezes, validation and unfavorable o
 
 ## Current execution order
 
-The [finite reuse ownership comparison](results/S05-finite-reuse-ownership.md) validates 900 processes and 300 exact allocation pairs. Result reuse lowers allocation on repeated successful work with sufficient capacity; covered learning favors all-failing inputs, and forced eviction exposes result-cache overhead. T075 next registers bounded primary timing across these opposing regimes. The four-package breadth review follows that package; broader capacity, compilation and lifetime remain required and the goal remains active.
+The [matched finite reuse costs](results/S05-finite-reuse-costs.md) validate 640 primary processes. Result reuse gains on long successful work; covered learning gains against it on all failure and forced eviction; short batches remain unresolved. The [four-package breadth review](results/S05-finite-reuse-breadth-review.md) selects T073 resource-phase composition with ordinary caller effects. T075 and the other distinct directions remain required; the goal remains active.
 
 The [current execution order](next-cycle.md#the-order-and-why), [57-question map](question-to-experiment-map.md) and [mechanism ledger](remaining-investigations.md) retain every unresolved obligation. Reordering does not establish an experimental conclusion or complete the goal.
