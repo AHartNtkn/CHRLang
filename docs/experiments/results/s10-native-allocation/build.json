@@ -1,0 +1,46 @@
+[
+  {
+    "command": [
+      "clang",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "/home/ahart/Documents/CHRLang/research/chr-hvm/native_allocation/check.c",
+      "-o",
+      "/home/ahart/Documents/CHRLang/target/s10-native-allocation/check"
+    ],
+    "code": 0,
+    "stderr": ""
+  },
+  {
+    "command": [
+      "clang",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-fsanitize=undefined",
+      "-fno-sanitize-recover=all",
+      "/home/ahart/Documents/CHRLang/research/chr-hvm/native_allocation/check.c",
+      "-o",
+      "/home/ahart/Documents/CHRLang/target/s10-native-allocation/check-ubsan"
+    ],
+    "code": 0,
+    "stderr": ""
+  },
+  {
+    "command": [
+      "clang",
+      "-O2",
+      "-Wall",
+      "-Werror",
+      "-DSERIALIZATION_CLOCK=0",
+      "/home/ahart/Documents/CHRLang/target/s10-native-allocation/harness.c",
+      "-o",
+      "/home/ahart/Documents/CHRLang/target/s10-native-allocation/native"
+    ],
+    "code": 0,
+    "stderr": ""
+  }
+]

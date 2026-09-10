@@ -9,12 +9,12 @@ goal:
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
   current_research: >-
-    Primary host/native composition passes 26 sessions and 479 query endpoints with explicit
-    binary selection, diagnostic-clock rejection and artifact cleanup. Source allocation audit
-    separates requested table heap, large virtual reservations, graph use and unmeasured RSS.
-    T078 next qualifies native/host memory ownership before the bounded mixed-source cost pilot.
-    T073 learning costs return for review at that gate or obstruction. Broader architecture,
-    compilation, language, lifetime, parallelism and held-out questions remain required.
+    Native allocation diagnostics pass 52 processes and 958 exact query endpoints with
+    repeatable direct-call heap/mapping counters and zero tracked final ownership.
+    Large reservations and allocation requests remain distinct from physical residency.
+    T078 next qualifies Python host allocation and process residency before the mixed-source pilot.
+    T073 learning costs return for selection at that boundary or obstruction. Compilation,
+    language, broader architectures, lifetime, parallelism and held-out questions remain required.
     No universal architecture is selected; the goal remains active.
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
@@ -145,9 +145,10 @@ tasks:
     assignee: PM
     status: active
     objective: Establish and independently qualify at least two coherent complete execution paths on mixed-mechanism sources, including a serious alternative, with explicit semantic capability and responsibility maps before whole-path cost registration.
-    progress: Explicit primary host composition preserves479 query endpoints and all native work signatures across26 sessions. Native binary hash matches prior qualification; diagnostic-clock executable is rejected before host publication with temporary cleanup. Source audit identifies table requests, heap/stack reservations and query-reset ownership separately from RSS. No allocation or comparative timing conclusion follows.
-    next_action: Qualify native direct heap-request and mapping diagnostics with self-checks and complete/canceled/reused-query replay, plus separate Python allocation and process-residency scopes. Keep primary ordinary paths unchanged. At that ownership gate compare one bounded mixed-source pilot with T073 learning costs; do not equate source capacities, requested bytes, graph words or RSS. Compilation and streaming remain required.
+    progress: Native direct-allocation diagnostic preserves958 endpoints across52 processes with deterministic memory signatures. Runtime initialization requests268435476 live heap bytes; peak mapping is64GiB. Preparation disposal releases all mappings while consumer buffers remain valid; final tracked heap and mappings return to zero. Ordinary and UBSan self-checks pass including genuine allocation failure and failed unmap. No RSS or timing conclusion follows.
+    next_action: Qualify separate Python host allocation and OS process-residency scopes without substituting direct-call requests or virtual mappings for RSS. Keep primary native binary unchanged and diagnostics out of timing. At that gate compare the bounded mixed-source pilot against T073 substantive learning costs. Compilation, streaming, sustained lifetime and broader architecture obligations remain open.
     inputs:
+      - docs/experiments/results/S10-native-allocation.md
       - docs/experiments/results/S10-host-primary.md
       - docs/experiments/results/S10-publication-clock.md
       - docs/experiments/results/S10-clock-calibration.md
@@ -2478,13 +2479,12 @@ checks:
   last_verification:
     result: passed
     task: T078
-    scope: Explicit primary host/native composition and source-derived memory scopes; no memory measurements or comparative timings.
+    scope: Native direct-call heap and virtual mapping diagnostics; no RSS or comparative timings.
     commands:
-      - Host gate with explicit primary binary and output; 26 sessions and479 endpoints
-      - Archive audit with explicit input
-      - Diagnostic rejection before publication and temporary cleanup
-      - Source/binary hashes, report links, YAML and diff checks
+      - python3 research/chr-hvm/native_allocation/build.py; strict build plus ordinary/UBSan self-checks
+      - python3 research/chr-hvm/native_allocation/gate.py; 52 processes and958 endpoints
+      - Exact bytes/work, deterministic memory, final ownership, source/binary hashes
+      - Python syntax, report links, YAML and diff checks
     evidence:
-      - docs/experiments/results/S10-host-primary.md
-      - docs/experiments/results/s10-host-primary/validation.json
-      - docs/experiments/results/s10-host-primary/ownership-scope.json
+      - docs/experiments/results/S10-native-allocation.md
+      - docs/experiments/results/s10-native-allocation/audit.json

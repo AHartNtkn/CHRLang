@@ -1,0 +1,9 @@
+# Native heap requests and mapping ownership
+
+Instrument only a separate diagnostic build of the qualified primary native harness. Wrap direct malloc/calloc/realloc/free/strdup and mmap/munmap calls in the compiled runtime, wire encoder and harness. Track requested heap traffic, live requested bytes and peaks separately from live/peak mapping bytes and cumulative mapping traffic. Wrapper metadata and allocations internal to libc are outside requested-heap scope; report this explicitly. Do not infer RSS.
+
+Self-check successful allocations, zero initialization, strdup, growing/shrinking realloc, failed realloc preserving the old allocation, overflow, successful mapping/release and failed mapping. Check restoration before starting native sessions. Record checkpoints at runtime initialization, preparation, source release, each query reset, preparation disposal and consumer disposal. A query reset must not be assumed to unmap the runtime heap. Final wrapped heap and mappings must return to zero; a nonzero remainder requires diagnosis.
+
+Replay the26 qualified common/substantive sessions (479 queries) twice with unchanged source, protocol, budgets and owned wire bytes. Compare complete observations and native work signatures with frozen frontend evidence. Paired memory signatures must match; timestamps are excluded. Keep native primary timing binary unchanged. Use30-second/20-CPU-second process bounds and96GiB address space for the established large virtual reservations. Compile with strict warnings; run self-checks under undefined-behavior sanitization as an additional check. No comparative timing claim follows.
+
+This gate establishes native direct-call accounting only. Python host allocations, libc internals and OS residency remain distinct pending measurements. At its boundary choose the next missing ownership check needed for the bounded mixed-source pilot, and compare that task with the ready learning cost pilot.

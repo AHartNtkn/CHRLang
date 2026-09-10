@@ -1,6 +1,6 @@
 # What experiment answers each reviewed design question?
 
-**Current selection: T078 native/host allocation qualification before bounded mixed-source costs.** [Primary host composition](results/S10-host-primary.md) preserves479 endpoints and rejects diagnostic clocks before publication. Allocation scopes are source-audited but memory remains unmeasured. T073 learning costs return for selection at the ownership gate or an obstruction.
+**Current selection: T078 host-allocation and process-residency qualification.** The [native direct-allocation gate](results/S10-native-allocation.md) preserves958 endpoints and releases all tracked heap/mappings. Large reservation/request totals cannot substitute for RSS. T073 learning costs return for selection at the next ownership boundary or an obstruction.
 
 The [common-source gate and cost design](results/S10-native-common-source.md) qualifies ten Rust configurations on all 125 cases, prefix lowering on 20 and finite solving with its caller on four. Native evidence remains applicable. T078 next establishes native prepared reuse and disposal; no cross-architecture cost matrix has run.
 

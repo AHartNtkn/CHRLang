@@ -1,5 +1,7 @@
 # The comparisons still needed to choose the architecture
 
+The [native allocation gate](results/S10-native-allocation.md) preserves958 query endpoints over52 processes with repeatable direct-call heap/mapping counters and zero tracked final ownership. Peak live mappings are64GiB; direct heap requests are272.6–280.9MB per session, not RSS. Prepared disposal releases mappings before retained consumer bytes. T078 next qualifies host allocations and process residency; no total-efficiency ranking follows.
+
 The [primary host/native composition](results/S10-host-primary.md) preserves479 query endpoints across26 sessions and rejects diagnostic-clock binaries before publication with artifact cleanup. Source audit distinguishes256MiB of table allocation requests from32GiB heap and conditional32GiB evaluator-stack reservations; these are not RSS measurements. T078 next qualifies separate native/host allocations and ownership; no comparative timing or memory ranking follows.
 
 The [primary learning qualification](results/S06-learning-primary.md) passes756 release processes with identical primary/diagnostic outcomes, cancellation followed by reuse, deterministic diagnostic allocations and full heap restoration. Learning diagnostics are compile-time disabled in the ordinary-allocator build; operational budgets remain. No comparative timing claim follows. At this boundary T078 resumes host/native ownership qualification and the bounded mixed-source comparison; T073 learning costs remain scheduled at that gate or an obstruction.
