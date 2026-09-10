@@ -1,0 +1,30 @@
+[
+  {
+    "command": [
+      "clang",
+      "-O2",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "/home/ahart/Documents/CHRLang/research/chr-hvm/residency/check.c",
+      "-o",
+      "/home/ahart/Documents/CHRLang/target/s10-residency/check"
+    ],
+    "code": 0,
+    "stderr": ""
+  },
+  {
+    "command": [
+      "clang",
+      "-O2",
+      "-Wall",
+      "-Werror",
+      "-DSERIALIZATION_CLOCK=0",
+      "/home/ahart/Documents/CHRLang/target/s10-residency/harness.c",
+      "-o",
+      "/home/ahart/Documents/CHRLang/target/s10-residency/native"
+    ],
+    "code": 0,
+    "stderr": ""
+  }
+]

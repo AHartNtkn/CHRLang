@@ -1,6 +1,6 @@
 # What experiment answers each reviewed design question?
 
-**Current selection: T078 host-allocation and process-residency qualification.** The [native direct-allocation gate](results/S10-native-allocation.md) preserves958 endpoints and releases all tracked heap/mappings. Large reservation/request totals cannot substitute for RSS. T073 learning costs return for selection at the next ownership boundary or an obstruction.
+**Current selection: T078 bounded complete-query mixed-source cost registration.** The [residency/host-allocation gate](results/S10-residency.md) distinguishes reservations from residency and corrects emitter retention without changing generated programs. T073 learning costs and distinct mechanisms return for review after the pilot or an obstruction; compilation and sustained lifetime remain open.
 
 The [common-source gate and cost design](results/S10-native-common-source.md) qualifies ten Rust configurations on all 125 cases, prefix lowering on 20 and finite solving with its caller on four. Native evidence remains applicable. T078 next establishes native prepared reuse and disposal; no cross-architecture cost matrix has run.
 

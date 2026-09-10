@@ -23,25 +23,25 @@ def compile_source(source):
  for x in source['outputs']:
   if type(x) is not int:raise ValueError('output variable')
   term(x)
- def actions(body,recurse):
+ def actions(body):
   if not isinstance(body,list):raise ValueError('body admission')
   for a in body:
    if not isinstance(a,list) or not a:raise ValueError('body admission')
    if a[0]=='add' and len(a)==2:constraint(a[1])
    elif a[0]=='eq' and len(a)==3:term(a[1]);term(a[2])
-   elif a[0]=='or' and len(a)==3:recurse(a[1],recurse);recurse(a[2],recurse)
+   elif a[0]=='or' and len(a)==3:actions(a[1]);actions(a[2])
    elif a==['fail']:pass
    else:raise ValueError('body admission')
- def variables(body,recurse):
+ def variables(body):
   result=set()
   for a in body:
-   if a[0]=='or':result|=recurse(a[1],recurse)|recurse(a[2],recurse)
+   if a[0]=='or':result|=variables(a[1])|variables(a[2])
    elif a[0] in ['eq','add']:result|={x for x in (a[1][1] if a[0]=='add' else a[1:]) if type(x)is int}
   return result
  for r in source['rules']:
   if set(r)!={'kept','removed','body'} or not r['kept']+r['removed']:raise ValueError('rule admission')
   for c in r['kept']+r['removed']:constraint(c)
-  actions(r['body'],actions)
+  actions(r['body'])
  if len(source['query'])>=1000000:raise ValueError('occurrence namespace')
  predicates=sorted(arities);atoms=sorted(atoms);D={}
  def fn(n,args,body):D[n]=emit.lam(args,body)
@@ -71,7 +71,7 @@ def compile_source(source):
  for ri,r in enumerate(source['rules']):
   heads=r['kept']+r['removed'];n=len(heads);prefix=f's_r{ri}'
   case(prefix,[('#State',stateargs,f'@{prefix}_decide(@{prefix}_h0(store,store,eqenv,hist,#Nil,#Nil,#Nil),{state})')])
-  headvars={x for _,args in heads for x in args if type(x)is int};bodyvars=variables(r['body'],variables);freshvars=sorted(bodyvars-headvars)
+  headvars={x for _,args in heads for x in args if type(x)is int};bodyvars=variables(r['body']);freshvars=sorted(bodyvars-headvars)
   sub='sub'
   for offset,x in enumerate(freshvars):sub=f'#Cons{{#Link{{{x},#Var{{(fresh+{offset})}}}},{sub}}}'
   history=f'#Cons{{#Receipt{{{ri},ids}},hist}}' if not r['removed'] else 'hist'
@@ -94,7 +94,7 @@ def compile_source(source):
   if not r['removed']:terminal=f'@choose(@seen({ri},ids,hist),#No,{terminal})'
   fn(prefix+f'_h{n}',['todo']+common,terminal)
   bodyargs=['sub']+stateargs
-  def sequence(stem,body,continuation,recurse):
+  def sequence(stem,body,continuation):
    for bi,a in enumerate(body):
     name=stem+str(bi);following=stem+str(bi+1)
     if a[0]=='add':
@@ -107,11 +107,11 @@ def compile_source(source):
     else:
      left=name+'_left';right=name+'_right'
      cont='@'+following+'('+','.join(bodyargs)+')'
-     recurse(left,a[1],cont,recurse);recurse(right,a[2],cont,recurse)
+     sequence(left,a[1],cont);sequence(right,a[2],cont)
      branch='&(birth){@'+left+'0(sub,store,eqenv,hist,next,fresh,outputs,(birth*2)),@'+right+'0(sub,store,eqenv,hist,next,fresh,outputs,(birth*2+1))}'
      fn(name,bodyargs,'@choose((birth<8388608),'+branch+',#ChoiceLimit)')
    fn(stem+str(len(body)),bodyargs,continuation)
-  sequence(prefix+'_body',r['body'],f'@s_r0({state})',sequence)
+  sequence(prefix+'_body',r['body'],f'@s_r0({state})')
  case(f's_r{len(source["rules"])}',[('#State',stateargs,'#Answer{@s_resolve_values(outputs,eqenv),@s_observe(store,eqenv)}')])
  allvars=[x for _,args in source['query'] for x in args if type(x)is int]+source['outputs'];fresh=max(allvars,default=-1)+1
  query=ls([f'#Fact{{{i},{predicates.index(c[0])},{pat(c)}}}' for i,c in enumerate(source['query'])]);outputs=ls([t(x) for x in source['outputs']])

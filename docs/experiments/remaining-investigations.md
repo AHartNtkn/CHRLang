@@ -1,5 +1,7 @@
 # The comparisons still needed to choose the architecture
 
+The [residency and host-allocation gate](results/S10-residency.md) preserves958 native and958 traced-host endpoints, plus479 untraced host endpoints. Native sampled RSS peaks span1876–98200KiB despite64GiB virtual reservations; query reset retains touched heap pages until preparation disposal. Host tracing exposes and validates a recursive-emitter lifetime correction with identical generated programs. T078 next registers a bounded complete-query mixed-source cost pilot; compilation and sustained lifetime remain open.
+
 The [native allocation gate](results/S10-native-allocation.md) preserves958 query endpoints over52 processes with repeatable direct-call heap/mapping counters and zero tracked final ownership. Peak live mappings are64GiB; direct heap requests are272.6–280.9MB per session, not RSS. Prepared disposal releases mappings before retained consumer bytes. T078 next qualifies host allocations and process residency; no total-efficiency ranking follows.
 
 The [primary host/native composition](results/S10-host-primary.md) preserves479 query endpoints across26 sessions and rejects diagnostic-clock binaries before publication with artifact cleanup. Source audit distinguishes256MiB of table allocation requests from32GiB heap and conditional32GiB evaluator-stack reservations; these are not RSS measurements. T078 next qualifies separate native/host allocations and ownership; no comparative timing or memory ranking follows.

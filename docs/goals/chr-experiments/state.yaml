@@ -9,12 +9,12 @@ goal:
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
   current_research: >-
-    Native allocation diagnostics pass 52 processes and 958 exact query endpoints with
-    repeatable direct-call heap/mapping counters and zero tracked final ownership.
-    Large reservations and allocation requests remain distinct from physical residency.
-    T078 next qualifies Python host allocation and process residency before the mixed-source pilot.
-    T073 learning costs return for selection at that boundary or obstruction. Compilation,
-    language, broader architectures, lifetime, parallelism and held-out questions remain required.
+    Native residency and host tracing preserve full endpoints, with sampled native peaks
+    of 1876–98200 KiB despite 64-GiB reservations. Query reset retains resident heap pages.
+    A recursive-emitter reference cycle is corrected with exact generated-program agreement.
+    T078 next registers one bounded complete-query mixed-source cost pilot using ordinary paths.
+    T073 learning costs return after that pilot or obstruction. Compilation, source capability,
+    sustained lifetime, streaming, parallelism and held-out architecture questions remain required.
     No universal architecture is selected; the goal remains active.
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
@@ -145,9 +145,10 @@ tasks:
     assignee: PM
     status: active
     objective: Establish and independently qualify at least two coherent complete execution paths on mixed-mechanism sources, including a serious alternative, with explicit semantic capability and responsibility maps before whole-path cost registration.
-    progress: Native direct-allocation diagnostic preserves958 endpoints across52 processes with deterministic memory signatures. Runtime initialization requests268435476 live heap bytes; peak mapping is64GiB. Preparation disposal releases all mappings while consumer buffers remain valid; final tracked heap and mappings return to zero. Ordinary and UBSan self-checks pass including genuine allocation failure and failed unmap. No RSS or timing conclusion follows.
-    next_action: Qualify separate Python host allocation and OS process-residency scopes without substituting direct-call requests or virtual mappings for RSS. Keep primary native binary unchanged and diagnostics out of timing. At that gate compare the bounded mixed-source pilot against T073 substantive learning costs. Compilation, streaming, sustained lifetime and broader architecture obligations remain open.
+    progress: Residency gate passes958 native and958 traced-host endpoints plus479 untraced host endpoints. Native sampled peak RSS is1876–98200KiB and preparation disposal returns it to1812–1868KiB. Host emitter cycle witness changes from9 retained local functions to0 with GC disabled; all26 emitted programs/dictionaries are identical. Host traces retain explicit interpreter/diagnostic scope. No comparative timing result.
+    next_action: Register one bounded complete-query mixed-source pilot using frozen ordinary Rust and combined native paths, independent full endpoints and prospective repetition/order/threshold/bounds. Treat engine-specific cutoffs and unsupported sources separately; do not equate named phases with full process cost or internal observation with external publication. Reconsider T073 learning and distinct mechanisms after the pilot or consequential obstruction. Compilation and sustained lifetime remain required.
     inputs:
+      - docs/experiments/results/S10-residency.md
       - docs/experiments/results/S10-native-allocation.md
       - docs/experiments/results/S10-host-primary.md
       - docs/experiments/results/S10-publication-clock.md
@@ -2479,12 +2480,14 @@ checks:
   last_verification:
     result: passed
     task: T078
-    scope: Native direct-call heap and virtual mapping diagnostics; no RSS or comparative timings.
+    scope: Native checkpoint residency, host Python tracing and emitter lifetime correction; no comparative timing.
     commands:
-      - python3 research/chr-hvm/native_allocation/build.py; strict build plus ordinary/UBSan self-checks
-      - python3 research/chr-hvm/native_allocation/gate.py; 52 processes and958 endpoints
-      - Exact bytes/work, deterministic memory, final ownership, source/binary hashes
-      - Python syntax, report links, YAML and diff checks
+      - Residency build and16MiB touch/unmap calibration
+      - Native52-process and host52-process exact endpoint gates
+      - GC-disabled emitter lifetime regression and26 exact generated-program comparisons
+      - Untraced primary host26-session replay and archive audit
+      - Source/binary hashes, Python syntax, links, YAML and diff checks
     evidence:
-      - docs/experiments/results/S10-native-allocation.md
-      - docs/experiments/results/s10-native-allocation/audit.json
+      - docs/experiments/results/S10-residency.md
+      - docs/experiments/results/s10-residency/audit.json
+      - docs/experiments/results/s10-residency/host-audit.json
