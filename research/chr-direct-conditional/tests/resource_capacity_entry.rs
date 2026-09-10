@@ -1,4 +1,6 @@
-//! Independent capacity relation versus full consuming source semantics.
+#[path = "../../chr-compiled/experiments/resource_capacity.rs"]
+mod capacity;
+// Independent capacity relation versus full consuming source semantics.
 #[allow(dead_code)]
 mod composition_support;
 #[allow(dead_code)]
@@ -148,6 +150,14 @@ fn capacity_relation_preserves_complete_consuming_answers() {
                                     .collect::<Vec<_>>();
                                 let rules = source(tag, weight);
                                 let q = query(tag, &domains, [a, b], alias, base);
+                                let prepared = capacity::Prepared::new(&rules).unwrap();
+                                let report =
+                                    prepared.solve(&q, capacity::Limits::default()).unwrap();
+                                runtime_support::same_raw(
+                                    report.answers,
+                                    relation(tag, &domains, [a, b], alias, weight, base),
+                                );
+
                                 runtime_support::same_raw(
                                     relation(tag, &domains, [a, b], alias, weight, base),
                                     checked(&rules, &q),
@@ -190,4 +200,166 @@ fn capacity_failure_requires_a_sink_and_exclusive_resource_ownership() {
     let q = query("r", &[1], [1, 0], false, 10);
     assert_eq!(relation("r", &[1], [1, 0], false, 1, 10).len(), 1);
     assert!(checked(&rules, &q).is_empty());
+}
+
+#[test]
+fn solver_checks_source_and_query_boundaries() {
+    let rules = source("r", 1);
+    let p = capacity::Prepared::new(&rules).unwrap();
+    let mut q = query("r", &[3], [1, 1], false, 10);
+    q.constraints
+        .push(c("payload", [chr_syntax::t("box", [v(10)])]));
+    runtime_support::same_raw(
+        p.solve(&q, Default::default()).unwrap().answers,
+        checked(&rules, &q),
+    );
+    q.constraints[0].args[0] = atom("a");
+    runtime_support::same_raw(
+        p.solve(&q, Default::default()).unwrap().answers,
+        checked(&rules, &q),
+    );
+    let mut bad = rules.clone();
+    bad.pop();
+    assert!(capacity::Prepared::new(&bad).is_err());
+    let mut bad = rules.clone();
+    bad.insert(
+        0,
+        Rule::simplify("steal", [c("rtoken", [v(0)])], Goal::True),
+    );
+    assert!(capacity::Prepared::new(&bad).is_err());
+    let mut q = query("r", &[3], [1, 1], false, 10);
+    q.constraints.push(c("rneed", [v(10)]));
+    assert!(p.solve(&q, Default::default()).is_err());
+    let mut q = query("r", &[3], [1, 1], false, 10);
+    q.constraints[1].args[0] = v(20);
+    assert!(p.solve(&q, Default::default()).is_err());
+    let q = query("r", &[3, 3], [2, 2], false, 10);
+    assert!(
+        p.solve(
+            &q,
+            capacity::Limits {
+                states: 0,
+                answers: 100
+            }
+        )
+        .is_err()
+    );
+    assert!(
+        p.solve(
+            &q,
+            capacity::Limits {
+                states: 100,
+                answers: 1
+            }
+        )
+        .is_err()
+    );
+    let mut partial = query("r", &[3, 3, 3], [1, 2], false, 10);
+    partial.constraints[2].args[0] = v(10);
+    partial.outputs[2].1 = Var(10);
+    let answer = p.solve(&partial, Default::default()).unwrap();
+    assert_eq!(answer.answers.len(), 1);
+    runtime_support::same_raw(answer.answers, checked(&rules, &partial));
+    let many = query("r", &[3; 65], [65, 65], false, 10);
+    assert!(matches!(
+        p.solve(&many, Default::default()),
+        Err(capacity::Error::Limit)
+    ));
+    let mut duplicate = q.clone();
+    duplicate.outputs.push(duplicate.outputs[0].clone());
+    assert!(p.solve(&duplicate, Default::default()).is_err());
+    let mut body_owner = rules.clone();
+    body_owner[0].body = and(vec![
+        body_owner[0].body.clone(),
+        c("rtoken", [atom("a")]).into(),
+    ]);
+    assert!(capacity::Prepared::new(&body_owner).is_err());
+    let mut ambiguous = rules.clone();
+    ambiguous[1].removed[0].name = ambiguous[0].removed[0].name.clone();
+    assert!(capacity::Prepared::new(&ambiguous).is_err());
+    let mut reversed = rules.clone();
+    reversed[3].removed.reverse();
+    runtime_support::same_raw(
+        capacity::Prepared::new(&reversed)
+            .unwrap()
+            .solve(&q, Default::default())
+            .unwrap()
+            .answers,
+        checked(&reversed, &q),
+    );
+}
+
+#[test]
+fn capacity_subsets_prune_before_branching_and_successes_are_complete() {
+    let mut rules = Vec::new();
+    for (pred, a, b) in [
+        ("choose_left", "alpha", "beta"),
+        ("choose_right", "gamma", "delta"),
+    ] {
+        rules.push(Rule::simplify(
+            pred,
+            [c(pred, [v(9)])],
+            and(vec![
+                or(eq(v(9), atom(a)), eq(v(9), atom(b))),
+                c("rneed", [v(9)]).into(),
+            ]),
+        ));
+    }
+    rules.extend(source("r", 1).into_iter().skip(3));
+    let p = capacity::Prepared::new(&rules).unwrap();
+    let make = |half: usize, caps: [usize; 4]| {
+        let mut constraints = Vec::new();
+        let mut outputs = Vec::new();
+        for i in 0..2 * half {
+            let id = 100 + i as u64;
+            constraints.push(c(
+                if i < half {
+                    "choose_left"
+                } else {
+                    "choose_right"
+                },
+                [v(id)],
+            ));
+            outputs.push((format!("v{i}"), Var(id)));
+        }
+        for (name, count) in ["alpha", "beta", "gamma", "delta"].into_iter().zip(caps) {
+            for _ in 0..count {
+                constraints.push(c("rtoken", [atom(name)]));
+            }
+        }
+        Query {
+            constraints,
+            outputs,
+        }
+    };
+    let small = make(2, [0, 1, 1, 2]);
+    assert!(checked(&rules, &small).is_empty());
+    let r = p.solve(&small, Default::default()).unwrap();
+    assert!(r.answers.is_empty());
+    assert_eq!((r.states, r.branches, r.capacity_prunes), (1, 0, 1));
+    // 24 independent binary choices, total supply 24, left-domain capacity 11 < 12.
+    let r = p
+        .solve(&make(12, [5, 6, 6, 7]), Default::default())
+        .unwrap();
+    assert!(r.answers.is_empty());
+    assert_eq!((r.states, r.branches, r.capacity_prunes), (1, 0, 1));
+    let q = make(2, [2, 2, 2, 2]);
+    let r = p.solve(&q, Default::default()).unwrap();
+    assert_eq!(r.answers.len(), 16);
+    assert!(r.branches >= 16);
+    runtime_support::same_raw(r.answers, checked(&rules, &q));
+    assert!(
+        p.solve(
+            &q,
+            capacity::Limits {
+                states: 1,
+                answers: 4096
+            }
+        )
+        .is_err()
+    );
+    assert_eq!(p.solve(&q, Default::default()).unwrap().answers.len(), 16);
+    println!(
+        "capacity bottleneck: 24 binary choices, states=1 branches=0; unselective control: 16 raw answers"
+    );
 }

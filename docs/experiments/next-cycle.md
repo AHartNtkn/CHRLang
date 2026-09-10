@@ -10,16 +10,16 @@ The [design review](results/R07-design-disposition-review.md) distinguishes meas
 
 Several useful comparisons now exist. [Integrated graph scanning](results/S02-multihead-scale.md) has favorable measured regimes. [Finite solving](results/S06-finite-lifecycle.md) has selective benefits and unselective costs. [Support ordering](results/S08-order-lifecycle.md) has opposing regimes. These findings supply stronger controls, not a complete architecture ranking.
 
-The [consuming-resource capacity entry](results/S06-resource-capacity-entry.md) validates 1,536 complete source cases per feature mode. Aliased demands cannot be split across values; missing failure sinks and competing token owners are explicit counterexamples to naive capacity reasoning. T073 next implements bounded source inference and direct capacity solving, requiring a witness that avoids a full choice product. This is correctness evidence, not an implemented solver or cost result; call reuse and broader compilation return at that gate.
+The [source-derived capacity solver](results/S06-resource-capacity-solver.md) matches all1,536 complete-answer matrix cases per feature mode and rejects a24-choice domain-capacity bottleneck in one state with zero branches. The unselective control returns all16 answers; alias, ownership and limit boundaries pass. T073 next qualifies full lifecycle and counter-free measurement. No cost advantage is claimed; call reuse and broader compilation return at that qualification gate or an obstruction.
 
 ## The order, and why
 
-Investigation 2 continues with bounded source-derived capacity inference and solving after its completed semantic entry. Existing compilation and learning cost results supply controls. Review renaming-aware call reuse and broader compilation at that entry or an obstruction. Investigation 1 retains broader composition and lifetime obligations.
+Investigation 2 continues with complete capacity-solver lifecycle and measurement qualification after its source/solver gate. Existing compilation and learning cost results supply controls. Review renaming-aware call reuse and broader compilation at that entry or an obstruction. Investigation 1 retains broader composition and lifetime obligations.
 
 | Order | Investigation | Architectural decision it could change |
 |---|---|---|
 | 1 (pilot measured; broader work pending) | Complete lifecycle accounting and one mixed-source pilot | Whether current complete paths retain their apparent advantages once preparation, observation and disposal count |
-| 2 (active: direct capacity solver gate) | Source analysis, resource derivations and independent native compilation | Whether substantial runtime machinery can disappear rather than merely run faster |
+| 2 (active: capacity lifecycle qualification) | Source analysis, resource derivations and independent native compilation | Whether substantial runtime machinery can disappear rather than merely run faster |
 | 3 | Integrated equality, matching and consuming execution | Whether one organization can replace several services and their repair work |
 | 4 | Demand-driven choices, fresh derivations and native local ownership | Whether sharing execution or distributing effects changes the viable architecture |
 | 5 | Call-level reuse and reusable failures | Whether cheap recognition and reuse can substitute for shared execution |
@@ -35,16 +35,16 @@ Investigation 2 continues with bounded source-derived capacity inference and sol
 
 ## The next concrete experiments
 
-**Next implement source-derived capacity reasoning with a witness that avoids a complete choice product.** The [semantic entry](results/S06-resource-capacity-entry.md) establishes the closed relation and alias/failure/ownership counterexamples. Its exhaustive oracle is for independent validation; the candidate must perform different work.
+**Next qualify complete costs for the source-derived capacity solver.** The [solver gate](results/S06-resource-capacity-solver.md) demonstrates root rejection without a choice product and complete successful extraction. Preparation, domain grouping/checking, observation and disposal now need credible accounting before timing.
 
 | Package | Required comparison and checks | Decision and review point |
 |---|---|---|
-| **Source-derived capacity inference/solver gate — T073, active** | Infer finite domains, consuming demands and the failure boundary from syntax. Preserve alias groups, weighted derivations and spare resources. Use capacity propagation before full assignment enumeration, with successful-output and near-miss controls. Validate against the independent relation and full source engines. | Can source reasoning replace execution rather than retune it? At the inference/solver gate or an obstruction, compare cost measurement with renaming-aware call reuse and broader compilation. |
+| **Capacity lifecycle/measurement qualification — T073, active** | Account for source inference, reusable preparation, changing-query groups, checking, complete answers and disposal against competent ordinary execution. Separate operational budgets from diagnostic counters. Qualify ordinary-allocation timing and diagnostic ownership on cold, reused, infeasible and output-heavy sources. | Can source reasoning replace execution rather than retune it? At measurement qualification or an obstruction, compare a cost pilot with renaming-aware call reuse and broader compilation. |
 | **Compatible-query reuse and lifetime — required** | Carry forward measured recomputation/eager/covered-state results. Compare a cache recognizing renamed equivalent queries, charging recognition, answer remapping, retention, eviction and invalidation. Add different domains and call structures rather than only repeated normalized shapes. | Is failure-region learning preferable to a stronger reuse control? Review at the derivation entry. General conflict learning remains separate from retained whole-query failures. |
 | **Broader lowering and compilation — required** | Use R05 recursive and S01 generated-access controls. Name the new language boundary or mechanism: contextual effects, richer recursion, partial control, mixed execution or artifact regimes. Measure generated/prepared execution of the same plan where that isolates the claim. | Can more runtime machinery disappear and repay analysis, compilation and lifetime costs? Review at the direct-derivation entry or an obstruction. |
 | **Broader complete paths — T078, required** | Include richer admitted sources, sustained consumers, ongoing siblings and architectures made credible by distinct mechanisms. | Do component findings survive composition and lifetime? Return when new mechanisms change the compared paths or accounting evidence invalidates the current comparison. |
 
-**Why direct capacity solving now:** the semantic entry supplies a precise source relation and concrete unsound shortcuts to exclude. A bounded solver could avoid initial execution, unlike reuse that needs prior results. Renaming-aware call reuse remains the strongest alternative, with answer remapping and lifetime implementation still needed. Select the source-inference/solver gate, then review call reuse and broader compilation before timing or broadening the admitted fragment. The exhaustive oracle alone cannot satisfy this gate.
+**Why capacity accounting now:** the source-derived solver now passes independent correspondence and demonstrates cold-query work elimination. Domain and output machinery can still cost more than it saves, so the next evidence must include all owners and preparation. Renaming-aware call reuse remains the strongest distinct alternative, but it needs answer-remapping and lifetime work and cannot reuse an initial failure before obtaining it. Select bounded lifecycle qualification, then review a timing pilot against call reuse and broader compilation before expansion.
 
 ## 1. Carry the whole-path pilot into broader comparisons
 

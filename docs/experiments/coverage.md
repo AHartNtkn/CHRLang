@@ -1,6 +1,6 @@
 # Unanswered architecture questions and experimental ownership
 
-The [consuming-resource capacity entry](results/S06-resource-capacity-entry.md) validates 1,536 complete source cases per feature mode. Aliased demands cannot be split across values; missing failure sinks and competing token owners are explicit counterexamples to naive capacity reasoning. T073 next implements bounded source inference and direct capacity solving, requiring a witness that avoids a full choice product. This is correctness evidence, not an implemented solver or cost result; call reuse and broader compilation return at that gate.
+The [source-derived capacity solver](results/S06-resource-capacity-solver.md) matches all1,536 complete-answer matrix cases per feature mode and rejects a24-choice domain-capacity bottleneck in one state with zero branches. The unselective control returns all16 answers; alias, ownership and limit boundaries pass. T073 next qualifies full lifecycle and counter-free measurement. No cost advantage is claimed; call reuse and broader compilation return at that qualification gate or an obstruction.
 
 ## Earlier experimental checkpoints
 
