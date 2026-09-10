@@ -99,33 +99,25 @@ pub struct OwnedWire {
 }
 impl OwnedWire {
     pub fn new(symbols: Symbols, answers: Vec<Answer>) -> Self {
-        let mut out = Self {
-            symbols,
-            bytes: vec![],
-        };
+        let mut bytes = vec![];
         for answer in answers {
-            out.push(answer);
+            bytes.push(4);
+            symbols.terms(answer.outputs.into_iter().map(|(_, t)| t), &mut bytes);
+            for c in answer.residual {
+                bytes.push(3);
+                let id = u32::try_from(
+                    symbols
+                        .predicates
+                        .iter()
+                        .position(|p| p == &c.name)
+                        .expect("predicate dictionary"),
+                )
+                .unwrap();
+                bytes.extend(id.to_le_bytes());
+                symbols.terms(c.args.into_iter(), &mut bytes);
+            }
+            bytes.push(0);
         }
-        out
-    }
-    pub fn push(&mut self, answer: Answer) {
-        let symbols = &self.symbols;
-        let bytes = &mut self.bytes;
-        bytes.push(4);
-        symbols.terms(answer.outputs.into_iter().map(|(_, t)| t), bytes);
-        for c in answer.residual {
-            bytes.push(3);
-            let id = u32::try_from(
-                symbols
-                    .predicates
-                    .iter()
-                    .position(|p| p == &c.name)
-                    .expect("predicate dictionary"),
-            )
-            .unwrap();
-            bytes.extend(id.to_le_bytes());
-            symbols.terms(c.args.into_iter(), bytes);
-        }
-        bytes.push(0);
+        Self { symbols, bytes }
     }
 }

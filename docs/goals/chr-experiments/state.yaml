@@ -139,9 +139,10 @@ tasks:
     assignee: PM
     status: active
     objective: Establish and independently qualify at least two coherent complete execution paths on mixed-mechanism sources, including a serious alternative, with explicit semantic capability and responsibility maps before whole-path cost registration.
-    progress: The common owned-answer wire gate validates 958 native queries and 2286 admitted Rust configuration/query checks; 587 admissions remain unsupported. Native serialization transfers a separately allocated byte vector with capacity accounting and no graph pointers. Ownership checks preserve bytes after poisoned query reclamation and prepared disposal, with zero tracked live bytes at session end. All 383 sanitized prepared queries replay exactly. Rust consumers retain dictionaries and bytes through source/prepared disposal; independent dictionary and complete-answer checks pass. All 264 ordinary-output process observations replay exactly. Eleven relevant Rust tests pass in both feature configurations; strict Clippy, formatting and warning-free native builds pass. Checked kept-read solving remains qualified; no comparative cost matrix has run.
-    next_action: Integrate the common owned-answer endpoint into full Rust/native lifecycle measurement with per-answer first publication. Charge Rust source/dictionary construction, native host source emission and dictionaries, query encoding/setup, analysis/preparation, typed-answer conversion, retained consumers and every disposal. Do not treat matched payload bytes as complete accounting; native semantic dictionaries remain host-owned and frontend/libc/mapping allocation scope needs explicit treatment. Verify actual counters and clock overhead, separate ordinary timing from diagnostics, and include checked finite solving/full callers and existing admitted lowering controls. Reassess broader native ownership and source analysis at full runner qualification or a consequential obstruction. Keep every other consequential mapped direction unresolved until its required evidence exists.
+    progress: Rust lifecycle qualification validates 338 corpus processes with 2286 admitted checks and 587 explicit exclusions. Complete outputs exactly match initial lifecycle and prior batch-wire observations with independent source/dictionary checks. All 39 initial cancellations and 13 full controls pass. The stronger challenge validates 65 retained-consumer queries against 65 standalone controls; all 13 halfway queries interrupt live work and every subsequent full query completes under reused preparation. Named phase arithmetic and actual metrics-off flags pass. Three wire and nine checked finite-read tests pass default/off; scoped strict Clippy and formatting pass. No comparative timing matrix has run.
+    next_action: Complete native host source emission and dictionary lifecycle accounting, qualify separate allocation diagnostics with explicit allocator/mapping scope, and calibrate clock overhead. Reconcile native protocol and Rust syntax/query boundaries; retain unsupported capability exclusions. At full runner qualification compare one bounded mixed-source pilot with broader direct source analysis before selecting more depth. Compilation and artifact lifetime remain unmeasured; broader native ownership, constructors, sustained lifetime and every other consequential mapped mechanism remain required.
     inputs:
+      - docs/experiments/results/S10-rust-lifecycle.md
       - docs/experiments/results/S10-answer-wire.md
       - docs/experiments/results/S10-finite-kept-read.md
       - docs/experiments/results/S10-native-substantive.md
@@ -2460,16 +2461,16 @@ checks:
   last_verification:
     result: passed
     task: T078
-    scope: Common binary observation and consumer ownership qualification; no comparative cost conclusions.
+    scope: Rust named lifecycle intervals, complete answer publication and cancellation/reuse qualification; no comparative cost conclusions.
     commands:
-      - 958 native query observations preserve complete answers, cancellation prefixes, calls and graph words
-      - 383 sanitized ownership queries replay exact bytes and ownership records
-      - 2286 admitted Rust checks pass with independent dictionaries; 587 admissions unsupported
-      - 264 ordinary-output process observations replay exactly
-      - Eleven relevant Rust tests pass in both feature configurations
-      - Independent format, complete-answer, ownership, phase and source audit
-      - Strict scoped Clippy, formatting, native builds, report links, YAML and sole active T078 validated
+      - python3 research/chr-hvm/rust_lifecycle/gate.py
+      - python3 research/chr-hvm/rust_lifecycle/reuse.py
+      - python3 research/chr-hvm/rust_lifecycle/audit.py
+      - cargo test -p chr-direct-conditional --no-default-features --test answer_wire_gate --test finite_kept_read_gate
+      - cargo test -p chr-direct-conditional --test answer_wire_gate --test finite_kept_read_gate
+      - cargo clippy -p chr-direct-conditional --no-default-features --example native_lifecycle --test answer_wire_gate --test finite_kept_read_gate -- -D warnings
+      - Scoped rustfmt check; report links, source/evidence hashes and active-task YAML checks
     evidence:
-      - docs/experiments/results/S10-answer-wire.md
-      - docs/experiments/results/s10-answer-wire/audit.json
-      - docs/experiments/results/s10-answer-wire/validation.json
+      - docs/experiments/results/S10-rust-lifecycle.md
+      - docs/experiments/results/s10-rust-lifecycle/qualification.json
+      - docs/experiments/results/s10-rust-lifecycle/validation.json

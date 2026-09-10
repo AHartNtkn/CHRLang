@@ -40,3 +40,22 @@ fn query_symbols_append_without_renumbering_source_and_survive_owners() {
     assert_eq!(wire.symbols.predicates, vec!["z", "a"]);
     assert_eq!(wire.symbols.atoms, vec!["z", "a"]);
 }
+
+#[test]
+fn incremental_publication_exposes_each_complete_prefix() {
+    let rules = vec![Rule::simplify("rule", [c("p", [atom("a")])], Goal::True)];
+    let answer = Answer {
+        outputs: vec![("x".into(), atom("a"))],
+        residual: vec![],
+    };
+    let symbols = Symbols::source(&rules);
+    let expected = OwnedWire::new(symbols.clone(), vec![answer.clone(), answer.clone()]);
+    let mut stream = OwnedWire::new(symbols, vec![]);
+    assert!(stream.bytes.is_empty());
+    stream.push(answer.clone());
+    assert_eq!(stream.bytes, vec![4, 2, 0, 0, 0, 0, 0, 0]);
+    let first = stream.bytes.clone();
+    stream.push(answer);
+    assert_eq!(&stream.bytes[..first.len()], first);
+    assert_eq!(stream.bytes, expected.bytes);
+}

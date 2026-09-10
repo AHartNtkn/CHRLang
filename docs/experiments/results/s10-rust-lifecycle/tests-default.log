@@ -1,0 +1,25 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.01s
+     Running tests/answer_wire_gate.rs (target/debug/deps/answer_wire_gate-878a1bec09300290)
+
+running 3 tests
+test fixed_wire_preserves_joint_unknowns_and_duplicate_occurrences ... ok
+test incremental_publication_exposes_each_complete_prefix ... ok
+test query_symbols_append_without_renumbering_source_and_survive_owners ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/finite_kept_read_gate.rs (target/debug/deps/finite_kept_read_gate-bbed42f3584eb399)
+
+running 9 tests
+test nonzero_argument_reads_and_consuming_prefixes_are_not_admitted ... ok
+test absent_and_late_readiness_are_unsupported_not_failed_answers ... ok
+test query_rechecks_and_dropping_pending_admission_leave_prepared_rules_reusable ... ok
+test prefix_priority_precedes_caller_read_consumption ... ok
+test caller_recreates_private_work_using_original_kept_rules ... ok
+test caller_consumption_and_new_private_work_do_not_bypass_readiness ... ok
+test weighted_alternatives_aliases_and_failures_keep_raw_multiplicity ... ok
+test repeated_witnesses_need_distinct_occurrences_but_rules_can_reuse_them ... ok
+test kept_ready_read_is_admitted_with_complete_residuals ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
