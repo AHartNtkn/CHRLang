@@ -186,6 +186,8 @@ The subsequent [CHR-expressed constructor/consumption gate](S02-chr-constructors
 
 ### 23. General direct Conditional execution — Mixed results, not a general rejection
 
+The [stronger-control lifecycle pilot](S10-arrival-lifecycle.md) now compares qualified specialization and prefix lowering. Conditional execution retains its choice/check advantage against these controls; explicit execution remains stronger on the low-sharing stream. Direct source-derived solving and native generation remain unresolved, so no architecture-wide adoption or rejection follows.
+
 The [stronger-control gate](S10-arrival-controls.md) validates specialization and pure-prefix lowering on the new favorable conditional source. Both retain the explicit search tree; their complete lifecycle is selected next. This qualifies competing controls without resolving direct source-derived elimination.
 
 The [order lifecycle comparison](S08-order-lifecycle.md) adds a contrary complete-source regime: conditional execution allocates much less and has lower exploratory medians on independent choices followed by rejecting checks, while explicit controls remain stronger on the low-sharing stream. Reversing check arrival reverses the favorable diagram order in requested allocation. Stronger lowering/solving controls are selected next; this does not establish a general conditional architecture winner.

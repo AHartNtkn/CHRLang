@@ -270,6 +270,6 @@ All new results link raw inputs, commands, freezes, validation and unfavorable o
 
 ## Current execution order
 
-**T078 is active for qualified stronger-control lifecycle costs.** The [source gate](results/S10-arrival-controls.md) validates specialization and prefix lowering on choice/check sources while showing retained explicit enumeration. Compare their preparation, changed-query/signature reuse, observation and ownership against the conditional/explicit controls before interpreting the sharing advantage. Reconsider T079 effect certification at that boundary; direct source-derived solving and native compilation remain distinct required comparisons.
+**T079 is active for effect/ownership certification with an executable beneficiary.** The [stronger-control lifecycle pilot](results/S10-arrival-lifecycle.md) completes the immediate comparison against qualified specialization and prefix lowering. It preserves opposing choice/check and stream regimes. Investigate a responsibility that a sound effect property can remove beyond existing serial/unary optimizations, with independent interference and activation checks. Compare that beneficiary against a concrete direct-solving proposal at its source gate.
 
-The [next experimental cycle](next-cycle.md), [remaining ledger](remaining-investigations.md) and [57-question map](question-to-experiment-map.md) retain the broader obligations. Component gates do not close the research goal.
+The [next cycle](next-cycle.md), [remaining ledger](remaining-investigations.md) and [57-question map](question-to-experiment-map.md) retain direct source elimination, native compilation, broader lifetime and coherent architectures. Neither a completed pilot nor this priority change resolves the goal.

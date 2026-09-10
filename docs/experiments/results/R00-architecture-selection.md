@@ -1,5 +1,7 @@
 # R00: architectural alternatives and first experiment selection
 
+Current selection: T079 effect/ownership beneficiary qualification after the [stronger-control lifecycle comparison](S10-arrival-lifecycle.md). Existing specialization and prefix lowering do not erase the conditional favorable regime; direct solving and native generation remain required before broader inference.
+
 The [stronger-control gate](S10-arrival-controls.md) qualifies specialization and prefix lowering but confirms retained choice enumeration. T078 next measures their complete lifecycle; direct solving, native generation and the full architecture comparison remain unresolved.
 
 Current execution follows the [next experimental cycle](../next-cycle.md). T078 is active for stronger lowering/solving source qualification after the [order lifecycle breadth review](S08-order-lifecycle.md); the architecture decision and research goal remain open. The bounded receipts below retain their individual scope.

@@ -1,5 +1,7 @@
 # Unanswered architecture questions and experimental ownership
 
+The [stronger-control lifecycle pilot](results/S10-arrival-lifecycle.md) validates1,344 runs and192 exact allocation pairs. Specialization improves the substantive explicit control but preserves the conditional choice/check advantage; streams favor explicit execution. T079 effect/ownership beneficiary qualification is selected next. Direct solving, native compilation and broader coherent architectures remain required.
+
 The [stronger-control source gate](results/S10-arrival-controls.md) qualifies specialization and prefix lowering but shows that both retain explicit choice enumeration. T078 next charges their complete lifecycle, including changed artifact signatures. T079 effect certification and direct solving remain required.
 
 The [order lifecycle pilot and breadth review](results/S08-order-lifecycle.md) identify opposite support-order regimes and a favorable conditional choice/check source. T078 next qualifies stronger source-lowering/solving controls before further support tuning; T074 lifetime and T079 effect certification remain required.

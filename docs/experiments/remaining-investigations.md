@@ -1,5 +1,7 @@
 # The comparisons still needed to choose the architecture
 
+The [stronger-control lifecycle pilot](results/S10-arrival-lifecycle.md) validates1,344 runs and192 exact allocation pairs. Specialization improves the substantive explicit control but preserves the conditional choice/check advantage; streams favor explicit execution. T079 effect/ownership beneficiary qualification is selected next. Direct solving, native compilation and broader coherent architectures remain required.
+
 The [stronger-control source gate](results/S10-arrival-controls.md) qualifies specialization and prefix lowering but shows that both retain explicit choice enumeration. T078 next charges their complete lifecycle, including changed artifact signatures. T079 effect certification and direct solving remain required.
 
 The [order lifecycle pilot and breadth review](results/S08-order-lifecycle.md) identify opposite support-order regimes and a favorable conditional choice/check source. T078 next qualifies stronger source-lowering/solving controls before further support tuning; T074 lifetime and T079 effect certification remain required.
@@ -40,9 +42,9 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-The [stronger-control source gate](results/S10-arrival-controls.md) qualifies specialization and prefix lowering, including changing arguments and resource near misses. T078 next compares their complete lifecycle against the conditional/explicit controls; changed-signature artifact preparation must be charged. Reconsider T079 effect certification at that cost boundary. Direct solving that eliminates choices remains a distinct unresolved mechanism.
+The [stronger-control lifecycle review](results/S10-arrival-lifecycle.md#next-investigation-and-breadth) selects T079 effect/ownership certification through an additional executable beneficiary. Its source gate must cover kept/removed interference, equality activation and later linking, and compare the concrete benefit against direct source-derived choice elimination. T078 coherent architecture and T074 support/lifetime work remain unfinished.
 
-The [next experimental cycle](next-cycle.md) supplies the remaining investigations. Language and lifetime studies accompany executable candidates; native feasibility runs early, and complete architecture comparisons start as soon as credible paths qualify.
+The [next experimental cycle](next-cycle.md) retains all other required mechanisms. Language and lifetime studies accompany executable candidates; native feasibility runs early, and complete architecture comparisons start as soon as credible paths qualify.
 
 ### Depth, breadth and stopping within this sequence
 

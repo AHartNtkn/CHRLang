@@ -1,0 +1,5426 @@
+[
+  {
+    "key": [
+      "ordinary",
+      "prefix",
+      "newest-first",
+      8,
+      "0",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 85097664,
+    "peak": 22975962,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      44053,
+      46002,
+      49689,
+      51638
+    ],
+    "execute_bytes": 84875048,
+    "median_ns": 80138188,
+    "min_ns": 75868639,
+    "max_ns": 105685861,
+    "setup_median_ns": 229500,
+    "execute_median_ns": 74469672
+  },
+  {
+    "key": [
+      "combined",
+      "inferred",
+      "distinct",
+      64,
+      "0",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 175286537,
+    "peak": 2784820,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      23166,
+      22306,
+      23166,
+      22306
+    ],
+    "execute_bytes": 175164220,
+    "median_ns": 367951128,
+    "min_ns": 310141439,
+    "max_ns": 381750137,
+    "setup_median_ns": 124415,
+    "execute_median_ns": 366380255
+  },
+  {
+    "key": [
+      "reverse",
+      "inferred",
+      "aliases",
+      0,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 52823,
+    "peak": 23031,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      7770
+    ],
+    "execute_bytes": 28923,
+    "median_ns": 156127,
+    "min_ns": 104182,
+    "max_ns": 172240,
+    "setup_median_ns": 9326,
+    "execute_median_ns": 126520
+  },
+  {
+    "key": [
+      "ordinary",
+      "scan",
+      "distinct",
+      64,
+      "all",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 14360185,
+    "peak": 2583271,
+    "artifact_bytes": 0,
+    "retained": 2159642,
+    "setup_bytes": [
+      32475,
+      32509,
+      32543,
+      32577
+    ],
+    "execute_bytes": 14198026,
+    "median_ns": 11626173,
+    "min_ns": 10875431,
+    "max_ns": 12463220,
+    "setup_median_ns": 561196,
+    "execute_median_ns": 10089414
+  },
+  {
+    "key": [
+      "reverse",
+      "inferred",
+      "distinct",
+      64,
+      "all",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 179421225,
+    "peak": 2397240,
+    "artifact_bytes": 0,
+    "retained": 2159642,
+    "setup_bytes": [
+      23166,
+      23184,
+      23202,
+      23852
+    ],
+    "execute_bytes": 179294930,
+    "median_ns": 360480775,
+    "min_ns": 327766770,
+    "max_ns": 379832520,
+    "setup_median_ns": 528574,
+    "execute_median_ns": 358078333
+  },
+  {
+    "key": [
+      "reverse",
+      "inferred",
+      "aliases",
+      64,
+      "0",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 149865509,
+    "peak": 197839,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      23158,
+      22298,
+      23158,
+      22298
+    ],
+    "execute_bytes": 149743292,
+    "median_ns": 298087863,
+    "min_ns": 285620419,
+    "max_ns": 314649352,
+    "setup_median_ns": 121955,
+    "execute_median_ns": 297626140
+  },
+  {
+    "key": [
+      "combined",
+      "inferred",
+      "distinct",
+      64,
+      "0",
+      0,
+      4,
+      1,
+      "changing"
+    ],
+    "requested": 199509025,
+    "peak": 2890636,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      23166,
+      23184,
+      23202,
+      23852
+    ],
+    "execute_bytes": 199382926,
+    "median_ns": 394584765,
+    "min_ns": 332294681,
+    "max_ns": 416265305,
+    "setup_median_ns": 125671,
+    "execute_median_ns": 392731618
+  },
+  {
+    "key": [
+      "ordinary",
+      "resumable",
+      "aliases",
+      0,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 53066,
+    "peak": 10956,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      4845
+    ],
+    "execute_bytes": 37029,
+    "median_ns": 51826,
+    "min_ns": 40977,
+    "max_ns": 53091,
+    "setup_median_ns": 5403,
+    "execute_median_ns": 32228
+  },
+  {
+    "key": [
+      "ordinary",
+      "scan",
+      "aliases",
+      64,
+      "0",
+      0,
+      4,
+      1,
+      "changing"
+    ],
+    "requested": 9870217,
+    "peak": 352673,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      32467,
+      32501,
+      32535,
+      32569
+    ],
+    "execute_bytes": 9708634,
+    "median_ns": 7220189,
+    "min_ns": 6043060,
+    "max_ns": 8214142,
+    "setup_median_ns": 173968,
+    "execute_median_ns": 7014632
+  },
+  {
+    "key": [
+      "ordinary",
+      "specialized",
+      "newest-first",
+      8,
+      "all",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 13680687,
+    "peak": 2105169,
+    "artifact_bytes": 0,
+    "retained": 4038,
+    "setup_bytes": [
+      11953,
+      8091,
+      11953,
+      8091
+    ],
+    "execute_bytes": 13605614,
+    "median_ns": 8483939,
+    "min_ns": 7848843,
+    "max_ns": 10408669,
+    "setup_median_ns": 46670,
+    "execute_median_ns": 7884929
+  },
+  {
+    "key": [
+      "ordinary",
+      "specialized",
+      "distinct",
+      64,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 3131708,
+    "peak": 709398,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      32475
+    ],
+    "execute_bytes": 3076593,
+    "median_ns": 2277634,
+    "min_ns": 2073127,
+    "max_ns": 2359442,
+    "setup_median_ns": 23227,
+    "execute_median_ns": 2071371
+  },
+  {
+    "key": [
+      "ordinary",
+      "resumable",
+      "distinct",
+      64,
+      "0",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 15918161,
+    "peak": 64929,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      15153,
+      15170,
+      15187,
+      15204
+    ],
+    "execute_bytes": 15829442,
+    "median_ns": 12059545,
+    "min_ns": 10116211,
+    "max_ns": 13368050,
+    "setup_median_ns": 572974,
+    "execute_median_ns": 11266780
+  },
+  {
+    "key": [
+      "ordinary",
+      "scan",
+      "aliases",
+      64,
+      "all",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 9940433,
+    "peak": 676436,
+    "artifact_bytes": 0,
+    "retained": 342874,
+    "setup_bytes": [
+      32467,
+      32501,
+      32535,
+      32569
+    ],
+    "execute_bytes": 9778426,
+    "median_ns": 7886443,
+    "min_ns": 6492593,
+    "max_ns": 8343175,
+    "setup_median_ns": 182952,
+    "execute_median_ns": 7571439
+  },
+  {
+    "key": [
+      "combined",
+      "inferred",
+      "oldest-first",
+      8,
+      "0",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 2256704,
+    "peak": 84509,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      15531,
+      15625,
+      17555,
+      18281
+    ],
+    "execute_bytes": 2155650,
+    "median_ns": 4957327,
+    "min_ns": 4536415,
+    "max_ns": 5410207,
+    "setup_median_ns": 71697,
+    "execute_median_ns": 4806845
+  },
+  {
+    "key": [
+      "combined",
+      "inferred",
+      "oldest-first",
+      8,
+      "all",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 1533942,
+    "peak": 62839,
+    "artifact_bytes": 0,
+    "retained": 4614,
+    "setup_bytes": [
+      15531,
+      11565,
+      15531,
+      11565
+    ],
+    "execute_bytes": 1448630,
+    "median_ns": 2923539,
+    "min_ns": 2517738,
+    "max_ns": 3918050,
+    "setup_median_ns": 49869,
+    "execute_median_ns": 2827547
+  },
+  {
+    "key": [
+      "ordinary",
+      "specialized",
+      "aliases",
+      64,
+      "0",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 7568691,
+    "peak": 377493,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      32467,
+      32079,
+      32467,
+      32079
+    ],
+    "execute_bytes": 7405028,
+    "median_ns": 5280113,
+    "min_ns": 4173236,
+    "max_ns": 8077455,
+    "setup_median_ns": 156261,
+    "execute_median_ns": 5082208
+  },
+  {
+    "key": [
+      "reverse",
+      "inferred",
+      "oldest-first",
+      8,
+      "all",
+      2,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 917365,
+    "peak": 54518,
+    "artifact_bytes": 0,
+    "retained": 3045,
+    "setup_bytes": [
+      15531,
+      11565,
+      15531,
+      11565
+    ],
+    "execute_bytes": 832053,
+    "median_ns": 1828541,
+    "min_ns": 1550608,
+    "max_ns": 2034785,
+    "setup_median_ns": 48859,
+    "execute_median_ns": 1733968
+  },
+  {
+    "key": [
+      "ordinary",
+      "prepared-prefix",
+      "oldest-first",
+      8,
+      "0",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 17492743,
+    "peak": 2328139,
+    "artifact_bytes": 12180,
+    "retained": 0,
+    "setup_bytes": [
+      58537,
+      9897,
+      14370,
+      9897
+    ],
+    "execute_bytes": 17371750,
+    "median_ns": 13423322,
+    "min_ns": 11063400,
+    "max_ns": 21166802,
+    "setup_median_ns": 120062,
+    "execute_median_ns": 12548649
+  },
+  {
+    "key": [
+      "ordinary",
+      "resumable",
+      "newest-first",
+      8,
+      "all",
+      2,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 20903551,
+    "peak": 997216,
+    "artifact_bytes": 0,
+    "retained": 2613,
+    "setup_bytes": [
+      9638,
+      6339,
+      9638,
+      6339
+    ],
+    "execute_bytes": 20846525,
+    "median_ns": 9511332,
+    "min_ns": 7115040,
+    "max_ns": 9760184,
+    "setup_median_ns": 191712,
+    "execute_median_ns": 9272678
+  },
+  {
+    "key": [
+      "reverse",
+      "inferred",
+      "newest-first",
+      8,
+      "0",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 2274224,
+    "peak": 85069,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      15531,
+      15625,
+      17555,
+      18281
+    ],
+    "execute_bytes": 2173170,
+    "median_ns": 4583347,
+    "min_ns": 4287973,
+    "max_ns": 4985883,
+    "setup_median_ns": 69576,
+    "execute_median_ns": 4338955
+  },
+  {
+    "key": [
+      "reverse",
+      "inferred",
+      "newest-first",
+      8,
+      "0",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 1545718,
+    "peak": 60724,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      15531,
+      11565,
+      15531,
+      11565
+    ],
+    "execute_bytes": 1460406,
+    "median_ns": 2645540,
+    "min_ns": 2473795,
+    "max_ns": 3062468,
+    "setup_median_ns": 47714,
+    "execute_median_ns": 2552212
+  },
+  {
+    "key": [
+      "ordinary",
+      "scan",
+      "aliases",
+      64,
+      "all",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 8769881,
+    "peak": 524077,
+    "artifact_bytes": 0,
+    "retained": 226980,
+    "setup_bytes": [
+      32467,
+      32079,
+      32467,
+      32079
+    ],
+    "execute_bytes": 8610372,
+    "median_ns": 5801629,
+    "min_ns": 5635143,
+    "max_ns": 8211800,
+    "setup_median_ns": 138292,
+    "execute_median_ns": 5568246
+  },
+  {
+    "key": [
+      "ordinary",
+      "specialized",
+      "newest-first",
+      8,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 4099710,
+    "peak": 2103150,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      11953
+    ],
+    "execute_bytes": 4062114,
+    "median_ns": 2809400,
+    "min_ns": 2714932,
+    "max_ns": 3520374,
+    "setup_median_ns": 13858,
+    "execute_median_ns": 2327952
+  },
+  {
+    "key": [
+      "ordinary",
+      "scan",
+      "oldest-first",
+      8,
+      "all",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 16781732,
+    "peak": 2278294,
+    "artifact_bytes": 0,
+    "retained": 4038,
+    "setup_bytes": [
+      11953,
+      8091,
+      11953,
+      8091
+    ],
+    "execute_bytes": 16711918,
+    "median_ns": 13214125,
+    "min_ns": 10722716,
+    "max_ns": 14987765,
+    "setup_median_ns": 59286,
+    "execute_median_ns": 12699992
+  },
+  {
+    "key": [
+      "ordinary",
+      "specialized",
+      "oldest-first",
+      8,
+      "all",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 66698711,
+    "peak": 21537487,
+    "artifact_bytes": 0,
+    "retained": 5702,
+    "setup_bytes": [
+      11953,
+      12047,
+      12793,
+      12887
+    ],
+    "execute_bytes": 66611104,
+    "median_ns": 56479396,
+    "min_ns": 55375324,
+    "max_ns": 77536280,
+    "setup_median_ns": 72251,
+    "execute_median_ns": 56175620
+  },
+  {
+    "key": [
+      "ordinary",
+      "prefix",
+      "newest-first",
+      0,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 58332,
+    "peak": 23602,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      25877
+    ],
+    "execute_bytes": 15745,
+    "median_ns": 89234,
+    "min_ns": 52482,
+    "max_ns": 94530,
+    "setup_median_ns": 32787,
+    "execute_median_ns": 33162
+  },
+  {
+    "key": [
+      "ordinary",
+      "specialized",
+      "aliases",
+      64,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 2089504,
+    "peak": 377493,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      32467
+    ],
+    "execute_bytes": 2034505,
+    "median_ns": 1373545,
+    "min_ns": 1240853,
+    "max_ns": 2184461,
+    "setup_median_ns": 27375,
+    "execute_median_ns": 1289065
+  },
+  {
+    "key": [
+      "ordinary",
+      "prefix",
+      "oldest-first",
+      8,
+      "all",
+      2,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 12979369,
+    "peak": 2326660,
+    "artifact_bytes": 0,
+    "retained": 2613,
+    "setup_bytes": [
+      44053,
+      42220,
+      44053,
+      42220
+    ],
+    "execute_bytes": 12778531,
+    "median_ns": 8559370,
+    "min_ns": 8022154,
+    "max_ns": 9212086,
+    "setup_median_ns": 160074,
+    "execute_median_ns": 7833426
+  },
+  {
+    "key": [
+      "ordinary",
+      "resumable",
+      "distinct",
+      64,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 3868930,
+    "peak": 63894,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      15153
+    ],
+    "execute_bytes": 3839341,
+    "median_ns": 2331756,
+    "min_ns": 2049739,
+    "max_ns": 2685343,
+    "setup_median_ns": 10636,
+    "execute_median_ns": 2303756
+  },
+  {
+    "key": [
+      "ordinary",
+      "prepared-prefix",
+      "oldest-first",
+      8,
+      "all",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 17492743,
+    "peak": 2330158,
+    "artifact_bytes": 12180,
+    "retained": 4038,
+    "setup_bytes": [
+      58537,
+      9897,
+      14370,
+      9897
+    ],
+    "execute_bytes": 17371750,
+    "median_ns": 13499115,
+    "min_ns": 10296143,
+    "max_ns": 14360264,
+    "setup_median_ns": 118496,
+    "execute_median_ns": 12601775
+  },
+  {
+    "key": [
+      "ordinary",
+      "scan",
+      "oldest-first",
+      8,
+      "all",
+      2,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 11974987,
+    "peak": 2276869,
+    "artifact_bytes": 0,
+    "retained": 2613,
+    "setup_bytes": [
+      11953,
+      8091,
+      11953,
+      8091
+    ],
+    "execute_bytes": 11905173,
+    "median_ns": 9338093,
+    "min_ns": 8431623,
+    "max_ns": 11126863,
+    "setup_median_ns": 85444,
+    "execute_median_ns": 8822915
+  },
+  {
+    "key": [
+      "ordinary",
+      "specialized",
+      "oldest-first",
+      8,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 4099710,
+    "peak": 2118510,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      11953
+    ],
+    "execute_bytes": 4062114,
+    "median_ns": 3307234,
+    "min_ns": 2705363,
+    "max_ns": 3550449,
+    "setup_median_ns": 15592,
+    "execute_median_ns": 2874478
+  },
+  {
+    "key": [
+      "ordinary",
+      "prepared-prefix",
+      "newest-first",
+      8,
+      "all",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 87271300,
+    "peak": 23013876,
+    "artifact_bytes": 45060,
+    "retained": 5702,
+    "setup_bytes": [
+      58537,
+      58590,
+      62869,
+      64962
+    ],
+    "execute_bytes": 86995108,
+    "median_ns": 89806077,
+    "min_ns": 81039286,
+    "max_ns": 103395531,
+    "setup_median_ns": 314324,
+    "execute_median_ns": 83815760
+  },
+  {
+    "key": [
+      "ordinary",
+      "resumable",
+      "distinct",
+      64,
+      "all",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 15918161,
+    "peak": 2202254,
+    "artifact_bytes": 0,
+    "retained": 2159642,
+    "setup_bytes": [
+      15153,
+      15170,
+      15187,
+      15204
+    ],
+    "execute_bytes": 15829442,
+    "median_ns": 11553438,
+    "min_ns": 10095272,
+    "max_ns": 12239285,
+    "setup_median_ns": 522825,
+    "execute_median_ns": 9831870
+  },
+  {
+    "key": [
+      "ordinary",
+      "specialized",
+      "distinct",
+      64,
+      "0",
+      0,
+      4,
+      1,
+      "changing"
+    ],
+    "requested": 12833095,
+    "peak": 725008,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      32475,
+      32509,
+      32543,
+      32577
+    ],
+    "execute_bytes": 12667206,
+    "median_ns": 10502220,
+    "min_ns": 9111364,
+    "max_ns": 11622042,
+    "setup_median_ns": 605618,
+    "execute_median_ns": 9851444
+  },
+  {
+    "key": [
+      "ordinary",
+      "scan",
+      "newest-first",
+      8,
+      "0",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 16781732,
+    "peak": 2276275,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      11953,
+      8091,
+      11953,
+      8091
+    ],
+    "execute_bytes": 16711918,
+    "median_ns": 12637946,
+    "min_ns": 10428989,
+    "max_ns": 13626723,
+    "setup_median_ns": 49462,
+    "execute_median_ns": 11876910
+  },
+  {
+    "key": [
+      "reverse",
+      "inferred",
+      "distinct",
+      64,
+      "0",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 157855385,
+    "peak": 262360,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      23166,
+      22306,
+      23166,
+      22306
+    ],
+    "execute_bytes": 157733068,
+    "median_ns": 317978149,
+    "min_ns": 289136315,
+    "max_ns": 343103847,
+    "setup_median_ns": 686610,
+    "execute_median_ns": 317123977
+  },
+  {
+    "key": [
+      "ordinary",
+      "resumable",
+      "newest-first",
+      8,
+      "all",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 150436380,
+    "peak": 8223217,
+    "artifact_bytes": 0,
+    "retained": 5702,
+    "setup_bytes": [
+      9638,
+      9759,
+      10358,
+      10479
+    ],
+    "execute_bytes": 150368132,
+    "median_ns": 61459165,
+    "min_ns": 52146463,
+    "max_ns": 72069064,
+    "setup_median_ns": 37954,
+    "execute_median_ns": 61372325
+  },
+  {
+    "key": [
+      "ordinary",
+      "scan",
+      "newest-first",
+      8,
+      "0",
+      0,
+      4,
+      1,
+      "changing"
+    ],
+    "requested": 83430046,
+    "peak": 23889308,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      11953,
+      12047,
+      12793,
+      12887
+    ],
+    "execute_bytes": 83348026,
+    "median_ns": 78289123,
+    "min_ns": 73400439,
+    "max_ns": 84258493,
+    "setup_median_ns": 76409,
+    "execute_median_ns": 78162782
+  },
+  {
+    "key": [
+      "reverse",
+      "inferred",
+      "newest-first",
+      8,
+      "all",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 1545718,
+    "peak": 63031,
+    "artifact_bytes": 0,
+    "retained": 4614,
+    "setup_bytes": [
+      15531,
+      11565,
+      15531,
+      11565
+    ],
+    "execute_bytes": 1460406,
+    "median_ns": 2858875,
+    "min_ns": 2463076,
+    "max_ns": 3153878,
+    "setup_median_ns": 52414,
+    "execute_median_ns": 2751246
+  },
+  {
+    "key": [
+      "ordinary",
+      "resumable",
+      "newest-first",
+      0,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 39295,
+    "peak": 12174,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      5126
+    ],
+    "execute_bytes": 20679,
+    "median_ns": 51401,
+    "min_ns": 33107,
+    "max_ns": 63341,
+    "setup_median_ns": 5664,
+    "execute_median_ns": 24725
+  },
+  {
+    "key": [
+      "combined",
+      "inferred",
+      "distinct",
+      64,
+      "all",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 175286537,
+    "peak": 4254109,
+    "artifact_bytes": 0,
+    "retained": 1961700,
+    "setup_bytes": [
+      23166,
+      22306,
+      23166,
+      22306
+    ],
+    "execute_bytes": 175164220,
+    "median_ns": 332017389,
+    "min_ns": 305641737,
+    "max_ns": 355685503,
+    "setup_median_ns": 109845,
+    "execute_median_ns": 328960655
+  },
+  {
+    "key": [
+      "ordinary",
+      "resumable",
+      "aliases",
+      64,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 2548874,
+    "peak": 35852,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      15149
+    ],
+    "execute_bytes": 2519397,
+    "median_ns": 1023979,
+    "min_ns": 935154,
+    "max_ns": 1454726,
+    "setup_median_ns": 12546,
+    "execute_median_ns": 997095
+  },
+  {
+    "key": [
+      "ordinary",
+      "specialized",
+      "newest-first",
+      0,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 39393,
+    "peak": 17738,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      8689
+    ],
+    "execute_bytes": 7301,
+    "median_ns": 60721,
+    "min_ns": 40589,
+    "max_ns": 73821,
+    "setup_median_ns": 12031,
+    "execute_median_ns": 19037
+  },
+  {
+    "key": [
+      "ordinary",
+      "resumable",
+      "oldest-first",
+      8,
+      "all",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 30736686,
+    "peak": 1006308,
+    "artifact_bytes": 0,
+    "retained": 4038,
+    "setup_bytes": [
+      9638,
+      6339,
+      9638,
+      6339
+    ],
+    "execute_bytes": 30679660,
+    "median_ns": 12151798,
+    "min_ns": 10337347,
+    "max_ns": 14696453,
+    "setup_median_ns": 326336,
+    "execute_median_ns": 11785087
+  },
+  {
+    "key": [
+      "combined",
+      "inferred",
+      "aliases",
+      64,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 45921515,
+    "peak": 2726430,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      23158
+    ],
+    "execute_bytes": 45879091,
+    "median_ns": 86353907,
+    "min_ns": 69277923,
+    "max_ns": 102793655,
+    "setup_median_ns": 31223,
+    "execute_median_ns": 86039066
+  },
+  {
+    "key": [
+      "ordinary",
+      "scan",
+      "newest-first",
+      8,
+      "all",
+      2,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 11974987,
+    "peak": 2276869,
+    "artifact_bytes": 0,
+    "retained": 2613,
+    "setup_bytes": [
+      11953,
+      8091,
+      11953,
+      8091
+    ],
+    "execute_bytes": 11905173,
+    "median_ns": 9579299,
+    "min_ns": 8745918,
+    "max_ns": 10896460,
+    "setup_median_ns": 66267,
+    "execute_median_ns": 9045881
+  },
+  {
+    "key": [
+      "ordinary",
+      "scan",
+      "newest-first",
+      0,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 36190,
+    "peak": 15159,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      8689
+    ],
+    "execute_bytes": 9357,
+    "median_ns": 56178,
+    "min_ns": 32979,
+    "max_ns": 67589,
+    "setup_median_ns": 12237,
+    "execute_median_ns": 19742
+  },
+  {
+    "key": [
+      "combined",
+      "inferred",
+      "aliases",
+      64,
+      "all",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 199081941,
+    "peak": 3169650,
+    "artifact_bytes": 0,
+    "retained": 342874,
+    "setup_bytes": [
+      23158,
+      23176,
+      23194,
+      23844
+    ],
+    "execute_bytes": 198955746,
+    "median_ns": 393808872,
+    "min_ns": 337598145,
+    "max_ns": 409189951,
+    "setup_median_ns": 128144,
+    "execute_median_ns": 392025379
+  },
+  {
+    "key": [
+      "ordinary",
+      "resumable",
+      "aliases",
+      64,
+      "0",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 10397489,
+    "peak": 36047,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      15149,
+      15166,
+      15183,
+      15200
+    ],
+    "execute_bytes": 10308906,
+    "median_ns": 4058603,
+    "min_ns": 3606959,
+    "max_ns": 4638607,
+    "setup_median_ns": 102934,
+    "execute_median_ns": 3910077
+  },
+  {
+    "key": [
+      "ordinary",
+      "resumable",
+      "oldest-first",
+      8,
+      "all",
+      2,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 20903551,
+    "peak": 1004883,
+    "artifact_bytes": 0,
+    "retained": 2613,
+    "setup_bytes": [
+      9638,
+      6339,
+      9638,
+      6339
+    ],
+    "execute_bytes": 20846525,
+    "median_ns": 8195890,
+    "min_ns": 6534502,
+    "max_ns": 9451759,
+    "setup_median_ns": 222187,
+    "execute_median_ns": 7908223
+  },
+  {
+    "key": [
+      "ordinary",
+      "specialized",
+      "aliases",
+      64,
+      "0",
+      0,
+      4,
+      1,
+      "changing"
+    ],
+    "requested": 8492915,
+    "peak": 383143,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      32467,
+      32501,
+      32535,
+      32569
+    ],
+    "execute_bytes": 8327178,
+    "median_ns": 5424180,
+    "min_ns": 5133267,
+    "max_ns": 7236068,
+    "setup_median_ns": 161961,
+    "execute_median_ns": 5200961
+  },
+  {
+    "key": [
+      "ordinary",
+      "prepared-prefix",
+      "oldest-first",
+      8,
+      "all",
+      2,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 13144544,
+    "peak": 2328733,
+    "artifact_bytes": 12180,
+    "retained": 2613,
+    "setup_bytes": [
+      58537,
+      9897,
+      14370,
+      9897
+    ],
+    "execute_bytes": 13023551,
+    "median_ns": 8525176,
+    "min_ns": 7795802,
+    "max_ns": 9409315,
+    "setup_median_ns": 104095,
+    "execute_median_ns": 7872034
+  },
+  {
+    "key": [
+      "ordinary",
+      "scan",
+      "distinct",
+      64,
+      "all",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 12821649,
+    "peak": 2222259,
+    "artifact_bytes": 0,
+    "retained": 1961700,
+    "setup_bytes": [
+      32475,
+      32087,
+      32475,
+      32087
+    ],
+    "execute_bytes": 12661988,
+    "median_ns": 10541079,
+    "min_ns": 9806087,
+    "max_ns": 12402192,
+    "setup_median_ns": 558260,
+    "execute_median_ns": 9103956
+  },
+  {
+    "key": [
+      "ordinary",
+      "scan",
+      "newest-first",
+      8,
+      "0",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 83458572,
+    "peak": 23889472,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      11953,
+      12047,
+      12793,
+      12887
+    ],
+    "execute_bytes": 83376224,
+    "median_ns": 85828826,
+    "min_ns": 74309576,
+    "max_ns": 100986644,
+    "setup_median_ns": 78389,
+    "execute_median_ns": 85695288
+  },
+  {
+    "key": [
+      "ordinary",
+      "resumable",
+      "aliases",
+      64,
+      "all",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 7765911,
+    "peak": 255571,
+    "artifact_bytes": 0,
+    "retained": 226980,
+    "setup_bytes": [
+      15149,
+      14921,
+      15149,
+      14921
+    ],
+    "execute_bytes": 7679404,
+    "median_ns": 3187395,
+    "min_ns": 2651845,
+    "max_ns": 3972757,
+    "setup_median_ns": 75340,
+    "execute_median_ns": 3028312
+  },
+  {
+    "key": [
+      "ordinary",
+      "resumable",
+      "newest-first",
+      8,
+      "0",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 30736686,
+    "peak": 995328,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      9638,
+      6339,
+      9638,
+      6339
+    ],
+    "execute_bytes": 30679660,
+    "median_ns": 12181203,
+    "min_ns": 10794213,
+    "max_ns": 15726026,
+    "setup_median_ns": 240790,
+    "execute_median_ns": 11915605
+  },
+  {
+    "key": [
+      "ordinary",
+      "prefix",
+      "oldest-first",
+      8,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 5302303,
+    "peak": 2326066,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      44053
+    ],
+    "execute_bytes": 5239300,
+    "median_ns": 4665896,
+    "min_ns": 3970416,
+    "max_ns": 6044899,
+    "setup_median_ns": 53612,
+    "execute_median_ns": 4014841
+  },
+  {
+    "key": [
+      "ordinary",
+      "resumable",
+      "newest-first",
+      8,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 10003176,
+    "peak": 995328,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      9638
+    ],
+    "execute_bytes": 9977808,
+    "median_ns": 3652630,
+    "min_ns": 3051005,
+    "max_ns": 4395944,
+    "setup_median_ns": 7981,
+    "execute_median_ns": 3565476
+  },
+  {
+    "key": [
+      "ordinary",
+      "scan",
+      "newest-first",
+      8,
+      "all",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 16781732,
+    "peak": 2278294,
+    "artifact_bytes": 0,
+    "retained": 4038,
+    "setup_bytes": [
+      11953,
+      8091,
+      11953,
+      8091
+    ],
+    "execute_bytes": 16711918,
+    "median_ns": 14057858,
+    "min_ns": 12830239,
+    "max_ns": 14485264,
+    "setup_median_ns": 53678,
+    "execute_median_ns": 13243897
+  },
+  {
+    "key": [
+      "ordinary",
+      "prefix",
+      "oldest-first",
+      0,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 58332,
+    "peak": 23602,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      25877
+    ],
+    "execute_bytes": 15745,
+    "median_ns": 86200,
+    "min_ns": 73751,
+    "max_ns": 89304,
+    "setup_median_ns": 31816,
+    "execute_median_ns": 32206
+  },
+  {
+    "key": [
+      "ordinary",
+      "resumable",
+      "oldest-first",
+      8,
+      "0",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 150436380,
+    "peak": 8283952,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      9638,
+      9759,
+      10358,
+      10479
+    ],
+    "execute_bytes": 150368132,
+    "median_ns": 63893332,
+    "min_ns": 58029688,
+    "max_ns": 83731327,
+    "setup_median_ns": 41307,
+    "execute_median_ns": 63783198
+  },
+  {
+    "key": [
+      "ordinary",
+      "specialized",
+      "oldest-first",
+      8,
+      "all",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 13680687,
+    "peak": 2120529,
+    "artifact_bytes": 0,
+    "retained": 4038,
+    "setup_bytes": [
+      11953,
+      8091,
+      11953,
+      8091
+    ],
+    "execute_bytes": 13605614,
+    "median_ns": 9231360,
+    "min_ns": 8393737,
+    "max_ns": 10162193,
+    "setup_median_ns": 49177,
+    "execute_median_ns": 8723004
+  },
+  {
+    "key": [
+      "combined",
+      "inferred",
+      "distinct",
+      64,
+      "all",
+      1,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 159466304,
+    "peak": 4509627,
+    "artifact_bytes": 0,
+    "retained": 1648645,
+    "setup_bytes": [
+      23166,
+      23184,
+      23202,
+      23852
+    ],
+    "execute_bytes": 159340009,
+    "median_ns": 323773052,
+    "min_ns": 272417455,
+    "max_ns": 337835444,
+    "setup_median_ns": 128075,
+    "execute_median_ns": 320384642
+  },
+  {
+    "key": [
+      "combined",
+      "inferred",
+      "distinct",
+      64,
+      "0",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 206729001,
+    "peak": 2891256,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      23166,
+      23184,
+      23202,
+      23852
+    ],
+    "execute_bytes": 206602706,
+    "median_ns": 427552034,
+    "min_ns": 405779839,
+    "max_ns": 457640676,
+    "setup_median_ns": 138953,
+    "execute_median_ns": 425384828
+  },
+  {
+    "key": [
+      "ordinary",
+      "prepared-prefix",
+      "newest-first",
+      8,
+      "all",
+      2,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 13144544,
+    "peak": 2328733,
+    "artifact_bytes": 12180,
+    "retained": 2613,
+    "setup_bytes": [
+      58537,
+      9897,
+      14370,
+      9897
+    ],
+    "execute_bytes": 13023551,
+    "median_ns": 8573768,
+    "min_ns": 8325629,
+    "max_ns": 11171341,
+    "setup_median_ns": 103540,
+    "execute_median_ns": 7915938
+  },
+  {
+    "key": [
+      "ordinary",
+      "resumable",
+      "aliases",
+      64,
+      "all",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 10397489,
+    "peak": 371571,
+    "artifact_bytes": 0,
+    "retained": 342874,
+    "setup_bytes": [
+      15149,
+      15166,
+      15183,
+      15200
+    ],
+    "execute_bytes": 10308906,
+    "median_ns": 4095941,
+    "min_ns": 3923034,
+    "max_ns": 5678530,
+    "setup_median_ns": 85693,
+    "execute_median_ns": 3902631
+  },
+  {
+    "key": [
+      "reverse",
+      "inferred",
+      "oldest-first",
+      8,
+      "0",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 1751024,
+    "peak": 68205,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      15531,
+      15625,
+      17555,
+      18281
+    ],
+    "execute_bytes": 1649970,
+    "median_ns": 3838758,
+    "min_ns": 3388307,
+    "max_ns": 4214124,
+    "setup_median_ns": 66862,
+    "execute_median_ns": 3706384
+  },
+  {
+    "key": [
+      "ordinary",
+      "prepared-prefix",
+      "newest-first",
+      8,
+      "0",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 87271300,
+    "peak": 23009600,
+    "artifact_bytes": 45060,
+    "retained": 0,
+    "setup_bytes": [
+      58537,
+      58590,
+      62869,
+      64962
+    ],
+    "execute_bytes": 86995108,
+    "median_ns": 77801913,
+    "min_ns": 73386726,
+    "max_ns": 86128289,
+    "setup_median_ns": 275674,
+    "execute_median_ns": 72092294
+  },
+  {
+    "key": [
+      "ordinary",
+      "resumable",
+      "distinct",
+      0,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 53506,
+    "peak": 11028,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      4849
+    ],
+    "execute_bytes": 37357,
+    "median_ns": 47230,
+    "min_ns": 35488,
+    "max_ns": 54947,
+    "setup_median_ns": 4811,
+    "execute_median_ns": 29574
+  },
+  {
+    "key": [
+      "ordinary",
+      "specialized",
+      "newest-first",
+      8,
+      "0",
+      0,
+      4,
+      1,
+      "changing"
+    ],
+    "requested": 66675513,
+    "peak": 21410167,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      11953,
+      12047,
+      12793,
+      12887
+    ],
+    "execute_bytes": 66588234,
+    "median_ns": 58174828,
+    "min_ns": 55757652,
+    "max_ns": 70397420,
+    "setup_median_ns": 76183,
+    "execute_median_ns": 51324634
+  },
+  {
+    "key": [
+      "ordinary",
+      "scan",
+      "distinct",
+      64,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 3464346,
+    "peak": 615634,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      32475
+    ],
+    "execute_bytes": 3413385,
+    "median_ns": 3461237,
+    "min_ns": 2866258,
+    "max_ns": 3946693,
+    "setup_median_ns": 29320,
+    "execute_median_ns": 3211739
+  },
+  {
+    "key": [
+      "ordinary",
+      "scan",
+      "aliases",
+      64,
+      "all",
+      1,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 8053975,
+    "peak": 597807,
+    "artifact_bytes": 0,
+    "retained": 264245,
+    "setup_bytes": [
+      32467,
+      32501,
+      32535,
+      32569
+    ],
+    "execute_bytes": 7891968,
+    "median_ns": 6403357,
+    "min_ns": 5592016,
+    "max_ns": 6860893,
+    "setup_median_ns": 202492,
+    "execute_median_ns": 6046370
+  },
+  {
+    "key": [
+      "combined",
+      "inferred",
+      "oldest-first",
+      8,
+      "all",
+      2,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 1142869,
+    "peak": 61270,
+    "artifact_bytes": 0,
+    "retained": 3045,
+    "setup_bytes": [
+      15531,
+      11565,
+      15531,
+      11565
+    ],
+    "execute_bytes": 1057557,
+    "median_ns": 2116689,
+    "min_ns": 1595790,
+    "max_ns": 2306529,
+    "setup_median_ns": 46835,
+    "execute_median_ns": 2022197
+  },
+  {
+    "key": [
+      "reverse",
+      "inferred",
+      "oldest-first",
+      8,
+      "0",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 1233270,
+    "peak": 53780,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      15531,
+      11565,
+      15531,
+      11565
+    ],
+    "execute_bytes": 1147958,
+    "median_ns": 2595025,
+    "min_ns": 2135749,
+    "max_ns": 4161799,
+    "setup_median_ns": 51059,
+    "execute_median_ns": 2497676
+  },
+  {
+    "key": [
+      "combined",
+      "inferred",
+      "aliases",
+      64,
+      "all",
+      1,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 153595280,
+    "peak": 3091021,
+    "artifact_bytes": 0,
+    "retained": 264245,
+    "setup_bytes": [
+      23158,
+      23176,
+      23194,
+      23844
+    ],
+    "execute_bytes": 153469085,
+    "median_ns": 288142058,
+    "min_ns": 254439588,
+    "max_ns": 319931064,
+    "setup_median_ns": 123329,
+    "execute_median_ns": 286761717
+  },
+  {
+    "key": [
+      "ordinary",
+      "prepared-prefix",
+      "newest-first",
+      8,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 5452671,
+    "peak": 2328139,
+    "artifact_bytes": 12180,
+    "retained": 0,
+    "setup_bytes": [
+      58537
+    ],
+    "execute_bytes": 5375184,
+    "median_ns": 3961410,
+    "min_ns": 3911581,
+    "max_ns": 4453390,
+    "setup_median_ns": 55313,
+    "execute_median_ns": 3284796
+  },
+  {
+    "key": [
+      "ordinary",
+      "scan",
+      "oldest-first",
+      8,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 5141955,
+    "peak": 2276275,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      11953
+    ],
+    "execute_bytes": 5109618,
+    "median_ns": 4198274,
+    "min_ns": 3892548,
+    "max_ns": 8899803,
+    "setup_median_ns": 15793,
+    "execute_median_ns": 3794650
+  },
+  {
+    "key": [
+      "reverse",
+      "inferred",
+      "distinct",
+      0,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 52711,
+    "peak": 22915,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      7778
+    ],
+    "execute_bytes": 28747,
+    "median_ns": 175968,
+    "min_ns": 116730,
+    "max_ns": 248509,
+    "setup_median_ns": 10040,
+    "execute_median_ns": 140762
+  },
+  {
+    "key": [
+      "reverse",
+      "inferred",
+      "distinct",
+      64,
+      "0",
+      0,
+      4,
+      1,
+      "changing"
+    ],
+    "requested": 170260529,
+    "peak": 263596,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      23166,
+      23184,
+      23202,
+      23852
+    ],
+    "execute_bytes": 170134430,
+    "median_ns": 338934032,
+    "min_ns": 292303603,
+    "max_ns": 358786205,
+    "setup_median_ns": 123710,
+    "execute_median_ns": 337797632
+  },
+  {
+    "key": [
+      "combined",
+      "inferred",
+      "aliases",
+      64,
+      "0",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 199081941,
+    "peak": 2829354,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      23158,
+      23176,
+      23194,
+      23844
+    ],
+    "execute_bytes": 198955746,
+    "median_ns": 391045708,
+    "min_ns": 374168158,
+    "max_ns": 454221404,
+    "setup_median_ns": 123921,
+    "execute_median_ns": 389829719
+  },
+  {
+    "key": [
+      "ordinary",
+      "resumable",
+      "distinct",
+      64,
+      "0",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 13012799,
+    "peak": 63894,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      15153,
+      14925,
+      15153,
+      14925
+    ],
+    "execute_bytes": 12926156,
+    "median_ns": 9026332,
+    "min_ns": 8282435,
+    "max_ns": 9853185,
+    "setup_median_ns": 458568,
+    "execute_median_ns": 8400532
+  },
+  {
+    "key": [
+      "ordinary",
+      "resumable",
+      "aliases",
+      64,
+      "all",
+      1,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 8100067,
+    "peak": 292942,
+    "artifact_bytes": 0,
+    "retained": 264245,
+    "setup_bytes": [
+      15149,
+      15166,
+      15183,
+      15200
+    ],
+    "execute_bytes": 8011484,
+    "median_ns": 3629703,
+    "min_ns": 3156456,
+    "max_ns": 4379631,
+    "setup_median_ns": 82438,
+    "execute_median_ns": 3438970
+  },
+  {
+    "key": [
+      "ordinary",
+      "specialized",
+      "distinct",
+      64,
+      "0",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 11620459,
+    "peak": 709398,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      32475,
+      32087,
+      32475,
+      32087
+    ],
+    "execute_bytes": 11456644,
+    "median_ns": 9226648,
+    "min_ns": 8576781,
+    "max_ns": 11030211,
+    "setup_median_ns": 530814,
+    "execute_median_ns": 8634762
+  },
+  {
+    "key": [
+      "ordinary",
+      "scan",
+      "oldest-first",
+      8,
+      "0",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 83458572,
+    "peak": 23889472,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      11953,
+      12047,
+      12793,
+      12887
+    ],
+    "execute_bytes": 83376224,
+    "median_ns": 81861679,
+    "min_ns": 72360189,
+    "max_ns": 94089720,
+    "setup_median_ns": 72925,
+    "execute_median_ns": 81728291
+  },
+  {
+    "key": [
+      "reverse",
+      "inferred",
+      "aliases",
+      64,
+      "all",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 171774165,
+    "peak": 540154,
+    "artifact_bytes": 0,
+    "retained": 342874,
+    "setup_bytes": [
+      23158,
+      23176,
+      23194,
+      23844
+    ],
+    "execute_bytes": 171647970,
+    "median_ns": 314613093,
+    "min_ns": 281689738,
+    "max_ns": 365523785,
+    "setup_median_ns": 149532,
+    "execute_median_ns": 313992981
+  },
+  {
+    "key": [
+      "reverse",
+      "inferred",
+      "aliases",
+      64,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 39282035,
+    "peak": 197839,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      23158
+    ],
+    "execute_bytes": 39239611,
+    "median_ns": 72026412,
+    "min_ns": 66153774,
+    "max_ns": 83743869,
+    "setup_median_ns": 27128,
+    "execute_median_ns": 71901302
+  },
+  {
+    "key": [
+      "reverse",
+      "inferred",
+      "oldest-first",
+      8,
+      "all",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 1233270,
+    "peak": 56087,
+    "artifact_bytes": 0,
+    "retained": 4614,
+    "setup_bytes": [
+      15531,
+      11565,
+      15531,
+      11565
+    ],
+    "execute_bytes": 1147958,
+    "median_ns": 2219228,
+    "min_ns": 2153322,
+    "max_ns": 2467820,
+    "setup_median_ns": 43814,
+    "execute_median_ns": 2135553
+  },
+  {
+    "key": [
+      "ordinary",
+      "resumable",
+      "oldest-first",
+      8,
+      "0",
+      0,
+      4,
+      1,
+      "changing"
+    ],
+    "requested": 150376856,
+    "peak": 8283788,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      9638,
+      9759,
+      10358,
+      10479
+    ],
+    "execute_bytes": 150308936,
+    "median_ns": 57705074,
+    "min_ns": 55789035,
+    "max_ns": 64958448,
+    "setup_median_ns": 37708,
+    "execute_median_ns": 57585044
+  },
+  {
+    "key": [
+      "ordinary",
+      "specialized",
+      "oldest-first",
+      8,
+      "0",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 13680687,
+    "peak": 2118510,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      11953,
+      8091,
+      11953,
+      8091
+    ],
+    "execute_bytes": 13605614,
+    "median_ns": 9605899,
+    "min_ns": 9004650,
+    "max_ns": 12896606,
+    "setup_median_ns": 48257,
+    "execute_median_ns": 9261622
+  },
+  {
+    "key": [
+      "ordinary",
+      "scan",
+      "aliases",
+      64,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 2422142,
+    "peak": 346137,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      32467
+    ],
+    "execute_bytes": 2371297,
+    "median_ns": 2382121,
+    "min_ns": 1588797,
+    "max_ns": 2958554,
+    "setup_median_ns": 37410,
+    "execute_median_ns": 2321924
+  },
+  {
+    "key": [
+      "ordinary",
+      "resumable",
+      "oldest-first",
+      8,
+      "all",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 150436380,
+    "peak": 8288228,
+    "artifact_bytes": 0,
+    "retained": 5702,
+    "setup_bytes": [
+      9638,
+      9759,
+      10358,
+      10479
+    ],
+    "execute_bytes": 150368132,
+    "median_ns": 64786094,
+    "min_ns": 62599393,
+    "max_ns": 67182453,
+    "setup_median_ns": 40803,
+    "execute_median_ns": 64686330
+  },
+  {
+    "key": [
+      "ordinary",
+      "prefix",
+      "newest-first",
+      8,
+      "0",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 17184528,
+    "peak": 2326066,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      44053,
+      42220,
+      44053,
+      42220
+    ],
+    "execute_bytes": 16983690,
+    "median_ns": 13754645,
+    "min_ns": 12003358,
+    "max_ns": 15014598,
+    "setup_median_ns": 204439,
+    "execute_median_ns": 12829559
+  },
+  {
+    "key": [
+      "ordinary",
+      "specialized",
+      "aliases",
+      64,
+      "0",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 8550347,
+    "peak": 383367,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      32467,
+      32501,
+      32535,
+      32569
+    ],
+    "execute_bytes": 8384186,
+    "median_ns": 5827512,
+    "min_ns": 5096713,
+    "max_ns": 8572291,
+    "setup_median_ns": 180303,
+    "execute_median_ns": 5607597
+  },
+  {
+    "key": [
+      "combined",
+      "inferred",
+      "newest-first",
+      8,
+      "0",
+      0,
+      4,
+      1,
+      "changing"
+    ],
+    "requested": 1638902,
+    "peak": 65200,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      15531,
+      15625,
+      17555,
+      18281
+    ],
+    "execute_bytes": 1538012,
+    "median_ns": 3724720,
+    "min_ns": 2860965,
+    "max_ns": 4081465,
+    "setup_median_ns": 68581,
+    "execute_median_ns": 3514910
+  },
+  {
+    "key": [
+      "combined",
+      "inferred",
+      "aliases",
+      0,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 52631,
+    "peak": 22839,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      7770
+    ],
+    "execute_bytes": 28731,
+    "median_ns": 163022,
+    "min_ns": 153552,
+    "max_ns": 173513,
+    "setup_median_ns": 9793,
+    "execute_median_ns": 130288
+  },
+  {
+    "key": [
+      "combined",
+      "inferred",
+      "newest-first",
+      8,
+      "all",
+      2,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 908533,
+    "peak": 54326,
+    "artifact_bytes": 0,
+    "retained": 3045,
+    "setup_bytes": [
+      15531,
+      11565,
+      15531,
+      11565
+    ],
+    "execute_bytes": 823221,
+    "median_ns": 2222505,
+    "min_ns": 1671040,
+    "max_ns": 2324561,
+    "setup_median_ns": 55063,
+    "execute_median_ns": 2113862
+  },
+  {
+    "key": [
+      "ordinary",
+      "prefix",
+      "oldest-first",
+      8,
+      "0",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 85097664,
+    "peak": 22975962,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      44053,
+      46002,
+      49689,
+      51638
+    ],
+    "execute_bytes": 84875048,
+    "median_ns": 83842277,
+    "min_ns": 72170395,
+    "max_ns": 90436350,
+    "setup_median_ns": 254696,
+    "execute_median_ns": 83539515
+  },
+  {
+    "key": [
+      "combined",
+      "inferred",
+      "oldest-first",
+      8,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 436042,
+    "peak": 60532,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      15531
+    ],
+    "execute_bytes": 398733,
+    "median_ns": 953811,
+    "min_ns": 810634,
+    "max_ns": 998556,
+    "setup_median_ns": 14432,
+    "execute_median_ns": 894922
+  },
+  {
+    "key": [
+      "ordinary",
+      "prepared-prefix",
+      "oldest-first",
+      8,
+      "0",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 87271300,
+    "peak": 23009600,
+    "artifact_bytes": 45060,
+    "retained": 0,
+    "setup_bytes": [
+      58537,
+      58590,
+      62869,
+      64962
+    ],
+    "execute_bytes": 86995108,
+    "median_ns": 76853809,
+    "min_ns": 64208589,
+    "max_ns": 90499410,
+    "setup_median_ns": 272539,
+    "execute_median_ns": 76488015
+  },
+  {
+    "key": [
+      "reverse",
+      "inferred",
+      "newest-first",
+      8,
+      "all",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 2274224,
+    "peak": 89777,
+    "artifact_bytes": 0,
+    "retained": 6278,
+    "setup_bytes": [
+      15531,
+      15625,
+      17555,
+      18281
+    ],
+    "execute_bytes": 2173170,
+    "median_ns": 5066613,
+    "min_ns": 4223185,
+    "max_ns": 7426928,
+    "setup_median_ns": 79018,
+    "execute_median_ns": 4786192
+  },
+  {
+    "key": [
+      "combined",
+      "inferred",
+      "newest-first",
+      8,
+      "0",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 1730464,
+    "peak": 68013,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      15531,
+      15625,
+      17555,
+      18281
+    ],
+    "execute_bytes": 1629410,
+    "median_ns": 3623624,
+    "min_ns": 3262840,
+    "max_ns": 4226651,
+    "setup_median_ns": 64554,
+    "execute_median_ns": 3445862
+  },
+  {
+    "key": [
+      "reverse",
+      "inferred",
+      "oldest-first",
+      8,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 360874,
+    "peak": 53780,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      15531
+    ],
+    "execute_bytes": 323565,
+    "median_ns": 740230,
+    "min_ns": 663877,
+    "max_ns": 1310030,
+    "setup_median_ns": 13356,
+    "execute_median_ns": 689543
+  },
+  {
+    "key": [
+      "ordinary",
+      "prefix",
+      "oldest-first",
+      8,
+      "all",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 85097664,
+    "peak": 22980238,
+    "artifact_bytes": 0,
+    "retained": 5702,
+    "setup_bytes": [
+      44053,
+      46002,
+      49689,
+      51638
+    ],
+    "execute_bytes": 84875048,
+    "median_ns": 73012318,
+    "min_ns": 71034909,
+    "max_ns": 87193665,
+    "setup_median_ns": 233906,
+    "execute_median_ns": 72735697
+  },
+  {
+    "key": [
+      "ordinary",
+      "specialized",
+      "distinct",
+      64,
+      "0",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 12970099,
+    "peak": 725232,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      32475,
+      32509,
+      32543,
+      32577
+    ],
+    "execute_bytes": 12803786,
+    "median_ns": 10306640,
+    "min_ns": 8874324,
+    "max_ns": 10769590,
+    "setup_median_ns": 511248,
+    "execute_median_ns": 9510040
+  },
+  {
+    "key": [
+      "combined",
+      "inferred",
+      "newest-first",
+      8,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 357930,
+    "peak": 53588,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      15531
+    ],
+    "execute_bytes": 320621,
+    "median_ns": 1170396,
+    "min_ns": 828484,
+    "max_ns": 1246739,
+    "setup_median_ns": 17282,
+    "execute_median_ns": 1110226
+  },
+  {
+    "key": [
+      "ordinary",
+      "resumable",
+      "oldest-first",
+      8,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 10003176,
+    "peak": 1002995,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      9638
+    ],
+    "execute_bytes": 9977808,
+    "median_ns": 3476666,
+    "min_ns": 3125328,
+    "max_ns": 5021355,
+    "setup_median_ns": 7337,
+    "execute_median_ns": 3367246
+  },
+  {
+    "key": [
+      "ordinary",
+      "prefix",
+      "oldest-first",
+      8,
+      "0",
+      0,
+      4,
+      1,
+      "changing"
+    ],
+    "requested": 85065826,
+    "peak": 22975634,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      43561,
+      45510,
+      49197,
+      51146
+    ],
+    "execute_bytes": 84845506,
+    "median_ns": 79377072,
+    "min_ns": 67453644,
+    "max_ns": 99765667,
+    "setup_median_ns": 234090,
+    "execute_median_ns": 79067245
+  },
+  {
+    "key": [
+      "ordinary",
+      "specialized",
+      "distinct",
+      64,
+      "all",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 12970099,
+    "peak": 2630863,
+    "artifact_bytes": 0,
+    "retained": 2159642,
+    "setup_bytes": [
+      32475,
+      32509,
+      32543,
+      32577
+    ],
+    "execute_bytes": 12803786,
+    "median_ns": 9389871,
+    "min_ns": 8871888,
+    "max_ns": 9587312,
+    "setup_median_ns": 515438,
+    "execute_median_ns": 7971556
+  },
+  {
+    "key": [
+      "ordinary",
+      "scan",
+      "distinct",
+      64,
+      "0",
+      0,
+      4,
+      1,
+      "changing"
+    ],
+    "requested": 14210397,
+    "peak": 630180,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      32475,
+      32509,
+      32543,
+      32577
+    ],
+    "execute_bytes": 14048662,
+    "median_ns": 14295897,
+    "min_ns": 11897694,
+    "max_ns": 16260101,
+    "setup_median_ns": 697829,
+    "execute_median_ns": 13324321
+  },
+  {
+    "key": [
+      "ordinary",
+      "resumable",
+      "newest-first",
+      8,
+      "0",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 150436380,
+    "peak": 8218941,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      9638,
+      9759,
+      10358,
+      10479
+    ],
+    "execute_bytes": 150368132,
+    "median_ns": 64528719,
+    "min_ns": 57854836,
+    "max_ns": 74749699,
+    "setup_median_ns": 37950,
+    "execute_median_ns": 64422276
+  },
+  {
+    "key": [
+      "combined",
+      "inferred",
+      "distinct",
+      64,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 47709547,
+    "peak": 2784820,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      23166
+    ],
+    "execute_bytes": 47667059,
+    "median_ns": 90484041,
+    "min_ns": 82280982,
+    "max_ns": 97603201,
+    "setup_median_ns": 28556,
+    "execute_median_ns": 90059896
+  },
+  {
+    "key": [
+      "reverse",
+      "inferred",
+      "distinct",
+      64,
+      "all",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 157855385,
+    "peak": 2136394,
+    "artifact_bytes": 0,
+    "retained": 1961700,
+    "setup_bytes": [
+      23166,
+      22306,
+      23166,
+      22306
+    ],
+    "execute_bytes": 157733068,
+    "median_ns": 323397949,
+    "min_ns": 259403993,
+    "max_ns": 350809733,
+    "setup_median_ns": 652985,
+    "execute_median_ns": 321270446
+  },
+  {
+    "key": [
+      "reverse",
+      "inferred",
+      "aliases",
+      64,
+      "all",
+      1,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 132901304,
+    "peak": 461525,
+    "artifact_bytes": 0,
+    "retained": 264245,
+    "setup_bytes": [
+      23158,
+      23176,
+      23194,
+      23844
+    ],
+    "execute_bytes": 132775109,
+    "median_ns": 273733001,
+    "min_ns": 248944277,
+    "max_ns": 311095953,
+    "setup_median_ns": 118928,
+    "execute_median_ns": 273231719
+  },
+  {
+    "key": [
+      "combined",
+      "inferred",
+      "aliases",
+      64,
+      "all",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 167296661,
+    "peak": 2921127,
+    "artifact_bytes": 0,
+    "retained": 226980,
+    "setup_bytes": [
+      23158,
+      22298,
+      23158,
+      22298
+    ],
+    "execute_bytes": 167174444,
+    "median_ns": 344149952,
+    "min_ns": 289686950,
+    "max_ns": 355995619,
+    "setup_median_ns": 115190,
+    "execute_median_ns": 342620532
+  },
+  {
+    "key": [
+      "reverse",
+      "inferred",
+      "aliases",
+      64,
+      "all",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 149865509,
+    "peak": 391247,
+    "artifact_bytes": 0,
+    "retained": 226980,
+    "setup_bytes": [
+      23158,
+      22298,
+      23158,
+      22298
+    ],
+    "execute_bytes": 149743292,
+    "median_ns": 293382715,
+    "min_ns": 275193387,
+    "max_ns": 325529580,
+    "setup_median_ns": 104206,
+    "execute_median_ns": 292870428
+  },
+  {
+    "key": [
+      "ordinary",
+      "prepared-prefix",
+      "oldest-first",
+      0,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 62316,
+    "peak": 25899,
+    "artifact_bytes": 8900,
+    "retained": 0,
+    "setup_bytes": [
+      34633
+    ],
+    "execute_bytes": 10973,
+    "median_ns": 91879,
+    "min_ns": 78836,
+    "max_ns": 108172,
+    "setup_median_ns": 40637,
+    "execute_median_ns": 25221
+  },
+  {
+    "key": [
+      "ordinary",
+      "prepared-prefix",
+      "newest-first",
+      8,
+      "0",
+      0,
+      4,
+      1,
+      "changing"
+    ],
+    "requested": 87238822,
+    "peak": 23008780,
+    "artifact_bytes": 44404,
+    "retained": 0,
+    "setup_bytes": [
+      58045,
+      58098,
+      62377,
+      64470
+    ],
+    "execute_bytes": 86964926,
+    "median_ns": 84304324,
+    "min_ns": 76672671,
+    "max_ns": 89601359,
+    "setup_median_ns": 255034,
+    "execute_median_ns": 76773311
+  },
+  {
+    "key": [
+      "reverse",
+      "inferred",
+      "newest-first",
+      0,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 47368,
+    "peak": 24360,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      7787
+    ],
+    "execute_bytes": 20043,
+    "median_ns": 118473,
+    "min_ns": 107031,
+    "max_ns": 138165,
+    "setup_median_ns": 9350,
+    "execute_median_ns": 75214
+  },
+  {
+    "key": [
+      "ordinary",
+      "scan",
+      "distinct",
+      64,
+      "0",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 12821649,
+    "peak": 615634,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      32475,
+      32087,
+      32475,
+      32087
+    ],
+    "execute_bytes": 12661988,
+    "median_ns": 10825628,
+    "min_ns": 9715373,
+    "max_ns": 13111155,
+    "setup_median_ns": 534835,
+    "execute_median_ns": 10112634
+  },
+  {
+    "key": [
+      "ordinary",
+      "scan",
+      "oldest-first",
+      8,
+      "all",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 83458572,
+    "peak": 23893748,
+    "artifact_bytes": 0,
+    "retained": 5702,
+    "setup_bytes": [
+      11953,
+      12047,
+      12793,
+      12887
+    ],
+    "execute_bytes": 83376224,
+    "median_ns": 86462449,
+    "min_ns": 73130634,
+    "max_ns": 90099446,
+    "setup_median_ns": 78884,
+    "execute_median_ns": 86316010
+  },
+  {
+    "key": [
+      "ordinary",
+      "specialized",
+      "aliases",
+      0,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 36616,
+    "peak": 15459,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      6567
+    ],
+    "execute_bytes": 10653,
+    "median_ns": 61870,
+    "min_ns": 43101,
+    "max_ns": 71717,
+    "setup_median_ns": 11172,
+    "execute_median_ns": 27345
+  },
+  {
+    "key": [
+      "combined",
+      "inferred",
+      "oldest-first",
+      8,
+      "0",
+      0,
+      4,
+      1,
+      "changing"
+    ],
+    "requested": 2164406,
+    "peak": 81067,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      15531,
+      15625,
+      17555,
+      18281
+    ],
+    "execute_bytes": 2063516,
+    "median_ns": 4180011,
+    "min_ns": 3722554,
+    "max_ns": 5199684,
+    "setup_median_ns": 63713,
+    "execute_median_ns": 3975660
+  },
+  {
+    "key": [
+      "ordinary",
+      "prepared-prefix",
+      "oldest-first",
+      8,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 5452671,
+    "peak": 2328139,
+    "artifact_bytes": 12180,
+    "retained": 0,
+    "setup_bytes": [
+      58537
+    ],
+    "execute_bytes": 5375184,
+    "median_ns": 4197432,
+    "min_ns": 3721259,
+    "max_ns": 4630061,
+    "setup_median_ns": 65034,
+    "execute_median_ns": 3623703
+  },
+  {
+    "key": [
+      "ordinary",
+      "resumable",
+      "aliases",
+      64,
+      "0",
+      0,
+      4,
+      1,
+      "changing"
+    ],
+    "requested": 10268221,
+    "peak": 35851,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      15149,
+      15166,
+      15183,
+      15200
+    ],
+    "execute_bytes": 10180030,
+    "median_ns": 3757055,
+    "min_ns": 3496566,
+    "max_ns": 4625003,
+    "setup_median_ns": 94253,
+    "execute_median_ns": 3620822
+  },
+  {
+    "key": [
+      "reverse",
+      "inferred",
+      "distinct",
+      64,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 41070067,
+    "peak": 262360,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      23166
+    ],
+    "execute_bytes": 41027579,
+    "median_ns": 87466784,
+    "min_ns": 82331453,
+    "max_ns": 95324633,
+    "setup_median_ns": 30927,
+    "execute_median_ns": 87386522
+  },
+  {
+    "key": [
+      "combined",
+      "inferred",
+      "aliases",
+      64,
+      "0",
+      0,
+      4,
+      1,
+      "changing"
+    ],
+    "requested": 192191581,
+    "peak": 2830682,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      23158,
+      23176,
+      23194,
+      23844
+    ],
+    "execute_bytes": 192065582,
+    "median_ns": 337333268,
+    "min_ns": 323873087,
+    "max_ns": 361200650,
+    "setup_median_ns": 115172,
+    "execute_median_ns": 336228707
+  },
+  {
+    "key": [
+      "reverse",
+      "inferred",
+      "oldest-first",
+      0,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 47368,
+    "peak": 24360,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      7787
+    ],
+    "execute_bytes": 20043,
+    "median_ns": 110653,
+    "min_ns": 77767,
+    "max_ns": 142516,
+    "setup_median_ns": 9268,
+    "execute_median_ns": 73024
+  },
+  {
+    "key": [
+      "reverse",
+      "inferred",
+      "distinct",
+      64,
+      "all",
+      1,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 138778000,
+    "peak": 1886243,
+    "artifact_bytes": 0,
+    "retained": 1648645,
+    "setup_bytes": [
+      23166,
+      23184,
+      23202,
+      23852
+    ],
+    "execute_bytes": 138651705,
+    "median_ns": 288946081,
+    "min_ns": 233610590,
+    "max_ns": 348715008,
+    "setup_median_ns": 510706,
+    "execute_median_ns": 287020031
+  },
+  {
+    "key": [
+      "reverse",
+      "inferred",
+      "oldest-first",
+      8,
+      "all",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 1751024,
+    "peak": 72913,
+    "artifact_bytes": 0,
+    "retained": 6278,
+    "setup_bytes": [
+      15531,
+      15625,
+      17555,
+      18281
+    ],
+    "execute_bytes": 1649970,
+    "median_ns": 3665653,
+    "min_ns": 3343040,
+    "max_ns": 4562286,
+    "setup_median_ns": 59762,
+    "execute_median_ns": 3532802
+  },
+  {
+    "key": [
+      "combined",
+      "inferred",
+      "oldest-first",
+      0,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 47176,
+    "peak": 24168,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      7787
+    ],
+    "execute_bytes": 19851,
+    "median_ns": 118757,
+    "min_ns": 109108,
+    "max_ns": 124420,
+    "setup_median_ns": 9777,
+    "execute_median_ns": 77643
+  },
+  {
+    "key": [
+      "ordinary",
+      "prepared-prefix",
+      "oldest-first",
+      8,
+      "all",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 87271300,
+    "peak": 23013876,
+    "artifact_bytes": 45060,
+    "retained": 5702,
+    "setup_bytes": [
+      58537,
+      58590,
+      62869,
+      64962
+    ],
+    "execute_bytes": 86995108,
+    "median_ns": 76345900,
+    "min_ns": 68094932,
+    "max_ns": 86298659,
+    "setup_median_ns": 281267,
+    "execute_median_ns": 75983241
+  },
+  {
+    "key": [
+      "ordinary",
+      "specialized",
+      "distinct",
+      0,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 36452,
+    "peak": 15535,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      8415
+    ],
+    "execute_bytes": 8533,
+    "median_ns": 58945,
+    "min_ns": 37624,
+    "max_ns": 71479,
+    "setup_median_ns": 13063,
+    "execute_median_ns": 20026
+  },
+  {
+    "key": [
+      "ordinary",
+      "resumable",
+      "distinct",
+      64,
+      "all",
+      1,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 12307499,
+    "peak": 1691257,
+    "artifact_bytes": 0,
+    "retained": 1648645,
+    "setup_bytes": [
+      15153,
+      15170,
+      15187,
+      15204
+    ],
+    "execute_bytes": 12218780,
+    "median_ns": 8341154,
+    "min_ns": 7744351,
+    "max_ns": 10942209,
+    "setup_median_ns": 350982,
+    "execute_median_ns": 7195352
+  },
+  {
+    "key": [
+      "combined",
+      "inferred",
+      "newest-first",
+      8,
+      "all",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 1221494,
+    "peak": 55895,
+    "artifact_bytes": 0,
+    "retained": 4614,
+    "setup_bytes": [
+      15531,
+      11565,
+      15531,
+      11565
+    ],
+    "execute_bytes": 1136182,
+    "median_ns": 2563990,
+    "min_ns": 2276267,
+    "max_ns": 2940559,
+    "setup_median_ns": 51221,
+    "execute_median_ns": 2460222
+  },
+  {
+    "key": [
+      "ordinary",
+      "prefix",
+      "newest-first",
+      8,
+      "all",
+      2,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 12979369,
+    "peak": 2326660,
+    "artifact_bytes": 0,
+    "retained": 2613,
+    "setup_bytes": [
+      44053,
+      42220,
+      44053,
+      42220
+    ],
+    "execute_bytes": 12778531,
+    "median_ns": 9704059,
+    "min_ns": 8919505,
+    "max_ns": 15416297,
+    "setup_median_ns": 178010,
+    "execute_median_ns": 8950971
+  },
+  {
+    "key": [
+      "ordinary",
+      "resumable",
+      "oldest-first",
+      0,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 39295,
+    "peak": 12174,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      5126
+    ],
+    "execute_bytes": 20679,
+    "median_ns": 45157,
+    "min_ns": 43966,
+    "max_ns": 50317,
+    "setup_median_ns": 5614,
+    "execute_median_ns": 22102
+  },
+  {
+    "key": [
+      "combined",
+      "inferred",
+      "newest-first",
+      8,
+      "0",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 1221494,
+    "peak": 53588,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      15531,
+      11565,
+      15531,
+      11565
+    ],
+    "execute_bytes": 1136182,
+    "median_ns": 2550935,
+    "min_ns": 2442332,
+    "max_ns": 3327980,
+    "setup_median_ns": 51682,
+    "execute_median_ns": 2459683
+  },
+  {
+    "key": [
+      "ordinary",
+      "prefix",
+      "oldest-first",
+      8,
+      "all",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 17184528,
+    "peak": 2328085,
+    "artifact_bytes": 0,
+    "retained": 4038,
+    "setup_bytes": [
+      44053,
+      42220,
+      44053,
+      42220
+    ],
+    "execute_bytes": 16983690,
+    "median_ns": 12692585,
+    "min_ns": 11211714,
+    "max_ns": 13812233,
+    "setup_median_ns": 188974,
+    "execute_median_ns": 11822058
+  },
+  {
+    "key": [
+      "ordinary",
+      "specialized",
+      "distinct",
+      64,
+      "all",
+      1,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 10582105,
+    "peak": 2119866,
+    "artifact_bytes": 0,
+    "retained": 1648645,
+    "setup_bytes": [
+      32475,
+      32509,
+      32543,
+      32577
+    ],
+    "execute_bytes": 10415792,
+    "median_ns": 8965912,
+    "min_ns": 8181629,
+    "max_ns": 9720711,
+    "setup_median_ns": 518418,
+    "execute_median_ns": 7563738
+  },
+  {
+    "key": [
+      "ordinary",
+      "resumable",
+      "newest-first",
+      8,
+      "all",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 30736686,
+    "peak": 998641,
+    "artifact_bytes": 0,
+    "retained": 4038,
+    "setup_bytes": [
+      9638,
+      6339,
+      9638,
+      6339
+    ],
+    "execute_bytes": 30679660,
+    "median_ns": 12284499,
+    "min_ns": 11361488,
+    "max_ns": 14294388,
+    "setup_median_ns": 258419,
+    "execute_median_ns": 11985581
+  },
+  {
+    "key": [
+      "ordinary",
+      "resumable",
+      "distinct",
+      64,
+      "0",
+      0,
+      4,
+      1,
+      "changing"
+    ],
+    "requested": 15629053,
+    "peak": 64733,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      15153,
+      15170,
+      15187,
+      15204
+    ],
+    "execute_bytes": 15540726,
+    "median_ns": 11490899,
+    "min_ns": 9134559,
+    "max_ns": 13234366,
+    "setup_median_ns": 381589,
+    "execute_median_ns": 10715291
+  },
+  {
+    "key": [
+      "combined",
+      "inferred",
+      "newest-first",
+      8,
+      "all",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 1730464,
+    "peak": 72721,
+    "artifact_bytes": 0,
+    "retained": 6278,
+    "setup_bytes": [
+      15531,
+      15625,
+      17555,
+      18281
+    ],
+    "execute_bytes": 1629410,
+    "median_ns": 3801524,
+    "min_ns": 3472600,
+    "max_ns": 4276029,
+    "setup_median_ns": 65377,
+    "execute_median_ns": 3613841
+  },
+  {
+    "key": [
+      "ordinary",
+      "specialized",
+      "newest-first",
+      8,
+      "0",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 13680687,
+    "peak": 2103150,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      11953,
+      8091,
+      11953,
+      8091
+    ],
+    "execute_bytes": 13605614,
+    "median_ns": 8901132,
+    "min_ns": 8216056,
+    "max_ns": 11141303,
+    "setup_median_ns": 48593,
+    "execute_median_ns": 8334567
+  },
+  {
+    "key": [
+      "ordinary",
+      "resumable",
+      "oldest-first",
+      8,
+      "0",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 30736686,
+    "peak": 1002995,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      9638,
+      6339,
+      9638,
+      6339
+    ],
+    "execute_bytes": 30679660,
+    "median_ns": 13587037,
+    "min_ns": 10403337,
+    "max_ns": 14183887,
+    "setup_median_ns": 344138,
+    "execute_median_ns": 13197307
+  },
+  {
+    "key": [
+      "combined",
+      "inferred",
+      "aliases",
+      64,
+      "0",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 167296661,
+    "peak": 2726430,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      23158,
+      22298,
+      23158,
+      22298
+    ],
+    "execute_bytes": 167174444,
+    "median_ns": 294178291,
+    "min_ns": 277864705,
+    "max_ns": 318491013,
+    "setup_median_ns": 110604,
+    "execute_median_ns": 293343603
+  },
+  {
+    "key": [
+      "ordinary",
+      "specialized",
+      "aliases",
+      64,
+      "all",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 8550347,
+    "peak": 701750,
+    "artifact_bytes": 0,
+    "retained": 342874,
+    "setup_bytes": [
+      32467,
+      32501,
+      32535,
+      32569
+    ],
+    "execute_bytes": 8384186,
+    "median_ns": 6213076,
+    "min_ns": 5382921,
+    "max_ns": 7575610,
+    "setup_median_ns": 190144,
+    "execute_median_ns": 5882741
+  },
+  {
+    "key": [
+      "ordinary",
+      "prefix",
+      "newest-first",
+      8,
+      "0",
+      0,
+      4,
+      1,
+      "changing"
+    ],
+    "requested": 85065826,
+    "peak": 22975634,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      43561,
+      45510,
+      49197,
+      51146
+    ],
+    "execute_bytes": 84845506,
+    "median_ns": 79228593,
+    "min_ns": 73759538,
+    "max_ns": 91797576,
+    "setup_median_ns": 231055,
+    "execute_median_ns": 73168320
+  },
+  {
+    "key": [
+      "ordinary",
+      "prepared-prefix",
+      "newest-first",
+      0,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 62316,
+    "peak": 25899,
+    "artifact_bytes": 8900,
+    "retained": 0,
+    "setup_bytes": [
+      34633
+    ],
+    "execute_bytes": 10973,
+    "median_ns": 86067,
+    "min_ns": 79912,
+    "max_ns": 95313,
+    "setup_median_ns": 38320,
+    "execute_median_ns": 23153
+  },
+  {
+    "key": [
+      "reverse",
+      "inferred",
+      "newest-first",
+      8,
+      "0",
+      0,
+      4,
+      1,
+      "changing"
+    ],
+    "requested": 2163206,
+    "peak": 82064,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      15531,
+      15625,
+      17555,
+      18281
+    ],
+    "execute_bytes": 2062316,
+    "median_ns": 4192249,
+    "min_ns": 3730481,
+    "max_ns": 5547235,
+    "setup_median_ns": 66879,
+    "execute_median_ns": 4053982
+  },
+  {
+    "key": [
+      "ordinary",
+      "specialized",
+      "oldest-first",
+      8,
+      "0",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 66698711,
+    "peak": 21533211,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      11953,
+      12047,
+      12793,
+      12887
+    ],
+    "execute_bytes": 66611104,
+    "median_ns": 53950535,
+    "min_ns": 51568635,
+    "max_ns": 62676706,
+    "setup_median_ns": 72064,
+    "execute_median_ns": 53827752
+  },
+  {
+    "key": [
+      "combined",
+      "inferred",
+      "oldest-first",
+      8,
+      "0",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 1533942,
+    "peak": 60532,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      15531,
+      11565,
+      15531,
+      11565
+    ],
+    "execute_bytes": 1448630,
+    "median_ns": 3014736,
+    "min_ns": 2509677,
+    "max_ns": 3361065,
+    "setup_median_ns": 50771,
+    "execute_median_ns": 2916160
+  },
+  {
+    "key": [
+      "ordinary",
+      "scan",
+      "newest-first",
+      8,
+      "all",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 83458572,
+    "peak": 23893748,
+    "artifact_bytes": 0,
+    "retained": 5702,
+    "setup_bytes": [
+      11953,
+      12047,
+      12793,
+      12887
+    ],
+    "execute_bytes": 83376224,
+    "median_ns": 88403930,
+    "min_ns": 72166173,
+    "max_ns": 104220104,
+    "setup_median_ns": 81802,
+    "execute_median_ns": 88237304
+  },
+  {
+    "key": [
+      "ordinary",
+      "scan",
+      "newest-first",
+      8,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 5141955,
+    "peak": 2276275,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      11953
+    ],
+    "execute_bytes": 5109618,
+    "median_ns": 4500546,
+    "min_ns": 3850234,
+    "max_ns": 4883436,
+    "setup_median_ns": 15613,
+    "execute_median_ns": 3809104
+  },
+  {
+    "key": [
+      "ordinary",
+      "scan",
+      "aliases",
+      64,
+      "0",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 9940433,
+    "peak": 352897,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      32467,
+      32501,
+      32535,
+      32569
+    ],
+    "execute_bytes": 9778426,
+    "median_ns": 7564884,
+    "min_ns": 6938656,
+    "max_ns": 8328275,
+    "setup_median_ns": 183809,
+    "execute_median_ns": 7344297
+  },
+  {
+    "key": [
+      "ordinary",
+      "scan",
+      "aliases",
+      0,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 36006,
+    "peak": 13778,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      6567
+    ],
+    "execute_bytes": 14197,
+    "median_ns": 48334,
+    "min_ns": 45559,
+    "max_ns": 58213,
+    "setup_median_ns": 8749,
+    "execute_median_ns": 23427
+  },
+  {
+    "key": [
+      "ordinary",
+      "specialized",
+      "distinct",
+      64,
+      "all",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 11620459,
+    "peak": 2229015,
+    "artifact_bytes": 0,
+    "retained": 1961700,
+    "setup_bytes": [
+      32475,
+      32087,
+      32475,
+      32087
+    ],
+    "execute_bytes": 11456644,
+    "median_ns": 10863158,
+    "min_ns": 8440730,
+    "max_ns": 14630606,
+    "setup_median_ns": 607966,
+    "execute_median_ns": 9189554
+  },
+  {
+    "key": [
+      "combined",
+      "inferred",
+      "newest-first",
+      0,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 47176,
+    "peak": 24168,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      7787
+    ],
+    "execute_bytes": 19851,
+    "median_ns": 111846,
+    "min_ns": 105862,
+    "max_ns": 120315,
+    "setup_median_ns": 9444,
+    "execute_median_ns": 72356
+  },
+  {
+    "key": [
+      "ordinary",
+      "scan",
+      "aliases",
+      64,
+      "0",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 8769881,
+    "peak": 346137,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      32467,
+      32079,
+      32467,
+      32079
+    ],
+    "execute_bytes": 8610372,
+    "median_ns": 5730913,
+    "min_ns": 5211280,
+    "max_ns": 6472497,
+    "setup_median_ns": 143419,
+    "execute_median_ns": 5540509
+  },
+  {
+    "key": [
+      "ordinary",
+      "prepared-prefix",
+      "newest-first",
+      8,
+      "all",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 17492743,
+    "peak": 2330158,
+    "artifact_bytes": 12180,
+    "retained": 4038,
+    "setup_bytes": [
+      58537,
+      9897,
+      14370,
+      9897
+    ],
+    "execute_bytes": 17371750,
+    "median_ns": 13853816,
+    "min_ns": 11987572,
+    "max_ns": 16772517,
+    "setup_median_ns": 110773,
+    "execute_median_ns": 12905259
+  },
+  {
+    "key": [
+      "ordinary",
+      "specialized",
+      "aliases",
+      64,
+      "all",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 7568691,
+    "peak": 550277,
+    "artifact_bytes": 0,
+    "retained": 226980,
+    "setup_bytes": [
+      32467,
+      32079,
+      32467,
+      32079
+    ],
+    "execute_bytes": 7405028,
+    "median_ns": 4848081,
+    "min_ns": 4289275,
+    "max_ns": 5233694,
+    "setup_median_ns": 145618,
+    "execute_median_ns": 4602014
+  },
+  {
+    "key": [
+      "ordinary",
+      "specialized",
+      "oldest-first",
+      8,
+      "0",
+      0,
+      4,
+      1,
+      "changing"
+    ],
+    "requested": 66675513,
+    "peak": 21533047,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      11953,
+      12047,
+      12793,
+      12887
+    ],
+    "execute_bytes": 66588234,
+    "median_ns": 61106714,
+    "min_ns": 50218709,
+    "max_ns": 73783347,
+    "setup_median_ns": 81112,
+    "execute_median_ns": 60903259
+  },
+  {
+    "key": [
+      "ordinary",
+      "prepared-prefix",
+      "newest-first",
+      8,
+      "0",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 17492743,
+    "peak": 2328139,
+    "artifact_bytes": 12180,
+    "retained": 0,
+    "setup_bytes": [
+      58537,
+      9897,
+      14370,
+      9897
+    ],
+    "execute_bytes": 17371750,
+    "median_ns": 13260285,
+    "min_ns": 11183495,
+    "max_ns": 13981451,
+    "setup_median_ns": 118512,
+    "execute_median_ns": 12429489
+  },
+  {
+    "key": [
+      "ordinary",
+      "prefix",
+      "newest-first",
+      8,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 5302303,
+    "peak": 2326066,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      44053
+    ],
+    "execute_bytes": 5239300,
+    "median_ns": 4150382,
+    "min_ns": 3623497,
+    "max_ns": 5001815,
+    "setup_median_ns": 50953,
+    "execute_median_ns": 3303934
+  },
+  {
+    "key": [
+      "ordinary",
+      "resumable",
+      "aliases",
+      64,
+      "0",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 7765911,
+    "peak": 35852,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      15149,
+      14921,
+      15149,
+      14921
+    ],
+    "execute_bytes": 7679404,
+    "median_ns": 3239943,
+    "min_ns": 2847273,
+    "max_ns": 4081326,
+    "setup_median_ns": 86619,
+    "execute_median_ns": 3126585
+  },
+  {
+    "key": [
+      "ordinary",
+      "scan",
+      "oldest-first",
+      8,
+      "0",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 16781732,
+    "peak": 2276275,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      11953,
+      8091,
+      11953,
+      8091
+    ],
+    "execute_bytes": 16711918,
+    "median_ns": 14757799,
+    "min_ns": 12482564,
+    "max_ns": 15962571,
+    "setup_median_ns": 59726,
+    "execute_median_ns": 14232368
+  },
+  {
+    "key": [
+      "ordinary",
+      "specialized",
+      "oldest-first",
+      8,
+      "all",
+      2,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 9932594,
+    "peak": 2119104,
+    "artifact_bytes": 0,
+    "retained": 2613,
+    "setup_bytes": [
+      11953,
+      8091,
+      11953,
+      8091
+    ],
+    "execute_bytes": 9857521,
+    "median_ns": 6355454,
+    "min_ns": 5740781,
+    "max_ns": 7664738,
+    "setup_median_ns": 58199,
+    "execute_median_ns": 5933813
+  },
+  {
+    "key": [
+      "reverse",
+      "inferred",
+      "aliases",
+      64,
+      "0",
+      0,
+      4,
+      1,
+      "changing"
+    ],
+    "requested": 162943085,
+    "peak": 201187,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      23158,
+      23176,
+      23194,
+      23844
+    ],
+    "execute_bytes": 162817086,
+    "median_ns": 322234101,
+    "min_ns": 293656150,
+    "max_ns": 356177520,
+    "setup_median_ns": 120214,
+    "execute_median_ns": 321823462
+  },
+  {
+    "key": [
+      "reverse",
+      "inferred",
+      "distinct",
+      64,
+      "0",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 179421225,
+    "peak": 267872,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      23166,
+      23184,
+      23202,
+      23852
+    ],
+    "execute_bytes": 179294930,
+    "median_ns": 345850055,
+    "min_ns": 300265791,
+    "max_ns": 389375866,
+    "setup_median_ns": 653572,
+    "execute_median_ns": 344829312
+  },
+  {
+    "key": [
+      "ordinary",
+      "scan",
+      "oldest-first",
+      0,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 36190,
+    "peak": 15159,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      8689
+    ],
+    "execute_bytes": 9357,
+    "median_ns": 60763,
+    "min_ns": 57929,
+    "max_ns": 65142,
+    "setup_median_ns": 13715,
+    "execute_median_ns": 21503
+  },
+  {
+    "key": [
+      "reverse",
+      "inferred",
+      "newest-first",
+      8,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 438986,
+    "peak": 60724,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      15531
+    ],
+    "execute_bytes": 401677,
+    "median_ns": 902009,
+    "min_ns": 777854,
+    "max_ns": 1030722,
+    "setup_median_ns": 15116,
+    "execute_median_ns": 850661
+  },
+  {
+    "key": [
+      "ordinary",
+      "specialized",
+      "newest-first",
+      8,
+      "all",
+      2,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 9932594,
+    "peak": 2103744,
+    "artifact_bytes": 0,
+    "retained": 2613,
+    "setup_bytes": [
+      11953,
+      8091,
+      11953,
+      8091
+    ],
+    "execute_bytes": 9857521,
+    "median_ns": 7462028,
+    "min_ns": 6971901,
+    "max_ns": 7760177,
+    "setup_median_ns": 86058,
+    "execute_median_ns": 6994984
+  },
+  {
+    "key": [
+      "ordinary",
+      "resumable",
+      "newest-first",
+      8,
+      "0",
+      0,
+      4,
+      1,
+      "changing"
+    ],
+    "requested": 150376856,
+    "peak": 8218777,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      9638,
+      9759,
+      10358,
+      10479
+    ],
+    "execute_bytes": 150308936,
+    "median_ns": 63434815,
+    "min_ns": 53131307,
+    "max_ns": 71166825,
+    "setup_median_ns": 44721,
+    "execute_median_ns": 63334426
+  },
+  {
+    "key": [
+      "ordinary",
+      "specialized",
+      "aliases",
+      64,
+      "all",
+      1,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 7080345,
+    "peak": 623121,
+    "artifact_bytes": 0,
+    "retained": 264245,
+    "setup_bytes": [
+      32467,
+      32501,
+      32535,
+      32569
+    ],
+    "execute_bytes": 6914184,
+    "median_ns": 5017244,
+    "min_ns": 3893230,
+    "max_ns": 5475610,
+    "setup_median_ns": 209865,
+    "execute_median_ns": 4627867
+  },
+  {
+    "key": [
+      "ordinary",
+      "prefix",
+      "oldest-first",
+      8,
+      "0",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 17184528,
+    "peak": 2326066,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      44053,
+      42220,
+      44053,
+      42220
+    ],
+    "execute_bytes": 16983690,
+    "median_ns": 12342581,
+    "min_ns": 10949585,
+    "max_ns": 17068507,
+    "setup_median_ns": 182571,
+    "execute_median_ns": 11464465
+  },
+  {
+    "key": [
+      "reverse",
+      "inferred",
+      "newest-first",
+      8,
+      "all",
+      2,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 1151701,
+    "peak": 61462,
+    "artifact_bytes": 0,
+    "retained": 3045,
+    "setup_bytes": [
+      15531,
+      11565,
+      15531,
+      11565
+    ],
+    "execute_bytes": 1066389,
+    "median_ns": 2175764,
+    "min_ns": 2074137,
+    "max_ns": 2294884,
+    "setup_median_ns": 50588,
+    "execute_median_ns": 2074857
+  },
+  {
+    "key": [
+      "ordinary",
+      "scan",
+      "distinct",
+      64,
+      "0",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 14360185,
+    "peak": 630404,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      32475,
+      32509,
+      32543,
+      32577
+    ],
+    "execute_bytes": 14198026,
+    "median_ns": 14634734,
+    "min_ns": 11882465,
+    "max_ns": 14919255,
+    "setup_median_ns": 690432,
+    "execute_median_ns": 13697936
+  },
+  {
+    "key": [
+      "ordinary",
+      "scan",
+      "distinct",
+      64,
+      "all",
+      1,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 11526553,
+    "peak": 2072274,
+    "artifact_bytes": 0,
+    "retained": 1648645,
+    "setup_bytes": [
+      32475,
+      32509,
+      32543,
+      32577
+    ],
+    "execute_bytes": 11364394,
+    "median_ns": 10516386,
+    "min_ns": 9718201,
+    "max_ns": 10992062,
+    "setup_median_ns": 523143,
+    "execute_median_ns": 9108511
+  },
+  {
+    "key": [
+      "ordinary",
+      "specialized",
+      "newest-first",
+      8,
+      "all",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 66698711,
+    "peak": 21414607,
+    "artifact_bytes": 0,
+    "retained": 5702,
+    "setup_bytes": [
+      11953,
+      12047,
+      12793,
+      12887
+    ],
+    "execute_bytes": 66611104,
+    "median_ns": 60435742,
+    "min_ns": 58670772,
+    "max_ns": 65953173,
+    "setup_median_ns": 74379,
+    "execute_median_ns": 55912247
+  },
+  {
+    "key": [
+      "ordinary",
+      "prefix",
+      "newest-first",
+      8,
+      "all",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 85097664,
+    "peak": 22980238,
+    "artifact_bytes": 0,
+    "retained": 5702,
+    "setup_bytes": [
+      44053,
+      46002,
+      49689,
+      51638
+    ],
+    "execute_bytes": 84875048,
+    "median_ns": 86589895,
+    "min_ns": 77271708,
+    "max_ns": 106337289,
+    "setup_median_ns": 246816,
+    "execute_median_ns": 80570461
+  },
+  {
+    "key": [
+      "combined",
+      "inferred",
+      "oldest-first",
+      8,
+      "all",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 2256704,
+    "peak": 89217,
+    "artifact_bytes": 0,
+    "retained": 6278,
+    "setup_bytes": [
+      15531,
+      15625,
+      17555,
+      18281
+    ],
+    "execute_bytes": 2155650,
+    "median_ns": 4526728,
+    "min_ns": 3914707,
+    "max_ns": 4881345,
+    "setup_median_ns": 66298,
+    "execute_median_ns": 4376608
+  },
+  {
+    "key": [
+      "ordinary",
+      "specialized",
+      "newest-first",
+      8,
+      "0",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 66698711,
+    "peak": 21410331,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      11953,
+      12047,
+      12793,
+      12887
+    ],
+    "execute_bytes": 66611104,
+    "median_ns": 57300372,
+    "min_ns": 52172999,
+    "max_ns": 63012396,
+    "setup_median_ns": 69313,
+    "execute_median_ns": 53330070
+  },
+  {
+    "key": [
+      "reverse",
+      "inferred",
+      "oldest-first",
+      8,
+      "0",
+      0,
+      4,
+      1,
+      "changing"
+    ],
+    "requested": 1639270,
+    "peak": 64571,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      15531,
+      15625,
+      17555,
+      18281
+    ],
+    "execute_bytes": 1538380,
+    "median_ns": 3754852,
+    "min_ns": 3413590,
+    "max_ns": 4273715,
+    "setup_median_ns": 67181,
+    "execute_median_ns": 3516985
+  },
+  {
+    "key": [
+      "combined",
+      "inferred",
+      "distinct",
+      0,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 52519,
+    "peak": 22723,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      7778
+    ],
+    "execute_bytes": 28555,
+    "median_ns": 175135,
+    "min_ns": 144491,
+    "max_ns": 179578,
+    "setup_median_ns": 10532,
+    "execute_median_ns": 139838
+  },
+  {
+    "key": [
+      "ordinary",
+      "specialized",
+      "oldest-first",
+      0,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 39393,
+    "peak": 17738,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      8689
+    ],
+    "execute_bytes": 7301,
+    "median_ns": 64298,
+    "min_ns": 45209,
+    "max_ns": 65638,
+    "setup_median_ns": 12812,
+    "execute_median_ns": 20710
+  },
+  {
+    "key": [
+      "ordinary",
+      "prepared-prefix",
+      "oldest-first",
+      8,
+      "0",
+      0,
+      4,
+      1,
+      "changing"
+    ],
+    "requested": 87238822,
+    "peak": 23008780,
+    "artifact_bytes": 44404,
+    "retained": 0,
+    "setup_bytes": [
+      58045,
+      58098,
+      62377,
+      64470
+    ],
+    "execute_bytes": 86964926,
+    "median_ns": 84275138,
+    "min_ns": 72799287,
+    "max_ns": 87622554,
+    "setup_median_ns": 296083,
+    "execute_median_ns": 83858828
+  },
+  {
+    "key": [
+      "ordinary",
+      "scan",
+      "distinct",
+      0,
+      "0",
+      0,
+      1,
+      0,
+      "same"
+    ],
+    "requested": 35842,
+    "peak": 13743,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      8415
+    ],
+    "execute_bytes": 12077,
+    "median_ns": 67217,
+    "min_ns": 61290,
+    "max_ns": 73900,
+    "setup_median_ns": 17676,
+    "execute_median_ns": 28333
+  },
+  {
+    "key": [
+      "ordinary",
+      "prefix",
+      "newest-first",
+      8,
+      "all",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 17184528,
+    "peak": 2328085,
+    "artifact_bytes": 0,
+    "retained": 4038,
+    "setup_bytes": [
+      44053,
+      42220,
+      44053,
+      42220
+    ],
+    "execute_bytes": 16983690,
+    "median_ns": 14686604,
+    "min_ns": 11434724,
+    "max_ns": 15363217,
+    "setup_median_ns": 195405,
+    "execute_median_ns": 13637995
+  },
+  {
+    "key": [
+      "reverse",
+      "inferred",
+      "aliases",
+      64,
+      "0",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 171774165,
+    "peak": 201755,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      23158,
+      23176,
+      23194,
+      23844
+    ],
+    "execute_bytes": 171647970,
+    "median_ns": 352737575,
+    "min_ns": 272440149,
+    "max_ns": 367260046,
+    "setup_median_ns": 129651,
+    "execute_median_ns": 352261580
+  },
+  {
+    "key": [
+      "ordinary",
+      "resumable",
+      "distinct",
+      64,
+      "all",
+      0,
+      4,
+      0,
+      "same"
+    ],
+    "requested": 13012799,
+    "peak": 2003289,
+    "artifact_bytes": 0,
+    "retained": 1961700,
+    "setup_bytes": [
+      15153,
+      14925,
+      15153,
+      14925
+    ],
+    "execute_bytes": 12926156,
+    "median_ns": 10822804,
+    "min_ns": 8269552,
+    "max_ns": 11329136,
+    "setup_median_ns": 513123,
+    "execute_median_ns": 9252709
+  },
+  {
+    "key": [
+      "combined",
+      "inferred",
+      "distinct",
+      64,
+      "all",
+      0,
+      4,
+      0,
+      "changing"
+    ],
+    "requested": 206729001,
+    "peak": 5020624,
+    "artifact_bytes": 0,
+    "retained": 2159642,
+    "setup_bytes": [
+      23166,
+      23184,
+      23202,
+      23852
+    ],
+    "execute_bytes": 206602706,
+    "median_ns": 433887247,
+    "min_ns": 364657845,
+    "max_ns": 456856963,
+    "setup_median_ns": 127082,
+    "execute_median_ns": 430200116
+  },
+  {
+    "key": [
+      "ordinary",
+      "scan",
+      "oldest-first",
+      8,
+      "0",
+      0,
+      4,
+      1,
+      "changing"
+    ],
+    "requested": 83430046,
+    "peak": 23889308,
+    "artifact_bytes": 0,
+    "retained": 0,
+    "setup_bytes": [
+      11953,
+      12047,
+      12793,
+      12887
+    ],
+    "execute_bytes": 83348026,
+    "median_ns": 82594484,
+    "min_ns": 76415152,
+    "max_ns": 90246533,
+    "setup_median_ns": 75965,
+    "execute_median_ns": 82464495
+  }
+]

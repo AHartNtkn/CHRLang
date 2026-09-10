@@ -1,12 +1,10 @@
 # Next experimental cycle: answer the remaining design questions
 
-The [stronger-control source gate](results/S10-arrival-controls.md) qualifies specialization and prefix lowering but shows that both retain explicit choice enumeration. T078 next charges their complete lifecycle, including changed artifact signatures. T079 effect certification and direct solving remain required.
-
-Current selection: the [order lifecycle breadth review](results/S08-order-lifecycle.md) advances complete-source qualification under T078 (investigation 13) to challenge the new favorable sharing regime with stronger lowering/solving controls. Reconsider effect certification (investigation 2) at that qualification boundary. The numbered investigations below retain their full scope.
+The [stronger-control lifecycle pilot](results/S10-arrival-lifecycle.md) validates1,344 runs and192 exact allocation pairs. Specialization improves the substantive explicit control but preserves the conditional choice/check advantage; streams favor explicit execution. T079 effect/ownership beneficiary qualification is selected next. Direct solving, native compilation and broader coherent architectures remain required.
 
 Test the mechanisms that remain unanswered, then compare the complete architectures they enable. Reuse the existing baselines and valid results. The research goal remains active.
 
-This is the execution order from the worktree at `39a014ff7`. It makes the next cycle concrete without treating earlier bounded findings as answers to broader designs. The [57-question map](question-to-experiment-map.md) retains every individual obligation; the [mechanism specifications](remaining-investigations.md#distinctions-that-must-not-disappear-inside-a-stage) distinguish variants within those questions. The [governing sequence](sequence.md) supplies the experimental standards.
+The numbered cycle was established from worktree `39a014ff7`; the current selection above incorporates subsequent evidence. It makes the next cycle concrete without treating earlier bounded findings as answers to broader designs. The [57-question map](question-to-experiment-map.md) retains every individual obligation; the [mechanism specifications](remaining-investigations.md#distinctions-that-must-not-disappear-inside-a-stage) distinguish variants within those questions. The [governing sequence](sequence.md) supplies the experimental standards.
 
 ## What each investigation must deliver
 
@@ -19,6 +17,8 @@ A loss requires attribution before architectural rejection. A gain requires an a
 ## First: finish the current discriminating comparison
 
 ### 1. Charge the full cost of compact choice conditions — S03-C / S08, T074
+
+The bounded [order lifecycle comparison](results/S08-order-lifecycle.md) and [stronger-control comparison](results/S10-arrival-lifecycle.md) now supply evidence for this cycle. Broader support and lifetime questions remain required.
 
 **Question:** Does changing the representation of choice conditions reduce total cost, or merely move work into answer enumeration?
 
