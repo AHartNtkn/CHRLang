@@ -46,12 +46,6 @@ impl Prepared {
     pub fn start(self: &Arc<Self>, query: &Query) -> Engine {
         self.start_mode(query, false, false, false, false)
     }
-    pub fn start_relevant_deductions(self: &Arc<Self>, query: &Query) -> Engine {
-        let mut engine = self.start(query);
-        let state = engine.frontier.front_mut().expect("initial source state");
-        state.store = state.store.clone().with_relevant_deductions();
-        engine
-    }
     pub fn start_shared_deductions(self: &Arc<Self>, query: &Query) -> Engine {
         self.start_mode(query, true, false, false, false)
     }
@@ -272,12 +266,6 @@ pub struct Engine {
     discovery_stats: DiscoveryStats,
 }
 impl Engine {
-    #[cfg(feature = "deduction-work")]
-    pub fn relevant_deduction_hits(&self) -> usize {
-        self.frontier
-            .front()
-            .map_or(0, |s| s.store.relevant_deduction_hits())
-    }
     pub fn discovery_stats(&self) -> &DiscoveryStats {
         &self.discovery_stats
     }

@@ -1,0 +1,19 @@
+
+running 1 test
+test descendant_reads_distinguish_cached_occurs_failure_from_valid_merge ... FAILED
+
+failures:
+
+failures:
+    descendant_reads_distinguish_cached_occurs_failure_from_valid_merge
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 3 filtered out; finished in 0.00s
+
+   Compiling chr-relational v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-relational)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.13s
+     Running tests/relevant_deductions.rs (target/debug/deps/relevant_deductions-829aa1ff1829d7f6)
+
+thread 'descendant_reads_distinguish_cached_occurs_failure_from_valid_merge' (334) panicked at research/chr-relational/tests/relevant_deductions.rs:209:5:
+assertion failed: !valid.failed()
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass `-p chr-relational --test relevant_deductions`

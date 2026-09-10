@@ -63,21 +63,8 @@ impl<V: Clone> EqualityMap<V> {
     }
 }
 
-#[derive(Clone, PartialEq, Eq, PartialOrd, Ord)]
-struct RelevantKey {
-    inputs: (Value, Value),
-    reads: Vec<(Value, Value, Vec<Descriptor>)>,
-}
-struct RelevantDeduction {
-    descriptions: Vec<Descriptor>,
-    children: Vec<(Value, Value)>,
-    failed: bool,
-}
 #[derive(Default)]
 struct Arena {
-    relevant: BTreeMap<RelevantKey, Rc<RelevantDeduction>>,
-    #[cfg(feature = "deduction-work")]
-    relevant_hits: usize,
     nodes: Vec<Option<Descriptor>>,
     next_occurrence: usize,
     next_equality_state: usize,
@@ -97,7 +84,6 @@ struct Resource {
 }
 #[derive(Clone, Default)]
 pub struct Store {
-    relevant_deductions: bool,
     arena: Rc<RefCell<Arena>>,
     parents: EqualityMap<Value>,
     descriptors: EqualityMap<Vec<Descriptor>>,
@@ -121,64 +107,11 @@ impl Store {
 
     /// Experimental exact equality-transition reuse; resource ownership stays local.
     pub fn with_shared_deductions(mut self) -> Self {
-        self.relevant_deductions = false;
         if !self.share_deductions {
             self.equality_state = self.fresh_equality_state();
             self.share_deductions = true;
         }
         self
-    }
-    /// Experimental reachable-read key with a local equality delta.
-    pub fn with_relevant_deductions(mut self) -> Self {
-        self.relevant_deductions = true;
-        self.share_deductions = false;
-        self
-    }
-    #[cfg(feature = "deduction-work")]
-    pub fn relevant_deduction_hits(&self) -> usize {
-        self.arena.borrow().relevant_hits
-    }
-    fn relevant_key(&self, a: Value, b: Value) -> RelevantKey {
-        let mut todo = vec![a, b];
-        let mut reads = BTreeMap::new();
-        while let Some(id) = todo.pop() {
-            if reads.contains_key(&id) {
-                continue;
-            }
-            let root = self.root(id);
-            let descriptions = self.descriptions(root);
-            for (_, children) in &descriptions {
-                todo.extend(children.iter().copied());
-            }
-            reads.insert(id, (root, descriptions));
-        }
-        RelevantKey {
-            inputs: (a, b),
-            reads: reads
-                .into_iter()
-                .map(|(id, (root, ds))| (id, root, ds))
-                .collect(),
-        }
-    }
-    fn record_relevant(
-        &self,
-        key: Option<RelevantKey>,
-        descriptions: Vec<Descriptor>,
-        children: Vec<(Value, Value)>,
-    ) {
-        if let Some(key) = key {
-            let mut arena = self.arena.borrow_mut();
-            if arena.relevant.len() < 4096 {
-                arena.relevant.insert(
-                    key,
-                    Rc::new(RelevantDeduction {
-                        descriptions,
-                        children,
-                        failed: self.failed,
-                    }),
-                );
-            }
-        }
     }
     fn fresh_equality_state(&self) -> usize {
         let mut arena = self.arena.borrow_mut();
@@ -288,26 +221,6 @@ impl Store {
         {
             self.last_step_changed = true;
         }
-        let relevant = self.relevant_deductions.then(|| self.relevant_key(a, b));
-        if let Some(key) = &relevant {
-            let cached = self.arena.borrow().relevant.get(key).cloned();
-            if let Some(d) = cached {
-                #[cfg(feature = "deduction-work")]
-                {
-                    self.arena.borrow_mut().relevant_hits += 1;
-                }
-                self.failed = d.failed;
-                if d.failed {
-                    self.equations.clear();
-                } else {
-                    self.parents.insert(b, a);
-                    self.descriptors.remove(&b);
-                    self.descriptors.insert(a, d.descriptions.clone());
-                    self.equations.extend(d.children.iter().copied());
-                }
-                return true;
-            }
-        }
         let key = (self.equality_state, a, b);
         if self.share_deductions {
             let cached = self.arena.borrow().deductions.get(&key).cloned();
@@ -333,7 +246,6 @@ impl Store {
         {
             self.failed = true;
             self.equations.clear();
-            self.record_relevant(relevant, vec![], vec![]);
             self.record_deduction(key, vec![]);
             return true;
         }
@@ -350,18 +262,13 @@ impl Store {
         self.parents.insert(b, a);
         let descriptions = &mut self.descriptors;
         descriptions.remove(&b);
-        let merged = relevant.as_ref().map(|_| da.clone()).unwrap_or_default();
         descriptions.insert(a, da);
-        let children = if self.share_deductions || self.relevant_deductions {
+        let children = if self.share_deductions {
             self.equations.iter().skip(pending).copied().collect()
         } else {
             vec![]
         };
-        if self.relevant_deductions {
-            self.record_relevant(relevant, merged, children);
-        } else {
-            self.record_deduction(key, children);
-        }
+        self.record_deduction(key, children);
         true
     }
     fn record_deduction(&mut self, key: (usize, Value, Value), children: Vec<(Value, Value)>) {
