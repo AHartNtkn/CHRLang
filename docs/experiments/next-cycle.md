@@ -10,20 +10,20 @@ The [design review](results/R07-design-disposition-review.md) distinguishes meas
 
 Several useful comparisons now exist. [Integrated graph scanning](results/S02-multihead-scale.md) has favorable measured regimes. [Finite solving](results/S06-finite-lifecycle.md) has selective benefits and unselective costs. [Support ordering](results/S08-order-lifecycle.md) has opposing regimes. These findings supply stronger controls, not a complete architecture ranking.
 
-The [effectful source gate](results/S05-effectful-source-gate.md) distinguishes resource recognition from valid execution boundaries. Region keys qualify 288 finite queries, but competing consumption, intermediate observation, earlier bindings and surviving history defeat unchecked contraction. No broader reuse implementation is selected.
+The [effectful boundary gate](results/S05-effectful-boundary-gate.md) finds complete-answer agreement insufficient for first-answer equivalence. Resumable whole-state tables preserve tested effects and FIFO delivery, but distinct inert caller tags prevent all measured reuse. The next candidate must preserve those tags separately without separating active dependencies.
 
 ## Start here: the next experiments
 
-Qualify a checked source boundary and a resumable alternative. A resource-sensitive key alone cannot preserve caller interleaving or history. The source gate narrows the implementation question to those responsibilities.
+Test source-derived separation of inert ground residuals within resumable execution. This directly addresses the observed missed reuse while retaining caller interleaving, active resources and propagation history.
 
 | Next | Experiment | Decision and follow-through |
 |---|---|---|
-| 1 — T075 active | Test a checked initial priority phase with complete resource dependencies; independently compare a design that resumes at effect boundaries for interfering callers. | Can reuse extend beyond private calls while preserving current occurrences, history, intermediate effects and source order? Do not turn the four counterexamples into a claim against all reuse. |
-| 2 — conditional on qualification | Qualify ordered output, interruptible cancellation, entry ownership, invalidation and changing-query reuse; register complete costs against competent recomputation. | Do saved computations repay recognition, dependency checks, transport and retained entries? Complete-answer multiset agreement is insufficient for these endpoints. |
-| At the first gate or obstruction | Reconsider adaptive timing attribution, native local ownership, conditional equality/lifetime repair and incremental projection. | Effectful reuse currently has concrete semantic obligations that can change its scope. Adaptive timing uncertainty remains required work. |
-| Within three further packages | Review all directions and every missing mechanism below. | The effectful source gate is package one after the adaptive review. Correctness, ownership, attribution and timing count independently. |
+| 1 — T075 active | Register and implement per-derivation ownership of ground residuals whose signatures no prepared rule can read. Compare Direct and existing whole-state tables on different callers and interfering effects. | Can smaller active states share execution without losing the caller's own residual data or changing any FIFO delivery? Include dynamically emitted data and near misses read by a rule. |
+| 2 — conditional on qualification | Qualify variable/binding boundaries, cancellation, output ownership and complete costs. | Does reduced key/state duplication repay residual transport and per-derivation retention? Variable-bearing observations and general call relevance remain distinct required investigations. |
+| At the source gate or obstruction | Reconsider adaptive timing attribution, native local ownership, conditional equality/lifetime repair and incremental projection. | The selected comparison addresses an observed representation obligation. These independent alternatives retain their evidence requirements. |
+| Within two further packages | Review all directions and every missing mechanism below. | Source dependency/scheduling and checked-boundary/resumable qualification are the first two packages after the adaptive review. |
 
-The [source gate report](results/S05-effectful-source-gate.md#which-investigation-comes-next-and-why) compares the next step with the strongest ready alternatives. Exact configurations, bounds and interpretation must be registered before new runs. Broader architectural and language questions remain required throughout.
+The [boundary report](results/S05-effectful-boundary-gate.md#next-comparison-and-its-priority) compares the next implementation with the strongest ready alternatives. Register exact configurations, controls, bounds and interpretation before new runs. No architecture or language restriction is selected.
 
 ## The full programme
 
@@ -71,7 +71,7 @@ The numbers below identify investigations and their detailed specifications late
 
 ## The next concrete experiments
 
-**Next qualify checked and resumable effectful reuse — T075.** Follow the source gate above and the [full breadth review](results/S04-adaptive-cost-breadth-review.md). The strongest ready alternative is targeted adaptive timing attribution: it could resolve fixture-level policies, while effectful reuse can change the admitted source boundary. Reconsider that ordering at the first gate or obstruction.
+**Next test source-derived residual separation in resumable execution — T075.** Follow the source comparison above and the [boundary report](results/S05-effectful-boundary-gate.md). The strongest ready alternative remains adaptive timing attribution. Separating demonstrably inert data could overcome measured missed reuse while preserving active effects; revisit that judgment at the first gate or obstruction.
 
 T077 still requires timing attribution, policy challenges, delayed splitting and checkpoints/replay. T076 still requires incremental projection, broader connected shapes and source/theory correspondence. T074 still requires conditional equality/lifetime repair and sustained ownership. T080 still requires native local claims, dynamic choices, failed branches and descriptor lifetime. Broader resource derivation, integrated execution, language restrictions and complete architectures retain their comparisons below.
 

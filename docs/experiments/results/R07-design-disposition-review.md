@@ -364,7 +364,7 @@ The [finite-solver lifecycle pilot](S06-finite-lifecycle.md) completes 1,428 pro
 
 ### 40. General reconvergence, alpha-equivalent tables and selective recomputation — Not directly resolved
 
-**Effectful source follow-up.** The [dependency and scheduling gate](S05-effectful-source-gate.md) qualifies 288 region-keyed queries per build while call-only keys mismatch 252. Four source challenges fail even without caching: competing consumption, intermediate observation, earlier bindings and surviving propagation history. This distinguishes recognition from a valid execution boundary. Checked/resumable effects, ordered answers and full ownership/costs remain required; no broader reuse architecture is selected.
+**Effectful reuse follow-up.** The [dependency gate](S05-effectful-source-gate.md) distinguishes resource-sensitive keys from valid scheduling/history boundaries. The [boundary gate](S05-effectful-boundary-gate.md) additionally finds 48 ordered-delivery differences in 128 phase comparisons despite complete multiset agreement. Resumable tables preserve all 968 tested FIFO steps, with reuse for same callers but zero hits across distinct inert tags. Source-derived residual separation is next; general dependency transport, sustained owners and total costs remain required.
 
 The [complete-caller ownership gate](S05-caller-ownership-gate.md) executes fresh replay and caller continuations directly and verifies prepared-cache/consumer lifetime separation. This enables a full lifecycle pilot; it does not establish a reuse or architecture winner.
 

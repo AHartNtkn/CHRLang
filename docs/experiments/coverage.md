@@ -1,6 +1,6 @@
 # Unanswered architecture questions and experimental ownership
 
-The [effectful source gate](results/S05-effectful-source-gate.md) supplies the current evidence. Effectful reuse source gate passes ten tests in each build. Across 288 queries, uncached and region-keyed contraction agree independently; call-only keys mismatch 252 queries and region keys obtain 240 hits. Competing consumption, intermediate observation, earlier bindings and surviving propagation history invalidate unchecked contraction even without caching. T075 next qualifies a checked source boundary and resumable effects, including ordered delivery and occurrence/history transport. One package since the adaptive breadth review; goal active.
+The [effectful boundary gate](results/S05-effectful-boundary-gate.md) supplies the current evidence. Effectful boundary gate finds 48 ordered-delivery differences in 128 priority-phase comparisons despite complete multiset agreement. Existing resumable tables preserve 968 FIFO step comparisons across 24 effectful sources and 192 disposal/restart trials per build, including 176 unfinished drops. Metrics record 192 same-caller transition hits and zero distinct inert-tag hits. T075 next tests source-derived separation of inert ground residuals while retaining active resources/history in resumable execution. Two packages since the adaptive breadth review; goal active.
 
 ## Earlier experimental checkpoints
 

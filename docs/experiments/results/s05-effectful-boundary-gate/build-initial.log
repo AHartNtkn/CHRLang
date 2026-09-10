@@ -1,0 +1,26 @@
+   Compiling chr-reuse v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-reuse)
+warning: unused imports: `Goal` and `and`
+ --> research/chr-reuse/tests/effectful_boundary.rs:7:26
+  |
+7 | use chr_syntax::{Answer, Goal, Query, Rule, Var, and, atom, c, eq, or, t, v};
+  |                          ^^^^                    ^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+error[E0282]: type annotations needed for `[_; 2]`
+  --> research/chr-reuse/tests/effectful_boundary.rs:19:9
+   |
+19 |     let mut branches=[c("tail",[nat(a),atom("a"),v(0)]).into(),c("tail",[nat(b),atom("b"),v(0)]).into()];
+   |         ^^^^^^^^^^^^
+...
+22 |         Rule::simplify("phase",[c("work",[v(0)]),c("token",[])],or(branches[0].clone(),branches[1].clone())),
+   |                                                                    ----------- type must be known at this point
+   |
+help: consider giving `branches` an explicit type, where the placeholder `_` is specified
+   |
+19 |     let mut branches: [_; 2]=[c("tail",[nat(a),atom("a"),v(0)]).into(),c("tail",[nat(b),atom("b"),v(0)]).into()];
+   |                     ++++++++
+
+For more information about this error, try `rustc --explain E0282`.
+warning: `chr-reuse` (test "effectful_boundary") generated 1 warning
+error: could not compile `chr-reuse` (test "effectful_boundary") due to 1 previous error; 1 warning emitted
