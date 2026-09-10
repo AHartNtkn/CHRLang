@@ -1,0 +1,770 @@
+[
+  {
+    "case": "n0-noise0-k1-late0-fail0-id10",
+    "result": {
+      "input": "pick:v10,ready,watch:v10,cursor:v10,finish:v10\n10\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 2\nANSWER\na\nready\nseen:a\nwatch:a\nANSWER\nb\nready\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n0-noise0-k1-late0-fail0-id1000",
+    "result": {
+      "input": "pick:v1000,ready,watch:v1000,cursor:v1000,finish:v1000\n1000\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 2\nANSWER\na\nready\nseen:a\nwatch:a\nANSWER\nb\nready\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n0-noise0-k1-late0-fail1-id10",
+    "result": {
+      "input": "pick:v10,ready,watch:v10,cursor:v10,finish:v10\n10\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 1\nANSWER\na\nready\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n0-noise0-k1-late0-fail1-id1000",
+    "result": {
+      "input": "pick:v1000,ready,watch:v1000,cursor:v1000,finish:v1000\n1000\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 1\nANSWER\na\nready\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n0-noise0-k1-late1-fail0-id10",
+    "result": {
+      "input": "pick:v10,watch:v10,cursor:v10,finish:v10\n10\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 2\nANSWER\na\nready\nseen:a\nwatch:a\nANSWER\nb\nready\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n0-noise0-k1-late1-fail0-id1000",
+    "result": {
+      "input": "pick:v1000,watch:v1000,cursor:v1000,finish:v1000\n1000\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 2\nANSWER\na\nready\nseen:a\nwatch:a\nANSWER\nb\nready\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n0-noise0-k1-late1-fail1-id10",
+    "result": {
+      "input": "pick:v10,watch:v10,cursor:v10,finish:v10\n10\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 1\nANSWER\na\nready\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n0-noise0-k1-late1-fail1-id1000",
+    "result": {
+      "input": "pick:v1000,watch:v1000,cursor:v1000,finish:v1000\n1000\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 1\nANSWER\na\nready\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n0-noise0-k3-late0-fail0-id10",
+    "result": {
+      "input": "pick:v10,pick:v74,pick:v75,ready,watch:v10,cursor:v10,finish:v10\n10,74,75\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 8\nANSWER\na,a,a\nready\nseen:a\nwatch:a\nANSWER\na,a,b\nready\nseen:a\nwatch:a\nANSWER\na,b,a\nready\nseen:a\nwatch:a\nANSWER\na,b,b\nready\nseen:a\nwatch:a\nANSWER\nb,a,a\nready\nseen:b\nwatch:b\nANSWER\nb,a,b\nready\nseen:b\nwatch:b\nANSWER\nb,b,a\nready\nseen:b\nwatch:b\nANSWER\nb,b,b\nready\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n0-noise0-k3-late0-fail0-id1000",
+    "result": {
+      "input": "pick:v1000,pick:v1064,pick:v1065,ready,watch:v1000,cursor:v1000,finish:v1000\n1000,1064,1065\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 8\nANSWER\na,a,a\nready\nseen:a\nwatch:a\nANSWER\na,a,b\nready\nseen:a\nwatch:a\nANSWER\na,b,a\nready\nseen:a\nwatch:a\nANSWER\na,b,b\nready\nseen:a\nwatch:a\nANSWER\nb,a,a\nready\nseen:b\nwatch:b\nANSWER\nb,a,b\nready\nseen:b\nwatch:b\nANSWER\nb,b,a\nready\nseen:b\nwatch:b\nANSWER\nb,b,b\nready\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n0-noise0-k3-late0-fail1-id10",
+    "result": {
+      "input": "pick:v10,pick:v74,pick:v75,ready,watch:v10,cursor:v10,finish:v10\n10,74,75\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 1\nANSWER\na,a,a\nready\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n0-noise0-k3-late0-fail1-id1000",
+    "result": {
+      "input": "pick:v1000,pick:v1064,pick:v1065,ready,watch:v1000,cursor:v1000,finish:v1000\n1000,1064,1065\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 1\nANSWER\na,a,a\nready\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n0-noise0-k3-late1-fail0-id10",
+    "result": {
+      "input": "pick:v10,pick:v74,pick:v75,watch:v10,cursor:v10,finish:v10\n10,74,75\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 8\nANSWER\na,a,a\nready\nseen:a\nwatch:a\nANSWER\na,a,b\nready\nseen:a\nwatch:a\nANSWER\na,b,a\nready\nseen:a\nwatch:a\nANSWER\na,b,b\nready\nseen:a\nwatch:a\nANSWER\nb,a,a\nready\nseen:b\nwatch:b\nANSWER\nb,a,b\nready\nseen:b\nwatch:b\nANSWER\nb,b,a\nready\nseen:b\nwatch:b\nANSWER\nb,b,b\nready\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n0-noise0-k3-late1-fail0-id1000",
+    "result": {
+      "input": "pick:v1000,pick:v1064,pick:v1065,watch:v1000,cursor:v1000,finish:v1000\n1000,1064,1065\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 8\nANSWER\na,a,a\nready\nseen:a\nwatch:a\nANSWER\na,a,b\nready\nseen:a\nwatch:a\nANSWER\na,b,a\nready\nseen:a\nwatch:a\nANSWER\na,b,b\nready\nseen:a\nwatch:a\nANSWER\nb,a,a\nready\nseen:b\nwatch:b\nANSWER\nb,a,b\nready\nseen:b\nwatch:b\nANSWER\nb,b,a\nready\nseen:b\nwatch:b\nANSWER\nb,b,b\nready\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n0-noise0-k3-late1-fail1-id10",
+    "result": {
+      "input": "pick:v10,pick:v74,pick:v75,watch:v10,cursor:v10,finish:v10\n10,74,75\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 1\nANSWER\na,a,a\nready\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n0-noise0-k3-late1-fail1-id1000",
+    "result": {
+      "input": "pick:v1000,pick:v1064,pick:v1065,watch:v1000,cursor:v1000,finish:v1000\n1000,1064,1065\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 1\nANSWER\na,a,a\nready\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n0-noise8-k1-late0-fail0-id10",
+    "result": {
+      "input": "pick:v10,ready,watch:v10,cursor:v10,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,finish:v10\n10\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 2\nANSWER\na\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nwatch:a\nANSWER\nb\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n0-noise8-k1-late0-fail0-id1000",
+    "result": {
+      "input": "pick:v1000,ready,watch:v1000,cursor:v1000,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,finish:v1000\n1000\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 2\nANSWER\na\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nwatch:a\nANSWER\nb\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n0-noise8-k1-late0-fail1-id10",
+    "result": {
+      "input": "pick:v10,ready,watch:v10,cursor:v10,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,finish:v10\n10\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 1\nANSWER\na\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n0-noise8-k1-late0-fail1-id1000",
+    "result": {
+      "input": "pick:v1000,ready,watch:v1000,cursor:v1000,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,finish:v1000\n1000\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 1\nANSWER\na\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n0-noise8-k1-late1-fail0-id10",
+    "result": {
+      "input": "pick:v10,watch:v10,cursor:v10,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,finish:v10\n10\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 2\nANSWER\na\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nwatch:a\nANSWER\nb\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n0-noise8-k1-late1-fail0-id1000",
+    "result": {
+      "input": "pick:v1000,watch:v1000,cursor:v1000,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,finish:v1000\n1000\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 2\nANSWER\na\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nwatch:a\nANSWER\nb\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n0-noise8-k1-late1-fail1-id10",
+    "result": {
+      "input": "pick:v10,watch:v10,cursor:v10,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,finish:v10\n10\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 1\nANSWER\na\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n0-noise8-k1-late1-fail1-id1000",
+    "result": {
+      "input": "pick:v1000,watch:v1000,cursor:v1000,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,finish:v1000\n1000\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 1\nANSWER\na\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n0-noise8-k3-late0-fail0-id10",
+    "result": {
+      "input": "pick:v10,pick:v74,pick:v75,ready,watch:v10,cursor:v10,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,finish:v10\n10,74,75\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 8\nANSWER\na,a,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nwatch:a\nANSWER\na,a,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nwatch:a\nANSWER\na,b,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nwatch:a\nANSWER\na,b,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nwatch:a\nANSWER\nb,a,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nwatch:b\nANSWER\nb,a,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nwatch:b\nANSWER\nb,b,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nwatch:b\nANSWER\nb,b,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n0-noise8-k3-late0-fail0-id1000",
+    "result": {
+      "input": "pick:v1000,pick:v1064,pick:v1065,ready,watch:v1000,cursor:v1000,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,finish:v1000\n1000,1064,1065\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 8\nANSWER\na,a,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nwatch:a\nANSWER\na,a,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nwatch:a\nANSWER\na,b,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nwatch:a\nANSWER\na,b,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nwatch:a\nANSWER\nb,a,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nwatch:b\nANSWER\nb,a,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nwatch:b\nANSWER\nb,b,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nwatch:b\nANSWER\nb,b,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n0-noise8-k3-late0-fail1-id10",
+    "result": {
+      "input": "pick:v10,pick:v74,pick:v75,ready,watch:v10,cursor:v10,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,finish:v10\n10,74,75\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 1\nANSWER\na,a,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n0-noise8-k3-late0-fail1-id1000",
+    "result": {
+      "input": "pick:v1000,pick:v1064,pick:v1065,ready,watch:v1000,cursor:v1000,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,finish:v1000\n1000,1064,1065\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 1\nANSWER\na,a,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n0-noise8-k3-late1-fail0-id10",
+    "result": {
+      "input": "pick:v10,pick:v74,pick:v75,watch:v10,cursor:v10,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,finish:v10\n10,74,75\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 8\nANSWER\na,a,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nwatch:a\nANSWER\na,a,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nwatch:a\nANSWER\na,b,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nwatch:a\nANSWER\na,b,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nwatch:a\nANSWER\nb,a,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nwatch:b\nANSWER\nb,a,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nwatch:b\nANSWER\nb,b,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nwatch:b\nANSWER\nb,b,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n0-noise8-k3-late1-fail0-id1000",
+    "result": {
+      "input": "pick:v1000,pick:v1064,pick:v1065,watch:v1000,cursor:v1000,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,finish:v1000\n1000,1064,1065\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 8\nANSWER\na,a,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nwatch:a\nANSWER\na,a,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nwatch:a\nANSWER\na,b,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nwatch:a\nANSWER\na,b,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nwatch:a\nANSWER\nb,a,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nwatch:b\nANSWER\nb,a,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nwatch:b\nANSWER\nb,b,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nwatch:b\nANSWER\nb,b,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n0-noise8-k3-late1-fail1-id10",
+    "result": {
+      "input": "pick:v10,pick:v74,pick:v75,watch:v10,cursor:v10,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,finish:v10\n10,74,75\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 1\nANSWER\na,a,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n0-noise8-k3-late1-fail1-id1000",
+    "result": {
+      "input": "pick:v1000,pick:v1064,pick:v1065,watch:v1000,cursor:v1000,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,finish:v1000\n1000,1064,1065\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 1\nANSWER\na,a,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n2-noise0-k1-late0-fail0-id10",
+    "result": {
+      "input": "pick:v10,ready,watch:v10,cursor:v10,edge:v10:v11,edge:v11:v12,finish:v12\n10\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 2\nANSWER\na\nready\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\nb\nready\nseen:b\nseen:b\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n2-noise0-k1-late0-fail0-id1000",
+    "result": {
+      "input": "pick:v1000,ready,watch:v1000,cursor:v1000,edge:v1000:v1001,edge:v1001:v1002,finish:v1002\n1000\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 2\nANSWER\na\nready\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\nb\nready\nseen:b\nseen:b\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n2-noise0-k1-late0-fail1-id10",
+    "result": {
+      "input": "pick:v10,ready,watch:v10,cursor:v10,edge:v10:v11,edge:v11:v12,finish:v12\n10\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 1\nANSWER\na\nready\nseen:a\nseen:a\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n2-noise0-k1-late0-fail1-id1000",
+    "result": {
+      "input": "pick:v1000,ready,watch:v1000,cursor:v1000,edge:v1000:v1001,edge:v1001:v1002,finish:v1002\n1000\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 1\nANSWER\na\nready\nseen:a\nseen:a\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n2-noise0-k1-late1-fail0-id10",
+    "result": {
+      "input": "pick:v10,watch:v10,cursor:v10,edge:v10:v11,edge:v11:v12,finish:v12\n10\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 2\nANSWER\na\nready\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\nb\nready\nseen:b\nseen:b\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n2-noise0-k1-late1-fail0-id1000",
+    "result": {
+      "input": "pick:v1000,watch:v1000,cursor:v1000,edge:v1000:v1001,edge:v1001:v1002,finish:v1002\n1000\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 2\nANSWER\na\nready\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\nb\nready\nseen:b\nseen:b\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n2-noise0-k1-late1-fail1-id10",
+    "result": {
+      "input": "pick:v10,watch:v10,cursor:v10,edge:v10:v11,edge:v11:v12,finish:v12\n10\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 1\nANSWER\na\nready\nseen:a\nseen:a\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n2-noise0-k1-late1-fail1-id1000",
+    "result": {
+      "input": "pick:v1000,watch:v1000,cursor:v1000,edge:v1000:v1001,edge:v1001:v1002,finish:v1002\n1000\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 1\nANSWER\na\nready\nseen:a\nseen:a\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n2-noise0-k3-late0-fail0-id10",
+    "result": {
+      "input": "pick:v10,pick:v74,pick:v75,ready,watch:v10,cursor:v10,edge:v10:v11,edge:v11:v12,finish:v12\n10,74,75\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 8\nANSWER\na,a,a\nready\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,a,b\nready\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,b,a\nready\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,b,b\nready\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\nb,a,a\nready\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,a,b\nready\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,b,a\nready\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,b,b\nready\nseen:b\nseen:b\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n2-noise0-k3-late0-fail0-id1000",
+    "result": {
+      "input": "pick:v1000,pick:v1064,pick:v1065,ready,watch:v1000,cursor:v1000,edge:v1000:v1001,edge:v1001:v1002,finish:v1002\n1000,1064,1065\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 8\nANSWER\na,a,a\nready\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,a,b\nready\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,b,a\nready\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,b,b\nready\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\nb,a,a\nready\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,a,b\nready\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,b,a\nready\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,b,b\nready\nseen:b\nseen:b\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n2-noise0-k3-late0-fail1-id10",
+    "result": {
+      "input": "pick:v10,pick:v74,pick:v75,ready,watch:v10,cursor:v10,edge:v10:v11,edge:v11:v12,finish:v12\n10,74,75\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 1\nANSWER\na,a,a\nready\nseen:a\nseen:a\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n2-noise0-k3-late0-fail1-id1000",
+    "result": {
+      "input": "pick:v1000,pick:v1064,pick:v1065,ready,watch:v1000,cursor:v1000,edge:v1000:v1001,edge:v1001:v1002,finish:v1002\n1000,1064,1065\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 1\nANSWER\na,a,a\nready\nseen:a\nseen:a\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n2-noise0-k3-late1-fail0-id10",
+    "result": {
+      "input": "pick:v10,pick:v74,pick:v75,watch:v10,cursor:v10,edge:v10:v11,edge:v11:v12,finish:v12\n10,74,75\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 8\nANSWER\na,a,a\nready\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,a,b\nready\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,b,a\nready\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,b,b\nready\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\nb,a,a\nready\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,a,b\nready\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,b,a\nready\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,b,b\nready\nseen:b\nseen:b\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n2-noise0-k3-late1-fail0-id1000",
+    "result": {
+      "input": "pick:v1000,pick:v1064,pick:v1065,watch:v1000,cursor:v1000,edge:v1000:v1001,edge:v1001:v1002,finish:v1002\n1000,1064,1065\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 8\nANSWER\na,a,a\nready\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,a,b\nready\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,b,a\nready\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,b,b\nready\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\nb,a,a\nready\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,a,b\nready\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,b,a\nready\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,b,b\nready\nseen:b\nseen:b\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n2-noise0-k3-late1-fail1-id10",
+    "result": {
+      "input": "pick:v10,pick:v74,pick:v75,watch:v10,cursor:v10,edge:v10:v11,edge:v11:v12,finish:v12\n10,74,75\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 1\nANSWER\na,a,a\nready\nseen:a\nseen:a\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n2-noise0-k3-late1-fail1-id1000",
+    "result": {
+      "input": "pick:v1000,pick:v1064,pick:v1065,watch:v1000,cursor:v1000,edge:v1000:v1001,edge:v1001:v1002,finish:v1002\n1000,1064,1065\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 1\nANSWER\na,a,a\nready\nseen:a\nseen:a\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n2-noise8-k1-late0-fail0-id10",
+    "result": {
+      "input": "pick:v10,ready,watch:v10,cursor:v10,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,edge:v10:v11,edge:v11:v12,finish:v12\n10\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 2\nANSWER\na\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\nb\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nseen:b\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n2-noise8-k1-late0-fail0-id1000",
+    "result": {
+      "input": "pick:v1000,ready,watch:v1000,cursor:v1000,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,edge:v1000:v1001,edge:v1001:v1002,finish:v1002\n1000\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 2\nANSWER\na\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\nb\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nseen:b\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n2-noise8-k1-late0-fail1-id10",
+    "result": {
+      "input": "pick:v10,ready,watch:v10,cursor:v10,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,edge:v10:v11,edge:v11:v12,finish:v12\n10\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 1\nANSWER\na\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n2-noise8-k1-late0-fail1-id1000",
+    "result": {
+      "input": "pick:v1000,ready,watch:v1000,cursor:v1000,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,edge:v1000:v1001,edge:v1001:v1002,finish:v1002\n1000\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 1\nANSWER\na\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n2-noise8-k1-late1-fail0-id10",
+    "result": {
+      "input": "pick:v10,watch:v10,cursor:v10,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,edge:v10:v11,edge:v11:v12,finish:v12\n10\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 2\nANSWER\na\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\nb\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nseen:b\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n2-noise8-k1-late1-fail0-id1000",
+    "result": {
+      "input": "pick:v1000,watch:v1000,cursor:v1000,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,edge:v1000:v1001,edge:v1001:v1002,finish:v1002\n1000\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 2\nANSWER\na\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\nb\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nseen:b\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n2-noise8-k1-late1-fail1-id10",
+    "result": {
+      "input": "pick:v10,watch:v10,cursor:v10,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,edge:v10:v11,edge:v11:v12,finish:v12\n10\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 1\nANSWER\na\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n2-noise8-k1-late1-fail1-id1000",
+    "result": {
+      "input": "pick:v1000,watch:v1000,cursor:v1000,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,edge:v1000:v1001,edge:v1001:v1002,finish:v1002\n1000\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 1\nANSWER\na\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n2-noise8-k3-late0-fail0-id10",
+    "result": {
+      "input": "pick:v10,pick:v74,pick:v75,ready,watch:v10,cursor:v10,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,edge:v10:v11,edge:v11:v12,finish:v12\n10,74,75\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 8\nANSWER\na,a,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,a,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,b,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,b,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\nb,a,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,a,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,b,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,b,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nseen:b\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n2-noise8-k3-late0-fail0-id1000",
+    "result": {
+      "input": "pick:v1000,pick:v1064,pick:v1065,ready,watch:v1000,cursor:v1000,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,edge:v1000:v1001,edge:v1001:v1002,finish:v1002\n1000,1064,1065\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 8\nANSWER\na,a,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,a,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,b,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,b,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\nb,a,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,a,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,b,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,b,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nseen:b\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n2-noise8-k3-late0-fail1-id10",
+    "result": {
+      "input": "pick:v10,pick:v74,pick:v75,ready,watch:v10,cursor:v10,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,edge:v10:v11,edge:v11:v12,finish:v12\n10,74,75\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 1\nANSWER\na,a,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n2-noise8-k3-late0-fail1-id1000",
+    "result": {
+      "input": "pick:v1000,pick:v1064,pick:v1065,ready,watch:v1000,cursor:v1000,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,edge:v1000:v1001,edge:v1001:v1002,finish:v1002\n1000,1064,1065\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 1\nANSWER\na,a,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n2-noise8-k3-late1-fail0-id10",
+    "result": {
+      "input": "pick:v10,pick:v74,pick:v75,watch:v10,cursor:v10,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,edge:v10:v11,edge:v11:v12,finish:v12\n10,74,75\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 8\nANSWER\na,a,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,a,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,b,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,b,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\nb,a,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,a,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,b,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,b,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nseen:b\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n2-noise8-k3-late1-fail0-id1000",
+    "result": {
+      "input": "pick:v1000,pick:v1064,pick:v1065,watch:v1000,cursor:v1000,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,edge:v1000:v1001,edge:v1001:v1002,finish:v1002\n1000,1064,1065\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 8\nANSWER\na,a,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,a,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,b,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,b,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\nb,a,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,a,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,b,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,b,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nseen:b\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n2-noise8-k3-late1-fail1-id10",
+    "result": {
+      "input": "pick:v10,pick:v74,pick:v75,watch:v10,cursor:v10,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,edge:v10:v11,edge:v11:v12,finish:v12\n10,74,75\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 1\nANSWER\na,a,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n2-noise8-k3-late1-fail1-id1000",
+    "result": {
+      "input": "pick:v1000,pick:v1064,pick:v1065,watch:v1000,cursor:v1000,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,edge:v1000:v1001,edge:v1001:v1002,finish:v1002\n1000,1064,1065\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 1\nANSWER\na,a,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n8-noise0-k1-late0-fail0-id10",
+    "result": {
+      "input": "pick:v10,ready,watch:v10,cursor:v10,edge:v10:v11,edge:v11:v12,edge:v12:v13,edge:v13:v14,edge:v14:v15,edge:v15:v16,edge:v16:v17,edge:v17:v18,finish:v18\n10\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 2\nANSWER\na\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\nb\nready\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n8-noise0-k1-late0-fail0-id1000",
+    "result": {
+      "input": "pick:v1000,ready,watch:v1000,cursor:v1000,edge:v1000:v1001,edge:v1001:v1002,edge:v1002:v1003,edge:v1003:v1004,edge:v1004:v1005,edge:v1005:v1006,edge:v1006:v1007,edge:v1007:v1008,finish:v1008\n1000\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 2\nANSWER\na\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\nb\nready\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n8-noise0-k1-late0-fail1-id10",
+    "result": {
+      "input": "pick:v10,ready,watch:v10,cursor:v10,edge:v10:v11,edge:v11:v12,edge:v12:v13,edge:v13:v14,edge:v14:v15,edge:v15:v16,edge:v16:v17,edge:v17:v18,finish:v18\n10\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 1\nANSWER\na\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n8-noise0-k1-late0-fail1-id1000",
+    "result": {
+      "input": "pick:v1000,ready,watch:v1000,cursor:v1000,edge:v1000:v1001,edge:v1001:v1002,edge:v1002:v1003,edge:v1003:v1004,edge:v1004:v1005,edge:v1005:v1006,edge:v1006:v1007,edge:v1007:v1008,finish:v1008\n1000\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 1\nANSWER\na\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n8-noise0-k1-late1-fail0-id10",
+    "result": {
+      "input": "pick:v10,watch:v10,cursor:v10,edge:v10:v11,edge:v11:v12,edge:v12:v13,edge:v13:v14,edge:v14:v15,edge:v15:v16,edge:v16:v17,edge:v17:v18,finish:v18\n10\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 2\nANSWER\na\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\nb\nready\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n8-noise0-k1-late1-fail0-id1000",
+    "result": {
+      "input": "pick:v1000,watch:v1000,cursor:v1000,edge:v1000:v1001,edge:v1001:v1002,edge:v1002:v1003,edge:v1003:v1004,edge:v1004:v1005,edge:v1005:v1006,edge:v1006:v1007,edge:v1007:v1008,finish:v1008\n1000\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 2\nANSWER\na\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\nb\nready\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n8-noise0-k1-late1-fail1-id10",
+    "result": {
+      "input": "pick:v10,watch:v10,cursor:v10,edge:v10:v11,edge:v11:v12,edge:v12:v13,edge:v13:v14,edge:v14:v15,edge:v15:v16,edge:v16:v17,edge:v17:v18,finish:v18\n10\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 1\nANSWER\na\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n8-noise0-k1-late1-fail1-id1000",
+    "result": {
+      "input": "pick:v1000,watch:v1000,cursor:v1000,edge:v1000:v1001,edge:v1001:v1002,edge:v1002:v1003,edge:v1003:v1004,edge:v1004:v1005,edge:v1005:v1006,edge:v1006:v1007,edge:v1007:v1008,finish:v1008\n1000\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 1\nANSWER\na\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n8-noise0-k3-late0-fail0-id10",
+    "result": {
+      "input": "pick:v10,pick:v74,pick:v75,ready,watch:v10,cursor:v10,edge:v10:v11,edge:v11:v12,edge:v12:v13,edge:v13:v14,edge:v14:v15,edge:v15:v16,edge:v16:v17,edge:v17:v18,finish:v18\n10,74,75\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 8\nANSWER\na,a,a\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,a,b\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,b,a\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,b,b\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\nb,a,a\nready\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,a,b\nready\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,b,a\nready\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,b,b\nready\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n8-noise0-k3-late0-fail0-id1000",
+    "result": {
+      "input": "pick:v1000,pick:v1064,pick:v1065,ready,watch:v1000,cursor:v1000,edge:v1000:v1001,edge:v1001:v1002,edge:v1002:v1003,edge:v1003:v1004,edge:v1004:v1005,edge:v1005:v1006,edge:v1006:v1007,edge:v1007:v1008,finish:v1008\n1000,1064,1065\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 8\nANSWER\na,a,a\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,a,b\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,b,a\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,b,b\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\nb,a,a\nready\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,a,b\nready\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,b,a\nready\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,b,b\nready\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n8-noise0-k3-late0-fail1-id10",
+    "result": {
+      "input": "pick:v10,pick:v74,pick:v75,ready,watch:v10,cursor:v10,edge:v10:v11,edge:v11:v12,edge:v12:v13,edge:v13:v14,edge:v14:v15,edge:v15:v16,edge:v16:v17,edge:v17:v18,finish:v18\n10,74,75\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 1\nANSWER\na,a,a\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n8-noise0-k3-late0-fail1-id1000",
+    "result": {
+      "input": "pick:v1000,pick:v1064,pick:v1065,ready,watch:v1000,cursor:v1000,edge:v1000:v1001,edge:v1001:v1002,edge:v1002:v1003,edge:v1003:v1004,edge:v1004:v1005,edge:v1005:v1006,edge:v1006:v1007,edge:v1007:v1008,finish:v1008\n1000,1064,1065\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 1\nANSWER\na,a,a\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n8-noise0-k3-late1-fail0-id10",
+    "result": {
+      "input": "pick:v10,pick:v74,pick:v75,watch:v10,cursor:v10,edge:v10:v11,edge:v11:v12,edge:v12:v13,edge:v13:v14,edge:v14:v15,edge:v15:v16,edge:v16:v17,edge:v17:v18,finish:v18\n10,74,75\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 8\nANSWER\na,a,a\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,a,b\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,b,a\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,b,b\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\nb,a,a\nready\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,a,b\nready\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,b,a\nready\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,b,b\nready\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n8-noise0-k3-late1-fail0-id1000",
+    "result": {
+      "input": "pick:v1000,pick:v1064,pick:v1065,watch:v1000,cursor:v1000,edge:v1000:v1001,edge:v1001:v1002,edge:v1002:v1003,edge:v1003:v1004,edge:v1004:v1005,edge:v1005:v1006,edge:v1006:v1007,edge:v1007:v1008,finish:v1008\n1000,1064,1065\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 8\nANSWER\na,a,a\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,a,b\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,b,a\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,b,b\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\nb,a,a\nready\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,a,b\nready\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,b,a\nready\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,b,b\nready\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n8-noise0-k3-late1-fail1-id10",
+    "result": {
+      "input": "pick:v10,pick:v74,pick:v75,watch:v10,cursor:v10,edge:v10:v11,edge:v11:v12,edge:v12:v13,edge:v13:v14,edge:v14:v15,edge:v15:v16,edge:v16:v17,edge:v17:v18,finish:v18\n10,74,75\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 1\nANSWER\na,a,a\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n8-noise0-k3-late1-fail1-id1000",
+    "result": {
+      "input": "pick:v1000,pick:v1064,pick:v1065,watch:v1000,cursor:v1000,edge:v1000:v1001,edge:v1001:v1002,edge:v1002:v1003,edge:v1003:v1004,edge:v1004:v1005,edge:v1005:v1006,edge:v1006:v1007,edge:v1007:v1008,finish:v1008\n1000,1064,1065\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 1\nANSWER\na,a,a\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n8-noise8-k1-late0-fail0-id10",
+    "result": {
+      "input": "pick:v10,ready,watch:v10,cursor:v10,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,edge:v10:v11,edge:v11:v12,edge:v12:v13,edge:v13:v14,edge:v14:v15,edge:v15:v16,edge:v16:v17,edge:v17:v18,finish:v18\n10\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 2\nANSWER\na\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\nb\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n8-noise8-k1-late0-fail0-id1000",
+    "result": {
+      "input": "pick:v1000,ready,watch:v1000,cursor:v1000,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,edge:v1000:v1001,edge:v1001:v1002,edge:v1002:v1003,edge:v1003:v1004,edge:v1004:v1005,edge:v1005:v1006,edge:v1006:v1007,edge:v1007:v1008,finish:v1008\n1000\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 2\nANSWER\na\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\nb\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n8-noise8-k1-late0-fail1-id10",
+    "result": {
+      "input": "pick:v10,ready,watch:v10,cursor:v10,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,edge:v10:v11,edge:v11:v12,edge:v12:v13,edge:v13:v14,edge:v14:v15,edge:v15:v16,edge:v16:v17,edge:v17:v18,finish:v18\n10\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 1\nANSWER\na\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n8-noise8-k1-late0-fail1-id1000",
+    "result": {
+      "input": "pick:v1000,ready,watch:v1000,cursor:v1000,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,edge:v1000:v1001,edge:v1001:v1002,edge:v1002:v1003,edge:v1003:v1004,edge:v1004:v1005,edge:v1005:v1006,edge:v1006:v1007,edge:v1007:v1008,finish:v1008\n1000\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 1\nANSWER\na\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n8-noise8-k1-late1-fail0-id10",
+    "result": {
+      "input": "pick:v10,watch:v10,cursor:v10,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,edge:v10:v11,edge:v11:v12,edge:v12:v13,edge:v13:v14,edge:v14:v15,edge:v15:v16,edge:v16:v17,edge:v17:v18,finish:v18\n10\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 2\nANSWER\na\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\nb\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n8-noise8-k1-late1-fail0-id1000",
+    "result": {
+      "input": "pick:v1000,watch:v1000,cursor:v1000,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,edge:v1000:v1001,edge:v1001:v1002,edge:v1002:v1003,edge:v1003:v1004,edge:v1004:v1005,edge:v1005:v1006,edge:v1006:v1007,edge:v1007:v1008,finish:v1008\n1000\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 2\nANSWER\na\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\nb\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n8-noise8-k1-late1-fail1-id10",
+    "result": {
+      "input": "pick:v10,watch:v10,cursor:v10,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,edge:v10:v11,edge:v11:v12,edge:v12:v13,edge:v13:v14,edge:v14:v15,edge:v15:v16,edge:v16:v17,edge:v17:v18,finish:v18\n10\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 1\nANSWER\na\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n8-noise8-k1-late1-fail1-id1000",
+    "result": {
+      "input": "pick:v1000,watch:v1000,cursor:v1000,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,edge:v1000:v1001,edge:v1001:v1002,edge:v1002:v1003,edge:v1003:v1004,edge:v1004:v1005,edge:v1005:v1006,edge:v1006:v1007,edge:v1007:v1008,finish:v1008\n1000\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 1\nANSWER\na\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n8-noise8-k3-late0-fail0-id10",
+    "result": {
+      "input": "pick:v10,pick:v74,pick:v75,ready,watch:v10,cursor:v10,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,edge:v10:v11,edge:v11:v12,edge:v12:v13,edge:v13:v14,edge:v14:v15,edge:v15:v16,edge:v16:v17,edge:v17:v18,finish:v18\n10,74,75\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 8\nANSWER\na,a,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,a,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,b,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,b,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\nb,a,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,a,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,b,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,b,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n8-noise8-k3-late0-fail0-id1000",
+    "result": {
+      "input": "pick:v1000,pick:v1064,pick:v1065,ready,watch:v1000,cursor:v1000,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,edge:v1000:v1001,edge:v1001:v1002,edge:v1002:v1003,edge:v1003:v1004,edge:v1004:v1005,edge:v1005:v1006,edge:v1006:v1007,edge:v1007:v1008,finish:v1008\n1000,1064,1065\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 8\nANSWER\na,a,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,a,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,b,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,b,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\nb,a,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,a,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,b,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,b,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n8-noise8-k3-late0-fail1-id10",
+    "result": {
+      "input": "pick:v10,pick:v74,pick:v75,ready,watch:v10,cursor:v10,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,edge:v10:v11,edge:v11:v12,edge:v12:v13,edge:v13:v14,edge:v14:v15,edge:v15:v16,edge:v16:v17,edge:v17:v18,finish:v18\n10,74,75\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 1\nANSWER\na,a,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n8-noise8-k3-late0-fail1-id1000",
+    "result": {
+      "input": "pick:v1000,pick:v1064,pick:v1065,ready,watch:v1000,cursor:v1000,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,edge:v1000:v1001,edge:v1001:v1002,edge:v1002:v1003,edge:v1003:v1004,edge:v1004:v1005,edge:v1005:v1006,edge:v1006:v1007,edge:v1007:v1008,finish:v1008\n1000,1064,1065\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n",
+      "stdout": "true 1\nANSWER\na,a,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n8-noise8-k3-late1-fail0-id10",
+    "result": {
+      "input": "pick:v10,pick:v74,pick:v75,watch:v10,cursor:v10,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,edge:v10:v11,edge:v11:v12,edge:v12:v13,edge:v13:v14,edge:v14:v15,edge:v15:v16,edge:v16:v17,edge:v17:v18,finish:v18\n10,74,75\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 8\nANSWER\na,a,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,a,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,b,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,b,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\nb,a,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,a,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,b,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,b,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n8-noise8-k3-late1-fail0-id1000",
+    "result": {
+      "input": "pick:v1000,pick:v1064,pick:v1065,watch:v1000,cursor:v1000,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,edge:v1000:v1001,edge:v1001:v1002,edge:v1002:v1003,edge:v1003:v1004,edge:v1004:v1005,edge:v1005:v1006,edge:v1006:v1007,edge:v1007:v1008,finish:v1008\n1000,1064,1065\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 8\nANSWER\na,a,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,a,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,b,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\na,b,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\nANSWER\nb,a,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,a,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,b,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nwatch:b\nANSWER\nb,b,b\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nseen:b\nwatch:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n8-noise8-k3-late1-fail1-id10",
+    "result": {
+      "input": "pick:v10,pick:v74,pick:v75,watch:v10,cursor:v10,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,edge:v10:v11,edge:v11:v12,edge:v12:v13,edge:v13:v14,edge:v14:v15,edge:v15:v16,edge:v16:v17,edge:v17:v18,finish:v18\n10,74,75\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 1\nANSWER\na,a,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "n8-noise8-k3-late1-fail1-id1000",
+    "result": {
+      "input": "pick:v1000,pick:v1064,pick:v1065,watch:v1000,cursor:v1000,edge:z0:z0,edge:z1:z1,edge:z2:z2,edge:z3:z3,edge:z4:z4,edge:z5:z5,edge:z6:z6,edge:z7:z7,edge:v1000:v1001,edge:v1001:v1002,edge:v1002:v1003,edge:v1003:v1004,edge:v1004:v1005,edge:v1005:v1006,edge:v1006:v1007,edge:v1007:v1008,finish:v1008\n1000,1064,1065\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;ready\n",
+      "stdout": "true 1\nANSWER\na,a,a\nedge:z0:z0\nedge:z1:z1\nedge:z2:z2\nedge:z3:z3\nedge:z4:z4\nedge:z5:z5\nedge:z6:z6\nedge:z7:z7\nready\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nseen:a\nwatch:a\n",
+      "stderr": ""
+    }
+  }
+]

@@ -1,6 +1,6 @@
 # The comparisons still needed to choose the architecture
 
-The [ordinary native timing entry](results/S10-native-timing-entry.md) reproduces all 383 prepared queries in ordinary and sanitized builds, plus 50 queries across successive sessions. Service, serialization, first observation and disposal have explicit accounting boundaries. The [ownership gate](results/S10-native-prepared.md) remains valid. T078 next qualifies substantive cost sources and Rust measurement paths; no cross-architecture cost matrix has run.
+The [substantive common-source screen and breadth review](results/S10-native-substantive.md) validates 96 mixed queries across the reference, ten general Rust configurations and both native paths. All native service cutoffs resolve under a registered bound extension. Current lowering controls reject the kept readiness head; T078 next tests whether a checked kept read can admit finite production before committing to the cost matrix.
 
 The [native choice/identity composition gate](results/S03-native-choice-identity.md) validates 48 mixed sources, all 77 deterministic regressions and explicit failure/namespace boundaries. Finite siblings progress beside ongoing work. The common-source gate above now supplies the next comparison entry; local native ownership, broader language and lifetime remain required.
 
@@ -54,7 +54,7 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-Current selection: T078 substantive-source and complete-cost qualification after the [ordinary native measurement entry](results/S10-native-timing-entry.md). Qualify Rust counter settings and equivalent consumer endpoints, source emission, clock overhead and diagnostic allocation scope before prospective comparisons. The next package includes a breadth review against the strongest ready mechanism investigation. Local native claims, general terms and sustained graph ownership remain required.
+Current selection: T078 bounded kept-read eligibility and source qualification, selected by the [substantive-screen breadth review](results/S10-native-substantive.md). Test finite production with an initially present nonconsumed readiness occurrence against absent, late and contested enabling. Preserve complete multiplicity, source priority, finite service and caller residuals. Reassess breadth at that gate boundary; whole-path cost measurement and broader native ownership/language remain required.
 
 ### Depth, breadth and stopping within this sequence
 

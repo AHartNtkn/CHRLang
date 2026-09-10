@@ -1,6 +1,6 @@
 # R00: architectural alternatives and first experiment selection
 
-The [ordinary native timing entry](S10-native-timing-entry.md) reproduces all 383 prepared queries in ordinary and sanitized builds, plus 50 queries across successive sessions. Service, serialization, first observation and disposal have explicit accounting boundaries. The [ownership gate](S10-native-prepared.md) remains valid. T078 next qualifies substantive cost sources and Rust measurement paths; no cross-architecture cost matrix has run.
+The [substantive common-source screen and breadth review](S10-native-substantive.md) validates 96 mixed queries across the reference, ten general Rust configurations and both native paths. All native service cutoffs resolve under a registered bound extension. Current lowering controls reject the kept readiness head; T078 next tests whether a checked kept read can admit finite production before committing to the cost matrix.
 
 The [native choice/identity composition gate](S03-native-choice-identity.md) validates 48 mixed sources, all 77 deterministic regressions and explicit failure/namespace boundaries. Finite siblings progress beside ongoing work. The common-source gate above now supplies the next comparison entry; local native ownership, broader language and lifetime remain required.
 
@@ -12,7 +12,7 @@ The [controlled size/reuse extension](S02-multihead-scale.md) completes 8,820 ad
 
 The [finite-solver lifecycle pilot](S06-finite-lifecycle.md) completes 1,428 processes across 204 configurations. A [paired allocation correction](S06-empty-complement-attribution.md) completes another 252 processes. Selective four-query allocation falls to 0.795 MB, below both conditional orders; the unselective batch still requests 15.77 MB versus specialization’s 9.24 MB. These are bounded results, with compilation and broader solver questions still open.
 
-Current selection: T078 substantive-source and complete-cost qualification after the [ordinary native measurement entry](S10-native-timing-entry.md). Qualify Rust counter settings and equivalent consumer endpoints, source emission, clock overhead and diagnostic allocation scope before prospective comparisons. The next package includes a breadth review against the strongest ready mechanism investigation. Local native claims, general terms and sustained graph ownership remain required.
+Current selection: T078 bounded kept-read eligibility and source qualification, selected by the [substantive-screen breadth review](S10-native-substantive.md). Test finite production with an initially present nonconsumed readiness occurrence against absent, late and contested enabling. Preserve complete multiplicity, source priority, finite service and caller residuals. Reassess breadth at that gate boundary; whole-path cost measurement and broader native ownership/language remain required.
 
 The [binding-effect certificate](S07-binding-effects-gate.md) removes persistent equality wake-up bookkeeping while preserving consumption conflicts and non-ground observations. T079 subsequently compared admission and lifecycle costs. This is mechanism/correctness evidence, not a language-adoption result.
 

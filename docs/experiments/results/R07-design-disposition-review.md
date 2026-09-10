@@ -1,6 +1,6 @@
 # Why designs were set aside—and what the experiments actually establish
 
-The [ordinary native timing entry](S10-native-timing-entry.md) reproduces all 383 prepared queries in ordinary and sanitized builds, plus 50 queries across successive sessions. Service, serialization, first observation and disposal have explicit accounting boundaries. The [ownership gate](S10-native-prepared.md) remains valid. T078 next qualifies substantive cost sources and Rust measurement paths; no cross-architecture cost matrix has run.
+The [substantive common-source screen and breadth review](S10-native-substantive.md) validates 96 mixed queries across the reference, ten general Rust configurations and both native paths. All native service cutoffs resolve under a registered bound extension. Current lowering controls reject the kept readiness head; T078 next tests whether a checked kept read can admit finite production before committing to the cost matrix.
 
 The [native choice/identity composition gate](S03-native-choice-identity.md) validates 48 mixed sources, all 77 deterministic regressions and explicit failure/namespace boundaries. Finite siblings progress beside ongoing work. The common-source gate above now supplies the next comparison entry; local native ownership, broader language and lifetime remain required.
 
