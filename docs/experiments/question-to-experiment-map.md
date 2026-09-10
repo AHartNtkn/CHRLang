@@ -1,5 +1,7 @@
 # What experiment answers each reviewed design question?
 
+The [direct-solving obligations](results/S06-direct-solving-obligations.md) establish 224 closed-source pruning checks and counterexamples for linked rescue, early binding and collapsed derivation counts. T073 now implements source-derived finite relations behind a checked phase boundary; automatic eligibility and comparative costs remain unimplemented.
+
 The [effect lifecycle and breadth review](results/S07-effect-lifecycle.md) validate833 runs and119 allocation pairs. Inference, checked and required admissions have identical accepted-source allocation; a writer demonstrates the expressive cost of forbidding bindings. T073 direct source-derived solving is selected next; broader effects and language adoption remain unresolved.
 
 The [binding-effect gate](results/S07-binding-effects-gate.md) demonstrates an additional runtime benefit: immutable bindings eliminate persistent equality wake-up indexing without requiring groundness or non-overlap. T079 next measures checking and lifecycle costs; broader effects, direct solving and mandatory language policy remain unresolved.

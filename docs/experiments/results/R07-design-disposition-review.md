@@ -1,5 +1,7 @@
 # Why designs were set aside—and what the experiments actually establish
 
+For entries 28–34, the [direct-solving obligations](S06-direct-solving-obligations.md) now distinguish safe local pruning on a closed source from unsound linked-rescue and early-binding transformations. Duplicate derivation counts also remain observable. Automatic source-derived solving and its complete costs remain required under T073.
+
 **The experiments support several narrow rejections. They do not support treating every alternative architecture as resolved, or the research goal as complete.** Some implementations lost measured comparisons. Some proposed translations changed program behavior. Other directions received no direct experiment: I stopped investigating them on a judgment about the value of further work.
 
 This report explains those distinctions design by design. It audits the decisions recorded through commit `a40b7de`, including directions described as rejected, unsuitable as a default, unselected, or deferred. Related variants share an entry where the same explanation applies. A design that won a bounded comparison is included when broader adoption was nevertheless set aside.

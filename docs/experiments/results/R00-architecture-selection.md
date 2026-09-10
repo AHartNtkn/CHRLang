@@ -1,5 +1,7 @@
 # R00: architectural alternatives and first experiment selection
 
+The [direct-solving semantic probes](S06-direct-solving-obligations.md) preserve 224 closed-source configurations while distinguishing linked rescue, premature binding publication and raw derivation counts. T073 remains active for an actual source-derived solver; these tests provide no cost ranking or general admission proof.
+
 Current selection: T073 direct source-derived solving after the [effect lifecycle breadth review](S07-effect-lifecycle.md). The certificate yields bounded allocation savings but does not eliminate explicit choices; inference and declarations have identical accepted-source allocation. Broader architecture and language decisions remain open.
 
 The [binding-effect certificate](S07-binding-effects-gate.md) removes persistent equality wake-up bookkeeping while preserving consumption conflicts and non-ground observations. T079 now compares admission and lifecycle costs. This is mechanism/correctness evidence, not a language-adoption result.

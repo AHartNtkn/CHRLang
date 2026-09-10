@@ -1,5 +1,7 @@
 # Next experimental cycle: answer the remaining design questions
 
+The [direct-solving obligations](results/S06-direct-solving-obligations.md) establish 224 closed-source pruning checks and counterexamples for linked rescue, early binding and collapsed derivation counts. T073 now implements source-derived finite relations behind a checked phase boundary; automatic eligibility and comparative costs remain unimplemented.
+
 Current selection: the [effect lifecycle four-package review](results/S07-effect-lifecycle.md) selects T073 direct source-derived solving under investigation4. Establish its source/effect boundary before comparative costs, then compare its concrete implementation with the strongest ready distinct alternative. T079 effect precision and broader language choices remain required.
 
 Test the mechanisms that remain unanswered, then compare the complete architectures they enable. Reuse the existing baselines and valid results. The research goal remains active.
