@@ -139,9 +139,10 @@ tasks:
     assignee: PM
     status: active
     objective: Establish and independently qualify at least two coherent complete execution paths on mixed-mechanism sources, including a serious alternative, with explicit semantic capability and responsibility maps before whole-path cost registration.
-    progress: Native host frontend qualification reconstructs common source syntax for all 26 sessions and matches independently stored ASTs. All 26 emitted programs equal frozen native artifacts. All 479 changing-query observations match prior native bytes, service counts, pending/unsupported flags and graph words; complete answers match independent expectations. Query-only symbols and cancellation schedules are included. Three parser tests and the archive audit pass. Frontend decode, emission, encoding, protocol assembly and reference-count release are separately recorded without comparative timing inference. The qualified Rust lifecycle controls remain available.
-    next_action: Integrate host input reading, artifact writing, native transport and output ownership into the combined lifecycle boundary. Qualify separate host/native allocation diagnostics with explicit allocator/mapping scope and calibrate clocks. At full runner qualification compare one bounded mixed-source pilot with broader direct source analysis before more depth. Compilation/artifact lifetime, local native ownership, constructors, sustained lifetime and all other consequential mapped mechanisms remain required.
+    progress: Combined host/native qualification validates all 26 sessions and 479 owned query endpoints. Complete answers, dictionaries, cancellation/pending status and native work signatures match qualified records. Emitted artifacts are cleaned after every session. Named host phases include source input, emission, artifact writing, query encoding, native invocation/pipes, consumer assembly, publication and cleanup. Native internal intervals are nested inside invocation; named sums fit host-session elapsed and parent-observed process elapsed. The executable gate and archive audit pass. This is a batch external endpoint and no comparative timing ordering is claimed.
+    next_action: Qualify separate Python/native allocation diagnostics with explicit requested-heap, interpreter, allocator and virtual-mapping scope, and calibrate clock overhead for the host/Rust/native boundaries. At full measurement qualification compare one bounded mixed-source pilot with broader direct source analysis before more depth. Independent compilation/artifact lifetime, external streaming, local native ownership, constructors, sustained lifetime and every other consequential mapped mechanism remain required.
     inputs:
+      - docs/experiments/results/S10-host-session.md
       - docs/experiments/results/S10-host-frontend.md
       - docs/experiments/results/S10-rust-lifecycle.md
       - docs/experiments/results/S10-answer-wire.md
@@ -2462,12 +2463,11 @@ checks:
   last_verification:
     result: passed
     task: T078
-    scope: Common source-text host preparation and exact native replay; diagnostic phase accounting only.
+    scope: Combined host/native batch endpoint, elapsed containment and artifact cleanup; no comparative timing conclusions.
     commands:
-      - python3 research/chr-hvm/host_frontend/test_frontend.py
-      - python3 research/chr-hvm/host_frontend/gate.py
-      - python3 research/chr-hvm/host_frontend/audit.py
-      - Source/evidence hashes, report links, YAML and diff checks
+      - python3 research/chr-hvm/host_session/gate.py
+      - python3 research/chr-hvm/host_session/audit.py
+      - Report links, source/evidence hashes, YAML and diff checks
     evidence:
-      - docs/experiments/results/S10-host-frontend.md
-      - docs/experiments/results/s10-host-frontend/validation.json
+      - docs/experiments/results/S10-host-session.md
+      - docs/experiments/results/s10-host-session/validation.json

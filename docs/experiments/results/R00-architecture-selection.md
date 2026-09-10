@@ -1,5 +1,7 @@
 # R00: architectural alternatives and first experiment selection
 
+The [combined native session](S10-host-session.md) validates 479 owned query endpoints across 26 sessions with artifact cleanup and unchanged native work signatures. Host artifact writing, process transport and batch publication now have measured boundaries; gross process elapsed remains distinct from nested phases. Allocation diagnostics and clock calibration remain before comparative registration.
+
 The [native host frontend qualification](S10-host-frontend.md) reconstructs common source syntax, reproduces 26 frozen native programs and replays 479 queries exactly. Host emission/query encoding now have explicit diagnostic intervals. Combined host transport/lifetime, allocation scope and clock calibration remain before cost registration; no comparative ranking follows.
 
 The [Rust lifecycle qualification](S10-rust-lifecycle.md) validates 2,286 admitted checks, 587 explicit exclusions and cancellation followed by reused preparation in all 13 modes. Full outputs match prior runners and independent expectations. Native host/frontend accounting, separate allocation diagnostics and clock calibration remain before comparative registration; no architecture ranking follows.
