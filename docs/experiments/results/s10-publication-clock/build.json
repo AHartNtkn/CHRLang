@@ -1,0 +1,64 @@
+[
+  {
+    "command": [
+      "cargo",
+      "build",
+      "-p",
+      "chr-direct-conditional",
+      "--no-default-features",
+      "--release",
+      "--example",
+      "native_lifecycle"
+    ],
+    "code": 0,
+    "stdout": "",
+    "stderr": "    Finished `release` profile [optimized] target(s) in 0.01s\n"
+  },
+  {
+    "command": [
+      "cargo",
+      "build",
+      "-p",
+      "chr-direct-conditional",
+      "--no-default-features",
+      "--features",
+      "serialization-clock",
+      "--release",
+      "--example",
+      "native_lifecycle"
+    ],
+    "code": 0,
+    "stdout": "",
+    "stderr": "    Finished `release` profile [optimized] target(s) in 0.01s\n"
+  },
+  {
+    "command": [
+      "clang",
+      "-O2",
+      "-Wall",
+      "-Werror",
+      "-DSERIALIZATION_CLOCK=0",
+      "/home/ahart/Documents/CHRLang/target/s10-publication-clock/harness.c",
+      "-o",
+      "/home/ahart/Documents/CHRLang/target/s10-publication-clock/native-primary"
+    ],
+    "code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "clang",
+      "-O2",
+      "-Wall",
+      "-Werror",
+      "-DSERIALIZATION_CLOCK=1",
+      "/home/ahart/Documents/CHRLang/target/s10-publication-clock/harness.c",
+      "-o",
+      "/home/ahart/Documents/CHRLang/target/s10-publication-clock/native-diagnostic"
+    ],
+    "code": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+]

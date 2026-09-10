@@ -1,5 +1,7 @@
 # Unanswered architecture questions and experimental ownership
 
+The [primary/diagnostic publication-clock comparison](results/S10-publication-clock.md) preserves full outcomes across both builds and completes 540 pilot processes plus 108 warmups. All 54 timing contrasts are unresolved; no speed claim follows. The five-package breadth review selects T073 compatible-query learning. T078 allocation qualification and mixed-source costs remain required.
+
 The [clock calibration](results/S10-clock-calibration.md) audits 42 processes and 420,000 empty intervals. Many small phases and per-answer serialization observations are instrumentation-sensitive. T078 next qualifies primary service timing without repeated serialization clocks, with paired diagnostic replays; allocation diagnostics remain required and no architecture ranking follows.
 
 The [combined native session](results/S10-host-session.md) validates 479 owned query endpoints across 26 sessions with artifact cleanup and unchanged native work signatures. Host artifact writing, process transport and batch publication now have measured boundaries; gross process elapsed remains distinct from nested phases. Allocation diagnostics and clock calibration remain before comparative registration.
@@ -20,7 +22,7 @@ The [controlled size/reuse extension](results/S02-multihead-scale.md) completes 
 
 The [finite-solver lifecycle pilot](results/S06-finite-lifecycle.md) completes 1,428 processes across 204 configurations. A [paired allocation correction](results/S06-empty-complement-attribution.md) completes another 252 processes. Selective four-query allocation falls to 0.795 MB, below both conditional orders; the unselective batch still requests 15.77 MB versus specialization’s 9.24 MB. These are bounded results, with compilation and broader solver questions still open.
 
-Current selection: T078 full lifecycle runner using the [qualified owned-answer endpoint](results/S10-answer-wire.md). Measure per-answer publication, source/dictionary construction and retention, native host frontend costs, query execution and complete disposal with verified counter/allocator settings. Include admitted source-derived controls. Reassess breadth at full runner qualification or a consequential obstruction; broader ownership, language and source-analysis questions remain required.
+Current selection: T073 compatible-query learning, following the publication-clock breadth review. Establish sound reuse across changed domains, aliases and assumptions while preserving raw multiplicity and the consuming caller. Revisit T078 allocation qualification and the mixed-source pilot at that gate or a consequential obstruction.
 
 The [effect lifecycle and breadth review](results/S07-effect-lifecycle.md) validate833 runs and119 allocation pairs. Inference, checked and required admissions have identical accepted-source allocation; a writer demonstrates the expressive cost of forbidding bindings. T073 direct source-derived solving was selected at that checkpoint; broader effects and language adoption remain unresolved.
 

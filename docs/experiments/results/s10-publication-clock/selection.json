@@ -1,0 +1,6069 @@
+[
+  {
+    "language": "rust",
+    "mode": 0,
+    "role": "many",
+    "source": {
+      "name": "n0-noise0-k3-late0-fail0-id10",
+      "rules": [
+        {
+          "kept": [
+            [
+              "ready",
+              []
+            ]
+          ],
+          "removed": [
+            [
+              "pick",
+              [
+                0
+              ]
+            ]
+          ],
+          "body": [
+            [
+              "or",
+              [
+                [
+                  "eq",
+                  0,
+                  "a"
+                ]
+              ],
+              [
+                [
+                  "eq",
+                  0,
+                  "b"
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "kept": [
+            [
+              "watch",
+              [
+                0
+              ]
+            ],
+            [
+              "cursor",
+              [
+                0
+              ]
+            ]
+          ],
+          "removed": [],
+          "body": [
+            [
+              "add",
+              [
+                "seen",
+                [
+                  0
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "kept": [],
+          "removed": [
+            [
+              "cursor",
+              [
+                0
+              ]
+            ],
+            [
+              "edge",
+              [
+                0,
+                1
+              ]
+            ]
+          ],
+          "body": [
+            [
+              "eq",
+              0,
+              1
+            ],
+            [
+              "add",
+              [
+                "cursor",
+                [
+                  1
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "kept": [],
+          "removed": [
+            [
+              "cursor",
+              [
+                0
+              ]
+            ],
+            [
+              "finish",
+              [
+                0
+              ]
+            ]
+          ],
+          "body": []
+        }
+      ],
+      "query": [
+        [
+          "pick",
+          [
+            10
+          ]
+        ],
+        [
+          "pick",
+          [
+            74
+          ]
+        ],
+        [
+          "pick",
+          [
+            75
+          ]
+        ],
+        [
+          "ready",
+          []
+        ],
+        [
+          "watch",
+          [
+            10
+          ]
+        ],
+        [
+          "cursor",
+          [
+            10
+          ]
+        ],
+        [
+          "finish",
+          [
+            10
+          ]
+        ]
+      ],
+      "outputs": [
+        10,
+        74,
+        75
+      ],
+      "expected": [
+        [
+          [
+            "a",
+            "a",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "a",
+            "a",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "a",
+            "b",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "a",
+            "b",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "a",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "a",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "b",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "b",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ]
+      ],
+      "ongoing": false,
+      "parameters": {
+        "chain": 0,
+        "noise": 0,
+        "choices": 3,
+        "late": false,
+        "failure": false,
+        "base": 10
+      },
+      "input": "pick:v10,pick:v74,pick:v75,ready,watch:v10,cursor:v10,finish:v10\n10,74,75\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n"
+    },
+    "answers": 8
+  },
+  {
+    "language": "rust",
+    "mode": 0,
+    "role": "one",
+    "source": {
+      "name": "choice-binding-failure-10-0",
+      "rules": [
+        {
+          "kept": [],
+          "removed": [
+            [
+              "go",
+              [
+                0
+              ]
+            ]
+          ],
+          "body": [
+            [
+              "or",
+              [
+                [
+                  "eq",
+                  0,
+                  "a"
+                ]
+              ],
+              [
+                [
+                  "eq",
+                  0,
+                  "b"
+                ]
+              ]
+            ],
+            [
+              "eq",
+              0,
+              "a"
+            ],
+            [
+              "add",
+              [
+                "done",
+                [
+                  0
+                ]
+              ]
+            ]
+          ]
+        }
+      ],
+      "query": [
+        [
+          "go",
+          [
+            10
+          ]
+        ]
+      ],
+      "outputs": [
+        10
+      ],
+      "expected": [
+        [
+          [
+            "a"
+          ],
+          [
+            [
+              "done",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ]
+      ],
+      "ongoing": false,
+      "input": "go:v10\n10\n-;go:v0;(=:v0:a|=:v0:b),=:v0:a,done:v0\n"
+    },
+    "answers": 1
+  },
+  {
+    "language": "rust",
+    "mode": 1,
+    "role": "many",
+    "source": {
+      "name": "n0-noise0-k3-late0-fail0-id10",
+      "rules": [
+        {
+          "kept": [
+            [
+              "ready",
+              []
+            ]
+          ],
+          "removed": [
+            [
+              "pick",
+              [
+                0
+              ]
+            ]
+          ],
+          "body": [
+            [
+              "or",
+              [
+                [
+                  "eq",
+                  0,
+                  "a"
+                ]
+              ],
+              [
+                [
+                  "eq",
+                  0,
+                  "b"
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "kept": [
+            [
+              "watch",
+              [
+                0
+              ]
+            ],
+            [
+              "cursor",
+              [
+                0
+              ]
+            ]
+          ],
+          "removed": [],
+          "body": [
+            [
+              "add",
+              [
+                "seen",
+                [
+                  0
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "kept": [],
+          "removed": [
+            [
+              "cursor",
+              [
+                0
+              ]
+            ],
+            [
+              "edge",
+              [
+                0,
+                1
+              ]
+            ]
+          ],
+          "body": [
+            [
+              "eq",
+              0,
+              1
+            ],
+            [
+              "add",
+              [
+                "cursor",
+                [
+                  1
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "kept": [],
+          "removed": [
+            [
+              "cursor",
+              [
+                0
+              ]
+            ],
+            [
+              "finish",
+              [
+                0
+              ]
+            ]
+          ],
+          "body": []
+        }
+      ],
+      "query": [
+        [
+          "pick",
+          [
+            10
+          ]
+        ],
+        [
+          "pick",
+          [
+            74
+          ]
+        ],
+        [
+          "pick",
+          [
+            75
+          ]
+        ],
+        [
+          "ready",
+          []
+        ],
+        [
+          "watch",
+          [
+            10
+          ]
+        ],
+        [
+          "cursor",
+          [
+            10
+          ]
+        ],
+        [
+          "finish",
+          [
+            10
+          ]
+        ]
+      ],
+      "outputs": [
+        10,
+        74,
+        75
+      ],
+      "expected": [
+        [
+          [
+            "a",
+            "a",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "a",
+            "a",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "a",
+            "b",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "a",
+            "b",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "a",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "a",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "b",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "b",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ]
+      ],
+      "ongoing": false,
+      "parameters": {
+        "chain": 0,
+        "noise": 0,
+        "choices": 3,
+        "late": false,
+        "failure": false,
+        "base": 10
+      },
+      "input": "pick:v10,pick:v74,pick:v75,ready,watch:v10,cursor:v10,finish:v10\n10,74,75\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n"
+    },
+    "answers": 8
+  },
+  {
+    "language": "rust",
+    "mode": 1,
+    "role": "one",
+    "source": {
+      "name": "choice-binding-failure-10-0",
+      "rules": [
+        {
+          "kept": [],
+          "removed": [
+            [
+              "go",
+              [
+                0
+              ]
+            ]
+          ],
+          "body": [
+            [
+              "or",
+              [
+                [
+                  "eq",
+                  0,
+                  "a"
+                ]
+              ],
+              [
+                [
+                  "eq",
+                  0,
+                  "b"
+                ]
+              ]
+            ],
+            [
+              "eq",
+              0,
+              "a"
+            ],
+            [
+              "add",
+              [
+                "done",
+                [
+                  0
+                ]
+              ]
+            ]
+          ]
+        }
+      ],
+      "query": [
+        [
+          "go",
+          [
+            10
+          ]
+        ]
+      ],
+      "outputs": [
+        10
+      ],
+      "expected": [
+        [
+          [
+            "a"
+          ],
+          [
+            [
+              "done",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ]
+      ],
+      "ongoing": false,
+      "input": "go:v10\n10\n-;go:v0;(=:v0:a|=:v0:b),=:v0:a,done:v0\n"
+    },
+    "answers": 1
+  },
+  {
+    "language": "rust",
+    "mode": 2,
+    "role": "many",
+    "source": {
+      "name": "n0-noise0-k3-late0-fail0-id10",
+      "rules": [
+        {
+          "kept": [
+            [
+              "ready",
+              []
+            ]
+          ],
+          "removed": [
+            [
+              "pick",
+              [
+                0
+              ]
+            ]
+          ],
+          "body": [
+            [
+              "or",
+              [
+                [
+                  "eq",
+                  0,
+                  "a"
+                ]
+              ],
+              [
+                [
+                  "eq",
+                  0,
+                  "b"
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "kept": [
+            [
+              "watch",
+              [
+                0
+              ]
+            ],
+            [
+              "cursor",
+              [
+                0
+              ]
+            ]
+          ],
+          "removed": [],
+          "body": [
+            [
+              "add",
+              [
+                "seen",
+                [
+                  0
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "kept": [],
+          "removed": [
+            [
+              "cursor",
+              [
+                0
+              ]
+            ],
+            [
+              "edge",
+              [
+                0,
+                1
+              ]
+            ]
+          ],
+          "body": [
+            [
+              "eq",
+              0,
+              1
+            ],
+            [
+              "add",
+              [
+                "cursor",
+                [
+                  1
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "kept": [],
+          "removed": [
+            [
+              "cursor",
+              [
+                0
+              ]
+            ],
+            [
+              "finish",
+              [
+                0
+              ]
+            ]
+          ],
+          "body": []
+        }
+      ],
+      "query": [
+        [
+          "pick",
+          [
+            10
+          ]
+        ],
+        [
+          "pick",
+          [
+            74
+          ]
+        ],
+        [
+          "pick",
+          [
+            75
+          ]
+        ],
+        [
+          "ready",
+          []
+        ],
+        [
+          "watch",
+          [
+            10
+          ]
+        ],
+        [
+          "cursor",
+          [
+            10
+          ]
+        ],
+        [
+          "finish",
+          [
+            10
+          ]
+        ]
+      ],
+      "outputs": [
+        10,
+        74,
+        75
+      ],
+      "expected": [
+        [
+          [
+            "a",
+            "a",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "a",
+            "a",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "a",
+            "b",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "a",
+            "b",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "a",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "a",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "b",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "b",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ]
+      ],
+      "ongoing": false,
+      "parameters": {
+        "chain": 0,
+        "noise": 0,
+        "choices": 3,
+        "late": false,
+        "failure": false,
+        "base": 10
+      },
+      "input": "pick:v10,pick:v74,pick:v75,ready,watch:v10,cursor:v10,finish:v10\n10,74,75\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n"
+    },
+    "answers": 8
+  },
+  {
+    "language": "rust",
+    "mode": 2,
+    "role": "one",
+    "source": {
+      "name": "choice-binding-failure-10-0",
+      "rules": [
+        {
+          "kept": [],
+          "removed": [
+            [
+              "go",
+              [
+                0
+              ]
+            ]
+          ],
+          "body": [
+            [
+              "or",
+              [
+                [
+                  "eq",
+                  0,
+                  "a"
+                ]
+              ],
+              [
+                [
+                  "eq",
+                  0,
+                  "b"
+                ]
+              ]
+            ],
+            [
+              "eq",
+              0,
+              "a"
+            ],
+            [
+              "add",
+              [
+                "done",
+                [
+                  0
+                ]
+              ]
+            ]
+          ]
+        }
+      ],
+      "query": [
+        [
+          "go",
+          [
+            10
+          ]
+        ]
+      ],
+      "outputs": [
+        10
+      ],
+      "expected": [
+        [
+          [
+            "a"
+          ],
+          [
+            [
+              "done",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ]
+      ],
+      "ongoing": false,
+      "input": "go:v10\n10\n-;go:v0;(=:v0:a|=:v0:b),=:v0:a,done:v0\n"
+    },
+    "answers": 1
+  },
+  {
+    "language": "rust",
+    "mode": 3,
+    "role": "many",
+    "source": {
+      "name": "n0-noise0-k3-late0-fail0-id10",
+      "rules": [
+        {
+          "kept": [
+            [
+              "ready",
+              []
+            ]
+          ],
+          "removed": [
+            [
+              "pick",
+              [
+                0
+              ]
+            ]
+          ],
+          "body": [
+            [
+              "or",
+              [
+                [
+                  "eq",
+                  0,
+                  "a"
+                ]
+              ],
+              [
+                [
+                  "eq",
+                  0,
+                  "b"
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "kept": [
+            [
+              "watch",
+              [
+                0
+              ]
+            ],
+            [
+              "cursor",
+              [
+                0
+              ]
+            ]
+          ],
+          "removed": [],
+          "body": [
+            [
+              "add",
+              [
+                "seen",
+                [
+                  0
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "kept": [],
+          "removed": [
+            [
+              "cursor",
+              [
+                0
+              ]
+            ],
+            [
+              "edge",
+              [
+                0,
+                1
+              ]
+            ]
+          ],
+          "body": [
+            [
+              "eq",
+              0,
+              1
+            ],
+            [
+              "add",
+              [
+                "cursor",
+                [
+                  1
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "kept": [],
+          "removed": [
+            [
+              "cursor",
+              [
+                0
+              ]
+            ],
+            [
+              "finish",
+              [
+                0
+              ]
+            ]
+          ],
+          "body": []
+        }
+      ],
+      "query": [
+        [
+          "pick",
+          [
+            10
+          ]
+        ],
+        [
+          "pick",
+          [
+            74
+          ]
+        ],
+        [
+          "pick",
+          [
+            75
+          ]
+        ],
+        [
+          "ready",
+          []
+        ],
+        [
+          "watch",
+          [
+            10
+          ]
+        ],
+        [
+          "cursor",
+          [
+            10
+          ]
+        ],
+        [
+          "finish",
+          [
+            10
+          ]
+        ]
+      ],
+      "outputs": [
+        10,
+        74,
+        75
+      ],
+      "expected": [
+        [
+          [
+            "a",
+            "a",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "a",
+            "a",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "a",
+            "b",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "a",
+            "b",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "a",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "a",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "b",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "b",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ]
+      ],
+      "ongoing": false,
+      "parameters": {
+        "chain": 0,
+        "noise": 0,
+        "choices": 3,
+        "late": false,
+        "failure": false,
+        "base": 10
+      },
+      "input": "pick:v10,pick:v74,pick:v75,ready,watch:v10,cursor:v10,finish:v10\n10,74,75\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n"
+    },
+    "answers": 8
+  },
+  {
+    "language": "rust",
+    "mode": 3,
+    "role": "one",
+    "source": {
+      "name": "choice-binding-failure-10-0",
+      "rules": [
+        {
+          "kept": [],
+          "removed": [
+            [
+              "go",
+              [
+                0
+              ]
+            ]
+          ],
+          "body": [
+            [
+              "or",
+              [
+                [
+                  "eq",
+                  0,
+                  "a"
+                ]
+              ],
+              [
+                [
+                  "eq",
+                  0,
+                  "b"
+                ]
+              ]
+            ],
+            [
+              "eq",
+              0,
+              "a"
+            ],
+            [
+              "add",
+              [
+                "done",
+                [
+                  0
+                ]
+              ]
+            ]
+          ]
+        }
+      ],
+      "query": [
+        [
+          "go",
+          [
+            10
+          ]
+        ]
+      ],
+      "outputs": [
+        10
+      ],
+      "expected": [
+        [
+          [
+            "a"
+          ],
+          [
+            [
+              "done",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ]
+      ],
+      "ongoing": false,
+      "input": "go:v10\n10\n-;go:v0;(=:v0:a|=:v0:b),=:v0:a,done:v0\n"
+    },
+    "answers": 1
+  },
+  {
+    "language": "rust",
+    "mode": 4,
+    "role": "many",
+    "source": {
+      "name": "n0-noise0-k3-late0-fail0-id10",
+      "rules": [
+        {
+          "kept": [
+            [
+              "ready",
+              []
+            ]
+          ],
+          "removed": [
+            [
+              "pick",
+              [
+                0
+              ]
+            ]
+          ],
+          "body": [
+            [
+              "or",
+              [
+                [
+                  "eq",
+                  0,
+                  "a"
+                ]
+              ],
+              [
+                [
+                  "eq",
+                  0,
+                  "b"
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "kept": [
+            [
+              "watch",
+              [
+                0
+              ]
+            ],
+            [
+              "cursor",
+              [
+                0
+              ]
+            ]
+          ],
+          "removed": [],
+          "body": [
+            [
+              "add",
+              [
+                "seen",
+                [
+                  0
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "kept": [],
+          "removed": [
+            [
+              "cursor",
+              [
+                0
+              ]
+            ],
+            [
+              "edge",
+              [
+                0,
+                1
+              ]
+            ]
+          ],
+          "body": [
+            [
+              "eq",
+              0,
+              1
+            ],
+            [
+              "add",
+              [
+                "cursor",
+                [
+                  1
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "kept": [],
+          "removed": [
+            [
+              "cursor",
+              [
+                0
+              ]
+            ],
+            [
+              "finish",
+              [
+                0
+              ]
+            ]
+          ],
+          "body": []
+        }
+      ],
+      "query": [
+        [
+          "pick",
+          [
+            10
+          ]
+        ],
+        [
+          "pick",
+          [
+            74
+          ]
+        ],
+        [
+          "pick",
+          [
+            75
+          ]
+        ],
+        [
+          "ready",
+          []
+        ],
+        [
+          "watch",
+          [
+            10
+          ]
+        ],
+        [
+          "cursor",
+          [
+            10
+          ]
+        ],
+        [
+          "finish",
+          [
+            10
+          ]
+        ]
+      ],
+      "outputs": [
+        10,
+        74,
+        75
+      ],
+      "expected": [
+        [
+          [
+            "a",
+            "a",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "a",
+            "a",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "a",
+            "b",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "a",
+            "b",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "a",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "a",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "b",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "b",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ]
+      ],
+      "ongoing": false,
+      "parameters": {
+        "chain": 0,
+        "noise": 0,
+        "choices": 3,
+        "late": false,
+        "failure": false,
+        "base": 10
+      },
+      "input": "pick:v10,pick:v74,pick:v75,ready,watch:v10,cursor:v10,finish:v10\n10,74,75\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n"
+    },
+    "answers": 8
+  },
+  {
+    "language": "rust",
+    "mode": 4,
+    "role": "one",
+    "source": {
+      "name": "choice-binding-failure-10-0",
+      "rules": [
+        {
+          "kept": [],
+          "removed": [
+            [
+              "go",
+              [
+                0
+              ]
+            ]
+          ],
+          "body": [
+            [
+              "or",
+              [
+                [
+                  "eq",
+                  0,
+                  "a"
+                ]
+              ],
+              [
+                [
+                  "eq",
+                  0,
+                  "b"
+                ]
+              ]
+            ],
+            [
+              "eq",
+              0,
+              "a"
+            ],
+            [
+              "add",
+              [
+                "done",
+                [
+                  0
+                ]
+              ]
+            ]
+          ]
+        }
+      ],
+      "query": [
+        [
+          "go",
+          [
+            10
+          ]
+        ]
+      ],
+      "outputs": [
+        10
+      ],
+      "expected": [
+        [
+          [
+            "a"
+          ],
+          [
+            [
+              "done",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ]
+      ],
+      "ongoing": false,
+      "input": "go:v10\n10\n-;go:v0;(=:v0:a|=:v0:b),=:v0:a,done:v0\n"
+    },
+    "answers": 1
+  },
+  {
+    "language": "rust",
+    "mode": 5,
+    "role": "many",
+    "source": {
+      "name": "n0-noise0-k3-late0-fail0-id10",
+      "rules": [
+        {
+          "kept": [
+            [
+              "ready",
+              []
+            ]
+          ],
+          "removed": [
+            [
+              "pick",
+              [
+                0
+              ]
+            ]
+          ],
+          "body": [
+            [
+              "or",
+              [
+                [
+                  "eq",
+                  0,
+                  "a"
+                ]
+              ],
+              [
+                [
+                  "eq",
+                  0,
+                  "b"
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "kept": [
+            [
+              "watch",
+              [
+                0
+              ]
+            ],
+            [
+              "cursor",
+              [
+                0
+              ]
+            ]
+          ],
+          "removed": [],
+          "body": [
+            [
+              "add",
+              [
+                "seen",
+                [
+                  0
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "kept": [],
+          "removed": [
+            [
+              "cursor",
+              [
+                0
+              ]
+            ],
+            [
+              "edge",
+              [
+                0,
+                1
+              ]
+            ]
+          ],
+          "body": [
+            [
+              "eq",
+              0,
+              1
+            ],
+            [
+              "add",
+              [
+                "cursor",
+                [
+                  1
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "kept": [],
+          "removed": [
+            [
+              "cursor",
+              [
+                0
+              ]
+            ],
+            [
+              "finish",
+              [
+                0
+              ]
+            ]
+          ],
+          "body": []
+        }
+      ],
+      "query": [
+        [
+          "pick",
+          [
+            10
+          ]
+        ],
+        [
+          "pick",
+          [
+            74
+          ]
+        ],
+        [
+          "pick",
+          [
+            75
+          ]
+        ],
+        [
+          "ready",
+          []
+        ],
+        [
+          "watch",
+          [
+            10
+          ]
+        ],
+        [
+          "cursor",
+          [
+            10
+          ]
+        ],
+        [
+          "finish",
+          [
+            10
+          ]
+        ]
+      ],
+      "outputs": [
+        10,
+        74,
+        75
+      ],
+      "expected": [
+        [
+          [
+            "a",
+            "a",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "a",
+            "a",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "a",
+            "b",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "a",
+            "b",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "a",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "a",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "b",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "b",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ]
+      ],
+      "ongoing": false,
+      "parameters": {
+        "chain": 0,
+        "noise": 0,
+        "choices": 3,
+        "late": false,
+        "failure": false,
+        "base": 10
+      },
+      "input": "pick:v10,pick:v74,pick:v75,ready,watch:v10,cursor:v10,finish:v10\n10,74,75\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n"
+    },
+    "answers": 8
+  },
+  {
+    "language": "rust",
+    "mode": 5,
+    "role": "one",
+    "source": {
+      "name": "choice-binding-failure-10-0",
+      "rules": [
+        {
+          "kept": [],
+          "removed": [
+            [
+              "go",
+              [
+                0
+              ]
+            ]
+          ],
+          "body": [
+            [
+              "or",
+              [
+                [
+                  "eq",
+                  0,
+                  "a"
+                ]
+              ],
+              [
+                [
+                  "eq",
+                  0,
+                  "b"
+                ]
+              ]
+            ],
+            [
+              "eq",
+              0,
+              "a"
+            ],
+            [
+              "add",
+              [
+                "done",
+                [
+                  0
+                ]
+              ]
+            ]
+          ]
+        }
+      ],
+      "query": [
+        [
+          "go",
+          [
+            10
+          ]
+        ]
+      ],
+      "outputs": [
+        10
+      ],
+      "expected": [
+        [
+          [
+            "a"
+          ],
+          [
+            [
+              "done",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ]
+      ],
+      "ongoing": false,
+      "input": "go:v10\n10\n-;go:v0;(=:v0:a|=:v0:b),=:v0:a,done:v0\n"
+    },
+    "answers": 1
+  },
+  {
+    "language": "rust",
+    "mode": 6,
+    "role": "many",
+    "source": {
+      "name": "n0-noise0-k3-late0-fail0-id10",
+      "rules": [
+        {
+          "kept": [
+            [
+              "ready",
+              []
+            ]
+          ],
+          "removed": [
+            [
+              "pick",
+              [
+                0
+              ]
+            ]
+          ],
+          "body": [
+            [
+              "or",
+              [
+                [
+                  "eq",
+                  0,
+                  "a"
+                ]
+              ],
+              [
+                [
+                  "eq",
+                  0,
+                  "b"
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "kept": [
+            [
+              "watch",
+              [
+                0
+              ]
+            ],
+            [
+              "cursor",
+              [
+                0
+              ]
+            ]
+          ],
+          "removed": [],
+          "body": [
+            [
+              "add",
+              [
+                "seen",
+                [
+                  0
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "kept": [],
+          "removed": [
+            [
+              "cursor",
+              [
+                0
+              ]
+            ],
+            [
+              "edge",
+              [
+                0,
+                1
+              ]
+            ]
+          ],
+          "body": [
+            [
+              "eq",
+              0,
+              1
+            ],
+            [
+              "add",
+              [
+                "cursor",
+                [
+                  1
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "kept": [],
+          "removed": [
+            [
+              "cursor",
+              [
+                0
+              ]
+            ],
+            [
+              "finish",
+              [
+                0
+              ]
+            ]
+          ],
+          "body": []
+        }
+      ],
+      "query": [
+        [
+          "pick",
+          [
+            10
+          ]
+        ],
+        [
+          "pick",
+          [
+            74
+          ]
+        ],
+        [
+          "pick",
+          [
+            75
+          ]
+        ],
+        [
+          "ready",
+          []
+        ],
+        [
+          "watch",
+          [
+            10
+          ]
+        ],
+        [
+          "cursor",
+          [
+            10
+          ]
+        ],
+        [
+          "finish",
+          [
+            10
+          ]
+        ]
+      ],
+      "outputs": [
+        10,
+        74,
+        75
+      ],
+      "expected": [
+        [
+          [
+            "a",
+            "a",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "a",
+            "a",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "a",
+            "b",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "a",
+            "b",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "a",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "a",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "b",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "b",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ]
+      ],
+      "ongoing": false,
+      "parameters": {
+        "chain": 0,
+        "noise": 0,
+        "choices": 3,
+        "late": false,
+        "failure": false,
+        "base": 10
+      },
+      "input": "pick:v10,pick:v74,pick:v75,ready,watch:v10,cursor:v10,finish:v10\n10,74,75\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n"
+    },
+    "answers": 8
+  },
+  {
+    "language": "rust",
+    "mode": 6,
+    "role": "one",
+    "source": {
+      "name": "choice-binding-failure-10-0",
+      "rules": [
+        {
+          "kept": [],
+          "removed": [
+            [
+              "go",
+              [
+                0
+              ]
+            ]
+          ],
+          "body": [
+            [
+              "or",
+              [
+                [
+                  "eq",
+                  0,
+                  "a"
+                ]
+              ],
+              [
+                [
+                  "eq",
+                  0,
+                  "b"
+                ]
+              ]
+            ],
+            [
+              "eq",
+              0,
+              "a"
+            ],
+            [
+              "add",
+              [
+                "done",
+                [
+                  0
+                ]
+              ]
+            ]
+          ]
+        }
+      ],
+      "query": [
+        [
+          "go",
+          [
+            10
+          ]
+        ]
+      ],
+      "outputs": [
+        10
+      ],
+      "expected": [
+        [
+          [
+            "a"
+          ],
+          [
+            [
+              "done",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ]
+      ],
+      "ongoing": false,
+      "input": "go:v10\n10\n-;go:v0;(=:v0:a|=:v0:b),=:v0:a,done:v0\n"
+    },
+    "answers": 1
+  },
+  {
+    "language": "rust",
+    "mode": 7,
+    "role": "many",
+    "source": {
+      "name": "n0-noise0-k3-late0-fail0-id10",
+      "rules": [
+        {
+          "kept": [
+            [
+              "ready",
+              []
+            ]
+          ],
+          "removed": [
+            [
+              "pick",
+              [
+                0
+              ]
+            ]
+          ],
+          "body": [
+            [
+              "or",
+              [
+                [
+                  "eq",
+                  0,
+                  "a"
+                ]
+              ],
+              [
+                [
+                  "eq",
+                  0,
+                  "b"
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "kept": [
+            [
+              "watch",
+              [
+                0
+              ]
+            ],
+            [
+              "cursor",
+              [
+                0
+              ]
+            ]
+          ],
+          "removed": [],
+          "body": [
+            [
+              "add",
+              [
+                "seen",
+                [
+                  0
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "kept": [],
+          "removed": [
+            [
+              "cursor",
+              [
+                0
+              ]
+            ],
+            [
+              "edge",
+              [
+                0,
+                1
+              ]
+            ]
+          ],
+          "body": [
+            [
+              "eq",
+              0,
+              1
+            ],
+            [
+              "add",
+              [
+                "cursor",
+                [
+                  1
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "kept": [],
+          "removed": [
+            [
+              "cursor",
+              [
+                0
+              ]
+            ],
+            [
+              "finish",
+              [
+                0
+              ]
+            ]
+          ],
+          "body": []
+        }
+      ],
+      "query": [
+        [
+          "pick",
+          [
+            10
+          ]
+        ],
+        [
+          "pick",
+          [
+            74
+          ]
+        ],
+        [
+          "pick",
+          [
+            75
+          ]
+        ],
+        [
+          "ready",
+          []
+        ],
+        [
+          "watch",
+          [
+            10
+          ]
+        ],
+        [
+          "cursor",
+          [
+            10
+          ]
+        ],
+        [
+          "finish",
+          [
+            10
+          ]
+        ]
+      ],
+      "outputs": [
+        10,
+        74,
+        75
+      ],
+      "expected": [
+        [
+          [
+            "a",
+            "a",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "a",
+            "a",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "a",
+            "b",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "a",
+            "b",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "a",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "a",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "b",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "b",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ]
+      ],
+      "ongoing": false,
+      "parameters": {
+        "chain": 0,
+        "noise": 0,
+        "choices": 3,
+        "late": false,
+        "failure": false,
+        "base": 10
+      },
+      "input": "pick:v10,pick:v74,pick:v75,ready,watch:v10,cursor:v10,finish:v10\n10,74,75\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n"
+    },
+    "answers": 8
+  },
+  {
+    "language": "rust",
+    "mode": 7,
+    "role": "one",
+    "source": {
+      "name": "choice-binding-failure-10-0",
+      "rules": [
+        {
+          "kept": [],
+          "removed": [
+            [
+              "go",
+              [
+                0
+              ]
+            ]
+          ],
+          "body": [
+            [
+              "or",
+              [
+                [
+                  "eq",
+                  0,
+                  "a"
+                ]
+              ],
+              [
+                [
+                  "eq",
+                  0,
+                  "b"
+                ]
+              ]
+            ],
+            [
+              "eq",
+              0,
+              "a"
+            ],
+            [
+              "add",
+              [
+                "done",
+                [
+                  0
+                ]
+              ]
+            ]
+          ]
+        }
+      ],
+      "query": [
+        [
+          "go",
+          [
+            10
+          ]
+        ]
+      ],
+      "outputs": [
+        10
+      ],
+      "expected": [
+        [
+          [
+            "a"
+          ],
+          [
+            [
+              "done",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ]
+      ],
+      "ongoing": false,
+      "input": "go:v10\n10\n-;go:v0;(=:v0:a|=:v0:b),=:v0:a,done:v0\n"
+    },
+    "answers": 1
+  },
+  {
+    "language": "rust",
+    "mode": 8,
+    "role": "many",
+    "source": {
+      "name": "n0-noise0-k3-late0-fail0-id10",
+      "rules": [
+        {
+          "kept": [
+            [
+              "ready",
+              []
+            ]
+          ],
+          "removed": [
+            [
+              "pick",
+              [
+                0
+              ]
+            ]
+          ],
+          "body": [
+            [
+              "or",
+              [
+                [
+                  "eq",
+                  0,
+                  "a"
+                ]
+              ],
+              [
+                [
+                  "eq",
+                  0,
+                  "b"
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "kept": [
+            [
+              "watch",
+              [
+                0
+              ]
+            ],
+            [
+              "cursor",
+              [
+                0
+              ]
+            ]
+          ],
+          "removed": [],
+          "body": [
+            [
+              "add",
+              [
+                "seen",
+                [
+                  0
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "kept": [],
+          "removed": [
+            [
+              "cursor",
+              [
+                0
+              ]
+            ],
+            [
+              "edge",
+              [
+                0,
+                1
+              ]
+            ]
+          ],
+          "body": [
+            [
+              "eq",
+              0,
+              1
+            ],
+            [
+              "add",
+              [
+                "cursor",
+                [
+                  1
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "kept": [],
+          "removed": [
+            [
+              "cursor",
+              [
+                0
+              ]
+            ],
+            [
+              "finish",
+              [
+                0
+              ]
+            ]
+          ],
+          "body": []
+        }
+      ],
+      "query": [
+        [
+          "pick",
+          [
+            10
+          ]
+        ],
+        [
+          "pick",
+          [
+            74
+          ]
+        ],
+        [
+          "pick",
+          [
+            75
+          ]
+        ],
+        [
+          "ready",
+          []
+        ],
+        [
+          "watch",
+          [
+            10
+          ]
+        ],
+        [
+          "cursor",
+          [
+            10
+          ]
+        ],
+        [
+          "finish",
+          [
+            10
+          ]
+        ]
+      ],
+      "outputs": [
+        10,
+        74,
+        75
+      ],
+      "expected": [
+        [
+          [
+            "a",
+            "a",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "a",
+            "a",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "a",
+            "b",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "a",
+            "b",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "a",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "a",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "b",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "b",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ]
+      ],
+      "ongoing": false,
+      "parameters": {
+        "chain": 0,
+        "noise": 0,
+        "choices": 3,
+        "late": false,
+        "failure": false,
+        "base": 10
+      },
+      "input": "pick:v10,pick:v74,pick:v75,ready,watch:v10,cursor:v10,finish:v10\n10,74,75\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n"
+    },
+    "answers": 8
+  },
+  {
+    "language": "rust",
+    "mode": 8,
+    "role": "one",
+    "source": {
+      "name": "choice-binding-failure-10-0",
+      "rules": [
+        {
+          "kept": [],
+          "removed": [
+            [
+              "go",
+              [
+                0
+              ]
+            ]
+          ],
+          "body": [
+            [
+              "or",
+              [
+                [
+                  "eq",
+                  0,
+                  "a"
+                ]
+              ],
+              [
+                [
+                  "eq",
+                  0,
+                  "b"
+                ]
+              ]
+            ],
+            [
+              "eq",
+              0,
+              "a"
+            ],
+            [
+              "add",
+              [
+                "done",
+                [
+                  0
+                ]
+              ]
+            ]
+          ]
+        }
+      ],
+      "query": [
+        [
+          "go",
+          [
+            10
+          ]
+        ]
+      ],
+      "outputs": [
+        10
+      ],
+      "expected": [
+        [
+          [
+            "a"
+          ],
+          [
+            [
+              "done",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ]
+      ],
+      "ongoing": false,
+      "input": "go:v10\n10\n-;go:v0;(=:v0:a|=:v0:b),=:v0:a,done:v0\n"
+    },
+    "answers": 1
+  },
+  {
+    "language": "rust",
+    "mode": 9,
+    "role": "many",
+    "source": {
+      "name": "n0-noise0-k3-late0-fail0-id10",
+      "rules": [
+        {
+          "kept": [
+            [
+              "ready",
+              []
+            ]
+          ],
+          "removed": [
+            [
+              "pick",
+              [
+                0
+              ]
+            ]
+          ],
+          "body": [
+            [
+              "or",
+              [
+                [
+                  "eq",
+                  0,
+                  "a"
+                ]
+              ],
+              [
+                [
+                  "eq",
+                  0,
+                  "b"
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "kept": [
+            [
+              "watch",
+              [
+                0
+              ]
+            ],
+            [
+              "cursor",
+              [
+                0
+              ]
+            ]
+          ],
+          "removed": [],
+          "body": [
+            [
+              "add",
+              [
+                "seen",
+                [
+                  0
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "kept": [],
+          "removed": [
+            [
+              "cursor",
+              [
+                0
+              ]
+            ],
+            [
+              "edge",
+              [
+                0,
+                1
+              ]
+            ]
+          ],
+          "body": [
+            [
+              "eq",
+              0,
+              1
+            ],
+            [
+              "add",
+              [
+                "cursor",
+                [
+                  1
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "kept": [],
+          "removed": [
+            [
+              "cursor",
+              [
+                0
+              ]
+            ],
+            [
+              "finish",
+              [
+                0
+              ]
+            ]
+          ],
+          "body": []
+        }
+      ],
+      "query": [
+        [
+          "pick",
+          [
+            10
+          ]
+        ],
+        [
+          "pick",
+          [
+            74
+          ]
+        ],
+        [
+          "pick",
+          [
+            75
+          ]
+        ],
+        [
+          "ready",
+          []
+        ],
+        [
+          "watch",
+          [
+            10
+          ]
+        ],
+        [
+          "cursor",
+          [
+            10
+          ]
+        ],
+        [
+          "finish",
+          [
+            10
+          ]
+        ]
+      ],
+      "outputs": [
+        10,
+        74,
+        75
+      ],
+      "expected": [
+        [
+          [
+            "a",
+            "a",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "a",
+            "a",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "a",
+            "b",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "a",
+            "b",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "a",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "a",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "b",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "b",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ]
+      ],
+      "ongoing": false,
+      "parameters": {
+        "chain": 0,
+        "noise": 0,
+        "choices": 3,
+        "late": false,
+        "failure": false,
+        "base": 10
+      },
+      "input": "pick:v10,pick:v74,pick:v75,ready,watch:v10,cursor:v10,finish:v10\n10,74,75\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n"
+    },
+    "answers": 8
+  },
+  {
+    "language": "rust",
+    "mode": 9,
+    "role": "one",
+    "source": {
+      "name": "choice-binding-failure-10-0",
+      "rules": [
+        {
+          "kept": [],
+          "removed": [
+            [
+              "go",
+              [
+                0
+              ]
+            ]
+          ],
+          "body": [
+            [
+              "or",
+              [
+                [
+                  "eq",
+                  0,
+                  "a"
+                ]
+              ],
+              [
+                [
+                  "eq",
+                  0,
+                  "b"
+                ]
+              ]
+            ],
+            [
+              "eq",
+              0,
+              "a"
+            ],
+            [
+              "add",
+              [
+                "done",
+                [
+                  0
+                ]
+              ]
+            ]
+          ]
+        }
+      ],
+      "query": [
+        [
+          "go",
+          [
+            10
+          ]
+        ]
+      ],
+      "outputs": [
+        10
+      ],
+      "expected": [
+        [
+          [
+            "a"
+          ],
+          [
+            [
+              "done",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ]
+      ],
+      "ongoing": false,
+      "input": "go:v10\n10\n-;go:v0;(=:v0:a|=:v0:b),=:v0:a,done:v0\n"
+    },
+    "answers": 1
+  },
+  {
+    "language": "rust",
+    "mode": 10,
+    "role": "many",
+    "source": {
+      "name": "choice-independent-10-0",
+      "rules": [
+        {
+          "kept": [],
+          "removed": [
+            [
+              "go",
+              [
+                0
+              ]
+            ]
+          ],
+          "body": [
+            [
+              "or",
+              [
+                [
+                  "eq",
+                  0,
+                  "a"
+                ]
+              ],
+              [
+                [
+                  "eq",
+                  0,
+                  "b"
+                ]
+              ]
+            ]
+          ]
+        }
+      ],
+      "query": [
+        [
+          "go",
+          [
+            10
+          ]
+        ],
+        [
+          "go",
+          [
+            11
+          ]
+        ]
+      ],
+      "outputs": [
+        10,
+        11
+      ],
+      "expected": [
+        [
+          [
+            "a",
+            "a"
+          ],
+          []
+        ],
+        [
+          [
+            "a",
+            "b"
+          ],
+          []
+        ],
+        [
+          [
+            "b",
+            "a"
+          ],
+          []
+        ],
+        [
+          [
+            "b",
+            "b"
+          ],
+          []
+        ]
+      ],
+      "ongoing": false,
+      "input": "go:v10,go:v11\n10,11\n-;go:v0;(=:v0:a|=:v0:b)\n"
+    },
+    "answers": 4
+  },
+  {
+    "language": "rust",
+    "mode": 10,
+    "role": "one",
+    "source": {
+      "name": "det-order-10-0-1-0",
+      "rules": [
+        {
+          "kept": [],
+          "removed": [
+            [
+              "bind",
+              [
+                0,
+                1
+              ]
+            ]
+          ],
+          "body": [
+            [
+              "eq",
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "kept": [],
+          "removed": [
+            [
+              "p",
+              [
+                0
+              ]
+            ],
+            [
+              "q",
+              [
+                0
+              ]
+            ]
+          ],
+          "body": [
+            [
+              "add",
+              [
+                "joined",
+                [
+                  0
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "kept": [],
+          "removed": [
+            [
+              "p",
+              [
+                0
+              ]
+            ],
+            [
+              "token",
+              []
+            ]
+          ],
+          "body": [
+            [
+              "add",
+              [
+                "taken",
+                [
+                  0
+                ]
+              ]
+            ]
+          ]
+        }
+      ],
+      "query": [
+        [
+          "p",
+          [
+            10
+          ]
+        ],
+        [
+          "q",
+          [
+            11
+          ]
+        ],
+        [
+          "bind",
+          [
+            10,
+            11
+          ]
+        ],
+        [
+          "token",
+          []
+        ]
+      ],
+      "outputs": [
+        10,
+        11
+      ],
+      "expected": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            [
+              "joined",
+              [
+                0
+              ]
+            ],
+            [
+              "token",
+              []
+            ]
+          ]
+        ]
+      ],
+      "ongoing": false,
+      "input": "p:v10,q:v11,bind:v10:v11,token\n10,11\n-;bind:v0:v1;=:v0:v1\n-;p:v0,q:v0;joined:v0\n-;p:v0,token;taken:v0\n"
+    },
+    "answers": 1
+  },
+  {
+    "language": "rust",
+    "mode": 11,
+    "role": "many",
+    "source": {
+      "name": "choice-independent-10-0",
+      "rules": [
+        {
+          "kept": [],
+          "removed": [
+            [
+              "go",
+              [
+                0
+              ]
+            ]
+          ],
+          "body": [
+            [
+              "or",
+              [
+                [
+                  "eq",
+                  0,
+                  "a"
+                ]
+              ],
+              [
+                [
+                  "eq",
+                  0,
+                  "b"
+                ]
+              ]
+            ]
+          ]
+        }
+      ],
+      "query": [
+        [
+          "go",
+          [
+            10
+          ]
+        ],
+        [
+          "go",
+          [
+            11
+          ]
+        ]
+      ],
+      "outputs": [
+        10,
+        11
+      ],
+      "expected": [
+        [
+          [
+            "a",
+            "a"
+          ],
+          []
+        ],
+        [
+          [
+            "a",
+            "b"
+          ],
+          []
+        ],
+        [
+          [
+            "b",
+            "a"
+          ],
+          []
+        ],
+        [
+          [
+            "b",
+            "b"
+          ],
+          []
+        ]
+      ],
+      "ongoing": false,
+      "input": "go:v10,go:v11\n10,11\n-;go:v0;(=:v0:a|=:v0:b)\n"
+    },
+    "answers": 4
+  },
+  {
+    "language": "rust",
+    "mode": 12,
+    "role": "many",
+    "source": {
+      "name": "n0-noise0-k3-late0-fail0-id10",
+      "rules": [
+        {
+          "kept": [
+            [
+              "ready",
+              []
+            ]
+          ],
+          "removed": [
+            [
+              "pick",
+              [
+                0
+              ]
+            ]
+          ],
+          "body": [
+            [
+              "or",
+              [
+                [
+                  "eq",
+                  0,
+                  "a"
+                ]
+              ],
+              [
+                [
+                  "eq",
+                  0,
+                  "b"
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "kept": [
+            [
+              "watch",
+              [
+                0
+              ]
+            ],
+            [
+              "cursor",
+              [
+                0
+              ]
+            ]
+          ],
+          "removed": [],
+          "body": [
+            [
+              "add",
+              [
+                "seen",
+                [
+                  0
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "kept": [],
+          "removed": [
+            [
+              "cursor",
+              [
+                0
+              ]
+            ],
+            [
+              "edge",
+              [
+                0,
+                1
+              ]
+            ]
+          ],
+          "body": [
+            [
+              "eq",
+              0,
+              1
+            ],
+            [
+              "add",
+              [
+                "cursor",
+                [
+                  1
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "kept": [],
+          "removed": [
+            [
+              "cursor",
+              [
+                0
+              ]
+            ],
+            [
+              "finish",
+              [
+                0
+              ]
+            ]
+          ],
+          "body": []
+        }
+      ],
+      "query": [
+        [
+          "pick",
+          [
+            10
+          ]
+        ],
+        [
+          "pick",
+          [
+            74
+          ]
+        ],
+        [
+          "pick",
+          [
+            75
+          ]
+        ],
+        [
+          "ready",
+          []
+        ],
+        [
+          "watch",
+          [
+            10
+          ]
+        ],
+        [
+          "cursor",
+          [
+            10
+          ]
+        ],
+        [
+          "finish",
+          [
+            10
+          ]
+        ]
+      ],
+      "outputs": [
+        10,
+        74,
+        75
+      ],
+      "expected": [
+        [
+          [
+            "a",
+            "a",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "a",
+            "a",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "a",
+            "b",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "a",
+            "b",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "a",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "a",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "b",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "b",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ]
+      ],
+      "ongoing": false,
+      "parameters": {
+        "chain": 0,
+        "noise": 0,
+        "choices": 3,
+        "late": false,
+        "failure": false,
+        "base": 10
+      },
+      "input": "pick:v10,pick:v74,pick:v75,ready,watch:v10,cursor:v10,finish:v10\n10,74,75\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n"
+    },
+    "answers": 8
+  },
+  {
+    "language": "rust",
+    "mode": 12,
+    "role": "one",
+    "source": {
+      "name": "n0-noise0-k1-late0-fail1-id10",
+      "rules": [
+        {
+          "kept": [
+            [
+              "ready",
+              []
+            ]
+          ],
+          "removed": [
+            [
+              "pick",
+              [
+                0
+              ]
+            ]
+          ],
+          "body": [
+            [
+              "or",
+              [
+                [
+                  "eq",
+                  0,
+                  "a"
+                ]
+              ],
+              [
+                [
+                  "fail"
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "kept": [
+            [
+              "watch",
+              [
+                0
+              ]
+            ],
+            [
+              "cursor",
+              [
+                0
+              ]
+            ]
+          ],
+          "removed": [],
+          "body": [
+            [
+              "add",
+              [
+                "seen",
+                [
+                  0
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "kept": [],
+          "removed": [
+            [
+              "cursor",
+              [
+                0
+              ]
+            ],
+            [
+              "edge",
+              [
+                0,
+                1
+              ]
+            ]
+          ],
+          "body": [
+            [
+              "eq",
+              0,
+              1
+            ],
+            [
+              "add",
+              [
+                "cursor",
+                [
+                  1
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "kept": [],
+          "removed": [
+            [
+              "cursor",
+              [
+                0
+              ]
+            ],
+            [
+              "finish",
+              [
+                0
+              ]
+            ]
+          ],
+          "body": []
+        }
+      ],
+      "query": [
+        [
+          "pick",
+          [
+            10
+          ]
+        ],
+        [
+          "ready",
+          []
+        ],
+        [
+          "watch",
+          [
+            10
+          ]
+        ],
+        [
+          "cursor",
+          [
+            10
+          ]
+        ],
+        [
+          "finish",
+          [
+            10
+          ]
+        ]
+      ],
+      "outputs": [
+        10
+      ],
+      "expected": [
+        [
+          [
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ]
+      ],
+      "ongoing": false,
+      "parameters": {
+        "chain": 0,
+        "noise": 0,
+        "choices": 1,
+        "late": false,
+        "failure": true,
+        "base": 10
+      },
+      "input": "pick:v10,ready,watch:v10,cursor:v10,finish:v10\n10\nready;pick:v0;(=:v0:a|!)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n"
+    },
+    "answers": 1
+  },
+  {
+    "language": "native",
+    "mode": null,
+    "role": "many",
+    "source": {
+      "name": "n0-noise0-k3-late0-fail0-id10",
+      "rules": [
+        {
+          "kept": [
+            [
+              "ready",
+              []
+            ]
+          ],
+          "removed": [
+            [
+              "pick",
+              [
+                0
+              ]
+            ]
+          ],
+          "body": [
+            [
+              "or",
+              [
+                [
+                  "eq",
+                  0,
+                  "a"
+                ]
+              ],
+              [
+                [
+                  "eq",
+                  0,
+                  "b"
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "kept": [
+            [
+              "watch",
+              [
+                0
+              ]
+            ],
+            [
+              "cursor",
+              [
+                0
+              ]
+            ]
+          ],
+          "removed": [],
+          "body": [
+            [
+              "add",
+              [
+                "seen",
+                [
+                  0
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "kept": [],
+          "removed": [
+            [
+              "cursor",
+              [
+                0
+              ]
+            ],
+            [
+              "edge",
+              [
+                0,
+                1
+              ]
+            ]
+          ],
+          "body": [
+            [
+              "eq",
+              0,
+              1
+            ],
+            [
+              "add",
+              [
+                "cursor",
+                [
+                  1
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "kept": [],
+          "removed": [
+            [
+              "cursor",
+              [
+                0
+              ]
+            ],
+            [
+              "finish",
+              [
+                0
+              ]
+            ]
+          ],
+          "body": []
+        }
+      ],
+      "query": [
+        [
+          "pick",
+          [
+            10
+          ]
+        ],
+        [
+          "pick",
+          [
+            74
+          ]
+        ],
+        [
+          "pick",
+          [
+            75
+          ]
+        ],
+        [
+          "ready",
+          []
+        ],
+        [
+          "watch",
+          [
+            10
+          ]
+        ],
+        [
+          "cursor",
+          [
+            10
+          ]
+        ],
+        [
+          "finish",
+          [
+            10
+          ]
+        ]
+      ],
+      "outputs": [
+        10,
+        74,
+        75
+      ],
+      "expected": [
+        [
+          [
+            "a",
+            "a",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "a",
+            "a",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "a",
+            "b",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "a",
+            "b",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "a"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "a",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "a",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "b",
+            "a"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "b",
+            "b",
+            "b"
+          ],
+          [
+            [
+              "ready",
+              []
+            ],
+            [
+              "watch",
+              [
+                "b"
+              ]
+            ],
+            [
+              "seen",
+              [
+                "b"
+              ]
+            ]
+          ]
+        ]
+      ],
+      "ongoing": false,
+      "parameters": {
+        "chain": 0,
+        "noise": 0,
+        "choices": 3,
+        "late": false,
+        "failure": false,
+        "base": 10
+      },
+      "input": "pick:v10,pick:v74,pick:v75,ready,watch:v10,cursor:v10,finish:v10\n10,74,75\nready;pick:v0;(=:v0:a|=:v0:b)\nwatch:v0,cursor:v0;-;seen:v0\n-;cursor:v0,edge:v0:v1;=:v0:v1,cursor:v1\n-;cursor:v0,finish:v0;-\n"
+    },
+    "answers": 8,
+    "program": "docs/experiments/results/s10-publication-clock/pilot-many.hvm",
+    "input": "1\n1048576 1 3 7 76 10 74 75 3 1 V 10 3 1 V 74 3 1 V 75 4 0 6 1 V 10 0 1 V 10 2 1 V 10\n",
+    "predicates": [
+      "cursor",
+      "edge",
+      "finish",
+      "pick",
+      "ready",
+      "seen",
+      "watch"
+    ],
+    "atoms": [
+      "a",
+      "b"
+    ]
+  },
+  {
+    "language": "native",
+    "mode": null,
+    "role": "one",
+    "source": {
+      "name": "choice-binding-failure-10-0",
+      "rules": [
+        {
+          "kept": [],
+          "removed": [
+            [
+              "go",
+              [
+                0
+              ]
+            ]
+          ],
+          "body": [
+            [
+              "or",
+              [
+                [
+                  "eq",
+                  0,
+                  "a"
+                ]
+              ],
+              [
+                [
+                  "eq",
+                  0,
+                  "b"
+                ]
+              ]
+            ],
+            [
+              "eq",
+              0,
+              "a"
+            ],
+            [
+              "add",
+              [
+                "done",
+                [
+                  0
+                ]
+              ]
+            ]
+          ]
+        }
+      ],
+      "query": [
+        [
+          "go",
+          [
+            10
+          ]
+        ]
+      ],
+      "outputs": [
+        10
+      ],
+      "expected": [
+        [
+          [
+            "a"
+          ],
+          [
+            [
+              "done",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ]
+      ],
+      "ongoing": false,
+      "input": "go:v10\n10\n-;go:v0;(=:v0:a|=:v0:b),=:v0:a,done:v0\n"
+    },
+    "answers": 1,
+    "program": "docs/experiments/results/s10-publication-clock/pilot-one.hvm",
+    "input": "1\n1048576 1 1 1 11 10 1 1 V 10\n",
+    "predicates": [
+      "done",
+      "go"
+    ],
+    "atoms": [
+      "a",
+      "b"
+    ]
+  }
+]

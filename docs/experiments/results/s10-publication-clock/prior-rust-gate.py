@@ -26,10 +26,7 @@ def check(row,group,complete=True):
         assert e['wire_bytes']==a['bytes'] and e['wire_capacity']>=e['wire_bytes']
         assert (e['first_observation_ns'] is not None)==bool(a['answers'])
         if e['first_observation_ns'] is not None:assert 0<=e['first_observation_ns']<=e['service_ns']
-        if e['serialization_ns'] is None:
-            assert e['compute_observe_ns'] is None
-        else:
-            assert e['service_ns']==e['serialization_ns']+e['compute_observe_ns']
+        assert e['service_ns']==e['serialization_ns']+e['compute_observe_ns']
         assert e['query_total_ns']==e['setup_ns']+e['service_ns']+e['query_drop_ns']
     end=events[-1];assert end['session_disposed']
     assert end['lifecycle_ns']==sum(end[k] for k in ['input_load_ns','decode_ns','input_drop_ns','prepare_ns','consumer_setup_ns','query_batch_drop_ns','prepared_drop_ns','consumer_drop_ns'])+sum(e['query_total_ns'] for e in events[:-1])

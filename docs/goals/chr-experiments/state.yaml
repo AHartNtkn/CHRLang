@@ -64,7 +64,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T078
+active_task: T073
 tasks:
   - id: T080
     type: pm
@@ -137,11 +137,12 @@ tasks:
   - id: T078
     type: pm
     assignee: PM
-    status: active
+    status: pending
     objective: Establish and independently qualify at least two coherent complete execution paths on mixed-mechanism sources, including a serious alternative, with explicit semantic capability and responsibility maps before whole-path cost registration.
-    progress: Clock calibration completes 42 processes over CPUs 0/1 with 420000 empty samples and baseline/affinity checks. Empty medians are 12 ns for Rust/native and 30 ns for Python. Registered screening scales flag all 2286 Rust serialization observations and 407 of 413 native serialization observations containing answers. An explicitly exploratory service-density estimate exceeds 1 percent in 997 Rust and 50 native observations; this is not measured overhead or an error bound. Qualified semantic/ownership endpoints remain unchanged. No architecture timing ordering is claimed.
-    next_action: Qualify primary Rust/native service timing without repeated per-answer serialization clocks while retaining first-publication and whole-service timing. Preserve a separate diagnostic path, replay full observations/budgets/ownership, and register a paired instrumentation-effect measurement before confirmation. Complete Python/native allocation diagnostics with explicit interpreter/requested-heap/mapping scope. At full measurement qualification compare a bounded mixed-source pilot with broader direct source analysis. Compilation, streaming lifetime, local ownership, constructors and all other consequential mapped directions remain required.
+    progress: Primary and diagnostic publication clocks preserve 4572 admitted Rust checks, 1174 exclusions, 130 retained cancellation/reuse queries and 958 native query replays. Primary records unmeasured serialization/derived-compute as null and retains first-publication timing. The registered instrumentation pilot completes 540 processes and 108 excluded warmups over 27 configurations and two CPUs. All 54 contrasts remain unresolved under the practical screen; no speed claim follows. Scoped strict Clippy and formatting pass. The five-package breadth review selects T073 compatible-query learning.
+    next_action: Resume separate host/native allocation qualification and a bounded coherent mixed-source cost pilot at the T073 learning validity gate or a consequential obstruction. Explicitly compose the qualified primary native binary with the host runner before primary whole-path timing. Retain diagnostic clocks for attribution only. Compilation/artifact lifetime, streaming, local ownership, constructors and other mapped directions remain required.
     inputs:
+      - docs/experiments/results/S10-publication-clock.md
       - docs/experiments/results/S10-clock-calibration.md
       - docs/experiments/results/S10-host-session.md
       - docs/experiments/results/S10-host-frontend.md
@@ -355,11 +356,12 @@ tasks:
   - id: T073
     type: pm
     assignee: PM
-    status: pending
+    status: active
     progress: Finite lifecycle completes1428 processes across204 cells; paired empty-complement attribution completes252 processes across36 cells. Exact allocation replays, work signatures and ownership restoration pass. Selective four-query traffic is795100 bytes; unselective remains15772090 versus specialization9237489. Default and counter-free package suites each pass154 tests, with scoped strict Clippy. Four-package breadth review selects T080 native graph correspondence.
-    next_action: Resume richer resource/domain solving, solution ownership and publication, broader admission, compatible-query learning, native compilation and timing confirmation. Challenge the extra cardinality lookup on sources with few avoidable copies. These questions remain required; the native graph gate changes priority, not their disposition.
+    next_action: Establish a source/validity gate for compatible-query learned failure reuse in checked finite solving. Demonstrate actual avoided search across related queries and invalidation under changed domains, aliases and assumptions. Compare recomputation and retained complete results separately from reusable contradictions; preserve raw multiplicity, phase publication and the full consuming caller with independent observations. Review T078 allocation qualification and the mixed-source pilot at this gate or a consequential obstruction; broader resource derivations, admission, native compilation and lifetime remain required.
     objective: Derive a source-driven lowering transformation beyond exact schemas, with explicit dependency/resource conditions, independent complete-answer checks and consequential language-property boundaries before cost measurement.
     inputs:
+      - docs/experiments/results/S10-publication-clock.md
       - docs/experiments/results/S06-finite-lifecycle.md
       - docs/experiments/results/S06-empty-complement-attribution.md
       - docs/experiments/results/S06-finite-phase-gate.md
@@ -2464,14 +2466,15 @@ checks:
   last_verification:
     result: passed
     task: T078
-    scope: Clock calibration, source/binary audit and diagnostic sensitivity screen; no architectural ranking.
+    scope: Primary/diagnostic semantic qualification and bounded instrumentation pilot; breadth review selects sole active T073.
     commands:
-      - python3 research/chr-hvm/clock_calibration/run.py
-      - python3 research/chr-hvm/clock_calibration/analyze.py
-      - 42 registered process positions, sample counts, baseline loops and reported CPU checks
-      - Report links, YAML, source/evidence hashes and diff checks
+      - python3 research/chr-hvm/publication_clock/build.py
+      - python3 research/chr-hvm/publication_clock/gate.py
+      - python3 research/chr-hvm/publication_clock/pilot.py
+      - python3 research/chr-hvm/publication_clock/analyze.py
+      - Scoped strict Clippy in both clock configurations and rustfmt check
+      - Report links, YAML active-task consistency, source/evidence hashes and diff checks
     evidence:
-      - docs/experiments/results/S10-clock-calibration.md
-      - docs/experiments/results/s10-clock-calibration/validation.json
-      - docs/experiments/results/s10-clock-calibration/analysis.json
-      - docs/experiments/results/s10-clock-calibration/service-density.json
+      - docs/experiments/results/S10-publication-clock.md
+      - docs/experiments/results/s10-publication-clock/validation.json
+      - docs/experiments/results/s10-publication-clock/analysis.json

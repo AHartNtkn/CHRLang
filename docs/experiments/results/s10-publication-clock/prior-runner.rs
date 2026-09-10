@@ -13,11 +13,9 @@ mod common {
         serialization: &mut u128,
         first: &mut Option<u128>,
     ) {
-        let t = cfg!(feature = "serialization-clock").then(Instant::now);
+        let t = Instant::now();
         wire.push(answer);
-        if let Some(t) = t {
-            *serialization += ns(t);
-        }
+        *serialization += ns(t);
         if first.is_none() {
             *first = Some(ns(start));
         }
@@ -311,17 +309,9 @@ mod common {
             assert!(serialization <= service_ns);
             let total = setup_ns + service_ns + query_drop_ns;
             query_sum += total;
-            let (serialization_value, compute_value) = if cfg!(feature = "serialization-clock") {
-                (
-                    serialization.to_string(),
-                    (service_ns - serialization).to_string(),
-                )
-            } else {
-                ("null".into(), "null".into())
-            };
             eprintln!(
-                "{{\"query\":{index},\"calls\":{calls},\"exhausted\":{exhausted},\"setup_ns\":{setup_ns},\"service_ns\":{service_ns},\"serialization_ns\":{serialization_value},\"compute_observe_ns\":{},\"query_drop_ns\":{query_drop_ns},\"query_total_ns\":{total},\"first_observation_ns\":{},\"wire_bytes\":{},\"wire_capacity\":{}}}",
-                compute_value,
+                "{{\"query\":{index},\"calls\":{calls},\"exhausted\":{exhausted},\"setup_ns\":{setup_ns},\"service_ns\":{service_ns},\"serialization_ns\":{serialization},\"compute_observe_ns\":{},\"query_drop_ns\":{query_drop_ns},\"query_total_ns\":{total},\"first_observation_ns\":{},\"wire_bytes\":{},\"wire_capacity\":{}}}",
+                service_ns - serialization,
                 first.map_or("null".into(), |n| n.to_string()),
                 wire.bytes.len(),
                 wire.bytes.capacity()
