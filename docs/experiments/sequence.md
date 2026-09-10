@@ -1,6 +1,6 @@
 # Experimental sequence: resolve the remaining architecture questions
 
-The [current execution order](next-cycle.md#execution-order-after-the-current-causal-comparison) schedules all missing comparisons. The [immediate packages](next-cycle.md#start-here-the-next-experiments) now investigate demand resource dependencies, with explicit reconsideration of joint-theory costs and local branch-copy costs. Every question retains its detailed evidence obligation.
+The [current execution order](next-cycle.md#execution-order-after-the-current-causal-comparison) schedules all missing comparisons. The [immediate packages](next-cycle.md#start-here-the-next-experiments) finish the in-progress demand resource-dependency gate and its consequential cost comparison, then investigate contextual integration. Joint symbolic solving follows, with selection reviewed after each package. Every question retains its detailed evidence obligation.
 
 Investigate the unanswered mechanisms directly, then compare the complete architectures they enable. Reuse the existing baselines. The research remains active until consequential questions have evidence-backed answers.
 
