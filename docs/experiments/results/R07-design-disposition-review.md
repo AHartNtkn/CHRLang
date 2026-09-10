@@ -134,6 +134,8 @@ The subsequent [CHR-expressed constructor/consumption gate](S02-chr-constructors
 
 ### 15. Wrap recursive backend work in a constructor or lambda to obtain a yield — Incorrect boundary assumption
 
+**Current follow-up.** The [retained native service gate](S03-native-service.md) now returns finite leaf answers beside ongoing native reduction. It does not serialize whole source states. Reference-only cycles and traversal restart require an explicit quota contract; structured observation, consuming source correspondence and complete costs remain unanswered.
+
 **Result.** On the pinned backend, neither wrapper returned around the adverse recursive call within the bound. Source inspection explained why normalization still entered the work. Explicit finite data continuations did return the expected toy states.
 
 **Decision and limit.** The wrapper was not a valid suspension boundary for that runtime. A generated data-controller implementation remained feasible but was not completed and costed as a general CHR engine. This does not establish that every graph backend needs whole-state serialization. [Continuation boundary](E06-hvm-boundary.md)

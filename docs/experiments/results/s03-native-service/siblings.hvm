@@ -1,0 +1,3 @@
+@spin = λx.@spin(x)
+@loop = @loop
+@main = &(1){&(2){@spin(#Loop),#A},&(3){#B,#C}}

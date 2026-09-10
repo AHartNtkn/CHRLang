@@ -1,0 +1,24 @@
+[
+  {
+    "binary": "baseline",
+    "case": "loop-first.hvm",
+    "result": {
+      "code": -9,
+      "stdout": "",
+      "stderr": ""
+    },
+    "child_cpu_seconds": 2.08321,
+    "wall_seconds": 2.0842480880673975
+  },
+  {
+    "binary": "service",
+    "case": "reference-cycle.hvm",
+    "result": {
+      "code": -9,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":1,\"pending\":2,\"stack\":1}\n"
+    },
+    "child_cpu_seconds": 1.9994589999999999,
+    "wall_seconds": 2.000653682043776
+  }
+]

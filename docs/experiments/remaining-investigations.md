@@ -1,5 +1,7 @@
 # The comparisons still needed to choose the architecture
 
+The [native service gate](results/S03-native-service.md) now passes103 revised processes, including30 exact replays and30 diagnostics-off controls. A retained native heap can expose finite leaf answers beside continuing work. Reference-cycle and traversal-restart counterexamples establish distinct quota obligations. T080 next qualifies incremental structured observation, correlation and off-output effects; full CHR correspondence and costs remain open.
+
 The [finite-solver lifecycle pilot](results/S06-finite-lifecycle.md) completes 1,428 processes across 204 configurations. A [paired allocation correction](results/S06-empty-complement-attribution.md) completes another 252 processes. Selective four-query allocation falls to 0.795 MB, below both conditional orders; the unselective batch still requests 15.77 MB versus specialization’s 9.24 MB. These are bounded results, with compilation and broader solver questions still open.
 
 The [stronger-control lifecycle pilot](results/S10-arrival-lifecycle.md) validates1,344 runs and192 exact allocation pairs. Specialization improves the substantive explicit control but preserves the conditional choice/check advantage; streams favor explicit execution. T079 effect/ownership beneficiary qualification was selected at that checkpoint. Direct solving, native compilation and broader coherent architectures remain required.
