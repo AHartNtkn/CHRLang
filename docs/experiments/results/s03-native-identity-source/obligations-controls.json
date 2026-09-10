@@ -1,0 +1,490 @@
+[
+  {
+    "case": "replace-0-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Nil{},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{0},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "replace-0-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Nil{},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{0},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "replace-1-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Nil{},#Cons{#Result{1,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{0},#Nil{}}},#Nil{}}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "replace-1-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Nil{},#Cons{#Result{1,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{0},#Nil{}}},#Nil{}}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "replace-2-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Nil{},#Cons{#Result{1,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{0},#Nil{}}},#Nil{}}}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "replace-2-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Nil{},#Cons{#Result{1,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{0},#Nil{}}},#Nil{}}}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "replace-3-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Nil{},#Cons{#Result{1,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{0},#Nil{}}},#Nil{}}}}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "replace-3-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Nil{},#Cons{#Result{1,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{0},#Nil{}}},#Nil{}}}}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "bind-10-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Atom{0},#Nil{}},#Cons{#Result{1,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{2,#Cons{#Atom{0},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "fresh-10-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Var{10},#Nil{}},#Cons{#Result{1,#Cons{#Var{10},#Nil{}}},#Cons{#Result{0,#Cons{#Var{11},#Nil{}}},#Cons{#Result{1,#Cons{#Var{11},#Nil{}}},#Nil{}}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "bind-10-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Atom{0},#Nil{}},#Cons{#Result{1,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{2,#Cons{#Atom{0},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "fresh-10-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Var{10},#Nil{}},#Cons{#Result{1,#Cons{#Var{10},#Nil{}}},#Cons{#Result{0,#Cons{#Var{11},#Nil{}}},#Cons{#Result{1,#Cons{#Var{11},#Nil{}}},#Nil{}}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "bind-100-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Atom{0},#Nil{}},#Cons{#Result{1,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{2,#Cons{#Atom{0},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "fresh-100-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Var{100},#Nil{}},#Cons{#Result{1,#Cons{#Var{100},#Nil{}}},#Cons{#Result{0,#Cons{#Var{101},#Nil{}}},#Cons{#Result{1,#Cons{#Var{101},#Nil{}}},#Nil{}}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "bind-100-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Atom{0},#Nil{}},#Cons{#Result{1,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{2,#Cons{#Atom{0},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "fresh-100-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Var{100},#Nil{}},#Cons{#Result{1,#Cons{#Var{100},#Nil{}}},#Cons{#Result{0,#Cons{#Var{101},#Nil{}}},#Cons{#Result{1,#Cons{#Var{101},#Nil{}}},#Nil{}}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "bind-1000-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Atom{0},#Nil{}},#Cons{#Result{1,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{2,#Cons{#Atom{0},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "fresh-1000-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Var{1000},#Nil{}},#Cons{#Result{1,#Cons{#Var{1000},#Nil{}}},#Cons{#Result{0,#Cons{#Var{1001},#Nil{}}},#Cons{#Result{1,#Cons{#Var{1001},#Nil{}}},#Nil{}}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "bind-1000-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Atom{0},#Nil{}},#Cons{#Result{1,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{2,#Cons{#Atom{0},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "fresh-1000-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Var{1000},#Nil{}},#Cons{#Result{1,#Cons{#Var{1000},#Nil{}}},#Cons{#Result{0,#Cons{#Var{1001},#Nil{}}},#Cons{#Result{1,#Cons{#Var{1001},#Nil{}}},#Nil{}}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "pairs-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Nil{},#Nil{}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "pairs-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Nil{},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Nil{}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "pairs-2",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Nil{},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{0},#Cons{#Atom{0},#Nil{}}}},#Cons{#Result{1,#Cons{#Atom{0},#Cons{#Atom{0},#Nil{}}}},#Nil{}}}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "pairs-3",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Nil{},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{0},#Cons{#Atom{0},#Nil{}}}},#Cons{#Result{1,#Cons{#Atom{0},#Cons{#Atom{0},#Nil{}}}},#Cons{#Result{1,#Cons{#Atom{0},#Cons{#Atom{0},#Nil{}}}},#Cons{#Result{1,#Cons{#Atom{0},#Cons{#Atom{0},#Nil{}}}},#Cons{#Result{1,#Cons{#Atom{0},#Cons{#Atom{0},#Nil{}}}},#Cons{#Result{1,#Cons{#Atom{0},#Cons{#Atom{0},#Nil{}}}},#Nil{}}}}}}}}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "pairs-distinct",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Nil{},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{0,#Cons{#Atom{1},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{0},#Cons{#Atom{1},#Nil{}}}},#Cons{#Result{1,#Cons{#Atom{1},#Cons{#Atom{0},#Nil{}}}},#Nil{}}}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "order-10-0-0-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Var{10},#Cons{#Var{10},#Nil{}}},#Cons{#Result{3,#Cons{#Var{10},#Nil{}}},#Cons{#Result{4,#Cons{#Var{10},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "order-10-0-0-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Var{10},#Cons{#Var{10},#Nil{}}},#Cons{#Result{3,#Cons{#Var{10},#Nil{}}},#Cons{#Result{4,#Cons{#Var{10},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "order-10-0-1-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Var{10},#Cons{#Var{10},#Nil{}}},#Cons{#Result{5,#Nil{}},#Cons{#Result{1,#Cons{#Var{10},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "order-10-0-1-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Var{10},#Cons{#Var{10},#Nil{}}},#Cons{#Result{5,#Nil{}},#Cons{#Result{1,#Cons{#Var{10},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "order-10-1-0-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Var{10},#Cons{#Var{10},#Nil{}}},#Cons{#Result{5,#Nil{}},#Cons{#Result{1,#Cons{#Var{10},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "order-10-1-0-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Var{10},#Cons{#Var{10},#Nil{}}},#Cons{#Result{5,#Nil{}},#Cons{#Result{1,#Cons{#Var{10},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "order-10-1-1-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Var{10},#Cons{#Var{10},#Nil{}}},#Cons{#Result{5,#Nil{}},#Cons{#Result{1,#Cons{#Var{10},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "order-10-1-1-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Var{10},#Cons{#Var{10},#Nil{}}},#Cons{#Result{5,#Nil{}},#Cons{#Result{1,#Cons{#Var{10},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "order-100-0-0-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Var{100},#Cons{#Var{100},#Nil{}}},#Cons{#Result{3,#Cons{#Var{100},#Nil{}}},#Cons{#Result{4,#Cons{#Var{100},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "order-100-0-0-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Var{100},#Cons{#Var{100},#Nil{}}},#Cons{#Result{3,#Cons{#Var{100},#Nil{}}},#Cons{#Result{4,#Cons{#Var{100},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "order-100-0-1-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Var{100},#Cons{#Var{100},#Nil{}}},#Cons{#Result{5,#Nil{}},#Cons{#Result{1,#Cons{#Var{100},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "order-100-0-1-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Var{100},#Cons{#Var{100},#Nil{}}},#Cons{#Result{5,#Nil{}},#Cons{#Result{1,#Cons{#Var{100},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "order-100-1-0-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Var{100},#Cons{#Var{100},#Nil{}}},#Cons{#Result{5,#Nil{}},#Cons{#Result{1,#Cons{#Var{100},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "order-100-1-0-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Var{100},#Cons{#Var{100},#Nil{}}},#Cons{#Result{5,#Nil{}},#Cons{#Result{1,#Cons{#Var{100},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "order-100-1-1-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Var{100},#Cons{#Var{100},#Nil{}}},#Cons{#Result{5,#Nil{}},#Cons{#Result{1,#Cons{#Var{100},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "order-100-1-1-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Var{100},#Cons{#Var{100},#Nil{}}},#Cons{#Result{5,#Nil{}},#Cons{#Result{1,#Cons{#Var{100},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "order-1000-0-0-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Var{1000},#Cons{#Var{1000},#Nil{}}},#Cons{#Result{3,#Cons{#Var{1000},#Nil{}}},#Cons{#Result{4,#Cons{#Var{1000},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "order-1000-0-0-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Var{1000},#Cons{#Var{1000},#Nil{}}},#Cons{#Result{3,#Cons{#Var{1000},#Nil{}}},#Cons{#Result{4,#Cons{#Var{1000},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "order-1000-0-1-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Var{1000},#Cons{#Var{1000},#Nil{}}},#Cons{#Result{5,#Nil{}},#Cons{#Result{1,#Cons{#Var{1000},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "order-1000-0-1-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Var{1000},#Cons{#Var{1000},#Nil{}}},#Cons{#Result{5,#Nil{}},#Cons{#Result{1,#Cons{#Var{1000},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "order-1000-1-0-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Var{1000},#Cons{#Var{1000},#Nil{}}},#Cons{#Result{5,#Nil{}},#Cons{#Result{1,#Cons{#Var{1000},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "order-1000-1-0-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Var{1000},#Cons{#Var{1000},#Nil{}}},#Cons{#Result{5,#Nil{}},#Cons{#Result{1,#Cons{#Var{1000},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "order-1000-1-1-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Var{1000},#Cons{#Var{1000},#Nil{}}},#Cons{#Result{5,#Nil{}},#Cons{#Result{1,#Cons{#Var{1000},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "order-1000-1-1-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Var{1000},#Cons{#Var{1000},#Nil{}}},#Cons{#Result{5,#Nil{}},#Cons{#Result{1,#Cons{#Var{1000},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "commute-10-0-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Atom{0},#Cons{#Atom{1},#Nil{}}},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{1},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "commute-10-0-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Atom{0},#Cons{#Atom{1},#Nil{}}},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{1},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "commute-10-1-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Atom{0},#Cons{#Atom{1},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{1},#Nil{}}},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "commute-10-1-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Atom{0},#Cons{#Atom{1},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{1},#Nil{}}},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "commute-100-0-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Atom{0},#Cons{#Atom{1},#Nil{}}},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{1},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "commute-100-0-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Atom{0},#Cons{#Atom{1},#Nil{}}},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{1},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "commute-100-1-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Atom{0},#Cons{#Atom{1},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{1},#Nil{}}},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "commute-100-1-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Atom{0},#Cons{#Atom{1},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{1},#Nil{}}},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "commute-1000-0-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Atom{0},#Cons{#Atom{1},#Nil{}}},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{1},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "commute-1000-0-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Atom{0},#Cons{#Atom{1},#Nil{}}},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{1},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "commute-1000-1-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Atom{0},#Cons{#Atom{1},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{1},#Nil{}}},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "commute-1000-1-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Atom{0},#Cons{#Atom{1},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{1},#Nil{}}},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  }
+]

@@ -1,6 +1,8 @@
 # Why designs were set aside—and what the experiments actually establish
 
-The [native identity operation gate](S03-native-identity-kernel.md) validates 340 cases separating equality, occurrence IDs and ordered history, including nonbinding probes. These are executable prerequisites, not native source correspondence. T080 next integrates actual rule selection against the complete-source obligations; broader architectures remain unresolved.
+The [native identity-bearing source gate](S03-native-identity-source.md) passes 77 complete sources against independent expectations and the unchanged reference. Serial matching, replacement, equality and ordered histories now execute together. T080 next tests their interaction with choices and failure; local ownership and broader architecture comparisons remain required.
+
+The [native identity operation gate](S03-native-identity-kernel.md) validates 340 cases separating equality, occurrence IDs and ordered history, including nonbinding probes. These are executable prerequisites, not native source correspondence. The complete source gate above now exercises those operations together; broader architectures remain unresolved.
 
 The [controlled size/reuse extension](S02-multihead-scale.md) adds 52 qualified graph-scan gains, eight unresolved comparisons and no losses against Scan. It strengthens a bounded integrated candidate while leaving broader language and memory tradeoffs open. The next investigation qualifies native identities and equality; no architecture is selected.
 

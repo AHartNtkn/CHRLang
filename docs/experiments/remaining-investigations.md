@@ -1,6 +1,8 @@
 # The comparisons still needed to choose the architecture
 
-The [native identity operation gate](results/S03-native-identity-kernel.md) validates 340 cases separating equality, occurrence IDs and ordered history, including nonbinding probes. These are executable prerequisites, not native source correspondence. T080 next integrates actual rule selection against the complete-source obligations; broader architectures remain unresolved.
+The [native identity-bearing source gate](results/S03-native-identity-source.md) passes 77 complete sources against independent expectations and the unchanged reference. Serial matching, replacement, equality and ordered histories now execute together. T080 next tests their interaction with choices and failure; local ownership and broader architecture comparisons remain required.
+
+The [native identity operation gate](results/S03-native-identity-kernel.md) validates 340 cases separating equality, occurrence IDs and ordered history, including nonbinding probes. These are executable prerequisites, not native source correspondence. The complete source gate above now exercises those operations together; broader architectures remain unresolved.
 
 The [controlled size/reuse extension](results/S02-multihead-scale.md) completes 8,820 additional runs. Graph scan has 52 practical timing gains against Scan, eight unresolved comparisons and no losses. Retained joins lose against graph scan in all smaller-width cases. Native identity correspondence is selected next; memory, broader language support and complete architecture comparisons remain required.
 
@@ -48,7 +50,7 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-Current selection: T080 native identity, equality and propagation correspondence, following the [size/reuse comparison and selection review](results/S02-multihead-scale.md). T072 remains unfinished; its broader guard/search support, retention alternatives and eight uncertain comparisons retain their stated scope. Reassess integrated and coherent architecture qualification at the native source-gate boundary.
+Current selection: T080 choices, failure and finite-answer progress on the native identity-bearing source path, following the [source gate and selection review](results/S03-native-identity-source.md). Reconsider integrated guard/search support and coherent architecture qualification at that composition gate or a consequential obstruction. Broader language, local ownership and total costs remain unresolved.
 
 ### Depth, breadth and stopping within this sequence
 
