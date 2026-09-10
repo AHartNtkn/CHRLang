@@ -143,15 +143,27 @@ impl Formula {
             values: &mut [Option<String>],
             alphabet: &[String],
             order: &[usize],
-            attempts: &mut usize,
+            #[cfg(feature = "metrics")] attempts: &mut usize,
         ) -> bool {
             let Some((&next, rest)) = order.split_first() else {
                 return true;
             };
             for name in alphabet {
-                *attempts += 1;
+                #[cfg(feature = "metrics")]
+                {
+                    *attempts += 1;
+                }
                 values[next] = Some(name.clone());
-                if f.consistent(values) && search(f, values, alphabet, rest, attempts) {
+                if f.consistent(values)
+                    && search(
+                        f,
+                        values,
+                        alphabet,
+                        rest,
+                        #[cfg(feature = "metrics")]
+                        attempts,
+                    )
+                {
                     return true;
                 }
             }
@@ -163,6 +175,7 @@ impl Formula {
             &mut values,
             &alphabet,
             &order,
+            #[cfg(feature = "metrics")]
             &mut result.assignment_attempts,
         );
         result

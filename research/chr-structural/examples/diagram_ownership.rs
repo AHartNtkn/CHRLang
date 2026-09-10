@@ -12,6 +12,13 @@ use chr_structural::{
 };
 use chr_syntax::{Term, Var, atom, v};
 use std::collections::{BTreeMap, BTreeSet, VecDeque};
+#[cfg(any(feature = "phase-clock", feature = "session-clock"))]
+use std::time::Instant;
+#[cfg(all(
+    feature = "session-clock",
+    any(feature = "phase-clock", feature = "alloc-meter", feature = "metrics")
+))]
+compile_error!("session clock requires ordinary allocator, no phase clocks and no metrics");
 const LIMIT: usize = 1_000_000;
 type Branch = Vec<(usize, usize)>;
 #[derive(Clone)]
@@ -301,16 +308,24 @@ fn evaluate(p: &Prepared, instances: &[Instance], m: &Model, r: &Request) -> Out
     }
 }
 struct Reading {
+    ns: Option<u128>,
     #[cfg(feature = "alloc-meter")]
     memory: meter::Reading,
 }
 fn measure<T>(f: impl FnOnce() -> T) -> (T, Reading) {
     #[cfg(feature = "alloc-meter")]
     let start = meter::begin();
+    #[cfg(feature = "phase-clock")]
+    let clock = Instant::now();
     let value = f();
+    #[cfg(feature = "phase-clock")]
+    let ns = Some(clock.elapsed().as_nanos());
+    #[cfg(not(feature = "phase-clock"))]
+    let ns = None;
     (
         value,
         Reading {
+            ns,
             #[cfg(feature = "alloc-meter")]
             memory: meter::end(start),
         },
@@ -340,6 +355,21 @@ fn main() {
         #[cfg(not(feature = "alloc-meter"))]
         panic!("meter-check requires allocation build");
     }
+    #[cfg(any(feature = "phase-clock", feature = "session-clock"))]
+    if args[1] == "clock-check" {
+        let mut readings = Vec::with_capacity(100_000);
+        for _ in 0..100_000 {
+            let t = Instant::now();
+            std::hint::black_box(());
+            readings.push(t.elapsed().as_nanos());
+        }
+        readings.sort_unstable();
+        println!(
+            "{{\"min\":{},\"median\":{},\"p99\":{},\"max\":{}}}",
+            readings[0], readings[50_000], readings[99_000], readings[99_999]
+        );
+        return;
+    }
     let mode = &args[1];
     let n = args[3].parse().unwrap();
     let k = args[4].parse().unwrap();
@@ -347,29 +377,59 @@ fn main() {
     let full = args[6] == "full";
     let retention = &args[7];
     assert!(["immediate", "window", "all"].contains(&retention.as_str()));
+    #[cfg(feature = "session-clock")]
+    assert_eq!(
+        retention, "all",
+        "coarse validation requires retained-all consumers"
+    );
     let m = model(&args[2], n, k);
     let expected = (0..queries)
         .map(|q| oracle(&m, &request(&m, q, full)))
         .collect::<Vec<_>>();
     let mut held = VecDeque::with_capacity(queries);
-    let mut phases = Vec::with_capacity(queries * 5 + 4);
+    #[allow(unused_mut)]
+    let mut phases: Vec<(&str, Reading)> = Vec::with_capacity(if cfg!(feature = "session-clock") {
+        0
+    } else {
+        queries * 5 + 4
+    });
     #[cfg(feature = "alloc-meter")]
     let baseline = meter::end(meter::begin()).live_end;
+    #[cfg(feature = "session-clock")]
+    let session_start = Instant::now();
     let (mut p, row) = measure(|| prepare(mode, &m));
+    #[cfg(not(feature = "session-clock"))]
     phases.push(("prepare", row));
+    #[cfg(feature = "session-clock")]
+    let _ = row;
     for (q, want) in expected.iter().enumerate() {
         let (r, row) = measure(|| request(&m, q, full));
+        #[cfg(not(feature = "session-clock"))]
         phases.push(("request", row));
+        #[cfg(feature = "session-clock")]
+        let _ = row;
         let (instances, row) = measure(|| instantiate(&mut p, q));
+        #[cfg(not(feature = "session-clock"))]
         phases.push(("transport", row));
+        #[cfg(feature = "session-clock")]
+        let _ = row;
         let (output, row) = measure(|| evaluate(&p, &instances, &m, &r));
+        #[cfg(not(feature = "session-clock"))]
         phases.push(("observe", row));
+        #[cfg(feature = "session-clock")]
+        let _ = row;
+        #[cfg(not(feature = "session-clock"))]
         assert_eq!(&output, want, "query {q}");
+        #[cfg(feature = "session-clock")]
+        let _ = want;
         let (_, row) = measure(|| {
             drop(instances);
             drop(r);
         });
+        #[cfg(not(feature = "session-clock"))]
         phases.push(("query-dispose", row));
+        #[cfg(feature = "session-clock")]
+        let _ = row;
         let (_, row) = measure(|| match retention.as_str() {
             "immediate" => drop(output),
             "window" => {
@@ -381,7 +441,10 @@ fn main() {
             "all" => held.push_back((q, output)),
             _ => unreachable!(),
         });
+        #[cfg(not(feature = "session-clock"))]
         phases.push(("consumer", row));
+        #[cfg(feature = "session-clock")]
+        let _ = row;
     }
     let (ids, row) = measure(|| {
         if let Prepared::Symbolic(_, fresh) = &mut p {
@@ -399,21 +462,45 @@ fn main() {
             0
         }
     });
+    #[cfg(not(feature = "session-clock"))]
     phases.push(("identity-dispose", row));
+    #[cfg(feature = "session-clock")]
+    let _ = row;
     let (_, row) = measure(|| drop(p));
+    #[cfg(not(feature = "session-clock"))]
     phases.push(("prepare-dispose", row));
+    #[cfg(feature = "session-clock")]
+    let _ = row;
+    #[cfg(feature = "session-clock")]
+    let session_body = session_start.elapsed().as_nanos();
     for (q, output) in &held {
         assert_eq!(output, &expected[*q]);
     }
+    #[cfg(feature = "session-clock")]
+    let disposal_start = Instant::now();
     let (_, row) = measure(|| held.clear());
+    #[cfg(feature = "session-clock")]
+    let session_ns = Some(session_body + disposal_start.elapsed().as_nanos());
+    #[cfg(not(feature = "session-clock"))]
+    let session_ns: Option<u128> = None;
     #[cfg(feature = "alloc-meter")]
     assert_eq!(row.memory.live_end, baseline, "final owner restoration");
+    #[cfg(not(feature = "session-clock"))]
     phases.push(("consumer-dispose", row));
+    #[cfg(feature = "session-clock")]
+    let _ = row;
     println!(
         "{{\"queries\":{queries},\"identity_records\":{ids},\"meter\":{}}}",
         cfg!(feature = "alloc-meter")
     );
     for (phase, row) in phases {
-        println!("{{\"phase\":\"{phase}\",\"memory\":{}}}", row.json());
+        let ns = row.ns.map_or("null".to_string(), |x| x.to_string());
+        println!(
+            "{{\"phase\":\"{phase}\",\"memory\":{},\"ns\":{ns}}}",
+            row.json()
+        );
+    }
+    if let Some(ns) = session_ns {
+        println!("{{\"session_ns\":{ns}}}");
     }
 }

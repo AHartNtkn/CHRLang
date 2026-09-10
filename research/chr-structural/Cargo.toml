@@ -6,6 +6,8 @@ edition.workspace = true
 default = ["metrics"]
 metrics = []
 alloc-meter = []
+phase-clock = []
+session-clock = []
 [dependencies]
 chr-syntax = { path = "../../crates/chr-syntax" }
 [dev-dependencies]

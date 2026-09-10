@@ -1,6 +1,6 @@
 # Experimental sequence: resolve the remaining architecture questions
 
-The [simplifier ownership comparison](results/S06-simplified-ownership.md) supplies the current checkpoint. Simplifier ownership validates 5,184 metered and 2,592 ordinary processes, exact phase repeats and final heap restoration. All five prior controls reproduce their normalized summaries. Simplification lowers traffic and peak heap versus names, projection and symbolic rebuilding in all 432 scenarios; versus explicit enumeration it lowers traffic in 264 but raises peaks in 317. Qualification package one complete; T076 clock/counter qualification and registered timing are next, then T077. Goal active.
+The [finite-formula timing comparison](results/S06-formula-timing.md) supplies the current checkpoint. Finite-formula timing completes 4,896 primary processes and 204 warmups with independent answers. Simplification gains against projection and symbolic rebuilding in all 17 scenarios, but against explicit execution has two losses, thirteen unresolved contrasts and two insufficient-signal contrasts. Counter/clock qualification and allocation consistency pass. The bounded T076 comparison is complete; T077 restoration and consequential timing attribution are active. Broader theories and targeted T076 uncertainty remain required; goal active.
 
 The [relevant-key ownership comparison](results/S02-relevant-ownership.md) supplies the current checkpoint. Relevant-key ownership validates1,008 metered and448 ordinary processes with exact allocation repeats, cancellation/reuse and retained answers surviving producer disposal. Ordered relevant reuse lowers peaks versus exact-state caching in38of64 scenarios but requests more bytes than recomputation in all64. The changed depth16/four-query witness requests1,292,590bytes with72,959peak excess versus669,196/38,976 for recomputation. T072 next attributes key/replay execution costs before timing; package one after breadth review; goal active.
 
@@ -286,7 +286,7 @@ All new results link raw inputs, commands, freezes, validation and unfavorable o
 
 ## Current execution order
 
-T076 is active for bounded completion of the finite-source lifecycle comparison, including the qualified constraint-based simplifier. The [four-package breadth review](results/S06-graph-simplification-breadth-review.md) selects allocation/clock qualification and registered timing before a T077 restoration handoff. No more than two qualification packages and one timing confirmation are selected; an obstruction triggers earlier review.
+T077 is active for search restoration and consequential adaptive timing attribution after the [finite-formula lifecycle result](results/S06-formula-timing.md). Inspect the qualified pilot and source/ownership evidence before registering targeted CPU/elapsed measurement or checkpoint/replay costs. Preserve fixed and Copy controls. T076 remains unfinished for targeted timing uncertainty, unresolved graph cores, broader theories and lifetimes; its selected bounded lifecycle comparison is complete.
 
 The [57-question map](question-to-experiment-map.md) and [mechanism ledger](remaining-investigations.md) retain every unresolved obligation. The next cycle owns scheduling; historical checkpoint selections describe their own experiment boundaries.
 

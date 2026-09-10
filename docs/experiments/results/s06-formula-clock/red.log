@@ -1,0 +1,24 @@
+   Compiling chr-structural v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-structural)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.80s
+     Running tests/name_metrics.rs (target/debug/deps/name_metrics-218b69976e100e1e)
+
+running 1 test
+test diagnostic_counts_do_not_change_finite_feasibility ... FAILED
+
+failures:
+
+---- diagnostic_counts_do_not_change_finite_feasibility stdout ----
+
+thread 'diagnostic_counts_do_not_change_finite_feasibility' (191) panicked at research/chr-structural/tests/name_metrics.rs:8:80:
+assertion `left == right` failed
+  left: 10
+ right: 0
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    diagnostic_counts_do_not_change_finite_feasibility
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p chr-structural --test name_metrics`

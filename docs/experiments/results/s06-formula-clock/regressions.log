@@ -1,0 +1,36 @@
+   Compiling chr-structural v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-structural)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.65s
+     Running tests/diagram_source.rs (target/debug/deps/diagram_source-94e9b97ea63cec6a)
+
+running 2 tests
+test duplicate_work_and_residual_observation_are_distinct ... ok
+test raw_source_and_all_five_prepared_paths_match_independent_assignments ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.13s
+
+     Running tests/graph_simplification.rs (target/debug/deps/graph_simplification-3de314c1774992db)
+
+running 2 tests
+test unresolved_is_not_false_and_invalid_inputs_are_not_hidden ... ok
+test exhaustive_graphs_and_unions_preserve_existential_denotation ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.06s
+
+     Running tests/joint_theories.rs (target/debug/deps/joint_theories-8ec2cd93d5519293)
+
+running 3 tests
+test alias_freshness_cycles_and_binding_order_are_explicit ... ok
+test closed_ground_existence_agrees_but_raw_host_effects_remain ... ok
+test conjunction_matches_independent_partial_denotations ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.15s
+
+     Running tests/symbolic_transport.rs (target/debug/deps/symbolic_transport-f2746f60682a79db)
+
+running 3 tests
+test hidden_capture_is_rejected_and_nonground_output_is_not_ground_decoding ... ok
+test independent_answers_preserve_only_declared_caller_sharing ... ok
+test transported_symbolic_membership_matches_independent_denotations ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.21s
+
