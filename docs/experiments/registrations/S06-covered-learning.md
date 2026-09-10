@@ -1,0 +1,11 @@
+# Pruning covered states without splitting common work
+
+Compare eager subtraction with checking whether an ordinary refined state lies wholly inside a learned failed input region. The architectural question is whether failure reuse can preserve common execution without imposing greater recognition work. This is a semantic and work-attribution gate, not a timing comparison.
+
+Keep the immutable source owner, normalized ordered initial private goals and initial variable mapping. Resolve those variables under the current state's bindings. A state is covered only if each remaining support is a subset of the corresponding failed-region support. Later aliases can shrink the feasible product; using its Cartesian overapproximation is sound for containment. A changed live continuation must never become the cache key. Count each region probe and discarded state; charge binding traversal against the term budget. Cancellation or any limit error must not install a failure.
+
+Use the existing 96 seeds and 1920 changed-query matrix for both policies, with unchanged recomputation, exact-query caching and independent scalar/compiled complete-answer checks. Compare depths 0/1/4/16 and weights 1/2 on the successful wider-query witness. Add late equality and constructor-shaped private calls, cancellation after pruning and exhausted traversal budgets. Capacity zero and incompatible keys are overhead/validity controls.
+
+Expected discriminating result: covered-state checks should preserve a common prefix once, whereas eager subtraction may repeat it. Record source steps, partitions, region probes and exclusions separately; do not add unlike work units into a performance score. Any changed answer is a defect to investigate. A sound result proceeds to allocation and counter-free timing registration, including recognition and retention. Reconsider T078 whole-path accounting at this gate. General conflict extraction and resource derivations remain open.
+
+Run default and metrics-off semantic gates and strict scoped Clippy. Use the existing finite limits (100000 source steps, 4096 partitions/solutions, 2000000 term nodes); bound each test invocation to 120 seconds. No comparative timings are authorized by this registration.

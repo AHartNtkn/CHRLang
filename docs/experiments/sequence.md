@@ -1,5 +1,7 @@
 # Experimental sequence: resolve the remaining architecture questions
 
+The [covered-state learning comparison](results/S06-covered-learning.md) preserves common prefixes and complete answers. Across 1,920 changed queries per build, later checks reduce source steps in 298 cases (32 successful), leave 1,622 unchanged and add 2,780 region probes. The depth-16 witness takes 25 source steps versus 26 for recomputation and 41 for eager subtraction. T073 next qualifies allocation and paired total costs with T078 accounting; no timing or memory advantage is established.
+
 Investigate the unanswered mechanisms directly, then compare the complete architectures they enable. Reuse the existing baselines. The research remains active until consequential questions have evidence-backed answers.
 
 This sequence investigates the consequential questions left open by the [design review](results/R07-design-disposition-review.md). It compares complete architectural alternatives, including designs that earlier work did not directly test. No architecture is selected in advance.

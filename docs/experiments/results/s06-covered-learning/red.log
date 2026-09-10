@@ -1,0 +1,197 @@
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+error[E0432]: unresolved import `phase::learning::Pruning`
+ --> research/chr-direct-conditional/tests/finite_learning_gate.rs:5:32
+  |
+5 | use phase::learning::{Learner, Pruning};
+  |                                ^^^^^^^ no `Pruning` in `phase::learning`
+
+error[E0061]: this function takes 2 arguments but 3 arguments were supplied
+  --> research/chr-direct-conditional/tests/finite_learning_gate.rs:35:23
+   |
+35 |     let mut learner = Learner::new(&prepared, 8, Pruning::Eager);
+   |                       ^^^^^^^^^^^^               -------------- unexpected argument #3
+   |
+note: associated function defined here
+  --> research/chr-direct-conditional/tests/../../chr-compiled/experiments/finite_learning.rs:62:12
+   |
+62 |     pub fn new(prepared: &'p Prepared, capacity: usize) -> Self {
+   |            ^^^
+help: remove the extra argument
+   |
+35 -     let mut learner = Learner::new(&prepared, 8, Pruning::Eager);
+35 +     let mut learner = Learner::new(&prepared, 8);
+   |
+
+error[E0061]: this function takes 2 arguments but 3 arguments were supplied
+   --> research/chr-direct-conditional/tests/finite_learning_gate.rs:194:43
+    |
+194 |                         let mut learner = Learner::new(&prepared, capacity, Pruning::Eager);
+    |                                           ^^^^^^^^^^^^                      -------------- unexpected argument #3
+    |
+note: associated function defined here
+   --> research/chr-direct-conditional/tests/../../chr-compiled/experiments/finite_learning.rs:62:12
+    |
+ 62 |     pub fn new(prepared: &'p Prepared, capacity: usize) -> Self {
+    |            ^^^
+help: remove the extra argument
+    |
+194 -                         let mut learner = Learner::new(&prepared, capacity, Pruning::Eager);
+194 +                         let mut learner = Learner::new(&prepared, capacity);
+    |
+
+error[E0061]: this function takes 2 arguments but 3 arguments were supplied
+   --> research/chr-direct-conditional/tests/finite_learning_gate.rs:246:17
+    |
+246 |     let mut l = Learner::new(&p, 8, Pruning::Eager);
+    |                 ^^^^^^^^^^^^        -------------- unexpected argument #3
+    |
+note: associated function defined here
+   --> research/chr-direct-conditional/tests/../../chr-compiled/experiments/finite_learning.rs:62:12
+    |
+ 62 |     pub fn new(prepared: &'p Prepared, capacity: usize) -> Self {
+    |            ^^^
+help: remove the extra argument
+    |
+246 -     let mut l = Learner::new(&p, 8, Pruning::Eager);
+246 +     let mut l = Learner::new(&p, 8);
+    |
+
+error[E0061]: this function takes 2 arguments but 3 arguments were supplied
+   --> research/chr-direct-conditional/tests/finite_learning_gate.rs:263:20
+    |
+263 |     let mut zero = Learner::new(&p, 0, Pruning::Eager);
+    |                    ^^^^^^^^^^^^        -------------- unexpected argument #3
+    |
+note: associated function defined here
+   --> research/chr-direct-conditional/tests/../../chr-compiled/experiments/finite_learning.rs:62:12
+    |
+ 62 |     pub fn new(prepared: &'p Prepared, capacity: usize) -> Self {
+    |            ^^^
+help: remove the extra argument
+    |
+263 -     let mut zero = Learner::new(&p, 0, Pruning::Eager);
+263 +     let mut zero = Learner::new(&p, 0);
+    |
+
+error[E0061]: this function takes 2 arguments but 3 arguments were supplied
+   --> research/chr-direct-conditional/tests/finite_learning_gate.rs:278:17
+    |
+278 |     let mut s = Learner::new(&suspended, 4, Pruning::Eager);
+    |                 ^^^^^^^^^^^^                -------------- unexpected argument #3
+    |
+note: associated function defined here
+   --> research/chr-direct-conditional/tests/../../chr-compiled/experiments/finite_learning.rs:62:12
+    |
+ 62 |     pub fn new(prepared: &'p Prepared, capacity: usize) -> Self {
+    |            ^^^
+help: remove the extra argument
+    |
+278 -     let mut s = Learner::new(&suspended, 4, Pruning::Eager);
+278 +     let mut s = Learner::new(&suspended, 4);
+    |
+
+error[E0061]: this function takes 2 arguments but 3 arguments were supplied
+   --> research/chr-direct-conditional/tests/finite_learning_gate.rs:297:17
+    |
+297 |     let mut l = Learner::new(&p, 1, Pruning::Eager);
+    |                 ^^^^^^^^^^^^        -------------- unexpected argument #3
+    |
+note: associated function defined here
+   --> research/chr-direct-conditional/tests/../../chr-compiled/experiments/finite_learning.rs:62:12
+    |
+ 62 |     pub fn new(prepared: &'p Prepared, capacity: usize) -> Self {
+    |            ^^^
+help: remove the extra argument
+    |
+297 -     let mut l = Learner::new(&p, 1, Pruning::Eager);
+297 +     let mut l = Learner::new(&p, 1);
+    |
+
+error[E0061]: this function takes 2 arguments but 3 arguments were supplied
+   --> research/chr-direct-conditional/tests/finite_learning_gate.rs:335:17
+    |
+335 |     let mut l = Learner::new(&p, 1, Pruning::Eager);
+    |                 ^^^^^^^^^^^^        -------------- unexpected argument #3
+    |
+note: associated function defined here
+   --> research/chr-direct-conditional/tests/../../chr-compiled/experiments/finite_learning.rs:62:12
+    |
+ 62 |     pub fn new(prepared: &'p Prepared, capacity: usize) -> Self {
+    |            ^^^
+help: remove the extra argument
+    |
+335 -     let mut l = Learner::new(&p, 1, Pruning::Eager);
+335 +     let mut l = Learner::new(&p, 1);
+    |
+
+error[E0061]: this function takes 2 arguments but 3 arguments were supplied
+   --> research/chr-direct-conditional/tests/finite_learning_gate.rs:381:23
+    |
+381 |     let mut learner = Learner::new(&p, 4, Pruning::Eager);
+    |                       ^^^^^^^^^^^^        -------------- unexpected argument #3
+    |
+note: associated function defined here
+   --> research/chr-direct-conditional/tests/../../chr-compiled/experiments/finite_learning.rs:62:12
+    |
+ 62 |     pub fn new(prepared: &'p Prepared, capacity: usize) -> Self {
+    |            ^^^
+help: remove the extra argument
+    |
+381 -     let mut learner = Learner::new(&p, 4, Pruning::Eager);
+381 +     let mut learner = Learner::new(&p, 4);
+    |
+
+error[E0061]: this function takes 2 arguments but 3 arguments were supplied
+   --> research/chr-direct-conditional/tests/finite_learning_gate.rs:402:23
+    |
+402 |     let mut learner = Learner::new(&p, 4, Pruning::Eager);
+    |                       ^^^^^^^^^^^^        -------------- unexpected argument #3
+    |
+note: associated function defined here
+   --> research/chr-direct-conditional/tests/../../chr-compiled/experiments/finite_learning.rs:62:12
+    |
+ 62 |     pub fn new(prepared: &'p Prepared, capacity: usize) -> Self {
+    |            ^^^
+help: remove the extra argument
+    |
+402 -     let mut learner = Learner::new(&p, 4, Pruning::Eager);
+402 +     let mut learner = Learner::new(&p, 4);
+    |
+
+error[E0061]: this function takes 2 arguments but 3 arguments were supplied
+   --> research/chr-direct-conditional/tests/finite_learning_gate.rs:447:25
+    |
+447 |             let mut l = Learner::new(&p, 4, Pruning::Eager);
+    |                         ^^^^^^^^^^^^        -------------- unexpected argument #3
+    |
+note: associated function defined here
+   --> research/chr-direct-conditional/tests/../../chr-compiled/experiments/finite_learning.rs:62:12
+    |
+ 62 |     pub fn new(prepared: &'p Prepared, capacity: usize) -> Self {
+    |            ^^^
+help: remove the extra argument
+    |
+447 -             let mut l = Learner::new(&p, 4, Pruning::Eager);
+447 +             let mut l = Learner::new(&p, 4);
+    |
+
+error[E0061]: this function takes 2 arguments but 3 arguments were supplied
+   --> research/chr-direct-conditional/tests/finite_learning_gate.rs:456:28
+    |
+456 |             let mut lazy = Learner::new(&p, 4, Pruning::WhenCovered);
+    |                            ^^^^^^^^^^^^        -------------------- unexpected argument #3
+    |
+note: associated function defined here
+   --> research/chr-direct-conditional/tests/../../chr-compiled/experiments/finite_learning.rs:62:12
+    |
+ 62 |     pub fn new(prepared: &'p Prepared, capacity: usize) -> Self {
+    |            ^^^
+help: remove the extra argument
+    |
+456 -             let mut lazy = Learner::new(&p, 4, Pruning::WhenCovered);
+456 +             let mut lazy = Learner::new(&p, 4);
+    |
+
+Some errors have detailed explanations: E0061, E0432.
+For more information about an error, try `rustc --explain E0061`.
+error: could not compile `chr-direct-conditional` (test "finite_learning_gate") due to 12 previous errors

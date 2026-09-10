@@ -2,7 +2,7 @@
 #[path = "../../chr-compiled/experiments/finite_phase.rs"]
 mod phase;
 use chr_syntax::{Goal, Query, Rule, Var, atom, c, eq, or, v};
-use phase::learning::Learner;
+use phase::learning::{Learner, Pruning};
 use phase::{Limits, Prepared};
 fn rules() -> Vec<Rule> {
     vec![
@@ -32,7 +32,7 @@ fn query(producer: &str, id: u64) -> Query {
 #[test]
 fn failed_region_prunes_a_successful_wider_renamed_query() {
     let prepared = Prepared::new(&rules(), 4).unwrap();
-    let mut learner = Learner::new(&prepared, 8);
+    let mut learner = Learner::new(&prepared, 8, Pruning::Eager);
     let seed = learner
         .solve(&query("small", 7), Limits::default())
         .unwrap();
@@ -191,13 +191,15 @@ fn independent_domain_alias_weight_and_caller_matrix() {
             for capacity in [0, 1, 4] {
                 for seed_mask in [1, 3] {
                     for seed_alias in [false, true] {
-                        let mut learner = Learner::new(&prepared, capacity);
+                        let mut learner = Learner::new(&prepared, capacity, Pruning::Eager);
+                        let mut lazy = Learner::new(&prepared, capacity, Pruning::WhenCovered);
                         let mut cache = ExactCache::default();
                         let seed = matrix_query(seed_mask, seed_mask, seed_alias, 3);
                         let r = learner.solve(&seed, Limits::default()).unwrap();
                         check_source(&rules, &seed, r);
                         let (cached, _) = cache.solve(&prepared, &seed);
                         check_source(&rules, &seed, cached);
+                        check_source(&rules, &seed, lazy.solve(&seed, Limits::default()).unwrap());
                         seeds += 1;
                         for (left, right) in [(1, 1), (3, 3), (7, 7), (1, 4), (4, 1)] {
                             for alias in [false, true] {
@@ -207,7 +209,17 @@ fn independent_domain_alias_weight_and_caller_matrix() {
                                     let baseline_steps = baseline.steps;
                                     let learned = learner.solve(&q, Limits::default()).unwrap();
                                     let learned_steps = learned.steps;
+                                    let before = lazy.stats();
+                                    let late = lazy.solve(&q, Limits::default()).unwrap();
+                                    let late_steps = late.steps;
+                                    let late_parts = late.partitions;
                                     let count = check_source(&rules, &q, learned);
+                                    assert_eq!(check_source(&rules, &q, late), count);
+                                    println!(
+                                        "LATE,{accepted},{weight},{capacity},{seed_mask},{seed_alias},{left},{right},{alias},{base},{baseline_steps},{late_steps},{late_parts},{},{},{count}",
+                                        lazy.stats().probes - before.probes,
+                                        lazy.stats().excluded_regions - before.excluded_regions
+                                    );
                                     runtime_support::same_raw(
                                         observe(&rules, baseline),
                                         runtime_support::run(&rules, &q, 200_000),
@@ -243,7 +255,7 @@ fn cancellation_errors_and_zero_capacity_never_install_a_failed_region() {
     let rules = rules();
     let p = Prepared::new(&rules, 4).unwrap();
     let q = query("small", 7);
-    let mut l = Learner::new(&p, 8);
+    let mut l = Learner::new(&p, 8, Pruning::Eager);
     {
         let mut session = l.start(&q, Limits::default()).unwrap();
         assert!(matches!(session.advance(), Ok(phase::Event::Progress)));
@@ -260,7 +272,7 @@ fn cancellation_errors_and_zero_capacity_never_install_a_failed_region() {
         Err(phase::Error::Limit(_))
     ));
     assert_eq!(l.retained(), 0);
-    let mut zero = Learner::new(&p, 0);
+    let mut zero = Learner::new(&p, 0, Pruning::Eager);
     zero.solve(&q, Limits::default()).unwrap();
     assert_eq!(zero.retained(), 0);
     let mut unknown = q.clone();
@@ -275,7 +287,7 @@ fn cancellation_errors_and_zero_capacity_never_install_a_failed_region() {
         Rule::simplify("partial", [c("test", [atom("a"), v(1)])], Goal::True),
     ];
     let suspended = Prepared::new(&suspended_rules, 2).unwrap();
-    let mut s = Learner::new(&suspended, 4);
+    let mut s = Learner::new(&suspended, 4, Pruning::Eager);
     assert!(matches!(
         s.solve(&q, Limits::default()),
         Err(phase::Error::Suspended)
@@ -294,7 +306,7 @@ fn changed_goals_miss_and_full_caller_can_create_new_private_work() {
         ]),
     ));
     let p = Prepared::new(&rules, 4).unwrap();
-    let mut l = Learner::new(&p, 1);
+    let mut l = Learner::new(&p, 1, Pruning::Eager);
     l.solve(&query("small", 7), Limits::default()).unwrap();
     let before = l.stats().excluded_regions;
     let mut different = query("wide", 9);
@@ -332,7 +344,7 @@ fn bounded_eviction_partition_errors_and_exact_cache_control() {
     let (changed, steps) = exact.solve(&p, &wider);
     assert!(steps > 0);
     assert_eq!(changed.solutions.len(), 1);
-    let mut l = Learner::new(&p, 1);
+    let mut l = Learner::new(&p, 1, Pruning::Eager);
     l.solve(&seed, Limits::default()).unwrap();
     assert!(matches!(
         l.start(
@@ -378,7 +390,7 @@ fn bounded_eviction_partition_errors_and_exact_cache_control() {
 fn independent_producer_domains_survive_projection_and_loops_never_learn() {
     let rules = rules();
     let p = Prepared::new(&rules, 4).unwrap();
-    let mut learner = Learner::new(&p, 4);
+    let mut learner = Learner::new(&p, 4, Pruning::Eager);
     learner
         .solve(&query("small", 7), Limits::default())
         .unwrap();
@@ -399,7 +411,7 @@ fn independent_producer_domains_survive_projection_and_loops_never_learn() {
         ),
     ];
     let p = Prepared::new(&loop_rules, 2).unwrap();
-    let mut learner = Learner::new(&p, 4);
+    let mut learner = Learner::new(&p, 4, Pruning::Eager);
     let mut q = query("small", 7);
     q.constraints[1].name = "loop".into();
     assert!(matches!(
@@ -444,7 +456,7 @@ fn successful_query_common_work_attribution() {
             ));
             rules.push(Rule::simplify("no", [c(&name, [v(0), v(1)])], Goal::Fail));
             let p = Prepared::new(&rules, rules.len()).unwrap();
-            let mut l = Learner::new(&p, 4);
+            let mut l = Learner::new(&p, 4, Pruning::Eager);
             let make = |producer: &str| Query {
                 constraints: vec![
                     c(producer, [v(10)]),
@@ -453,7 +465,14 @@ fn successful_query_common_work_attribution() {
                 ],
                 outputs: vec![("x".into(), Var(10)), ("y".into(), Var(20))],
             };
+            let mut lazy = Learner::new(&p, 4, Pruning::WhenCovered);
             let seed = make("small");
+            assert!(
+                lazy.solve(&seed, Limits::default())
+                    .unwrap()
+                    .solutions
+                    .is_empty()
+            );
             assert_eq!(
                 check_source(&rules, &seed, l.solve(&seed, Limits::default()).unwrap()),
                 0
@@ -461,6 +480,15 @@ fn successful_query_common_work_attribution() {
             let q = make("wide");
             let baseline = p.solve(&q, Limits::default()).unwrap();
             let learned = l.solve(&q, Limits::default()).unwrap();
+            let late = lazy.solve(&q, Limits::default()).unwrap();
+            let late_steps = late.steps;
+            assert_eq!(check_source(&rules, &q, late), 5 * weight * weight);
+            assert!(late_steps < baseline.steps);
+            println!(
+                "COVERED,{depth},{weight},{late_steps},{},{}",
+                lazy.stats().probes,
+                lazy.stats().excluded_regions
+            );
             let bs = baseline.steps;
             let ls = learned.steps;
             let bp = baseline.partitions;
@@ -478,4 +506,112 @@ fn successful_query_common_work_attribution() {
         }
     }
     assert!(directions[0] > 0 && directions[2] > 0);
+}
+
+#[test]
+fn covered_learning_resolves_late_aliases_and_constructor_calls() {
+    for policy in [Pruning::Eager, Pruning::WhenCovered] {
+        let mut source = rules();
+        source.insert(
+            2,
+            Rule::simplify(
+                "enter",
+                [c("enter", [v(0), v(1)])],
+                and([
+                    eq(v(0), v(1)),
+                    c(
+                        "wrapped",
+                        [chr_syntax::Term::App("box".into(), vec![v(0)]), v(1)],
+                    )
+                    .into(),
+                ]),
+            ),
+        );
+        source.insert(
+            3,
+            Rule::simplify(
+                "unwrap",
+                [c(
+                    "wrapped",
+                    [chr_syntax::Term::App("box".into(), vec![v(0)]), v(1)],
+                )],
+                c("test", [v(0), v(1)]).into(),
+            ),
+        );
+        let p = Prepared::new(&source, source.len()).unwrap();
+        let mut l = Learner::new(&p, 4, policy);
+        let make = |producer: &str| Query {
+            constraints: vec![
+                c(producer, [v(10)]),
+                c(producer, [v(20)]),
+                c("enter", [v(10), v(20)]),
+            ],
+            outputs: vec![("x".into(), Var(10)), ("y".into(), Var(20))],
+        };
+        let seed = make("small");
+        assert_eq!(
+            check_source(&source, &seed, l.solve(&seed, Limits::default()).unwrap()),
+            0
+        );
+        let q = make("wide");
+        assert_eq!(
+            check_source(&source, &q, l.solve(&q, Limits::default()).unwrap()),
+            1
+        );
+        let mut changed = q.clone();
+        changed.constraints[2] = c("test", [v(10), v(20)]);
+        assert_eq!(
+            check_source(
+                &source,
+                &changed,
+                l.solve(&changed, Limits::default()).unwrap()
+            ),
+            3
+        );
+    }
+}
+#[test]
+fn covered_cancellation_and_traversal_errors_never_learn() {
+    let mut source = rules();
+    source.insert(
+        0,
+        Rule::simplify("one", [c("one", [v(0)])], eq(v(0), atom("a"))),
+    );
+    let p = Prepared::new(&source, 5).unwrap();
+    let mut l = Learner::new(&p, 4, Pruning::WhenCovered);
+    let seed = query("small", 7);
+    l.solve(&seed, Limits::default()).unwrap();
+    let installed = l.stats().learned_regions;
+    let narrow = query("one", 7);
+    {
+        let mut session = l.start(&narrow, Limits::default()).unwrap();
+        // This event discards a covered state, but is not a completed proof.
+        assert!(matches!(session.advance().unwrap(), phase::Event::Progress));
+    }
+    assert_eq!(l.stats().learned_regions, installed);
+    // Find a budget where source preparation fits but coverage traversal fails.
+    let mut witnessed = false;
+    for nodes in 1..100 {
+        let limits = Limits {
+            term_nodes: nodes,
+            ..Limits::default()
+        };
+        if let Ok(mut session) = l.start(&narrow, limits)
+            && matches!(session.advance(), Err(phase::Error::Limit("term nodes")))
+        {
+            assert!(matches!(
+                session.advance().unwrap(),
+                phase::Event::Exhausted
+            ));
+            witnessed = true;
+            break;
+        }
+    }
+    assert!(witnessed);
+    assert_eq!(l.stats().learned_regions, installed);
+    let q = query("wide", 100);
+    assert_eq!(
+        check_source(&source, &q, l.solve(&q, Limits::default()).unwrap()),
+        1
+    );
 }

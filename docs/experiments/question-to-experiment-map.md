@@ -1,6 +1,6 @@
 # What experiment answers each reviewed design question?
 
-**Current selection: T073 compatible-query learning.** The [learned-region gate](results/S06-learned-regions.md) validates complete outcomes but exposes common-prefix duplication under eager subtraction. Next compare checks on refined states with that control. T078 allocation qualification and mixed-source costs remain required; the [next concrete experiments](next-cycle.md#the-next-concrete-experiments) specifies their dependencies and return point. The checkpoint summaries below preserve the scope of earlier evidence.
+**Current selection: T073 allocation qualification and paired learning costs, using T078 accounting.** The [covered-state gate](results/S06-covered-learning.md) establishes complete outcomes and common-prefix preservation, with repeated probes still to be charged. The [next concrete experiments](next-cycle.md#the-next-concrete-experiments) retains the mixed-source pilot and distinct-mechanism return point. The checkpoint summaries below preserve the scope of earlier evidence.
 
 The [common-source gate and cost design](results/S10-native-common-source.md) qualifies ten Rust configurations on all 125 cases, prefix lowering on 20 and finite solving with its caller on four. Native evidence remains applicable. T078 next establishes native prepared reuse and disposal; no cross-architecture cost matrix has run.
 

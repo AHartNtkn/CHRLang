@@ -1,5 +1,5 @@
 //! Completed failed-domain regions, owned by one immutable finite phase.
-//! No successful result is cached. Regions are subtracted from later domains.
+//! No successful result is cached. Compare eager subtraction and later containment.
 use super::*;
 use std::collections::VecDeque;
 #[derive(Clone, PartialEq, Eq)]
@@ -13,8 +13,14 @@ pub struct Stats {
     pub excluded_regions: usize,
     pub learned_regions: usize,
 }
+#[derive(Clone, Copy, PartialEq, Eq)]
+pub enum Pruning {
+    Eager,
+    WhenCovered,
+}
 pub struct Learner<'p> {
     prepared: &'p Prepared,
+    pruning: Pruning,
     capacity: usize,
     regions: VecDeque<Region>,
     stats: Stats,
@@ -23,6 +29,7 @@ pub struct Session<'a, 'p> {
     owner: &'a mut Learner<'p>,
     machine: Machine<'p>,
     candidate: Option<Region>,
+    vars: Vec<Var>,
 }
 fn region(state: &State) -> Result<(Region, Vec<Var>), Error> {
     fn rename(t: &Term, vars: &mut Vec<Var>) -> Term {
@@ -59,9 +66,10 @@ fn region(state: &State) -> Result<(Region, Vec<Var>), Error> {
     Ok((Region { goals, domains }, vars))
 }
 impl<'p> Learner<'p> {
-    pub fn new(prepared: &'p Prepared, capacity: usize) -> Self {
+    pub fn new(prepared: &'p Prepared, capacity: usize, pruning: Pruning) -> Self {
         Self {
             prepared,
+            pruning,
             capacity,
             regions: VecDeque::new(),
             stats: Stats::default(),
@@ -80,9 +88,15 @@ impl<'p> Learner<'p> {
     ) -> Result<Session<'a, 'p>, Error> {
         let mut machine = self.prepared.start(query, limits)?;
         let work = machine.work.as_mut().expect("new machine");
+        let mut original_vars = vec![];
         let candidate = if let Some(initial) = work.queue.first() {
             let (candidate, vars) = region(initial)?;
-            for known in &self.regions {
+            original_vars = vars.clone();
+            for known in self
+                .regions
+                .iter()
+                .filter(|_| self.pruning == Pruning::Eager)
+            {
                 self.stats.probes += 1;
                 if candidate.goals != known.goals {
                     continue;
@@ -133,6 +147,7 @@ impl<'p> Learner<'p> {
             owner: self,
             machine,
             candidate,
+            vars: original_vars,
         })
     }
     pub fn solve(&mut self, query: &Query, limits: Limits) -> Result<Report, Error> {
@@ -140,8 +155,57 @@ impl<'p> Learner<'p> {
     }
 }
 impl Session<'_, '_> {
+    fn prune_covered(&mut self) -> Result<bool, Error> {
+        if self.owner.pruning != Pruning::WhenCovered {
+            return Ok(false);
+        }
+        let (Some(candidate), Some(work)) = (&self.candidate, &mut self.machine.work) else {
+            return Ok(false);
+        };
+        let Some(state) = work.queue.last() else {
+            return Ok(false);
+        };
+        for known in &self.owner.regions {
+            self.owner.stats.probes += 1;
+            if candidate.goals != known.goals {
+                continue;
+            }
+            let mut covered = true;
+            for (v, forbidden) in self.vars.iter().zip(&known.domains) {
+                let value = resolve(&Term::Var(*v), &state.bindings, &mut work.budget, 0)?;
+                let contained = match value {
+                    Term::Var(root) => state
+                        .domains
+                        .get(&root)
+                        .ok_or(Error::Source("lost finite learning domain"))?
+                        .keys()
+                        .all(|a| forbidden.contains(a)),
+                    Term::App(name, args) if args.is_empty() => forbidden.contains(&name),
+                    _ => return Err(Error::Source("nonfinite learning value")),
+                };
+                if !contained {
+                    covered = false;
+                    break;
+                }
+            }
+            if covered {
+                work.queue.pop();
+                self.owner.stats.excluded_regions += 1;
+                return Ok(true);
+            }
+        }
+        Ok(false)
+    }
     pub fn advance(&mut self) -> Result<Event, Error> {
-        match self.machine.advance() {
+        let event = match self.prune_covered() {
+            Ok(true) => Ok(Event::Progress),
+            Ok(false) => self.machine.advance(),
+            Err(e) => {
+                self.machine.work = None;
+                Err(e)
+            }
+        };
+        match event {
             Ok(Event::Complete(report)) => {
                 if let Some(candidate) = self.candidate.take()
                     && report.solutions.is_empty()
