@@ -1,5 +1,7 @@
 # Experimental sequence: resolve the remaining architecture questions
 
+The [current experimental sequence](next-cycle.md) schedules the unanswered comparisons from the authoritative worktree: audit the in-progress equality attribution, measure demand dependency lifecycle costs, then investigate reusable symbolic solving. It assigns distinct mechanisms their own trials and requires full-cost, adverse-case and complete-architecture follow-through. T072 remains active at the attribution boundary; no new performance result or research completion is asserted by this scheduling update.
+
 The [relevant-key ownership comparison](results/S02-relevant-ownership.md) supplies the current checkpoint. Relevant-key ownership validates1,008 metered and448 ordinary processes with exact allocation repeats, cancellation/reuse and retained answers surviving producer disposal. Ordered relevant reuse lowers peaks versus exact-state caching in38of64 scenarios but requests more bytes than recomputation in all64. The changed depth16/four-query witness requests1,292,590bytes with72,959peak excess versus669,196/38,976 for recomputation. T072 next attributes key/replay execution costs before timing; package one after breadth review; goal active.
 
 The [relevant-deduction gate](results/S02-relevant-deductions.md) supplies the current checkpoint. Relevant-key equality reuse passes48 complete-source configurations in two diagnostic and two counters-off confirmations, preserving caller bindings and claims. Changed-state sources exercise reuse; an endpoint-only-key mutation wrongly replays an occurs failure and is rejected. Key construction/replay costs remain unmeasured. Four-package breadth review selects bounded T072 ownership/lifecycle qualification, with demand lifecycle and symbolic compilation/union reconsidered at that gate; goal active.
@@ -10,7 +12,7 @@ The [dependency work screen](results/S03-dependency-work.md) supplies the curren
 
 The [resource-dependency gate](results/S03-resource-dependencies.md) supplies the current checkpoint. The demand resource-dependency gate passes 48 matrix configurations and eight additional source witnesses in two default and two metrics-off confirmations. Independent scalar and compiled controls expose hidden constructor-cycle and selected-choice alias defects; completed-equation validation and alias-link repair preserve finite failure and output identity. Source, suspended and kernel regressions pass. T071 next measures dependency and validation lifecycle costs; contextual integration follows. This is bounded correctness evidence, not a timing result; goal active.
 
-The [current execution order](next-cycle.md#execution-order-after-the-current-causal-comparison) schedules all missing comparisons. The [immediate packages](next-cycle.md#start-here-the-next-experiments) finish the in-progress demand resource-dependency gate and its consequential cost comparison, then investigate contextual integration. Joint symbolic solving follows, with selection reviewed after each package. Every question retains its detailed evidence obligation.
+The [current execution order](next-cycle.md#execution-order-after-the-current-causal-comparison) schedules all missing comparisons. The [immediate packages](next-cycle.md#start-here-the-next-experiments) begin at the equality attribution review and hand off to demand lifecycle and reusable symbolic solving. Every question retains its detailed evidence obligation.
 
 Investigate the unanswered mechanisms directly, then compare the complete architectures they enable. Reuse the existing baselines. The research remains active until consequential questions have evidence-backed answers.
 
@@ -284,9 +286,9 @@ All new results link raw inputs, commands, freezes, validation and unfavorable o
 
 ## Current execution order
 
-T077 is active for registered adaptive lifecycle costs. Carry stateless eager, scheduled EveryBoundary, fixed skips, both backoff caps, initial reunion and Copy into counter-free timing with preparation reuse, first/full observation, cancellation and disposal. The owner gate supplies exact finite conservation and contrary allocation cases; it does not select a policy. Reconsider alternatives at this cost entry or obstruction and review breadth by package four.
+T072 remains active for review and integration of the in-progress relevant-deduction attribution. The [next cycle](next-cycle.md#start-here-the-next-experiments) sets the ensuing handoffs to demand dependency lifecycle and reusable symbolic solving. Review a proposed equality repair against those alternatives before further implementation. Existing source gates and diagnostic work do not establish a complete cost comparison.
 
-The [current execution order](next-cycle.md#start-here-the-next-experiments), [57-question map](question-to-experiment-map.md) and [mechanism ledger](remaining-investigations.md) retain every unresolved obligation. Reordering does not establish an experimental conclusion or complete the goal.
+The [57-question map](question-to-experiment-map.md) and [mechanism ledger](remaining-investigations.md) retain every unresolved obligation. The next cycle owns scheduling; historical checkpoint selections describe their own experiment boundaries.
 
 ## Earlier experimental checkpoints
 
