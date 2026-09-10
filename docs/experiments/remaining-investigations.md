@@ -1,5 +1,7 @@
 # The comparisons still needed to choose the architecture
 
+The [stronger-control source gate](results/S10-arrival-controls.md) qualifies specialization and prefix lowering but shows that both retain explicit choice enumeration. T078 next charges their complete lifecycle, including changed artifact signatures. T079 effect certification and direct solving remain required.
+
 The [order lifecycle pilot and breadth review](results/S08-order-lifecycle.md) identify opposite support-order regimes and a favorable conditional choice/check source. T078 next qualifies stronger source-lowering/solving controls before further support tuning; T074 lifetime and T079 effect certification remain required.
 
 The [head-dispatch lifecycle](results/S07-head-dispatch-lifecycle.md) validates 3612 processes, distinct preparation/cancellation costs and identical valid declaration/inference allocation. T079 retains [non-overlap/resource conflicts](results/S07-overlap-entry.md) as unfinished work; the current selection is T074 sustained observation.
@@ -38,9 +40,9 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-The [order lifecycle breadth review](results/S08-order-lifecycle.md#four-package-breadth-review-and-next-experiment) selects T078 complete-source qualification of stronger lowering/solving controls on the new choice/check witness and an adverse low-sharing stream. Reconsider T079 effect certification at that qualification boundary. T074 support/lifetime work remains required.
+The [stronger-control source gate](results/S10-arrival-controls.md) qualifies specialization and prefix lowering, including changing arguments and resource near misses. T078 next compares their complete lifecycle against the conditional/explicit controls; changed-signature artifact preparation must be charged. Reconsider T079 effect certification at that cost boundary. Direct solving that eliminates choices remains a distinct unresolved mechanism.
 
-The [next experimental cycle](next-cycle.md) supplies the remaining order and decision boundaries. Language and lifetime studies accompany executable candidates; native feasibility runs early, and complete architecture comparisons start as soon as two credible paths qualify.
+The [next experimental cycle](next-cycle.md) supplies the remaining investigations. Language and lifetime studies accompany executable candidates; native feasibility runs early, and complete architecture comparisons start as soon as credible paths qualify.
 
 ### Depth, breadth and stopping within this sequence
 

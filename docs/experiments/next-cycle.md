@@ -1,5 +1,7 @@
 # Next experimental cycle: answer the remaining design questions
 
+The [stronger-control source gate](results/S10-arrival-controls.md) qualifies specialization and prefix lowering but shows that both retain explicit choice enumeration. T078 next charges their complete lifecycle, including changed artifact signatures. T079 effect certification and direct solving remain required.
+
 Current selection: the [order lifecycle breadth review](results/S08-order-lifecycle.md) advances complete-source qualification under T078 (investigation 13) to challenge the new favorable sharing regime with stronger lowering/solving controls. Reconsider effect certification (investigation 2) at that qualification boundary. The numbered investigations below retain their full scope.
 
 Test the mechanisms that remain unanswered, then compare the complete architectures they enable. Reuse the existing baselines and valid results. The research goal remains active.

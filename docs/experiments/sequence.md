@@ -270,6 +270,6 @@ All new results link raw inputs, commands, freezes, validation and unfavorable o
 
 ## Current execution order
 
-**T078 is active for stronger complete-source controls.** The [order lifecycle comparison and four-package review](results/S08-order-lifecycle.md) select source-lowering/solving qualification on the opposite-arrival choice/check witnesses before further support tuning. Reconsider T079 non-overlap/effect certification at that qualification boundary. T074 observation, support representations and reclamation remain unfinished.
+**T078 is active for qualified stronger-control lifecycle costs.** The [source gate](results/S10-arrival-controls.md) validates specialization and prefix lowering on choice/check sources while showing retained explicit enumeration. Compare their preparation, changed-query/signature reuse, observation and ownership against the conditional/explicit controls before interpreting the sharing advantage. Reconsider T079 effect certification at that boundary; direct source-derived solving and native compilation remain distinct required comparisons.
 
-The [next experimental cycle](next-cycle.md) and [remaining-investigations ledger](remaining-investigations.md) retain all subsequent mechanisms. The [57-question map](question-to-experiment-map.md) makes coverage auditable. Complete architectures are compared as soon as credible paths qualify; bounded component evidence does not resolve the goal.
+The [next experimental cycle](next-cycle.md), [remaining ledger](remaining-investigations.md) and [57-question map](question-to-experiment-map.md) retain the broader obligations. Component gates do not close the research goal.
