@@ -8,6 +8,8 @@ The outcome is evidence for choosing the CHR language's architecture: total effi
 
 This is the governing sequence for the renewed investigation. Existing E/R measurements retain their stated scope. The [coverage map](coverage.md) tracks all 57 reviewed decisions. The [remaining investigations](remaining-investigations.md) give distinct mechanisms their own comparisons and specify the next selection cycle. Experimental implementation and runs are already authorized; this document defines the work and its gates, not results from new runs. S-numbers distinguish this sequence from completed experimental receipts.
 
+The [next experimental cycle](next-cycle.md) sets the current execution order, concrete contrasts and completion boundaries from the verified worktree. It reuses the stage definitions below and the full question map.
+
 ## Account for every reviewed question
 
 The [entry-by-entry experiment map](question-to-experiment-map.md) specifies the required comparison and decision for each of the 57 reviewed designs. Use it alongside the roadmap: a stage covers several questions, and a result for one does not discharge the others. Established counterexamples and bounded measurements remain controls; the map identifies the broader claim that still needs evidence.
@@ -266,20 +268,8 @@ If a pilot reaches a bound, inspect progress and the responsible cost. Choose a 
 
 All new results link raw inputs, commands, freezes, validation and unfavorable outcomes. Correct consequential defects and rerun affected comparisons. Preserve reference independence. No new architecture adopts implementation interfaces merely because they make cross-engine testing easier.
 
-## The next complete comparison
-
-The immediate S02 investigation has three separate gates. They qualify a comparison of integrated execution against a competent existing compiled control; none alone resolves general integrated architecture.
-
-1. **Equivalent executable capability.** Qualify the source-derived two-head consuming selector and prove that it actually executes. Check complete answers, occurrence ownership, missing resources, source order, body completion, aliases and fresh values independently. Reject unsupported source shapes explicitly. Do not interpret an ineligible compiler path as evidence against compilation.
-2. **Full lifecycle and ownership.** Establish counter-free integrated timing and separate allocation/work builds. Reuse prepared rules over changing queries. Account for preparation, setup, execution, first/full observation, cancellation and disposal, with exact owner release checks. Register favorable equality-enabled consumption, broad repair, mostly distinct small work and competing-consumer controls before comparative runs. Any additional source capability must pass the first gate before entering the matrix.
-3. **Decision and breadth review.** Attribute consequential differences to source specialization, representation, discovery, repair or lifetime. State which responsibility can change and which general heads, history or scheduling questions remain. Compare the value of extending those questions with the strongest ready distinct investigation in the ordered sequence, including resource-aware lowering and repeated dynamic reunion. A faster fragment does not automatically authorize an indefinite series of local refinements.
-
-Exact sizes follow exploratory sizing under the common rules above. The comparative registration must freeze those sizes, sources, controls, repetitions, practical thresholds and bounds before confirmation. The source and ownership gates and the first corrected lifecycle sizing now have linked evidence. Repeated-update opportunity, broader source capability and the complete architectural decision remain required.
-
 ## Current execution order
 
-**T078 is active for equality invalidation versus source elimination.** The [resumable lifecycle](results/S10-resumable-lifecycle.md) measures stable-history gains, mixed penalties and a consequential redundant-equality reset cost. The [next control gate](results/S10-equality-invalidation-entry.md) compares actual-change tracking with avoiding trivial equality work at source level, preserving partial deductions and progress. Reconsider support-aware conditional joining after that gate. Broader T079 language properties, sustained lifetime and coherent architecture comparison remain required.
+**T074 remains active for support-order and observation lifecycle costs.** Follow the [next experimental cycle](next-cycle.md), beginning with independently qualified opposite-arrival sources and complete-path controls. The next package triggers the four-package breadth review; non-overlap/effect certification is the next distinct proposed investigation.
 
-The [ordered remaining sequence](remaining-investigations.md#execution-order) records the completed bounded restoration/reunion comparisons and remaining investigation boundaries. T077 stays required for broader restoration, adaptive splitting, repeated dynamic reunion, inference and sustained lifetime. Broader lowering and structural theories, discovery, reuse, direct graphs and connected parallelism remain required. Language and lifetime comparisons accompany every candidate; priority is reconsidered at each package boundary.
-
-The [coverage map](coverage.md) assigns all 57 reviewed decisions. The [named-mechanism comparisons](remaining-investigations.md#distinctions-that-must-not-disappear-inside-a-stage) preserve alternatives within grouped entries. Completed bounded trials provide controls; unanswered consequential variants remain required. Finishing this sequence document does not finish the research goal.
+The [remaining-investigations ledger](remaining-investigations.md) supplies detailed mechanism obligations, and the [57-question map](question-to-experiment-map.md) makes coverage auditable. The cycle sequences those obligations without treating earlier bounded results as general resolution. Complete architectures are compared as soon as two qualify, alongside component work.

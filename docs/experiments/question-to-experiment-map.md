@@ -1,5 +1,7 @@
 # What experiment answers each reviewed design question?
 
+The [next experimental cycle](next-cycle.md) specifies the current order and concrete contrasts; this map retains the evidence and full coverage obligations.
+
 Every reviewed design has an explicit place in the renewed experimental sequence. A result about one implementation settles only the claim it actually tests. Unanswered architectural questions remain required work.
 
 Use the [ordered sequence](remaining-investigations.md#execution-order) to see what runs next. Use this map to check that a particular design receives a fair investigation. The numbers match the [design review](results/R07-design-disposition-review.md); stage names refer to the [experiment specifications](remaining-investigations.md#next-discriminating-comparisons).

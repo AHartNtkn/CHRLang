@@ -1,5 +1,7 @@
 # Unanswered architecture questions and experimental ownership
 
+The [next experimental cycle](next-cycle.md) specifies the current order and concrete contrasts; this map retains the evidence and full coverage obligations.
+
 Current evidence: the [head-dispatch lifecycle](results/S07-head-dispatch-lifecycle.md) completes 3612 processes and 516 exact allocation pairs. Inference lowers completed-query traffic in 76/84 cells; valid declared/required allocation readings equal inference in all 96 pairs. Cancellation is reported separately. T079 retains unfinished investigation of [non-overlap/resource conflicts](results/S07-overlap-entry.md); no language restriction is adopted.
 
 The [resource-fusion lifecycle pilot](results/S06-resource-fusion-lifecycle.md) completes 1350 processes and 180 exact allocation pairs. Inference and certification can outweigh execution savings; timing remains exploratory with clock-overhead evidence. All owners restore. The [S10 entry](results/S10-composition-entry.md) selects T078 coherent-path capability and mixed-source qualification. T073 and the other unresolved component directions remain required.
