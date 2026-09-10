@@ -2,7 +2,8 @@
 #[path = "../../chr-compiled/experiments/finite_phase.rs"]
 mod phase;
 use chr_syntax::{Goal, Query, Rule, Var, atom, c, eq, or, v};
-use phase::learning::{Learner, Pruning};
+use phase::learning::Pruning;
+type Learner<'p> = phase::learning::Learner<'p, true>;
 use phase::{Limits, Prepared};
 fn rules() -> Vec<Rule> {
     vec![
@@ -651,4 +652,28 @@ fn covering_failure_avoids_partitions_from_older_partial_regions() {
         .unwrap();
     assert_eq!(result.partitions, 0);
     assert_eq!(check_source(&source, &wide, result), 0);
+}
+
+#[test]
+fn primary_learning_has_no_diagnostic_counts_and_preserves_reuse() {
+    let source = matrix_rules(0, 1);
+    let prepared = Prepared::new(&source, source.len() - 1).unwrap();
+    for policy in [Pruning::Eager, Pruning::WhenCovered] {
+        let mut primary = phase::learning::Learner::<false>::new(&prepared, 4, policy);
+        let mut diagnostic = phase::learning::Learner::<true>::new(&prepared, 4, policy);
+        for mask in [3, 7, 1, 7] {
+            let q = matrix_query(mask, mask, false, 100);
+            let a = primary.solve(&q, Limits::default()).unwrap();
+            let b = diagnostic.solve(&q, Limits::default()).unwrap();
+            assert_eq!((a.steps, a.partitions), (b.steps, b.partitions));
+            assert_eq!(check_source(&source, &q, a), check_source(&source, &q, b));
+        }
+        assert_eq!(primary.retained(), diagnostic.retained());
+        let stats = primary.stats();
+        assert_eq!(
+            (stats.probes, stats.excluded_regions, stats.learned_regions),
+            (0, 0, 0)
+        );
+        assert!(diagnostic.stats().probes > 0);
+    }
 }

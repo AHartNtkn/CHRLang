@@ -5,10 +5,15 @@ import json
 import resource
 import subprocess
 import hashlib
+import argparse
 
 root=Path(__file__).resolve().parents[3]
-raw=root/'docs/experiments/results/s06-learning-ownership'
-binary=root/'target/debug/examples/learning_ownership'
+parser=argparse.ArgumentParser()
+parser.add_argument('--output',type=Path,required=True)
+parser.add_argument('--binary',type=Path,required=True)
+options=parser.parse_args()
+raw=options.output.resolve(); raw.mkdir(parents=True,exist_ok=True)
+binary=options.binary.resolve()
 def limits():
     resource.setrlimit(resource.RLIMIT_AS,(1<<30,1<<30))
     resource.setrlimit(resource.RLIMIT_CPU,(60,60))
@@ -19,12 +24,15 @@ with (raw/'runs.jsonl').open('w') as output:
     for mode,mask,weight,capacity,count in itertools.product(['recompute','eager','covered'],[0,273,238,511],[1,2],[0,1,4],[1,4,16]):
         pair=[]
         for repeat in range(2):
-            proc=subprocess.run([binary,mode,str(mask),str(weight),str(capacity),str(count)],capture_output=True,text=True,timeout=60,check=True,preexec_fn=limits)
+            proc=subprocess.run([binary,mode,str(mask),str(weight),str(capacity),str(count),"none"],capture_output=True,text=True,timeout=60,check=True,preexec_fn=limits)
             assert not proc.stderr,proc.stderr
             row=json.loads(proc.stdout)
             pair.append(row)
             output.write(json.dumps({'repeat':repeat,**row})+'\n');output.flush()
-        assert pair[0]==pair[1],(mode,mask,weight,capacity,count)
+        def signature(row):
+            return {k:([{pk:pv for pk,pv in p.items() if pk!='ns'} for p in v] if k=='phases' else v) for k,v in row.items() if k!='first_owned_ns'}
+        assert signature(pair[0])==signature(pair[1]),(mode,mask,weight,capacity,count)
+        assert pair[0]['allocation_meter'], "requires allocation diagnostic binary"
         row=pair[0];phases=row['phases'];baseline=row['baseline']
         assert phases[0]['memory']['live_start']==baseline
         assert phases[-1]['memory']['live_end']==baseline

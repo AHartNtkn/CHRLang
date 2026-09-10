@@ -1,0 +1,31 @@
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+error[E0107]: struct takes 0 generic arguments but 1 generic argument was supplied
+   --> research/chr-direct-conditional/tests/finite_learning_gate.rs:661:44
+    |
+661 |         let mut primary = phase::learning::Learner::<false>::new(&prepared,4,policy);
+    |                                            ^^^^^^^   ----- help: remove the unnecessary generic argument
+    |                                            |
+    |                                            expected 0 generic arguments
+    |
+note: struct defined here, with 0 generic parameters
+   --> research/chr-direct-conditional/tests/../../chr-compiled/experiments/finite_learning.rs:21:12
+    |
+ 21 | pub struct Learner<'p> {
+    |            ^^^^^^^
+
+error[E0107]: struct takes 0 generic arguments but 1 generic argument was supplied
+   --> research/chr-direct-conditional/tests/finite_learning_gate.rs:662:47
+    |
+662 |         let mut diagnostic = phase::learning::Learner::<true>::new(&prepared,4,policy);
+    |                                               ^^^^^^^   ---- help: remove the unnecessary generic argument
+    |                                               |
+    |                                               expected 0 generic arguments
+    |
+note: struct defined here, with 0 generic parameters
+   --> research/chr-direct-conditional/tests/../../chr-compiled/experiments/finite_learning.rs:21:12
+    |
+ 21 | pub struct Learner<'p> {
+    |            ^^^^^^^
+
+For more information about this error, try `rustc --explain E0107`.
+error: could not compile `chr-direct-conditional` (test "finite_learning_gate") due to 2 previous errors

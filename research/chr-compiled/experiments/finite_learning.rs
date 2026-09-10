@@ -18,15 +18,15 @@ pub enum Pruning {
     Eager,
     WhenCovered,
 }
-pub struct Learner<'p> {
+pub struct Learner<'p, const DIAGNOSTICS: bool = false> {
     prepared: &'p Prepared,
     pruning: Pruning,
     capacity: usize,
     regions: VecDeque<Region>,
     stats: Stats,
 }
-pub struct Session<'a, 'p> {
-    owner: &'a mut Learner<'p>,
+pub struct Session<'a, 'p, const DIAGNOSTICS: bool> {
+    owner: &'a mut Learner<'p, DIAGNOSTICS>,
     machine: Machine<'p>,
     candidate: Option<Region>,
     vars: Vec<Var>,
@@ -65,7 +65,7 @@ fn region(state: &State) -> Result<(Region, Vec<Var>), Error> {
         .collect::<Result<_, _>>()?;
     Ok((Region { goals, domains }, vars))
 }
-impl<'p> Learner<'p> {
+impl<'p, const DIAGNOSTICS: bool> Learner<'p, DIAGNOSTICS> {
     pub fn new(prepared: &'p Prepared, capacity: usize, pruning: Pruning) -> Self {
         Self {
             prepared,
@@ -85,7 +85,7 @@ impl<'p> Learner<'p> {
         &'a mut self,
         query: &Query,
         limits: Limits,
-    ) -> Result<Session<'a, 'p>, Error> {
+    ) -> Result<Session<'a, 'p, DIAGNOSTICS>, Error> {
         let mut machine = self.prepared.start(query, limits)?;
         let work = machine.work.as_mut().expect("new machine");
         let mut original_vars = vec![];
@@ -96,7 +96,9 @@ impl<'p> Learner<'p> {
             // an older partial region allocates complement states unnecessarily.
             let covered = self.pruning == Pruning::Eager
                 && self.regions.iter().any(|known| {
-                    self.stats.probes += 1;
+                    if DIAGNOSTICS {
+                        self.stats.probes += 1;
+                    }
                     candidate.goals == known.goals
                         && candidate
                             .domains
@@ -106,7 +108,9 @@ impl<'p> Learner<'p> {
                 });
             if covered {
                 work.queue.clear();
-                self.stats.excluded_regions += 1;
+                if DIAGNOSTICS {
+                    self.stats.excluded_regions += 1;
+                }
             }
             for known in self
                 .regions
@@ -116,7 +120,9 @@ impl<'p> Learner<'p> {
                 if work.queue.is_empty() {
                     break;
                 }
-                self.stats.probes += 1;
+                if DIAGNOSTICS {
+                    self.stats.probes += 1;
+                }
                 if candidate.goals != known.goals {
                     continue;
                 }
@@ -132,7 +138,9 @@ impl<'p> Learner<'p> {
                         survivors.push(state);
                         continue;
                     }
-                    self.stats.excluded_regions += 1;
+                    if DIAGNOSTICS {
+                        self.stats.excluded_regions += 1;
+                    }
                     // Disjoint complement of a box. Never select a value here:
                     // retain the new query's domain weights until ordinary solving.
                     for (v, forbidden) in vars.iter().zip(&known.domains) {
@@ -173,7 +181,7 @@ impl<'p> Learner<'p> {
         self.start(query, limits)?.finish()
     }
 }
-impl Session<'_, '_> {
+impl<const DIAGNOSTICS: bool> Session<'_, '_, DIAGNOSTICS> {
     fn prune_covered(&mut self) -> Result<bool, Error> {
         if self.owner.pruning != Pruning::WhenCovered {
             return Ok(false);
@@ -185,7 +193,9 @@ impl Session<'_, '_> {
             return Ok(false);
         };
         for known in &self.owner.regions {
-            self.owner.stats.probes += 1;
+            if DIAGNOSTICS {
+                self.owner.stats.probes += 1;
+            }
             if candidate.goals != known.goals {
                 continue;
             }
@@ -209,7 +219,9 @@ impl Session<'_, '_> {
             }
             if covered {
                 work.queue.pop();
-                self.owner.stats.excluded_regions += 1;
+                if DIAGNOSTICS {
+                    self.owner.stats.excluded_regions += 1;
+                }
                 return Ok(true);
             }
         }
@@ -235,7 +247,9 @@ impl Session<'_, '_> {
                         self.owner.regions.pop_front();
                     }
                     self.owner.regions.push_back(candidate);
-                    self.owner.stats.learned_regions += 1;
+                    if DIAGNOSTICS {
+                        self.owner.stats.learned_regions += 1;
+                    }
                 }
                 Ok(Event::Complete(report))
             }

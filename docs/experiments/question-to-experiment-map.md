@@ -1,6 +1,6 @@
 # What experiment answers each reviewed design question?
 
-**Current selection: T073 counter-free learning timing qualification.** The [setup attribution](results/S06-learning-setup.md) confirms avoidable eager complements and preserves independent outcomes across432 allocation processes. Its four-package breadth review retains T078 mixed-source costs as the strongest ready alternative at the qualification boundary.
+**Current selection: T078 host/native ownership qualification and bounded mixed-source costs.** The [primary learning gate](results/S06-learning-primary.md) passes756 processes and supplies the explicit boundary selection. T073 comparative learning costs remain unfinished and return for review at T078 allocation qualification or an obstruction.
 
 The [common-source gate and cost design](results/S10-native-common-source.md) qualifies ten Rust configurations on all 125 cases, prefix lowering on 20 and finite solving with its caller on four. Native evidence remains applicable. T078 next establishes native prepared reuse and disposal; no cross-architecture cost matrix has run.
 
