@@ -4,6 +4,7 @@
 #[path = "../../chr-compiled/experiments/meter.rs"]
 mod meter;
 use chr_structural::{
+    graph_simplification::Reduced,
     joint_region::{Observation, Predicate, Prepared as Projection, Region},
     name_disequality::{Formula, Name},
     reusable_diagram::{Diagram, Expr},
@@ -92,6 +93,7 @@ fn oracle(m: &Model, r: &Request) -> Output {
 }
 #[allow(clippy::large_enum_variant)]
 enum Prepared {
+    Reduced(Reduced),
     Diagram(Diagram),
     Names(Vec<Formula>),
     Projected(Vec<Projection>),
@@ -100,6 +102,11 @@ enum Prepared {
 }
 fn prepare(mode: &str, m: &Model) -> Prepared {
     match mode {
+        "reduced" => {
+            let p = Reduced::compile(m.n, m.alphabet.len(), &m.branches, &[0, 1], LIMIT).unwrap();
+            assert!(p.is_closed(), "source requires unresolved graph solving");
+            Prepared::Reduced(p)
+        }
         "diagram" => {
             let mut ds = m.branches.iter().map(|b| {
                 Diagram::compile(
@@ -249,6 +256,7 @@ fn evaluate(p: &Prepared, instances: &[Instance], m: &Model, r: &Request) -> Out
             return false;
         }
         match p {
+            Prepared::Reduced(p) => p.contains(&[x, y]).unwrap(),
             Prepared::Diagram(d) => {
                 assignment[0] = x;
                 assignment[1] = y;

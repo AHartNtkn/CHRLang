@@ -8,7 +8,7 @@ This sequence separates three deliverables: demonstrating a mechanism, measuring
 
 ## Start here: the next experiments
 
-**Complete the finite-source lifecycle comparison under T076, then return to T077 restoration.** The [graph simplifier](results/S06-graph-simplification.md) supplies a constraint-based competitor with independent denotation/source checks. The [four-package review](results/S06-graph-simplification-breadth-review.md) authorizes at most two allocation/clock qualification packages and one registered timing confirmation before the handoff. Further graph-rule expansion is not the default next step; unresolved cores and broader theories remain required.
+**Qualify clocks and counters under T076, then run the registered lifecycle timing comparison.** The [simplifier ownership result](results/S06-simplified-ownership.md) completes the first selected qualification package and preserves all prior controls exactly. Its traffic savings coexist with explicit enumeration's peak-memory advantages. The remaining clock qualification must address tiny phases before primary timing. The [breadth review](results/S06-graph-simplification-breadth-review.md) retains T077 restoration as the next distinct handoff.
 
 **Demand remains unfinished under T071.** Targeted CPU/elapsed attribution must investigate consequential timing excursions; all recorded outliers remain in the results. Broader indexing, repeated successful discovery, nonground posts, writable heads, dynamic choices and sustained ownership need direct trials. Timing this qualified subset supplies no general rejection or selection of demand execution.
 

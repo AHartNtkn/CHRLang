@@ -1,0 +1,11 @@
+# Allocation costs with constraint-based simplification
+
+This is qualification package one of the bounded comparison selected at the graph-simplification breadth review. Integrate `Reduced::compile` as an additional candidate in the existing finite-name ownership runner. The control must inspect graph constraints, require a closed visible relation, and include all preparation and disposal costs. No family label may select its answer.
+
+Repeat the exact preceding ownership configurations with six modes: reduced, diagram, names, projected, symbolic and explicit. Six families, variable counts 3/6, alphabets 2/3, query counts 1/16/128, membership/full output and immediate/window/all consumers give 2,592 configurations. Run each twice with the allocation meter and once with the ordinary allocator: 7,776 workload processes, plus one meter self-check. Preserve the unchanged five-mode receipt summaries and independently check whether their normalized allocation results still match.
+
+The five-request cycle, caller equality, output protocol, independent complete-assignment oracle, held-answer checks, measured phases and exclusions remain those in S06-diagram-ownership. The new control is prepared once and queried with the two visible values; it performs no formula rebuilding per query. Six-variable correctness is covered by the complete oracle here, while the direct source gate uses three variables. No broader eligibility or runtime claim follows.
+
+Freeze source hashes and separately built release executables before comparison, using new target directories. Default metrics are disabled; enable the meter only in diagnostic builds. Require exact diagnostic phase repeats, continuous live ownership between phases, and final heap restoration. Per-process bounds are 60 seconds wall/CPU, 1 GiB address space and one million reduction/diagram/projection work units per operation. Campaign bound is 30 minutes. A cutoff or discrepancy requires diagnosis.
+
+Report requested bytes and peak excess separately against every matched control, including one-shot and repeated-query regimes. Investigate consequential differences without assigning application weights. This allocation qualification is followed by clock/counter qualification and registered primary timing, then the selected T077 handoff. It is not itself a timing experiment.
