@@ -1,6 +1,6 @@
 # Unanswered architecture questions and experimental ownership
 
-The [projection entry](results/S06-projection-entry.md) validates 8,192 generated order/semantics comparisons per build, existing structural and actual CHR controls, and explicit caller/multiplicity boundaries. Hidden-independent elimination takes46 local assignment visits; the connected witness takes504 or28 with peak tables128 or4, depending on order. A zero-factor overflow defect is repaired. Ten projection and16 finite-path tests pass in both bounded builds. T076 next qualifies representation/lifecycle costs; no timing or architecture ranking follows. Package one after the descriptor breadth review; goal active.
+The [projection ordering and ownership gate](results/S06-projection-lifecycle-gate.md) records the next qualification. Projection ordering and owned expansion pass 12,288 independent weighted-map comparisons per build and 36 exactly paired ownership diagnostics. Greedy ordering selects the connected star’s 28-visit/four-entry path. Dense output retains 91,984 bytes before first expansion; all producer owners release independently of consumers. Grouping preserves multiplicity but does not reconstruct source-choice order. T076 next registers finite-endpoint lifecycle costs; no timing comparison or ordered-CHR claim follows. Package two after descriptor breadth review; goal active.
 
 ## Earlier experimental checkpoints
 

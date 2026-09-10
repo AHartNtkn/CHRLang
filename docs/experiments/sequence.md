@@ -10,7 +10,7 @@ This is the governing sequence for the renewed investigation. Existing E/R measu
 
 The [next experimental cycle](next-cycle.md#start-here-the-next-experiments) sets the immediate experiments and their decision boundaries from the verified worktree. Its full programme covers every direction; the numbered investigations are identifiers, not instructions to repeat completed work. It reuses the stage definitions below and the full question map.
 
-The current package is T076 projection representation and lifecycle qualification. The [entry gate](results/S06-projection-entry.md) preserves visible correlations and distinguishes logical answers from counted hidden witnesses. It exposes elimination-order sensitivity and repairs zero-factor arithmetic before comparison. Next qualify an economical ordering policy, retained owners, later restrictions and required raw-answer expansion. This is package one after the descriptor breadth review; adaptive costs, native local ownership and all broader theory/source questions remain required.
+The current package is T076 finite projection lifecycle comparison after [ordering and ownership qualification](results/S06-projection-lifecycle-gate.md). Greedy ordering and owned grouped outputs are qualified; complete source-ordered CHR correspondence remains open. Register primary counter-free costs against competent enumeration and independence-recognizing controls. This is package two after the descriptor breadth review; adaptive costs and all broader questions remain required.
 
 ## Account for every reviewed question
 
@@ -272,7 +272,7 @@ All new results link raw inputs, commands, freezes, validation and unfavorable o
 
 ## Current execution order
 
-T076 is active for projection representation and lifecycle qualification after its finite correctness entry. Next establish complete-output and ownership endpoints, then measure the consequential cost regimes if qualification succeeds. Adaptive search ownership is the next distinct comparison in the immediate schedule. Review all directions within four experimental packages; additional correctness and attribution work count toward that boundary.
+T076 is active after projection ordering and ownership qualification. Next register finite weighted-answer and expanded-multiset lifecycle costs, including streaming enumeration and preparation reuse. Source-ordered CHR claims need additional correspondence evidence. Adaptive search ownership is the next distinct comparison; review all directions by package four.
 
 The [current execution order](next-cycle.md#start-here-the-next-experiments), [57-question map](question-to-experiment-map.md) and [mechanism ledger](remaining-investigations.md) retain every unresolved obligation. Reordering does not establish an experimental conclusion or complete the goal.
 

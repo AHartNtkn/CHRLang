@@ -1,0 +1,368 @@
+{
+  "status": "passed",
+  "correctness_processes": 6,
+  "owner_processes": 36,
+  "map_comparisons_per_build": 12288,
+  "cells": [
+    {
+      "family": "independent",
+      "retain": "0",
+      "cancel": false,
+      "delivered": [
+        4096,
+        2048,
+        2048,
+        4096
+      ],
+      "expected": [
+        4096,
+        2048,
+        2048,
+        4096
+      ],
+      "consumer_bytes": 0,
+      "unreleased_bytes": 0,
+      "requested_bytes": 60688
+    },
+    {
+      "family": "independent",
+      "retain": "0",
+      "cancel": true,
+      "delivered": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "expected": [
+        4096,
+        2048,
+        2048,
+        4096
+      ],
+      "consumer_bytes": 0,
+      "unreleased_bytes": 0,
+      "requested_bytes": 48438
+    },
+    {
+      "family": "independent",
+      "retain": "4",
+      "cancel": false,
+      "delivered": [
+        4096,
+        2048,
+        2048,
+        4096
+      ],
+      "expected": [
+        4096,
+        2048,
+        2048,
+        4096
+      ],
+      "consumer_bytes": 100,
+      "unreleased_bytes": 0,
+      "requested_bytes": 60784
+    },
+    {
+      "family": "independent",
+      "retain": "4",
+      "cancel": true,
+      "delivered": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "expected": [
+        4096,
+        2048,
+        2048,
+        4096
+      ],
+      "consumer_bytes": 100,
+      "unreleased_bytes": 0,
+      "requested_bytes": 48534
+    },
+    {
+      "family": "independent",
+      "retain": "all",
+      "cancel": false,
+      "delivered": [
+        4096,
+        2048,
+        2048,
+        4096
+      ],
+      "expected": [
+        4096,
+        2048,
+        2048,
+        4096
+      ],
+      "consumer_bytes": 405504,
+      "unreleased_bytes": 0,
+      "requested_bytes": 847024
+    },
+    {
+      "family": "independent",
+      "retain": "all",
+      "cancel": true,
+      "delivered": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "expected": [
+        4096,
+        2048,
+        2048,
+        4096
+      ],
+      "consumer_bytes": 800,
+      "unreleased_bytes": 0,
+      "requested_bytes": 49878
+    },
+    {
+      "family": "star",
+      "retain": "0",
+      "cancel": false,
+      "delivered": [
+        129,
+        65,
+        64,
+        129
+      ],
+      "expected": [
+        129,
+        65,
+        64,
+        129
+      ],
+      "consumer_bytes": 0,
+      "unreleased_bytes": 0,
+      "requested_bytes": 37284
+    },
+    {
+      "family": "star",
+      "retain": "0",
+      "cancel": true,
+      "delivered": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "expected": [
+        129,
+        65,
+        64,
+        129
+      ],
+      "consumer_bytes": 0,
+      "unreleased_bytes": 0,
+      "requested_bytes": 36598
+    },
+    {
+      "family": "star",
+      "retain": "4",
+      "cancel": false,
+      "delivered": [
+        129,
+        65,
+        64,
+        129
+      ],
+      "expected": [
+        129,
+        65,
+        64,
+        129
+      ],
+      "consumer_bytes": 104,
+      "unreleased_bytes": 0,
+      "requested_bytes": 37380
+    },
+    {
+      "family": "star",
+      "retain": "4",
+      "cancel": true,
+      "delivered": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "expected": [
+        129,
+        65,
+        64,
+        129
+      ],
+      "consumer_bytes": 104,
+      "unreleased_bytes": 0,
+      "requested_bytes": 36694
+    },
+    {
+      "family": "star",
+      "retain": "all",
+      "cancel": false,
+      "delivered": [
+        129,
+        65,
+        64,
+        129
+      ],
+      "expected": [
+        129,
+        65,
+        64,
+        129
+      ],
+      "consumer_bytes": 13062,
+      "unreleased_bytes": 0,
+      "requested_bytes": 61764
+    },
+    {
+      "family": "star",
+      "retain": "all",
+      "cancel": true,
+      "delivered": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "expected": [
+        129,
+        65,
+        64,
+        129
+      ],
+      "consumer_bytes": 832,
+      "unreleased_bytes": 0,
+      "requested_bytes": 38038
+    },
+    {
+      "family": "dense",
+      "retain": "0",
+      "cancel": false,
+      "delivered": [
+        1024,
+        512,
+        512,
+        1024
+      ],
+      "expected": [
+        1024,
+        512,
+        512,
+        1024
+      ],
+      "consumer_bytes": 0,
+      "unreleased_bytes": 0,
+      "requested_bytes": 316124
+    },
+    {
+      "family": "dense",
+      "retain": "0",
+      "cancel": true,
+      "delivered": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "expected": [
+        1024,
+        512,
+        512,
+        1024
+      ],
+      "consumer_bytes": 0,
+      "unreleased_bytes": 0,
+      "requested_bytes": 316124
+    },
+    {
+      "family": "dense",
+      "retain": "4",
+      "cancel": false,
+      "delivered": [
+        1024,
+        512,
+        512,
+        1024
+      ],
+      "expected": [
+        1024,
+        512,
+        512,
+        1024
+      ],
+      "consumer_bytes": 136,
+      "unreleased_bytes": 0,
+      "requested_bytes": 316220
+    },
+    {
+      "family": "dense",
+      "retain": "4",
+      "cancel": true,
+      "delivered": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "expected": [
+        1024,
+        512,
+        512,
+        1024
+      ],
+      "consumer_bytes": 136,
+      "unreleased_bytes": 0,
+      "requested_bytes": 316220
+    },
+    {
+      "family": "dense",
+      "retain": "all",
+      "cancel": false,
+      "delivered": [
+        1024,
+        512,
+        512,
+        1024
+      ],
+      "expected": [
+        1024,
+        512,
+        512,
+        1024
+      ],
+      "consumer_bytes": 129024,
+      "unreleased_bytes": 0,
+      "requested_bytes": 512636
+    },
+    {
+      "family": "dense",
+      "retain": "all",
+      "cancel": true,
+      "delivered": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "expected": [
+        1024,
+        512,
+        512,
+        1024
+      ],
+      "consumer_bytes": 1088,
+      "unreleased_bytes": 0,
+      "requested_bytes": 317564
+    }
+  ]
+}

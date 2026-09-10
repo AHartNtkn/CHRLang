@@ -1,0 +1,14 @@
+    Checking chr-structural v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-structural)
+error: this assertion has a constant value
+  --> research/chr-structural/examples/projection_ownership.rs:91:9
+   |
+91 |         assert!(!cfg!(feature = "metrics"), "metrics-off required");
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: consider moving this into a const block: `const { assert!(..) }`
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.97.0/index.html#assertions_on_constants
+   = note: `-D clippy::assertions-on-constants` implied by `-D warnings`
+   = help: to override `-D warnings` add `#[allow(clippy::assertions_on_constants)]`
+
+error: could not compile `chr-structural` (example "projection_ownership") due to 1 previous error
+warning: build failed, waiting for other jobs to finish...

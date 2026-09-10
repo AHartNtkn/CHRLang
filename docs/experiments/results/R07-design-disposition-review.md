@@ -318,6 +318,8 @@ The [finite-solver lifecycle pilot](S06-finite-lifecycle.md) completes 1,428 pro
 
 ### 34. General relational compilation, contextual lowering and richer structural theories — Not directly resolved
 
+**Projection follow-up.** The [finite projection ordering and ownership gate](S06-projection-lifecycle-gate.md) now validates 12,288 weighted-map comparisons per build and 36 paired ownership diagnostics. An input-derived order avoids the star's large intermediate factor. Dense output is materialized before expansion, and grouped multiplicities do not reconstruct source-choice order. Finite weighted/expanded-multiset costs are next; general CHR source correspondence, broader theories and architectural superiority remain unresolved.
+
 **Current follow-up.** The [source-derived finite lifecycle](S06-finite-lifecycle.md) now measures an admitted atom-domain phase with resumed caller execution. Selective gains and cold/unselective costs are both recorded. This does not resolve broader theories, compatible-query learning or native compilation.
 
 **Result.** There are positive finite-solving and recursive-lowering examples, and concrete counterexamples to insufficient certificates. There is no complete comparative implementation covering general contextual relation compilation, arbitrary equality-constrained term spaces, existential projection, or the broader normal/neutral/name/disequality theories considered in the analysis.

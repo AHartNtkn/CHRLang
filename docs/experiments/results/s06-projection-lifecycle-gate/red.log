@@ -1,0 +1,111 @@
+   Compiling chr-structural v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-structural)
+error[E0599]: no method named `elimination_order` found for struct `Problem` in the current scope
+  --> research/chr-structural/tests/projection_lifecycle.rs:37:28
+   |
+37 |             let greedy = p.elimination_order(&visible).unwrap();
+   |                            ^^^^^^^^^^^^^^^^^ method not found in `Problem`
+
+error[E0599]: no method named `expanded_answers` found for struct `Projection` in the current scope
+  --> research/chr-structural/tests/projection_lifecycle.rs:47:30
+   |
+47 |                 for row in q.expanded_answers(&[], 100_000, 100_000).unwrap() { *expanded.entry(row).or_insert(0) += 1; }
+   |                              ^^^^^^^^^^^^^^^^ method not found in `Projection`
+
+error[E0599]: no method named `elimination_order` found for struct `Problem` in the current scope
+  --> research/chr-structural/tests/projection_lifecycle.rs:62:19
+   |
+62 |     let order = p.elimination_order(&[6,7]).unwrap();
+   |                   ^^^^^^^^^^^^^^^^^ method not found in `Problem`
+
+error[E0599]: no method named `elimination_order` found for struct `Problem` in the current scope
+  --> research/chr-structural/tests/projection_lifecycle.rs:73:39
+   |
+73 |     let q = p.project(&visible,&[],&p.elimination_order(&visible).unwrap(),Semantics::Counted,2048).unwrap();
+   |                                       ^^^^^^^^^^^^^^^^^ method not found in `Problem`
+
+error[E0599]: no method named `expanded_answers` found for struct `Projection` in the current scope
+  --> research/chr-structural/tests/projection_lifecycle.rs:76:22
+   |
+76 |         assert_eq!(q.expanded_answers(&r,2048,2048).unwrap().count() as u128,oracle(&p,&visible,&r,false).values().sum());
+   |                      ^^^^^^^^^^^^^^^^ method not found in `Projection`
+
+error[E0599]: no method named `elimination_order` found for struct `Problem` in the current scope
+  --> research/chr-structural/tests/projection_lifecycle.rs:83:35
+   |
+83 |     let q = p.project(&[0],&[],&p.elimination_order(&[0]).unwrap(),Semantics::Counted,100).unwrap();
+   |                                   ^^^^^^^^^^^^^^^^^ method not found in `Problem`
+
+error[E0599]: no method named `expanded_answers` found for struct `Projection` in the current scope
+  --> research/chr-structural/tests/projection_lifecycle.rs:84:18
+   |
+84 |     assert_eq!(q.expanded_answers(&[],100,100).err().unwrap(),"output bound");
+   |                  ^^^^^^^^^^^^^^^^ method not found in `Projection`
+
+error[E0599]: no method named `expanded_answers` found for struct `Projection` in the current scope
+  --> research/chr-structural/tests/projection_lifecycle.rs:85:25
+   |
+85 |     let mut answers = q.expanded_answers(&[],100,1<<24).unwrap();
+   |                         ^^^^^^^^^^^^^^^^ method not found in `Projection`
+
+error[E0599]: no method named `expanded_answers` found for struct `Projection` in the current scope
+  --> research/chr-structural/tests/projection_lifecycle.rs:98:21
+   |
+98 |     let grouped = q.expanded_answers(&[],10,4).unwrap().collect::<Vec<_>>();
+   |                     ^^^^^^^^^^^^^^^^ method not found in `Projection`
+
+error[E0599]: no method named `elimination_order` found for struct `Problem` in the current scope
+   --> research/chr-structural/tests/projection_lifecycle.rs:108:18
+    |
+108 |     assert_eq!(p.elimination_order(&[]).unwrap(),Vec::<usize>::new());
+    |                  ^^^^^^^^^^^^^^^^^ method not found in `Problem`
+
+error[E0599]: no method named `expanded_answers` found for struct `Projection` in the current scope
+   --> research/chr-structural/tests/projection_lifecycle.rs:110:18
+    |
+110 |     assert_eq!(q.expanded_answers(&[],1,1).unwrap().collect::<Vec<_>>(),vec![Vec::<u8>::new()]);
+    |                  ^^^^^^^^^^^^^^^^ method not found in `Projection`
+
+error[E0599]: no method named `elimination_order` found for struct `Problem` in the current scope
+   --> research/chr-structural/tests/projection_lifecycle.rs:112:18
+    |
+112 |     assert_eq!(p.elimination_order(&[]).unwrap(),vec![1,0]);
+    |                  ^^^^^^^^^^^^^^^^^ method not found in `Problem`
+
+error[E0599]: no method named `expanded_answers` found for struct `Projection` in the current scope
+   --> research/chr-structural/tests/projection_lifecycle.rs:113:70
+    |
+113 |     assert!(p.project(&[],&[],&[1,0],Semantics::Counted,10).unwrap().expanded_answers(&[],10,0).unwrap().next().is_none());
+    |                                                                      ^^^^^^^^^^^^^^^^ method not found in `Projection`
+
+error[E0599]: no method named `elimination_order` found for struct `Problem` in the current scope
+   --> research/chr-structural/tests/projection_lifecycle.rs:114:15
+    |
+114 |     assert!(p.elimination_order(&[2]).is_err());
+    |               ^^^^^^^^^^^^^^^^^ method not found in `Problem`
+
+error[E0599]: no method named `elimination_order` found for struct `Problem` in the current scope
+   --> research/chr-structural/tests/projection_lifecycle.rs:115:15
+    |
+115 |     assert!(p.elimination_order(&[0,0]).is_err());
+    |               ^^^^^^^^^^^^^^^^^ method not found in `Problem`
+
+error[E0599]: no method named `elimination_order` found for struct `Problem` in the current scope
+   --> research/chr-structural/tests/projection_lifecycle.rs:117:15
+    |
+117 |     assert!(p.elimination_order(&[]).is_err());
+    |               ^^^^^^^^^^^^^^^^^ method not found in `Problem`
+
+error[E0599]: no method named `elimination_order` found for struct `Problem` in the current scope
+   --> research/chr-structural/tests/projection_lifecycle.rs:119:15
+    |
+119 |     assert!(p.elimination_order(&[]).is_err());
+    |               ^^^^^^^^^^^^^^^^^ method not found in `Problem`
+
+error[E0599]: no method named `elimination_order` found for struct `Problem` in the current scope
+   --> research/chr-structural/tests/projection_lifecycle.rs:121:15
+    |
+121 |     assert!(p.elimination_order(&[]).is_err());
+    |               ^^^^^^^^^^^^^^^^^ method not found in `Problem`
+
+For more information about this error, try `rustc --explain E0599`.
+error: could not compile `chr-structural` (test "projection_lifecycle") due to 18 previous errors

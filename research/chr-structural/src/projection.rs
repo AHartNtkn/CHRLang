@@ -81,6 +81,70 @@ fn weight(factors: &[Factor], values: &[u8], semantics: Semantics) -> Result<u12
     product.ok_or_else(|| "count overflow".into())
 }
 impl Problem {
+    /// Greedy scope/domain estimate. This does not inspect relation answers or
+    /// promise an optimal order; its preparation cost belongs in comparisons.
+    pub fn elimination_order(&self, visible: &[usize]) -> Result<Vec<usize>, String> {
+        let n = self.domains.len();
+        let valid = |xs: &[usize]| {
+            xs.iter().all(|&i| i < n)
+                && xs.iter().copied().collect::<BTreeSet<_>>().len() == xs.len()
+        };
+        if !valid(visible) {
+            return Err("invalid coordinate list".into());
+        }
+        if self
+            .filters
+            .iter()
+            .any(|r| !valid(&r.scope) || r.rows.iter().any(|row| row.len() != r.scope.len()))
+        {
+            return Err("invalid relation".into());
+        }
+        let sizes = self
+            .domains
+            .iter()
+            .map(|d| d.iter().collect::<BTreeSet<_>>().len() as u128)
+            .collect::<Vec<_>>();
+        let mut scopes = (0..n)
+            .map(|i| BTreeSet::from([i]))
+            .chain(
+                self.filters
+                    .iter()
+                    .map(|r| r.scope.iter().copied().collect()),
+            )
+            .collect::<Vec<_>>();
+        let mut remaining = (0..n)
+            .filter(|i| !visible.contains(i))
+            .collect::<BTreeSet<_>>();
+        let mut order = Vec::with_capacity(remaining.len());
+        while !remaining.is_empty() {
+            let (_, _, variable, mut union) = remaining
+                .iter()
+                .map(|&i| {
+                    let union = scopes
+                        .iter()
+                        .filter(|s| s.contains(&i))
+                        .flat_map(|s| s.iter().copied())
+                        .collect::<BTreeSet<_>>();
+                    let work = if union.iter().any(|&j| sizes[j] == 0) {
+                        0
+                    } else {
+                        union
+                            .iter()
+                            .fold(1_u128, |w, &j| w.saturating_mul(sizes[j]))
+                    };
+                    (work, union.len(), i, union)
+                })
+                .min_by_key(|(work, width, i, _)| (*work, *width, *i))
+                .unwrap();
+            scopes.retain(|s| !s.contains(&variable));
+            union.remove(&variable);
+            scopes.push(union);
+            remaining.remove(&variable);
+            order.push(variable);
+        }
+        Ok(order)
+    }
+
     pub fn project(
         &self,
         visible: &[usize],
@@ -187,6 +251,27 @@ impl Problem {
     }
 }
 impl Projection {
+    /// Materialize weighted tuples, then expand them in tuple order. This owns
+    /// its pending answers, but does not reconstruct source derivation order.
+    pub fn expanded_answers(
+        &self,
+        restrictions: &[(usize, u8)],
+        assignment_limit: usize,
+        output_limit: u128,
+    ) -> Result<ExpandedAnswers, String> {
+        let answers = self.answers(restrictions, assignment_limit)?;
+        let total = answers
+            .values()
+            .try_fold(0_u128, |n, &w| n.checked_add(w).ok_or("count overflow"))?;
+        if total > output_limit {
+            return Err("output bound".into());
+        }
+        Ok(ExpandedAnswers {
+            pending: answers.into_iter(),
+            current: None,
+        })
+    }
+
     pub fn answers(&self, restrictions: &[(usize, u8)], limit: usize) -> Result<Table, String> {
         if restrictions.iter().any(|(i, _)| !self.visible.contains(i)) {
             return Err("restriction on eliminated or unknown coordinate".into());
@@ -204,5 +289,27 @@ impl Projection {
             Ok(())
         })?;
         Ok(answers)
+    }
+}
+
+/// Each yielded tuple is independent of the producer and other yielded tuples.
+/// Dropping this iterator cancels pending expansion without visiting repeats.
+pub struct ExpandedAnswers {
+    pending: std::collections::btree_map::IntoIter<Vec<u8>, u128>,
+    current: Option<(Vec<u8>, u128)>,
+}
+impl Iterator for ExpandedAnswers {
+    type Item = Vec<u8>;
+    fn next(&mut self) -> Option<Self::Item> {
+        if self.current.is_none() {
+            self.current = self.pending.next();
+        }
+        let (row, count) = self.current.as_mut()?;
+        if *count == 1 {
+            self.current.take().map(|(row, _)| row)
+        } else {
+            *count -= 1;
+            Some(row.clone())
+        }
     }
 }

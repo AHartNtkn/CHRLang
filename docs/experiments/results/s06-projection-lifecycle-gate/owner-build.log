@@ -1,0 +1,11 @@
+   Compiling chr-structural v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-structural)
+error[E0689]: can't call method `saturating_sub` on ambiguous numeric type `{integer}`
+   --> research/chr-structural/examples/projection_ownership.rs:153:47
+    |
+152 |         for i in 0..4 {
+    |             - you must specify a type for this binding, like `i32`
+153 |             let restriction = [(coordinate, i.saturating_sub(1) as u8)];
+    |                                               ^^^^^^^^^^^^^^
+
+For more information about this error, try `rustc --explain E0689`.
+error: could not compile `chr-structural` (example "projection_ownership") due to 1 previous error

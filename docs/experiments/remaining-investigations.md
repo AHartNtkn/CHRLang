@@ -1,6 +1,6 @@
 # The comparisons still needed to choose the architecture
 
-The [projection entry](results/S06-projection-entry.md) validates 8,192 generated order/semantics comparisons per build, existing structural and actual CHR controls, and explicit caller/multiplicity boundaries. Hidden-independent elimination takes46 local assignment visits; the connected witness takes504 or28 with peak tables128 or4, depending on order. A zero-factor overflow defect is repaired. Ten projection and16 finite-path tests pass in both bounded builds. T076 next qualifies representation/lifecycle costs; no timing or architecture ranking follows. Package one after the descriptor breadth review; goal active.
+The [projection ordering and ownership gate](results/S06-projection-lifecycle-gate.md) records the next qualification. Projection ordering and owned expansion pass 12,288 independent weighted-map comparisons per build and 36 exactly paired ownership diagnostics. Greedy ordering selects the connected star’s 28-visit/four-entry path. Dense output retains 91,984 bytes before first expansion; all producer owners release independently of consumers. Grouping preserves multiplicity but does not reconstruct source-choice order. T076 next registers finite-endpoint lifecycle costs; no timing comparison or ordered-CHR claim follows. Package two after descriptor breadth review; goal active.
 
 ## Earlier experimental checkpoints
 
@@ -86,7 +86,7 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-The [current execution order](next-cycle.md#start-here-the-next-experiments) owns scheduling. T076 is active for projection representation and lifecycle qualification. Its next cost comparison is conditional on correct ordering, ownership and complete-output endpoints; adaptive search ownership follows in the immediate schedule. The breadth review must compare native local ownership, conditional equality/lifetime, broader caller reuse and all still-untried mechanisms within four packages. Broad architecture obligations remain required.
+The [current execution order](next-cycle.md#start-here-the-next-experiments) owns scheduling. T076 next registers finite projection lifecycle costs after ordering and owner qualification. Adaptive search ownership follows in the immediate schedule. Package two is complete in this breadth cycle; review native local ownership, conditional equality/lifetime, broader caller reuse and all still-untried mechanisms by package four.
 
 ### Depth, breadth and stopping within this sequence
 
