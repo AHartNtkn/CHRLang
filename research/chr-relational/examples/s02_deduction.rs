@@ -56,6 +56,7 @@ enum Prepared {
     Relevant(
         std::sync::Arc<chr_relational::contextual_execute::Prepared>,
         bool,
+        bool,
     ),
     Relational(std::sync::Arc<chr_relational::execute::Prepared>),
     Compiled(Box<chr_compiled::PreparedRuleset>, chr_compiled::Access),
@@ -66,7 +67,9 @@ enum Running {
     Relational(Box<chr_relational::execute::Engine>),
     Compiled(Box<chr_compiled::SearchEngine>),
 }
-const MODES: [&str; 11] = [
+const MODES: [&str; 13] = [
+    "validated",
+    "persistent-validated",
     "relevant",
     "persistent-relevant",
     "contextual",
@@ -82,10 +85,13 @@ const MODES: [&str; 11] = [
 impl Prepared {
     fn new(mode: &str, schema: Schema, rules: Vec<Rule>) -> Self {
         match mode {
-            "relevant" | "persistent-relevant" => Self::Relevant(
-                chr_relational::contextual_execute::Prepared::new(&rules).unwrap(),
-                mode == "persistent-relevant",
-            ),
+            "relevant" | "persistent-relevant" | "validated" | "persistent-validated" => {
+                Self::Relevant(
+                    chr_relational::contextual_execute::Prepared::new(&rules).unwrap(),
+                    mode.starts_with("persistent"),
+                    mode.ends_with("validated"),
+                )
+            }
             "lowered" => Self::Lowered(Box::new(Lowered::new(schema, rules).unwrap())),
             "contextual" | "shared" | "persistent" | "persistent-shared" => Self::Contextual(
                 chr_relational::contextual_execute::Prepared::new(&rules).unwrap(),
@@ -115,11 +121,19 @@ impl Prepared {
     }
     fn start(&self, input: Query) -> Running {
         match self {
-            Self::Relevant(p, persistent) => Running::Contextual(Box::new(if *persistent {
-                p.start_persistent_relevant_deductions(&input)
-            } else {
-                p.start_relevant_deductions(&input)
-            })),
+            Self::Relevant(p, persistent, validated) => {
+                Running::Contextual(Box::new(if *validated {
+                    if *persistent {
+                        p.start_persistent_validated_deductions(&input)
+                    } else {
+                        p.start_validated_deductions(&input)
+                    }
+                } else if *persistent {
+                    p.start_persistent_relevant_deductions(&input)
+                } else {
+                    p.start_relevant_deductions(&input)
+                }))
+            }
             Self::Lowered(p) => Running::Lowered(Box::new(p.start(input).unwrap())),
             Self::Contextual(p, shared, persistent) => {
                 Running::Contextual(Box::new(if *persistent {

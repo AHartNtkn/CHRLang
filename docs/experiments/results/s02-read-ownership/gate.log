@@ -1,0 +1,20 @@
+   Compiling chr-relational v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-relational)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.45s
+     Running tests/relevant_deductions.rs (target/s02-read-ownership-gate/debug/deps/relevant_deductions-e978834d81e4d11a)
+
+running 4 tests
+test descendant_reads_distinguish_cached_occurs_failure_from_valid_merge ... ok
+test relevant_changes_and_cycles_do_not_replay_compatible_results ... ok
+test reuse_across_unrelated_bindings_preserves_caller_state_and_claims ... ok
+test complete_sources_match_independent_controls ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.11s
+
+     Running unittests examples/s02_deduction.rs (target/s02-read-ownership-gate/debug/examples/s02_deduction-c8d88d981378e40f)
+
+running 2 tests
+test tests::lowering_checks_the_complete_source_and_query ... ok
+test tests::all_paths_match_source_and_survive_interruption ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.07s
+

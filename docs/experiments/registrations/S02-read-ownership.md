@@ -1,0 +1,19 @@
+# Ownership costs of validating saved equality reads
+
+T072 now has a source-qualified recorded-read lookup. The previous attribution shows that complete relevant-key construction can dominate requested allocation. This package asks whether avoiding that construction reduces complete-session traffic or merely moves costs into lookup, replay and retained state. The strongest distinct alternative is missing demand capability; its source extension remains required. The existing lifecycle runner makes this matched cost test a bounded next step.
+
+## Frozen comparison
+
+Nine modes: contextual recomputation, exact-state shared deductions, rebuilt relevant keys, persistent exact-state/relevant keys, recorded-read validation with ordered/persistent maps, Scan and source lowering. Four unchanged source families (single, shared, distinct, changed), depths 0/16, one/four changing queries, resource absent/present, immediate/retained-all consumers: 576 configurations. Add cancellation after one service call on alternating queries for each mode/family/consumer at depth16/four queries/resource present: 72 configurations. Total 648 configurations; two allocation processes each and one ordinary semantic replay per non-cancellation configuration = 1,296 metered and 576 ordinary processes.
+
+No comparative timing is registered. Meter elapsed times and ordinary single samples supply no speed ranking. No adaptive policy or source changes during the matrix. Use isolated release target directories; run the meter self-check, existing complete-source/interruption harness tests, and counter-free source tests first. Freeze source and binary hashes before the matrix. Serial deterministic order suffices for allocation counts; primary timing will require a separate prospective schedule.
+
+Every process has 60-second wall/CPU and 1-GiB address-space bounds; compilation has a separate 300-second wall bound. Campaign limit 30 minutes. Repeated allocations must agree exactly after removing clocks. Ordinary and metered outputs must agree after removing clocks and allocation fields. Complete answers are checked independently; retained outputs are checked after producer disposal. Cancelled runs must report alternating incomplete/complete endpoints and preparation reuse. Final live bytes must restore; immediate consumers also restore per query.
+
+## Analysis and consequential follow-up
+
+Report session requested bytes, allocation calls and peak live requested bytes above baseline, with phase attribution available from the runner. Include source construction, preparation, inputs, setup, execution/observation, answer handling and all owner disposal. Keep prepared harness/report storage outside the ownership baseline explicit. Requested allocations and live heap are not RSS. Output validation lies outside timed and allocation intervals; no gross-process lifecycle claim follows.
+
+Compare each new policy first with its rebuilt-key representation, then recomputation, exact-state caching and the strong Scan/lowered controls. Compare all seven old controls with the archived ownership study after removing clocks. Any difference requires attribution before generalizing an improvement. A traffic reduction does not select the design if peak retention or validity work worsens.
+
+The four source families do not exercise a large population of distinct saved states for the same input pair. A separate same-input near-miss source/operation gate and its costs remain required before primary policy selection. This package tests the already-qualified complete sources, not that adverse lookup boundary. If savings survive the matched comparison, investigate that boundary and lookup/key/replay attribution next, then register primary timing. If a consequential defect appears, diagnose and repair it before interpreting costs. Broader integration, sustained lifetime and whole architectures remain open.

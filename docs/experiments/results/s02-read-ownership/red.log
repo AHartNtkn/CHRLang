@@ -1,0 +1,28 @@
+   Compiling chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax)
+   Compiling chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe)
+   Compiling chr-integrated v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-integrated)
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)
+   Compiling chr-relational v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-relational)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 4.33s
+     Running unittests examples/s02_deduction.rs (target/s02-read-ownership-gate/debug/examples/s02_deduction-c8d88d981378e40f)
+
+running 2 tests
+test tests::all_paths_match_source_and_survive_interruption ... FAILED
+test tests::lowering_checks_the_complete_source_and_query ... ok
+
+failures:
+
+---- tests::all_paths_match_source_and_survive_interruption stdout ----
+
+thread 'tests::all_paths_match_source_and_survive_interruption' (907) panicked at research/chr-relational/examples/s02_deduction.rs:115:18:
+unknown mode
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    tests::all_paths_match_source_and_survive_interruption
+
+test result: FAILED. 1 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p chr-relational --example s02_deduction`

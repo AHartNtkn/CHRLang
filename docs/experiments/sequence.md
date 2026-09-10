@@ -1,6 +1,6 @@
 # Experimental sequence: resolve the remaining architecture questions
 
-The [recorded-read validation gate](results/S02-read-validation.md) supplies the current checkpoint. Recorded-read validation passes all 48 complete-source configurations in counter-free and diagnostic builds, preserves caller bindings/resources and rejects a descendant-omission mutation. A repeated merge constructs zero keys versus two for rebuilt-key lookup. The archived restoration pilot reproduces exactly across 1,344 runs and 192 allocation pairs; its tested costs remain applicable within scope. T072 is active for matched recognition ownership/allocation, with T077 broader restoration still required. No new timing or architectural winner is established.
+The [recorded-read ownership result](results/S02-read-ownership.md) supplies the current checkpoint. Recorded-read ownership validates 648 configurations, 1,296 metered processes and 576 ordinary replays with exact allocation repeats and complete release. Each validation policy lowers traffic in 36 scenarios and leaves 36 unchanged versus rebuilt keys, with equal peaks in all 72. The ordered changed-context witness requests 593,968 bytes versus 669,196 for recomputation, but retains 72,959 peak bytes versus 38,976. All 504 prior control records agree after baseline/null-field normalization. T072 next qualifies same-input near misses and attributes lookup/key/replay costs; runtime and architecture remain unresolved.
 
 The [relevant-key ownership comparison](results/S02-relevant-ownership.md) supplies the current checkpoint. Relevant-key ownership validates1,008 metered and448 ordinary processes with exact allocation repeats, cancellation/reuse and retained answers surviving producer disposal. Ordered relevant reuse lowers peaks versus exact-state caching in38of64 scenarios but requests more bytes than recomputation in all64. The changed depth16/four-query witness requests1,292,590bytes with72,959peak excess versus669,196/38,976 for recomputation. T072 next attributes key/replay execution costs before timing; package one after breadth review; goal active.
 
@@ -288,7 +288,7 @@ All new results link raw inputs, commands, freezes, validation and unfavorable o
 
 The [revised experimental sequence](next-cycle.md#start-here-the-next-experiments) starts with T072 relevant-read costs, then missing demand capability, compact solving beyond current reductions and broader restoration. Its rounds explicitly schedule distinct reuse/discovery/graph mechanisms, source elimination, sustained execution and parallel ownership. Language studies accompany their beneficiaries; whole-architecture comparisons occur at each round boundary.
 
-T072 is the sole active experimental task. The archived checkpoint-cost study remains applicable within scope; recorded-read recognition ownership and allocation are next. Each unresolved design retains its individual obligation in the [57-question map](question-to-experiment-map.md).
+T072 is the sole active experimental task. The archived checkpoint-cost study remains applicable within scope; same-input near misses and recognition cost attribution are next. Each unresolved design retains its individual obligation in the [57-question map](question-to-experiment-map.md).
 
 ## Earlier experimental checkpoints
 
