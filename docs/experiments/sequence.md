@@ -1,5 +1,7 @@
 # Experimental sequence: resolve the remaining architecture questions
 
+The [resource-dependency gate](results/S03-resource-dependencies.md) supplies the current checkpoint. The demand resource-dependency gate passes 48 matrix configurations and eight additional source witnesses in two default and two metrics-off confirmations. Independent scalar and compiled controls expose hidden constructor-cycle and selected-choice alias defects; completed-equation validation and alias-link repair preserve finite failure and output identity. Source, suspended and kernel regressions pass. T071 next measures dependency and validation lifecycle costs; contextual integration follows. This is bounded correctness evidence, not a timing result; goal active.
+
 The [current execution order](next-cycle.md#execution-order-after-the-current-causal-comparison) schedules all missing comparisons. The [immediate packages](next-cycle.md#start-here-the-next-experiments) finish the in-progress demand resource-dependency gate and its consequential cost comparison, then investigate contextual integration. Joint symbolic solving follows, with selection reviewed after each package. Every question retains its detailed evidence obligation.
 
 Investigate the unanswered mechanisms directly, then compare the complete architectures they enable. Reuse the existing baselines. The research remains active until consequential questions have evidence-backed answers.

@@ -1,0 +1,15 @@
+
+running 6 tests
+test conditional_birth_rejects_missing_causal_ancestor - should panic ... ok
+test conflicting_consumers_and_late_contexts_match_scalar_resources ... ok
+test constructor_demand_consumes_only_matching_contexts_then_accepts_late_births ... ok
+test context_algebra_matches_boolean_truth_tables ... ok
+test dynamic_births_preserve_raw_multiplicity_without_inactive_assignments ... ok
+test opaque_access_preserves_correlated_and_independent_choices ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+
+thread 'conditional_birth_rejects_missing_causal_ancestor' (108) panicked at research/chr-direct-choice/src/lib.rs:104:13:
+birth activation omits a causal ancestor
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

@@ -117,6 +117,8 @@ pub struct Run {
     fresh: u64,
     births: Vec<Context>,
     resources: Vec<Resource>,
+    forcing: Vec<Id>,
+    normalizing: Vec<Id>,
 }
 pub enum Event {
     Progress,
@@ -419,6 +421,8 @@ impl Prepared {
             fresh: 0,
             births: vec![],
             resources: vec![],
+            forcing: vec![],
+            normalizing: vec![],
         };
         let mut env = Env::new();
         let mut writers = BTreeSet::new();
@@ -452,23 +456,6 @@ impl Prepared {
         for v in &writers {
             if cycle(*v, &edges, &mut BTreeSet::new()) {
                 return Err("cyclic query dependencies".into());
-            }
-        }
-        for c in &query.constraints {
-            if self
-                .resource_signatures
-                .contains(&(c.name.clone(), c.args.len()))
-            {
-                let mut vars = vec![];
-                for t in &c.args {
-                    variables(t, &mut vars)
-                }
-                if vars.iter().any(|v| writers.contains(v)) {
-                    return Err(
-                        "passive query resources cannot depend on call outputs in this certificate"
-                            .into(),
-                    );
-                }
             }
         }
         for c in query.constraints {
@@ -739,6 +726,61 @@ impl Run {
         }
     }
     fn force(&mut self, id: Id, ctx: &Context) -> Result<Id, Signal> {
+        if let Node::Call(_, _, output, _) = self.nodes[id].node {
+            if self.forcing.contains(&id) {
+                // Only completed alias edges imply equality. A recursive matching
+                // dependency with no completed result merely exposes its unknown.
+                let mut path: Vec<Id> = Vec::new();
+                let mut at = id;
+                loop {
+                    if let Some(start) = path.iter().position(|x| *x == at) {
+                        let canonical = path[start..]
+                            .iter()
+                            .filter_map(|i| {
+                                if let Node::Call(_, _, out, _) = self.nodes[*i].node
+                                    && let Node::Unknown(logical) = self.nodes[out].node
+                                {
+                                    return Some((logical, out));
+                                }
+                                None
+                            })
+                            .min()
+                            .map(|(_, out)| out)
+                            .unwrap_or(output);
+                        return Ok(canonical);
+                    }
+                    path.push(at);
+                    match &self.nodes[at].node {
+                        Node::Alias(next) => at = *next,
+                        Node::Call(_, _, _, _) => {
+                            let Some((_, next)) =
+                                self.nodes[at].results.iter().rev().find(|(support, _)| {
+                                    support.iter().all(|(k, v)| ctx.get(k) == Some(v))
+                                })
+                            else {
+                                return Ok(output);
+                            };
+                            at = *next;
+                        }
+                        Node::Choice(label, left, right) => {
+                            let Some(side) = ctx.get(label) else {
+                                return Ok(output);
+                            };
+                            at = if *side { *right } else { *left };
+                        }
+                        _ => return Ok(output),
+                    }
+                }
+            }
+            self.forcing.push(id);
+            let result = self.force_body(id, ctx);
+            self.forcing.pop();
+            result
+        } else {
+            self.force_body(id, ctx)
+        }
+    }
+    fn force_body(&mut self, id: Id, ctx: &Context) -> Result<Id, Signal> {
         #[cfg(feature = "work-diagnostics")]
         {
             self.work.force_entries += 1;
@@ -1029,17 +1071,78 @@ impl Run {
             Node::App(name, children) => (name.clone(), children.len()),
             _ => unreachable!(),
         };
-        let mut terms = Vec::with_capacity(len);
-        for index in 0..len {
-            // Forcing can append cells and redirect unknowns, but never replaces
-            // an existing constructor. Release the borrow before recursion.
-            let Node::App(_, children) = &self.nodes[id].node else {
-                unreachable!()
-            };
-            let child = children[index];
-            terms.push(self.normal(child, ctx)?);
+        if self.normalizing.contains(&id) {
+            return Err(Signal::Fail);
         }
-        Ok(Term::App(name, terms))
+        self.normalizing.push(id);
+        let result = (|| {
+            let mut terms = Vec::with_capacity(len);
+            for index in 0..len {
+                let Node::App(_, children) = &self.nodes[id].node else {
+                    unreachable!()
+                };
+                let child = children[index];
+                terms.push(self.normal(child, ctx)?);
+            }
+            Ok(Term::App(name, terms))
+        })();
+        self.normalizing.pop();
+        result
+    }
+
+    // Check completed equations independently of output demand. This traversal
+    // does not force producers or select choices, so it cannot reorder claims.
+    fn finite_result(&self, root: Id, ctx: &Context) -> Result<(), Signal> {
+        fn visit(
+            run: &Run,
+            id: Id,
+            ctx: &Context,
+            path: &mut Vec<Id>,
+            done: &mut BTreeSet<Id>,
+        ) -> Result<(), Signal> {
+            if let Some(start) = path.iter().position(|old| *old == id) {
+                return if path[start..]
+                    .iter()
+                    .any(|i| matches!(run.nodes[*i].node, Node::App(..)))
+                {
+                    Err(Signal::Fail)
+                } else {
+                    Ok(())
+                };
+            }
+            if done.contains(&id) {
+                return Ok(());
+            }
+            path.push(id);
+            match &run.nodes[id].node {
+                Node::App(_, children) => {
+                    for child in children {
+                        visit(run, *child, ctx, path, done)?;
+                    }
+                }
+                Node::Alias(next) => visit(run, *next, ctx, path, done)?,
+                Node::Call(..) => {
+                    if let Some((_, next)) = run.nodes[id]
+                        .results
+                        .iter()
+                        .rev()
+                        .find(|(support, _)| support.iter().all(|(k, v)| ctx.get(k) == Some(v)))
+                    {
+                        visit(run, *next, ctx, path, done)?;
+                    }
+                }
+                Node::Choice(label, left, right) => {
+                    if let Some(side) = ctx.get(label) {
+                        visit(run, if *side { *right } else { *left }, ctx, path, done)?;
+                    }
+                }
+                Node::Unknown(_) | Node::Fail => {}
+            }
+            path.pop();
+            done.insert(id);
+            Ok(())
+        }
+        visit(self, root, ctx, &mut Vec::new(), &mut BTreeSet::new())
     }
 
     fn answer(&mut self, ctx: &Context) -> Result<Answer, Signal> {
@@ -1047,6 +1150,7 @@ impl Run {
             let (support, id) = &self.obligations[index];
             let id = *id;
             if support.iter().all(|(k, v)| ctx.get(k) == Some(v)) {
+                self.finite_result(id, ctx)?;
                 self.force(id, ctx)?;
             }
         }
@@ -1210,7 +1314,9 @@ impl Run {
             let (support, id) = &self.obligations[index];
             let id = *id;
             if support.iter().all(|(k, v)| ctx.get(k) == Some(v)) {
-                serviced = self.force(id, &ctx);
+                serviced = self
+                    .finite_result(id, &ctx)
+                    .and_then(|()| self.force(id, &ctx));
                 break;
             }
         }

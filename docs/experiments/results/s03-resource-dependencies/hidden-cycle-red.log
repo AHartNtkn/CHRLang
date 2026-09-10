@@ -1,0 +1,22 @@
+   Compiling chr-direct-choice v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-choice)
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.44s
+     Running tests/resource_dependencies.rs (target/debug/deps/resource_dependencies-1b8bf7e8914779a3)
+
+running 1 test
+
+thread 'unobserved_constructor_cycle_still_fails' (221) panicked at research/chr-direct-conditional/tests/runtime_support/mod.rs:268:5:
+assertion `left == right` failed: raw multiplicity differs
+  left: 1
+ right: 0
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test unobserved_constructor_cycle_still_fails ... FAILED
+
+failures:
+
+failures:
+    unobserved_constructor_cycle_still_fails
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 3 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p chr-direct-conditional --test resource_dependencies`

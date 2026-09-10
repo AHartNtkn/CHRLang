@@ -1,0 +1,32 @@
+   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+   Compiling chr-relational v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-relational)
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.34s
+     Running tests/resource_dependencies.rs (target/debug/deps/resource_dependencies-1b8bf7e8914779a3)
+
+running 2 tests
+test resource_mediated_alias_and_constructor_cycles_have_finite_tree_meaning ... FAILED
+test delayed_resource_keys_match_complete_source_answers ... FAILED
+
+failures:
+
+---- resource_mediated_alias_and_constructor_cycles_have_finite_tree_meaning stdout ----
+
+thread 'resource_mediated_alias_and_constructor_cycles_have_finite_tree_meaning' (607) panicked at research/chr-direct-conditional/tests/resource_dependencies.rs:33:40:
+called `Result::unwrap()` on an `Err` value: "passive query resources cannot depend on call outputs in this certificate"
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- delayed_resource_keys_match_complete_source_answers stdout ----
+
+thread 'delayed_resource_keys_match_complete_source_answers' (606) panicked at research/chr-direct-conditional/tests/resource_dependencies.rs:33:40:
+called `Result::unwrap()` on an `Err` value: "passive query resources cannot depend on call outputs in this certificate"
+
+
+failures:
+    delayed_resource_keys_match_complete_source_answers
+    resource_mediated_alias_and_constructor_cycles_have_finite_tree_meaning
+
+test result: FAILED. 0 passed; 2 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p chr-direct-conditional --test resource_dependencies`

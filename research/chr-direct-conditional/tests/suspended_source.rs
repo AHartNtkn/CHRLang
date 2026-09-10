@@ -1,7 +1,7 @@
 #[allow(dead_code)]
 mod runtime_support;
 use chr_direct_choice::demand::{Event, Prepared};
-use chr_syntax::{Answer, Goal, Query, Rule, Var, and, atom, c, eq, or, t, v};
+use chr_syntax::{and, atom, c, eq, or, t, v, Answer, Goal, Query, Rule, Var};
 fn collect(rules: Vec<Rule>, query: Query, expected: Vec<Answer>) {
     runtime_support::same_raw(
         runtime_support::run(&rules, &query, 200_000),
@@ -249,14 +249,12 @@ fn finite_sibling_is_serviced_and_pure_propagation_is_rejected() {
         }
     }
     assert_eq!(answers, 1);
-    assert!(
-        Prepared::new(vec![Rule::propagate(
-            "effect",
-            [c("p", [v(0)])],
-            eq(v(0), atom("a"))
-        )])
-        .is_err()
-    );
+    assert!(Prepared::new(vec![Rule::propagate(
+        "effect",
+        [c("p", [v(0)])],
+        eq(v(0), atom("a"))
+    )])
+    .is_err());
 }
 
 #[test]
@@ -366,17 +364,15 @@ fn nested_duplicate_choices_and_unresolved_demands_remain_honest() {
         }],
     );
     assert!(matches!(run.tick(), Event::Exhausted));
-    assert!(
-        prepared
-            .start(Query {
-                constraints: vec![
-                    c("only", [atom("a"), v(100)]),
-                    c("only", [atom("a"), v(100)])
-                ],
-                outputs: vec![]
-            })
-            .is_err()
-    );
+    assert!(prepared
+        .start(Query {
+            constraints: vec![
+                c("only", [atom("a"), v(100)]),
+                c("only", [atom("a"), v(100)])
+            ],
+            outputs: vec![]
+        })
+        .is_err());
 }
 
 #[test]
@@ -848,20 +844,23 @@ fn nonconfluent_resource_competition_has_an_explicit_committed_policy() {
     );
 }
 #[test]
-fn shared_resource_certificate_rejects_unimplemented_alias_updates() {
+fn self_dependent_resource_waits_and_nonground_posts_remain_unimplemented() {
     let take = Rule::simplify(
         "take",
         [c("take", [v(0), v(1)]), c("token", [v(0)])],
         eq(v(1), atom("ok")),
     );
-    let prepared = Prepared::new(vec![take.clone()]).unwrap();
-    assert!(
-        prepared
-            .start(Query {
-                constraints: vec![c("take", [atom("a"), v(100)]), c("token", [v(100)])],
-                outputs: vec![]
-            })
-            .is_err()
+    let query = Query {
+        constraints: vec![c("take", [atom("a"), v(100)]), c("token", [v(100)])],
+        outputs: vec![("out".into(), Var(100))],
+    };
+    collect(
+        vec![take.clone()],
+        query.clone(),
+        vec![Answer {
+            outputs: vec![("out".into(), v(100))],
+            residual: query.constraints,
+        }],
     );
     let supply = Rule::simplify(
         "supply",

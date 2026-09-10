@@ -1,0 +1,19 @@
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.22s
+     Running tests/resource_dependencies.rs (target/debug/deps/resource_dependencies-1b8bf7e8914779a3)
+
+running 1 test
+
+thread 'hidden_cycles_respect_choice_context_and_finite_failure_service' (115) panicked at research/chr-direct-conditional/tests/runtime_support/mod.rs:273:32:
+missing full observation Answer { outputs: [("x", Var(Var(11))), ("y", Var(Var(11)))], residual: [] }; remaining [Answer { outputs: [("x", Var(Var(0))), ("y", Var(Var(1)))], residual: [] }]
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test hidden_cycles_respect_choice_context_and_finite_failure_service ... FAILED
+
+failures:
+
+failures:
+    hidden_cycles_respect_choice_context_and_finite_failure_service
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 4 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p chr-direct-conditional --test resource_dependencies`

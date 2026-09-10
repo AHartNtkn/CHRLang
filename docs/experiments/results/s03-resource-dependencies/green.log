@@ -1,0 +1,9 @@
+   Compiling chr-direct-choice v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-choice)
+error[E0282]: type annotations needed
+   --> research/chr-direct-choice/src/demand.rs:740:67
+    |
+740 | ...                   if let Node::Call(_, _, out, _) = self.nodes[*i].node {
+    |                                                         ^^^^^^^^^^^^^^ cannot infer type
+
+For more information about this error, try `rustc --explain E0282`.
+error: could not compile `chr-direct-choice` (lib) due to 1 previous error
