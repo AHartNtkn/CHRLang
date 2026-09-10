@@ -69,6 +69,71 @@ Continue investigation 2 with resource-phase composition ownership. The source g
 
 **Why composition costs now:** the source gate establishes a concrete extra obligation: ordered residual construction must follow the consuming rule’s first head. This can alter the cost of using direct solving inside broader programs. Existing solver and ordinary caller controls make ownership qualification a bounded next comparison. Adaptive reunion remains the strongest alternative; local claims, richer theories and sustained lifetime return at that boundary.
 
+## Concrete entry experiments for the next breadth review
+
+**The next review must choose among executable proposals, including proposals outside the current prototype family.** These entry experiments make the missing comparisons concrete. They supplement the twelve investigations above; passing an entry experiment establishes readiness for cost measurement, not an architecture recommendation. Exact generated sources and run matrices belong in prospective registrations after sizing.
+
+### Adaptive search: decide from work already observed
+
+Compare an observable-work splitting policy with the existing fixed quotas, copying, checkpoint/replay and repeated-reunion controls. Construct sources with a common deterministic prefix, two choice branches, and an optional later linking constraint. Independently vary prefix length, time until the link, mutation breadth and which child fails early. Include a continuing child beside a finite answer.
+
+The policy may use completed source steps, failed children, changes to owned state and detected links. It must not use future outcomes or the generator's case labels. First validate restoration and progress under switches and cancellation. Then charge policy decisions, speculative work, reconnection, retained checkpoints and output products. Freeze the policy before testing new combinations of these axes.
+
+This can change whether explicit search needs expensive shared state to retain common work. A policy that saves execution but loses overall requires attribution; one whose useful regime cannot be recognized cheaply supports a conditional tradeoff. The existing repeated-reunion allocation results remain controls, not evidence that adaptation has been tested. This is the strongest ready alternative at the resource-phase ownership boundary.
+
+### Local resource ownership: make competing effects the test
+
+Start with two rule applications that consume disjoint occurrence identities, then make them compete for one identity. Add kept heads, an equality that enables a contender, and cancellation between claiming and committing. Enumerate bounded action interleavings against a small independent transition model. Compare committed effects and permitted source ordering, rather than requiring incidental thread schedules to match.
+
+The local protocol must establish that consumption occurs at most once, abandoned claims become available, and a permitted application cannot be stranded indefinitely by a cancelled owner. A serial-owner implementation supplies the existing control. Qualify the protocol without parallel timing first; then compare serial, one-worker and multiple-worker execution with disjoint work, hot identities and output pressure.
+
+This asks whether resource ownership itself can be distributed economically. A protocol defect requires repair or a scoped impossibility argument. A result for independent regions cannot settle connected claims, and a different permitted source order must be studied explicitly as a language option.
+
+### Richer structural theories: separate four meanings
+
+Give each proposal its own small mathematical denotation before implementing optimization. Use the existing finite structural solver and direct enumeration wherever their meanings coincide.
+
+| Proposal | First witness and adverse case | What the experiment must distinguish |
+|---|---|---|
+| Existential projection | Many hidden internal assignments produce the same visible structure; then expose a formerly hidden alias to a later caller. | Compact representation of possibilities versus loss of raw derivation multiplicity or future binding information. |
+| Names | Repeated and distinct names occur under shared structure; then transport results into a fresh caller. | Which identities may be renamed, which must remain distinct, and whether recognition saves more than transport costs. |
+| Disequality | An early exclusion rules out many assignments; then leave most terms unknown until output or a later binding. | Sound delayed constraints, contradiction discovery, output obligations and their costs. |
+| Normal/neutral distinctions | A known reducible form and an unknown-headed form later receive the same constructor information. | The proposed meaning of reduction and observation; whether it changes source behavior or merely avoids evaluation. |
+
+For finite fragments, independently enumerate denotations and compare full observations. If a proposal changes meaning, compare expressiveness and concrete reformulations alongside its costs. Do not force it through an oracle for a different language. A source contract that cannot yet be stated is an unresolved semantic question, not a performance rejection.
+
+### Sustained lifetime: vary the consumer independently
+
+Take at least two already qualified candidates on identical changing-query streams. Run immediate answer release, a fixed-size retained window and retained-all consumers. Cross those policies with repeated versus unique work, bounded versus unbounded caches, and occasional cancellation followed by reuse of the same preparation. Include an ongoing branch beside finite results where supported.
+
+Measure live memory over the stream, requested allocation traffic, sampled RSS, first-answer latency, throughput and final disposal. Account separately for preparation, engine history and consumer-owned answers. Increase stream length prospectively until the observed behavior distinguishes a plateau from accumulating retention, or report the remaining bound. Retained-all output growth is not evidence of an engine leak; growth after immediate release needs an owner-level explanation.
+
+This can reverse a short-query choice without any new matching mechanism. Start with available paths rather than waiting for every graph or solver proposal. Compare reclamation against bounded retention and regeneration whenever retained work could be reproduced more cheaply.
+
+### Continuation relevance: change callers without changing the reusable work
+
+Construct two histories that reach the same future computation with different irrelevant facts and renamed unknowns. Then make one of those facts relevant through a delayed binding, a kept-head observer or competition for a consumable occurrence. Include returned fresh aliases and duplicate derivations.
+
+Compare exact, renamed and sound relevance-projected keys with recomputation and the existing finite-result reuse control. Independently validate complete futures before timing. Vary useful repeated work, irrelevant caller size, reuse distance and cache capacity separately. Charge dependency discovery, key construction, invalidation, transport and retention.
+
+This establishes whether broader reconvergence is useful beyond the qualified finite-query family. A false hit invalidates the key; a conservative missed hit establishes a precision cost. Neither result alone settles whether another sound dependency analysis is economical.
+
+### Integrated execution and choice representations: isolate the missing operation
+
+For integrated execution, start with an equality that enables a multihead consuming rule and another equality that arrives after a constructor becomes relevant. Compare contextual overlays, CHR-expressed equality and local incidence/port rewrites with the current dedicated-service and graph-scan controls. Vary merge breadth independently of useful newly enabled matches. Establish which repair or scheduling boundary disappears before measuring it.
+
+For choice representations, use the same correlated choice twice, then replace it with two independent choices. Add delayed constructor demand, fresh applications, conflicting consumption and failure outside the observed output. Compare compressed supports and symbolic equivalence before projection with eager partitions and applicable demand-driven execution. Charge construction and complete extraction as well as reduced internal work.
+
+These are separate entry experiments. Sharing a representation does not make the mechanisms equivalent. Carry a surviving result into a complete path, including its ownership and observation machinery; do not select a graph architecture from an equation-count reduction.
+
+## From entry experiments to a defensible decision
+
+**Every entry above follows the same three boundaries: independent correctness, qualified ownership, then prospective cost comparison.** A boundary may be combined with another only when the evidence remains independently reviewable. At each boundary, apply the strongest-alternative comparison; after four packages, review every direction, including compilation, discovery, language properties and complete architectures already specified below.
+
+A gain requires an adverse case and a complete-path challenge. A loss requires an exercised benefit and investigation of consequential avoidable costs. An unresolved measurement requires a sensitivity argument or further work. A semantic counterexample settles only the transformation whose premises it contradicts. These rules determine follow-through without treating an unfinished direction as rejected.
+
+The final architecture comparison must include a serious replacement for the leading design and a simpler alternative to any proposed combination. Freeze candidate policies before held-out sources. For every reviewed question, record the tested proposition, evidence, contrary case, architectural consequence and remaining scope. If a consequential experiment remains feasible, the research remains active.
+
 ## 1. Carry the whole-path pilot into broader comparisons
 
 **Hypothesis:** advantages seen inside an engine may survive, disappear or reverse when the same source and complete answer are charged across their lifecycle. This tests S10 and review entries 41–47 and 55; it does not settle all graph or compilation designs.
