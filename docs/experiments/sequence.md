@@ -8,7 +8,7 @@ The outcome is evidence for choosing the CHR language's architecture: total effi
 
 This is the governing sequence for the renewed investigation. Existing E/R measurements retain their stated scope. The [coverage map](coverage.md) tracks all 57 reviewed decisions. The [remaining investigations](remaining-investigations.md) give distinct mechanisms their own comparisons and specify the next selection cycle. Experimental implementation and runs are already authorized; this document defines the work and its gates, not results from new runs. S-numbers distinguish this sequence from completed experimental receipts.
 
-The [next experimental cycle](next-cycle.md) sets the current execution order, concrete contrasts and completion boundaries from the verified worktree. It reuses the stage definitions below and the full question map.
+The [next experimental cycle](next-cycle.md#start-here-the-next-experiments) sets the immediate experiments and their decision boundaries from the verified worktree. Its full programme covers every direction; the numbered investigations are identifiers, not instructions to repeat completed work. It reuses the stage definitions below and the full question map.
 
 The current package is T076 projection representation and lifecycle qualification. The [entry gate](results/S06-projection-entry.md) preserves visible correlations and distinguishes logical answers from counted hidden witnesses. It exposes elimination-order sensitivity and repairs zero-factor arithmetic before comparison. Next qualify an economical ordering policy, retained owners, later restrictions and required raw-answer expansion. This is package one after the descriptor breadth review; adaptive costs, native local ownership and all broader theory/source questions remain required.
 
@@ -272,9 +272,9 @@ All new results link raw inputs, commands, freezes, validation and unfavorable o
 
 ## Current execution order
 
-The [resource-phase source gate](results/S06-capacity-phase-entry.md) validates 2,880 caller configurations per build. Closed multiset answers are insufficient for resumption: producer order, token order and the first consumer head affect caller choices. The corrected continuation preserves ordered residuals, private bindings, later propagation and fresh aliases. T073 next qualifies composition ownership and costs; other distinct directions remain required and the goal remains active.
+T076 is active for projection representation and lifecycle qualification after its finite correctness entry. Next establish complete-output and ownership endpoints, then measure the consequential cost regimes if qualification succeeds. Adaptive search ownership is the next distinct comparison in the immediate schedule. Review all directions within four experimental packages; additional correctness and attribution work count toward that boundary.
 
-The [current execution order](next-cycle.md#the-order-and-why), [57-question map](question-to-experiment-map.md) and [mechanism ledger](remaining-investigations.md) retain every unresolved obligation. Reordering does not establish an experimental conclusion or complete the goal.
+The [current execution order](next-cycle.md#start-here-the-next-experiments), [57-question map](question-to-experiment-map.md) and [mechanism ledger](remaining-investigations.md) retain every unresolved obligation. Reordering does not establish an experimental conclusion or complete the goal.
 
 ## Earlier experimental checkpoints
 

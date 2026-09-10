@@ -86,7 +86,7 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-The [current execution order](next-cycle.md#the-order-and-why) owns scheduling. T073 is active for resource-phase composition ownership after the 2,880-case source gate. T075 remains required for broader continuation relevance and effects. Adaptive reunion, local resource claims, richer theories and sustained lifetime return at the resource composition ownership gate or an obstruction. Broad architecture obligations remain required.
+The [current execution order](next-cycle.md#start-here-the-next-experiments) owns scheduling. T076 is active for projection representation and lifecycle qualification. Its next cost comparison is conditional on correct ordering, ownership and complete-output endpoints; adaptive search ownership follows in the immediate schedule. The breadth review must compare native local ownership, conditional equality/lifetime, broader caller reuse and all still-untried mechanisms within four packages. Broad architecture obligations remain required.
 
 ### Depth, breadth and stopping within this sequence
 
