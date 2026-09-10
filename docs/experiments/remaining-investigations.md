@@ -1,6 +1,6 @@
 # The comparisons still needed to choose the architecture
 
-The [adaptive separation gate](results/S04-adaptive-entry.md) preserves 180 policy/source configurations per build, bounded finite-answer progress and cancellation/reuse. Backoff reduces failed checks but can increase subsequent source work; complete costs remain unmeasured. The [four-package breadth review](results/S04-adaptive-breadth-review.md) selects T074 sustained service and consumer-pressure qualification. Adaptive costs and all distinct architecture directions remain required; the goal remains active.
+The [consumer-pressure gate](results/S08-consumer-pressure-entry.md) validates 18,432 finite queries and 42 continuing-emission sessions per build with bounded delivery, paused demand, retained answers and cancellation/reuse. The graph prototype’s residual-only source admission restriction remains explicit. T074 next qualifies sustained ownership trajectories; queue bounds do not establish bounded engine memory. This is package one after the adaptive breadth review; other architecture directions and the goal remain open.
 
 ## Earlier experimental checkpoints
 

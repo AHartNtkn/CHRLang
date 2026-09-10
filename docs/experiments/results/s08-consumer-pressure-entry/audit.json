@@ -1,0 +1,38 @@
+{
+  "finite_sessions_per_build": 576,
+  "finite_queries_per_build": 18432,
+  "continuing_emission_sessions_per_build": 42,
+  "continuing_prefixes": [
+    1,
+    8,
+    32,
+    64
+  ],
+  "shared_ongoing_controls": 7,
+  "residual_only_admitted_controls": 5,
+  "tests_per_build": 4,
+  "builds": [
+    "no-default-features",
+    "default"
+  ],
+  "scope": "Source/demand gate only; no allocation or timing comparison",
+  "sha256": {
+    "research/chr-reuse/tests/consumer_pressure.rs": "8a016e0dc8221d921c32ff038578b6bc7f37472a3988bb6ca8dec1ff704b41b1",
+    "research/chr-reuse/examples/support/stream_source.rs": "2bf48035b9ee6d64f275e79eefdafff2365228f03f7613d5865ae1ff21759065",
+    "research/chr-reuse/examples/support/stream_run.rs": "142be856e8084e854d8580e51683b51d590cf0f7f85e245ca47957d6b618eee5",
+    "research/chr-direct-choice/src/demand.rs": "86bc78c05ecdf0232f6aa06585778e6de8eb0df81d87e38c01159c9584240b4d",
+    "docs/experiments/registrations/S08-consumer-pressure-entry.md": "9afd3de37fbc84e3952978b07f85c633776c7c66f07485d3fed8195208276d69",
+    "docs/experiments/results/s08-consumer-pressure-entry/clippy.log": "53cabfcc0eaee984ad25d46e0234659bbc498847ca6cc016ca4c44e1630fca76",
+    "docs/experiments/results/s08-consumer-pressure-entry/initial.log": "9d9945316143bf684a68e5d0b3388d9dc7208780e53fd00a5aa64e3c70fe314f",
+    "docs/experiments/results/s08-consumer-pressure-entry/emission.log": "e6369dd214e1e3d483758d33cba62893eebbe6e4ed1cbdda1185009a85cd2769",
+    "docs/experiments/results/s08-consumer-pressure-entry/default.log": "f7598b5d3239ed670df53e7e7309f37722b94f4e1734ea1c82439cdecc3f3842",
+    "docs/experiments/results/s08-consumer-pressure-entry/corrected.log": "c3afb683ef807d63923a414d1c7fbceb663c8d41e5c847788aae54a45237a902",
+    "docs/experiments/results/s08-consumer-pressure-entry/checked-default.log": "7e25f952a860915cff7ffecd81146f15679e264b92b1729d43b08689e78eaa79",
+    "docs/experiments/results/s08-consumer-pressure-entry/clippy-default.log": "476af64d136c2413278f222b8e96079d1b88f8285b97a441f3be9a3cab234b38",
+    "docs/experiments/results/s08-consumer-pressure-entry/checked-primary.log": "a057f3898e09b321143f6af034148186912447f2a969a9d0638ff1b12a552b0d",
+    "docs/experiments/results/s08-consumer-pressure-entry/clippy-primary.log": "98e1c6a9d9f9e637ab74c34b567d99831565ef979091a4083394cdadf82a2832",
+    "docs/experiments/results/s08-consumer-pressure-entry/final-default.log": "516d6419127c852d32c3829806f38c31e8c5c2bf5f3845389bac0aeee31c7e47",
+    "docs/experiments/results/s08-consumer-pressure-entry/final-primary.log": "9e218d20a584962ff15c8d70b01a6bcc169268d2b04e3f92f11a97e65a70e654",
+    "research/chr-direct-conditional/tests/runtime_support/mod.rs": "03633e8d666fadcdd08ddfe4900aa8116b32e434fb0a5dcb1c5faa23ff5976b2"
+  }
+}

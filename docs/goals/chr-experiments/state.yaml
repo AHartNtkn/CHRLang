@@ -9,7 +9,7 @@ goal:
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
   current_research: >-
-    Adaptive separation validates 180 policy/source configurations per build, finite-answer progress and cancellation/reuse. Failed-check backoff reduces checking but can increase source steps; no timing or allocation comparison. Full regressions pass 30 primary and 32 diagnostic tests. Four-package breadth review selects T074 sustained service; goal active.
+    Consumer-pressure gate validates 576 finite sessions/18432 queries per build across eight controls and 42 continuing-emission sessions across seven general controls. Full-queue pauses stop producer calls; complete raw answers, retained ownership, cancellation/reuse and finite progress pass. The graph residual-only source admission restriction remains explicit. Four tests and scoped Clippy pass in both builds. Package one after adaptive breadth review; goal active.
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -331,10 +331,12 @@ tasks:
     type: pm
     assignee: PM
     status: "active"
-    progress: "Existing eight-query ownership and reclamation trials remain scoped controls. The four-package adaptive/resource breadth review selects sustained service and consumer-pressure qualification. No new sustained matrix has run."
-    next_action: "Audit existing stream and cross-query runners before registration. Establish a common independently checked service/consumer contract across credible compiled, graph/contextual and applicable reuse/lowering controls. Separate stable-size changed queries from growing-source controls; qualify immediate release, bounded windows, retained-all consumers, burst demand/backpressure, cancellation/reuse and finite observations beside ongoing work. Keep preparation, engine history and consumer outputs distinct. At this gate compare adaptive ownership/costs as strongest alternative with local claims, richer theories, broader reuse/integration and complete architectures. New breadth cycle; at most four packages before full review."
+    progress: "Consumer-pressure gate validates 576 finite sessions/18432 queries per build across eight controls and 42 continuing-emission sessions across seven general controls. Full-queue pauses stop producer calls; complete raw answers, retained ownership, cancellation/reuse and finite progress pass. The graph residual-only source admission restriction remains explicit. Four tests and scoped Clippy pass in both builds. Package one after adaptive breadth review; goal active."
+    next_action: "Register sustained requested-allocation and live-heap trajectories using the qualified bounded-delivery endpoint. Separate stable-size changing queries, growing-source controls and continuing-emission prefixes; immediate/window/all consumers; preparation, query/history, pending delivery and retained outputs. Include existing valid reclamation versus retention where applicable. Independent checks stay outside measured intervals. No engine-memory bound follows from queue capacity, and exact-source lowering does not cover ongoing sources. Reconsider adaptive costs as strongest alternative, local claims, richer theories and broader complete paths at this ownership gate or obstruction; full breadth review by package four."
     objective: Investigate sustained answer delivery, consumer ownership and engine retention across credible graph, compiled and reuse controls, including immediate release, bounded retention, changing queries, cancellation and reclamation costs under independently checked source semantics.
     inputs:
+      - docs/experiments/results/S08-consumer-pressure-entry.md
+      - docs/experiments/registrations/S08-consumer-pressure-entry.md
       - docs/experiments/results/S04-adaptive-entry.md
       - docs/experiments/results/S04-adaptive-breadth-review.md
       - docs/experiments/next-cycle.md
