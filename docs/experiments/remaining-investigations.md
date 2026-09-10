@@ -18,7 +18,7 @@ The [names entry](results/S06-names-entry.md) supplies the current checkpoint. T
 
 The [conditional overlap comparison](results/S08-equality-overlap.md) and [breadth review](results/S08-equality-overlap-breadth-review.md) establish the current checkpoint. The conditional overlap shortcut reduces forward calls to 128 answers from 3,198,239 to 2,116,705. Reverse order without bounded lead cuts off at 116 answers; bounded lead restores 128 in 3,488,701 calls versus the original 4,606,799. Eighteen diagnostic processes preserve both gains and cutoffs; selected semantic suites pass. Retention, timing and broader fairness remain unresolved. Four-package breadth review selects T076 names-theory denotation and independent witnesses, followed by separate disequality and normal/neutral studies. Goal active.
 
-The [current execution order](next-cycle.md#portfolio-order-and-dependencies) schedules the missing comparisons beginning with demand lifecycle, followed by reusable symbolic solving and checkpoint/replay. Each question retains its detailed evidence obligation; this scheduling update reports no new results.
+The [current execution order](next-cycle.md#portfolio-order-and-dependencies) schedules restoration, relevant-read integration, missing demand capability and compact solving beyond current reductions, followed by the distinct mechanisms in rounds B and C. Language and whole-architecture comparisons accompany the rounds. Every question below retains its evidence obligation; this scheduling update reports no new results.
 
 The [inert ownership comparison](results/S05-inert-ownership.md) and [full breadth review](results/S05-inert-ownership-breadth-review.md) supply the current evidence. Inert residual ownership qualifies 720 configurations with 1440 final paired allocation runs; all finite owners release. Separated memo requests fewer bytes than compact whole-state tables in 96 scenarios and more in 48, with lower peaks in 84 and higher in 60. Direct requests fewer bytes and has lower peaks throughout. Prior pre-lint runs are preserved, giving 2592 audited processes. Four-package breadth review selects T074 conditional equality/support lifetime attribution; T075 costs and broader dependencies remain required. Goal active.
 
@@ -106,7 +106,7 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-The [current execution order](next-cycle.md#start-here-the-next-experiments) owns scheduling: demand dependency lifecycle, reusable symbolic solving, then checkpoint/replay. The mechanism specifications below retain their individual evidence requirements and do not establish a separate order.
+The [current execution order](next-cycle.md#start-here-the-next-experiments) owns scheduling: restoration, relevant-read integration, missing demand capability and compact solving beyond current reductions. The mechanism specifications below retain their individual evidence requirements and do not establish a separate order.
 
 ### Depth, breadth and stopping within this sequence
 

@@ -12,7 +12,7 @@ The [dependency work screen](results/S03-dependency-work.md) supplies the curren
 
 The [resource-dependency gate](results/S03-resource-dependencies.md) supplies the current checkpoint. The demand resource-dependency gate passes 48 matrix configurations and eight additional source witnesses in two default and two metrics-off confirmations. Independent scalar and compiled controls expose hidden constructor-cycle and selected-choice alias defects; completed-equation validation and alias-link repair preserve finite failure and output identity. Source, suspended and kernel regressions pass. T071 next measures dependency and validation lifecycle costs; contextual integration follows. This is bounded correctness evidence, not a timing result; goal active.
 
-The [current execution order](next-cycle.md#portfolio-order-and-dependencies) schedules all missing comparisons. The [immediate packages](next-cycle.md#start-here-the-next-experiments) now qualify source-derived simplification for reusable solving, with the remaining demand and checkpoint/replay work retained. Every question retains its detailed evidence obligation.
+The [current execution order](next-cycle.md#portfolio-order-and-dependencies) schedules all missing comparisons. The [immediate investigations](next-cycle.md#start-here-the-next-experiments) address restoration, relevant-read integration, missing demand capability and compact solving beyond current reductions. Every question retains its individual evidence obligation.
 
 Investigate the unanswered mechanisms directly, then compare the complete architectures they enable. Reuse the existing baselines. The research remains active until consequential questions have evidence-backed answers.
 
@@ -286,9 +286,9 @@ All new results link raw inputs, commands, freezes, validation and unfavorable o
 
 ## Current execution order
 
-T077 is active for search restoration and consequential adaptive timing attribution after the [finite-formula lifecycle result](results/S06-formula-timing.md). Inspect the qualified pilot and source/ownership evidence before registering targeted CPU/elapsed measurement or checkpoint/replay costs. Preserve fixed and Copy controls. T076 remains unfinished for targeted timing uncertainty, unresolved graph cores, broader theories and lifetimes; its selected bounded lifecycle comparison is complete.
+The [revised experimental sequence](next-cycle.md#start-here-the-next-experiments) starts with T077 restoration, then relevant-read integration, missing demand capability and compact solving beyond current reductions. Its rounds explicitly schedule distinct reuse/discovery/graph mechanisms, source elimination, sustained execution and parallel ownership. Language studies accompany their beneficiaries; whole-architecture comparisons occur at each round boundary.
 
-The [57-question map](question-to-experiment-map.md) and [mechanism ledger](remaining-investigations.md) retain every unresolved obligation. The next cycle owns scheduling; historical checkpoint selections describe their own experiment boundaries.
+T077 remains the sole active experimental task. Audit the existing uncommitted CPU/elapsed artifacts before reporting them as evidence; do not restart a live run. The sequence revision reports no new measurements and changes no goal completion status. Each unresolved design retains its individual obligation in the [57-question map](question-to-experiment-map.md).
 
 ## Earlier experimental checkpoints
 
