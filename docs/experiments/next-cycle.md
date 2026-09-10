@@ -2,7 +2,7 @@
 
 Test the distinct mechanisms that remain unanswered, then compare the complete architectures they enable. Reuse the existing baselines. A lower priority changes when a question is investigated; it does not answer it.
 
-**The first round closes the evidence already collected, then tests broader demand execution, direct integration, intermediate joins and compact solving.** These can change what work the runtime performs or which services it needs. Further tuning of recorded-read caching must earn its place against those alternatives.
+**The first round now proceeds to broader demand execution, direct integration, intermediate joins and compact solving.** These can change what work the runtime performs or which services it needs. Further tuning of recorded-read caching must earn its place against those alternatives.
 
 Read the order below for what happens next, the thirteen specifications for the experiments, and the [57-question map](question-to-experiment-map.md) for individual coverage. The [mechanism ledger](remaining-investigations.md#distinctions-that-must-not-disappear-inside-a-stage) preserves distinctions within those questions. This document owns execution order; [sequence.md](sequence.md) owns the governing experimental requirements.
 
@@ -10,9 +10,9 @@ This is a programme of required investigations, not evidence that they have run.
 
 ## Start here: the next experiments
 
-**0. Finish the current evidence handoff — T072.** Preserved recorded-read cost runs exist in the worktree; their independent audit reconstructs all three cohorts. Integrate the results and limitations into a readable report before selecting another cache refinement. Check the existing inferred-specialization control: the runner supports `sealed`, but the registered cost matrix includes Scan and Indexed without that mode. Establish whether specialization applies and changes execution on the favorable source; if it does, register the missing matched comparison. Do not interpret an omitted eligible control as beaten, or repeat the entire matrix merely because a smaller contrast is needed.
+**Current evidence: recorded-read costs and the strongest-control check are reported.** The [complete-cost report](results/S02-read-cost.md) preserves all three main cohorts and the190-process specialization supplement. Specialized dispatch applies and executes. Favorable validation-versus-specialization timing remains unresolved; unique/mixed contexts favor explicit execution. Allocation savings do not establish a universal peak-memory or architecture advantage.
 
-The [near-miss gate](results/S02-read-near-miss.md) already qualifies compatible repetition and incompatible same-input contexts. This handoff asks whether cheaper recognition changes the complete-cost tradeoff, not whether the gate should run again. Compilation, sustained consumers and distinct integration organizations remain separate questions. No new production baseline is needed.
+Demand capability is now the selected package. Further cache confirmation remains required when it could select a complete path; reconsider it at the demand capability/cost boundary. Direct integration remains a separate architectural question. The recorded runs need no general restart.
 
 **1. Extend demand execution through a missing source capability — T071, specification 2.** Start with nonground passive body posts; investigate writable resource-head dependencies and dynamic choices as separate trials. Use delayed bindings, competing consumers, hidden failure and a finite answer beside continuing work. Pair the source gate with a registered ownership and cost comparison as soon as that capability qualifies.
 
@@ -38,7 +38,7 @@ The table schedules entry into each investigation. The specifications below defi
 
 | Order | Investigation and specification | Review questions | Required architectural evidence |
 |---|---|---|---|
-| Handoff | Recorded-read cost report and strongest-control applicability — §1 | 9–11, 26, 35, 38, 52 | Interpret existing runs; fill a consequential control gap before broader inference |
+| Current result | Recorded-read costs and specialization — §1 | 9–11, 26, 35, 38, 52 | Bounded report available; favorable timing and broader integration remain open |
 | A1 | Demand capability — §2 | 12, 16, 18–19, 23 | Nonground posts, writable heads and dynamic choices separately; complete dependency costs |
 | A2 | Direct integrated organizations — §1 | 9–11, 16, 52 | Flat relations, CHR merging and local rewrites exercised in consuming source execution |
 | A3 | Intermediate joins and subscriptions — §6 | 1–5, 8, 10–11 | Saved rediscovery versus local repair, broad invalidation and retained state |
@@ -211,7 +211,7 @@ No direction leaves the sequence merely because it is expensive to implement, lo
 
 For each next-package proposal, record the decision it could change, the strongest ready distinct alternative, actual prerequisites, expected implementation/measurement effort, and the next result boundary. Prefer completing a consequential comparison over expanding its matrix when the expansion cannot change the decision. Prefer a distinct mechanism over another refinement when the refinement has no credible path to changing the architecture comparison.
 
-**The current handoff is to the preserved recorded-read evidence, followed by the distinct trials in round A.** Demand, direct integration, intermediate joins and compact solving must all be considered at the next selection boundary. Each study may need multiple bounded packages, but a fourth-package review cannot merely reset the counter. Further depth requires a written comparison with the next distinct experiment. At every such review, account for all rows in the order table and retain a concrete next action for unfinished work. Changing order supplies no evidence against the displaced design.
+**The current handoff is from the recorded-read result to demand capability in round A.** Demand, direct integration, intermediate joins and compact solving must all be considered at the next selection boundary. Each study may need multiple bounded packages, but a fourth-package review cannot merely reset the counter. Further depth requires a written comparison with the next distinct experiment. At every such review, account for all rows in the order table and retain a concrete next action for unfinished work. Changing order supplies no evidence against the displaced design.
 
 **A claim that an experiment cannot affect downstream decisions needs a sensitivity argument.** Name the decision, the outcomes still compatible with current evidence, and why none would change efficiency, necessary complexity, source eligibility or a competitor's credibility. Assume neither the incumbent's superiority nor the proposed mechanism's failure. When those outcomes could change the decision, the trial remains required. When only a narrower claim is settled, advance without extending that conclusion to its broader design.
 

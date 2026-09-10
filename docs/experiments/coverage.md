@@ -1,6 +1,6 @@
 # Unanswered architecture questions and experimental ownership
 
-The [revised experimental sequence](next-cycle.md#start-here-the-next-experiments) starts by reporting the preserved recorded-read cost evidence and checking the strongest applicable control. It then gives broader demand execution, direct integrated organizations, maintained intermediate joins and compact solving separate early trials. Every distinct mechanism retains its own evidence obligation; language, lifetime and complete-architecture comparisons accompany the trials. T072 and the research goal remain active.
+The [recorded-read complete-cost report](results/S02-read-cost.md) supplies the current checkpoint. Recorded-read validation has a qualified favorable repetition regime and costly incompatible contexts. The preserved main cohorts and190-process specialization supplement pass independent audits. Against specialized explicit execution, favorable timing remains unresolved; unique/mixed cases lose. Peak and allocation tradeoffs remain conditional. T071 nonground passive body posts is next; T072 integration, lifetime and consequential timing confirmation remain required. The research goal is active.
 
 The [relevant-key ownership comparison](results/S02-relevant-ownership.md) supplies the current checkpoint. Relevant-key ownership validates1,008 metered and448 ordinary processes with exact allocation repeats, cancellation/reuse and retained answers surviving producer disposal. Ordered relevant reuse lowers peaks versus exact-state caching in38of64 scenarios but requests more bytes than recomputation in all64. The changed depth16/four-query witness requests1,292,590bytes with72,959peak excess versus669,196/38,976 for recomputation. T072 next attributes key/replay execution costs before timing; package one after breadth review; goal active.
 
@@ -179,6 +179,6 @@ No aggregate benchmark weights, universal winner, automatic hybrid routing or ad
 
 ## Current selection
 
-Follow the [revised execution sequence](next-cycle.md#start-here-the-next-experiments): T072 finishes the preserved recorded-read evidence and strongest-control applicability check; distinct demand, integration, intermediate-join and compact-solving trials follow. T072 remains the sole active task. Broader restoration and all other unresolved mechanisms retain separate required comparisons.
+Follow the [revised execution sequence](next-cycle.md#start-here-the-next-experiments): T071 enters nonground passive body posts after the recorded-read cost and specialization result; distinct integration, intermediate-join and compact-solving trials follow. T071 is the sole active task. Broader restoration and all other unresolved mechanisms retain separate required comparisons.
 
 The [portfolio table](next-cycle.md#portfolio-order-and-dependencies) schedules every reviewed question, including distinct variants inside grouped entries. Language studies and complete-architecture comparisons accompany the component investigations. A completed bounded study supplies scoped evidence; all consequential unanswered variants remain required work.

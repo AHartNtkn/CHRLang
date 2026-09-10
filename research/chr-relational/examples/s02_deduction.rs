@@ -5,7 +5,61 @@ mod deduction_source;
 #[path = "support/deduction_profile.rs"]
 mod profile;
 use chr_syntax::{Answer, Query, Rule};
-use deduction_source::{Lowered, Schema, Values};
+use deduction_source::{Lowered, Schema as SimpleSchema, Values};
+#[allow(dead_code)]
+#[path = "support/read_near_source.rs"]
+mod near_source;
+#[derive(Clone, Copy)]
+enum Schema {
+    Simple(SimpleSchema),
+    Near {
+        n: usize,
+        kind: &'static str,
+        resource: bool,
+    },
+}
+impl Schema {
+    fn new(family: &str, resource: bool) -> Self {
+        let near = match family {
+            "near-unique-8" => Some((8, "unique")),
+            "near-repeated-8" => Some((8, "repeated")),
+            "near-mixed-8" => Some((8, "mixed")),
+            "near-unique-32" => Some((32, "unique")),
+            "near-repeated-32" => Some((32, "repeated")),
+            "near-mixed-32" => Some((32, "mixed")),
+            _ => None,
+        };
+        match near {
+            Some((n, kind)) => Self::Near { n, kind, resource },
+            None => Self::Simple(SimpleSchema::new(family, resource)),
+        }
+    }
+    fn rules(self) -> Vec<Rule> {
+        match self {
+            Self::Simple(s) => s.rules(),
+            Self::Near { n, kind, resource } => near_source::rules(n, kind, resource),
+        }
+    }
+    fn query(self, depth: usize, reverse: bool) -> Query {
+        match self {
+            Self::Simple(s) => s.query(depth, reverse),
+            Self::Near { resource, .. } => near_source::query(depth, resource, reverse),
+        }
+    }
+    fn expected(self) -> Vec<Answer> {
+        match self {
+            Self::Simple(s) => s.values().collect(),
+            Self::Near { n, kind, .. } => near_source::expected(n, kind),
+        }
+    }
+    fn simple(self) -> SimpleSchema {
+        match self {
+            Self::Simple(s) => s,
+            Self::Near { .. } => panic!("source lowering is not qualified for this source"),
+        }
+    }
+}
+
 use std::time::Instant;
 #[cfg(feature = "alloc-meter")]
 #[allow(unexpected_cfgs)]
@@ -92,7 +146,7 @@ impl Prepared {
                     mode.ends_with("validated"),
                 )
             }
-            "lowered" => Self::Lowered(Box::new(Lowered::new(schema, rules).unwrap())),
+            "lowered" => Self::Lowered(Box::new(Lowered::new(schema.simple(), rules).unwrap())),
             "contextual" | "shared" | "persistent" | "persistent-shared" => Self::Contextual(
                 chr_relational::contextual_execute::Prepared::new(&rules).unwrap(),
                 mode == "shared" || mode == "persistent-shared",
@@ -208,6 +262,21 @@ struct Sample {
 }
 fn main() {
     let args = std::env::args().collect::<Vec<_>>();
+    if args.get(1).map(String::as_str) == Some("clock-check") {
+        assert!(!std::hint::black_box(cfg!(feature = "alloc-meter")));
+        let mut samples = Vec::with_capacity(100_000);
+        for _ in 0..100_000 {
+            let c = Instant::now();
+            std::hint::black_box(());
+            samples.push(c.elapsed().as_nanos());
+        }
+        samples.sort_unstable();
+        println!(
+            "{{\"median_ns\":{},\"p99_ns\":{}}}",
+            samples[50_000], samples[99_000]
+        );
+        return;
+    }
     if args.get(1).map(String::as_str) == Some("meter-check") {
         #[cfg(feature = "alloc-meter")]
         {
@@ -263,8 +332,7 @@ fn main() {
         .map(|i| {
             let query = schema.query(n + i, (i % 2 == 0) == reverse);
             let expected = oracle::run(&source, &query, 2_000_000);
-            assert_eq!(expected.len(), schema.branches);
-            oracle::same_raw(expected.clone(), schema.values().collect());
+            oracle::same_raw(expected.clone(), schema.expected());
             (query, expected)
         })
         .collect::<Vec<_>>();
@@ -378,8 +446,8 @@ mod tests {
         let schema = Schema::new("changed", true);
         let mut source = schema.rules();
         source[0].body = chr_syntax::Goal::True;
-        assert!(Lowered::new(schema, source).is_err());
-        let p = Lowered::new(schema, schema.rules()).unwrap();
+        assert!(Lowered::new(schema.simple(), source).is_err());
+        let p = Lowered::new(schema.simple(), schema.rules()).unwrap();
         let mut q = schema.query(8, false);
         q.constraints
             .push(chr_syntax::c("token", [chr_syntax::atom("key0")]));
@@ -393,6 +461,46 @@ mod tests {
         let mut q = schema.query(8, false);
         q.constraints.retain(|c| c.name != "token");
         assert!(p.start(q).is_err());
+    }
+    #[test]
+    fn near_sources_survive_reuse_and_producer_disposal() {
+        for family in [
+            "near-unique-8",
+            "near-repeated-8",
+            "near-mixed-8",
+            "near-unique-32",
+            "near-repeated-32",
+            "near-mixed-32",
+        ] {
+            let schema = Schema::new(family, true);
+            let rules = schema.rules();
+            for mode in [
+                "contextual",
+                "shared",
+                "relevant",
+                "persistent-relevant",
+                "validated",
+                "persistent-validated",
+                "scan",
+                "indexed",
+            ] {
+                let p = Prepared::new(mode, schema, rules.clone());
+                let mut held = vec![];
+                for depth in [1, 8] {
+                    let q = schema.query(depth, depth == 1);
+                    let expected = oracle::run(&rules, &q, 200_000);
+                    let mut e = p.start(q);
+                    let (answers, _, complete) = e.collect(None);
+                    assert!(complete);
+                    drop(e);
+                    held.push((answers, expected));
+                }
+                drop(p);
+                for (answers, expected) in held {
+                    oracle::same_raw(answers, expected);
+                }
+            }
+        }
     }
     #[test]
     fn all_paths_match_source_and_survive_interruption() {

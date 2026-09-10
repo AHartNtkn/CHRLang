@@ -1,0 +1,126 @@
+   Compiling chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax)
+    Checking chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe)
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+   Compiling chr-integrated v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-integrated)
+    Checking chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)
+    Checking chr-relational v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-relational)
+error: returning the result of a `let` binding from a block
+  --> research/chr-relational/tests/../examples/support/read_near_source.rs:58:5
+   |
+54 | /     let q = Query {
+55 | |         constraints,
+56 | |         outputs: vec![("x".into(), Var(100)), ("y".into(), Var(101))],
+57 | |     };
+   | |______- unnecessary `let` binding
+58 |       q
+   |       ^
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.97.0/index.html#let_and_return
+   = note: `-D clippy::let-and-return` implied by `-D warnings`
+   = help: to override `-D warnings` add `#[allow(clippy::let_and_return)]`
+help: return the expression directly
+   |
+54 ~     
+55 ~     Query {
+56 +         constraints,
+57 +         outputs: vec![("x".into(), Var(100)), ("y".into(), Var(101))],
+58 +     }
+   |
+
+error: returning the result of a `let` binding from a block
+  --> research/chr-relational/tests/../examples/support/read_near_source.rs:71:5
+   |
+61 | /     let expected = (0..n)
+62 | |         .filter(|i| kind != "mixed" || i % 2 == 0)
+63 | |         .map(|i| {
+64 | |             let a = atom(&format!("a{:02}", if kind == "repeated" { 0 } else { i }));
+...  |
+69 | |         })
+70 | |         .collect();
+   | |___________________- unnecessary `let` binding
+71 |       expected
+   |       ^^^^^^^^
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.97.0/index.html#let_and_return
+help: return the expression directly
+   |
+61 ~     
+62 ~     (0..n)
+63 +         .filter(|i| kind != "mixed" || i % 2 == 0)
+64 +         .map(|i| {
+65 +             let a = atom(&format!("a{:02}", if kind == "repeated" { 0 } else { i }));
+66 +             Answer {
+67 +                 outputs: vec![("x".into(), a.clone()), ("y".into(), a)],
+68 +                 residual: vec![c("tag", [atom(&format!("branch{i}"))])],
+69 +             }
+70 +         })
+71 +         .collect()
+   |
+
+error: could not compile `chr-relational` (test "read_near_miss") due to 2 previous errors
+warning: build failed, waiting for other jobs to finish...
+error: returning the result of a `let` binding from a block
+  --> research/chr-relational/examples/support/read_near_source.rs:58:5
+   |
+54 | /     let q = Query {
+55 | |         constraints,
+56 | |         outputs: vec![("x".into(), Var(100)), ("y".into(), Var(101))],
+57 | |     };
+   | |______- unnecessary `let` binding
+58 |       q
+   |       ^
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.97.0/index.html#let_and_return
+   = note: `-D clippy::let-and-return` implied by `-D warnings`
+   = help: to override `-D warnings` add `#[allow(clippy::let_and_return)]`
+help: return the expression directly
+   |
+54 ~     
+55 ~     Query {
+56 +         constraints,
+57 +         outputs: vec![("x".into(), Var(100)), ("y".into(), Var(101))],
+58 +     }
+   |
+
+error: returning the result of a `let` binding from a block
+  --> research/chr-relational/examples/support/read_near_source.rs:71:5
+   |
+61 | /     let expected = (0..n)
+62 | |         .filter(|i| kind != "mixed" || i % 2 == 0)
+63 | |         .map(|i| {
+64 | |             let a = atom(&format!("a{:02}", if kind == "repeated" { 0 } else { i }));
+...  |
+69 | |         })
+70 | |         .collect();
+   | |___________________- unnecessary `let` binding
+71 |       expected
+   |       ^^^^^^^^
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.97.0/index.html#let_and_return
+help: return the expression directly
+   |
+61 ~     
+62 ~     (0..n)
+63 +         .filter(|i| kind != "mixed" || i % 2 == 0)
+64 +         .map(|i| {
+65 +             let a = atom(&format!("a{:02}", if kind == "repeated" { 0 } else { i }));
+66 +             Answer {
+67 +                 outputs: vec![("x".into(), a.clone()), ("y".into(), a)],
+68 +                 residual: vec![c("tag", [atom(&format!("branch{i}"))])],
+69 +             }
+70 +         })
+71 +         .collect()
+   |
+
+error: this assertion has a constant value
+   --> research/chr-relational/examples/s02_deduction.rs:266:9
+    |
+266 |         assert!(!cfg!(feature = "alloc-meter"));
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: consider moving this into a const block: `const { assert!(..) }`
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.97.0/index.html#assertions_on_constants
+    = note: `-D clippy::assertions-on-constants` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::assertions_on_constants)]`
+
+error: could not compile `chr-relational` (example "s02_deduction") due to 3 previous errors

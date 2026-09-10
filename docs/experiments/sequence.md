@@ -1,6 +1,6 @@
 # Experimental sequence: resolve the remaining architecture questions
 
-The [revised experimental sequence](next-cycle.md#start-here-the-next-experiments) starts by reporting the preserved recorded-read cost evidence and checking the strongest applicable control. It then gives broader demand execution, direct integrated organizations, maintained intermediate joins and compact solving separate early trials. Every distinct mechanism retains its own evidence obligation; language, lifetime and complete-architecture comparisons accompany the trials. T072 and the research goal remain active.
+The [recorded-read complete-cost report](results/S02-read-cost.md) supplies the current checkpoint. Recorded-read validation has a qualified favorable repetition regime and costly incompatible contexts. The preserved main cohorts and190-process specialization supplement pass independent audits. Against specialized explicit execution, favorable timing remains unresolved; unique/mixed cases lose. Peak and allocation tradeoffs remain conditional. T071 nonground passive body posts is next; T072 integration, lifetime and consequential timing confirmation remain required. The research goal is active.
 
 The [relevant-key ownership comparison](results/S02-relevant-ownership.md) supplies the current checkpoint. Relevant-key ownership validates1,008 metered and448 ordinary processes with exact allocation repeats, cancellation/reuse and retained answers surviving producer disposal. Ordered relevant reuse lowers peaks versus exact-state caching in38of64 scenarios but requests more bytes than recomputation in all64. The changed depth16/four-query witness requests1,292,590bytes with72,959peak excess versus669,196/38,976 for recomputation. T072 next attributes key/replay execution costs before timing; package one after breadth review; goal active.
 
@@ -286,9 +286,9 @@ All new results link raw inputs, commands, freezes, validation and unfavorable o
 
 ## Current execution order
 
-The [revised experimental sequence](next-cycle.md#start-here-the-next-experiments) begins with the preserved cost evidence handoff, then demand capability, direct integration, intermediate joins and compact solving. Later entries cover distinct reuse, restoration, choice organizations, compilation, sustained execution and parallel ownership. Language studies accompany their beneficiaries; complete-architecture comparisons occur at each round boundary.
+The [revised experimental sequence](next-cycle.md#start-here-the-next-experiments) proceeds from the recorded-read result to demand capability, direct integration, intermediate joins and compact solving. Later entries cover distinct reuse, restoration, choice organizations, compilation, sustained execution and parallel ownership. Language studies accompany their beneficiaries; complete-architecture comparisons occur at each round boundary.
 
-T072 is the sole active experimental task. Preserved recorded-read cost runs await report integration and strongest-control applicability review. Each unresolved design retains its individual obligation in the [57-question map](question-to-experiment-map.md).
+T071 is the sole active experimental task. Recorded-read costs and the specialized-control supplement are reported; broader T072 integration and consequential confirmation remain required. Each unresolved design retains its individual obligation in the [57-question map](question-to-experiment-map.md).
 
 ## Earlier experimental checkpoints
 

@@ -1,0 +1,29 @@
+   Compiling chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax)
+   Compiling chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe)
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+   Compiling chr-integrated v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-integrated)
+   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)
+   Compiling chr-relational v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-relational)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 4.85s
+     Running unittests examples/s02_deduction.rs (target/s02-read-cost-gate/debug/examples/s02_deduction-c8d88d981378e40f)
+
+running 3 tests
+test tests::near_sources_survive_reuse_and_producer_disposal ... FAILED
+test tests::lowering_checks_the_complete_source_and_query ... ok
+test tests::all_paths_match_source_and_survive_interruption ... ok
+
+failures:
+
+---- tests::near_sources_survive_reuse_and_producer_disposal stdout ----
+
+thread 'tests::near_sources_survive_reuse_and_producer_disposal' (908) panicked at research/chr-relational/examples/support/deduction_source.rs:16:18:
+unknown family
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    tests::near_sources_survive_reuse_and_producer_disposal
+
+test result: FAILED. 2 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.07s
+
+error: test failed, to rerun pass `-p chr-relational --example s02_deduction`

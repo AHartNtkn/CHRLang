@@ -1,0 +1,24 @@
+   Compiling chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax)
+   Compiling chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe)
+   Compiling chr-integrated v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-integrated)
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)
+   Compiling chr-relational v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-relational)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 4.89s
+     Running tests/read_near_miss.rs (target/s02-read-final-validation/debug/deps/read_near_miss-a5d19451af72a0ec)
+
+running 2 tests
+test same_inputs_examine_each_prior_incompatible_context ... ok
+test near_misses_preserve_complete_source_answers ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.58s
+
+     Running unittests examples/s02_deduction.rs (target/s02-read-final-validation/debug/examples/s02_deduction-a134071ffebba1ff)
+
+running 3 tests
+test tests::lowering_checks_the_complete_source_and_query ... ok
+test tests::all_paths_match_source_and_survive_interruption ... ok
+test tests::near_sources_survive_reuse_and_producer_disposal ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.16s
+
