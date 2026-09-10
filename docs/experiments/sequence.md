@@ -12,7 +12,7 @@ This is the governing sequence for the renewed investigation. Existing E/R measu
 
 The [next experimental cycle](next-cycle.md#start-here-the-next-experiments) sets the immediate experiments and their decision boundaries from the verified worktree. Its full programme covers every direction; the numbered investigations are identifiers, not instructions to repeat completed work. It reuses the stage definitions below and the full question map.
 
-The [guarded-choice cost pilot](results/S02-choice-cost.md) and [breadth review](results/S02-choice-cost-breadth-review.md) supply the current checkpoint. The guarded-choice cost pilot validates 5,120 primary, 1,024 allocation, 512 sizing and 40 cancellation processes. Local graph has lower descriptive timing ranges than Scan in 195 of 256 scenario/CPU comparisons; contextual comparison has 22 lower, six higher and 228 overlapping ranges. Service and allocation evidence expose an adverse late-failure regime. Four-package breadth review selects T076 joint theory/source integration; no architecture selected and goal active.
+The [joint theory entry](results/S06-joint-entry.md) supplies the current checkpoint. Joint names, exclusions and normal/neutral feasibility passes 3,840 independent comparisons and 640 closed ground source queries per execution, twice with metrics on and twice off; 59 regressions pass. Atomic names satisfy the structural requirements, but finite hidden-name dependencies and raw residual host effects remain consequential. T076 next registers exact projected output and an executable closed logical boundary. Package one after guarded-choice breadth review; goal active.
 
 ## Account for every reviewed question
 

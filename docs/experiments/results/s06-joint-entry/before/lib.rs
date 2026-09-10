@@ -208,5 +208,3 @@ pub mod names;
 pub mod name_disequality;
 
 pub mod normal_forms;
-
-pub mod joint;

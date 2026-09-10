@@ -14,13 +14,13 @@ The [inert ownership comparison](results/S05-inert-ownership.md) qualifies finit
 
 ## Start here: the next experiments
 
-**Next investigate joint structural theories and their source boundary under T076.** The [guarded-choice cost pilot](results/S02-choice-cost.md) and [full breadth review](results/S02-choice-cost-breadth-review.md) complete the four-package local-search cycle. The pilot keeps local and contextual candidates viable and exposes a service/copying hypothesis; it cannot select a complete architecture.
+**Next establish exact joint output and an executable closed logical boundary under T076.** The [joint entry](results/S06-joint-entry.md) qualifies feasibility across shared identities, but finite hidden names can constrain visible outputs and literal residuals can affect host execution. A Boolean feasibility endpoint cannot settle these duties.
 
-Register the existing name, disequality and normal/neutral requirements over common finite-tree variables. Independently enumerate small ground and partial denotations. Exercise repeated holes, alias-induced conflicts, finite versus unbounded hidden-name dependencies and different binding orders. These components currently rely on caller equality duties; their conjunction must show which duties are shared, duplicated or missing.
+Register projected answers under the declared logical contract and compare with independent explicit enumeration. Include repeated variables, hidden finite-name dependencies, fresh caller transport and changed bindings. Preserve raw multiplicity and host-effect distinctions in paired literal CHR witnesses; establish what eligibility or declaration makes the logical boundary valid. No mandatory language restriction is adopted.
 
-Pair the logical experiment with a declared source boundary and literal CHR controls. Preserve observable residual occurrences and host effects. Establish a closed observation contract that permits exact summaries, and a contrary context where replacement is invalid. Treat this as an experimental language tradeoff, without adopting a restriction.
+Only after exact answers and ownership are qualified, compare selective versus output-heavy work, preparation reuse and complete lifecycle costs. Do not time the feasibility wrapper as though it already replaces a source region.
 
-**The strongest ready alternative is local copying/service attribution and a representation or demand-driven contrast.** The contextual adverse regime makes that work consequential, but the present pilot already keeps both candidates in contention. Joint theory/source interactions remain untested and could change whether several services can be replaced. Reconsider these alternatives, along with conditional lifetime, at the joint gate or obstruction. Review all remaining mechanisms after at most four packages.
+**The strongest ready alternative remains local branch-copy/service attribution and a demand-driven or representation contrast.** That can refine a measured integrated-execution crossover; the joint entry instead exposes a missing output/eligibility interface that could decide whether structural solving replaces execution. Reconsider the alternatives and conditional lifetime at this gate or an obstruction. This is package one after the guarded-choice breadth review; at most three further packages precede the next full review.
 
 ## Execution order after the current causal comparison
 

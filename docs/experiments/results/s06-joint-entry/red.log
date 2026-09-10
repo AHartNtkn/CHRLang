@@ -1,0 +1,29 @@
+   Compiling chr-structural v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-structural)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.31s
+     Running tests/joint_theories.rs (target/debug/deps/joint_theories-1eac980a23d38777)
+
+running 2 tests
+test alias_freshness_cycles_and_binding_order_are_explicit ... FAILED
+test conjunction_matches_independent_partial_denotations ... FAILED
+
+failures:
+
+---- alias_freshness_cycles_and_binding_order_are_explicit stdout ----
+
+thread 'alias_freshness_cycles_and_binding_order_are_explicit' (228) panicked at research/chr-structural/src/joint.rs:5:169:
+not implemented: joint theory composition
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- conjunction_matches_independent_partial_denotations stdout ----
+
+thread 'conjunction_matches_independent_partial_denotations' (229) panicked at research/chr-structural/src/joint.rs:5:169:
+not implemented: joint theory composition
+
+
+failures:
+    alias_freshness_cycles_and_binding_order_are_explicit
+    conjunction_matches_independent_partial_denotations
+
+test result: FAILED. 0 passed; 2 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p chr-structural --test joint_theories`
