@@ -1,0 +1,22 @@
+   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+   Compiling chr-relational v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-relational)
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+    Finished `release` profile [optimized] target(s) in 10.55s
+     Running tests/producer_lead.rs (target/release/deps/producer_lead-953b64d915189da6)
+
+running 1 test
+
+thread 'bounded_lead_preserves_continuing_alias_answers_and_progress' (551) panicked at research/chr-direct-conditional/tests/producer_lead.rs:10:22:
+producer lead exceeds two observations
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test bounded_lead_preserves_continuing_alias_answers_and_progress ... FAILED
+
+failures:
+
+failures:
+    bounded_lead_preserves_continuing_alias_answers_and_progress
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p chr-direct-conditional --test producer_lead`

@@ -4,6 +4,9 @@ version.workspace = true
 edition.workspace = true
 
 [features]
+observation-backpressure = []
+equality-probe = []
+equality-overlap-shortcut = []
 capacity-diagnostics = []
 learning-diagnostics = []
 serialization-clock = []
@@ -118,3 +121,11 @@ required-features = ["experiment"]
 [[example]]
 name = "capacity_phase_lifecycle"
 required-features = ["experiment"]
+
+[[example]]
+name = "equality_overlap"
+required-features = ["equality-probe", "alloc-meter"]
+
+[[example]]
+name = "equality_backlog"
+required-features = ["equality-probe", "alloc-meter"]

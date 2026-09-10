@@ -1,0 +1,32 @@
+
+running 12 tests
+test engine::publication_flow_tests::cancellation_with_bulk_observer_owned_preserves_delivered_answer ... ok
+test engine::publication_flow_tests::publication_priority_preserves_answers_but_withholds_runnable_sibling ... ok
+test engine::tests::finite_sibling_is_published_beside_symbolic_rewrite_loop ... ok
+test engine::tests::starts_share_compiled_rules_and_own_independent_query_state ... ok
+test equality::tests::deep_occurs_check_and_demand_are_resumable_and_nonbinding ... ok
+test matching::tests::first_slot_keeps_conditional_value_opaque_and_repetition_demands_equality ... ok
+test resources::tests::emitted_frame_finishes_the_job_without_certifying_remaining_eligibility ... ok
+test support::tests::canonical_reduction_and_complement_have_boolean_meaning ... ok
+test support::tests::construction_rejects_a_child_against_diagram_order - should panic ... ok
+test support::tests::construction_rejects_out_of_bounds_handles - should panic ... ok
+test support::tests::independent_jobs_interleave_and_finished_jobs_do_no_more_work ... ok
+test support::tests::long_negation_yields_with_at_most_one_node_allocation_per_tick ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+T041 Receipt { choices: 0, strict: false, bulk: 1, sibling: 1, bulk_before_sibling: Some(1), queued_apps: Some(2), drained_apps: Some(2), queued_pending: 2, sibling_discovered_with_bulk_owned: false, exhausted: true }
+T041 Receipt { choices: 0, strict: true, bulk: 1, sibling: 1, bulk_before_sibling: Some(1), queued_apps: Some(2), drained_apps: Some(2), queued_pending: 2, sibling_discovered_with_bulk_owned: false, exhausted: true }
+T041 Receipt { choices: 2, strict: false, bulk: 4, sibling: 1, bulk_before_sibling: Some(4), queued_apps: Some(2), drained_apps: Some(4), queued_pending: 2, sibling_discovered_with_bulk_owned: false, exhausted: true }
+T041 Receipt { choices: 2, strict: true, bulk: 4, sibling: 1, bulk_before_sibling: Some(4), queued_apps: Some(2), drained_apps: Some(2), queued_pending: 2, sibling_discovered_with_bulk_owned: false, exhausted: true }
+T041 Receipt { choices: 4, strict: false, bulk: 16, sibling: 1, bulk_before_sibling: Some(16), queued_apps: Some(2), drained_apps: Some(11), queued_pending: 2, sibling_discovered_with_bulk_owned: false, exhausted: true }
+T041 Receipt { choices: 4, strict: true, bulk: 16, sibling: 1, bulk_before_sibling: Some(16), queued_apps: Some(2), drained_apps: Some(2), queued_pending: 2, sibling_discovered_with_bulk_owned: false, exhausted: true }
+T041 Receipt { choices: 8, strict: false, bulk: 256, sibling: 1, bulk_before_sibling: Some(28), queued_apps: Some(2), drained_apps: Some(18), queued_pending: 2, sibling_discovered_with_bulk_owned: true, exhausted: true }
+T041 Receipt { choices: 8, strict: true, bulk: 256, sibling: 1, bulk_before_sibling: Some(256), queued_apps: Some(2), drained_apps: Some(2), queued_pending: 2, sibling_discovered_with_bulk_owned: false, exhausted: true }
+
+thread 'support::tests::construction_rejects_a_child_against_diagram_order' (41) panicked at research/chr-direct-conditional/src/support.rs:159:17:
+support children violate variable ordering
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+thread 'support::tests::construction_rejects_out_of_bounds_handles' (42) panicked at research/chr-direct-conditional/src/support.rs:194:14:
+support handle is outside arena bounds

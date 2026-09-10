@@ -1,6 +1,6 @@
 # Experimental sequence: resolve the remaining architecture questions
 
-The [current execution order](next-cycle.md#execution-order-after-the-current-causal-comparison) schedules the missing comparisons after the active conditional attribution, beginning with distinct structural theories. Each question retains its detailed evidence obligation; this scheduling update reports no new results.
+The [current execution order](next-cycle.md#execution-order-after-the-current-causal-comparison) schedules the missing comparisons beginning with distinct structural theories after the recorded conditional attribution. Each question retains its detailed evidence obligation; this scheduling update reports no new results.
 
 Investigate the unanswered mechanisms directly, then compare the complete architectures they enable. Reuse the existing baselines. The research remains active until consequential questions have evidence-backed answers.
 
@@ -12,7 +12,7 @@ This is the governing sequence for the renewed investigation. Existing E/R measu
 
 The [next experimental cycle](next-cycle.md#start-here-the-next-experiments) sets the immediate experiments and their decision boundaries from the verified worktree. Its full programme covers every direction; the numbered investigations are identifiers, not instructions to repeat completed work. It reuses the stage definitions below and the full question map.
 
-The current package is T074 conditional lifetime attribution, selected by the [inert ownership breadth review](results/S05-inert-ownership-breadth-review.md). Inert residual ownership qualifies 720 configurations with 1440 final paired allocation runs; all finite owners release. Separated memo requests fewer bytes than compact whole-state tables in 96 scenarios and more in 48, with lower peaks in 84 and higher in 60. Direct requests fewer bytes and has lower peaks throughout. Prior pre-lint runs are preserved, giving 2592 audited processes. Four-package breadth review selects T074 conditional equality/support lifetime attribution; T075 costs and broader dependencies remain required. Goal active.
+The [conditional comparison](results/S08-equality-overlap.md) and [breadth review](results/S08-equality-overlap-breadth-review.md) supply the current selection. The conditional overlap shortcut reduces forward calls to 128 answers from 3,198,239 to 2,116,705. Reverse order without bounded lead cuts off at 116 answers; bounded lead restores 128 in 3,488,701 calls versus the original 4,606,799. Eighteen diagnostic processes preserve both gains and cutoffs; selected semantic suites pass. Retention, timing and broader fairness remain unresolved. Four-package breadth review selects T076 names-theory denotation and independent witnesses, followed by separate disequality and normal/neutral studies. Goal active.
 
 ## Account for every reviewed question
 

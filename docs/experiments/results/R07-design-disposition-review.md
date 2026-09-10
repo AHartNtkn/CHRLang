@@ -1,5 +1,7 @@
 # Why designs were set aside—and what the experiments actually establish
 
+The [conditional overlap comparison](S08-equality-overlap.md) and [breadth review](S08-equality-overlap-breadth-review.md) establish the current checkpoint. The conditional overlap shortcut reduces forward calls to 128 answers from 3,198,239 to 2,116,705. Reverse order without bounded lead cuts off at 116 answers; bounded lead restores 128 in 3,488,701 calls versus the original 4,606,799. Eighteen diagnostic processes preserve both gains and cutoffs; selected semantic suites pass. Retention, timing and broader fairness remain unresolved. Four-package breadth review selects T076 names-theory denotation and independent witnesses, followed by separate disequality and normal/neutral studies. Goal active.
+
 The [projection entry](S06-projection-entry.md) validates 8,192 generated order/semantics comparisons per build, existing structural and actual CHR controls, and explicit caller/multiplicity boundaries. Hidden-independent elimination takes46 local assignment visits; the connected witness takes504 or28 with peak tables128 or4, depending on order. A zero-factor overflow defect is repaired. Ten projection and16 finite-path tests pass in both bounded builds. T076 next qualifies representation/lifecycle costs; no timing or architecture ranking follows. Package one after the descriptor breadth review; goal active.
 
 ## Earlier experimental checkpoints

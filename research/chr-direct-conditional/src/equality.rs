@@ -29,7 +29,19 @@ pub struct Change {
     pub variable: usize,
     pub support: Support,
 }
+#[cfg(feature = "equality-probe")]
+#[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
+pub struct EqualityProbe {
+    pub walker_ticks: u64,
+    pub support_ticks: u64,
+    pub binding_probes: u64,
+    pub empty: u64,
+    pub full: u64,
+    pub partial: u64,
+}
 pub struct Store {
+    #[cfg(feature = "equality-probe")]
+    probe: std::cell::Cell<EqualityProbe>,
     identity: u64,
     nodes: Vec<Node>,
     constructors: BTreeMap<(String, Vec<Term>), Term>,
@@ -46,6 +58,8 @@ impl Default for Store {
 impl Store {
     pub fn new() -> Self {
         Self {
+            #[cfg(feature = "equality-probe")]
+            probe: std::cell::Cell::new(EqualityProbe::default()),
             identity: NEXT_STORE
                 .fetch_update(Ordering::Relaxed, Ordering::Relaxed, |n| n.checked_add(1))
                 .expect("equality store identity capacity exhausted"),
@@ -56,6 +70,16 @@ impl Store {
             changes: vec![],
             version: 0,
         }
+    }
+    #[cfg(feature = "equality-probe")]
+    pub fn probe(&self) -> EqualityProbe {
+        self.probe.get()
+    }
+    #[cfg(feature = "equality-probe")]
+    fn count(&self, f: impl FnOnce(&mut EqualityProbe)) {
+        let mut p = self.probe.get();
+        f(&mut p);
+        self.probe.set(p);
     }
     pub fn variable_count(&self) -> usize {
         self.bindings.len()
@@ -239,7 +263,11 @@ impl Walker {
         allowed: Support,
         exclude: bool,
     ) -> WalkEvent {
+        #[cfg(feature = "equality-probe")]
+        store.count(|p| p.walker_ticks += 1);
         if let Some(mut wait) = self.wait.take() {
+            #[cfg(feature = "equality-probe")]
+            store.count(|p| p.support_ticks += 1);
             let result = match wait.job.tick(arena) {
                 Status::Pending => {
                     self.wait = Some(wait);
@@ -265,6 +293,33 @@ impl Walker {
                     }
                 }
                 WalkAction::Overlap { resolve, binding } => {
+                    #[cfg(feature = "equality-probe")]
+                    store.count(|p| {
+                        if result == Support::FALSE {
+                            p.empty += 1;
+                        } else if result == resolve.pair.region {
+                            p.full += 1;
+                        } else {
+                            p.partial += 1;
+                        }
+                    });
+                    #[cfg(feature = "equality-overlap-shortcut")]
+                    if result == Support::FALSE {
+                        let mut remainder = resolve;
+                        remainder.index += 1;
+                        self.tasks.push(WalkTask::Resolve(remainder));
+                        return WalkEvent::Pending;
+                    }
+                    #[cfg(feature = "equality-overlap-shortcut")]
+                    if result == resolve.pair.region {
+                        let mut pair = resolve.pair;
+                        match resolve.side {
+                            Side::Left => pair.left = binding.term,
+                            Side::Right => pair.right = binding.term,
+                        }
+                        self.tasks.push(WalkTask::Pair(pair));
+                        return WalkEvent::Pending;
+                    }
                     self.wait = Some(WalkWait {
                         job: arena.job(Operation::Difference(resolve.pair.region, binding.support)),
                         action: WalkAction::Split {
@@ -320,6 +375,8 @@ impl Walker {
                 if let TermView::Variable(v) = store.inspect(term) {
                     self.touch(v);
                     if let Some(binding) = store.bindings(v).get(resolve.index).copied() {
+                        #[cfg(feature = "equality-probe")]
+                        store.count(|p| p.binding_probes += 1);
                         self.wait = Some(WalkWait {
                             job: arena.job(Operation::And(resolve.pair.region, binding.support)),
                             action: WalkAction::Overlap { resolve, binding },

@@ -479,7 +479,9 @@ impl Engine {
     #[cfg(feature = "alloc-meter")]
     pub fn allocation_stage(&self) -> usize {
         if !self.observations.is_empty()
-            && (!self.observation_turn || matches!(self.phase, Phase::Done))
+            && (!self.observation_turn
+                || matches!(self.phase, Phase::Done)
+                || (cfg!(feature = "observation-backpressure") && self.observations.len() >= 2))
         {
             0 // observation
         } else if matches!(self.phase, Phase::Done) {
@@ -496,13 +498,19 @@ impl Engine {
             5 // scheduler
         }
     }
+    #[cfg(feature = "equality-probe")]
+    pub fn observation_backlog(&self) -> usize {
+        self.observations.len()
+    }
     pub fn tick(&mut self) -> Event {
         if METRICS {
             self.stats.ticks += 1;
         }
         self.observation_turn = !self.observation_turn;
         if !self.observations.is_empty()
-            && (self.observation_turn || matches!(self.phase, Phase::Done))
+            && (self.observation_turn
+                || matches!(self.phase, Phase::Done)
+                || (cfg!(feature = "observation-backpressure") && self.observations.len() >= 2))
         {
             let mut observation = self.observations.pop_front().unwrap();
             let event = observation.tick(

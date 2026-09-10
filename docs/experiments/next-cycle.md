@@ -14,11 +14,11 @@ The [inert ownership comparison](results/S05-inert-ownership.md) qualifies finit
 
 ## Start here: the next experiments
 
-**Finish the bounded conditional attribution already in progress, then start the missing structural-theory comparisons.** The worktree contains experimental overlap and producer-lead changes; their validation and interpretation must be finished before they support a conclusion. This plan does not count those changes as successful experiments.
+**Start the names-theory entry under T076.** The [conditional comparison](results/S08-equality-overlap.md) now records its shortcut, adverse backlog result and bounded remedy. Its [four-package breadth review](results/S08-equality-overlap-breadth-review.md) selects the structural-theory comparisons; conditional retention and total costs remain required.
 
 The next structural package specifies and independently checks **names**: which identities may be renamed, which must remain distinct, and what happens when a result enters a fresh caller. Follow with separate **disequality** and **normal/neutral** studies. Each starts with a small denotation and a favorable/adverse source pair, using direct enumeration wherever the meanings coincide. These are proposed experimental language contracts, not adopted language features. Their detailed entry conditions appear [below](#richer-structural-theories-separate-four-meanings).
 
-**Why investigate these next?** The finite projection results cannot answer them, and they could change the language's equality, solver and observation responsibilities. The strongest ready alternative is more conditional lifetime qualification: it could establish whether the continuing implementation is viable, but it would still leave these different meanings untested. Complete the current causal comparison so that its findings are usable, then investigate the theory distinctions before another cycle of conditional tuning. A newly discovered correctness defect that invalidates an existing control takes precedence; record the concrete dependency and return here after repair.
+**Why investigate these next?** The finite projection results cannot answer them, and they could change the language's equality, solver and observation responsibilities. The strongest ready alternative is more conditional lifetime qualification: it could establish whether the continuing implementation is viable, but it would still leave these different meanings untested. The current causal comparison is recorded; investigate the theory distinctions before another cycle of conditional tuning. A newly discovered correctness defect that invalidates an existing control takes precedence; record the concrete dependency and return here after repair.
 
 ## Execution order after the current causal comparison
 
@@ -94,7 +94,7 @@ The numbers below identify detailed specifications, not the execution order. Sev
 
 ## The next concrete experiments
 
-**T074 remains the sole active task while its current causal comparison is validated and recorded.** Then follow the structural-theory entry and execution order above. T075's finite owner matrix leaves runtime, extraction/key attribution and broader dependencies unresolved; these remain in the reuse comparison.
+**T076 is the sole active task for the names-theory entry.** Follow the structural-theory entry and execution order above. T074 remains required for continuing lifetime and publication qualification. T075's finite owner matrix leaves runtime, extraction/key attribution and broader dependencies unresolved; these remain in the reuse comparison.
 
 T077 still requires timing attribution, policy challenges, delayed splitting and checkpoints/replay. T076 still requires incremental projection, broader connected shapes and source/theory correspondence. T074 still requires conditional equality/lifetime repair and sustained ownership. T080 still requires native local claims, dynamic choices, failed branches and descriptor lifetime. Broader resource derivation, integrated execution, language restrictions and complete architectures retain their comparisons below.
 

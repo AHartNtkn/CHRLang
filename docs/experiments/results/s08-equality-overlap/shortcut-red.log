@@ -1,0 +1,19 @@
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.00s
+     Running tests/overlap_shortcut.rs (target/debug/deps/overlap_shortcut-8a0ad63051c72bcc)
+
+running 1 test
+
+thread 'disjoint_bindings_preserve_both_contexts_without_redundant_remainder_work' (170) panicked at research/chr-direct-conditional/tests/overlap_shortcut.rs:15:2:
+must avoid some of the recorded baseline remainder work
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test disjoint_bindings_preserve_both_contexts_without_redundant_remainder_work ... FAILED
+
+failures:
+
+failures:
+    disjoint_bindings_preserve_both_contexts_without_redundant_remainder_work
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p chr-direct-conditional --test overlap_shortcut`
