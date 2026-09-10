@@ -54,7 +54,7 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-Current selection: T078 full lifecycle runner using the [qualified owned-answer endpoint](results/S10-answer-wire.md). Measure per-answer publication, source/dictionary construction and retention, native host frontend costs, query execution and complete disposal with verified counter/allocator settings. Include admitted source-derived controls. Reassess breadth at full runner qualification or a consequential obstruction; broader ownership, language and source-analysis questions remain required.
+The [current execution order](next-cycle.md#the-order-and-why) owns scheduling. T078 remains active for lifecycle qualification; its next boundary compares one bounded mixed-source pilot with broader source elimination. This ledger specifies required mechanisms and evidence rather than a competing schedule.
 
 ### Depth, breadth and stopping within this sequence
 

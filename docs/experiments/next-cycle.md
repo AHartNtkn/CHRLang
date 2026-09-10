@@ -1,155 +1,176 @@
-# Next experimental cycle: answer the remaining design questions
+# Experimental sequence for the unanswered architecture questions
 
-The [common owned-answer gate](results/S10-answer-wire.md) validates 958 native queries and 2,286 admitted Rust checks against a shared binary format. Consumer bytes survive producer disposal; dictionaries remain explicit owners. Checked finite solving remains available on early-readiness sources. T078 next integrates this endpoint into full lifecycle measurement; no comparative cost matrix has run.
+Test each distinct unresolved mechanism, measure the complete cost of credible implementations, and challenge the resulting architecture choices. The existing baselines remain controls. Completing a pilot or this sequence does not complete the research goal.
 
-The [native choice/identity composition gate](results/S03-native-choice-identity.md) validates 48 mixed sources, all 77 deterministic regressions and explicit failure/namespace boundaries. Finite siblings progress beside ongoing work. The common-source gate above now supplies the next comparison entry; local native ownership, broader language and lifetime remain required.
+This is the current execution order. The [governing sequence](sequence.md) defines the standards, the [57-question map](question-to-experiment-map.md) assigns every reviewed question, and the [mechanism ledger](remaining-investigations.md#distinctions-that-must-not-disappear-inside-a-stage) preserves distinctions within those questions. Those detailed obligations remain required even when grouped below.
 
-The [native identity-bearing source gate](results/S03-native-identity-source.md) passes 77 complete sources against independent expectations and the unchanged reference. Serial matching, replacement, equality and ordered histories now execute together. The composition gate above now tests interaction with choices and failure; local ownership and broader architecture comparisons remain required.
+## Where the evidence leaves us
 
-The [native identity operation gate](results/S03-native-identity-kernel.md) validates 340 cases separating equality, occurrence IDs and ordered history, including nonbinding probes. These are executable prerequisites, not native source correspondence. The complete source gate above now exercises those operations together; broader architectures remain unresolved.
+The [design review](results/R07-design-disposition-review.md) distinguishes measured limits, incorrect transformations and directions without a direct trial. Preserve those distinctions: a counterexample rejects its stated transformation; an implementation loss bounds that implementation; an untested alternative still needs investigation.
 
-The [controlled size/reuse extension](results/S02-multihead-scale.md) completes 8,820 additional runs. Graph scan has 52 practical timing gains against Scan, eight unresolved comparisons and no losses. Retained joins lose against graph scan in all smaller-width cases. Memory, broader language support and complete architecture comparisons remain required.
+Several useful comparisons now exist. [Integrated graph scanning](results/S02-multihead-scale.md) has favorable measured regimes. [Finite solving](results/S06-finite-lifecycle.md) has selective benefits and unselective costs. [Support ordering](results/S08-order-lifecycle.md) has opposing regimes. These findings supply stronger controls, not a complete architecture ranking.
 
-The [finite-solver lifecycle pilot](results/S06-finite-lifecycle.md) completes 1,428 processes across 204 configurations. A [paired allocation correction](results/S06-empty-complement-attribution.md) completes another 252 processes. Selective four-query allocation falls to 0.795 MB, below both conditional orders; the unselective batch still requests 15.77 MB versus specialization’s 9.24 MB. These are bounded results, with compilation and broader solver questions still open.
+T078 is active. The [common answer gate](results/S10-answer-wire.md) qualifies a shared observable endpoint, but full Rust/native lifecycle accounting remains under construction. Current uncommitted runner work is a candidate for validation, not accepted comparative evidence. Native host preparation and dictionaries, allocation scope, clock overhead and compilation remain material accounting questions.
 
-Current selection: T078 full lifecycle runner using the [qualified owned-answer endpoint](results/S10-answer-wire.md). Measure per-answer publication, source/dictionary construction and retention, native host frontend costs, query execution and complete disposal with verified counter/allocator settings. Include admitted source-derived controls. Reassess breadth at full runner qualification or a consequential obstruction; broader ownership, language and source-analysis questions remain required.
+## The order, and why
 
-Test the mechanisms that remain unanswered, then compare the complete architectures they enable. Reuse the existing baselines and valid results. The research goal remains active.
+Finish the bounded comparison that the current qualification work enables, then investigate distinct alternatives that could overturn it. Language and lifetime tests accompany every candidate; they are not postponed until the last stage.
 
-The numbered cycle was established from worktree `39a014ff7`; the current selection above incorporates subsequent evidence. It makes the next cycle concrete without treating earlier bounded findings as answers to broader designs. The [57-question map](question-to-experiment-map.md) retains every individual obligation; the [mechanism specifications](remaining-investigations.md#distinctions-that-must-not-disappear-inside-a-stage) distinguish variants within those questions. The [governing sequence](sequence.md) supplies the experimental standards.
+| Order | Investigation | Architectural decision it could change |
+|---|---|---|
+| 1 | Complete lifecycle accounting and one mixed-source pilot | Whether current complete paths retain their apparent advantages once preparation, observation and disposal count |
+| 2 | Source analysis, resource derivations and independent native compilation | Whether substantial runtime machinery can disappear rather than merely run faster |
+| 3 | Integrated equality, matching and consuming execution | Whether one organization can replace several services and their repair work |
+| 4 | Demand-driven choices, fresh derivations and native local ownership | Whether sharing execution or distributing effects changes the viable architecture |
+| 5 | Call-level reuse and reusable failures | Whether cheap recognition and reuse can substitute for shared execution |
+| 6 | Restoration, adaptive splitting and repeated reunion | Whether economical explicit search can compete without retaining a shared graph |
+| 7 | Retained joins and source-derived discovery plans | When maintaining knowledge beats rediscovering it, including the cost of code generation |
+| 8 | Compact structural solving and richer theories | Whether solving compact descriptions avoids enumeration, and under which language contract |
+| 9 | Sustained lifetime, exact observation and publication | Whether candidate gains survive long execution and realistic consumers |
+| 10 | Reused workers and connected parallel work | Whether useful work surviving serial optimization repays coordination and ownership |
+| 11 | Complete architectures and necessary complexity | Whether mechanisms work well together, and whether a simpler organization is preferable |
+| 12 | Held-out challenges and every-question audit | Whether the recommendations withstand plausible contrary evidence |
 
-## What each investigation must deliver
+**This is a default order with explicit dependencies, not a claim that later questions matter less.** At each package boundary compare the next proposal with the strongest ready distinct alternative. Record the decision each could change, missing prerequisites, likely effort, a plausible contrary result, and the next review point for the investigation placed later. Review breadth after four packages, including correctness and attribution packages. Reordering changes the schedule, never the evidence obligation.
 
-Each numbered investigation below has three outputs: an independently checked mechanism, a complete-cost comparison, and a decision explaining what the evidence changes. A source gate alone does not complete a cost investigation. Several mechanisms in one row require separate conclusions unless an operational equivalence is established.
+## 1. Finish the current whole-path comparison
 
-Use a favorable source where the distinctive mechanism actually works, an overhead control, and a source that challenges its assumptions. Vary the cause of the proposed benefit independently of program size. Include changed queries, early cancellation and disposal from the first lifecycle comparison; extend retention and language studies as the candidate becomes capable.
+**Hypothesis:** advantages seen inside an engine may survive, disappear or reverse when the same source and complete answer are charged across their lifecycle. This tests S10 and review entries 41–47 and 55; it does not settle all graph or compilation designs.
 
-A loss requires attribution before architectural rejection. A gain requires an adverse challenge. Uncertain timing requires more evidence when the uncertainty could change the decision. An implementation defect, resource cutoff or unimplemented variant remains an unanswered question, with its next experiment recorded.
+Qualify the current Rust/native runner with existing scanned/indexed, contextual, conditional and admitted lowering/solving controls. Reuse prepared rules across changing queries. Charge source loading and decoding, host emission, dictionaries, preparation, query setup, execution, first and full observation, cancellation, consumer retention and disposal. Where phases cannot be isolated credibly, report their joint cost. Compilation remains a separate experiment until it is actually measured.
 
-## First: finish the current discriminating comparison
+Use mixed sources with equality-enabled matching, consumed and kept occurrences, choices, failing siblings and irrelevant work. Include tiny/no-choice overhead, substantive work before and after choice discrimination, early and late readiness, and a finite answer beside ongoing work. Unsupported programs remain visible capability exclusions; the shared admitted subset must not become the definition of the language.
 
-### 1. Charge the full cost of compact choice conditions — S03-C / S08, T074
+**Why first:** qualified source and answer gates make this a near-term comparison of coherent paths. The strongest alternative is investigation 2, which could eliminate work those paths still perform. At full runner qualification, explicitly choose between one registered mixed-source pilot and investigation 2. More runner refinement is justified only by an accounting or correctness defect that could invalidate the comparison. After that pilot and necessary consequential diagnosis, return to the distinct-mechanism schedule.
 
-The bounded [order lifecycle comparison](results/S08-order-lifecycle.md) and [stronger-control comparison](results/S10-arrival-lifecycle.md) now supply evidence for this cycle. Broader support and lifetime questions remain required.
+**Deliverable:** a bounded cost and capability comparison, with an owner-by-owner accounting and no complete-lifecycle superiority claim where compilation or host costs remain missing.
 
-**Question:** Does changing the representation of choice conditions reduce total cost, or merely move work into answer enumeration?
+## 2. Test how much execution can disappear
 
-Compare ascending order with its direct chronological observer, ascending order with the general observer, and reverse order with the general observer. Keep Scan and resumable contextual execution as complete-path controls. Separate the effects of direct Boolean identities and completed-result caching where they could change the conclusion.
+**Hypothesis:** direct resource derivations, contextual lowering or native generation can avoid enough execution to justify their analysis, checking and compilation. S06-A/B and S07 own review entries 6, 28–34, 51, 53 and 54.
 
-Use the existing alias/distinct streams plus complete sources that combine the same independently born choices in opposite arrival orders. Include tiny work, substantive work without repeated Boolean requests, failure, changing queries and consumers retaining zero, a bounded window or all answers. A conjunction kernel supplies a mechanism witness; its retained node count does not establish full-source efficiency or reclaimability.
+Run separate comparisons for effectful/contextual recursion, direct consuming-resource derivations, compatible-query solver learning, and independently generated native user programs. Use existing prepared specialization and finite solving as controls. A trace solver does not represent direct derivations; a prepared interpreter does not measure native compilation.
 
-The [order gate](results/S08-support-order-gate.md) reports fewer nodes but more service calls against the direct observer. That makes lifecycle measurement decision-relevant. The [lifecycle pilot](results/S08-support-lifecycle.md) already supplies competent adverse controls. Register the new source matrix before timing; validate the in-progress opposite-arrival source independently before admitting it.
+Give each mechanism a favorable source with real work eliminated, then challenge it with unknown tails, competing observers/consumers, changed assumptions, sparse constraints, short queries and large required answer sets. Vary useful eliminated work independently of query reuse. For learning, check retained facts against invalidating query changes; for compilation, measure generation, compiler execution, artifact size/loading and disposal using a frozen user program and a prepared-data execution of the same plan.
 
-**Decision:** retain a representation for a stated regime, investigate a consequential representation/observer defect, or carry forward a bounded unfavorable result. Then hold the required four-package breadth review. Further support tuning needs an explicit comparison with investigation 2; it cannot become the automatic next task.
+Pair inference, checked declarations and required restrictions wherever they have different consequences. Record accepted programs, eligible programs the checker misses, excluded programs and concrete reformulations. Logical set solving and consuming multisets need separate source contracts and independent observations.
 
-## Next: test distinct ways to change the work
+**Deliverable:** measured preparation/reuse crossovers or justified bounds, plus the exact runtime responsibilities eliminated. Carry each surviving alternative into investigation 11. Failure of one finite fragment cannot close recursion, learning or general resource derivations.
 
-### 2. Make an effect property remove an actual runtime responsibility — S07, T079
+## 3. Compare genuinely integrated execution
 
-**Question:** What does non-overlap or ownership buy beyond the unrestricted serial control?
+**Hypothesis:** shared equality, constructor, matching and resource state can avoid consequential repeated discovery or repair. S02 owns entries 9–11, 16 and 52.
 
-Build a sound admission check covering kept and consumed heads, equality-enabled matches and later linking effects. Give it an executable beneficiary, such as avoiding proven-unnecessary conflict discovery. Compare inference, checked declarations and required admission on independent effects, competing consumers, kept-head interference and delayed linking. Charge checking and examine accepted programs, rejected eligible programs and required reformulations.
+Compare dedicated services with flat relations, contextual overlays, CHR-expressed merging and strategic incidence/port rewrites. First explain their operational differences; implement each consequential distinction unless an equivalence is established. Reuse current graph-scan and retained-join results as controls.
 
-The [obligation gate](results/S07-overlap-obligations.md) and [serial accounting comparison](results/S07-serial-body-allocation.md) prevent crediting a restriction with savings already available without it. If no additional responsibility can soundly disappear, establish the precise reason; that would resolve this proposed benefit, not every ownership or language proposal.
+Use complete consuming sources with broad and narrow merges, nested constructors, shared and mostly distinct terms, selective and low-yield activation, and competing effects. Vary useful interleaving independently of repair fanout. Include output-only facts that later become relevant. Stable entailment guards and state-inspecting guards receive separate semantic studies.
 
-### 3. Compare complete integrated organizations — S02, T072
+**Deliverable:** show which boundary or repeated operation disappears and whether that repays identities, subscriptions, invalidation, observation and lifetime. Attribute a loss before rejecting an organization; investigate credible repair when it could reverse the conclusion.
 
-**Question:** Can equality, constructors, matching and consumption share an organization that eliminates consequential work?
+## 4. Give distinct graph mechanisms their own trials
 
-Carry CHR-expressed merging and strategic local rewrites through the same complete consuming sources as contextual and dedicated-service controls. Test repeated enabling deductions, mostly distinct structures, broad merges, nested patterns and competing effects. Independently vary useful interleaving and repair fanout. Account for identities, subscriptions, completion and observation; identify a boundary actually eliminated.
+**Hypothesis:** demand-driven expansion, fresh derivation reuse or local resource ownership can outperform both explicit search and current conditional execution. S03 and S09-B own entries 12–16, 18–19, 23 and 50.
 
-The existing local mechanism gates qualify starting implementations. They do not supply their missing native lifecycle comparison. Evaluate flat relations, contextual overlays and local incidence/port repair separately wherever their ownership or costs differ. Stable entailment guards and state-inspecting guards require separate semantic claims.
+Separate pull-tabbing, reuse across fresh applications, caching within one application, compressed choice supports and symbolic equivalence before projection. A common representation does not establish operational equivalence. Test dynamic choice births, repeated uses of one choice, independent choices, opaque work followed by constructor demand, incompatible consumption, off-output failure and bounded publication beside continuing work.
 
-### 4. Eliminate source execution beyond the measured fragments — S06-A/B, T073
+Use substantive shared work and delayed contexts as opportunities; use immediate discrimination, little reuse, conflicting effects and large exact outputs as challenges. Charge context validity, fresh-result transport, support construction, discovery and reclamation. Compare eager partitions and demand-driven discovery with restored explicit execution and applicable source elimination.
 
-**Question:** How much matching, search and interpretation can source analysis replace?
+The qualified native serial owner is a control for an actual local claim/commit design. Test disjoint claims, contention, hot identities and cancellation during claims before scaling. Broaden constructor support and identity lifetimes separately from the qualified atom/unknown fragment. A failure of one backend mapping is scoped to its premises; assess the strongest feasible alternative mapping when consequential.
 
-Conduct separate trials of effectful/contextual recursion and direct resource-aware derivations. Compare ordinary execution, prepared source-derived execution and native generation where applicable. Include unknown tails, aliases, competing consumers, propagation, short cold queries and changing query signatures. Test reusable artifacts against regeneration, charging source analysis, program compilation, artifact storage and disposal.
+**Deliverable:** one conclusion per distinct mechanism, including source capability and complete costs. Native feasibility evidence alone cannot decide whether graph execution is economical.
 
-Add a separate compatible-query learning comparison: direct derivations, native finite solving and a credible learning solver on related constraints, changed assumptions and sparse one-shot work. A trace-encoding result cannot decide this mechanism. Preserve consuming multiplicity and residuals; any logical/set interpretation receives its own language comparison.
+## 5. Reuse calls and failures beyond exact state identity
 
-### 5. Test native graph feasibility before scheduling its cost study — S03-B / S09-B
+**Hypothesis:** stable keys and sound dependency projection can recognize useful repeated work more cheaply than recomputation or shared execution. S05 owns entries 26 and 35–40.
 
-**Question:** Can a direct native graph organization execute the required CHR effects and progress contract?
+Compare stable-identity success/clash caching, checked learned failures, call-level reuse and exact/renamed/relevance-projected whole-state tables. Reuse the existing compact-key evidence; extend where caller effects or dependencies were not represented.
 
-Construct a source-to-runtime correspondence with dynamic named choices, repeated uses, incompatible consumption, off-output failure and a finite answer beside continuing recursion. Demonstrate actual interruptible service and cancellation. Compare a serial effect owner with local claim/commit ownership at the semantic level, including cancellation during contested claims.
+Use distinct callers with equivalent future work, repeated substantive failures and genuine reconvergence. Challenge with near-identical resources that have different futures, late bindings, unique/trivial requests and invalid assumptions. Vary useful work, reuse distance and cache capacity independently; compare bounded eviction, regeneration and indefinite retention. Preserve raw multiplicity and fresh returned identities outside key recognition.
 
-This early gate informs the implementation cost of investigation 11. A failure belongs to the tested mapping or substrate unless a broader argument is established. A graph-encoded equality service, term-only evaluator or wrapper around a blocking computation cannot represent the proposed complete architecture.
+**Deliverable:** a crossover including recognition, validation, transport, retained explanations and disposal. A whole-state table loss does not answer call-level reuse; successful lookup alone does not establish total savings.
 
-### 6. Broaden restoration and split timing — S04, T077
+## 6. Broaden explicit search organization
 
-**Question:** Can preserving less state or recomputing it economically replace shared execution?
+**Hypothesis:** restoration, selective recomputation or temporary decomposition can obtain shared-work benefits at lower total cost. S04 owns entries 17, 20–25.
 
-Compare competent copying, persistence/COW, undo, root replay and checkpoint intervals across sparse/dense mutation, narrow/wide frontiers and early/late failure. Carry forward the existing restoration results rather than repeat their settled cells. Charge branch switching, pending work, propagation history and retained answers.
+Carry forward competent copying, persistence/COW, undo, replay and checkpoint controls. Extend the unresolved regimes: sparse versus broad mutation, wide frontiers, expensive replay prefixes, branch switching and long-lived retained answers. Validate bindings, occurrence identities, consumed facts, propagation history and pending work after restoration.
 
-Separately compare fixed and observable-work splitting policies, and repeated temporary separation/reunion against permanent factoring. Use same-predicate independent occurrences, delayed aliases and shared consumables; include immediate failure, frequent reconnection and ongoing common work. Vary useful independent work separately from analysis/reunion frequency. Freeze adaptive policies before challenge sources.
+Separately compare fixed quotas with a simple observable-work splitting policy, including immediate child failure and continuing common work. Compare repeated temporary separation/reunion with permanent factoring and ordinary execution. Use same-predicate independent occurrences, delayed linking, shared consumables, frequent reconnection and little independent work. Measure independence-check precision and reused fact preparation.
 
-### 7. Solve richer compact structural problems — S06-C/D, T076
+**Deliverable:** time/memory regimes for each restoration mechanism, splitting policy and reunion strategy. Freeze adaptive policies before challenge cases; charge speculation, starvation prevention, analysis and output products.
 
-**Question:** Which compact descriptions avoid useful enumeration after construction and observation count?
+## 7. Change how matches are discovered and maintained
 
-Extend the finite structural controls to correlated sources and sustained related queries. Compare lazy construction, reduction, enumeration and the strongest applicable source-derived solver under selective and unselective constraints. Distinguish work needed to produce every answer from avoidable search.
+**Hypothesis:** intermediate joins or source-derived plans can remove work beyond current indexing, but only when maintenance earns its cost. S01 owns entries 1–8.
 
-Investigate existential projection, names, disequality and normal/neutral distinctions separately. Each needs a stated denotation, an independent small oracle, a source where it avoids work, and an adverse case with weak constraints or changed context. Record changed language meaning explicitly; finite path-equality results do not settle these theories.
+Compare partial joins and subscriptions with full retention and competent recomputation on weakly keyed many-to-many updates. Cross selectivity with update density and invalidation breadth; vary arrival order, aliases, fanout and consumption. Cheap keyed requests and small stores are overhead controls.
 
-### 8. Discover matches without paying unnecessary maintenance — S01
+Separately test constructor discrimination, partner ordering, selective indexes and wake policies, including newly enabled rejection competing with queued choices. Execute the same access plan as prepared data and generated code to separate plan quality from dispatch cost. Investigation 2 supplies compilation accounting. Charge immutable metadata, analysis, retained matches, repair and code growth.
 
-**Question:** When should an engine retain intermediate matches, and when should it rediscover them?
+**Deliverable:** identify when each policy pays and whether source information can select it reliably. Do not repeat settled corrections unless they affect a new contrast; do not treat those corrections as evidence against untested discovery organizations.
 
-Compare partial joins and dependency subscriptions with full retention and competent indexed/scanned rediscovery. Cross selectivity with update density; vary arrival order, alias breadth, fanout and consumption. Include weakly keyed many-to-many sources and cheap keyed requests.
+## 8. Test compact structural descriptions and changed theories
 
-Separately compare constructor discrimination, partner order and selective wake/index plans. Execute the same plan as prepared data and generated code to isolate code generation. Charge analysis, invalidation, native compilation and code size; sweep query reuse. Preserve rule competition and nonbinding matching. Existing full-pair or native-chain results remain bounded controls.
+**Hypothesis:** lazy structural solving or projection can avoid enumeration beyond the measured finite relations. S06-C/D owns entries 26–27 and 34.
 
-### 9. Reuse results across genuinely different futures — S05, T075
+Compare lazy construction, state reduction, intersection and enumeration on selective, redundant and unselective constraints, correlated paths and changed queries. Charge constructing the space and producing complete outputs. Distinguish bounded syntax from bounded evaluation.
 
-**Question:** Can recognition, validity and transport cost less than recomputation with sustainable memory?
+Give existential projection, names, disequality and normal/neutral distinctions separate denotations, independent small oracles and source witnesses. Pair any changed meaning with S07 language analysis; arbitrary solver equality cannot replace nonbinding source matching.
 
-Separate stable-identity success/failure caching from call-level and whole-state continuation reuse. Compare identity, renaming and sound relevance keys on true reconvergence, distinct callers and near misses in resources, aliases, histories and future bindings. Include failure explanations invalidated by changed assumptions.
+**Deliverable:** identify work avoided, required theory machinery, unfavorable regimes and expressiveness changes for each proposal. A finite path-equality result cannot discharge the richer theories.
 
-Vary useful work, reuse distance and cache capacity independently. Compare bounded eviction with regeneration and retain consumers across queries. Validate fresh result identities and raw multiplicity outside recognition. The complete-call pilot supplies controls; it cannot decide broader effects or dependencies absent from its entry contract.
+## 9. Complete the lifetime and observation studies
 
-### 10. Complete direct choice and derivation alternatives — S03-A/C
+**Hypothesis:** retention and publication obligations can reverse short-query advantages; some history can be reclaimed or regenerated economically. S08 and S07-B own entries 19, 23, 36, 40–47 and 52–54.
 
-**Question:** Does sharing execution across contexts repay correlation, validity and lifetime costs?
+Start these checks in every earlier candidate's first lifecycle trial. Then run sustained streams and related queries with immediate consumer release, bounded windows and retained-all answers. Separate engine history, preparation/artifacts and consumer outputs. Compare reclamation, bounded caches and regeneration; establish which roots are dispensable before claiming avoidable retention.
 
-Test broader pull-tabbing and fresh derivation reuse separately from same-application result caching. Include nested demand, dynamic births, opaque work followed by discrimination, incompatible effects and finite siblings. Compare eager partitions, compressed supports and symbolic equivalence before projection against restored explicit search and source lowering.
+Compare eager/tree and graph answers, mapping-sensitive exact indexing and symmetry refinement on large shared outputs, small distinct outputs and locally similar but globally different residuals. Compare bounded publication/backpressure, strict priority and ordinary scheduling under duplicate-heavy work, slow consumers and ongoing siblings. Measure first/full answers, continuing source progress, memory trajectories and cancellation.
 
-Investigation 1 informs one support representation. It does not discharge demand organization or derivation reuse. Require a complete source witness for each surviving mechanism and charge exact extraction, retained applications and regeneration at long reuse distances.
+**Deliverable:** sustainable regimes and limits for each viable organization. A different projection, guard or publication contract is an explicit language option with paired consequences, not a cheaper measurement of the original contract.
 
-### 11. Measure reusable and connected parallel execution — S09
+## 10. Separate useful parallelism from coordination overhead
 
-**Question:** Does useful work surviving serial optimization repay coordination and ownership costs?
+**Hypothesis:** reused workers or local connected work can earn their ownership and coordination costs after strong serial optimization. S09 owns entries 16, 22 and 48–50.
 
-After investigation 5 qualifies the relevant path, compare serial, one worker and multiple reused workers. Include cold startup, changed queries, shared immutable input, balanced/skewed work, output pressure and shutdown. Use available hardware and report its limit.
+Compare serial, one-worker and multiple-worker execution, cold and reused, using compatible representations. Include changed queries, shared immutable input, balanced/skewed work, tiny and substantive tasks, output pressure and shutdown. Sweep useful granularity on available hardware; include the strongest applicable serial lowering on both sides.
 
-Treat independent regions and connected work as separate comparisons. For connected work, compare central and distributed resource claims with disjoint and contested effects, hot identities and cancellation during claims. Charge abandoned work and reclamation. A one-worker control separates organization overhead from scaling; stronger serial lowering belongs in both sides where applicable.
+Independent regions and connected work remain separate trials. Connected scaling follows the claim/commit gate in investigation 4 and includes contested consumption, hot identities, abandoned work and cancellation. If forcing one transport protocol would erase an architecture's proposed benefit, compare complete organizations instead.
 
-## Alongside those trials: language, lifetime and complete architectures
+**Deliverable:** measured granularity/scaling crossovers or bounds, with startup, transfer, coordination and reclamation charged. An unavailable hardware resource blocks only the comparison requiring it.
 
-### 12. Complete exact observation and sustained-lifetime studies — S07 / S08
+## 11. Compare complete architectures and explain complexity
 
-For every viable candidate, separate consumer-owned answers, reusable artifacts and engine history. Compare immediate release, bounded retention and retained-all consumers; reclamation versus regeneration; long reuse distances; cancellation and disposal. Prove which roots are no longer needed before attributing history to avoidable retention.
+**Hypothesis:** component gains may conflict when combined; a simpler coherent design may beat a portfolio. S10 owns entry 55 and the interactions carried forward from all other stages.
 
-Test mapping-sensitive exact comparison and symmetry refinement on shared outputs, distinct outputs and locally similar but globally unequal residuals. Separately compare bounded publication quotas/backpressure with ordinary scheduling and strict priority on duplicate-heavy and ongoing sources. Measure finite-answer progress as well as throughput. Partial answers, changed guard behavior and logical resources need explicit paired semantic studies.
+Qualify at least two complete paths, including a serious replacement for the leading organization. Compare any combination with a simpler single organization. Use mixed sources spanning joins/aliases/search, equality/failure/observation, contextual effects and sustained reuse. Exercise both favorable and adverse placement of substantive work, including programs outside optimized fragments.
 
-For consequential modes, ownership, linearity, finite domains, groundness and progress properties, require an executable beneficiary and concrete accepted/excluded programs. Compare inferred, declared and mandatory versions where they differ. Checking success alone does not show that a restriction is worthwhile.
+Charge eligibility, routing, duplicated representations, boundary conversions, compilation, changed queries and all owners. Describe complexity through semantic responsibilities, invariants, invalidation, synchronization and recovery. Identify machinery actually absent; code size or unfamiliarity is not a complexity score.
 
-### 13. Compare coherent complete architectures as soon as two qualify — S10, T078
+**Deliverable:** an evidence-backed tradeoff between coherent architectures. A bounded early S10 pilot informs this comparison but does not replace it.
 
-This starts during the cycle; it need not wait for every component to be perfected. Qualify at least two complete paths on mixed sources combining equality, matching, alternatives, consumption and observation. Include a serious replacement for the leading organization and a simpler competitor to any combination.
+## 12. Challenge the recommendation before closure
 
-Measure interactions, preparation, native compilation where relevant, changing queries, first/full observation and sustained ownership. Account for routing, duplicated representations and boundary conversions. Describe complexity through required invariants and responsibilities, including those eliminated. A collection of component winners is a hypothesis to test, not an integrated result.
+Freeze candidate policies before selecting held-out sources and parameter regions. Cover no-choice computation, incremental updates, broad aliases, early/late failure, low/high reuse, connected/independent work, unknown inputs and output-heavy streams. Supplied applications can contribute witnesses; they do not define the domain or supply workload weights.
 
-### 14. Try to overturn the architectural conclusions — S11
+Attempt the strongest surviving objection to each proposed choice. Audit all 57 review entries and every consequential mechanism within them against the tested proposition, contrary evidence, architectural consequence and remaining challenge. Explain why further feasible work could not materially change a claimed bounded conclusion.
 
-Freeze policies before selecting new source families and parameter regions. Challenge the proposed choices using the strongest surviving adverse regimes, including low reuse, broad mutation, little sharing, large outputs and constrained memory. Supplied applications may provide witnesses; they supply neither a domain restriction nor workload weights.
+**Deliverable:** conditional recommendations where appropriate, explicit unresolved choices where necessary, and a justified disposition for every relevant direction. A label, priority judgment, resource cutoff or completed cycle is not closure evidence. Consequential unanswered investigations keep the research goal active.
 
-Audit all 57 review entries and each distinct mechanism within them. Link the tested claim, contrary evidence, remaining scope and architectural consequence. A bounded tradeoff may be an adequate conclusion without a universal winner. Any feasible unresolved investigation that could materially change the choice remains scheduled; completing this cycle does not itself complete the goal.
+## What every experimental package must record
 
-## Registration and selection rules for this cycle
+Before comparative runs, register exact hypotheses, source/configuration matrix, seeds, controls, oracle, endpoints, repetitions, resource bounds and interpretation. Follow [the measurement rules](sequence.md#registration-bounds-and-interpretation): independent correctness first, explicitly exploratory sizing next, prospective confirmation last. Begin pilots with at least five ordinary-allocator counter-free repetitions and two independent diagnostic repeats; freeze confirmation counts and practical thresholds from sizing. Initial limits are 60 seconds and 1 GiB per process where compatible, plus an explicit service/output bound. Justify any exception before running it.
 
-Exact run sizes follow independent correctness and explicitly exploratory sizing. Before comparative runs, freeze sources, builds, configurations, seeds, endpoints, repetitions, practical thresholds and resource limits under the [measurement rules](sequence.md#registration-bounds-and-interpretation). Use at least five ordinary-allocator counter-free pilot repetitions and two separate deterministic diagnostic repetitions; confirmation needs its own prospective count and analysis. The initial 60-second/1-GiB process bounds require a recorded justification when changed.
+Primary costs include preparation, changing-query setup, execution, observation, cancellation and disposal; compilation claims also include compilation and artifacts. Report requested heap traffic, live heap, peaks and RSS distinctly. Validate complete answers independently outside timed intervals, disclose inseparable phases and harness overhead, and preserve the reference interpreter's independence.
 
-The default order above favors distinct unanswered mechanisms after the current comparison. Review breadth after every four packages, counting correctness and attribution packages. At each boundary compare the next experiment with the strongest ready alternative by the decision it could change, missing prerequisites, likely effort and plausible contrary result. Record any change of order and the next review point for the displaced question. Implementation convenience and a favored architecture cannot supply a negative result.
+| Observed outcome | Required follow-through |
+|---|---|
+| Incorrect behavior | Distinguish a defective implementation from a contradiction in the proposed semantics; repair consequential defects and rerun |
+| Loss without exercising the claimed benefit | Find a real favorable source or establish why the benefit cannot occur under the stated premises |
+| Credible loss with an avoidable cost | Attribute and correct that cost if it could reverse the architectural conclusion |
+| Gain | Challenge overhead, adverse placement, preparation reuse, sustained lifetime and source restrictions |
+| Different favorable regimes | Measure the consequential crossover and whether it can be recognized economically; report the tradeoff without invented weights |
+| Overlap or cutoff | Diagnose variance or unfinished work; obtain more evidence when it could change the decision |
+| A bounded conclusion no longer sensitive to further precision | State the sensitivity argument and move to a distinct question while preserving broader open scope |
 
-The deliverable from each investigation is a short high-level decision report with links to reproducible evidence: what changed, why, which regimes disagree, and what remains open. This document schedules work; it reports no new comparative measurements.
+Each result should open with what the evidence changes in ordinary language. Link the registration, raw evidence, validation and contrary cases underneath. This document establishes a sequence; it claims no new experimental results.
