@@ -1,5 +1,7 @@
 # Why designs were set aside—and what the experiments actually establish
 
+The [controlled size/reuse extension](S02-multihead-scale.md) adds 52 qualified graph-scan gains, eight unresolved comparisons and no losses against Scan. It strengthens a bounded integrated candidate while leaving broader language and memory tradeoffs open. The next investigation qualifies native identities and equality; no architecture is selected.
+
 The [general integrated matching lifecycle](S02-multihead-lifecycle.md) now supplies a positive timing result for local graph scanning against conventional Scan in the controlled width 64/four-query cases. Larger heap traffic does not imply slower execution. Retained joins have narrower benefits and dense-setup losses; broader sizes, language support, ownership alternatives and complete architecture comparison remain required.
 
 The [finite-solver lifecycle pilot](S06-finite-lifecycle.md) completes 1,428 processes across 204 configurations. A [paired allocation correction](S06-empty-complement-attribution.md) completes another 252 processes. Selective four-query allocation falls to 0.795 MB, below both conditional orders; the unselective batch still requests 15.77 MB versus specialization’s 9.24 MB. These are bounded results, with compilation and broader solver questions still open. Complete costs for broader resources, learning and native compilation remain required; no solver family is selected or rejected.

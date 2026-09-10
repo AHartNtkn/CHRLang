@@ -1,6 +1,6 @@
 # The comparisons still needed to choose the architecture
 
-The [general matching lifecycle and core-placement study](results/S02-multihead-lifecycle.md) completes 3,192 comparative processes. Local graph scan passes the multiplicity-corrected practical-gain tests against conventional Scan in all six width 64/four-query families on both controlled CPUs, despite higher heap traffic. Retained joins have conditional benefits and costly dense setup. T072 next resolves smaller-width and single-query placement uncertainty; full architecture and language decisions remain open.
+The [controlled size/reuse extension](results/S02-multihead-scale.md) completes 8,820 additional runs. Graph scan has 52 practical timing gains against Scan, eight unresolved comparisons and no losses. Retained joins lose against graph scan in all smaller-width cases. Native identity correspondence is selected next; memory, broader language support and complete architecture comparisons remain required.
 
 The [finite-solver lifecycle pilot](results/S06-finite-lifecycle.md) completes 1,428 processes across 204 configurations. A [paired allocation correction](results/S06-empty-complement-attribution.md) completes another 252 processes. Selective four-query allocation falls to 0.795 MB, below both conditional orders; the unselective batch still requests 15.77 MB versus specialization’s 9.24 MB. These are bounded results, with compilation and broader solver questions still open.
 
@@ -46,7 +46,7 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-Current selection: T072 controlled-placement confirmation for the remaining general matching sizes and reuse cases, following the [lifecycle study](results/S02-multihead-lifecycle.md). Register the extension before comparative runs and retain the frozen ordinary binary where possible. Native identity, broader solving, reuse, language support and coherent architecture comparisons remain required; the goal is active.
+Current selection: T080 native identity, equality and propagation correspondence, following the [size/reuse comparison and selection review](results/S02-multihead-scale.md). T072 remains unfinished; its broader guard/search support, retention alternatives and eight uncertain comparisons retain their stated scope. Reassess integrated and coherent architecture qualification at the native source-gate boundary.
 
 ### Depth, breadth and stopping within this sequence
 
