@@ -1,6 +1,6 @@
 # The comparisons still needed to choose the architecture
 
-The [current experimental sequence](next-cycle.md) schedules the unanswered comparisons from the authoritative worktree: audit the in-progress equality attribution, measure demand dependency lifecycle costs, then investigate reusable symbolic solving. It assigns distinct mechanisms their own trials and requires full-cost, adverse-case and complete-architecture follow-through. T072 remains active at the attribution boundary; no new performance result or research completion is asserted by this scheduling update.
+The [relevant-deduction allocation attribution](results/S02-relevant-attribution.md) supplies the current checkpoint. Relevant-deduction attribution reproduces 320 complete allocation receipts and passes an independent known-allocation scope check. Key construction requests 941,208 bytes in the changed-context witness; key-only savings could reverse some recomputation/Scan contrasts but cannot beat source elimination in the 32 inspected allocation scenarios. Package two complete; T071 demand lifecycle is next, with T072 repair/timing and T076 reusable symbolic solving still required. No timing or architecture selection; goal active.
 
 The [relevant-key ownership comparison](results/S02-relevant-ownership.md) supplies the current checkpoint. Relevant-key ownership validates1,008 metered and448 ordinary processes with exact allocation repeats, cancellation/reuse and retained answers surviving producer disposal. Ordered relevant reuse lowers peaks versus exact-state caching in38of64 scenarios but requests more bytes than recomputation in all64. The changed depth16/four-query witness requests1,292,590bytes with72,959peak excess versus669,196/38,976 for recomputation. T072 next attributes key/replay execution costs before timing; package one after breadth review; goal active.
 
@@ -18,7 +18,7 @@ The [names entry](results/S06-names-entry.md) supplies the current checkpoint. T
 
 The [conditional overlap comparison](results/S08-equality-overlap.md) and [breadth review](results/S08-equality-overlap-breadth-review.md) establish the current checkpoint. The conditional overlap shortcut reduces forward calls to 128 answers from 3,198,239 to 2,116,705. Reverse order without bounded lead cuts off at 116 answers; bounded lead restores 128 in 3,488,701 calls versus the original 4,606,799. Eighteen diagnostic processes preserve both gains and cutoffs; selected semantic suites pass. Retention, timing and broader fairness remain unresolved. Four-package breadth review selects T076 names-theory denotation and independent witnesses, followed by separate disequality and normal/neutral studies. Goal active.
 
-The [current execution order](next-cycle.md#execution-order-after-the-current-causal-comparison) schedules the missing comparisons beginning with equality attribution review, followed by demand lifecycle and reusable symbolic solving. Each question retains its detailed evidence obligation; this scheduling update reports no new results.
+The [current execution order](next-cycle.md#execution-order-after-the-current-causal-comparison) schedules the missing comparisons beginning with demand lifecycle, followed by reusable symbolic solving and checkpoint/replay. Each question retains its detailed evidence obligation; this scheduling update reports no new results.
 
 The [inert ownership comparison](results/S05-inert-ownership.md) and [full breadth review](results/S05-inert-ownership-breadth-review.md) supply the current evidence. Inert residual ownership qualifies 720 configurations with 1440 final paired allocation runs; all finite owners release. Separated memo requests fewer bytes than compact whole-state tables in 96 scenarios and more in 48, with lower peaks in 84 and higher in 60. Direct requests fewer bytes and has lower peaks throughout. Prior pre-lint runs are preserved, giving 2592 audited processes. Four-package breadth review selects T074 conditional equality/support lifetime attribution; T075 costs and broader dependencies remain required. Goal active.
 
@@ -106,7 +106,7 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-The [current execution order](next-cycle.md#start-here-the-next-experiments) owns scheduling: equality attribution review, demand dependency lifecycle, then reusable symbolic solving. The mechanism specifications below retain their individual evidence requirements and do not establish a separate order.
+The [current execution order](next-cycle.md#start-here-the-next-experiments) owns scheduling: demand dependency lifecycle, reusable symbolic solving, then checkpoint/replay. The mechanism specifications below retain their individual evidence requirements and do not establish a separate order.
 
 ### Depth, breadth and stopping within this sequence
 

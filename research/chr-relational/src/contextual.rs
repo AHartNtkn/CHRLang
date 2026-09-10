@@ -1,5 +1,7 @@
 //! Shared immutable syntax with context-local equality and resource ownership.
 //! A store gate, not a complete source executor. Matching scans live occurrences.
+#[cfg(feature = "deduction-profile")]
+use crate::deduction_profile::{Phase, Scope};
 use crate::{Match, Occurrence, Value};
 use chr_syntax::{Constraint, Term, Var};
 use std::{
@@ -139,6 +141,8 @@ impl Store {
         self.arena.borrow().relevant_hits
     }
     fn relevant_key(&self, a: Value, b: Value) -> RelevantKey {
+        #[cfg(feature = "deduction-profile")]
+        let _scope = Scope::new(Phase::Key);
         let mut todo = vec![a, b];
         let mut reads = BTreeMap::new();
         while let Some(id) = todo.pop() {
@@ -166,6 +170,8 @@ impl Store {
         descriptions: Vec<Descriptor>,
         children: Vec<(Value, Value)>,
     ) {
+        #[cfg(feature = "deduction-profile")]
+        let _scope = Scope::new(Phase::RelevantRecord);
         if let Some(key) = key {
             let mut arena = self.arena.borrow_mut();
             if arena.relevant.len() < 4096 {
@@ -273,6 +279,8 @@ impl Store {
         self.last_step_changed
     }
     pub fn step(&mut self) -> bool {
+        #[cfg(feature = "deduction-profile")]
+        let _scope = Scope::new(Phase::Equality);
         #[cfg(feature = "precise-invalidation")]
         {
             self.last_step_changed = false;
@@ -290,8 +298,14 @@ impl Store {
         }
         let relevant = self.relevant_deductions.then(|| self.relevant_key(a, b));
         if let Some(key) = &relevant {
-            let cached = self.arena.borrow().relevant.get(key).cloned();
+            let cached = {
+                #[cfg(feature = "deduction-profile")]
+                let _scope = Scope::new(Phase::Lookup);
+                self.arena.borrow().relevant.get(key).cloned()
+            };
             if let Some(d) = cached {
+                #[cfg(feature = "deduction-profile")]
+                let _scope = Scope::new(Phase::RelevantReplay);
                 #[cfg(feature = "deduction-work")]
                 {
                     self.arena.borrow_mut().relevant_hits += 1;
@@ -310,8 +324,14 @@ impl Store {
         }
         let key = (self.equality_state, a, b);
         if self.share_deductions {
-            let cached = self.arena.borrow().deductions.get(&key).cloned();
+            let cached = {
+                #[cfg(feature = "deduction-profile")]
+                let _scope = Scope::new(Phase::Lookup);
+                self.arena.borrow().deductions.get(&key).cloned()
+            };
             if let Some(d) = cached {
+                #[cfg(feature = "deduction-profile")]
+                let _scope = Scope::new(Phase::ExactReplay);
                 self.equality_state = d.state;
                 self.parents = d.parents.clone();
                 self.descriptors = d.descriptors.clone();
@@ -350,12 +370,20 @@ impl Store {
         self.parents.insert(b, a);
         let descriptions = &mut self.descriptors;
         descriptions.remove(&b);
-        let merged = relevant.as_ref().map(|_| da.clone()).unwrap_or_default();
+        let merged = {
+            #[cfg(feature = "deduction-profile")]
+            let _scope = Scope::new(Phase::Capture);
+            relevant.as_ref().map(|_| da.clone()).unwrap_or_default()
+        };
         descriptions.insert(a, da);
-        let children = if self.share_deductions || self.relevant_deductions {
-            self.equations.iter().skip(pending).copied().collect()
-        } else {
-            vec![]
+        let children = {
+            #[cfg(feature = "deduction-profile")]
+            let _scope = Scope::new(Phase::Capture);
+            if self.share_deductions || self.relevant_deductions {
+                self.equations.iter().skip(pending).copied().collect()
+            } else {
+                vec![]
+            }
         };
         if self.relevant_deductions {
             self.record_relevant(relevant, merged, children);
@@ -365,6 +393,8 @@ impl Store {
         true
     }
     fn record_deduction(&mut self, key: (usize, Value, Value), children: Vec<(Value, Value)>) {
+        #[cfg(feature = "deduction-profile")]
+        let _scope = Scope::new(Phase::ExactRecord);
         if !self.share_deductions {
             return;
         }

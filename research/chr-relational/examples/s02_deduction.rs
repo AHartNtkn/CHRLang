@@ -1,6 +1,9 @@
 //! Isolated lifecycle runner. Comparative runs require prospective registration.
 #[path = "support/deduction_source.rs"]
 mod deduction_source;
+#[cfg(feature = "deduction-profile")]
+#[path = "support/deduction_profile.rs"]
+mod profile;
 use chr_syntax::{Answer, Query, Rule};
 use deduction_source::{Lowered, Schema, Values};
 use std::time::Instant;
@@ -237,6 +240,8 @@ fn main() {
         Ok("immediate") | Err(_) => false,
         Ok(_) => panic!("unknown retention policy"),
     };
+    #[cfg(feature = "deduction-profile")]
+    profile::enable();
     let schema = Schema::new(family, resource);
     // Exact input fixtures and independent expected answers precede all primary phases.
     let source = schema.rules();
@@ -336,9 +341,13 @@ fn main() {
             "prepared/source allocations remain after disposal"
         );
     }
+    #[cfg(feature = "deduction-profile")]
+    let attribution = profile::json();
+    #[cfg(not(feature = "deduction-profile"))]
+    let attribution = "null";
     let sample_json=samples.into_iter().map(|s|format!("{{\"depth\":{},\"complete\":{},\"answers\":{},\"first_answer_ns\":{},\"input_build\":{},\"setup\":{},\"execute_observe\":{},\"engine_drop\":{},\"answer_drop\":{},\"answer_hold\":{}}}",s.depth,s.complete,s.answers,s.first.map_or("null".into(),|n|n.to_string()),s.input.json(),s.setup.json(),s.execute.json(),s.engine_drop.json(),s.answer_drop.map_or("null".into(), Measurement::json),s.answer_hold.map_or("null".into(), Measurement::json))).collect::<Vec<_>>().join(",");
     println!(
-        "{{\"event\":\"result\",\"mode\":\"{mode}\",\"family\":\"{family}\",\"resource\":{resource},\"meter\":{},\"counters\":false,\"source_build\":{},\"preparation\":{},\"prepared_drop\":{},\"consumer_drop\":{},\"retained\":{retain},\"samples\":[{sample_json}]}}",
+        "{{\"event\":\"result\",\"mode\":\"{mode}\",\"family\":\"{family}\",\"resource\":{resource},\"meter\":{},\"counters\":false,\"source_build\":{},\"preparation\":{},\"prepared_drop\":{},\"consumer_drop\":{},\"retained\":{retain},\"attribution\":{attribution},\"samples\":[{sample_json}]}}",
         cfg!(feature = "alloc-meter"),
         source_build.json(),
         preparation.json(),

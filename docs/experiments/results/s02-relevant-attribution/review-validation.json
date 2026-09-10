@@ -1,0 +1,24 @@
+{
+  "commands": [
+    "cargo test --offline -p chr-relational --no-default-features --test relevant_deductions --example s02_deduction",
+    "cargo test --offline -p chr-relational --no-default-features --features deduction-profile --test relevant_deductions --example s02_deduction",
+    "cargo clippy --offline -p chr-relational --no-default-features --features deduction-profile --example s02_deduction --test relevant_deductions -- -D warnings",
+    "rustc --edition=2024 --cfg 'feature=\"fork-diagnostics\"' docs/experiments/results/s02-relevant-attribution/attribution-self-check.rs --extern chr_relational=target/s02-relevant-attribution-profile/release/deps/libchr_relational-822f21f83e8fbcba.rlib -L dependency=target/s02-relevant-attribution-profile/release/deps -o /tmp/chr-attribution-self-check",
+    "/tmp/chr-attribution-self-check",
+    "python research/chr-relational/experiments/relevant_attribution_audit.py"
+  ],
+  "exit_codes": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "rustc": "rustc 1.97.1 (8bab26f4f 2026-07-14)\nbinary: rustc\ncommit-hash: 8bab26f4f68e0e26f0bb7960be334d5b520ea452\ncommit-date: 2026-07-14\nhost: x86_64-unknown-linux-gnu\nrelease: 1.97.1\nLLVM version: 22.1.6\n",
+  "sha256": {
+    "research/chr-relational/experiments/relevant_attribution_audit.py": "c682e597e95a7a0170feb974beef47b0e0cf77a01d7a5f56d88c214c6e8a65cb",
+    "docs/experiments/results/s02-relevant-attribution/attribution-self-check.rs": "ab78ee15e7b50609eb2fb8459c14e58702eb5c2d962f5913b03c0d608ab56af0",
+    "target/s02-relevant-attribution-profile/release/deps/libchr_relational-822f21f83e8fbcba.rlib": "0bb553ba48ebb043eff37aa7dae18483bbd960bad6491d546ed818d470145362"
+  }
+}

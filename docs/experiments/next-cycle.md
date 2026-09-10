@@ -8,11 +8,9 @@ This sequence separates three deliverables: demonstrating a mechanism, measuring
 
 ## Start here: the next experiments
 
-**First audit and report the in-progress equality attribution; then measure demand dependency costs and test reusable symbolic solving.** T072 remains the sole active task until that handoff. Its current worktree contains a registration, diagnostic implementation and receipts for 320 attribution processes. The audit file reports repeated attribution and unchanged normalized allocations. These receipts need integration and independent review before supplying an accepted conclusion; this sequence does not turn them into timing evidence.
+**Demand dependency lifecycle is now selected under T071.** The [equality attribution](results/S02-relevant-attribution.md) completes package two after the relevant-deduction breadth review. Its independent audit checks 320 complete receipts, unchanged ownership allocations and known nested allocations. Relevant-key construction dominates one adverse case; a key-only repair could change some recomputation/Scan contrasts, but cannot reverse source-elimination allocation in any of the 32 inspected scenarios.
 
-The [relevant-key ownership result](results/S02-relevant-ownership.md) already establishes a consequential question: ordered relevant reuse allocates more than recomputation in all 64 scenarios, while sometimes retaining less than exact-state caching. The attribution asks whether constructing a description of relevant state causes that cost. It can justify a specific repair; it cannot establish that caching, integrated equality or graph execution is generally inferior.
-
-**Limit the next equality work to the attribution decision before choosing further implementation.** A proposed repair must show how much of the observed difference it could remove and what validity obligation it introduces. Compare that opportunity explicitly with the ready demand lifecycle study and the symbolic representation study. Do not spend another sequence of packages improving a key merely because its code and runner are available.
+**Keep relevant-key repair and timing required under T072.** The next repair question is whether recorded relevant reads can be validated without rebuilding their full owned key. Its source-validity and low-reuse costs need a direct trial. Reconsider it at the demand lifecycle result or a concrete obstruction, against reusable symbolic solving. This bounded allocation finding is no general rejection of sharing or integrated execution.
 
 **Demand lifecycle is next because its source mechanism already works and its work savings are substantial but unpriced.** The [miss-reuse experiment](results/S03-miss-reuse.md) reduces the delayed-miss witness from 6,432,964 to 50,697 force entries; successful cases pay lookups without hits. Allocation, total time and retention could reverse the apparent benefit. The next study must answer that question rather than count more force entries.
 
@@ -24,7 +22,7 @@ The order is a default schedule with explicit dependencies, not a requirement to
 
 | Order | Required comparison | Review questions | Decision it can change |
 |---|---|---|---|
-| 1 | Integrated equality: finish attribution, price relevant reuse, distinguish local organizations | 9–11, 16, 52 | Whether shared deductions or eliminated service boundaries repay their ownership and repair costs |
+| 1 | Integrated equality: price relevant reuse, distinguish local organizations; attribution recorded | 9–11, 16, 52 | Whether shared deductions or eliminated service boundaries repay their ownership and repair costs |
 | 2 | Demand execution: full dependency costs and remaining source capability | 12, 16, 18–19, 23 | Whether direct demand execution is a credible complete competitor |
 | 3 | Compact solving: reusable formulas, union, projection and structural intersection | 26–29, 34, 53 | Whether solving compact constraints avoids enough execution to justify its machinery |
 | 4 | Search restoration: checkpoints, replay, undo, adaptive splitting and reunion | 17, 20–25 | Whether economical explicit search can preserve the useful work attributed to shared graphs |
@@ -160,7 +158,7 @@ The order is a default schedule with explicit dependencies, not a requirement to
 
 For each next-package proposal, record the decision it could change, the strongest ready distinct alternative, actual prerequisites, expected implementation/measurement effort, and the next result boundary. Prefer completing a consequential comparison over expanding its matrix when the expansion cannot change the decision. Prefer a distinct mechanism over another refinement when the refinement has no credible path to changing the architecture comparison.
 
-**The default handoffs are equality attribution → demand lifecycle → reusable symbolic solving → checkpoint/replay.** Each study may need multiple bounded packages, but a fourth-package review cannot merely reset the counter. Further depth requires a written comparison with the next distinct experiment. At every such review, account for all rows in the order table and retain a concrete next action for unfinished work. Changing order supplies no evidence against the displaced design.
+**The current handoffs are demand lifecycle → reusable symbolic solving → checkpoint/replay.** Each study may need multiple bounded packages, but a fourth-package review cannot merely reset the counter. Further depth requires a written comparison with the next distinct experiment. At every such review, account for all rows in the order table and retain a concrete next action for unfinished work. Changing order supplies no evidence against the displaced design.
 
 **A thorough trial requires six kinds of evidence.** Show the distinctive mechanism running; establish a competent implementation; measure full costs against strong controls; exercise favorable and adverse regimes; account for source and language boundaries; and challenge the resulting architectural inference. An analytical impossibility or demonstrated equivalence can replace an applicable experiment, provided its premises cover the actual proposal.
 

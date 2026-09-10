@@ -2,6 +2,8 @@
 //! A View belongs to one consistent, canonical equality interpretation.
 pub mod contextual;
 pub mod contextual_execute;
+#[cfg(feature = "deduction-profile")]
+pub mod deduction_profile;
 pub mod execute;
 pub mod store;
 use chr_syntax::{Constraint, Term, Var};

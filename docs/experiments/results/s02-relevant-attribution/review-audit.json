@@ -1,0 +1,81 @@
+{
+  "source_hashes": 544,
+  "binary_hash": true,
+  "raw_processes": 320,
+  "control_cells": 160,
+  "matched_outside_equality_residuals": 32,
+  "known_nested_allocation_check": true,
+  "primary_timing": false,
+  "sensitivity": [
+    {
+      "candidate": "relevant",
+      "control": "contextual",
+      "scenarios": 32,
+      "actual_lower": 0,
+      "zero_key_lower": 16
+    },
+    {
+      "candidate": "relevant",
+      "control": "shared",
+      "scenarios": 32,
+      "actual_lower": 6,
+      "zero_key_lower": 24
+    },
+    {
+      "candidate": "relevant",
+      "control": "persistent-shared",
+      "scenarios": 32,
+      "actual_lower": 0,
+      "zero_key_lower": 20
+    },
+    {
+      "candidate": "relevant",
+      "control": "scan",
+      "scenarios": 32,
+      "actual_lower": 10,
+      "zero_key_lower": 14
+    },
+    {
+      "candidate": "relevant",
+      "control": "lowered",
+      "scenarios": 32,
+      "actual_lower": 0,
+      "zero_key_lower": 0
+    },
+    {
+      "candidate": "persistent-relevant",
+      "control": "contextual",
+      "scenarios": 32,
+      "actual_lower": 2,
+      "zero_key_lower": 6
+    },
+    {
+      "candidate": "persistent-relevant",
+      "control": "shared",
+      "scenarios": 32,
+      "actual_lower": 0,
+      "zero_key_lower": 24
+    },
+    {
+      "candidate": "persistent-relevant",
+      "control": "persistent-shared",
+      "scenarios": 32,
+      "actual_lower": 0,
+      "zero_key_lower": 8
+    },
+    {
+      "candidate": "persistent-relevant",
+      "control": "scan",
+      "scenarios": 32,
+      "actual_lower": 12,
+      "zero_key_lower": 14
+    },
+    {
+      "candidate": "persistent-relevant",
+      "control": "lowered",
+      "scenarios": 32,
+      "actual_lower": 0,
+      "zero_key_lower": 0
+    }
+  ]
+}

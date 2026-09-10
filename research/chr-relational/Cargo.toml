@@ -13,6 +13,8 @@ chr-integrated = { path = "../chr-integrated", default-features = false }
 chr-compiled = { path = "../chr-compiled", default-features = false }
 
 [features]
+deduction-profile = ["alloc-meter", "fork-diagnostics"]
+fork-diagnostics = []
 deduction-work = []
 precise-invalidation = []
 compiled-work = ["chr-compiled/metrics"]
