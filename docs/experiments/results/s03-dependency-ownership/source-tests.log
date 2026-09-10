@@ -1,0 +1,23 @@
+   Compiling chr-direct-choice v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-choice)
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 3.75s
+     Running tests/dependency_work.rs (target/debug/deps/dependency_work-622c74d52f669af8)
+
+running 1 test
+test dependency_validation_work ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 35.72s
+
+     Running tests/resource_dependencies.rs (target/debug/deps/resource_dependencies-3d9d64c04dcacc87)
+
+running 7 tests
+test cancelling_missed_work_does_not_contaminate_reused_preparation ... ok
+test unobserved_constructor_cycle_still_fails ... ok
+test recursive_waits_and_nested_claims_preserve_resources ... ok
+test resource_mediated_alias_and_constructor_cycles_have_finite_tree_meaning ... ok
+test miss_reuse_observes_late_posts_and_selected_alternatives ... ok
+test hidden_cycles_respect_choice_context_and_finite_failure_service ... ok
+test delayed_resource_keys_match_complete_source_answers ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+

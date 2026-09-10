@@ -1,0 +1,179 @@
+{
+  "raw_processes": 2880,
+  "cells": 960,
+  "source_hashes": 546,
+  "exact_repeats": true,
+  "ordinary_endpoints": true,
+  "final_restoration": true,
+  "comparisons": [
+    {
+      "candidate": "current-miss",
+      "control": "current",
+      "requested_bytes": {
+        "lower": 24,
+        "equal": 0,
+        "higher": 36
+      },
+      "peak_excess": {
+        "lower": 12,
+        "equal": 0,
+        "higher": 48
+      }
+    },
+    {
+      "candidate": "current-miss",
+      "control": "scan",
+      "requested_bytes": {
+        "lower": 12,
+        "equal": 0,
+        "higher": 48
+      },
+      "peak_excess": {
+        "lower": 0,
+        "equal": 0,
+        "higher": 60
+      }
+    },
+    {
+      "candidate": "current-miss",
+      "control": "indexed",
+      "requested_bytes": {
+        "lower": 24,
+        "equal": 0,
+        "higher": 36
+      },
+      "peak_excess": {
+        "lower": 52,
+        "equal": 0,
+        "higher": 8
+      }
+    },
+    {
+      "candidate": "birth-miss",
+      "control": "birth",
+      "requested_bytes": {
+        "lower": 24,
+        "equal": 0,
+        "higher": 36
+      },
+      "peak_excess": {
+        "lower": 12,
+        "equal": 0,
+        "higher": 48
+      }
+    },
+    {
+      "candidate": "birth-miss",
+      "control": "scan",
+      "requested_bytes": {
+        "lower": 12,
+        "equal": 0,
+        "higher": 48
+      },
+      "peak_excess": {
+        "lower": 0,
+        "equal": 0,
+        "higher": 60
+      }
+    },
+    {
+      "candidate": "birth-miss",
+      "control": "indexed",
+      "requested_bytes": {
+        "lower": 24,
+        "equal": 0,
+        "higher": 36
+      },
+      "peak_excess": {
+        "lower": 52,
+        "equal": 0,
+        "higher": 8
+      }
+    },
+    {
+      "candidate": "dependencies-miss",
+      "control": "dependencies",
+      "requested_bytes": {
+        "lower": 24,
+        "equal": 0,
+        "higher": 36
+      },
+      "peak_excess": {
+        "lower": 12,
+        "equal": 0,
+        "higher": 48
+      }
+    },
+    {
+      "candidate": "dependencies-miss",
+      "control": "scan",
+      "requested_bytes": {
+        "lower": 12,
+        "equal": 0,
+        "higher": 48
+      },
+      "peak_excess": {
+        "lower": 0,
+        "equal": 0,
+        "higher": 60
+      }
+    },
+    {
+      "candidate": "dependencies-miss",
+      "control": "indexed",
+      "requested_bytes": {
+        "lower": 24,
+        "equal": 0,
+        "higher": 36
+      },
+      "peak_excess": {
+        "lower": 52,
+        "equal": 0,
+        "higher": 8
+      }
+    }
+  ],
+  "delayed_miss_witness": [
+    {
+      "mode": "current",
+      "requested_bytes": 2750621954,
+      "peak_excess": 488023
+    },
+    {
+      "mode": "current-miss",
+      "requested_bytes": 23374650,
+      "peak_excess": 464816
+    },
+    {
+      "mode": "birth",
+      "requested_bytes": 2750622593,
+      "peak_excess": 488023
+    },
+    {
+      "mode": "birth-miss",
+      "requested_bytes": 23375289,
+      "peak_excess": 464816
+    },
+    {
+      "mode": "dependencies",
+      "requested_bytes": 2750622593,
+      "peak_excess": 488023
+    },
+    {
+      "mode": "dependencies-miss",
+      "requested_bytes": 23375289,
+      "peak_excess": 464816
+    },
+    {
+      "mode": "scan",
+      "requested_bytes": 9187451,
+      "peak_excess": 319617
+    },
+    {
+      "mode": "indexed",
+      "requested_bytes": 2055387,
+      "peak_excess": 484489
+    }
+  ],
+  "primary_timing": false
+}

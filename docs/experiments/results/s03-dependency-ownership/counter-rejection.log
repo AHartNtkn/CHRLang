@@ -1,0 +1,23 @@
+   Compiling chr-direct-choice v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-choice)
+   Compiling chr-relational v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-relational)
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+warning: unused attribute `allow`
+   --> research/chr-direct-conditional/examples/dependency_ownership.rs:131:5
+    |
+131 |     #[allow(clippy::assertions_on_constants)] // Reject instrumented measurements at runtime.
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+note: the built-in attribute `allow` will be ignored, since it's applied to the macro invocation `assert`
+   --> research/chr-direct-conditional/examples/dependency_ownership.rs:132:5
+    |
+132 |     assert!(
+    |     ^^^^^^
+    = note: `#[warn(unused_attributes)]` (part of `#[warn(unused)]`) on by default
+
+warning: `chr-direct-conditional` (example "dependency_ownership") generated 1 warning (run `cargo fix --example "dependency_ownership" -p chr-direct-conditional` to apply 1 suggestion)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.63s
+     Running `target/debug/examples/dependency_ownership current plain 8 false immediate false`
+
+thread 'main' (3) panicked at research/chr-direct-conditional/examples/dependency_ownership.rs:132:5:
+diagnostic work counters enabled
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
