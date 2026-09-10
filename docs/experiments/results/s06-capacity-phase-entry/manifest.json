@@ -1,0 +1,44 @@
+{
+  "parent_commit": "24b273d96a69c9fd10fe6dbe4fb0466869ef3f61",
+  "recorded": "after final expanded semantic validation; no comparative timing",
+  "caller_matrix_cases_per_build": 2880,
+  "files": {
+    "research/chr-compiled/experiments/resource_capacity.rs": "1260a5840d04dc005ac6f7dc6f1b38b09182567438c4751ee69aa1e22d20a399",
+    "research/chr-compiled/experiments/capacity_phase.rs": "f81518648733b6f3a7f84ca4fc202e35a7d4acb54d49bc7de161502162549d08",
+    "research/chr-direct-conditional/tests/capacity_phase_gate.rs": "363bc4eea433ca83cc9689caaa9f4f7b6c7663cc35a47e10cbc81e6de18bc00f",
+    "research/chr-direct-conditional/tests/resource_capacity_entry.rs": "39043ef952d6c3b26240a506e1467f256e8ef13fb550ea3e934d27a5c3db9230",
+    "research/chr-direct-conditional/tests/runtime_support/mod.rs": "03633e8d666fadcdd08ddfe4900aa8116b32e434fb0a5dcb1c5faa23ff5976b2",
+    "research/chr-direct-conditional/tests/composition_support/mod.rs": "2c29491a6803e06dac9b05fb5b6815dcbb3c33fb837b683a5a591ce530e524c5",
+    "docs/experiments/registrations/S06-capacity-phase-entry.md": "68e0c65d6830b699fc1b678b335b4497c70750683dfddf5fe24cf9d82c4f57bf"
+  },
+  "commands": {
+    "checked-default.log": "timeout 120 cargo test --offline -p chr-direct-conditional --test capacity_phase_gate",
+    "checked-metrics-off.log": "timeout 120 cargo test --offline -p chr-direct-conditional --no-default-features --test capacity_phase_gate",
+    "checked-clippy.log": "timeout 120 cargo clippy --offline -p chr-direct-conditional --test capacity_phase_gate --no-deps -- -D warnings",
+    "checked-clippy-metrics-off.log": "timeout 120 cargo clippy --offline -p chr-direct-conditional --no-default-features --test capacity_phase_gate --no-deps -- -D warnings"
+  },
+  "logs": {
+    "clippy.log": "9c2d10ff951b46046ef6f9b4cc105a5ec0c6081ba3bcd5e048a3a9dd0fcd0626",
+    "final-clippy-metrics-off.log": "31090a166428c8c8a5ab8f3cd6552ed2a1014720cdf6d6abbe6e7e038acd4f27",
+    "metrics-off.log": "84359bb6c861c890e524844b68fe9dc3730cc692f9559aa1f9b26e02efbd6e1d",
+    "red.log": "e820e6d7c9a000058409561db6e04b5a80ab614bc71d98c4646f4c3a514c9117",
+    "final-metrics-off.log": "1bb246b95ff25d81f1d32c4cbfcd242e4e003af33b6c2629129b975ce3036579",
+    "initial.log": "e25ece494e6ba3e8c8cf3f5675b326fc2fa8d3b0d22007533a5f0df5432297b7",
+    "expanded-clippy.log": "e1f7cb21a2b641e5f04b3c51f8b5c0e760cd87ff3ca09677ca3f8768e63a70fe",
+    "final-clippy.log": "fdd926906efd5a3a9e25a6b67a0b000eb92d108ed58564f3aed32d5d6d916472",
+    "default.log": "0f9faa6adb2b30516fae5decebcc7c7f654f3d2399be4711e93d4b5561bc8738",
+    "expanded-metrics-off.log": "9587a1a7f828b780d44462e604c3548aa9d2cd0030c7b8321d5049616a018198",
+    "checked-clippy-metrics-off.log": "fdd926906efd5a3a9e25a6b67a0b000eb92d108ed58564f3aed32d5d6d916472",
+    "checked-default.log": "37c54692c18edce7ddde4b81040cebba9deb858332cd39b975edb2ca10a1b191",
+    "checked-metrics-off.log": "fb5cbaf490cf158cf90e4fa24030ddf0f671e4118db82489cd3c6114ff5025f5",
+    "checked-clippy.log": "1884fab8cadf1efbe6114709026387a590e47b55aeaabe636185fb5888c09a0f",
+    "expanded-default.log": "b5820e0944cddeceeb9c8d4409bb735c284dba48a335482fd590e007d70179ab",
+    "final-default.log": "ed14e1c34a51d270f5c95a1f9b82208473c79d9c5158a2b8d3f70787ea105725",
+    "counterexamples.log": "d2ff9375c14a21b0982f1bfe42d79ca5b82e40a8b2ac2595c8c0aa4fa5c7d04c",
+    "token-first-red.log": "052fe85ecbfe32a06012553c7fedc11072895129040ae4938ec15148aef8b069",
+    "expanded-clippy-metrics-off.log": "58f6390ae261faa4858f2b1e5ff3c23ae94e5546ce7a9bf6fa5290c2ca87ea43",
+    "clippy-metrics-off.log": "56bd67ee06dff0e08f1f9a7134174773980af0e18402ff2d8c323e9aa77c8aa3",
+    "validated-metrics-off.log": "d0e370695178e03de91d9f1c0ba07e72f1679c9ad1dc9c6bd20522ea1f1f0b14",
+    "validated-default.log": "588e06b9d802a28990a1f010a53066d499e4c00ef9f8064fe2dfef51993f5952"
+  }
+}

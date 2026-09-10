@@ -1,0 +1,22 @@
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.33s
+     Running tests/capacity_phase_gate.rs (target/debug/deps/capacity_phase_gate-dfe11ec13e035d85)
+
+running 1 test
+test gate::token_first_consumption_preserves_its_own_source_order ... FAILED
+
+failures:
+
+---- gate::token_first_consumption_preserves_its_own_source_order stdout ----
+
+thread 'gate::token_first_consumption_preserves_its_own_source_order' (141) panicked at research/chr-direct-conditional/tests/runtime_support/mod.rs:273:32:
+missing full observation Answer { outputs: [("x0", App("a", [])), ("x1", App("b", [])), ("unused", Var(Var(110)))], residual: [Constraint { name: "noise", args: [App("retained", [])] }, Constraint { name: "p_done", args: [App("a", [])] }, Constraint { name: "chosen", args: [App("b", [])] }] }; remaining [Answer { outputs: [("x0", App("a", [])), ("x1", App("b", [])), ("unused", Var(Var(110)))], residual: [Constraint { name: "noise", args: [App("retained", [])] }, Constraint { name: "p_done", args: [App("b", [])] }, Constraint { name: "chosen", args: [App("a", [])] }] }]
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    gate::token_first_consumption_preserves_its_own_source_order
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 11 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p chr-direct-conditional --test capacity_phase_gate`

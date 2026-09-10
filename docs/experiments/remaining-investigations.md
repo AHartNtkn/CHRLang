@@ -1,6 +1,6 @@
 # The comparisons still needed to choose the architecture
 
-The [matched finite reuse costs](results/S05-finite-reuse-costs.md) validate 640 primary processes. Result reuse gains on long successful work; covered learning gains against it on all failure and forced eviction; short batches remain unresolved. The [four-package breadth review](results/S05-finite-reuse-breadth-review.md) selects T073 resource-phase composition with ordinary caller effects. T075 and the other distinct directions remain required; the goal remains active.
+The [resource-phase source gate](results/S06-capacity-phase-entry.md) validates 2,880 caller configurations per build. Closed multiset answers are insufficient for resumption: producer order, token order and the first consumer head affect caller choices. The corrected continuation preserves ordered residuals, private bindings, later propagation and fresh aliases. T073 next qualifies composition ownership and costs; other distinct directions remain required and the goal remains active.
 
 ## Earlier experimental checkpoints
 
@@ -86,7 +86,7 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-The [current execution order](next-cycle.md#the-order-and-why) owns scheduling. T073 is active for resource-phase composition with ordinary caller effects, following the four-package reuse review. T075 remains required for broader continuation relevance and effects. Adaptive reunion, local resource claims, richer theories and sustained lifetime return at the resource semantic gate or an obstruction. Broad architecture obligations remain required.
+The [current execution order](next-cycle.md#the-order-and-why) owns scheduling. T073 is active for resource-phase composition ownership after the 2,880-case source gate. T075 remains required for broader continuation relevance and effects. Adaptive reunion, local resource claims, richer theories and sustained lifetime return at the resource composition ownership gate or an obstruction. Broad architecture obligations remain required.
 
 ### Depth, breadth and stopping within this sequence
 

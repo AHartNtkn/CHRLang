@@ -1,0 +1,18 @@
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.39s
+     Running tests/capacity_phase_gate.rs (target/debug/deps/capacity_phase_gate-dfe11ec13e035d85)
+
+running 10 tests
+test gate::unordered_capacity_answers_do_not_preserve_spare_token_order ... ok
+test gate::capacity_failure_requires_a_sink_and_exclusive_resource_ownership ... ok
+test gate::capacity_diagnostics_do_not_change_answers_or_operational_limits ... ok
+test gate::unordered_capacity_answers_do_not_preserve_first_done_consumption ... ok
+test gate::alias_groups_cannot_be_split_across_resource_values ... ok
+test gate::capacity_phase_preserves_named_outputs_and_rejects_prior_interference ... ok
+test gate::solver_checks_source_and_query_boundaries ... ok
+test gate::capacity_subsets_prune_before_branching_and_successes_are_complete ... ok
+test gate::ordered_capacity_phase_preserves_complete_callers ... ok
+test gate::capacity_relation_preserves_complete_consuming_answers ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.52s
+

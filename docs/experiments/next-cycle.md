@@ -10,11 +10,11 @@ The [design review](results/R07-design-disposition-review.md) distinguishes meas
 
 Several useful comparisons now exist. [Integrated graph scanning](results/S02-multihead-scale.md) has favorable measured regimes. [Finite solving](results/S06-finite-lifecycle.md) has selective benefits and unselective costs. [Support ordering](results/S08-order-lifecycle.md) has opposing regimes. These findings supply stronger controls, not a complete architecture ranking.
 
-The [matched finite reuse costs](results/S05-finite-reuse-costs.md) validate 640 primary processes. Result reuse gains on long successful work; covered learning gains against it on all failure and forced eviction; short batches remain unresolved. The [four-package breadth review](results/S05-finite-reuse-breadth-review.md) selects T073 resource-phase composition with ordinary caller effects. T075 and the other distinct directions remain required; the goal remains active.
+The [resource-phase source gate](results/S06-capacity-phase-entry.md) validates 2,880 caller configurations per build. Closed multiset answers are insufficient for resumption: producer order, token order and the first consumer head affect caller choices. The corrected continuation preserves ordered residuals, private bindings, later propagation and fresh aliases. T073 next qualifies composition ownership and costs; other distinct directions remain required and the goal remains active.
 
 ## The order, and why
 
-Return to investigation 2 with resource-phase composition after the four-package reuse review. Qualify the source boundary and complete ordinary caller before costs. Reconsider adaptive reunion, local resource claims, richer theories and sustained lifetime at that gate or an obstruction.
+Continue investigation 2 with resource-phase composition ownership. The source gate now preserves both consumer head orders and full caller behavior. Reconsider adaptive reunion, local resource claims, richer theories and sustained lifetime at the ownership boundary or an obstruction.
 
 | Order | Investigation | Architectural decision it could change |
 |---|---|---|
@@ -58,16 +58,16 @@ Return to investigation 2 with resource-phase composition after the four-package
 
 ## The next concrete experiments
 
-**Next establish whether consuming-capacity solving composes with ordinary CHR effects.** The closed solver's preparation and runtime benefits are measured. Its complete answers do not yet establish a reusable phase boundary inside a larger source. Inspect that boundary before implementing transport.
+**Next qualify the ownership and complete costs of the ordered resource phase plus its ordinary caller.** The source gate exposes occurrence-order requirements that terminal multiset answers do not carry. Charge that reconstruction, binding transport, both preparations, retained continuations, full observation and disposal before inferring a benefit from the closed solver’s timings.
 
 | Package | Required comparison and checks | Decision and review point |
 |---|---|---|
-| **Resource-phase source gate — T073, active** | Register ordering and ownership premises; compare a solved initial phase followed by ordinary execution with independent complete source behavior. Include consumers of produced facts, shared-variable observers/writers, token competition before/after the boundary, unobserved bindings and later private work. | Can direct resource elimination widen a coherent execution path without changing source behavior? Reconsider the distinct alternatives below at this semantic gate or an obstruction. |
+| **Resource-phase composition ownership — T073, active** | Qualify prepared phase/caller owners, ordered residual and binding transport, small/output-heavy cases, failures, later private work and retained outputs through disposal. Compare generic and applicable specialized whole-source controls. | Do ordered continuation and boundary costs preserve the closed solver’s advantage? Reconsider the distinct alternatives below at the ownership gate or an obstruction, before primary timing. |
 | **Adaptive restoration and reunion — T077, required** | Test observable-work adaptation against existing fixed controls, including late links, early failures and policy overhead. | Strongest alternative to resource composition; requires policy and progress qualification. |
 | **Local claims, richer theories and sustained lifetime — required** | Separate conflict/cancellation protocols, independent denotations and sustained consumer/retention trials. | These under-investigated mechanisms remain explicit candidates at the next gate. Their later position is not a negative result. |
 | **Broader reuse — T075, required** | Carry the matched result/learning tradeoff forward. Investigate continuation relevance and effects beyond repeated finite query shapes when they could change the complete-path comparison. | Current short-query uncertainty returns if an automatic policy or deployment threshold is proposed. |
 
-**Why resource composition now:** the [breadth review](results/S05-finite-reuse-breadth-review.md) compares all distinct directions. This gate could make direct resource elimination usable in broader programs; an ordering or identity counterexample could also constrain the language boundary. Existing solver, relation and caller controls make the specific comparison feasible. Adaptive reunion is the strongest alternative, with local claims, richer theories and lifetime also due for reconsideration.
+**Why composition costs now:** the source gate establishes a concrete extra obligation: ordered residual construction must follow the consuming rule’s first head. This can alter the cost of using direct solving inside broader programs. Existing solver and ordinary caller controls make ownership qualification a bounded next comparison. Adaptive reunion remains the strongest alternative; local claims, richer theories and sustained lifetime return at that boundary.
 
 ## 1. Carry the whole-path pilot into broader comparisons
 

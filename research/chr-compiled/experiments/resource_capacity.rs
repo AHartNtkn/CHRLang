@@ -37,6 +37,7 @@ pub struct Prepared<const DIAGNOSTICS: bool = false> {
     need: Key,
     token: Key,
     done: String,
+    need_first: bool,
 }
 fn atom(t: &Term) -> Option<&str> {
     match t {
@@ -197,14 +198,24 @@ impl<const DIAGNOSTICS: bool> Prepared<DIAGNOSTICS> {
             }
             producers.insert(k, values);
         }
+        let need_first = key(&consumer.removed[0]) == need;
         Ok(Self {
             producers,
+            need_first,
             need,
             token: key(token),
             done: done.name.clone(),
         })
     }
     pub fn solve(&self, q: &Query, limits: Limits) -> Result<Report, Error> {
+        self.solve_ordered(q, limits, None)
+    }
+    fn solve_ordered(
+        &self,
+        q: &Query,
+        limits: Limits,
+        producer_order: Option<&[Key]>,
+    ) -> Result<Report, Error> {
         let mut budget = 100000;
         let mut output_names = BTreeSet::new();
         if q.constraints.len() > 10000
@@ -264,6 +275,7 @@ impl<const DIAGNOSTICS: bool> Prepared<DIAGNOSTICS> {
         let groups = groups.into_values().collect::<Vec<_>>();
         let mut search = Search {
             prepared: self,
+            producer_order,
             query: q,
             groups,
             inert,
@@ -284,6 +296,7 @@ impl<const DIAGNOSTICS: bool> Prepared<DIAGNOSTICS> {
 }
 struct Search<'a, const DIAGNOSTICS: bool> {
     prepared: &'a Prepared<DIAGNOSTICS>,
+    producer_order: Option<&'a [Key]>,
     query: &'a Query,
     groups: Vec<Group>,
     inert: Vec<Constraint>,
@@ -327,6 +340,68 @@ impl<const DIAGNOSTICS: bool> Search<'_, DIAGNOSTICS> {
         }
         true
     }
+    fn ordered_residual(&self, order: &[Key]) -> Vec<Constraint> {
+        let mut spent = BTreeMap::<String, usize>::new();
+        for (group, value) in self.groups.iter().zip(&self.chosen) {
+            *spent.entry(value.clone()).or_default() += group.demand;
+        }
+        let mut token_demands = if self.prepared.need_first {
+            BTreeMap::new()
+        } else {
+            spent.clone()
+        };
+        let mut residual = vec![];
+        for c in &self.query.constraints {
+            let k = key(c);
+            if self.prepared.producers.contains_key(&k) {
+                continue;
+            }
+            if k == self.prepared.token {
+                let n = spent
+                    .entry(atom(&c.args[0]).expect("validated token").into())
+                    .or_default();
+                if *n > 0 {
+                    *n -= 1;
+                    continue;
+                }
+            }
+            residual.push(Constraint {
+                name: c.name.clone(),
+                args: c.args.iter().map(|t| substitute(t, &self.env)).collect(),
+            });
+        }
+        // Producers all finish before consumption. The first consumer head
+        // determines whether need creation order or original token order drives
+        // the emitted done sequence.
+        if self.prepared.need_first {
+            for k in order {
+                for c in &self.query.constraints {
+                    if c.name == k.0 && c.args.len() == k.1 {
+                        residual.push(Constraint {
+                            name: self.prepared.done.clone(),
+                            args: vec![substitute(&c.args[0], &self.env)],
+                        });
+                    }
+                }
+            }
+        } else {
+            for c in &self.query.constraints {
+                if key(c) == self.prepared.token {
+                    let value = atom(&c.args[0]).expect("validated token");
+                    if let Some(count) = token_demands.get_mut(value)
+                        && *count > 0
+                    {
+                        *count -= 1;
+                        residual.push(Constraint {
+                            name: self.prepared.done.clone(),
+                            args: c.args.clone(),
+                        });
+                    }
+                }
+            }
+        }
+        residual
+    }
     fn visit(&mut self, index: usize, weight: usize) -> Result<(), Error> {
         if self.report.states >= self.limits.states {
             return Err(Error::Limit);
@@ -347,30 +422,35 @@ impl<const DIAGNOSTICS: bool> Search<'_, DIAGNOSTICS> {
             {
                 return Err(Error::Limit);
             }
-            let mut residual = self
-                .inert
-                .iter()
-                .map(|c| Constraint {
-                    name: c.name.clone(),
-                    args: c.args.iter().map(|t| substitute(t, &self.env)).collect(),
-                })
-                .collect::<Vec<_>>();
-            for (g, value) in self.groups.iter().zip(&self.chosen) {
-                for _ in 0..g.demand {
-                    residual.push(Constraint {
-                        name: self.prepared.done.clone(),
-                        args: vec![Term::App(value.clone(), vec![])],
-                    });
+            let residual = if let Some(order) = self.producer_order {
+                self.ordered_residual(order)
+            } else {
+                let mut residual = self
+                    .inert
+                    .iter()
+                    .map(|c| Constraint {
+                        name: c.name.clone(),
+                        args: c.args.iter().map(|t| substitute(t, &self.env)).collect(),
+                    })
+                    .collect::<Vec<_>>();
+                for (g, value) in self.groups.iter().zip(&self.chosen) {
+                    for _ in 0..g.demand {
+                        residual.push(Constraint {
+                            name: self.prepared.done.clone(),
+                            args: vec![Term::App(value.clone(), vec![])],
+                        });
+                    }
                 }
-            }
-            for (value, n) in &self.supply {
-                for _ in 0..*n {
-                    residual.push(Constraint {
-                        name: self.prepared.token.0.clone(),
-                        args: vec![Term::App(value.clone(), vec![])],
-                    });
+                for (value, n) in &self.supply {
+                    for _ in 0..*n {
+                        residual.push(Constraint {
+                            name: self.prepared.token.0.clone(),
+                            args: vec![Term::App(value.clone(), vec![])],
+                        });
+                    }
                 }
-            }
+                residual
+            };
             let outputs = self
                 .query
                 .outputs
@@ -412,3 +492,7 @@ impl<const DIAGNOSTICS: bool> Search<'_, DIAGNOSTICS> {
         Ok(())
     }
 }
+
+#[allow(dead_code)]
+#[path = "capacity_phase.rs"]
+pub mod phase;
