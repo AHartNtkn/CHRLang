@@ -8,7 +8,7 @@ This document owns the execution order. The [governing sequence](sequence.md) su
 
 ## Start here: the next experiments
 
-**Next qualify the owners and lifecycle costs of relevant-key contextual deductions under T072.** The [source gate](results/S02-relevant-deductions.md) demonstrates reuse across some different equality states while preserving independent complete answers. The [four-package breadth review](results/S02-relevant-deductions-breadth-review.md) selects key/replay ownership and cost qualification against recomputation, exact-state, compiled and applicable source-elimination controls. Demand lifecycle and symbolic compilation/union return at that gate or an obstruction. This starts a new breadth cycle; no timing advantage is established.
+**Next attribute relevant-key construction, retention and replay costs under T072.** The [ownership comparison](results/S02-relevant-ownership.md) passes all finite release/cancellation checks and identifies lower peaks against some exact-state caches, but higher traffic than recomputation. The consequential contrast is in execution, not preparation. This bounded attribution precedes clock qualification and registered primary timing. Reconsider dependency lifecycle and symbolic compilation/union at that gate or an obstruction; package one after the breadth review is complete.
 
 The completed four-package cycle records these questions and outcomes:
 

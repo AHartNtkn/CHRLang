@@ -50,6 +50,10 @@ enum Prepared {
         bool,
         bool,
     ),
+    Relevant(
+        std::sync::Arc<chr_relational::contextual_execute::Prepared>,
+        bool,
+    ),
     Relational(std::sync::Arc<chr_relational::execute::Prepared>),
     Compiled(Box<chr_compiled::PreparedRuleset>, chr_compiled::Access),
 }
@@ -59,7 +63,9 @@ enum Running {
     Relational(Box<chr_relational::execute::Engine>),
     Compiled(Box<chr_compiled::SearchEngine>),
 }
-const MODES: [&str; 9] = [
+const MODES: [&str; 11] = [
+    "relevant",
+    "persistent-relevant",
     "contextual",
     "shared",
     "persistent",
@@ -73,6 +79,10 @@ const MODES: [&str; 9] = [
 impl Prepared {
     fn new(mode: &str, schema: Schema, rules: Vec<Rule>) -> Self {
         match mode {
+            "relevant" | "persistent-relevant" => Self::Relevant(
+                chr_relational::contextual_execute::Prepared::new(&rules).unwrap(),
+                mode == "persistent-relevant",
+            ),
             "lowered" => Self::Lowered(Box::new(Lowered::new(schema, rules).unwrap())),
             "contextual" | "shared" | "persistent" | "persistent-shared" => Self::Contextual(
                 chr_relational::contextual_execute::Prepared::new(&rules).unwrap(),
@@ -102,6 +112,11 @@ impl Prepared {
     }
     fn start(&self, input: Query) -> Running {
         match self {
+            Self::Relevant(p, persistent) => Running::Contextual(Box::new(if *persistent {
+                p.start_persistent_relevant_deductions(&input)
+            } else {
+                p.start_relevant_deductions(&input)
+            })),
             Self::Lowered(p) => Running::Lowered(Box::new(p.start(input).unwrap())),
             Self::Contextual(p, shared, persistent) => {
                 Running::Contextual(Box::new(if *persistent {
@@ -171,7 +186,8 @@ struct Sample {
     setup: Measurement,
     execute: Measurement,
     engine_drop: Measurement,
-    answer_drop: Measurement,
+    answer_drop: Option<Measurement>,
+    answer_hold: Option<Measurement>,
 }
 fn main() {
     let args = std::env::args().collect::<Vec<_>>();
@@ -185,7 +201,9 @@ fn main() {
         #[cfg(not(feature = "alloc-meter"))]
         panic!("meter is not enabled");
     }
-    if chr_persistent::COLLECT_KERNEL_METRICS
+    if cfg!(feature = "deduction-work")
+        || cfg!(feature = "local-work")
+        || chr_persistent::COLLECT_KERNEL_METRICS
         || chr_persistent::COLLECT_METRICS
         || chr_compiled::COLLECT_METRICS
         || chr_compiled::COLLECT_KERNEL_METRICS
@@ -214,6 +232,11 @@ fn main() {
         _ => panic!("reverse must be 0/1"),
     };
     let cancel = args.get(7).map(|s| s.parse::<usize>().unwrap());
+    let retain = match std::env::var("DEDUCTION_RETAIN").as_deref() {
+        Ok("all") => true,
+        Ok("immediate") | Err(_) => false,
+        Ok(_) => panic!("unknown retention policy"),
+    };
     let schema = Schema::new(family, resource);
     // Exact input fixtures and independent expected answers precede all primary phases.
     let source = schema.rules();
@@ -228,6 +251,7 @@ fn main() {
         .collect::<Vec<_>>();
     drop(source);
     let mut samples = Vec::with_capacity(count);
+    let mut held = Vec::with_capacity(if retain { count } else { 0 });
     // Initialize reporting before the allocation restoration baseline.
     println!("{{\"event\":\"start\",\"mode\":\"{mode}\"}}");
     #[cfg(feature = "alloc-meter")]
@@ -257,14 +281,22 @@ fn main() {
                 remaining.swap_remove(pos);
             }
         }
-        let (_, answer_drop) = measure(|| drop(answers));
+        let (answer_drop, answer_hold) = if retain {
+            let (_, held_time) = measure(|| held.push(answers));
+            (None, Some(held_time))
+        } else {
+            let (_, dropped_time) = measure(|| drop(answers));
+            (Some(dropped_time), None)
+        };
         #[cfg(feature = "alloc-meter")]
         {
             let live = meter::end(query_live);
-            assert_eq!(
-                live.live_start, live.live_end,
-                "query allocations remain after disposal"
-            );
+            if !retain {
+                assert_eq!(
+                    live.live_start, live.live_end,
+                    "query allocations remain after disposal"
+                );
+            }
         }
         samples.push(Sample {
             depth: n + i % 2,
@@ -276,9 +308,26 @@ fn main() {
             execute,
             engine_drop,
             answer_drop,
+            answer_hold,
         });
     }
     let (_, prepared_drop) = measure(|| drop(prepared));
+    for (i, answers) in held.iter().enumerate() {
+        let expected = &fixtures[i % fixtures.len()].1;
+        if samples[i].complete {
+            oracle::same_raw(answers.clone(), expected.clone());
+        } else {
+            let mut remaining = expected.clone();
+            for answer in answers {
+                let pos = remaining
+                    .iter()
+                    .position(|a| chr_observe::equivalent(a, answer, &mut Default::default()))
+                    .expect("retained cancelled answer changed after producer disposal");
+                remaining.swap_remove(pos);
+            }
+        }
+    }
+    let (_, consumer_drop) = measure(|| held.clear());
     #[cfg(feature = "alloc-meter")]
     {
         let live = meter::end(root);
@@ -287,13 +336,14 @@ fn main() {
             "prepared/source allocations remain after disposal"
         );
     }
-    let sample_json=samples.into_iter().map(|s|format!("{{\"depth\":{},\"complete\":{},\"answers\":{},\"first_answer_ns\":{},\"input_build\":{},\"setup\":{},\"execute_observe\":{},\"engine_drop\":{},\"answer_drop\":{}}}",s.depth,s.complete,s.answers,s.first.map_or("null".into(),|n|n.to_string()),s.input.json(),s.setup.json(),s.execute.json(),s.engine_drop.json(),s.answer_drop.json())).collect::<Vec<_>>().join(",");
+    let sample_json=samples.into_iter().map(|s|format!("{{\"depth\":{},\"complete\":{},\"answers\":{},\"first_answer_ns\":{},\"input_build\":{},\"setup\":{},\"execute_observe\":{},\"engine_drop\":{},\"answer_drop\":{},\"answer_hold\":{}}}",s.depth,s.complete,s.answers,s.first.map_or("null".into(),|n|n.to_string()),s.input.json(),s.setup.json(),s.execute.json(),s.engine_drop.json(),s.answer_drop.map_or("null".into(), Measurement::json),s.answer_hold.map_or("null".into(), Measurement::json))).collect::<Vec<_>>().join(",");
     println!(
-        "{{\"event\":\"result\",\"mode\":\"{mode}\",\"family\":\"{family}\",\"resource\":{resource},\"meter\":{},\"counters\":false,\"source_build\":{},\"preparation\":{},\"prepared_drop\":{},\"samples\":[{sample_json}]}}",
+        "{{\"event\":\"result\",\"mode\":\"{mode}\",\"family\":\"{family}\",\"resource\":{resource},\"meter\":{},\"counters\":false,\"source_build\":{},\"preparation\":{},\"prepared_drop\":{},\"consumer_drop\":{},\"retained\":{retain},\"samples\":[{sample_json}]}}",
         cfg!(feature = "alloc-meter"),
         source_build.json(),
         preparation.json(),
-        prepared_drop.json()
+        prepared_drop.json(),
+        consumer_drop.json()
     );
 }
 #[cfg(test)]
