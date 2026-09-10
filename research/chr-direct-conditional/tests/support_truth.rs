@@ -37,10 +37,21 @@ fn every_three_variable_function_and_pair_matches_independent_truth_tables() {
                 }
             })
             .collect();
-        for variable in (0..3).rev() {
+        let mut order: Vec<_> = (0..3).collect();
+        if !cfg!(feature = "support-reverse-order") {
+            order.reverse();
+        }
+        for variable in order {
             let half = leaves.len() / 2;
             leaves = (0..half)
-                .map(|i| arena.mk(variable, leaves[i], leaves[i + half]))
+                .map(|i| {
+                    let (lo, hi) = if cfg!(feature = "support-reverse-order") {
+                        (2 * i, 2 * i + 1)
+                    } else {
+                        (i, i + half)
+                    };
+                    arena.mk(variable, leaves[lo], leaves[hi])
+                })
                 .collect();
         }
         handles.push(leaves[0]);
@@ -73,7 +84,11 @@ fn cancelled_boolean_job_leaves_valid_nodes_for_interleaving_and_restart() {
         arena.fresh_variable();
     }
     let mut conjunction = Support::TRUE;
-    for variable in (0..6).rev() {
+    let mut order: Vec<_> = (0..6).collect();
+    if !cfg!(feature = "support-reverse-order") {
+        order.reverse();
+    }
+    for variable in order {
         conjunction = arena.mk(variable, Support::FALSE, conjunction);
     }
     let before = arena.node_count();

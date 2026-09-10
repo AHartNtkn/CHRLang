@@ -338,9 +338,15 @@ fn two_birth_consumption_intersects_crossing_supports() {
                         Support::FALSE
                     }
                 };
-                let lo = arena.mk(1, leaf(0), leaf(2));
-                let hi = arena.mk(1, leaf(1), leaf(3));
-                arena.mk(0, lo, hi)
+                if cfg!(feature = "support-reverse-order") {
+                    let lo = arena.mk(0, leaf(0), leaf(1));
+                    let hi = arena.mk(0, leaf(2), leaf(3));
+                    arena.mk(1, lo, hi)
+                } else {
+                    let lo = arena.mk(1, leaf(0), leaf(2));
+                    let hi = arena.mk(1, leaf(1), leaf(3));
+                    arena.mk(0, lo, hi)
+                }
             };
             let sa = mask(a);
             let sb = mask(b);

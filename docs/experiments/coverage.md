@@ -20,6 +20,8 @@ The [support optimization gate](results/S08-support-optimization-gate.md) implem
 
 The [support lifecycle pilot](results/S08-support-lifecycle.md) completes966 processes/138 exact allocation pairs. Identities and combined policies lower traffic in all23 matched cells; cache alone raises it in four tiny cells and cache policies raise peak memory in19. The substantive alias witness remains far cheaper under Scan/resumable controls. T074 next tests support variable ordering as a structural hypothesis, with semantic gates before costs; no universal winner is selected.
 
+The [support-order gate](results/S08-support-order-gate.md) completes36 source runs and144 tests in each general/reverse build. Reverse order lowers depth64 stream nodes from16986 to613, but added general observation raises combined calls from779212 to827092. An opposite-arrival conjunction reverses the favorable construction order. T074 next charges lifecycle and adverse-source costs, with breadth review after that package.
+
 ## How unanswered variants remain accountable
 
 The [entry-by-entry experiment map](question-to-experiment-map.md) gives all 57 reviewed decisions a specific required comparison and decision criterion. The stage assignments below remain the ownership summary; results must state which individual propositions and variants they resolve.

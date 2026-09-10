@@ -143,7 +143,8 @@ impl Arena {
         (variable, self.mk(variable, FALSE, TRUE))
     }
     /// Construct an ordered node. The variable must exist and each nonterminal
-    /// child must test a strictly later variable. All handles belong to this arena.
+    /// child must follow the configured diagram order (birth order by default,
+    /// reversed in the experimental reverse-order build). Handles belong to this arena.
     pub fn mk(&mut self, variable: usize, low: Support, high: Support) -> Support {
         assert!(
             variable < self.variables,
@@ -156,7 +157,11 @@ impl Arena {
             } = self.inspect(child)
             {
                 assert!(
-                    child_variable > variable,
+                    if cfg!(feature = "support-reverse-order") {
+                        child_variable < variable
+                    } else {
+                        child_variable > variable
+                    },
                     "support children violate variable ordering"
                 );
             }
@@ -415,7 +420,13 @@ impl Job {
                     }
                     let (a, b) = (arena.inspect(key.0), arena.inspect(key.1));
                     let top = match (variable(a), variable(b)) {
-                        (Some(a), Some(b)) => a.min(b),
+                        (Some(a), Some(b)) => {
+                            if cfg!(feature = "support-reverse-order") {
+                                a.max(b)
+                            } else {
+                                a.min(b)
+                            }
+                        }
                         (Some(a), None) => a,
                         (None, Some(b)) => b,
                         (None, None) => {
@@ -491,7 +502,11 @@ mod tests {
         let (x_id, x) = arena.fresh_variable();
         let (y_id, y) = arena.fresh_variable();
         assert_eq!(arena.mk(x_id, FALSE, TRUE), x);
-        assert_eq!(arena.mk(x_id, y, y), y);
+        if cfg!(feature = "support-reverse-order") {
+            assert_eq!(arena.mk(1, x, x), x);
+        } else {
+            assert_eq!(arena.mk(x_id, y, y), y);
+        }
         let nx = finish(&mut arena, Operation::Not(x));
         assert_eq!(finish(&mut arena, Operation::And(x, nx)), FALSE);
         assert_eq!(finish(&mut arena, Operation::Or(x, nx)), TRUE);
@@ -541,8 +556,12 @@ mod tests {
         for _ in 0..64 {
             arena.fresh_variable();
         }
-        let input = (0..64)
-            .rev()
+        let mut order: Vec<_> = (0..64).collect();
+        if !cfg!(feature = "support-reverse-order") {
+            order.reverse();
+        }
+        let input = order
+            .into_iter()
             .fold(TRUE, |tail, variable| arena.mk(variable, FALSE, tail));
         let mut job = arena.job(Operation::Not(input));
         let mut ticks = 0;
@@ -568,11 +587,16 @@ mod tests {
     }
     #[test]
     #[should_panic(expected = "variable ordering")]
-    fn construction_rejects_an_earlier_child_variable() {
+    fn construction_rejects_a_child_against_diagram_order() {
         let mut arena = Arena::new();
         let (_, x) = arena.fresh_variable();
         let (y, _) = arena.fresh_variable();
-        arena.mk(y, FALSE, x);
+        if cfg!(feature = "support-reverse-order") {
+            let child = arena.mk(y, FALSE, TRUE);
+            arena.mk(0, FALSE, child);
+        } else {
+            arena.mk(y, FALSE, x);
+        }
     }
     #[test]
     #[should_panic(expected = "outside arena bounds")]
@@ -610,9 +634,15 @@ mod result_cache_tests {
                         FALSE
                     }
                 };
-                let low = arena.mk(1, leaf(0), leaf(1));
-                let high = arena.mk(1, leaf(2), leaf(3));
-                values.push(arena.mk(0, low, high));
+                if cfg!(feature = "support-reverse-order") {
+                    let low = arena.mk(0, leaf(0), leaf(2));
+                    let high = arena.mk(0, leaf(1), leaf(3));
+                    values.push(arena.mk(1, low, high));
+                } else {
+                    let low = arena.mk(1, leaf(0), leaf(1));
+                    let high = arena.mk(1, leaf(2), leaf(3));
+                    values.push(arena.mk(0, low, high));
+                }
             }
             for a in 0..16 {
                 for b in 0..16 {

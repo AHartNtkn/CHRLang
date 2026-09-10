@@ -7,7 +7,11 @@ cells=[(p,m,f,n,k,0,r,0) for (p,m),f,n,k,r in itertools.product(controls,['alias
 cells += [(p,m,f,64,'4',0,4,0) for (p,m),f in itertools.product(controls,['aliases','distinct'])]
 cells += [(p,m,'aliases',64,k,0,4,1) for (p,m),k in itertools.product(controls,['0','4'])]
 cells += [(p,m,'aliases',64,k,1,4,0) for (p,m),k in itertools.product(controls,['0','4','all'])]
-for path,h in json.loads((root/'freeze.json').read_text()).items():assert hashlib.sha256(Path(path).read_bytes()).hexdigest()==h,path
+for path,h in json.loads((root/'freeze.json').read_text()).items():
+    data=Path(path).read_bytes()
+    if hashlib.sha256(data).hexdigest()!=h:
+        mapping=json.loads((root/'source-snapshots.json').read_text());data=Path(mapping[path]).read_bytes()
+    assert hashlib.sha256(data).hexdigest()==h,path
 records={};owner_groups={};answer_groups={}
 for kind,reps,seed in [('meter',2,7870),('time',5,7871)]:
     jobs=[(rep,*c) for rep in range(reps) for c in cells];random.Random(seed).shuffle(jobs)

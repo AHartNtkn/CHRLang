@@ -39,6 +39,8 @@ impl Births {
             "history region mentions a variable outside the frozen birth prefix"
         );
         Histories {
+            #[cfg(feature = "support-generic-histories")]
+            restriction: None,
             limit: self.guards.len(),
             cofactor: region,
             path: vec![],
@@ -72,6 +74,8 @@ enum Phase {
     Done,
 }
 pub struct Histories {
+    #[cfg(feature = "support-generic-histories")]
+    restriction: Option<Feasibility>,
     limit: usize,
     cofactor: Support,
     path: Vec<bool>,
@@ -126,27 +130,51 @@ impl Histories {
                 variable,
                 value,
             } => {
-                // Ordered supports need at most one node for this newly assigned
-                // variable: all earlier variables were restricted by ancestor frames.
-                self.cofactor = match arena.inspect(before) {
-                    NodeView::Branch {
-                        variable: next,
-                        low,
-                        high,
-                    } => {
-                        assert!(
-                            next >= variable,
-                            "support cofactor retained an assigned variable"
-                        );
-                        if next == variable {
-                            if value { high } else { low }
+                #[cfg(feature = "support-generic-histories")]
+                {
+                    // Check whether any diagram path agrees with the assigned
+                    // chronological prefix. Future inactive births are checked
+                    // when their own guards are reached, not assumed independent.
+                    let job = self
+                        .restriction
+                        .get_or_insert_with(|| Feasibility::new(before));
+                    if let Some(possible) = job.tick(arena, &self.path) {
+                        self.cofactor = if !possible {
+                            Support::FALSE
+                        } else if self.path.len() == self.limit {
+                            Support::TRUE
                         } else {
                             before
-                        }
+                        };
+                        self.restriction = None;
+                        self.phase = Phase::Descend;
                     }
-                    NodeView::False | NodeView::True => before,
-                };
-                self.phase = Phase::Descend;
+                    let _ = (variable, value);
+                }
+                #[cfg(not(feature = "support-generic-histories"))]
+                {
+                    // Ordered supports need at most one node for this newly assigned
+                    // variable: all earlier variables were restricted by ancestor frames.
+                    self.cofactor = match arena.inspect(before) {
+                        NodeView::Branch {
+                            variable: next,
+                            low,
+                            high,
+                        } => {
+                            assert!(
+                                next >= variable,
+                                "support cofactor retained an assigned variable"
+                            );
+                            if next == variable {
+                                if value { high } else { low }
+                            } else {
+                                before
+                            }
+                        }
+                        NodeView::False | NodeView::True => before,
+                    };
+                    self.phase = Phase::Descend;
+                }
             }
             Phase::Copy(index) => {
                 if index < self.path.len() {
@@ -178,5 +206,47 @@ impl Histories {
             }
         }
         HistoryEvent::Progress
+    }
+}
+
+/// Existential feasibility under a fixed assigned prefix. The visited set keeps
+/// shared diagram paths from duplicating work; each tick examines at most one node.
+#[cfg(feature = "support-generic-histories")]
+struct Feasibility {
+    pending: Vec<Support>,
+    seen: std::collections::BTreeSet<Support>,
+}
+#[cfg(feature = "support-generic-histories")]
+impl Feasibility {
+    fn new(root: Support) -> Self {
+        Self {
+            pending: vec![root],
+            seen: Default::default(),
+        }
+    }
+    fn tick(&mut self, arena: &Arena, prefix: &[bool]) -> Option<bool> {
+        let Some(node) = self.pending.pop() else {
+            return Some(false);
+        };
+        if !self.seen.insert(node) {
+            return None;
+        }
+        match arena.inspect(node) {
+            NodeView::True => return Some(true),
+            NodeView::False => (),
+            NodeView::Branch {
+                variable,
+                low,
+                high,
+            } => {
+                if let Some(value) = prefix.get(variable) {
+                    self.pending.push(if *value { high } else { low });
+                } else {
+                    self.pending.push(high);
+                    self.pending.push(low);
+                }
+            }
+        }
+        None
     }
 }

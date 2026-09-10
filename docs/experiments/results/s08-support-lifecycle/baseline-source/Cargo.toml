@@ -1,0 +1,98 @@
+[package]
+name = "chr-direct-conditional"
+version.workspace = true
+edition.workspace = true
+
+[features]
+support-identities = []
+support-result-cache = []
+support-trace = []
+support-allocation = ["alloc-meter"]
+serial-body-accounting = []
+head-dispatch = ["selective-discovery"]
+prefix-join = ["support-join"]
+support-join = ["selective-discovery"]
+equality-invalidation = ["chr-relational/precise-invalidation"]
+selective-discovery = []
+default = ["metrics"]
+work-diagnostics = ["chr-direct-choice/work-diagnostics"]
+metrics = ["chr-compiled?/metrics", "chr-observe?/metrics"]
+experiment = ["dep:chr-compiled", "dep:chr-observe", "dep:chr-direct-choice"]
+alloc-meter = ["experiment"]
+fork-diagnostics = ["chr-compiled?/fork-diagnostics"]
+carrier-contraction = ["chr-compiled?/carrier-contraction"]
+arena-cow = ["chr-compiled?/arena-cow"]
+
+[[bin]]
+name = "chr-conditional-cost"
+path = "experiments/main.rs"
+required-features = ["experiment"]
+
+[dependencies]
+chr-syntax = { path = "../../crates/chr-syntax" }
+
+chr-compiled = { path = "../chr-compiled", default-features = false, optional = true }
+chr-observe = { path = "../chr-observe", default-features = false, optional = true }
+
+chr-direct-choice = { path = "../chr-direct-choice", optional = true }
+
+[dev-dependencies]
+chr-relational = { path = "../chr-relational" }
+chr-compiled = { path = "../chr-compiled", default-features = false }
+chr-direct-choice = { path = "../chr-direct-choice" }
+chr-observe = { path = "../chr-observe", default-features = false }
+
+[[bin]]
+name = "chr-stream-cost"
+path = "experiments/stream.rs"
+required-features = ["experiment"]
+
+[[bin]]
+name = "chr-mixed-cost"
+path = "experiments/mixed.rs"
+required-features = ["experiment"]
+
+[[bin]]
+name = "chr-carrier-cost"
+path = "experiments/carrier_mixed.rs"
+required-features = ["experiment"]
+
+[[bin]]
+name = "chr-equation-cost"
+path = "experiments/equation_mixed.rs"
+required-features = ["experiment"]
+
+[[bin]]
+name = "chr-demand-cost"
+path = "experiments/demand_cost.rs"
+required-features = ["experiment"]
+
+[[bin]]
+name = "chr-pulltab-cost"
+path = "experiments/pulltab_cost.rs"
+required-features = ["experiment"]
+
+[[bin]]
+name = "chr-derivation-cost"
+path = "experiments/derivation_cost.rs"
+required-features = ["experiment"]
+
+[[example]]
+name = "support_repetition"
+required-features = ["experiment", "support-trace", "head-dispatch"]
+
+[[example]]
+name = "support_attribution"
+required-features = ["support-allocation", "head-dispatch"]
+
+[[example]]
+name = "stream_attribution"
+required-features = ["alloc-meter", "head-dispatch"]
+
+[[example]]
+name = "sustained_ownership"
+required-features = ["alloc-meter", "head-dispatch"]
+
+[[example]]
+name = "support_lifecycle"
+required-features = ["experiment", "head-dispatch"]

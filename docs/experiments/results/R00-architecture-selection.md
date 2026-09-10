@@ -90,6 +90,8 @@ The [support optimization gate](S08-support-optimization-gate.md) implements ind
 
 The [support lifecycle pilot](S08-support-lifecycle.md) completes966 processes/138 exact allocation pairs. Identities and combined policies lower traffic in all23 matched cells; cache alone raises it in four tiny cells and cache policies raise peak memory in19. The substantive alias witness remains far cheaper under Scan/resumable controls. T074 next tests support variable ordering as a structural hypothesis, with semantic gates before costs; no universal winner is selected.
 
+The [support-order gate](S08-support-order-gate.md) completes36 source runs and144 tests in each general/reverse build. Reverse order lowers depth64 stream nodes from16986 to613, but added general observation raises combined calls from779212 to827092. An opposite-arrival conjunction reverses the favorable construction order. T074 next charges lifecycle and adverse-source costs, with breadth review after that package.
+
 ## Generated incremental execution with explicit search state
 
 Rules compile to occurrence entry points and partner-access plans. Query constraints become distinct live occurrences; term constructors use a shared immutable arena and logical variables use context-specific binding identities. Introductions and changed variable classes activate relevant entry points. Nonbinding matching reads established structure; unsuccessful matches retain sufficient dependencies to be reconsidered when bindings or partners arrive.

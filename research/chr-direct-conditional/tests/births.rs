@@ -74,9 +74,15 @@ fn all_three_birth_causal_guards_match_independent_reachable_histories() {
                 births.create(&mut arena, leaf(first_active));
                 let second = arena.mk(0, leaf(second_table & 1 != 0), leaf(second_table & 2 != 0));
                 births.create(&mut arena, second);
-                let lo = arena.mk(1, leaf(third_table & 1 != 0), leaf(third_table & 4 != 0));
-                let hi = arena.mk(1, leaf(third_table & 2 != 0), leaf(third_table & 8 != 0));
-                let third = arena.mk(0, lo, hi);
+                let third = if cfg!(feature = "support-reverse-order") {
+                    let lo = arena.mk(0, leaf(third_table & 1 != 0), leaf(third_table & 2 != 0));
+                    let hi = arena.mk(0, leaf(third_table & 4 != 0), leaf(third_table & 8 != 0));
+                    arena.mk(1, lo, hi)
+                } else {
+                    let lo = arena.mk(1, leaf(third_table & 1 != 0), leaf(third_table & 4 != 0));
+                    let hi = arena.mk(1, leaf(third_table & 2 != 0), leaf(third_table & 8 != 0));
+                    arena.mk(0, lo, hi)
+                };
                 births.create(&mut arena, third);
                 let mut expected = vec![];
                 for a in [false, true] {
@@ -98,7 +104,7 @@ fn all_three_birth_causal_guards_match_independent_reachable_histories() {
 }
 
 #[test]
-fn independent_64_birth_single_cube_finishes_with_linear_service() {
+fn independent_64_birth_single_cube_respects_enumerator_service_bound() {
     let width = 64;
     let mut arena = Arena::new();
     let mut births = Births::new();
@@ -106,13 +112,24 @@ fn independent_64_birth_single_cube_finishes_with_linear_service() {
         births.create(&mut arena, Support::TRUE);
     }
     let mut cube = Support::TRUE;
-    for variable in (0..width).rev() {
+    let mut order: Vec<_> = (0..width).collect();
+    if !cfg!(feature = "support-reverse-order") {
+        order.reverse();
+    }
+    for variable in order {
         cube = arena.mk(variable, Support::FALSE, cube);
     }
     let mut cursor = births.histories(cube, &arena);
     let mut actual = vec![];
     let mut exhausted = false;
-    for _ in 0..(16 * width + 16) {
+    // Direct cofactors are linear. General feasibility may visit each diagram
+    // node for each of the two attempts at a chronological birth assignment.
+    let bound = if cfg!(feature = "support-generic-histories") {
+        4 * width * (width + 1) + 16 * width + 16
+    } else {
+        16 * width + 16
+    };
+    for _ in 0..bound {
         match cursor.tick(&births, &arena) {
             HistoryEvent::History(h) => {
                 actual.push(h);

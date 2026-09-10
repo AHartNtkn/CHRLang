@@ -10,9 +10,14 @@ fn diagram(arena: &mut Arena, width: usize, mask: u8) -> Support {
                 Support::FALSE
             };
         }
+        let actual = if cfg!(feature = "support-reverse-order") {
+            width - variable - 1
+        } else {
+            variable
+        };
         let low = node(arena, width, variable + 1, prefix, mask);
-        let high = node(arena, width, variable + 1, prefix | (1 << variable), mask);
-        arena.mk(variable, low, high)
+        let high = node(arena, width, variable + 1, prefix | (1 << actual), mask);
+        arena.mk(actual, low, high)
     }
     node(arena, width, 0, 0, mask)
 }

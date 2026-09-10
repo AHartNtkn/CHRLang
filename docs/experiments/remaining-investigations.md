@@ -18,6 +18,8 @@ The [support optimization gate](results/S08-support-optimization-gate.md) implem
 
 The [support lifecycle pilot](results/S08-support-lifecycle.md) completes966 processes/138 exact allocation pairs. Identities and combined policies lower traffic in all23 matched cells; cache alone raises it in four tiny cells and cache policies raise peak memory in19. The substantive alias witness remains far cheaper under Scan/resumable controls. T074 next tests support variable ordering as a structural hypothesis, with semantic gates before costs; no universal winner is selected.
 
+The [support-order gate](results/S08-support-order-gate.md) completes36 source runs and144 tests in each general/reverse build. Reverse order lowers depth64 stream nodes from16986 to613, but added general observation raises combined calls from779212 to827092. An opposite-arrival conjunction reverses the favorable construction order. T074 next charges lifecycle and adverse-source costs, with breadth review after that package.
+
 ## Starting evidence and immediate decision
 
 The [S07 premise audit](results/S07-resource-premises.md) now supplies accepted/rejected sources and counterexamples: privacy and groundness differ from the stronger optimization certificate. The [executable contract gate](results/S07-resource-contract.md) now enforces those separate properties at preparation and search admission. The bounded declaration lifecycle pilot charges their checking costs. No language policy is adopted. The selective lifecycle pilot supplies a stronger control. Equality invalidation and source elimination now have full pilot costs and a dynamic-identity attribution; support-aware joining has bounded lifecycle evidence; broader joins remain required.
