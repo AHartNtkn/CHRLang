@@ -1,5 +1,7 @@
 # Experimental sequence: resolve the remaining architecture questions
 
+The [learning ownership gate](results/S06-learning-ownership.md) completes 432 deterministic allocation processes with independent complete outcomes and full task-owned heap restoration. Eager subtraction requests more bytes than recomputation in all72 configurations; covered checks request fewer in6 and more in66. Query setup can outweigh saved execution allocation. T073 next investigates consequential setup cost and qualifies counter-free paired timing; T078 mixed-source comparison and broader mechanisms remain required.
+
 The [covered-state learning comparison](results/S06-covered-learning.md) preserves common prefixes and complete answers. Across 1,920 changed queries per build, later checks reduce source steps in 298 cases (32 successful), leave 1,622 unchanged and add 2,780 region probes. The depth-16 witness takes 25 source steps versus 26 for recomputation and 41 for eager subtraction. T073 next qualifies allocation and paired total costs with T078 accounting; no timing or memory advantage is established.
 
 Investigate the unanswered mechanisms directly, then compare the complete architectures they enable. Reuse the existing baselines. The research remains active until consequential questions have evidence-backed answers.

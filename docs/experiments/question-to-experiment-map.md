@@ -1,6 +1,6 @@
 # What experiment answers each reviewed design question?
 
-**Current selection: T073 allocation qualification and paired learning costs, using T078 accounting.** The [covered-state gate](results/S06-covered-learning.md) establishes complete outcomes and common-prefix preservation, with repeated probes still to be charged. The [next concrete experiments](next-cycle.md#the-next-concrete-experiments) retains the mixed-source pilot and distinct-mechanism return point. The checkpoint summaries below preserve the scope of earlier evidence.
+**Current selection: T073 setup-allocation attribution and counter-free learning cost qualification.** The [ownership gate](results/S06-learning-ownership.md) validates432 paired processes and identifies setup allocation that can outweigh avoided execution. T078 mixed-source costs remain required at the next paired setup/measurement boundary.
 
 The [common-source gate and cost design](results/S10-native-common-source.md) qualifies ten Rust configurations on all 125 cases, prefix lowering on 20 and finite solving with its caller on four. Native evidence remains applicable. T078 next establishes native prepared reuse and disposal; no cross-architecture cost matrix has run.
 
