@@ -1,0 +1,58 @@
+{
+  "receipts": [
+    {
+      "kind": "primary",
+      "build_command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-relational",
+        "--test",
+        "relevant_deductions",
+        "--no-run",
+        "--message-format=json",
+        "--target-dir",
+        "target/s02-read-validation"
+      ],
+      "binary": "/home/ahart/Documents/CHRLang/target/s02-read-validation/debug/deps/relevant_deductions-e978834d81e4d11a",
+      "sha256": "34e1794b44f2b1974b3a31b96fa266fbd1685ff23923ad9e27fd7e57fee72dee",
+      "exit_code": 0,
+      "cpu_seconds_limit": 120,
+      "wall_seconds_limit": 120,
+      "address_space_limit": 1073741824
+    },
+    {
+      "kind": "diagnostic",
+      "build_command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-relational",
+        "--test",
+        "relevant_deductions",
+        "--no-run",
+        "--message-format=json",
+        "--target-dir",
+        "target/s02-read-validation",
+        "--features",
+        "deduction-work,deduction-profile"
+      ],
+      "binary": "/home/ahart/Documents/CHRLang/target/s02-read-validation/debug/deps/relevant_deductions-c2b77cac1ea924fd",
+      "sha256": "e9c6216695a3139493d83afdc0f03ceade9ff0a827b8e3d040a6c127b59b34cd",
+      "exit_code": 0,
+      "cpu_seconds_limit": 120,
+      "wall_seconds_limit": 120,
+      "address_space_limit": 1073741824
+    }
+  ],
+  "source_hashes": {
+    "research/chr-relational/src/contextual.rs": "71700b56cd0207743cb3714701c3ad9994269572b81168065b68b9607cfa7ac6",
+    "research/chr-relational/src/contextual_execute.rs": "c2312775e3ff34c9ae977dc619879ca762e3988696eb8af90dc5b3dc4a9e0855",
+    "research/chr-relational/tests/relevant_deductions.rs": "63a12e6ae08df73b32821e001f7878f3ce61b926b989ef8ff21613226065718e",
+    "research/chr-relational/examples/support/deduction_source.rs": "41f9e09faa8c9c5beaf786571857f39b1d3fc32c7bf77251df78f1d750cfcc62",
+    "research/chr-direct-conditional/tests/runtime_support/mod.rs": "03633e8d666fadcdd08ddfe4900aa8116b32e434fb0a5dcb1c5faa23ff5976b2",
+    "docs/experiments/registrations/S02-read-validation.md": "99601ed3f2a3c763173fb2bc1c202244eb629fca53003ab4299eeaaedcb8c0fd",
+    "research/chr-relational/experiments/read_validation_gate.py": "7d94759a2cd857408e7fe0e56cd46c28254820e49bf4ae06406870c3e2cf89aa",
+    "research/chr-relational/experiments/read_validation_mutation.py": "81460a0c6be29cd4151a4917e80d367a4719f3ec59661fc914e3783becd918d6"
+  }
+}

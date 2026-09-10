@@ -42,10 +42,8 @@ The engine, repeated-source fixture and reunion implementation match the prior p
 
 Reproduce the audit with `python research/chr-restoration/experiments/audit_adaptive_cpu.py`. The [freeze](s04-adaptive-cpu/freeze.json), [schedule](s04-adaptive-cpu/order.json), [raw results](s04-adaptive-cpu/results.jsonl), [audit](s04-adaptive-cpu/review-audit.json), [clock controls](s04-adaptive-cpu/clocks.json) and [campaign receipt](s04-adaptive-cpu/audit.json) preserve inputs and observations. The freeze identifies the measured sources and binary hashes; it is not an archived operating-system image. The driver refuses to overwrite a frozen run.
 
-## Next decision: price preservation versus reconstruction
+## Current next selection
 
-The [resident replay source gate](S04-resident-replay-source-gate.md) already demonstrates much less reconstruction with frequent checkpoints. It does not measure whether snapshot creation and retained ownership repay those savings. Compare Copy, undo, resident replay, checkpoint intervals 1/4/16 and applicable persistent/COW controls on read-heavy, mutation-heavy, work-between-choice and deep-choice sources, with changing-query reuse and cancellation.
+The [recorded-read investigation](S02-read-validation.md) revalidates the applicable [resident restoration cost pilot](S04-resident-cost-pilot.md). Its 1,344 runs already price the tested checkpoint regimes. Larger retained states, alternative switching policies and sustained consumers remain required; repeating that matrix would not answer them.
 
-Current `lifecycle.rs` can supply sources and controls, but its measured answers are validated before engine disposal, and source/query construction is outside its lifecycle intervals. Qualify the complete ownership endpoint and those measurement boundaries before registering comparative costs. Do not silently reuse its totals as the broader lifecycle measurement.
-
-T072 relevant-read validation is the strongest distinct alternative: it could avoid owned-key reconstruction but requires a new sound dependency mechanism. Restoration's existing independent source correspondence and controls make the next bounded ownership/cost comparison less expensive to reach. Reconsider integration at that result boundary, with demand capability and compact solving retained by the [sequence](../next-cycle.md). This result resolves neither T077 nor the architecture goal.
+T072 is now active for cheaper sound recognition of relevant deductions. The adaptive CPU findings above remain bounded evidence: one adverse contrast, no selected policy and consequential uncertainty. The [sequence](../next-cycle.md) retains restoration, integration, demand, compact solving and whole-architecture obligations. The research goal remains active.

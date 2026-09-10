@@ -19,8 +19,12 @@ fn settle(store: &mut Store) {
 }
 #[test]
 fn reuse_across_unrelated_bindings_preserves_caller_state_and_claims() {
-    for persistent in [false, true] {
-        let mut base = Store::default().with_relevant_deductions();
+    for (persistent, validated) in [(false, false), (true, false), (false, true), (true, true)] {
+        let mut base = if validated {
+            Store::default().with_validated_deductions()
+        } else {
+            Store::default().with_relevant_deductions()
+        };
         if persistent {
             base = base.with_persistent_equality();
         }
@@ -81,8 +85,12 @@ fn reuse_across_unrelated_bindings_preserves_caller_state_and_claims() {
 }
 #[test]
 fn relevant_changes_and_cycles_do_not_replay_compatible_results() {
-    for persistent in [false, true] {
-        let mut base = Store::default().with_relevant_deductions();
+    for (persistent, validated) in [(false, false), (true, false), (false, true), (true, true)] {
+        let mut base = if validated {
+            Store::default().with_validated_deductions()
+        } else {
+            Store::default().with_relevant_deductions()
+        };
         if persistent {
             base = base.with_persistent_equality();
         }
@@ -118,7 +126,7 @@ fn relevant_changes_and_cycles_do_not_replay_compatible_results() {
 fn complete_sources_match_independent_controls() {
     let mut cases = 0;
     #[cfg(feature = "deduction-work")]
-    let mut changed_hits = 0;
+    let mut changed_hits = std::collections::BTreeMap::new();
     for family in ["single", "shared", "distinct", "changed"] {
         for depth in [0, 4, 16] {
             for resource in [false, true] {
@@ -132,6 +140,11 @@ fn complete_sources_match_independent_controls() {
                         ("plain", p.start(&query)),
                         ("exact", p.start_shared_deductions(&query)),
                         ("relevant", p.start_relevant_deductions(&query)),
+                        ("validated", p.start_validated_deductions(&query)),
+                        (
+                            "persistent-validated",
+                            p.start_persistent_validated_deductions(&query),
+                        ),
                     ] {
                         let mut actual = vec![];
                         let mut done = false;
@@ -158,8 +171,10 @@ fn complete_sources_match_independent_controls() {
                             println!(
                                 "READ_REUSE,{family},{depth},{resource},{reverse},{mode},{hits}"
                             );
-                            if family == "changed" && mode == "relevant" {
-                                changed_hits += hits;
+                            if family == "changed"
+                                && ["relevant", "validated", "persistent-validated"].contains(&mode)
+                            {
+                                *changed_hits.entry(mode).or_insert(0) += hits;
                             }
                         }
                     }
@@ -193,27 +208,69 @@ fn complete_sources_match_independent_controls() {
     assert_eq!(cases, 48);
     #[cfg(feature = "deduction-work")]
     assert!(
-        changed_hits > 0,
+        ["relevant", "validated", "persistent-validated"]
+            .iter()
+            .all(|mode| changed_hits.get(mode).copied().unwrap_or(0) > 0),
         "complete source must exercise cross-state deduction reuse"
     );
 }
 
 #[test]
 fn descendant_reads_distinguish_cached_occurs_failure_from_valid_merge() {
-    let mut base = Store::default().with_relevant_deductions();
-    let x = base.unknown();
-    let y = base.unknown();
-    let fx = base.constructor("f", &[x]);
-    let mut failed = base.clone();
-    failed.equate(y, x);
-    settle(&mut failed);
-    failed.equate(fx, y);
-    settle(&mut failed);
-    assert!(failed.failed());
-    let mut valid = base.clone();
-    valid.equate(fx, y);
-    settle(&mut valid);
-    assert!(!valid.failed());
-    let values = valid.export(&[x, y]).unwrap();
-    assert_eq!(values[1], t("f", [values[0].clone()]));
+    for validated in [false, true] {
+        let mut base = if validated {
+            Store::default().with_validated_deductions()
+        } else {
+            Store::default().with_relevant_deductions()
+        };
+        let x = base.unknown();
+        let y = base.unknown();
+        let fx = base.constructor("f", &[x]);
+        let mut failed = base.clone();
+        failed.equate(y, x);
+        settle(&mut failed);
+        failed.equate(fx, y);
+        settle(&mut failed);
+        assert!(failed.failed());
+        let mut valid = base.clone();
+        valid.equate(fx, y);
+        settle(&mut valid);
+        assert!(!valid.failed());
+        let values = valid.export(&[x, y]).unwrap();
+        assert_eq!(values[1], t("f", [values[0].clone()]));
+    }
+}
+
+#[cfg(feature = "deduction-profile")]
+#[test]
+fn validated_hit_avoids_key_construction_with_complete_output() {
+    use chr_relational::deduction_profile::{Phase, set_callback};
+    use std::cell::Cell;
+    thread_local! { static KEYS: Cell<usize> = const { Cell::new(0) }; }
+    fn callback(phase: Phase, enter: bool) {
+        if enter && matches!(phase, Phase::Key) {
+            KEYS.set(KEYS.get() + 1);
+        }
+    }
+    set_callback(callback);
+    for validated in [false, true] {
+        let mut base = if validated {
+            Store::default().with_validated_deductions()
+        } else {
+            Store::default().with_relevant_deductions()
+        };
+        let x = base.unknown();
+        let a = base.constructor("a", &[]);
+        let fx = base.constructor("f", &[x]);
+        let fa = base.constructor("f", &[a]);
+        let mut warm = base.clone();
+        warm.equate(fx, fa);
+        settle(&mut warm);
+        KEYS.set(0);
+        let mut reused = base.clone();
+        reused.equate(fx, fa);
+        settle(&mut reused);
+        assert_eq!(reused.export(&[x]), Some(vec![atom("a")]));
+        assert_eq!(KEYS.get(), if validated { 0 } else { 2 });
+    }
 }

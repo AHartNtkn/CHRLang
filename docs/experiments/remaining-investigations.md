@@ -1,6 +1,6 @@
 # The comparisons still needed to choose the architecture
 
-The [adaptive CPU/elapsed result](results/S04-adaptive-cpu.md) supplies the current checkpoint. The adaptive CPU/elapsed audit validates 3,072 comparison processes, 192 warmups and five clock controls. Backoff-1 loses to Copy in one first-answer scenario; 65 contrasts remain unresolved. Median CPU spread is 1.588 versus 1.587 elapsed, so time off the executing thread cannot alone explain uncertainty. T077 next qualifies complete checkpoint/replay ownership and lifecycle costs; broader adaptation and the architecture goal remain open.
+The [recorded-read validation gate](results/S02-read-validation.md) supplies the current checkpoint. Recorded-read validation passes all 48 complete-source configurations in counter-free and diagnostic builds, preserves caller bindings/resources and rejects a descendant-omission mutation. A repeated merge constructs zero keys versus two for rebuilt-key lookup. The archived restoration pilot reproduces exactly across 1,344 runs and 192 allocation pairs; its tested costs remain applicable within scope. T072 is active for matched recognition ownership/allocation, with T077 broader restoration still required. No new timing or architectural winner is established.
 
 The [relevant-key ownership comparison](results/S02-relevant-ownership.md) supplies the current checkpoint. Relevant-key ownership validates1,008 metered and448 ordinary processes with exact allocation repeats, cancellation/reuse and retained answers surviving producer disposal. Ordered relevant reuse lowers peaks versus exact-state caching in38of64 scenarios but requests more bytes than recomputation in all64. The changed depth16/four-query witness requests1,292,590bytes with72,959peak excess versus669,196/38,976 for recomputation. T072 next attributes key/replay execution costs before timing; package one after breadth review; goal active.
 
@@ -18,7 +18,7 @@ The [names entry](results/S06-names-entry.md) supplies the current checkpoint. T
 
 The [conditional overlap comparison](results/S08-equality-overlap.md) and [breadth review](results/S08-equality-overlap-breadth-review.md) establish the current checkpoint. The conditional overlap shortcut reduces forward calls to 128 answers from 3,198,239 to 2,116,705. Reverse order without bounded lead cuts off at 116 answers; bounded lead restores 128 in 3,488,701 calls versus the original 4,606,799. Eighteen diagnostic processes preserve both gains and cutoffs; selected semantic suites pass. Retention, timing and broader fairness remain unresolved. Four-package breadth review selects T076 names-theory denotation and independent witnesses, followed by separate disequality and normal/neutral studies. Goal active.
 
-The [current execution order](next-cycle.md#portfolio-order-and-dependencies) schedules restoration, relevant-read integration, missing demand capability and compact solving beyond current reductions, followed by the distinct mechanisms in rounds B and C. Language and whole-architecture comparisons accompany the rounds. Every question below retains its evidence obligation; this scheduling update reports no new results.
+The [current execution order](next-cycle.md#portfolio-order-and-dependencies) schedules relevant-read integration, missing demand capability, compact solving beyond current reductions and broader restoration, followed by the distinct mechanisms in rounds B and C. Language and whole-architecture comparisons accompany the rounds. Every question below retains its evidence obligation; this scheduling update reports no new results.
 
 The [inert ownership comparison](results/S05-inert-ownership.md) and [full breadth review](results/S05-inert-ownership-breadth-review.md) supply the current evidence. Inert residual ownership qualifies 720 configurations with 1440 final paired allocation runs; all finite owners release. Separated memo requests fewer bytes than compact whole-state tables in 96 scenarios and more in 48, with lower peaks in 84 and higher in 60. Direct requests fewer bytes and has lower peaks throughout. Prior pre-lint runs are preserved, giving 2592 audited processes. Four-package breadth review selects T074 conditional equality/support lifetime attribution; T075 costs and broader dependencies remain required. Goal active.
 
@@ -106,7 +106,7 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-The [current execution order](next-cycle.md#start-here-the-next-experiments) owns scheduling: restoration, relevant-read integration, missing demand capability and compact solving beyond current reductions. The mechanism specifications below retain their individual evidence requirements and do not establish a separate order.
+The [current execution order](next-cycle.md#start-here-the-next-experiments) owns scheduling: relevant-read integration, missing demand capability, compact solving beyond current reductions and broader restoration. The mechanism specifications below retain their individual evidence requirements and do not establish a separate order.
 
 ### Depth, breadth and stopping within this sequence
 

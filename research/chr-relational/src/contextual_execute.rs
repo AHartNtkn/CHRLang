@@ -52,6 +52,18 @@ impl Prepared {
         state.store = state.store.clone().with_relevant_deductions();
         engine
     }
+    pub fn start_validated_deductions(self: &Arc<Self>, query: &Query) -> Engine {
+        let mut engine = self.start(query);
+        let state = engine.frontier.front_mut().expect("initial source state");
+        state.store = state.store.clone().with_validated_deductions();
+        engine
+    }
+    pub fn start_persistent_validated_deductions(self: &Arc<Self>, query: &Query) -> Engine {
+        let mut engine = self.start_validated_deductions(query);
+        let state = engine.frontier.front_mut().expect("initial source state");
+        state.store = state.store.clone().with_persistent_equality();
+        engine
+    }
     pub fn start_persistent_relevant_deductions(self: &Arc<Self>, query: &Query) -> Engine {
         let mut engine = self.start_relevant_deductions(query);
         let state = engine.frontier.front_mut().expect("initial source state");

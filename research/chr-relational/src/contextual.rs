@@ -100,6 +100,7 @@ struct Resource {
 #[derive(Clone, Default)]
 pub struct Store {
     relevant_deductions: bool,
+    validate_relevant_reads: bool,
     arena: Rc<RefCell<Arena>>,
     parents: EqualityMap<Value>,
     descriptors: EqualityMap<Vec<Descriptor>>,
@@ -124,6 +125,7 @@ impl Store {
     /// Experimental exact equality-transition reuse; resource ownership stays local.
     pub fn with_shared_deductions(mut self) -> Self {
         self.relevant_deductions = false;
+        self.validate_relevant_reads = false;
         if !self.share_deductions {
             self.equality_state = self.fresh_equality_state();
             self.share_deductions = true;
@@ -133,8 +135,51 @@ impl Store {
     /// Experimental reachable-read key with a local equality delta.
     pub fn with_relevant_deductions(mut self) -> Self {
         self.relevant_deductions = true;
+        self.validate_relevant_reads = false;
         self.share_deductions = false;
         self
+    }
+    /// Experimental recognition by validating the saved transitive read set.
+    pub fn with_validated_deductions(mut self) -> Self {
+        self.relevant_deductions = true;
+        self.validate_relevant_reads = true;
+        self.share_deductions = false;
+        self
+    }
+    fn descriptions_match(&self, root: Value, expected: &[Descriptor]) -> bool {
+        let fallback = || {
+            let arena = self.arena.borrow();
+            match &arena.nodes[root.0] {
+                Some(d) => expected == std::slice::from_ref(d),
+                None => expected.is_empty(),
+            }
+        };
+        match &self.descriptors {
+            EqualityMap::Ordered(map) => map.get(&root).map_or_else(fallback, |d| d == expected),
+            // The persistent API returns owned values; charge those clones in diagnostics.
+            EqualityMap::Persistent(map) => map
+                .get(&root.0, &mut Default::default())
+                .map_or_else(fallback, |d| d == expected),
+        }
+    }
+    fn validated_deduction(&self, a: Value, b: Value) -> Option<Rc<RelevantDeduction>> {
+        #[cfg(feature = "deduction-profile")]
+        let _scope = Scope::new(Phase::Lookup);
+        let arena = self.arena.borrow();
+        let lower = RelevantKey {
+            inputs: (a, b),
+            reads: Vec::new(),
+        };
+        arena
+            .relevant
+            .range(lower..)
+            .take_while(|(key, _)| key.inputs == (a, b))
+            .find(|(key, _)| {
+                key.reads.iter().all(|(id, root, descriptions)| {
+                    self.root(*id) == *root && self.descriptions_match(*root, descriptions)
+                })
+            })
+            .map(|(_, deduction)| deduction.clone())
     }
     #[cfg(feature = "deduction-work")]
     pub fn relevant_deduction_hits(&self) -> usize {
@@ -296,31 +341,41 @@ impl Store {
         {
             self.last_step_changed = true;
         }
-        let relevant = self.relevant_deductions.then(|| self.relevant_key(a, b));
-        if let Some(key) = &relevant {
-            let cached = {
-                #[cfg(feature = "deduction-profile")]
-                let _scope = Scope::new(Phase::Lookup);
-                self.arena.borrow().relevant.get(key).cloned()
-            };
-            if let Some(d) = cached {
-                #[cfg(feature = "deduction-profile")]
-                let _scope = Scope::new(Phase::RelevantReplay);
-                #[cfg(feature = "deduction-work")]
-                {
-                    self.arena.borrow_mut().relevant_hits += 1;
-                }
-                self.failed = d.failed;
-                if d.failed {
-                    self.equations.clear();
-                } else {
-                    self.parents.insert(b, a);
-                    self.descriptors.remove(&b);
-                    self.descriptors.insert(a, d.descriptions.clone());
-                    self.equations.extend(d.children.iter().copied());
-                }
-                return true;
+        let mut relevant = None;
+        let cached = if !self.relevant_deductions {
+            None
+        } else if self.validate_relevant_reads {
+            self.validated_deduction(a, b)
+        } else {
+            relevant = Some(self.relevant_key(a, b));
+            #[cfg(feature = "deduction-profile")]
+            let _scope = Scope::new(Phase::Lookup);
+            self.arena
+                .borrow()
+                .relevant
+                .get(relevant.as_ref().unwrap())
+                .cloned()
+        };
+        if let Some(d) = cached {
+            #[cfg(feature = "deduction-profile")]
+            let _scope = Scope::new(Phase::RelevantReplay);
+            #[cfg(feature = "deduction-work")]
+            {
+                self.arena.borrow_mut().relevant_hits += 1;
             }
+            self.failed = d.failed;
+            if d.failed {
+                self.equations.clear();
+            } else {
+                self.parents.insert(b, a);
+                self.descriptors.remove(&b);
+                self.descriptors.insert(a, d.descriptions.clone());
+                self.equations.extend(d.children.iter().copied());
+            }
+            return true;
+        }
+        if self.relevant_deductions && relevant.is_none() {
+            relevant = Some(self.relevant_key(a, b));
         }
         let key = (self.equality_state, a, b);
         if self.share_deductions {

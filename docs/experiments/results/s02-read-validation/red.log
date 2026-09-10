@@ -1,0 +1,63 @@
+   Compiling chr-relational v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-relational)
+error[E0599]: no method named `with_validated_deductions` found for struct `chr_relational::contextual::Store` in the current scope
+  --> research/chr-relational/tests/relevant_deductions.rs:23:56
+   |
+23 | ...   let mut base = if validated { Store::default().with_validated_deductions() } else { Store::default().with_relevant_deductions(...
+   |                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+help: there is a method `with_shared_deductions` with a similar name
+   |
+23 -         let mut base = if validated { Store::default().with_validated_deductions() } else { Store::default().with_relevant_deductions() };
+23 +         let mut base = if validated { Store::default().with_shared_deductions() } else { Store::default().with_relevant_deductions() };
+   |
+
+error[E0599]: no method named `with_validated_deductions` found for struct `chr_relational::contextual::Store` in the current scope
+  --> research/chr-relational/tests/relevant_deductions.rs:85:56
+   |
+85 | ...   let mut base = if validated { Store::default().with_validated_deductions() } else { Store::default().with_relevant_deductions(...
+   |                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+help: there is a method `with_shared_deductions` with a similar name
+   |
+85 -         let mut base = if validated { Store::default().with_validated_deductions() } else { Store::default().with_relevant_deductions() };
+85 +         let mut base = if validated { Store::default().with_shared_deductions() } else { Store::default().with_relevant_deductions() };
+   |
+
+error[E0599]: no method named `start_validated_deductions` found for struct `Arc<chr_relational::contextual_execute::Prepared>` in the current scope
+   --> research/chr-relational/tests/relevant_deductions.rs:135:41
+    |
+135 |                         ("validated", p.start_validated_deductions(&query)),
+    |                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+help: there is a method `start_shared_deductions` with a similar name
+    |
+135 -                         ("validated", p.start_validated_deductions(&query)),
+135 +                         ("validated", p.start_shared_deductions(&query)),
+    |
+
+error[E0599]: no method named `start_persistent_validated_deductions` found for struct `Arc<chr_relational::contextual_execute::Prepared>` in the current scope
+   --> research/chr-relational/tests/relevant_deductions.rs:136:52
+    |
+136 |                         ("persistent-validated", p.start_persistent_validated_deductions(&query)),
+    |                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+help: there is a method `start_persistent_relevant_deductions` with a similar name
+    |
+136 -                         ("persistent-validated", p.start_persistent_validated_deductions(&query)),
+136 +                         ("persistent-validated", p.start_persistent_relevant_deductions(&query)),
+    |
+
+error[E0599]: no method named `with_validated_deductions` found for struct `chr_relational::contextual::Store` in the current scope
+   --> research/chr-relational/tests/relevant_deductions.rs:205:37
+    |
+205 |     let mut base = Store::default().with_validated_deductions();
+    |                                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+help: there is a method `with_shared_deductions` with a similar name
+    |
+205 -     let mut base = Store::default().with_validated_deductions();
+205 +     let mut base = Store::default().with_shared_deductions();
+    |
+
+For more information about this error, try `rustc --explain E0599`.
+error: could not compile `chr-relational` (test "relevant_deductions") due to 5 previous errors

@@ -1,0 +1,55 @@
+   Compiling chr-relational v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-relational)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.81s
+     Running unittests src/lib.rs (target/s02-read-validation/debug/deps/chr_relational-01bc1605d4c8412b)
+
+running 6 tests
+test execute::interleaving_tests::merged_constructor_facts_are_unique_but_source_occurrences_are_not ... ok
+test contextual_execute::shared_deduction_tests::source_execution_reuses_post_fork_equality_states ... ok
+test contextual::cursor_order_tests::cursor_retains_all_partial_constructor_environments_in_order ... ok
+test contextual::ownership_tests::cached_maps_do_not_keep_their_arena_alive ... ok
+test contextual_execute::deduction_cost_source_tests::measured_sources_exercise_reuse_and_adverse_keys ... ok
+test execute::interleaving_tests::useful_early_failure_and_settlement_dependent_control ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.11s
+
+     Running tests/contextual.rs (target/s02-read-validation/debug/deps/contextual-b5cc8388b7cf8373)
+
+running 6 tests
+test posting_cycles_and_partial_visibility_remain_context_local ... ok
+test deduction_reuse_preserves_pending_work_and_rejects_changed_bindings ... ok
+test newly_derived_equality_is_shared_without_sharing_claims ... ok
+test shared_nodes_do_not_share_bindings_or_consumption ... ok
+test deduction_cap_keeps_existing_hits_and_correct_misses ... ok
+test ordered_equations_and_forks_match_independent_substitution ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.29s
+
+     Running tests/contextual_source.rs (target/s02-read-validation/debug/deps/contextual_source-3c02ea4b9e30ef58)
+
+running 4 tests
+test propagation_history_and_late_guard_enablement_are_context_local ... ok
+test finite_sibling_publishes_while_other_source_keeps_running ... ok
+test source_forks_preserve_consumption_fresh_outputs_and_failed_alternatives ... ok
+test common_fresh_prefix_and_consuming_siblings_have_complete_answers ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/equality_invalidation.rs (target/s02-read-validation/debug/deps/equality_invalidation-6fb50d5709f1f02c)
+
+running 3 tests
+test elimination_preserves_choices_failure_and_fresh_aliases ... ok
+test elimination_preserves_finite_service_beside_a_reflexive_loop ... ok
+test source_elimination_and_dynamic_detection_have_different_scope ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running tests/relevant_deductions.rs (target/s02-read-validation/debug/deps/relevant_deductions-e978834d81e4d11a)
+
+running 4 tests
+test descendant_reads_distinguish_cached_occurs_failure_from_valid_merge ... ok
+test relevant_changes_and_cycles_do_not_replay_compatible_results ... ok
+test reuse_across_unrelated_bindings_preserves_caller_state_and_claims ... ok
+test complete_sources_match_independent_controls ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.12s
+

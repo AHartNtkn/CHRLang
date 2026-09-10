@@ -9,7 +9,7 @@ goal:
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
   current_research: >-
-    The adaptive CPU/elapsed audit validates 3,072 comparison processes, 192 warmups and five clock controls. Backoff-1 loses to Copy in one first-answer scenario; 65 contrasts remain unresolved. Median CPU spread is 1.588 versus 1.587 elapsed, so time off the executing thread cannot alone explain uncertainty. T077 next qualifies complete checkpoint/replay ownership and lifecycle costs; broader adaptation and the architecture goal remain open.
+    Recorded-read validation passes all 48 complete-source configurations in counter-free and diagnostic builds, preserves caller bindings/resources and rejects a descendant-omission mutation. A repeated merge constructs zero keys versus two for rebuilt-key lookup. The archived restoration pilot reproduces exactly across 1,344 runs and 192 allocation pairs; its tested costs remain applicable within scope. T072 is active for matched recognition ownership/allocation, with T077 broader restoration still required. No new timing or architectural winner is established.
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -64,7 +64,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T077
+active_task: T072
 tasks:
   - id: T080
     type: pm
@@ -206,9 +206,9 @@ tasks:
   - id: T077
     type: pm
     assignee: PM
-    status: active
+    status: pending
     progress: "The adaptive CPU/elapsed audit validates 3,072 comparison processes, 192 warmups and five clock controls. Backoff-1 loses to Copy in one first-answer scenario; 65 contrasts remain unresolved. Median CPU spread is 1.588 versus 1.587 elapsed, so time off the executing thread cannot alone explain uncertainty. T077 next qualifies complete checkpoint/replay ownership and lifecycle costs; broader adaptation and the architecture goal remain open."
-    next_action: "Qualify checkpoint/replay lifecycle measurement and ownership using existing sources and controls. Include source/query construction, independently checked retained answers after producer disposal, changing-query reuse and cancellation. Compare Copy, undo, replay, checkpoint intervals 1/4/16 and applicable persistent/COW controls. Register complete costs only after qualification. Reconsider relevant-read integration at the result boundary; retain missing demand capability and compact solving obligations. No adaptive policy is selected."
+    next_action: "Carry the audited resident-cost pilot and adaptive CPU/elapsed result forward. At the relevant-read cost result, reconsider larger retained states, alternative switching/progress policies, finer independence and sustained consumers. Existing checkpoint costs already establish the tested reconstruction tradeoffs; do not repeat that matrix solely to improve precision. Broader lifecycle and architecture scope remain required."
     objective: Investigate corrected checkpoint and replay policies, working-state reuse and temporary separation/reunion against competent copying, persistence and undo, preserving complete source behavior and accounting for preparation, execution, observation and disposal.
     inputs:
       - docs/experiments/results/S04-adaptive-cost-pilot.md
@@ -508,9 +508,9 @@ tasks:
   - id: T072
     type: pm
     assignee: PM
-    status: pending
-    progress: "Relevant-deduction attribution reproduces 320 complete allocation receipts and passes an independent known-allocation scope check. Key construction requests 941,208 bytes in the changed-context witness; key-only savings could reverse some recomputation/Scan contrasts but cannot beat source elimination in the 32 inspected allocation scenarios. Package two complete; T071 demand lifecycle is next, with T072 repair/timing and T076 reusable symbolic solving still required. No timing or architecture selection; goal active."
-    next_action: "At the demand lifecycle result or a concrete obstruction, reconsider sound validation of recorded relevant reads without rebuilding a full owned key. Preserve descendant/cycle, caller-binding and resource-identity checks and low-reuse controls. Qualify counter-free timing and sustained owners before an architectural conclusion. Key-only allocation savings cannot reverse source elimination on this 32-scenario subset; other regimes and distinct local organizations remain required. Package two complete after breadth review."
+    status: active
+    progress: "Recorded-read validation passes all 48 complete-source configurations in counter-free and diagnostic builds, preserves caller bindings/resources and rejects a descendant-omission mutation. A repeated merge constructs zero keys versus two for rebuilt-key lookup. The archived restoration pilot reproduces exactly across 1,344 runs and 192 allocation pairs; its tested costs remain applicable within scope. T072 is active for matched recognition ownership/allocation, with T077 broader restoration still required. No new timing or architectural winner is established."
+    next_action: "Qualify matched recorded-read recognition ownership and allocation in the existing deduction lifecycle runner. Include ordered/persistent policies, rebuilt keys, exact caching and recomputation; prepared reuse, producer-independent retained answers, cancellation, unique requests and many same-input near misses. Attribute validation, missed probes, key construction and replay before registering primary timing. Reconsider demand capability, compact solving and broader restoration at the result boundary."
     objective: Establish a contextual equality and local consuming-rewrite source comparison that demonstrates useful interleaving, distinct resource ownership and independent complete-answer correctness before cost registration.
     inputs:
       - docs/experiments/results/S02-choice-cost.md
