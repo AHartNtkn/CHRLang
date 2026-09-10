@@ -1,5 +1,7 @@
 # Experimental sequence: resolve the remaining architecture questions
 
+The [current execution order](next-cycle.md#execution-order-after-the-current-causal-comparison) schedules the missing comparisons after the active conditional attribution, beginning with distinct structural theories. Each question retains its detailed evidence obligation; this scheduling update reports no new results.
+
 Investigate the unanswered mechanisms directly, then compare the complete architectures they enable. Reuse the existing baselines. The research remains active until consequential questions have evidence-backed answers.
 
 This sequence investigates the consequential questions left open by the [design review](results/R07-design-disposition-review.md). It compares complete architectural alternatives, including designs that earlier work did not directly test. No architecture is selected in advance.

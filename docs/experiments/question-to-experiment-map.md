@@ -1,5 +1,7 @@
 # What experiment answers each reviewed design question?
 
+The [current execution order](next-cycle.md#execution-order-after-the-current-causal-comparison) schedules the missing comparisons after the active conditional attribution, beginning with distinct structural theories. Each question retains its detailed evidence obligation; this scheduling update reports no new results.
+
 The [inert ownership comparison](results/S05-inert-ownership.md) and [full breadth review](results/S05-inert-ownership-breadth-review.md) supply the current evidence. Inert residual ownership qualifies 720 configurations with 1440 final paired allocation runs; all finite owners release. Separated memo requests fewer bytes than compact whole-state tables in 96 scenarios and more in 48, with lower peaks in 84 and higher in 60. Direct requests fewer bytes and has lower peaks throughout. Prior pre-lint runs are preserved, giving 2592 audited processes. Four-package breadth review selects T074 conditional equality/support lifetime attribution; T075 costs and broader dependencies remain required. Goal active.
 
 The [common-source gate and cost design](results/S10-native-common-source.md) qualifies ten Rust configurations on all 125 cases, prefix lowering on 20 and finite solving with its caller on four. Native evidence remains applicable. T078 next establishes native prepared reuse and disposal; no cross-architecture cost matrix has run.
