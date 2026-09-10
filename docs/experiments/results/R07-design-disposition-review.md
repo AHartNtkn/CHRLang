@@ -1,6 +1,6 @@
 # Why designs were set aside—and what the experiments actually establish
 
-For entries 28, 29 and 34, the [source-derived finite phase](S06-finite-phase-gate.md) now supplies an executable way to avoid a choice product while preserving complete caller answers and derivation counts. Its bounded atom-domain admission, source correspondence and service checks pass. Complete costs, broader resource solving, native compilation and learning remain required; no solver family is selected or rejected.
+The [finite-solver lifecycle pilot](S06-finite-lifecycle.md) completes 1,428 processes across 204 configurations. A [paired allocation correction](S06-empty-complement-attribution.md) completes another 252 processes. Selective four-query allocation falls to 0.795 MB, below both conditional orders; the unselective batch still requests 15.77 MB versus specialization’s 9.24 MB. These are bounded results, with compilation and broader solver questions still open. Complete costs for broader resources, learning and native compilation remain required; no solver family is selected or rejected.
 
 **The experiments support several narrow rejections. They do not support treating every alternative architecture as resolved, or the research goal as complete.** Some implementations lost measured comparisons. Some proposed translations changed program behavior. Other directions received no direct experiment: I stopped investigating them on a judgment about the value of further work.
 
@@ -188,11 +188,7 @@ The subsequent [CHR-expressed constructor/consumption gate](S02-chr-constructors
 
 ### 23. General direct Conditional execution — Mixed results, not a general rejection
 
-The [stronger-control lifecycle pilot](S10-arrival-lifecycle.md) now compares qualified specialization and prefix lowering. Conditional execution retains its choice/check advantage against these controls; explicit execution remains stronger on the low-sharing stream. Direct source-derived solving and native generation remain unresolved, so no architecture-wide adoption or rejection follows.
-
-The [stronger-control gate](S10-arrival-controls.md) validates specialization and pure-prefix lowering on the new favorable conditional source. Both retain the explicit search tree; their complete lifecycle is selected next. This qualifies competing controls without resolving direct source-derived elimination.
-
-The [order lifecycle comparison](S08-order-lifecycle.md) adds a contrary complete-source regime: conditional execution allocates much less and has lower exploratory medians on independent choices followed by rejecting checks, while explicit controls remain stronger on the low-sharing stream. Reversing check arrival reverses the favorable diagram order in requested allocation. Stronger lowering/solving controls are selected next; this does not establish a general conditional architecture winner.
+The [finite-solver lifecycle pilot](S06-finite-lifecycle.md) completes 1,428 processes across 204 configurations. A [paired allocation correction](S06-empty-complement-attribution.md) completes another 252 processes. Selective four-query allocation falls to 0.795 MB, below both conditional orders; the unselective batch still requests 15.77 MB versus specialization’s 9.24 MB. These are bounded results, with compilation and broader solver questions still open. The stronger source-derived control changes the selective allocation comparison; it does not reject general Conditional execution. The [earlier qualified controls](S10-arrival-lifecycle.md) retain explicit alternatives, and explicit execution remains stronger on the low-sharing stream.
 
 **Result.** R03 showed favorable opaque shared work and adverse ordinary computation. A real maintenance defect initially exaggerated some losses; filtering consumed work materially changed the result. Later mixed-work tests favored Conditional for heavy common work before discrimination, while specialized explicit execution won eleven of fourteen placement/reuse pairs. Pure-carrier lowering then changed that comparison again. Finally, substantive equality favored Conditional in all six common pre-discrimination clash cells, while explicit controls won the other eighteen cells.
 
@@ -228,6 +224,8 @@ The [order lifecycle comparison](S08-order-lifecycle.md) adds a contrary complet
 
 ### 28. Encode bounded interpreter traces in a solver — Measured loss for that encoding
 
+**Current follow-up.** The [source-derived finite lifecycle](S06-finite-lifecycle.md) now measures an admitted atom-domain phase with resumed caller execution. Selective gains and cold/unselective costs are both recorded. This does not resolve broader theories, compatible-query learning or native compilation.
+
 **Result.** E11's term-expression symbolic encoding cost more than its direct arena control on every completed workload. Relational decomposition timed out at 60 seconds in all three repetitions while the direct control completed in about 0.028 seconds. Construction, solving and observation all mattered.
 
 **Decision and limit.** This was a defensible negative result for the tested trace encoding and bounds. It does not reject compiling the relation directly, solver learning, compatible-prefix reuse, or other representations that avoid encoding interpreter transitions. [Matched comparison](E11-matched.md), [projection follow-up](E11-projection-followup.md)
@@ -235,6 +233,8 @@ The [order lifecycle comparison](S08-order-lifecycle.md) adds a contrary complet
 **Earlier symbolic representations.** Dense heap/handle encoding also encountered construction bottlenecks. Concrete projection preserved the checked bounded outcomes and reduced a diagnosed cost; equality microstep pruning enabled the registered type prefix, while addition remained unresolved. This led to the term-expression comparison above. Compatible-prefix reuse, larger bounds and more direct relation encodings did not receive a decisive comparative result. [Projection and encoding follow-up](E11-projection-followup.md)
 
 ### 29. Use support-CNF or conflict-CNF for the tested finite relation — Measured loss to the native finite solver
+
+**Current follow-up.** The [source-derived finite lifecycle](S06-finite-lifecycle.md) now measures an admitted atom-domain phase with resumed caller execution. Selective gains and cold/unselective costs are both recorded. This does not resolve broader theories, compatible-query learning or native compilation.
 
 **Result.** R04's native trailed finite solver had the lowest lifecycle in all twenty cold/reuse cells, with separated ranges against both Boolean encodings and the explicit CHR controls. Independent exhaustive assignments and source correspondence checked the relation being solved.
 
@@ -265,6 +265,8 @@ The [order lifecycle comparison](S08-order-lifecycle.md) adds a contrary complet
 **Decision and limit.** Complete groundness was unnecessary for the proven prefix steps. The broader claim that carrier lowering eliminates every sharing advantage was not supported. The transformation covers a particular source-derived pure carrier; arbitrary effectful or multiple-carrier contraction remains unresolved. [Carrier comparison](R05-carrier-cost.md), [prefix gate](R05-carrier-prefix-gate.md), [prefix costs](R05-carrier-prefix-cost.md)
 
 ### 34. General relational compilation, contextual lowering and richer structural theories — Not directly resolved
+
+**Current follow-up.** The [source-derived finite lifecycle](S06-finite-lifecycle.md) now measures an admitted atom-domain phase with resumed caller execution. Selective gains and cold/unselective costs are both recorded. This does not resolve broader theories, compatible-query learning or native compilation.
 
 **Result.** There are positive finite-solving and recursive-lowering examples, and concrete counterexamples to insufficient certificates. There is no complete comparative implementation covering general contextual relation compilation, arbitrary equality-constrained term spaces, existential projection, or the broader normal/neutral/name/disequality theories considered in the analysis.
 

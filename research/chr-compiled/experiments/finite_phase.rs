@@ -399,10 +399,14 @@ impl Work {
         if let Some((r, index, env, conditions)) = selected {
             // Complement of a conjunction is disjoint boxes, not a full product.
             for (v, value) in conditions {
-                let mut negative = state.clone();
-                let domain = negative.domains.get_mut(&v).expect("condition domain");
-                domain.remove(&value);
-                if !domain.is_empty() {
+                // The matching value is present; a singleton has no complement.
+                if state.domains[&v].len() > 1 {
+                    let mut negative = state.clone();
+                    negative
+                        .domains
+                        .get_mut(&v)
+                        .expect("condition domain")
+                        .remove(&value);
                     fork(report, limits)?;
                     queue.push(negative);
                 }

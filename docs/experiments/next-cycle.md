@@ -1,8 +1,8 @@
 # Next experimental cycle: answer the remaining design questions
 
-The [source-derived finite phase](results/S06-finite-phase-gate.md) passes 224 arrival and 64 relation configurations with independent complete-answer checks. Its 64-choice witness uses 322 symbolic steps and 64 partitions; multiplicity, source admission and resumable cancellation are tested. T073 next charges the complete solver/caller lifecycle; no cost ranking follows.
+The [finite-solver lifecycle pilot](results/S06-finite-lifecycle.md) completes 1,428 processes across 204 configurations. A [paired allocation correction](results/S06-empty-complement-attribution.md) completes another 252 processes. Selective four-query allocation falls to 0.795 MB, below both conditional orders; the unselective batch still requests 15.77 MB versus specialization’s 9.24 MB. These are bounded results, with compilation and broader solver questions still open.
 
-Current selection: T073 complete finite-solver lifecycle accounting under investigation 4, following the [source-derived mechanism gate](results/S06-finite-phase-gate.md). Establish allocation/ownership and prospective sizing before timing. Native graph/connected feasibility remains the strongest distinct alternative; T079 and the other broader directions remain required.
+Current selection: T080 native graph source correspondence under investigation 5, following the four-package review in the [finite-solver lifecycle report](results/S06-finite-lifecycle.md). Test dynamic choice correlation, consuming effects, off-output failure and actual interruptible service before connected-parallel costs. T073 and every broader unresolved direction remain required; the research goal is active.
 
 Test the mechanisms that remain unanswered, then compare the complete architectures they enable. Reuse the existing baselines and valid results. The research goal remains active.
 
