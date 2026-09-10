@@ -12,7 +12,7 @@ This is the governing sequence for the renewed investigation. Existing E/R measu
 
 The [next experimental cycle](next-cycle.md#start-here-the-next-experiments) sets the immediate experiments and their decision boundaries from the verified worktree. Its full programme covers every direction; the numbered investigations are identifiers, not instructions to repeat completed work. It reuses the stage definitions below and the full question map.
 
-The [joint theory entry](results/S06-joint-entry.md) supplies the current checkpoint. Joint names, exclusions and normal/neutral feasibility passes 3,840 independent comparisons and 640 closed ground source queries per execution, twice with metrics on and twice off; 59 regressions pass. Atomic names satisfy the structural requirements, but finite hidden-name dependencies and raw residual host effects remain consequential. T076 next registers exact projected output and an executable closed logical boundary. Package one after guarded-choice breadth review; goal active.
+The [finite joint projection entry](results/S06-joint-projection.md) supplies the current checkpoint. Finite joint projection passes 1,536 exact-set comparisons per execution in two default and two metrics-off runs; 62 regressions pass. Hidden finite-name dependencies and caller restrictions survive existing factor elimination. The checked logical boundary rejects exposed hidden variables, literal predicate interactions, raw observations and nonground domains. T076 next investigates symbolic output and fresh caller transport; package two after guarded-choice breadth review. Goal active.
 
 ## Account for every reviewed question
 

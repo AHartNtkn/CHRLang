@@ -14,13 +14,11 @@ The [inert ownership comparison](results/S05-inert-ownership.md) qualifies finit
 
 ## Start here: the next experiments
 
-**Next establish exact joint output and an executable closed logical boundary under T076.** The [joint entry](results/S06-joint-entry.md) qualifies feasibility across shared identities, but finite hidden names can constrain visible outputs and literal residuals can affect host execution. A Boolean feasibility endpoint cannot settle these duties.
+**Next investigate exact nonground output and fresh caller transport under T076.** The [finite joint projection entry](results/S06-joint-projection.md) preserves hidden dependencies and exact ground sets using existing elimination, but its decoder rejects unresolved holes. That exclusion remains a language and architecture question.
 
-Register projected answers under the declared logical contract and compare with independent explicit enumeration. Include repeated variables, hidden finite-name dependencies, fresh caller transport and changed bindings. Preserve raw multiplicity and host-effect distinctions in paired literal CHR witnesses; establish what eligibility or declaration makes the logical boundary valid. No mandatory language restriction is adopted.
+Register a symbolic observation contract that preserves repeated holes within answers, freshness across independent answers/callers and all hidden dependencies required to interpret an answer. Compare it with the finite decoder and the literal CHR observer/consumer controls. Distinguish symbolic summaries from enumerated ground answers; do not treat a finite alphabet as the language's universal domain.
 
-Only after exact answers and ownership are qualified, compare selective versus output-heavy work, preparation reuse and complete lifecycle costs. Do not time the feasibility wrapper as though it already replaces a source region.
-
-**The strongest ready alternative remains local branch-copy/service attribution and a demand-driven or representation contrast.** That can refine a measured integrated-execution crossover; the joint entry instead exposes a missing output/eligibility interface that could decide whether structural solving replaces execution. Reconsider the alternatives and conditional lifetime at this gate or an obstruction. This is package one after the guarded-choice breadth review; at most three further packages precede the next full review.
+**The strongest ready alternative is finite-interface ownership and lifecycle cost qualification.** It could establish the preparation/output crossover against whole-assignment enumeration, but cannot answer fresh-alias support. The symbolic entry comes first because that capability can change which sources the solver boundary admits. Reconsider finite costs, local branch-copy attribution and demand-driven choices at the gate or an obstruction. This is package two after guarded-choice breadth review; two further packages trigger the next full review.
 
 ## Execution order after the current causal comparison
 

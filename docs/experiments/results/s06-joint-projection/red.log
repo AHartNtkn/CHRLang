@@ -1,0 +1,36 @@
+   Compiling chr-structural v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-structural)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.73s
+     Running tests/joint_projection.rs (target/debug/deps/joint_projection-4158485752f2c52d)
+
+running 3 tests
+test exact_joint_sets_match_independent_full_assignments ... FAILED
+test observation_groundness_and_resource_bounds_are_checked ... FAILED
+test hidden_dependencies_and_changed_caller_restrictions_survive ... FAILED
+
+failures:
+
+---- exact_joint_sets_match_independent_full_assignments stdout ----
+
+thread 'exact_joint_sets_match_independent_full_assignments' (233) panicked at research/chr-structural/src/joint_region.rs:12:138:
+not implemented: joint projection boundary
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- observation_groundness_and_resource_bounds_are_checked stdout ----
+
+thread 'observation_groundness_and_resource_bounds_are_checked' (235) panicked at research/chr-structural/src/joint_region.rs:12:138:
+not implemented: joint projection boundary
+
+---- hidden_dependencies_and_changed_caller_restrictions_survive stdout ----
+
+thread 'hidden_dependencies_and_changed_caller_restrictions_survive' (234) panicked at research/chr-structural/src/joint_region.rs:12:138:
+not implemented: joint projection boundary
+
+
+failures:
+    exact_joint_sets_match_independent_full_assignments
+    hidden_dependencies_and_changed_caller_restrictions_survive
+    observation_groundness_and_resource_bounds_are_checked
+
+test result: FAILED. 0 passed; 3 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p chr-structural --test joint_projection`
