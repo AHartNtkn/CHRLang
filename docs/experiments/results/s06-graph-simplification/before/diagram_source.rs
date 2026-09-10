@@ -1,6 +1,5 @@
 //! Source correspondence: complete observations and branch counts precede projection.
 use chr_structural::{
-    graph_simplification::Reduced,
     joint_region::{Observation, Predicate, Prepared as Projection, Region},
     name_disequality::{Formula, Name},
     reusable_diagram::{Diagram, Expr},
@@ -120,7 +119,6 @@ fn oracle(
     (rows, observations)
 }
 struct Prepared {
-    reduced: Reduced,
     diagram: Diagram,
     names: Vec<Formula>,
     projected: Vec<Projection>,
@@ -187,10 +185,7 @@ impl Prepared {
                 alphabet: Some(alphabet.to_vec()),
             })
             .collect();
-        let reduced = Reduced::compile(3, alphabet.len(), branches, &[0, 1], LIMIT).unwrap();
-        assert!(reduced.is_closed());
         Self {
-            reduced,
             diagram,
             names,
             projected,
@@ -208,7 +203,7 @@ impl Prepared {
         alias: bool,
         request: &[String],
         query: usize,
-    ) -> [Rows; 5] {
+    ) -> [Rows; 4] {
         let caller = BTreeMap::from([(Var(0), Var(1000 + query as u64))]);
         let instances = self
             .symbolic
@@ -229,7 +224,7 @@ impl Prepared {
                 .unwrap()
             })
             .collect::<Vec<_>>();
-        let mut result: [Rows; 5] = std::array::from_fn(|_| BTreeSet::new());
+        let mut result: [Rows; 4] = std::array::from_fn(|_| BTreeSet::new());
         for (x, a) in alphabet.iter().enumerate() {
             for (y, b) in alphabet.iter().enumerate() {
                 if (alias && x != y) || request.iter().any(|r| r != a) {
@@ -258,7 +253,6 @@ impl Prepared {
                         i.consistent(&BTreeMap::from([(ids[0], atom(a)), (ids[1], atom(b))]))
                             .unwrap()
                     }),
-                    self.reduced.contains(&[x, y]).unwrap(),
                 ];
                 for (r, ok) in result.iter_mut().zip(accepted) {
                     if ok {
@@ -271,7 +265,7 @@ impl Prepared {
     }
 }
 #[test]
-fn raw_source_and_all_five_prepared_paths_match_independent_assignments() {
+fn raw_source_and_all_four_prepared_paths_match_independent_assignments() {
     let mut configurations = 0;
     let mut multiplicity_cases = 0;
     for k in [2, 3] {
@@ -322,7 +316,7 @@ fn raw_source_and_all_five_prepared_paths_match_independent_assignments() {
     assert!(multiplicity_cases > 0);
     println!(
         "source_configurations={configurations} candidate_set_checks={} multiplicity_cases={multiplicity_cases}",
-        configurations * 5
+        configurations * 4
     );
 }
 #[test]

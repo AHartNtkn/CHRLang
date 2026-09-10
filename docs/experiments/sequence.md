@@ -1,6 +1,6 @@
 # Experimental sequence: resolve the remaining architecture questions
 
-The [reusable-diagram ownership comparison](results/S06-diagram-ownership.md) supplies the current checkpoint. Reusable-diagram ownership validates 4,320 metered and 2,160 ordinary processes with exact phase repeats, independent answers and final heap restoration. Diagrams request fewer bytes than prepared names in 303 of 432 scenarios but more than explicit enumeration in 345. Analytical simplifications, confirmed on 156 visible pairs, reduce all 24 selected sources to true/equality/difference/false. T076 next qualifies a source-derived simplification control before timing. Package three complete; goal active.
+The [constraint-based graph simplifier](results/S06-graph-simplification.md) and [breadth review](results/S06-graph-simplification-breadth-review.md) supply the current checkpoint. Constraint-based finite-graph simplification passes 3,072 graph projections and 128 union projections per debug/release build. The five-candidate source gate passes 360 configurations and 1,800 set comparisons per build; a colorable K3,3 core remains explicitly unresolved. Four-package review selects bounded allocation/clock qualification and timing including simplification, then T077 restoration. No timing or architecture selection; goal active.
 
 The [relevant-key ownership comparison](results/S02-relevant-ownership.md) supplies the current checkpoint. Relevant-key ownership validates1,008 metered and448 ordinary processes with exact allocation repeats, cancellation/reuse and retained answers surviving producer disposal. Ordered relevant reuse lowers peaks versus exact-state caching in38of64 scenarios but requests more bytes than recomputation in all64. The changed depth16/four-query witness requests1,292,590bytes with72,959peak excess versus669,196/38,976 for recomputation. T072 next attributes key/replay execution costs before timing; package one after breadth review; goal active.
 
@@ -286,7 +286,7 @@ All new results link raw inputs, commands, freezes, validation and unfavorable o
 
 ## Current execution order
 
-T076 is active for a source-derived simplification control after the [diagram ownership comparison](results/S06-diagram-ownership.md). The selected finite sources all admit simple visible relations; charge the analysis that establishes those relations before interpreting primary timing. Package three is complete. The next package must include the full breadth review, comparing further lifecycle work with T072 relevant-read repair, T071 attribution/capability and checkpoint/replay.
+T076 is active for bounded completion of the finite-source lifecycle comparison, including the qualified constraint-based simplifier. The [four-package breadth review](results/S06-graph-simplification-breadth-review.md) selects allocation/clock qualification and registered timing before a T077 restoration handoff. No more than two qualification packages and one timing confirmation are selected; an obstruction triggers earlier review.
 
 The [57-question map](question-to-experiment-map.md) and [mechanism ledger](remaining-investigations.md) retain every unresolved obligation. The next cycle owns scheduling; historical checkpoint selections describe their own experiment boundaries.
 

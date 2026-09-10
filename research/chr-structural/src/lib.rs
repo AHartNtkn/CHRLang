@@ -216,3 +216,5 @@ pub mod joint_region;
 pub mod symbolic;
 
 pub mod reusable_diagram;
+
+pub mod graph_simplification;
