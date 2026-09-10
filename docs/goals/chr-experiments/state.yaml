@@ -9,13 +9,7 @@ goal:
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
   current_research: >-
-    Native residency and host tracing preserve full endpoints, with sampled native peaks
-    of 1876–98200 KiB despite 64-GiB reservations. Query reset retains resident heap pages.
-    A recursive-emitter reference cycle is corrected with exact generated-program agreement.
-    T078 next registers one bounded complete-query mixed-source cost pilot using ordinary paths.
-    T073 learning costs return after that pilot or obstruction. Compilation, source capability,
-    sustained lifetime, streaming, parallelism and held-out architecture questions remain required.
-    No universal architecture is selected; the goal remains active.
+    Mixed-source pilot completes 2710 primary runs on 24 complete batches with all independent endpoints valid. Current native process and service each lose all 24 comparisons; substantive native service alone exceeds Rust whole-process observations on both CPUs. T073 opens independent user-program compilation against same-plan prepared execution; learning costs return at its entry gate or obstruction. T078 broader composition and sustained lifetime remain required. Goal active.
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -70,7 +64,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T078
+active_task: T073
 tasks:
   - id: T080
     type: pm
@@ -143,11 +137,12 @@ tasks:
   - id: T078
     type: pm
     assignee: PM
-    status: active
+    status: "pending"
     objective: Establish and independently qualify at least two coherent complete execution paths on mixed-mechanism sources, including a serious alternative, with explicit semantic capability and responsibility maps before whole-path cost registration.
-    progress: Residency gate passes958 native and958 traced-host endpoints plus479 untraced host endpoints. Native sampled peak RSS is1876–98200KiB and preparation disposal returns it to1812–1868KiB. Host emitter cycle witness changes from9 retained local functions to0 with GC disabled; all26 emitted programs/dictionaries are identical. Host traces retain explicit interpreter/diagnostic scope. No comparative timing result.
-    next_action: Register one bounded complete-query mixed-source pilot using frozen ordinary Rust and combined native paths, independent full endpoints and prospective repetition/order/threshold/bounds. Treat engine-specific cutoffs and unsupported sources separately; do not equate named phases with full process cost or internal observation with external publication. Reconsider T073 learning and distinct mechanisms after the pilot or consequential obstruction. Compilation and sustained lifetime remain required.
+    progress: "Mixed-source pilot completes 2710 primary runs on 24 complete batches with all independent endpoints valid. Current native process and service each lose all 24 comparisons; substantive native service alone exceeds Rust whole-process observations on both CPUs. T073 opens independent user-program compilation against same-plan prepared execution; learning costs return at its entry gate or obstruction. T078 broader composition and sustained lifetime remain required. Goal active."
+    next_action: "Carry the bounded mixed-source loss forward without generalizing to distinct graph organizations. Return to broader composition and lifetime when a new mechanism changes the compared path or consequential evidence invalidates the pilot. Independent user-program compilation entry is active under T073; no goal closure."
     inputs:
+      - docs/experiments/results/S10-mixed-pilot.md
       - docs/experiments/results/S10-residency.md
       - docs/experiments/results/S10-native-allocation.md
       - docs/experiments/results/S10-host-primary.md
@@ -365,11 +360,12 @@ tasks:
   - id: T073
     type: pm
     assignee: PM
-    status: pending
-    progress: Primary learning gate passes756 release processes across216 complete and36 cancellation configurations, with one primary and two diagnostic runs each. Independent outputs, analytical counts, retained regions and diagnostic allocation repetition agree; all task-owned diagnostic heap restores. Both semantic builds pass34 tests and both scoped Clippy configurations pass. No timing claim.
-    next_action: Reconsider substantive common-prefix, reuse and capacity cost registration at T078 host/native ownership qualification or a consequential obstruction, and after the bounded mixed-source pilot. Primary measurement is qualified within its reported internal-owned-answer endpoint; external publication, caller-stage cancellation, compilation and sustained lifetime remain open. General conflict learning and resource derivations remain required.
+    status: "active"
+    progress: "Primary learning gate passes756 release processes across216 complete and36 cancellation configurations, with one primary and two diagnostic runs each. Independent outputs, analytical counts, retained regions and diagnostic allocation repetition agree; all task-owned diagnostic heap restores. Both semantic builds pass34 tests and both scoped Clippy configurations pass. No timing claim. Mixed-source boundary selects independent compilation entry; learning cost pilot remains required."
+    next_action: "Inventory source-derived lowering and compiler capabilities; establish a bounded independent user-program generation entry against prepared execution of the same plan and the strongest applicable existing control. Record favorable/adverse sources, semantic restrictions, full-answer oracle and compilation/artifact accounting before implementation and cost registration. Reconsider learning costs and direct resource derivations at this entry gate or an obstruction."
     objective: Derive a source-driven lowering transformation beyond exact schemas, with explicit dependency/resource conditions, independent complete-answer checks and consequential language-property boundaries before cost measurement.
     inputs:
+      - docs/experiments/results/S10-mixed-pilot.md
       - docs/experiments/results/S06-learning-primary.md
       - docs/experiments/results/S06-learning-setup.md
       - docs/experiments/results/S06-learning-ownership.md

@@ -1,5 +1,11 @@
 # The comparisons still needed to choose the architecture
 
+The [mixed-source pilot](results/S10-mixed-pilot.md) completes 2,710 primary measurements across 24 batches. The current native path loses to the fastest admitted Rust control in all 24; native service alone exceeds Rust whole-process time on all four substantive batches. T073 now opens independent user-program compilation against prepared execution of the same plan. Learning costs return for review at that entry gate or an obstruction. T078 broader composition, compilation accounting and sustained lifetime remain unfinished; this result does not reject distinct graph mechanisms.
+
+## Earlier experimental checkpoints
+
+The following checkpoint summaries retain their status at the time of each experiment. The current selection above and the [execution sequence](next-cycle.md) govern next work.
+
 The [residency and host-allocation gate](results/S10-residency.md) preserves958 native and958 traced-host endpoints, plus479 untraced host endpoints. Native sampled RSS peaks span1876–98200KiB despite64GiB virtual reservations; query reset retains touched heap pages until preparation disposal. Host tracing exposes and validates a recursive-emitter lifetime correction with identical generated programs. T078 next registers a bounded complete-query mixed-source cost pilot; compilation and sustained lifetime remain open.
 
 The [native allocation gate](results/S10-native-allocation.md) preserves958 query endpoints over52 processes with repeatable direct-call heap/mapping counters and zero tracked final ownership. Peak live mappings are64GiB; direct heap requests are272.6–280.9MB per session, not RSS. Prepared disposal releases mappings before retained consumer bytes. T078 next qualifies host allocations and process residency; no total-efficiency ranking follows.
@@ -80,7 +86,7 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-The [current execution order](next-cycle.md#the-order-and-why) owns scheduling. T073 is active for compatible-query learning after the publication-clock breadth review; T078 allocation qualification and a mixed-source pilot remain pending. This ledger specifies required mechanisms and evidence rather than a competing schedule.
+The [current execution order](next-cycle.md#the-order-and-why) owns scheduling. T073 is active for independent user-program compilation entry after the mixed-source pilot; learning costs return for review at that entry or an obstruction. T078 broader composition and lifetime work remains pending. This ledger specifies required mechanisms and evidence rather than a competing schedule.
 
 ### Depth, breadth and stopping within this sequence
 

@@ -1,0 +1,2635 @@
+{
+  "processes": 3252,
+  "measured": 2710,
+  "comparisons": [
+    {
+      "batch": 0,
+      "family": "common",
+      "group": 0,
+      "queries": 4,
+      "admitted_rust": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "best_process_rust": 9,
+      "best_service_rust": 6,
+      "native_process_median_ns": 50058815.0,
+      "rust_process_median_ns": 1941854.0,
+      "process": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 26.1103868747704,
+            "native_range": [
+              44726392,
+              57483982
+            ],
+            "rust_range": [
+              1778473,
+              3699407
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 25.183426350331352,
+            "native_range": [
+              46090320,
+              53005979
+            ],
+            "rust_range": [
+              1768023,
+              2516641
+            ]
+          }
+        ]
+      },
+      "service_against_process_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 3.6133275423465907,
+            "native_range": [
+              457857,
+              781635
+            ],
+            "rust_range": [
+              142262,
+              180475
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 3.774778458427501,
+            "native_range": [
+              480117,
+              555745
+            ],
+            "rust_range": [
+              129441,
+              155150
+            ]
+          }
+        ]
+      },
+      "service_against_service_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 15.245026178010471,
+            "native_range": [
+              457857,
+              781635
+            ],
+            "rust_range": [
+              30195,
+              41573
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 13.87265375262971,
+            "native_range": [
+              480117,
+              555745
+            ],
+            "rust_range": [
+              34522,
+              38393
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batch": 1,
+      "family": "common",
+      "group": 1,
+      "queries": 4,
+      "admitted_rust": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "best_process_rust": 4,
+      "best_service_rust": 2,
+      "native_process_median_ns": 49659447.5,
+      "rust_process_median_ns": 1952587.0,
+      "process": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 23.363580059689045,
+            "native_range": [
+              48558216,
+              50592451
+            ],
+            "rust_range": [
+              1713989,
+              2529786
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 26.106362049501424,
+            "native_range": [
+              46156071,
+              54429318
+            ],
+            "rust_range": [
+              1678781,
+              2188668
+            ]
+          }
+        ]
+      },
+      "service_against_process_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 8.368125673953534,
+            "native_range": [
+              331799,
+              355788
+            ],
+            "rust_range": [
+              38081,
+              43714
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 8.959376378116163,
+            "native_range": [
+              330638,
+              369864
+            ],
+            "rust_range": [
+              33241,
+              46764
+            ]
+          }
+        ]
+      },
+      "service_against_service_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 9.98955560106492,
+            "native_range": [
+              331799,
+              355788
+            ],
+            "rust_range": [
+              30362,
+              62597
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 8.937582485831845,
+            "native_range": [
+              330638,
+              369864
+            ],
+            "rust_range": [
+              36348,
+              56044
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batch": 2,
+      "family": "common",
+      "group": 2,
+      "queries": 4,
+      "admitted_rust": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "best_process_rust": 8,
+      "best_service_rust": 2,
+      "native_process_median_ns": 47395402.5,
+      "rust_process_median_ns": 1787817.5,
+      "process": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 22.508920181983136,
+            "native_range": [
+              45851006,
+              57926123
+            ],
+            "rust_range": [
+              1665015,
+              2629430
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 26.57777168546115,
+            "native_range": [
+              44418496,
+              50835967
+            ],
+            "rust_range": [
+              1524071,
+              2129831
+            ]
+          }
+        ]
+      },
+      "service_against_process_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 8.110616113744076,
+            "native_range": [
+              402234,
+              437391
+            ],
+            "rust_range": [
+              48967,
+              63700
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 8.564844304696217,
+            "native_range": [
+              396636,
+              460325
+            ],
+            "rust_range": [
+              43904,
+              64171
+            ]
+          }
+        ]
+      },
+      "service_against_service_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 8.50093387378795,
+            "native_range": [
+              402234,
+              437391
+            ],
+            "rust_range": [
+              48770,
+              52916
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 8.930242396040441,
+            "native_range": [
+              396636,
+              460325
+            ],
+            "rust_range": [
+              44489,
+              67338
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batch": 3,
+      "family": "common",
+      "group": 3,
+      "queries": 4,
+      "admitted_rust": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "best_process_rust": 7,
+      "best_service_rust": 7,
+      "native_process_median_ns": 52247520.5,
+      "rust_process_median_ns": 1896063.0,
+      "process": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 27.769580392238222,
+            "native_range": [
+              45691091,
+              63208448
+            ],
+            "rust_range": [
+              1820395,
+              2323473
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 24.315792874992734,
+            "native_range": [
+              47558554,
+              56375121
+            ],
+            "rust_range": [
+              1757243,
+              3551894
+            ]
+          }
+        ]
+      },
+      "service_against_process_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 12.685049175328471,
+            "native_range": [
+              466415,
+              604504
+            ],
+            "rust_range": [
+              35126,
+              43083
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 11.587924816698909,
+            "native_range": [
+              444030,
+              523130
+            ],
+            "rust_range": [
+              38270,
+              74701
+            ]
+          }
+        ]
+      },
+      "service_against_service_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 12.685049175328471,
+            "native_range": [
+              466415,
+              604504
+            ],
+            "rust_range": [
+              35126,
+              43083
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 11.587924816698909,
+            "native_range": [
+              444030,
+              523130
+            ],
+            "rust_range": [
+              38270,
+              74701
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batch": 4,
+      "family": "common",
+      "group": 4,
+      "queries": 4,
+      "admitted_rust": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "best_process_rust": 6,
+      "best_service_rust": 6,
+      "native_process_median_ns": 50803037.0,
+      "rust_process_median_ns": 2009937.5,
+      "process": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 25.772971857303993,
+            "native_range": [
+              48644370,
+              54202754
+            ],
+            "rust_range": [
+              1728213,
+              2088575
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 21.216507413397288,
+            "native_range": [
+              48459544,
+              56952775
+            ],
+            "rust_range": [
+              1682099,
+              2903153
+            ]
+          }
+        ]
+      },
+      "service_against_process_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 24.284561366733048,
+            "native_range": [
+              847420,
+              980922
+            ],
+            "rust_range": [
+              38013,
+              53713
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 22.909088680817685,
+            "native_range": [
+              873596,
+              1156705
+            ],
+            "rust_range": [
+              35014,
+              65174
+            ]
+          }
+        ]
+      },
+      "service_against_service_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 24.284561366733048,
+            "native_range": [
+              847420,
+              980922
+            ],
+            "rust_range": [
+              38013,
+              53713
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 22.909088680817685,
+            "native_range": [
+              873596,
+              1156705
+            ],
+            "rust_range": [
+              35014,
+              65174
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batch": 5,
+      "family": "common",
+      "group": 5,
+      "queries": 4,
+      "admitted_rust": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "best_process_rust": 3,
+      "best_service_rust": 6,
+      "native_process_median_ns": 49902922.5,
+      "rust_process_median_ns": 1846087.0,
+      "process": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 25.59489215726857,
+            "native_range": [
+              46614551,
+              51850914
+            ],
+            "rust_range": [
+              1680006,
+              2694394
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 29.846144825694083,
+            "native_range": [
+              49555687,
+              59920199
+            ],
+            "rust_range": [
+              1690182,
+              2552890
+            ]
+          }
+        ]
+      },
+      "service_against_process_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 12.951517078640403,
+            "native_range": [
+              681767,
+              779042
+            ],
+            "rust_range": [
+              49333,
+              63974
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 13.550088128940818,
+            "native_range": [
+              729383,
+              784223
+            ],
+            "rust_range": [
+              51155,
+              70165
+            ]
+          }
+        ]
+      },
+      "service_against_service_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 20.016864104288448,
+            "native_range": [
+              681767,
+              779042
+            ],
+            "rust_range": [
+              37753,
+              48323
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 19.39054008372988,
+            "native_range": [
+              729383,
+              784223
+            ],
+            "rust_range": [
+              36154,
+              42537
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batch": 6,
+      "family": "common",
+      "group": 6,
+      "queries": 4,
+      "admitted_rust": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "best_process_rust": 5,
+      "best_service_rust": 4,
+      "native_process_median_ns": 49184497.5,
+      "rust_process_median_ns": 1922840.5,
+      "process": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 26.718996636973745,
+            "native_range": [
+              45876606,
+              61188415
+            ],
+            "rust_range": [
+              1659319,
+              2304804
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 24.97234128077854,
+            "native_range": [
+              47039802,
+              51342868
+            ],
+            "rust_range": [
+              1828988,
+              2209687
+            ]
+          }
+        ]
+      },
+      "service_against_process_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 37.90801552001514,
+            "native_range": [
+              1735126,
+              2206078
+            ],
+            "rust_range": [
+              46242,
+              59863
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 39.94796014682748,
+            "native_range": [
+              1826930,
+              1961370
+            ],
+            "rust_range": [
+              42321,
+              60513
+            ]
+          }
+        ]
+      },
+      "service_against_service_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 41.166423447680515,
+            "native_range": [
+              1735126,
+              2206078
+            ],
+            "rust_range": [
+              42562,
+              61984
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 40.0656148101399,
+            "native_range": [
+              1826930,
+              1961370
+            ],
+            "rust_range": [
+              46250,
+              50477
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batch": 7,
+      "family": "common",
+      "group": 7,
+      "queries": 4,
+      "admitted_rust": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "best_process_rust": 6,
+      "best_service_rust": 6,
+      "native_process_median_ns": 49346844.0,
+      "rust_process_median_ns": 1845472.0,
+      "process": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 26.908666224940724,
+            "native_range": [
+              46076265,
+              53884430
+            ],
+            "rust_range": [
+              1746712,
+              2008397
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 26.57367005331477,
+            "native_range": [
+              47115170,
+              70293606
+            ],
+            "rust_range": [
+              1760423,
+              2043005
+            ]
+          }
+        ]
+      },
+      "service_against_process_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 8.311180489011159,
+            "native_range": [
+              265628,
+              287803
+            ],
+            "rust_range": [
+              29474,
+              41512
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 7.73150002706653,
+            "native_range": [
+              256332,
+              374079
+            ],
+            "rust_range": [
+              31091,
+              39780
+            ]
+          }
+        ]
+      },
+      "service_against_service_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 8.311180489011159,
+            "native_range": [
+              265628,
+              287803
+            ],
+            "rust_range": [
+              29474,
+              41512
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 7.73150002706653,
+            "native_range": [
+              256332,
+              374079
+            ],
+            "rust_range": [
+              31091,
+              39780
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batch": 8,
+      "family": "common",
+      "group": 8,
+      "queries": 4,
+      "admitted_rust": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "best_process_rust": 1,
+      "best_service_rust": 2,
+      "native_process_median_ns": 47103471.5,
+      "rust_process_median_ns": 1865752.0,
+      "process": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 25.77213248905591,
+            "native_range": [
+              45262897,
+              57476270
+            ],
+            "rust_range": [
+              1836727,
+              2448507
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 24.938296546147352,
+            "native_range": [
+              42840496,
+              47604715
+            ],
+            "rust_range": [
+              1776635,
+              2142781
+            ]
+          }
+        ]
+      },
+      "service_against_process_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 4.617541066967346,
+            "native_range": [
+              183744,
+              210096
+            ],
+            "rust_range": [
+              33299,
+              49944
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 4.434852510997477,
+            "native_range": [
+              174341,
+              206163
+            ],
+            "rust_range": [
+              38097,
+              53819
+            ]
+          }
+        ]
+      },
+      "service_against_service_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 6.567179196931107,
+            "native_range": [
+              183744,
+              210096
+            ],
+            "rust_range": [
+              28251,
+              38300
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 5.849094389633338,
+            "native_range": [
+              174341,
+              206163
+            ],
+            "rust_range": [
+              31300,
+              43788
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batch": 9,
+      "family": "common",
+      "group": 9,
+      "queries": 4,
+      "admitted_rust": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "best_process_rust": 5,
+      "best_service_rust": 5,
+      "native_process_median_ns": 46388664.0,
+      "rust_process_median_ns": 1888500.0,
+      "process": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 24.964751676265795,
+            "native_range": [
+              44373870,
+              54419661
+            ],
+            "rust_range": [
+              1667897,
+              2008252
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 20.24163372167988,
+            "native_range": [
+              45511847,
+              46821925
+            ],
+            "rust_range": [
+              1651067,
+              2485253
+            ]
+          }
+        ]
+      },
+      "service_against_process_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 4.821133960729639,
+            "native_range": [
+              77389,
+              88411
+            ],
+            "rust_range": [
+              13085,
+              21346
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 5.215080201381571,
+            "native_range": [
+              78935,
+              93938
+            ],
+            "rust_range": [
+              13182,
+              22997
+            ]
+          }
+        ]
+      },
+      "service_against_service_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 4.821133960729639,
+            "native_range": [
+              77389,
+              88411
+            ],
+            "rust_range": [
+              13085,
+              21346
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 5.215080201381571,
+            "native_range": [
+              78935,
+              93938
+            ],
+            "rust_range": [
+              13182,
+              22997
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batch": 10,
+      "family": "common",
+      "group": 12,
+      "queries": 8,
+      "admitted_rust": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "best_process_rust": 4,
+      "best_service_rust": 4,
+      "native_process_median_ns": 51146398.5,
+      "rust_process_median_ns": 1993041.0,
+      "process": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 25.412235967567508,
+            "native_range": [
+              47796093,
+              51363254
+            ],
+            "rust_range": [
+              1749694,
+              2520384
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 25.95748179740653,
+            "native_range": [
+              48955387,
+              57734285
+            ],
+            "rust_range": [
+              1700290,
+              2414321
+            ]
+          }
+        ]
+      },
+      "service_against_process_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 29.630656792048335,
+            "native_range": [
+              1478364,
+              1573367
+            ],
+            "rust_range": [
+              45898,
+              61601
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 28.312725360576923,
+            "native_range": [
+              1501980,
+              1572429
+            ],
+            "rust_range": [
+              51048,
+              57593
+            ]
+          }
+        ]
+      },
+      "service_against_service_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 29.630656792048335,
+            "native_range": [
+              1478364,
+              1573367
+            ],
+            "rust_range": [
+              45898,
+              61601
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 28.312725360576923,
+            "native_range": [
+              1501980,
+              1572429
+            ],
+            "rust_range": [
+              51048,
+              57593
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batch": 11,
+      "family": "common",
+      "group": 13,
+      "queries": 6,
+      "admitted_rust": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "best_process_rust": 2,
+      "best_service_rust": 6,
+      "native_process_median_ns": 47298470.5,
+      "rust_process_median_ns": 1957713.5,
+      "process": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 26.565733743372334,
+            "native_range": [
+              46429729,
+              53803200
+            ],
+            "rust_range": [
+              1737407,
+              2062531
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 23.346224159752495,
+            "native_range": [
+              46106873,
+              55205625
+            ],
+            "rust_range": [
+              1821546,
+              2478586
+            ]
+          }
+        ]
+      },
+      "service_against_process_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 14.346979690269343,
+            "native_range": [
+              468810,
+              628847
+            ],
+            "rust_range": [
+              29442,
+              40602
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 14.128175489294627,
+            "native_range": [
+              519212,
+              587623
+            ],
+            "rust_range": [
+              35802,
+              40403
+            ]
+          }
+        ]
+      },
+      "service_against_service_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 16.21715712033631,
+            "native_range": [
+              468810,
+              628847
+            ],
+            "rust_range": [
+              29618,
+              33938
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 15.242156279227958,
+            "native_range": [
+              519212,
+              587623
+            ],
+            "rust_range": [
+              27205,
+              47574
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batch": 12,
+      "family": "common",
+      "group": 14,
+      "queries": 6,
+      "admitted_rust": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "best_process_rust": 8,
+      "best_service_rust": 5,
+      "native_process_median_ns": 49192950.5,
+      "rust_process_median_ns": 1947470.0,
+      "process": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 24.226955133780432,
+            "native_range": [
+              45454691,
+              51588589
+            ],
+            "rust_range": [
+              1683823,
+              2274573
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 25.78596258349913,
+            "native_range": [
+              48485021,
+              51319415
+            ],
+            "rust_range": [
+              1742454,
+              2190678
+            ]
+          }
+        ]
+      },
+      "service_against_process_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 22.153130055245246,
+            "native_range": [
+              649999,
+              729615
+            ],
+            "rust_range": [
+              28989,
+              41710
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 19.278100110765337,
+            "native_range": [
+              697013,
+              764812
+            ],
+            "rust_range": [
+              33581,
+              40520
+            ]
+          }
+        ]
+      },
+      "service_against_service_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 21.86812292859295,
+            "native_range": [
+              649999,
+              729615
+            ],
+            "rust_range": [
+              30759,
+              39677
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 22.412601563697685,
+            "native_range": [
+              697013,
+              764812
+            ],
+            "rust_range": [
+              26042,
+              35600
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batch": 13,
+      "family": "common",
+      "group": 15,
+      "queries": 5,
+      "admitted_rust": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "best_process_rust": 6,
+      "best_service_rust": 4,
+      "native_process_median_ns": 48164181.5,
+      "rust_process_median_ns": 1900885.5,
+      "process": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 25.045357093481297,
+            "native_range": [
+              47440444,
+              59967935
+            ],
+            "rust_range": [
+              1740421,
+              2698324
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 25.641964442407424,
+            "native_range": [
+              47080468,
+              53477843
+            ],
+            "rust_range": [
+              1608170,
+              2102629
+            ]
+          }
+        ]
+      },
+      "service_against_process_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 49.76582201745878,
+            "native_range": [
+              1559965,
+              2641870
+            ],
+            "rust_range": [
+              27998,
+              36511
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 46.08648711400046,
+            "native_range": [
+              1535359,
+              1789409
+            ],
+            "rust_range": [
+              25145,
+              39126
+            ]
+          }
+        ]
+      },
+      "service_against_service_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 58.726446813076755,
+            "native_range": [
+              1559965,
+              2641870
+            ],
+            "rust_range": [
+              26725,
+              32433
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 52.71048263958043,
+            "native_range": [
+              1535359,
+              1789409
+            ],
+            "rust_range": [
+              27493,
+              35226
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batch": 14,
+      "family": "common",
+      "group": 16,
+      "queries": 12,
+      "admitted_rust": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "best_process_rust": 8,
+      "best_service_rust": 7,
+      "native_process_median_ns": 50288296.0,
+      "rust_process_median_ns": 1927066.5,
+      "process": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 25.599419911962872,
+            "native_range": [
+              48088461,
+              51757484
+            ],
+            "rust_range": [
+              1861966,
+              2162108
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 26.65706104567569,
+            "native_range": [
+              47743830,
+              52836664
+            ],
+            "rust_range": [
+              1730377,
+              2704267
+            ]
+          }
+        ]
+      },
+      "service_against_process_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 27.031206284300012,
+            "native_range": [
+              1421925,
+              1701361
+            ],
+            "rust_range": [
+              55207,
+              57864
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 26.431243818423656,
+            "native_range": [
+              1460661,
+              1571570
+            ],
+            "rust_range": [
+              51422,
+              62058
+            ]
+          }
+        ]
+      },
+      "service_against_service_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 30.55415678404184,
+            "native_range": [
+              1421925,
+              1701361
+            ],
+            "rust_range": [
+              47926,
+              56408
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 29.36459912094574,
+            "native_range": [
+              1460661,
+              1571570
+            ],
+            "rust_range": [
+              45763,
+              62328
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batch": 15,
+      "family": "common",
+      "group": 17,
+      "queries": 12,
+      "admitted_rust": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "best_process_rust": 5,
+      "best_service_rust": 5,
+      "native_process_median_ns": 50834119.5,
+      "rust_process_median_ns": 1995451.0,
+      "process": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 25.010303468477854,
+            "native_range": [
+              47892152,
+              54860505
+            ],
+            "rust_range": [
+              1767113,
+              2194790
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 23.24297550947711,
+            "native_range": [
+              50532398,
+              56718205
+            ],
+            "rust_range": [
+              1893958,
+              3739611
+            ]
+          }
+        ]
+      },
+      "service_against_process_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 28.160197894091635,
+            "native_range": [
+              1217393,
+              1390527
+            ],
+            "rust_range": [
+              42385,
+              63460
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 26.589820969781005,
+            "native_range": [
+              1201942,
+              1396403
+            ],
+            "rust_range": [
+              39058,
+              50229
+            ]
+          }
+        ]
+      },
+      "service_against_service_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 28.160197894091635,
+            "native_range": [
+              1217393,
+              1390527
+            ],
+            "rust_range": [
+              42385,
+              63460
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 26.589820969781005,
+            "native_range": [
+              1201942,
+              1396403
+            ],
+            "rust_range": [
+              39058,
+              50229
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batch": 16,
+      "family": "common",
+      "group": 18,
+      "queries": 6,
+      "admitted_rust": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "best_process_rust": 2,
+      "best_service_rust": 2,
+      "native_process_median_ns": 48547785.5,
+      "rust_process_median_ns": 2012178.5,
+      "process": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 24.635142354084987,
+            "native_range": [
+              46171454,
+              53280664
+            ],
+            "rust_range": [
+              1600549,
+              2414215
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 22.646661472832754,
+            "native_range": [
+              47329053,
+              55680567
+            ],
+            "rust_range": [
+              1925531,
+              3538280
+            ]
+          }
+        ]
+      },
+      "service_against_process_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 14.732210132915398,
+            "native_range": [
+              459175,
+              554861
+            ],
+            "rust_range": [
+              28548,
+              34603
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 13.265564307293914,
+            "native_range": [
+              428232,
+              1471312
+            ],
+            "rust_range": [
+              33903,
+              38569
+            ]
+          }
+        ]
+      },
+      "service_against_service_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 14.732210132915398,
+            "native_range": [
+              459175,
+              554861
+            ],
+            "rust_range": [
+              28548,
+              34603
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 13.265564307293914,
+            "native_range": [
+              428232,
+              1471312
+            ],
+            "rust_range": [
+              33903,
+              38569
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batch": 17,
+      "family": "common",
+      "group": 19,
+      "queries": 6,
+      "admitted_rust": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "best_process_rust": 6,
+      "best_service_rust": 2,
+      "native_process_median_ns": 50400115.0,
+      "rust_process_median_ns": 1910701.0,
+      "process": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 24.906765002516124,
+            "native_range": [
+              46778686,
+              54825972
+            ],
+            "rust_range": [
+              1677275,
+              2285359
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 26.243135861086333,
+            "native_range": [
+              49606078,
+              57562532
+            ],
+            "rust_range": [
+              1704112,
+              2313509
+            ]
+          }
+        ]
+      },
+      "service_against_process_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 10.919099575054554,
+            "native_range": [
+              455888,
+              621450
+            ],
+            "rust_range": [
+              35040,
+              48857
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 12.290741209208196,
+            "native_range": [
+              425356,
+              494545
+            ],
+            "rust_range": [
+              32426,
+              40698
+            ]
+          }
+        ]
+      },
+      "service_against_service_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 14.757326462188004,
+            "native_range": [
+              455888,
+              621450
+            ],
+            "rust_range": [
+              27820,
+              40671
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 14.3112610091608,
+            "native_range": [
+              425356,
+              494545
+            ],
+            "rust_range": [
+              26730,
+              38881
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batch": 18,
+      "family": "common",
+      "group": 20,
+      "queries": 8,
+      "admitted_rust": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "best_process_rust": 6,
+      "best_service_rust": 4,
+      "native_process_median_ns": 56735772.0,
+      "rust_process_median_ns": 1867892.0,
+      "process": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 31.243626905381195,
+            "native_range": [
+              52549481,
+              65362555
+            ],
+            "rust_range": [
+              1772636,
+              2083977
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 27.34791852467213,
+            "native_range": [
+              54623745,
+              59451266
+            ],
+            "rust_range": [
+              1699671,
+              2106348
+            ]
+          }
+        ]
+      },
+      "service_against_process_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 52.73008425334108,
+            "native_range": [
+              3168651,
+              5393504
+            ],
+            "rust_range": [
+              65499,
+              84968
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 48.16422319474836,
+            "native_range": [
+              3126402,
+              3569803
+            ],
+            "rust_range": [
+              71246,
+              79000
+            ]
+          }
+        ]
+      },
+      "service_against_service_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 43.5114054540006,
+            "native_range": [
+              3168651,
+              5393504
+            ],
+            "rust_range": [
+              64401,
+              100388
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 51.88302715125444,
+            "native_range": [
+              3126402,
+              3569803
+            ],
+            "rust_range": [
+              64747,
+              91900
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batch": 19,
+      "family": "common",
+      "group": 21,
+      "queries": 8,
+      "admitted_rust": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "best_process_rust": 8,
+      "best_service_rust": 6,
+      "native_process_median_ns": 53630115.0,
+      "rust_process_median_ns": 1939747.0,
+      "process": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 27.851416598995012,
+            "native_range": [
+              52841983,
+              56534863
+            ],
+            "rust_range": [
+              1777700,
+              2360291
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 27.55110095185537,
+            "native_range": [
+              47462197,
+              57547428
+            ],
+            "rust_range": [
+              1623404,
+              2088562
+            ]
+          }
+        ]
+      },
+      "service_against_process_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 31.40133895882004,
+            "native_range": [
+              1600000,
+              1945233
+            ],
+            "rust_range": [
+              52792,
+              62396
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 30.39884950455543,
+            "native_range": [
+              1636105,
+              1960860
+            ],
+            "rust_range": [
+              44437,
+              66576
+            ]
+          }
+        ]
+      },
+      "service_against_service_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 39.738725619980585,
+            "native_range": [
+              1600000,
+              1945233
+            ],
+            "rust_range": [
+              43826,
+              53289
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 35.659288152120915,
+            "native_range": [
+              1636105,
+              1960860
+            ],
+            "rust_range": [
+              44360,
+              59384
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batch": 20,
+      "family": "substantive",
+      "group": 0,
+      "queries": 24,
+      "admitted_rust": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        12
+      ],
+      "best_process_rust": 4,
+      "best_service_rust": 4,
+      "native_process_median_ns": 564031025.0,
+      "rust_process_median_ns": 5039193.0,
+      "process": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 108.51270206679649,
+            "native_range": [
+              518920737,
+              622139925
+            ],
+            "rust_range": [
+              4591400,
+              5170591
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 121.36669067252306,
+            "native_range": [
+              555188646,
+              586074401
+            ],
+            "rust_range": [
+              4408681,
+              5840374
+            ]
+          }
+        ]
+      },
+      "service_against_process_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 210.9987589654994,
+            "native_range": [
+              465681940,
+              562794480
+            ],
+            "rust_range": [
+              2286187,
+              2773015
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 204.07958423573206,
+            "native_range": [
+              495335972,
+              522366953
+            ],
+            "rust_range": [
+              2298580,
+              2747710
+            ]
+          }
+        ]
+      },
+      "service_against_service_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 210.9987589654994,
+            "native_range": [
+              465681940,
+              562794480
+            ],
+            "rust_range": [
+              2286187,
+              2773015
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 204.07958423573206,
+            "native_range": [
+              495335972,
+              522366953
+            ],
+            "rust_range": [
+              2298580,
+              2747710
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batch": 21,
+      "family": "substantive",
+      "group": 1,
+      "queries": 24,
+      "admitted_rust": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        12
+      ],
+      "best_process_rust": 4,
+      "best_service_rust": 4,
+      "native_process_median_ns": 158477527.0,
+      "rust_process_median_ns": 2845075.5,
+      "process": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 50.909231132562844,
+            "native_range": [
+              157344176,
+              171297050
+            ],
+            "rust_range": [
+              2718984,
+              3449072
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 55.96228887408508,
+            "native_range": [
+              148054462,
+              183849960
+            ],
+            "rust_range": [
+              2469842,
+              3191226
+            ]
+          }
+        ]
+      },
+      "service_against_process_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 172.5289945696068,
+            "native_range": [
+              102737995,
+              114753706
+            ],
+            "rust_range": [
+              587183,
+              622421
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 172.85600806895908,
+            "native_range": [
+              95329156,
+              114182405
+            ],
+            "rust_range": [
+              553672,
+              646589
+            ]
+          }
+        ]
+      },
+      "service_against_service_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 172.5289945696068,
+            "native_range": [
+              102737995,
+              114753706
+            ],
+            "rust_range": [
+              587183,
+              622421
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 172.85600806895908,
+            "native_range": [
+              95329156,
+              114182405
+            ],
+            "rust_range": [
+              553672,
+              646589
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batch": 22,
+      "family": "substantive",
+      "group": 2,
+      "queries": 24,
+      "admitted_rust": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "best_process_rust": 5,
+      "best_service_rust": 4,
+      "native_process_median_ns": 183156540.5,
+      "rust_process_median_ns": 3557464.0,
+      "process": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 56.87792948652485,
+            "native_range": [
+              181236395,
+              189830974
+            ],
+            "rust_range": [
+              3217748,
+              3602750
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 48.1062510996795,
+            "native_range": [
+              177466509,
+              189469013
+            ],
+            "rust_range": [
+              3512178,
+              3827185
+            ]
+          }
+        ]
+      },
+      "service_against_process_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 112.68200388004907,
+            "native_range": [
+              127791062,
+              130008942
+            ],
+            "rust_range": [
+              1112697,
+              1172815
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 108.85188337580522,
+            "native_range": [
+              123206132,
+              135490244
+            ],
+            "rust_range": [
+              1109387,
+              1468864
+            ]
+          }
+        ]
+      },
+      "service_against_service_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 106.74771607364936,
+            "native_range": [
+              127791062,
+              130008942
+            ],
+            "rust_range": [
+              1076363,
+              1553976
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 122.9608124218686,
+            "native_range": [
+              123206132,
+              135490244
+            ],
+            "rust_range": [
+              951568,
+              1339598
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batch": 23,
+      "family": "substantive",
+      "group": 3,
+      "queries": 24,
+      "admitted_rust": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "best_process_rust": 6,
+      "best_service_rust": 6,
+      "native_process_median_ns": 154905895.0,
+      "rust_process_median_ns": 2876887.5,
+      "process": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 54.70905968412079,
+            "native_range": [
+              141939744,
+              165682717
+            ],
+            "rust_range": [
+              2628898,
+              3187258
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 54.383251000359294,
+            "native_range": [
+              140743604,
+              175146034
+            ],
+            "rust_range": [
+              2690490,
+              3422613
+            ]
+          }
+        ]
+      },
+      "service_against_process_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 163.13017745585185,
+            "native_range": [
+              90556028,
+              111112753
+            ],
+            "rust_range": [
+              596261,
+              675311
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 165.1940544733299,
+            "native_range": [
+              90831244,
+              108797520
+            ],
+            "rust_range": [
+              596527,
+              623306
+            ]
+          }
+        ]
+      },
+      "service_against_service_control": {
+        "direction": "loss",
+        "cpu": [
+          {
+            "cpu": 0,
+            "ratio": 163.13017745585185,
+            "native_range": [
+              90556028,
+              111112753
+            ],
+            "rust_range": [
+              596261,
+              675311
+            ]
+          },
+          {
+            "cpu": 1,
+            "ratio": 165.1940544733299,
+            "native_range": [
+              90831244,
+              108797520
+            ],
+            "rust_range": [
+              596527,
+              623306
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "process_screen": {
+    "loss": 24
+  },
+  "service_screen": {
+    "loss": 24
+  }
+}

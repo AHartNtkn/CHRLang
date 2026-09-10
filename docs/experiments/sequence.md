@@ -284,6 +284,6 @@ All new results link raw inputs, commands, freezes, validation and unfavorable o
 
 ## Current execution order
 
-T078 is active for explicit primary host/native composition and ownership accounting before a bounded mixed-source cost registration. The [primary learning qualification](results/S06-learning-primary.md) supplies the boundary review selecting this broader comparison. T073 remains unfinished and returns for selection at the allocation gate or an obstruction.
+The [mixed-source pilot](results/S10-mixed-pilot.md) completes 2,710 primary measurements across 24 batches. The current native path loses to the fastest admitted Rust control in all 24; native service alone exceeds Rust whole-process time on all four substantive batches. T073 now opens independent user-program compilation against prepared execution of the same plan. Learning costs return for review at that entry gate or an obstruction. T078 broader composition, compilation accounting and sustained lifetime remain unfinished; this result does not reject distinct graph mechanisms.
 
 The [current execution order](next-cycle.md#the-order-and-why), [57-question map](question-to-experiment-map.md) and [mechanism ledger](remaining-investigations.md) retain every unresolved obligation. Reordering does not establish an experimental conclusion or complete the goal.

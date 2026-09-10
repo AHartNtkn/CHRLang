@@ -1,6 +1,6 @@
 # What experiment answers each reviewed design question?
 
-**Current selection: T078 bounded complete-query mixed-source cost registration.** The [residency/host-allocation gate](results/S10-residency.md) distinguishes reservations from residency and corrects emitter retention without changing generated programs. T073 learning costs and distinct mechanisms return for review after the pilot or an obstruction; compilation and sustained lifetime remain open.
+**Current selection: T073 independent user-program compilation entry.** The [mixed-source pilot](results/S10-mixed-pilot.md) completes 2,710 primary measurements across 24 batches. The current native path loses to the fastest admitted Rust control in all 24; native service alone exceeds Rust whole-process time on all four substantive batches. T073 now opens independent user-program compilation against prepared execution of the same plan. Learning costs return for review at that entry gate or an obstruction. T078 broader composition, compilation accounting and sustained lifetime remain unfinished; this result does not reject distinct graph mechanisms.
 
 The [common-source gate and cost design](results/S10-native-common-source.md) qualifies ten Rust configurations on all 125 cases, prefix lowering on 20 and finite solving with its caller on four. Native evidence remains applicable. T078 next establishes native prepared reuse and disposal; no cross-architecture cost matrix has run.
 
