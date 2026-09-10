@@ -1,0 +1,322 @@
+[
+  {
+    "case": "binding-10-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Atom{0},#Nil{}},#Cons{#Result{1,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{2,#Cons{#Atom{0},#Nil{}}},#Nil{}}}}\n#Answer{#Cons{#Atom{1},#Nil{}},#Cons{#Result{1,#Cons{#Atom{1},#Nil{}}},#Cons{#Result{2,#Cons{#Atom{1},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "correlation-10-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Atom{0},#Cons{#Atom{0},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{0},#Cons{#Atom{0},#Nil{}}}},#Nil{}}}\n#Answer{#Cons{#Atom{1},#Cons{#Atom{1},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{1},#Cons{#Atom{1},#Nil{}}}},#Nil{}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "independent-10-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Atom{0},#Cons{#Atom{0},#Nil{}}},#Nil{}}\n#Answer{#Cons{#Atom{0},#Cons{#Atom{1},#Nil{}}},#Nil{}}\n#Answer{#Cons{#Atom{1},#Cons{#Atom{0},#Nil{}}},#Nil{}}\n#Answer{#Cons{#Atom{1},#Cons{#Atom{1},#Nil{}}},#Nil{}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "duplicate-10-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Atom{0},#Nil{}},#Cons{#Result{1,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{2,#Cons{#Atom{0},#Nil{}}},#Nil{}}}}\n#Answer{#Cons{#Atom{0},#Nil{}},#Cons{#Result{1,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{2,#Cons{#Atom{0},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "compete-10-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Var{10},#Cons{#Var{10},#Nil{}}},#Cons{#Result{5,#Nil{}},#Cons{#Result{1,#Cons{#Var{10},#Nil{}}},#Nil{}}}}\n#Answer{#Cons{#Var{10},#Cons{#Var{11},#Nil{}}},#Cons{#Result{3,#Cons{#Var{11},#Nil{}}},#Cons{#Result{4,#Cons{#Var{10},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "replacement-10-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Var{10},#Nil{}},#Cons{#Result{1,#Cons{#Var{10},#Nil{}}},#Cons{#Result{0,#Cons{#Var{11},#Nil{}}},#Cons{#Result{1,#Cons{#Var{11},#Nil{}}},#Nil{}}}}}\n#Answer{#Cons{#Var{10},#Nil{}},#Cons{#Result{1,#Cons{#Var{10},#Nil{}}},#Cons{#Result{0,#Cons{#Var{10},#Nil{}}},#Cons{#Result{1,#Cons{#Var{10},#Nil{}}},#Nil{}}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "history-choice-10-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Nil{},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{0,#Cons{#Atom{1},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{0},#Cons{#Atom{1},#Nil{}}}},#Cons{#Result{1,#Cons{#Atom{1},#Cons{#Atom{0},#Nil{}}}},#Nil{}}}}}}\n#Answer{#Nil{},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{0,#Cons{#Atom{1},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{0},#Cons{#Atom{1},#Nil{}}}},#Cons{#Result{1,#Cons{#Atom{1},#Cons{#Atom{0},#Nil{}}}},#Nil{}}}}}}\n#Answer{#Nil{},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{0,#Cons{#Atom{1},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{0},#Cons{#Atom{1},#Nil{}}}},#Cons{#Result{1,#Cons{#Atom{1},#Cons{#Atom{0},#Nil{}}}},#Nil{}}}}}}\n#Answer{#Nil{},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{0,#Cons{#Atom{1},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{0},#Cons{#Atom{1},#Nil{}}}},#Cons{#Result{1,#Cons{#Atom{1},#Cons{#Atom{0},#Nil{}}}},#Nil{}}}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "nested-10-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Atom{0},#Nil{}},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Nil{}}}\n#Answer{#Cons{#Atom{1},#Nil{}},#Cons{#Result{0,#Cons{#Atom{1},#Nil{}}},#Nil{}}}\n#Answer{#Cons{#Atom{0},#Nil{}},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Nil{}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "binding-failure-10-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Atom{0},#Nil{}},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Nil{}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "off-output-failure-10-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Var{10},#Nil{}},#Cons{#Result{0,#Nil{}},#Nil{}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "binding-10-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Atom{0},#Nil{}},#Cons{#Result{1,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{2,#Cons{#Atom{0},#Nil{}}},#Nil{}}}}\n#Answer{#Cons{#Atom{1},#Nil{}},#Cons{#Result{1,#Cons{#Atom{1},#Nil{}}},#Cons{#Result{2,#Cons{#Atom{1},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "correlation-10-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Atom{0},#Cons{#Atom{0},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{0},#Cons{#Atom{0},#Nil{}}}},#Nil{}}}\n#Answer{#Cons{#Atom{1},#Cons{#Atom{1},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{1},#Cons{#Atom{1},#Nil{}}}},#Nil{}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "independent-10-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Atom{0},#Cons{#Atom{0},#Nil{}}},#Nil{}}\n#Answer{#Cons{#Atom{1},#Cons{#Atom{0},#Nil{}}},#Nil{}}\n#Answer{#Cons{#Atom{0},#Cons{#Atom{1},#Nil{}}},#Nil{}}\n#Answer{#Cons{#Atom{1},#Cons{#Atom{1},#Nil{}}},#Nil{}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "duplicate-10-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Atom{0},#Nil{}},#Cons{#Result{1,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{2,#Cons{#Atom{0},#Nil{}}},#Nil{}}}}\n#Answer{#Cons{#Atom{0},#Nil{}},#Cons{#Result{1,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{2,#Cons{#Atom{0},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "compete-10-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Var{10},#Cons{#Var{10},#Nil{}}},#Cons{#Result{5,#Nil{}},#Cons{#Result{1,#Cons{#Var{10},#Nil{}}},#Nil{}}}}\n#Answer{#Cons{#Var{10},#Cons{#Var{11},#Nil{}}},#Cons{#Result{3,#Cons{#Var{11},#Nil{}}},#Cons{#Result{4,#Cons{#Var{10},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "replacement-10-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Var{10},#Nil{}},#Cons{#Result{1,#Cons{#Var{10},#Nil{}}},#Cons{#Result{0,#Cons{#Var{11},#Nil{}}},#Cons{#Result{1,#Cons{#Var{11},#Nil{}}},#Nil{}}}}}\n#Answer{#Cons{#Var{10},#Nil{}},#Cons{#Result{1,#Cons{#Var{10},#Nil{}}},#Cons{#Result{0,#Cons{#Var{10},#Nil{}}},#Cons{#Result{1,#Cons{#Var{10},#Nil{}}},#Nil{}}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "history-choice-10-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Nil{},#Cons{#Result{0,#Cons{#Atom{1},#Nil{}}},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{1},#Cons{#Atom{0},#Nil{}}}},#Cons{#Result{1,#Cons{#Atom{0},#Cons{#Atom{1},#Nil{}}}},#Nil{}}}}}}\n#Answer{#Nil{},#Cons{#Result{0,#Cons{#Atom{1},#Nil{}}},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{1},#Cons{#Atom{0},#Nil{}}}},#Cons{#Result{1,#Cons{#Atom{0},#Cons{#Atom{1},#Nil{}}}},#Nil{}}}}}}\n#Answer{#Nil{},#Cons{#Result{0,#Cons{#Atom{1},#Nil{}}},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{1},#Cons{#Atom{0},#Nil{}}}},#Cons{#Result{1,#Cons{#Atom{0},#Cons{#Atom{1},#Nil{}}}},#Nil{}}}}}}\n#Answer{#Nil{},#Cons{#Result{0,#Cons{#Atom{1},#Nil{}}},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{1},#Cons{#Atom{0},#Nil{}}}},#Cons{#Result{1,#Cons{#Atom{0},#Cons{#Atom{1},#Nil{}}}},#Nil{}}}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "nested-10-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Atom{0},#Nil{}},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Nil{}}}\n#Answer{#Cons{#Atom{1},#Nil{}},#Cons{#Result{0,#Cons{#Atom{1},#Nil{}}},#Nil{}}}\n#Answer{#Cons{#Atom{0},#Nil{}},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Nil{}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "binding-failure-10-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Atom{0},#Nil{}},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Nil{}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "off-output-failure-10-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Var{10},#Nil{}},#Cons{#Result{0,#Nil{}},#Nil{}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "binding-1000-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Atom{0},#Nil{}},#Cons{#Result{1,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{2,#Cons{#Atom{0},#Nil{}}},#Nil{}}}}\n#Answer{#Cons{#Atom{1},#Nil{}},#Cons{#Result{1,#Cons{#Atom{1},#Nil{}}},#Cons{#Result{2,#Cons{#Atom{1},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "correlation-1000-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Atom{0},#Cons{#Atom{0},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{0},#Cons{#Atom{0},#Nil{}}}},#Nil{}}}\n#Answer{#Cons{#Atom{1},#Cons{#Atom{1},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{1},#Cons{#Atom{1},#Nil{}}}},#Nil{}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "independent-1000-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Atom{0},#Cons{#Atom{0},#Nil{}}},#Nil{}}\n#Answer{#Cons{#Atom{0},#Cons{#Atom{1},#Nil{}}},#Nil{}}\n#Answer{#Cons{#Atom{1},#Cons{#Atom{0},#Nil{}}},#Nil{}}\n#Answer{#Cons{#Atom{1},#Cons{#Atom{1},#Nil{}}},#Nil{}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "duplicate-1000-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Atom{0},#Nil{}},#Cons{#Result{1,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{2,#Cons{#Atom{0},#Nil{}}},#Nil{}}}}\n#Answer{#Cons{#Atom{0},#Nil{}},#Cons{#Result{1,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{2,#Cons{#Atom{0},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "compete-1000-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Var{1000},#Cons{#Var{1000},#Nil{}}},#Cons{#Result{5,#Nil{}},#Cons{#Result{1,#Cons{#Var{1000},#Nil{}}},#Nil{}}}}\n#Answer{#Cons{#Var{1000},#Cons{#Var{1001},#Nil{}}},#Cons{#Result{3,#Cons{#Var{1001},#Nil{}}},#Cons{#Result{4,#Cons{#Var{1000},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "replacement-1000-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Var{1000},#Nil{}},#Cons{#Result{1,#Cons{#Var{1000},#Nil{}}},#Cons{#Result{0,#Cons{#Var{1001},#Nil{}}},#Cons{#Result{1,#Cons{#Var{1001},#Nil{}}},#Nil{}}}}}\n#Answer{#Cons{#Var{1000},#Nil{}},#Cons{#Result{1,#Cons{#Var{1000},#Nil{}}},#Cons{#Result{0,#Cons{#Var{1000},#Nil{}}},#Cons{#Result{1,#Cons{#Var{1000},#Nil{}}},#Nil{}}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "history-choice-1000-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Nil{},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{0,#Cons{#Atom{1},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{0},#Cons{#Atom{1},#Nil{}}}},#Cons{#Result{1,#Cons{#Atom{1},#Cons{#Atom{0},#Nil{}}}},#Nil{}}}}}}\n#Answer{#Nil{},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{0,#Cons{#Atom{1},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{0},#Cons{#Atom{1},#Nil{}}}},#Cons{#Result{1,#Cons{#Atom{1},#Cons{#Atom{0},#Nil{}}}},#Nil{}}}}}}\n#Answer{#Nil{},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{0,#Cons{#Atom{1},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{0},#Cons{#Atom{1},#Nil{}}}},#Cons{#Result{1,#Cons{#Atom{1},#Cons{#Atom{0},#Nil{}}}},#Nil{}}}}}}\n#Answer{#Nil{},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{0,#Cons{#Atom{1},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{0},#Cons{#Atom{1},#Nil{}}}},#Cons{#Result{1,#Cons{#Atom{1},#Cons{#Atom{0},#Nil{}}}},#Nil{}}}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "nested-1000-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Atom{0},#Nil{}},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Nil{}}}\n#Answer{#Cons{#Atom{1},#Nil{}},#Cons{#Result{0,#Cons{#Atom{1},#Nil{}}},#Nil{}}}\n#Answer{#Cons{#Atom{0},#Nil{}},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Nil{}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "binding-failure-1000-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Atom{0},#Nil{}},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Nil{}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "off-output-failure-1000-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Var{1000},#Nil{}},#Cons{#Result{0,#Nil{}},#Nil{}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "binding-1000-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Atom{0},#Nil{}},#Cons{#Result{1,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{2,#Cons{#Atom{0},#Nil{}}},#Nil{}}}}\n#Answer{#Cons{#Atom{1},#Nil{}},#Cons{#Result{1,#Cons{#Atom{1},#Nil{}}},#Cons{#Result{2,#Cons{#Atom{1},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "correlation-1000-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Atom{0},#Cons{#Atom{0},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{0},#Cons{#Atom{0},#Nil{}}}},#Nil{}}}\n#Answer{#Cons{#Atom{1},#Cons{#Atom{1},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{1},#Cons{#Atom{1},#Nil{}}}},#Nil{}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "independent-1000-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Atom{0},#Cons{#Atom{0},#Nil{}}},#Nil{}}\n#Answer{#Cons{#Atom{1},#Cons{#Atom{0},#Nil{}}},#Nil{}}\n#Answer{#Cons{#Atom{0},#Cons{#Atom{1},#Nil{}}},#Nil{}}\n#Answer{#Cons{#Atom{1},#Cons{#Atom{1},#Nil{}}},#Nil{}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "duplicate-1000-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Atom{0},#Nil{}},#Cons{#Result{1,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{2,#Cons{#Atom{0},#Nil{}}},#Nil{}}}}\n#Answer{#Cons{#Atom{0},#Nil{}},#Cons{#Result{1,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{2,#Cons{#Atom{0},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "compete-1000-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Var{1000},#Cons{#Var{1000},#Nil{}}},#Cons{#Result{5,#Nil{}},#Cons{#Result{1,#Cons{#Var{1000},#Nil{}}},#Nil{}}}}\n#Answer{#Cons{#Var{1000},#Cons{#Var{1001},#Nil{}}},#Cons{#Result{3,#Cons{#Var{1001},#Nil{}}},#Cons{#Result{4,#Cons{#Var{1000},#Nil{}}},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "replacement-1000-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Var{1000},#Nil{}},#Cons{#Result{1,#Cons{#Var{1000},#Nil{}}},#Cons{#Result{0,#Cons{#Var{1001},#Nil{}}},#Cons{#Result{1,#Cons{#Var{1001},#Nil{}}},#Nil{}}}}}\n#Answer{#Cons{#Var{1000},#Nil{}},#Cons{#Result{1,#Cons{#Var{1000},#Nil{}}},#Cons{#Result{0,#Cons{#Var{1000},#Nil{}}},#Cons{#Result{1,#Cons{#Var{1000},#Nil{}}},#Nil{}}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "history-choice-1000-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Nil{},#Cons{#Result{0,#Cons{#Atom{1},#Nil{}}},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{1},#Cons{#Atom{0},#Nil{}}}},#Cons{#Result{1,#Cons{#Atom{0},#Cons{#Atom{1},#Nil{}}}},#Nil{}}}}}}\n#Answer{#Nil{},#Cons{#Result{0,#Cons{#Atom{1},#Nil{}}},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{1},#Cons{#Atom{0},#Nil{}}}},#Cons{#Result{1,#Cons{#Atom{0},#Cons{#Atom{1},#Nil{}}}},#Nil{}}}}}}\n#Answer{#Nil{},#Cons{#Result{0,#Cons{#Atom{1},#Nil{}}},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{1},#Cons{#Atom{0},#Nil{}}}},#Cons{#Result{1,#Cons{#Atom{0},#Cons{#Atom{1},#Nil{}}}},#Nil{}}}}}}\n#Answer{#Nil{},#Cons{#Result{0,#Cons{#Atom{1},#Nil{}}},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Cons{#Result{1,#Cons{#Atom{1},#Cons{#Atom{0},#Nil{}}}},#Cons{#Result{1,#Cons{#Atom{0},#Cons{#Atom{1},#Nil{}}}},#Nil{}}}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "nested-1000-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Atom{0},#Nil{}},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Nil{}}}\n#Answer{#Cons{#Atom{1},#Nil{}},#Cons{#Result{0,#Cons{#Atom{1},#Nil{}}},#Nil{}}}\n#Answer{#Cons{#Atom{0},#Nil{}},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Nil{}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "binding-failure-1000-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Atom{0},#Nil{}},#Cons{#Result{0,#Cons{#Atom{0},#Nil{}}},#Nil{}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "off-output-failure-1000-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#Cons{#Var{1000},#Nil{}},#Cons{#Result{0,#Nil{}},#Nil{}}}\n",
+      "stderr": ""
+    }
+  }
+]

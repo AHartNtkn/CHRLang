@@ -1,14 +1,16 @@
 # R00: architectural alternatives and first experiment selection
 
-The [native identity-bearing source gate](S03-native-identity-source.md) passes 77 complete sources against independent expectations and the unchanged reference. Serial matching, replacement, equality and ordered histories now execute together. T080 next tests their interaction with choices and failure; local ownership and broader architecture comparisons remain required.
+The [native choice/identity composition gate](S03-native-choice-identity.md) validates 48 mixed sources, all 77 deterministic regressions and explicit failure/namespace boundaries. Finite siblings progress beside ongoing work. T078 common-source qualification and complete-path cost design is selected next; local native ownership, broader language and lifetime remain required.
+
+The [native identity-bearing source gate](S03-native-identity-source.md) passes 77 complete sources against independent expectations and the unchanged reference. Serial matching, replacement, equality and ordered histories now execute together. The composition gate above now tests interaction with choices and failure; local ownership and broader architecture comparisons remain required.
 
 The [native identity operation gate](S03-native-identity-kernel.md) validates 340 cases separating equality, occurrence IDs and ordered history, including nonbinding probes. These are executable prerequisites, not native source correspondence. The complete source gate above now exercises those operations together; broader architectures remain unresolved.
 
-The [controlled size/reuse extension](S02-multihead-scale.md) completes 8,820 additional runs. Graph scan has 52 practical timing gains against Scan, eight unresolved comparisons and no losses. Retained joins lose against graph scan in all smaller-width cases. Native identity correspondence is selected next; memory, broader language support and complete architecture comparisons remain required.
+The [controlled size/reuse extension](S02-multihead-scale.md) completes 8,820 additional runs. Graph scan has 52 practical timing gains against Scan, eight unresolved comparisons and no losses. Retained joins lose against graph scan in all smaller-width cases. Memory, broader language support and complete architecture comparisons remain required.
 
 The [finite-solver lifecycle pilot](S06-finite-lifecycle.md) completes 1,428 processes across 204 configurations. A [paired allocation correction](S06-empty-complement-attribution.md) completes another 252 processes. Selective four-query allocation falls to 0.795 MB, below both conditional orders; the unselective batch still requests 15.77 MB versus specialization’s 9.24 MB. These are bounded results, with compilation and broader solver questions still open.
 
-Current selection: T080 choices, failure and finite-answer progress on the native identity-bearing source path, following the [source gate and selection review](S03-native-identity-source.md). Reconsider integrated guard/search support and coherent architecture qualification at that composition gate or a consequential obstruction. Broader language, local ownership and total costs remain unresolved.
+Current selection: T078 common-source qualification and complete-path cost design, following the [native composition gate and selection review](S03-native-choice-identity.md). Compare existing conventional controls and native execution, checking applicable integrated/source-derived alternatives. Source emission, query-dependent preparation, parsing, reuse, observation and disposal require explicit accounting before comparative runs.
 
 The [binding-effect certificate](S07-binding-effects-gate.md) removes persistent equality wake-up bookkeeping while preserving consumption conflicts and non-ground observations. T079 subsequently compared admission and lifecycle costs. This is mechanism/correctness evidence, not a language-adoption result.
 

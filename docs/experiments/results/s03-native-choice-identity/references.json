@@ -1,0 +1,386 @@
+[
+  {
+    "case": "binding-10-0",
+    "result": {
+      "input": "p:v10,go:v10\n10\np:v0;-;seen:v0\n-;go:v0;(=:v0:a|=:v0:b)\n",
+      "stdout": "true 2\nANSWER\na\np:a\nseen:a\nANSWER\nb\np:b\nseen:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "correlation-10-0",
+    "result": {
+      "input": "go:v10:v11\n10,11\n-;go:v0:v1;(=:v0:a,=:v1:a|=:v0:b,=:v1:b),pair:v0:v1\n",
+      "stdout": "true 2\nANSWER\na,a\npair:a:a\nANSWER\nb,b\npair:b:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "independent-10-0",
+    "result": {
+      "input": "go:v10,go:v11\n10,11\n-;go:v0;(=:v0:a|=:v0:b)\n",
+      "stdout": "true 4\nANSWER\na,a\nANSWER\na,b\nANSWER\nb,a\nANSWER\nb,b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "duplicate-10-0",
+    "result": {
+      "input": "p:v10,go:v10\n10\np:v0;-;seen:v0\n-;go:v0;(=:v0:a|=:v0:a)\n",
+      "stdout": "true 2\nANSWER\na\np:a\nseen:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "compete-10-0",
+    "result": {
+      "input": "go:v10:v11,p:v10,q:v11,token\n10,11\n-;go:v0:v1;(=:v0:v1|-)\n-;p:v0,q:v0;joined:v0\n-;p:v0,token;taken:v0\n",
+      "stdout": "true 2\nANSWER\nv0,v0\njoined:v0\ntoken\nANSWER\nv0,v1\nq:v1\ntaken:v0\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "replacement-10-0",
+    "result": {
+      "input": "p:v10,ticket\n10\np:v0;-;seen:v0\n-;ticket,p:v0;(p:v1|p:v0)\n",
+      "stdout": "true 2\nANSWER\nv0\np:v1\nseen:v0\nseen:v1\nANSWER\nv0\np:v0\nseen:v0\nseen:v0\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "history-choice-10-0",
+    "result": {
+      "input": "p:a,p:b\n-\np:v0,p:v1;-;(seen:v0:v1|seen:v0:v1)\n",
+      "stdout": "true 4\nANSWER\n\np:a\np:b\nseen:a:b\nseen:b:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "nested-10-0",
+    "result": {
+      "input": "go:v10\n10\n-;go:v0;(=:v0:a|(=:v0:b|=:v0:a)),done:v0\n",
+      "stdout": "true 3\nANSWER\na\ndone:a\nANSWER\nb\ndone:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "binding-failure-10-0",
+    "result": {
+      "input": "go:v10\n10\n-;go:v0;(=:v0:a|=:v0:b),=:v0:a,done:v0\n",
+      "stdout": "true 1\nANSWER\na\ndone:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "off-output-failure-10-0",
+    "result": {
+      "input": "go\n10\n-;go;(done|!)\n",
+      "stdout": "true 1\nANSWER\nv0\ndone\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "loop-0-10-0",
+    "result": {
+      "input": "go:v10\n10\n-;go:v0;(=:v0:a,done:v0|loop:v0)\n-;loop:v0;loop:v0\n",
+      "stdout": "false 1\nANSWER\na\ndone:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "loop-1-10-0",
+    "result": {
+      "input": "go:v10\n10\n-;go:v0;(loop:v0|=:v0:a,done:v0)\n-;loop:v0;loop:v0\n",
+      "stdout": "false 1\nANSWER\na\ndone:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "binding-10-1",
+    "result": {
+      "input": "go:v10,p:v10\n10\np:v0;-;seen:v0\n-;go:v0;(=:v0:a|=:v0:b)\n",
+      "stdout": "true 2\nANSWER\na\np:a\nseen:a\nANSWER\nb\np:b\nseen:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "correlation-10-1",
+    "result": {
+      "input": "go:v10:v11\n10,11\n-;go:v0:v1;(=:v0:a,=:v1:a|=:v0:b,=:v1:b),pair:v0:v1\n",
+      "stdout": "true 2\nANSWER\na,a\npair:a:a\nANSWER\nb,b\npair:b:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "independent-10-1",
+    "result": {
+      "input": "go:v11,go:v10\n10,11\n-;go:v0;(=:v0:a|=:v0:b)\n",
+      "stdout": "true 4\nANSWER\na,a\nANSWER\nb,a\nANSWER\na,b\nANSWER\nb,b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "duplicate-10-1",
+    "result": {
+      "input": "go:v10,p:v10\n10\np:v0;-;seen:v0\n-;go:v0;(=:v0:a|=:v0:a)\n",
+      "stdout": "true 2\nANSWER\na\np:a\nseen:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "compete-10-1",
+    "result": {
+      "input": "token,q:v11,p:v10,go:v10:v11\n10,11\n-;go:v0:v1;(=:v0:v1|-)\n-;p:v0,q:v0;joined:v0\n-;p:v0,token;taken:v0\n",
+      "stdout": "true 2\nANSWER\nv0,v0\njoined:v0\ntoken\nANSWER\nv0,v1\nq:v1\ntaken:v0\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "replacement-10-1",
+    "result": {
+      "input": "ticket,p:v10\n10\np:v0;-;seen:v0\n-;ticket,p:v0;(p:v1|p:v0)\n",
+      "stdout": "true 2\nANSWER\nv0\np:v1\nseen:v0\nseen:v1\nANSWER\nv0\np:v0\nseen:v0\nseen:v0\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "history-choice-10-1",
+    "result": {
+      "input": "p:b,p:a\n-\np:v0,p:v1;-;(seen:v0:v1|seen:v0:v1)\n",
+      "stdout": "true 4\nANSWER\n\np:a\np:b\nseen:a:b\nseen:b:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "nested-10-1",
+    "result": {
+      "input": "go:v10\n10\n-;go:v0;(=:v0:a|(=:v0:b|=:v0:a)),done:v0\n",
+      "stdout": "true 3\nANSWER\na\ndone:a\nANSWER\nb\ndone:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "binding-failure-10-1",
+    "result": {
+      "input": "go:v10\n10\n-;go:v0;(=:v0:a|=:v0:b),=:v0:a,done:v0\n",
+      "stdout": "true 1\nANSWER\na\ndone:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "off-output-failure-10-1",
+    "result": {
+      "input": "go\n10\n-;go;(done|!)\n",
+      "stdout": "true 1\nANSWER\nv0\ndone\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "loop-0-10-1",
+    "result": {
+      "input": "go:v10\n10\n-;go:v0;(=:v0:a,done:v0|loop:v0)\n-;loop:v0;loop:v0\n",
+      "stdout": "false 1\nANSWER\na\ndone:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "loop-1-10-1",
+    "result": {
+      "input": "go:v10\n10\n-;go:v0;(loop:v0|=:v0:a,done:v0)\n-;loop:v0;loop:v0\n",
+      "stdout": "false 1\nANSWER\na\ndone:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "binding-1000-0",
+    "result": {
+      "input": "p:v1000,go:v1000\n1000\np:v0;-;seen:v0\n-;go:v0;(=:v0:a|=:v0:b)\n",
+      "stdout": "true 2\nANSWER\na\np:a\nseen:a\nANSWER\nb\np:b\nseen:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "correlation-1000-0",
+    "result": {
+      "input": "go:v1000:v1001\n1000,1001\n-;go:v0:v1;(=:v0:a,=:v1:a|=:v0:b,=:v1:b),pair:v0:v1\n",
+      "stdout": "true 2\nANSWER\na,a\npair:a:a\nANSWER\nb,b\npair:b:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "independent-1000-0",
+    "result": {
+      "input": "go:v1000,go:v1001\n1000,1001\n-;go:v0;(=:v0:a|=:v0:b)\n",
+      "stdout": "true 4\nANSWER\na,a\nANSWER\na,b\nANSWER\nb,a\nANSWER\nb,b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "duplicate-1000-0",
+    "result": {
+      "input": "p:v1000,go:v1000\n1000\np:v0;-;seen:v0\n-;go:v0;(=:v0:a|=:v0:a)\n",
+      "stdout": "true 2\nANSWER\na\np:a\nseen:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "compete-1000-0",
+    "result": {
+      "input": "go:v1000:v1001,p:v1000,q:v1001,token\n1000,1001\n-;go:v0:v1;(=:v0:v1|-)\n-;p:v0,q:v0;joined:v0\n-;p:v0,token;taken:v0\n",
+      "stdout": "true 2\nANSWER\nv0,v0\njoined:v0\ntoken\nANSWER\nv0,v1\nq:v1\ntaken:v0\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "replacement-1000-0",
+    "result": {
+      "input": "p:v1000,ticket\n1000\np:v0;-;seen:v0\n-;ticket,p:v0;(p:v1|p:v0)\n",
+      "stdout": "true 2\nANSWER\nv0\np:v1\nseen:v0\nseen:v1\nANSWER\nv0\np:v0\nseen:v0\nseen:v0\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "history-choice-1000-0",
+    "result": {
+      "input": "p:a,p:b\n-\np:v0,p:v1;-;(seen:v0:v1|seen:v0:v1)\n",
+      "stdout": "true 4\nANSWER\n\np:a\np:b\nseen:a:b\nseen:b:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "nested-1000-0",
+    "result": {
+      "input": "go:v1000\n1000\n-;go:v0;(=:v0:a|(=:v0:b|=:v0:a)),done:v0\n",
+      "stdout": "true 3\nANSWER\na\ndone:a\nANSWER\nb\ndone:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "binding-failure-1000-0",
+    "result": {
+      "input": "go:v1000\n1000\n-;go:v0;(=:v0:a|=:v0:b),=:v0:a,done:v0\n",
+      "stdout": "true 1\nANSWER\na\ndone:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "off-output-failure-1000-0",
+    "result": {
+      "input": "go\n1000\n-;go;(done|!)\n",
+      "stdout": "true 1\nANSWER\nv0\ndone\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "loop-0-1000-0",
+    "result": {
+      "input": "go:v1000\n1000\n-;go:v0;(=:v0:a,done:v0|loop:v0)\n-;loop:v0;loop:v0\n",
+      "stdout": "false 1\nANSWER\na\ndone:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "loop-1-1000-0",
+    "result": {
+      "input": "go:v1000\n1000\n-;go:v0;(loop:v0|=:v0:a,done:v0)\n-;loop:v0;loop:v0\n",
+      "stdout": "false 1\nANSWER\na\ndone:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "binding-1000-1",
+    "result": {
+      "input": "go:v1000,p:v1000\n1000\np:v0;-;seen:v0\n-;go:v0;(=:v0:a|=:v0:b)\n",
+      "stdout": "true 2\nANSWER\na\np:a\nseen:a\nANSWER\nb\np:b\nseen:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "correlation-1000-1",
+    "result": {
+      "input": "go:v1000:v1001\n1000,1001\n-;go:v0:v1;(=:v0:a,=:v1:a|=:v0:b,=:v1:b),pair:v0:v1\n",
+      "stdout": "true 2\nANSWER\na,a\npair:a:a\nANSWER\nb,b\npair:b:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "independent-1000-1",
+    "result": {
+      "input": "go:v1001,go:v1000\n1000,1001\n-;go:v0;(=:v0:a|=:v0:b)\n",
+      "stdout": "true 4\nANSWER\na,a\nANSWER\nb,a\nANSWER\na,b\nANSWER\nb,b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "duplicate-1000-1",
+    "result": {
+      "input": "go:v1000,p:v1000\n1000\np:v0;-;seen:v0\n-;go:v0;(=:v0:a|=:v0:a)\n",
+      "stdout": "true 2\nANSWER\na\np:a\nseen:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "compete-1000-1",
+    "result": {
+      "input": "token,q:v1001,p:v1000,go:v1000:v1001\n1000,1001\n-;go:v0:v1;(=:v0:v1|-)\n-;p:v0,q:v0;joined:v0\n-;p:v0,token;taken:v0\n",
+      "stdout": "true 2\nANSWER\nv0,v0\njoined:v0\ntoken\nANSWER\nv0,v1\nq:v1\ntaken:v0\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "replacement-1000-1",
+    "result": {
+      "input": "ticket,p:v1000\n1000\np:v0;-;seen:v0\n-;ticket,p:v0;(p:v1|p:v0)\n",
+      "stdout": "true 2\nANSWER\nv0\np:v1\nseen:v0\nseen:v1\nANSWER\nv0\np:v0\nseen:v0\nseen:v0\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "history-choice-1000-1",
+    "result": {
+      "input": "p:b,p:a\n-\np:v0,p:v1;-;(seen:v0:v1|seen:v0:v1)\n",
+      "stdout": "true 4\nANSWER\n\np:a\np:b\nseen:a:b\nseen:b:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "nested-1000-1",
+    "result": {
+      "input": "go:v1000\n1000\n-;go:v0;(=:v0:a|(=:v0:b|=:v0:a)),done:v0\n",
+      "stdout": "true 3\nANSWER\na\ndone:a\nANSWER\nb\ndone:b\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "binding-failure-1000-1",
+    "result": {
+      "input": "go:v1000\n1000\n-;go:v0;(=:v0:a|=:v0:b),=:v0:a,done:v0\n",
+      "stdout": "true 1\nANSWER\na\ndone:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "off-output-failure-1000-1",
+    "result": {
+      "input": "go\n1000\n-;go;(done|!)\n",
+      "stdout": "true 1\nANSWER\nv0\ndone\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "loop-0-1000-1",
+    "result": {
+      "input": "go:v1000\n1000\n-;go:v0;(=:v0:a,done:v0|loop:v0)\n-;loop:v0;loop:v0\n",
+      "stdout": "false 1\nANSWER\na\ndone:a\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "loop-1-1000-1",
+    "result": {
+      "input": "go:v1000\n1000\n-;go:v0;(loop:v0|=:v0:a,done:v0)\n-;loop:v0;loop:v0\n",
+      "stdout": "false 1\nANSWER\na\ndone:a\n",
+      "stderr": ""
+    }
+  }
+]

@@ -1,6 +1,8 @@
 # Why designs were set aside—and what the experiments actually establish
 
-The [native identity-bearing source gate](S03-native-identity-source.md) passes 77 complete sources against independent expectations and the unchanged reference. Serial matching, replacement, equality and ordered histories now execute together. T080 next tests their interaction with choices and failure; local ownership and broader architecture comparisons remain required.
+The [native choice/identity composition gate](S03-native-choice-identity.md) validates 48 mixed sources, all 77 deterministic regressions and explicit failure/namespace boundaries. Finite siblings progress beside ongoing work. T078 common-source qualification and complete-path cost design is selected next; local native ownership, broader language and lifetime remain required.
+
+The [native identity-bearing source gate](S03-native-identity-source.md) passes 77 complete sources against independent expectations and the unchanged reference. Serial matching, replacement, equality and ordered histories now execute together. The composition gate above now tests interaction with choices and failure; local ownership and broader architecture comparisons remain required.
 
 The [native identity operation gate](S03-native-identity-kernel.md) validates 340 cases separating equality, occurrence IDs and ordered history, including nonbinding probes. These are executable prerequisites, not native source correspondence. The complete source gate above now exercises those operations together; broader architectures remain unresolved.
 

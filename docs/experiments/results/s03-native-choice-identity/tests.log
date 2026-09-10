@@ -1,0 +1,46 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.01s
+     Running unittests src/lib.rs (target/debug/deps/chr_cases-d1c8570188026489)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/lambda.rs (target/debug/deps/lambda-e6962d4a69b4fdb5)
+
+running 6 tests
+test norm_reintroduction_gives_propagation_a_new_occurrence ... ok
+test invalid_names_and_equal_disequalities_fail ... ok
+test norm_requires_the_actual_companion_occurrence ... ok
+test identity_beta_returns_the_argument ... ok
+test distinct_names_remain_an_explicit_residual_restriction ... ok
+test literal_substitution_does_not_invent_capture_avoidance ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/native_identity_obligations.rs (target/debug/deps/native_identity_obligations-d67c078844bac616)
+
+running 6 tests
+test replacement_can_introduce_a_fresh_unknown_without_aliasing_the_old_value ... ok
+test propagation_histories_distinguish_ordered_occurrence_tuples ... ok
+test binding_changes_values_without_creating_a_new_propagation_occurrence ... ok
+test equal_value_replacement_is_a_new_propagation_occurrence ... ok
+test independent_binding_effects_have_a_commuting_control ... ok
+test equal_final_aliases_do_not_justify_reordering_competing_effects ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/registry.rs (target/debug/deps/registry-a04ffa22d9fcf98b)
+
+running 3 tests
+test scalar_microtrace_counts_introduction_application_equation_and_completion ... ok
+test carry_counts_charge_independent_work_after_each_choice ... ok
+test reference_observations_match_independent_registered_expectations ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+   Doc-tests chr_cases
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
