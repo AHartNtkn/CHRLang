@@ -14,13 +14,13 @@ The [inert ownership comparison](results/S05-inert-ownership.md) qualifies finit
 
 ## Start here: the next experiments
 
-**Next register counter-free guarded-choice lifecycle costs under T072.** The [ownership comparison](results/S02-choice-ownership.md) qualifies finite endpoints across all four engines: 768 allocation processes, 192 ordinary-allocator cases and 16 cancellation/reuse checks pass. Local allocation traffic beats Scan in 60 scenarios and exceeds it in 36; contextual search requests less in 81 of 96. These are diagnostic contrasts, not runtime or architecture rankings.
+**Next investigate joint structural theories and their source boundary under T076.** The [guarded-choice cost pilot](results/S02-choice-cost.md) and [full breadth review](results/S02-choice-cost-breadth-review.md) complete the four-package local-search cycle. The pilot keeps local and contextual candidates viable and exposes a service/copying hypothesis; it cannot select a complete architecture.
 
-Use the existing local graph, compiled Scan/Indexed and contextual searches. Prospectively register exploratory sizing, confirmation counts, source sizes, placement, bounds and interpretation. Cross copied payload and choice frontier with useful matching/equality work. Charge preparation, changing-query setup, first/full answers, cancellation and disposal. Execution and answer construction remain jointly charged where the API does not separate them. Keep requested allocations, live memory, RSS and ordinary-allocator time distinct.
+Register the existing name, disequality and normal/neutral requirements over common finite-tree variables. Independently enumerate small ground and partial denotations. Exercise repeated holes, alias-induced conflicts, finite versus unbounded hidden-name dependencies and different binding orders. These components currently rely on caller equality duties; their conjunction must show which duties are shared, duplicated or missing.
 
-**Joint structural theory/source integration remains the strongest ready distinct alternative.** It needs a combined source contract and oracle before comparative costs. The runtime pilot comes first because qualified endpoints and opposing allocation regimes make a decision-changing comparison feasible now. Demand-driven choices and conditional retention remain required alternatives if copying or sustained ownership proves consequential.
+Pair the logical experiment with a declared source boundary and literal CHR controls. Preserve observable residual occurrences and host effects. Establish a closed observation contract that permits exact summaries, and a contrary context where replacement is invalid. Treat this as an experimental language tradeoff, without adopting a restriction.
 
-Investigate any consequential loss or measurement uncertainty, then perform the full breadth review: this is package three after the normal/neutral review, so one further package triggers it. A runtime result cannot settle indefinite service, broader integrated mechanisms, structural theories or the complete architecture decision.
+**The strongest ready alternative is local copying/service attribution and a representation or demand-driven contrast.** The contextual adverse regime makes that work consequential, but the present pilot already keeps both candidates in contention. Joint theory/source interactions remain untested and could change whether several services can be replaced. Reconsider these alternatives, along with conditional lifetime, at the joint gate or obstruction. Review all remaining mechanisms after at most four packages.
 
 ## Execution order after the current causal comparison
 
@@ -96,7 +96,7 @@ The numbers below identify detailed specifications, not the execution order. Sev
 
 ## The next concrete experiments
 
-**T072 is the sole active task for guarded-choice lifecycle costs.** Follow the cost gate above, with a full breadth review after one further package. T076 remains required for joint theory/source integration and costs. T074 remains required for continuing lifetime and publication qualification. T075's finite owner matrix leaves runtime, extraction/key attribution and broader dependencies unresolved; these remain in the reuse comparison.
+**T076 is the sole active task for joint theory/source integration.** Follow the semantic and source gate above. T072 retains copying/service attribution, broader integrated mechanisms and sustained ownership. T074 remains required for continuing lifetime and publication qualification. T075's finite owner matrix leaves runtime, extraction/key attribution and broader dependencies unresolved; these remain in the reuse comparison.
 
 T077 still requires timing attribution, policy challenges, delayed splitting and checkpoints/replay. T076 still requires incremental projection, broader connected shapes and source/theory correspondence. T074 still requires conditional equality/lifetime repair and sustained ownership. T080 still requires native local claims, dynamic choices, failed branches and descriptor lifetime. Broader resource derivation, integrated execution, language restrictions and complete architectures retain their comparisons below.
 

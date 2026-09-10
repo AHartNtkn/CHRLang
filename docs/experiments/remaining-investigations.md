@@ -1,6 +1,6 @@
 # The comparisons still needed to choose the architecture
 
-The [guarded-choice ownership comparison](results/S02-choice-ownership.md) supplies the current checkpoint. Guarded-choice ownership passes 768 allocation processes with identical pairs, 192 ordinary-allocator cases and 16 cancellation/reuse checks across local graph, compiled Scan/Indexed and contextual search. Immediate release restores preparation endpoints; final disposal restores initial live bytes. Local requested traffic is lower than Scan in 60 scenarios and higher in 36, without a timing conclusion. T072 next registers counter-free lifecycle costs; package three after the normal/neutral breadth review. Goal active.
+The [guarded-choice cost pilot](results/S02-choice-cost.md) and [breadth review](results/S02-choice-cost-breadth-review.md) supply the current checkpoint. The guarded-choice cost pilot validates 5,120 primary, 1,024 allocation, 512 sizing and 40 cancellation processes. Local graph has lower descriptive timing ranges than Scan in 195 of 256 scenario/CPU comparisons; contextual comparison has 22 lower, six higher and 228 overlapping ranges. Service and allocation evidence expose an adverse late-failure regime. Four-package breadth review selects T076 joint theory/source integration; no architecture selected and goal active.
 
 The [names entry](results/S06-names-entry.md) supplies the current checkpoint. The names entry checks 17,934 finite denotations, 8,967 ground source cases, 183 partial source cases and 1,224 explicit assignments per execution in both builds. Literal root rejection differs from atomic-name membership; fixed names remain observable and logical compression cannot replace residual occurrences. The delayed-binding source extension and 53 structural/lambda regressions pass. T076 next investigates delayed name disequality, finite versus unbounded alphabets and projection/caller dependencies. No timing or architecture conclusion; goal active.
 
@@ -94,7 +94,7 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-The [current execution order](next-cycle.md#start-here-the-next-experiments) owns scheduling. T077 next registers adaptive lifecycle costs after stateless-eager control and owner qualification. T076 retains broader graph shapes, incremental output, source correspondence and richer theories. Two packages are complete since the projection breadth review; review all directions again by package four.
+The [current execution order](next-cycle.md#start-here-the-next-experiments) owns scheduling. The guarded-choice four-package review selects T076 joint theory/source integration. T072 retains adverse copying/service attribution, broader integrated mechanisms and sustained ownership; the pilot does not close those questions.
 
 ### Depth, breadth and stopping within this sequence
 

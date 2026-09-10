@@ -1,6 +1,6 @@
 # Experimental sequence: resolve the remaining architecture questions
 
-The [current execution order](next-cycle.md#execution-order-after-the-current-causal-comparison) schedules all missing comparisons. The [immediate packages](next-cycle.md#start-here-the-next-experiments) now qualify guarded-choice ownership and costs, with explicit reconsideration of joint theory integration and distinct choice organizations. Every question retains its detailed evidence obligation.
+The [current execution order](next-cycle.md#execution-order-after-the-current-causal-comparison) schedules all missing comparisons. The [immediate packages](next-cycle.md#start-here-the-next-experiments) now investigate joint theory/source integration, with explicit reconsideration of branch-copy costs and distinct choice organizations. Every question retains its detailed evidence obligation.
 
 Investigate the unanswered mechanisms directly, then compare the complete architectures they enable. Reuse the existing baselines. The research remains active until consequential questions have evidence-backed answers.
 
@@ -12,7 +12,7 @@ This is the governing sequence for the renewed investigation. Existing E/R measu
 
 The [next experimental cycle](next-cycle.md#start-here-the-next-experiments) sets the immediate experiments and their decision boundaries from the verified worktree. Its full programme covers every direction; the numbered investigations are identifiers, not instructions to repeat completed work. It reuses the stage definitions below and the full question map.
 
-The [guarded-choice ownership comparison](results/S02-choice-ownership.md) supplies the current checkpoint. Guarded-choice ownership passes 768 allocation processes with identical pairs, 192 ordinary-allocator cases and 16 cancellation/reuse checks across local graph, compiled Scan/Indexed and contextual search. Immediate release restores preparation endpoints; final disposal restores initial live bytes. Local requested traffic is lower than Scan in 60 scenarios and higher in 36, without a timing conclusion. T072 next registers counter-free lifecycle costs; package three after the normal/neutral breadth review. Goal active.
+The [guarded-choice cost pilot](results/S02-choice-cost.md) and [breadth review](results/S02-choice-cost-breadth-review.md) supply the current checkpoint. The guarded-choice cost pilot validates 5,120 primary, 1,024 allocation, 512 sizing and 40 cancellation processes. Local graph has lower descriptive timing ranges than Scan in 195 of 256 scenario/CPU comparisons; contextual comparison has 22 lower, six higher and 228 overlapping ranges. Service and allocation evidence expose an adverse late-failure regime. Four-package breadth review selects T076 joint theory/source integration; no architecture selected and goal active.
 
 ## Account for every reviewed question
 
