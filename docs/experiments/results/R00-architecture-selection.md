@@ -1,10 +1,10 @@
 # R00: architectural alternatives and first experiment selection
 
-The [native identity obligations and breadth review](S03-native-identity-obligations.md) establish61 reference-checked source cases distinguishing occurrence replacement, value binding, ordered histories and effect order. These do not qualify a native identity backend. The review selects T072 complete integrated matching timing; T080 remains required and unfinished.
+The [general matching lifecycle and core-placement study](S02-multihead-lifecycle.md) completes 3,192 comparative processes. Local graph scan passes the multiplicity-corrected practical-gain tests against conventional Scan in all six width 64/four-query families on both controlled CPUs, despite higher heap traffic. Retained joins have conditional benefits and costly dense setup. T072 next resolves smaller-width and single-query placement uncertainty; full architecture and language decisions remain open.
 
 The [finite-solver lifecycle pilot](S06-finite-lifecycle.md) completes 1,428 processes across 204 configurations. A [paired allocation correction](S06-empty-complement-attribution.md) completes another 252 processes. Selective four-query allocation falls to 0.795 MB, below both conditional orders; the unselective batch still requests 15.77 MB versus specialization’s 9.24 MB. These are bounded results, with compilation and broader solver questions still open.
 
-Current selection: T072 complete timing for general integrated matching under investigation 3, following the [native breadth review](S03-native-identity-obligations.md). Revalidate existing source and allocation gates, extend counter-free ordinary-allocator lifecycle measurement, and register comparative runs before timing. Native identity, broader solving, reuse and language investigations remain required; the goal is active.
+Current selection: T072 controlled-placement confirmation for the remaining general matching sizes and reuse cases, following the [lifecycle study](S02-multihead-lifecycle.md). Register the extension before comparative runs and retain the frozen ordinary binary where possible. Native identity, broader solving, reuse, language support and coherent architecture comparisons remain required; the goal is active.
 
 The [binding-effect certificate](S07-binding-effects-gate.md) removes persistent equality wake-up bookkeeping while preserving consumption conflicts and non-ground observations. T079 subsequently compared admission and lifecycle costs. This is mechanism/correctness evidence, not a language-adoption result.
 
