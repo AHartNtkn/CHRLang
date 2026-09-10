@@ -1,6 +1,6 @@
 # Experimental sequence: resolve the remaining architecture questions
 
-The [current execution order](next-cycle.md#execution-order-after-the-current-causal-comparison) schedules the missing comparisons beginning with distinct structural theories after the recorded conditional attribution. Each question retains its detailed evidence obligation; this scheduling update reports no new results.
+The [current execution order](next-cycle.md#execution-order-after-the-current-causal-comparison) schedules all missing comparisons. The [immediate packages](next-cycle.md#start-here-the-next-experiments) now qualify guarded-choice ownership and costs, with explicit reconsideration of joint theory integration and distinct choice organizations. Every question retains its detailed evidence obligation.
 
 Investigate the unanswered mechanisms directly, then compare the complete architectures they enable. Reuse the existing baselines. The research remains active until consequential questions have evidence-backed answers.
 
@@ -12,7 +12,7 @@ This is the governing sequence for the renewed investigation. Existing E/R measu
 
 The [next experimental cycle](next-cycle.md#start-here-the-next-experiments) sets the immediate experiments and their decision boundaries from the verified worktree. Its full programme covers every direction; the numbered investigations are identifiers, not instructions to repeat completed work. It reuses the stage definitions below and the full question map.
 
-The [local graph choice entry](results/S02-local-choice-entry.md) supplies the current checkpoint. The local graph choice owner passes 48 source configurations plus the body-order witness against independent scalar, compiled Scan/Indexed and contextual controls in both counter configurations. Finite siblings progress beside recurring work; cancellation returns prepared ownership to the caller alone. Eighteen existing regressions pass. T072 next qualifies positive equality guards; copying, retained owners and full lifecycle costs remain unmeasured. Package one after the normal/neutral breadth review; goal active.
+The [local graph guard entry](results/S02-local-guard-entry.md) supplies the current checkpoint. Positive equality guards pass 64 source configurations and named scope, tuple-selection, body-order and failure witnesses against independent scalar, compiled Scan/Indexed and contextual controls. Four confirming runs pass with local counters on/off; 21 regressions pass. T072 next qualifies guarded-choice lifecycle endpoints and ownership before comparative costs. Package two after the normal/neutral breadth review; goal active.
 
 ## Account for every reviewed question
 

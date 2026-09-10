@@ -7,9 +7,9 @@ impl Prepared {
     pub fn compile(rules: &[Rule]) -> Result<Self, &'static str> {
         if rules
             .iter()
-            .any(|r| r.kept.is_empty() && r.removed.is_empty())
+            .any(|r| (r.kept.is_empty() && r.removed.is_empty()) || !r.guards.is_empty())
         {
-            return Err("local graph search requires nonempty heads");
+            return Err("local graph search requires nonempty heads and no guards");
         }
         Ok(Self {
             program: Arc::new(Program {
@@ -88,64 +88,4 @@ impl<const METRICS: bool> Search<METRICS> {
             None => Event::Progress,
         }
     }
-}
-
-// Compare syntax and captured handles without allocating graph nodes or installing equations.
-pub(super) fn guard_equal(graph: &Run<false>, a: &Term, b: &Term, env: &Env) -> bool {
-    #[derive(Clone, Copy)]
-    enum View<'a> {
-        Syntax(&'a Term),
-        Handle(usize),
-        Free(Var),
-    }
-    enum Children<'a> {
-        Syntax(&'a [Term]),
-        Handles(&'a [usize]),
-    }
-    impl<'a> Children<'a> {
-        fn len(&self) -> usize {
-            match self {
-                Self::Syntax(xs) => xs.len(),
-                Self::Handles(xs) => xs.len(),
-            }
-        }
-        fn at(&self, i: usize) -> View<'a> {
-            match self {
-                Self::Syntax(xs) => View::Syntax(&xs[i]),
-                Self::Handles(xs) => View::Handle(xs[i]),
-            }
-        }
-    }
-    fn resolve<'a>(view: View<'a>, env: &Env) -> View<'a> {
-        match view {
-            View::Syntax(Term::Var(x)) => env.get(x).map_or(View::Free(*x), |h| View::Handle(*h)),
-            _ => view,
-        }
-    }
-    fn parts<'a>(view: View<'a>, graph: &'a Run<false>) -> Option<(&'a str, Children<'a>)> {
-        match view {
-            View::Syntax(Term::App(name, args)) => Some((name, Children::Syntax(args))),
-            View::Handle(h) => graph.nodes[graph.targets[h]]
-                .descriptor
-                .as_ref()
-                .map(|d| (d.name.as_str(), Children::Handles(&d.children))),
-            _ => None,
-        }
-    }
-    fn equal(graph: &Run<false>, a: View<'_>, b: View<'_>, env: &Env) -> bool {
-        let (a, b) = (resolve(a, env), resolve(b, env));
-        match (a, b) {
-            (View::Handle(x), View::Handle(y)) => graph.equal(x, y, &mut Dependencies::default()),
-            (View::Free(x), View::Free(y)) => x == y,
-            _ => match (parts(a, graph), parts(b, graph)) {
-                (Some((an, ac)), Some((bn, bc))) => {
-                    an == bn
-                        && ac.len() == bc.len()
-                        && (0..ac.len()).all(|i| equal(graph, ac.at(i), bc.at(i), env))
-                }
-                _ => false,
-            },
-        }
-    }
-    equal(graph, View::Syntax(a), View::Syntax(b), env)
 }

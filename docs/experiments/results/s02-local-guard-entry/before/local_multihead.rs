@@ -139,16 +139,7 @@ impl<const METRICS: bool> Execution<METRICS> {
         env: BTreeMap<Var, usize>,
     ) -> Option<(Vec<usize>, BTreeMap<Var, usize>)> {
         if heads.is_empty() {
-            let enabled = !self.history.contains(&(rule, ids.clone()))
-                && self.program.rules[rule]
-                    .guards
-                    .iter()
-                    .all(|guard| match guard {
-                        chr_syntax::Guard::Equal(a, b) => {
-                            search::guard_equal(&self.graph, a, b, &env)
-                        }
-                    });
-            return enabled.then(|| (ids.clone(), env));
+            return (!self.history.contains(&(rule, ids.clone()))).then(|| (ids.clone(), env));
         }
         for (&id, fact) in &self.live {
             if METRICS {

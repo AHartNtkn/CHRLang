@@ -14,11 +14,18 @@ The [inert ownership comparison](results/S05-inert-ownership.md) qualifies finit
 
 ## Start here: the next experiments
 
-**Next qualify positive equality guards in the local graph source path under T072.** The [choice entry](results/S02-local-choice-entry.md) now establishes bounded source/fork/progress correspondence with copied branch owners. Its costs and sustained lifetime remain unmeasured.
+**Next qualify the full lifecycle of guarded local graph choices under T072.** The [guard experiment](results/S02-local-guard-entry.md) now establishes bounded source agreement across 64 configurations and named semantic witnesses. Branch copying and sustained retention remain unmeasured. Use the existing compiled Scan/Indexed and contextual searches as controls.
 
-The next gate must establish nonbinding guard checks, late equality/constructor enablement, competing consumers and branch-local failures, with independent complete-answer controls. It should make guarded sources admissible without changing the tested body or source-order contract. Retained-join search and broader partial-deduction policies remain separate obligations.
+The next two packages have separate purposes:
 
-Joint structural theory/source integration remains the strongest ready alternative. Qualifying guards closes a concrete source-admission gap for broader complete-path comparisons; another deterministic timing matrix would not. Reconsider further integration, demand-driven choices and conditional ownership at the guard gate or obstruction. This is one package since the full breadth review.
+1. **Establish what is owned, observed and released.** Reuse one prepared ruleset across changing queries. Exercise no-choice overhead, wider choice frontiers, equality enabled late, early/late failed siblings and output-heavy sources. Cross immediate answer release, bounded retained windows and retained-all consumers. Cancel a continuing sibling after a finite answer, then reuse preparation. Validate complete finite answers independently; verify retained answers after search disposal and final release of preparation, query state and consumer owners. Qualify requested-allocation diagnostics separately from ordinary-allocator timing. An inseparable execution/observation boundary is reported jointly.
+2. **Measure whether the integrated candidate still earns its cost.** Only after ownership qualification, size an exploratory pilot and register exact source sizes, repetitions, placement, endpoints and resource limits before confirmation. Compare preparation, changing-query setup, first/full answers, cancellation and disposal. Vary useful matching/equality work independently of copied state and frontier width. Charge memory and retained outputs alongside time. Attribute a consequential loss to copying, traversal, scheduling or observation before deciding whether repair or another organization is the better next experiment.
+
+The first package can uncover an accounting defect; the second can reverse a candidate's apparent advantage. Neither repeats the existing deterministic baseline. Any compilation claim must use applicable compilation receipts or new compilation measurements; runtime intervals alone cannot establish complete lifecycle superiority.
+
+**Joint structural theory/source integration is the strongest ready alternative.** It could expose interactions missed by separate names, disequality and normal/neutral entries. It first needs a combined source contract and independent oracle. The guarded-choice owner gate takes priority because it can now expose a concrete cost obligation using qualified source behavior and existing controls. This is a priority judgment, not evidence against the theory direction.
+
+At the ownership gate or obstruction, compare that theory study with demand-driven choices and conditional retention before authorizing the timing package. Demand-driven choices could avoid copying; conditional ownership could change sustained-memory viability. If an ownership obstruction makes those comparisons more valuable, change the next package and record why. At most two more packages follow the current guard result before a full breadth review of every remaining mechanism.
 
 ## Execution order after the current causal comparison
 
@@ -94,7 +101,7 @@ The numbers below identify detailed specifications, not the execution order. Sev
 
 ## The next concrete experiments
 
-**T072 is the sole active task for positive equality guards after local graph choice qualification.** Follow the source gate and breadth review above. T076 remains required for joint theory/source integration and costs. T074 remains required for continuing lifetime and publication qualification. T075's finite owner matrix leaves runtime, extraction/key attribution and broader dependencies unresolved; these remain in the reuse comparison.
+**T072 is the sole active task for guarded-choice lifecycle qualification.** Follow the ownership and cost gates above, with a full breadth review after at most two further packages. T076 remains required for joint theory/source integration and costs. T074 remains required for continuing lifetime and publication qualification. T075's finite owner matrix leaves runtime, extraction/key attribution and broader dependencies unresolved; these remain in the reuse comparison.
 
 T077 still requires timing attribution, policy challenges, delayed splitting and checkpoints/replay. T076 still requires incremental projection, broader connected shapes and source/theory correspondence. T074 still requires conditional equality/lifetime repair and sustained ownership. T080 still requires native local claims, dynamic choices, failed branches and descriptor lifetime. Broader resource derivation, integrated execution, language restrictions and complete architectures retain their comparisons below.
 

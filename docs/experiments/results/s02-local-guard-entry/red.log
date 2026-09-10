@@ -1,0 +1,43 @@
+   Compiling chr-relational v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-relational)
+    Finished `release` profile [optimized] target(s) in 1.94s
+     Running tests/local_guards.rs (target/release/deps/local_guards-aff6f3e1656bdc71)
+
+running 4 tests
+test guard_failure_continues_to_later_matching_tuples ... FAILED
+test completed_body_and_failed_siblings_control_guarded_consumption ... FAILED
+test guard_local_variables_are_fresh_and_conjunctions_are_required ... FAILED
+test guards_wait_for_branch_local_equality_without_binding_unknowns ... FAILED
+
+failures:
+
+---- guard_failure_continues_to_later_matching_tuples stdout ----
+
+thread 'guard_failure_continues_to_later_matching_tuples' (74) panicked at research/chr-relational/tests/local_guards.rs:32:38:
+called `Result::unwrap()` on an `Err` value: "local graph search requires nonempty heads and no guards"
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- completed_body_and_failed_siblings_control_guarded_consumption stdout ----
+
+thread 'completed_body_and_failed_siblings_control_guarded_consumption' (73) panicked at research/chr-relational/tests/local_guards.rs:32:38:
+called `Result::unwrap()` on an `Err` value: "local graph search requires nonempty heads and no guards"
+
+---- guard_local_variables_are_fresh_and_conjunctions_are_required stdout ----
+
+thread 'guard_local_variables_are_fresh_and_conjunctions_are_required' (75) panicked at research/chr-relational/tests/local_guards.rs:32:38:
+called `Result::unwrap()` on an `Err` value: "local graph search requires nonempty heads and no guards"
+
+---- guards_wait_for_branch_local_equality_without_binding_unknowns stdout ----
+
+thread 'guards_wait_for_branch_local_equality_without_binding_unknowns' (76) panicked at research/chr-relational/tests/local_guards.rs:32:38:
+called `Result::unwrap()` on an `Err` value: "local graph search requires nonempty heads and no guards"
+
+
+failures:
+    completed_body_and_failed_siblings_control_guarded_consumption
+    guard_failure_continues_to_later_matching_tuples
+    guard_local_variables_are_fresh_and_conjunctions_are_required
+    guards_wait_for_branch_local_equality_without_binding_unknowns
+
+test result: FAILED. 0 passed; 4 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p chr-relational --test local_guards`
