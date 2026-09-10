@@ -1,0 +1,9 @@
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+error[E0425]: cannot find function `matrix_prefix_rules` in this scope
+   --> research/chr-direct-conditional/tests/finite_learning_gate.rs:685:25
+    |
+685 |             let rules = matrix_prefix_rules(484, weight, depth);
+    |                         ^^^^^^^^^^^^^^^^^^^ not found in this scope
+
+For more information about this error, try `rustc --explain E0425`.
+error: could not compile `chr-direct-conditional` (test "finite_learning_gate") due to 1 previous error

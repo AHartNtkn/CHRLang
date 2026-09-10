@@ -1,6 +1,6 @@
 # R00: architectural alternatives and first experiment selection
 
-The [compilation inventory](S06-compilation-inventory.md) revalidates existing independent compiler evidence: R05 recursive artifacts and S01 measured compilation recovery already cover bounded generation-versus-prepared comparisons. T073 now resumes substantive compatible-query learning costs. Broader compilation and direct consuming-resource derivations remain required, with review at the learning source/accounting gate or an obstruction. The mixed HVM pilot remains a bounded loss of its current path; the architecture goal is active.
+The [common-prefix learning entry](S06-learning-prefix-entry.md) passes 216 configurations in 648 primary/diagnostic processes, with independent complete caller outcomes and restored heap ownership. Depth-64 covered-state learning requests 1.231 MB versus recomputation's 1.415 MB in the registered five-query favorable witness; this is not a timing result. T073 next registers a bounded learning timing pilot. Direct resource derivations and broader compilation return after that pilot or a consequential obstruction; the architecture goal remains active.
 
 ## Earlier experimental checkpoints
 

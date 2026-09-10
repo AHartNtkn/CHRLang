@@ -50,7 +50,9 @@ mod gate {
             #[cfg(not(feature = "alloc-meter"))]
             panic!("meter not enabled");
         }
-        assert_eq!(args.len(), 7);
+        assert_eq!(args.len(), 8);
+        let depth: usize = args[7].parse().unwrap();
+        assert!([0, 16, 64].contains(&depth));
         let cancel = args[6].as_str();
         assert!(["none", "step1"].contains(&cancel));
         if chr_compiled::COLLECT_METRICS
@@ -65,7 +67,7 @@ mod gate {
         let capacity: usize = args[4].parse().unwrap();
         let count: usize = args[5].parse().unwrap();
         assert!(["recompute", "eager", "covered"].contains(&mode));
-        assert!([0, 273, 238, 511].contains(&accepted));
+        assert!([0, 273, 238, 484, 511].contains(&accepted));
         assert!([1, 2].contains(&weight) && [0, 1, 4].contains(&capacity));
         assert!([1, 4, 16].contains(&count));
         let mut records = Vec::with_capacity(16 + 8 * (count + 1));
@@ -74,7 +76,7 @@ mod gate {
         #[cfg(feature = "alloc-meter")]
         let baseline = meter::end(meter::begin()).live_end;
         let source = mark(&mut records, 0, "source_build", || {
-            matrix_rules(accepted, weight)
+            matrix_prefix_rules(accepted, weight, depth)
         });
         let prepared = mark(&mut records, 0, "prepare", || {
             Prepared::new(&source, source.len() - 1).unwrap()
@@ -239,7 +241,7 @@ mod gate {
             .collect::<Vec<_>>()
             .join(",");
         println!(
-            "{{\"mode\":\"{mode}\",\"accepted\":{accepted},\"weight\":{weight},\"capacity\":{capacity},\"queries\":{},\"cancel\":\"{cancel}\",\"answers\":{answer_count},\"retained_regions\":{retained},\"diagnostics\":{},\"allocation_meter\":{},\"baseline\":{baseline},\"first_owned_ns\":[{first_json}],\"phases\":[{}]}}",
+            "{{\"mode\":\"{mode}\",\"accepted\":{accepted},\"depth\":{depth},\"weight\":{weight},\"capacity\":{capacity},\"queries\":{},\"cancel\":\"{cancel}\",\"answers\":{answer_count},\"retained_regions\":{retained},\"diagnostics\":{},\"allocation_meter\":{},\"baseline\":{baseline},\"first_owned_ns\":[{first_json}],\"phases\":[{}]}}",
             count + 1,
             cfg!(feature = "learning-diagnostics"),
             cfg!(feature = "alloc-meter"),

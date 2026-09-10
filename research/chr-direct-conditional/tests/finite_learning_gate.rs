@@ -155,6 +155,30 @@ fn matrix_rules(accepted: u16, weight: usize) -> Vec<Rule> {
     ));
     out
 }
+fn matrix_prefix_rules(accepted: u16, weight: usize, depth: usize) -> Vec<Rule> {
+    let mut rules = matrix_rules(accepted, weight);
+    if depth > 0 {
+        rules.iter_mut().find(|r| r.name == "entry").unwrap().body =
+            c("prefix0", [v(0), v(1)]).into();
+        let chains = (0..depth)
+            .map(|i| {
+                let next = if i + 1 == depth {
+                    "pair".to_owned()
+                } else {
+                    format!("prefix{}", i + 1)
+                };
+                Rule::simplify(
+                    &format!("prefix{i}"),
+                    [c(&format!("prefix{i}"), [v(0), v(1)])],
+                    c(&next, [v(0), v(1)]).into(),
+                )
+            })
+            .collect::<Vec<_>>();
+        let caller = rules.len() - 1;
+        rules.splice(caller..caller, chains);
+    }
+    rules
+}
 fn matrix_query(left: u8, right: u8, aliased: bool, base: u64) -> Query {
     let y = if aliased { base } else { base + 1 };
     Query {
@@ -675,5 +699,32 @@ fn primary_learning_has_no_diagnostic_counts_and_preserves_reuse() {
             (0, 0, 0)
         );
         assert!(diagnostic.stats().probes > 0);
+    }
+}
+
+#[test]
+fn prefix_matrix_preserves_full_caller_and_learning_outcomes() {
+    for depth in [0, 16, 64] {
+        for weight in [1, 2] {
+            let rules = matrix_prefix_rules(484, weight, depth);
+            let p = Prepared::new(&rules, rules.len() - 1).unwrap();
+            for policy in [Pruning::Eager, Pruning::WhenCovered] {
+                let mut learner = Learner::new(&p, 4, policy);
+                for (domain, alias, base, count) in [
+                    (3, false, 10, 0),
+                    (7, false, 20, 5),
+                    (7, true, 40, 1),
+                    (1, false, 80, 0),
+                ] {
+                    let q = matrix_query(domain, domain, alias, base);
+                    let actual = learner.solve(&q, Limits::default()).unwrap();
+                    assert_eq!(check_source(&rules, &q, actual), count * weight * weight);
+                    assert_eq!(
+                        check_source(&rules, &q, p.solve(&q, Limits::default()).unwrap()),
+                        count * weight * weight
+                    );
+                }
+            }
+        }
     }
 }

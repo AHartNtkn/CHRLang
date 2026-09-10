@@ -24,7 +24,7 @@ with (raw/'runs.jsonl').open('w') as output:
     for mode,mask,weight,capacity,count in itertools.product(['recompute','eager','covered'],[0,273,238,511],[1,2],[0,1,4],[1,4,16]):
         pair=[]
         for repeat in range(2):
-            proc=subprocess.run([binary,mode,str(mask),str(weight),str(capacity),str(count),"none"],capture_output=True,text=True,timeout=60,check=True,preexec_fn=limits)
+            proc=subprocess.run([binary,mode,str(mask),str(weight),str(capacity),str(count),"none","0"],capture_output=True,text=True,timeout=60,check=True,preexec_fn=limits)
             assert not proc.stderr,proc.stderr
             row=json.loads(proc.stdout)
             pair.append(row)
