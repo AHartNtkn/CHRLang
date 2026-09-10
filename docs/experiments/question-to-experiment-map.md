@@ -1,6 +1,6 @@
 # What experiment answers each reviewed design question?
 
-The [direct-solving obligations](results/S06-direct-solving-obligations.md) establish 224 closed-source pruning checks and counterexamples for linked rescue, early binding and collapsed derivation counts. T073 now implements source-derived finite relations behind a checked phase boundary; automatic eligibility and comparative costs remain unimplemented.
+The [source-derived finite phase](results/S06-finite-phase-gate.md) passes 224 arrival and 64 relation configurations with independent complete-answer checks. Its 64-choice witness uses 322 symbolic steps and 64 partitions; multiplicity, source admission and resumable cancellation are tested. T073 next charges the complete solver/caller lifecycle; no cost ranking follows.
 
 The [effect lifecycle and breadth review](results/S07-effect-lifecycle.md) validate833 runs and119 allocation pairs. Inference, checked and required admissions have identical accepted-source allocation; a writer demonstrates the expressive cost of forbidding bindings. T073 direct source-derived solving is selected next; broader effects and language adoption remain unresolved.
 

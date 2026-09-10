@@ -1,0 +1,29 @@
+
+running 9 tests
+test interference_and_unsupported_source_fail_admission ... ok
+test source_derived_relations_handle_names_values_aliases_and_priority ... FAILED
+test suspension_and_all_limits_are_explicit_without_partial_answers ... ok
+test caller_can_observe_bindings_and_start_another_phase ... ok
+test repeated_choice_factors_preserve_raw_multiplicity ... ok
+test complement_partition_preserves_later_cases_and_unknown_outputs ... ok
+test equality_can_merge_domains_and_constructor_outputs_without_capture ... ok
+selective_64_steps=322 partitions=64
+test source_rules_drive_selective_solving_and_caller_resumption ... ok
+arrival_configurations=224
+test entire_arrival_matrix_has_independent_complete_answers ... ok
+
+failures:
+
+failures:
+    source_derived_relations_handle_names_values_aliases_and_priority
+
+test result: FAILED. 8 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.34s
+
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.36s
+     Running tests/finite_phase_gate.rs (target/debug/deps/finite_phase_gate-22f63adbc3787948)
+
+thread 'source_derived_relations_handle_names_values_aliases_and_priority' (138) panicked at research/chr-direct-conditional/tests/composition_support/mod.rs:19:22:
+called `Result::unwrap()` on an `Err` value: "duplicate rule name"
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass `-p chr-direct-conditional --test finite_phase_gate`

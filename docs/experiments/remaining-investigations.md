@@ -1,5 +1,7 @@
 # The comparisons still needed to choose the architecture
 
+Current T073 evidence: the [finite phase gate](results/S06-finite-phase-gate.md) qualifies source-derived elimination, weighted multiplicity and resumable service. Its complete lifecycle, including ordinary caller resumption, is the next package. All broader mechanisms below retain their obligations.
+
 The [stronger-control lifecycle pilot](results/S10-arrival-lifecycle.md) validates1,344 runs and192 exact allocation pairs. Specialization improves the substantive explicit control but preserves the conditional choice/check advantage; streams favor explicit execution. T079 effect/ownership beneficiary qualification is selected next. Direct solving, native compilation and broader coherent architectures remain required.
 
 The [stronger-control source gate](results/S10-arrival-controls.md) qualifies specialization and prefix lowering but shows that both retain explicit choice enumeration. T078 next charges their complete lifecycle, including changed artifact signatures. T079 effect certification and direct solving remain required.

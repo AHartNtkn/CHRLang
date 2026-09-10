@@ -1,8 +1,8 @@
 # Next experimental cycle: answer the remaining design questions
 
-The [direct-solving obligations](results/S06-direct-solving-obligations.md) establish 224 closed-source pruning checks and counterexamples for linked rescue, early binding and collapsed derivation counts. T073 now implements source-derived finite relations behind a checked phase boundary; automatic eligibility and comparative costs remain unimplemented.
+The [source-derived finite phase](results/S06-finite-phase-gate.md) passes 224 arrival and 64 relation configurations with independent complete-answer checks. Its 64-choice witness uses 322 symbolic steps and 64 partitions; multiplicity, source admission and resumable cancellation are tested. T073 next charges the complete solver/caller lifecycle; no cost ranking follows.
 
-Current selection: the [effect lifecycle four-package review](results/S07-effect-lifecycle.md) selects T073 direct source-derived solving under investigation4. Establish its source/effect boundary before comparative costs, then compare its concrete implementation with the strongest ready distinct alternative. T079 effect precision and broader language choices remain required.
+Current selection: T073 complete finite-solver lifecycle accounting under investigation 4, following the [source-derived mechanism gate](results/S06-finite-phase-gate.md). Establish allocation/ownership and prospective sizing before timing. Native graph/connected feasibility remains the strongest distinct alternative; T079 and the other broader directions remain required.
 
 Test the mechanisms that remain unanswered, then compare the complete architectures they enable. Reuse the existing baselines and valid results. The research goal remains active.
 

@@ -1,6 +1,6 @@
 # R00: architectural alternatives and first experiment selection
 
-The [direct-solving semantic probes](S06-direct-solving-obligations.md) preserve 224 closed-source configurations while distinguishing linked rescue, premature binding publication and raw derivation counts. T073 remains active for an actual source-derived solver; these tests provide no cost ranking or general admission proof.
+The [source-derived finite solver](S06-finite-phase-gate.md) now avoids the explicit 64-choice product under a checked complete-phase boundary. It passes independent small-source and resumed-caller checks, preserves weights, and supports cancellation between symbolic steps. T073 next measures full lifecycle costs against qualified controls; architecture selection remains open.
 
 Current selection: T073 direct source-derived solving after the [effect lifecycle breadth review](S07-effect-lifecycle.md). The certificate yields bounded allocation savings but does not eliminate explicit choices; inference and declarations have identical accepted-source allocation. Broader architecture and language decisions remain open.
 

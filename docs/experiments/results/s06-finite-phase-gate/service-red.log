@@ -1,0 +1,49 @@
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+error[E0432]: unresolved import `finite_phase::Event`
+   --> research/chr-direct-conditional/tests/finite_phase_gate.rs:531:9
+    |
+531 |     use finite_phase::Event;
+    |         ^^^^^^^^^^^^^^^^^^^ no `Event` in `finite_phase`
+    |
+help: consider importing this enum instead
+    |
+531 -     use finite_phase::Event;
+531 +     use crate::composition_support::Event;
+    |
+
+error[E0599]: no method named `start` found for struct `finite_phase::Prepared` in the current scope
+   --> research/chr-direct-conditional/tests/finite_phase_gate.rs:535:51
+    |
+535 |         let q=s.query(64,false);let mut machine=p.start(&q,Limits::default()).unwrap();
+    |                                                   ^^^^^ method not found in `finite_phase::Prepared`
+    |
+   ::: research/chr-direct-conditional/tests/../../chr-compiled/experiments/finite_phase.rs:152:1
+    |
+152 | pub struct Prepared {
+    | ------------------- method `start` not found for this struct
+
+error[E0599]: no method named `start` found for struct `finite_phase::Prepared` in the current scope
+   --> research/chr-direct-conditional/tests/finite_phase_gate.rs:541:46
+    |
+541 |     let q=s.query(4,false);let mut machine=p.start(&q,Limits::default()).unwrap();
+    |                                              ^^^^^ method not found in `finite_phase::Prepared`
+    |
+   ::: research/chr-direct-conditional/tests/../../chr-compiled/experiments/finite_phase.rs:152:1
+    |
+152 | pub struct Prepared {
+    | ------------------- method `start` not found for this struct
+
+error[E0599]: no method named `start` found for struct `finite_phase::Prepared` in the current scope
+   --> research/chr-direct-conditional/tests/finite_phase_gate.rs:546:23
+    |
+546 |     let mut machine=p.start(&s.query(64,false),Limits{steps:1,..Limits::default()}).unwrap();
+    |                       ^^^^^ method not found in `finite_phase::Prepared`
+    |
+   ::: research/chr-direct-conditional/tests/../../chr-compiled/experiments/finite_phase.rs:152:1
+    |
+152 | pub struct Prepared {
+    | ------------------- method `start` not found for this struct
+
+Some errors have detailed explanations: E0432, E0599.
+For more information about an error, try `rustc --explain E0432`.
+error: could not compile `chr-direct-conditional` (test "finite_phase_gate") due to 4 previous errors
