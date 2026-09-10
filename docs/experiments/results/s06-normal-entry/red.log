@@ -1,0 +1,9 @@
+   Compiling chr-structural v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-structural)
+error[E0432]: unresolved import `chr_structural::normal_forms`
+ --> research/chr-structural/tests/normal_forms.rs:1:22
+  |
+1 | use chr_structural::{normal_forms::{Requirement as R, Summary}, regular::{Automaton,Transition}};
+  |                      ^^^^^^^^^^^^ could not find `normal_forms` in `chr_structural`
+
+For more information about this error, try `rustc --explain E0432`.
+error: could not compile `chr-structural` (test "normal_forms") due to 1 previous error

@@ -14,11 +14,11 @@ The [inert ownership comparison](results/S05-inert-ownership.md) qualifies finit
 
 ## Start here: the next experiments
 
-**Next test normal/neutral structure under T076.** The [disequality entry](results/S06-disequality-entry.md) qualifies finite and unbounded name exclusions with separate contracts. The next entry examines recursive constructors and repeated holes against the actual literal source. It is the fourth package since the conditional breadth review and must end with a full breadth review.
+**Next qualify explicit-choice ownership in the source-driven local graph under T072.** The [normal/neutral entry](results/S06-normal-entry.md) completes the four-package theory cycle. The [full breadth review](results/S06-normal-breadth-review.md) selects the missing source capability in a candidate with bounded deterministic cost evidence. Its current compiler rejects alternatives and guards.
 
-The next package specifies the normal and neutral languages from the recorded solver analysis, checks their structural interpretation independently, and tests repeated unknown holes and companion `var` occurrences. Raw CHR residual behavior remains a separate endpoint. Name/disequality integration, finite-domain costs, general term disequality and sustained owners remain required.
+The first package must preserve pending bodies, equality state, occurrence identities and propagation history across alternatives, with independent complete-answer and continuing-sibling checks. Reuse existing source and compiled controls. A successful source gate does not establish cost or make all guard/contextual mechanisms equivalent.
 
-**Why investigate these next?** The finite projection results cannot answer them, and they could change the language's equality, solver and observation responsibilities. The strongest ready alternative is more conditional lifetime qualification: it could establish whether the continuing implementation is viable, but it would still leave these different meanings untested. The current causal comparison is recorded; investigate the theory distinctions before another cycle of conditional tuning. A newly discovered correctness defect that invalidates an existing control takes precedence; record the concrete dependency and return here after repair.
+The strongest ready alternative is joint structural-theory integration with a declared source boundary. Names, disequality and normal/neutral entries now supply semantic components, but joint projection, source closure, output and lifecycle costs remain required. The local graph choice gate can change which coherent architectures enter the broader comparison; another theory microbenchmark would not address that capability gap. Reassess this selection at the source gate or obstruction.
 
 ## Execution order after the current causal comparison
 
@@ -94,7 +94,7 @@ The numbers below identify detailed specifications, not the execution order. Sev
 
 ## The next concrete experiments
 
-**T076 is the sole active task for normal/neutral structure after the disequality entry.** Follow the structural-theory entry and execution order above. T074 remains required for continuing lifetime and publication qualification. T075's finite owner matrix leaves runtime, extraction/key attribution and broader dependencies unresolved; these remain in the reuse comparison.
+**T072 is the sole active task for local graph choice ownership.** Follow the source gate and breadth review above. T076 remains required for joint theory/source integration and costs. T074 remains required for continuing lifetime and publication qualification. T075's finite owner matrix leaves runtime, extraction/key attribution and broader dependencies unresolved; these remain in the reuse comparison.
 
 T077 still requires timing attribution, policy challenges, delayed splitting and checkpoints/replay. T076 still requires incremental projection, broader connected shapes and source/theory correspondence. T074 still requires conditional equality/lifetime repair and sustained ownership. T080 still requires native local claims, dynamic choices, failed branches and descriptor lifetime. Broader resource derivation, integrated execution, language restrictions and complete architectures retain their comparisons below.
 
