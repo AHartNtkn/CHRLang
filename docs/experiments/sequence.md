@@ -1,6 +1,6 @@
 # Experimental sequence: resolve the remaining architecture questions
 
-The [demand dependency ownership comparison](results/S03-dependency-ownership.md) supplies the current checkpoint. Dependency ownership qualifies 1,920 metered and 960 ordinary processes with exact allocation repeats, independent complete answers and final heap restoration. Miss reuse lowers requested bytes in 24 of 60 completed scenarios per policy and raises them in 36; all 60 have higher peaks than Scan. The delayed-miss witness falls from 2,750,621,954 to 23,374,650 requested bytes, while Indexed requests 2,055,387. Package three complete; T071 clock qualification and registered lifecycle costs are next. Goal active; no timing selection.
+The [demand dependency timing comparison](results/S03-dependency-timing.md) supplies the current checkpoint. Counter-free demand timing completes 5,376 primary processes and 224 warmups with independent complete answers. Miss reuse has replicated practical gains in four delayed-miss scenarios per policy; demand has both gains and losses against Indexed, and arrival reversal changes the delayed-hit result. All outliers remain included. T076 reusable formulas and union/inclusion are next; T071 access, source capability, sustained ownership and targeted CPU/elapsed attribution remain required. Goal active.
 
 The [relevant-key ownership comparison](results/S02-relevant-ownership.md) supplies the current checkpoint. Relevant-key ownership validates1,008 metered and448 ordinary processes with exact allocation repeats, cancellation/reuse and retained answers surviving producer disposal. Ordered relevant reuse lowers peaks versus exact-state caching in38of64 scenarios but requests more bytes than recomputation in all64. The changed depth16/four-query witness requests1,292,590bytes with72,959peak excess versus669,196/38,976 for recomputation. T072 next attributes key/replay execution costs before timing; package one after breadth review; goal active.
 
@@ -286,7 +286,7 @@ All new results link raw inputs, commands, freezes, validation and unfavorable o
 
 ## Current execution order
 
-T071 is active for the demand dependency lifecycle comparison. Qualify miss-table/cache/output ownership and measurement before registering counter-free timing. The [next cycle](next-cycle.md#start-here-the-next-experiments) retains reusable symbolic solving next, with relevant-key repair reconsidered at the demand lifecycle result or a concrete obstruction. Package two after breadth review is complete; qualification and attribution continue to count toward the four-package review.
+T076 is active for reusable compiled formulas and symbolic union/inclusion. The [demand timing result](results/S03-dependency-timing.md) completes the bounded comparison selected at the [breadth review](results/S03-dependency-clock-breadth-review.md). The [next cycle](next-cycle.md#start-here-the-next-experiments) preserves targeted demand diagnostics, broader capability and relevant-key repair as required work, with reconsideration at the symbolic result or a concrete obstruction.
 
 The [57-question map](question-to-experiment-map.md) and [mechanism ledger](remaining-investigations.md) retain every unresolved obligation. The next cycle owns scheduling; historical checkpoint selections describe their own experiment boundaries.
 

@@ -1,0 +1,5120 @@
+{
+  "primary_processes": 5376,
+  "warmups": 224,
+  "independent_endpoints": true,
+  "balanced_positions": true,
+  "outliers_excluded": 0,
+  "counts": {
+    "current-miss/current": {
+      "unresolved": 10,
+      "gain": 4
+    },
+    "birth-miss/birth": {
+      "unresolved": 10,
+      "gain": 4
+    },
+    "dependencies-miss/dependencies": {
+      "unresolved": 10,
+      "gain": 4
+    },
+    "current/scan": {
+      "unresolved": 7,
+      "loss": 5,
+      "gain": 2
+    },
+    "current/indexed": {
+      "unresolved": 4,
+      "gain": 4,
+      "loss": 6
+    },
+    "current-miss/scan": {
+      "unresolved": 12,
+      "gain": 2
+    },
+    "current-miss/indexed": {
+      "unresolved": 5,
+      "gain": 5,
+      "loss": 4
+    },
+    "birth/scan": {
+      "unresolved": 3,
+      "gain": 6,
+      "loss": 5
+    },
+    "birth/indexed": {
+      "gain": 6,
+      "unresolved": 2,
+      "loss": 6
+    },
+    "birth-miss/scan": {
+      "unresolved": 12,
+      "gain": 2
+    },
+    "birth-miss/indexed": {
+      "gain": 5,
+      "unresolved": 5,
+      "loss": 4
+    },
+    "dependencies/scan": {
+      "unresolved": 7,
+      "gain": 2,
+      "loss": 5
+    },
+    "dependencies/indexed": {
+      "unresolved": 4,
+      "gain": 4,
+      "loss": 6
+    },
+    "dependencies-miss/scan": {
+      "unresolved": 12,
+      "gain": 2
+    },
+    "dependencies-miss/indexed": {
+      "unresolved": 7,
+      "gain": 3,
+      "loss": 4
+    }
+  },
+  "comparisons": [
+    {
+      "scenario": 0,
+      "family": "plain",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current-miss",
+      "control": "current",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.9786576713885956,
+          "min_ratio": 0.021236814805512805,
+          "max_ratio": 1.5635492535771476
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.9812470207684398,
+          "min_ratio": 0.7443367411869511,
+          "max_ratio": 1.3373050404980253
+        }
+      ]
+    },
+    {
+      "scenario": 0,
+      "family": "plain",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth-miss",
+      "control": "birth",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.9823757641548432,
+          "min_ratio": 0.6025357803708319,
+          "max_ratio": 1.1765902673974422
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.9564376262966557,
+          "min_ratio": 0.7345714795326853,
+          "max_ratio": 1.7325268038249784
+        }
+      ]
+    },
+    {
+      "scenario": 0,
+      "family": "plain",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies-miss",
+      "control": "dependencies",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 1.0017137314292928,
+          "min_ratio": 0.7446718190104004,
+          "max_ratio": 1.5182257296414723
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.9868168418060763,
+          "min_ratio": 0.3659081569755496,
+          "max_ratio": 1.2233730619133003
+        }
+      ]
+    },
+    {
+      "scenario": 0,
+      "family": "plain",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.6985212669562868,
+          "min_ratio": 0.20966722711833805,
+          "max_ratio": 33.1651385032608
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.6631203444814755,
+          "min_ratio": 0.43137404633145665,
+          "max_ratio": 1.0350200500958406
+        }
+      ]
+    },
+    {
+      "scenario": 0,
+      "family": "plain",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current",
+      "control": "indexed",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.5414830878300516,
+          "min_ratio": 0.3685775640938333,
+          "max_ratio": 30.181484310729815
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.5654694725450307,
+          "min_ratio": 0.4321670453632199,
+          "max_ratio": 0.7943807142792675
+        }
+      ]
+    },
+    {
+      "scenario": 0,
+      "family": "plain",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current-miss",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.6687205944468999,
+          "min_ratio": 0.18648089010257393,
+          "max_ratio": 1.303409372275032
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.6804081001303595,
+          "min_ratio": 0.42440419579448657,
+          "max_ratio": 1.0129237861166316
+        }
+      ]
+    },
+    {
+      "scenario": 0,
+      "family": "plain",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current-miss",
+      "control": "indexed",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.5378098345736773,
+          "min_ratio": 0.30638827220186776,
+          "max_ratio": 1.1863933446346506
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.5886765718446985,
+          "min_ratio": 0.34625574132818937,
+          "max_ratio": 0.8027593576165184
+        }
+      ]
+    },
+    {
+      "scenario": 0,
+      "family": "plain",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.7193318103940349,
+          "min_ratio": 0.20763605998713594,
+          "max_ratio": 0.8484783240572283
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.654443476358282,
+          "min_ratio": 0.4135051267277107,
+          "max_ratio": 1.0462726395276216
+        }
+      ]
+    },
+    {
+      "scenario": 0,
+      "family": "plain",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth",
+      "control": "indexed",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.5495566903872854,
+          "min_ratio": 0.28826448382161324,
+          "max_ratio": 0.8972428105544026
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.5457047755379563,
+          "min_ratio": 0.34050824629866255,
+          "max_ratio": 0.8143729970676616
+        }
+      ]
+    },
+    {
+      "scenario": 0,
+      "family": "plain",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth-miss",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.6787838368562498,
+          "min_ratio": 0.19338121621774113,
+          "max_ratio": 0.8564002599090318
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.6251619193568267,
+          "min_ratio": 0.418670035890565,
+          "max_ratio": 1.0742108194541764
+        }
+      ]
+    },
+    {
+      "scenario": 0,
+      "family": "plain",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth-miss",
+      "control": "indexed",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.532202449649432,
+          "min_ratio": 0.2849048637310851,
+          "max_ratio": 0.6281311126725792
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.5439339154626797,
+          "min_ratio": 0.37181913160374946,
+          "max_ratio": 0.6419406995544906
+        }
+      ]
+    },
+    {
+      "scenario": 0,
+      "family": "plain",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.6586273558388069,
+          "min_ratio": 0.22909026281045825,
+          "max_ratio": 1.1988354862368842
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.6873154705694149,
+          "min_ratio": 0.42678532999187774,
+          "max_ratio": 1.8630110768200197
+        }
+      ]
+    },
+    {
+      "scenario": 0,
+      "family": "plain",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies",
+      "control": "indexed",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.5325103132641493,
+          "min_ratio": 0.25733327885300755,
+          "max_ratio": 0.779911388090949
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.5724267749385568,
+          "min_ratio": 0.42781096908193017,
+          "max_ratio": 1.6826820229696295
+        }
+      ]
+    },
+    {
+      "scenario": 0,
+      "family": "plain",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies-miss",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.6999548723759847,
+          "min_ratio": 0.1888393008271364,
+          "max_ratio": 0.9536092600148087
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.6759524800411256,
+          "min_ratio": 0.38849280453179125,
+          "max_ratio": 0.9206240221514357
+        }
+      ]
+    },
+    {
+      "scenario": 0,
+      "family": "plain",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies-miss",
+      "control": "indexed",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.5352785597226788,
+          "min_ratio": 0.3070420361113759,
+          "max_ratio": 0.9451696243276438
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.5550447167136804,
+          "min_ratio": 0.39418292870032806,
+          "max_ratio": 0.8615281370755625
+        }
+      ]
+    },
+    {
+      "scenario": 1,
+      "family": "plain",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current-miss",
+      "control": "current",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.9561551391130632,
+          "min_ratio": 0.5169401431331032,
+          "max_ratio": 1.2855376424251461
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 1.0171811070918007,
+          "min_ratio": 0.8801476953847991,
+          "max_ratio": 1.9713306610636643
+        }
+      ]
+    },
+    {
+      "scenario": 1,
+      "family": "plain",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth-miss",
+      "control": "birth",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 1.0046630419290652,
+          "min_ratio": 0.6987619908714656,
+          "max_ratio": 1.3069010120785192
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 1.0103285179889787,
+          "min_ratio": 0.6418913739138815,
+          "max_ratio": 1.4840806428110493
+        }
+      ]
+    },
+    {
+      "scenario": 1,
+      "family": "plain",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies-miss",
+      "control": "dependencies",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 1.015255598320835,
+          "min_ratio": 0.7139711811892534,
+          "max_ratio": 1.440227091890497
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.9970541796273225,
+          "min_ratio": 0.6459580309718889,
+          "max_ratio": 1.5080748678526874
+        }
+      ]
+    },
+    {
+      "scenario": 1,
+      "family": "plain",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.5105750236130692,
+          "min_ratio": 0.4041884243079394,
+          "max_ratio": 0.9233097270794576
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.4877957911551639,
+          "min_ratio": 0.4176621114539766,
+          "max_ratio": 0.7575802945663258
+        }
+      ]
+    },
+    {
+      "scenario": 1,
+      "family": "plain",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current",
+      "control": "indexed",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.38918183366819376,
+          "min_ratio": 0.10812097781480956,
+          "max_ratio": 0.6921069734427898
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.367244673486633,
+          "min_ratio": 0.30647605946043344,
+          "max_ratio": 0.4782334075800842
+        }
+      ]
+    },
+    {
+      "scenario": 1,
+      "family": "plain",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current-miss",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.5009369782391312,
+          "min_ratio": 0.21559233449477352,
+          "max_ratio": 0.6309295279402775
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.5011884384692383,
+          "min_ratio": 0.4428230393596311,
+          "max_ratio": 0.9438398704489376
+        }
+      ]
+    },
+    {
+      "scenario": 1,
+      "family": "plain",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current-miss",
+      "control": "indexed",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.37791782977623,
+          "min_ratio": 0.13899358691675182,
+          "max_ratio": 0.43790486344165036
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.38328463854977946,
+          "min_ratio": 0.29987562749630314,
+          "max_ratio": 0.7124645276418653
+        }
+      ]
+    },
+    {
+      "scenario": 1,
+      "family": "plain",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth",
+      "control": "scan",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.49217699109397023,
+          "min_ratio": 0.37701270209981014,
+          "max_ratio": 0.8249527353058358
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.5036531322832645,
+          "min_ratio": 0.4389505293827792,
+          "max_ratio": 0.8336101035902839
+        }
+      ]
+    },
+    {
+      "scenario": 1,
+      "family": "plain",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth",
+      "control": "indexed",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.3769313448620102,
+          "min_ratio": 0.11135317649043386,
+          "max_ratio": 0.618379211352918
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.3783768180670545,
+          "min_ratio": 0.2916073777897965,
+          "max_ratio": 0.5262283130811634
+        }
+      ]
+    },
+    {
+      "scenario": 1,
+      "family": "plain",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth-miss",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.5005220174519133,
+          "min_ratio": 0.27718230923805837,
+          "max_ratio": 0.9072597058629815
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.5142414249744971,
+          "min_ratio": 0.3899794799942365,
+          "max_ratio": 0.7779133618059793
+        }
+      ]
+    },
+    {
+      "scenario": 1,
+      "family": "plain",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth-miss",
+      "control": "indexed",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.38781046616773207,
+          "min_ratio": 0.10073587569482932,
+          "max_ratio": 0.6800759818025687
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.4004806975273023,
+          "min_ratio": 0.30114430753447285,
+          "max_ratio": 0.5870898897222813
+        }
+      ]
+    },
+    {
+      "scenario": 1,
+      "family": "plain",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies",
+      "control": "scan",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.4924409398670194,
+          "min_ratio": 0.274653872389064,
+          "max_ratio": 0.7013559170672898
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.5144014184742338,
+          "min_ratio": 0.4413593134712358,
+          "max_ratio": 0.7196299846198426
+        }
+      ]
+    },
+    {
+      "scenario": 1,
+      "family": "plain",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies",
+      "control": "indexed",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.3754192988153912,
+          "min_ratio": 0.1168677714206398,
+          "max_ratio": 0.5978175890083367
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.37742952841383304,
+          "min_ratio": 0.3104931587699788,
+          "max_ratio": 0.5317038497061237
+        }
+      ]
+    },
+    {
+      "scenario": 1,
+      "family": "plain",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies-miss",
+      "control": "scan",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.5062594963135295,
+          "min_ratio": 0.30344975388529394,
+          "max_ratio": 0.7332031748928017
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.5090644630266451,
+          "min_ratio": 0.46485076789336427,
+          "max_ratio": 0.6926992502496684
+        }
+      ]
+    },
+    {
+      "scenario": 1,
+      "family": "plain",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies-miss",
+      "control": "indexed",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.38626566718431155,
+          "min_ratio": 0.11123108431418308,
+          "max_ratio": 0.6103812756378075
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.3792511430633744,
+          "min_ratio": 0.3207660213981246,
+          "max_ratio": 0.5672854890392147
+        }
+      ]
+    },
+    {
+      "scenario": 2,
+      "family": "known-hit",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current-miss",
+      "control": "current",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.9517395725471859,
+          "min_ratio": 0.49919581222964804,
+          "max_ratio": 1.158716561834602
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 1.0039763423851453,
+          "min_ratio": 0.6351435148611572,
+          "max_ratio": 1.5602439821370222
+        }
+      ]
+    },
+    {
+      "scenario": 2,
+      "family": "known-hit",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth-miss",
+      "control": "birth",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 1.015424607109178,
+          "min_ratio": 0.8216032388663967,
+          "max_ratio": 1.50962914166315
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 1.046246174285853,
+          "min_ratio": 0.7982625482625483,
+          "max_ratio": 2.6697618238780056
+        }
+      ]
+    },
+    {
+      "scenario": 2,
+      "family": "known-hit",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies-miss",
+      "control": "dependencies",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.9949856997377777,
+          "min_ratio": 0.6322910266774454,
+          "max_ratio": 2.237508753140833
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 1.0076849701399642,
+          "min_ratio": 0.7152788607542988,
+          "max_ratio": 1.29495706443751
+        }
+      ]
+    },
+    {
+      "scenario": 2,
+      "family": "known-hit",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.631055812946338,
+          "min_ratio": 0.13831918178309532,
+          "max_ratio": 1.2177959451814815
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.6522946462810459,
+          "min_ratio": 0.5075020206891399,
+          "max_ratio": 0.927997666664039
+        }
+      ]
+    },
+    {
+      "scenario": 2,
+      "family": "known-hit",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current",
+      "control": "indexed",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.44603675714105007,
+          "min_ratio": 0.3383305291350479,
+          "max_ratio": 0.8728685347552548
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.43590932895844214,
+          "min_ratio": 0.3125922550013264,
+          "max_ratio": 0.6670771238986185
+        }
+      ]
+    },
+    {
+      "scenario": 2,
+      "family": "known-hit",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current-miss",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.6048389102097391,
+          "min_ratio": 0.14217483597066768,
+          "max_ratio": 0.8402805913709415
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.6568367450234264,
+          "min_ratio": 0.45340724728853404,
+          "max_ratio": 1.0807429985514245
+        }
+      ]
+    },
+    {
+      "scenario": 2,
+      "family": "known-hit",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current-miss",
+      "control": "indexed",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.43525431898286004,
+          "min_ratio": 0.3252566288222279,
+          "max_ratio": 0.5075183637582003
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.43174666024628416,
+          "min_ratio": 0.3746311449678756,
+          "max_ratio": 0.6714477896680869
+        }
+      ]
+    },
+    {
+      "scenario": 2,
+      "family": "known-hit",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth",
+      "control": "scan",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.6222937273542095,
+          "min_ratio": 0.1604920879969124,
+          "max_ratio": 0.7485516630316249
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.6727355649732409,
+          "min_ratio": 0.48499515338869825,
+          "max_ratio": 0.8411124546553809
+        }
+      ]
+    },
+    {
+      "scenario": 2,
+      "family": "known-hit",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth",
+      "control": "indexed",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.44974603741155084,
+          "min_ratio": 0.32002977504262853,
+          "max_ratio": 0.5481469783561609
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.45892959618437035,
+          "min_ratio": 0.3459567291295837,
+          "max_ratio": 0.5626634995709772
+        }
+      ]
+    },
+    {
+      "scenario": 2,
+      "family": "known-hit",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth-miss",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.6075825564169599,
+          "min_ratio": 0.16771709764569664,
+          "max_ratio": 0.8921391509577425
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.6663650056512627,
+          "min_ratio": 0.4973914112866988,
+          "max_ratio": 2.023097000250277
+        }
+      ]
+    },
+    {
+      "scenario": 2,
+      "family": "known-hit",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth-miss",
+      "control": "indexed",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.44161235638045937,
+          "min_ratio": 0.3128146138790647,
+          "max_ratio": 0.7124113823289642
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.4504765534407874,
+          "min_ratio": 0.3673006320574984,
+          "max_ratio": 1.2002172031698088
+        }
+      ]
+    },
+    {
+      "scenario": 2,
+      "family": "known-hit",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.6541611273970973,
+          "min_ratio": 0.14054612118873022,
+          "max_ratio": 0.9405585260071656
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.6651066769004136,
+          "min_ratio": 0.5451315123925139,
+          "max_ratio": 0.9591828102529397
+        }
+      ]
+    },
+    {
+      "scenario": 2,
+      "family": "known-hit",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies",
+      "control": "indexed",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.4512002998989295,
+          "min_ratio": 0.31915556594219835,
+          "max_ratio": 0.737294754858233
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.44103742906280874,
+          "min_ratio": 0.3250403031065703,
+          "max_ratio": 0.6372423388130194
+        }
+      ]
+    },
+    {
+      "scenario": 2,
+      "family": "known-hit",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies-miss",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.6211590051513249,
+          "min_ratio": 0.3144731763797762,
+          "max_ratio": 0.8714204167063077
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.6479397203218524,
+          "min_ratio": 0.49361426213617665,
+          "max_ratio": 1.2306657643177397
+        }
+      ]
+    },
+    {
+      "scenario": 2,
+      "family": "known-hit",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies-miss",
+      "control": "indexed",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.45223046272517275,
+          "min_ratio": 0.32585585276242146,
+          "max_ratio": 0.9619266867363202
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.4588649281813042,
+          "min_ratio": 0.2900021086857446,
+          "max_ratio": 0.7859628080867019
+        }
+      ]
+    },
+    {
+      "scenario": 3,
+      "family": "known-hit",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current-miss",
+      "control": "current",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 1.0014381440434683,
+          "min_ratio": 0.5437418601378747,
+          "max_ratio": 2.0948307668604698
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.997085175761177,
+          "min_ratio": 0.38056500830479884,
+          "max_ratio": 1.2009365280103907
+        }
+      ]
+    },
+    {
+      "scenario": 3,
+      "family": "known-hit",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth-miss",
+      "control": "birth",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 1.0382351589904018,
+          "min_ratio": 0.6080063801265845,
+          "max_ratio": 1.1708934176692132
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.9945955172319814,
+          "min_ratio": 0.5816958763792006,
+          "max_ratio": 1.8426029616836375
+        }
+      ]
+    },
+    {
+      "scenario": 3,
+      "family": "known-hit",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies-miss",
+      "control": "dependencies",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 1.0320250020974904,
+          "min_ratio": 0.8877150075477055,
+          "max_ratio": 1.4972535240427558
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 1.0498098830433085,
+          "min_ratio": 0.8881079274879266,
+          "max_ratio": 1.5936756742357647
+        }
+      ]
+    },
+    {
+      "scenario": 3,
+      "family": "known-hit",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.5313231610850881,
+          "min_ratio": 0.4121879496965526,
+          "max_ratio": 0.6965857908621621
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.5127613409393088,
+          "min_ratio": 0.16694928038260404,
+          "max_ratio": 1.3501050645668558
+        }
+      ]
+    },
+    {
+      "scenario": 3,
+      "family": "known-hit",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current",
+      "control": "indexed",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.35198802988968725,
+          "min_ratio": 0.2725740215954222,
+          "max_ratio": 0.46247985958187376
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.349224480482227,
+          "min_ratio": 0.2619673617932805,
+          "max_ratio": 0.9294194729629137
+        }
+      ]
+    },
+    {
+      "scenario": 3,
+      "family": "known-hit",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current-miss",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.5201347717365737,
+          "min_ratio": 0.3785239324689201,
+          "max_ratio": 1.2200602505302767
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.5070665944061453,
+          "min_ratio": 0.16112176926429178,
+          "max_ratio": 0.6330770383660012
+        }
+      ]
+    },
+    {
+      "scenario": 3,
+      "family": "known-hit",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current-miss",
+      "control": "indexed",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.3447636710084564,
+          "min_ratio": 0.23646602758338095,
+          "max_ratio": 0.7419503304090093
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.3484583404475021,
+          "min_ratio": 0.25969508524878776,
+          "max_ratio": 0.43395164454833146
+        }
+      ]
+    },
+    {
+      "scenario": 3,
+      "family": "known-hit",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth",
+      "control": "scan",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.5250882268130808,
+          "min_ratio": 0.44669027711106934,
+          "max_ratio": 0.825236682934923
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.493258723897553,
+          "min_ratio": 0.17809622647834444,
+          "max_ratio": 0.8901460492755539
+        }
+      ]
+    },
+    {
+      "scenario": 3,
+      "family": "known-hit",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth",
+      "control": "indexed",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.34448482622692733,
+          "min_ratio": 0.30524921494185514,
+          "max_ratio": 0.5746783011381086
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.3404587186839827,
+          "min_ratio": 0.27581716275387,
+          "max_ratio": 0.6227860492164717
+        }
+      ]
+    },
+    {
+      "scenario": 3,
+      "family": "known-hit",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth-miss",
+      "control": "scan",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.549763734838282,
+          "min_ratio": 0.3838800472076924,
+          "max_ratio": 0.8771257254947337
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.5074484100439308,
+          "min_ratio": 0.14080640587985518,
+          "max_ratio": 0.8521637278352843
+        }
+      ]
+    },
+    {
+      "scenario": 3,
+      "family": "known-hit",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth-miss",
+      "control": "indexed",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.360595412554519,
+          "min_ratio": 0.2830495594487461,
+          "max_ratio": 0.6108127913305501
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.3329715776340292,
+          "min_ratio": 0.2857891241895954,
+          "max_ratio": 0.7008488018508059
+        }
+      ]
+    },
+    {
+      "scenario": 3,
+      "family": "known-hit",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.5192571898021976,
+          "min_ratio": 0.39963527037331276,
+          "max_ratio": 1.4555633153022534
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.49786936343371907,
+          "min_ratio": 0.17379102321995263,
+          "max_ratio": 0.8835842470344537
+        }
+      ]
+    },
+    {
+      "scenario": 3,
+      "family": "known-hit",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies",
+      "control": "indexed",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.34272513184450415,
+          "min_ratio": 0.24965439899932065,
+          "max_ratio": 0.8851658614813137
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.32131671518032184,
+          "min_ratio": 0.20258997442559745,
+          "max_ratio": 0.6181951184396622
+        }
+      ]
+    },
+    {
+      "scenario": 3,
+      "family": "known-hit",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies-miss",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.5265564647985012,
+          "min_ratio": 0.41001997841885085,
+          "max_ratio": 2.0483911054018265
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.5105746758151353,
+          "min_ratio": 0.16033625910695928,
+          "max_ratio": 0.9566451991665855
+        }
+      ]
+    },
+    {
+      "scenario": 3,
+      "family": "known-hit",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies-miss",
+      "control": "indexed",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.35783602841555606,
+          "min_ratio": 0.2608530036554989,
+          "max_ratio": 1.2456798398269315
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.34224582482885796,
+          "min_ratio": 0.2832242882810431,
+          "max_ratio": 0.6693118332387623
+        }
+      ]
+    },
+    {
+      "scenario": 4,
+      "family": "known-miss",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current-miss",
+      "control": "current",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.8355521367488598,
+          "min_ratio": 0.46962932807087754,
+          "max_ratio": 1.1885136770757685
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.8896311407659443,
+          "min_ratio": 0.7410232951638925,
+          "max_ratio": 1.3309949328576276
+        }
+      ]
+    },
+    {
+      "scenario": 4,
+      "family": "known-miss",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth-miss",
+      "control": "birth",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.8278481980641099,
+          "min_ratio": 0.7166482973011163,
+          "max_ratio": 1.3109813071637184
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.7847198438753268,
+          "min_ratio": 0.5151089824881085,
+          "max_ratio": 0.9582933431770642
+        }
+      ]
+    },
+    {
+      "scenario": 4,
+      "family": "known-miss",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies-miss",
+      "control": "dependencies",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.8442308442572874,
+          "min_ratio": 0.5178110400191986,
+          "max_ratio": 1.0742887190157409
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.8703985160952105,
+          "min_ratio": 0.5459226144596886,
+          "max_ratio": 1.5742447377031301
+        }
+      ]
+    },
+    {
+      "scenario": 4,
+      "family": "known-miss",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 1.1660023650181714,
+          "min_ratio": 0.913794401529867,
+          "max_ratio": 2.107616014426363
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 1.118665053011184,
+          "min_ratio": 0.8025275798003548,
+          "max_ratio": 1.551931030465428
+        }
+      ]
+    },
+    {
+      "scenario": 4,
+      "family": "known-miss",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current",
+      "control": "indexed",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 1.1381484983655907,
+          "min_ratio": 0.7686010381974808,
+          "max_ratio": 1.4689863273055863
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 1.1209999235113453,
+          "min_ratio": 0.8582968950342152,
+          "max_ratio": 1.4351003405533842
+        }
+      ]
+    },
+    {
+      "scenario": 4,
+      "family": "known-miss",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current-miss",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.9610028841940788,
+          "min_ratio": 0.7555374862598063,
+          "max_ratio": 1.4739545240301006
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 1.0128006078667182,
+          "min_ratio": 0.7663773105627224,
+          "max_ratio": 1.467175394652531
+        }
+      ]
+    },
+    {
+      "scenario": 4,
+      "family": "known-miss",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current-miss",
+      "control": "indexed",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.9148438537242469,
+          "min_ratio": 0.6555689868571236,
+          "max_ratio": 1.4125410509031198
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.9703875977209486,
+          "min_ratio": 0.8205766207400255,
+          "max_ratio": 1.5995903775427056
+        }
+      ]
+    },
+    {
+      "scenario": 4,
+      "family": "known-miss",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 1.1512694717284004,
+          "min_ratio": 0.9288921982868094,
+          "max_ratio": 1.6386428748018556
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 1.2022161483325444,
+          "min_ratio": 0.9512757598257355,
+          "max_ratio": 1.858158094017592
+        }
+      ]
+    },
+    {
+      "scenario": 4,
+      "family": "known-miss",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth",
+      "control": "indexed",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 1.1027615262383148,
+          "min_ratio": 0.9450732940898888,
+          "max_ratio": 1.3612756790028469
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 1.1930945080558701,
+          "min_ratio": 0.9614779468055628,
+          "max_ratio": 1.7182743699163878
+        }
+      ]
+    },
+    {
+      "scenario": 4,
+      "family": "known-miss",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth-miss",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 1.0029926585035671,
+          "min_ratio": 0.7709064261442633,
+          "max_ratio": 1.8395855341529748
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.9314276943014104,
+          "min_ratio": 0.6587294922797552,
+          "max_ratio": 1.29350226274737
+        }
+      ]
+    },
+    {
+      "scenario": 4,
+      "family": "known-miss",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth-miss",
+      "control": "indexed",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.9683679547904429,
+          "min_ratio": 0.7291244162464882,
+          "max_ratio": 1.704476824502093
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.9225328728883591,
+          "min_ratio": 0.7336098103956001,
+          "max_ratio": 1.0980451594256027
+        }
+      ]
+    },
+    {
+      "scenario": 4,
+      "family": "known-miss",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 1.2204607205959797,
+          "min_ratio": 0.9280591066740952,
+          "max_ratio": 1.889000190105728
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 1.0820699137595087,
+          "min_ratio": 0.8570573848786069,
+          "max_ratio": 1.889380788722549
+        }
+      ]
+    },
+    {
+      "scenario": 4,
+      "family": "known-miss",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies",
+      "control": "indexed",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 1.1262929080063437,
+          "min_ratio": 0.891035778741139,
+          "max_ratio": 1.6943443217941978
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 1.1206627762357817,
+          "min_ratio": 0.8644858239612095,
+          "max_ratio": 1.747146593568389
+        }
+      ]
+    },
+    {
+      "scenario": 4,
+      "family": "known-miss",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies-miss",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.9856288471605236,
+          "min_ratio": 0.7554471777349503,
+          "max_ratio": 1.239317697921238
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 1.0021294274359396,
+          "min_ratio": 0.7201818010055737,
+          "max_ratio": 1.5629781280484674
+        }
+      ]
+    },
+    {
+      "scenario": 4,
+      "family": "known-miss",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies-miss",
+      "control": "indexed",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.9209568408597988,
+          "min_ratio": 0.706002186466064,
+          "max_ratio": 1.119068144499179
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.9613348153290407,
+          "min_ratio": 0.7810602253460268,
+          "max_ratio": 1.5109809586617677
+        }
+      ]
+    },
+    {
+      "scenario": 5,
+      "family": "known-miss",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current-miss",
+      "control": "current",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.7033345802082986,
+          "min_ratio": 0.574751018301461,
+          "max_ratio": 1.0370964194940522
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.6861061160560218,
+          "min_ratio": 0.6267058488831588,
+          "max_ratio": 0.7181346544102418
+        }
+      ]
+    },
+    {
+      "scenario": 5,
+      "family": "known-miss",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth-miss",
+      "control": "birth",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.6725267493952387,
+          "min_ratio": 0.5083184561187595,
+          "max_ratio": 1.128567214945846
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.6751634883987419,
+          "min_ratio": 0.5627506688657015,
+          "max_ratio": 0.7165764593142073
+        }
+      ]
+    },
+    {
+      "scenario": 5,
+      "family": "known-miss",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies-miss",
+      "control": "dependencies",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.7042714029183406,
+          "min_ratio": 0.453369005916446,
+          "max_ratio": 1.074919336557448
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.674175165707722,
+          "min_ratio": 0.5876964735888731,
+          "max_ratio": 0.7557283240731882
+        }
+      ]
+    },
+    {
+      "scenario": 5,
+      "family": "known-miss",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current",
+      "control": "scan",
+      "disposition": "loss",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 2.0751348498781876,
+          "min_ratio": 1.2868782503649525,
+          "max_ratio": 2.2689806325296202
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 2.1455903307042434,
+          "min_ratio": 1.9690615707961474,
+          "max_ratio": 2.3618191746941206
+        }
+      ]
+    },
+    {
+      "scenario": 5,
+      "family": "known-miss",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current",
+      "control": "indexed",
+      "disposition": "loss",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 9.597399183377874,
+          "min_ratio": 6.035080236692758,
+          "max_ratio": 11.468441061571925
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 10.367722237313139,
+          "min_ratio": 8.779169821379329,
+          "max_ratio": 11.2273954476029
+        }
+      ]
+    },
+    {
+      "scenario": 5,
+      "family": "known-miss",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current-miss",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 1.4525791958675853,
+          "min_ratio": 0.9032477497923344,
+          "max_ratio": 2.1886887404293436
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 1.4800160360837236,
+          "min_ratio": 1.383514531686468,
+          "max_ratio": 1.5352540653934388
+        }
+      ]
+    },
+    {
+      "scenario": 5,
+      "family": "known-miss",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current-miss",
+      "control": "indexed",
+      "disposition": "loss",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 6.654623479296657,
+          "min_ratio": 4.235966100183133,
+          "max_ratio": 9.958783968620963
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 6.987646029497274,
+          "min_ratio": 5.9516527771627885,
+          "max_ratio": 7.647503402601411
+        }
+      ]
+    },
+    {
+      "scenario": 5,
+      "family": "known-miss",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth",
+      "control": "scan",
+      "disposition": "loss",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 2.133574186535944,
+          "min_ratio": 1.376168816671116,
+          "max_ratio": 2.8488070320875005
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 2.1370713153353185,
+          "min_ratio": 1.962784802427097,
+          "max_ratio": 2.6034255189122484
+        }
+      ]
+    },
+    {
+      "scenario": 5,
+      "family": "known-miss",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth",
+      "control": "indexed",
+      "disposition": "loss",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 9.838897331928962,
+          "min_ratio": 6.479826533216337,
+          "max_ratio": 12.42819531656196
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 10.471900807283355,
+          "min_ratio": 8.312050220541268,
+          "max_ratio": 12.3553097065808
+        }
+      ]
+    },
+    {
+      "scenario": 5,
+      "family": "known-miss",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth-miss",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 1.4391641853626314,
+          "min_ratio": 0.8964144454660216,
+          "max_ratio": 2.2285055159705176
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 1.451308329906239,
+          "min_ratio": 1.3024983489014155,
+          "max_ratio": 1.5413074759452623
+        }
+      ]
+    },
+    {
+      "scenario": 5,
+      "family": "known-miss",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth-miss",
+      "control": "indexed",
+      "disposition": "loss",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 6.637342423365528,
+          "min_ratio": 4.0672210005978,
+          "max_ratio": 12.504222466587263
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 7.034044253933558,
+          "min_ratio": 5.660488763815888,
+          "max_ratio": 7.434009717062017
+        }
+      ]
+    },
+    {
+      "scenario": 5,
+      "family": "known-miss",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies",
+      "control": "scan",
+      "disposition": "loss",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 2.079254476336927,
+          "min_ratio": 1.3108491187626918,
+          "max_ratio": 3.2035483555090627
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 2.1482728421344657,
+          "min_ratio": 1.9695921775427254,
+          "max_ratio": 2.3698212484136736
+        }
+      ]
+    },
+    {
+      "scenario": 5,
+      "family": "known-miss",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies",
+      "control": "indexed",
+      "disposition": "loss",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 9.514430770226426,
+          "min_ratio": 6.147496554306745,
+          "max_ratio": 11.237334616697899
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 10.45057411111614,
+          "min_ratio": 9.41614357849596,
+          "max_ratio": 10.983265772728068
+        }
+      ]
+    },
+    {
+      "scenario": 5,
+      "family": "known-miss",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies-miss",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 1.4800014296279929,
+          "min_ratio": 0.9355001099650361,
+          "max_ratio": 1.9762457427666114
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 1.439331579958799,
+          "min_ratio": 1.3213286540085663,
+          "max_ratio": 1.6338255373742405
+        }
+      ]
+    },
+    {
+      "scenario": 5,
+      "family": "known-miss",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies-miss",
+      "control": "indexed",
+      "disposition": "loss",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 6.905916397896828,
+          "min_ratio": 4.251837622225563,
+          "max_ratio": 11.088784047921836
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 7.035707882085078,
+          "min_ratio": 5.7168176471594,
+          "max_ratio": 7.928653467601555
+        }
+      ]
+    },
+    {
+      "scenario": 6,
+      "family": "delayed-hit",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current-miss",
+      "control": "current",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 1.0080994712857123,
+          "min_ratio": 0.6012661475251315,
+          "max_ratio": 1.2604507451835696
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 1.0418571621387263,
+          "min_ratio": 0.8405397063876127,
+          "max_ratio": 1.4901219291781946
+        }
+      ]
+    },
+    {
+      "scenario": 6,
+      "family": "delayed-hit",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth-miss",
+      "control": "birth",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 1.0095444553559711,
+          "min_ratio": 0.8345981337320204,
+          "max_ratio": 1.5286840250089566
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.9702511884821151,
+          "min_ratio": 0.6131542412665979,
+          "max_ratio": 1.1954467873509924
+        }
+      ]
+    },
+    {
+      "scenario": 6,
+      "family": "delayed-hit",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies-miss",
+      "control": "dependencies",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.9577560329618777,
+          "min_ratio": 0.3775175791802561,
+          "max_ratio": 2.545963244613435
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 1.0338889174000017,
+          "min_ratio": 0.5646135154876433,
+          "max_ratio": 1.2825559707865628
+        }
+      ]
+    },
+    {
+      "scenario": 6,
+      "family": "delayed-hit",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.6830253077051405,
+          "min_ratio": 0.2643414410279945,
+          "max_ratio": 0.9709158678542015
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.668695595655428,
+          "min_ratio": 0.4120316409088471,
+          "max_ratio": 0.9459782632853999
+        }
+      ]
+    },
+    {
+      "scenario": 6,
+      "family": "delayed-hit",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current",
+      "control": "indexed",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.5958916290018889,
+          "min_ratio": 0.3883683869023541,
+          "max_ratio": 1.0226266442256853
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.6170670729052143,
+          "min_ratio": 0.4129900711806766,
+          "max_ratio": 0.8673710960457589
+        }
+      ]
+    },
+    {
+      "scenario": 6,
+      "family": "delayed-hit",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current-miss",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.673776827171308,
+          "min_ratio": 0.23435280491269478,
+          "max_ratio": 0.934587973902974
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.6986649855246032,
+          "min_ratio": 0.45172664361549075,
+          "max_ratio": 0.8494551218545671
+        }
+      ]
+    },
+    {
+      "scenario": 6,
+      "family": "delayed-hit",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current-miss",
+      "control": "indexed",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.5956429774265608,
+          "min_ratio": 0.47566784208762314,
+          "max_ratio": 1.0549222834634513
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.6123169938558162,
+          "min_ratio": 0.46472345743910487,
+          "max_ratio": 0.764128589616636
+        }
+      ]
+    },
+    {
+      "scenario": 6,
+      "family": "delayed-hit",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.6655280544050384,
+          "min_ratio": 0.25988876505168385,
+          "max_ratio": 1.4570917711984015
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.6926812434466998,
+          "min_ratio": 0.5333224132880151,
+          "max_ratio": 0.8997494401374847
+        }
+      ]
+    },
+    {
+      "scenario": 6,
+      "family": "delayed-hit",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth",
+      "control": "indexed",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.5985072776955134,
+          "min_ratio": 0.4569083124448284,
+          "max_ratio": 1.193600244220864
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.642208436308259,
+          "min_ratio": 0.4410820615721132,
+          "max_ratio": 1.00450481647044
+        }
+      ]
+    },
+    {
+      "scenario": 6,
+      "family": "delayed-hit",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth-miss",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.6745024368320538,
+          "min_ratio": 0.2944489062260976,
+          "max_ratio": 1.5330880603878907
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.6854926294601702,
+          "min_ratio": 0.4770813114786078,
+          "max_ratio": 0.790807458938057
+        }
+      ]
+    },
+    {
+      "scenario": 6,
+      "family": "delayed-hit",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth-miss",
+      "control": "indexed",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.6022853952175575,
+          "min_ratio": 0.43950306916688614,
+          "max_ratio": 1.255853831214804
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.6165450252545865,
+          "min_ratio": 0.49020225336446815,
+          "max_ratio": 0.8071888908216905
+        }
+      ]
+    },
+    {
+      "scenario": 6,
+      "family": "delayed-hit",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.7096578129603359,
+          "min_ratio": 0.4688382069336149,
+          "max_ratio": 0.9505646637730648
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.6857301114146102,
+          "min_ratio": 0.4211318159872422,
+          "max_ratio": 1.1138034226470324
+        }
+      ]
+    },
+    {
+      "scenario": 6,
+      "family": "delayed-hit",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies",
+      "control": "indexed",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.6117646179585997,
+          "min_ratio": 0.46535576546339436,
+          "max_ratio": 1.7901964106691517
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.6228040214438523,
+          "min_ratio": 0.48447310102279745,
+          "max_ratio": 1.1275960830084348
+        }
+      ]
+    },
+    {
+      "scenario": 6,
+      "family": "delayed-hit",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies-miss",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.6906304685541497,
+          "min_ratio": 0.2614950064468192,
+          "max_ratio": 1.489927534619464
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.6837167176275968,
+          "min_ratio": 0.4424484640406533,
+          "max_ratio": 0.9198425918214375
+        }
+      ]
+    },
+    {
+      "scenario": 6,
+      "family": "delayed-hit",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies-miss",
+      "control": "indexed",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.6192901950426575,
+          "min_ratio": 0.39127356152549814,
+          "max_ratio": 1.6215344626474708
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.6218812370606093,
+          "min_ratio": 0.4509311100111739,
+          "max_ratio": 0.9449815291615359
+        }
+      ]
+    },
+    {
+      "scenario": 7,
+      "family": "delayed-hit",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current-miss",
+      "control": "current",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.9994325494424068,
+          "min_ratio": 0.8872513977302134,
+          "max_ratio": 1.145781889009776
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.9932343378087174,
+          "min_ratio": 0.8749254608093825,
+          "max_ratio": 1.1072700343537036
+        }
+      ]
+    },
+    {
+      "scenario": 7,
+      "family": "delayed-hit",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth-miss",
+      "control": "birth",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 1.0011535188510128,
+          "min_ratio": 0.8764813106396948,
+          "max_ratio": 1.1048950738357568
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 1.004628870972225,
+          "min_ratio": 0.960122620835768,
+          "max_ratio": 1.0542992745078754
+        }
+      ]
+    },
+    {
+      "scenario": 7,
+      "family": "delayed-hit",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies-miss",
+      "control": "dependencies",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 1.0039886289898203,
+          "min_ratio": 0.899460219538817,
+          "max_ratio": 1.1051007861160407
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.9939694385665045,
+          "min_ratio": 0.9159451426428303,
+          "max_ratio": 1.1416911926630062
+        }
+      ]
+    },
+    {
+      "scenario": 7,
+      "family": "delayed-hit",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current",
+      "control": "scan",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.3515438721649702,
+          "min_ratio": 0.3245221481521466,
+          "max_ratio": 0.3924256030701248
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.35417803072939424,
+          "min_ratio": 0.33033049216329935,
+          "max_ratio": 0.3879614654316358
+        }
+      ]
+    },
+    {
+      "scenario": 7,
+      "family": "delayed-hit",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current",
+      "control": "indexed",
+      "disposition": "loss",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 6.359006781500427,
+          "min_ratio": 4.720358956468265,
+          "max_ratio": 6.867860790660254
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 6.364031743228721,
+          "min_ratio": 3.9337959801467117,
+          "max_ratio": 7.102359522835041
+        }
+      ]
+    },
+    {
+      "scenario": 7,
+      "family": "delayed-hit",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current-miss",
+      "control": "scan",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.35591875014678637,
+          "min_ratio": 0.32434209433553973,
+          "max_ratio": 0.4091693397847744
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.3509202588178722,
+          "min_ratio": 0.33340152706088605,
+          "max_ratio": 0.3880832216943266
+        }
+      ]
+    },
+    {
+      "scenario": 7,
+      "family": "delayed-hit",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current-miss",
+      "control": "indexed",
+      "disposition": "loss",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 6.370496522644505,
+          "min_ratio": 4.811305902452112,
+          "max_ratio": 6.937840248534844
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 6.394371249428861,
+          "min_ratio": 3.5937077756006865,
+          "max_ratio": 6.944861313984242
+        }
+      ]
+    },
+    {
+      "scenario": 7,
+      "family": "delayed-hit",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth",
+      "control": "scan",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.3610111571901704,
+          "min_ratio": 0.32335668989447885,
+          "max_ratio": 0.39951072234450147
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.35211277882946607,
+          "min_ratio": 0.3315006074174564,
+          "max_ratio": 0.37370757094210544
+        }
+      ]
+    },
+    {
+      "scenario": 7,
+      "family": "delayed-hit",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth",
+      "control": "indexed",
+      "disposition": "loss",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 6.41322711823174,
+          "min_ratio": 4.561147919091254,
+          "max_ratio": 6.9579645498671745
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 6.316440046412846,
+          "min_ratio": 3.6212462402772503,
+          "max_ratio": 6.621875994573856
+        }
+      ]
+    },
+    {
+      "scenario": 7,
+      "family": "delayed-hit",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth-miss",
+      "control": "scan",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.3568160975140383,
+          "min_ratio": 0.3385982118954341,
+          "max_ratio": 0.37131544103543757
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.35043433411993563,
+          "min_ratio": 0.33015859170178175,
+          "max_ratio": 0.3907726201750437
+        }
+      ]
+    },
+    {
+      "scenario": 7,
+      "family": "delayed-hit",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth-miss",
+      "control": "indexed",
+      "disposition": "loss",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 6.356632099088448,
+          "min_ratio": 4.642182642272547,
+          "max_ratio": 6.806670653442584
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 6.402126301422523,
+          "min_ratio": 3.6769616932956715,
+          "max_ratio": 6.81416511382348
+        }
+      ]
+    },
+    {
+      "scenario": 7,
+      "family": "delayed-hit",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies",
+      "control": "scan",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.35054468593319066,
+          "min_ratio": 0.33032062268673196,
+          "max_ratio": 0.40064252530949096
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.3520926115461665,
+          "min_ratio": 0.3366588032064484,
+          "max_ratio": 0.37188263791808884
+        }
+      ]
+    },
+    {
+      "scenario": 7,
+      "family": "delayed-hit",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies",
+      "control": "indexed",
+      "disposition": "loss",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 6.214065773728972,
+          "min_ratio": 4.555341550634007,
+          "max_ratio": 7.365215173593295
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 6.402539533276027,
+          "min_ratio": 3.616486977133012,
+          "max_ratio": 6.976263636398612
+        }
+      ]
+    },
+    {
+      "scenario": 7,
+      "family": "delayed-hit",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies-miss",
+      "control": "scan",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.3561167529037379,
+          "min_ratio": 0.335105235548823,
+          "max_ratio": 0.3869439819870726
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.3472567674709033,
+          "min_ratio": 0.33366953498696456,
+          "max_ratio": 0.4031499244249953
+        }
+      ]
+    },
+    {
+      "scenario": 7,
+      "family": "delayed-hit",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies-miss",
+      "control": "indexed",
+      "disposition": "loss",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 6.244840617838809,
+          "min_ratio": 5.034111528632705,
+          "max_ratio": 7.017602952033054
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 6.351486563729036,
+          "min_ratio": 3.7158117870207468,
+          "max_ratio": 7.094395375962602
+        }
+      ]
+    },
+    {
+      "scenario": 8,
+      "family": "delayed-miss",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current-miss",
+      "control": "current",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.3004153548718506,
+          "min_ratio": 0.2460510587431694,
+          "max_ratio": 0.36886989097545747
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.31420843444126945,
+          "min_ratio": 0.19717339720882113,
+          "max_ratio": 0.6780288660357562
+        }
+      ]
+    },
+    {
+      "scenario": 8,
+      "family": "delayed-miss",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth-miss",
+      "control": "birth",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.3070709810929548,
+          "min_ratio": 0.23792835869428658,
+          "max_ratio": 0.5063608184049562
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.32230872364723373,
+          "min_ratio": 0.20302606239290502,
+          "max_ratio": 0.47231880083414474
+        }
+      ]
+    },
+    {
+      "scenario": 8,
+      "family": "delayed-miss",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies-miss",
+      "control": "dependencies",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.3035122173144982,
+          "min_ratio": 0.19075798168294142,
+          "max_ratio": 0.39611803772754306
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.3110284394555497,
+          "min_ratio": 0.2437712663276573,
+          "max_ratio": 0.45363101783238513
+        }
+      ]
+    },
+    {
+      "scenario": 8,
+      "family": "delayed-miss",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current",
+      "control": "scan",
+      "disposition": "loss",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 3.5916975310653116,
+          "min_ratio": 2.6772588426386092,
+          "max_ratio": 4.277628120091476
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 3.2121898317103748,
+          "min_ratio": 1.3206888273451982,
+          "max_ratio": 4.343162753214403
+        }
+      ]
+    },
+    {
+      "scenario": 8,
+      "family": "delayed-miss",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current",
+      "control": "indexed",
+      "disposition": "loss",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 3.192305630188362,
+          "min_ratio": 1.9378141362312526,
+          "max_ratio": 3.969196728615552
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 3.02648573077704,
+          "min_ratio": 2.047761665186939,
+          "max_ratio": 3.9993958031557666
+        }
+      ]
+    },
+    {
+      "scenario": 8,
+      "family": "delayed-miss",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current-miss",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 1.0757431428380897,
+          "min_ratio": 0.8310526315789474,
+          "max_ratio": 1.3415272951366897
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 1.0282225222088819,
+          "min_ratio": 0.4372538974233323,
+          "max_ratio": 2.1914985280390606
+        }
+      ]
+    },
+    {
+      "scenario": 8,
+      "family": "delayed-miss",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current-miss",
+      "control": "indexed",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.9636007741633176,
+          "min_ratio": 0.581302288807674,
+          "max_ratio": 1.2356348313333987
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.937387840252569,
+          "min_ratio": 0.5890066094505277,
+          "max_ratio": 2.010361565432399
+        }
+      ]
+    },
+    {
+      "scenario": 8,
+      "family": "delayed-miss",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth",
+      "control": "scan",
+      "disposition": "loss",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 3.6764482695267855,
+          "min_ratio": 2.780346190210672,
+          "max_ratio": 4.752811681531061
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 3.344961311902705,
+          "min_ratio": 2.0012424235674384,
+          "max_ratio": 5.351652164804012
+        }
+      ]
+    },
+    {
+      "scenario": 8,
+      "family": "delayed-miss",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth",
+      "control": "indexed",
+      "disposition": "loss",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 3.242856414470125,
+          "min_ratio": 1.9960747184251533,
+          "max_ratio": 4.106915222960094
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 3.2606971798766518,
+          "min_ratio": 1.7914491466903424,
+          "max_ratio": 4.692207456732011
+        }
+      ]
+    },
+    {
+      "scenario": 8,
+      "family": "delayed-miss",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth-miss",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 1.1394189243091322,
+          "min_ratio": 0.849581483830057,
+          "max_ratio": 1.487793811270594
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 1.0809749262311121,
+          "min_ratio": 0.4193229039052194,
+          "max_ratio": 1.7326812405476009
+        }
+      ]
+    },
+    {
+      "scenario": 8,
+      "family": "delayed-miss",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth-miss",
+      "control": "indexed",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 1.0299126212319247,
+          "min_ratio": 0.6204469692486735,
+          "max_ratio": 1.4008285893477421
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 1.0081929683396398,
+          "min_ratio": 0.6750644476231079,
+          "max_ratio": 1.5336106330082233
+        }
+      ]
+    },
+    {
+      "scenario": 8,
+      "family": "delayed-miss",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies",
+      "control": "scan",
+      "disposition": "loss",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 3.6510093457481685,
+          "min_ratio": 2.800758274869081,
+          "max_ratio": 5.852450821634257
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 3.290122706278577,
+          "min_ratio": 1.388106393036488,
+          "max_ratio": 4.177494234968922
+        }
+      ]
+    },
+    {
+      "scenario": 8,
+      "family": "delayed-miss",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies",
+      "control": "indexed",
+      "disposition": "loss",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 3.3269016746314852,
+          "min_ratio": 1.9875179990926486,
+          "max_ratio": 4.778407555803379
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 3.0455600649161747,
+          "min_ratio": 1.9886199072703956,
+          "max_ratio": 4.1851785866441515
+        }
+      ]
+    },
+    {
+      "scenario": 8,
+      "family": "delayed-miss",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies-miss",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 1.102840892682605,
+          "min_ratio": 0.8263973048998788,
+          "max_ratio": 1.3614168928028945
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 1.016421711115853,
+          "min_ratio": 0.40206509606508123,
+          "max_ratio": 1.7510131170048644
+        }
+      ]
+    },
+    {
+      "scenario": 8,
+      "family": "delayed-miss",
+      "size": 8,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies-miss",
+      "control": "indexed",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 1.000655021099323,
+          "min_ratio": 0.5864410122886956,
+          "max_ratio": 1.2141938429925034
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.9674171989972636,
+          "min_ratio": 0.6440801025944559,
+          "max_ratio": 1.3612236466092067
+        }
+      ]
+    },
+    {
+      "scenario": 9,
+      "family": "delayed-miss",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current-miss",
+      "control": "current",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.00847776561458442,
+          "min_ratio": 0.0073011436189612915,
+          "max_ratio": 0.009527321564902729
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.008145609612721254,
+          "min_ratio": 0.007845104833772066,
+          "max_ratio": 0.011052304252891026
+        }
+      ]
+    },
+    {
+      "scenario": 9,
+      "family": "delayed-miss",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth-miss",
+      "control": "birth",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.008306611002138777,
+          "min_ratio": 0.008002533013456029,
+          "max_ratio": 0.009184706485218587
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.008257871705711167,
+          "min_ratio": 0.0078925827445344,
+          "max_ratio": 0.008734172272360159
+        }
+      ]
+    },
+    {
+      "scenario": 9,
+      "family": "delayed-miss",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies-miss",
+      "control": "dependencies",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.008431351017127421,
+          "min_ratio": 0.008003654365629451,
+          "max_ratio": 0.008933886236865456
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.008281918449660461,
+          "min_ratio": 0.0076823626253687965,
+          "max_ratio": 0.009039968829683468
+        }
+      ]
+    },
+    {
+      "scenario": 9,
+      "family": "delayed-miss",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current",
+      "control": "scan",
+      "disposition": "loss",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 130.61819389833286,
+          "min_ratio": 84.24551914253786,
+          "max_ratio": 147.25360459809252
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 137.2026205655834,
+          "min_ratio": 85.04504298035911,
+          "max_ratio": 143.18389330084395
+        }
+      ]
+    },
+    {
+      "scenario": 9,
+      "family": "delayed-miss",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current",
+      "control": "indexed",
+      "disposition": "loss",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 653.0999659858021,
+          "min_ratio": 418.235295687701,
+          "max_ratio": 731.8561925361279
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 695.8983178882838,
+          "min_ratio": 602.547983000841,
+          "max_ratio": 765.3280106141385
+        }
+      ]
+    },
+    {
+      "scenario": 9,
+      "family": "delayed-miss",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current-miss",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 1.0868029423959884,
+          "min_ratio": 0.7045929240303762,
+          "max_ratio": 1.2450040148334012
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 1.1239915117145762,
+          "min_ratio": 0.9399436902191232,
+          "max_ratio": 1.3459796495319538
+        }
+      ]
+    },
+    {
+      "scenario": 9,
+      "family": "delayed-miss",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "current-miss",
+      "control": "indexed",
+      "disposition": "loss",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 5.518721924865135,
+          "min_ratio": 3.533203310436339,
+          "max_ratio": 6.25584885789312
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 5.76358193991973,
+          "min_ratio": 5.26004869122374,
+          "max_ratio": 7.866813143569226
+        }
+      ]
+    },
+    {
+      "scenario": 9,
+      "family": "delayed-miss",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth",
+      "control": "scan",
+      "disposition": "loss",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 129.88062547544735,
+          "min_ratio": 85.26186078987588,
+          "max_ratio": 148.26551217813056
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 136.60443765544534,
+          "min_ratio": 85.3454531180574,
+          "max_ratio": 145.09460135994252
+        }
+      ]
+    },
+    {
+      "scenario": 9,
+      "family": "delayed-miss",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth",
+      "control": "indexed",
+      "disposition": "loss",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 646.4406766860802,
+          "min_ratio": 416.19939068448855,
+          "max_ratio": 698.726167415379
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 689.4590229177651,
+          "min_ratio": 615.2557346911425,
+          "max_ratio": 741.7419082892083
+        }
+      ]
+    },
+    {
+      "scenario": 9,
+      "family": "delayed-miss",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth-miss",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 1.0792177242505923,
+          "min_ratio": 0.6999903768204278,
+          "max_ratio": 1.2074101850256016
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 1.1251454646677397,
+          "min_ratio": 0.7214545166475469,
+          "max_ratio": 1.1867092749985306
+        }
+      ]
+    },
+    {
+      "scenario": 9,
+      "family": "delayed-miss",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "birth-miss",
+      "control": "indexed",
+      "disposition": "loss",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 5.415337287592932,
+          "min_ratio": 3.4060008808002697,
+          "max_ratio": 6.11704661763012
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 5.765698235319553,
+          "min_ratio": 4.855956795099146,
+          "max_ratio": 6.278594097656356
+        }
+      ]
+    },
+    {
+      "scenario": 9,
+      "family": "delayed-miss",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies",
+      "control": "scan",
+      "disposition": "loss",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 130.57038487313878,
+          "min_ratio": 81.46632763993806,
+          "max_ratio": 146.56137820239107
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 136.3710272194696,
+          "min_ratio": 84.3671660305024,
+          "max_ratio": 153.87503011519772
+        }
+      ]
+    },
+    {
+      "scenario": 9,
+      "family": "delayed-miss",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies",
+      "control": "indexed",
+      "disposition": "loss",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 648.0004805192098,
+          "min_ratio": 425.4854906267218,
+          "max_ratio": 700.1897398430173
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 694.0827103680258,
+          "min_ratio": 603.0011328564298,
+          "max_ratio": 774.3707089457356
+        }
+      ]
+    },
+    {
+      "scenario": 9,
+      "family": "delayed-miss",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies-miss",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 1.091628752558584,
+          "min_ratio": 0.698356425771317,
+          "max_ratio": 1.2238457055521137
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 1.1208472839037498,
+          "min_ratio": 0.6869804665429412,
+          "max_ratio": 1.2819519052138568
+        }
+      ]
+    },
+    {
+      "scenario": 9,
+      "family": "delayed-miss",
+      "size": 128,
+      "reverse": false,
+      "retention": "immediate",
+      "candidate": "dependencies-miss",
+      "control": "indexed",
+      "disposition": "loss",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 5.393646933845988,
+          "min_ratio": 3.5967940395368743,
+          "max_ratio": 6.194307153082885
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 5.815479112763255,
+          "min_ratio": 5.087564994784879,
+          "max_ratio": 6.424680335380693
+        }
+      ]
+    },
+    {
+      "scenario": 10,
+      "family": "delayed-hit",
+      "size": 128,
+      "reverse": true,
+      "retention": "immediate",
+      "candidate": "current-miss",
+      "control": "current",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 1.031113560314382,
+          "min_ratio": 0.6969171831148498,
+          "max_ratio": 1.1337110730926434
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.9939082742254306,
+          "min_ratio": 0.722475127344054,
+          "max_ratio": 1.2758634280496697
+        }
+      ]
+    },
+    {
+      "scenario": 10,
+      "family": "delayed-hit",
+      "size": 128,
+      "reverse": true,
+      "retention": "immediate",
+      "candidate": "birth-miss",
+      "control": "birth",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.9794646368681652,
+          "min_ratio": 0.5697124067491179,
+          "max_ratio": 1.3246770778799581
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 1.0079989151138666,
+          "min_ratio": 0.8453272854931623,
+          "max_ratio": 1.5764288072818646
+        }
+      ]
+    },
+    {
+      "scenario": 10,
+      "family": "delayed-hit",
+      "size": 128,
+      "reverse": true,
+      "retention": "immediate",
+      "candidate": "dependencies-miss",
+      "control": "dependencies",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 1.028345704220021,
+          "min_ratio": 0.32495372356453983,
+          "max_ratio": 2.31545715088508
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 1.0416614070787888,
+          "min_ratio": 0.769041945613705,
+          "max_ratio": 1.1738204493931308
+        }
+      ]
+    },
+    {
+      "scenario": 10,
+      "family": "delayed-hit",
+      "size": 128,
+      "reverse": true,
+      "retention": "immediate",
+      "candidate": "current",
+      "control": "scan",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.4923735973960875,
+          "min_ratio": 0.36589570464013793,
+          "max_ratio": 0.8505200795621528
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.5040226012799109,
+          "min_ratio": 0.19192963271467703,
+          "max_ratio": 0.7428067340714708
+        }
+      ]
+    },
+    {
+      "scenario": 10,
+      "family": "delayed-hit",
+      "size": 128,
+      "reverse": true,
+      "retention": "immediate",
+      "candidate": "current",
+      "control": "indexed",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.2894644931709443,
+          "min_ratio": 0.17603742026250427,
+          "max_ratio": 0.556521296921881
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.2925808798056382,
+          "min_ratio": 0.24826117339535828,
+          "max_ratio": 0.4577120869965745
+        }
+      ]
+    },
+    {
+      "scenario": 10,
+      "family": "delayed-hit",
+      "size": 128,
+      "reverse": true,
+      "retention": "immediate",
+      "candidate": "current-miss",
+      "control": "scan",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.49507094709246685,
+          "min_ratio": 0.2985511564354208,
+          "max_ratio": 0.6363090311259444
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.514174186565724,
+          "min_ratio": 0.19488997074123604,
+          "max_ratio": 0.6848020515279511
+        }
+      ]
+    },
+    {
+      "scenario": 10,
+      "family": "delayed-hit",
+      "size": 128,
+      "reverse": true,
+      "retention": "immediate",
+      "candidate": "current-miss",
+      "control": "indexed",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.2989548098641158,
+          "min_ratio": 0.19688421267177061,
+          "max_ratio": 0.41635645736619953
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.3059889115938049,
+          "min_ratio": 0.2470385382448674,
+          "max_ratio": 0.3730942950188185
+        }
+      ]
+    },
+    {
+      "scenario": 10,
+      "family": "delayed-hit",
+      "size": 128,
+      "reverse": true,
+      "retention": "immediate",
+      "candidate": "birth",
+      "control": "scan",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.5117481927896126,
+          "min_ratio": 0.39499277594691856,
+          "max_ratio": 0.7309792804435736
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.5075289407492621,
+          "min_ratio": 0.17893108430575366,
+          "max_ratio": 0.6171979420385916
+        }
+      ]
+    },
+    {
+      "scenario": 10,
+      "family": "delayed-hit",
+      "size": 128,
+      "reverse": true,
+      "retention": "immediate",
+      "candidate": "birth",
+      "control": "indexed",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.3022220500152636,
+          "min_ratio": 0.20349369149936705,
+          "max_ratio": 0.533881790712376
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.2935489146865099,
+          "min_ratio": 0.2547611974107076,
+          "max_ratio": 0.3513043185233779
+        }
+      ]
+    },
+    {
+      "scenario": 10,
+      "family": "delayed-hit",
+      "size": 128,
+      "reverse": true,
+      "retention": "immediate",
+      "candidate": "birth-miss",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.5100390704559157,
+          "min_ratio": 0.2642107390839135,
+          "max_ratio": 0.6524810502778347
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.5003793867268702,
+          "min_ratio": 0.16589513242091267,
+          "max_ratio": 0.9331060593683648
+        }
+      ]
+    },
+    {
+      "scenario": 10,
+      "family": "delayed-hit",
+      "size": 128,
+      "reverse": true,
+      "retention": "immediate",
+      "candidate": "birth-miss",
+      "control": "indexed",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.3045724750960569,
+          "min_ratio": 0.16663800222807906,
+          "max_ratio": 0.4016778182188029
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.295469207030011,
+          "min_ratio": 0.24335825261813807,
+          "max_ratio": 0.4628250975048659
+        }
+      ]
+    },
+    {
+      "scenario": 10,
+      "family": "delayed-hit",
+      "size": 128,
+      "reverse": true,
+      "retention": "immediate",
+      "candidate": "dependencies",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.48209812368965216,
+          "min_ratio": 0.2808876770721232,
+          "max_ratio": 1.4959128080521429
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.5093502604142757,
+          "min_ratio": 0.1830004984328364,
+          "max_ratio": 0.6383718910325965
+        }
+      ]
+    },
+    {
+      "scenario": 10,
+      "family": "delayed-hit",
+      "size": 128,
+      "reverse": true,
+      "retention": "immediate",
+      "candidate": "dependencies",
+      "control": "indexed",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.29820819920126074,
+          "min_ratio": 0.1696754643251694,
+          "max_ratio": 0.9788214952524174
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.29199795901381453,
+          "min_ratio": 0.24749199155941695,
+          "max_ratio": 0.38730119117202333
+        }
+      ]
+    },
+    {
+      "scenario": 10,
+      "family": "delayed-hit",
+      "size": 128,
+      "reverse": true,
+      "retention": "immediate",
+      "candidate": "dependencies-miss",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.5004040264282852,
+          "min_ratio": 0.30088584739638996,
+          "max_ratio": 1.1037422738019405
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.5285254806859272,
+          "min_ratio": 0.18982915437044906,
+          "max_ratio": 0.5950831097907049
+        }
+      ]
+    },
+    {
+      "scenario": 10,
+      "family": "delayed-hit",
+      "size": 128,
+      "reverse": true,
+      "retention": "immediate",
+      "candidate": "dependencies-miss",
+      "control": "indexed",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.30238142267719176,
+          "min_ratio": 0.18490258387610026,
+          "max_ratio": 0.6652293357580893
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.30632925586440574,
+          "min_ratio": 0.2502142098866006,
+          "max_ratio": 0.3666858681069899
+        }
+      ]
+    },
+    {
+      "scenario": 11,
+      "family": "delayed-miss",
+      "size": 128,
+      "reverse": true,
+      "retention": "immediate",
+      "candidate": "current-miss",
+      "control": "current",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.005550607529643159,
+          "min_ratio": 0.005096247712948617,
+          "max_ratio": 0.008031029978962687
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.005542214600873526,
+          "min_ratio": 0.005137708264298332,
+          "max_ratio": 0.00760152655591289
+        }
+      ]
+    },
+    {
+      "scenario": 11,
+      "family": "delayed-miss",
+      "size": 128,
+      "reverse": true,
+      "retention": "immediate",
+      "candidate": "birth-miss",
+      "control": "birth",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.005826620882111082,
+          "min_ratio": 0.005214770699755251,
+          "max_ratio": 0.013204818958385087
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.005483393638917694,
+          "min_ratio": 0.005122575295967635,
+          "max_ratio": 0.008903426261074973
+        }
+      ]
+    },
+    {
+      "scenario": 11,
+      "family": "delayed-miss",
+      "size": 128,
+      "reverse": true,
+      "retention": "immediate",
+      "candidate": "dependencies-miss",
+      "control": "dependencies",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.005762576655003103,
+          "min_ratio": 0.005345329932241701,
+          "max_ratio": 0.008540049291951795
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.005575562419541162,
+          "min_ratio": 0.005165487075314852,
+          "max_ratio": 0.008103280018595128
+        }
+      ]
+    },
+    {
+      "scenario": 11,
+      "family": "delayed-miss",
+      "size": 128,
+      "reverse": true,
+      "retention": "immediate",
+      "candidate": "current",
+      "control": "scan",
+      "disposition": "loss",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 133.3946276946943,
+          "min_ratio": 98.11921055589366,
+          "max_ratio": 148.40820596544646
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 139.83655612206977,
+          "min_ratio": 112.31208486861156,
+          "max_ratio": 150.080869311115
+        }
+      ]
+    },
+    {
+      "scenario": 11,
+      "family": "delayed-miss",
+      "size": 128,
+      "reverse": true,
+      "retention": "immediate",
+      "candidate": "current",
+      "control": "indexed",
+      "disposition": "loss",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 645.8528430546164,
+          "min_ratio": 186.81833627407187,
+          "max_ratio": 739.8483443719937
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 683.287293345281,
+          "min_ratio": 131.8050247243308,
+          "max_ratio": 762.6612961225948
+        }
+      ]
+    },
+    {
+      "scenario": 11,
+      "family": "delayed-miss",
+      "size": 128,
+      "reverse": true,
+      "retention": "immediate",
+      "candidate": "current-miss",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.751349280908158,
+          "min_ratio": 0.6388128262226388,
+          "max_ratio": 1.0597887184643124
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.7741449583226856,
+          "min_ratio": 0.6002338227021197,
+          "max_ratio": 0.9277458387216913
+        }
+      ]
+    },
+    {
+      "scenario": 11,
+      "family": "delayed-miss",
+      "size": 128,
+      "reverse": true,
+      "retention": "immediate",
+      "candidate": "current-miss",
+      "control": "indexed",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 3.6588075905365742,
+          "min_ratio": 1.0678863216223682,
+          "max_ratio": 5.680698537893866
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 3.7338505914636615,
+          "min_ratio": 0.8520040784150531,
+          "max_ratio": 5.149458354158785
+        }
+      ]
+    },
+    {
+      "scenario": 11,
+      "family": "delayed-miss",
+      "size": 128,
+      "reverse": true,
+      "retention": "immediate",
+      "candidate": "birth",
+      "control": "scan",
+      "disposition": "loss",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 131.852804829142,
+          "min_ratio": 98.7017893134472,
+          "max_ratio": 154.01006345152265
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 139.0809206741268,
+          "min_ratio": 114.21562394592152,
+          "max_ratio": 158.38207848883718
+        }
+      ]
+    },
+    {
+      "scenario": 11,
+      "family": "delayed-miss",
+      "size": 128,
+      "reverse": true,
+      "retention": "immediate",
+      "candidate": "birth",
+      "control": "indexed",
+      "disposition": "loss",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 663.7433671563217,
+          "min_ratio": 187.70427098507844,
+          "max_ratio": 718.4923068475169
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 686.4413130765306,
+          "min_ratio": 133.25003834397774,
+          "max_ratio": 722.5417230399886
+        }
+      ]
+    },
+    {
+      "scenario": 11,
+      "family": "delayed-miss",
+      "size": 128,
+      "reverse": true,
+      "retention": "immediate",
+      "candidate": "birth-miss",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.7836751785769083,
+          "min_ratio": 0.5312536083815069,
+          "max_ratio": 1.632101502538862
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.7543234909989793,
+          "min_ratio": 0.6125050574199887,
+          "max_ratio": 1.2474608011522896
+        }
+      ]
+    },
+    {
+      "scenario": 11,
+      "family": "delayed-miss",
+      "size": 128,
+      "reverse": true,
+      "retention": "immediate",
+      "candidate": "birth-miss",
+      "control": "indexed",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 3.787741449249551,
+          "min_ratio": 1.0628990907583002,
+          "max_ratio": 8.475621026780102
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 3.793000725712176,
+          "min_ratio": 0.7203425797203111,
+          "max_ratio": 5.661766963078691
+        }
+      ]
+    },
+    {
+      "scenario": 11,
+      "family": "delayed-miss",
+      "size": 128,
+      "reverse": true,
+      "retention": "immediate",
+      "candidate": "dependencies",
+      "control": "scan",
+      "disposition": "loss",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 135.0993967633596,
+          "min_ratio": 98.30378396913815,
+          "max_ratio": 145.59804353256365
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 139.3508309720545,
+          "min_ratio": 111.77282706829907,
+          "max_ratio": 148.81862371433613
+        }
+      ]
+    },
+    {
+      "scenario": 11,
+      "family": "delayed-miss",
+      "size": 128,
+      "reverse": true,
+      "retention": "immediate",
+      "candidate": "dependencies",
+      "control": "indexed",
+      "disposition": "loss",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 646.0934880102332,
+          "min_ratio": 188.91948866162267,
+          "max_ratio": 805.6966743677581
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 678.1235193324253,
+          "min_ratio": 131.99946284942973,
+          "max_ratio": 718.838187751226
+        }
+      ]
+    },
+    {
+      "scenario": 11,
+      "family": "delayed-miss",
+      "size": 128,
+      "reverse": true,
+      "retention": "immediate",
+      "candidate": "dependencies-miss",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.7827942291942026,
+          "min_ratio": 0.6897333672209398,
+          "max_ratio": 1.0626909994850702
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.7739593278796993,
+          "min_ratio": 0.6245690589321585,
+          "max_ratio": 1.0603883575171063
+        }
+      ]
+    },
+    {
+      "scenario": 11,
+      "family": "delayed-miss",
+      "size": 128,
+      "reverse": true,
+      "retention": "immediate",
+      "candidate": "dependencies-miss",
+      "control": "indexed",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 3.712552676995348,
+          "min_ratio": 1.1677281972441584,
+          "max_ratio": 6.086911980360742
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 3.713604720331737,
+          "min_ratio": 0.7701960019119524,
+          "max_ratio": 5.7011849414876465
+        }
+      ]
+    },
+    {
+      "scenario": 12,
+      "family": "known-hit",
+      "size": 128,
+      "reverse": false,
+      "retention": "all",
+      "candidate": "current-miss",
+      "control": "current",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 1.0069683215905136,
+          "min_ratio": 0.676358275328693,
+          "max_ratio": 1.758027037778381
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.9619331822138417,
+          "min_ratio": 0.4669359154160446,
+          "max_ratio": 1.4098189614906274
+        }
+      ]
+    },
+    {
+      "scenario": 12,
+      "family": "known-hit",
+      "size": 128,
+      "reverse": false,
+      "retention": "all",
+      "candidate": "birth-miss",
+      "control": "birth",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 1.0090465551175067,
+          "min_ratio": 0.6802959428143526,
+          "max_ratio": 2.9709376210932454
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.9339718090722026,
+          "min_ratio": 0.8400454238884335,
+          "max_ratio": 1.6087170903240038
+        }
+      ]
+    },
+    {
+      "scenario": 12,
+      "family": "known-hit",
+      "size": 128,
+      "reverse": false,
+      "retention": "all",
+      "candidate": "dependencies-miss",
+      "control": "dependencies",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.9305011205938108,
+          "min_ratio": 0.49624340133404904,
+          "max_ratio": 1.263206060239989
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.9678292547467259,
+          "min_ratio": 0.5000460100605454,
+          "max_ratio": 1.9157531761472555
+        }
+      ]
+    },
+    {
+      "scenario": 12,
+      "family": "known-hit",
+      "size": 128,
+      "reverse": false,
+      "retention": "all",
+      "candidate": "current",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.567121350478058,
+          "min_ratio": 0.13779305188934796,
+          "max_ratio": 0.8282522724502899
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.5472339175416314,
+          "min_ratio": 0.45129858629581165,
+          "max_ratio": 1.3284881973799476
+        }
+      ]
+    },
+    {
+      "scenario": 12,
+      "family": "known-hit",
+      "size": 128,
+      "reverse": false,
+      "retention": "all",
+      "candidate": "current",
+      "control": "indexed",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.3772411983110404,
+          "min_ratio": 0.20889624170115606,
+          "max_ratio": 0.5740550916344026
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.3705911031547067,
+          "min_ratio": 0.3379187908229421,
+          "max_ratio": 0.7739245021575207
+        }
+      ]
+    },
+    {
+      "scenario": 12,
+      "family": "known-hit",
+      "size": 128,
+      "reverse": false,
+      "retention": "all",
+      "candidate": "current-miss",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.5592583163943258,
+          "min_ratio": 0.1907242157426177,
+          "max_ratio": 1.1397955320403952
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.5335866524429475,
+          "min_ratio": 0.4242399990342523,
+          "max_ratio": 0.75601792082895
+        }
+      ]
+    },
+    {
+      "scenario": 12,
+      "family": "known-hit",
+      "size": 128,
+      "reverse": false,
+      "retention": "all",
+      "candidate": "current-miss",
+      "control": "indexed",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.3809950746616693,
+          "min_ratio": 0.1897221855744307,
+          "max_ratio": 0.6804241747857539
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.3567169914366697,
+          "min_ratio": 0.29222654863650027,
+          "max_ratio": 0.5157457296471148
+        }
+      ]
+    },
+    {
+      "scenario": 12,
+      "family": "known-hit",
+      "size": 128,
+      "reverse": false,
+      "retention": "all",
+      "candidate": "birth",
+      "control": "scan",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.5571910828520541,
+          "min_ratio": 0.14649435536680647,
+          "max_ratio": 0.6738857562181368
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.552145415099455,
+          "min_ratio": 0.4091001153979082,
+          "max_ratio": 0.69320715703255
+        }
+      ]
+    },
+    {
+      "scenario": 12,
+      "family": "known-hit",
+      "size": 128,
+      "reverse": false,
+      "retention": "all",
+      "candidate": "birth",
+      "control": "indexed",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.3653917961136114,
+          "min_ratio": 0.1969755757459239,
+          "max_ratio": 0.5401230897064094
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.3796703199136763,
+          "min_ratio": 0.3152805066712223,
+          "max_ratio": 0.43279407036565215
+        }
+      ]
+    },
+    {
+      "scenario": 12,
+      "family": "known-hit",
+      "size": 128,
+      "reverse": false,
+      "retention": "all",
+      "candidate": "birth-miss",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.57509870159827,
+          "min_ratio": 0.14723965443328893,
+          "max_ratio": 1.639094901132322
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.5374945628654999,
+          "min_ratio": 0.47187948683089226,
+          "max_ratio": 0.7729866081286451
+        }
+      ]
+    },
+    {
+      "scenario": 12,
+      "family": "known-hit",
+      "size": 128,
+      "reverse": false,
+      "retention": "all",
+      "candidate": "birth-miss",
+      "control": "indexed",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.3671339132753021,
+          "min_ratio": 0.31559128154217725,
+          "max_ratio": 0.6418235858087478
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.3639620869508301,
+          "min_ratio": 0.28998605849319653,
+          "max_ratio": 0.522562874470236
+        }
+      ]
+    },
+    {
+      "scenario": 12,
+      "family": "known-hit",
+      "size": 128,
+      "reverse": false,
+      "retention": "all",
+      "candidate": "dependencies",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.5656138543348093,
+          "min_ratio": 0.14370143246941655,
+          "max_ratio": 0.9475656605416776
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.5618891961604795,
+          "min_ratio": 0.4449982093428042,
+          "max_ratio": 1.0514943383532998
+        }
+      ]
+    },
+    {
+      "scenario": 12,
+      "family": "known-hit",
+      "size": 128,
+      "reverse": false,
+      "retention": "all",
+      "candidate": "dependencies",
+      "control": "indexed",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.38305383246705704,
+          "min_ratio": 0.3046497737560275,
+          "max_ratio": 0.7138060834360785
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.3788990667939044,
+          "min_ratio": 0.3271113412277975,
+          "max_ratio": 0.746716797155355
+        }
+      ]
+    },
+    {
+      "scenario": 12,
+      "family": "known-hit",
+      "size": 128,
+      "reverse": false,
+      "retention": "all",
+      "candidate": "dependencies-miss",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.5373162155780261,
+          "min_ratio": 0.09642286088793672,
+          "max_ratio": 0.6913661679131344
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.5386659162286868,
+          "min_ratio": 0.4307386762728756,
+          "max_ratio": 1.0771743675937264
+        }
+      ]
+    },
+    {
+      "scenario": 12,
+      "family": "known-hit",
+      "size": 128,
+      "reverse": false,
+      "retention": "all",
+      "candidate": "dependencies-miss",
+      "control": "indexed",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.35504785191191834,
+          "min_ratio": 0.21730131864339383,
+          "max_ratio": 0.45900179102005323
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.36588996554997655,
+          "min_ratio": 0.3209633734031371,
+          "max_ratio": 0.7860878188994562
+        }
+      ]
+    },
+    {
+      "scenario": 13,
+      "family": "delayed-miss",
+      "size": 128,
+      "reverse": false,
+      "retention": "all",
+      "candidate": "current-miss",
+      "control": "current",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.008826489821190529,
+          "min_ratio": 0.00823341630798473,
+          "max_ratio": 0.013530451221864151
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.008263941776962842,
+          "min_ratio": 0.007897665211969856,
+          "max_ratio": 0.01088504616865466
+        }
+      ]
+    },
+    {
+      "scenario": 13,
+      "family": "delayed-miss",
+      "size": 128,
+      "reverse": false,
+      "retention": "all",
+      "candidate": "birth-miss",
+      "control": "birth",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.008667575343025601,
+          "min_ratio": 0.007914579542734836,
+          "max_ratio": 0.01940907896836222
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.00831095029761626,
+          "min_ratio": 0.007756382078615634,
+          "max_ratio": 0.00893448445413725
+        }
+      ]
+    },
+    {
+      "scenario": 13,
+      "family": "delayed-miss",
+      "size": 128,
+      "reverse": false,
+      "retention": "all",
+      "candidate": "dependencies-miss",
+      "control": "dependencies",
+      "disposition": "gain",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 0.008593696416544234,
+          "min_ratio": 0.007816303110072354,
+          "max_ratio": 0.010336504380504253
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 0.008392519127489237,
+          "min_ratio": 0.007307479438305109,
+          "max_ratio": 0.012785713731305607
+        }
+      ]
+    },
+    {
+      "scenario": 13,
+      "family": "delayed-miss",
+      "size": 128,
+      "reverse": false,
+      "retention": "all",
+      "candidate": "current",
+      "control": "scan",
+      "disposition": "loss",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 129.88355230909622,
+          "min_ratio": 82.47514740400538,
+          "max_ratio": 151.29843066492467
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 135.2672720270895,
+          "min_ratio": 96.19169229860054,
+          "max_ratio": 149.12998904673145
+        }
+      ]
+    },
+    {
+      "scenario": 13,
+      "family": "delayed-miss",
+      "size": 128,
+      "reverse": false,
+      "retention": "all",
+      "candidate": "current",
+      "control": "indexed",
+      "disposition": "loss",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 638.741222178872,
+          "min_ratio": 432.43291056233824,
+          "max_ratio": 740.0167845270349
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 699.661889457352,
+          "min_ratio": 529.9422051883472,
+          "max_ratio": 747.1456593011259
+        }
+      ]
+    },
+    {
+      "scenario": 13,
+      "family": "delayed-miss",
+      "size": 128,
+      "reverse": false,
+      "retention": "all",
+      "candidate": "current-miss",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 1.152148315784432,
+          "min_ratio": 0.7404132475621121,
+          "max_ratio": 1.7473915853479878
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 1.128753730315714,
+          "min_ratio": 0.8968057254935619,
+          "max_ratio": 1.4119156020965382
+        }
+      ]
+    },
+    {
+      "scenario": 13,
+      "family": "delayed-miss",
+      "size": 128,
+      "reverse": false,
+      "retention": "all",
+      "candidate": "current-miss",
+      "control": "indexed",
+      "disposition": "loss",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 5.722742240770733,
+          "min_ratio": 3.786218544736979,
+          "max_ratio": 9.16609210849919
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 5.865979156013211,
+          "min_ratio": 4.362755285770052,
+          "max_ratio": 7.572407974505164
+        }
+      ]
+    },
+    {
+      "scenario": 13,
+      "family": "delayed-miss",
+      "size": 128,
+      "reverse": false,
+      "retention": "all",
+      "candidate": "birth",
+      "control": "scan",
+      "disposition": "loss",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 129.15646673813896,
+          "min_ratio": 85.18015231729068,
+          "max_ratio": 150.70444442004904
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 135.34769561133643,
+          "min_ratio": 96.7566946226037,
+          "max_ratio": 149.36313921731838
+        }
+      ]
+    },
+    {
+      "scenario": 13,
+      "family": "delayed-miss",
+      "size": 128,
+      "reverse": false,
+      "retention": "all",
+      "candidate": "birth",
+      "control": "indexed",
+      "disposition": "loss",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 635.7586186833285,
+          "min_ratio": 445.0365967318024,
+          "max_ratio": 737.2975226280214
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 705.0622393356131,
+          "min_ratio": 538.9140998549058,
+          "max_ratio": 747.4958944991492
+        }
+      ]
+    },
+    {
+      "scenario": 13,
+      "family": "delayed-miss",
+      "size": 128,
+      "reverse": false,
+      "retention": "all",
+      "candidate": "birth-miss",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 1.1179491060904818,
+          "min_ratio": 0.7708769961878194,
+          "max_ratio": 2.8764418737765767
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 1.1230164956345325,
+          "min_ratio": 0.8100355069680241,
+          "max_ratio": 1.2126693605530676
+        }
+      ]
+    },
+    {
+      "scenario": 13,
+      "family": "delayed-miss",
+      "size": 128,
+      "reverse": false,
+      "retention": "all",
+      "candidate": "birth-miss",
+      "control": "indexed",
+      "disposition": "loss",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 5.790700674685877,
+          "min_ratio": 3.7341281411909133,
+          "max_ratio": 10.286042409370804
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 5.784545249215141,
+          "min_ratio": 4.353659269368901,
+          "max_ratio": 6.317338509235519
+        }
+      ]
+    },
+    {
+      "scenario": 13,
+      "family": "delayed-miss",
+      "size": 128,
+      "reverse": false,
+      "retention": "all",
+      "candidate": "dependencies",
+      "control": "scan",
+      "disposition": "loss",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 130.54180655368097,
+          "min_ratio": 86.3155052477489,
+          "max_ratio": 155.1633844171142
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 134.80066753378796,
+          "min_ratio": 97.88024053050233,
+          "max_ratio": 163.7743687881116
+        }
+      ]
+    },
+    {
+      "scenario": 13,
+      "family": "delayed-miss",
+      "size": 128,
+      "reverse": false,
+      "retention": "all",
+      "candidate": "dependencies",
+      "control": "indexed",
+      "disposition": "loss",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 639.2586342089617,
+          "min_ratio": 441.59961614668214,
+          "max_ratio": 739.1822285686379
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 711.1474213268614,
+          "min_ratio": 533.379810684195,
+          "max_ratio": 776.5600710125008
+        }
+      ]
+    },
+    {
+      "scenario": 13,
+      "family": "delayed-miss",
+      "size": 128,
+      "reverse": false,
+      "retention": "all",
+      "candidate": "dependencies-miss",
+      "control": "scan",
+      "disposition": "unresolved",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 1.1211330120835277,
+          "min_ratio": 0.7145948066527285,
+          "max_ratio": 1.2907773360856756
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 1.1350070010575901,
+          "min_ratio": 0.8922318606431915,
+          "max_ratio": 1.2843737399453963
+        }
+      ]
+    },
+    {
+      "scenario": 13,
+      "family": "delayed-miss",
+      "size": 128,
+      "reverse": false,
+      "retention": "all",
+      "candidate": "dependencies-miss",
+      "control": "indexed",
+      "disposition": "loss",
+      "cpus": [
+        {
+          "cpu": 0,
+          "median_ratio": 5.599427007791398,
+          "min_ratio": 3.769102832601963,
+          "max_ratio": 7.263029083557369
+        },
+        {
+          "cpu": 2,
+          "median_ratio": 5.738650406626485,
+          "min_ratio": 4.56870335019306,
+          "max_ratio": 9.143098816563523
+        }
+      ]
+    }
+  ]
+}

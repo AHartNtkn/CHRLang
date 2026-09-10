@@ -8,15 +8,15 @@ This sequence separates three deliverables: demonstrating a mechanism, measuring
 
 ## Start here: the next experiments
 
-**Demand clock qualification and registered lifecycle costs are now selected under T071.** The [dependency ownership comparison](results/S03-dependency-ownership.md) completes package three after the relevant-deduction breadth review. All 1,920 metered and 960 ordinary processes preserve endpoints and final release. Miss reuse saves allocation in the miss families and adds it elsewhere; Scan has lower peaks throughout. These are allocation findings, not timing results.
+**Reusable symbolic formulas and union/inclusion are now selected under T076.** The [demand timing comparison](results/S03-dependency-timing.md) completes 5,376 primary processes and 224 warmups. Miss reuse earns a practical gain in all four selected delayed-miss scenarios under each policy. Demand still has favorable and adverse regimes against Indexed; arrival reversal changes the large delayed-hit result. The [breadth review](results/S03-dependency-clock-breadth-review.md) selects a distinct representation question next.
 
-**Keep relevant-key repair and timing required under T072.** The next repair question is whether recorded relevant reads can be validated without rebuilding their full owned key. Its source-validity and low-reuse costs need a direct trial. Reconsider it at the demand lifecycle result or a concrete obstruction, against reusable symbolic solving. This bounded allocation finding is no general rejection of sharing or integrated execution.
+**Demand remains unfinished under T071.** Targeted CPU/elapsed attribution must investigate consequential timing excursions; all recorded outliers remain in the results. Broader indexing, repeated successful discovery, nonground posts, writable heads, dynamic choices and sustained ownership need direct trials. Timing this qualified subset supplies no general rejection or selection of demand execution.
 
-**Demand lifecycle is next because its source mechanism already works and its work savings are substantial but unpriced.** The [miss-reuse experiment](results/S03-miss-reuse.md) reduces the delayed-miss witness from 6,432,964 to 50,697 force entries; successful cases pay lookups without hits. Finite allocation and ownership are now qualified. Total time and sustained retention remain consequential; the next study must price the work rather than count more force entries.
+**Keep relevant-key repair and timing required under T072.** Test whether recorded relevant reads can be validated without rebuilding their full owned key, including source validity and low reuse. Reconsider this against the remaining demand work at the reusable-formula result or a concrete obstruction.
 
 **Reusable symbolic solving follows because it changes the work being performed.** The [joint ownership experiment](results/S06-joint-ownership.md) shows that even eliminating transport allocation cannot reverse one adverse comparison. Compiling reusable constraints and operating on sets of possibilities could change evaluation itself. That is a stronger distinct investigation than further transport-only tuning.
 
-## Execution order after the current causal comparison
+## Portfolio order and dependencies
 
 The order is a default schedule with explicit dependencies, not a requirement to finish an entire family before another starts. Language comparisons accompany each beneficiary from its first source gate. Complete-architecture comparisons begin as soon as two credible paths overlap; they do not wait for every component study.
 
@@ -158,7 +158,7 @@ The order is a default schedule with explicit dependencies, not a requirement to
 
 For each next-package proposal, record the decision it could change, the strongest ready distinct alternative, actual prerequisites, expected implementation/measurement effort, and the next result boundary. Prefer completing a consequential comparison over expanding its matrix when the expansion cannot change the decision. Prefer a distinct mechanism over another refinement when the refinement has no credible path to changing the architecture comparison.
 
-**The current handoffs are demand lifecycle → reusable symbolic solving → checkpoint/replay.** Each study may need multiple bounded packages, but a fourth-package review cannot merely reset the counter. Further depth requires a written comparison with the next distinct experiment. At every such review, account for all rows in the order table and retain a concrete next action for unfinished work. Changing order supplies no evidence against the displaced design.
+**The current handoffs are reusable symbolic solving → checkpoint/replay, with unfinished demand and relevant-key costs reviewed at the symbolic result.** Each study may need multiple bounded packages, but a fourth-package review cannot merely reset the counter. Further depth requires a written comparison with the next distinct experiment. At every such review, account for all rows in the order table and retain a concrete next action for unfinished work. Changing order supplies no evidence against the displaced design.
 
 **A thorough trial requires six kinds of evidence.** Show the distinctive mechanism running; establish a competent implementation; measure full costs against strong controls; exercise favorable and adverse regimes; account for source and language boundaries; and challenge the resulting architectural inference. An analytical impossibility or demonstrated equivalence can replace an applicable experiment, provided its premises cover the actual proposal.
 

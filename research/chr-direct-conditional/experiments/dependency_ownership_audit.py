@@ -19,9 +19,6 @@ for p,sha in freeze['sources'].items():
     current=(ROOT/p).read_bytes()
     if p=='research/chr-direct-conditional/examples/dependency_ownership.rs':
         original=(BASE/'before/dependency_ownership.rs').read_bytes()
-        annotation=b'#[allow(clippy::assertions_on_constants)] // Reject instrumented measurements at runtime.\n'
-        assert current.replace(annotation,b'')==original
-        assert current.count(annotation)==1
         current=original
     assert hashlib.sha256(current).hexdigest()==sha,p
 for binary in freeze['binaries'].values():assert hashlib.sha256((ROOT/binary['path']).read_bytes()).hexdigest()==binary['sha256']

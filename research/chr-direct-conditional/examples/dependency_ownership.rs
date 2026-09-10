@@ -87,25 +87,39 @@ impl Prepared {
     }
 }
 impl Running {
-    fn collect(&mut self, cancel: bool) -> (Vec<Answer>, bool, usize) {
+    fn collect(
+        &mut self,
+        cancel: bool,
+        first_clock: bool,
+    ) -> (Vec<Answer>, bool, usize, Option<u128>) {
+        let start = first_clock.then(Instant::now);
+        let mut first = None;
         let mut answers = vec![];
         for tick in 1..=2_000_000 {
             match self {
                 Self::Demand(r) => match r.tick() {
-                    Event::Answer(a) => answers.push(a),
-                    Event::Exhausted => return (answers, true, tick),
+                    Event::Answer(a) => {
+                        answers.push(a);
+                        if first.is_none() {
+                            first = start.map(|clock| clock.elapsed().as_nanos());
+                        }
+                    }
+                    Event::Exhausted => return (answers, true, tick, first),
                     Event::Progress => (),
                 },
                 Self::Compiled(r) => match r.tick() {
                     chr_compiled::SearchEvent::Complete(mut b) => {
-                        answers.push(b.engine.observe().unwrap())
+                        answers.push(b.engine.observe().unwrap());
+                        if first.is_none() {
+                            first = start.map(|clock| clock.elapsed().as_nanos());
+                        }
                     }
-                    chr_compiled::SearchEvent::Exhausted => return (answers, true, tick),
+                    chr_compiled::SearchEvent::Exhausted => return (answers, true, tick, first),
                     _ => (),
                 },
             }
             if cancel {
-                return (answers, false, tick);
+                return (answers, false, tick, first);
             }
         }
         panic!("service cutoff")
@@ -140,6 +154,28 @@ fn main() {
         println!("meter-check passed");
         return;
     }
+    if args.get(1).map(String::as_str) == Some("clock-check") {
+        assert!(
+            !cfg!(feature = "alloc-meter"),
+            "clock calibration requires ordinary allocator"
+        );
+        let mut readings = Vec::with_capacity(100_000);
+        for _ in 0..100_000 {
+            let (_, reading) = measure(|| std::hint::black_box(()));
+            readings.push(reading.ns);
+        }
+        readings.sort_unstable();
+        println!(
+            "{{\"event\":\"clock\",\"samples\":100000,\"min\":{},\"median\":{},\"p99\":{},\"max\":{}}}",
+            readings[0], readings[50_000], readings[99_000], readings[99_999]
+        );
+        return;
+    }
+    let first_clock = match std::env::var("DEPENDENCY_FIRST_CLOCK").as_deref() {
+        Ok("on") => true,
+        Ok("off") | Err(_) => false,
+        _ => panic!("unknown first-observation clock mode"),
+    };
     assert_eq!(args.len(), 7);
     let mode = &args[1];
     let kind = &args[2];
@@ -183,12 +219,15 @@ fn main() {
         records.push(("input", i, m));
         let (mut run, m) = measure(|| prepared.start(q));
         records.push(("setup", i, m));
-        let ((answers, complete, ticks), m) = measure(|| run.collect(cancel && i % 2 == 0));
+        let ((answers, complete, ticks, first), m) =
+            measure(|| run.collect(cancel && i % 2 == 0, first_clock));
+        assert_eq!(first.is_some(), first_clock && !answers.is_empty());
+        assert!(first.is_none_or(|ns| ns <= m.ns));
         records.push(("execute_observe", i, m));
         let (_, m) = measure(|| drop(run));
         records.push(("engine_drop", i, m));
         validate(&answers, &expected[i % 2], complete);
-        endpoints.push((complete, ticks, answers.len()));
+        endpoints.push((complete, ticks, answers.len(), first));
         let (_, m) = measure(|| {
             if retention == "immediate" {
                 drop(answers);
@@ -225,8 +264,8 @@ fn main() {
         .join(",");
     let ends = endpoints
         .iter()
-        .map(|(complete, ticks, answers)| {
-            format!("{{\"complete\":{complete},\"ticks\":{ticks},\"answers\":{answers}}}")
+        .map(|(complete, ticks, answers, first)| {
+            format!("{{\"complete\":{complete},\"ticks\":{ticks},\"answers\":{answers},\"first_ns\":{}}}",first.map_or("null".into(), |ns|ns.to_string()))
         })
         .collect::<Vec<_>>()
         .join(",");
