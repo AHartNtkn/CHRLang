@@ -10,16 +10,16 @@ The [design review](results/R07-design-disposition-review.md) distinguishes meas
 
 Several useful comparisons now exist. [Integrated graph scanning](results/S02-multihead-scale.md) has favorable measured regimes. [Finite solving](results/S06-finite-lifecycle.md) has selective benefits and unselective costs. [Support ordering](results/S08-order-lifecycle.md) has opposing regimes. These findings supply stronger controls, not a complete architecture ranking.
 
-The [source-derived capacity solver](results/S06-resource-capacity-solver.md) matches all1,536 complete-answer matrix cases per feature mode and rejects a24-choice domain-capacity bottleneck in one state with zero branches. The unselective control returns all16 answers; alias, ownership and limit boundaries pass. T073 next qualifies full lifecycle and counter-free measurement. No cost advantage is claimed; call reuse and broader compilation return at that qualification gate or an obstruction.
+The [capacity lifecycle qualification](results/S06-capacity-lifecycle-entry.md) passes all180 configurations in540 final primary/diagnostic processes across capacity and four Scan/Indexed controls. Complete answers survive prepared disposal; diagnostic allocations repeat and task-owned heap restores. T073 next registers a bounded counter-free lifecycle cost pilot. This is measurement readiness, not timing superiority; call reuse and broader compilation return after that pilot or a consequential obstruction.
 
 ## The order, and why
 
-Investigation 2 continues with complete capacity-solver lifecycle and measurement qualification after its source/solver gate. Existing compilation and learning cost results supply controls. Review renaming-aware call reuse and broader compilation at that entry or an obstruction. Investigation 1 retains broader composition and lifetime obligations.
+Investigation 2 continues with a bounded capacity-solver lifecycle cost registration after measurement qualification. Existing compilation and learning cost results supply controls. Review renaming-aware call reuse and broader compilation at that entry or an obstruction. Investigation 1 retains broader composition and lifetime obligations.
 
 | Order | Investigation | Architectural decision it could change |
 |---|---|---|
 | 1 (pilot measured; broader work pending) | Complete lifecycle accounting and one mixed-source pilot | Whether current complete paths retain their apparent advantages once preparation, observation and disposal count |
-| 2 (active: capacity lifecycle qualification) | Source analysis, resource derivations and independent native compilation | Whether substantial runtime machinery can disappear rather than merely run faster |
+| 2 (active: capacity cost pilot registration) | Source analysis, resource derivations and independent native compilation | Whether substantial runtime machinery can disappear rather than merely run faster |
 | 3 | Integrated equality, matching and consuming execution | Whether one organization can replace several services and their repair work |
 | 4 | Demand-driven choices, fresh derivations and native local ownership | Whether sharing execution or distributing effects changes the viable architecture |
 | 5 | Call-level reuse and reusable failures | Whether cheap recognition and reuse can substitute for shared execution |
@@ -35,16 +35,16 @@ Investigation 2 continues with complete capacity-solver lifecycle and measuremen
 
 ## The next concrete experiments
 
-**Next qualify complete costs for the source-derived capacity solver.** The [solver gate](results/S06-resource-capacity-solver.md) demonstrates root rejection without a choice product and complete successful extraction. Preparation, domain grouping/checking, observation and disposal now need credible accounting before timing.
+**Next register and measure complete capacity-solver costs against the four qualified ordinary controls.** The [lifecycle gate](results/S06-capacity-lifecycle-entry.md) establishes complete answers, primary diagnostics separation and reproducible heap ownership. Include preparation and output-heavy cases rather than timing only capacity rejection.
 
 | Package | Required comparison and checks | Decision and review point |
 |---|---|---|
-| **Capacity lifecycle/measurement qualification — T073, active** | Account for source inference, reusable preparation, changing-query groups, checking, complete answers and disposal against competent ordinary execution. Separate operational budgets from diagnostic counters. Qualify ordinary-allocation timing and diagnostic ownership on cold, reused, infeasible and output-heavy sources. | Can source reasoning replace execution rather than retune it? At measurement qualification or an obstruction, compare a cost pilot with renaming-aware call reuse and broader compilation. |
+| **Capacity lifecycle cost pilot — T073, active registration** | Account for source inference, reusable preparation, changing-query groups, checking, complete answers and disposal against competent ordinary execution. Separate operational budgets from diagnostic counters. Qualify ordinary-allocation timing and diagnostic ownership on cold, reused, infeasible and output-heavy sources. | Can source reasoning replace execution rather than retune it? After the bounded pilot or an obstruction, compare further refinement with renaming-aware call reuse and broader compilation. |
 | **Compatible-query reuse and lifetime — required** | Carry forward measured recomputation/eager/covered-state results. Compare a cache recognizing renamed equivalent queries, charging recognition, answer remapping, retention, eviction and invalidation. Add different domains and call structures rather than only repeated normalized shapes. | Is failure-region learning preferable to a stronger reuse control? Review at the derivation entry. General conflict learning remains separate from retained whole-query failures. |
 | **Broader lowering and compilation — required** | Use R05 recursive and S01 generated-access controls. Name the new language boundary or mechanism: contextual effects, richer recursion, partial control, mixed execution or artifact regimes. Measure generated/prepared execution of the same plan where that isolates the claim. | Can more runtime machinery disappear and repay analysis, compilation and lifetime costs? Review at the direct-derivation entry or an obstruction. |
 | **Broader complete paths — T078, required** | Include richer admitted sources, sustained consumers, ongoing siblings and architectures made credible by distinct mechanisms. | Do component findings survive composition and lifetime? Return when new mechanisms change the compared paths or accounting evidence invalidates the current comparison. |
 
-**Why capacity accounting now:** the source-derived solver now passes independent correspondence and demonstrates cold-query work elimination. Domain and output machinery can still cost more than it saves, so the next evidence must include all owners and preparation. Renaming-aware call reuse remains the strongest distinct alternative, but it needs answer-remapping and lifetime work and cannot reuse an initial failure before obtaining it. Select bounded lifecycle qualification, then review a timing pilot against call reuse and broader compilation before expansion.
+**Why capacity timing now:** the lifecycle gate now supplies qualified primary and diagnostic paths for capacity and four ordinary controls. A bounded comparison can decide whether cold-query elimination repays source analysis, checking and output ownership. Renaming-aware reuse still needs an answer-remapping and lifetime implementation. Select one registered pilot, then review call reuse and broader compilation before expanding source admission or refining near-parity results.
 
 ## 1. Carry the whole-path pilot into broader comparisons
 

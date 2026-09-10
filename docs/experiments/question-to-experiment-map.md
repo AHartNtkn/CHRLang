@@ -1,6 +1,6 @@
 # What experiment answers each reviewed design question?
 
-**Current selection: T073 capacity lifecycle qualification.** The [source-derived capacity solver](results/S06-resource-capacity-solver.md) matches all1,536 complete-answer matrix cases per feature mode and rejects a24-choice domain-capacity bottleneck in one state with zero branches. The unselective control returns all16 answers; alias, ownership and limit boundaries pass. T073 next qualifies full lifecycle and counter-free measurement. No cost advantage is claimed; call reuse and broader compilation return at that qualification gate or an obstruction.
+**Current selection: T073 capacity cost registration.** The [capacity lifecycle qualification](results/S06-capacity-lifecycle-entry.md) passes all180 configurations in540 final primary/diagnostic processes across capacity and four Scan/Indexed controls. Complete answers survive prepared disposal; diagnostic allocations repeat and task-owned heap restores. T073 next registers a bounded counter-free lifecycle cost pilot. This is measurement readiness, not timing superiority; call reuse and broader compilation return after that pilot or a consequential obstruction.
 
 The [common-source gate and cost design](results/S10-native-common-source.md) qualifies ten Rust configurations on all 125 cases, prefix lowering on 20 and finite solving with its caller on four. Native evidence remains applicable. T078 next establishes native prepared reuse and disposal; no cross-architecture cost matrix has run.
 

@@ -150,7 +150,7 @@ fn capacity_relation_preserves_complete_consuming_answers() {
                                     .collect::<Vec<_>>();
                                 let rules = source(tag, weight);
                                 let q = query(tag, &domains, [a, b], alias, base);
-                                let prepared = capacity::Prepared::new(&rules).unwrap();
+                                let prepared = capacity::Prepared::<true>::new(&rules).unwrap();
                                 let report =
                                     prepared.solve(&q, capacity::Limits::default()).unwrap();
                                 runtime_support::same_raw(
@@ -205,7 +205,7 @@ fn capacity_failure_requires_a_sink_and_exclusive_resource_ownership() {
 #[test]
 fn solver_checks_source_and_query_boundaries() {
     let rules = source("r", 1);
-    let p = capacity::Prepared::new(&rules).unwrap();
+    let p = capacity::Prepared::<true>::new(&rules).unwrap();
     let mut q = query("r", &[3], [1, 1], false, 10);
     q.constraints
         .push(c("payload", [chr_syntax::t("box", [v(10)])]));
@@ -220,13 +220,13 @@ fn solver_checks_source_and_query_boundaries() {
     );
     let mut bad = rules.clone();
     bad.pop();
-    assert!(capacity::Prepared::new(&bad).is_err());
+    assert!(capacity::Prepared::<true>::new(&bad).is_err());
     let mut bad = rules.clone();
     bad.insert(
         0,
         Rule::simplify("steal", [c("rtoken", [v(0)])], Goal::True),
     );
-    assert!(capacity::Prepared::new(&bad).is_err());
+    assert!(capacity::Prepared::<true>::new(&bad).is_err());
     let mut q = query("r", &[3], [1, 1], false, 10);
     q.constraints.push(c("rneed", [v(10)]));
     assert!(p.solve(&q, Default::default()).is_err());
@@ -273,14 +273,14 @@ fn solver_checks_source_and_query_boundaries() {
         body_owner[0].body.clone(),
         c("rtoken", [atom("a")]).into(),
     ]);
-    assert!(capacity::Prepared::new(&body_owner).is_err());
+    assert!(capacity::Prepared::<true>::new(&body_owner).is_err());
     let mut ambiguous = rules.clone();
     ambiguous[1].removed[0].name = ambiguous[0].removed[0].name.clone();
-    assert!(capacity::Prepared::new(&ambiguous).is_err());
+    assert!(capacity::Prepared::<true>::new(&ambiguous).is_err());
     let mut reversed = rules.clone();
     reversed[3].removed.reverse();
     runtime_support::same_raw(
-        capacity::Prepared::new(&reversed)
+        capacity::Prepared::<true>::new(&reversed)
             .unwrap()
             .solve(&q, Default::default())
             .unwrap()
@@ -306,7 +306,7 @@ fn capacity_subsets_prune_before_branching_and_successes_are_complete() {
         ));
     }
     rules.extend(source("r", 1).into_iter().skip(3));
-    let p = capacity::Prepared::new(&rules).unwrap();
+    let p = capacity::Prepared::<true>::new(&rules).unwrap();
     let make = |half: usize, caps: [usize; 4]| {
         let mut constraints = Vec::new();
         let mut outputs = Vec::new();
@@ -362,4 +362,41 @@ fn capacity_subsets_prune_before_branching_and_successes_are_complete() {
     println!(
         "capacity bottleneck: 24 binary choices, states=1 branches=0; unselective control: 16 raw answers"
     );
+}
+
+#[test]
+fn capacity_diagnostics_do_not_change_answers_or_operational_limits() {
+    let rules = source("r", 2);
+    let primary = capacity::Prepared::<false>::new(&rules).unwrap();
+    let diagnostic = capacity::Prepared::<true>::new(&rules).unwrap();
+    for caps in [[0, 0], [1, 1], [2, 2]] {
+        let q = query("r", &[3, 3], caps, false, 10);
+        let a = primary.solve(&q, Default::default()).unwrap();
+        let b = diagnostic.solve(&q, Default::default()).unwrap();
+        assert_eq!((a.branches, a.capacity_prunes), (0, 0));
+        assert_eq!(a.states, b.states);
+        runtime_support::same_raw(a.answers, b.answers);
+        assert!(
+            primary
+                .solve(
+                    &q,
+                    capacity::Limits {
+                        states: 0,
+                        answers: 100
+                    }
+                )
+                .is_err()
+        );
+        assert!(
+            diagnostic
+                .solve(
+                    &q,
+                    capacity::Limits {
+                        states: 0,
+                        answers: 100
+                    }
+                )
+                .is_err()
+        );
+    }
 }

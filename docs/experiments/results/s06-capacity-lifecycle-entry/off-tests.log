@@ -1,0 +1,15 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.01s
+     Running tests/resource_capacity_entry.rs (target/debug/deps/resource_capacity_entry-0871be036505d18e)
+
+running 6 tests
+test capacity_failure_requires_a_sink_and_exclusive_resource_ownership ... ok
+test capacity_diagnostics_do_not_change_answers_or_operational_limits ... ok
+test alias_groups_cannot_be_split_across_resource_values ... ok
+test solver_checks_source_and_query_boundaries ... ok
+capacity bottleneck: 24 binary choices, states=1 branches=0; unselective control: 16 raw answers
+test capacity_subsets_prune_before_branching_and_successes_are_complete ... ok
+validated 1536 complete source/capacity cases
+test capacity_relation_preserves_complete_consuming_answers ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.55s
+

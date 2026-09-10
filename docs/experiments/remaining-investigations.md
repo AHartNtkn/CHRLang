@@ -1,6 +1,6 @@
 # The comparisons still needed to choose the architecture
 
-The [source-derived capacity solver](results/S06-resource-capacity-solver.md) matches all1,536 complete-answer matrix cases per feature mode and rejects a24-choice domain-capacity bottleneck in one state with zero branches. The unselective control returns all16 answers; alias, ownership and limit boundaries pass. T073 next qualifies full lifecycle and counter-free measurement. No cost advantage is claimed; call reuse and broader compilation return at that qualification gate or an obstruction.
+The [capacity lifecycle qualification](results/S06-capacity-lifecycle-entry.md) passes all180 configurations in540 final primary/diagnostic processes across capacity and four Scan/Indexed controls. Complete answers survive prepared disposal; diagnostic allocations repeat and task-owned heap restores. T073 next registers a bounded counter-free lifecycle cost pilot. This is measurement readiness, not timing superiority; call reuse and broader compilation return after that pilot or a consequential obstruction.
 
 ## Earlier experimental checkpoints
 
@@ -86,7 +86,7 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-The [current execution order](next-cycle.md#the-order-and-why) owns scheduling. T073 is active for source-derived capacity lifecycle/measurement qualification after its solver gate. Renaming-aware call reuse and broader compilation return at qualification or an obstruction. Broader composition and lifetime remain required.
+The [current execution order](next-cycle.md#the-order-and-why) owns scheduling. T073 is active for a bounded capacity lifecycle cost registration. Renaming-aware call reuse and broader compilation return after the pilot or an obstruction. Broader composition, language and lifetime remain required.
 
 ### Depth, breadth and stopping within this sequence
 

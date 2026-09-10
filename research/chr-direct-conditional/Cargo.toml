@@ -4,6 +4,7 @@ version.workspace = true
 edition.workspace = true
 
 [features]
+capacity-diagnostics = []
 learning-diagnostics = []
 serialization-clock = []
 effect-contract = []
@@ -108,4 +109,8 @@ required-features = ["experiment", "support-trace", "head-dispatch"]
 
 [[example]]
 name = "learning_ownership"
+required-features = ["experiment"]
+
+[[example]]
+name = "capacity_lifecycle"
 required-features = ["experiment"]

@@ -32,7 +32,7 @@ pub struct Report {
     pub branches: usize,
     pub capacity_prunes: usize,
 }
-pub struct Prepared {
+pub struct Prepared<const DIAGNOSTICS: bool = false> {
     producers: BTreeMap<Key, Domain>,
     need: Key,
     token: Key,
@@ -130,7 +130,7 @@ struct Group {
     domain: Domain,
     demand: usize,
 }
-impl Prepared {
+impl<const DIAGNOSTICS: bool> Prepared<DIAGNOSTICS> {
     pub fn new(source: &[Rule]) -> Result<Self, Error> {
         if !(3..=4096).contains(&source.len()) {
             return Err(Error::Source);
@@ -282,8 +282,8 @@ impl Prepared {
         Ok(search.report)
     }
 }
-struct Search<'a> {
-    prepared: &'a Prepared,
+struct Search<'a, const DIAGNOSTICS: bool> {
+    prepared: &'a Prepared<DIAGNOSTICS>,
     query: &'a Query,
     groups: Vec<Group>,
     inert: Vec<Constraint>,
@@ -293,7 +293,7 @@ struct Search<'a> {
     limits: Limits,
     report: Report,
 }
-impl Search<'_> {
+impl<const DIAGNOSTICS: bool> Search<'_, DIAGNOSTICS> {
     fn feasible(&self, start: usize) -> bool {
         let domains = self.groups[start..]
             .iter()
@@ -333,7 +333,9 @@ impl Search<'_> {
         }
         self.report.states += 1;
         if !self.feasible(index) {
-            self.report.capacity_prunes += 1;
+            if DIAGNOSTICS {
+                self.report.capacity_prunes += 1;
+            }
             return Ok(());
         }
         if index == self.groups.len() {
@@ -388,7 +390,9 @@ impl Search<'_> {
             if n < demand {
                 continue;
             }
-            self.report.branches += 1;
+            if DIAGNOSTICS {
+                self.report.branches += 1;
+            }
             self.supply.insert(value.clone(), n - demand);
             let var = match self.groups[index].identity {
                 Identity::Variable(v) => Some(v),
