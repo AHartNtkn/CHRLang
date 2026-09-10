@@ -144,6 +144,8 @@ The subsequent [CHR-expressed constructor/consumption gate](S02-chr-constructors
 
 ### 16. Direct choice graphs, derivation nets, pull-tabbing and richer local graph calculi — Not directly tested as complete alternatives
 
+**Current follow-up.** The [native ground compiler](S03-native-consuming.md) now carries actual consuming source rules through native choices and retained observation, with independent complete residual checks. Its admitted count quotient does not qualify identity-bearing values, propagation, general equality or local claims/commits. Complete native costs remain unmeasured.
+
 **Result.** E04 tested occurrence-local dispatch and expansion caching; E06 tested services and native mapping hazards; E18 established finite monotone relational feasibility. None supplies a matched whole-path result for a direct distributed choice graph, general derivation-net compiler, memoized pull-tabbing engine, or richer additive/multiport execution architecture. The direct-choice entry did not become a completed semantic gate.
 
 **Why I stopped.** I prioritized other experiments and later described these as lacking a selected source need. That is a prioritization judgment. Neither a slow service encoding nor the existence of a conventional control is experimental grounds for rejecting these architectures. Their integration, correctness and total costs remain unanswered. [Direct-choice entry](../../goals/chr-experiments/notes/T021-distributed-choice-entry.md), [E18 gate](E18-relational-gate.md), [framing review](../research-framing-review.md), [earlier direction audit](../../goals/chr-sharing/notes/T018-final-direction-audit.md)

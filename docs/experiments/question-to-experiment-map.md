@@ -1,6 +1,6 @@
 # What experiment answers each reviewed design question?
 
-The [native structured-observation gate](results/S03-native-structured.md) completes460 processes. Choice correlation, raw off-output histories, explicit failure obligations and finite structured siblings pass; cancellation traces match uninterrupted prefixes. T080 next qualifies consuming source effects and occurrence ownership. General CHR correspondence, service-cost bounds and lifecycle comparisons remain open.
+The [native consuming-source gate](results/S03-native-consuming.md) passes952 comparison processes over80 ground configurations. Independent occurrence and reference checks preserve competing consumers, kept heads, branch-local effects and raw multiplicity. A diagnosed finite cutoff completes under the corrected bound. T080 next qualifies identities, aliases and propagation beyond the admitted count quotient; general source correspondence and complete costs remain open.
 
 The [finite-solver lifecycle pilot](results/S06-finite-lifecycle.md) completes 1,428 processes across 204 configurations. A [paired allocation correction](results/S06-empty-complement-attribution.md) completes another 252 processes. Selective four-query allocation falls to 0.795 MB, below both conditional orders; the unselective batch still requests 15.77 MB versus specialization’s 9.24 MB. These are bounded results, with compilation and broader solver questions still open.
 

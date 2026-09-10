@@ -1,0 +1,1282 @@
+[
+  {
+    "case": "compete-0-0",
+    "reference": {
+      "exhausted": true,
+      "raw": 1,
+      "answers": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "source": "a,b\n-;a,token;oa\n-;b,token;ob\n",
+      "stdout": "true 1\na,b\n"
+    }
+  },
+  {
+    "case": "compete-0-1",
+    "reference": {
+      "exhausted": true,
+      "raw": 1,
+      "answers": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "source": "b,a\n-;a,token;oa\n-;b,token;ob\n",
+      "stdout": "true 1\na,b\n"
+    }
+  },
+  {
+    "case": "compete-1-0",
+    "reference": {
+      "exhausted": true,
+      "raw": 1,
+      "answers": [
+        [
+          "b",
+          "oa"
+        ]
+      ],
+      "source": "a,b,token\n-;a,token;oa\n-;b,token;ob\n",
+      "stdout": "true 1\nb,oa\n"
+    }
+  },
+  {
+    "case": "compete-1-1",
+    "reference": {
+      "exhausted": true,
+      "raw": 1,
+      "answers": [
+        [
+          "b",
+          "oa"
+        ]
+      ],
+      "source": "token,b,a\n-;a,token;oa\n-;b,token;ob\n",
+      "stdout": "true 1\nb,oa\n"
+    }
+  },
+  {
+    "case": "compete-2-0",
+    "reference": {
+      "exhausted": true,
+      "raw": 1,
+      "answers": [
+        [
+          "oa",
+          "ob"
+        ]
+      ],
+      "source": "a,b,token,token\n-;a,token;oa\n-;b,token;ob\n",
+      "stdout": "true 1\noa,ob\n"
+    }
+  },
+  {
+    "case": "compete-2-1",
+    "reference": {
+      "exhausted": true,
+      "raw": 1,
+      "answers": [
+        [
+          "oa",
+          "ob"
+        ]
+      ],
+      "source": "token,token,b,a\n-;a,token;oa\n-;b,token;ob\n",
+      "stdout": "true 1\noa,ob\n"
+    }
+  },
+  {
+    "case": "compete-3-0",
+    "reference": {
+      "exhausted": true,
+      "raw": 1,
+      "answers": [
+        [
+          "oa",
+          "ob",
+          "token"
+        ]
+      ],
+      "source": "a,b,token,token,token\n-;a,token;oa\n-;b,token;ob\n",
+      "stdout": "true 1\noa,ob,token\n"
+    }
+  },
+  {
+    "case": "compete-3-1",
+    "reference": {
+      "exhausted": true,
+      "raw": 1,
+      "answers": [
+        [
+          "oa",
+          "ob",
+          "token"
+        ]
+      ],
+      "source": "token,token,token,b,a\n-;a,token;oa\n-;b,token;ob\n",
+      "stdout": "true 1\noa,ob,token\n"
+    }
+  },
+  {
+    "case": "compete-reverse-0-0",
+    "reference": {
+      "exhausted": true,
+      "raw": 1,
+      "answers": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "source": "a,b\n-;b,token;ob\n-;a,token;oa\n",
+      "stdout": "true 1\na,b\n"
+    }
+  },
+  {
+    "case": "compete-reverse-0-1",
+    "reference": {
+      "exhausted": true,
+      "raw": 1,
+      "answers": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "source": "b,a\n-;b,token;ob\n-;a,token;oa\n",
+      "stdout": "true 1\na,b\n"
+    }
+  },
+  {
+    "case": "compete-reverse-1-0",
+    "reference": {
+      "exhausted": true,
+      "raw": 1,
+      "answers": [
+        [
+          "a",
+          "ob"
+        ]
+      ],
+      "source": "a,b,token\n-;b,token;ob\n-;a,token;oa\n",
+      "stdout": "true 1\na,ob\n"
+    }
+  },
+  {
+    "case": "compete-reverse-1-1",
+    "reference": {
+      "exhausted": true,
+      "raw": 1,
+      "answers": [
+        [
+          "a",
+          "ob"
+        ]
+      ],
+      "source": "token,b,a\n-;b,token;ob\n-;a,token;oa\n",
+      "stdout": "true 1\na,ob\n"
+    }
+  },
+  {
+    "case": "compete-reverse-2-0",
+    "reference": {
+      "exhausted": true,
+      "raw": 1,
+      "answers": [
+        [
+          "oa",
+          "ob"
+        ]
+      ],
+      "source": "a,b,token,token\n-;b,token;ob\n-;a,token;oa\n",
+      "stdout": "true 1\noa,ob\n"
+    }
+  },
+  {
+    "case": "compete-reverse-2-1",
+    "reference": {
+      "exhausted": true,
+      "raw": 1,
+      "answers": [
+        [
+          "oa",
+          "ob"
+        ]
+      ],
+      "source": "token,token,b,a\n-;b,token;ob\n-;a,token;oa\n",
+      "stdout": "true 1\noa,ob\n"
+    }
+  },
+  {
+    "case": "compete-reverse-3-0",
+    "reference": {
+      "exhausted": true,
+      "raw": 1,
+      "answers": [
+        [
+          "oa",
+          "ob",
+          "token"
+        ]
+      ],
+      "source": "a,b,token,token,token\n-;b,token;ob\n-;a,token;oa\n",
+      "stdout": "true 1\noa,ob,token\n"
+    }
+  },
+  {
+    "case": "compete-reverse-3-1",
+    "reference": {
+      "exhausted": true,
+      "raw": 1,
+      "answers": [
+        [
+          "oa",
+          "ob",
+          "token"
+        ]
+      ],
+      "source": "token,token,token,b,a\n-;b,token;ob\n-;a,token;oa\n",
+      "stdout": "true 1\noa,ob,token\n"
+    }
+  },
+  {
+    "case": "repeated-0-0",
+    "reference": {
+      "exhausted": true,
+      "raw": 1,
+      "answers": [
+        []
+      ],
+      "source": "-\n-;token,token;pair\n",
+      "stdout": "true 1\n\n"
+    }
+  },
+  {
+    "case": "repeated-0-1",
+    "reference": {
+      "exhausted": true,
+      "raw": 1,
+      "answers": [
+        []
+      ],
+      "source": "-\n-;token,token;pair\n",
+      "stdout": "true 1\n\n"
+    }
+  },
+  {
+    "case": "repeated-1-0",
+    "reference": {
+      "exhausted": true,
+      "raw": 1,
+      "answers": [
+        [
+          "token"
+        ]
+      ],
+      "source": "token\n-;token,token;pair\n",
+      "stdout": "true 1\ntoken\n"
+    }
+  },
+  {
+    "case": "repeated-1-1",
+    "reference": {
+      "exhausted": true,
+      "raw": 1,
+      "answers": [
+        [
+          "token"
+        ]
+      ],
+      "source": "token\n-;token,token;pair\n",
+      "stdout": "true 1\ntoken\n"
+    }
+  },
+  {
+    "case": "repeated-2-0",
+    "reference": {
+      "exhausted": true,
+      "raw": 1,
+      "answers": [
+        [
+          "pair"
+        ]
+      ],
+      "source": "token,token\n-;token,token;pair\n",
+      "stdout": "true 1\npair\n"
+    }
+  },
+  {
+    "case": "repeated-2-1",
+    "reference": {
+      "exhausted": true,
+      "raw": 1,
+      "answers": [
+        [
+          "pair"
+        ]
+      ],
+      "source": "token,token\n-;token,token;pair\n",
+      "stdout": "true 1\npair\n"
+    }
+  },
+  {
+    "case": "repeated-3-0",
+    "reference": {
+      "exhausted": true,
+      "raw": 1,
+      "answers": [
+        [
+          "pair",
+          "token"
+        ]
+      ],
+      "source": "token,token,token\n-;token,token;pair\n",
+      "stdout": "true 1\npair,token\n"
+    }
+  },
+  {
+    "case": "repeated-3-1",
+    "reference": {
+      "exhausted": true,
+      "raw": 1,
+      "answers": [
+        [
+          "pair",
+          "token"
+        ]
+      ],
+      "source": "token,token,token\n-;token,token;pair\n",
+      "stdout": "true 1\npair,token\n"
+    }
+  },
+  {
+    "case": "kept-overlap-0-0",
+    "reference": {
+      "exhausted": true,
+      "raw": 1,
+      "answers": [
+        []
+      ],
+      "source": "-\ntoken;token;seen\n",
+      "stdout": "true 1\n\n"
+    }
+  },
+  {
+    "case": "kept-overlap-0-1",
+    "reference": {
+      "exhausted": true,
+      "raw": 1,
+      "answers": [
+        []
+      ],
+      "source": "-\ntoken;token;seen\n",
+      "stdout": "true 1\n\n"
+    }
+  },
+  {
+    "case": "kept-overlap-1-0",
+    "reference": {
+      "exhausted": true,
+      "raw": 1,
+      "answers": [
+        [
+          "token"
+        ]
+      ],
+      "source": "token\ntoken;token;seen\n",
+      "stdout": "true 1\ntoken\n"
+    }
+  },
+  {
+    "case": "kept-overlap-1-1",
+    "reference": {
+      "exhausted": true,
+      "raw": 1,
+      "answers": [
+        [
+          "token"
+        ]
+      ],
+      "source": "token\ntoken;token;seen\n",
+      "stdout": "true 1\ntoken\n"
+    }
+  },
+  {
+    "case": "kept-overlap-2-0",
+    "reference": {
+      "exhausted": true,
+      "raw": 1,
+      "answers": [
+        [
+          "seen",
+          "token"
+        ]
+      ],
+      "source": "token,token\ntoken;token;seen\n",
+      "stdout": "true 1\nseen,token\n"
+    }
+  },
+  {
+    "case": "kept-overlap-2-1",
+    "reference": {
+      "exhausted": true,
+      "raw": 1,
+      "answers": [
+        [
+          "seen",
+          "token"
+        ]
+      ],
+      "source": "token,token\ntoken;token;seen\n",
+      "stdout": "true 1\nseen,token\n"
+    }
+  },
+  {
+    "case": "kept-overlap-3-0",
+    "reference": {
+      "exhausted": true,
+      "raw": 1,
+      "answers": [
+        [
+          "seen",
+          "seen",
+          "token"
+        ]
+      ],
+      "source": "token,token,token\ntoken;token;seen\n",
+      "stdout": "true 1\nseen,seen,token\n"
+    }
+  },
+  {
+    "case": "kept-overlap-3-1",
+    "reference": {
+      "exhausted": true,
+      "raw": 1,
+      "answers": [
+        [
+          "seen",
+          "seen",
+          "token"
+        ]
+      ],
+      "source": "token,token,token\ntoken;token;seen\n",
+      "stdout": "true 1\nseen,seen,token\n"
+    }
+  },
+  {
+    "case": "watch-0-0",
+    "reference": {
+      "exhausted": true,
+      "raw": 1,
+      "answers": [
+        [
+          "a",
+          "watch"
+        ]
+      ],
+      "source": "watch,a\ntoken;watch;seen\n-;a,token;oa\n",
+      "stdout": "true 1\na,watch\n"
+    }
+  },
+  {
+    "case": "watch-0-1",
+    "reference": {
+      "exhausted": true,
+      "raw": 1,
+      "answers": [
+        [
+          "a",
+          "watch"
+        ]
+      ],
+      "source": "a,watch\ntoken;watch;seen\n-;a,token;oa\n",
+      "stdout": "true 1\na,watch\n"
+    }
+  },
+  {
+    "case": "watch-1-0",
+    "reference": {
+      "exhausted": true,
+      "raw": 1,
+      "answers": [
+        [
+          "oa",
+          "seen"
+        ]
+      ],
+      "source": "watch,a,token\ntoken;watch;seen\n-;a,token;oa\n",
+      "stdout": "true 1\noa,seen\n"
+    }
+  },
+  {
+    "case": "watch-1-1",
+    "reference": {
+      "exhausted": true,
+      "raw": 1,
+      "answers": [
+        [
+          "oa",
+          "seen"
+        ]
+      ],
+      "source": "token,a,watch\ntoken;watch;seen\n-;a,token;oa\n",
+      "stdout": "true 1\noa,seen\n"
+    }
+  },
+  {
+    "case": "watch-2-0",
+    "reference": {
+      "exhausted": true,
+      "raw": 1,
+      "answers": [
+        [
+          "oa",
+          "seen",
+          "token"
+        ]
+      ],
+      "source": "watch,a,token,token\ntoken;watch;seen\n-;a,token;oa\n",
+      "stdout": "true 1\noa,seen,token\n"
+    }
+  },
+  {
+    "case": "watch-2-1",
+    "reference": {
+      "exhausted": true,
+      "raw": 1,
+      "answers": [
+        [
+          "oa",
+          "seen",
+          "token"
+        ]
+      ],
+      "source": "token,token,a,watch\ntoken;watch;seen\n-;a,token;oa\n",
+      "stdout": "true 1\noa,seen,token\n"
+    }
+  },
+  {
+    "case": "watch-3-0",
+    "reference": {
+      "exhausted": true,
+      "raw": 1,
+      "answers": [
+        [
+          "oa",
+          "seen",
+          "token",
+          "token"
+        ]
+      ],
+      "source": "watch,a,token,token,token\ntoken;watch;seen\n-;a,token;oa\n",
+      "stdout": "true 1\noa,seen,token,token\n"
+    }
+  },
+  {
+    "case": "watch-3-1",
+    "reference": {
+      "exhausted": true,
+      "raw": 1,
+      "answers": [
+        [
+          "oa",
+          "seen",
+          "token",
+          "token"
+        ]
+      ],
+      "source": "token,token,token,a,watch\ntoken;watch;seen\n-;a,token;oa\n",
+      "stdout": "true 1\noa,seen,token,token\n"
+    }
+  },
+  {
+    "case": "binary-0-0",
+    "reference": {
+      "exhausted": true,
+      "raw": 2,
+      "answers": [
+        [
+          "a"
+        ],
+        [
+          "b"
+        ]
+      ],
+      "source": "go\n-;go;a|b\n-;a,token;oa\n-;b,token;ob\n",
+      "stdout": "true 2\na\nb\n"
+    }
+  },
+  {
+    "case": "binary-0-1",
+    "reference": {
+      "exhausted": true,
+      "raw": 2,
+      "answers": [
+        [
+          "a"
+        ],
+        [
+          "b"
+        ]
+      ],
+      "source": "go\n-;go;a|b\n-;a,token;oa\n-;b,token;ob\n",
+      "stdout": "true 2\na\nb\n"
+    }
+  },
+  {
+    "case": "binary-1-0",
+    "reference": {
+      "exhausted": true,
+      "raw": 2,
+      "answers": [
+        [
+          "oa"
+        ],
+        [
+          "ob"
+        ]
+      ],
+      "source": "go,token\n-;go;a|b\n-;a,token;oa\n-;b,token;ob\n",
+      "stdout": "true 2\noa\nob\n"
+    }
+  },
+  {
+    "case": "binary-1-1",
+    "reference": {
+      "exhausted": true,
+      "raw": 2,
+      "answers": [
+        [
+          "oa"
+        ],
+        [
+          "ob"
+        ]
+      ],
+      "source": "token,go\n-;go;a|b\n-;a,token;oa\n-;b,token;ob\n",
+      "stdout": "true 2\noa\nob\n"
+    }
+  },
+  {
+    "case": "binary-2-0",
+    "reference": {
+      "exhausted": true,
+      "raw": 2,
+      "answers": [
+        [
+          "oa",
+          "token"
+        ],
+        [
+          "ob",
+          "token"
+        ]
+      ],
+      "source": "go,token,token\n-;go;a|b\n-;a,token;oa\n-;b,token;ob\n",
+      "stdout": "true 2\noa,token\nob,token\n"
+    }
+  },
+  {
+    "case": "binary-2-1",
+    "reference": {
+      "exhausted": true,
+      "raw": 2,
+      "answers": [
+        [
+          "oa",
+          "token"
+        ],
+        [
+          "ob",
+          "token"
+        ]
+      ],
+      "source": "token,token,go\n-;go;a|b\n-;a,token;oa\n-;b,token;ob\n",
+      "stdout": "true 2\noa,token\nob,token\n"
+    }
+  },
+  {
+    "case": "binary-3-0",
+    "reference": {
+      "exhausted": true,
+      "raw": 2,
+      "answers": [
+        [
+          "oa",
+          "token",
+          "token"
+        ],
+        [
+          "ob",
+          "token",
+          "token"
+        ]
+      ],
+      "source": "go,token,token,token\n-;go;a|b\n-;a,token;oa\n-;b,token;ob\n",
+      "stdout": "true 2\noa,token,token\nob,token,token\n"
+    }
+  },
+  {
+    "case": "binary-3-1",
+    "reference": {
+      "exhausted": true,
+      "raw": 2,
+      "answers": [
+        [
+          "oa",
+          "token",
+          "token"
+        ],
+        [
+          "ob",
+          "token",
+          "token"
+        ]
+      ],
+      "source": "token,token,token,go\n-;go;a|b\n-;a,token;oa\n-;b,token;ob\n",
+      "stdout": "true 2\noa,token,token\nob,token,token\n"
+    }
+  },
+  {
+    "case": "duplicate-0-0",
+    "reference": {
+      "exhausted": true,
+      "raw": 2,
+      "answers": [
+        [
+          "a"
+        ]
+      ],
+      "source": "go\n-;go;a|a\n-;a,token;oa\n",
+      "stdout": "true 2\na\n"
+    }
+  },
+  {
+    "case": "duplicate-0-1",
+    "reference": {
+      "exhausted": true,
+      "raw": 2,
+      "answers": [
+        [
+          "a"
+        ]
+      ],
+      "source": "go\n-;go;a|a\n-;a,token;oa\n",
+      "stdout": "true 2\na\n"
+    }
+  },
+  {
+    "case": "duplicate-1-0",
+    "reference": {
+      "exhausted": true,
+      "raw": 2,
+      "answers": [
+        [
+          "oa"
+        ]
+      ],
+      "source": "go,token\n-;go;a|a\n-;a,token;oa\n",
+      "stdout": "true 2\noa\n"
+    }
+  },
+  {
+    "case": "duplicate-1-1",
+    "reference": {
+      "exhausted": true,
+      "raw": 2,
+      "answers": [
+        [
+          "oa"
+        ]
+      ],
+      "source": "token,go\n-;go;a|a\n-;a,token;oa\n",
+      "stdout": "true 2\noa\n"
+    }
+  },
+  {
+    "case": "duplicate-2-0",
+    "reference": {
+      "exhausted": true,
+      "raw": 2,
+      "answers": [
+        [
+          "oa",
+          "token"
+        ]
+      ],
+      "source": "go,token,token\n-;go;a|a\n-;a,token;oa\n",
+      "stdout": "true 2\noa,token\n"
+    }
+  },
+  {
+    "case": "duplicate-2-1",
+    "reference": {
+      "exhausted": true,
+      "raw": 2,
+      "answers": [
+        [
+          "oa",
+          "token"
+        ]
+      ],
+      "source": "token,token,go\n-;go;a|a\n-;a,token;oa\n",
+      "stdout": "true 2\noa,token\n"
+    }
+  },
+  {
+    "case": "duplicate-3-0",
+    "reference": {
+      "exhausted": true,
+      "raw": 2,
+      "answers": [
+        [
+          "oa",
+          "token",
+          "token"
+        ]
+      ],
+      "source": "go,token,token,token\n-;go;a|a\n-;a,token;oa\n",
+      "stdout": "true 2\noa,token,token\n"
+    }
+  },
+  {
+    "case": "duplicate-3-1",
+    "reference": {
+      "exhausted": true,
+      "raw": 2,
+      "answers": [
+        [
+          "oa",
+          "token",
+          "token"
+        ]
+      ],
+      "source": "token,token,token,go\n-;go;a|a\n-;a,token;oa\n",
+      "stdout": "true 2\noa,token,token\n"
+    }
+  },
+  {
+    "case": "nested-0-0",
+    "reference": {
+      "exhausted": true,
+      "raw": 3,
+      "answers": [
+        [
+          "a"
+        ],
+        [
+          "b"
+        ],
+        [
+          "c"
+        ]
+      ],
+      "source": "go\n-;go;again|a\n-;again;b|c\n-;a,token;oa\n-;b,token;ob\n-;c,token;oc\n",
+      "stdout": "true 3\na\nb\nc\n"
+    }
+  },
+  {
+    "case": "nested-0-1",
+    "reference": {
+      "exhausted": true,
+      "raw": 3,
+      "answers": [
+        [
+          "a"
+        ],
+        [
+          "b"
+        ],
+        [
+          "c"
+        ]
+      ],
+      "source": "go\n-;go;again|a\n-;again;b|c\n-;a,token;oa\n-;b,token;ob\n-;c,token;oc\n",
+      "stdout": "true 3\na\nb\nc\n"
+    }
+  },
+  {
+    "case": "nested-1-0",
+    "reference": {
+      "exhausted": true,
+      "raw": 3,
+      "answers": [
+        [
+          "oa"
+        ],
+        [
+          "ob"
+        ],
+        [
+          "oc"
+        ]
+      ],
+      "source": "go,token\n-;go;again|a\n-;again;b|c\n-;a,token;oa\n-;b,token;ob\n-;c,token;oc\n",
+      "stdout": "true 3\noa\nob\noc\n"
+    }
+  },
+  {
+    "case": "nested-1-1",
+    "reference": {
+      "exhausted": true,
+      "raw": 3,
+      "answers": [
+        [
+          "oa"
+        ],
+        [
+          "ob"
+        ],
+        [
+          "oc"
+        ]
+      ],
+      "source": "token,go\n-;go;again|a\n-;again;b|c\n-;a,token;oa\n-;b,token;ob\n-;c,token;oc\n",
+      "stdout": "true 3\noa\nob\noc\n"
+    }
+  },
+  {
+    "case": "nested-2-0",
+    "reference": {
+      "exhausted": true,
+      "raw": 3,
+      "answers": [
+        [
+          "oa",
+          "token"
+        ],
+        [
+          "ob",
+          "token"
+        ],
+        [
+          "oc",
+          "token"
+        ]
+      ],
+      "source": "go,token,token\n-;go;again|a\n-;again;b|c\n-;a,token;oa\n-;b,token;ob\n-;c,token;oc\n",
+      "stdout": "true 3\noa,token\nob,token\noc,token\n"
+    }
+  },
+  {
+    "case": "nested-2-1",
+    "reference": {
+      "exhausted": true,
+      "raw": 3,
+      "answers": [
+        [
+          "oa",
+          "token"
+        ],
+        [
+          "ob",
+          "token"
+        ],
+        [
+          "oc",
+          "token"
+        ]
+      ],
+      "source": "token,token,go\n-;go;again|a\n-;again;b|c\n-;a,token;oa\n-;b,token;ob\n-;c,token;oc\n",
+      "stdout": "true 3\noa,token\nob,token\noc,token\n"
+    }
+  },
+  {
+    "case": "nested-3-0",
+    "reference": {
+      "exhausted": true,
+      "raw": 3,
+      "answers": [
+        [
+          "oa",
+          "token",
+          "token"
+        ],
+        [
+          "ob",
+          "token",
+          "token"
+        ],
+        [
+          "oc",
+          "token",
+          "token"
+        ]
+      ],
+      "source": "go,token,token,token\n-;go;again|a\n-;again;b|c\n-;a,token;oa\n-;b,token;ob\n-;c,token;oc\n",
+      "stdout": "true 3\noa,token,token\nob,token,token\noc,token,token\n"
+    }
+  },
+  {
+    "case": "nested-3-1",
+    "reference": {
+      "exhausted": true,
+      "raw": 3,
+      "answers": [
+        [
+          "oa",
+          "token",
+          "token"
+        ],
+        [
+          "ob",
+          "token",
+          "token"
+        ],
+        [
+          "oc",
+          "token",
+          "token"
+        ]
+      ],
+      "source": "token,token,token,go\n-;go;again|a\n-;again;b|c\n-;a,token;oa\n-;b,token;ob\n-;c,token;oc\n",
+      "stdout": "true 3\noa,token,token\nob,token,token\noc,token,token\n"
+    }
+  },
+  {
+    "case": "failure-0-0",
+    "reference": {
+      "exhausted": true,
+      "raw": 2,
+      "answers": [
+        [
+          "a"
+        ],
+        [
+          "b"
+        ]
+      ],
+      "source": "go\n-;go;a|b\n-;a,token;oa\n-;b,token;!\n",
+      "stdout": "true 2\na\nb\n"
+    }
+  },
+  {
+    "case": "failure-0-1",
+    "reference": {
+      "exhausted": true,
+      "raw": 2,
+      "answers": [
+        [
+          "a"
+        ],
+        [
+          "b"
+        ]
+      ],
+      "source": "go\n-;go;a|b\n-;a,token;oa\n-;b,token;!\n",
+      "stdout": "true 2\na\nb\n"
+    }
+  },
+  {
+    "case": "failure-1-0",
+    "reference": {
+      "exhausted": true,
+      "raw": 1,
+      "answers": [
+        [
+          "oa"
+        ]
+      ],
+      "source": "go,token\n-;go;a|b\n-;a,token;oa\n-;b,token;!\n",
+      "stdout": "true 1\noa\n"
+    }
+  },
+  {
+    "case": "failure-1-1",
+    "reference": {
+      "exhausted": true,
+      "raw": 1,
+      "answers": [
+        [
+          "oa"
+        ]
+      ],
+      "source": "token,go\n-;go;a|b\n-;a,token;oa\n-;b,token;!\n",
+      "stdout": "true 1\noa\n"
+    }
+  },
+  {
+    "case": "failure-2-0",
+    "reference": {
+      "exhausted": true,
+      "raw": 1,
+      "answers": [
+        [
+          "oa",
+          "token"
+        ]
+      ],
+      "source": "go,token,token\n-;go;a|b\n-;a,token;oa\n-;b,token;!\n",
+      "stdout": "true 1\noa,token\n"
+    }
+  },
+  {
+    "case": "failure-2-1",
+    "reference": {
+      "exhausted": true,
+      "raw": 1,
+      "answers": [
+        [
+          "oa",
+          "token"
+        ]
+      ],
+      "source": "token,token,go\n-;go;a|b\n-;a,token;oa\n-;b,token;!\n",
+      "stdout": "true 1\noa,token\n"
+    }
+  },
+  {
+    "case": "failure-3-0",
+    "reference": {
+      "exhausted": true,
+      "raw": 1,
+      "answers": [
+        [
+          "oa",
+          "token",
+          "token"
+        ]
+      ],
+      "source": "go,token,token,token\n-;go;a|b\n-;a,token;oa\n-;b,token;!\n",
+      "stdout": "true 1\noa,token,token\n"
+    }
+  },
+  {
+    "case": "failure-3-1",
+    "reference": {
+      "exhausted": true,
+      "raw": 1,
+      "answers": [
+        [
+          "oa",
+          "token",
+          "token"
+        ]
+      ],
+      "source": "token,token,token,go\n-;go;a|b\n-;a,token;oa\n-;b,token;!\n",
+      "stdout": "true 1\noa,token,token\n"
+    }
+  },
+  {
+    "case": "loop-0-0",
+    "reference": {
+      "exhausted": false,
+      "raw": 1,
+      "answers": [
+        [
+          "a"
+        ]
+      ],
+      "source": "go\n-;go;loop|a\n-;loop;loop\n-;a,token;oa\n",
+      "stdout": "false 1\na\n"
+    }
+  },
+  {
+    "case": "loop-0-1",
+    "reference": {
+      "exhausted": false,
+      "raw": 1,
+      "answers": [
+        [
+          "a"
+        ]
+      ],
+      "source": "go\n-;go;loop|a\n-;loop;loop\n-;a,token;oa\n",
+      "stdout": "false 1\na\n"
+    }
+  },
+  {
+    "case": "loop-1-0",
+    "reference": {
+      "exhausted": false,
+      "raw": 1,
+      "answers": [
+        [
+          "oa"
+        ]
+      ],
+      "source": "go,token\n-;go;loop|a\n-;loop;loop\n-;a,token;oa\n",
+      "stdout": "false 1\noa\n"
+    }
+  },
+  {
+    "case": "loop-1-1",
+    "reference": {
+      "exhausted": false,
+      "raw": 1,
+      "answers": [
+        [
+          "oa"
+        ]
+      ],
+      "source": "token,go\n-;go;loop|a\n-;loop;loop\n-;a,token;oa\n",
+      "stdout": "false 1\noa\n"
+    }
+  },
+  {
+    "case": "loop-2-0",
+    "reference": {
+      "exhausted": false,
+      "raw": 1,
+      "answers": [
+        [
+          "oa",
+          "token"
+        ]
+      ],
+      "source": "go,token,token\n-;go;loop|a\n-;loop;loop\n-;a,token;oa\n",
+      "stdout": "false 1\noa,token\n"
+    }
+  },
+  {
+    "case": "loop-2-1",
+    "reference": {
+      "exhausted": false,
+      "raw": 1,
+      "answers": [
+        [
+          "oa",
+          "token"
+        ]
+      ],
+      "source": "token,token,go\n-;go;loop|a\n-;loop;loop\n-;a,token;oa\n",
+      "stdout": "false 1\noa,token\n"
+    }
+  },
+  {
+    "case": "loop-3-0",
+    "reference": {
+      "exhausted": false,
+      "raw": 1,
+      "answers": [
+        [
+          "oa",
+          "token",
+          "token"
+        ]
+      ],
+      "source": "go,token,token,token\n-;go;loop|a\n-;loop;loop\n-;a,token;oa\n",
+      "stdout": "false 1\noa,token,token\n"
+    }
+  },
+  {
+    "case": "loop-3-1",
+    "reference": {
+      "exhausted": false,
+      "raw": 1,
+      "answers": [
+        [
+          "oa",
+          "token",
+          "token"
+        ]
+      ],
+      "source": "token,token,token,go\n-;go;loop|a\n-;loop;loop\n-;a,token;oa\n",
+      "stdout": "false 1\noa,token,token\n"
+    }
+  }
+]

@@ -1,0 +1,4056 @@
+[
+  {
+    "name": "compete-0-0",
+    "predicates": [
+      "a",
+      "b",
+      "oa",
+      "ob",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "b",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "ob"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "a",
+      "b"
+    ],
+    "expected": [
+      "#Answer{#Cons{1,#Cons{1,#Cons{0,#Cons{0,#Cons{0,#Nil{}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "compete-0-1",
+    "predicates": [
+      "a",
+      "b",
+      "oa",
+      "ob",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "b",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "ob"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "b",
+      "a"
+    ],
+    "expected": [
+      "#Answer{#Cons{1,#Cons{1,#Cons{0,#Cons{0,#Cons{0,#Nil{}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "compete-1-0",
+    "predicates": [
+      "a",
+      "b",
+      "oa",
+      "ob",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "b",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "ob"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "a",
+      "b",
+      "token"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{1,#Cons{1,#Cons{0,#Cons{0,#Nil{}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "compete-1-1",
+    "predicates": [
+      "a",
+      "b",
+      "oa",
+      "ob",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "b",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "ob"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "token",
+      "b",
+      "a"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{1,#Cons{1,#Cons{0,#Cons{0,#Nil{}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "compete-2-0",
+    "predicates": [
+      "a",
+      "b",
+      "oa",
+      "ob",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "b",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "ob"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "a",
+      "b",
+      "token",
+      "token"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{0,#Cons{1,#Cons{1,#Cons{0,#Nil{}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "compete-2-1",
+    "predicates": [
+      "a",
+      "b",
+      "oa",
+      "ob",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "b",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "ob"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "token",
+      "token",
+      "b",
+      "a"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{0,#Cons{1,#Cons{1,#Cons{0,#Nil{}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "compete-3-0",
+    "predicates": [
+      "a",
+      "b",
+      "oa",
+      "ob",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "b",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "ob"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "a",
+      "b",
+      "token",
+      "token",
+      "token"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{0,#Cons{1,#Cons{1,#Cons{1,#Nil{}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "compete-3-1",
+    "predicates": [
+      "a",
+      "b",
+      "oa",
+      "ob",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "b",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "ob"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "token",
+      "token",
+      "token",
+      "b",
+      "a"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{0,#Cons{1,#Cons{1,#Cons{1,#Nil{}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "compete-reverse-0-0",
+    "predicates": [
+      "a",
+      "b",
+      "oa",
+      "ob",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "b",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "ob"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "a",
+      "b"
+    ],
+    "expected": [
+      "#Answer{#Cons{1,#Cons{1,#Cons{0,#Cons{0,#Cons{0,#Nil{}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "compete-reverse-0-1",
+    "predicates": [
+      "a",
+      "b",
+      "oa",
+      "ob",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "b",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "ob"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "b",
+      "a"
+    ],
+    "expected": [
+      "#Answer{#Cons{1,#Cons{1,#Cons{0,#Cons{0,#Cons{0,#Nil{}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "compete-reverse-1-0",
+    "predicates": [
+      "a",
+      "b",
+      "oa",
+      "ob",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "b",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "ob"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "a",
+      "b",
+      "token"
+    ],
+    "expected": [
+      "#Answer{#Cons{1,#Cons{0,#Cons{0,#Cons{1,#Cons{0,#Nil{}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "compete-reverse-1-1",
+    "predicates": [
+      "a",
+      "b",
+      "oa",
+      "ob",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "b",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "ob"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "token",
+      "b",
+      "a"
+    ],
+    "expected": [
+      "#Answer{#Cons{1,#Cons{0,#Cons{0,#Cons{1,#Cons{0,#Nil{}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "compete-reverse-2-0",
+    "predicates": [
+      "a",
+      "b",
+      "oa",
+      "ob",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "b",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "ob"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "a",
+      "b",
+      "token",
+      "token"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{0,#Cons{1,#Cons{1,#Cons{0,#Nil{}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "compete-reverse-2-1",
+    "predicates": [
+      "a",
+      "b",
+      "oa",
+      "ob",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "b",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "ob"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "token",
+      "token",
+      "b",
+      "a"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{0,#Cons{1,#Cons{1,#Cons{0,#Nil{}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "compete-reverse-3-0",
+    "predicates": [
+      "a",
+      "b",
+      "oa",
+      "ob",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "b",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "ob"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "a",
+      "b",
+      "token",
+      "token",
+      "token"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{0,#Cons{1,#Cons{1,#Cons{1,#Nil{}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "compete-reverse-3-1",
+    "predicates": [
+      "a",
+      "b",
+      "oa",
+      "ob",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "b",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "ob"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "token",
+      "token",
+      "token",
+      "b",
+      "a"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{0,#Cons{1,#Cons{1,#Cons{1,#Nil{}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "repeated-0-0",
+    "predicates": [
+      "pair",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "token",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "pair"
+          ]
+        ]
+      }
+    ],
+    "query": [],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{0,#Nil{}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "repeated-0-1",
+    "predicates": [
+      "pair",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "token",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "pair"
+          ]
+        ]
+      }
+    ],
+    "query": [],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{0,#Nil{}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "repeated-1-0",
+    "predicates": [
+      "pair",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "token",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "pair"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "token"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{1,#Nil{}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "repeated-1-1",
+    "predicates": [
+      "pair",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "token",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "pair"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "token"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{1,#Nil{}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "repeated-2-0",
+    "predicates": [
+      "pair",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "token",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "pair"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "token",
+      "token"
+    ],
+    "expected": [
+      "#Answer{#Cons{1,#Cons{0,#Nil{}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "repeated-2-1",
+    "predicates": [
+      "pair",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "token",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "pair"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "token",
+      "token"
+    ],
+    "expected": [
+      "#Answer{#Cons{1,#Cons{0,#Nil{}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "repeated-3-0",
+    "predicates": [
+      "pair",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "token",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "pair"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "token",
+      "token",
+      "token"
+    ],
+    "expected": [
+      "#Answer{#Cons{1,#Cons{1,#Nil{}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "repeated-3-1",
+    "predicates": [
+      "pair",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "token",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "pair"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "token",
+      "token",
+      "token"
+    ],
+    "expected": [
+      "#Answer{#Cons{1,#Cons{1,#Nil{}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "kept-overlap-0-0",
+    "predicates": [
+      "seen",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [
+          "token"
+        ],
+        "removed": [
+          "token"
+        ],
+        "alternatives": [
+          [
+            "seen"
+          ]
+        ]
+      }
+    ],
+    "query": [],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{0,#Nil{}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "kept-overlap-0-1",
+    "predicates": [
+      "seen",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [
+          "token"
+        ],
+        "removed": [
+          "token"
+        ],
+        "alternatives": [
+          [
+            "seen"
+          ]
+        ]
+      }
+    ],
+    "query": [],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{0,#Nil{}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "kept-overlap-1-0",
+    "predicates": [
+      "seen",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [
+          "token"
+        ],
+        "removed": [
+          "token"
+        ],
+        "alternatives": [
+          [
+            "seen"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "token"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{1,#Nil{}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "kept-overlap-1-1",
+    "predicates": [
+      "seen",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [
+          "token"
+        ],
+        "removed": [
+          "token"
+        ],
+        "alternatives": [
+          [
+            "seen"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "token"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{1,#Nil{}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "kept-overlap-2-0",
+    "predicates": [
+      "seen",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [
+          "token"
+        ],
+        "removed": [
+          "token"
+        ],
+        "alternatives": [
+          [
+            "seen"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "token",
+      "token"
+    ],
+    "expected": [
+      "#Answer{#Cons{1,#Cons{1,#Nil{}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "kept-overlap-2-1",
+    "predicates": [
+      "seen",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [
+          "token"
+        ],
+        "removed": [
+          "token"
+        ],
+        "alternatives": [
+          [
+            "seen"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "token",
+      "token"
+    ],
+    "expected": [
+      "#Answer{#Cons{1,#Cons{1,#Nil{}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "kept-overlap-3-0",
+    "predicates": [
+      "seen",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [
+          "token"
+        ],
+        "removed": [
+          "token"
+        ],
+        "alternatives": [
+          [
+            "seen"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "token",
+      "token",
+      "token"
+    ],
+    "expected": [
+      "#Answer{#Cons{2,#Cons{1,#Nil{}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "kept-overlap-3-1",
+    "predicates": [
+      "seen",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [
+          "token"
+        ],
+        "removed": [
+          "token"
+        ],
+        "alternatives": [
+          [
+            "seen"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "token",
+      "token",
+      "token"
+    ],
+    "expected": [
+      "#Answer{#Cons{2,#Cons{1,#Nil{}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "watch-0-0",
+    "predicates": [
+      "a",
+      "oa",
+      "seen",
+      "token",
+      "watch"
+    ],
+    "rules": [
+      {
+        "kept": [
+          "token"
+        ],
+        "removed": [
+          "watch"
+        ],
+        "alternatives": [
+          [
+            "seen"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "watch",
+      "a"
+    ],
+    "expected": [
+      "#Answer{#Cons{1,#Cons{0,#Cons{0,#Cons{0,#Cons{1,#Nil{}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "watch-0-1",
+    "predicates": [
+      "a",
+      "oa",
+      "seen",
+      "token",
+      "watch"
+    ],
+    "rules": [
+      {
+        "kept": [
+          "token"
+        ],
+        "removed": [
+          "watch"
+        ],
+        "alternatives": [
+          [
+            "seen"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "a",
+      "watch"
+    ],
+    "expected": [
+      "#Answer{#Cons{1,#Cons{0,#Cons{0,#Cons{0,#Cons{1,#Nil{}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "watch-1-0",
+    "predicates": [
+      "a",
+      "oa",
+      "seen",
+      "token",
+      "watch"
+    ],
+    "rules": [
+      {
+        "kept": [
+          "token"
+        ],
+        "removed": [
+          "watch"
+        ],
+        "alternatives": [
+          [
+            "seen"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "watch",
+      "a",
+      "token"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{1,#Cons{1,#Cons{0,#Cons{0,#Nil{}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "watch-1-1",
+    "predicates": [
+      "a",
+      "oa",
+      "seen",
+      "token",
+      "watch"
+    ],
+    "rules": [
+      {
+        "kept": [
+          "token"
+        ],
+        "removed": [
+          "watch"
+        ],
+        "alternatives": [
+          [
+            "seen"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "token",
+      "a",
+      "watch"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{1,#Cons{1,#Cons{0,#Cons{0,#Nil{}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "watch-2-0",
+    "predicates": [
+      "a",
+      "oa",
+      "seen",
+      "token",
+      "watch"
+    ],
+    "rules": [
+      {
+        "kept": [
+          "token"
+        ],
+        "removed": [
+          "watch"
+        ],
+        "alternatives": [
+          [
+            "seen"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "watch",
+      "a",
+      "token",
+      "token"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{1,#Cons{1,#Cons{1,#Cons{0,#Nil{}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "watch-2-1",
+    "predicates": [
+      "a",
+      "oa",
+      "seen",
+      "token",
+      "watch"
+    ],
+    "rules": [
+      {
+        "kept": [
+          "token"
+        ],
+        "removed": [
+          "watch"
+        ],
+        "alternatives": [
+          [
+            "seen"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "token",
+      "token",
+      "a",
+      "watch"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{1,#Cons{1,#Cons{1,#Cons{0,#Nil{}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "watch-3-0",
+    "predicates": [
+      "a",
+      "oa",
+      "seen",
+      "token",
+      "watch"
+    ],
+    "rules": [
+      {
+        "kept": [
+          "token"
+        ],
+        "removed": [
+          "watch"
+        ],
+        "alternatives": [
+          [
+            "seen"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "watch",
+      "a",
+      "token",
+      "token",
+      "token"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{1,#Cons{1,#Cons{2,#Cons{0,#Nil{}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "watch-3-1",
+    "predicates": [
+      "a",
+      "oa",
+      "seen",
+      "token",
+      "watch"
+    ],
+    "rules": [
+      {
+        "kept": [
+          "token"
+        ],
+        "removed": [
+          "watch"
+        ],
+        "alternatives": [
+          [
+            "seen"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "token",
+      "token",
+      "token",
+      "a",
+      "watch"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{1,#Cons{1,#Cons{2,#Cons{0,#Nil{}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "binary-0-0",
+    "predicates": [
+      "a",
+      "b",
+      "go",
+      "oa",
+      "ob",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "go"
+        ],
+        "alternatives": [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "b",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "ob"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "go"
+    ],
+    "expected": [
+      "#Answer{#Cons{1,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Nil{}}}}}}}}",
+      "#Answer{#Cons{0,#Cons{1,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Nil{}}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "binary-0-1",
+    "predicates": [
+      "a",
+      "b",
+      "go",
+      "oa",
+      "ob",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "go"
+        ],
+        "alternatives": [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "b",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "ob"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "go"
+    ],
+    "expected": [
+      "#Answer{#Cons{1,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Nil{}}}}}}}}",
+      "#Answer{#Cons{0,#Cons{1,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Nil{}}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "binary-1-0",
+    "predicates": [
+      "a",
+      "b",
+      "go",
+      "oa",
+      "ob",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "go"
+        ],
+        "alternatives": [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "b",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "ob"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "go",
+      "token"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{0,#Cons{0,#Cons{1,#Cons{0,#Cons{0,#Nil{}}}}}}}}",
+      "#Answer{#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{1,#Cons{0,#Nil{}}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "binary-1-1",
+    "predicates": [
+      "a",
+      "b",
+      "go",
+      "oa",
+      "ob",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "go"
+        ],
+        "alternatives": [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "b",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "ob"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "token",
+      "go"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{0,#Cons{0,#Cons{1,#Cons{0,#Cons{0,#Nil{}}}}}}}}",
+      "#Answer{#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{1,#Cons{0,#Nil{}}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "binary-2-0",
+    "predicates": [
+      "a",
+      "b",
+      "go",
+      "oa",
+      "ob",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "go"
+        ],
+        "alternatives": [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "b",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "ob"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "go",
+      "token",
+      "token"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{0,#Cons{0,#Cons{1,#Cons{0,#Cons{1,#Nil{}}}}}}}}",
+      "#Answer{#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{1,#Cons{1,#Nil{}}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "binary-2-1",
+    "predicates": [
+      "a",
+      "b",
+      "go",
+      "oa",
+      "ob",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "go"
+        ],
+        "alternatives": [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "b",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "ob"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "token",
+      "token",
+      "go"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{0,#Cons{0,#Cons{1,#Cons{0,#Cons{1,#Nil{}}}}}}}}",
+      "#Answer{#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{1,#Cons{1,#Nil{}}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "binary-3-0",
+    "predicates": [
+      "a",
+      "b",
+      "go",
+      "oa",
+      "ob",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "go"
+        ],
+        "alternatives": [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "b",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "ob"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "go",
+      "token",
+      "token",
+      "token"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{0,#Cons{0,#Cons{1,#Cons{0,#Cons{2,#Nil{}}}}}}}}",
+      "#Answer{#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{1,#Cons{2,#Nil{}}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "binary-3-1",
+    "predicates": [
+      "a",
+      "b",
+      "go",
+      "oa",
+      "ob",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "go"
+        ],
+        "alternatives": [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "b",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "ob"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "token",
+      "token",
+      "token",
+      "go"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{0,#Cons{0,#Cons{1,#Cons{0,#Cons{2,#Nil{}}}}}}}}",
+      "#Answer{#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{1,#Cons{2,#Nil{}}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "duplicate-0-0",
+    "predicates": [
+      "a",
+      "go",
+      "oa",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "go"
+        ],
+        "alternatives": [
+          [
+            "a"
+          ],
+          [
+            "a"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "go"
+    ],
+    "expected": [
+      "#Answer{#Cons{1,#Cons{0,#Cons{0,#Cons{0,#Nil{}}}}}}",
+      "#Answer{#Cons{1,#Cons{0,#Cons{0,#Cons{0,#Nil{}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "duplicate-0-1",
+    "predicates": [
+      "a",
+      "go",
+      "oa",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "go"
+        ],
+        "alternatives": [
+          [
+            "a"
+          ],
+          [
+            "a"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "go"
+    ],
+    "expected": [
+      "#Answer{#Cons{1,#Cons{0,#Cons{0,#Cons{0,#Nil{}}}}}}",
+      "#Answer{#Cons{1,#Cons{0,#Cons{0,#Cons{0,#Nil{}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "duplicate-1-0",
+    "predicates": [
+      "a",
+      "go",
+      "oa",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "go"
+        ],
+        "alternatives": [
+          [
+            "a"
+          ],
+          [
+            "a"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "go",
+      "token"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{0,#Cons{1,#Cons{0,#Nil{}}}}}}",
+      "#Answer{#Cons{0,#Cons{0,#Cons{1,#Cons{0,#Nil{}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "duplicate-1-1",
+    "predicates": [
+      "a",
+      "go",
+      "oa",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "go"
+        ],
+        "alternatives": [
+          [
+            "a"
+          ],
+          [
+            "a"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "token",
+      "go"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{0,#Cons{1,#Cons{0,#Nil{}}}}}}",
+      "#Answer{#Cons{0,#Cons{0,#Cons{1,#Cons{0,#Nil{}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "duplicate-2-0",
+    "predicates": [
+      "a",
+      "go",
+      "oa",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "go"
+        ],
+        "alternatives": [
+          [
+            "a"
+          ],
+          [
+            "a"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "go",
+      "token",
+      "token"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{0,#Cons{1,#Cons{1,#Nil{}}}}}}",
+      "#Answer{#Cons{0,#Cons{0,#Cons{1,#Cons{1,#Nil{}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "duplicate-2-1",
+    "predicates": [
+      "a",
+      "go",
+      "oa",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "go"
+        ],
+        "alternatives": [
+          [
+            "a"
+          ],
+          [
+            "a"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "token",
+      "token",
+      "go"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{0,#Cons{1,#Cons{1,#Nil{}}}}}}",
+      "#Answer{#Cons{0,#Cons{0,#Cons{1,#Cons{1,#Nil{}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "duplicate-3-0",
+    "predicates": [
+      "a",
+      "go",
+      "oa",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "go"
+        ],
+        "alternatives": [
+          [
+            "a"
+          ],
+          [
+            "a"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "go",
+      "token",
+      "token",
+      "token"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{0,#Cons{1,#Cons{2,#Nil{}}}}}}",
+      "#Answer{#Cons{0,#Cons{0,#Cons{1,#Cons{2,#Nil{}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "duplicate-3-1",
+    "predicates": [
+      "a",
+      "go",
+      "oa",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "go"
+        ],
+        "alternatives": [
+          [
+            "a"
+          ],
+          [
+            "a"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "token",
+      "token",
+      "token",
+      "go"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{0,#Cons{1,#Cons{2,#Nil{}}}}}}",
+      "#Answer{#Cons{0,#Cons{0,#Cons{1,#Cons{2,#Nil{}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "nested-0-0",
+    "predicates": [
+      "a",
+      "again",
+      "b",
+      "c",
+      "go",
+      "oa",
+      "ob",
+      "oc",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "go"
+        ],
+        "alternatives": [
+          [
+            "again"
+          ],
+          [
+            "a"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "again"
+        ],
+        "alternatives": [
+          [
+            "b"
+          ],
+          [
+            "c"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "b",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "ob"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "c",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oc"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "go"
+    ],
+    "expected": [
+      "#Answer{#Cons{1,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Nil{}}}}}}}}}}}",
+      "#Answer{#Cons{0,#Cons{0,#Cons{1,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Nil{}}}}}}}}}}}",
+      "#Answer{#Cons{0,#Cons{0,#Cons{0,#Cons{1,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Nil{}}}}}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "nested-0-1",
+    "predicates": [
+      "a",
+      "again",
+      "b",
+      "c",
+      "go",
+      "oa",
+      "ob",
+      "oc",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "go"
+        ],
+        "alternatives": [
+          [
+            "again"
+          ],
+          [
+            "a"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "again"
+        ],
+        "alternatives": [
+          [
+            "b"
+          ],
+          [
+            "c"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "b",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "ob"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "c",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oc"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "go"
+    ],
+    "expected": [
+      "#Answer{#Cons{1,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Nil{}}}}}}}}}}}",
+      "#Answer{#Cons{0,#Cons{0,#Cons{1,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Nil{}}}}}}}}}}}",
+      "#Answer{#Cons{0,#Cons{0,#Cons{0,#Cons{1,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Nil{}}}}}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "nested-1-0",
+    "predicates": [
+      "a",
+      "again",
+      "b",
+      "c",
+      "go",
+      "oa",
+      "ob",
+      "oc",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "go"
+        ],
+        "alternatives": [
+          [
+            "again"
+          ],
+          [
+            "a"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "again"
+        ],
+        "alternatives": [
+          [
+            "b"
+          ],
+          [
+            "c"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "b",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "ob"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "c",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oc"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "go",
+      "token"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{1,#Cons{0,#Cons{0,#Cons{0,#Nil{}}}}}}}}}}}",
+      "#Answer{#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{1,#Cons{0,#Cons{0,#Nil{}}}}}}}}}}}",
+      "#Answer{#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{1,#Cons{0,#Nil{}}}}}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "nested-1-1",
+    "predicates": [
+      "a",
+      "again",
+      "b",
+      "c",
+      "go",
+      "oa",
+      "ob",
+      "oc",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "go"
+        ],
+        "alternatives": [
+          [
+            "again"
+          ],
+          [
+            "a"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "again"
+        ],
+        "alternatives": [
+          [
+            "b"
+          ],
+          [
+            "c"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "b",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "ob"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "c",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oc"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "token",
+      "go"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{1,#Cons{0,#Cons{0,#Cons{0,#Nil{}}}}}}}}}}}",
+      "#Answer{#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{1,#Cons{0,#Cons{0,#Nil{}}}}}}}}}}}",
+      "#Answer{#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{1,#Cons{0,#Nil{}}}}}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "nested-2-0",
+    "predicates": [
+      "a",
+      "again",
+      "b",
+      "c",
+      "go",
+      "oa",
+      "ob",
+      "oc",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "go"
+        ],
+        "alternatives": [
+          [
+            "again"
+          ],
+          [
+            "a"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "again"
+        ],
+        "alternatives": [
+          [
+            "b"
+          ],
+          [
+            "c"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "b",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "ob"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "c",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oc"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "go",
+      "token",
+      "token"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{1,#Cons{0,#Cons{0,#Cons{1,#Nil{}}}}}}}}}}}",
+      "#Answer{#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{1,#Cons{0,#Cons{1,#Nil{}}}}}}}}}}}",
+      "#Answer{#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{1,#Cons{1,#Nil{}}}}}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "nested-2-1",
+    "predicates": [
+      "a",
+      "again",
+      "b",
+      "c",
+      "go",
+      "oa",
+      "ob",
+      "oc",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "go"
+        ],
+        "alternatives": [
+          [
+            "again"
+          ],
+          [
+            "a"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "again"
+        ],
+        "alternatives": [
+          [
+            "b"
+          ],
+          [
+            "c"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "b",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "ob"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "c",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oc"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "token",
+      "token",
+      "go"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{1,#Cons{0,#Cons{0,#Cons{1,#Nil{}}}}}}}}}}}",
+      "#Answer{#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{1,#Cons{0,#Cons{1,#Nil{}}}}}}}}}}}",
+      "#Answer{#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{1,#Cons{1,#Nil{}}}}}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "nested-3-0",
+    "predicates": [
+      "a",
+      "again",
+      "b",
+      "c",
+      "go",
+      "oa",
+      "ob",
+      "oc",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "go"
+        ],
+        "alternatives": [
+          [
+            "again"
+          ],
+          [
+            "a"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "again"
+        ],
+        "alternatives": [
+          [
+            "b"
+          ],
+          [
+            "c"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "b",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "ob"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "c",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oc"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "go",
+      "token",
+      "token",
+      "token"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{1,#Cons{0,#Cons{0,#Cons{2,#Nil{}}}}}}}}}}}",
+      "#Answer{#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{1,#Cons{0,#Cons{2,#Nil{}}}}}}}}}}}",
+      "#Answer{#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{1,#Cons{2,#Nil{}}}}}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "nested-3-1",
+    "predicates": [
+      "a",
+      "again",
+      "b",
+      "c",
+      "go",
+      "oa",
+      "ob",
+      "oc",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "go"
+        ],
+        "alternatives": [
+          [
+            "again"
+          ],
+          [
+            "a"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "again"
+        ],
+        "alternatives": [
+          [
+            "b"
+          ],
+          [
+            "c"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "b",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "ob"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "c",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oc"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "token",
+      "token",
+      "token",
+      "go"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{1,#Cons{0,#Cons{0,#Cons{2,#Nil{}}}}}}}}}}}",
+      "#Answer{#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{1,#Cons{0,#Cons{2,#Nil{}}}}}}}}}}}",
+      "#Answer{#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Cons{1,#Cons{2,#Nil{}}}}}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "failure-0-0",
+    "predicates": [
+      "a",
+      "b",
+      "go",
+      "oa",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "go"
+        ],
+        "alternatives": [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "b",
+          "token"
+        ],
+        "alternatives": [
+          null
+        ]
+      }
+    ],
+    "query": [
+      "go"
+    ],
+    "expected": [
+      "#Answer{#Cons{1,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Nil{}}}}}}}",
+      "#Answer{#Cons{0,#Cons{1,#Cons{0,#Cons{0,#Cons{0,#Nil{}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "failure-0-1",
+    "predicates": [
+      "a",
+      "b",
+      "go",
+      "oa",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "go"
+        ],
+        "alternatives": [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "b",
+          "token"
+        ],
+        "alternatives": [
+          null
+        ]
+      }
+    ],
+    "query": [
+      "go"
+    ],
+    "expected": [
+      "#Answer{#Cons{1,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Nil{}}}}}}}",
+      "#Answer{#Cons{0,#Cons{1,#Cons{0,#Cons{0,#Cons{0,#Nil{}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "failure-1-0",
+    "predicates": [
+      "a",
+      "b",
+      "go",
+      "oa",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "go"
+        ],
+        "alternatives": [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "b",
+          "token"
+        ],
+        "alternatives": [
+          null
+        ]
+      }
+    ],
+    "query": [
+      "go",
+      "token"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{0,#Cons{0,#Cons{1,#Cons{0,#Nil{}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "failure-1-1",
+    "predicates": [
+      "a",
+      "b",
+      "go",
+      "oa",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "go"
+        ],
+        "alternatives": [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "b",
+          "token"
+        ],
+        "alternatives": [
+          null
+        ]
+      }
+    ],
+    "query": [
+      "token",
+      "go"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{0,#Cons{0,#Cons{1,#Cons{0,#Nil{}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "failure-2-0",
+    "predicates": [
+      "a",
+      "b",
+      "go",
+      "oa",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "go"
+        ],
+        "alternatives": [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "b",
+          "token"
+        ],
+        "alternatives": [
+          null
+        ]
+      }
+    ],
+    "query": [
+      "go",
+      "token",
+      "token"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{0,#Cons{0,#Cons{1,#Cons{1,#Nil{}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "failure-2-1",
+    "predicates": [
+      "a",
+      "b",
+      "go",
+      "oa",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "go"
+        ],
+        "alternatives": [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "b",
+          "token"
+        ],
+        "alternatives": [
+          null
+        ]
+      }
+    ],
+    "query": [
+      "token",
+      "token",
+      "go"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{0,#Cons{0,#Cons{1,#Cons{1,#Nil{}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "failure-3-0",
+    "predicates": [
+      "a",
+      "b",
+      "go",
+      "oa",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "go"
+        ],
+        "alternatives": [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "b",
+          "token"
+        ],
+        "alternatives": [
+          null
+        ]
+      }
+    ],
+    "query": [
+      "go",
+      "token",
+      "token",
+      "token"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{0,#Cons{0,#Cons{1,#Cons{2,#Nil{}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "failure-3-1",
+    "predicates": [
+      "a",
+      "b",
+      "go",
+      "oa",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "go"
+        ],
+        "alternatives": [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "b",
+          "token"
+        ],
+        "alternatives": [
+          null
+        ]
+      }
+    ],
+    "query": [
+      "token",
+      "token",
+      "token",
+      "go"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{0,#Cons{0,#Cons{1,#Cons{2,#Nil{}}}}}}}"
+    ],
+    "ongoing": false
+  },
+  {
+    "name": "loop-0-0",
+    "predicates": [
+      "a",
+      "go",
+      "loop",
+      "oa",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "go"
+        ],
+        "alternatives": [
+          [
+            "loop"
+          ],
+          [
+            "a"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "loop"
+        ],
+        "alternatives": [
+          [
+            "loop"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "go"
+    ],
+    "expected": [
+      "#Answer{#Cons{1,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Nil{}}}}}}}"
+    ],
+    "ongoing": true
+  },
+  {
+    "name": "loop-0-1",
+    "predicates": [
+      "a",
+      "go",
+      "loop",
+      "oa",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "go"
+        ],
+        "alternatives": [
+          [
+            "loop"
+          ],
+          [
+            "a"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "loop"
+        ],
+        "alternatives": [
+          [
+            "loop"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "go"
+    ],
+    "expected": [
+      "#Answer{#Cons{1,#Cons{0,#Cons{0,#Cons{0,#Cons{0,#Nil{}}}}}}}"
+    ],
+    "ongoing": true
+  },
+  {
+    "name": "loop-1-0",
+    "predicates": [
+      "a",
+      "go",
+      "loop",
+      "oa",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "go"
+        ],
+        "alternatives": [
+          [
+            "loop"
+          ],
+          [
+            "a"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "loop"
+        ],
+        "alternatives": [
+          [
+            "loop"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "go",
+      "token"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{0,#Cons{0,#Cons{1,#Cons{0,#Nil{}}}}}}}"
+    ],
+    "ongoing": true
+  },
+  {
+    "name": "loop-1-1",
+    "predicates": [
+      "a",
+      "go",
+      "loop",
+      "oa",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "go"
+        ],
+        "alternatives": [
+          [
+            "loop"
+          ],
+          [
+            "a"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "loop"
+        ],
+        "alternatives": [
+          [
+            "loop"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "token",
+      "go"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{0,#Cons{0,#Cons{1,#Cons{0,#Nil{}}}}}}}"
+    ],
+    "ongoing": true
+  },
+  {
+    "name": "loop-2-0",
+    "predicates": [
+      "a",
+      "go",
+      "loop",
+      "oa",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "go"
+        ],
+        "alternatives": [
+          [
+            "loop"
+          ],
+          [
+            "a"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "loop"
+        ],
+        "alternatives": [
+          [
+            "loop"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "go",
+      "token",
+      "token"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{0,#Cons{0,#Cons{1,#Cons{1,#Nil{}}}}}}}"
+    ],
+    "ongoing": true
+  },
+  {
+    "name": "loop-2-1",
+    "predicates": [
+      "a",
+      "go",
+      "loop",
+      "oa",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "go"
+        ],
+        "alternatives": [
+          [
+            "loop"
+          ],
+          [
+            "a"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "loop"
+        ],
+        "alternatives": [
+          [
+            "loop"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "token",
+      "token",
+      "go"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{0,#Cons{0,#Cons{1,#Cons{1,#Nil{}}}}}}}"
+    ],
+    "ongoing": true
+  },
+  {
+    "name": "loop-3-0",
+    "predicates": [
+      "a",
+      "go",
+      "loop",
+      "oa",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "go"
+        ],
+        "alternatives": [
+          [
+            "loop"
+          ],
+          [
+            "a"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "loop"
+        ],
+        "alternatives": [
+          [
+            "loop"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "go",
+      "token",
+      "token",
+      "token"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{0,#Cons{0,#Cons{1,#Cons{2,#Nil{}}}}}}}"
+    ],
+    "ongoing": true
+  },
+  {
+    "name": "loop-3-1",
+    "predicates": [
+      "a",
+      "go",
+      "loop",
+      "oa",
+      "token"
+    ],
+    "rules": [
+      {
+        "kept": [],
+        "removed": [
+          "go"
+        ],
+        "alternatives": [
+          [
+            "loop"
+          ],
+          [
+            "a"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "loop"
+        ],
+        "alternatives": [
+          [
+            "loop"
+          ]
+        ]
+      },
+      {
+        "kept": [],
+        "removed": [
+          "a",
+          "token"
+        ],
+        "alternatives": [
+          [
+            "oa"
+          ]
+        ]
+      }
+    ],
+    "query": [
+      "token",
+      "token",
+      "token",
+      "go"
+    ],
+    "expected": [
+      "#Answer{#Cons{0,#Cons{0,#Cons{0,#Cons{1,#Cons{2,#Nil{}}}}}}}"
+    ],
+    "ongoing": true
+  }
+]
