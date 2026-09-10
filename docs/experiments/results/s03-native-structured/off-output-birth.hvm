@@ -1,0 +1,4 @@
+@spin = λx.@spin(x)
+@loop = @loop
+@check = λ{#A: #Ok; #B: &{}}
+@main = #Join{#Answer{#A},&(1){#Ok,#Ok}}

@@ -128,13 +128,15 @@ The subsequent [CHR-expressed constructor/consumption gate](S02-chr-constructors
 
 ### 14. Direct native superposition mappings without a correspondence protocol — Incorrect translations
 
+**Current follow-up.** The [native structured observer](S03-native-structured.md) preserves tested correlation, raw multiplicity and joined failure with retained service. It still cannot recover disconnected source obligations. Bounded explicit labels do not qualify dynamic freshness, consuming-source correspondence or native lifecycle efficiency.
+
 **Result.** Pinned HVM probes exposed label collisions correlating independent choices, copy labels selecting rather than copying, administrative superpositions differing from source births, and disconnected failure failing to affect an answer. Seven deliberately faulty encodings disagreed with their declared finite observations; thirteen encodings matched.
 
 **Decision and limit.** Those mappings were invalid. The experiment identifies requirements for labels, ownership, failure and observation. It does not reject native named-choice execution with a correct protocol, and it provides no general CHR performance comparison. [Native correspondence probes](E06-native.md)
 
 ### 15. Wrap recursive backend work in a constructor or lambda to obtain a yield — Incorrect boundary assumption
 
-**Current follow-up.** The [retained native service gate](S03-native-service.md) now returns finite leaf answers beside ongoing native reduction. It does not serialize whole source states. Reference-only cycles and traversal restart require an explicit quota contract; structured observation, consuming source correspondence and complete costs remain unanswered.
+**Current follow-up.** The [retained native service gate](S03-native-service.md) now returns finite leaf answers beside ongoing native reduction. It does not serialize whole source states. Reference-only cycles and traversal restart require an explicit quota contract. The [structured follow-up](S03-native-structured.md) now qualifies bounded correlation and completion; consuming source correspondence and complete costs remain unanswered.
 
 **Result.** On the pinned backend, neither wrapper returned around the adverse recursive call within the bound. Source inspection explained why normalization still entered the work. Explicit finite data continuations did return the expected toy states.
 

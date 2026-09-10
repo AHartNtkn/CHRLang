@@ -1,0 +1,4 @@
+@spin = λx.@spin(x)
+@loop = @loop
+@check = λ{#A: #Ok; #B: &{}}
+@main = !X0&(1000)=&(1){#A,#B};#Pair{#Cons{X0₀,#Nil},#Cons{X0₁,#Nil}}

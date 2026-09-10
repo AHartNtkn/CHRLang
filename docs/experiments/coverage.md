@@ -1,6 +1,6 @@
 # Unanswered architecture questions and experimental ownership
 
-The [native service gate](results/S03-native-service.md) now passes103 revised processes, including30 exact replays and30 diagnostics-off controls. A retained native heap can expose finite leaf answers beside continuing work. Reference-cycle and traversal-restart counterexamples establish distinct quota obligations. T080 next qualifies incremental structured observation, correlation and off-output effects; full CHR correspondence and costs remain open.
+The [native structured-observation gate](results/S03-native-structured.md) completes460 processes. Choice correlation, raw off-output histories, explicit failure obligations and finite structured siblings pass; cancellation traces match uninterrupted prefixes. T080 next qualifies consuming source effects and occurrence ownership. General CHR correspondence, service-cost bounds and lifecycle comparisons remain open.
 
 The [finite-solver lifecycle pilot](results/S06-finite-lifecycle.md) completes 1,428 processes across 204 configurations. A [paired allocation correction](results/S06-empty-complement-attribution.md) completes another 252 processes. Selective four-query allocation falls to 0.795 MB, below both conditional orders; the unselective batch still requests 15.77 MB versus specialization’s 9.24 MB. These are bounded results, with compilation and broader solver questions still open.
 

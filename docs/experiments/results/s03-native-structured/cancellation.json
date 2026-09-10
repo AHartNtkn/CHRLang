@@ -1,0 +1,1190 @@
+[
+  {
+    "case": "plain",
+    "calls": 0,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"calls\":0,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "plain",
+    "calls": 1,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":1,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "plain",
+    "calls": 4,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"calls\":4,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "plain",
+    "calls": 16,
+    "result": {
+      "code": 0,
+      "stdout": "#Pair{#A{},#Wrap{#B{}}}\n",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":5,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":6,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":7,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":8,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":9,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":10,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":11,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":12,\"delta\":0,\"visits\":0,\"pending\":0,\"stack\":1}\n{\"calls\":12,\"pending\":0,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "correlated",
+    "calls": 0,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"calls\":0,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "correlated",
+    "calls": 1,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":1,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "correlated",
+    "calls": 4,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":4,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "correlated",
+    "calls": 16,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":5,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":6,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":7,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":8,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":9,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":10,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":11,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":12,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":13,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":14,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":15,\"delta\":1,\"visits\":1,\"pending\":2,\"stack\":1}\n{\"call\":16,\"delta\":1,\"visits\":1,\"pending\":2,\"stack\":1}\n{\"calls\":16,\"pending\":2,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "independent",
+    "calls": 0,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"calls\":0,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "independent",
+    "calls": 1,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":1,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "independent",
+    "calls": 4,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":4,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "independent",
+    "calls": 16,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":5,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":6,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":7,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":8,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":9,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":10,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":11,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":12,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":13,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":14,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":15,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":16,\"delta\":1,\"visits\":1,\"pending\":2,\"stack\":1}\n{\"calls\":16,\"pending\":2,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "duplicates",
+    "calls": 0,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"calls\":0,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "duplicates",
+    "calls": 1,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":1,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "duplicates",
+    "calls": 4,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":4,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "duplicates",
+    "calls": 16,
+    "result": {
+      "code": 0,
+      "stdout": "#Wrap{#A{}}\n#Wrap{#A{}}\n",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":5,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":6,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":7,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":8,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":9,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":10,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":11,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":12,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":13,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":14,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":15,\"delta\":0,\"visits\":0,\"pending\":0,\"stack\":1}\n{\"calls\":15,\"pending\":0,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "nested-correlation",
+    "calls": 0,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"calls\":0,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "nested-correlation",
+    "calls": 1,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":1,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "nested-correlation",
+    "calls": 4,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":4,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "nested-correlation",
+    "calls": 16,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":5,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":6,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":7,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":8,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":9,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":10,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":11,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":12,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":13,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":14,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":15,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":16,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"calls\":16,\"pending\":2,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "joined-failure",
+    "calls": 0,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"calls\":0,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "joined-failure",
+    "calls": 1,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":1,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "joined-failure",
+    "calls": 4,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"calls\":4,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "joined-failure",
+    "calls": 16,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":5,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":6,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":7,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":8,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":9,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":10,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":11,\"delta\":0,\"visits\":0,\"pending\":0,\"stack\":1}\n{\"calls\":11,\"pending\":0,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "off-output-birth",
+    "calls": 0,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"calls\":0,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "off-output-birth",
+    "calls": 1,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":1,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "off-output-birth",
+    "calls": 4,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"calls\":4,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "off-output-birth",
+    "calls": 16,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":5,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":6,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":7,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":8,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":9,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":10,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":11,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":12,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":13,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":14,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":15,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":16,\"delta\":1,\"visits\":1,\"pending\":2,\"stack\":1}\n{\"calls\":16,\"pending\":2,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "off-output-filter",
+    "calls": 0,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"calls\":0,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "off-output-filter",
+    "calls": 1,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":1,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "off-output-filter",
+    "calls": 4,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"calls\":4,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "off-output-filter",
+    "calls": 16,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":5,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":6,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":7,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":8,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":9,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":10,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":11,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":12,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":13,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":14,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":15,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":16,\"delta\":1,\"visits\":1,\"pending\":2,\"stack\":1}\n{\"calls\":16,\"pending\":2,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "joined-success",
+    "calls": 0,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"calls\":0,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "joined-success",
+    "calls": 1,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":1,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "joined-success",
+    "calls": 4,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"calls\":4,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "joined-success",
+    "calls": 16,
+    "result": {
+      "code": 0,
+      "stdout": "#Join{#Answer{#A{}},#Ok{}}\n",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":5,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":6,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":7,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":8,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":9,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":10,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":11,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":12,\"delta\":0,\"visits\":0,\"pending\":0,\"stack\":1}\n{\"calls\":12,\"pending\":0,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "branch-rejection",
+    "calls": 0,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"calls\":0,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "branch-rejection",
+    "calls": 1,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":1,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "branch-rejection",
+    "calls": 4,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":4,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "branch-rejection",
+    "calls": 16,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":5,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":6,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":7,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":8,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":9,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":10,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":11,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":12,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":13,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":14,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":15,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":16,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"calls\":16,\"pending\":2,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "loop-first",
+    "calls": 0,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"calls\":0,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "loop-first",
+    "calls": 1,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":1,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "loop-first",
+    "calls": 4,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":4,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "loop-first",
+    "calls": 16,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":5,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":6,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":7,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":8,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":9,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":10,\"delta\":0,\"visits\":1,\"pending\":2,\"stack\":1}\n{\"call\":11,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":12,\"delta\":1,\"visits\":1,\"pending\":2,\"stack\":1}\n{\"call\":13,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":14,\"delta\":0,\"visits\":1,\"pending\":2,\"stack\":1}\n{\"call\":15,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":16,\"delta\":1,\"visits\":1,\"pending\":2,\"stack\":1}\n{\"calls\":16,\"pending\":2,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "loop-last",
+    "calls": 0,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"calls\":0,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "loop-last",
+    "calls": 1,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":1,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "loop-last",
+    "calls": 4,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":4,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "loop-last",
+    "calls": 16,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":5,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":6,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":7,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":8,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":9,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":10,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":11,\"delta\":0,\"visits\":1,\"pending\":2,\"stack\":1}\n{\"call\":12,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":13,\"delta\":1,\"visits\":1,\"pending\":2,\"stack\":1}\n{\"call\":14,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":15,\"delta\":0,\"visits\":1,\"pending\":2,\"stack\":1}\n{\"call\":16,\"delta\":1,\"visits\":1,\"pending\":2,\"stack\":1}\n{\"calls\":16,\"pending\":2,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "reference-loop",
+    "calls": 0,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"calls\":0,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "reference-loop",
+    "calls": 1,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":1,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "reference-loop",
+    "calls": 4,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":4,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "reference-loop",
+    "calls": 16,
+    "result": {
+      "code": 0,
+      "stdout": "#Wrap{#A{}}\n",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":5,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":6,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":7,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":8,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":9,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":10,\"delta\":0,\"visits\":1,\"pending\":2,\"stack\":1}\n{\"call\":11,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":12,\"delta\":0,\"visits\":1,\"pending\":2,\"stack\":1}\n{\"call\":13,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":14,\"delta\":0,\"visits\":1,\"pending\":2,\"stack\":1}\n{\"call\":15,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":16,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":16,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "deep-loop",
+    "calls": 0,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"calls\":0,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "deep-loop",
+    "calls": 1,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":1,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "deep-loop",
+    "calls": 4,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"calls\":4,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "deep-loop",
+    "calls": 16,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":5,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":6,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":7,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":8,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":9,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":10,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":11,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":12,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":13,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":14,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":15,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":16,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"calls\":16,\"pending\":2,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "disconnected-failure",
+    "calls": 0,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"calls\":0,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "disconnected-failure",
+    "calls": 1,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":1,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "disconnected-failure",
+    "calls": 4,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"calls\":4,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "disconnected-failure",
+    "calls": 16,
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#A{}}\n",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":5,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":6,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":7,\"delta\":0,\"visits\":0,\"pending\":0,\"stack\":1}\n{\"calls\":7,\"pending\":0,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-1-0-0",
+    "calls": 0,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"calls\":0,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-1-0-0",
+    "calls": 1,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":1,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-1-0-0",
+    "calls": 4,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":4,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-1-0-0",
+    "calls": 16,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":5,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":6,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":7,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":8,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":9,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":10,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":11,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":12,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":13,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":14,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":15,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"call\":16,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"calls\":16,\"pending\":2,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-1-0-1",
+    "calls": 0,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"calls\":0,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-1-0-1",
+    "calls": 1,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":1,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-1-0-1",
+    "calls": 4,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":4,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-1-0-1",
+    "calls": 16,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":5,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":6,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":7,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":8,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":9,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":10,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":11,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":12,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":13,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":14,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":15,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":16,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"calls\":16,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-2-01-0",
+    "calls": 0,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"calls\":0,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-2-01-0",
+    "calls": 1,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":1,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-2-01-0",
+    "calls": 4,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":4,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-2-01-0",
+    "calls": 16,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":5,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":6,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":7,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":8,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":9,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":10,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":11,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":12,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":13,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":14,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":15,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":16,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"calls\":16,\"pending\":2,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-2-01-1",
+    "calls": 0,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"calls\":0,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-2-01-1",
+    "calls": 1,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":1,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-2-01-1",
+    "calls": 4,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":4,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-2-01-1",
+    "calls": 16,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":5,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":6,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":7,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":8,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":9,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":10,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":11,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":12,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":13,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":14,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":15,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":16,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":16,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-2-10-0",
+    "calls": 0,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"calls\":0,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-2-10-0",
+    "calls": 1,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":1,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-2-10-0",
+    "calls": 4,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":4,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-2-10-0",
+    "calls": 16,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":5,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":6,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":7,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":8,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":9,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":10,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":11,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":12,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":13,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":14,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":15,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":16,\"delta\":0,\"visits\":0,\"pending\":2,\"stack\":1}\n{\"calls\":16,\"pending\":2,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-2-10-1",
+    "calls": 0,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"calls\":0,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-2-10-1",
+    "calls": 1,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":1,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-2-10-1",
+    "calls": 4,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":4,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-2-10-1",
+    "calls": 16,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":5,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":6,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":7,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":8,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":9,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":10,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":11,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":12,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":13,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":14,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":15,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":16,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":16,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-012-0",
+    "calls": 0,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"calls\":0,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-012-0",
+    "calls": 1,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":1,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-012-0",
+    "calls": 4,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":4,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-012-0",
+    "calls": 16,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":5,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":6,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":7,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":8,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":9,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":10,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":11,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":12,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":13,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":14,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":15,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":16,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":16,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-012-1",
+    "calls": 0,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"calls\":0,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-012-1",
+    "calls": 1,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":1,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-012-1",
+    "calls": 4,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":4,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-012-1",
+    "calls": 16,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":5,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":6,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":7,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":8,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":9,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":10,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":11,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":12,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":13,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":14,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":15,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":16,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"calls\":16,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-021-0",
+    "calls": 0,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"calls\":0,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-021-0",
+    "calls": 1,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":1,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-021-0",
+    "calls": 4,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":4,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-021-0",
+    "calls": 16,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":5,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":6,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":7,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":8,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":9,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":10,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":11,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":12,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":13,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":14,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":15,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":16,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":16,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-021-1",
+    "calls": 0,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"calls\":0,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-021-1",
+    "calls": 1,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":1,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-021-1",
+    "calls": 4,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":4,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-021-1",
+    "calls": 16,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":5,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":6,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":7,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":8,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":9,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":10,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":11,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":12,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":13,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":14,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":15,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":16,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"calls\":16,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-102-0",
+    "calls": 0,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"calls\":0,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-102-0",
+    "calls": 1,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":1,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-102-0",
+    "calls": 4,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":4,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-102-0",
+    "calls": 16,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":5,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":6,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":7,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":8,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":9,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":10,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":11,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":12,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":13,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":14,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":15,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":16,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":16,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-102-1",
+    "calls": 0,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"calls\":0,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-102-1",
+    "calls": 1,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":1,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-102-1",
+    "calls": 4,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":4,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-102-1",
+    "calls": 16,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":5,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":6,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":7,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":8,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":9,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":10,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":11,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":12,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":13,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":14,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":15,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":16,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"calls\":16,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-120-0",
+    "calls": 0,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"calls\":0,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-120-0",
+    "calls": 1,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":1,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-120-0",
+    "calls": 4,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":4,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-120-0",
+    "calls": 16,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":5,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":6,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":7,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":8,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":9,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":10,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":11,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":12,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":13,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":14,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":15,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":16,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":16,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-120-1",
+    "calls": 0,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"calls\":0,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-120-1",
+    "calls": 1,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":1,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-120-1",
+    "calls": 4,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":4,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-120-1",
+    "calls": 16,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":5,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":6,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":7,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":8,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":9,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":10,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":11,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":12,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":13,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":14,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":15,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":16,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"calls\":16,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-201-0",
+    "calls": 0,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"calls\":0,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-201-0",
+    "calls": 1,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":1,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-201-0",
+    "calls": 4,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":4,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-201-0",
+    "calls": 16,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":5,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":6,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":7,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":8,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":9,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":10,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":11,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":12,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":13,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":14,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":15,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":16,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":16,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-201-1",
+    "calls": 0,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"calls\":0,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-201-1",
+    "calls": 1,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":1,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-201-1",
+    "calls": 4,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":4,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-201-1",
+    "calls": 16,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":5,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":6,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":7,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":8,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":9,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":10,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":11,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":12,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":13,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":14,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":15,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":16,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"calls\":16,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-210-0",
+    "calls": 0,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"calls\":0,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-210-0",
+    "calls": 1,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":1,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-210-0",
+    "calls": 4,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":4,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-210-0",
+    "calls": 16,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":5,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":6,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":7,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":8,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":9,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":10,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":11,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":12,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":13,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":14,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":15,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":16,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":16,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-210-1",
+    "calls": 0,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"calls\":0,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-210-1",
+    "calls": 1,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":1,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-210-1",
+    "calls": 4,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"calls\":4,\"pending\":1,\"unsupported\":0}\n"
+    }
+  },
+  {
+    "case": "permutation-3-210-1",
+    "calls": 16,
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": "{\"call\":1,\"delta\":0,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":2,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":3,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":4,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":5,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":6,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":7,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":8,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":9,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":10,\"delta\":1,\"visits\":1,\"pending\":1,\"stack\":1}\n{\"call\":11,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":12,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":13,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":14,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":15,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"call\":16,\"delta\":0,\"visits\":0,\"pending\":1,\"stack\":1}\n{\"calls\":16,\"pending\":1,\"unsupported\":0}\n"
+    }
+  }
+]

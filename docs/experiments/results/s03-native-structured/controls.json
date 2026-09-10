@@ -1,0 +1,234 @@
+[
+  {
+    "case": "plain",
+    "result": {
+      "code": 0,
+      "stdout": "#Pair{#A{},#Wrap{#B{}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "correlated",
+    "result": {
+      "code": 0,
+      "stdout": "#Pair{#A{},#A{}}\n#Pair{#B{},#B{}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "independent",
+    "result": {
+      "code": 0,
+      "stdout": "#Pair{#A{},#A{}}\n#Pair{#A{},#B{}}\n#Pair{#B{},#A{}}\n#Pair{#B{},#B{}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "duplicates",
+    "result": {
+      "code": 0,
+      "stdout": "#Wrap{#A{}}\n#Wrap{#A{}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "nested-correlation",
+    "result": {
+      "code": 0,
+      "stdout": "#Pair{#Wrap{#A{}},#Wrap{#A{}}}\n#Pair{#Wrap{#B{}},#Wrap{#B{}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "joined-failure",
+    "result": {
+      "code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "off-output-birth",
+    "result": {
+      "code": 0,
+      "stdout": "#Join{#Answer{#A{}},#Ok{}}\n#Join{#Answer{#A{}},#Ok{}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "off-output-filter",
+    "result": {
+      "code": 0,
+      "stdout": "#Join{#Answer{#A{}},#Ok{}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "joined-success",
+    "result": {
+      "code": 0,
+      "stdout": "#Join{#Answer{#A{}},#Ok{}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "branch-rejection",
+    "result": {
+      "code": 0,
+      "stdout": "#Join{#Answer{#A{}},#Ok{}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "disconnected-failure",
+    "result": {
+      "code": 0,
+      "stdout": "#Answer{#A{}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "permutation-1-0-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Pair{#Cons{#A{},#Nil{}},#Cons{#A{},#Nil{}}}\n#Pair{#Cons{#B{},#Nil{}},#Cons{#B{},#Nil{}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "permutation-1-0-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Outer{#Inner{#Pair{#Cons{#A{},#Nil{}},#Cons{#A{},#Nil{}}}}}\n#Outer{#Inner{#Pair{#Cons{#B{},#Nil{}},#Cons{#B{},#Nil{}}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "permutation-2-01-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Pair{#Cons{#A{},#Cons{#A{},#Nil{}}},#Cons{#A{},#Cons{#A{},#Nil{}}}}\n#Pair{#Cons{#A{},#Cons{#B{},#Nil{}}},#Cons{#B{},#Cons{#A{},#Nil{}}}}\n#Pair{#Cons{#B{},#Cons{#A{},#Nil{}}},#Cons{#A{},#Cons{#B{},#Nil{}}}}\n#Pair{#Cons{#B{},#Cons{#B{},#Nil{}}},#Cons{#B{},#Cons{#B{},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "permutation-2-01-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Outer{#Inner{#Pair{#Cons{#A{},#Cons{#A{},#Nil{}}},#Cons{#A{},#Cons{#A{},#Nil{}}}}}}\n#Outer{#Inner{#Pair{#Cons{#A{},#Cons{#B{},#Nil{}}},#Cons{#B{},#Cons{#A{},#Nil{}}}}}}\n#Outer{#Inner{#Pair{#Cons{#B{},#Cons{#A{},#Nil{}}},#Cons{#A{},#Cons{#B{},#Nil{}}}}}}\n#Outer{#Inner{#Pair{#Cons{#B{},#Cons{#B{},#Nil{}}},#Cons{#B{},#Cons{#B{},#Nil{}}}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "permutation-2-10-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Pair{#Cons{#A{},#Cons{#A{},#Nil{}}},#Cons{#A{},#Cons{#A{},#Nil{}}}}\n#Pair{#Cons{#A{},#Cons{#B{},#Nil{}}},#Cons{#B{},#Cons{#A{},#Nil{}}}}\n#Pair{#Cons{#B{},#Cons{#A{},#Nil{}}},#Cons{#A{},#Cons{#B{},#Nil{}}}}\n#Pair{#Cons{#B{},#Cons{#B{},#Nil{}}},#Cons{#B{},#Cons{#B{},#Nil{}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "permutation-2-10-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Outer{#Inner{#Pair{#Cons{#A{},#Cons{#A{},#Nil{}}},#Cons{#A{},#Cons{#A{},#Nil{}}}}}}\n#Outer{#Inner{#Pair{#Cons{#A{},#Cons{#B{},#Nil{}}},#Cons{#B{},#Cons{#A{},#Nil{}}}}}}\n#Outer{#Inner{#Pair{#Cons{#B{},#Cons{#A{},#Nil{}}},#Cons{#A{},#Cons{#B{},#Nil{}}}}}}\n#Outer{#Inner{#Pair{#Cons{#B{},#Cons{#B{},#Nil{}}},#Cons{#B{},#Cons{#B{},#Nil{}}}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "permutation-3-012-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Pair{#Cons{#A{},#Cons{#A{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#A{},#Cons{#A{},#Nil{}}}}}\n#Pair{#Cons{#A{},#Cons{#A{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#A{},#Cons{#A{},#Nil{}}}}}\n#Pair{#Cons{#A{},#Cons{#B{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#B{},#Cons{#A{},#Nil{}}}}}\n#Pair{#Cons{#A{},#Cons{#B{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#B{},#Cons{#A{},#Nil{}}}}}\n#Pair{#Cons{#B{},#Cons{#A{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#A{},#Cons{#B{},#Nil{}}}}}\n#Pair{#Cons{#B{},#Cons{#A{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#A{},#Cons{#B{},#Nil{}}}}}\n#Pair{#Cons{#B{},#Cons{#B{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#B{},#Cons{#B{},#Nil{}}}}}\n#Pair{#Cons{#B{},#Cons{#B{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#B{},#Cons{#B{},#Nil{}}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "permutation-3-012-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Outer{#Inner{#Pair{#Cons{#A{},#Cons{#A{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#A{},#Cons{#A{},#Nil{}}}}}}}\n#Outer{#Inner{#Pair{#Cons{#A{},#Cons{#A{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#A{},#Cons{#A{},#Nil{}}}}}}}\n#Outer{#Inner{#Pair{#Cons{#A{},#Cons{#B{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#B{},#Cons{#A{},#Nil{}}}}}}}\n#Outer{#Inner{#Pair{#Cons{#A{},#Cons{#B{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#B{},#Cons{#A{},#Nil{}}}}}}}\n#Outer{#Inner{#Pair{#Cons{#B{},#Cons{#A{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#A{},#Cons{#B{},#Nil{}}}}}}}\n#Outer{#Inner{#Pair{#Cons{#B{},#Cons{#A{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#A{},#Cons{#B{},#Nil{}}}}}}}\n#Outer{#Inner{#Pair{#Cons{#B{},#Cons{#B{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#B{},#Cons{#B{},#Nil{}}}}}}}\n#Outer{#Inner{#Pair{#Cons{#B{},#Cons{#B{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#B{},#Cons{#B{},#Nil{}}}}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "permutation-3-021-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Pair{#Cons{#A{},#Cons{#A{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#A{},#Cons{#A{},#Nil{}}}}}\n#Pair{#Cons{#A{},#Cons{#A{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#A{},#Cons{#A{},#Nil{}}}}}\n#Pair{#Cons{#A{},#Cons{#B{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#B{},#Cons{#A{},#Nil{}}}}}\n#Pair{#Cons{#A{},#Cons{#B{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#B{},#Cons{#A{},#Nil{}}}}}\n#Pair{#Cons{#B{},#Cons{#A{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#A{},#Cons{#B{},#Nil{}}}}}\n#Pair{#Cons{#B{},#Cons{#A{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#A{},#Cons{#B{},#Nil{}}}}}\n#Pair{#Cons{#B{},#Cons{#B{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#B{},#Cons{#B{},#Nil{}}}}}\n#Pair{#Cons{#B{},#Cons{#B{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#B{},#Cons{#B{},#Nil{}}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "permutation-3-021-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Outer{#Inner{#Pair{#Cons{#A{},#Cons{#A{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#A{},#Cons{#A{},#Nil{}}}}}}}\n#Outer{#Inner{#Pair{#Cons{#A{},#Cons{#A{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#A{},#Cons{#A{},#Nil{}}}}}}}\n#Outer{#Inner{#Pair{#Cons{#A{},#Cons{#B{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#B{},#Cons{#A{},#Nil{}}}}}}}\n#Outer{#Inner{#Pair{#Cons{#A{},#Cons{#B{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#B{},#Cons{#A{},#Nil{}}}}}}}\n#Outer{#Inner{#Pair{#Cons{#B{},#Cons{#A{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#A{},#Cons{#B{},#Nil{}}}}}}}\n#Outer{#Inner{#Pair{#Cons{#B{},#Cons{#A{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#A{},#Cons{#B{},#Nil{}}}}}}}\n#Outer{#Inner{#Pair{#Cons{#B{},#Cons{#B{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#B{},#Cons{#B{},#Nil{}}}}}}}\n#Outer{#Inner{#Pair{#Cons{#B{},#Cons{#B{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#B{},#Cons{#B{},#Nil{}}}}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "permutation-3-102-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Pair{#Cons{#A{},#Cons{#A{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#A{},#Cons{#A{},#Nil{}}}}}\n#Pair{#Cons{#A{},#Cons{#A{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#A{},#Cons{#A{},#Nil{}}}}}\n#Pair{#Cons{#A{},#Cons{#B{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#B{},#Cons{#A{},#Nil{}}}}}\n#Pair{#Cons{#A{},#Cons{#B{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#B{},#Cons{#A{},#Nil{}}}}}\n#Pair{#Cons{#B{},#Cons{#A{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#A{},#Cons{#B{},#Nil{}}}}}\n#Pair{#Cons{#B{},#Cons{#A{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#A{},#Cons{#B{},#Nil{}}}}}\n#Pair{#Cons{#B{},#Cons{#B{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#B{},#Cons{#B{},#Nil{}}}}}\n#Pair{#Cons{#B{},#Cons{#B{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#B{},#Cons{#B{},#Nil{}}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "permutation-3-102-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Outer{#Inner{#Pair{#Cons{#A{},#Cons{#A{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#A{},#Cons{#A{},#Nil{}}}}}}}\n#Outer{#Inner{#Pair{#Cons{#A{},#Cons{#A{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#A{},#Cons{#A{},#Nil{}}}}}}}\n#Outer{#Inner{#Pair{#Cons{#A{},#Cons{#B{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#B{},#Cons{#A{},#Nil{}}}}}}}\n#Outer{#Inner{#Pair{#Cons{#A{},#Cons{#B{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#B{},#Cons{#A{},#Nil{}}}}}}}\n#Outer{#Inner{#Pair{#Cons{#B{},#Cons{#A{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#A{},#Cons{#B{},#Nil{}}}}}}}\n#Outer{#Inner{#Pair{#Cons{#B{},#Cons{#A{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#A{},#Cons{#B{},#Nil{}}}}}}}\n#Outer{#Inner{#Pair{#Cons{#B{},#Cons{#B{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#B{},#Cons{#B{},#Nil{}}}}}}}\n#Outer{#Inner{#Pair{#Cons{#B{},#Cons{#B{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#B{},#Cons{#B{},#Nil{}}}}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "permutation-3-120-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Pair{#Cons{#A{},#Cons{#A{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#A{},#Cons{#A{},#Nil{}}}}}\n#Pair{#Cons{#A{},#Cons{#A{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#A{},#Cons{#A{},#Nil{}}}}}\n#Pair{#Cons{#A{},#Cons{#B{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#B{},#Cons{#A{},#Nil{}}}}}\n#Pair{#Cons{#A{},#Cons{#B{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#B{},#Cons{#A{},#Nil{}}}}}\n#Pair{#Cons{#B{},#Cons{#A{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#A{},#Cons{#B{},#Nil{}}}}}\n#Pair{#Cons{#B{},#Cons{#A{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#A{},#Cons{#B{},#Nil{}}}}}\n#Pair{#Cons{#B{},#Cons{#B{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#B{},#Cons{#B{},#Nil{}}}}}\n#Pair{#Cons{#B{},#Cons{#B{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#B{},#Cons{#B{},#Nil{}}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "permutation-3-120-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Outer{#Inner{#Pair{#Cons{#A{},#Cons{#A{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#A{},#Cons{#A{},#Nil{}}}}}}}\n#Outer{#Inner{#Pair{#Cons{#A{},#Cons{#A{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#A{},#Cons{#A{},#Nil{}}}}}}}\n#Outer{#Inner{#Pair{#Cons{#A{},#Cons{#B{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#B{},#Cons{#A{},#Nil{}}}}}}}\n#Outer{#Inner{#Pair{#Cons{#A{},#Cons{#B{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#B{},#Cons{#A{},#Nil{}}}}}}}\n#Outer{#Inner{#Pair{#Cons{#B{},#Cons{#A{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#A{},#Cons{#B{},#Nil{}}}}}}}\n#Outer{#Inner{#Pair{#Cons{#B{},#Cons{#A{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#A{},#Cons{#B{},#Nil{}}}}}}}\n#Outer{#Inner{#Pair{#Cons{#B{},#Cons{#B{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#B{},#Cons{#B{},#Nil{}}}}}}}\n#Outer{#Inner{#Pair{#Cons{#B{},#Cons{#B{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#B{},#Cons{#B{},#Nil{}}}}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "permutation-3-201-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Pair{#Cons{#A{},#Cons{#A{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#A{},#Cons{#A{},#Nil{}}}}}\n#Pair{#Cons{#A{},#Cons{#A{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#A{},#Cons{#A{},#Nil{}}}}}\n#Pair{#Cons{#A{},#Cons{#B{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#B{},#Cons{#A{},#Nil{}}}}}\n#Pair{#Cons{#A{},#Cons{#B{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#B{},#Cons{#A{},#Nil{}}}}}\n#Pair{#Cons{#B{},#Cons{#A{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#A{},#Cons{#B{},#Nil{}}}}}\n#Pair{#Cons{#B{},#Cons{#A{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#A{},#Cons{#B{},#Nil{}}}}}\n#Pair{#Cons{#B{},#Cons{#B{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#B{},#Cons{#B{},#Nil{}}}}}\n#Pair{#Cons{#B{},#Cons{#B{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#B{},#Cons{#B{},#Nil{}}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "permutation-3-201-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Outer{#Inner{#Pair{#Cons{#A{},#Cons{#A{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#A{},#Cons{#A{},#Nil{}}}}}}}\n#Outer{#Inner{#Pair{#Cons{#A{},#Cons{#A{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#A{},#Cons{#A{},#Nil{}}}}}}}\n#Outer{#Inner{#Pair{#Cons{#A{},#Cons{#B{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#B{},#Cons{#A{},#Nil{}}}}}}}\n#Outer{#Inner{#Pair{#Cons{#A{},#Cons{#B{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#B{},#Cons{#A{},#Nil{}}}}}}}\n#Outer{#Inner{#Pair{#Cons{#B{},#Cons{#A{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#A{},#Cons{#B{},#Nil{}}}}}}}\n#Outer{#Inner{#Pair{#Cons{#B{},#Cons{#A{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#A{},#Cons{#B{},#Nil{}}}}}}}\n#Outer{#Inner{#Pair{#Cons{#B{},#Cons{#B{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#B{},#Cons{#B{},#Nil{}}}}}}}\n#Outer{#Inner{#Pair{#Cons{#B{},#Cons{#B{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#B{},#Cons{#B{},#Nil{}}}}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "permutation-3-210-0",
+    "result": {
+      "code": 0,
+      "stdout": "#Pair{#Cons{#A{},#Cons{#A{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#A{},#Cons{#A{},#Nil{}}}}}\n#Pair{#Cons{#A{},#Cons{#A{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#A{},#Cons{#A{},#Nil{}}}}}\n#Pair{#Cons{#A{},#Cons{#B{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#B{},#Cons{#A{},#Nil{}}}}}\n#Pair{#Cons{#A{},#Cons{#B{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#B{},#Cons{#A{},#Nil{}}}}}\n#Pair{#Cons{#B{},#Cons{#A{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#A{},#Cons{#B{},#Nil{}}}}}\n#Pair{#Cons{#B{},#Cons{#A{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#A{},#Cons{#B{},#Nil{}}}}}\n#Pair{#Cons{#B{},#Cons{#B{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#B{},#Cons{#B{},#Nil{}}}}}\n#Pair{#Cons{#B{},#Cons{#B{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#B{},#Cons{#B{},#Nil{}}}}}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "case": "permutation-3-210-1",
+    "result": {
+      "code": 0,
+      "stdout": "#Outer{#Inner{#Pair{#Cons{#A{},#Cons{#A{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#A{},#Cons{#A{},#Nil{}}}}}}}\n#Outer{#Inner{#Pair{#Cons{#A{},#Cons{#A{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#A{},#Cons{#A{},#Nil{}}}}}}}\n#Outer{#Inner{#Pair{#Cons{#A{},#Cons{#B{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#B{},#Cons{#A{},#Nil{}}}}}}}\n#Outer{#Inner{#Pair{#Cons{#A{},#Cons{#B{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#B{},#Cons{#A{},#Nil{}}}}}}}\n#Outer{#Inner{#Pair{#Cons{#B{},#Cons{#A{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#A{},#Cons{#B{},#Nil{}}}}}}}\n#Outer{#Inner{#Pair{#Cons{#B{},#Cons{#A{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#A{},#Cons{#B{},#Nil{}}}}}}}\n#Outer{#Inner{#Pair{#Cons{#B{},#Cons{#B{},#Cons{#A{},#Nil{}}}},#Cons{#A{},#Cons{#B{},#Cons{#B{},#Nil{}}}}}}}\n#Outer{#Inner{#Pair{#Cons{#B{},#Cons{#B{},#Cons{#B{},#Nil{}}}},#Cons{#B{},#Cons{#B{},#Cons{#B{},#Nil{}}}}}}}\n",
+      "stderr": ""
+    }
+  }
+]
