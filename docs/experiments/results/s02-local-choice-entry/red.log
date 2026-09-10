@@ -1,0 +1,9 @@
+   Compiling chr-relational v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-relational)
+error[E0432]: unresolved import `local::multihead::search`
+ --> research/chr-relational/tests/local_choices.rs:8:23
+  |
+8 | use local::multihead::search::{Prepared,Event};
+  |                       ^^^^^^ could not find `search` in `multihead`
+
+For more information about this error, try `rustc --explain E0432`.
+error: could not compile `chr-relational` (test "local_choices") due to 1 previous error

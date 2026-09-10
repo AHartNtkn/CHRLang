@@ -14,11 +14,11 @@ The [inert ownership comparison](results/S05-inert-ownership.md) qualifies finit
 
 ## Start here: the next experiments
 
-**Next qualify explicit-choice ownership in the source-driven local graph under T072.** The [normal/neutral entry](results/S06-normal-entry.md) completes the four-package theory cycle. The [full breadth review](results/S06-normal-breadth-review.md) selects the missing source capability in a candidate with bounded deterministic cost evidence. Its current compiler rejects alternatives and guards.
+**Next qualify positive equality guards in the local graph source path under T072.** The [choice entry](results/S02-local-choice-entry.md) now establishes bounded source/fork/progress correspondence with copied branch owners. Its costs and sustained lifetime remain unmeasured.
 
-The first package must preserve pending bodies, equality state, occurrence identities and propagation history across alternatives, with independent complete-answer and continuing-sibling checks. Reuse existing source and compiled controls. A successful source gate does not establish cost or make all guard/contextual mechanisms equivalent.
+The next gate must establish nonbinding guard checks, late equality/constructor enablement, competing consumers and branch-local failures, with independent complete-answer controls. It should make guarded sources admissible without changing the tested body or source-order contract. Retained-join search and broader partial-deduction policies remain separate obligations.
 
-The strongest ready alternative is joint structural-theory integration with a declared source boundary. Names, disequality and normal/neutral entries now supply semantic components, but joint projection, source closure, output and lifecycle costs remain required. The local graph choice gate can change which coherent architectures enter the broader comparison; another theory microbenchmark would not address that capability gap. Reassess this selection at the source gate or obstruction.
+Joint structural theory/source integration remains the strongest ready alternative. Qualifying guards closes a concrete source-admission gap for broader complete-path comparisons; another deterministic timing matrix would not. Reconsider further integration, demand-driven choices and conditional ownership at the guard gate or obstruction. This is one package since the full breadth review.
 
 ## Execution order after the current causal comparison
 
@@ -94,7 +94,7 @@ The numbers below identify detailed specifications, not the execution order. Sev
 
 ## The next concrete experiments
 
-**T072 is the sole active task for local graph choice ownership.** Follow the source gate and breadth review above. T076 remains required for joint theory/source integration and costs. T074 remains required for continuing lifetime and publication qualification. T075's finite owner matrix leaves runtime, extraction/key attribution and broader dependencies unresolved; these remain in the reuse comparison.
+**T072 is the sole active task for positive equality guards after local graph choice qualification.** Follow the source gate and breadth review above. T076 remains required for joint theory/source integration and costs. T074 remains required for continuing lifetime and publication qualification. T075's finite owner matrix leaves runtime, extraction/key attribution and broader dependencies unresolved; these remain in the reuse comparison.
 
 T077 still requires timing attribution, policy challenges, delayed splitting and checkpoints/replay. T076 still requires incremental projection, broader connected shapes and source/theory correspondence. T074 still requires conditional equality/lifetime repair and sustained ownership. T080 still requires native local claims, dynamic choices, failed branches and descriptor lifetime. Broader resource derivation, integrated execution, language restrictions and complete architectures retain their comparisons below.
 

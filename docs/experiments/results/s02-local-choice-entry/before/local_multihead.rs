@@ -71,12 +71,11 @@ impl Program {
 }
 type Tuple = (usize, Vec<usize>);
 type Env = BTreeMap<Var, usize>;
-#[derive(Clone)]
 struct Waiting {
     descriptors: Vec<usize>,
     equality: Option<(usize, usize)>,
 }
-#[derive(Clone, Default)]
+#[derive(Default)]
 struct Cache {
     tuples: BTreeMap<Tuple, Vec<usize>>,
     ready: BTreeMap<Tuple, Env>,
@@ -85,7 +84,7 @@ struct Cache {
     watchers: BTreeMap<usize, BTreeSet<Tuple>>,
     incident: BTreeMap<usize, BTreeSet<Tuple>>,
 }
-#[derive(Clone, Default, Debug)]
+#[derive(Default, Debug)]
 pub struct Work {
     pub head_attempts: Cell<usize>,
     pub fact_visits: Cell<usize>,
@@ -97,7 +96,6 @@ pub struct Work {
     pub changed_handles: usize,
     pub peak_tuples: usize,
 }
-#[derive(Clone)]
 pub struct Execution<const METRICS: bool = true> {
     program: Arc<Program>,
     graph: Run<false>,
@@ -598,6 +596,3 @@ impl<const METRICS: bool> Execution<METRICS> {
         }
     }
 }
-
-#[path = "local_search.rs"]
-pub mod search;

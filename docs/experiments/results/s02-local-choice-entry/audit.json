@@ -1,0 +1,21 @@
+{
+  "manifest_inputs": 18,
+  "binaries": 5,
+  "confirming_executions": 4,
+  "source_matrix_per_execution": 48,
+  "body_barrier_sources_per_execution": 1,
+  "comparators": [
+    "independent ordered scalar",
+    "compiled Scan",
+    "compiled Indexed",
+    "contextual source"
+  ],
+  "regressions": {
+    "regression-contextual_source": 4,
+    "regression-multihead": 8,
+    "regression-contextual": 6
+  },
+  "regression_tests": 18,
+  "prior_source_snapshot_verified": true,
+  "scope": "Source/fork/progress and prepared-owner qualification; no cost matrix"
+}
