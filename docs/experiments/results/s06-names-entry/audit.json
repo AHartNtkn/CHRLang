@@ -1,0 +1,59 @@
+{
+  "verified_manifest_inputs": 36,
+  "confirming_names_executables": 4,
+  "earlier_names_executables": 4,
+  "checks_per_names_executable": {
+    "denotation": 17934,
+    "ground_source": 8967,
+    "partial_source": 183,
+    "explicit_assignments": 1224
+  },
+  "regressions": [
+    {
+      "file": "regression-projection_lifecycle.json",
+      "passed": 7
+    },
+    {
+      "file": "regression-noc.json",
+      "passed": 4
+    },
+    {
+      "file": "regression-projection_cost_controls.json",
+      "passed": 2
+    },
+    {
+      "file": "regression-chr_structural.json",
+      "passed": 0
+    },
+    {
+      "file": "regression-projection.json",
+      "passed": 10
+    },
+    {
+      "file": "regression-names_source.json",
+      "passed": 2
+    },
+    {
+      "file": "regression-regular.json",
+      "passed": 2
+    },
+    {
+      "file": "regression-finite_cost.json",
+      "passed": 1
+    },
+    {
+      "file": "regression-spaces.json",
+      "passed": 3
+    },
+    {
+      "file": "regression-finite_paths.json",
+      "passed": 16
+    },
+    {
+      "file": "regression-lambda.json",
+      "passed": 6
+    }
+  ],
+  "total_regression_tests": 53,
+  "scope": "finite denotation and source boundary; no comparative timing"
+}

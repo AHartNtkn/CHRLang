@@ -1,0 +1,16 @@
+   Compiling chr-structural v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-structural)
+error[E0432]: unresolved import `chr_structural::names`
+ --> research/chr-structural/tests/names.rs:1:21
+  |
+1 | use chr_structural::names::{NameFormula, Theory};
+  |                     ^^^^^ could not find `names` in `chr_structural`
+
+error[E0308]: mismatched types
+   --> research/chr-structural/tests/names.rs:129:51
+    |
+129 |                 env.insert(Var(u64::from(i)),atom(format!("name{}",index % n)));
+    |                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^ expected `&str`, found `String`
+
+Some errors have detailed explanations: E0308, E0432.
+For more information about an error, try `rustc --explain E0308`.
+error: could not compile `chr-structural` (test "names") due to 2 previous errors

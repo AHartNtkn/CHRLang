@@ -202,3 +202,5 @@ pub mod space;
 pub mod finite;
 
 pub mod projection;
+
+pub mod names;
