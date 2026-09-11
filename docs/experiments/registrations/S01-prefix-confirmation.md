@@ -1,0 +1,27 @@
+# Confirm deep-prefix timing against simpler complete controls
+
+This experiment confirms consequential uncertainty in the [lifecycle pilot](../results/S01-prefix-lifecycle.md). It adds precision to the same implementations and sources, not evidence of broader source coverage. Preserve the existing allocation evidence without rerunning it. T081 is active; this is the fourth package since full portfolio review, which must follow its result or obstruction.
+
+## Fixed design before runs
+
+Use the exact ordinary-allocator, counters-off binary in `s01-prefix-lifecycle/freeze.json`, verifying its SHA-256 and the parent source archive. Do not rebuild or modify it. Keep the existing complete scalar answer checks, unmeasured per-query warm completions, phase accounting, cancellation and retained ownership gates. Compilation and process startup remain outside lifecycle totals. First/full observation coincide for these single-answer sources.
+
+Use all 64 pilot scenarios: sparse/keyed/kill/miss × depth0/32 × width4/8 × reuse1/4 × immediate/all consumers. Each scenario compares proper intermediates, local scanning and generated indexed access. Generated uses Active policy except for kill, where it uses Global to preserve the same answer. Do not substitute Active/kill: its independently established answer difference remains a semantic counterexample. The depth-zero miss is an absence control, not a matched shallow structural case.
+
+Use 64 repetitions, fixed now. Randomize the 4,096 scenario/repetition blocks with seed 81210; randomize the three mode positions within each block with the same seeded generator. Record 12,288 process results. All three modes in a block use identical source/lifetime parameters. Each process retains its internal unmeasured complete-query preflight. Run the existing80-case and prefix90-case smoke gates and five 10,000-interval empty-clock calibrations before the matrix.
+
+The pilot's deep width8/four-retained-query log-ratio standard deviations were 0.245 and0.305 on sparse sources versus local scan and Active native, compared with0.030 and0.117 on keyed sources. This motivates substantially more than five samples and robust median inference. Sixty-four samples permit the conservative order-statistic intervals below at bounded execution cost; they do not guarantee the desired resolution. Do not add repetitions in response to whether the result favors a candidate.
+
+Pin to the pilot's CPU0 only if it remains in the permitted affinity. Record current affinity/platform, binary hash, parent-freeze/archive hashes, registration/driver/auditor hashes and full randomized order before runs. Each process has60-second wall/CPU and1-GiB virtual-memory bounds; source execution retains200,000 service advances. The campaign has a30-minute bound. Preserve failures/cutoffs and halt for diagnosis. A timeout is not a runtime observation. No concurrent assistant-initiated build or benchmark during the campaign.
+
+## Analysis fixed before runs
+
+Reconstruct complete lifecycle time by summing all non-cancellation phases. Keep every sample and its phase breakdown. For each of64 scenarios, form the paired ratio of intermediate time to each of the two controls in every block. Report median and full range, plus a two-sided interval for the population median based on binomial order statistics.
+
+There are128 predeclared contrasts. For each contrast, use per-contrast error0.05/128. With64 ratios, choose the largest integer k such that twice the fair-binomial probability of at most k-1 successes is no more than0.05/128. This yields k=18: use sorted observations18 and47 (one-based) as the interval endpoints. Under independent repetitions with a stable distribution, a median places at most half the distribution strictly on either side; the binomial tail bounds each endpoint's coverage failure. Bonferroni bounds the family error by5% without requiring independence between contrasts. Ties are conservative. Temporal dependence/nonstationarity can invalidate the repeated-sampling model; these remain conditional machine/run-series intervals, not guarantees across hardware or programs.
+
+Classify a practically separated advantage only when the interval upper endpoint is below0.90; classify a practically separated disadvantage only when its lower endpoint exceeds1.10. An interval wholly inside[0.90,1.10] supports no practically important median difference under this design. All other cases remain unresolved; an interval wholly below1 but crossing0.90 is not a confirmed10% benefit. No aggregate workload weights or universal winner.
+
+Apply the prior clock rule separately: if any complete time in a cell is below100×maximum calibrated median empty-clock cost×number of complete phases, mark its affected contrasts instrumentation-sensitive and refrain from a timing classification. Report these alongside all observations. Allocation consequences come from the frozen pilot, with unchanged source/lifetime matching; requested bytes and tracked heap are not RSS.
+
+At the result, explain what confirmation changes in the bounded retained-matching decision, including the simplest competitive executor, adverse inputs, ownership and necessary responsibilities. Perform the full portfolio review, explicitly considering compact confirmation, long-standing unfinished demand/integration/reuse costs, unimplemented mechanisms, coherent paths and held-out challenges. Neither confirmation nor this review completes the research goal.

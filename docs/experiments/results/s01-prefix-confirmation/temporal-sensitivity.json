@@ -1,0 +1,82 @@
+{
+  "exploratory": true,
+  "scope": "Two highlighted witnesses, not a stationarity test",
+  "results": [
+    {
+      "scenario": [
+        "prefix-sparse-32",
+        8,
+        4,
+        "all"
+      ],
+      "control": "local-scan",
+      "chronological_halves": [
+        {
+          "samples": 35,
+          "median_ratio": 0.7645202663809172
+        },
+        {
+          "samples": 29,
+          "median_ratio": 0.7757480333282272
+        }
+      ]
+    },
+    {
+      "scenario": [
+        "prefix-sparse-32",
+        8,
+        4,
+        "all"
+      ],
+      "control": "active-native-indexed",
+      "chronological_halves": [
+        {
+          "samples": 35,
+          "median_ratio": 0.8855257923750761
+        },
+        {
+          "samples": 29,
+          "median_ratio": 0.8937019413832116
+        }
+      ]
+    },
+    {
+      "scenario": [
+        "prefix-keyed-32",
+        8,
+        4,
+        "all"
+      ],
+      "control": "local-scan",
+      "chronological_halves": [
+        {
+          "samples": 34,
+          "median_ratio": 0.8978816114475501
+        },
+        {
+          "samples": 30,
+          "median_ratio": 0.8757350469959478
+        }
+      ]
+    },
+    {
+      "scenario": [
+        "prefix-keyed-32",
+        8,
+        4,
+        "all"
+      ],
+      "control": "active-native-indexed",
+      "chronological_halves": [
+        {
+          "samples": 34,
+          "median_ratio": 0.6935593737173247
+        },
+        {
+          "samples": 30,
+          "median_ratio": 0.6909998789475065
+        }
+      ]
+    }
+  ]
+}
