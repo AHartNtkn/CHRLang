@@ -389,3 +389,47 @@ fn deep_indirect_cycles_and_shared_dags_preserve_forked_answers() {
         assert!(bad.export(&[dag]).is_none());
     }
 }
+
+#[test]
+fn readiness_preserves_first_relevant_equation_and_fork_ownership() {
+    use chr_relational::store::MatcherReads;
+    use chr_syntax::{Goal, Rule};
+    let reads = MatcherReads::new(&[Rule::simplify("read", [c("p", [v(0), v(0)])], Goal::Fail)]);
+    for indirect in [false, true] {
+        for irrelevant_prefix in [false, true] {
+            let mut s = Store::default();
+            let x = s.unknown();
+            let y = s.unknown();
+            let u = s.unknown();
+            let a = s.constructor("a", &[]);
+            let visible = if indirect {
+                s.constructor("f", &[x])
+            } else {
+                x
+            };
+            let occurrence = s.post("p", &[visible, y]);
+            if irrelevant_prefix {
+                let b = s.constructor("unrelated", &[]);
+                s.equate(u, b);
+            }
+            s.equate(x, a); // Earlier, possibly only indirectly visible.
+            s.equate(y, a); // Later direct hit must never jump the first.
+            let mut fork = s.clone();
+            assert!(s.step_for_matching(&reads));
+            assert_eq!(s.root(x), s.root(a));
+            assert_ne!(s.root(y), s.root(a));
+            assert_ne!(s.root(u), s.root(a));
+            assert_ne!(fork.root(x), fork.root(a));
+            assert!(s.step_for_matching(&reads));
+            assert_eq!(s.root(y), s.root(a));
+            assert!(!s.step_for_matching(&reads));
+            let plan = HeadPlan::compile(&[], &[c("p", [v(0), v(1)])]);
+            let claim = fork.matches(&plan).matches.remove(0);
+            assert_eq!(claim.removed, vec![occurrence]);
+            assert!(fork.consume(&claim));
+            assert!(!fork.step_for_matching(&reads));
+            settle(&mut s);
+            assert_eq!(s.export(&[x, y]), Some(vec![atom("a"), atom("a")]));
+        }
+    }
+}

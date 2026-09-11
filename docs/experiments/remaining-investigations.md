@@ -1,5 +1,7 @@
 # The comparisons still needed to choose the architecture
 
+Direct readiness passes source/selection gates, 144 allocation processes and 12,000 ordinary timing sessions. Width128 readiness time falls 39–40%; compiled remains about five times faster there. Full 57-question review selects fresh graph memo/scratch attribution under T074; T072 remains pending, review count reset, goal active. [Readiness result](results/S02-direct-readiness.md) · [Portfolio review](results/S02-direct-readiness-review.md).
+
 Paired ordinary timing validates 1,200 processes and 12,000 complete sessions. Candidate caching qualifies in four width-128 comparisons; compiled still qualifies against inferred full in 10/12 cases and inferred readiness in 12/12. Width-64 variation was inspected without changing the registered gate. T072 next qualifies direct first-equation readiness; package count three, full portfolio review next package, goal active. [Paired timing result](results/S02-stable-candidate-timing.md).
 
 Equality-stable candidate caching passes adversarial raw-source gates and144 allocation processes. Broad discovery drops261to4 calls and complete requested bytes9.88MBto2.27MB;8of24 relational cases request more and20peak higher. T072 next runs paired ordinary timing with conservative/compiled and adverse controls; package count two, goal active. [Candidate-cache result](results/S02-stable-candidates.md).

@@ -1,0 +1,11 @@
+# Direct first-equation readiness
+
+Register before implementation and comparative execution. T072, fourth package since portfolio review; include a full portfolio review at this result.
+
+Hypothesis: when the first queued equation touches a matcher-read root, it is already the first relevant equation and may be serviced without constructing dependency closure. Check only that first equation. Otherwise retain the complete equation/constructor closure, including indirectly relevant earlier equations. No scheduler, publication, fairness, candidate invalidation or source semantics change.
+
+Qualify direct hits, aliases, irrelevant prefixes, earlier indirect relevance versus later direct relevance, constructor parent/child reachability, contradiction, redundant equations, consumed occurrences and fork isolation. Run existing independent raw-source and library interleaving tests for candidate and control with borrowed cycles, stable candidates and vector incidence. Use both incidence representations in ownership runs.
+
+Reuse execution_attribution.py with --direct-readiness: four meter/profile × set/vector builds, full/batch256/compiled, six existing cases (broad8 forward, broad128 reverse, broad128 admission cancellation, deep64 separate failure/shared success/shared clash), two changing queries, two repetitions: 144 processes. Ordinary timing is a separate subsequent registration. Freeze source and binaries before runs. Seed7212; serial processes, 60second CPU/wall and 1GiB address-space per process. Require exact profile/control requested allocation and lifecycle restoration, independent full answers, identical advances to the stable-candidate control, identical scope counts and all non-readiness allocations, and unchanged full/compiled complete requested bytes and peaks. Compare readiness requested bytes and complete requested/peak ownership to the frozen stable-candidate campaign. Do not interpret diagnostic time as performance evidence.
+
+A reduction with selection preserved supports a cheaper readiness mechanism, not always-on readiness or an architecture choice. An increase or ineffective direct-hit recognition motivates examining actual read dependencies before another optimization. Review graph attribution, coarser reuse/direct solving and remaining directions at this result; no lower priority direction is resolved.

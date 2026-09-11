@@ -9,7 +9,7 @@ goal:
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
   execution_sequence: docs/experiments/next-cycle.md
-  current_research: "Paired ordinary timing validates 1,200 processes and 12,000 complete sessions. Candidate caching qualifies in four width-128 comparisons; compiled still qualifies against inferred full in 10/12 cases and inferred readiness in 12/12. Width-64 variation was inspected without changing the registered gate. T072 next qualifies direct first-equation readiness; package count three, full portfolio review next package, goal active."
+  current_research: "Direct readiness passes source/selection gates, 144 allocation processes and 12,000 ordinary timing sessions. Width128 readiness time falls 39\u201340%; compiled remains about five times faster there. Full 57-question review selects fresh graph memo/scratch attribution under T074; T072 remains pending, review count reset, goal active."
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -64,7 +64,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T072
+active_task: T074
 tasks:
   - id: T081
     type: pm
@@ -442,9 +442,9 @@ tasks:
   - id: T074
     type: pm
     assignee: PM
-    status: pending
-    progress: "Probe lifecycle pilot validates 1344 processes and192 exact allocation pairs. An18000-session confirmation and separate18000-session CPU-clock diagnosis establish no registered timing gain. Selective requested allocation falls; duplicate/broad costs and preparation ownership rise. Full portfolio review selects matched reuse of unchanged query structure through the existing prepared-query API under T082; review count reset, goal active."
-    next_action: "Reconsider failure-sensitive context probing and fresh memo-cost attribution at the T082 prepared-plan gate. The full context portfolio review selected broader partner planning; T074 remains required and pending, not complete."
+    status: active
+    progress: "Direct readiness passes source/selection gates, 144 allocation processes and 12,000 ordinary timing sessions. Width128 readiness time falls 39\u201340%; compiled remains about five times faster there. Full 57-question review selects fresh graph memo/scratch attribution under T074; T072 remains pending, review count reset, goal active."
+    next_action: "Inspect current graph traversal lifecycle and memo/scratch paths; register exclusive allocation/work attribution with exact diagnostic/control agreement and full source/lifetime gates after existing context improvements. Include repeated/unique work, failure, sparse/dense contexts, changing queries, retained/immediate consumers and cancellation; extend fixtures as needed. Choose a concrete intervention only from that attribution. Review count reset."
     objective: Investigate sustained answer delivery, consumer ownership and engine retention across credible graph, compiled and reuse controls, including immediate release, bounded retention, changing queries, cancellation and reclamation costs under independently checked source semantics.
     inputs:
       - docs/experiments/results/S10-static-control.md
@@ -572,9 +572,9 @@ tasks:
   - id: T072
     type: pm
     assignee: PM
-    status: active
-    progress: "Paired ordinary timing validates 1,200 processes and 12,000 complete sessions. Candidate caching qualifies in four width-128 comparisons; compiled still qualifies against inferred full in 10/12 cases and inferred readiness in 12/12. Width-64 variation was inspected without changing the registered gate. T072 next qualifies direct first-equation readiness; package count three, full portfolio review next package, goal active."
-    next_action: Register and qualify direct first-equation readiness against full dependency closure, including earlier indirectly relevant versus later directly relevant equations, aliases, failure priority, consuming claims and branch isolation. Extend fixtures as necessary. Then measure separate work/ownership and ordinary lifecycle costs with early-failure, broad, cache and compiled controls. Full 57-question portfolio review in this next package; package count three.
+    status: pending
+    progress: "Direct readiness passes source/selection gates, 144 allocation processes and 12,000 ordinary timing sessions. Width128 readiness time falls 39\u201340%; compiled remains about five times faster there. Full 57-question review selects fresh graph memo/scratch attribution under T074; T072 remains pending, review count reset, goal active."
+    next_action: "Reassess remaining readiness closure, constructor organization, output-only matcher omission and richer guards against fresh graph attribution and solving alternatives. Direct readiness has qualified scoped gains; broader integration remains unresolved."
     objective: Establish a contextual equality and local consuming-rewrite source comparison that demonstrates useful interleaving, distinct resource ownership and independent complete-answer correctness before cost registration.
     inputs:
       - docs/experiments/results/S02-reserved-selection.md
@@ -2688,8 +2688,11 @@ checks:
   last_verification:
     result: passed
     task: T072
-    scope: Paired ordinary candidate-invalidation timing and retained-session investigation.
+    scope: Direct readiness selection, source regression, allocation and ordinary timing; full portfolio review.
     commands:
+      - "execution_attribution.py --direct-readiness --audit: 144 processes, exact exclusive allocation and unchanged advances/non-readiness scopes"
+      - "stable_candidate_timing.py --direct-readiness --audit: 1200 processes, 12000 sessions, 120 contrasts"
+      - "27 source/store/library tests in candidate and control; scoped execution-profile Clippy"
       - "stable_candidate_timing.py --audit: 1200 processes, 12000 sessions, 120 contrasts and frozen source/binary/order checks"
       - "execution_attribution.py --stable --audit: 144 processes, 36 configurations, exact allocation and unchanged advances"
       - "Candidate/conservative source-store-library tests including 48 adversarial schedule cases; both Clippy checks"
@@ -2714,6 +2717,8 @@ checks:
       - "audit_probe_clock.py: 18000 separately instrumented complete sessions"
       - Scoped ordinary, allocation and CPU-clock Clippy; source hashes, report links and 57-question map
     evidence:
+      - docs/experiments/results/S02-direct-readiness.md
+      - docs/experiments/results/S02-direct-readiness-review.md
       - docs/experiments/results/S02-stable-candidate-timing.md
       - docs/experiments/results/s02-stable-candidate-timing/analysis.json
       - docs/experiments/results/S02-stable-candidates.md

@@ -1,0 +1,78 @@
+{
+  "builds": {
+    "(False, 'meter')": {
+      "binary": "/home/ahart/Documents/CHRLang/target/execution-attribution-direct-True-True-False-meter",
+      "sha256": "335f6664854da93a2767fbd96d964f17ae47e4d5336ab8a857c60f16b2805d21",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-relational",
+        "--release",
+        "--no-default-features",
+        "--features",
+        "alloc-meter,borrowed-cycles,stable-candidates,direct-readiness",
+        "--test",
+        "readiness_lifecycle",
+        "--no-run",
+        "--message-format=json"
+      ]
+    },
+    "(False, 'profile')": {
+      "binary": "/home/ahart/Documents/CHRLang/target/execution-attribution-direct-True-True-False-profile",
+      "sha256": "9bd8f8772ba5e1abf57f697d46f17c6d3abb9b07056e4eb02f3838fd61f02455",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-relational",
+        "--release",
+        "--no-default-features",
+        "--features",
+        "execution-profile,borrowed-cycles,stable-candidates,direct-readiness",
+        "--test",
+        "readiness_lifecycle",
+        "--no-run",
+        "--message-format=json"
+      ]
+    },
+    "(True, 'meter')": {
+      "binary": "/home/ahart/Documents/CHRLang/target/execution-attribution-direct-True-True-True-meter",
+      "sha256": "bbe06aaa0fa97b9ceb43b438aa437b8b356ce49701ce0e78dcd6d0fc8b88bedc",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-relational",
+        "--release",
+        "--no-default-features",
+        "--features",
+        "alloc-meter,incidence-vector,borrowed-cycles,stable-candidates,direct-readiness",
+        "--test",
+        "readiness_lifecycle",
+        "--no-run",
+        "--message-format=json"
+      ]
+    },
+    "(True, 'profile')": {
+      "binary": "/home/ahart/Documents/CHRLang/target/execution-attribution-direct-True-True-True-profile",
+      "sha256": "f4a3dab18023ada0c97659f06d20b559823976cf2f1234d4e3b69b44f04b143f",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-relational",
+        "--release",
+        "--no-default-features",
+        "--features",
+        "execution-profile,incidence-vector,borrowed-cycles,stable-candidates,direct-readiness",
+        "--test",
+        "readiness_lifecycle",
+        "--no-run",
+        "--message-format=json"
+      ]
+    }
+  },
+  "source_hash": "0db48b011d405e9adc412b8d80288d1f1e1a567fffda8ef57556772260294437",
+  "rustc": "rustc 1.97.1 (8bab26f4f 2026-07-14)\nbinary: rustc\ncommit-hash: 8bab26f4f68e0e26f0bb7960be334d5b520ea452\ncommit-date: 2026-07-14\nhost: x86_64-unknown-linux-gnu\nrelease: 1.97.1\nLLVM version: 22.1.6\n"
+}

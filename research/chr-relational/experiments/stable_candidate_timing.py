@@ -1,7 +1,8 @@
 """Interleaved lifecycle timing of inferred invalidation and serious controls."""
 import gzip,hashlib,itertools,json,os,random,resource,statistics,subprocess,sys,zipfile
 from pathlib import Path
-ROOT=Path(__file__).resolve().parents[3];OUT=ROOT/'docs/experiments/results/s02-stable-candidate-timing'
+DIRECT='--direct-readiness' in sys.argv
+ROOT=Path(__file__).resolve().parents[3];OUT=ROOT/('docs/experiments/results/s02-direct-readiness-timing' if DIRECT else 'docs/experiments/results/s02-stable-candidate-timing')
 VARIANTS=[(False,'full'),(True,'full'),(False,'batch256'),(True,'batch256'),(False,'compiled')]
 CPU=min(os.sched_getaffinity(0))
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
@@ -41,11 +42,11 @@ def audit():
 def run():
     OUT.mkdir(parents=True,exist_ok=True);assert not (OUT/'freeze.json').exists();builds={}
     for stable in [False,True]:
-        features='borrowed-cycles,incidence-vector'+(',stable-candidates' if stable else '')
+        features='borrowed-cycles,incidence-vector'+(',stable-candidates'+(',direct-readiness' if stable else '') if DIRECT else ',stable-candidates' if stable else '')
         cmd=['cargo','test','-p','chr-relational','--release','--no-default-features','--features',features,'--test','readiness_lifecycle','--no-run','--message-format=json']
         r=subprocess.run(cmd,cwd=ROOT,capture_output=True,text=True);(OUT/f'build-{stable}.log').write_text(r.stderr.rstrip()+'\n');assert r.returncode==0
         exe=next(json.loads(x)['executable'] for x in r.stdout.splitlines() if x.startswith('{') and json.loads(x).get('executable'))
-        b=ROOT/f'target/stable-candidate-timing-{stable}';b.write_bytes(Path(exe).read_bytes());b.chmod(0o755);builds[str(stable)]={'binary':str(b),'sha256':sha(b),'command':cmd};print('built',stable,flush=True)
+        b=ROOT/f'target/{"direct-readiness" if DIRECT else "stable-candidate"}-timing-{stable}';b.write_bytes(Path(exe).read_bytes());b.chmod(0o755);builds[str(stable)]={'binary':str(b),'sha256':sha(b),'command':cmd};print('built',stable,flush=True)
     cases=[(64,o,k) for o,k in itertools.product(['false','true'],['broad-forward','broad-reverse'])]+[(128,'false','broad-forward'),(128,'true','broad-reverse'),(64,'false','broad-cancel'),(64,'true','broad-cancel'),(64,'false','fail'),(64,'true','success'),(64,'true','clash'),(4,'false','success')]
     jobs=[];rng=random.Random(7214)
     for block in range(20):
@@ -53,6 +54,7 @@ def run():
         for i,case in groups:
             for v in [(i+block+j)%5 for j in range(5)]:jobs.append({'block':block,'case':case,'variant':v})
     paths=subprocess.check_output(['git','ls-files','research/chr-relational','research/chr-compiled','research/chr-persistent','research/chr-observe','research/chr-direct-conditional','research/chr-integrated','crates/chr-syntax','Cargo.toml','Cargo.lock'],cwd=ROOT,text=True).splitlines()+[str(Path(__file__).relative_to(ROOT)),'docs/experiments/registrations/S02-stable-candidate-timing.md']
+    if DIRECT: paths += ['docs/experiments/registrations/S02-direct-readiness-timing.md','docs/experiments/registrations/S02-direct-readiness.md']
     with zipfile.ZipFile(OUT/'sources.zip','w',zipfile.ZIP_DEFLATED) as z:
         for p in sorted(set(paths)):z.write(ROOT/p,p)
     (OUT/'freeze.json').write_text(json.dumps({'builds':builds,'jobs':jobs,'source_hash':sha(OUT/'sources.zip'),'rustc':subprocess.check_output(['rustc','-Vv'],text=True),'cpu':CPU,'platform':list(os.uname())},indent=2)+'\n')

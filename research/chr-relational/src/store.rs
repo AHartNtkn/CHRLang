@@ -276,10 +276,25 @@ impl Store {
         if self.equations.is_empty() {
             return false;
         }
+        #[cfg(feature = "direct-readiness")]
+        let first = self
+            .equations
+            .front()
+            .map(|(a, b)| (self.root(*a), self.root(*b)))
+            .unwrap();
         let mut todo = VecDeque::new();
         for (key, index) in self.view.locations.values() {
             if let Some(columns) = reads.columns.get(key) {
                 let row = &self.view.tables[key].rows[*index];
+                // Only the first equation can bypass closure: a later direct
+                // hit must not jump an earlier indirectly relevant equation.
+                #[cfg(feature = "direct-readiness")]
+                if columns.iter().any(|column| {
+                    let value = self.root(row.values[*column]);
+                    value == first.0 || value == first.1
+                }) {
+                    return self.step();
+                }
                 todo.extend(columns.iter().map(|column| self.root(row.values[*column])));
             }
         }
