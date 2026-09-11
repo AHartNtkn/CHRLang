@@ -130,7 +130,6 @@ pub fn self_check() -> Result<(), String> {
     if end(start).live_end != start.live {
         return Err("reallocation teardown leaked requested bytes".into());
     }
-    #[cfg(feature = "fork-diagnostics")]
     {
         let outer = begin();
         let before = checkpoint();
@@ -152,14 +151,12 @@ pub fn self_check() -> Result<(), String> {
 }
 
 /// Cumulative allocation traffic; reading never resets the active peak window.
-#[cfg(feature = "fork-diagnostics")]
 #[derive(Clone, Copy, Default)]
 pub struct Checkpoint {
     pub allocation_calls: usize,
     pub requested_bytes: usize,
     pub deallocation_calls: usize,
 }
-#[cfg(feature = "fork-diagnostics")]
 pub fn checkpoint() -> Checkpoint {
     Checkpoint {
         allocation_calls: CALLS.load(Relaxed),

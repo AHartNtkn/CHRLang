@@ -1,0 +1,1 @@
+Initial profiling test compilation failed: meter::checkpoint was gated by fork-diagnostics. The meter checkpoint and its existing exact allocation/peak self-check now apply to every allocation-meter build, independently of engine diagnostics. No workload measurement ran before this repair.

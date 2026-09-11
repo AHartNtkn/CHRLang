@@ -1,4 +1,7 @@
 //! Registered isolated-process dependency ownership experiment.
+#[cfg(feature = "candidate-profile")]
+#[path = "support/candidate_profile.rs"]
+mod candidate_profile;
 #[cfg(feature = "alloc-meter")]
 #[path = "../../chr-compiled/experiments/meter.rs"]
 mod meter;
@@ -239,6 +242,8 @@ fn main() {
     let mut records = Vec::with_capacity(32);
     let mut held = Vec::with_capacity(4);
     let mut endpoints = Vec::with_capacity(4);
+    #[cfg(feature = "candidate-profile")]
+    candidate_profile::enable();
     println!("{{\"event\":\"start\"}}");
     #[cfg(feature = "alloc-meter")]
     let root = meter::begin();
@@ -306,6 +311,8 @@ fn main() {
         "{{\"event\":\"result\",\"meter\":{},\"endpoints\":[{ends}],\"phases\":[{rows}]}}",
         cfg!(feature = "alloc-meter")
     );
+    #[cfg(feature = "candidate-profile")]
+    println!("{}", candidate_profile::json());
 }
 
 #[cfg(test)]

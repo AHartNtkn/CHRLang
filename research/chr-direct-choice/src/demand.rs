@@ -1,6 +1,8 @@
 //! Experimental suspended applications for a checked equation-producing source fragment.
 //! Context-indexed results preserve application identity. This is not yet a
 //! general multihead CHR executor. Optional local pull-tabs lift directly demanded choices.
+#[cfg(feature = "candidate-profile")]
+pub mod candidate_profile;
 mod templates;
 use chr_syntax::{Answer, Constraint, Goal, Query, Rule, Term, Var};
 use std::collections::{BTreeMap, BTreeSet, VecDeque};
@@ -760,8 +762,16 @@ impl Run {
             if row.constraint != head.name || row.args.len() != head.args.len() {
                 continue;
             }
-            let args = row.args.clone();
-            let mut next = env.clone();
+            let args = {
+                #[cfg(feature = "candidate-profile")]
+                let _scope = candidate_profile::Scope::new(candidate_profile::Phase::Arguments);
+                row.args.clone()
+            };
+            let mut next = {
+                #[cfg(feature = "candidate-profile")]
+                let _scope = candidate_profile::Scope::new(candidate_profile::Phase::Environment);
+                env.clone()
+            };
             let mut matched = true;
             for (p, arg) in head.args.iter().zip(args) {
                 if !self.matches(p, arg, ctx, &mut next)? {
@@ -770,8 +780,13 @@ impl Run {
                 }
             }
             if matched {
-                let mut ids = selected.clone();
-                ids.push(id);
+                let ids = {
+                    #[cfg(feature = "candidate-profile")]
+                    let _scope = candidate_profile::Scope::new(candidate_profile::Phase::Selection);
+                    let mut ids = selected.clone();
+                    ids.push(id);
+                    ids
+                };
                 if let Some(found) = self.partners(heads, ids, next, ctx)? {
                     return Ok(Some(found));
                 }
