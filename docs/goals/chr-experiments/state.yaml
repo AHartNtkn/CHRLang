@@ -9,7 +9,7 @@ goal:
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
   execution_sequence: docs/experiments/next-cycle.md
-  current_research: "Arena sharing validates1024 allocation processes with512 exact pairs. It lowers requested and peak bytes in all128 stable-table reuse comparisons, raises both in all128 changing-table reuse comparisons, and leaves prepared peaks above fresh in all256 comparisons. Next measure complete ordinary-allocator lifecycle time, then full portfolio review; package count three, T082 and goal active."
+  current_research: "Prepared-query timing validates96000 complete sessions. Reuse has scoped qualified time gains with higher peak ownership; sharing-only timing remains unresolved after a batch diagnostic. Full57-question portfolio review selects T072 integrated constructor/query admission attribution. T082 remains pending, review count reset, goal active."
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -64,7 +64,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T082
+active_task: T072
 tasks:
   - id: T081
     type: pm
@@ -572,9 +572,9 @@ tasks:
   - id: T072
     type: pm
     assignee: PM
-    status: pending
-    progress: "Readiness lifecycle sizing validates 1,120 processes and 160 exact allocation pairs; a targeted follow-up validates 4,400 complete sessions. Early failure improves relational cost, but generic compiled execution is faster on the decisive deep sources. Even zero readiness execution leaves the deep reused-query admission cost above compiled total time. Full portfolio review selects T074 graph memo/lifecycle costs; T072 remains required, review count reset, goal active."
-    next_action: "Revisit integrated admission/constructor representation with an explicit source and ownership hypothesis, or at the next T074 cost result if it changes the comparison. The deep zero-execution bound prevents another readiness-only optimization from closing the current compiled gap. Preserve fixed/permissive scheduling alternatives, source-qualified early failure, output-only matcher omission and broader guards as separate work. No integration direction is completed or rejected by this pilot."
+    status: active
+    progress: "Prepared-query timing validates96000 complete sessions. Reuse has scoped qualified time gains with higher peak ownership; sharing-only timing remains unresolved after a batch diagnostic. Full57-question portfolio review selects T072 integrated constructor/query admission attribution. T082 remains pending, review count reset, goal active."
+    next_action: "Register integrated query-admission attribution on the existing readiness source and scalar/compiled controls. Separate constructor lookup/value creation, relation/index and incidence costs; preserve full answers and lifetimes. Select and qualify a representation intervention from measured responsibility, then reassess graph attribution and solving; review count reset."
     objective: Establish a contextual equality and local consuming-rewrite source comparison that demonstrates useful interleaving, distinct resource ownership and independent complete-answer correctness before cost registration.
     inputs:
       - docs/experiments/results/S02-reserved-selection.md
@@ -2669,10 +2669,10 @@ tasks:
   - id: T082
     type: pm
     assignee: PM
-    status: active
+    status: pending
     objective: Investigate partner ordering and key-aware discovery plans with preserved source head identity and consuming selection, independent complete answers, adverse controls and complete lifecycle accounting.
-    progress: "Arena sharing validates1024 allocation processes with512 exact pairs. It lowers requested and peak bytes in all128 stable-table reuse comparisons, raises both in all128 changing-table reuse comparisons, and leaves prepared peaks above fresh in all256 comparisons. Next measure complete ordinary-allocator lifecycle time, then full portfolio review; package count three, T082 and goal active."
-    next_action: Register bounded paired batched ordinary-allocator lifecycle timing for fresh/reuse and ordinary/shared arenas, preserving changed-term and cancellation controls. Then conduct full portfolio review including integration, graph attribution and direct solving; package count three.
+    progress: "Prepared-query timing validates96000 complete sessions. Reuse has scoped qualified time gains with higher peak ownership; sharing-only timing remains unresolved after a batch diagnostic. Full57-question portfolio review selects T072 integrated constructor/query admission attribution. T082 remains pending, review count reset, goal active."
+    next_action: "Prepared-prefix cycle has source, requested ownership and ordinary timing evidence. Broader plans, generated execution, selective activation and unresolved sharing/policy timing remain required. Reconsider at the T072 admission result or next full portfolio review."
     allowed_files:
       - research/
       - docs/experiments/
@@ -2688,8 +2688,9 @@ checks:
   last_verification:
     result: passed
     task: T082
-    scope: Arena sharing source qualification and complete requested-ownership intervention, exact repeats and unchanged-source comparison.
+    scope: Complete counter-free ordinary-allocator timing, uncertainty diagnostic and full portfolio review.
     commands:
+      - "prepared_prefix_timing.py --audit: 1920 processes, 96000 sessions, 144 paired contrasts, phase coverage and frozen order"
       - "prepared_prefix_ownership.py --arena-cow --audit: 1024 processes, 512 exact pairs, phase coverage, restoration and source equality"
       - "query_template with arena-cow and arena-cow,selective-probe; arena detachment unit test; scoped Clippy"
       - "prepared_prefix_ownership.py --audit: 1024 processes, 512 exact pairs, full phase coverage and owner restoration"
@@ -2699,6 +2700,8 @@ checks:
       - "audit_probe_clock.py: 18000 separately instrumented complete sessions"
       - Scoped ordinary, allocation and CPU-clock Clippy; source hashes, report links and 57-question map
     evidence:
+      - docs/experiments/results/S01-prepared-prefix-timing.md
+      - docs/experiments/results/S01-prepared-prefix-review.md
       - docs/experiments/results/S01-prepared-prefix-arena.md
       - docs/experiments/results/S01-prepared-prefix-ownership.md
       - docs/experiments/results/S01-probe-lifecycle.md

@@ -1,5 +1,7 @@
 # The comparisons still needed to choose the architecture
 
+Prepared-query timing validates96000 complete sessions. Reuse has scoped qualified time gains with higher peak ownership; sharing-only timing remains unresolved after a batch diagnostic. Full57-question portfolio review selects T072 integrated constructor/query admission attribution. T082 remains pending, review count reset, goal active. [Timing](results/S01-prepared-prefix-timing.md) · [Portfolio review](results/S01-prepared-prefix-review.md).
+
 Arena sharing validates1024 allocation processes with512 exact pairs. It lowers requested and peak bytes in all128 stable-table reuse comparisons, raises both in all128 changing-table reuse comparisons, and leaves prepared peaks above fresh in all256 comparisons. Next measure complete ordinary-allocator lifecycle time, then full portfolio review; package count three, T082 and goal active. [Arena result](results/S01-prepared-prefix-arena.md).
 
 Prepared-prefix ownership validates 1024 processes and512 exact allocation pairs. Reuse lowers requested bytes in all128 normal-completion comparisons, raises them in68of128 cancellation comparisons, and raises peak live bytes in all256 comparisons. Next qualify and attribute existing arena sharing against complete clone/suffix ownership; package count two, T082 and goal active. [Ownership result](results/S01-prepared-prefix-ownership.md).
