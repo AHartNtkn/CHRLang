@@ -1,0 +1,9 @@
+[package]
+name = "chr-symbolic-fixtures"
+version.workspace = true
+edition.workspace = true
+
+[dev-dependencies]
+chr-syntax = { path = "../../crates/chr-syntax" }
+chr-cases = { path = "../chr-cases" }
+chr-reference = { path = "../../crates/chr-reference" }

@@ -9,7 +9,7 @@ goal:
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
   execution_sequence: docs/experiments/next-cycle.md
-  current_research: "Call-trace timing validates 5,760 sessions. Trace qualifies faster than Direct in 11/144 cases (all with repeated queries) and slower in 22; gains carry about twice the peak ownership. It qualifies against memo in 142 and memo16 in 82 cases. Full 57-question review selects a matched compiled-execution control under T075 before further cache tuning; review count reset, goal active."
+  current_research: "Matched compiled controls validate 8,640 processes after repairing matcher-dependent answer ordering. Eight repeated-query cases qualify faster than Direct, compiled scan, indexed access and inferred specialization together, with fewer requested bytes but higher peak ownership. T075 next uses the existing generated-access emitter on the same sources before retention tuning; package count two, goal active."
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -368,9 +368,12 @@ tasks:
     assignee: PM
     status: active
     objective: Investigate sound generalized call and continuation reuse after different histories, including renaming, relevance, resource and output identity obligations, against competent recomputation and sharing controls.
-    progress: "Call-trace timing validates 5,760 sessions. Trace qualifies faster than Direct in 11/144 cases (all with repeated queries) and slower in 22; gains carry about twice the peak ownership. It qualifies against memo in 142 and memo16 in 82 cases. Full 57-question review selects a matched compiled-execution control under T075 before further cache tuning; review count reset, goal active."
-    next_action: "Inspect PreparedRuleset and existing generated/source-search controls. Register and implement a matched compiled-execution gate for the call-trace sources, preserving complete answers, delivery order and first-answer cancellation; do not assume engine ticks are equivalent. Qualify complete ownership and interleaved timing after source agreement. Reuse existing emitter if generated execution changes the comparison. Compare bounded retention, observer interleaving and sparse projection at the gate. Review count reset."
+    progress: "Matched compiled controls validate 8,640 processes after repairing matcher-dependent answer ordering. Eight repeated-query cases qualify faster than Direct, compiled scan, indexed access and inferred specialization together, with fewer requested bytes but higher peak ownership. T075 next uses the existing generated-access emitter on the same sources before retention tuning; package count two, goal active."
+    next_action: "Register same-source generated-access artifacts using generate::emit_access and existing artifact compilation. Preserve complete order, first-answer cancellation, changing queries and retained-output ownership. Measure generated runtime against the frozen matched controls and charge emission, build, artifact size and preparation separately with explicit amortization. Investigate failures before costs. Reassess bounded trace retention, broader observers and sparse projection after this control; package count two, full review by package four."
     inputs:
+      - docs/experiments/results/S05-call-compiled-entry.md
+      - docs/experiments/results/S05-call-compiled-cost.md
+      - docs/experiments/registrations/S05-call-compiled-cost.md
       - docs/experiments/results/S05-inert-lifecycle.md
       - docs/experiments/results/S05-inert-lifecycle-review.md
       - docs/experiments/results/S05-key-allocation.md
@@ -2684,8 +2687,12 @@ checks:
   last_verification:
     result: passed
     task: T075
-    scope: Counter-free call-trace lifecycle timing and full portfolio review.
+    scope: Matched compiled source-order repair, complete ownership and counter-free lifecycle costs.
     commands:
+      - "call_compiled_cost.py audit: 8640 terminal processes, exact ownership, 576 comparisons, frozen inputs"
+      - "call_compiled_diagnosis.py audit: eight joint gains, previous campaign overlap and service attribution"
+      - "call_compiled: 768 source cases and 2304 cancellation restarts in default, metrics-off and compiled-metrics builds"
+      - "chr-compiled full suite: 159 tests pass default and no-default-features; scoped ordinary/meter Clippy passes"
       - "call_trace_timing.py audit: 5760 sessions, 432 comparisons, complete phase sums and frozen inputs"
       - "Counter-free persistent dependency graph verified; full 57-question portfolio review and report links"
       - "call_trace_ownership.py audit: 1728 processes, 1152 exact allocation runs, consumer equivalence, restoration and frozen inputs"

@@ -1,0 +1,17 @@
+[package]
+name = "chr-direct-choice"
+version.workspace = true
+edition.workspace = true
+
+[features]
+scheduled-templates = []
+answer-validity = []
+validity-profile = []
+ordered-context = []
+seek-context = ["ordered-context"]
+completed-traversal = []
+work-diagnostics = []
+candidate-profile = []
+
+[dependencies]
+chr-syntax = { path = "../../crates/chr-syntax" }

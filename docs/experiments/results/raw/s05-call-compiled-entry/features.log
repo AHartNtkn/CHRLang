@@ -1,0 +1,29 @@
+chr-reuse v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-reuse)
+├── chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe)
+│   └── chr-syntax feature "default"
+│       └── chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax)
+├── chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)
+│   ├── chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe) (*)
+│   └── chr-syntax feature "default" (*)
+└── chr-syntax feature "default" (*)
+[dev-dependencies]
+├── chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+│   ├── chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe) (*)
+│   ├── chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent) (*)
+│   └── chr-syntax feature "default" (*)
+│   [build-dependencies]
+│   └── chr-syntax feature "default" (*)
+├── chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+│   └── chr-syntax feature "default" (*)
+├── chr-cases feature "default"
+│   └── chr-cases v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-cases)
+│       ├── chr-programs feature "default"
+│       │   └── chr-programs v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-programs)
+│       │       └── chr-syntax feature "default" (*)
+│       └── chr-syntax feature "default" (*)
+├── chr-direct-choice feature "default"
+│   └── chr-direct-choice v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-choice)
+│       └── chr-syntax feature "default" (*)
+└── chr-reference feature "default"
+    └── chr-reference v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-reference)
+        └── chr-syntax feature "default" (*)
