@@ -1,5 +1,7 @@
 # The comparisons still needed to choose the architecture
 
+Paired ordinary timing validates 1,200 processes and 12,000 complete sessions. Candidate caching qualifies in four width-128 comparisons; compiled still qualifies against inferred full in 10/12 cases and inferred readiness in 12/12. Width-64 variation was inspected without changing the registered gate. T072 next qualifies direct first-equation readiness; package count three, full portfolio review next package, goal active. [Paired timing result](results/S02-stable-candidate-timing.md).
+
 Equality-stable candidate caching passes adversarial raw-source gates and144 allocation processes. Broad discovery drops261to4 calls and complete requested bytes9.88MBto2.27MB;8of24 relational cases request more and20peak higher. T072 next runs paired ordinary timing with conservative/compiled and adverse controls; package count two, goal active. [Candidate-cache result](results/S02-stable-candidates.md).
 
 Borrowed cycle traversal validates144 allocation processes,72 source entries and300 ordinary timing processes. Deep cycle allocation drops1.73MB with unchanged scope counts and non-cycle allocation; compiled remains faster in all borrowed/vector pilot comparisons. T072 next qualifies equality-stable candidate caching with adverse source controls; package count one, goal active. [Borrowed traversal result](results/S02-borrowed-cycles.md).
