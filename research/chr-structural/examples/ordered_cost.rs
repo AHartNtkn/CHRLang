@@ -1,3 +1,5 @@
+#[path = "support/completed_caller.rs"]
+mod completed;
 #[cfg(feature = "alloc-meter")]
 #[allow(unexpected_cfgs, dead_code)]
 #[path = "../../chr-compiled/experiments/meter.rs"]
@@ -40,7 +42,12 @@ enum Output {
     Enumerated(std::vec::IntoIter<Vec<usize>>),
     Direct(Search),
 }
-fn next(output: &mut Output, caller: &Option<Prepared>, domain: &[Term]) -> Option<Answer> {
+fn next(
+    output: &mut Output,
+    caller: &mut Option<completed::Caller>,
+    domain: &[Term],
+    reuse: bool,
+) -> Option<Answer> {
     let row = match output {
         Output::Projected(x) => x.next(),
         Output::Lazy(x, dense) => {
@@ -68,10 +75,9 @@ fn next(output: &mut Output, caller: &Option<Prepared>, domain: &[Term]) -> Opti
         ],
         outputs: vec![("out".into(), Var(0))],
     };
-    let mut run = caller.as_ref().unwrap().start(q).unwrap();
-    let mut b = run.advance(10000);
-    assert!(b.exhausted && b.answers.len() == 1);
-    Some(runtime::strip(b.answers.pop().unwrap()))
+    let mut answers = caller.as_mut().unwrap().run(q, reuse, 10000).unwrap();
+    assert_eq!(answers.len(), 1);
+    Some(runtime::strip(answers.pop().unwrap()))
 }
 fn enumerate(
     domain: &[Term],
@@ -103,7 +109,9 @@ fn enumerate(
 fn main() {
     let args = std::env::args().collect::<Vec<_>>();
     assert_eq!(args.len(), 8);
-    let mode = args[1].as_str();
+    let reuse = args[1].starts_with("memo-");
+    let mode = args[1].strip_prefix("memo-").unwrap_or(&args[1]);
+    assert!(!reuse || mode != "direct");
     assert!(["projected", "enumerate", "lazy-enumerate", "direct"].contains(&mode));
     let n: usize = args[2].parse().unwrap();
     assert!([2, 4].contains(&n));
@@ -114,6 +122,7 @@ fn main() {
     assert!([1, 8].contains(&queries));
     let keep = args[6] == "1";
     let cancel = args[7] == "1";
+    let reuse = reuse && !(cancel && queries == 1);
     const { assert!(!chr_reuse::continuations::COLLECT_METRICS) };
     let domain = ["a", "b", "c", "a"].map(atom).to_vec();
     let (rs, q) = runtime::source_dense(&domain, n, 0, 2, false, padding, dense);
@@ -143,17 +152,14 @@ fn main() {
             .map(|i| Predicate::Different(v(0), v(i as u64)))
             .collect(),
     });
-    let (domain, caller, source, weights) = measure(&mut rows, "prepare", || {
+    let (domain, mut caller, source, weights) = measure(&mut rows, "prepare", || {
         let domain = region.domains[&Var(0)].clone();
         let caller = if mode == "direct" {
             None
         } else {
             Some(
-                Prepared::new(
-                    runtime::host(eq(v(0), v(1)), vec![v(0), v(1)], 2, 0),
-                    Mode::Direct,
-                )
-                .unwrap(),
+                completed::Caller::new(runtime::host(eq(v(0), v(1)), vec![v(0), v(1)], 2, 0))
+                    .unwrap(),
             )
         };
         let source = if mode == "direct" {
@@ -203,17 +209,15 @@ fn main() {
                     .unwrap(),
             ),
         });
-        let mut actual = measure(&mut rows, "consumer_buffer", || {
-            Vec::new()
-        });
+        let mut actual = measure(&mut rows, "consumer_buffer", Vec::new);
         measure(&mut rows, "first", || {
-            if let Some(a) = next(&mut output, &caller, &domain) {
+            if let Some(a) = next(&mut output, &mut caller, &domain, reuse) {
                 actual.push(a);
             }
         });
         measure(&mut rows, "remaining", || {
             if !cancel {
-                while let Some(a) = next(&mut output, &caller, &domain) {
+                while let Some(a) = next(&mut output, &mut caller, &domain, reuse) {
                     actual.push(a);
                 }
             }

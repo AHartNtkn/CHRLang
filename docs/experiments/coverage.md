@@ -1,6 +1,6 @@
 # Unanswered architecture questions and experimental ownership
 
-Ordered caller costs validate 1568 final processes. Projection wins 36/64 against Direct source execution and 3/64 against enumeration; dense lazy enumeration leaves zero projection gains. T076 next investigates repeated consuming-continuation reuse on both paths; package count three, portfolio review after next package, goal active. [Ordered caller costs](results/S06-ordered-cost.md).
+Completed-caller reuse qualifies gains for projection and both enumeration paths, but projection has no joint gain over both controls. The known-one-answer bypass matches control ownership in all 48 pairs. Portfolio review selects T075 live caller observers; T076 remains pending, package count reset, goal active. [Caller reuse](results/S06-caller-reuse.md) · [Portfolio review](results/S06-caller-reuse-review.md).
 
 Generated runtime timing validates 10,080 processes and 1,152 comparisons. Four repeated-query cases qualify faster with traces than all six controls; generated matching qualifies against generic indexed execution in fifteen cases. Stronger-control diagnostics leave generated-plus-inferred gains uncertain and select longer prepared sessions plus compiler amortization including Direct, scan and inferred controls. T075 active; package count one, goal active. [Generated runtime](results/S05-call-generated-timing.md).
 

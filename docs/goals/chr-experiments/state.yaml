@@ -9,7 +9,7 @@ goal:
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
   execution_sequence: docs/experiments/next-cycle.md
-  current_research: "Ordered caller costs validate 1568 final processes. Projection wins 36/64 against Direct source execution and 3/64 against enumeration; dense lazy enumeration leaves zero projection gains. T076 next investigates repeated consuming-continuation reuse on both paths; package count three, portfolio review after next package, goal active."
+  current_research: "Completed-caller reuse qualifies gains for projection and both enumeration paths, but projection has no joint gain over both controls. The known-one-answer bypass matches control ownership in all 48 pairs. Portfolio review selects T075 live caller observers; T076 remains pending, package count reset, goal active."
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -64,7 +64,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T076
+active_task: T075
 tasks:
   - id: T081
     type: pm
@@ -294,11 +294,14 @@ tasks:
   - id: T076
     type: pm
     assignee: PM
-    status: active
-    progress: "Ordered caller costs validate 1568 final processes. Projection wins 36/64 against Direct source execution and 3/64 against enumeration; dense lazy enumeration leaves zero projection gains. T076 next investigates repeated consuming-continuation reuse on both paths; package count three, portfolio review after next package, goal active."
-    next_action: "Register repeated consuming-continuation reuse on both ordered projection and enumeration. Preserve full raw multiplicity, source order, branch-local context, fresh variables, cancellation and held outputs. Use T075 caller-context evidence as a control. Separate caller work from ordering and measure complete combined costs. Reconsider broader observers and selective retention at the result or obstruction; package count three, full portfolio review after the next package."
+    status: pending
+    progress: "Completed-caller reuse qualifies gains for projection and both enumeration paths, but projection has no joint gain over both controls. The known-one-answer bypass matches control ownership in all 48 pairs. Portfolio review selects T075 live caller observers; T076 remains pending, package count reset, goal active."
+    next_action: "Retain complete ordered-path and caller-reuse costs. Projection has no joint gain over both enumeration strategies in this pilot. Broader connected predicates, cheaper ordering, whole-query caching, compiler costs and sustained consumer lifetimes remain required. Reassess their priority against live caller observers under T075; full portfolio review completed and package count reset."
     objective: Investigate compact finite structural spaces, intersection and finite path equality against explicit enumeration, with independently specified denotation, source multiplicity correspondence, favorable and adverse sources and complete lifecycle costs.
     inputs:
+      - docs/experiments/results/S06-caller-reuse.md
+      - docs/experiments/results/S06-caller-reuse-review.md
+      - docs/experiments/registrations/S06-caller-reuse.md
       - docs/experiments/results/S06-ordered-cost.md
       - docs/experiments/registrations/S06-ordered-cost.md
       - docs/experiments/results/S06-ordered-hidden.md
@@ -384,11 +387,14 @@ tasks:
   - id: T075
     type: pm
     assignee: PM
-    status: pending
+    status: active
     objective: Investigate sound generalized call and continuation reuse after different histories, including renaming, relevance, resource and output identity obligations, against competent recomputation and sharing controls.
-    progress: "Trace reclamation preserves 60544 service checkpoints and completes 576 allocation plus 1440 ordinary runs. Frequent clearing lowers some peaks but loses reuse; sixteen-query clearing preserves seven joint runtime gains without lowering their peaks. Portfolio review selects T076 sparse connected projection; T075 remains unfinished, review count reset, goal active."
-    next_action: "Retain the measured periodic-clearing tradeoffs. Investigate broader caller observers and selective reclamation of abandoned work versus useful completed entries; maintain exact source delivery, cancellation and consumer lifetimes. Reconsider after the sparse projection result or obstruction. No generic cache policy or language restriction is selected."
+    progress: "Completed-caller reuse qualifies gains for projection and both enumeration paths, but projection has no joint gain over both controls. The known-one-answer bypass matches control ownership in all 48 pairs. Portfolio review selects T075 live caller observers; T076 remains pending, package count reset, goal active."
+    next_action: "Implement live intermediate caller observers in the trace-reuse experiment, comparing Direct and independent scalar source execution. Exercise observed private facts, caller binding changes, competing consumption, histories, fresh outputs, cancellation and held results. Change the current private-call interface and fixtures as needed; rejection is not a language restriction or the experimental outcome. Use completed-caller reuse as context evidence, not a replacement for live interaction. Reconsider selective retention and other directions at the first consequential result or obstruction; review count reset."
     inputs:
+      - docs/experiments/results/S06-caller-reuse.md
+      - docs/experiments/results/S06-caller-reuse-review.md
+      - docs/experiments/registrations/S06-caller-reuse.md
       - docs/experiments/results/S05-call-reclamation.md
       - docs/experiments/results/S05-call-reclamation-review.md
       - docs/experiments/registrations/S05-call-reclamation.md
@@ -2718,8 +2724,13 @@ checks:
   last_verification:
     result: passed
     task: T076
-    scope: Complete ordered caller lifecycle, matched enumeration and lazy dense challenge.
+    scope: Completed consuming-caller reuse, known-one-answer repair and portfolio review.
     commands:
+      - "Default caller/source tests, 23 relevant counter-free tests and scoped allocator-build Clippy pass"
+      - "576 complete caller contexts plus bounded-failure/owner checks pass; full ordered outputs retain aliases, multiplicity and caller state"
+      - "896 allocation +2240 ordinary initial runs;384 clock-qualified comparisons; no joint memo-projection gain over both enumeration strategies"
+      - "Known-one-answer repair:192 allocation +480 ordinary runs;48 memo/control pairs have identical requested, peak and consumer ownership"
+      - "Full 57-question review selects T075 live observers; T076 pending, review count reset"
       - "192-case source test default and 21 relevant counter-free tests pass; metered scoped Clippy and 16 lazy-enumeration smoke cases pass"
       - "ordered_cost.py and challenge: 448 allocation +1120 ordinary final runs; 152 clock-qualified comparisons, repeated allocation, consumer equivalence and full release"
       - "Every actual query validates full ordered answers or the cancelling prefix outside measured intervals; source and primary counters remain separate"
