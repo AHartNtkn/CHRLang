@@ -160,7 +160,7 @@ struct Frame {
     tasks: Vec<Task>,
 }
 enum Wait {
-    #[cfg(feature = "equality-binding-coverage")]
+    #[cfg(feature = "matching-binding-coverage")]
     Coverage {
         job: Job,
         pattern: usize,
@@ -229,7 +229,7 @@ impl MatchJob {
         }
         if let Some(wait) = self.wait.take() {
             match wait {
-                #[cfg(feature = "equality-binding-coverage")]
+                #[cfg(feature = "matching-binding-coverage")]
                 Wait::Coverage {
                     mut job,
                     pattern,
@@ -395,7 +395,7 @@ impl MatchJob {
                 }
                 Node::Constructor { name, args } => match store.inspect(term) {
                     TermView::Variable(variable) => {
-                        #[cfg(feature = "equality-binding-coverage")]
+                        #[cfg(feature = "matching-binding-coverage")]
                         {
                             let region = frame.support;
                             self.touch(variable);
@@ -406,7 +406,7 @@ impl MatchJob {
                                 variable,
                             });
                         }
-                        #[cfg(not(feature = "equality-binding-coverage"))]
+                        #[cfg(not(feature = "matching-binding-coverage"))]
                         frame.tasks.push(Task::Resolve {
                             pattern,
                             variable,

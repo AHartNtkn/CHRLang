@@ -1,6 +1,6 @@
 # Experimental sequence for the unanswered architecture questions
 
-The [continuing lifecycle result](results/S08-continuing-lifecycle.md) supplies the current checkpoint. Continuing lifecycle qualification records 98 passes, two conditional service cutoffs and eight dependency wall cutoffs. Aggregate binding coverage completes all 12 repaired lifecycle gates, including resource512 under the original service bound. The 320-process cost pilot has exact allocation repeats: coverage saves time at128 but costs more for resource32. Quiet graph attribution identifies repeated completed-call traversal. T074 next separates equality/matching coverage costs, then qualifies shared completed traversal; one package since full review, goal active.
+The [coverage ablation](results/S08-coverage-ablation.md) supplies the current checkpoint. Continuing coverage costs have a size-dependent crossover. The 120-process equality/matching ablation and 12 repeated diagnostics preserve independent observations and exact allocation repeats; eight parent controls reproduce after accounting for executable-path storage. Matching prechecks add work but do not explain the resource32 regression. Pure128 and resource128 retain favorable coverage pilot medians. T074 next qualifies sharing of repeated completed graph traversal; conditional application attribution and nonempty/partial cost sources remain required. Two packages since full review; goal active.
 
 Test the distinct mechanisms that remain unanswered, then compare the complete architectures they enable. Reuse the existing baselines. A lower priority changes when a question is investigated; it does not answer it.
 
@@ -10,15 +10,15 @@ This sequence covers the [57 reviewed questions](question-to-experiment-map.md) 
 
 ## Start here: the next experiments
 
-**1. Separate equality and matching coverage costs — T074, specification9.** The [continuing lifecycle result](results/S08-continuing-lifecycle.md) shows a resource32 regression despite a resource128 gain. Compare the maintained union with and without constructor-matching prechecks; include nonempty and partially overlapping regions. Existing semantic controls and frozen timings remain the comparison inputs.
+**1. Qualify sharing of completed graph traversal — T074, specification9.** Quiet diagnostics identify repeated force and finite-validation traversal of common completed chains. Compare sound graph/context-local reuse with dependency and template execution. Preserve unobserved-result validation, late cycles, resource mutation, recursion and complete observations. Measure complete lifecycle costs after correctness and work qualification.
 
-**2. Qualify sharing of completed graph traversal.** Quiet diagnostics identify repeated force and finite-validation traversal of common completed chains. Compare a sound graph/context-local reuse mechanism with dependency and template execution. Preserve unobserved-result validation, late cycles, resource mutation, recursion and complete observations. Then measure complete lifecycle costs.
+**2. Retain the conditional crossover as an actionable comparison.** The [coverage ablation](results/S08-coverage-ablation.md) shows that matching prechecks explain only part of the increased resource application work. Distinguish candidate handling, restarts and support operations; qualify nonempty/partial cost sources before any broader coverage policy. Current evidence supports neither an unconditional coverage default nor rejection of integrated equality.
 
-**3. Reconsider the strongest independent alternatives at the result.** Partner ordering/indexing, broader integrated equality/matching/consumption and coarser recognition remain required. The [full portfolio review](results/S08-continuing-selection-review.md) explains their architectural consequence. One package has completed since that review; review all directions within four packages.
+**3. Reconsider the strongest independent alternatives at the graph gate.** Partner ordering/indexing, broader integrated equality/matching/consumption and coarser recognition remain required. The [full portfolio review](results/S08-continuing-selection-review.md) explains their architectural consequence. Two packages have completed since that review; review all directions within four packages.
 
 ## Why this order, and what can change it
 
-The coverage crossover needs a small causal ablation before adoption. Completed-graph repetition can change the interpretation of templates' continuing benefit and has a diagnosed implementation target. These prerequisites are now more discriminating than repeating an unchanged timing matrix. A correctness obstruction or an adverse repair cost triggers reconsideration against partner plans and broader integration.
+The coverage ablation prevents an unjustified default choice but does not identify a replacement application plan. Completed-graph repetition has a diagnosed implementation target that can change the interpretation of templates' continuing benefit. This is more discriminating immediately than more conditional timing samples. A correctness obstruction or adverse repair cost triggers reconsideration against partner plans and broader integration.
 
 Scheduling a later trial does not supply evidence for that direction. All thirteen specifications and the 57-question audit remain controlling.
 

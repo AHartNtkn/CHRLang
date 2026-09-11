@@ -5,6 +5,7 @@ edition.workspace = true
 
 [features]
 equality-binding-coverage = []
+matching-binding-coverage = ["equality-binding-coverage"]
 candidate-profile = ["alloc-meter", "chr-direct-choice/candidate-profile"]
 observation-backpressure = []
 equality-probe = []

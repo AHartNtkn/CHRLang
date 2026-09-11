@@ -1,0 +1,59 @@
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.39s
+     Running unittests src/lib.rs (target/debug/deps/chr_direct_conditional-3ff67d7dd81a77d2)
+
+running 12 tests
+test matching::tests::first_slot_keeps_conditional_value_opaque_and_repetition_demands_equality ... ok
+test engine::tests::starts_share_compiled_rules_and_own_independent_query_state ... ok
+test engine::tests::finite_sibling_is_published_beside_symbolic_rewrite_loop ... ok
+test resources::tests::emitted_frame_finishes_the_job_without_certifying_remaining_eligibility ... ok
+test support::tests::construction_rejects_a_child_against_diagram_order - should panic ... ok
+test support::tests::construction_rejects_out_of_bounds_handles - should panic ... ok
+test support::tests::canonical_reduction_and_complement_have_boolean_meaning ... ok
+test support::tests::long_negation_yields_with_at_most_one_node_allocation_per_tick ... ok
+test equality::tests::deep_occurs_check_and_demand_are_resumable_and_nonbinding ... ok
+test engine::publication_flow_tests::cancellation_with_bulk_observer_owned_preserves_delivered_answer ... ok
+test support::tests::independent_jobs_interleave_and_finished_jobs_do_no_more_work ... ok
+test engine::publication_flow_tests::publication_priority_preserves_answers_but_withholds_runnable_sibling ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+     Running tests/binding_coverage.rs (target/debug/deps/binding_coverage-a5a2f3905f28b0f6)
+
+running 1 test
+test disjoint_binding_population_is_skipped_without_losing_new_binding ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+     Running tests/equality_oracle.rs (target/debug/deps/equality_oracle-15d15688c0ac7c9e)
+
+running 9 tests
+test alias_dependencies_intersect_later_binding_and_new_support_notifications ... ok
+test equality_demand_is_nonbinding_and_reports_support_expansion_dependencies ... ok
+test stale_writer_must_restart_and_cannot_commit_from_old_binding_state ... ok
+test partial_commit_notifications_survive_interruption_and_restart ... ok
+test unfinished_equality_jobs_reject_a_different_store_with_colliding_handles ... ok
+test three_edge_cycle_fails_only_on_intersection_and_field_clash_is_local ... ok
+test mutation_during_deep_occurs_continuation_rejects_stale_effects ... ok
+test entails_matches_resolved_tree_equality_without_adding_bindings ... ok
+test supported_equation_pairs_match_independent_finite_tree_substitutions ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.23s
+
+     Running tests/matching_resources.rs (target/debug/deps/matching_resources-7df26a51b606b979)
+
+running 12 tests
+test occurrence_identity_and_body_readiness_are_preserved ... ok
+test acknowledgement_keeps_other_pending_support_and_cancelled_prepare_has_no_effect ... ok
+test opaque_slot_does_not_partition_conditional_values ... ok
+test guard_locals_are_rigid_fresh_identities_without_head_bindings ... ok
+test one_frame_completion_is_distinct_from_exhaustive_ineligibility ... ok
+test rejecting_a_guard_frame_does_not_discard_an_eligible_alternative ... ok
+test propagation_keys_preserve_ordered_ids_and_pending_support_is_local ... ok
+test simpagation_keeps_only_declared_kept_occurrence ... ok
+test tokens_reject_foreign_and_stale_owners_without_partial_effects ... ok
+test two_birth_consumption_intersects_crossing_supports ... ok
+test propagation_resource_truth_masks_preserve_exact_effects_and_pending_body ... ok
+test symbolic_matching_matches_independent_joint_slot_environments ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.06s
