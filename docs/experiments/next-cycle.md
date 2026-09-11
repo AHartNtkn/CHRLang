@@ -22,6 +22,24 @@ Compact follow-through remains required under T076: repeated-overlap intervals f
 
 These are the first investigations, not the entire programme. The rounds below retain every other question. Reuse completed gates and applicable measurements; add an implementation only when a distinct mechanism or demonstrated capability gap requires it.
 
+## Why this order, and what can change it
+
+**The next package answers whether substantive call reuse is a competitive complete execution path.** Its correctness, saved work, allocation attribution and stronger controls already have evidence. Ordinary lifecycle time is still missing. Finishing that comparison has a credible route to changing the architecture comparison without first building another executor.
+
+The immediate alternatives are compared below. This is a scheduling judgment using current evidence, not a ranking of the designs.
+
+| Investigation | Decision it could change | Why it follows or competes with the next package | Reconsider at |
+|---|---|---|---|
+| Call-reuse lifecycle time | Whether recognition and replay belong among the serious complete competitors | Qualified sources and controls make the missing cost comparison ready; byte counts cannot answer runtime | First timing, measurement qualification or resource obstruction |
+| Token-independent integrated eligibility | Whether integration can remove duplicated discovery instead of merely accelerating it | Strongest distinct implementation alternative; requires a changed discovery mechanism and its source checks | That same first result boundary, even if call reuse still has unfinished variants |
+| Demand discovery/copy repair | Whether a different algorithm changes the confirmed favorable and adverse demand regimes | Existing timing identifies consequential costs, but the remedy needs implementation and a matched comparison | That same boundary; compare expected effect and effort with integrated eligibility |
+| Broader call recognition | Whether coarser operations, relevant caller state or reusable failures avoid transition-level key and replay costs | Distinct from optimizing the current key; retain fresh results, invalidating near misses and resource identity | When lifecycle attribution shows which repeated responsibility matters; do not assume the present cache represents these designs |
+| Complete architectures | Whether any component advantage survives routing, duplicated state, output and sustained use | Existing complete paths are available; extend them as soon as a new candidate can change their comparison | Every round boundary, and earlier whenever two credible candidates support a shared source |
+
+**Effort affects order, not the standard of evidence.** Before selecting each package, estimate its implementation and measurement effort from the current code and known resource limits. Name its minimum useful result and compare it with the strongest ready alternative. A cheap experiment with no decision consequence has no priority merely because its runner exists. A larger experiment remains required when it is the only credible way to answer a consequential question.
+
+**A scheduling change carries unfinished work forward explicitly.** Record the exact missing contrast and its next review boundary in the question map or mechanism ledger. Do not carry only a family name such as “graphs” or “reuse”: writable heads, pull-tabbing, fresh-application reuse and failed-future recognition have different responsibilities and need separate answers.
+
 ## Portfolio order and dependencies
 
 The table schedules entry into each investigation. The specifications below define its required depth. A later independent trial can start earlier when a written selection comparison shows greater decision value relative to its cost; it need not wait for an unrelated implementation to become complete.
@@ -226,7 +244,7 @@ No direction leaves the sequence merely because it is expensive to implement, lo
 
 For each next-package proposal, record the decision it could change, the strongest ready distinct alternative, actual prerequisites, expected implementation/measurement effort, and the next result boundary. Prefer completing a consequential comparison over expanding its matrix when the expansion cannot change the decision. Prefer a distinct mechanism over another refinement when the refinement has no credible path to changing the architecture comparison.
 
-**Three packages follow the [full prefix portfolio review](results/S01-prefix-portfolio-review.md).** Demand primary sizing, generated/activation qualification and stronger-control lifecycle costs now have results. Bounded confirmation is next, followed by full portfolio review. A prerequisite or attribution package also reaches that review boundary. Compact confirmation, matching uncertainty and unfinished integration/reuse comparisons remain required.
+**Count from the [call-key allocation portfolio review](results/S05-key-allocation-review.md).** Call-reuse lifecycle measurement is the selected next package. Review its selection at its first result or obstruction; review every remaining mechanism after no more than four packages from that portfolio review. Runner qualification, correctness and attribution each count toward this limit. Count published results, not intended runs. The next full review must include integration, demand repair, broader recognition, compact solving, matching, sustained ownership and complete architectures, alongside the other specifications in this sequence.
 
 **A claim that an experiment cannot affect downstream decisions needs a sensitivity argument.** Name the decision, the outcomes still compatible with current evidence, and why none would change efficiency, necessary complexity, source eligibility or a competitor's credibility. Assume neither the incumbent's superiority nor the proposed mechanism's failure. When those outcomes could change the decision, the trial remains required. When only a narrower claim is settled, advance without extending that conclusion to its broader design.
 
@@ -251,6 +269,23 @@ Use ordinary-allocator counter-free primary timing, with work and allocation dia
 | Different favorable regimes | Investigate the consequential crossover and the cost of recognizing it; retain conditional tradeoffs. |
 | Overlap or cutoff | Diagnose uncertainty or unfinished work; collect more evidence when it can change the decision. |
 | Further precision cannot change a bounded decision | Record the sensitivity argument and advance, preserving broader unanswered variants. |
+
+## The record required for each unanswered question
+
+**Every one of the 57 questions needs an individual evidence record.** Use the existing [question map](question-to-experiment-map.md) and [mechanism ledger](remaining-investigations.md#distinctions-that-must-not-disappear-inside-a-stage). Where one row contains distinct designs, give each design its own finding. Coverage of a row is not proof that all of its variants were investigated.
+
+Each record must answer these six questions in plain language:
+
+1. **What is the proposed benefit?** Identify the work or responsibility the design could avoid, and the source on which that benefit should occur.
+2. **Was that mechanism actually exercised?** Link the implementation and independent semantic evidence, including fresh identities, resource multiplicity, failure and progress where relevant.
+3. **What did the complete comparison find?** Give favorable and adverse results against competent existing controls, with timing, memory, lifetime and compilation scope stated separately.
+4. **What explains the result?** Distinguish necessary obligations from a repairable implementation cost, unsupported capability, resource cutoff or unresolved measurement.
+5. **What architectural or language decision follows?** State the bounded consequence, remaining complexity and accepted or excluded programs. A component result cannot substitute for a whole-path result.
+6. **What could still overturn that consequence?** Name the strongest feasible contrary experiment. Run it when its possible outcomes could change the decision; otherwise supply the sensitivity argument showing why they cannot.
+
+**Report an unanswered comparison as unfinished.** Use “not implemented,” “qualified but costs unmeasured,” “measured with consequential uncertainty,” or a similarly concrete description. Each such description must name the work still needed. A demonstrated limitation must state the tested scope; a conditional tradeoff must retain both favorable and adverse regimes.
+
+**The final audit checks evidence, not just links.** Trace every proposed disposition back to the complete experiment or analytical argument that supports it. Check that its comparator is competent, its intended benefit occurs, its adverse cases were retained and its remaining uncertainty cannot change the stated decision. Require a new investigation wherever that chain fails. This audit also covers directions with positive component results whose composition, language boundaries or sustained costs remain unanswered.
 
 ## What finishes the research
 
