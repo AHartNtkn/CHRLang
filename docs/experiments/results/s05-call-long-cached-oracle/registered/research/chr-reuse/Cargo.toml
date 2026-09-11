@@ -1,0 +1,84 @@
+[package]
+name = "chr-reuse"
+version.workspace = true
+edition.workspace = true
+[features]
+validity-profile = ["alloc-meter", "chr-direct-choice/validity-profile"]
+default = ["metrics"]
+metrics = ["chr-persistent/metrics", "chr-observe/metrics"]
+alloc-meter = ["chr-compiled/alloc-meter"]
+stage-alloc = ["alloc-meter", "dep:chr-compiled"]
+carrier-contraction = ["chr-compiled/carrier-contraction"]
+continuing-progress-diagnostics = ["chr-direct-conditional/head-dispatch", "chr-direct-conditional/metrics"]
+continuing-stage-diagnostics = ["chr-direct-conditional/alloc-meter"]
+continuing-equality-diagnostics = ["chr-direct-conditional/equality-probe"]
+continuing-graph-diagnostics = ["chr-direct-choice/work-diagnostics"]
+[dependencies]
+chr-compiled = { path = "../chr-compiled", default-features = false, optional = true }
+chr-syntax = { path = "../../crates/chr-syntax" }
+chr-persistent = { path = "../chr-persistent", default-features = false }
+chr-observe = { path = "../chr-observe", default-features = false }
+[dev-dependencies]
+chr-compiled = { path = "../chr-compiled", default-features = false }
+chr-direct-conditional = { path = "../chr-direct-conditional", default-features = false }
+chr-direct-choice = { path = "../chr-direct-choice" }
+chr-reference = { path = "../../crates/chr-reference" }
+chr-cases = { path = "../chr-cases" }
+
+[[example]]
+name = "continuation_key_alloc"
+required-features = ["alloc-meter"]
+
+[[example]]
+name = "opportunity_work"
+required-features = ["metrics", "carrier-contraction"]
+
+[[example]]
+name = "stream_ownership"
+required-features = ["alloc-meter"]
+
+[[example]]
+name = "call_ownership"
+required-features = ["alloc-meter"]
+
+[[example]]
+name = "continuing_ownership"
+required-features = ["alloc-meter"]
+
+[[example]]
+name = "continuing_progress_probe"
+required-features = ["continuing-progress-diagnostics"]
+
+[[example]]
+name = "continuing_service_stages"
+required-features = ["continuing-stage-diagnostics"]
+
+[[example]]
+name = "continuing_metered_probe"
+required-features = ["alloc-meter"]
+
+[[example]]
+name = "continuing_ownership_phases"
+required-features = ["alloc-meter"]
+
+[[example]]
+name = "continuing_ownership_split"
+required-features = ["alloc-meter"]
+
+[[example]]
+name = "inert_ownership"
+
+[[test]]
+name = "allocation_profile"
+required-features = ["stage-alloc"]
+
+[[example]]
+name = "continuing_resource_stages"
+required-features = ["continuing-stage-diagnostics", "continuing-equality-diagnostics"]
+
+[[example]]
+name = "continuing_graph_attribution"
+required-features = ["continuing-graph-diagnostics"]
+
+[[example]]
+name = "validity_sources"

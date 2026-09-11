@@ -1,0 +1,195 @@
+#[allow(dead_code)]
+#[path = "../../../chr-compiled/experiments/structural_prefix_source.rs"]
+mod prefix;
+pub fn prefix_spec(family: &str) -> Option<(&str, usize)> {
+    let rest = family.strip_prefix("prefix-")?;
+    let (name, depth) = rest.rsplit_once('-').expect("prefix family-depth");
+    let depth = depth.parse().expect("integer depth");
+    assert!(["sparse", "keyed", "kill", "miss"].contains(&name) && [0, 8, 32].contains(&depth));
+    Some((name, depth))
+}
+pub fn native_code(family: &str) -> chr_compiled::Compiled {
+    let (name, depth) = prefix_spec(family).expect("native prefix source");
+    chr_compiled::access_prefix_bundled(prefix::program_id(name, depth))
+}
+use chr_syntax::{Goal, Query, Rule, Var, and, atom, c, eq, t, v};
+fn nat(n: usize) -> chr_syntax::Term {
+    (0..n).fold(atom("z"), |x, _| t("s", [x]))
+}
+pub fn rules(family: &str) -> Vec<Rule> {
+    if let Some((name, depth)) = prefix_spec(family) {
+        return prefix::rules(name, depth);
+    }
+    match family {
+        "proper" | "proper-kill" | "proper-late" | "proper-keyed" => {
+            let join = Rule {
+                name: "join".into(),
+                kept: vec![c("left", [v(0)]), c("middle", [v(1)])],
+                removed: vec![c("right", [v(0), v(1), v(2)])],
+                guards: vec![],
+                body: eq(v(2), atom("hit")),
+            };
+            let mut rules = vec![];
+            if family == "proper-kill" {
+                rules.push(Rule {
+                    name: "invalidate".into(),
+                    kept: vec![c("kill", [])],
+                    removed: vec![c("left", [v(0)])],
+                    guards: vec![],
+                    body: Goal::True,
+                });
+            }
+            rules.push(join);
+            if family == "proper-late" {
+                rules.push(Rule::simplify(
+                    "bind",
+                    [c("bind", [v(0), v(1)])],
+                    eq(v(0), v(1)),
+                ));
+            }
+            rules
+        }
+        "cold" => vec![Rule::simplify(
+            "cold",
+            [c("request", [t("f", [v(0)])]), c("partner", [v(0)])],
+            Goal::True,
+        )],
+        "dense" => vec![Rule::simplify(
+            "dense",
+            [c("left", [v(0)]), c("right", [t("f", [v(0)])])],
+            Goal::True,
+        )],
+        "three" => vec![
+            Rule {
+                name: "three".into(),
+                kept: vec![c("left", [t("f", [v(0)])]), c("middle", [v(0)])],
+                removed: vec![c("right", [v(0)])],
+                guards: vec![],
+                body: c("hit", [v(0), v(1), v(1)]).into(),
+            },
+            Rule::simplify(
+                "go",
+                [c("go", [v(0)])],
+                and(vec![
+                    eq(v(0), t("f", [atom("a")])),
+                    c("middle", [atom("a")]).into(),
+                ]),
+            ),
+        ],
+        _ => vec![
+            Rule::simplify(
+                "consume",
+                [
+                    c(
+                        "request",
+                        [if family == "nested" {
+                            t("pair", [v(0), v(0)])
+                        } else {
+                            t("f", [v(0)])
+                        }],
+                    ),
+                    c("permit", []),
+                ],
+                c("hit", [v(0)]).into(),
+            ),
+            Rule::simplify(
+                "tick",
+                [c("tick", [t("s", [v(0)])])],
+                c("tick", [v(0)]).into(),
+            ),
+            Rule::simplify("end", [c("tick", [atom("z")])], Goal::True),
+            Rule::simplify("link", [c("link", [v(0), v(1)])], eq(v(0), v(1))),
+            Rule::simplify("bind", [c("bind", [v(0)])], eq(v(0), t("f", [atom("a")]))),
+        ],
+    }
+}
+pub fn query(family: &str, n: usize, seed: usize) -> Query {
+    if let Some((name, depth)) = prefix_spec(family) {
+        return prefix::query(name, n, depth, seed);
+    }
+    let base = 100 + seed as u64 * 10000;
+    let mut xs = vec![];
+    match family {
+        "proper" | "proper-kill" | "proper-late" | "proper-keyed" => {
+            let key = |i: usize| atom(&format!("k{}_{}", seed % 2, i));
+            for i in 0..n {
+                xs.push(c("left", [key(i)]));
+                xs.push(c("middle", [key(i)]));
+                let target = if family == "proper-keyed" { i } else { n - 1 };
+                xs.push(c(
+                    "right",
+                    [
+                        if family == "proper-late" {
+                            v(base + 1000)
+                        } else {
+                            key(target)
+                        },
+                        key(target),
+                        v(base + i as u64),
+                    ],
+                ));
+            }
+            if family == "proper-kill" {
+                xs.push(c("kill", []));
+            }
+            if family == "proper-late" {
+                xs.push(c("bind", [v(base + 1000), key(n - 1)]));
+            }
+            return Query {
+                constraints: xs,
+                outputs: (0..n)
+                    .map(|i| (format!("v{i}"), Var(base + i as u64)))
+                    .collect(),
+            };
+        }
+        "cold" => {
+            for i in 0..n {
+                xs.push(c("request", [v(base + i as u64)]));
+                xs.push(c("partner", [atom("a")]));
+            }
+        }
+        "dense" => {
+            for i in 0..n {
+                xs.push(c("left", [v(base)]));
+                xs.push(c("right", [v(base + 1000 + i as u64)]));
+            }
+        }
+        "three" => {
+            xs.extend([c("left", [v(base)]), c("go", [v(base)])]);
+            for _ in 0..n {
+                xs.push(c("right", [atom("a")]));
+            }
+        }
+        _ => {
+            xs.extend([c("permit", []), c("tick", [nat(n)])]);
+            for i in 0..n {
+                xs.push(c(
+                    "request",
+                    [if family == "nested" {
+                        t("pair", [v(base + i as u64), v(base + 1000 + i as u64)])
+                    } else {
+                        v(base + i as u64)
+                    }],
+                ));
+            }
+            if family == "broad" {
+                for i in 1..n {
+                    xs.push(c("link", [v(base), v(base + i as u64)]));
+                }
+            }
+            if family == "nested" {
+                xs.push(c(
+                    "link",
+                    [v(base + n as u64 / 2), v(base + 1000 + n as u64 / 2)],
+                ));
+            } else {
+                xs.push(c("bind", [v(base + n as u64 / 2)]));
+            }
+        }
+    }
+    xs.push(c("seed", [nat(seed)]));
+    Query {
+        constraints: xs,
+        outputs: vec![("x".into(), Var(base))],
+    }
+}

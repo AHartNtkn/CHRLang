@@ -1,0 +1,10 @@
+[package]
+name = "chr-reference"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+chr-syntax = { path = "../chr-syntax" }
+
+[dev-dependencies]
+chr-programs = { path = "../chr-programs" }

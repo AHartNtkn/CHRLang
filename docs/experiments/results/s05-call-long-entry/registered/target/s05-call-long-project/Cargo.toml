@@ -1,0 +1,13 @@
+[package]
+name="call-generated-artifact"
+version="0.0.0"
+edition="2024"
+[workspace]
+[features]
+alloc-meter=["chr-reuse/alloc-meter","chr-compiled/alloc-meter"]
+metrics=["chr-compiled/metrics"]
+[dependencies]
+chr-reuse={path="/home/ahart/Documents/CHRLang/research/chr-reuse",default-features=false}
+chr-compiled={path="/home/ahart/Documents/CHRLang/research/chr-compiled",default-features=false}
+chr-syntax={path="/home/ahart/Documents/CHRLang/crates/chr-syntax",default-features=false}
+chr-observe={path="/home/ahart/Documents/CHRLang/research/chr-observe",default-features=false}

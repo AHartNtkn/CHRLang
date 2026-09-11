@@ -1,0 +1,11 @@
+[package]
+name = "chr-conditional"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+chr-syntax = { path = "../../crates/chr-syntax" }
+chr-observe = { path = "../chr-observe" }
+
+[dev-dependencies]
+chr-cases = { path = "../chr-cases" }

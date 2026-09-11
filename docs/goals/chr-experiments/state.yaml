@@ -9,7 +9,7 @@ goal:
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
   execution_sequence: docs/experiments/next-cycle.md
-  current_research: "Generated runtime timing validates 10,080 processes and 1,152 comparisons. Four repeated-query cases qualify faster with traces than all six controls; generated matching qualifies against generic indexed execution in fifteen cases. Stronger-control diagnostics leave generated-plus-inferred gains uncertain and select longer prepared sessions plus compiler amortization including Direct, scan and inferred controls. T075 active; package count one, goal active."
+  current_research: "Long prepared-session qualification passes 1470 processes and 431424 query sessions. A validation-side oracle cache preserves application ownership exactly across 1431 prior receipts and makes 8192-query qualification practical. Finite repeated/cycling trace state plateaus; growing-distinct keys retain more state. T075 next measures user-program compilation and observed long-session amortization against stronger generic controls; package count two, goal active."
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -368,9 +368,11 @@ tasks:
     assignee: PM
     status: active
     objective: Investigate sound generalized call and continuation reuse after different histories, including renaming, relevance, resource and output identity obligations, against competent recomputation and sharing controls.
-    progress: "Generated runtime timing validates 10,080 processes and 1,152 comparisons. Four repeated-query cases qualify faster with traces than all six controls; generated matching qualifies against generic indexed execution in fifteen cases. Stronger-control diagnostics leave generated-plus-inferred gains uncertain and select longer prepared sessions plus compiler amortization including Direct, scan and inferred controls. T075 active; package count one, goal active."
-    next_action: "Register and implement longer prepared-query sessions with complete dynamic query/phase ownership, then qualify source agreement and requested allocation. Select favorable and adverse sources using the generated runtime diagnosis, including the fourteen exploratory inferred-generated scenarios. Use equivalent generic artifacts and existing emission/compilation tooling to measure user-program costs separately from shared dependency construction; include Direct, scan and inferred runtime controls, not only indexed. Test amortization with observed long sessions rather than extrapolated medians. Investigate uncertainty without excluding prior blocks. Compare bounded retention, broader observers and sparse projection at the resulting gate; package count one."
+    progress: "Long prepared-session qualification passes 1470 processes and 431424 query sessions. A validation-side oracle cache preserves application ownership exactly across 1431 prior receipts and makes 8192-query qualification practical. Finite repeated/cycling trace state plateaus; growing-distinct keys retain more state. T075 next measures user-program compilation and observed long-session amortization against stronger generic controls; package count two, goal active."
+    next_action: "Register replicated source-only user-program emission/compilation and artifact ownership using the existing rustc/shared-library workflow, with equivalent generic artifacts. Pair observed longer prepared sessions for trace, Direct, scan, indexed, inferred and generated controls. Select favorable/adverse families from the preceding fourteen exploratory inferred-generated cases; distinguish repeat, four-query cycle and growing inputs. Preserve the independently checked per-class oracle and validate every actual output/cancellation prefix. Charge preparation, runtime, consumer and artifact disposal separately; do not extrapolate a crossover from short medians. Inspect compiler cost, uncertainty and retained state before choosing bounded retention, broader observers or sparse projection. Package count two; full portfolio review by four."
     inputs:
+      - docs/experiments/results/S05-call-long-entry.md
+      - docs/experiments/registrations/S05-call-long-cached-oracle.md
       - docs/experiments/results/S05-call-generated-timing.md
       - docs/experiments/registrations/S05-call-generated-timing.md
       - docs/experiments/results/S05-call-generated-entry.md
@@ -2692,8 +2694,12 @@ checks:
   last_verification:
     result: passed
     task: T075
-    scope: Counter-free generated runtime timing, stronger-control screen and phase/uncertainty diagnosis.
+    scope: Longer prepared sessions, exact validation-cache correspondence and complete ownership.
     commands:
+      - "call_long_entry.py audit: 1470 processes, 431424 query sessions, exact ownership, source and oracle-class checks"
+      - "call_long_analysis.py audit: all 1431 preserved terminal receipts match application ownership and output counts"
+      - "200 renamed-query comparisons pass ordinary/meter example tests; scoped Clippy passes"
+      - "Two generated 768-case source gates pass; packed original and compressed byte hashes verified"
       - "call_generated_timing.py audit: 10080 terminal processes, 1152 comparisons, output agreement and frozen inputs"
       - "call_generated_timing_diagnosis.py audit: prior-eight overlap, four six-control gains, service attribution and exploratory control/block diagnostics"
       - "Matched and repaired-generated ownership audits passed before timing; all 57 question entries preserved"
