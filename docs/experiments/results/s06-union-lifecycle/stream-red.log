@@ -1,0 +1,25 @@
+   Compiling chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax)
+   Compiling chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe)
+   Compiling chr-structural v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-structural)
+   Compiling chr-programs v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-programs)
+   Compiling chr-reference v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-reference)
+error[E0599]: no method named `visit_assignments` found for struct `Diagram` in the current scope
+   --> research/chr-structural/tests/reusable_diagram.rs:110:19
+    |
+110 |         assert!(d.visit_assignments(LIMIT, |a| {got.insert(a.to_vec()); true}).unwrap());
+    |                   ^^^^^^^^^^^^^^^^^ method not found in `Diagram`
+
+error[E0599]: no method named `visit_assignments` found for struct `Diagram` in the current scope
+   --> research/chr-structural/tests/reusable_diagram.rs:113:24
+    |
+113 |         let complete=d.visit_assignments(LIMIT, |_| {count+=1;false}).unwrap();
+    |                        ^^^^^^^^^^^^^^^^^ method not found in `Diagram`
+
+error[E0599]: no method named `visit_assignments` found for struct `Diagram` in the current scope
+   --> research/chr-structural/tests/reusable_diagram.rs:116:19
+    |
+116 |         assert!(d.visit_assignments(0, |_| true).is_err());
+    |                   ^^^^^^^^^^^^^^^^^ method not found in `Diagram`
+
+For more information about this error, try `rustc --explain E0599`.
+error: could not compile `chr-structural` (test "reusable_diagram") due to 3 previous errors

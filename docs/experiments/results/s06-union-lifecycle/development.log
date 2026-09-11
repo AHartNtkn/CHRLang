@@ -1,0 +1,21 @@
+   Compiling chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax)
+   Compiling chr-structural v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-structural)
+   Compiling chr-programs v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-programs)
+   Compiling chr-reference v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-reference)
+   Compiling chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe)
+error[E0282]: type annotations needed for `Vec<_>`
+   --> research/chr-structural/examples/union_lifecycle.rs:165:9
+    |
+165 |     let alphabet = vec!["a0".into(), "a1".into(), "a2".into()];
+    |         ^^^^^^^^
+...
+169 |         .map(|(i, x)| (i, alphabet[*x].clone()))
+    |                           ------------ type must be known at this point
+    |
+help: consider giving `alphabet` an explicit type, where the placeholder `_` is specified
+    |
+165 |     let alphabet: Vec<_> = vec!["a0".into(), "a1".into(), "a2".into()];
+    |                 ++++++++
+
+For more information about this error, try `rustc --explain E0282`.
+error: could not compile `chr-structural` (example "union_lifecycle") due to 1 previous error

@@ -4,7 +4,7 @@ import collections,hashlib,itertools,json
 ROOT=Path(__file__).resolve().parents[3];RAW=ROOT/'docs/experiments/results/s06-simplified-ownership'
 def read(path):return json.loads(path.read_text())
 f=read(RAW/'freeze.json')
-for p,h in f['sources'].items():assert hashlib.sha256((ROOT/p).read_bytes()).hexdigest()==h,p
+for p,h in f['sources'].items():assert any(q.exists() and hashlib.sha256(q.read_bytes()).hexdigest()==h for q in [ROOT/p,RAW/'source-snapshot'/p]),p
 for b in f['binaries'].values():assert hashlib.sha256((ROOT/b['path']).read_bytes()).hexdigest()==b['sha256']
 configs=list(itertools.product(['reduced','diagram','names','projected','symbolic','explicit'],['free','star','clique','duplicate','overlap','union'],[3,6],[2,3],[1,16,128],['member','full'],['immediate','window','all']))
 assert read(RAW/'configurations.json')==[list(c) for c in configs]

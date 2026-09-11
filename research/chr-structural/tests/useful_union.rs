@@ -8,35 +8,9 @@ use chr_syntax::{Answer, Goal, Query, Rule, Var, atom, c, eq, or, v};
 use std::collections::{BTreeMap, BTreeSet};
 const LIMIT: usize = 1_000_000;
 type Branch = Vec<(usize, usize)>;
-fn families(n: usize) -> Vec<(&'static str, Vec<Branch>)> {
-    let cycle = (0..n).map(|i| (i, (i + 1) % n)).collect::<Vec<_>>();
-    let overlap = (0..n)
-        .map(|skip| {
-            cycle
-                .iter()
-                .enumerate()
-                .filter_map(|(i, e)| (i != skip).then_some(*e))
-                .collect()
-        })
-        .collect();
-    let disjoint = [(0, 1), (2, 3)]
-        .iter()
-        .map(|skip| {
-            let mut edges = (0..4)
-                .flat_map(|i| (i + 1..4).map(move |j| (i, j)))
-                .filter(|e| e != skip)
-                .collect::<Vec<_>>();
-            edges.extend((4..n).map(|i| (i - 1, i)));
-            edges
-        })
-        .collect();
-    vec![
-        ("overlap", overlap),
-        ("disjoint", disjoint),
-        ("redundant", vec![cycle.clone(); n]),
-        ("single", vec![cycle]),
-    ]
-}
+#[path = "../examples/support/useful_union_source.rs"]
+mod source;
+use source::families;
 fn expr(b: &Branch) -> Expr {
     Expr::And(b.iter().map(|&(a, b)| Expr::Different(a, b)).collect())
 }

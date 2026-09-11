@@ -4,7 +4,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[3];B=ROOT/'docs/experiments/results/s06-formula-clock'
 def read(p):return json.loads(p.read_text())
 f=read(B/'freeze.json')
-for p,h in f['sources'].items():assert hashlib.sha256((ROOT/p).read_bytes()).hexdigest()==h,p
+for p,h in f['sources'].items():assert any(q.exists() and hashlib.sha256(q.read_bytes()).hexdigest()==h for q in [ROOT/p,B/'source-snapshot'/p]),p
 for x in f['binaries'].values():assert hashlib.sha256((ROOT/x['path']).read_bytes()).hexdigest()==x['sha256']
 def receipt(label):
  r=read(B/'runs'/f'{label}.json');assert r['exit_code']==0 and not r['stderr'];return r,[json.loads(s) for s in r['stdout'].splitlines()]

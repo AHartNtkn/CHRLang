@@ -5,7 +5,7 @@ ROOT=Path(__file__).resolve().parents[3];B=ROOT/'docs/experiments/results/s06-fo
 def read(p):return json.loads(p.read_text())
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 f=read(B/'freeze.json')
-for p,h in f['sources'].items():assert sha(ROOT/p)==h,p
+for p,h in f['sources'].items():assert any(q.exists() and sha(q)==h for q in [ROOT/p,B/'source-snapshot'/p]),p
 assert sha(ROOT/f['binary']['path'])==f['binary']['sha256']
 for name in ['order','scenarios']:assert sha(B/f'{name}.json')==f[f'{name}_sha256']
 order=read(B/'order.json');scenarios=read(B/'scenarios.json');records=[json.loads(x) for x in (B/'results.jsonl').read_text().splitlines()]

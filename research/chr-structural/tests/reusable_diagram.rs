@@ -100,3 +100,73 @@ fn compactness_and_invalid_requests_have_explicit_outcomes() {
     let zero = Diagram::compile(0, 2, &Expr::And(vec![]), LIMIT).unwrap();
     assert!(zero.contains(&[]).unwrap());
 }
+
+#[test]
+fn streaming_assignments_preserve_skipped_coordinates_and_stop() {
+    for expr in [
+        Expr::And(vec![]),
+        Expr::Different(0, 2),
+        Expr::Different(0, 0),
+    ] {
+        let d = Diagram::compile(3, 3, &expr, LIMIT).unwrap();
+        let expected = (0..27)
+            .map(|i| assignment(i, 3))
+            .filter(|a| d.contains(a).unwrap())
+            .collect::<std::collections::BTreeSet<_>>();
+        let mut got = std::collections::BTreeSet::new();
+        assert!(
+            d.visit_assignments(
+                LIMIT,
+                |_| true,
+                |a| {
+                    got.insert(a.to_vec());
+                    true
+                }
+            )
+            .unwrap()
+        );
+        assert_eq!(got, expected);
+        let mut count = 0;
+        let complete = d
+            .visit_assignments(
+                LIMIT,
+                |_| true,
+                |_| {
+                    count += 1;
+                    false
+                },
+            )
+            .unwrap();
+        assert_eq!(count, usize::from(!expected.is_empty()));
+        assert_eq!(complete, expected.is_empty());
+        assert!(d.visit_assignments(0, |_| true, |_| true).is_err());
+        assert_eq!(
+            d.contains(&[0, 0, 0]).unwrap(),
+            expected.contains(&vec![0, 0, 0])
+        );
+    }
+}
+
+#[test]
+fn prefix_pruning_avoids_expanding_excluded_output() {
+    let d = Diagram::compile(20, 3, &Expr::And(vec![]), LIMIT).unwrap();
+    assert!(
+        d.visit_assignments(1, |_| false, |_| panic!("excluded"))
+            .unwrap()
+    );
+    let d = Diagram::compile(3, 3, &Expr::And(vec![]), LIMIT).unwrap();
+    let mut rows = std::collections::BTreeSet::new();
+    assert!(
+        d.visit_assignments(
+            100,
+            |a| a.len() < 2 || a[0] == a[1],
+            |a| {
+                rows.insert(a.to_vec());
+                true
+            }
+        )
+        .unwrap()
+    );
+    assert_eq!(rows.len(), 9);
+    assert!(rows.iter().all(|a| a[0] == a[1]));
+}

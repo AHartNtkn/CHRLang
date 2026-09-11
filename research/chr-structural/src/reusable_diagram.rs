@@ -258,6 +258,55 @@ impl Diagram {
         )?;
         Ok(out)
     }
+    /// Visit complete assignments in coordinate order. False means the visitor stopped.
+    /// Prefix rejection prunes all extensions; the caller must make that predicate sound.
+    /// Callback slices are borrowed; copying/retaining output belongs to the caller.
+    pub fn visit_assignments(
+        &self,
+        limit: usize,
+        allow_prefix: impl Fn(&[usize]) -> bool,
+        mut emit: impl FnMut(&[usize]) -> bool,
+    ) -> Result<bool, String> {
+        fn walk(
+            d: &Diagram,
+            id: usize,
+            a: &mut Vec<usize>,
+            budget: &mut Budget,
+            allow_prefix: &impl Fn(&[usize]) -> bool,
+            emit: &mut impl FnMut(&[usize]) -> bool,
+        ) -> Result<bool, String> {
+            budget.tick()?;
+            if id == 0 || !allow_prefix(a) {
+                return Ok(true);
+            }
+            if a.len() == d.variables {
+                return Ok(emit(a));
+            }
+            let variable = a.len();
+            for value in 0..d.alphabet {
+                let child = if id >= 2 && d.nodes[id].variable == variable {
+                    d.nodes[id].children[value]
+                } else {
+                    id
+                };
+                a.push(value);
+                let complete = walk(d, child, a, budget, allow_prefix, emit)?;
+                a.pop();
+                if !complete {
+                    return Ok(false);
+                }
+            }
+            Ok(true)
+        }
+        walk(
+            self,
+            self.root,
+            &mut Vec::with_capacity(self.variables),
+            &mut Budget(limit),
+            &allow_prefix,
+            &mut emit,
+        )
+    }
     /// All allocated nodes, including intermediate nodes; includes both terminals.
     pub fn node_count(&self) -> usize {
         self.nodes.len()
