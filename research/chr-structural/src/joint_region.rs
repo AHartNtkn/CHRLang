@@ -300,11 +300,10 @@ impl Prepared {
             .into_keys()
             .collect())
     }
-    pub fn weighted_answers(
+    fn map_restrictions(
         &self,
         restrictions: &[(Var, Term)],
-        limit: usize,
-    ) -> Result<BTreeMap<Vec<Term>, u128>, String> {
+    ) -> Result<Option<Vec<(usize, u8)>>, String> {
         let mut coordinates = Vec::with_capacity(restrictions.len());
         for (x, t) in restrictions {
             let i = self
@@ -320,10 +319,34 @@ impl Prepared {
         let mut mapped = vec![];
         for (i, t) in coordinates {
             let Some(value) = self.domains[i].iter().position(|v| v == t) else {
-                return Ok(BTreeMap::new());
+                return Ok(None);
             };
             mapped.push((i, value as u8));
         }
+        Ok(Some(mapped))
+    }
+    pub fn weighted_iter(
+        &self,
+        restrictions: &[(Var, Term)],
+        limit: usize,
+    ) -> Result<WeightedOutput<'_>, String> {
+        let rows = self
+            .map_restrictions(restrictions)?
+            .map(|mapped| self.projection.weighted_iter(&mapped, limit))
+            .transpose()?;
+        Ok(WeightedOutput {
+            prepared: self,
+            rows,
+        })
+    }
+    pub fn weighted_answers(
+        &self,
+        restrictions: &[(Var, Term)],
+        limit: usize,
+    ) -> Result<BTreeMap<Vec<Term>, u128>, String> {
+        let Some(mapped) = self.map_restrictions(restrictions)? else {
+            return Ok(BTreeMap::new());
+        };
         Ok(self
             .projection
             .answers(&mapped, limit)?
@@ -338,5 +361,25 @@ impl Prepared {
                 )
             })
             .collect())
+    }
+}
+
+/// Weighted source tuples retain output aliases and own their terms.
+pub struct WeightedOutput<'a> {
+    prepared: &'a Prepared,
+    rows: Option<crate::projection::WeightedAnswers<'a>>,
+}
+impl Iterator for WeightedOutput<'_> {
+    type Item = (Vec<Term>, u128);
+    fn next(&mut self) -> Option<Self::Item> {
+        let (row, weight) = self.rows.as_mut()?.next()?;
+        Some((
+            self.prepared
+                .output_slots
+                .iter()
+                .map(|j| self.prepared.domains[self.prepared.visible[*j]][row[*j] as usize].clone())
+                .collect(),
+            weight,
+        ))
     }
 }

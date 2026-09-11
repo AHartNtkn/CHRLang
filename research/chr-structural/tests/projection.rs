@@ -48,6 +48,15 @@ fn check(p: &Problem, visible: &[usize]) {
                     projected.answers(&[], 100_000).unwrap(),
                     expected(&rows, visible, semantics)
                 );
+                assert_eq!(
+                    projected
+                        .weighted_iter(&[], 100_000)
+                        .unwrap()
+                        .collect::<Vec<_>>(),
+                    expected(&rows, visible, semantics)
+                        .into_iter()
+                        .collect::<Vec<_>>()
+                );
                 for &v in visible {
                     for value in 0..3 {
                         let want = rows
@@ -55,6 +64,15 @@ fn check(p: &Problem, visible: &[usize]) {
                             .filter(|r| r[v] == value)
                             .cloned()
                             .collect::<Vec<_>>();
+                        assert_eq!(
+                            projected
+                                .weighted_iter(&[(v, value)], 100_000)
+                                .unwrap()
+                                .collect::<Vec<_>>(),
+                            expected(&want, visible, semantics)
+                                .into_iter()
+                                .collect::<Vec<_>>()
+                        );
                         assert_eq!(
                             projected.answers(&[(v, value)], 100_000).unwrap(),
                             expected(&want, visible, semantics)
@@ -565,4 +583,50 @@ fn sparse_join_handles_dense_rows_and_outside_domain_values() {
     check(&p, &[2, 1]);
     p.filters[1].rows.clear();
     check(&p, &[2, 1]);
+}
+
+#[test]
+fn lazy_output_preserves_upfront_overflow_and_zero_annihilation() {
+    let mut p = Problem {
+        domains: vec![vec![0, 1]; 129],
+        filters: (1..129)
+            .map(|i| Relation {
+                scope: vec![0, i],
+                rows: vec![vec![0, 0], vec![1, 0], vec![1, 1]],
+            })
+            .collect(),
+    };
+    let order = (1..129).collect::<Vec<_>>();
+    let q = p
+        .project(&[0], &[], &order, Semantics::Counted, 1000)
+        .unwrap();
+    assert!(q.answers(&[], 100).is_err());
+    assert!(q.weighted_iter(&[], 100).is_err());
+    for restrictions in [
+        vec![],
+        vec![(0, 0)],
+        vec![(0, 0), (0, 1)],
+        vec![(0, 9)],
+        vec![(1, 0)],
+    ] {
+        for limit in [0, 1, 2] {
+            assert_eq!(
+                q.weighted_iter(&restrictions, limit).err(),
+                q.answers(&restrictions, limit).err()
+            );
+        }
+    }
+    assert_eq!(
+        q.weighted_iter(&[(0, 0)], 100).unwrap().collect::<Vec<_>>(),
+        vec![(vec![0], 1)]
+    );
+    assert!(q.weighted_iter(&[(0, 9)], 100).unwrap().next().is_none());
+    for (i, filter) in p.filters.iter_mut().enumerate() {
+        let v = if i < 64 { 0 } else { 1 };
+        filter.rows = vec![vec![v, 0], vec![v, 1]];
+    }
+    let q = p
+        .project(&[0], &[], &order, Semantics::Counted, 1000)
+        .unwrap();
+    assert!(q.weighted_iter(&[], 100).unwrap().next().is_none());
 }

@@ -136,9 +136,11 @@ fn decode(row: Vec<u8>, alias: bool) -> Vec<Term> {
 }
 enum Prepared {
     Projection(chr_structural::joint_region::Prepared),
+    Lazy(chr_structural::joint_region::Prepared),
     Enumeration(runtime::Prepared),
 }
 enum Output<'a> {
+    Lazy(chr_structural::joint_region::WeightedOutput<'a>),
     Projection(std::collections::btree_map::IntoIter<Vec<Term>, u128>),
     Enumeration(runtime::Output<'a>, bool),
 }
@@ -147,6 +149,7 @@ impl Iterator for Output<'_> {
     fn next(&mut self) -> Option<Record> {
         match self {
             Self::Projection(x) => x.next(),
+            Self::Lazy(x) => x.next(),
             Self::Enumeration(x, alias) => x.next().map(|(row, w)| (decode(row, *alias), w)),
         }
     }
@@ -173,6 +176,14 @@ impl Prepared {
                         .collect::<Vec<_>>(),
                 ))
             }
+            "sparse-lazy" => Self::Lazy(
+                r.prepare_sparse(visible, &[], &[], Observation::Counted, 100_000)
+                    .unwrap(),
+            ),
+            "projection-lazy" => Self::Lazy(
+                r.prepare(visible, &[], &[], Observation::Counted, 100_000)
+                    .unwrap(),
+            ),
             "sparse" => Self::Projection(
                 r.prepare_sparse(visible, &[], &[], Observation::Counted, 100_000)
                     .unwrap(),
@@ -194,6 +205,7 @@ impl Prepared {
     }
     fn start(&self, restrictions: &[(Var, Term)], alias: bool) -> Output<'_> {
         match self {
+            Self::Lazy(p) => Output::Lazy(p.weighted_iter(restrictions, 100_000).unwrap()),
             Self::Projection(p) => Output::Projection(
                 p.weighted_answers(restrictions, 100_000)
                     .unwrap()
@@ -289,7 +301,7 @@ fn main() {
     let prepared = measure(&mut rows, "prepare", || Prepared::new(mode, &r, &visible));
     #[cfg(feature = "phase-clock")]
     let preparation_ns = match &prepared {
-        Prepared::Projection(p) => p.preparation_ns,
+        Prepared::Projection(p) | Prepared::Lazy(p) => p.preparation_ns,
         _ => [0; 4],
     };
     measure(&mut rows, "source_dispose", || drop(r));

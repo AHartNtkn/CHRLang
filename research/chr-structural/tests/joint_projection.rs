@@ -411,6 +411,19 @@ fn connected_counted_sources_match_scalar_and_reference() {
                                     prepared.weighted_answers(&restrictions, 100_000).unwrap(),
                                     wanted
                                 );
+                                let want = wanted.into_iter().collect::<Vec<_>>();
+                                let mut stream =
+                                    prepared.weighted_iter(&restrictions, 100_000).unwrap();
+                                let first = stream.next();
+                                assert_eq!(first.as_ref(), want.first());
+                                drop(stream);
+                                assert_eq!(
+                                    prepared
+                                        .weighted_iter(&restrictions, 100_000)
+                                        .unwrap()
+                                        .collect::<Vec<_>>(),
+                                    want
+                                );
                                 observations += 1;
                             }
                         }

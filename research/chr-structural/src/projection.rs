@@ -360,6 +360,63 @@ impl Projection {
         })
     }
 
+    pub fn weighted_iter(
+        &self,
+        restrictions: &[(usize, u8)],
+        limit: usize,
+    ) -> Result<WeightedAnswers<'_>, String> {
+        if restrictions.iter().any(|(i, _)| !self.visible.contains(i)) {
+            return Err("restriction on eliminated or unknown coordinate".into());
+        }
+        let axes = self
+            .visible
+            .iter()
+            .map(|&i| {
+                let mut axis = self.domains[i].as_slice();
+                for &(_, v) in restrictions.iter().filter(|(j, _)| *j == i) {
+                    axis = match axis.binary_search(&v) {
+                        Ok(j) => &axis[j..j + 1],
+                        Err(_) => &[],
+                    };
+                }
+                axis
+            })
+            .collect::<Vec<_>>();
+        let count = if axes.iter().any(|a| a.is_empty()) {
+            0
+        } else {
+            axes.iter().try_fold(1usize, |n, a| {
+                n.checked_mul(a.len()).ok_or("assignment bound")
+            })?
+        };
+        if count > limit {
+            return Err("assignment bound".into());
+        }
+        let mut output = WeightedAnswers {
+            projection: self,
+            axes,
+            values: vec![0; self.domains.len()],
+            next: 0,
+            count,
+        };
+        let safe = self.semantics == Semantics::Set
+            || self.factors.iter().any(|f| f.table.is_empty())
+            || self
+                .factors
+                .iter()
+                .try_fold(1u128, |n, f| {
+                    n.checked_mul(f.table.values().copied().max().unwrap_or(0))
+                })
+                .is_some();
+        if !safe {
+            for i in 0..count {
+                output.position(i);
+                weight(&self.factors, &output.values, self.semantics)?;
+            }
+        }
+        Ok(output)
+    }
+
     pub fn answers(&self, restrictions: &[(usize, u8)], limit: usize) -> Result<Table, String> {
         if restrictions.iter().any(|(i, _)| !self.visible.contains(i)) {
             return Err("restriction on eliminated or unknown coordinate".into());
@@ -377,6 +434,49 @@ impl Projection {
             Ok(())
         })?;
         Ok(answers)
+    }
+}
+
+/// Borrows the prepared factors; each yielded weighted tuple is owned.
+pub struct WeightedAnswers<'a> {
+    projection: &'a Projection,
+    axes: Vec<&'a [u8]>,
+    values: Vec<u8>,
+    next: usize,
+    count: usize,
+}
+impl WeightedAnswers<'_> {
+    fn position(&mut self, mut index: usize) {
+        for (&i, axis) in self.projection.visible.iter().zip(&self.axes).rev() {
+            self.values[i] = axis[index % axis.len()];
+            index /= axis.len();
+        }
+    }
+}
+impl Iterator for WeightedAnswers<'_> {
+    type Item = (Vec<u8>, u128);
+    fn next(&mut self) -> Option<Self::Item> {
+        while self.next < self.count {
+            self.position(self.next);
+            self.next += 1;
+            let w = weight(
+                &self.projection.factors,
+                &self.values,
+                self.projection.semantics,
+            )
+            .expect("weight products checked before output");
+            if w > 0 {
+                return Some((
+                    self.projection
+                        .visible
+                        .iter()
+                        .map(|&i| self.values[i])
+                        .collect(),
+                    w,
+                ));
+            }
+        }
+        None
     }
 }
 

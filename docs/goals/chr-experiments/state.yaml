@@ -9,7 +9,7 @@ goal:
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
   execution_sequence: docs/experiments/next-cycle.md
-  current_research: "Longer prepared sessions complete 4,032 allocation/timing processes. Sparse projection beats enumeration in all eight full-output unequal-name cases at 256 queries, with more allocation and higher peaks. Equality controls and cancellation remain adverse. T076 next tests lazy weighted output; package count three, goal active."
+  current_research: "Lazy weighted output completes 5,376 allocation/timing processes and reduces requested allocation versus eager projection in all 192 scenarios. All sixteen unequal-name cases at 256 queries beat enumeration, including cancellation. Portfolio review selects consuming-caller delivery under T076; review count reset, goal active."
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -295,10 +295,13 @@ tasks:
     type: pm
     assignee: PM
     status: active
-    progress: "Longer prepared sessions complete 4,032 allocation/timing processes. Sparse projection beats enumeration in all eight full-output unequal-name cases at 256 queries, with more allocation and higher peaks. Equality controls and cancellation remain adverse. T076 next tests lazy weighted output; package count three, goal active."
-    next_action: "Register lazy weighted output over existing projection factors and dictionaries. Current query setup materializes all tuples before first observation and remains adverse under cancellation even with 256-query reuse. Preserve complete tuple order, weights, aliases, caller restrictions, held results and intentional overflow/bound error behavior. Compare lazy/eager output and enumeration with complete runtime and ownership before claiming improvement. Reassess broader caller observers, selective retention and preparation simplification after this package; full portfolio review due, count three."
+    progress: "Lazy weighted output completes 5,376 allocation/timing processes and reduces requested allocation versus eager projection in all 192 scenarios. All sixteen unequal-name cases at 256 queries beat enumeration, including cancellation. Portfolio review selects consuming-caller delivery under T076; review count reset, goal active."
+    next_action: "Register delivery of projected weighted results into an ordinary consuming caller, reusing source/reference and scarce-resource fixtures. Compare full raw multiplicity, source order, cancellation, held answers and competing consumption; distinguish logical weighted observation from operational source behavior. Modify fixtures and transport to investigate each consequential difference instead of treating current interfaces as language restrictions. Compare against competent enumeration before complete lifecycle timing. Reconsider broader call observers, selective retention and preparation changes at the result or obstruction; review count reset."
     objective: Investigate compact finite structural spaces, intersection and finite path equality against explicit enumeration, with independently specified denotation, source multiplicity correspondence, favorable and adverse sources and complete lifecycle costs.
     inputs:
+      - docs/experiments/results/S06-lazy-weighted.md
+      - docs/experiments/results/S06-lazy-weighted-review.md
+      - docs/experiments/registrations/S06-lazy-weighted.md
       - docs/experiments/results/S06-projection-reuse.md
       - docs/experiments/registrations/S06-projection-reuse.md
       - docs/experiments/results/S06-sparse-cost.md
@@ -2709,8 +2712,12 @@ checks:
   last_verification:
     result: passed
     task: T076
-    scope: Longer prepared-query lifecycle and observed amortization.
+    scope: Lazy weighted output, upfront errors and complete lifecycle costs.
     commands:
+      - "sparse_cost.py lazy:1536 allocation and3840 ordinary runs;576 clock-qualified comparisons, repeated ownership and full release"
+      - "Projection and connected tests pass default/off; lazy tuple order, aliases, restrictions, cancellation and held results agree with independent answers"
+      - "Upfront later-overflow, valid restrictions, zero annihilation and query bound/error parity tests pass"
+      - "Fixture test and scoped metered/counter-free Clippy pass; portfolio reviewed and T076 selected for caller delivery"
       - "sparse_cost.py long:1152 allocation and2880 ordinary processes,342720 matrix queries,384 comparisons"
       - "Independent per-pattern expected answers check every actual query; repeated allocation, consumer equivalence and final release pass"
       - "Runner fixture test and scoped counter-free Clippy pass; preparation and all output/disposal phases charged"
