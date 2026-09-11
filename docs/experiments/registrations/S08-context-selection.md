@@ -1,0 +1,11 @@
+# Context selection: prospective operation gate
+
+Test whether dispatch by support/context cardinality retains dense traversal gains and avoids sparse range-setup costs. Candidate: seek if support.len() > context.len()/4; otherwise individual lookup. This threshold is a registered hypothesis, not fitted to the coming measurements. No default or production wiring changes at this gate.
+
+Independent assignment truth: all 531,441 existing coordinate pairs, checking the candidate in addition to the three established algorithms. New native fixtures: context sizes 0,1,2,8,16,63,64,256; unique feasible support counts from 0,1,2,floor(n/4)-1,floor(n/4),floor(n/4)+1,floor(n/2),n. For each count use prefix, suffix and evenly spread placement (deduplicate identical key vectors). Match, first conflict, last conflict and missing final key, except empty support has match only. Expected inclusion follows from the fixture assignment, checked outside timing. Removing a key may cross the dispatch boundary; this is intentional.
+
+Ordinary allocator, no engine counters; lookup, seeking and selection in the same optimized test executable. Black-box map references and results. Each method gets 2,000 warmup calls per case; nine interleaved repetitions of 10,000 calls per method, cyclic order by case and repetition. CPU 0, 1 GiB, 120-second CPU and 150-second process wall bound. Freeze sources, build command, toolchain and binary hash before executing native comparisons. Preserve raw output and all ratios; do not aggregate with invented workload weights.
+
+Report paired median/min/max and a 10% change threshold with all nine pairs on the same side of one. Candidate must preserve dense gains and avoid consequential regressions in sparse and boundary regimes to qualify for lifecycle implementation. If it fails, identify whether dispatch overhead, density misprediction or seeking itself is responsible. Do not retune and report the same sample as confirmation. A repair requires a separately registered held-out confirmation.
+
+At this gate compare further context work with memo attribution and partner planning. Package three since the full review; full portfolio review is due by four. Operation success alone does not establish lifecycle improvement or architecture superiority.

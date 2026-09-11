@@ -1,0 +1,18 @@
+   Compiling chr-direct-choice v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-choice)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.71s
+     Running unittests src/lib.rs (target/debug/deps/chr_direct_choice-9be38ef2c3d7cf03)
+
+running 1 test
+REPAIR_WORK,n=2,k=1,start=1,conflict=false,comparisons=2
+SELECT_WORK,n=2,k=1,start=1,conflict=false,lookup=2,seek=4,selection=4
+REPAIR_WORK,n=16,k=5,start=11,conflict=true,comparisons=3
+SELECT_WORK,n=16,k=5,start=11,conflict=true,lookup=2,seek=4,selection=4
+REPAIR_WORK,n=256,k=65,start=191,conflict=true,comparisons=6
+SELECT_WORK,n=256,k=65,start=191,conflict=true,lookup=5,seek=7,selection=7
+REPAIR_WORK,n=256,k=256,start=0,conflict=false,comparisons=259
+SELECT_WORK,n=256,k=256,start=0,conflict=false,lookup=3135,seek=256,selection=256
+REPAIR_WORK,n=256,k=4,start=0,conflict=false,comparisons=18
+SELECT_WORK,n=256,k=4,start=0,conflict=false,lookup=18,seek=4,selection=18
+test demand::context::tests::selection_failure_work_attribution ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 16 filtered out; finished in 0.00s

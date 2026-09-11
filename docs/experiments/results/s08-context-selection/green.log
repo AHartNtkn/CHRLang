@@ -1,0 +1,22 @@
+   Compiling chr-direct-choice v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-choice)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.80s
+     Running unittests src/lib.rs (target/debug/deps/chr_direct_choice-9be38ef2c3d7cf03)
+
+running 15 tests
+test demand::context::tests::native_operation_sizing ... ignored, explicit bounded native operation experiment
+test demand::context::tests::native_selection_sizing ... ignored, registered native selection experiment
+test demand::pull_tab_tests::demanded_choice_becomes_choice_over_conditional_calls ... ok
+test demand::pull_tab_tests::lifted_calls_do_not_inherit_unrelated_rewrite_choices ... ok
+test demand::pull_tab_tests::candidate_bindings_borrow_until_extension_and_never_leak ... ok
+test demand::pull_tab_tests::pure_match_records_observed_choice_and_producer_support ... ok
+test demand::pull_tab_tests::derivation_shares_growing_terms_without_exhausting_construction_budget ... ok
+test demand::pull_tab_tests::consuming_match_keeps_full_context_validity ... ok
+test demand::pull_tab_tests::fresh_derivation_eliminates_recursive_call_expansion ... ok
+test demand::pull_tab_tests::shared_derivation_retains_call_at_fuel_bound ... ok
+test demand::pull_tab_tests::template_entry_limit_preserves_distinct_and_repeated_requests ... ok
+test demand::pull_tab_tests::support_compatibility_matches_exhaustive_total_extensions ... ok
+test demand::context::tests::ordered_comparisons_expose_dense_savings_and_sparse_costs ... ok
+test demand::pull_tab_tests::shared_derivation_size_limit_keeps_ordinary_execution ... ok
+test demand::context::tests::ordered_inclusion_matches_independent_assignment_truth ... ok
+
+test result: ok. 13 passed; 0 failed; 2 ignored; 0 measured; 0 filtered out; finished in 0.42s
