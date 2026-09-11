@@ -8,9 +8,12 @@ import random
 import resource
 import subprocess
 import zipfile
+import sys
+
+ARENA_COW = "--arena-cow" in sys.argv
 
 ROOT = Path(__file__).resolve().parents[3]
-OUT = ROOT / 'docs/experiments/results/s01-prepared-prefix-ownership'
+OUT = ROOT / ('docs/experiments/results/s01-prepared-prefix-arena' if ARENA_COW else 'docs/experiments/results/s01-prepared-prefix-ownership')
 
 
 def bounds():
@@ -55,6 +58,19 @@ def audit():
         fresh = cells[key[:-1]+('fresh',)][1]
         comparisons.append({'cell': key[:-1], 'fresh': fresh, 'reuse': reuse})
     (OUT/'analysis.json').write_text(json.dumps(comparisons, indent=2)+'\n')
+    if ARENA_COW:
+        baseline = ROOT/'docs/experiments/results/s01-prepared-prefix-ownership'
+        old = {tuple(r['cell']):r for r in json.loads((baseline/'analysis.json').read_text())}
+        contrasts = []
+        for row in comparisons:
+            for mode in ['fresh','reuse']:
+                contrasts.append({'cell':list(row['cell'])+[mode], 'ordinary':old[tuple(row['cell'])][mode], 'shared':row[mode]})
+        (OUT/'arena-comparison.json').write_text(json.dumps(contrasts,indent=2)+'\n')
+        # Confirm that this is a feature intervention on the same measured engine.
+        with zipfile.ZipFile(baseline/'sources.zip') as a, zipfile.ZipFile(OUT/'sources.zip') as b:
+            for name in a.namelist():
+                if '/src/' in name or name.endswith('examples/probe_lifecycle.rs'):
+                    assert a.read(name)==b.read(name), name
     print(json.dumps({'processes':len(rows),'exact_pairs':len(cells), 'comparisons':len(comparisons)}))
 
 
@@ -63,19 +79,21 @@ def run():
     assert not (OUT/'freeze.json').exists()
     binaries = {}
     for probe in [False, True]:
-        features = 'alloc-meter' + (',selective-probe' if probe else '')
+        features = 'alloc-meter' + (',selective-probe' if probe else '') + (',arena-cow' if ARENA_COW else '')
         subprocess.run(['cargo','build','-p','chr-compiled','--release','--no-default-features','--features',features,'--example','probe_lifecycle'],cwd=ROOT,check=True)
-        dest = ROOT / f'target/prepared-prefix-{probe}'
+        dest = ROOT / f'target/prepared-prefix-{ARENA_COW}-{probe}'
         dest.write_bytes((ROOT/'target/release/examples/probe_lifecycle').read_bytes())
         dest.chmod(0o755)
         binaries[str(probe)] = {'path':str(dest),'sha256':hashlib.sha256(dest.read_bytes()).hexdigest()}
     sources = subprocess.check_output(['git','ls-files','research/chr-compiled','research/chr-persistent','research/chr-observe','crates/chr-syntax','Cargo.toml','Cargo.lock','rust-toolchain.toml'],cwd=ROOT,text=True).splitlines()
     sources += ['research/chr-compiled/experiments/prepared_prefix_ownership.py','docs/experiments/registrations/S01-prepared-prefix-ownership.md']
+    if ARENA_COW:
+        sources += ['docs/experiments/registrations/S01-prepared-prefix-arena.md']
     with zipfile.ZipFile(OUT/'sources.zip','w',zipfile.ZIP_DEFLATED) as z:
         for p in sorted(set(sources)): z.write(ROOT/p,p)
     (OUT/'freeze.json').write_text(json.dumps({'binaries':binaries,'sources_sha256':hashlib.sha256((OUT/'sources.zip').read_bytes()).hexdigest(),'rustc':subprocess.check_output(['rustc','-Vv'],text=True)},indent=2)+'\n')
     cells = list(itertools.product([False,True],['selective','neutral','duplicate','broad'],[16,128],['global','active'],['scan','indexed'],['false','true'],['false','true'],['fresh','reuse']))
-    rng=random.Random(8210)
+    rng=random.Random(8211 if ARENA_COW else 8210)
     with gzip.open(OUT/'runs.jsonl.gz','wt') as out:
         for block in range(2):
             rng.shuffle(cells)

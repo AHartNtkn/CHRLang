@@ -1,5 +1,7 @@
 # Unanswered architecture questions and experimental ownership
 
+Arena sharing validates1024 allocation processes with512 exact pairs. It lowers requested and peak bytes in all128 stable-table reuse comparisons, raises both in all128 changing-table reuse comparisons, and leaves prepared peaks above fresh in all256 comparisons. Next measure complete ordinary-allocator lifecycle time, then full portfolio review; package count three, T082 and goal active. [Arena result](results/S01-prepared-prefix-arena.md).
+
 Prepared-prefix ownership validates 1024 processes and512 exact allocation pairs. Reuse lowers requested bytes in all128 normal-completion comparisons, raises them in68of128 cancellation comparisons, and raises peak live bytes in all256 comparisons. Next qualify and attribute existing arena sharing against complete clone/suffix ownership; package count two, T082 and goal active. [Ownership result](results/S01-prepared-prefix-ownership.md).
 
 Prepared-prefix source gate passes 192 configurations across counter-free control and probe builds: 768 completed searches and 192 cancellations preserve independent full residuals, exact consuming tuples and retained answers. Changing right tables remain per-query input. T082 next measures requested ownership and cloning costs; package count one, goal active. [Source gate](results/S01-prepared-prefix-entry.md).

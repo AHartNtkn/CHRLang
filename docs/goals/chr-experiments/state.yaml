@@ -9,7 +9,7 @@ goal:
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
   execution_sequence: docs/experiments/next-cycle.md
-  current_research: "Prepared-prefix ownership validates 1024 processes and512 exact allocation pairs. Reuse lowers requested bytes in all128 normal-completion comparisons, raises them in68of128 cancellation comparisons, and raises peak live bytes in all256 comparisons. Next qualify and attribute existing arena sharing against complete clone/suffix ownership; package count two, T082 and goal active."
+  current_research: "Arena sharing validates1024 allocation processes with512 exact pairs. It lowers requested and peak bytes in all128 stable-table reuse comparisons, raises both in all128 changing-table reuse comparisons, and leaves prepared peaks above fresh in all256 comparisons. Next measure complete ordinary-allocator lifecycle time, then full portfolio review; package count three, T082 and goal active."
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -2671,8 +2671,8 @@ tasks:
     assignee: PM
     status: active
     objective: Investigate partner ordering and key-aware discovery plans with preserved source head identity and consuming selection, independent complete answers, adverse controls and complete lifecycle accounting.
-    progress: "Prepared-prefix ownership validates 1024 processes and512 exact allocation pairs. Reuse lowers requested bytes in all128 normal-completion comparisons, raises them in68of128 cancellation comparisons, and raises peak live bytes in all256 comparisons. Next qualify and attribute existing arena sharing against complete clone/suffix ownership; package count two, T082 and goal active."
-    next_action: Qualify existing arena sharing on the prepared-prefix source gate, attribute cloning ownership and compare complete allocations including suffix writes. Reassess integration, graph attribution and solving afterward; package count two.
+    progress: "Arena sharing validates1024 allocation processes with512 exact pairs. It lowers requested and peak bytes in all128 stable-table reuse comparisons, raises both in all128 changing-table reuse comparisons, and leaves prepared peaks above fresh in all256 comparisons. Next measure complete ordinary-allocator lifecycle time, then full portfolio review; package count three, T082 and goal active."
+    next_action: Register bounded paired batched ordinary-allocator lifecycle timing for fresh/reuse and ordinary/shared arenas, preserving changed-term and cancellation controls. Then conduct full portfolio review including integration, graph attribution and direct solving; package count three.
     allowed_files:
       - research/
       - docs/experiments/
@@ -2688,8 +2688,10 @@ checks:
   last_verification:
     result: passed
     task: T082
-    scope: Prepared-prefix ownership matrix, exact repeated allocation phases, independent source gates and Clippy.
+    scope: Arena sharing source qualification and complete requested-ownership intervention, exact repeats and unchanged-source comparison.
     commands:
+      - "prepared_prefix_ownership.py --arena-cow --audit: 1024 processes, 512 exact pairs, phase coverage, restoration and source equality"
+      - "query_template with arena-cow and arena-cow,selective-probe; arena detachment unit test; scoped Clippy"
       - "prepared_prefix_ownership.py --audit: 1024 processes, 512 exact pairs, full phase coverage and owner restoration"
       - "query_template: counter-free control and selective-probe, two tests passing each"
       - "audit_probe_lifecycle.py: 1344 processes, 192 exact allocation pairs and owner restoration"
@@ -2697,6 +2699,7 @@ checks:
       - "audit_probe_clock.py: 18000 separately instrumented complete sessions"
       - Scoped ordinary, allocation and CPU-clock Clippy; source hashes, report links and 57-question map
     evidence:
+      - docs/experiments/results/S01-prepared-prefix-arena.md
       - docs/experiments/results/S01-prepared-prefix-ownership.md
       - docs/experiments/results/S01-probe-lifecycle.md
       - docs/experiments/results/S01-probe-lifecycle-review.md
