@@ -1,0 +1,51 @@
+{
+  "direct": {
+    "scenarios": 288,
+    "sensitive": 107,
+    "below_09": 0,
+    "above_11": 288
+  },
+  "separate": {
+    "scenarios": 288,
+    "sensitive": 92,
+    "below_09": 0,
+    "above_11": 288
+  },
+  "scan": {
+    "scenarios": 288,
+    "sensitive": 41,
+    "below_09": 1,
+    "above_11": 266
+  },
+  "indexed": {
+    "scenarios": 288,
+    "sensitive": 29,
+    "below_09": 13,
+    "above_11": 239
+  },
+  "sealed": {
+    "scenarios": 288,
+    "sensitive": 52,
+    "below_09": 1,
+    "above_11": 270
+  },
+  "active-scan": {
+    "scenarios": 288,
+    "sensitive": 40,
+    "below_09": 1,
+    "above_11": 260
+  },
+  "active-indexed": {
+    "scenarios": 288,
+    "sensitive": 36,
+    "below_09": 4,
+    "above_11": 252
+  }
+}
+memo vs fastest observed below .9 0 above 1.1 288 sensitive 105
+('0', '128', '4', 'all', '0', 'true') {'active-indexed': 1.6496, 'active-scan': 1.4595, 'compact': 12.9852, 'direct': 1.0824, 'indexed': 1.7354, 'memo': 39.7966, 'scan': 1.2712, 'sealed': 0.8278, 'separate': 1.1465, 'whole': 90.8566}
+('1', '128', '4', 'all', '0', 'true') {'active-indexed': 1.7984, 'active-scan': 1.5537, 'compact': 13.9396, 'direct': 1.206, 'indexed': 1.8171, 'memo': 82.2823, 'scan': 1.4485, 'sealed': 0.9886, 'separate': 1.3666, 'whole': 90.5058}
+('2', '128', '4', 'all', '0', 'true') {'active-indexed': 1.7955, 'active-scan': 1.4478, 'compact': 14.5315, 'direct': 1.1369, 'indexed': 1.871, 'memo': 93.525, 'scan': 1.3826, 'sealed': 0.9054, 'separate': 1.5593, 'whole': 94.8162}
+('3', '128', '4', 'all', '0', 'true') {'active-indexed': 1.7844, 'active-scan': 1.5303, 'compact': 13.5223, 'direct': 1.0611, 'indexed': 1.9185, 'memo': 40.6484, 'scan': 1.4654, 'sealed': 0.8908, 'separate': 1.1907, 'whole': 89.8357}
+('4', '128', '4', 'all', '0', 'true') {'active-indexed': 14.68, 'active-scan': 15.3252, 'compact': 166.2075, 'direct': 15.0172, 'indexed': 15.9673, 'memo': 120.4995, 'scan': 14.8482, 'sealed': 15.5722, 'separate': 19.6392}
+('5', '128', '4', 'all', '0', 'true') {'active-indexed': 0.8714, 'active-scan': 0.8734, 'compact': 7.2634, 'direct': 0.6071, 'indexed': 0.9851, 'memo': 39.928, 'scan': 0.8255, 'sealed': 0.5728, 'separate': 0.6973, 'whole': 41.323}

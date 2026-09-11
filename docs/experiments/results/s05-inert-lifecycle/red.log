@@ -1,0 +1,15 @@
+   Compiling chr-reuse v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-reuse)
+error[E0425]: cannot find function `configure` in module `super`
+   --> research/chr-reuse/examples/inert_ownership.rs:239:42
+    |
+239 |                         let cfg = super::configure(family, 4, 4, keep, cancel, true);
+    |                                          ^^^^^^^^^ not found in `super`
+
+error[E0425]: cannot find function `execute` in module `super`
+   --> research/chr-reuse/examples/inert_ownership.rs:240:32
+    |
+240 |                         super::execute(mode, cfg);
+    |                                ^^^^^^^ not found in `super`
+
+For more information about this error, try `rustc --explain E0425`.
+error: could not compile `chr-reuse` (example "inert_ownership" test) due to 2 previous errors
