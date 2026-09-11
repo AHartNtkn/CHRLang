@@ -1,6 +1,6 @@
 # Experimental sequence for the unanswered architecture questions
 
-The [completed-traversal result](results/S08-completed-traversal.md) supplies the current checkpoint. Tick-local completed traversal passes40 registered graph processes with exact repeated128 rows and exact parent controls. At512, dependency force work falls97.5–98.7% and finite-validation visits97.8–98.4%; service calls and graph counts remain unchanged. Templates also benefit and retain lower work with both repaired. Independent source/cycle/resource tests pass. T074 next qualifies full lifecycle ownership and adverse finite sources before timing; three packages since full review, goal active.
+The [traversal ownership result](results/S08-traversal-ownership.md) and [full portfolio review](results/S08-traversal-portfolio-review.md) supply the current checkpoint. Completed-traversal ownership validates336 processes and112 exact allocation pairs, with complete disposal. Continuing dependency traffic falls in16 comparisons, while template traffic rises in16 and flat-source traffic rises in all16. Peak requested heap rises throughout; direct traffic is lower in all48 graph comparisons. Full portfolio review selects T072 useful partial equality/matching/consumption; T074 retains memo storage and complete timing. Review count reset; goal active.
 
 Test the distinct mechanisms that remain unanswered, then compare the complete architectures they enable. Reuse the existing baselines. A lower priority changes when a question is investigated; it does not answer it.
 
@@ -10,15 +10,15 @@ This sequence covers the [57 reviewed questions](question-to-experiment-map.md) 
 
 ## Start here: the next experiments
 
-**1. Qualify complete lifecycle costs of shared traversal — T074, specification9.** The [work comparison](results/S08-completed-traversal.md) substantially narrows the dependency/template gap while preserving service and graph counts. Qualify ordinary and metered off/on lifecycles in both engines, including cancellation, retained outputs and reclamation. Add finite/adverse sources with little repeated completed work and credible direct controls before timing. Charge memo allocation, peak ownership and disposal.
+**1. Establish useful partial equality and consuming execution — T072, specification2.** The [full portfolio review](results/S08-traversal-portfolio-review.md) selects a different architectural promise: whether stable early equality information enables matching/consumption that saves substantive source work. Read the existing serialization analysis, inspect current interfaces, then establish useful and useless interleaving with an independent serialized control. Include late contradiction, competing consumers and cancellation; repair obstructing fixtures/interfaces.
 
-**2. Retain the conditional crossover as an actionable comparison.** The [coverage ablation](results/S08-coverage-ablation.md) shows that matching prechecks explain only part of the increased resource application work. Distinguish candidate handling, restarts and support operations; qualify nonempty/partial cost sources before any broader coverage policy. Current evidence supports neither an unconditional coverage default nor rejection of integrated equality.
+**2. Register work and costs after the semantic entry.** Demonstrate actual avoided or added work, not just callbacks. Keep state-inspecting guards separate from stable guards. Compare competent complete variants and their commitment/invalidation responsibilities before registering total lifecycle measurements.
 
-**3. Review the full portfolio at the next package boundary.** Partner ordering/indexing, broader integrated equality/matching/consumption and coarser recognition remain required. The [full portfolio review](results/S08-continuing-selection-review.md) explains their architectural consequence. Three packages have completed since that review.
+**3. Reconsider ready alternatives at the first gate.** T074 retains graph memo storage, complete timing/RSS, broader retention and regeneration. Conditional application attribution, partner plans, coarser reuse and broader solving/lowering remain required. Review all directions within four packages; the count resets at this selection.
 
 ## Why this order, and what can change it
 
-Sharing completed traversal produces a large work reduction through a small, explicit validity boundary. Its collections and per-probe path storage could still impose adverse total costs. A lifecycle/ownership gate can therefore change the decision more directly than further work-count refinement. Templates also benefit, so compare both repaired competitors and competent direct execution. Reconsider broader alternatives at the next boundary or a consequential obstruction.
+The traversal ownership gate finds both favorable and adverse allocation regimes and leaves elapsed costs open. A useful-information/commit witness can now distinguish a different organization and possible language contracts more broadly than another refinement of the same lifetime mechanism. Existing resumable equality and independent source controls make a bounded entry feasible. If the gate finds only moved queue work or a consequential correctness obstruction, repair the experiment and reconsider graph costs and partner plans.
 
 Scheduling a later trial does not supply evidence for that direction. All thirteen specifications and the 57-question audit remain controlling.
 
