@@ -417,3 +417,32 @@ fn constructed_posts_preserve_shared_delayed_inputs() {
         }],
     );
 }
+
+#[test]
+fn failed_partner_extensions_do_not_leak_into_later_candidates() {
+    let rules = vec![Rule::simplify(
+        "get",
+        [c("get", [v(0)]), c("r", [v(1), atom("ok")]), c("s", [v(1)])],
+        eq(v(0), v(1)),
+    )];
+    check(
+        rules,
+        Query {
+            constraints: vec![
+                c("get", [v(10)]),
+                c("r", [atom("a"), atom("bad")]),
+                c("r", [atom("b"), atom("ok")]),
+                c("r", [atom("c"), atom("ok")]),
+                c("s", [atom("c")]),
+            ],
+            outputs: vec![("out".into(), Var(10))],
+        },
+        vec![Answer {
+            outputs: vec![("out".into(), atom("c"))],
+            residual: vec![
+                c("r", [atom("a"), atom("bad")]),
+                c("r", [atom("b"), atom("ok")]),
+            ],
+        }],
+    );
+}

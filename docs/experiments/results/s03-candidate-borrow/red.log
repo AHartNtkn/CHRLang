@@ -1,0 +1,35 @@
+   Compiling chr-direct-choice v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-choice)
+error[E0596]: cannot borrow data in dereference of `Cow<'_, BTreeMap<chr_syntax::Var, usize>>` as mutable
+    --> research/chr-direct-choice/src/demand.rs:1539:51
+     |
+1539 |         assert!(matches!(run.matches(&v(0),b,&ctx,&mut trial),Ok(false)));
+     |                                                   ^^^^^^^^^^ cannot borrow as mutable
+     |
+     = help: trait `DerefMut` is required to modify through a dereference, but it is not implemented for `Cow<'_, BTreeMap<chr_syntax::Var, usize>>`
+
+error[E0596]: cannot borrow data in dereference of `Cow<'_, BTreeMap<chr_syntax::Var, usize>>` as mutable
+    --> research/chr-direct-choice/src/demand.rs:1541:51
+     |
+1541 |         assert!(matches!(run.matches(&v(1),a,&ctx,&mut trial),Ok(true)));
+     |                                                   ^^^^^^^^^^ cannot borrow as mutable
+     |
+     = help: trait `DerefMut` is required to modify through a dereference, but it is not implemented for `Cow<'_, BTreeMap<chr_syntax::Var, usize>>`
+
+error[E0596]: cannot borrow data in dereference of `Cow<'_, BTreeMap<chr_syntax::Var, usize>>` as mutable
+    --> research/chr-direct-choice/src/demand.rs:1543:51
+     |
+1543 |         assert!(matches!(run.matches(&v(1),b,&ctx,&mut trial),Ok(false)));
+     |                                                   ^^^^^^^^^^ cannot borrow as mutable
+     |
+     = help: trait `DerefMut` is required to modify through a dereference, but it is not implemented for `Cow<'_, BTreeMap<chr_syntax::Var, usize>>`
+
+error[E0596]: cannot borrow data in dereference of `Cow<'_, BTreeMap<chr_syntax::Var, usize>>` as mutable
+    --> research/chr-direct-choice/src/demand.rs:1548:61
+     |
+1548 |         assert!(matches!(run.matches(&atom("a"),choice,&ctx,&mut trial),Err(Signal::Split(0))));
+     |                                                             ^^^^^^^^^^ cannot borrow as mutable
+     |
+     = help: trait `DerefMut` is required to modify through a dereference, but it is not implemented for `Cow<'_, BTreeMap<chr_syntax::Var, usize>>`
+
+For more information about this error, try `rustc --explain E0596`.
+error: could not compile `chr-direct-choice` (lib test) due to 4 previous errors

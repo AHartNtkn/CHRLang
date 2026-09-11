@@ -9,8 +9,7 @@ goal:
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
   execution_sequence: docs/experiments/next-cycle.md
-  current_research: >-
-    Reserved-token selection passes 784 compiled source cases and 2,112 lifecycle processes, with 352 exact allocation pairs and 88 exact work pairs. Flat size-six discovery falls from 91 to 21 and complete Scan time from 44.06 to 13.90 ms; local execution takes 0.051 ms. Small competition has added work, and broader integration remains unanswered. All 256 original-control phase allocations reproduce. T071 demand discovery/copy repair is next. Package two after full review; goal active.
+  current_research: "Candidate borrowing completes 8,136 pilot processes and 1,950 targeted confirmation processes. All 288 work rows match the preceding implementation. The large miss case saves 9,930,752 requested bytes and has new/old median intervals of 0.678\u20130.741 across three demand policies; two apparent pilot regressions are within \u00b110% in confirmation. Generated Indexed remains faster on that miss source. Full portfolio review selects T078 mixed-source composition; all broader questions remain open. Review count reset; goal active."
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -65,7 +64,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T071
+active_task: T078
 tasks:
   - id: T081
     type: pm
@@ -175,11 +174,13 @@ tasks:
   - id: T078
     type: pm
     assignee: PM
-    status: "pending"
+    status: active
     objective: Establish and independently qualify at least two coherent complete execution paths on mixed-mechanism sources, including a serious alternative, with explicit semantic capability and responsibility maps before whole-path cost registration.
-    progress: "Mixed-source pilot completes 2710 primary runs on 24 complete batches with all independent endpoints valid. Current native process and service each lose all 24 comparisons; substantive native service alone exceeds Rust whole-process observations on both CPUs. The compilation inventory revalidates existing same-plan and amortization evidence; T073 resumes substantive learning costs. T078 broader composition and sustained lifetime remain required. Goal active."
-    next_action: "Carry the bounded mixed-source loss forward without generalizing to distinct graph organizations. Return to broader composition and lifetime when a new mechanism changes the compared path or consequential evidence invalidates the pilot. Substantive learning cost entry is active under T073 after auditing existing compilation evidence; no goal closure."
+    progress: "Full portfolio review selects mixed-source composition after confirmed candidate borrowing. Earlier fusion, post-choice and resource-phase studies establish consequential interactions, but do not measure the repaired demand path on combined sources. The review count resets; goal active."
+    next_action: "Qualify sources combining nonground posts with common and independent consuming continuations, early failure, propagation history, fresh aliases and changed queries. Compare repaired demand, direct conditional and existing generated/activation execution, plus source-derived elimination wherever its actual certificate applies. Record complete path responsibilities and semantic capability; independently validate complete answers, cancellation and actual work. Then register exact complete lifecycle comparisons before timing. Reconsider discovery, broader integration, coarser recognition and sustained ownership at the first gate result or obstruction; full portfolio review within four packages."
     inputs:
+      - docs/experiments/results/S03-candidate-borrow.md
+      - docs/experiments/results/S03-candidate-borrow-review.md
       - docs/experiments/results/S10-mixed-pilot.md
       - docs/experiments/results/S10-residency.md
       - docs/experiments/results/S10-native-allocation.md
@@ -657,12 +658,12 @@ tasks:
   - id: T071
     type: pm
     assignee: PM
-    status: active
-    progress: >-
-      Demand post confirmation retains practical gains against every explicit control in 42 miss-reuse scenarios and losses in six. Candidate-copy attribution identifies a consequential large-miss cost but does not measure a remedy. The reserved-selection review now selects demand discovery/copy repair; broader writable heads, dynamic choices and sustained lifetime remain required. Package two after full review.
-    next_action: >-
-      Qualify a candidate path that borrows unchanged match information or delays copying until successful extension, or avoids repeated discovery under a sound dependency. Preserve partial bindings, late aliases, consuming occurrence identity, failure and cancellation. Include successful, unsuccessful and cheap/unique controls; register exact comparative work and full lifecycle measurements after semantic qualification. Compare against current demand and qualified generated/activation controls. Reassess broader integration, call recognition and actual composed paths at the first result or obstruction. Full portfolio review within two further packages.
+    status: pending
+    progress: "Candidate borrowing completes 8,136 pilot processes and 1,950 targeted confirmation processes. All 288 work rows match the preceding implementation. The large miss case saves 9,930,752 requested bytes and has new/old median intervals of 0.678\u20130.741 across three demand policies; two apparent pilot regressions are within \u00b110% in confirmation. Generated Indexed remains faster on that miss source. Full portfolio review selects T078 mixed-source composition; all broader questions remain open. Review count reset; goal active."
+    next_action: "Carry the validated borrowing repair into T078 mixed-source paths. Candidate visits and normalization remain unchanged. Retain writable heads, dynamic choices, successful/miss discovery and sustained ownership as separate investigations; reconsider their priority at the mixed-source gate or obstruction."
     inputs:
+      - docs/experiments/results/S03-candidate-borrow.md
+      - docs/experiments/results/S03-candidate-borrow-review.md
       - docs/experiments/results/S02-reserved-selection.md
       - docs/experiments/results/S02-reserved-selection-review.md
       - docs/experiments/results/S03-post-confirmation.md
@@ -2665,19 +2666,17 @@ checks:
   dirty_fingerprint: unrelated_untracked_files_preserved
   last_verification:
     result: passed
-    task: T072
-    scope: Reserved-selection source/work and complete finite lifecycle comparison; broad architecture remains open.
+    task: T071
+    scope: Candidate borrowing, complete finite lifecycle pilot and targeted confirmation; broad architecture remains open.
     commands:
-      - Source RED/GREEN; 784 compiled comparisons; all 29 constructor tests
-      - Actual-reservation cancellation/reuse and a readiness-witness negative control
-      - Additional 18 compiled post-commit failures and 18 successful prepared reuses
-      - Registered 2112 lifecycle processes; 352 exact allocation pairs and 88 exact work pairs
-      - Independent scalar traces match compiled application counts; 256 original-control allocation phases reproduce
-      - Primary feature checks, clock calibration, paired exploratory analysis and allocation bound reconstruction
+      - Candidate-binding RED/GREEN; 11 unit tests and independent source regressions
+      - Failed-partner binding isolation and 288 exact repeated work rows matching the parent
+      - Registered 8136-process pilot and 1950-process targeted confirmation
+      - 216 allocation pairs, 72 profile pairs and 648 exact explicit-control bridges
+      - Source/binary/feature freeze checks, cancellation and owner restoration
       - Strict Clippy, formatting, local links, 57 questions and active goal/task validation
     evidence:
-      - docs/experiments/results/S02-reserved-selection.md
-      - docs/experiments/results/s02-reserved-selection/audit.json
-      - docs/experiments/results/s02-reserved-selection/control-bridge.json
-      - docs/experiments/results/s02-reserved-selection/bounds.json
-      - docs/experiments/results/S02-reserved-selection-review.md
+      - docs/experiments/results/S03-candidate-borrow.md
+      - docs/experiments/results/s03-candidate-borrow/audit.json
+      - docs/experiments/results/s03-candidate-borrow/confirmation/audit.json
+      - docs/experiments/results/S03-candidate-borrow-review.md

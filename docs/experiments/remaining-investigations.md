@@ -1,6 +1,6 @@
 # The comparisons still needed to choose the architecture
 
-The [reserved-selection work and lifecycle study](results/S02-reserved-selection.md) and [selection review](results/S02-reserved-selection-review.md) supply the current checkpoint. Reserved-token selection passes 784 compiled source cases and 2,112 lifecycle processes, with 352 exact allocation pairs and 88 exact work pairs. Flat size-six discovery falls from 91 to 21 and complete Scan time from 44.06 to 13.90 ms; local execution takes 0.051 ms. Small competition has added work, and broader integration remains unanswered. All 256 original-control phase allocations reproduce. T071 demand discovery/copy repair is next. Package two after full review; goal active.
+The [candidate-borrow study](results/S03-candidate-borrow.md) and [full portfolio review](results/S03-candidate-borrow-review.md) supply the current checkpoint. Candidate borrowing completes 8,136 pilot processes and 1,950 targeted confirmation processes. All 288 work rows match the preceding implementation. The large miss case saves 9,930,752 requested bytes and has new/old median intervals of 0.678–0.741 across three demand policies; two apparent pilot regressions are within ±10% in confirmation. Generated Indexed remains faster on that miss source. Full portfolio review selects T078 mixed-source composition; all broader questions remain open. Review count reset; goal active.
 
 The [relevant-key ownership comparison](results/S02-relevant-ownership.md) supplies the current checkpoint. Relevant-key ownership validates1,008 metered and448 ordinary processes with exact allocation repeats, cancellation/reuse and retained answers surviving producer disposal. Ordered relevant reuse lowers peaks versus exact-state caching in38of64 scenarios but requests more bytes than recomputation in all64. The changed depth16/four-query witness requests1,292,590bytes with72,959peak excess versus669,196/38,976 for recomputation. T072 next attributes key/replay execution costs before timing; package one after breadth review; goal active.
 
@@ -106,7 +106,7 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-The [current execution order](next-cycle.md#start-here-the-next-experiments) selects demand candidate discovery/copy repair after reserved-selection work and lifecycle results. Reassess broader integrated representations, call recognition and actual composed paths at the next repair result or obstruction. Full portfolio review is due within two further packages. Every distinct mechanism remains accountable; these specifications do not establish a separate order.
+The [current execution order](next-cycle.md#start-here-the-next-experiments) selects T078 mixed-source composition after confirmed candidate borrowing. Reassess demand discovery, broader integration, coarser recognition and sustained ownership at the first gate result or obstruction. Full portfolio review resets the count; another is due within four packages. Every distinct mechanism remains accountable.
 
 ### Depth, breadth and stopping within this sequence
 

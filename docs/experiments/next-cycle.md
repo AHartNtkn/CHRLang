@@ -8,26 +8,19 @@ This sequence covers the [57 reviewed questions](question-to-experiment-map.md) 
 
 ## Start here: the next experiments
 
-**1. Repair demand candidate discovery/copying — T071, specification 2.** The [reserved-selection review](results/S02-reserved-selection-review.md) selects a concrete cost in an already credible demand competitor. Qualify borrowing unchanged match information, delaying copies until successful extension, or soundly avoiding repeated discovery. Preserve partial bindings, late aliases, consuming identity, failure and cancellation. Include successful, unsuccessful and cheap cases; charge replacement bookkeeping against the current demand policies and qualified generated/activation controls.
+**1. Test mixed-source complete paths — T078, specification 12.** The [full portfolio review](results/S03-candidate-borrow-review.md) selects sources combining nonground posts with substantial consuming continuations. Qualify the repaired demand policies, direct conditional execution and existing generated/activation controls against independent complete observations. Include source-derived elimination where its actual certificate applies. Exercise common work, independent work, early failure, history, fresh aliases and changing queries. Establish actual capabilities and work before registering complete lifecycle costs.
 
-**2. Retain broader integration — T072, specification 1.** The [reserved-selection study](results/S02-reserved-selection.md) now reaches source/work, allocation and ordinary lifecycle results. It removes token-multiplicity duplication, with real small-case overhead, but retains much larger complete costs than ordinary/local controls. Persistent eligibility, different precedence/ancestry, source representation, useful partial equality and general consuming bodies remain distinct required experiments. An execution-only allocation repair cannot reverse the tested total-traffic ordering; this is not a runtime impossibility or rejection of integration.
+**2. Reconsider discovery, integration and recognition at that gate.** The [candidate-borrow study](results/S03-candidate-borrow.md) confirms a copy repair, but leaves visits and normalization unchanged. Broader integrated representation and cheaper/coarser call recognition remain distinct required investigations. Compare their decision consequence and implementation prerequisites with advancing the mixed paths to costs at the first result or obstruction.
 
-**3. Retain broader recognition — T075, specification 5.** The [call pilot](results/S05-inert-lifecycle.md) supplies large scoped transition-memo costs. Sound cheaper/coarser identities, variable-dependent relevance, failed operations/futures, fresh-result transport, eviction and sustained ownership remain unanswered. More unchanged timing repetitions are not the next priority.
-
-**Matching and compact solving retain consequential uncertainties.** Near-threshold retained-prefix gains, compact overlap magnitude and membership signal remain relevant to concrete composed-path decisions. Broader joins/subscriptions, partner plans, connected projection and richer theories need distinct evidence. Carry surviving mechanisms into actual complete paths and sustained ownership.
+**3. Carry surviving retention mechanisms into sustained ownership.** Finite restoration and retained-answer validity do not establish stable long-running memory or progress. Start lifetime qualification earlier if the mixed gate exposes growth or cancellation problems.
 
 ## Why this order, and what can change it
 
-**Demand has confirmed favorable regimes and a concrete adverse cost to change.** The large unsuccessful-search case copies many candidate environments and spends most elapsed time in execution/observation. Allocation subtraction cannot establish a remedy's runtime. A changed discovery/candidate representation can now be tested against independent sources and strong existing controls.
+**Actual composition can change the value of the surviving mechanisms.** Earlier fusion increased discovery costs, shared post-choice work did not guarantee lower allocation, and source-derived resource solving repaid added allocation on larger sources. Testing those interactions has broader immediate consequence than another isolated layout repair. Reuse existing baselines; do not infer whole-path costs by adding component measurements.
 
-| Alternative | Decision it could change | Why it is not the immediate next package | Reconsider at |
-|---|---|---|---|
-| Further reserved-selection timing | Confidence in bounded protocol savings or small overhead | The distinctive saving is exercised; refinement does not close the much larger complete-control gap | A changed mechanism or composed-path decision requiring that precision |
-| Broader integrated representation | Whether encoding, setup, observation or repeated discovery can disappear | Requires a different responsibility or capability, not another token-multiplicity repair | First demand repair result or obstruction |
-| Cheaper/coarser call recognition | Whether a different recognition cost structure repays reuse | Requires fresh-result and invalidation qualification; remains the strongest competing mechanism change | First demand repair result or obstruction |
-| Complete architectures | Whether surviving advantages remain after interactions and full costs | Existing credible demand/local/lowering paths need composition; the changed mechanism may alter them | Each round boundary, or earlier when a candidate changes |
+The [full review](results/S03-candidate-borrow-review.md) compares composition with demand discovery/normalization, broader integration, coarser recognition, sustained ownership and more compact/prefix precision. Each alternative retains its own unanswered contrasts and revisit boundary. A source gate is a prerequisite to costs, not a substitute for them.
 
-**Effort affects order, not evidence standards.** Compare each package's decision consequence, actual prerequisites and expected implementation/measurement effort with the strongest ready alternative. The [selection review](results/S02-reserved-selection-review.md) records the current judgment. Scheduling changes retain exact unfinished contrasts and revisit conditions; neither expense nor an existing runner settles a design.
+**Effort affects order, not evidence standards.** Scheduling a later trial is not experimental rejection or completion. All thirteen specifications and the 57-question audit remain controlling.
 
 ## Portfolio order and dependencies
 
@@ -35,8 +28,8 @@ The table schedules entry into each investigation. The specifications below defi
 
 | Order | Investigation and specification | Review questions | Required architectural evidence |
 |---|---|---|---|
-| Current result | Reserved-selection lifecycle — §1 | 9–11, 16, 52 | Token-multiplicity saving and small-case overhead measured; broader representation and capability remain unanswered |
-| Selected next | Demand discovery/copy repair — §2 | 12, 16, 18–19, 23 | Qualify changed candidate handling/discovery and its complete costs against strong controls |
+| Current result | Demand candidate borrowing — §2 | 12, 16, 18–19, 23 | Confirmed large-miss repair; visits, normalization and broader capabilities remain unanswered |
+| Selected next | Mixed-source composition — §12 | 9, 16, 23, 25, 34, 40, 46, 50, 54–55 | Qualify actual interactions and strong existing controls, then measure complete costs |
 | A1 follow-through | Compact solving — §3 | 26–29, 34, 53 | Resolve consequential signal/magnitude uncertainty; retain connected projection and richer structural operations |
 | A2 | Demand capability and costs — §2 | 12, 16, 18–19, 23 | Carry confirmed passive-post tradeoffs; investigate causal discovery/copy repair and distinct capabilities |
 | A3 | Intermediate joins and subscriptions — §6 | 1–5, 8, 10–11 | Carry bounded confirmed tradeoffs; resolve broader plans, retention and consequential uncertainty |
@@ -233,7 +226,7 @@ No direction leaves the sequence merely because it is expensive to implement, lo
 
 For each next-package proposal, record the decision it could change, the strongest ready distinct alternative, actual prerequisites, expected implementation/measurement effort, and the next result boundary. Prefer completing a consequential comparison over expanding its matrix when the expansion cannot change the decision. Prefer a distinct mechanism over another refinement when the refinement has no credible path to changing the architecture comparison.
 
-**Two packages follow the [call-key allocation portfolio review](results/S05-key-allocation-review.md).** Call-reuse lifecycle sizing and reserved-selection work/lifecycle now have audited results. Demand repair is selected next; reconsider selection at its first result or obstruction. Review every remaining mechanism within two further packages. Correctness and attribution count toward the limit alongside measurement.
+**The [candidate-borrow portfolio review](results/S03-candidate-borrow-review.md) resets the review count to zero.** Call-reuse lifecycle, reserved selection, candidate borrowing and its targeted confirmation complete the preceding four-package interval. Reconsider selection at the mixed-source gate or obstruction; review the full portfolio within four further packages. Correctness and attribution count alongside measurement.
 
 **A claim that an experiment cannot affect downstream decisions needs a sensitivity argument.** Name the decision, the outcomes still compatible with current evidence, and why none would change efficiency, necessary complexity, source eligibility or a competitor's credibility. Assume neither the incumbent's superiority nor the proposed mechanism's failure. When those outcomes could change the decision, the trial remains required. When only a narrower claim is settled, advance without extending that conclusion to its broader design.
 

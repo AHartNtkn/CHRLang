@@ -1,0 +1,15 @@
+# Confirm candidate borrowing's apparent regressions and representative gains
+
+The registered pilot reports two new/old birth-miss ratios above 1.1: post-duplicate size 8/original/window and size 32/reverse/immediate. Individual ratios disagree in direction. This prospective follow-up tests whether either is a reproducible practical regression before treating the changed implementation as an improvement.
+
+Select those two exact scenarios under all three demand policies. Add post-miss size 32/original/all (large copy saving), post-forward size 8/original/all (smaller successful-match saving), and post-output size 32/reverse/all (small copy fraction), also under all three policies. These are 15 paired new/old comparisons. Selection follows the pilot; this is confirmation of these contrasts, not held-out generalization or closure of all 216 pilot comparisons.
+
+Use exactly the pilot's frozen new/old ordinary binaries, sources and first-clock-off endpoint contract. No implementation changes. One excluded warmup per binary/case (30 processes), followed by 64 repetitions of every pair (1,920 processes). Seed 710734 shuffles case order each repetition and new/old order within each pair. Each process has the pilot's four changing queries and complete ownership lifecycle. Retain all measurements, with no outlier removal.
+
+For each pair sort the 64 total-time ratios. Use the 20th and 45th order statistics as a median interval. Under independent repetitions from a stable distribution, each tail has binomial probability sum(C(64,i), i=0..19)/2^64. A union bound across both tails and all 15 contrasts bounds family error by 0.023442, below 0.05. This assumption is explicit; the interval does not prove independence or stability.
+
+Classify a practical gain only if the upper bound is below 0.9, a practical loss only if the lower bound exceeds 1.1, and within-10% only if the entire interval lies within [0.9,1.1]. Otherwise retain unresolved practical magnitude; report directional evidence separately if the interval excludes one. Preserve the pilot's 36,000-ns signal floor and withhold classification if any member sample is below it. Also report first/last-half medians descriptively, without changing the registered interval or exclusions.
+
+Validate exact complete endpoints against the pilot/frozen parent, all 24 phases and all binary/source hashes. First observation remains inseparable from execution and compilation/startup/validation remain excluded. Counter-free ordinary timing only; do not rerun or reinterpret allocation counters as time. Pin CPU 0; 60 seconds wall/CPU and 1 GiB per process; 30-minute campaign bound. Preserve and investigate any failure rather than restarting it silently.
+
+This follow-up is package four after the full call-key allocation review. Its result triggers a full portfolio review, including actual composed paths, broader call recognition, integration, demand discovery/capability, compact solving, matching, restoration, language, ownership and native/parallel directions. Neither a repaired local cost nor these selected confirmations completes the research goal.

@@ -5,6 +5,7 @@
 pub mod candidate_profile;
 mod templates;
 use chr_syntax::{Answer, Constraint, Goal, Query, Rule, Term, Var};
+use std::borrow::Cow;
 use std::collections::{BTreeMap, BTreeSet, VecDeque};
 use std::rc::Rc;
 /// This crate owns the optional traversal counters; cost runners check this value.
@@ -701,7 +702,13 @@ impl Run {
             run.template_term(t, env, ground)
         })
     }
-    fn matches(&mut self, p: &Term, id: Id, ctx: &Context, env: &mut Env) -> Result<bool, Signal> {
+    fn matches(
+        &mut self,
+        p: &Term,
+        id: Id,
+        ctx: &Context,
+        env: &mut Cow<'_, Env>,
+    ) -> Result<bool, Signal> {
         #[cfg(feature = "work-diagnostics")]
         {
             self.work.match_entries += 1;
@@ -711,7 +718,15 @@ impl Run {
                 if let Some(old) = env.get(v).copied() {
                     return Ok(self.normal(old, ctx)? == self.normal(id, ctx)?);
                 }
-                env.insert(*v, id);
+                let owned = if matches!(env, Cow::Borrowed(_)) {
+                    #[cfg(feature = "candidate-profile")]
+                    let _scope =
+                        candidate_profile::Scope::new(candidate_profile::Phase::Environment);
+                    env.to_mut()
+                } else {
+                    env.to_mut()
+                };
+                owned.insert(*v, id);
                 Ok(true)
             }
             Term::App(n, ps) => {
@@ -762,18 +777,12 @@ impl Run {
             if row.constraint != head.name || row.args.len() != head.args.len() {
                 continue;
             }
-            let args = {
-                #[cfg(feature = "candidate-profile")]
-                let _scope = candidate_profile::Scope::new(candidate_profile::Phase::Arguments);
-                row.args.clone()
-            };
-            let mut next = {
-                #[cfg(feature = "candidate-profile")]
-                let _scope = candidate_profile::Scope::new(candidate_profile::Phase::Environment);
-                env.clone()
-            };
+            // Existing resource argument vectors are immutable. Forcing may append
+            // resources, so copy each ID before the recursive mutable call.
+            let mut next = Cow::Borrowed(&env);
             let mut matched = true;
-            for (p, arg) in head.args.iter().zip(args) {
+            for (index, p) in head.args.iter().enumerate() {
+                let arg = self.resources[id].args[index];
                 if !self.matches(p, arg, ctx, &mut next)? {
                     matched = false;
                     break;
@@ -786,6 +795,15 @@ impl Run {
                     let mut ids = selected.clone();
                     ids.push(id);
                     ids
+                };
+                let next = match next {
+                    Cow::Owned(env) => env,
+                    Cow::Borrowed(env) => {
+                        #[cfg(feature = "candidate-profile")]
+                        let _scope =
+                            candidate_profile::Scope::new(candidate_profile::Phase::Environment);
+                        env.clone()
+                    }
                 };
                 if let Some(found) = self.partners(heads, ids, next, ctx)? {
                     return Ok(Some(found));
@@ -922,7 +940,7 @@ impl Run {
                     .iter()
                     .filter(|c| c.name == name && c.inputs.len() == args.len())
                 {
-                    let mut env = Env::new();
+                    let mut env = Cow::Owned(Env::new());
                     let mut matched = true;
                     for (index, (pattern, arg)) in clause.inputs.iter().zip(&args).enumerate() {
                         let matches = match self.matches(pattern, *arg, ctx, &mut env) {
@@ -951,7 +969,7 @@ impl Run {
                             return Err(Signal::Split(label));
                         }
                         let Some((ids, mut env)) =
-                            self.partners(&clause.partners, vec![], env, ctx)?
+                            self.partners(&clause.partners, vec![], env.into_owned(), ctx)?
                         else {
                             continue;
                         };
@@ -1525,6 +1543,38 @@ fn supports_compatible(support: &Context, task: &Context) -> bool {
 mod pull_tab_tests {
     use super::*;
     use chr_syntax::{atom, c, eq, v};
+
+    #[test]
+    fn candidate_bindings_borrow_until_extension_and_never_leak() {
+        use std::borrow::Cow;
+        let mut run = Prepared::new(vec![])
+            .unwrap()
+            .start(Query {
+                constraints: vec![],
+                outputs: vec![],
+            })
+            .unwrap();
+        let a = run.push(Node::App("a".into(), vec![]));
+        let b = run.push(Node::App("b".into(), vec![]));
+        let choice = run.push(Node::Choice(0, a, b));
+        let base = Env::from([(Var(0), a)]);
+        let ctx = Context::new();
+        let mut trial = Cow::Borrowed(&base);
+        assert!(matches!(run.matches(&v(0), b, &ctx, &mut trial), Ok(false)));
+        assert!(matches!(trial, Cow::Borrowed(_)));
+        assert!(matches!(run.matches(&v(1), a, &ctx, &mut trial), Ok(true)));
+        assert!(matches!(trial, Cow::Owned(_)));
+        assert!(matches!(run.matches(&v(1), b, &ctx, &mut trial), Ok(false)));
+        drop(trial);
+        assert_eq!(base.len(), 1);
+        assert!(!base.contains_key(&Var(1)));
+        let mut trial = Cow::Borrowed(&base);
+        assert!(matches!(
+            run.matches(&atom("a"), choice, &ctx, &mut trial),
+            Err(Signal::Split(0))
+        ));
+        assert!(matches!(trial, Cow::Borrowed(_)));
+    }
 
     #[test]
     fn support_compatibility_matches_exhaustive_total_extensions() {

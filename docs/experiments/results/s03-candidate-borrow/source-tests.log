@@ -1,0 +1,32 @@
+   Compiling chr-direct-choice v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-choice)
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.73s
+     Running tests/nonground_posts.rs (target/debug/deps/nonground_posts-db80bc669f103174)
+
+running 9 tests
+test posted_call_output_tracks_the_result ... ok
+test fresh_post_variables_share_locally_and_remain_distinct_across_calls ... ok
+test hidden_constructor_failure_through_a_posted_output_is_not_published ... ok
+test choice_births_and_failed_posts_preserve_complete_answers ... ok
+test constructed_posts_preserve_shared_delayed_inputs ... ok
+test competing_consumers_claim_each_posted_occurrence_once ... ok
+test delayed_input_and_forward_producer_posts_are_consumed ... ok
+test continuing_calls_without_posts_do_not_exhaust_the_host_stack ... ok
+test finite_posted_answer_receives_service_beside_recursion has been running for over 60 seconds
+test finite_posted_answer_receives_service_beside_recursion ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 60.03s
+
+     Running tests/post_choice_work.rs (target/debug/deps/post_choice_work-aeb3803fcb28c820)
+
+running 1 test
+test common_continuation_has_complete_answers_and_measured_shared_work ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.26s
+
+     Running tests/post_work.rs (target/debug/deps/post_work-173ce3fa6a01a8cd)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
