@@ -1,5 +1,7 @@
 # Unanswered architecture questions and experimental ownership
 
+Recognition timing validates 20,480 sessions after 2,048 exact entries. Strides 4 and 16 qualify faster than stride 1 in 239 and 240 of 256 cases, but not against Direct or nonmemoized separation. The single sealed-adverse case still favors Direct. Full 57-question review selects T076 connected finite projection and multiplicity; T075 remains pending, review count reset, goal active. [Timing](results/S05-recognition-stride-timing.md) · [Portfolio review](results/S05-recognition-stride-timing-review.md).
+
 Repaired recognition ownership validates 4,096 processes and 2,048 exact pairs with equal consumer bytes. Strides4/16 reduce allocation versus stride1 in all256 scenarios but exceed Direct and sealed controls throughout. Stride16 exceeds stride4 requested bytes in72 cases through missed reuse; final residual capacity is repaired. T075 next runs counter-free lifecycle timing; package count two, goal active. [Recognition ownership](results/S05-recognition-stride-ownership.md).
 
 Recognition strides 4/16 preserve 9,520 per-step source comparisons and 864 cancellation/restarts. Repeated-work key requests fall 60 to17/5, but reuse hits fall52 to49/41 and retained states rise59 to62/70. T075 next measures complete ownership/lifecycle against Direct and compiled controls; package count one, goal active. [Recognition entry](results/S05-recognition-stride-entry.md).

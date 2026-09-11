@@ -9,7 +9,7 @@ goal:
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
   execution_sequence: docs/experiments/next-cycle.md
-  current_research: "Repaired recognition ownership validates 4,096 processes and 2,048 exact pairs with equal consumer bytes. Strides4/16 reduce allocation versus stride1 in all256 scenarios but exceed Direct and sealed controls throughout. Stride16 exceeds stride4 requested bytes in72 cases through missed reuse; final residual capacity is repaired. T075 next runs counter-free lifecycle timing; package count two, goal active."
+  current_research: "Recognition timing validates 20,480 sessions after 2,048 exact entries. Strides 4 and 16 qualify faster than stride 1 in 239 and 240 of 256 cases, but not against Direct or nonmemoized separation. The single sealed-adverse case still favors Direct. Full 57-question review selects T076 connected finite projection and multiplicity; T075 remains pending, review count reset, goal active."
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -64,7 +64,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T075
+active_task: T076
 tasks:
   - id: T081
     type: pm
@@ -294,11 +294,9 @@ tasks:
   - id: T076
     type: pm
     assignee: PM
-    status: pending
-    progress: >-
-      Compact union confirmation completes 8,192 primary runs and 128 warmups. Repeated-overlap union/unique median intervals are 0.866–0.924 for set output and 0.846–0.932 for ordered output: a directional speed benefit with unresolved 10% magnitude and extra preparation allocation. All 48 membership contrasts are signal-limited; adverse full-output cases remain. Selection moves to T075 call-reuse extraction/runtime costs. Package one since full portfolio review; goal active.
-    next_action: >-
-      Carry the directional overlap benefit and extra preparation allocation into actual composed logical regions. Resolve membership signal and near-10% magnitude when consequential; retain connected projection, larger/different relations, richer theories and output/service boundaries. T075 call-reuse attribution/runtime takes one package of precedence; revisit compact capability alongside integration, demand repair and composed paths at its result or obstruction.
+    status: active
+    progress: "Recognition timing validates 20,480 sessions after 2,048 exact entries. Strides 4 and 16 qualify faster than stride 1 in 239 and 240 of 256 cases, but not against Direct or nonmemoized separation. The single sealed-adverse case still favors Direct. Full 57-question review selects T076 connected finite projection and multiplicity; T075 remains pending, review count reset, goal active."
+    next_action: "Inspect finite projection and joint-region interfaces; register a connected source gate with shared hidden coordinates, repeated relations, contradiction, output aliases and multiplicity. Compare counted/raw occurrences with logical-set projection explicitly; repair fixtures and interfaces rather than assume a language restriction. Use independent scalar enumeration and explicit controls; establish actual eliminated work before full lifecycle costs. Reassess call-boundary recognition and broader solving at the gate. Review count reset."
     objective: Investigate compact finite structural spaces, intersection and finite path equality against explicit enumeration, with independently specified denotation, source multiplicity correspondence, favorable and adverse sources and complete lifecycle costs.
     inputs:
       - docs/experiments/results/S06-unique-confirmation.md
@@ -368,10 +366,10 @@ tasks:
   - id: T075
     type: pm
     assignee: PM
-    status: active
+    status: pending
     objective: Investigate sound generalized call and continuation reuse after different histories, including renaming, relevance, resource and output identity obligations, against competent recomputation and sharing controls.
-    progress: "Repaired recognition ownership validates 4,096 processes and 2,048 exact pairs with equal consumer bytes. Strides4/16 reduce allocation versus stride1 in all256 scenarios but exceed Direct and sealed controls throughout. Stride16 exceeds stride4 requested bytes in72 cases through missed reuse; final residual capacity is repaired. T075 next runs counter-free lifecycle timing; package count two, goal active."
-    next_action: "Register bounded paired counter-free lifecycle timing for repaired strides1/4/16, nonmemoized separation, Direct and compiled controls. Require exact entries against fresh ownership receipts before timing; retain source construction, preparation, input/setup, service/observation, retained outputs, cancellation and all disposal. Include short adverse missed-reuse and no-reuse sources. Reassess call-boundary recognition and direct solving after timing; package count two."
+    progress: "Recognition timing validates 20,480 sessions after 2,048 exact entries. Strides 4 and 16 qualify faster than stride 1 in 239 and 240 of 256 cases, but not against Direct or nonmemoized separation. The single sealed-adverse case still favors Direct. Full 57-question review selects T076 connected finite projection and multiplicity; T075 remains pending, review count reset, goal active."
+    next_action: "Retain periodic-recognition source/work/ownership/time evidence and repaired residual delivery. Whole-call boundaries, variable relevance, failed futures, eviction and sustained ownership remain required. Reassess at the T076 connected-projection gate; no general rejection of reuse."
     inputs:
       - docs/experiments/results/S05-inert-lifecycle.md
       - docs/experiments/results/S05-inert-lifecycle-review.md
@@ -2686,8 +2684,10 @@ checks:
   last_verification:
     result: passed
     task: T075
-    scope: Repaired recognition-stride lifecycle ownership and adverse reuse diagnosis.
+    scope: Recognition-stride ordinary lifecycle timing, favorable-case diagnosis and full portfolio review.
     commands:
+      - "recognition_timing.py --audit:2048 exact entries before timing,20480 sessions,7168 clock-qualified contrasts"
+      - "recognition_timing_diagnosis.py:sealed-adverse case still favors Direct; free-disposal medians remain above Direct for both strides"
       - "recognition_ownership.py --exact-output --audit:4096 processes,2048 exact repetitions,256 consumer-equivalent scenarios,zero unreleased bytes"
       - "Initial4096 runs retained as failed qualification:448 consumer-capacity differences; reserve_exact repair passes source regression"
       - "Six inert_residuals tests pass metrics on/off; scoped metered runner/library/source Clippy passes"
