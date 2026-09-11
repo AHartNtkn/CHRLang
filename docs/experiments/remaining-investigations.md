@@ -1,6 +1,6 @@
 # The comparisons still needed to choose the architecture
 
-The [post timing confirmation](results/S03-post-confirmation.md) and [full portfolio review](results/S03-post-portfolio-review.md) supply the current checkpoint. Demand post confirmation completes 55,296 primary runs and 864 warmups over all 72 scenarios and 12 modes. Miss-reuse demand establishes a practical advantage over every explicit control in 42 scenarios and a disadvantage in six; 223 individual contrasts retain unresolved practical magnitude. All endpoints match and no cell is clock-sensitive. Full portfolio review selects T076 compact-vs-unique runtime confirmation; demand repair and broader mechanisms remain required. Review count reset; goal active.
+The [compact confirmation](results/S06-unique-confirmation.md) and [next-selection review](results/S06-unique-confirmation-review.md) supply the current checkpoint. Compact union confirmation completes 8,192 primary runs and 128 warmups. Repeated-overlap union/unique median intervals are 0.866–0.924 for set output and 0.846–0.932 for ordered output: a directional speed benefit with unresolved 10% magnitude and extra preparation allocation. All 48 membership contrasts are signal-limited; adverse full-output cases remain. Selection moves to T075 call-reuse extraction/runtime costs. Package one since full portfolio review; goal active.
 
 The [relevant-key ownership comparison](results/S02-relevant-ownership.md) supplies the current checkpoint. Relevant-key ownership validates1,008 metered and448 ordinary processes with exact allocation repeats, cancellation/reuse and retained answers surviving producer disposal. Ordered relevant reuse lowers peaks versus exact-state caching in38of64 scenarios but requests more bytes than recomputation in all64. The changed depth16/four-query witness requests1,292,590bytes with72,959peak excess versus669,196/38,976 for recomputation. T072 next attributes key/replay execution costs before timing; package one after breadth review; goal active.
 
@@ -106,7 +106,7 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-The [current execution order](next-cycle.md#start-here-the-next-experiments) owns scheduling: confirm compact union against direct single traversal, then reassess demand causal repair, integration/call-reuse costs and broader capabilities. Demand post timing is now confirmed within its bounded scope; matching uncertainty and every distinct mechanism remain accountable. The specifications below retain their individual evidence requirements and do not establish a separate order.
+The [current execution order](next-cycle.md#start-here-the-next-experiments) owns scheduling: investigate call-reuse extraction and runtime costs, then reassess integrated eligibility, demand causal repair, broader reuse capability and actual composed paths. Compact overlap now has directional timing evidence; membership signal and practical magnitude remain unresolved. Every distinct mechanism remains accountable. The specifications below retain their individual evidence requirements and do not establish a separate order.
 
 ### Depth, breadth and stopping within this sequence
 

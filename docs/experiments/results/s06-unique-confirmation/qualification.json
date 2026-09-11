@@ -1,0 +1,30 @@
+{
+  "qualified": true,
+  "parent_audit_structurally_equal": true,
+  "initial_checks": [
+    "Byte comparison differs only by JSON map order",
+    "Whole-build metrics scan finds unused chr-observe dev dependency"
+  ],
+  "resolution": "Measured modules use std and structural code; normal crate dependency is syntax only. Archived sources equal current inspected modules. No chr_observe symbols in unstripped frozen binary. Structural crate and executable have empty feature sets.",
+  "measured_artifacts": [
+    {
+      "target": "chr_structural",
+      "features": []
+    },
+    {
+      "target": "union_lifecycle",
+      "features": []
+    }
+  ],
+  "inspected_sources": [
+    "research/chr-structural/examples/union_lifecycle.rs",
+    "research/chr-structural/examples/support/useful_union_source.rs",
+    "research/chr-structural/src/reusable_diagram.rs",
+    "research/chr-structural/src/graph_simplification.rs",
+    "research/chr-structural/src/name_disequality.rs"
+  ],
+  "binary": {
+    "path": "/home/ahart/Documents/CHRLang/target/s06-unique-output-time/release/examples/union_lifecycle",
+    "sha256": "c832ce9e05f3635015d1c53dae9d9d737a07a4834dd242ba08b6a78517fdb885"
+  }
+}
