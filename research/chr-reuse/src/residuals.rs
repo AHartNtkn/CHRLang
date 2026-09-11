@@ -1,5 +1,6 @@
 //! Resumable transition reuse with source-unreadable ground observations owned
 //! by each derivation. Active resources and history remain in the state key.
+use crate::allocation_profile::measure;
 use crate::continuations::{Batch, COLLECT_METRICS, Stats};
 use chr_persistent::continuations::{Cursor, Machine, PreparedMachine, StateKey, Step};
 use chr_syntax::{Answer, Constraint, Query, Rule};
@@ -36,6 +37,8 @@ pub struct Search {
     free: Vec<usize>,
     frontier: VecDeque<Job>,
     stats: Stats,
+    #[cfg(feature = "stage-alloc")]
+    profile: crate::allocation_profile::Profile,
 }
 impl Prepared {
     pub fn new(rules: Vec<Rule>, memo: bool) -> Result<Self, String> {
@@ -54,6 +57,8 @@ impl Prepared {
             free: vec![],
             frontier: VecDeque::new(),
             stats: Stats::default(),
+            #[cfg(feature = "stage-alloc")]
+            profile: Default::default(),
         };
         let target = run.intern(cursor);
         run.frontier.push_back(Job {
@@ -68,12 +73,12 @@ impl Prepared {
 }
 impl Search {
     fn intern(&mut self, mut cursor: Cursor) -> Target {
-        let added = self.machine.detach_inert_ground(&mut cursor);
+        let added = measure!(self, 1, self.machine.detach_inert_ground(&mut cursor));
         let key = if self.memo {
             if COLLECT_METRICS {
                 self.stats.key_requests += 1;
             }
-            let key = self.machine.key(&cursor).alpha_live_history();
+            let key = measure!(self, 0, self.machine.key(&cursor).alpha_live_history());
             if let Some(&id) = self.keys.get(&key) {
                 return Target { id, added };
             }
@@ -101,6 +106,10 @@ impl Search {
         }
         Target { id, added }
     }
+    #[cfg(feature = "stage-alloc")]
+    pub fn allocation_profile(&self) -> &crate::allocation_profile::Profile {
+        &self.profile
+    }
     pub fn stats(&self) -> &Stats {
         &self.stats
     }
@@ -117,62 +126,66 @@ impl Search {
                 if COLLECT_METRICS {
                     self.stats.hits += 1;
                 }
-                edge.clone()
+                measure!(self, 3, edge.clone())
             } else {
                 if COLLECT_METRICS {
                     self.stats.executed += 1;
                 }
                 let cursor = self.nodes[job.id].cursor.take().expect("unexpanded state");
-                let edge = match self.machine.step(cursor) {
+                let edge = match measure!(self, 2, self.machine.step(cursor)) {
                     Step::Continue(c) => Edge::Continue(self.intern(c)),
                     Step::Split(a, b) => Edge::Split(self.intern(a), self.intern(b)),
                     Step::Failed => Edge::Failed,
                     Step::Answer(a) => Edge::Answer(a),
                 };
                 if self.memo {
-                    self.nodes[job.id].edge = Some(edge.clone());
+                    self.nodes[job.id].edge = Some(measure!(self, 3, edge.clone()));
                 }
                 edge
             };
             if !self.memo {
                 self.free.push(job.id);
             }
-            match edge {
-                Edge::Continue(target) => {
-                    let mut residual = job.residual;
-                    residual.extend(target.added);
-                    self.frontier.push_back(Job {
-                        id: target.id,
-                        residual,
-                    });
-                }
-                Edge::Split(a, b) => {
-                    let mut left = job.residual.clone();
-                    left.extend(a.added);
-                    let mut right = job.residual;
-                    right.extend(b.added);
-                    self.frontier.push_back(Job {
-                        id: a.id,
-                        residual: left,
-                    });
-                    self.frontier.push_back(Job {
-                        id: b.id,
-                        residual: right,
-                    });
-                }
-                Edge::Failed => {
-                    if COLLECT_METRICS {
-                        self.stats.failed += 1;
+            measure!(
+                self,
+                4,
+                match edge {
+                    Edge::Continue(target) => {
+                        let mut residual = job.residual;
+                        residual.extend(target.added);
+                        self.frontier.push_back(Job {
+                            id: target.id,
+                            residual,
+                        });
+                    }
+                    Edge::Split(a, b) => {
+                        let mut left = job.residual.clone();
+                        left.extend(a.added);
+                        let mut right = job.residual;
+                        right.extend(b.added);
+                        self.frontier.push_back(Job {
+                            id: a.id,
+                            residual: left,
+                        });
+                        self.frontier.push_back(Job {
+                            id: b.id,
+                            residual: right,
+                        });
+                    }
+                    Edge::Failed => {
+                        if COLLECT_METRICS {
+                            self.stats.failed += 1;
+                        }
+                    }
+                    Edge::Answer(mut answer) => {
+                        answer.residual.extend(job.residual);
+                        answers.push(answer);
+                        if COLLECT_METRICS {
+                            self.stats.completed += 1;
+                        }
                     }
                 }
-                Edge::Answer(mut answer) => {
-                    answer.residual.extend(job.residual);
-                    answers.push(answer);
-                    if COLLECT_METRICS {
-                        self.stats.completed += 1;
-                    }
-                }
-            }
+            );
             if COLLECT_METRICS {
                 self.stats.max_frontier = self.stats.max_frontier.max(self.frontier.len());
             }

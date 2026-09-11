@@ -1,4 +1,5 @@
 //! Transition-table ablation. Every FIFO job retains one explicit derivation.
+use crate::allocation_profile::measure;
 use chr_persistent::continuations::{
     CompactStateKey, Cursor, Machine, PreparedMachine, StateKey, Step,
 };
@@ -58,6 +59,8 @@ pub struct Search {
     nodes: Vec<Node>,
     frontier: VecDeque<Job>,
     stats: Stats,
+    #[cfg(feature = "stage-alloc")]
+    profile: crate::allocation_profile::Profile,
 }
 pub struct Prepared {
     machine: PreparedMachine,
@@ -87,6 +90,8 @@ impl Search {
             nodes: vec![],
             frontier: VecDeque::new(),
             stats: Stats::default(),
+            #[cfg(feature = "stage-alloc")]
+            profile: Default::default(),
         };
         match mode {
             Mode::Direct => s.frontier.push_back(Job::Direct(cursor)),
@@ -109,24 +114,28 @@ impl Search {
         if COLLECT_METRICS {
             self.stats.key_requests += 1;
         }
-        let key = match self.mode {
-            Mode::CompactExact | Mode::CompactAlpha | Mode::CompactLive => {
-                let key = self.machine.compact_key(&cursor);
-                TableKey::Compact(match self.mode {
-                    Mode::CompactAlpha => key.alpha(),
-                    Mode::CompactLive => key.alpha_live_history(),
-                    _ => key,
-                })
+        let key = measure!(
+            self,
+            0,
+            match self.mode {
+                Mode::CompactExact | Mode::CompactAlpha | Mode::CompactLive => {
+                    let key = self.machine.compact_key(&cursor);
+                    TableKey::Compact(match self.mode {
+                        Mode::CompactAlpha => key.alpha(),
+                        Mode::CompactLive => key.alpha_live_history(),
+                        _ => key,
+                    })
+                }
+                _ => {
+                    let key = self.machine.key(&cursor);
+                    TableKey::Owned(match self.mode {
+                        Mode::Alpha => key.alpha(),
+                        Mode::AlphaLive => key.alpha_live_history(),
+                        _ => key,
+                    })
+                }
             }
-            _ => {
-                let key = self.machine.key(&cursor);
-                TableKey::Owned(match self.mode {
-                    Mode::Alpha => key.alpha(),
-                    Mode::AlphaLive => key.alpha_live_history(),
-                    _ => key,
-                })
-            }
-        };
+        );
         if let Some(&id) = self.keys.get(&key) {
             return id;
         }
@@ -140,6 +149,10 @@ impl Search {
             self.stats.states = self.nodes.len();
         }
         id
+    }
+    #[cfg(feature = "stage-alloc")]
+    pub fn allocation_profile(&self) -> &crate::allocation_profile::Profile {
+        &self.profile
     }
     pub fn stats(&self) -> &Stats {
         &self.stats
@@ -164,63 +177,72 @@ impl Search {
                     if COLLECT_METRICS {
                         self.stats.executed += 1;
                     }
-                    match self.machine.step(cursor) {
-                        Step::Continue(c) => self.frontier.push_back(Job::Direct(c)),
-                        Step::Split(a, b) => {
-                            self.frontier.push_back(Job::Direct(a));
-                            self.frontier.push_back(Job::Direct(b));
-                        }
-                        Step::Failed => {
-                            if COLLECT_METRICS {
-                                self.stats.failed += 1;
+                    let event = measure!(self, 2, self.machine.step(cursor));
+                    measure!(
+                        self,
+                        4,
+                        match event {
+                            Step::Continue(c) => self.frontier.push_back(Job::Direct(c)),
+                            Step::Split(a, b) => {
+                                self.frontier.push_back(Job::Direct(a));
+                                self.frontier.push_back(Job::Direct(b));
+                            }
+                            Step::Failed => {
+                                if COLLECT_METRICS {
+                                    self.stats.failed += 1;
+                                }
+                            }
+                            Step::Answer(a) => {
+                                if COLLECT_METRICS {
+                                    self.stats.completed += 1;
+                                }
+                                answers.push(a);
                             }
                         }
-                        Step::Answer(a) => {
-                            if COLLECT_METRICS {
-                                self.stats.completed += 1;
-                            }
-                            answers.push(a);
-                        }
-                    }
+                    );
                 }
                 Job::Shared(id) => {
                     let edge = if let Some(edge) = &self.nodes[id].edge {
                         if COLLECT_METRICS {
                             self.stats.hits += 1;
                         }
-                        edge.clone()
+                        measure!(self, 3, edge.clone())
                     } else {
                         if COLLECT_METRICS {
                             self.stats.executed += 1;
                         }
                         let cursor = self.nodes[id].cursor.take().expect("unexpanded state");
-                        let edge = match self.machine.step(cursor) {
+                        let edge = match measure!(self, 2, self.machine.step(cursor)) {
                             Step::Continue(c) => Edge::Continue(self.intern(c)),
                             Step::Split(a, b) => Edge::Split(self.intern(a), self.intern(b)),
                             Step::Failed => Edge::Failed,
                             Step::Answer(a) => Edge::Answer(a),
                         };
-                        self.nodes[id].edge = Some(edge.clone());
+                        self.nodes[id].edge = Some(measure!(self, 3, edge.clone()));
                         edge
                     };
-                    match edge {
-                        Edge::Continue(id) => self.frontier.push_back(Job::Shared(id)),
-                        Edge::Split(a, b) => {
-                            self.frontier.push_back(Job::Shared(a));
-                            self.frontier.push_back(Job::Shared(b));
-                        }
-                        Edge::Failed => {
-                            if COLLECT_METRICS {
-                                self.stats.failed += 1;
+                    measure!(
+                        self,
+                        4,
+                        match edge {
+                            Edge::Continue(id) => self.frontier.push_back(Job::Shared(id)),
+                            Edge::Split(a, b) => {
+                                self.frontier.push_back(Job::Shared(a));
+                                self.frontier.push_back(Job::Shared(b));
+                            }
+                            Edge::Failed => {
+                                if COLLECT_METRICS {
+                                    self.stats.failed += 1;
+                                }
+                            }
+                            Edge::Answer(a) => {
+                                if COLLECT_METRICS {
+                                    self.stats.completed += 1;
+                                }
+                                answers.push(a);
                             }
                         }
-                        Edge::Answer(a) => {
-                            if COLLECT_METRICS {
-                                self.stats.completed += 1;
-                            }
-                            answers.push(a);
-                        }
-                    }
+                    );
                 }
             }
             if COLLECT_METRICS {

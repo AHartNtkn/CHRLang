@@ -1,0 +1,25 @@
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+   Compiling chr-direct-choice v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-choice)
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+   Compiling chr-reuse v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-reuse)
+    Finished `release` profile [optimized] target(s) in 8.87s
+     Running tests/inert_compiled.rs (target/release/deps/inert_compiled-a10168f431ccacd9)
+
+running 1 test
+test prepared_and_inferred_controls_preserve_deep_call_answers ... FAILED
+
+failures:
+
+---- prepared_and_inferred_controls_preserve_deep_call_answers stdout ----
+
+thread 'prepared_and_inferred_controls_preserve_deep_call_answers' (243) panicked at research/chr-reuse/tests/inert_compiled.rs:32:79:
+called `Result::unwrap()` on an `Err` value: "sealed specialization requires Global source policy"
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    prepared_and_inferred_controls_preserve_deep_call_answers
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p chr-reuse --test inert_compiled`

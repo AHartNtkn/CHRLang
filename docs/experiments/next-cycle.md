@@ -8,9 +8,9 @@ This sequence covers the [57 reviewed questions](question-to-experiment-map.md) 
 
 ## Start here: the next experiments
 
-**1. Attribute and measure substantive call reuse — T075, specification 5.** The [depth screen](results/S05-inert-depth.md) establishes substantial avoided transitions and zero-benefit callers. Whole-state owned keys hit the 1 GiB limit on deep duplicate residuals while CompactLive and separated execution complete. Register bounded extraction/export/key/validity/replay attribution and ordinary-allocator lifecycle timing. Preserve Direct, CompactLive and separated uncached controls; qualify existing competent compiled/inferred source execution where applicable. Charge preparation, changing queries, consumers and disposal, retaining the failed owned-key cell explicitly.
+**1. Measure complete call-reuse lifecycle time — T075, specification 5.** The [allocation attribution](results/S05-key-allocation.md) identifies dominant key costs but does not resolve runtime. The [full portfolio review](results/S05-key-allocation-review.md) selects one bounded ordinary comparison. Adapt the existing ownership runner with profiling and allocation metering disabled for primary timing. Charge source/preparation, changing query input/setup, complete execution/owned observation, consumers and all disposal. Preserve separate complete-lifecycle allocation evidence; the present diagnostic interval excludes those other phases.
 
-At the next cost/attribution result or prerequisite obstruction, conduct the full portfolio review, including integrated token-independent eligibility, demand discovery/copy repair, broader reuse and actual composed paths. Conservatively count the initial screen and its isolated resource follow-up as packages two and three since the full post portfolio review. No work count or capacity success is a runtime result.
+Include Direct, CompactLive, separated uncached/memo and qualified Global/Active Scan/Indexed plus Global inferred execution. Preserve the owned-key resource obstruction, adverse callers, consumer lifetimes, cancellation/reuse and clock-signal rules. At the first cost/qualification result or obstruction, compare consequential follow-through with integrated eligibility, demand repair, broader recognition and actual composed paths. The full-review count resets; another review is due within four packages.
 
 Compact follow-through remains required under T076: repeated-overlap intervals favor union but cross 10%, membership timing is signal-limited, and preparation traffic is higher than direct traversal. Retain qualified membership measurement when consequential, connected projection, broader relations/theories and composed-path costs. Another unchanged timing matrix is not automatically next.
 
@@ -28,7 +28,7 @@ The table schedules entry into each investigation. The specifications below defi
 
 | Order | Investigation and specification | Review questions | Required architectural evidence |
 |---|---|---|---|
-| Current result | Deeper call reuse — §5 | 19, 26, 35–40 | Substantial avoided transitions, zero-benefit callers and an owned-key resource obstruction; costs remain unmeasured |
+| Current result | Call-reuse allocation attribution — §5 | 19, 26, 35–40 | Key scope dominates; zero-key allocation bound remains adverse; complete lifecycle time is unmeasured |
 | Selected next | Calls, failures and reconvergence — §5 | 19, 26, 35–40 | Extraction/key/replay and primary costs against Direct/CompactLive, with substantive useful work |
 | A1 follow-through | Compact solving — §3 | 26–29, 34, 53 | Resolve consequential signal/magnitude uncertainty; retain connected projection and richer structural operations |
 | A2 | Demand capability and costs — §2 | 12, 16, 18–19, 23 | Carry confirmed passive-post tradeoffs; investigate causal discovery/copy repair and distinct capabilities |

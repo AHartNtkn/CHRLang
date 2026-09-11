@@ -82,6 +82,7 @@ fn run<P, E>(
     start: impl Fn(&P, chr_syntax::Query) -> E,
     advance: impl Fn(&mut E) -> Batch,
     stats: impl Fn(&E) -> [u64; 8],
+    #[cfg(feature = "stage-alloc")] profile: impl Fn(&E) -> chr_reuse::allocation_profile::Profile,
 ) {
     if cfg.selected.is_some_and(|selected| selected != mode) {
         return;
@@ -92,9 +93,18 @@ fn run<P, E>(
         let mut cancelled = start(&prepared, query.clone());
         drop(advance(&mut cancelled));
         drop(cancelled);
+        #[cfg(feature = "stage-alloc")]
+        let allocation_start = chr_compiled::experiment::meter::begin();
         let mut engine = start(&prepared, query);
         let answers = collect(&mut engine, &advance);
         let counters = stats(&engine);
+        #[cfg(feature = "stage-alloc")]
+        let (allocation, stages) = {
+            let stages = profile(&engine);
+            let allocation = chr_compiled::experiment::meter::end(allocation_start);
+            assert!(stages.bytes.iter().sum::<usize>() <= allocation.requested_bytes);
+            (allocation, stages)
+        };
         drop(engine);
         same_order(&answers, &cfg.expected[i]);
         assert_eq!(answers.len(), if cfg.family == 5 { 1 } else { 2 });
@@ -103,6 +113,17 @@ fn run<P, E>(
         }
         held.push(answers);
         if cfg.print {
+            #[cfg(feature = "stage-alloc")]
+            println!(
+                "{{\"event\":\"allocation\",\"family\":{},\"depth\":{},\"distinct\":{},\"offset\":{offset},\"mode\":\"{mode}\",\"requested\":{},\"stage_calls\":{:?},\"stage_bytes\":{:?},\"stage_allocations\":{:?}}}",
+                cfg.family,
+                cfg.depth,
+                cfg.distinct,
+                allocation.requested_bytes,
+                stages.calls,
+                stages.bytes,
+                stages.allocations
+            );
             println!(
                 "{{\"family\":{},\"depth\":{},\"distinct\":{},\"offset\":{offset},\"mode\":\"{mode}\",\"counters\":{counters:?}}}",
                 cfg.family, cfg.depth, cfg.distinct
@@ -153,6 +174,8 @@ fn case_selected(family: usize, depth: usize, distinct: bool, print: bool, selec
             |p, q| p.start(q).unwrap(),
             |e| e.advance(1),
             |e| counts(e.stats()),
+            #[cfg(feature = "stage-alloc")]
+            |e| e.allocation_profile().clone(),
         );
     }
     for (name, memo) in [("separate", false), ("memo", true)] {
@@ -163,6 +186,8 @@ fn case_selected(family: usize, depth: usize, distinct: bool, print: bool, selec
             |p, q| p.start(q).unwrap(),
             |e| e.advance(1),
             |e| counts(e.stats()),
+            #[cfg(feature = "stage-alloc")]
+            |e| e.allocation_profile().clone(),
         );
     }
 }

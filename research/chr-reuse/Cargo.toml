@@ -6,10 +6,12 @@ edition.workspace = true
 default = ["metrics"]
 metrics = ["chr-persistent/metrics", "chr-observe/metrics"]
 alloc-meter = ["chr-compiled/alloc-meter"]
+stage-alloc = ["alloc-meter", "dep:chr-compiled"]
 carrier-contraction = ["chr-compiled/carrier-contraction"]
 continuing-progress-diagnostics = ["chr-direct-conditional/head-dispatch", "chr-direct-conditional/metrics"]
 continuing-stage-diagnostics = ["chr-direct-conditional/alloc-meter"]
 [dependencies]
+chr-compiled = { path = "../chr-compiled", default-features = false, optional = true }
 chr-syntax = { path = "../../crates/chr-syntax" }
 chr-persistent = { path = "../chr-persistent", default-features = false }
 chr-observe = { path = "../chr-observe", default-features = false }
@@ -63,3 +65,7 @@ required-features = ["alloc-meter"]
 [[example]]
 name = "inert_ownership"
 required-features = ["alloc-meter"]
+
+[[test]]
+name = "allocation_profile"
+required-features = ["stage-alloc"]

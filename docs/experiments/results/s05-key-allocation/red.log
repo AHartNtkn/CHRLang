@@ -1,0 +1,10 @@
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+   Compiling chr-reuse v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-reuse)
+error[E0599]: no method named `allocation_profile` found for struct `chr_reuse::continuations::Search` in the current scope
+  --> research/chr-reuse/tests/allocation_profile.rs:16:27
+   |
+16 |         let profile = run.allocation_profile();
+   |                           ^^^^^^^^^^^^^^^^^^ method not found in `chr_reuse::continuations::Search`
+
+For more information about this error, try `rustc --explain E0599`.
+error: could not compile `chr-reuse` (test "allocation_profile") due to 1 previous error
