@@ -1,0 +1,42 @@
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.50s
+     Running unittests src/lib.rs (target/debug/deps/chr_direct_conditional-b67a93abd815f582)
+
+running 12 tests
+test engine::tests::starts_share_compiled_rules_and_own_independent_query_state ... ok
+test matching::tests::first_slot_keeps_conditional_value_opaque_and_repetition_demands_equality ... ok
+test support::tests::canonical_reduction_and_complement_have_boolean_meaning ... ok
+test resources::tests::emitted_frame_finishes_the_job_without_certifying_remaining_eligibility ... ok
+test engine::tests::finite_sibling_is_published_beside_symbolic_rewrite_loop ... ok
+test support::tests::independent_jobs_interleave_and_finished_jobs_do_no_more_work ... ok
+test support::tests::construction_rejects_a_child_against_diagram_order - should panic ... ok
+test support::tests::construction_rejects_out_of_bounds_handles - should panic ... ok
+test equality::tests::deep_occurs_check_and_demand_are_resumable_and_nonbinding ... ok
+test support::tests::long_negation_yields_with_at_most_one_node_allocation_per_tick ... ok
+test engine::publication_flow_tests::cancellation_with_bulk_observer_owned_preserves_delivered_answer ... ok
+test engine::publication_flow_tests::publication_priority_preserves_answers_but_withholds_runnable_sibling ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+     Running tests/equality_oracle.rs (target/debug/deps/equality_oracle-a59b34bcf66725ec)
+
+running 9 tests
+test partial_commit_notifications_survive_interruption_and_restart ... ok
+test alias_dependencies_intersect_later_binding_and_new_support_notifications ... ok
+test stale_writer_must_restart_and_cannot_commit_from_old_binding_state ... ok
+test equality_demand_is_nonbinding_and_reports_support_expansion_dependencies ... ok
+test unfinished_equality_jobs_reject_a_different_store_with_colliding_handles ... ok
+test three_edge_cycle_fails_only_on_intersection_and_field_clash_is_local ... ok
+test mutation_during_deep_occurs_continuation_rejects_stale_effects ... ok
+test entails_matches_resolved_tree_equality_without_adding_bindings ... ok
+test supported_equation_pairs_match_independent_finite_tree_substitutions ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.32s
+
+     Running tests/equality_representation.rs (target/debug/deps/equality_representation-4bac0c07c66ed3d2)
+
+running 2 tests
+test repeated_alias_equation_has_no_canonical_change ... ok
+test equal_ground_values_need_not_share_a_canonical_root ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s

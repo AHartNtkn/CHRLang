@@ -1,0 +1,21 @@
+{
+  "job": {
+    "mode": "templates",
+    "resource": true,
+    "marker": true,
+    "demand": 128,
+    "rep": 1
+  },
+  "raw": {
+    "command": [
+      "/home/ahart/Documents/CHRLang/target/s08-continuing-graph-diagnostic/release/examples/continuing_graph_attribution",
+      "templates",
+      "true",
+      "true",
+      "128"
+    ],
+    "exit_code": 0,
+    "stdout": "{\"answers\":1,\"calls\":5,\"force\":29,\"validation\":29,\"matches\":4,\"dependencies\":0,\"candidates\":2,\"template_hits\":0,\"nodes\":204,\"results\":2,\"obligations\":3}\n{\"answers\":8,\"calls\":26,\"force\":295,\"validation\":238,\"matches\":28,\"dependencies\":0,\"candidates\":16,\"template_hits\":0,\"nodes\":211,\"results\":9,\"obligations\":3}\n{\"answers\":32,\"calls\":98,\"force\":2835,\"validation\":2106,\"matches\":108,\"dependencies\":0,\"candidates\":64,\"template_hits\":0,\"nodes\":235,\"results\":33,\"obligations\":3}\n{\"answers\":64,\"calls\":194,\"force\":10193,\"validation\":7421,\"matches\":214,\"dependencies\":0,\"candidates\":128,\"template_hits\":0,\"nodes\":267,\"results\":65,\"obligations\":3}\n{\"answers\":128,\"calls\":387,\"force\":39831,\"validation\":29339,\"matches\":423,\"dependencies\":0,\"candidates\":256,\"template_hits\":1,\"nodes\":527,\"results\":130,\"obligations\":4}\n",
+    "stderr": ""
+  }
+}

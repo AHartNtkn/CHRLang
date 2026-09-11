@@ -1,6 +1,6 @@
 # Experimental sequence for the unanswered architecture questions
 
-The [changed-query session result](results/S08-prepared-sessions.md) supplies the current checkpoint. Changed-query sessions complete two 3,024-process pilots and two 1,560-process confirmations. Preparation reuse exceeds 10% in all 12 registered contrasts in both confirmations. Demand is directionally faster than matched generated execution, with practical magnitude not consistently confirmed. Known-arity export repair eliminates 456 spare bytes per common-source answer; 216 control allocation cells reproduce exactly. Immediate-release engine heap is constant in all 84 tested allocation configurations. Full portfolio review selects continuing active-state ownership, support-cost attribution and export packing; T074 active, count reset, goal active.
+The [continuing lifecycle result](results/S08-continuing-lifecycle.md) supplies the current checkpoint. Continuing lifecycle qualification records 98 passes, two conditional service cutoffs and eight dependency wall cutoffs. Aggregate binding coverage completes all 12 repaired lifecycle gates, including resource512 under the original service bound. The 320-process cost pilot has exact allocation repeats: coverage saves time at128 but costs more for resource32. Quiet graph attribution identifies repeated completed-call traversal. T074 next separates equality/matching coverage costs, then qualifies shared completed traversal; one package since full review, goal active.
 
 Test the distinct mechanisms that remain unanswered, then compare the complete architectures they enable. Reuse the existing baselines. A lower priority changes when a question is investigated; it does not answer it.
 
@@ -10,19 +10,17 @@ This sequence covers the [57 reviewed questions](question-to-experiment-map.md) 
 
 ## Start here: the next experiments
 
-**1. Investigate sustained ownership and preparation reuse — T074, specification9.** The [full portfolio review](results/S10-static-control-review.md) selects longer-lived sessions in the qualified complete paths. Inspect and repair unnecessary retained source owners, then compare repeated preparation with reuse across increasing numbers of changed queries. Include immediate/window/all consumers, cancellation and complete disposal; separate prepared, active-query, consumer and allocator-resident memory. Register time, requested allocations and RSS before runs.
+**1. Separate equality and matching coverage costs — T074, specification9.** The [continuing lifecycle result](results/S08-continuing-lifecycle.md) shows a resource32 regression despite a resource128 gain. Compare the maintained union with and without constructor-matching prechecks; include nonempty and partially overlapping regions. Existing semantic controls and frozen timings remain the comparison inputs.
 
-**2. Extend continuing production as a separate lifetime contrast.** Repeated finite queries do not answer reclamation and progress while active graph state survives between answers. Carry strong explicit and demand/conditional controls into that comparison, repairing fixture/interface obstructions while preserving independent complete observations.
+**2. Qualify sharing of completed graph traversal.** Quiet diagnostics identify repeated force and finite-validation traversal of common completed chains. Compare a sound graph/context-local reuse mechanism with dependency and template execution. Preserve unobserved-result validation, late cycles, resource mutation, recursion and complete observations. Then measure complete lifecycle costs.
 
-**3. Reconsider broader mechanisms at the first ownership/cost result.** Integrated representation, coarser call recognition, demand discovery, restoration and compact/matching capabilities retain distinct required experiments. Compare their decision consequence with continuing lifetime work at that boundary; do not spend the next package solely on more unchanged near-10% timing samples.
+**3. Reconsider the strongest independent alternatives at the result.** Partner ordering/indexing, broader integrated equality/matching/consumption and coarser recognition remain required. The [full portfolio review](results/S08-continuing-selection-review.md) explains their architectural consequence. One package has completed since that review; review all directions within four packages.
 
 ## Why this order, and what can change it
 
-**Lifetime can change the value of the surviving complete paths.** Earlier fusion increased discovery costs, shared post-choice work did not guarantee lower allocation, and source-derived resource solving repaid added allocation on larger sources. Testing those interactions has broader immediate consequence than another isolated layout repair. Reuse existing baselines; do not infer whole-path costs by adding component measurements.
+The coverage crossover needs a small causal ablation before adoption. Completed-graph repetition can change the interpretation of templates' continuing benefit and has a diagnosed implementation target. These prerequisites are now more discriminating than repeating an unchanged timing matrix. A correctness obstruction or an adverse repair cost triggers reconsideration against partner plans and broader integration.
 
-The [full review](results/S10-static-control-review.md) compares longer-lived ownership with broader integration, coarser recognition, demand repair and compact/matching precision. The current time, traffic and peak tradeoffs keep several complete competitors alive. A lifetime source gate is a prerequisite to costs, not a substitute for them.
-
-**Effort affects order, not evidence standards.** Scheduling a later trial is not experimental rejection or completion. All thirteen specifications and the 57-question audit remain controlling.
+Scheduling a later trial does not supply evidence for that direction. All thirteen specifications and the 57-question audit remain controlling.
 
 ## Portfolio order and dependencies
 

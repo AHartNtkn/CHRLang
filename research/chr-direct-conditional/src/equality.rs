@@ -46,6 +46,8 @@ pub struct Store {
     nodes: Vec<Node>,
     constructors: BTreeMap<(String, Vec<Term>), Term>,
     bindings: Vec<Vec<Binding>>,
+    #[cfg(feature = "equality-binding-coverage")]
+    coverage: Vec<Support>,
     failed: Support,
     changes: Vec<Change>,
     version: u64,
@@ -66,6 +68,8 @@ impl Store {
             nodes: vec![],
             constructors: BTreeMap::new(),
             bindings: vec![],
+            #[cfg(feature = "equality-binding-coverage")]
+            coverage: vec![],
             failed: Support::FALSE,
             changes: vec![],
             version: 0,
@@ -98,6 +102,8 @@ impl Store {
         let term = Term(self.nodes.len());
         let variable = self.bindings.len();
         self.bindings.push(vec![]);
+        #[cfg(feature = "equality-binding-coverage")]
+        self.coverage.push(Support::FALSE);
         self.nodes.push(Node::Variable(variable));
         term
     }
@@ -125,6 +131,10 @@ impl Store {
     }
     pub fn bindings(&self, variable: usize) -> &[Binding] {
         &self.bindings[variable]
+    }
+    #[cfg(feature = "equality-binding-coverage")]
+    pub(crate) fn binding_coverage(&self, variable: usize) -> Support {
+        self.coverage[variable]
     }
     pub fn failed(&self) -> Support {
         self.failed
@@ -195,6 +205,8 @@ struct Resolve {
     pair: Pair,
     side: Side,
     index: usize,
+    #[cfg(feature = "equality-binding-coverage")]
+    coverage_checked: bool,
 }
 enum WalkTask {
     Pair(Pair),
@@ -202,6 +214,11 @@ enum WalkTask {
     Children { pair: Pair, index: usize },
 }
 enum WalkAction {
+    #[cfg(feature = "equality-binding-coverage")]
+    Coverage {
+        resolve: Resolve,
+        length: usize,
+    },
     Filtered(Pair),
     Overlap {
         resolve: Resolve,
@@ -276,6 +293,16 @@ impl Walker {
                 Status::Complete(result) => result,
             };
             match wait.action {
+                #[cfg(feature = "equality-binding-coverage")]
+                WalkAction::Coverage {
+                    mut resolve,
+                    length,
+                } => {
+                    if result == Support::FALSE {
+                        resolve.index = length;
+                    }
+                    self.tasks.push(WalkTask::Resolve(resolve));
+                }
                 WalkAction::Filtered(mut pair) => {
                     pair.region = result;
                     if result != Support::FALSE {
@@ -289,6 +316,8 @@ impl Walker {
                             pair,
                             side: Side::Left,
                             index: 0,
+                            #[cfg(feature = "equality-binding-coverage")]
+                            coverage_checked: false,
                         }));
                     }
                 }
@@ -374,6 +403,22 @@ impl Walker {
                 };
                 if let TermView::Variable(v) = store.inspect(term) {
                     self.touch(v);
+                    #[cfg(feature = "equality-binding-coverage")]
+                    if !resolve.coverage_checked && !store.bindings(v).is_empty() {
+                        let mut checked = resolve;
+                        checked.coverage_checked = true;
+                        self.wait = Some(WalkWait {
+                            job: arena.job(Operation::And(
+                                resolve.pair.region,
+                                store.binding_coverage(v),
+                            )),
+                            action: WalkAction::Coverage {
+                                resolve: checked,
+                                length: store.bindings(v).len(),
+                            },
+                        });
+                        return WalkEvent::Pending;
+                    }
                     if let Some(binding) = store.bindings(v).get(resolve.index).copied() {
                         #[cfg(feature = "equality-probe")]
                         store.count(|p| p.binding_probes += 1);
@@ -389,6 +434,8 @@ impl Walker {
                         pair: resolve.pair,
                         side: Side::Right,
                         index: 0,
+                        #[cfg(feature = "equality-binding-coverage")]
+                        coverage_checked: false,
                     })),
                     Side::Right => return WalkEvent::Ready(resolve.pair),
                 }
@@ -575,6 +622,13 @@ pub enum UnifyStatus {
     Stale,
 }
 enum Effect {
+    #[cfg(feature = "equality-binding-coverage")]
+    Coverage {
+        job: Job,
+        variable: usize,
+        support: Support,
+        term: Term,
+    },
     Occurs {
         job: Occurs,
         variable: usize,
@@ -600,6 +654,30 @@ pub struct UnifyJob {
     result: Option<Support>,
 }
 impl UnifyJob {
+    fn commit_binding(
+        &mut self,
+        store: &mut Store,
+        arena: &Arena,
+        variable: usize,
+        support: Support,
+        term: Term,
+    ) {
+        #[cfg(feature = "equality-binding-coverage")]
+        {
+            self.effect = Some(Effect::Coverage {
+                job: arena.job(Operation::Or(store.binding_coverage(variable), support)),
+                variable,
+                support,
+                term,
+            });
+        }
+        #[cfg(not(feature = "equality-binding-coverage"))]
+        {
+            let _ = arena;
+            store.bind(variable, support, term);
+            self.version = store.version;
+        }
+    }
     pub fn request(&self) -> (Support, Term, Term) {
         self.request
     }
@@ -612,6 +690,27 @@ impl UnifyJob {
         }
         if let Some(effect) = self.effect.take() {
             match effect {
+                #[cfg(feature = "equality-binding-coverage")]
+                Effect::Coverage {
+                    mut job,
+                    variable,
+                    support,
+                    term,
+                } => match job.tick(arena) {
+                    Status::Pending => {
+                        self.effect = Some(Effect::Coverage {
+                            job,
+                            variable,
+                            support,
+                            term,
+                        })
+                    }
+                    Status::Complete(coverage) => {
+                        store.bind(variable, support, term);
+                        store.coverage[variable] = coverage;
+                        self.version = store.version;
+                    }
+                },
                 Effect::Occurs {
                     mut job,
                     variable,
@@ -662,8 +761,7 @@ impl UnifyJob {
                         })
                     }
                     Status::Complete(support) => {
-                        store.bind(variable, support, term);
-                        self.version = store.version;
+                        self.commit_binding(store, arena, variable, support, term);
                     }
                 },
             }
@@ -688,8 +786,7 @@ impl UnifyJob {
                         } else {
                             (b, pair.left)
                         };
-                        store.bind(variable, pair.region, term);
-                        self.version = store.version;
+                        self.commit_binding(store, arena, variable, pair.region, term);
                     }
                     (TermView::Variable(variable), _) => {
                         self.effect = Some(Effect::Occurs {

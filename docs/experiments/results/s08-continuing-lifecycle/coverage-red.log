@@ -1,0 +1,24 @@
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.01s
+     Running tests/binding_coverage.rs (target/debug/deps/binding_coverage-946a74d3ed0754de)
+
+running 1 test
+test disjoint_binding_population_is_skipped_without_losing_new_binding ... FAILED
+
+failures:
+
+---- disjoint_binding_population_is_skipped_without_losing_new_binding stdout ----
+
+thread 'disjoint_binding_population_is_skipped_without_losing_new_binding' (172) panicked at research/chr-direct-conditional/tests/binding_coverage.rs:62:5:
+assertion `left == right` failed: wholly disjoint binding population should not be traversed
+  left: 32
+ right: 0
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    disjoint_binding_population_is_skipped_without_losing_new_binding
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+error: test failed, to rerun pass `-p chr-direct-conditional --test binding_coverage`

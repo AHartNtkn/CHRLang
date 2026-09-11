@@ -160,6 +160,12 @@ struct Frame {
     tasks: Vec<Task>,
 }
 enum Wait {
+    #[cfg(feature = "equality-binding-coverage")]
+    Coverage {
+        job: Job,
+        pattern: usize,
+        variable: usize,
+    },
     Overlap {
         job: Job,
         pattern: usize,
@@ -223,6 +229,31 @@ impl MatchJob {
         }
         if let Some(wait) = self.wait.take() {
             match wait {
+                #[cfg(feature = "equality-binding-coverage")]
+                Wait::Coverage {
+                    mut job,
+                    pattern,
+                    variable,
+                } => match job.tick(arena) {
+                    Status::Pending => {
+                        self.wait = Some(Wait::Coverage {
+                            job,
+                            pattern,
+                            variable,
+                        })
+                    }
+                    Status::Complete(overlap) => {
+                        if overlap == Support::FALSE {
+                            self.current = None;
+                        } else {
+                            self.current.as_mut().unwrap().tasks.push(Task::Resolve {
+                                pattern,
+                                variable,
+                                index: 0,
+                            });
+                        }
+                    }
+                },
                 Wait::Overlap {
                     mut job,
                     pattern,
@@ -364,6 +395,18 @@ impl MatchJob {
                 }
                 Node::Constructor { name, args } => match store.inspect(term) {
                     TermView::Variable(variable) => {
+                        #[cfg(feature = "equality-binding-coverage")]
+                        {
+                            let region = frame.support;
+                            self.touch(variable);
+                            self.wait = Some(Wait::Coverage {
+                                job: arena
+                                    .job(Operation::And(region, store.binding_coverage(variable))),
+                                pattern,
+                                variable,
+                            });
+                        }
+                        #[cfg(not(feature = "equality-binding-coverage"))]
                         frame.tasks.push(Task::Resolve {
                             pattern,
                             variable,

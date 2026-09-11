@@ -4,6 +4,7 @@ version.workspace = true
 edition.workspace = true
 
 [features]
+equality-binding-coverage = []
 candidate-profile = ["alloc-meter", "chr-direct-choice/candidate-profile"]
 observation-backpressure = []
 equality-probe = []
@@ -130,3 +131,7 @@ required-features = ["equality-probe", "alloc-meter"]
 [[example]]
 name = "equality_backlog"
 required-features = ["equality-probe", "alloc-meter"]
+
+[[test]]
+name = "binding_coverage"
+required-features = ["equality-probe", "equality-binding-coverage"]

@@ -10,6 +10,8 @@ stage-alloc = ["alloc-meter", "dep:chr-compiled"]
 carrier-contraction = ["chr-compiled/carrier-contraction"]
 continuing-progress-diagnostics = ["chr-direct-conditional/head-dispatch", "chr-direct-conditional/metrics"]
 continuing-stage-diagnostics = ["chr-direct-conditional/alloc-meter"]
+continuing-equality-diagnostics = ["chr-direct-conditional/equality-probe"]
+continuing-graph-diagnostics = ["chr-direct-choice/work-diagnostics"]
 [dependencies]
 chr-compiled = { path = "../chr-compiled", default-features = false, optional = true }
 chr-syntax = { path = "../../crates/chr-syntax" }
@@ -68,3 +70,11 @@ name = "inert_ownership"
 [[test]]
 name = "allocation_profile"
 required-features = ["stage-alloc"]
+
+[[example]]
+name = "continuing_resource_stages"
+required-features = ["continuing-stage-diagnostics", "continuing-equality-diagnostics"]
+
+[[example]]
+name = "continuing_graph_attribution"
+required-features = ["continuing-graph-diagnostics"]
