@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/home/ahart/Documents/CHRLang/target/s05-call-trace-primary/release/examples/call_trace_ownership",
+    "direct",
+    "2",
+    "128",
+    "1",
+    "all",
+    "0",
+    "0"
+  ],
+  "returncode": 0,
+  "stdout": "{\"counts\":[2],\"retained\":2,\"consumer_bytes\":null,\"requested_bytes\":null,\"unreleased_bytes\":null}\n{\"phase\":\"source\",\"query\":0,\"memory\":null,\"ns\":4148}\n{\"phase\":\"prepare\",\"query\":0,\"memory\":null,\"ns\":4359}\n{\"phase\":\"source_dispose\",\"query\":0,\"memory\":null,\"ns\":1435}\n{\"phase\":\"input\",\"query\":0,\"memory\":null,\"ns\":15676}\n{\"phase\":\"setup\",\"query\":0,\"memory\":null,\"ns\":89014}\n{\"phase\":\"service_observe\",\"query\":0,\"memory\":null,\"ns\":355885}\n{\"phase\":\"consume\",\"query\":0,\"memory\":null,\"ns\":223}\n{\"phase\":\"service_observe\",\"query\":0,\"memory\":null,\"ns\":7574}\n{\"phase\":\"consume\",\"query\":0,\"memory\":null,\"ns\":40}\n{\"phase\":\"service_observe\",\"query\":0,\"memory\":null,\"ns\":57}\n{\"phase\":\"engine_dispose\",\"query\":0,\"memory\":null,\"ns\":7533}\n{\"phase\":\"input_dispose\",\"query\":0,\"memory\":null,\"ns\":6045}\n{\"phase\":\"prepared_dispose\",\"query\":1,\"memory\":null,\"ns\":1520}\n{\"phase\":\"consumer_dispose\",\"query\":1,\"memory\":null,\"ns\":746}\n",
+  "stderr": ""
+}

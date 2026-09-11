@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/home/ahart/Documents/CHRLang/target/s05-call-trace-primary/release/examples/call_trace_ownership",
+    "memo16",
+    "1",
+    "32",
+    "4",
+    "all",
+    "1",
+    "0"
+  ],
+  "returncode": 0,
+  "stdout": "{\"counts\":[1, 1, 1, 1],\"retained\":4,\"consumer_bytes\":null,\"requested_bytes\":null,\"unreleased_bytes\":null}\n{\"phase\":\"source\",\"query\":0,\"memory\":null,\"ns\":4067}\n{\"phase\":\"prepare\",\"query\":0,\"memory\":null,\"ns\":4611}\n{\"phase\":\"source_dispose\",\"query\":0,\"memory\":null,\"ns\":1698}\n{\"phase\":\"input\",\"query\":0,\"memory\":null,\"ns\":5190}\n{\"phase\":\"setup\",\"query\":0,\"memory\":null,\"ns\":31609}\n{\"phase\":\"service_observe\",\"query\":0,\"memory\":null,\"ns\":185797}\n{\"phase\":\"consume\",\"query\":0,\"memory\":null,\"ns\":118}\n{\"phase\":\"engine_dispose\",\"query\":0,\"memory\":null,\"ns\":21558}\n{\"phase\":\"input_dispose\",\"query\":0,\"memory\":null,\"ns\":1874}\n{\"phase\":\"input\",\"query\":1,\"memory\":null,\"ns\":2480}\n{\"phase\":\"setup\",\"query\":1,\"memory\":null,\"ns\":33390}\n{\"phase\":\"service_observe\",\"query\":1,\"memory\":null,\"ns\":171676}\n{\"phase\":\"consume\",\"query\":1,\"memory\":null,\"ns\":57}\n{\"phase\":\"engine_dispose\",\"query\":1,\"memory\":null,\"ns\":21663}\n{\"phase\":\"input_dispose\",\"query\":1,\"memory\":null,\"ns\":1980}\n{\"phase\":\"input\",\"query\":2,\"memory\":null,\"ns\":2332}\n{\"phase\":\"setup\",\"query\":2,\"memory\":null,\"ns\":34118}\n{\"phase\":\"service_observe\",\"query\":2,\"memory\":null,\"ns\":183085}\n{\"phase\":\"consume\",\"query\":2,\"memory\":null,\"ns\":51}\n{\"phase\":\"engine_dispose\",\"query\":2,\"memory\":null,\"ns\":10803}\n{\"phase\":\"input_dispose\",\"query\":2,\"memory\":null,\"ns\":1876}\n{\"phase\":\"input\",\"query\":3,\"memory\":null,\"ns\":2345}\n{\"phase\":\"setup\",\"query\":3,\"memory\":null,\"ns\":38810}\n{\"phase\":\"service_observe\",\"query\":3,\"memory\":null,\"ns\":195374}\n{\"phase\":\"consume\",\"query\":3,\"memory\":null,\"ns\":33}\n{\"phase\":\"engine_dispose\",\"query\":3,\"memory\":null,\"ns\":23040}\n{\"phase\":\"input_dispose\",\"query\":3,\"memory\":null,\"ns\":1945}\n{\"phase\":\"prepared_dispose\",\"query\":4,\"memory\":null,\"ns\":1669}\n{\"phase\":\"consumer_dispose\",\"query\":4,\"memory\":null,\"ns\":888}\n",
+  "stderr": ""
+}
