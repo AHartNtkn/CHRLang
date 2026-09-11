@@ -1,4 +1,4 @@
-use chr_syntax::{Goal, Rule, and, c, eq, t, v};
+use chr_syntax::{and, c, eq, t, v, Goal, Rule};
 pub fn rules(compression: bool) -> Vec<Rule> {
     fn simpagation(
         name: &str,

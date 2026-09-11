@@ -1,4 +1,4 @@
-use chr_syntax::{Constraint, Goal, Rule, and, c, v};
+use chr_syntax::{and, c, v, Constraint, Goal, Rule};
 fn keep(name: &str, kept: Vec<Constraint>, removed: Vec<Constraint>, body: Goal) -> Rule {
     Rule {
         name: name.into(),
