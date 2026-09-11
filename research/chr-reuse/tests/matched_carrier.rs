@@ -38,10 +38,15 @@ fn source_inferred_carriers_match_existing_stream_controls() {
                         .any(|e| e.predicate.0 == "stream" && !e.eligible)
                 );
                 let contracted = base.contract_carriers_inferred().unwrap();
-                let controls: Vec<_> = ["direct", "sealed", "dependencies", "templates"]
+                let mut controls: Vec<_> = ["direct", "sealed", "dependencies", "templates"]
                     .into_iter()
                     .map(|mode| runtime::Prepared::new(mode, schema, rules.clone()))
                     .collect();
+                controls.push(runtime::Prepared::Graph(
+                    chr_direct_choice::demand::Prepared::new(rules.clone())
+                        .unwrap()
+                        .with_template_follow_limit(0),
+                ));
                 for depth in [0, 8, 32] {
                     for reverse in [false, true] {
                         let query = schema.query(depth, reverse);

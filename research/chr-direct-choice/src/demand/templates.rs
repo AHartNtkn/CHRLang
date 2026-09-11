@@ -191,7 +191,12 @@ fn follow(
         other => other,
     }
 }
-pub(super) fn derive(clause: &Clause, args: &[Term], clauses: &[Clause]) -> Option<Template> {
+pub(super) fn derive(
+    clause: &Clause,
+    args: &[Term],
+    clauses: &[Clause],
+    follow_limit: usize,
+) -> Option<Template> {
     let mut budget = Budget {
         next_expr: 0,
         nodes: 16384,
@@ -203,17 +208,52 @@ pub(super) fn derive(clause: &Clause, args: &[Term], clauses: &[Clause]) -> Opti
         .collect::<Option<Vec<_>>>()?;
     let mut env = match_inputs(clause, &args, &mut budget)??;
     let body = instantiate(&clause.body, &mut env, &mut budget)?;
-    let mut fuel = 64;
+    let mut fuel = follow_limit;
     let body = follow(body, clauses, &mut fuel, &mut budget);
     Some(Template {
         body,
-        followed_calls: 64 - fuel,
+        followed_calls: follow_limit - fuel,
     })
 }
 
 #[cfg(test)]
 mod identity_tests {
     use super::*;
+    #[test]
+    fn follow_limit_separates_body_instantiation_from_call_contraction() {
+        let clauses = vec![
+            Clause {
+                name: "start".into(),
+                inputs: vec![],
+                body: Plan::Call("middle".into(), vec![]),
+                partners: vec![],
+                reusable_static_match: true,
+            },
+            Clause {
+                name: "middle".into(),
+                inputs: vec![],
+                body: Plan::Call("end".into(), vec![]),
+                partners: vec![],
+                reusable_static_match: true,
+            },
+            Clause {
+                name: "end".into(),
+                inputs: vec![],
+                body: Plan::Value(chr_syntax::atom("done")),
+                partners: vec![],
+                reusable_static_match: true,
+            },
+        ];
+        for limit in [0, 1, 64] {
+            let result = derive(&clauses[0], &[], &clauses, limit).unwrap();
+            assert_eq!(result.followed_calls, limit.min(2));
+            match result.body {
+                Plan::Call(name, _) => assert_eq!(name, if limit == 0 { "middle" } else { "end" }),
+                Plan::Value(_) => assert_eq!(limit, 64),
+                _ => panic!("unexpected residual plan"),
+            }
+        }
+    }
     #[test]
     fn expression_identity_is_unique_and_preserves_shared_edges() {
         let mut budget = Budget {

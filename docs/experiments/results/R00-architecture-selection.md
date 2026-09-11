@@ -1,5 +1,7 @@
 # R00: architectural alternatives and first experiment selection
 
+Template call-following ablation passes 72 queries across six executors (432 searches) and 31 source tests. Zero-follow templates preserve the scarce-token scalar winner; 64-call contraction changes it even without choices. T073 next tests source service points during contraction, then matched choice following; package count two, goal active. [Ablation result](S06-template-follow-entry.md).
+
 Matched carrier entry validates 72 queries and 360 executor searches against independent complete answers; 14 carrier boundary tests pass. Existing inferred contraction handles wait chains, while templates additionally follow choices. T073 next isolates choice following and scarce-resource scheduling before matched lifecycle costs; package count one, goal active. [Entry result](S06-matched-carrier-entry.md).
 
 Repaired timing passes384 ownership entries and16,000 sessions. Answer caching qualifies in2/64 dependency cases and0/64 template cases; cached templates beat Direct in five small pure cases without establishing a cache cause. Full57-question review selects T073 matched source simplification across existing explicit/graph paths; T074 remains pending, review count reset, goal active. [Timing result](S08-answer-validity-stable-timing.md) · [Portfolio review](S08-answer-validity-timing-review.md).

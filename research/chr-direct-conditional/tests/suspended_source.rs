@@ -90,6 +90,13 @@ fn collect(rules: Vec<Rule>, query: Query, expected: Vec<Answer>) {
             expected.clone(),
         );
     }
+    runtime_support::same_raw(
+        demand_prepared(
+            Prepared::new(rules.clone()).unwrap().with_template_follow_limit(0),
+            query.clone(),
+        ),
+        expected.clone(),
+    );
     runtime_support::same_raw(demand_answers(rules, query), expected);
 }
 fn demand_answers(rules: Vec<Rule>, query: Query) -> Vec<Answer> {
@@ -1338,6 +1345,15 @@ fn derivation_contraction_exposes_a_resource_scheduling_difference() {
     );
     runtime_support::same_raw(
         demand_answers(rules.clone(), query.clone()),
+        vec![short_wins.clone()],
+    );
+    runtime_support::same_raw(
+        demand_prepared(
+            Prepared::new(rules.clone())
+                .unwrap()
+                .with_template_follow_limit(0),
+            query.clone(),
+        ),
         vec![short_wins.clone()],
     );
     runtime_support::same_raw(

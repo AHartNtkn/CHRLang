@@ -53,7 +53,7 @@ pub enum Reuse {
 }
 pub struct Prepared {
     miss_reuse: bool,
-    derivation_templates: bool,
+    template_follow_limit: Option<usize>,
     reuse: Reuse,
     pull_tabs: bool,
     clauses: Rc<Vec<Clause>>,
@@ -135,7 +135,7 @@ pub struct Run {
     miss_reuse: bool,
     misses: BTreeMap<Id, Id>,
     recursive_probes: Vec<bool>,
-    derivation_templates: bool,
+    template_follow_limit: Option<usize>,
     templates: BTreeMap<(String, Vec<Term>), Rc<templates::Template>>,
     reuse: Reuse,
     #[cfg(feature = "work-diagnostics")]
@@ -439,7 +439,7 @@ impl Prepared {
         }
         Ok(Self {
             miss_reuse: false,
-            derivation_templates: false,
+            template_follow_limit: None,
             reuse,
             pull_tabs: false,
             clauses: Rc::new(clauses),
@@ -451,7 +451,13 @@ impl Prepared {
     }
     /// Reuse residual source derivations; instantiate fresh identities per application.
     pub fn with_derivation_templates(mut self) -> Self {
-        self.derivation_templates = true;
+        self.template_follow_limit = Some(64);
+        self
+    }
+    /// Enable templates with a bounded number of followed source calls.
+    /// Zero retains instantiated-body reuse while preserving ordinary call boundaries.
+    pub fn with_template_follow_limit(mut self, limit: usize) -> Self {
+        self.template_follow_limit = Some(limit);
         self
     }
     /// Enable the experimental direct-argument local rewrite, independently of cache validity.
@@ -476,7 +482,7 @@ impl Prepared {
             miss_reuse: self.miss_reuse,
             misses: BTreeMap::new(),
             recursive_probes: vec![],
-            derivation_templates: self.derivation_templates,
+            template_follow_limit: self.template_follow_limit,
             templates: BTreeMap::new(),
             reuse: self.reuse,
             #[cfg(feature = "work-diagnostics")]
@@ -1091,7 +1097,8 @@ impl Run {
         clause: &Clause,
         args: &[Id],
     ) -> Option<Rc<templates::Template>> {
-        if !self.derivation_templates || !clause.partners.is_empty() {
+        let follow_limit = self.template_follow_limit?;
+        if !clause.partners.is_empty() {
             return None;
         }
         let mut fuel = 4096;
@@ -1110,7 +1117,12 @@ impl Run {
         if self.templates.len() == 64 {
             return None;
         }
-        let template = Rc::new(templates::derive(clause, &key.1, &self.clauses)?);
+        let template = Rc::new(templates::derive(
+            clause,
+            &key.1,
+            &self.clauses,
+            follow_limit,
+        )?);
         self.templates.insert(key, template.clone());
         Some(template)
     }
@@ -1777,7 +1789,8 @@ mod pull_tab_tests {
         .unwrap()
         .with_derivation_templates();
         assert!(
-            templates::derive(&prepared.clauses[0], &[atom("leaf")], &prepared.clauses).is_none()
+            templates::derive(&prepared.clauses[0], &[atom("leaf")], &prepared.clauses, 64)
+                .is_none()
         );
         let mut run = prepared
             .start(Query {
