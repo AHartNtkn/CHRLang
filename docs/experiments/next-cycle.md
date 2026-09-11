@@ -77,6 +77,8 @@ The table schedules entry into each investigation. The specifications below defi
 
 ## What every investigation must deliver
 
+**Reuse the existing baselines and independent answer checks.** A new experiment does not require a new baseline. Keep the strongest applicable existing executor in the comparison, along with simpler controls that isolate the proposed saving. Add an implementation only to exercise a distinct architectural alternative or fill a demonstrated source-capability gap; name that gap before building it. An oracle establishes correctness, an on/off variant attributes a cost, and a complete competitor tests architectural value. These are different roles, even when one implementation serves several.
+
 Use one short result record per distinct claim. Its opening should say what changed in the architectural choice and why; technical receipts follow. Include:
 
 - **Promise and scope:** the work the mechanism should avoid, source semantics, and what the experiment could establish against the current leading candidate.
@@ -214,6 +216,8 @@ For each next-package proposal, record the decision it could change, the stronge
 **The current handoff is from nonground-post ownership to one causal resource-matching package.** Demand, direct integration, intermediate joins and compact solving must all be considered at the next selection boundary. Each study may need multiple bounded packages, but a fourth-package review cannot merely reset the counter. Further depth requires a written comparison with the next distinct experiment. At every such review, account for all rows in the order table and retain a concrete next action for unfinished work. Changing order supplies no evidence against the displaced design.
 
 **A claim that an experiment cannot affect downstream decisions needs a sensitivity argument.** Name the decision, the outcomes still compatible with current evidence, and why none would change efficiency, necessary complexity, source eligibility or a competitor's credibility. Assume neither the incumbent's superiority nor the proposed mechanism's failure. When those outcomes could change the decision, the trial remains required. When only a narrower claim is settled, advance without extending that conclusion to its broader design.
+
+**Keep the reason for scheduling separate from the experimental finding.** At each selection boundary, record which question the next package answers, why that answer matters, and why it takes precedence over the strongest ready alternative. For every unfinished comparison passed over, retain its concrete experiment and revisit condition. Implementation effort affects order; only results or an applicable analytical argument establish a design's limitation.
 
 **A thorough trial requires six kinds of evidence.** Show the distinctive mechanism running; establish a competent implementation; measure full costs against strong controls; exercise favorable and adverse regimes; account for source and language boundaries; and challenge the resulting architectural inference. An analytical impossibility or demonstrated equivalence can replace an applicable experiment, provided its premises cover the actual proposal.
 
