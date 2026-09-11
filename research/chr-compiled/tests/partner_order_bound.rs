@@ -92,12 +92,15 @@ fn opposite_keys_preserve_complete_unique_answers() {
                                         assert_eq!(s.applications, u64::from(!missing));
                                     }
                                     println!(
-                                        "PARTNER,id={cases},n={n},right={right},missing={missing},reverse={reverse},policy={policy:?},access={access:?},order={order},target={target},metrics={},candidate={},pool={},structural={},index={}",
+                                        "PARTNER,id={cases},n={n},right={right},missing={missing},reverse={reverse},policy={policy:?},access={access:?},order={order},target={target},metrics={},candidate={},pool={},structural={},index={},probe_starts={},probe_visits={},probe_candidates={}",
                                         chr_compiled::COLLECT_METRICS,
                                         s.candidate_visits,
                                         s.pool_visits,
                                         s.structural_tests,
-                                        s.index_lookups
+                                        s.index_lookups,
+                                        s.probe_starts,
+                                        s.probe_visits,
+                                        s.probe_candidates
                                     );
                                     cases += 1;
                                 }

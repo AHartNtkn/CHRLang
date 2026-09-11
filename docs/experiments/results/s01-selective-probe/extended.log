@@ -1,0 +1,19 @@
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.21s
+     Running tests/selective_probe.rs (target/debug/deps/selective_probe-fec8a06521e43fd5)
+
+running 4 tests
+PROBE_BROAD,n=8,access=Scan,metrics=true,candidate=77,structural=94,index=0,probe_starts=0,probe_visits=0,probe_candidates=0
+PROBE_BROAD,n=8,access=Indexed,metrics=true,candidate=21,structural=70,index=83,probe_starts=2,probe_visits=16,probe_candidates=16
+test selective_probe_avoids_unkeyed_prefix_and_keeps_source_result ... ok
+PROBE_BROAD,n=32,access=Scan,metrics=true,candidate=1061,structural=1126,index=0,probe_starts=0,probe_visits=0,probe_candidates=0
+PROBE_BROAD,n=32,access=Indexed,metrics=true,candidate=69,structural=262,index=299,probe_starts=2,probe_visits=64,probe_candidates=64
+PROBE_OPEN,cases=32
+test aliases_constructors_duplicates_and_binding_updates_keep_traces ... ok
+PROBE_BROAD,n=128,access=Scan,metrics=true,candidate=16517,structural=16774,index=0,probe_starts=0,probe_visits=0,probe_candidates=0
+PROBE_BROAD,n=128,access=Indexed,metrics=true,candidate=261,structural=1030,index=1163,probe_starts=2,probe_visits=256,probe_candidates=256
+test broad_probe_retains_duplicates_and_exposes_extra_work ... ok
+PROBE_GROUND,cases=2048
+test all_small_ground_relations_keep_first_legal_tuple ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.11s

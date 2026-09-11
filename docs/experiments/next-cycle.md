@@ -1,6 +1,6 @@
 # Experimental sequence for the unanswered architecture questions
 
-The [partner-order result](results/S01-partner-order-entry.md) supplies the current checkpoint. Full portfolio review selects T082 partner planning. Two source gates validate 2304 complete sessions, 768 exact repeated diagnostic rows and 24 order-sensitive sentinels. The bound-request source lowers candidate visits in all 192 matched order pairs; the larger indexed Global witness is 7 versus 515. Arbitrary reordering changes competing consumption. Next qualify a prepared selective probe preserving original tuple selection; package one since review, goal active.
+The [selective-probe result](results/S01-selective-probe.md) supplies the current checkpoint. Prepared selective probing preserves complete answers and original occurrence tuples in two frozen 18-process qualifications. Candidate visits fall in 120 of 384 indexed configurations; the larger Global witness falls from 515 to 7, with two later probes. Broad-pool and duplicate-key-search costs are repaired and rechecked. T082 next qualifies prepared/temporary ownership and per-step service cost before lifecycle timing; package two since review, goal active.
 
 Test the distinct mechanisms that remain unanswered, then compare the complete architectures they enable. Reuse the existing baselines. A lower priority changes when a question is investigated; it does not answer it.
 
@@ -10,11 +10,11 @@ This sequence covers the [57 reviewed questions](question-to-experiment-map.md) 
 
 ## Start here: the next experiments
 
-**1. Qualify a selection-preserving discovery plan — T082.** The [partner-order gate](results/S01-partner-order-entry.md) establishes opposite useful orders and a consuming-selection counterexample. Implement selective probing while preserving original head IDs and tuple priority; carry the neutral source and adverse selectivity cases.
+**1. Qualify probe ownership and service cost — T082.** The [selective probe](results/S01-selective-probe.md) preserves source tuples and saves candidate work. Measure prepared links, temporary frames and ID sets, broad/duplicate projections and maximum per-step work; repair service behavior when needed.
 
-**2. Charge complete costs after qualification.** Preserve changing queries, complete outputs, preparation, disposal and diagnostics. Source-order work counts are not a runtime or compiler comparison.
+**2. Charge complete lifecycle costs.** Preserve changing queries, complete outputs, cancellation, preparation and disposal. Register ordinary timing after ownership/progress qualification; keep work and allocation diagnostics separate.
 
-**3. Compare alternatives at the gate.** The [full portfolio review](results/S08-context-portfolio-review.md) selects planning over further context tuning. Reassess memo attribution, integration, reuse, solving and other required directions at the prepared-plan gate or obstruction. Package one since review; full review within four.
+**3. Compare alternatives at the gate.** The [portfolio review](results/S08-context-portfolio-review.md) selected planning. The probe now supplies a source-preserving mechanism to price, so ownership qualification has higher immediate value than another speculative predicate or memo change. Reassess integration, solving, reuse and other directions at that result or obstruction. Package two since review; full review within four.
 
 
 ## Why this order, and what can change it

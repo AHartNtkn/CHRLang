@@ -3,6 +3,8 @@
 extern crate self as chr_compiled;
 pub use chr_persistent::COLLECT_KERNEL_METRICS;
 pub mod native_access;
+#[cfg(feature = "selective-probe")]
+mod selective_probe;
 pub mod resource_count;
 pub mod reflexive;
 pub mod resource_contract;
@@ -78,6 +80,9 @@ pub struct Stats {
     /// Resumable control-prefix inspections, including the stopping tail.
     #[cfg(feature = "carrier-contraction")]
     pub carrier_checks: u64,
+    pub probe_starts: u64,
+    pub probe_visits: u64,
+    pub probe_candidates: u64,
     pub candidate_visits: u64,
     pub structural_tests: u64,
     pub generic_ast_visits: u64,
@@ -175,6 +180,8 @@ struct Prepared {
     #[cfg(feature = "carrier-contraction")]
     carrier: Option<Arc<carriers::Plan>>,
     kept: usize,
+    #[cfg(feature = "selective-probe")]
+    probes: Vec<Vec<usize>>,
     heads: Vec<Head>,
     slots: usize,
     guards: Vec<(Template, Template)>,
@@ -484,8 +491,12 @@ impl Core {
         best.map(|(key, _)| key)
     }
     fn pool(&mut self, rule: usize, head: usize, frame: &Frame) -> Vec<u64> {
+        let key = self.best_key(rule, head, frame);
+        self.pool_for_key(rule, head, key)
+    }
+    fn pool_for_key(&mut self, rule: usize, head: usize, key: Option<IndexKey>) -> Vec<u64> {
         let pred = self.rules[rule].heads[head].pred;
-        if let Some(key) = self.best_key(rule, head, frame) {
+        if let Some(key) = key {
             if COLLECT_METRICS {
                 self.stats.index_lookups += 1;
             }
@@ -607,7 +618,10 @@ impl Core {
             let ids = if at.is_some_and(|(h, _)| h == head) {
                 vec![at.unwrap().1]
             } else {
-                self.pool(rule, head, &cursor.frames[head])
+                #[cfg(feature = "selective-probe")]
+                { self.probe_pool(rule, head, &cursor.frames[head]) }
+                #[cfg(not(feature = "selective-probe"))]
+                { self.pool(rule, head, &cursor.frames[head]) }
             };
             if COLLECT_METRICS {
                 cursor.pool_entries += ids.len();
@@ -1299,7 +1313,7 @@ impl PreparedRuleset {
                 .enumerate()
                 .map(|(i, v)| (v, i))
                 .collect::<BTreeMap<_, _>>();
-            let heads = rule
+            let heads: Vec<Head> = rule
                 .kept
                 .iter()
                 .chain(&rule.removed)
@@ -1320,6 +1334,8 @@ impl PreparedRuleset {
                 #[cfg(feature = "carrier-contraction")]
                 carrier: None,
                 kept: rule.kept.len(),
+                #[cfg(feature = "selective-probe")]
+                probes: selective_probe::prepare(&heads),
                 heads,
                 slots: slots.len(),
                 guards,

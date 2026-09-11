@@ -1,0 +1,10 @@
+{
+  "command": [
+    "/home/ahart/Documents/CHRLang/target/debug/deps/selective_probe-805462c7733c521d",
+    "--nocapture",
+    "--test-threads=1"
+  ],
+  "exit_code": 0,
+  "stdout": "\nrunning 4 tests\ntest aliases_constructors_duplicates_and_binding_updates_keep_traces ... PROBE_OPEN,cases=32\nok\ntest all_small_ground_relations_keep_first_legal_tuple ... PROBE_GROUND,cases=2048\nok\ntest broad_probe_retains_duplicates_and_exposes_extra_work ... PROBE_BROAD,n=8,access=Scan,metrics=false,candidate=0,structural=0,index=0,probe_starts=0,probe_visits=0,probe_candidates=0\nPROBE_BROAD,n=8,access=Indexed,metrics=false,candidate=0,structural=0,index=0,probe_starts=0,probe_visits=0,probe_candidates=0\nPROBE_BROAD,n=32,access=Scan,metrics=false,candidate=0,structural=0,index=0,probe_starts=0,probe_visits=0,probe_candidates=0\nPROBE_BROAD,n=32,access=Indexed,metrics=false,candidate=0,structural=0,index=0,probe_starts=0,probe_visits=0,probe_candidates=0\nPROBE_BROAD,n=128,access=Scan,metrics=false,candidate=0,structural=0,index=0,probe_starts=0,probe_visits=0,probe_candidates=0\nPROBE_BROAD,n=128,access=Indexed,metrics=false,candidate=0,structural=0,index=0,probe_starts=0,probe_visits=0,probe_candidates=0\nok\ntest selective_probe_avoids_unkeyed_prefix_and_keeps_source_result ... ok\n\ntest result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.14s\n\n",
+  "stderr": ""
+}

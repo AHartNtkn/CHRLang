@@ -1,0 +1,37 @@
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.57s
+     Running tests/access.rs (target/debug/deps/access-20de14df4ad48fa9)
+
+running 10 tests
+test ground_intermediate_output_is_not_a_completed_observation ... ok
+test execution_observation_and_teardown_are_separate_lifetimes ... ok
+test metric_availability_does_not_change_execution_or_retention ... ok
+test prepared_rules_and_queries_have_independent_lifetimes ... ok
+test different_queries_share_only_static_preparation ... ok
+test no_head_residuals_keep_aliases_without_matcher_maintenance ... ok
+test later_anchor_preserves_unknown_structure_repeated_slots_and_resources ... ok
+test active_known_keys_bound_partner_discovery_on_flat_chains ... ok
+test flat_keys_collisions_and_low_yield_repairs_have_independent_checks ... ok
+test indexed_and_scanned_access_preserve_full_observations_and_traces ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running tests/generated_access.rs (target/debug/deps/generated_access-80dd23e38c77fb73)
+
+running 4 tests
+test source_derived_updates_do_not_index_head_local_output_arguments ... ok
+test independent_native_queries_outlive_preparation_and_abandoned_work ... ok
+test native_continuations_preserve_finite_source_effects_without_frame_snapshots ... ok
+test projected_updates_preserve_late_keys_and_opaque_payload_bindings ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.09s
+
+     Running tests/join_screen.rs (target/debug/deps/join_screen-d053862610752554)
+
+running 4 tests
+test oracle_rejects_alias_and_receipt_mutations ... ok
+test consumed_partner_is_replaced_with_fresh_occurrence ... ok
+test late_binding_wakes_waiting_request ... ok
+test full_receipts_aliases_cleanup_and_source_replay ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
