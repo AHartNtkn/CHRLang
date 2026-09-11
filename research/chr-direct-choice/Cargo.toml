@@ -4,6 +4,8 @@ version.workspace = true
 edition.workspace = true
 
 [features]
+ordered-context = []
+seek-context = ["ordered-context"]
 completed-traversal = []
 work-diagnostics = []
 candidate-profile = []

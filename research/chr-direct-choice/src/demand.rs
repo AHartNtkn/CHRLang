@@ -3,8 +3,10 @@
 //! general multihead CHR executor. Optional local pull-tabs lift directly demanded choices.
 #[cfg(feature = "candidate-profile")]
 pub mod candidate_profile;
+mod context;
 mod templates;
 use chr_syntax::{Answer, Constraint, Goal, Query, Rule, Term, Var};
+use context::includes;
 use std::borrow::Cow;
 use std::collections::{BTreeMap, BTreeSet, VecDeque};
 use std::rc::Rc;
@@ -756,11 +758,7 @@ impl Run {
     }
     fn live(&self, id: usize, ctx: &Context) -> bool {
         let r = &self.resources[id];
-        r.birth.iter().all(|(k, v)| ctx.get(k) == Some(v))
-            && !r
-                .consumed
-                .iter()
-                .any(|c| c.iter().all(|(k, v)| ctx.get(k) == Some(v)))
+        includes(&r.birth, ctx) && !r.consumed.iter().any(|c| includes(c, ctx))
     }
     fn partners(
         &mut self,
@@ -882,10 +880,11 @@ impl Run {
                             match &self.nodes[at].node {
                                 Node::Alias(next) => at = *next,
                                 Node::Call(_, _, _, _) => {
-                                    let Some((_, next)) =
-                                        self.nodes[at].results.iter().rev().find(|(support, _)| {
-                                            support.iter().all(|(k, v)| ctx.get(k) == Some(v))
-                                        })
+                                    let Some((_, next)) = self.nodes[at]
+                                        .results
+                                        .iter()
+                                        .rev()
+                                        .find(|(support, _)| includes(support, ctx))
                                     else {
                                         return Ok(output);
                                     };
@@ -970,7 +969,7 @@ impl Run {
                     .results
                     .iter()
                     .rev()
-                    .find(|(support, _)| support.iter().all(|(k, v)| ctx.get(k) == Some(v)))
+                    .find(|(support, _)| includes(support, ctx))
                 {
                     return Ok(Forced::Follow(*next));
                 }
@@ -1001,8 +1000,7 @@ impl Run {
                         if !clause.partners.is_empty()
                             && let Some((label, _)) =
                                 self.births.iter().enumerate().find(|(label, birth)| {
-                                    !ctx.contains_key(label)
-                                        && birth.iter().all(|(k, v)| ctx.get(k) == Some(v))
+                                    !ctx.contains_key(label) && includes(birth, ctx)
                                 })
                         {
                             return Err(Signal::Split(label));
@@ -1141,10 +1139,11 @@ impl Run {
             match &self.nodes[id].node {
                 Node::Alias(next) => id = *next,
                 Node::Call(..) => {
-                    let Some((validity, next)) =
-                        self.nodes[id].results.iter().rev().find(|(validity, _)| {
-                            validity.iter().all(|(k, v)| ctx.get(k) == Some(v))
-                        })
+                    let Some((validity, next)) = self.nodes[id]
+                        .results
+                        .iter()
+                        .rev()
+                        .find(|(validity, _)| includes(validity, ctx))
                     else {
                         return false;
                     };
@@ -1195,10 +1194,11 @@ impl Run {
             match &self.nodes[at].node {
                 Node::Alias(next) => at = *next,
                 Node::Call(..) => {
-                    let Some((support, next)) =
-                        self.nodes[at].results.iter().rev().find(|(support, _)| {
-                            support.iter().all(|(k, v)| ctx.get(k) == Some(v))
-                        })
+                    let Some((support, next)) = self.nodes[at]
+                        .results
+                        .iter()
+                        .rev()
+                        .find(|(support, _)| includes(support, ctx))
                     else {
                         return false;
                     };
@@ -1320,7 +1320,7 @@ impl Run {
                         .results
                         .iter()
                         .rev()
-                        .find(|(support, _)| support.iter().all(|(k, v)| ctx.get(k) == Some(v)))
+                        .find(|(support, _)| includes(support, ctx))
                     {
                         visit(
                             run,
@@ -1387,7 +1387,7 @@ impl Run {
         for index in 0..self.obligations.len() {
             let (support, id) = &self.obligations[index];
             let id = *id;
-            if support.iter().all(|(k, v)| ctx.get(k) == Some(v)) {
+            if includes(support, ctx) {
                 self.finite_result(id, ctx)?;
                 self.force(id, ctx)?;
             }
@@ -1400,13 +1400,13 @@ impl Run {
         for index in 0..self.obligations.len() {
             let (support, id) = &self.obligations[index];
             let id = *id;
-            if !support.iter().all(|(k, v)| ctx.get(k) == Some(v)) {
+            if !includes(support, ctx) {
                 continue;
             }
             if self.nodes[id]
                 .results
                 .iter()
-                .any(|(support, _)| support.iter().all(|(k, v)| ctx.get(k) == Some(v)))
+                .any(|(support, _)| includes(support, ctx))
             {
                 continue;
             }
@@ -1564,7 +1564,7 @@ impl Run {
             cursor += 1;
             let (support, id) = &self.obligations[index];
             let id = *id;
-            if support.iter().all(|(k, v)| ctx.get(k) == Some(v)) {
+            if includes(support, &ctx) {
                 serviced = self
                     .finite_result(id, &ctx)
                     .and_then(|()| self.force(id, &ctx));

@@ -1,0 +1,24 @@
+   Compiling chr-direct-choice v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-choice)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.10s
+     Running unittests src/lib.rs (target/debug/deps/chr_direct_choice-eed947dfc667e051)
+
+running 1 test
+test demand::context::tests::ordered_inclusion_matches_independent_assignment_truth ... FAILED
+
+failures:
+
+---- demand::context::tests::ordered_inclusion_matches_independent_assignment_truth stdout ----
+
+thread 'demand::context::tests::ordered_inclusion_matches_independent_assignment_truth' (149) panicked at research/chr-direct-choice/src/demand/context.rs:79:17:
+assertion `left == right` failed
+  left: false
+ right: true
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    demand::context::tests::ordered_inclusion_matches_independent_assignment_truth
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 13 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p chr-direct-choice --lib`

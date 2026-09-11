@@ -1,0 +1,75 @@
+   Compiling chr-direct-choice v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-choice)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.05s
+     Running unittests src/lib.rs (target/debug/deps/chr_direct_choice-456dd27c0945552a)
+
+running 16 tests
+CONTEXT_WORK,size=16,pattern=dense,outcome=match,lookup=86,ordered=16
+CONTEXT_WORK,size=16,pattern=dense,outcome=first-conflict,lookup=2,ordered=1
+CONTEXT_WORK,size=16,pattern=dense,outcome=last-conflict,lookup=86,ordered=16
+CONTEXT_WORK,size=16,pattern=dense,outcome=missing,lookup=81,ordered=15
+CONTEXT_WORK,size=16,pattern=prefix2,outcome=match,lookup=5,ordered=2
+CONTEXT_WORK,size=16,pattern=prefix2,outcome=first-conflict,lookup=2,ordered=1
+CONTEXT_WORK,size=16,pattern=prefix2,outcome=last-conflict,lookup=5,ordered=2
+CONTEXT_WORK,size=16,pattern=prefix2,outcome=missing,lookup=5,ordered=2
+CONTEXT_WORK,size=16,pattern=suffix2,outcome=match,lookup=11,ordered=16
+CONTEXT_WORK,size=16,pattern=suffix2,outcome=first-conflict,lookup=5,ordered=15
+CONTEXT_WORK,size=16,pattern=suffix2,outcome=last-conflict,lookup=11,ordered=16
+CONTEXT_WORK,size=16,pattern=suffix2,outcome=missing,lookup=12,ordered=15
+CONTEXT_WORK,size=16,pattern=spread4,outcome=match,lookup=16,ordered=16
+CONTEXT_WORK,size=16,pattern=spread4,outcome=first-conflict,lookup=2,ordered=1
+CONTEXT_WORK,size=16,pattern=spread4,outcome=last-conflict,lookup=16,ordered=16
+CONTEXT_WORK,size=16,pattern=spread4,outcome=missing,lookup=17,ordered=15
+CONTEXT_WORK,size=16,pattern=empty,outcome=match,lookup=0,ordered=0
+CONTEXT_WORK,size=64,pattern=dense,outcome=match,lookup=534,ordered=64
+CONTEXT_WORK,size=64,pattern=dense,outcome=first-conflict,lookup=2,ordered=1
+CONTEXT_WORK,size=64,pattern=dense,outcome=last-conflict,lookup=534,ordered=64
+CONTEXT_WORK,size=64,pattern=dense,outcome=missing,lookup=529,ordered=63
+CONTEXT_WORK,size=64,pattern=prefix2,outcome=match,lookup=5,ordered=2
+CONTEXT_WORK,size=64,pattern=prefix2,outcome=first-conflict,lookup=2,ordered=1
+CONTEXT_WORK,size=64,pattern=prefix2,outcome=last-conflict,lookup=5,ordered=2
+CONTEXT_WORK,size=64,pattern=prefix2,outcome=missing,lookup=5,ordered=2
+CONTEXT_WORK,size=64,pattern=suffix2,outcome=match,lookup=19,ordered=64
+CONTEXT_WORK,size=64,pattern=suffix2,outcome=first-conflict,lookup=9,ordered=63
+CONTEXT_WORK,size=64,pattern=suffix2,outcome=last-conflict,lookup=19,ordered=64
+CONTEXT_WORK,size=64,pattern=suffix2,outcome=missing,lookup=20,ordered=63
+CONTEXT_WORK,size=64,pattern=spread4,outcome=match,lookup=35,ordered=64
+CONTEXT_WORK,size=64,pattern=spread4,outcome=first-conflict,lookup=2,ordered=1
+CONTEXT_WORK,size=64,pattern=spread4,outcome=last-conflict,lookup=35,ordered=64
+test demand::completed_traversal_tests::completed_cache_does_not_cross_choice_contexts ... okCONTEXT_WORK,size=64,pattern=spread4,outcome=missing,lookup=35,ordered=63
+
+test demand::completed_traversal_tests::completed_cache_does_not_hide_a_later_constructor_cycle ... okCONTEXT_WORK,size=64,pattern=empty,outcome=match,lookup=0,ordered=0
+
+test demand::pull_tab_tests::candidate_bindings_borrow_until_extension_and_never_leak ... ok
+test demand::completed_traversal_tests::shared_completed_chain_is_walked_once_per_answer ... ok
+test demand::pull_tab_tests::demanded_choice_becomes_choice_over_conditional_calls ... ok
+test demand::pull_tab_tests::lifted_calls_do_not_inherit_unrelated_rewrite_choices ... ok
+test demand::pull_tab_tests::consuming_match_keeps_full_context_validity ... ok
+test demand::pull_tab_tests::pure_match_records_observed_choice_and_producer_support ... ok
+test demand::pull_tab_tests::fresh_derivation_eliminates_recursive_call_expansion ... ok
+test demand::pull_tab_tests::derivation_shares_growing_terms_without_exhausting_construction_budget ... ok
+CONTEXT_WORK,size=256,pattern=dense,outcome=match,lookup=3135,ordered=256
+test demand::pull_tab_tests::shared_derivation_retains_call_at_fuel_bound ... ok
+CONTEXT_WORK,size=256,pattern=dense,outcome=first-conflict,lookup=3,ordered=1
+CONTEXT_WORK,size=256,pattern=dense,outcome=last-conflict,lookup=3135,ordered=256
+CONTEXT_WORK,size=256,pattern=dense,outcome=missing,lookup=3130,ordered=255
+CONTEXT_WORK,size=256,pattern=prefix2,outcome=match,lookup=7,ordered=2
+CONTEXT_WORK,size=256,pattern=prefix2,outcome=first-conflict,lookup=3,ordered=1
+CONTEXT_WORK,size=256,pattern=prefix2,outcome=last-conflict,lookup=7,ordered=2
+CONTEXT_WORK,size=256,pattern=prefix2,outcome=missing,lookup=7,ordered=2
+test demand::pull_tab_tests::template_entry_limit_preserves_distinct_and_repeated_requests ... ok
+CONTEXT_WORK,size=256,pattern=suffix2,outcome=match,lookup=29,ordered=256
+CONTEXT_WORK,size=256,pattern=suffix2,outcome=first-conflict,lookup=14,ordered=255
+CONTEXT_WORK,size=256,pattern=suffix2,outcome=last-conflict,lookup=29,ordered=256
+CONTEXT_WORK,size=256,pattern=suffix2,outcome=missing,lookup=30,ordered=255
+CONTEXT_WORK,size=256,pattern=spread4,outcome=match,lookup=36,ordered=256
+CONTEXT_WORK,size=256,pattern=spread4,outcome=first-conflict,lookup=3,ordered=1
+test demand::pull_tab_tests::support_compatibility_matches_exhaustive_total_extensions ... ok
+CONTEXT_WORK,size=256,pattern=spread4,outcome=last-conflict,lookup=36,ordered=256
+CONTEXT_WORK,size=256,pattern=spread4,outcome=missing,lookup=36,ordered=255
+CONTEXT_WORK,size=256,pattern=empty,outcome=match,lookup=0,ordered=0
+test demand::context::tests::ordered_comparisons_expose_dense_savings_and_sparse_costs ... ok
+test demand::pull_tab_tests::shared_derivation_size_limit_keeps_ordinary_execution ... ok
+CONTEXT_TRUTH,cases=531441
+test demand::context::tests::ordered_inclusion_matches_independent_assignment_truth ... ok
+
+test result: ok. 16 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.26s

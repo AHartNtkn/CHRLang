@@ -1,0 +1,89 @@
+{
+  "builds": {
+    "lookup": {
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-direct-choice",
+        "--lib",
+        "--no-default-features",
+        "--no-run",
+        "--message-format=json",
+        "--features",
+        "completed-traversal,work-diagnostics"
+      ],
+      "binary": "/home/ahart/Documents/CHRLang/target/debug/deps/chr_direct_choice-2c7e87fde7c476fb",
+      "sha256": "8ace5694f63c1c1d5dfafc90c24bd28526b0e86b0654a30607a537174284a238"
+    },
+    "ordered": {
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-direct-choice",
+        "--lib",
+        "--no-default-features",
+        "--no-run",
+        "--message-format=json",
+        "--features",
+        "ordered-context,completed-traversal,work-diagnostics"
+      ],
+      "binary": "/home/ahart/Documents/CHRLang/target/debug/deps/chr_direct_choice-456dd27c0945552a",
+      "sha256": "41b9e7961ab4474cefece19978bc78feb0b3343dac14d7c453ea0f12ba5f5155"
+    },
+    "seeking": {
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-direct-choice",
+        "--lib",
+        "--no-default-features",
+        "--no-run",
+        "--message-format=json",
+        "--features",
+        "seek-context,completed-traversal,work-diagnostics"
+      ],
+      "binary": "/home/ahart/Documents/CHRLang/target/debug/deps/chr_direct_choice-38fe4785e7c1d0ff",
+      "sha256": "99b0f55664d13a363af05b5838a3c5c2135d3220c30b07cb0be6b32f3ab2f539"
+    },
+    "operations": {
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-direct-choice",
+        "--lib",
+        "--no-default-features",
+        "--no-run",
+        "--message-format=json",
+        "--release"
+      ],
+      "binary": "/home/ahart/Documents/CHRLang/target/release/deps/chr_direct_choice-b2225f01a8118749",
+      "sha256": "1b9986c04a401608e4e443e8ef81cee85924b87140002e029bc20683c186dce3"
+    }
+  },
+  "sources": {
+    "research/chr-direct-choice/src/words.rs": "02ec5f43700a78a311142e1ee08c10bfb32bfdd06133106532e22763b9e5c4e1",
+    "research/chr-direct-choice/src/demand.rs": "a14e4bc292dbf8c183832b4baf9fd3951668f455454069dc8767aade5a9f96ee",
+    "research/chr-direct-choice/src/lib.rs": "2321d45b909e924bd6ad56d43fe580d2bd3ffb948e6b8e2fc9bfbb500d65dd77",
+    "research/chr-direct-choice/src/engine.rs": "7077a67bb64aeaee7aa90ccf1e4c44d720a1d63b1a0a2d2a0a4dc4914fcfee6f",
+    "research/chr-direct-choice/src/equality.rs": "652d2b3a463ee257475b8027b92211ea1532ba882450360bd939c6d4b817586a",
+    "research/chr-direct-choice/src/demand/context.rs": "e9f4f6ed0ff98a6368a55798e79cdcf268aa7cd5efbe90b42baf32ed42f601df",
+    "research/chr-direct-choice/src/demand/candidate_profile.rs": "2a0bc67aa8380ddb2bbf9781332416a707ce5c04c3640a796f36d8b2d5ab764f",
+    "research/chr-direct-choice/src/demand/templates.rs": "29290529ef136a4ac970f7e82e3d72e09ca531fdbbe62dbb2e3569cc5c1af8f6",
+    "research/chr-direct-choice/tests/kernel.rs": "da26c07c64de65ab8247a3d78805bf4d92b22f3f2cee4cb602450daec5b22681",
+    "research/chr-direct-choice/tests/equality_oracle.rs": "2c545366c19528cfe78e771092bab26876d11d7c5ab4ab0b1e847ea6053c8766",
+    "research/chr-direct-choice/tests/equality.rs": "b51130845fa87eeec2b0a16757d4e6ce1695b4f67806ed5a8d13c59ac480efaf",
+    "research/chr-direct-choice/Cargo.toml": "a310b31070bef313dcc5762613c3a593dbcfafcd61a03fdd9fbf0cc2d75804f4",
+    "crates/chr-syntax/src/lib.rs": "9b380518e3071aeea80b8644aa5cf12f91d919f0bffdedd5c17122e27dffd48e",
+    "crates/chr-syntax/Cargo.toml": "d29d87af16b9999f3d3c25edb6d8a0c76bc6061f76c0e0daff8427ede4d4f8f1",
+    "Cargo.toml": "2a40b31dec44673fec8e093f99867e207e6f152b3cc19791b96555e6505b1853",
+    "Cargo.lock": "228db4ea75a5edcc02186edd97f61bc63a253793366377e664db1c4fe9b7fc51",
+    "research/chr-reuse/experiments/context_seeking_gate.py": "79baf75aada4dcb2cc3be83625cd32a7d4c57508e8fd1249ae4808195ccb0fcb",
+    "docs/experiments/registrations/S08-context-seeking.md": "39f2773ba1aaaa79f0b6a93cb74bba03462fd5c172fc0bfc72be6cb53a28f126"
+  },
+  "archive_sha256": "30691e03b36092554d9f624ef4f254067c0f4ec2e393b754b4256df80432f96d",
+  "toolchain": "rustc 1.97.1 (8bab26f4f 2026-07-14)\nbinary: rustc\ncommit-hash: 8bab26f4f68e0e26f0bb7960be334d5b520ea452\ncommit-date: 2026-07-14\nhost: x86_64-unknown-linux-gnu\nrelease: 1.97.1\nLLVM version: 22.1.6\n"
+}

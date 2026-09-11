@@ -1,6 +1,6 @@
 # Experimental sequence for the unanswered architecture questions
 
-The [traversal lifecycle result](results/S08-traversal-lifecycle.md) supplies the current checkpoint. Traversal lifecycle sizing validates 1,008 processes with 112 exact historical allocation pairs and sampled residency. Continuing dependency reuse has a large time benefit, but direct remains faster in every continuing graph comparison. The 11,000-lifecycle flat follow-up does not establish a stable small-case timing advantage. Profiles identify context-support checking as a substantial remaining production cost. T074 next qualifies ordered context inclusion against per-key lookup, preserving sparse/adverse controls; package one since review, goal active.
+The [context inclusion result](results/S08-context-inclusion.md) supplies the current checkpoint. Context inclusion validates 1,120 lifecycle processes with exact historical and cross-algorithm heap ownership. Seeking improves 18 of 32 continuing comparisons; the representative dependency lifecycle falls from 65.3 to 33.1 ms, versus 0.56 ms direct. Seeking repairs the late-key scan penalty but retains a separated-key operation penalty. T074 next qualifies bounded algorithm selection with adverse controls; package two since review, goal active.
 
 Test the distinct mechanisms that remain unanswered, then compare the complete architectures they enable. Reuse the existing baselines. A lower priority changes when a question is investigated; it does not answer it.
 
@@ -10,11 +10,11 @@ This sequence covers the [57 reviewed questions](question-to-experiment-map.md) 
 
 ## Start here: the next experiments
 
-**1. Qualify context-support comparison — T074, specification 9.** The [traversal lifecycle result](results/S08-traversal-lifecycle.md) confirms dependency gains and opposing ownership costs. Profiles identify repeated context-support searches inside production. Compare ordered inclusion with current per-key lookup before replacing memo storage; dense and sparse supports, early/late mismatches and changing choices must be independent controls.
+**1. Qualify context algorithm selection — T074, specification 9.** The [context comparison](results/S08-context-inclusion.md) establishes lifecycle gains and a remaining sparse operation penalty. Test bounded lookup/seeking selection with independent density, key placement, conflict and dispatch-cost controls before adoption.
 
 **2. Carry the complete lifecycle and service obligations.** Preserve source answers, correlation, constructor versus unfinished-call cycles, consuming claims, cancellation and preparation reuse. Keep immediate/all consumers, reclamation and flat sources in subsequent cost comparisons. The small flat timing advantage is unestablished; use closely interleaved comparisons if it becomes a selection criterion.
 
-**3. Compare alternatives at the source/work gate or obstruction.** The candidate addresses a sampled responsibility without adding a new retained owner. Memo storage, partner planning, broader integration, solving and mixed architectures remain required alternatives. This is package one since the [full portfolio review](results/S02-readiness-portfolio-review.md); review all directions again within four packages.
+**3. Compare alternatives at the source/work gate or obstruction.** The candidate addresses a sampled responsibility without adding a new retained owner. Memo storage, partner planning, broader integration, solving and mixed architectures remain required alternatives. This is package two since the [full portfolio review](results/S02-readiness-portfolio-review.md); review all directions again within four packages.
 
 ## Why this order, and what can change it
 
