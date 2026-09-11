@@ -6,6 +6,7 @@ use std::rc::Rc;
 
 pub(super) type Expr = Rc<ExprNode>;
 pub(super) struct ExprNode {
+    pub id: usize,
     pub kind: ExprKind,
     pub ground: bool,
 }
@@ -19,10 +20,16 @@ pub(super) struct Template {
     pub followed_calls: usize,
 }
 struct Budget {
+    next_expr: usize,
     nodes: usize,
     fresh: u64,
 }
 impl Budget {
+    fn expression(&mut self, kind: ExprKind, ground: bool) -> Expr {
+        let id = self.next_expr;
+        self.next_expr += 1;
+        Rc::new(ExprNode { id, kind, ground })
+    }
     fn node(&mut self) -> Option<()> {
         self.nodes = self.nodes.checked_sub(1)?;
         Some(())
@@ -30,10 +37,7 @@ impl Budget {
     fn app(&mut self, name: String, args: Vec<Expr>) -> Option<Expr> {
         self.node()?;
         let ground = args.iter().all(|x| x.ground);
-        Some(Rc::new(ExprNode {
-            kind: ExprKind::App(name, args),
-            ground,
-        }))
+        Some(self.expression(ExprKind::App(name, args), ground))
     }
 }
 fn matches(
@@ -82,10 +86,7 @@ fn term(t: &Term, env: &mut Bindings, budget: &mut Budget) -> Option<Expr> {
             budget.node()?;
             let fresh = Var(budget.fresh);
             budget.fresh += 1;
-            let value = Rc::new(ExprNode {
-                kind: ExprKind::Local(fresh),
-                ground: false,
-            });
+            let value = budget.expression(ExprKind::Local(fresh), false);
             env.insert(*v, value.clone());
             Some(value)
         }
@@ -192,6 +193,7 @@ fn follow(
 }
 pub(super) fn derive(clause: &Clause, args: &[Term], clauses: &[Clause]) -> Option<Template> {
     let mut budget = Budget {
+        next_expr: 0,
         nodes: 16384,
         fresh: 0,
     };
@@ -207,4 +209,25 @@ pub(super) fn derive(clause: &Clause, args: &[Term], clauses: &[Clause]) -> Opti
         body,
         followed_calls: 64 - fuel,
     })
+}
+
+#[cfg(test)]
+mod identity_tests {
+    use super::*;
+    #[test]
+    fn expression_identity_is_unique_and_preserves_shared_edges() {
+        let mut budget = Budget {
+            next_expr: 0,
+            nodes: 16384,
+            fresh: 0,
+        };
+        let a = budget.app("a".into(), vec![]).unwrap();
+        let shared = a.clone();
+        let separate = budget.app("a".into(), vec![]).unwrap();
+        let parent = budget
+            .app("p".into(), vec![shared.clone(), separate.clone()])
+            .unwrap();
+        assert_eq!(a.id, shared.id);
+        assert_eq!([a.id, separate.id, parent.id], [0, 1, 2]);
+    }
 }

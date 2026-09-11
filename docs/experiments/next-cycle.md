@@ -1,5 +1,7 @@
 # Experimental sequence for the unanswered architecture questions
 
+Timing qualification exposed address-ordered template memo allocation. Stable derivation-local expression IDs now pass32 tests and768 source runs with384 exact observer-layout ownership pairs. No timing verdict is accepted from the failed campaign. Full57-question review keeps T074 active for fresh gated timing of repaired variants; review count reset, goal active. [Identity repair](results/S08-template-expression-ids.md) · [Portfolio review](results/S08-expression-ids-review.md).
+
 Within-answer validity reuse passes source/retry/cycle gates and768 ownership processes. All128 graph configurations avoid second-pass checks; all request16–10,938 extra bytes and64 peak higher. Other caller work and direct controls are unchanged. T074 next measures ordinary complete lifecycle time with adverse controls, then full portfolio review; package count three, goal active. [Answer-validity result](results/S08-answer-validity.md).
 
 Caller validity attribution validates 768 processes, 384 exact repetitions and 192 diagnostic/control ownership pairs. Inclusion allocates zero bytes; duplicate output filtering accounts for 15–21% of dependency support visits, with zero-work template controls. T074 next qualifies validity reuse within one answer, including newly appended obligations and failure; package count two, goal active. [Caller attribution](results/S08-validity-callers.md).

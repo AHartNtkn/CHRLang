@@ -8,6 +8,7 @@ mod runtime;
 #[allow(dead_code)]
 #[path = "support/stream_source.rs"]
 mod source;
+#[cfg(feature = "alloc-meter")]
 use chr_compiled::experiment::meter;
 use chr_syntax::{atom, c};
 #[cfg(feature = "validity-profile")]
@@ -43,6 +44,7 @@ mod profile {
         });
     }
     pub fn enable() {
+        PROFILE.with(|p| *p.borrow_mut() = Profile::default());
         work::reset();
         work::set_callback(event);
     }
@@ -53,20 +55,46 @@ mod profile {
         })
     }
 }
+struct Reading {
+    ns: u128,
+    #[cfg(feature = "alloc-meter")]
+    heap: meter::Reading,
+}
+impl Reading {
+    fn json(&self) -> String {
+        #[cfg(feature = "alloc-meter")]
+        let heap = self.heap.json();
+        #[cfg(not(feature = "alloc-meter"))]
+        let heap = "null";
+        format!("\"ns\":{},\"heap\":{heap}", self.ns)
+    }
+}
 fn measured<T>(
-    phases: &mut Vec<(&'static str, meter::Reading)>,
+    phases: &mut Vec<(&'static str, Reading)>,
     name: &'static str,
     f: impl FnOnce() -> T,
 ) -> T {
+    #[cfg(feature = "alloc-meter")]
     let begin = meter::begin();
+    let clock = std::time::Instant::now();
     let result = f();
-    let reading = meter::end(begin);
+    let ns = clock.elapsed().as_nanos();
+    let reading = Reading {
+        ns,
+        #[cfg(feature = "alloc-meter")]
+        heap: meter::end(begin),
+    };
     phases.push((name, reading));
     result
 }
 fn main() {
     let args = std::env::args().collect::<Vec<_>>();
-    assert_eq!(args.len(), 7, "mode family fail resource depth reverse");
+    assert!(
+        [7, 8, 9].contains(&args.len()),
+        "mode family fail resource depth reverse [complete-sessions]"
+    );
+    let sessions = args.get(7).map_or(1, |v| v.parse::<usize>().unwrap());
+    assert!(sessions > 0 && sessions <= 100);
     let family = match args[2].as_str() {
         "repeated" => "repeated",
         "distinct" => "distinct",
@@ -94,53 +122,59 @@ fn main() {
         .iter()
         .map(|q| oracle::run(&rules, q, 2_000_000))
         .collect::<Vec<_>>();
-    let mut phases = Vec::with_capacity(9);
-    #[cfg(feature = "validity-profile")]
-    profile::enable();
-    let root = meter::begin();
-    let prepared = measured(&mut phases, "prepare", || {
-        runtime::Prepared::new(&args[1], schema, rules.clone())
-    });
-    let mut held = Vec::new();
-    for query in &queries {
-        let mut engine = measured(&mut phases, "setup", || prepared.start(query.clone()));
-        measured(&mut phases, "execute", || {
-            let mut answers = Vec::new();
-            let mut exhausted = false;
-            for _ in 0..2_000_000 {
-                match engine.tick() {
-                    runtime::Event::Progress => (),
-                    runtime::Event::Answer(a) => answers.push(a),
-                    runtime::Event::Done => {
-                        exhausted = true;
-                        break;
+    for _ in 0..sessions {
+        let mut phases = Vec::with_capacity(args.get(8).map_or(9, |v| v.parse::<usize>().unwrap()));
+        #[cfg(feature = "validity-profile")]
+        profile::enable();
+        #[cfg(feature = "alloc-meter")]
+        let root = meter::begin();
+        let prepared = measured(&mut phases, "prepare", || {
+            runtime::Prepared::new(&args[1], schema, rules.clone())
+        });
+        let mut held = Vec::new();
+        for query in &queries {
+            let mut engine = measured(&mut phases, "setup", || prepared.start(query.clone()));
+            measured(&mut phases, "execute", || {
+                let mut answers = Vec::new();
+                let mut exhausted = false;
+                for _ in 0..2_000_000 {
+                    match engine.tick() {
+                        runtime::Event::Progress => (),
+                        runtime::Event::Answer(a) => answers.push(a),
+                        runtime::Event::Done => {
+                            exhausted = true;
+                            break;
+                        }
                     }
                 }
-            }
-            assert!(exhausted, "source service cutoff");
-            held.push(answers);
-        });
-        measured(&mut phases, "producer_drop", || drop(engine));
+                assert!(exhausted, "source service cutoff");
+                held.push(answers);
+            });
+            measured(&mut phases, "producer_drop", || drop(engine));
+        }
+        measured(&mut phases, "prepared_drop", || drop(prepared));
+        for (answers, wanted) in held.iter().zip(&expected) {
+            oracle::same_raw(answers.clone(), wanted.clone());
+        }
+        measured(&mut phases, "consumer_drop", || drop(held));
+        #[cfg(feature = "alloc-meter")]
+        {
+            let end = meter::end(root);
+            assert_eq!(end.live_start, end.live_end);
+        }
+        let rows = phases
+            .iter()
+            .map(|(name, r)| format!("{{\"phase\":\"{name}\",{}}}", r.json()))
+            .collect::<Vec<_>>()
+            .join(",");
+        #[cfg(feature = "validity-profile")]
+        let diagnostics = profile::json();
+        #[cfg(not(feature = "validity-profile"))]
+        let diagnostics = String::new();
+        println!(
+            "{{\"validated\":true,\"profiled\":{},\"answers\":{},\"phases\":[{rows}],\"profile\":[{diagnostics}]}}",
+            cfg!(feature = "validity-profile"),
+            expected.iter().map(Vec::len).sum::<usize>()
+        );
     }
-    measured(&mut phases, "prepared_drop", || drop(prepared));
-    for (answers, wanted) in held.iter().zip(&expected) {
-        oracle::same_raw(answers.clone(), wanted.clone());
-    }
-    measured(&mut phases, "consumer_drop", || drop(held));
-    let end = meter::end(root);
-    assert_eq!(end.live_start, end.live_end);
-    let rows = phases
-        .iter()
-        .map(|(name, r)| format!("{{\"phase\":\"{name}\",\"heap\":{}}}", r.json()))
-        .collect::<Vec<_>>()
-        .join(",");
-    #[cfg(feature = "validity-profile")]
-    let diagnostics = profile::json();
-    #[cfg(not(feature = "validity-profile"))]
-    let diagnostics = String::new();
-    println!(
-        "{{\"validated\":true,\"profiled\":{},\"answers\":{},\"phases\":[{rows}],\"profile\":[{diagnostics}]}}",
-        cfg!(feature = "validity-profile"),
-        expected.iter().map(Vec::len).sum::<usize>()
-    );
 }

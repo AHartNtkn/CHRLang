@@ -678,9 +678,9 @@ impl Run {
         &mut self,
         t: &templates::Expr,
         env: &mut Env,
-        ground: &mut BTreeMap<*const templates::ExprNode, Id>,
+        ground: &mut BTreeMap<usize, Id>,
     ) -> Id {
-        let key = Rc::as_ptr(t);
+        let key = t.id;
         if t.ground
             && let Some(id) = ground.get(&key)
         {
@@ -708,7 +708,7 @@ impl Run {
         env: &mut Env,
         ctx: &Context,
         output: Id,
-        ground: &mut BTreeMap<*const templates::ExprNode, Id>,
+        ground: &mut BTreeMap<usize, Id>,
     ) -> Id {
         self.expand_plan(p, env, ctx, output, &mut |run, t, env| {
             run.template_term(t, env, ground)
