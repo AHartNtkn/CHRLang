@@ -2,7 +2,11 @@
 //! A View belongs to one consistent, canonical equality interpretation.
 pub mod contextual;
 pub mod contextual_execute;
-#[cfg(any(feature = "deduction-profile", feature = "admission-profile"))]
+#[cfg(any(
+    feature = "deduction-profile",
+    feature = "admission-profile",
+    feature = "execution-profile"
+))]
 pub mod deduction_profile;
 pub mod execute;
 pub mod store;
@@ -140,6 +144,8 @@ impl View {
         self.tables.get_mut(&key).unwrap().live.remove(&index);
     }
     fn replace_value(&mut self, old: Value, new: Value) -> Vec<(Relation, usize)> {
+        #[cfg(feature = "execution-profile")]
+        let _scope = deduction_profile::Scope::new(deduction_profile::Phase::Repair);
         let incident = self.incidence.get(&old).cloned().unwrap_or_default();
         let mut changed = Vec::new();
         for (key, index) in incident {

@@ -1,5 +1,7 @@
 # Experimental sequence: resolve the remaining architecture questions
 
+Execution attribution validates144 processes with exact allocation/control agreement. Deep equality is dominated by cycle-traversal allocation; broad full settlement by discovery; bounded broad settlement adds readiness work. Full57-question review selects borrowed constructor traversal during cycle checks under T072; review count reset, goal active. [Attribution](results/S02-execution-attribution.md) · [Portfolio review](results/S02-execution-portfolio-review.md).
+
 Complete incidence sources pass72 entry processes and300 ordinary timing processes. Vector/set timing is mostly unresolved; compiled wins all12 screens against each vector schedule. Even zero setup leaves broad full relational execution2.48–3.28x compiled. T072 next attributes execution/repair/readiness costs, then full portfolio review; package count three, goal active. [Source lifecycle result](results/S02-incidence-source-timing.md).
 
 Sorted incidence vectors pass broad merge/source gates and512 ownership processes. All96 relational comparisons lower requested and peak bytes; every non-incidence admission profile is unchanged. T072 next measures complete ordinary-allocator time with low-degree and high-degree source repair controls before selection; package count two, goal active. [Vector result](results/S02-incidence-vector-entry.md).

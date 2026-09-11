@@ -1,0 +1,78 @@
+{
+  "builds": {
+    "(False, 'meter')": {
+      "binary": "/home/ahart/Documents/CHRLang/target/execution-attribution-False-meter",
+      "sha256": "b185031eb5d63a301c111c91e16c758bbd2b8517eb66e1a0380a49216116ab8b",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-relational",
+        "--release",
+        "--no-default-features",
+        "--features",
+        "alloc-meter",
+        "--test",
+        "readiness_lifecycle",
+        "--no-run",
+        "--message-format=json"
+      ]
+    },
+    "(False, 'profile')": {
+      "binary": "/home/ahart/Documents/CHRLang/target/execution-attribution-False-profile",
+      "sha256": "2b209ee9b1a0ec8feba9221638da1f70a5509c68535b7018ade672f7ea199110",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-relational",
+        "--release",
+        "--no-default-features",
+        "--features",
+        "execution-profile",
+        "--test",
+        "readiness_lifecycle",
+        "--no-run",
+        "--message-format=json"
+      ]
+    },
+    "(True, 'meter')": {
+      "binary": "/home/ahart/Documents/CHRLang/target/execution-attribution-True-meter",
+      "sha256": "230d8dca1cdb2562da0e7c7ce142dc07d9eb14cf03cafc902c59e4df0cd52da2",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-relational",
+        "--release",
+        "--no-default-features",
+        "--features",
+        "alloc-meter,incidence-vector",
+        "--test",
+        "readiness_lifecycle",
+        "--no-run",
+        "--message-format=json"
+      ]
+    },
+    "(True, 'profile')": {
+      "binary": "/home/ahart/Documents/CHRLang/target/execution-attribution-True-profile",
+      "sha256": "59e81b64ad9413a94a7925b28041e66aef073d2f465c5b690ed2d2a3db1b1062",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-relational",
+        "--release",
+        "--no-default-features",
+        "--features",
+        "execution-profile,incidence-vector",
+        "--test",
+        "readiness_lifecycle",
+        "--no-run",
+        "--message-format=json"
+      ]
+    }
+  },
+  "source_hash": "3c34564aa41c3ab1038a9f56edfbbc397e2f3fce02cceb6d4fb01df3b2e3ad90",
+  "rustc": "rustc 1.97.1 (8bab26f4f 2026-07-14)\nbinary: rustc\ncommit-hash: 8bab26f4f68e0e26f0bb7960be334d5b520ea452\ncommit-date: 2026-07-14\nhost: x86_64-unknown-linux-gnu\nrelease: 1.97.1\nLLVM version: 22.1.6\n"
+}

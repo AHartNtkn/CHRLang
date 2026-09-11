@@ -74,6 +74,8 @@ impl Store {
         }
     }
     fn reaches(&self, from: Value, target: Value) -> bool {
+        #[cfg(feature = "execution-profile")]
+        let _scope = crate::deduction_profile::Scope::new(crate::deduction_profile::Phase::Cycles);
         let mut todo = vec![from];
         let mut seen = BTreeSet::new();
         while let Some(value) = todo.pop() {
@@ -97,6 +99,9 @@ impl Store {
     /// Process one equality; incidence repair and cycle checks are finite but
     /// size-dependent. Child and congruence deductions remain queued for service.
     pub fn step(&mut self) -> bool {
+        #[cfg(feature = "execution-profile")]
+        let _scope =
+            crate::deduction_profile::Scope::new(crate::deduction_profile::Phase::Equality);
         let Some(pair) = self.equations.pop_front() else {
             return false;
         };
@@ -149,6 +154,9 @@ impl Store {
         self.failed
     }
     pub fn matches(&self, plan: &HeadPlan) -> Evaluation {
+        #[cfg(feature = "execution-profile")]
+        let _scope =
+            crate::deduction_profile::Scope::new(crate::deduction_profile::Phase::Discovery);
         if self.failed {
             Evaluation::default()
         } else {
@@ -254,6 +262,9 @@ impl Store {
     /// Remaining unrelated equations still require fair service and consistency
     /// before publication; false is not an assertion of complete quiescence.
     pub fn step_for_matching(&mut self, reads: &MatcherReads) -> bool {
+        #[cfg(feature = "execution-profile")]
+        let _scope =
+            crate::deduction_profile::Scope::new(crate::deduction_profile::Phase::Readiness);
         if self.equations.is_empty() {
             return false;
         }

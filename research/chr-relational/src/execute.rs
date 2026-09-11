@@ -140,6 +140,9 @@ impl State {
         }
     }
     fn application(&mut self, p: &Prepared) -> bool {
+        #[cfg(feature = "execution-profile")]
+        let _scope =
+            crate::deduction_profile::Scope::new(crate::deduction_profile::Phase::Application);
         for (ri, (rule, plan)) in p.rules.iter().zip(&p.plans).enumerate() {
             if self.candidates[ri].is_none() {
                 self.candidates[ri] = Some(self.store.matches(plan).matches.into());
@@ -174,6 +177,9 @@ impl State {
         false
     }
     fn answer(&self) -> Answer {
+        #[cfg(feature = "execution-profile")]
+        let _scope =
+            crate::deduction_profile::Scope::new(crate::deduction_profile::Phase::Observation);
         let values = self.outputs.iter().map(|(_, v)| *v).collect::<Vec<_>>();
         let terms = self.store.export(&values).expect("settled publication");
         let mut residual = Vec::new();

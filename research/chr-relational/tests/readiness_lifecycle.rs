@@ -1,4 +1,4 @@
-#[cfg(feature = "admission-profile")]
+#[cfg(any(feature = "admission-profile", feature = "execution-profile"))]
 #[path = "../examples/support/deduction_profile.rs"]
 mod profile;
 // One isolated, fully disposed lifecycle sample; validation is outside phases.
@@ -159,10 +159,16 @@ fn run<B: Backend>(depth: usize, shared: bool, outcome: &str, count: usize) {
     let baseline = meter::end(meter::begin()).live_end;
     #[cfg(feature = "admission-profile")]
     profile::enable_admission();
+    #[cfg(feature = "execution-profile")]
+    profile::enable_execution();
     let (prepared, preparation) = phase(|| B::prepare(&rules));
     for q in &queries {
         let (mut engine, setup) = phase(|| B::start(&prepared, q));
         let ((answer, advances), execution_observation) = phase(|| {
+            #[cfg(feature = "execution-profile")]
+            let _scope = chr_relational::deduction_profile::Scope::new(
+                chr_relational::deduction_profile::Phase::Execution,
+            );
             if cancel {
                 return (None, 0);
             }
@@ -204,6 +210,8 @@ fn run<B: Backend>(depth: usize, shared: bool, outcome: &str, count: usize) {
     );
     #[cfg(feature = "admission-profile")]
     println!("{{\"admission_profile\":{}}}", profile::json());
+    #[cfg(feature = "execution-profile")]
+    println!("{{\"execution_profile\":{}}}", profile::json());
     let rows = samples
         .iter()
         .map(|s| {
