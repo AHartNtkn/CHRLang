@@ -1,0 +1,9 @@
+# Isolate the deep duplicate-residual memory obstruction
+
+The original registered batch aborts at 392 completed control rows under the 1 GiB address-space bound. The next case is distinct caller tags with duplicate residuals at depth 128 in AlphaLive whole-state execution. A fresh-process probe reproduces allocation failure before either complete row, so prior batch retention is not necessary for the failure. Preserve both attempts.
+
+Run every original source/depth/caller/mode group in its own process, retaining the two changing query identities and complete/cancelled sessions. There are 240 groups; run each twice with metrics and twice without: 960 processes, with up to 1,920 complete control rows. Keep the original 180-second/1-GiB per-process and 200,000-call per-query bounds; campaign bound 30 minutes. Preserve the same analytical counts, independent scalar answers, Direct FIFO comparison and retained-answer checks. No source semantics or executor changes.
+
+Explicit CLI selection isolates one candidate mode; independent Direct/scalar preflight still runs. Freeze the selector source and fresh binaries before the matrix. Capture failures and continue independent cells, retaining exact commands/status/stdout/stderr. A failed group is a capability/resource obstruction, never a completed work count. Audit exact repeats for successful groups and list every failed group separately. Investigate any failure not explained by the recorded allocation obstruction.
+
+Compare CompactLive and separated execution on the failing source. Successful compact keys would test the contribution of owned tree keys without changing the source contract. No allocation magnitude, timing winner, sustainable-memory conclusion or overall source-gate success follows from work counts or process success alone. Detailed key/export allocation attribution and ordinary lifecycle timing remain required.

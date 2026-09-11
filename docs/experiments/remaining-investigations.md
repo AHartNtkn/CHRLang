@@ -1,6 +1,6 @@
 # The comparisons still needed to choose the architecture
 
-The [compact confirmation](results/S06-unique-confirmation.md) and [next-selection review](results/S06-unique-confirmation-review.md) supply the current checkpoint. Compact union confirmation completes 8,192 primary runs and 128 warmups. Repeated-overlap union/unique median intervals are 0.866–0.924 for set output and 0.846–0.932 for ordered output: a directional speed benefit with unresolved 10% magnitude and extra preparation allocation. All 48 membership contrasts are signal-limited; adverse full-output cases remain. Selection moves to T075 call-reuse extraction/runtime costs. Package one since full portfolio review; goal active.
+The [deeper call-reuse screen](results/S05-inert-depth.md) supplies the current checkpoint. The deeper inert-call work screen records 1,912 complete control rows in 956 isolated processes, with four repeated owned-key allocation failures at the unchanged 1 GiB bound. CompactLive and separated execution complete that source. At depth 128, separated memo executes 395 versus 783 Direct transitions on inert callers; readable and late-bound callers save none. T075 now attributes key/export/replay costs and measures complete lifecycle against strong controls. Initial screen and isolation count as packages two/three; full portfolio review at the next result or obstruction; goal active.
 
 The [relevant-key ownership comparison](results/S02-relevant-ownership.md) supplies the current checkpoint. Relevant-key ownership validates1,008 metered and448 ordinary processes with exact allocation repeats, cancellation/reuse and retained answers surviving producer disposal. Ordered relevant reuse lowers peaks versus exact-state caching in38of64 scenarios but requests more bytes than recomputation in all64. The changed depth16/four-query witness requests1,292,590bytes with72,959peak excess versus669,196/38,976 for recomputation. T072 next attributes key/replay execution costs before timing; package one after breadth review; goal active.
 
@@ -106,7 +106,7 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-The [current execution order](next-cycle.md#start-here-the-next-experiments) owns scheduling: investigate call-reuse extraction and runtime costs, then reassess integrated eligibility, demand causal repair, broader reuse capability and actual composed paths. Compact overlap now has directional timing evidence; membership signal and practical magnitude remain unresolved. Every distinct mechanism remains accountable. The specifications below retain their individual evidence requirements and do not establish a separate order.
+The [current execution order](next-cycle.md#start-here-the-next-experiments) owns scheduling: attribute and measure the now-qualified deeper call reuse, preserving the owned-key resource obstruction, then conduct full portfolio review across integrated eligibility, demand causal repair, broader reuse capability and actual composed paths. Compact overlap now has directional timing evidence; membership signal and practical magnitude remain unresolved. Every distinct mechanism remains accountable. The specifications below retain their individual evidence requirements and do not establish a separate order.
 
 ### Depth, breadth and stopping within this sequence
 

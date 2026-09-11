@@ -1,0 +1,14 @@
+    Checking chr-reuse v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-reuse)
+error: field `selected` is never read
+  --> research/chr-reuse/examples/inert_work.rs:76:5
+   |
+70 | struct Config<'a> {
+   |        ------ field in this struct
+...
+76 |     selected: Option<&'a str>,
+   |     ^^^^^^^^
+   |
+   = note: `-D dead-code` implied by `-D warnings`
+   = help: to override `-D warnings` add `#[expect(dead_code)]` or `#[allow(dead_code)]`
+
+error: could not compile `chr-reuse` (example "inert_work") due to 1 previous error

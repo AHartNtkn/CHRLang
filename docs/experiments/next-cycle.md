@@ -8,9 +8,9 @@ This sequence covers the [57 reviewed questions](question-to-experiment-map.md) 
 
 ## Start here: the next experiments
 
-**1. Complete call-reuse extraction and runtime evidence — T075, specification 5.** The [selection review](results/S06-unique-confirmation-review.md) chooses this distinct missing cost comparison after [compact confirmation](results/S06-unique-confirmation.md). Verify current source/ownership gates and register causal extraction/export/key/replay attribution plus counter-free lifecycle timing against Direct and CompactLive. Inspect the amount of useful work reused; implement an independently checked substantive source extension if existing work is shallow. Preserve successful/failed reuse, unique requests, invalidating callers, complete outputs and consumer ownership.
+**1. Attribute and measure substantive call reuse — T075, specification 5.** The [depth screen](results/S05-inert-depth.md) establishes substantial avoided transitions and zero-benefit callers. Whole-state owned keys hit the 1 GiB limit on deep duplicate residuals while CompactLive and separated execution complete. Register bounded extraction/export/key/validity/replay attribution and ordinary-allocator lifecycle timing. Preserve Direct, CompactLive and separated uncached controls; qualify existing competent compiled/inferred source execution where applicable. Charge preparation, changing queries, consumers and disposal, retaining the failed owned-key cell explicitly.
 
-At the first attribution/cost result or prerequisite obstruction, reconsider token-independent integrated eligibility, demand discovery/copy repair, broader reuse capability and actual composed paths. This is one package after the full post portfolio review; another whole-portfolio review is due within three packages, counting separate source and measurement gates.
+At the next cost/attribution result or prerequisite obstruction, conduct the full portfolio review, including integrated token-independent eligibility, demand discovery/copy repair, broader reuse and actual composed paths. Conservatively count the initial screen and its isolated resource follow-up as packages two and three since the full post portfolio review. No work count or capacity success is a runtime result.
 
 Compact follow-through remains required under T076: repeated-overlap intervals favor union but cross 10%, membership timing is signal-limited, and preparation traffic is higher than direct traversal. Retain qualified membership measurement when consequential, connected projection, broader relations/theories and composed-path costs. Another unchanged timing matrix is not automatically next.
 
@@ -28,7 +28,7 @@ The table schedules entry into each investigation. The specifications below defi
 
 | Order | Investigation and specification | Review questions | Required architectural evidence |
 |---|---|---|---|
-| Current result | Compact union — §3 | 26–29, 34, 53 | Directional overlap runtime benefit, extra preparation traffic and unresolved membership signal |
+| Current result | Deeper call reuse — §5 | 19, 26, 35–40 | Substantial avoided transitions, zero-benefit callers and an owned-key resource obstruction; costs remain unmeasured |
 | Selected next | Calls, failures and reconvergence — §5 | 19, 26, 35–40 | Extraction/key/replay and primary costs against Direct/CompactLive, with substantive useful work |
 | A1 follow-through | Compact solving — §3 | 26–29, 34, 53 | Resolve consequential signal/magnitude uncertainty; retain connected projection and richer structural operations |
 | A2 | Demand capability and costs — §2 | 12, 16, 18–19, 23 | Carry confirmed passive-post tradeoffs; investigate causal discovery/copy repair and distinct capabilities |

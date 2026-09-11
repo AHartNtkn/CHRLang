@@ -1,0 +1,18 @@
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+   Compiling chr-reuse v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-reuse)
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+   Compiling chr-direct-choice v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-choice)
+error[E0425]: cannot find function `case` in module `super`
+ --> research/chr-reuse/examples/inert_work.rs:7:24
+  |
+7 |                 super::case(family, 32, distinct, false);
+  |                        ^^^^ not found in `super`
+
+error[E0425]: cannot find function `case` in this scope
+  --> research/chr-reuse/examples/inert_work.rs:16:17
+   |
+16 |                 case(family, depth, distinct, true);
+   |                 ^^^^ not found in this scope
+
+For more information about this error, try `rustc --explain E0425`.
+error: could not compile `chr-reuse` (example "inert_work" test) due to 2 previous errors
