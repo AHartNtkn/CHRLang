@@ -1,0 +1,11 @@
+# Equality-stable candidate cache qualification
+
+Registered before runs. T072, package two since portfolio review.
+
+**Hypothesis:** candidate lists for unguarded flat heads with globally distinct pattern variables remain valid across equality updates. Equality changes values but not occurrence identity or the occurrence tuple ordering; body operations must resolve cached values through current representatives. This is inferred per rule, not a source-language restriction. Constructor patterns, repeated variables and guards retain equality invalidation. New occurrences retain the existing predicate-arrival invalidation; consumed occurrences must still fail claim validation; propagation history retains its ordinary identity key.
+
+Implement a feature-controlled certificate during rule preparation and use it only at existing equality/reconsideration cache-clear sites. Keep the conservative path as a control. First qualify source/store/library tests plus explicit adversaries: cached aliases used in later bodies, newly true guards, newly matching repeated variables and constructors, competing consumption, fresh occurrence insertion, propagation history and disjunctive forks. Compare all complete raw answers to the independent scalar evaluator under ordinary, full and bounded scheduling. Any mismatch blocks work/cost claims and requires repair.
+
+After source qualification, repeat the36-configuration execution-attribution matrix with stable candidates, borrowed cycles and both incidence representations:144 meter/profile processes, two repetitions, same complete scalar/analytical source oracles, exact exclusive allocation and ownership gates,60second CPU/wall,1GiB address space and100,000 advances. Freeze sources and binaries before runs. Compare with the frozen borrowed-cycles matrix: charge certificate preparation, retained candidates, lookup/application/equality/readiness work and complete disposal, not just discovery. Require unchanged source advance counts, with differences investigated. Scope timing is diagnostic only; any speed claim needs ordinary-allocator measurements.
+
+Use favorable discovery reduction and adverse overhead to select the next experiment against readiness repair, graph attribution and solving. No default or architecture is selected by this gate alone.

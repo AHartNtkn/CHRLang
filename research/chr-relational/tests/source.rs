@@ -307,3 +307,124 @@ fn candidate_reuse_preserves_priority_arrivals_guards_and_consumption() {
         );
     }
 }
+
+#[test]
+fn equality_cache_adversaries_preserve_raw_sources_under_all_schedules() {
+    let alias = Rule::simplify("alias", [c("alias", [v(0), v(1)])], eq(v(0), v(1)));
+    let mut guarded = Rule::simplify("guarded", [c("p", [v(0), v(1)])], c("guarded", []).into());
+    guarded.guards.push(Guard::Equal(v(0), v(1)));
+    let cases = vec![
+        (
+            vec![guarded, alias.clone()],
+            vec![c("p", [v(10), v(11)]), c("alias", [v(10), v(11)])],
+        ),
+        (
+            vec![
+                Rule::simplify("repeated", [c("p", [v(0), v(0)])], c("matched", []).into()),
+                alias.clone(),
+            ],
+            vec![c("p", [v(10), v(11)]), c("alias", [v(10), v(11)])],
+        ),
+        (
+            vec![
+                Rule::simplify(
+                    "constructor",
+                    [c("p", [t("f", [v(0)])])],
+                    c("matched", [v(0)]).into(),
+                ),
+                alias.clone(),
+            ],
+            vec![c("p", [v(10)]), c("alias", [v(10), t("f", [atom("a")])])],
+        ),
+        // A cached second tuple refers to the representative retired by the first.
+        (
+            vec![Rule::simplify(
+                "merge",
+                [c("p", [v(0), v(1)])],
+                and([eq(v(0), v(1)), c("seen", [v(0), v(1)]).into()]),
+            )],
+            vec![c("p", [v(10), v(11)]), c("p", [v(11), atom("a")])],
+        ),
+        // Shared values become known while later occurrence candidates remain queued.
+        (
+            vec![Rule::simplify(
+                "use",
+                [c("p", [v(0)])],
+                and([eq(v(0), atom("a")), c("seen", [v(0)]).into()]),
+            )],
+            vec![
+                c("p", [v(10)]),
+                c("p", [v(10)]),
+                c("p", [v(11)]),
+                c("alias", [v(11), v(10)]),
+            ],
+        ),
+        (
+            vec![
+                Rule::propagate("watch", [c("p", [v(0)])], c("seen", [v(0)]).into()),
+                alias.clone(),
+            ],
+            vec![c("p", [v(10)]), c("alias", [v(10), atom("a")])],
+        ),
+        (
+            vec![
+                Rule::simplify(
+                    "pair",
+                    [c("p", [v(0)]), c("p", [v(1)])],
+                    and([eq(v(0), v(1)), c("pair", [v(0), v(1)]).into()]),
+                ),
+                Rule::simplify("insert", [c("seed", [v(0)])], c("p", [v(0)]).into()),
+            ],
+            vec![
+                c("p", [atom("a")]),
+                c("p", [v(10)]),
+                c("p", [atom("b")]),
+                c("seed", [v(11)]),
+            ],
+        ),
+        (
+            vec![Rule::simplify(
+                "branch",
+                [c("p", [v(0)])],
+                or(eq(v(0), atom("a")), eq(v(0), atom("b"))),
+            )],
+            vec![c("p", [v(10)]), c("p", [v(10)])],
+        ),
+    ];
+    for (rules, facts) in cases {
+        for reverse in [false, true] {
+            let mut facts = facts.clone();
+            if reverse {
+                facts.reverse();
+            }
+            let query = Query {
+                constraints: facts,
+                outputs: vec![],
+            };
+            let expected = oracle::run(&rules, &query, 100_000);
+            for mode in 0..3 {
+                let prepared = Prepared::new_ready(&rules).unwrap();
+                let mut engine = prepared.start(&query);
+                let mut actual = vec![];
+                let mut exhausted = false;
+                for _ in 0..100_000 {
+                    let step = match mode {
+                        0 => engine.advance(),
+                        1 => engine.advance_settled(),
+                        _ => engine.advance_ready(8),
+                    };
+                    match step {
+                        Step::Answer(a) => actual.push(a),
+                        Step::Exhausted => {
+                            exhausted = true;
+                            break;
+                        }
+                        Step::Progress => (),
+                    }
+                }
+                assert!(exhausted);
+                oracle::same_raw(actual, expected.clone());
+            }
+        }
+    }
+}

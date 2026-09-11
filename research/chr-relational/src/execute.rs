@@ -5,6 +5,8 @@ use std::collections::{BTreeMap, BTreeSet, VecDeque};
 use std::sync::Arc;
 
 pub struct Prepared {
+    #[cfg(feature = "stable-candidates")]
+    equality_stable: Vec<bool>,
     reads: Option<crate::store::MatcherReads>,
     rules: Vec<Rule>,
     plans: Vec<HeadPlan>,
@@ -39,6 +41,20 @@ impl Prepared {
             }
         }
         Ok(Arc::new(Self {
+            #[cfg(feature = "stable-candidates")]
+            equality_stable: rules
+                .iter()
+                .map(|rule| {
+                    let mut variables = BTreeSet::new();
+                    rule.guards.is_empty()
+                        && rule
+                            .kept
+                            .iter()
+                            .chain(&rule.removed)
+                            .flat_map(|head| &head.args)
+                            .all(|arg| matches!(arg, Term::Var(var) if variables.insert(*var)))
+                })
+                .collect(),
             reads: ready.then(|| crate::store::MatcherReads::new(rules)),
             arrivals,
             rules: rules.to_vec(),
@@ -100,6 +116,20 @@ enum GuardTerm {
     App(String, Vec<GuardTerm>),
 }
 impl State {
+    fn invalidate_equality(&mut self, prepared: &Prepared) {
+        #[cfg(feature = "stable-candidates")]
+        for (candidates, stable) in self.candidates.iter_mut().zip(&prepared.equality_stable) {
+            if !stable {
+                *candidates = None;
+            }
+        }
+        #[cfg(not(feature = "stable-candidates"))]
+        {
+            let _ = prepared;
+            self.candidates.fill(None);
+        }
+    }
+
     fn value(&mut self, t: &Term, env: &mut BTreeMap<Var, Value>) -> Value {
         match t {
             Term::Var(v) => *env.entry(*v).or_insert_with(|| self.store.unknown()),
@@ -223,7 +253,7 @@ impl Engine {
     pub fn advance_settled(&mut self) -> Step {
         if let Some(state) = self.frontier.front_mut() {
             while state.store.step() {
-                state.candidates.fill(None);
+                state.invalidate_equality(&self.prepared);
             }
         }
         self.advance()
@@ -260,7 +290,7 @@ impl Engine {
         {
             while used < budget && state.store.step_for_matching(reads) {
                 used += 1;
-                state.candidates.fill(None);
+                state.invalidate_equality(&self.prepared);
             }
             if state.store.failed() {
                 return (Step::Progress, used);
@@ -274,7 +304,7 @@ impl Engine {
             used += 1;
             // Equality changes both canonical keys and positive guard entailment.
             // Conservatively invalidate even when this queued deduction is redundant.
-            state.candidates.fill(None);
+            state.invalidate_equality(&self.prepared);
         }
         if state.store.failed() {
             return (Step::Progress, used);
@@ -318,7 +348,7 @@ impl Engine {
             }
             // A subsequent ready call may reconsider matching after a bounded yield.
             if reads.is_some() {
-                state.candidates.fill(None);
+                state.invalidate_equality(&self.prepared);
             }
         }
         self.frontier.push_back(state);
