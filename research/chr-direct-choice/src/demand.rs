@@ -6,7 +6,9 @@ pub mod candidate_profile;
 mod context;
 mod templates;
 use chr_syntax::{Answer, Constraint, Goal, Query, Rule, Term, Var};
-use context::includes;
+#[cfg(feature = "validity-profile")]
+pub mod validity_profile;
+use context::checked;
 use std::borrow::Cow;
 use std::collections::{BTreeMap, BTreeSet, VecDeque};
 use std::rc::Rc;
@@ -758,7 +760,7 @@ impl Run {
     }
     fn live(&self, id: usize, ctx: &Context) -> bool {
         let r = &self.resources[id];
-        includes(&r.birth, ctx) && !r.consumed.iter().any(|c| includes(c, ctx))
+        checked!(Birth, &r.birth, ctx) && !r.consumed.iter().any(|c| checked!(Consumed, c, ctx))
     }
     fn partners(
         &mut self,
@@ -884,7 +886,7 @@ impl Run {
                                         .results
                                         .iter()
                                         .rev()
-                                        .find(|(support, _)| includes(support, ctx))
+                                        .find(|(support, _)| checked!(Recursive, support, ctx))
                                     else {
                                         return Ok(output);
                                     };
@@ -969,7 +971,7 @@ impl Run {
                     .results
                     .iter()
                     .rev()
-                    .find(|(support, _)| includes(support, ctx))
+                    .find(|(support, _)| checked!(Result, support, ctx))
                 {
                     return Ok(Forced::Follow(*next));
                 }
@@ -1000,7 +1002,7 @@ impl Run {
                         if !clause.partners.is_empty()
                             && let Some((label, _)) =
                                 self.births.iter().enumerate().find(|(label, birth)| {
-                                    !ctx.contains_key(label) && includes(birth, ctx)
+                                    !ctx.contains_key(label) && checked!(ChoiceBirth, birth, ctx)
                                 })
                         {
                             return Err(Signal::Split(label));
@@ -1143,7 +1145,7 @@ impl Run {
                         .results
                         .iter()
                         .rev()
-                        .find(|(validity, _)| includes(validity, ctx))
+                        .find(|(validity, _)| checked!(Pattern, validity, ctx))
                     else {
                         return false;
                     };
@@ -1198,7 +1200,7 @@ impl Run {
                         .results
                         .iter()
                         .rev()
-                        .find(|(support, _)| includes(support, ctx))
+                        .find(|(support, _)| checked!(Lift, support, ctx))
                     else {
                         return false;
                     };
@@ -1320,7 +1322,7 @@ impl Run {
                         .results
                         .iter()
                         .rev()
-                        .find(|(support, _)| includes(support, ctx))
+                        .find(|(support, _)| checked!(Finite, support, ctx))
                     {
                         visit(
                             run,
@@ -1387,7 +1389,7 @@ impl Run {
         for index in 0..self.obligations.len() {
             let (support, id) = &self.obligations[index];
             let id = *id;
-            if includes(support, ctx) {
+            if checked!(AnswerObligation, support, ctx) {
                 self.finite_result(id, ctx)?;
                 self.force(id, ctx)?;
             }
@@ -1400,13 +1402,13 @@ impl Run {
         for index in 0..self.obligations.len() {
             let (support, id) = &self.obligations[index];
             let id = *id;
-            if !includes(support, ctx) {
+            if !checked!(AnswerResidual, support, ctx) {
                 continue;
             }
             if self.nodes[id]
                 .results
                 .iter()
-                .any(|(support, _)| includes(support, ctx))
+                .any(|(support, _)| checked!(AnswerResult, support, ctx))
             {
                 continue;
             }
@@ -1564,7 +1566,7 @@ impl Run {
             cursor += 1;
             let (support, id) = &self.obligations[index];
             let id = *id;
-            if includes(support, &ctx) {
+            if checked!(Tick, support, &ctx) {
                 serviced = self
                     .finite_result(id, &ctx)
                     .and_then(|()| self.force(id, &ctx));

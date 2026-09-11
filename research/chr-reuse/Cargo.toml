@@ -3,6 +3,7 @@ name = "chr-reuse"
 version.workspace = true
 edition.workspace = true
 [features]
+validity-profile = ["alloc-meter", "chr-direct-choice/validity-profile"]
 default = ["metrics"]
 metrics = ["chr-persistent/metrics", "chr-observe/metrics"]
 alloc-meter = ["chr-compiled/alloc-meter"]
@@ -78,3 +79,7 @@ required-features = ["continuing-stage-diagnostics", "continuing-equality-diagno
 [[example]]
 name = "continuing_graph_attribution"
 required-features = ["continuing-graph-diagnostics"]
+
+[[example]]
+name = "validity_sources"
+required-features = ["alloc-meter"]

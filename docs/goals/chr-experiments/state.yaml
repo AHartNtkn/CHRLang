@@ -9,7 +9,7 @@ goal:
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
   execution_sequence: docs/experiments/next-cycle.md
-  current_research: "Fresh graph attribution validates 144 lifecycle processes, 48 allocation pairs and 1,200 profiled lifecycles. Seeking context inclusion owns 58\u201363% of sampled cycles in dependency/consuming-template cases but 4.4% in pure templates; lookup/seeking ownership is identical in 24 pairs. T074 next qualifies caller-specific validity-work attribution with adverse sources; package count one, goal active."
+  current_research: "Caller validity attribution validates 768 processes, 384 exact repetitions and 192 diagnostic/control ownership pairs. Inclusion allocates zero bytes; duplicate output filtering accounts for 15\u201321% of dependency support visits, with zero-work template controls. T074 next qualifies validity reuse within one answer, including newly appended obligations and failure; package count two, goal active."
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -443,8 +443,8 @@ tasks:
     type: pm
     assignee: PM
     status: active
-    progress: "Fresh graph attribution validates 144 lifecycle processes, 48 allocation pairs and 1,200 profiled lifecycles. Seeking context inclusion owns 58\u201363% of sampled cycles in dependency/consuming-template cases but 4.4% in pure templates; lookup/seeking ownership is identical in 24 pairs. T074 next qualifies caller-specific validity-work attribution with adverse sources; package count one, goal active."
-    next_action: Register caller-specific context-inclusion work and allocation attribution across result selection, finite validation, output filtering and resource liveness. Add complete adverse sources for sparse/dense supports, early/late failure, repeated/unique checks, resource sharing and context changes; verify independent raw answers and exact diagnostic/control ownership. Use attribution to choose validity reuse versus lookup/scratch intervention. Package count one.
+    progress: "Caller validity attribution validates 768 processes, 384 exact repetitions and 192 diagnostic/control ownership pairs. Inclusion allocates zero bytes; duplicate output filtering accounts for 15\u201321% of dependency support visits, with zero-work template controls. T074 next qualifies validity reuse within one answer, including newly appended obligations and failure; package count two, goal active."
+    next_action: Register and qualify obligation-validity reuse within one answer, preserving original-prefix decisions and checking newly appended obligations. Add adversarial answer-time expansion, early failure/cycles, incompatible choices and consuming claims; retain empty-support and short-query overhead controls. Measure work/ownership separately from ordinary lifecycle time against original graph/direct controls. Package count two; full review within two more packages.
     objective: Investigate sustained answer delivery, consumer ownership and engine retention across credible graph, compiled and reuse controls, including immediate release, bounded retention, changing queries, cancellation and reclamation costs under independently checked source semantics.
     inputs:
       - docs/experiments/results/S10-static-control.md
@@ -2688,8 +2688,11 @@ checks:
   last_verification:
     result: passed
     task: T074
-    scope: Fresh current-source graph lifecycle ownership and user-cycle profiles.
+    scope: Caller validity instrumentation, independent source/counter gates and exact lifecycle ownership.
     commands:
+      - "validity_callers.py --audit: 768 processes, 384 repetitions and 192 diagnostic/control ownership pairs"
+      - "27 graph/context tests per lookup/seeking build, exact counter gate, scoped Clippy; disabled symbol check"
+      - "96 lookup/seeking pairs preserve caller decisions, support visits and requested ownership"
       - "fresh_graph_profile.py --audit: 144 lifecycle processes, 48 exact allocation pairs, 1200 validated profiled lifecycles, eight profiles above500 samples and zero loss"
       - "24 lookup/seeking ownership pairs equal; all registered profile cases; annotated seeking assembly"
       - "execution_attribution.py --direct-readiness --audit: 144 processes, exact exclusive allocation and unchanged advances/non-readiness scopes"
@@ -2719,6 +2722,8 @@ checks:
       - "audit_probe_clock.py: 18000 separately instrumented complete sessions"
       - Scoped ordinary, allocation and CPU-clock Clippy; source hashes, report links and 57-question map
     evidence:
+      - docs/experiments/results/S08-validity-callers.md
+      - docs/experiments/results/s08-validity-callers/analysis.json
       - docs/experiments/results/S08-fresh-graph-profile.md
       - docs/experiments/results/s08-fresh-graph-profile/analysis.json
       - docs/experiments/results/S02-direct-readiness.md

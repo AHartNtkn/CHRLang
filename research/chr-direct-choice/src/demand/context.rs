@@ -1,17 +1,42 @@
 //! Positive inclusion of fixed choice assignments; no compatibility relaxation.
 use std::collections::BTreeMap;
 
+macro_rules! checked {
+    ($site:ident, $support:expr, $context:expr) => {{
+        #[cfg(feature = "validity-profile")]
+        {
+            let support = $support;
+            let context = $context;
+            $crate::demand::validity_profile::measure(
+                $crate::demand::validity_profile::Site::$site,
+                support.len(),
+                context.len(),
+                || $crate::demand::context::includes(support, context),
+            )
+        }
+        #[cfg(not(feature = "validity-profile"))]
+        $crate::demand::context::includes($support, $context)
+    }};
+}
+pub(crate) use checked;
+
 #[cfg(any(not(feature = "ordered-context"), test))]
 fn lookup<K: Ord, V: Eq>(support: &BTreeMap<K, V>, context: &BTreeMap<K, V>) -> bool {
-    support
-        .iter()
-        .all(|(key, value)| context.get(key) == Some(value))
+    support.iter().all(|(key, value)| {
+        #[cfg(feature = "validity-profile")]
+        super::validity_profile::work(1, 0, 0);
+        context.get(key) == Some(value)
+    })
 }
 #[cfg(any(all(feature = "ordered-context", not(feature = "seek-context")), test))]
 fn ordered<K: Ord, V: Eq>(support: &BTreeMap<K, V>, context: &BTreeMap<K, V>) -> bool {
     let mut current = context.iter();
     for (key, value) in support {
+        #[cfg(feature = "validity-profile")]
+        super::validity_profile::work(1, 0, 0);
         loop {
+            #[cfg(feature = "validity-profile")]
+            super::validity_profile::work(0, 1, 0);
             let Some((candidate, actual)) = current.next() else {
                 return false;
             };
@@ -33,8 +58,14 @@ fn ordered<K: Ord, V: Eq>(support: &BTreeMap<K, V>, context: &BTreeMap<K, V>) ->
 #[cfg(any(feature = "seek-context", test))]
 fn seeking<K: Ord, V: Eq>(support: &BTreeMap<K, V>, context: &BTreeMap<K, V>) -> bool {
     use std::{cmp::Ordering, ops::Bound};
+    #[cfg(feature = "validity-profile")]
+    super::validity_profile::work(0, 0, 1);
     let mut current = context.range::<K, _>(..);
     for (key, value) in support {
+        #[cfg(feature = "validity-profile")]
+        super::validity_profile::work(1, 0, 0);
+        #[cfg(feature = "validity-profile")]
+        super::validity_profile::work(0, 1, 0);
         let Some((candidate, actual)) = current.next() else {
             return false;
         };
@@ -46,7 +77,11 @@ fn seeking<K: Ord, V: Eq>(support: &BTreeMap<K, V>, context: &BTreeMap<K, V>) ->
             }
             Ordering::Greater => return false,
             Ordering::Less => {
+                #[cfg(feature = "validity-profile")]
+                super::validity_profile::work(0, 0, 1);
                 current = context.range::<K, _>((Bound::Included(key), Bound::Unbounded));
+                #[cfg(feature = "validity-profile")]
+                super::validity_profile::work(0, 1, 0);
                 let Some((candidate, actual)) = current.next() else {
                     return false;
                 };
@@ -66,6 +101,27 @@ pub(super) fn includes<K: Ord, V: Eq>(support: &BTreeMap<K, V>, context: &BTreeM
     return ordered(support, context);
     #[cfg(not(feature = "ordered-context"))]
     lookup(support, context)
+}
+
+#[cfg(all(test, feature = "validity-profile"))]
+mod attribution_gate {
+    use super::*;
+    #[test]
+    fn inclusion_counts_distinguish_success_and_early_rejection() {
+        use crate::demand::validity_profile::{Site, reset, snapshot};
+        for mismatch in [None, Some(0), Some(7)] {
+            let support: BTreeMap<_, _> = (0..8).map(|k| (k, true)).collect();
+            let context: BTreeMap<_, _> = (0..8).map(|k| (k, Some(k) != mismatch)).collect();
+            reset();
+            let result = checked!(Finite, &support, &context);
+            assert_eq!(result, mismatch.is_none());
+            let row = snapshot()[Site::Finite as usize];
+            assert_eq!(row.calls, 1);
+            assert_eq!(row.accepted, usize::from(mismatch.is_none()));
+            assert_eq!(row.visited, mismatch.map_or(8, |k| k + 1));
+            assert_eq!((row.support, row.context), (8, 8));
+        }
+    }
 }
 
 #[cfg(test)]

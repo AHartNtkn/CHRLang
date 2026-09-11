@@ -1,0 +1,15 @@
+   Compiling chr-direct-choice v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-choice)
+error[E0432]: unresolved import `crate::demand::validity_profile`
+  --> research/chr-direct-choice/src/demand/context.rs:76:28
+   |
+76 |         use crate::demand::validity_profile::{Site, reset, snapshot};
+   |                            ^^^^^^^^^^^^^^^^ could not find `validity_profile` in `demand`
+
+error: cannot find macro `checked` in this scope
+  --> research/chr-direct-choice/src/demand/context.rs:81:26
+   |
+81 |             let result = checked!(Finite, &support, &context);
+   |                          ^^^^^^^
+
+For more information about this error, try `rustc --explain E0432`.
+error: could not compile `chr-direct-choice` (lib test) due to 2 previous errors
