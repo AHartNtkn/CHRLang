@@ -9,7 +9,7 @@ goal:
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
   execution_sequence: docs/experiments/next-cycle.md
-  current_research: "Matched compiled controls validate 8,640 processes after repairing matcher-dependent answer ordering. Eight repeated-query cases qualify faster than Direct, compiled scan, indexed access and inferred specialization together, with fewer requested bytes but higher peak ownership. T075 next uses the existing generated-access emitter on the same sources before retention tuning; package count two, goal active."
+  current_research: "Generated call artifacts and the source-validation repair pass six 768-case gates and 1,728 lifecycle processes. Streaming exact source comparison saves 4,088 preparation bytes in all 288 generated scenarios, with unchanged peak ownership; both generated modes now request fewer bytes than corresponding generic controls throughout. Full 57-question review selects generated runtime and compiler amortization under T075; review count reset, goal active."
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -368,9 +368,12 @@ tasks:
     assignee: PM
     status: active
     objective: Investigate sound generalized call and continuation reuse after different histories, including renaming, relevance, resource and output identity obligations, against competent recomputation and sharing controls.
-    progress: "Matched compiled controls validate 8,640 processes after repairing matcher-dependent answer ordering. Eight repeated-query cases qualify faster than Direct, compiled scan, indexed access and inferred specialization together, with fewer requested bytes but higher peak ownership. T075 next uses the existing generated-access emitter on the same sources before retention tuning; package count two, goal active."
-    next_action: "Register same-source generated-access artifacts using generate::emit_access and existing artifact compilation. Preserve complete order, first-answer cancellation, changing queries and retained-output ownership. Measure generated runtime against the frozen matched controls and charge emission, build, artifact size and preparation separately with explicit amortization. Investigate failures before costs. Reassess bounded trace retention, broader observers and sparse projection after this control; package count two, full review by package four."
+    progress: "Generated call artifacts and the source-validation repair pass six 768-case gates and 1,728 lifecycle processes. Streaming exact source comparison saves 4,088 preparation bytes in all 288 generated scenarios, with unchanged peak ownership; both generated modes now request fewer bytes than corresponding generic controls throughout. Full 57-question review selects generated runtime and compiler amortization under T075; review count reset, goal active."
+    next_action: "Register paired counter-free generated runtime against frozen trace, Direct, scan, indexed and inferred controls. Reuse the existing artifact workflow to separately measure user-program emission, compilation, binary ownership and changed-query amortization against equivalent generic artifacts; qualifying dependency builds are not compiler-cost evidence. Extend prepared-query reuse and its lifecycle accounting where needed to expose the crossover. Preserve complete order/cancellation and allocation gates, investigate consequential failures or uncertainty, then reassess bounded retention, broader observers and sparse projection. Review count reset; full portfolio remains active."
     inputs:
+      - docs/experiments/results/S05-call-generated-entry.md
+      - docs/experiments/results/S05-call-generated-review.md
+      - docs/experiments/registrations/S05-generated-source-check.md
       - docs/experiments/results/S05-call-compiled-entry.md
       - docs/experiments/results/S05-call-compiled-cost.md
       - docs/experiments/registrations/S05-call-compiled-cost.md
@@ -2687,8 +2690,13 @@ checks:
   last_verification:
     result: passed
     task: T075
-    scope: Matched compiled source-order repair, complete ownership and counter-free lifecycle costs.
+    scope: Generated source/ownership gates, allocation-free exact source validation and full portfolio review.
     commands:
+      - "call_generated_entry.py audit and audit --repair: six compiled source gates and 1728 lifecycle processes"
+      - "call_generated_analysis.py audit: 288 exact phase attributions, all savings confined to preparation"
+      - "Metered source identity test fails at 248 requested bytes before repair and passes at zero after; mismatch rejection preserved"
+      - "Full chr-compiled suites pass 159 tests each default/off; shared source gate and ordinary/meter scoped Clippy pass"
+      - "All 57 question entries reviewed; generated runtime/compiler amortization selected, goal active"
       - "call_compiled_cost.py audit: 8640 terminal processes, exact ownership, 576 comparisons, frozen inputs"
       - "call_compiled_diagnosis.py audit: eight joint gains, previous campaign overlap and service attribution"
       - "call_compiled: 768 source cases and 2304 cancellation restarts in default, metrics-off and compiled-metrics builds"

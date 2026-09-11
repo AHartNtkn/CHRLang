@@ -1,0 +1,18 @@
+{
+  "command": [
+    "cargo",
+    "build",
+    "--release",
+    "--offline",
+    "--jobs",
+    "2",
+    "--manifest-path",
+    "/home/ahart/Documents/CHRLang/target/s05-call-generated-project/Cargo.toml",
+    "--target-dir",
+    "/home/ahart/Documents/CHRLang/target/s05-call-generated-primary"
+  ],
+  "returncode": 0,
+  "stdout": "",
+  "stderr": "     Locking 5 packages to latest Rust 1.97.1 compatible versions\n   Compiling chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax)\n   Compiling chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe)\n   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)\n   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)\n   Compiling chr-reuse v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-reuse)\n   Compiling call-generated-artifact v0.0.0 (/home/ahart/Documents/CHRLang/target/s05-call-generated-project)\n    Finished `release` profile [optimized] target(s) in 26.23s\n",
+  "wall_ns": 26245236694
+}

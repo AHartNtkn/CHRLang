@@ -1290,7 +1290,7 @@ impl PreparedRuleset {
         Self::new(rules, code)
     }
     pub fn new(rules: Vec<Rule>, code: Option<Compiled>) -> Result<Self, String> {
-        if code.is_some_and(|c| c.source != format!("{rules:?}")) {
+        if code.is_some_and(|c| !source_matches(&rules, c.source)) {
             return Err("generated program does not match supplied rules".into());
         }
         let mut arena = Arena::default();
@@ -1768,3 +1768,46 @@ include!(concat!(env!("OUT_DIR"), "/generated.rs"));
 pub mod selective_join;
 /// Checked experimental lowering for the registered S01 update-join source.
 pub mod update_join;
+
+fn source_matches(rules: &[Rule], source: &str) -> bool {
+    use std::fmt::{self, Write};
+    struct Compare<'a>(&'a str);
+    impl Write for Compare<'_> {
+        fn write_str(&mut self, text: &str) -> fmt::Result {
+            self.0 = self.0.strip_prefix(text).ok_or(fmt::Error)?;
+            Ok(())
+        }
+    }
+    let mut remaining = Compare(source);
+    write!(&mut remaining, "{rules:?}").is_ok() && remaining.0.is_empty()
+}
+#[cfg(all(test, feature = "alloc-meter"))]
+#[test]
+fn generated_source_identity_without_an_owned_buffer() {
+    let rules = vec![Rule::simplify(
+        "escaped\\\"λ",
+        vec![chr_syntax::c("p", vec![chr_syntax::atom("\nλ")])],
+        chr_syntax::Goal::True,
+    )];
+    let source = format!("{rules:?}");
+    let meter = experiment::meter::begin();
+    assert!(source_matches(&rules, &source));
+    let reading = experiment::meter::end(meter);
+    assert_eq!(reading.requested_bytes, 0);
+    assert!(!source_matches(&rules, ""));
+    assert!(!source_matches(&rules, &source[..source.len() - 1]));
+    assert!(!source_matches(&rules, &(source.clone() + "x")));
+    let mut changed = rules.clone();
+    changed[0].name.push('x');
+    assert!(!source_matches(&changed, &source));
+    let code = Compiled {
+        source: "[]",
+        selectors: &[],
+        native: None,
+        updates: None,
+    };
+    assert_eq!(
+        PreparedRuleset::new(changed, Some(code)).err().unwrap(),
+        "generated program does not match supplied rules"
+    );
+}

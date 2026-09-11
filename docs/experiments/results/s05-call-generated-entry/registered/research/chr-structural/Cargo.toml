@@ -1,0 +1,22 @@
+[package]
+name = "chr-structural"
+version.workspace = true
+edition.workspace = true
+[features]
+default = ["metrics"]
+metrics = []
+alloc-meter = []
+phase-clock = []
+session-clock = []
+[dependencies]
+chr-syntax = { path = "../../crates/chr-syntax" }
+[dev-dependencies]
+chr-reference = { path = "../../crates/chr-reference" }
+chr-observe = { path = "../chr-observe" }
+chr-programs = { path = "../../crates/chr-programs" }
+
+[[test]]
+name = "joint_ownership"
+path = "tests/joint_ownership.rs"
+harness = false
+required-features = ["alloc-meter"]

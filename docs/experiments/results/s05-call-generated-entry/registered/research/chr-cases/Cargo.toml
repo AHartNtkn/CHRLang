@@ -1,0 +1,11 @@
+[package]
+name = "chr-cases"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+chr-syntax = { path = "../../crates/chr-syntax" }
+chr-programs = { path = "../../crates/chr-programs" }
+
+[dev-dependencies]
+chr-reference = { path = "../../crates/chr-reference" }
