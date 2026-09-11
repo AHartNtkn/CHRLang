@@ -1,4 +1,5 @@
 """Independent coverage, ownership, freeze and phase-summed pilot audit."""
+import zipfile
 import collections,hashlib,itertools,json,random,statistics
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[3];OUT=ROOT/'docs/experiments/results/s02-multihead-lifecycle'
@@ -7,7 +8,10 @@ FAMILIES=['sparse','broad','nested','cold','dense','three']
 CELLS=list(itertools.product(MODES,FAMILIES,[4,16,64],[1,4]))
 def main():
  freeze=json.loads((OUT/'freeze.json').read_text())
- for path,h in freeze['sources'].items():assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest()==h,path
+ archive=json.loads((OUT/'source-archive.json').read_text());assert hashlib.sha256((OUT/'sources.zip').read_bytes()).hexdigest()==archive['sha256']
+ with zipfile.ZipFile(OUT/'sources.zip') as sources:
+  assert set(sources.namelist())==set(freeze['sources'])
+  for path,h in freeze['sources'].items():assert hashlib.sha256(sources.read(path)).hexdigest()==h,path
  for name,h in freeze['binaries'].items():assert hashlib.sha256((ROOT/'target/s02-multihead-lifecycle'/name).read_bytes()).hexdigest()==h,name
  groups={};pairs=0
  for kind,reps,seed in [('meter',2,7280),('time',5,7281)]:

@@ -1,11 +1,15 @@
 """Audit paired core-placement matrix and pre-registered Holm sign tests."""
+import zipfile
 import collections,hashlib,itertools,json,math,random,statistics
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[3];OUT=ROOT/'docs/experiments/results/s02-multihead-affinity'
 MODES=['local-scan','tuples','partial','scan','indexed','special-scan','special-indexed'];FAMILIES=['sparse','broad','nested','cold','dense','three']
 def main():
  freeze=json.loads((OUT/'freeze.json').read_text())
- for path,h in freeze['sources'].items():assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest()==h,path
+ archive=json.loads((OUT/'source-archive.json').read_text());assert hashlib.sha256((OUT/'sources.zip').read_bytes()).hexdigest()==archive['sha256']
+ with zipfile.ZipFile(OUT/'sources.zip') as sources:
+  assert set(sources.namelist())==set(freeze['sources'])
+  for path,h in freeze['sources'].items():assert hashlib.sha256(sources.read(path)).hexdigest()==h,path
  assert hashlib.sha256((ROOT/'target/s02-multihead-lifecycle/time').read_bytes()).hexdigest()==freeze['binary_sha256']
  blocks=list(itertools.product(range(17),[0,8],FAMILIES));rng=random.Random(7282);rng.shuffle(blocks);jobs=[]
  for rep,cpu,family in blocks:

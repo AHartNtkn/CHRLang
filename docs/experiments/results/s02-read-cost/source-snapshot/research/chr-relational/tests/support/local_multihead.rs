@@ -29,23 +29,16 @@ impl Program {
         q: &Query,
         selective: bool,
     ) -> Execution<METRICS> {
-        self.start_impl(q, selective, false, false)
+        self.start_impl(q, selective, false)
     }
     pub fn start_partial<const METRICS: bool>(self: &Arc<Self>, q: &Query) -> Execution<METRICS> {
-        self.start_impl(q, true, true, false)
-    }
-    pub fn start_intermediate<const METRICS: bool>(
-        self: &Arc<Self>,
-        q: &Query,
-    ) -> Execution<METRICS> {
-        self.start_impl(q, true, true, true)
+        self.start_impl(q, true, true)
     }
     fn start_impl<const METRICS: bool>(
         self: &Arc<Self>,
         q: &Query,
         selective: bool,
         partial: bool,
-        intermediate: bool,
     ) -> Execution<METRICS> {
         let mut e = Execution {
             program: self.clone(),
@@ -57,7 +50,6 @@ impl Program {
             firings: 0,
             cache: selective.then(Cache::default),
             partial,
-            intermediate,
             new_occ: vec![],
             changed: BTreeSet::new(),
             work: Work::default(),
@@ -96,7 +88,6 @@ struct Cache {
 #[derive(Clone, Default, Debug)]
 pub struct Work {
     pub head_attempts: Cell<usize>,
-    pub intermediate_visits: Cell<usize>,
     pub fact_visits: Cell<usize>,
     pub combinations: Cell<usize>,
     pub inspections: usize,
@@ -117,7 +108,6 @@ pub struct Execution<const METRICS: bool = true> {
     pub firings: usize,
     cache: Option<Cache>,
     partial: bool,
-    intermediate: bool,
     new_occ: Vec<usize>,
     changed: BTreeSet<usize>,
     pub work: Work,
@@ -480,65 +470,15 @@ impl<const METRICS: bool> Execution<METRICS> {
         for id in std::mem::take(&mut self.new_occ) {
             self.register(Some(id));
         }
-        let selected = if self.intermediate {
-            let cache = self.cache.as_ref().unwrap();
-            let mut best = cache
-                .ready
-                .first_key_value()
-                .map(|(k, e)| (k.clone(), e.clone()));
-            for (key, env) in &cache.prefixes {
-                if METRICS {
-                    self.work
-                        .intermediate_visits
-                        .set(self.work.intermediate_visits.get() + 1);
-                }
-                if best.as_ref().is_some_and(|(old, _)| key > old) {
-                    break;
-                }
-                let rule = &self.program.rules[key.0];
-                if key.1.len() + 1 != rule.kept.len() + rule.removed.len() {
-                    continue;
-                }
-                let heads = rule
-                    .kept
-                    .iter()
-                    .chain(&rule.removed)
-                    .skip(key.1.len())
-                    .collect::<Vec<_>>();
-                if let Some((ids, env)) =
-                    self.select(key.0, &heads, &mut key.1.clone(), env.clone())
-                {
-                    let full = (key.0, ids);
-                    if best.as_ref().is_none_or(|(old, _)| full < *old) {
-                        best = Some((full, env));
-                    }
-                }
-            }
-            best
-        } else {
-            self.cache.as_mut().unwrap().ready.pop_first()
-        };
-        let Some((key, mut env)) = selected else {
+        let Some((key, mut env)) = self.cache.as_mut().unwrap().ready.pop_first() else {
             return true;
         };
         self.history.insert(key.clone());
         let program = self.program.clone();
         let r = &program.rules[key.0];
-        let mut invalid = BTreeSet::new();
-        if self.cache.as_ref().unwrap().tuples.contains_key(&key) {
-            invalid.insert(key.clone());
-        }
+        let mut invalid = BTreeSet::from([key.clone()]);
         for id in &key.1[r.kept.len()..] {
-            invalid.extend(
-                self.cache
-                    .as_ref()
-                    .unwrap()
-                    .incident
-                    .get(id)
-                    .into_iter()
-                    .flatten()
-                    .cloned(),
-            );
+            invalid.extend(self.cache.as_ref().unwrap().incident[id].iter().cloned());
             self.live.remove(id);
         }
         for key in invalid {
@@ -558,11 +498,6 @@ impl<const METRICS: bool> Execution<METRICS> {
             return;
         };
         for (key, handles) in &cache.tuples {
-            if self.intermediate {
-                let r = &self.program.rules[key.0];
-                let heads = r.kept.len() + r.removed.len();
-                assert!(heads == 1 || key.1.len() < heads, "terminal tuple retained");
-            }
             assert!(!self.history.contains(key));
             for id in &key.1 {
                 assert!(self.live.contains_key(id));
@@ -649,9 +584,6 @@ impl<const METRICS: bool> Execution<METRICS> {
     }
     fn extend_prefix(&mut self, key: &Tuple, required: Option<usize>) {
         let r = &self.program.rules[key.0];
-        if self.intermediate && key.1.len() + 1 == r.kept.len() + r.removed.len() {
-            return;
-        }
         let head = r.kept.iter().chain(&r.removed).nth(key.1.len()).unwrap();
         let mut keys = vec![];
         use std::ops::Bound::{Included, Unbounded};

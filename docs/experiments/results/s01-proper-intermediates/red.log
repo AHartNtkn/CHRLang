@@ -1,0 +1,29 @@
+   Compiling chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax)
+   Compiling chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe)
+   Compiling chr-integrated v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-integrated)
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)
+   Compiling chr-relational v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-relational)
+    Finished `release` profile [optimized] target(s) in 10.03s
+     Running tests/multihead.rs (target/s01-proper-intermediates/release/deps/multihead-dd53a77b0cd87d2c)
+
+running 1 test
+test proper_intermediates_do_not_retain_the_final_partner_product ... FAILED
+
+failures:
+
+---- proper_intermediates_do_not_retain_the_final_partner_product stdout ----
+
+thread 'proper_intermediates_do_not_retain_the_final_partner_product' (323) panicked at research/chr-relational/tests/multihead.rs:501:9:
+assertion `left == right` failed: final partners must not be retained
+  left: 14
+ right: 6
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    proper_intermediates_do_not_retain_the_final_partner_product
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 8 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p chr-relational --test multihead`
