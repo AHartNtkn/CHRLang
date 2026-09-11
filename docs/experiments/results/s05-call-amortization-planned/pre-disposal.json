@@ -1,0 +1,4037 @@
+{
+  "floor_ns": 3000,
+  "comparisons": [
+    {
+      "scenario": [
+        1,
+        128,
+        64,
+        0
+      ],
+      "candidate": "generated",
+      "control": "trace",
+      "runtime": {
+        "median": 2.529872854957383,
+        "min": 2.124283796990619,
+        "max": 2.545555805989757,
+        "status": "loss"
+      },
+      "installed": {
+        "median": 360.8511931462491,
+        "min": 303.6071900686378,
+        "max": 416.72286863190817,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0835282121310512,
+        "min": 1.0264090672526285,
+        "max": 1.176533884607011,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 146.14140782577425,
+        "min": 128.78912013050186,
+        "max": 163.28149569244405,
+        "status": "loss"
+      },
+      "candidate_ns": 20973792,
+      "control_ns": 8881560
+    },
+    {
+      "scenario": [
+        1,
+        128,
+        64,
+        0
+      ],
+      "candidate": "generated",
+      "control": "direct",
+      "runtime": {
+        "median": 0.9142892614279444,
+        "min": 0.9075853869304692,
+        "max": 1.1874311053451314,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 144.3814175468906,
+        "min": 126.33750755959815,
+        "max": 159.22600547544658,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.078429062140843,
+        "min": 1.0224213625171918,
+        "max": 1.1717994775664586,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 93.23913195672755,
+        "min": 83.99279682608693,
+        "max": 99.46734830817047,
+        "status": "loss"
+      },
+      "candidate_ns": 20973792,
+      "control_ns": 21564360
+    },
+    {
+      "scenario": [
+        1,
+        128,
+        64,
+        0
+      ],
+      "candidate": "generated",
+      "control": "scan",
+      "runtime": {
+        "median": 0.984208765701304,
+        "min": 0.9380541351248761,
+        "max": 1.1803820549194846,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 153.79050126165959,
+        "min": 136.24321461557759,
+        "max": 167.85340307578215,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0789598306130384,
+        "min": 1.0226697220026157,
+        "max": 1.1717464771063193,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 96.48454333374723,
+        "min": 87.11742171836117,
+        "max": 106.67346404581286,
+        "status": "loss"
+      },
+      "candidate_ns": 20973792,
+      "control_ns": 20552035
+    },
+    {
+      "scenario": [
+        1,
+        128,
+        64,
+        0
+      ],
+      "candidate": "generated",
+      "control": "indexed",
+      "runtime": {
+        "median": 0.7955740903444001,
+        "min": 0.6633092978796099,
+        "max": 0.9018952638315868,
+        "status": "gain"
+      },
+      "installed": {
+        "median": 116.23364367257278,
+        "min": 99.86919542677634,
+        "max": 137.55095607015582,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0770294968668568,
+        "min": 1.0197859715247695,
+        "max": 1.1691248255147964,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 78.8106522091159,
+        "min": 71.8145863732265,
+        "max": 94.89263223038367,
+        "status": "loss"
+      },
+      "candidate_ns": 20973792,
+      "control_ns": 27647469
+    },
+    {
+      "scenario": [
+        1,
+        128,
+        64,
+        0
+      ],
+      "candidate": "generated",
+      "control": "sealed",
+      "runtime": {
+        "median": 1.0941997144125586,
+        "min": 0.9319213195093637,
+        "max": 1.1481258188713512,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 160.62233170577153,
+        "min": 137.5963502371939,
+        "max": 179.12710566913844,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0796928629552351,
+        "min": 1.0226871715736428,
+        "max": 1.1714957108756239,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 101.2434724354867,
+        "min": 83.05541778707799,
+        "max": 110.05816239799897,
+        "status": "loss"
+      },
+      "candidate_ns": 20973792,
+      "control_ns": 19966267
+    },
+    {
+      "scenario": [
+        1,
+        128,
+        64,
+        0
+      ],
+      "candidate": "generated",
+      "control": "planned",
+      "runtime": {
+        "median": 0.8621760544017326,
+        "min": 0.724843304559769,
+        "max": 0.9067979390830156,
+        "status": "gain"
+      },
+      "installed": {
+        "median": 133.2141032173499,
+        "min": 100.4194205691808,
+        "max": 145.41693889649025,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0775355431492442,
+        "min": 1.020396850358882,
+        "max": 1.1695168548142238,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 86.4149574116596,
+        "min": 69.34180023805685,
+        "max": 93.93861340037391,
+        "status": "loss"
+      },
+      "candidate_ns": 20973792,
+      "control_ns": 23311546
+    },
+    {
+      "scenario": [
+        1,
+        128,
+        64,
+        0
+      ],
+      "candidate": "generated",
+      "control": "planned-sealed",
+      "runtime": {
+        "median": 1.1483937291453148,
+        "min": 1.0449142536299463,
+        "max": 1.3161089699039905,
+        "status": "loss"
+      },
+      "installed": {
+        "median": 171.6367531106375,
+        "min": 157.7281756029506,
+        "max": 185.75552292864478,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.080037320081706,
+        "min": 1.0234021038270638,
+        "max": 1.1726678879214567,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 101.90031205726822,
+        "min": 92.60675923178276,
+        "max": 112.92465121692939,
+        "status": "loss"
+      },
+      "candidate_ns": 20973792,
+      "control_ns": 18105292
+    },
+    {
+      "scenario": [
+        1,
+        128,
+        64,
+        0
+      ],
+      "candidate": "generated-sealed",
+      "control": "trace",
+      "runtime": {
+        "median": 2.105260229916675,
+        "min": 1.9208350785222417,
+        "max": 2.6290473883901058,
+        "status": "loss"
+      },
+      "installed": {
+        "median": 360.6477444277807,
+        "min": 303.1791036428337,
+        "max": 416.2689781617601,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.083002745232489,
+        "min": 1.0258303755001192,
+        "max": 1.1765173939956308,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 146.21069161948188,
+        "min": 128.55457609672786,
+        "max": 163.10763107137026,
+        "status": "loss"
+      },
+      "candidate_ns": 19271076,
+      "control_ns": 8881560
+    },
+    {
+      "scenario": [
+        1,
+        128,
+        64,
+        0
+      ],
+      "candidate": "generated-sealed",
+      "control": "direct",
+      "runtime": {
+        "median": 0.8400644882414103,
+        "min": 0.7707527142006533,
+        "max": 1.01959639384728,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 144.30719277370406,
+        "min": 126.4451797862844,
+        "max": 159.1390834341764,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0778352921427703,
+        "min": 1.0215404199130869,
+        "max": 1.1703853542496163,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 93.13662761559047,
+        "min": 84.03607830390922,
+        "max": 99.30067043971539,
+        "status": "loss"
+      },
+      "candidate_ns": 19271076,
+      "control_ns": 21564360
+    },
+    {
+      "scenario": [
+        1,
+        128,
+        64,
+        0
+      ],
+      "candidate": "generated-sealed",
+      "control": "scan",
+      "runtime": {
+        "median": 0.8651296309124291,
+        "min": 0.8087174335777455,
+        "max": 1.2305282247042386,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 153.5910395994221,
+        "min": 136.16706053791995,
+        "max": 167.7617713075548,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0782138592755146,
+        "min": 1.021870377720539,
+        "max": 1.1720959246950784,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 96.32286376456935,
+        "min": 87.07930621010165,
+        "max": 106.72403658638835,
+        "status": "loss"
+      },
+      "candidate_ns": 19271076,
+      "control_ns": 20552035
+    },
+    {
+      "scenario": [
+        1,
+        128,
+        64,
+        0
+      ],
+      "candidate": "generated-sealed",
+      "control": "indexed",
+      "runtime": {
+        "median": 0.7494924653154517,
+        "min": 0.5450365936003608,
+        "max": 0.8895086924593351,
+        "status": "gain"
+      },
+      "installed": {
+        "median": 116.16601127509801,
+        "min": 99.75092272249711,
+        "max": 137.48024275614793,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0765498884825082,
+        "min": 1.0186388278638192,
+        "max": 1.168929889228515,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 78.67858885621469,
+        "min": 71.73145936755445,
+        "max": 94.85443726719687,
+        "status": "loss"
+      },
+      "candidate_ns": 19271076,
+      "control_ns": 27647469
+    },
+    {
+      "scenario": [
+        1,
+        128,
+        64,
+        0
+      ],
+      "candidate": "generated-sealed",
+      "control": "sealed",
+      "runtime": {
+        "median": 0.9541148346011232,
+        "min": 0.8426685565611481,
+        "max": 1.2614012757802056,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 160.53705206887196,
+        "min": 137.40233925292367,
+        "max": 178.93200217871723,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0786902748351994,
+        "min": 1.0221105782343314,
+        "max": 1.1722986289181263,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 101.12628082954103,
+        "min": 82.90416158861319,
+        "max": 109.9409707920533,
+        "status": "loss"
+      },
+      "candidate_ns": 19271076,
+      "control_ns": 19966267
+    },
+    {
+      "scenario": [
+        1,
+        128,
+        64,
+        0
+      ],
+      "candidate": "generated-sealed",
+      "control": "planned",
+      "runtime": {
+        "median": 0.7318267093911318,
+        "min": 0.7164850315370644,
+        "max": 0.8331813341484536,
+        "status": "gain"
+      },
+      "installed": {
+        "median": 133.13659046894617,
+        "min": 100.50500388346398,
+        "max": 145.25855218980456,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.076942265111921,
+        "min": 1.020395479532838,
+        "max": 1.1689156200794408,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 86.31493014675863,
+        "min": 69.37753205914831,
+        "max": 93.83858613547294,
+        "status": "loss"
+      },
+      "candidate_ns": 19271076,
+      "control_ns": 23311546
+    },
+    {
+      "scenario": [
+        1,
+        128,
+        64,
+        0
+      ],
+      "candidate": "generated-sealed",
+      "control": "planned-sealed",
+      "runtime": {
+        "median": 1.064389129984758,
+        "min": 0.9323663698288448,
+        "max": 1.283986264558143,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 171.64429972375618,
+        "min": 157.5057787258305,
+        "max": 185.5531998310152,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0795135318022715,
+        "min": 1.0227598146604189,
+        "max": 1.1724407839009838,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 101.9490344942133,
+        "min": 92.43810862804428,
+        "max": 112.87919823712753,
+        "status": "loss"
+      },
+      "candidate_ns": 19271076,
+      "control_ns": 18105292
+    },
+    {
+      "scenario": [
+        1,
+        128,
+        8192,
+        0
+      ],
+      "candidate": "generated",
+      "control": "trace",
+      "runtime": {
+        "median": 2.5055447647994207,
+        "min": 2.062750245634875,
+        "max": 2.785126796033884,
+        "status": "loss"
+      },
+      "installed": {
+        "median": 5.05290434885157,
+        "min": 4.2547036914907554,
+        "max": 5.666401892081017,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.4961516534938186,
+        "min": 1.3425315582899744,
+        "max": 1.6381159728601324,
+        "status": "loss"
+      },
+      "process_envelope": {
+        "median": 4.7984198793624575,
+        "min": 4.138558242409426,
+        "max": 5.467023931591622,
+        "status": "loss"
+      },
+      "candidate_ns": 3181309991,
+      "control_ns": 1268463026
+    },
+    {
+      "scenario": [
+        1,
+        128,
+        8192,
+        0
+      ],
+      "candidate": "generated",
+      "control": "direct",
+      "runtime": {
+        "median": 0.9670928601593569,
+        "min": 0.923552475473776,
+        "max": 1.0944817143502918,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 1.959010963193247,
+        "min": 1.782413641102496,
+        "max": 2.3471886677281755,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0238422753871246,
+        "min": 0.9703429479600529,
+        "max": 1.1343709916020808,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 1.9429172814386484,
+        "min": 1.7712867738920017,
+        "max": 2.3256408219555507,
+        "status": "loss"
+      },
+      "candidate_ns": 3181309991,
+      "control_ns": 3289560002
+    },
+    {
+      "scenario": [
+        1,
+        128,
+        8192,
+        0
+      ],
+      "candidate": "generated",
+      "control": "scan",
+      "runtime": {
+        "median": 1.049232625212142,
+        "min": 0.9462454286959826,
+        "max": 1.2410002498766817,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 2.1159758026976627,
+        "min": 1.9517602419627516,
+        "max": 2.4964969808674033,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.055092191250788,
+        "min": 0.985421369445768,
+        "max": 1.2051433145295503,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 2.0972823091155113,
+        "min": 1.9370795769090305,
+        "max": 2.469372969087786,
+        "status": "loss"
+      },
+      "candidate_ns": 3181309991,
+      "control_ns": 2969868528
+    },
+    {
+      "scenario": [
+        1,
+        128,
+        8192,
+        0
+      ],
+      "candidate": "generated",
+      "control": "indexed",
+      "runtime": {
+        "median": 0.8482837981823111,
+        "min": 0.7368427398685544,
+        "max": 0.9096856504146507,
+        "status": "gain"
+      },
+      "installed": {
+        "median": 1.7323976964443824,
+        "min": 1.5120778949421925,
+        "max": 1.8425350710575936,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 0.9567831197366231,
+        "min": 0.8639581193826394,
+        "max": 1.0258168002190853,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 1.725726119671592,
+        "min": 1.5070914476841388,
+        "max": 1.8333084022695059,
+        "status": "loss"
+      },
+      "candidate_ns": 3181309991,
+      "control_ns": 3593495773
+    },
+    {
+      "scenario": [
+        1,
+        128,
+        8192,
+        0
+      ],
+      "candidate": "generated",
+      "control": "sealed",
+      "runtime": {
+        "median": 1.0351047174000827,
+        "min": 0.9839287946740315,
+        "max": 1.273950577683674,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 2.166895474928521,
+        "min": 2.0194369660173805,
+        "max": 2.562782538744545,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.076412710373105,
+        "min": 1.0043240619744505,
+        "max": 1.220380688865537,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 2.1403929314893273,
+        "min": 2.0021985667119213,
+        "max": 2.532530687087692,
+        "status": "loss"
+      },
+      "candidate_ns": 3181309991,
+      "control_ns": 2797318862
+    },
+    {
+      "scenario": [
+        1,
+        128,
+        8192,
+        0
+      ],
+      "candidate": "generated",
+      "control": "planned",
+      "runtime": {
+        "median": 0.7716314494919319,
+        "min": 0.7302322976658663,
+        "max": 0.8169695130100394,
+        "status": "gain"
+      },
+      "installed": {
+        "median": 1.5660316215587875,
+        "min": 1.498512580405388,
+        "max": 1.6434822820486523,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 0.9012412691565158,
+        "min": 0.8596297568807583,
+        "max": 0.9636885239940635,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 1.5572839557522697,
+        "min": 1.4905853794502593,
+        "max": 1.63718409863968,
+        "status": "loss"
+      },
+      "candidate_ns": 3181309991,
+      "control_ns": 3981953422
+    },
+    {
+      "scenario": [
+        1,
+        128,
+        8192,
+        0
+      ],
+      "candidate": "generated",
+      "control": "planned-sealed",
+      "runtime": {
+        "median": 1.1678145660042527,
+        "min": 0.9935391977005453,
+        "max": 1.286319868056351,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 2.4128513776006097,
+        "min": 2.038845709288786,
+        "max": 2.617046141150708,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.1256519301959822,
+        "min": 1.008951381104693,
+        "max": 1.2253569299835374,
+        "status": "loss"
+      },
+      "process_envelope": {
+        "median": 2.383479803017609,
+        "min": 2.0176043496236633,
+        "max": 2.584037424250246,
+        "status": "loss"
+      },
+      "candidate_ns": 3181309991,
+      "control_ns": 2609349382
+    },
+    {
+      "scenario": [
+        1,
+        128,
+        8192,
+        0
+      ],
+      "candidate": "generated-sealed",
+      "control": "trace",
+      "runtime": {
+        "median": 2.1401937004553204,
+        "min": 1.7634997447376768,
+        "max": 2.4770254541422436,
+        "status": "loss"
+      },
+      "installed": {
+        "median": 4.702836282559098,
+        "min": 3.955453190593557,
+        "max": 5.358300550189377,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.3933048926434959,
+        "min": 1.250622493971974,
+        "max": 1.549046094121443,
+        "status": "loss"
+      },
+      "process_envelope": {
+        "median": 4.48504881674195,
+        "min": 3.8511304933422736,
+        "max": 5.170781343010219,
+        "status": "loss"
+      },
+      "candidate_ns": 2732840678,
+      "control_ns": 1268463026
+    },
+    {
+      "scenario": [
+        1,
+        128,
+        8192,
+        0
+      ],
+      "candidate": "generated-sealed",
+      "control": "direct",
+      "runtime": {
+        "median": 0.8289948151635659,
+        "min": 0.7921932243628312,
+        "max": 0.9663450145161716,
+        "status": "gain"
+      },
+      "installed": {
+        "median": 1.8273457846460734,
+        "min": 1.6510543899915513,
+        "max": 2.219051967894055,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 0.9518313115303269,
+        "min": 0.9006168781269274,
+        "max": 1.0724439052753831,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 1.8132990201999122,
+        "min": 1.6398858080669656,
+        "max": 2.200735990204945,
+        "status": "loss"
+      },
+      "candidate_ns": 2732840678,
+      "control_ns": 3289560002
+    },
+    {
+      "scenario": [
+        1,
+        128,
+        8192,
+        0
+      ],
+      "candidate": "generated-sealed",
+      "control": "scan",
+      "runtime": {
+        "median": 0.893430056102221,
+        "min": 0.8089702451839794,
+        "max": 1.0644895828800178,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 1.9713486455047549,
+        "min": 1.8144850584507486,
+        "max": 2.3199863138707397,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 0.9935565195498607,
+        "min": 0.9179598967783514,
+        "max": 1.1199356608033793,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 1.9565047117355154,
+        "min": 1.8025471165827585,
+        "max": 2.293565183929549,
+        "status": "loss"
+      },
+      "candidate_ns": 2732840678,
+      "control_ns": 2969868528
+    },
+    {
+      "scenario": [
+        1,
+        128,
+        8192,
+        0
+      ],
+      "candidate": "generated-sealed",
+      "control": "indexed",
+      "runtime": {
+        "median": 0.7544434111316787,
+        "min": 0.6505767056849359,
+        "max": 0.7765231978192729,
+        "status": "gain"
+      },
+      "installed": {
+        "median": 1.624502627357028,
+        "min": 1.425811860758574,
+        "max": 1.7074541004402575,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 0.8911818746538056,
+        "min": 0.8159756556547785,
+        "max": 0.9506115402347379,
+        "status": "gain"
+      },
+      "process_envelope": {
+        "median": 1.6195892625022206,
+        "min": 1.4225307372387699,
+        "max": 1.6992238249423461,
+        "status": "loss"
+      },
+      "candidate_ns": 2732840678,
+      "control_ns": 3593495773
+    },
+    {
+      "scenario": [
+        1,
+        128,
+        8192,
+        0
+      ],
+      "candidate": "generated-sealed",
+      "control": "sealed",
+      "runtime": {
+        "median": 0.9205974881839905,
+        "min": 0.8411867514836513,
+        "max": 1.0927533005597772,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 2.046550540150757,
+        "min": 1.8867452802132245,
+        "max": 2.381585261620648,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.007676036720327,
+        "min": 0.9355685200744156,
+        "max": 1.1340957019288975,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 2.023473961850885,
+        "min": 1.8740634363505702,
+        "max": 2.35222636833319,
+        "status": "loss"
+      },
+      "candidate_ns": 2732840678,
+      "control_ns": 2797318862
+    },
+    {
+      "scenario": [
+        1,
+        128,
+        8192,
+        0
+      ],
+      "candidate": "generated-sealed",
+      "control": "planned",
+      "runtime": {
+        "median": 0.6570504125054507,
+        "min": 0.6440532181869932,
+        "max": 0.7020156133236434,
+        "status": "gain"
+      },
+      "installed": {
+        "median": 1.467841374695428,
+        "min": 1.3844076992691616,
+        "max": 1.5272826006451463,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 0.8420325720484166,
+        "min": 0.8118876815375751,
+        "max": 0.895552529658464,
+        "status": "gain"
+      },
+      "process_envelope": {
+        "median": 1.4627079294384806,
+        "min": 1.3801935391382565,
+        "max": 1.5206242618384962,
+        "status": "loss"
+      },
+      "candidate_ns": 2732840678,
+      "control_ns": 3981953422
+    },
+    {
+      "scenario": [
+        1,
+        128,
+        8192,
+        0
+      ],
+      "candidate": "generated-sealed",
+      "control": "planned-sealed",
+      "runtime": {
+        "median": 0.998395561172547,
+        "min": 0.8772203663487025,
+        "max": 1.1440222613497522,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 2.239357799567945,
+        "min": 1.9225268779369433,
+        "max": 2.4747485344441094,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0433467276087978,
+        "min": 0.9529162887073613,
+        "max": 1.1587301496007754,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 2.2179443207068603,
+        "min": 1.9043995023239122,
+        "max": 2.444015733266309,
+        "status": "loss"
+      },
+      "candidate_ns": 2732840678,
+      "control_ns": 2609349382
+    },
+    {
+      "scenario": [
+        2,
+        128,
+        64,
+        2
+      ],
+      "candidate": "generated",
+      "control": "trace",
+      "runtime": {
+        "median": 1.9311835613737542,
+        "min": 1.661345073604444,
+        "max": 2.247472044582604,
+        "status": "loss"
+      },
+      "installed": {
+        "median": 272.8223286800429,
+        "min": 227.81444523968474,
+        "max": 306.70147301330246,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0651058979819081,
+        "min": 0.8812038375725149,
+        "max": 1.1026519958413123,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 83.54762116431515,
+        "min": 65.595481627113,
+        "max": 101.20753884710584,
+        "status": "loss"
+      },
+      "candidate_ns": 22802840,
+      "control_ns": 11807702
+    },
+    {
+      "scenario": [
+        2,
+        128,
+        64,
+        2
+      ],
+      "candidate": "generated",
+      "control": "direct",
+      "runtime": {
+        "median": 0.9723031901896376,
+        "min": 0.9101629024609297,
+        "max": 1.3660570486050572,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 148.93788915653286,
+        "min": 99.65991600067719,
+        "max": 186.4190969748797,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.061118739395644,
+        "min": 0.87843019285684,
+        "max": 1.0995191701333464,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 68.15342800364712,
+        "min": 45.29682855637971,
+        "max": 78.43334648575305,
+        "status": "loss"
+      },
+      "candidate_ns": 22802840,
+      "control_ns": 20998459
+    },
+    {
+      "scenario": [
+        2,
+        128,
+        64,
+        2
+      ],
+      "candidate": "generated",
+      "control": "scan",
+      "runtime": {
+        "median": 1.2233666867633646,
+        "min": 0.8425274831221885,
+        "max": 1.3297468964822399,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 145.33038245869147,
+        "min": 108.06179345779464,
+        "max": 195.90115673357047,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0627332505866103,
+        "min": 0.8779061975024018,
+        "max": 1.0993287702972252,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 68.37127257163623,
+        "min": 53.36418993542731,
+        "max": 84.27508406065566,
+        "status": "loss"
+      },
+      "candidate_ns": 22802840,
+      "control_ns": 22196018
+    },
+    {
+      "scenario": [
+        2,
+        128,
+        64,
+        2
+      ],
+      "candidate": "generated",
+      "control": "indexed",
+      "runtime": {
+        "median": 0.7601521088276905,
+        "min": 0.6709308803456112,
+        "max": 0.991956361892443,
+        "status": "gain"
+      },
+      "installed": {
+        "median": 106.75095548574944,
+        "min": 88.77838038689272,
+        "max": 123.12813249158253,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0588749064331004,
+        "min": 0.8761893726581028,
+        "max": 1.0968037518132827,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 58.31836479472133,
+        "min": 48.483114653248904,
+        "max": 63.20660572479886,
+        "status": "loss"
+      },
+      "candidate_ns": 22802840,
+      "control_ns": 30152726
+    },
+    {
+      "scenario": [
+        2,
+        128,
+        64,
+        2
+      ],
+      "candidate": "generated",
+      "control": "sealed",
+      "runtime": {
+        "median": 1.1292615648395308,
+        "min": 0.8339079821325409,
+        "max": 1.3312262766667364,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 149.9892825496592,
+        "min": 114.44125546249559,
+        "max": 199.15047653265705,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0623077615623895,
+        "min": 0.8778373041082912,
+        "max": 1.0993367293830292,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 71.11526692281927,
+        "min": 57.35690629448476,
+        "max": 83.87883905627898,
+        "status": "loss"
+      },
+      "candidate_ns": 22802840,
+      "control_ns": 21442683
+    },
+    {
+      "scenario": [
+        2,
+        128,
+        64,
+        2
+      ],
+      "candidate": "generated",
+      "control": "planned",
+      "runtime": {
+        "median": 0.7894221740873149,
+        "min": 0.7435745551623595,
+        "max": 0.9871485926427043,
+        "status": "gain"
+      },
+      "installed": {
+        "median": 115.38154074163246,
+        "min": 96.20362644459247,
+        "max": 134.71132073758622,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0593330998853332,
+        "min": 0.8770200353449873,
+        "max": 1.0968487572935648,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 61.115687891963226,
+        "min": 51.65810892324503,
+        "max": 65.91006413999467,
+        "status": "loss"
+      },
+      "candidate_ns": 22802840,
+      "control_ns": 27206949
+    },
+    {
+      "scenario": [
+        2,
+        128,
+        64,
+        2
+      ],
+      "candidate": "generated",
+      "control": "planned-sealed",
+      "runtime": {
+        "median": 1.1527549256568204,
+        "min": 1.0537957706578875,
+        "max": 1.7700776428610914,
+        "status": "loss"
+      },
+      "installed": {
+        "median": 173.17993527779635,
+        "min": 140.48149126070356,
+        "max": 219.71365163160306,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.062365584414272,
+        "min": 0.8792446011977756,
+        "max": 1.101441761075137,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 78.1647532363906,
+        "min": 65.16913333822806,
+        "max": 84.37847844254485,
+        "status": "loss"
+      },
+      "candidate_ns": 22802840,
+      "control_ns": 18592074
+    },
+    {
+      "scenario": [
+        2,
+        128,
+        64,
+        2
+      ],
+      "candidate": "generated-sealed",
+      "control": "trace",
+      "runtime": {
+        "median": 1.6918753361929395,
+        "min": 1.6609305686473717,
+        "max": 1.7468282802454271,
+        "status": "loss"
+      },
+      "installed": {
+        "median": 272.5735210797156,
+        "min": 227.25276996270483,
+        "max": 306.2008292489653,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.064155494336906,
+        "min": 0.8811031205452584,
+        "max": 1.1005536825228055,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 83.35766615733667,
+        "min": 65.64702506471929,
+        "max": 101.1650919223911,
+        "status": "loss"
+      },
+      "candidate_ns": 19864994,
+      "control_ns": 11807702
+    },
+    {
+      "scenario": [
+        2,
+        128,
+        64,
+        2
+      ],
+      "candidate": "generated-sealed",
+      "control": "direct",
+      "runtime": {
+        "median": 0.9702785363233756,
+        "min": 0.7265922087609545,
+        "max": 1.0617560697512876,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 148.98145368667292,
+        "min": 99.4142050192485,
+        "max": 186.11479599602592,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0612017493003338,
+        "min": 0.8768398878875976,
+        "max": 1.097589054881096,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 68.19769850680687,
+        "min": 44.9984082712273,
+        "max": 78.40045116598408,
+        "status": "loss"
+      },
+      "candidate_ns": 19864994,
+      "control_ns": 20998459
+    },
+    {
+      "scenario": [
+        2,
+        128,
+        64,
+        2
+      ],
+      "candidate": "generated-sealed",
+      "control": "scan",
+      "runtime": {
+        "median": 0.9142093865665454,
+        "min": 0.7724840965055944,
+        "max": 1.1158426180904362,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 145.02122515849464,
+        "min": 107.94755031666996,
+        "max": 195.7842377037559,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0607288241971606,
+        "min": 0.8773178819430241,
+        "max": 1.0979265011696597,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 67.97067873322656,
+        "min": 53.40612230220195,
+        "max": 84.09683266629878,
+        "status": "loss"
+      },
+      "candidate_ns": 19864994,
+      "control_ns": 22196018
+    },
+    {
+      "scenario": [
+        2,
+        128,
+        64,
+        2
+      ],
+      "candidate": "generated-sealed",
+      "control": "indexed",
+      "runtime": {
+        "median": 0.6622165081608,
+        "min": 0.612607106362013,
+        "max": 0.7412788225464286,
+        "status": "gain"
+      },
+      "installed": {
+        "median": 106.78129396990508,
+        "min": 88.71419084315946,
+        "max": 122.87745495223653,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.057930062758324,
+        "min": 0.8755558603569124,
+        "max": 1.0944025397333512,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 57.976671906404604,
+        "min": 48.487903169700694,
+        "max": 63.07291655998115,
+        "status": "loss"
+      },
+      "candidate_ns": 19864994,
+      "control_ns": 30152726
+    },
+    {
+      "scenario": [
+        2,
+        128,
+        64,
+        2
+      ],
+      "candidate": "generated-sealed",
+      "control": "sealed",
+      "runtime": {
+        "median": 0.9264229667528079,
+        "min": 0.8438855934490702,
+        "max": 1.1343505716527365,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 149.69274042539053,
+        "min": 114.47896352579139,
+        "max": 199.0316182222134,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0608488807060237,
+        "min": 0.8779161420254393,
+        "max": 1.0980345559204103,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 70.72749585157679,
+        "min": 57.36257124590918,
+        "max": 83.8436598709422,
+        "status": "loss"
+      },
+      "candidate_ns": 19864994,
+      "control_ns": 21442683
+    },
+    {
+      "scenario": [
+        2,
+        128,
+        64,
+        2
+      ],
+      "candidate": "generated-sealed",
+      "control": "planned",
+      "runtime": {
+        "median": 0.7068119930402434,
+        "min": 0.6877155105114743,
+        "max": 0.7771978769100497,
+        "status": "gain"
+      },
+      "installed": {
+        "median": 115.3074803220466,
+        "min": 96.10191978101663,
+        "max": 134.4914248823421,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0586866911981285,
+        "min": 0.8764398861328099,
+        "max": 1.0949233297308898,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 61.120789992069966,
+        "min": 51.66321102335177,
+        "max": 65.77065685294113,
+        "status": "loss"
+      },
+      "candidate_ns": 19864994,
+      "control_ns": 27206949
+    },
+    {
+      "scenario": [
+        2,
+        128,
+        64,
+        2
+      ],
+      "candidate": "generated-sealed",
+      "control": "planned-sealed",
+      "runtime": {
+        "median": 1.0740333179437156,
+        "min": 1.004237616088311,
+        "max": 1.3227608807433606,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 173.07192989872996,
+        "min": 140.33297395113505,
+        "max": 219.26633486948532,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0618555720034613,
+        "min": 0.8789664479524343,
+        "max": 1.0990303950876827,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 78.17127863779875,
+        "min": 65.22034176104552,
+        "max": 84.3430897060654,
+        "status": "loss"
+      },
+      "candidate_ns": 19864994,
+      "control_ns": 18592074
+    },
+    {
+      "scenario": [
+        2,
+        128,
+        8192,
+        2
+      ],
+      "candidate": "generated",
+      "control": "trace",
+      "runtime": {
+        "median": 2.1081685135438692,
+        "min": 1.9493196346002486,
+        "max": 2.4158089654574124,
+        "status": "loss"
+      },
+      "installed": {
+        "median": 4.448718940128459,
+        "min": 3.878278106181389,
+        "max": 4.914053541161536,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.3847799280199946,
+        "min": 1.2132703722415494,
+        "max": 1.520938805238686,
+        "status": "loss"
+      },
+      "process_envelope": {
+        "median": 4.244467362487795,
+        "min": 3.6906088676107243,
+        "max": 4.708913631095611,
+        "status": "loss"
+      },
+      "candidate_ns": 2900311893,
+      "control_ns": 1375428839
+    },
+    {
+      "scenario": [
+        2,
+        128,
+        8192,
+        2
+      ],
+      "candidate": "generated",
+      "control": "direct",
+      "runtime": {
+        "median": 0.9209804165191221,
+        "min": 0.8457496889966055,
+        "max": 0.9475409626412543,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 1.8653702054702845,
+        "min": 1.6494419656906976,
+        "max": 2.040082645662585,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 0.9821884375947757,
+        "min": 0.8612452337519336,
+        "max": 1.0197481688447008,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 1.8472784145223609,
+        "min": 1.6330326353837372,
+        "max": 2.0173611885474383,
+        "status": "loss"
+      },
+      "candidate_ns": 2900311893,
+      "control_ns": 3429279290
+    },
+    {
+      "scenario": [
+        2,
+        128,
+        8192,
+        2
+      ],
+      "candidate": "generated",
+      "control": "scan",
+      "runtime": {
+        "median": 1.008883465511866,
+        "min": 0.9668977396991602,
+        "max": 1.1594009595206747,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 2.1390244187095826,
+        "min": 1.8857136208745047,
+        "max": 2.3851083110582367,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0363194609924624,
+        "min": 0.9215340956431166,
+        "max": 1.1280405602223977,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 2.1073671830773644,
+        "min": 1.8616965703117025,
+        "max": 2.3532170515863866,
+        "status": "loss"
+      },
+      "candidate_ns": 2900311893,
+      "control_ns": 2905723544
+    },
+    {
+      "scenario": [
+        2,
+        128,
+        8192,
+        2
+      ],
+      "candidate": "generated",
+      "control": "indexed",
+      "runtime": {
+        "median": 0.7189305467405459,
+        "min": 0.6495480541643872,
+        "max": 0.822569342427764,
+        "status": "gain"
+      },
+      "installed": {
+        "median": 1.5041920205190584,
+        "min": 1.292311405817789,
+        "max": 1.6732075457144948,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 0.8605292688954747,
+        "min": 0.7461687000175452,
+        "max": 0.9378008600913521,
+        "status": "gain"
+      },
+      "process_envelope": {
+        "median": 1.4947471077605403,
+        "min": 1.286084853353257,
+        "max": 1.6592321396886345,
+        "status": "loss"
+      },
+      "candidate_ns": 2900311893,
+      "control_ns": 4118300571
+    },
+    {
+      "scenario": [
+        2,
+        128,
+        8192,
+        2
+      ],
+      "candidate": "generated",
+      "control": "sealed",
+      "runtime": {
+        "median": 0.9870977135849657,
+        "min": 0.985710324321337,
+        "max": 1.061651481287543,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 2.08645503585873,
+        "min": 1.8447468342113211,
+        "max": 2.285480472133084,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0330753892036306,
+        "min": 0.9293454087096651,
+        "max": 1.080054821857008,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 2.0600978658711973,
+        "min": 1.824264346484408,
+        "max": 2.254460975861336,
+        "status": "loss"
+      },
+      "candidate_ns": 2900311893,
+      "control_ns": 2937536711
+    },
+    {
+      "scenario": [
+        2,
+        128,
+        8192,
+        2
+      ],
+      "candidate": "generated",
+      "control": "planned",
+      "runtime": {
+        "median": 0.804600395460957,
+        "min": 0.7341060981360764,
+        "max": 0.925032972497349,
+        "status": "gain"
+      },
+      "installed": {
+        "median": 1.6751596309546968,
+        "min": 1.431869255587163,
+        "max": 1.9029687810664515,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 0.9171367676187526,
+        "min": 0.7978948704899992,
+        "max": 1.0032906864704827,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 1.6627518809729076,
+        "min": 1.4184671778525537,
+        "max": 1.886048960791041,
+        "status": "loss"
+      },
+      "candidate_ns": 2900311893,
+      "control_ns": 3604661282
+    },
+    {
+      "scenario": [
+        2,
+        128,
+        8192,
+        2
+      ],
+      "candidate": "generated",
+      "control": "planned-sealed",
+      "runtime": {
+        "median": 1.1548281577176722,
+        "min": 0.9616261231422933,
+        "max": 1.2302330346256651,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 2.3023685965046727,
+        "min": 1.9132078051836032,
+        "max": 2.5308233629866557,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.070348555527933,
+        "min": 0.9182276234325447,
+        "max": 1.1608416147816565,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 2.2718161281434712,
+        "min": 1.868833879517963,
+        "max": 2.4940949628852556,
+        "status": "loss"
+      },
+      "candidate_ns": 2900311893,
+      "control_ns": 2742717940
+    },
+    {
+      "scenario": [
+        2,
+        128,
+        8192,
+        2
+      ],
+      "candidate": "generated-sealed",
+      "control": "trace",
+      "runtime": {
+        "median": 1.9912882012627895,
+        "min": 1.7420059730185722,
+        "max": 2.0663856152110136,
+        "status": "loss"
+      },
+      "installed": {
+        "median": 4.175126948433347,
+        "min": 3.7458066800066563,
+        "max": 4.564630190915137,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.3372490175762486,
+        "min": 1.14139708247235,
+        "max": 1.4151220351507423,
+        "status": "loss"
+      },
+      "process_envelope": {
+        "median": 3.9789089748776494,
+        "min": 3.5534174631218067,
+        "max": 4.381015642966495,
+        "status": "loss"
+      },
+      "candidate_ns": 2649213471,
+      "control_ns": 1375428839
+    },
+    {
+      "scenario": [
+        2,
+        128,
+        8192,
+        2
+      ],
+      "candidate": "generated-sealed",
+      "control": "direct",
+      "runtime": {
+        "median": 0.8020529708430724,
+        "min": 0.7715019276491536,
+        "max": 0.8409322009465143,
+        "status": "gain"
+      },
+      "installed": {
+        "median": 1.7503372483772057,
+        "min": 1.5741269820517465,
+        "max": 1.9008996841583339,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 0.9245859366075776,
+        "min": 0.8224418889264057,
+        "max": 0.9599065802301102,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 1.7358316963239622,
+        "min": 1.5606892482844108,
+        "max": 1.878420114192802,
+        "status": "loss"
+      },
+      "candidate_ns": 2649213471,
+      "control_ns": 3429279290
+    },
+    {
+      "scenario": [
+        2,
+        128,
+        8192,
+        2
+      ],
+      "candidate": "generated-sealed",
+      "control": "scan",
+      "runtime": {
+        "median": 0.9517121082321381,
+        "min": 0.8209378732022372,
+        "max": 0.9712259448134605,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 2.0514020469968988,
+        "min": 1.7652491535277952,
+        "max": 2.1969332963510224,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0083451110865482,
+        "min": 0.8505959176968905,
+        "max": 1.0356911308845893,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 2.0211085446347465,
+        "min": 1.7435046636999447,
+        "max": 2.168581149351837,
+        "status": "loss"
+      },
+      "candidate_ns": 2649213471,
+      "control_ns": 2905723544
+    },
+    {
+      "scenario": [
+        2,
+        128,
+        8192,
+        2
+      ],
+      "candidate": "generated-sealed",
+      "control": "indexed",
+      "runtime": {
+        "median": 0.6432783196192797,
+        "min": 0.5940612899593416,
+        "max": 0.7035926602683512,
+        "status": "gain"
+      },
+      "installed": {
+        "median": 1.4048122896545503,
+        "min": 1.2542642466393912,
+        "max": 1.554230863555082,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 0.8068488370826268,
+        "min": 0.7183938347491514,
+        "max": 0.868633228427079,
+        "status": "gain"
+      },
+      "process_envelope": {
+        "median": 1.3972777572807347,
+        "min": 1.2520421058395739,
+        "max": 1.543694051062344,
+        "status": "loss"
+      },
+      "candidate_ns": 2649213471,
+      "control_ns": 4118300571
+    },
+    {
+      "scenario": [
+        2,
+        128,
+        8192,
+        2
+      ],
+      "candidate": "generated-sealed",
+      "control": "sealed",
+      "runtime": {
+        "median": 0.9076553270131231,
+        "min": 0.8156511692357196,
+        "max": 1.0556041916568106,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 1.953802911299174,
+        "min": 1.6847624446409477,
+        "max": 2.2794331825023515,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 0.9607469387600203,
+        "min": 0.8479476197923307,
+        "max": 1.0770847149741514,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 1.9253891185807115,
+        "min": 1.667126157528285,
+        "max": 2.249633971951234,
+        "status": "loss"
+      },
+      "candidate_ns": 2649213471,
+      "control_ns": 2937536711
+    },
+    {
+      "scenario": [
+        2,
+        128,
+        8192,
+        2
+      ],
+      "candidate": "generated-sealed",
+      "control": "planned",
+      "runtime": {
+        "median": 0.7294745673271138,
+        "min": 0.6066010376147248,
+        "max": 0.8000172985462771,
+        "status": "gain"
+      },
+      "installed": {
+        "median": 1.5910669080519177,
+        "min": 1.3043641950658114,
+        "max": 1.752832547544348,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 0.879592763084121,
+        "min": 0.7268439464237618,
+        "max": 0.9310013335619152,
+        "status": "gain"
+      },
+      "process_envelope": {
+        "median": 1.5814224854692722,
+        "min": 1.2938245896695335,
+        "max": 1.7380675617528891,
+        "status": "loss"
+      },
+      "candidate_ns": 2649213471,
+      "control_ns": 3604661282
+    },
+    {
+      "scenario": [
+        2,
+        128,
+        8192,
+        2
+      ],
+      "candidate": "generated-sealed",
+      "control": "planned-sealed",
+      "runtime": {
+        "median": 1.0082743980593207,
+        "min": 0.861346998142587,
+        "max": 1.1482501229609419,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 2.141178266402414,
+        "min": 1.8521402276568342,
+        "max": 2.47948942679124,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0004499473079411,
+        "min": 0.8702689855586211,
+        "max": 1.1215285464162421,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 2.1115218192332246,
+        "min": 1.8193657283772604,
+        "max": 2.42137186290402,
+        "status": "loss"
+      },
+      "candidate_ns": 2649213471,
+      "control_ns": 2742717940
+    },
+    {
+      "scenario": [
+        3,
+        32,
+        64,
+        2
+      ],
+      "candidate": "generated",
+      "control": "trace",
+      "runtime": {
+        "median": 1.922460155704111,
+        "min": 1.486424025978216,
+        "max": 2.498948343499508,
+        "status": "loss"
+      },
+      "installed": {
+        "median": 860.7906844220747,
+        "min": 619.9713956130851,
+        "max": 1078.7901557965308,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0893539251633704,
+        "min": 1.0127144179685388,
+        "max": 1.1143358951383093,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 214.30991211932937,
+        "min": 171.42873682802022,
+        "max": 248.67314353228085,
+        "status": "loss"
+      },
+      "candidate_ns": 7233531,
+      "control_ns": 3676401
+    },
+    {
+      "scenario": [
+        3,
+        32,
+        64,
+        2
+      ],
+      "candidate": "generated",
+      "control": "direct",
+      "runtime": {
+        "median": 1.0948040190223198,
+        "min": 0.9954786302375437,
+        "max": 1.1790625179788157,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 474.3131631831472,
+        "min": 368.8751014731067,
+        "max": 579.6834648705895,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0883102309933874,
+        "min": 1.0119471070382662,
+        "max": 1.1128951415470258,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 195.89957547073874,
+        "min": 154.4619984265495,
+        "max": 230.4377265165934,
+        "status": "loss"
+      },
+      "candidate_ns": 7233531,
+      "control_ns": 6671988
+    },
+    {
+      "scenario": [
+        3,
+        32,
+        64,
+        2
+      ],
+      "candidate": "generated",
+      "control": "scan",
+      "runtime": {
+        "median": 1.0318797920471916,
+        "min": 0.6185764646512069,
+        "max": 1.1878891355686207,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 405.5429728739655,
+        "min": 258.00155768528816,
+        "max": 512.8089618029077,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.087325738511819,
+        "min": 1.010534633371692,
+        "max": 1.1129153845552426,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 176.15085665522125,
+        "min": 123.87327348601062,
+        "max": 212.35070232898613,
+        "status": "loss"
+      },
+      "candidate_ns": 7233531,
+      "control_ns": 7815407
+    },
+    {
+      "scenario": [
+        3,
+        32,
+        64,
+        2
+      ],
+      "candidate": "generated",
+      "control": "indexed",
+      "runtime": {
+        "median": 0.6337482340974255,
+        "min": 0.4983472056830228,
+        "max": 0.8664498029631751,
+        "status": "gain"
+      },
+      "installed": {
+        "median": 281.1087322978223,
+        "min": 232.7246424158028,
+        "max": 364.965893750883,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0866290363595716,
+        "min": 1.0099132897446685,
+        "max": 1.1117782430620828,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 136.8215509285805,
+        "min": 121.14677527072202,
+        "max": 169.24039338748295,
+        "status": "loss"
+      },
+      "candidate_ns": 7233531,
+      "control_ns": 11268317
+    },
+    {
+      "scenario": [
+        3,
+        32,
+        64,
+        2
+      ],
+      "candidate": "generated",
+      "control": "sealed",
+      "runtime": {
+        "median": 0.8982969934187617,
+        "min": 0.7339673204303607,
+        "max": 1.04020307428505,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 433.8574595234478,
+        "min": 242.99451625430004,
+        "max": 485.75017533903616,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0877650604270042,
+        "min": 1.0108963047105206,
+        "max": 1.1125467837270377,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 175.82255401408142,
+        "min": 110.35534113969015,
+        "max": 213.48686499554435,
+        "status": "loss"
+      },
+      "candidate_ns": 7233531,
+      "control_ns": 7250389
+    },
+    {
+      "scenario": [
+        3,
+        32,
+        64,
+        2
+      ],
+      "candidate": "generated",
+      "control": "planned",
+      "runtime": {
+        "median": 0.8461844761715468,
+        "min": 0.7000496024938487,
+        "max": 1.0741642625610293,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 363.8197843384256,
+        "min": 291.98312289851094,
+        "max": 448.042883058531,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0877102393161568,
+        "min": 1.0109683929349582,
+        "max": 1.112612106297132,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 167.02859794886504,
+        "min": 148.33481890493482,
+        "max": 201.9742441431095,
+        "status": "loss"
+      },
+      "candidate_ns": 7233531,
+      "control_ns": 8699649
+    },
+    {
+      "scenario": [
+        3,
+        32,
+        64,
+        2
+      ],
+      "candidate": "generated",
+      "control": "planned-sealed",
+      "runtime": {
+        "median": 1.1457491957122623,
+        "min": 0.7389667844018695,
+        "max": 1.2950444867924957,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 494.7482452505723,
+        "min": 349.4623471507893,
+        "max": 553.9123521240086,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0884033077648327,
+        "min": 1.0112413788244898,
+        "max": 1.1132061262971913,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 184.42821063492826,
+        "min": 151.20877179876715,
+        "max": 204.0734189161342,
+        "status": "loss"
+      },
+      "candidate_ns": 7233531,
+      "control_ns": 6350205
+    },
+    {
+      "scenario": [
+        3,
+        32,
+        64,
+        2
+      ],
+      "candidate": "generated-sealed",
+      "control": "trace",
+      "runtime": {
+        "median": 1.5845205678053074,
+        "min": 1.338778378756998,
+        "max": 2.14182135168399,
+        "status": "loss"
+      },
+      "installed": {
+        "median": 860.4076473159485,
+        "min": 620.6267929387909,
+        "max": 1078.0744138749442,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0888939333947782,
+        "min": 1.012474715745736,
+        "max": 1.114580908272938,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 214.34840876176233,
+        "min": 171.7092895031889,
+        "max": 248.41370403897807,
+        "status": "loss"
+      },
+      "candidate_ns": 5825333,
+      "control_ns": 3676401
+    },
+    {
+      "scenario": [
+        3,
+        32,
+        64,
+        2
+      ],
+      "candidate": "generated-sealed",
+      "control": "direct",
+      "runtime": {
+        "median": 0.8731030391541471,
+        "min": 0.7759092603005028,
+        "max": 1.4344072405481625,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 474.10210195222174,
+        "min": 368.53681987027534,
+        "max": 579.5267155583847,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0878294740087633,
+        "min": 1.0113751939625222,
+        "max": 1.113594607330089,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 195.73254821062076,
+        "min": 154.27609918814764,
+        "max": 230.47700990212053,
+        "status": "loss"
+      },
+      "candidate_ns": 5825333,
+      "control_ns": 6671988
+    },
+    {
+      "scenario": [
+        3,
+        32,
+        64,
+        2
+      ],
+      "candidate": "generated-sealed",
+      "control": "scan",
+      "runtime": {
+        "median": 0.8309971167118304,
+        "min": 0.5733984273492646,
+        "max": 0.8913205495095843,
+        "status": "gain"
+      },
+      "installed": {
+        "median": 405.1932504602767,
+        "min": 258.2743017701465,
+        "max": 512.4687298590441,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0875570978455378,
+        "min": 1.0106663017389566,
+        "max": 1.1120887026845816,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 175.95721379809422,
+        "min": 124.07599899692228,
+        "max": 212.2129673514587,
+        "status": "loss"
+      },
+      "candidate_ns": 5825333,
+      "control_ns": 7815407
+    },
+    {
+      "scenario": [
+        3,
+        32,
+        64,
+        2
+      ],
+      "candidate": "generated-sealed",
+      "control": "indexed",
+      "runtime": {
+        "median": 0.6033853336536433,
+        "min": 0.426996004579672,
+        "max": 0.9131818886529373,
+        "status": "gain"
+      },
+      "installed": {
+        "median": 281.3881659523778,
+        "min": 232.5517728109693,
+        "max": 364.81178285720165,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0863049716747322,
+        "min": 1.0096096960968173,
+        "max": 1.1118942542931862,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 137.0308062198606,
+        "min": 121.05882954030737,
+        "max": 169.0638256999429,
+        "status": "loss"
+      },
+      "candidate_ns": 5825333,
+      "control_ns": 11268317
+    },
+    {
+      "scenario": [
+        3,
+        32,
+        64,
+        2
+      ],
+      "candidate": "generated-sealed",
+      "control": "sealed",
+      "runtime": {
+        "median": 0.7568917868427923,
+        "min": 0.5111261091112117,
+        "max": 1.4988516840777297,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 434.3161081332405,
+        "min": 242.7716750429809,
+        "max": 486.2088239488288,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0870433639502601,
+        "min": 1.010023697966545,
+        "max": 1.1137229028059772,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 175.62955313946145,
+        "min": 110.22252546929596,
+        "max": 213.79902435117847,
+        "status": "loss"
+      },
+      "candidate_ns": 5825333,
+      "control_ns": 7250389
+    },
+    {
+      "scenario": [
+        3,
+        32,
+        64,
+        2
+      ],
+      "candidate": "generated-sealed",
+      "control": "planned",
+      "runtime": {
+        "median": 0.725031436601275,
+        "min": 0.6259549161999047,
+        "max": 1.0087170011077238,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 363.5654151104257,
+        "min": 292.2917902971248,
+        "max": 447.9217300189607,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0873679381574313,
+        "min": 1.0108369438113127,
+        "max": 1.1123369333295452,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 166.83961354987727,
+        "min": 148.1616102993285,
+        "max": 202.0086752764971,
+        "status": "loss"
+      },
+      "candidate_ns": 5825333,
+      "control_ns": 8699649
+    },
+    {
+      "scenario": [
+        3,
+        32,
+        64,
+        2
+      ],
+      "candidate": "generated-sealed",
+      "control": "planned-sealed",
+      "runtime": {
+        "median": 0.915599811675301,
+        "min": 0.6331647109854267,
+        "max": 1.6509354317226614,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 494.3807425539918,
+        "min": 349.35654507737286,
+        "max": 553.5448494274282,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0878751112855878,
+        "min": 1.0109532157278083,
+        "max": 1.1139860529940824,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 184.22987480808882,
+        "min": 151.237624498001,
+        "max": 204.3718139811057,
+        "status": "loss"
+      },
+      "candidate_ns": 5825333,
+      "control_ns": 6350205
+    },
+    {
+      "scenario": [
+        3,
+        32,
+        8192,
+        2
+      ],
+      "candidate": "generated",
+      "control": "trace",
+      "runtime": {
+        "median": 2.090951805548313,
+        "min": 1.8525024316357976,
+        "max": 2.3825069419213944,
+        "status": "loss"
+      },
+      "installed": {
+        "median": 8.637645482874522,
+        "min": 7.4306553507213655,
+        "max": 9.14899981029788,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.2069321247838207,
+        "min": 1.1286698555535981,
+        "max": 1.314594484616044,
+        "status": "loss"
+      },
+      "process_envelope": {
+        "median": 7.694299896360597,
+        "min": 6.636247889150746,
+        "max": 8.093220653578447,
+        "status": "loss"
+      },
+      "candidate_ns": 1037441088,
+      "control_ns": 496157341
+    },
+    {
+      "scenario": [
+        3,
+        32,
+        8192,
+        2
+      ],
+      "candidate": "generated",
+      "control": "direct",
+      "runtime": {
+        "median": 1.0667331709607961,
+        "min": 0.9934689049509727,
+        "max": 1.1467249086978066,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 4.270673606181918,
+        "min": 3.698863734043204,
+        "max": 5.0841902366889755,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0696449079171444,
+        "min": 1.007163922498057,
+        "max": 1.1223180568344482,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 4.063733943957558,
+        "min": 3.5462408075399403,
+        "max": 4.828835587435766,
+        "status": "loss"
+      },
+      "candidate_ns": 1037441088,
+      "control_ns": 975873927
+    },
+    {
+      "scenario": [
+        3,
+        32,
+        8192,
+        2
+      ],
+      "candidate": "generated",
+      "control": "scan",
+      "runtime": {
+        "median": 0.9364199750028561,
+        "min": 0.7773830089691244,
+        "max": 1.09639132690097,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 3.6661897692943257,
+        "min": 3.1921344989984557,
+        "max": 4.2405097245501295,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.012611283421229,
+        "min": 0.9493410337773281,
+        "max": 1.1079747709886012,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 3.5265167401605546,
+        "min": 3.0761780975202506,
+        "max": 4.042036223219392,
+        "status": "loss"
+      },
+      "candidate_ns": 1037441088,
+      "control_ns": 1136603926
+    },
+    {
+      "scenario": [
+        3,
+        32,
+        8192,
+        2
+      ],
+      "candidate": "generated",
+      "control": "indexed",
+      "runtime": {
+        "median": 0.7748914542116564,
+        "min": 0.5723385123646325,
+        "max": 0.8895455069515001,
+        "status": "gain"
+      },
+      "installed": {
+        "median": 3.13321850983331,
+        "min": 2.497073883253239,
+        "max": 3.35095551734991,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 0.9735557707709468,
+        "min": 0.8664537432577394,
+        "max": 1.0377174157987983,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 3.0240187928600775,
+        "min": 2.4338204486920265,
+        "max": 3.2309476158439265,
+        "status": "loss"
+      },
+      "candidate_ns": 1037441088,
+      "control_ns": 1351934583
+    },
+    {
+      "scenario": [
+        3,
+        32,
+        8192,
+        2
+      ],
+      "candidate": "generated",
+      "control": "sealed",
+      "runtime": {
+        "median": 0.9786765467462187,
+        "min": 0.9052707368882424,
+        "max": 1.2117170213548285,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 4.140170977860467,
+        "min": 3.6360919368756264,
+        "max": 4.564589227245845,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0530072665427017,
+        "min": 0.9846995493280142,
+        "max": 1.1395534293872096,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 3.9099296054517017,
+        "min": 3.4343237013993204,
+        "max": 4.340404453405513,
+        "status": "loss"
+      },
+      "candidate_ns": 1037441088,
+      "control_ns": 992482001
+    },
+    {
+      "scenario": [
+        3,
+        32,
+        8192,
+        2
+      ],
+      "candidate": "generated",
+      "control": "planned",
+      "runtime": {
+        "median": 0.8364399342791459,
+        "min": 0.7194806271698791,
+        "max": 1.0060084597233339,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 3.441297227179839,
+        "min": 2.8859409200879758,
+        "max": 3.9865824586747487,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 0.9891966217689564,
+        "min": 0.9226649002777674,
+        "max": 1.079730272216059,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 3.3263919390772876,
+        "min": 2.7814922205144095,
+        "max": 3.7878005506732975,
+        "status": "loss"
+      },
+      "candidate_ns": 1037441088,
+      "control_ns": 1235474391
+    },
+    {
+      "scenario": [
+        3,
+        32,
+        8192,
+        2
+      ],
+      "candidate": "generated",
+      "control": "planned-sealed",
+      "runtime": {
+        "median": 1.0836876310448604,
+        "min": 0.9585642409614046,
+        "max": 1.372399952511834,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 4.381813899240304,
+        "min": 3.8449398956094663,
+        "max": 5.557775749413233,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0698361168495063,
+        "min": 0.9987315144809208,
+        "max": 1.172307759155029,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 4.142589229554604,
+        "min": 3.6552763685169563,
+        "max": 5.253029629864019,
+        "status": "loss"
+      },
+      "candidate_ns": 1037441088,
+      "control_ns": 957324840
+    },
+    {
+      "scenario": [
+        3,
+        32,
+        8192,
+        2
+      ],
+      "candidate": "generated-sealed",
+      "control": "trace",
+      "runtime": {
+        "median": 1.6250189917073101,
+        "min": 1.4968609239487647,
+        "max": 1.9882915909916106,
+        "status": "loss"
+      },
+      "installed": {
+        "median": 8.015944536699346,
+        "min": 7.075013843034333,
+        "max": 9.217705169379613,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.1551836854133604,
+        "min": 1.0826967596956472,
+        "max": 1.241464414695991,
+        "status": "loss"
+      },
+      "process_envelope": {
+        "median": 7.208372597473575,
+        "min": 6.329564852660161,
+        "max": 8.154974371250097,
+        "status": "loss"
+      },
+      "candidate_ns": 806265102,
+      "control_ns": 496157341
+    },
+    {
+      "scenario": [
+        3,
+        32,
+        8192,
+        2
+      ],
+      "candidate": "generated-sealed",
+      "control": "direct",
+      "runtime": {
+        "median": 0.8622009075060009,
+        "min": 0.6926821952331017,
+        "max": 1.1049134226926172,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 4.0556867003989545,
+        "min": 3.3980770243253327,
+        "max": 5.122370488420796,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0226775006341824,
+        "min": 0.9288477361423574,
+        "max": 1.1108815615663927,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 3.867145871270877,
+        "min": 3.2482144853700445,
+        "max": 4.865681061235801,
+        "status": "loss"
+      },
+      "candidate_ns": 806265102,
+      "control_ns": 975873927
+    },
+    {
+      "scenario": [
+        3,
+        32,
+        8192,
+        2
+      ],
+      "candidate": "generated-sealed",
+      "control": "scan",
+      "runtime": {
+        "median": 0.7832512404424774,
+        "min": 0.6430363366369416,
+        "max": 0.8660567251416538,
+        "status": "gain"
+      },
+      "installed": {
+        "median": 3.583112326852899,
+        "min": 3.039354498799228,
+        "max": 4.0159323772907,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 0.970585948260649,
+        "min": 0.9070549482457292,
+        "max": 1.0409101773739196,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 3.428179836518388,
+        "min": 2.9340176997334715,
+        "max": 3.834059623886377,
+        "status": "loss"
+      },
+      "candidate_ns": 806265102,
+      "control_ns": 1136603926
+    },
+    {
+      "scenario": [
+        3,
+        32,
+        8192,
+        2
+      ],
+      "candidate": "generated-sealed",
+      "control": "indexed",
+      "runtime": {
+        "median": 0.5928235118685063,
+        "min": 0.5741489203683996,
+        "max": 0.7026659639788208,
+        "status": "gain"
+      },
+      "installed": {
+        "median": 2.956937647342915,
+        "min": 2.517558882757113,
+        "max": 3.1640759743772304,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 0.9263719649974094,
+        "min": 0.8732346625439114,
+        "max": 0.9749054289199561,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 2.856998139221049,
+        "min": 2.454080128609522,
+        "max": 3.0538164866343256,
+        "status": "loss"
+      },
+      "candidate_ns": 806265102,
+      "control_ns": 1351934583
+    },
+    {
+      "scenario": [
+        3,
+        32,
+        8192,
+        2
+      ],
+      "candidate": "generated-sealed",
+      "control": "sealed",
+      "runtime": {
+        "median": 0.7750013306732954,
+        "min": 0.7324688980045246,
+        "max": 0.9571543020859277,
+        "status": "gain"
+      },
+      "installed": {
+        "median": 3.982035693416857,
+        "min": 3.4620635157628676,
+        "max": 4.347040321705437,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0039359449079794,
+        "min": 0.9396853796245389,
+        "max": 1.0705774114803392,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 3.766188339578453,
+        "min": 3.275612206797283,
+        "max": 4.102449267042245,
+        "status": "loss"
+      },
+      "candidate_ns": 806265102,
+      "control_ns": 992482001
+    },
+    {
+      "scenario": [
+        3,
+        32,
+        8192,
+        2
+      ],
+      "candidate": "generated-sealed",
+      "control": "planned",
+      "runtime": {
+        "median": 0.6157889257293395,
+        "min": 0.5813554778428885,
+        "max": 0.8663775870293287,
+        "status": "gain"
+      },
+      "installed": {
+        "median": 3.173900250434248,
+        "min": 2.7478157707609854,
+        "max": 4.016520111424931,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 0.948447540830277,
+        "min": 0.8804865582353781,
+        "max": 1.0429024618352667,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 3.0623999903153676,
+        "min": 2.6529502349811556,
+        "max": 3.8167026127589736,
+        "status": "loss"
+      },
+      "candidate_ns": 806265102,
+      "control_ns": 1235474391
+    },
+    {
+      "scenario": [
+        3,
+        32,
+        8192,
+        2
+      ],
+      "candidate": "generated-sealed",
+      "control": "planned-sealed",
+      "runtime": {
+        "median": 0.9000389773729411,
+        "min": 0.774540065851759,
+        "max": 1.0393826000958422,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 4.143573808238382,
+        "min": 3.660915720499821,
+        "max": 5.142262325615264,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0282066963008962,
+        "min": 0.9530758930157409,
+        "max": 1.0945439460114805,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 3.9211452739685937,
+        "min": 3.486353917964477,
+        "max": 4.846526464886025,
+        "status": "loss"
+      },
+      "candidate_ns": 806265102,
+      "control_ns": 957324840
+    },
+    {
+      "scenario": [
+        0,
+        4,
+        64,
+        0
+      ],
+      "candidate": "generated",
+      "control": "trace",
+      "runtime": {
+        "median": 1.0177912879558784,
+        "min": 0.9981401982958652,
+        "max": 1.8054914188587465,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 2454.72439129935,
+        "min": 2250.7113739863703,
+        "max": 4008.223401484871,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.1326593491082253,
+        "min": 1.0537784231266079,
+        "max": 1.2223739563788725,
+        "status": "loss"
+      },
+      "process_envelope": {
+        "median": 346.5846198921677,
+        "min": 270.7309051508472,
+        "max": 420.8788308957317,
+        "status": "loss"
+      },
+      "candidate_ns": 1410274,
+      "control_ns": 1365737
+    },
+    {
+      "scenario": [
+        0,
+        4,
+        64,
+        0
+      ],
+      "candidate": "generated",
+      "control": "direct",
+      "runtime": {
+        "median": 1.2859051020321535,
+        "min": 0.7341277029911193,
+        "max": 1.7195025001217952,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 3162.424100586073,
+        "min": 1658.381452041103,
+        "max": 3817.326456337554,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.1327650273391385,
+        "min": 1.0536010802735019,
+        "max": 1.2223538976123238,
+        "status": "loss"
+      },
+      "process_envelope": {
+        "median": 363.4659496523726,
+        "min": 275.57923125874885,
+        "max": 438.353697775693,
+        "status": "loss"
+      },
+      "candidate_ns": 1410274,
+      "control_ns": 1060107
+    },
+    {
+      "scenario": [
+        0,
+        4,
+        64,
+        0
+      ],
+      "candidate": "generated",
+      "control": "scan",
+      "runtime": {
+        "median": 0.9690057479727352,
+        "min": 0.6041975441601578,
+        "max": 1.0240205984201198,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 2003.383375804604,
+        "min": 1361.5104543286614,
+        "max": 2559.633836405795,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.1326254732305823,
+        "min": 1.0534562977474553,
+        "max": 1.2220784514237184,
+        "status": "loss"
+      },
+      "process_envelope": {
+        "median": 332.2604667525553,
+        "min": 298.0083228024195,
+        "max": 407.0261741920769,
+        "status": "loss"
+      },
+      "candidate_ns": 1410274,
+      "control_ns": 1602652
+    },
+    {
+      "scenario": [
+        0,
+        4,
+        64,
+        0
+      ],
+      "candidate": "generated",
+      "control": "indexed",
+      "runtime": {
+        "median": 0.7405664718659618,
+        "min": 0.6069666659148332,
+        "max": 0.7704889085571124,
+        "status": "gain"
+      },
+      "installed": {
+        "median": 1588.8422844680983,
+        "min": 1408.9121009367402,
+        "max": 1915.6871904155946,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.1324415544802113,
+        "min": 1.0534700679710303,
+        "max": 1.2218664720329675,
+        "status": "loss"
+      },
+      "process_envelope": {
+        "median": 334.2188491693946,
+        "min": 292.82339447146,
+        "max": 382.2108136908272,
+        "status": "loss"
+      },
+      "candidate_ns": 1410274,
+      "control_ns": 2097015
+    },
+    {
+      "scenario": [
+        0,
+        4,
+        64,
+        0
+      ],
+      "candidate": "generated",
+      "control": "sealed",
+      "runtime": {
+        "median": 0.5546337532640353,
+        "min": 0.520347891807709,
+        "max": 0.9942259849244365,
+        "status": "gain"
+      },
+      "installed": {
+        "median": 1315.8704176366432,
+        "min": 1215.9758598485673,
+        "max": 2207.199556593542,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.1322277336765443,
+        "min": 1.0533420903688322,
+        "max": 1.222046741332462,
+        "status": "loss"
+      },
+      "process_envelope": {
+        "median": 309.41651529164534,
+        "min": 277.9206911338692,
+        "max": 365.9187997132681,
+        "status": "loss"
+      },
+      "candidate_ns": 1410274,
+      "control_ns": 2548992
+    },
+    {
+      "scenario": [
+        0,
+        4,
+        64,
+        0
+      ],
+      "candidate": "generated",
+      "control": "planned",
+      "runtime": {
+        "median": 0.817778648874642,
+        "min": 0.5839554326556298,
+        "max": 0.8431101630498984,
+        "status": "gain"
+      },
+      "installed": {
+        "median": 1857.8882238399367,
+        "min": 1355.4976272646081,
+        "max": 2132.180019135773,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.1325332498240588,
+        "min": 1.0534390289584057,
+        "max": 1.2219487866042846,
+        "status": "loss"
+      },
+      "process_envelope": {
+        "median": 327.0831231184631,
+        "min": 300.6771516980793,
+        "max": 396.78486537015846,
+        "status": "loss"
+      },
+      "candidate_ns": 1410274,
+      "control_ns": 1724518
+    },
+    {
+      "scenario": [
+        0,
+        4,
+        64,
+        0
+      ],
+      "candidate": "generated",
+      "control": "planned-sealed",
+      "runtime": {
+        "median": 0.9645784648255068,
+        "min": 0.9024465809631811,
+        "max": 1.0225232457891418,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 2239.01302610633,
+        "min": 1891.0124046384883,
+        "max": 2493.4631676474164,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.1326330698648017,
+        "min": 1.0537285526849949,
+        "max": 1.22207725209235,
+        "status": "loss"
+      },
+      "process_envelope": {
+        "median": 347.8209476403613,
+        "min": 311.996563959019,
+        "max": 430.94338491765063,
+        "status": "loss"
+      },
+      "candidate_ns": 1410274,
+      "control_ns": 1451108
+    },
+    {
+      "scenario": [
+        0,
+        4,
+        64,
+        0
+      ],
+      "candidate": "generated-sealed",
+      "control": "trace",
+      "runtime": {
+        "median": 1.5120363765027578,
+        "min": 0.9352117677115404,
+        "max": 1.9102415647648876,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 2455.4865936853143,
+        "min": 2250.6561211989333,
+        "max": 4008.328151630777,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.1328205204110176,
+        "min": 1.0537498219098789,
+        "max": 1.2224628902953203,
+        "status": "loss"
+      },
+      "process_envelope": {
+        "median": 346.71888931288873,
+        "min": 270.6564487979347,
+        "max": 421.0579784567324,
+        "status": "loss"
+      },
+      "candidate_ns": 1335549,
+      "control_ns": 1365737
+    },
+    {
+      "scenario": [
+        0,
+        4,
+        64,
+        0
+      ],
+      "candidate": "generated-sealed",
+      "control": "direct",
+      "runtime": {
+        "median": 1.3297539323627632,
+        "min": 0.6745635131336477,
+        "max": 2.2678512640705137,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 3163.4060467481113,
+        "min": 1658.3218878512457,
+        "max": 3817.4262176191046,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.1327766929845524,
+        "min": 1.0535632380179085,
+        "max": 1.2226054169092173,
+        "status": "loss"
+      },
+      "process_envelope": {
+        "median": 363.6067590239103,
+        "min": 275.50344152027577,
+        "max": 438.6447758261123,
+        "status": "loss"
+      },
+      "candidate_ns": 1335549,
+      "control_ns": 1060107
+    },
+    {
+      "scenario": [
+        0,
+        4,
+        64,
+        0
+      ],
+      "candidate": "generated-sealed",
+      "control": "scan",
+      "runtime": {
+        "median": 0.9804144018258806,
+        "min": 0.5707737793026345,
+        "max": 1.0745438195176327,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 2003.4395951210868,
+        "min": 1361.4770305638037,
+        "max": 2559.5952591849023,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.1326442724796895,
+        "min": 1.0534304364142049,
+        "max": 1.2220621568831336,
+        "status": "loss"
+      },
+      "process_envelope": {
+        "median": 332.4810961880648,
+        "min": 298.13324158825486,
+        "max": 406.9517709355994,
+        "status": "loss"
+      },
+      "candidate_ns": 1335549,
+      "control_ns": 1602652
+    },
+    {
+      "scenario": [
+        0,
+        4,
+        64,
+        0
+      ],
+      "candidate": "generated-sealed",
+      "control": "indexed",
+      "runtime": {
+        "median": 0.7278660274251819,
+        "min": 0.5839879812784619,
+        "max": 1.3359515222911886,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 1588.789550091298,
+        "min": 1408.889122252104,
+        "max": 1916.2656377285937,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.1324676434218,
+        "min": 1.0534528863764867,
+        "max": 1.2222606255944033,
+        "status": "loss"
+      },
+      "process_envelope": {
+        "median": 334.3611098089752,
+        "min": 292.7654785140773,
+        "max": 382.4646114323835,
+        "status": "loss"
+      },
+      "candidate_ns": 1335549,
+      "control_ns": 2097015
+    },
+    {
+      "scenario": [
+        0,
+        4,
+        64,
+        0
+      ],
+      "candidate": "generated-sealed",
+      "control": "sealed",
+      "runtime": {
+        "median": 0.5852206550804252,
+        "min": 0.5040167425662494,
+        "max": 1.051908517168396,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 1315.8505856501122,
+        "min": 1215.9560278620365,
+        "max": 2207.2572391257863,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.132313476578835,
+        "min": 1.0533279206962793,
+        "max": 1.222081105509788,
+        "status": "loss"
+      },
+      "process_envelope": {
+        "median": 309.5397741415056,
+        "min": 277.86572270167636,
+        "max": 366.0745534734499,
+        "status": "loss"
+      },
+      "candidate_ns": 1335549,
+      "control_ns": 2548992
+    },
+    {
+      "scenario": [
+        0,
+        4,
+        64,
+        0
+      ],
+      "candidate": "generated-sealed",
+      "control": "planned",
+      "runtime": {
+        "median": 0.7783758738558644,
+        "min": 0.561847912618323,
+        "max": 1.4869281146810467,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 1857.8218725464158,
+        "min": 1355.4755197445709,
+        "max": 2132.823837087404,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.1324956605455514,
+        "min": 1.0534218478700936,
+        "max": 1.2223458039223227,
+        "status": "loss"
+      },
+      "process_envelope": {
+        "median": 327.31629634015394,
+        "min": 300.81563050891054,
+        "max": 396.93858273372956,
+        "status": "loss"
+      },
+      "candidate_ns": 1335549,
+      "control_ns": 1724518
+    },
+    {
+      "scenario": [
+        0,
+        4,
+        64,
+        0
+      ],
+      "candidate": "generated-sealed",
+      "control": "planned-sealed",
+      "runtime": {
+        "median": 0.9659580100331545,
+        "min": 0.8930072744413234,
+        "max": 1.5915751606857602,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 2238.976508871373,
+        "min": 1891.0658836531686,
+        "max": 2493.40660241166,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.1326245164902422,
+        "min": 1.0537269967743135,
+        "max": 1.222395366956497,
+        "status": "loss"
+      },
+      "process_envelope": {
+        "median": 347.7555700148148,
+        "min": 312.14025599852545,
+        "max": 431.1103355419295,
+        "status": "loss"
+      },
+      "candidate_ns": 1335549,
+      "control_ns": 1451108
+    },
+    {
+      "scenario": [
+        0,
+        4,
+        8192,
+        0
+      ],
+      "candidate": "generated",
+      "control": "trace",
+      "runtime": {
+        "median": 1.696497387914602,
+        "min": 1.6422731106325812,
+        "max": 1.8443182935470066,
+        "status": "loss"
+      },
+      "installed": {
+        "median": 25.34830191096154,
+        "min": 22.421475422764185,
+        "max": 29.82087760639602,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.159816041522255,
+        "min": 1.0799793942100082,
+        "max": 1.2501148787359806,
+        "status": "loss"
+      },
+      "process_envelope": {
+        "median": 18.042654688544506,
+        "min": 16.025316738520456,
+        "max": 20.59535422740139,
+        "status": "loss"
+      },
+      "candidate_ns": 232155918,
+      "control_ns": 141362552
+    },
+    {
+      "scenario": [
+        0,
+        4,
+        8192,
+        0
+      ],
+      "candidate": "generated",
+      "control": "direct",
+      "runtime": {
+        "median": 1.444211363029108,
+        "min": 1.1432830126925373,
+        "max": 1.6788486107733538,
+        "status": "loss"
+      },
+      "installed": {
+        "median": 21.408056019316096,
+        "min": 17.71978896003173,
+        "max": 25.848803164676685,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.149006320062084,
+        "min": 1.0591525325571733,
+        "max": 1.247727818213353,
+        "status": "loss"
+      },
+      "process_envelope": {
+        "median": 16.054959252963762,
+        "min": 12.828256110702329,
+        "max": 18.742064087214224,
+        "status": "loss"
+      },
+      "candidate_ns": 232155918,
+      "control_ns": 160749267
+    },
+    {
+      "scenario": [
+        0,
+        4,
+        8192,
+        0
+      ],
+      "candidate": "generated",
+      "control": "scan",
+      "runtime": {
+        "median": 1.0803950331188241,
+        "min": 0.9404667009455931,
+        "max": 1.1790308918707972,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 15.46545299795592,
+        "min": 13.612007991379354,
+        "max": 19.063811297462934,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.1289905690653241,
+        "min": 1.0456735980178757,
+        "max": 1.219226815615913,
+        "status": "loss"
+      },
+      "process_envelope": {
+        "median": 11.767353484114285,
+        "min": 10.736158592439768,
+        "max": 14.642145176192447,
+        "status": "loss"
+      },
+      "candidate_ns": 232155918,
+      "control_ns": 232960113
+    },
+    {
+      "scenario": [
+        0,
+        4,
+        8192,
+        0
+      ],
+      "candidate": "generated",
+      "control": "indexed",
+      "runtime": {
+        "median": 0.7418167030164042,
+        "min": 0.6680647190429493,
+        "max": 0.8991602838904765,
+        "status": "gain"
+      },
+      "installed": {
+        "median": 11.067889300861639,
+        "min": 9.80409701386202,
+        "max": 13.210331509480891,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0945503857789136,
+        "min": 1.0147860923153633,
+        "max": 1.1910064976630814,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 9.384514338247156,
+        "min": 8.38896089406811,
+        "max": 11.033086825438174,
+        "status": "loss"
+      },
+      "candidate_ns": 232155918,
+      "control_ns": 310929141
+    },
+    {
+      "scenario": [
+        0,
+        4,
+        8192,
+        0
+      ],
+      "candidate": "generated",
+      "control": "sealed",
+      "runtime": {
+        "median": 0.9070845006188921,
+        "min": 0.8277119533946805,
+        "max": 1.1839911209468281,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 14.000747885097411,
+        "min": 12.828740540198789,
+        "max": 17.3950245492545,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.1152036460995276,
+        "min": 1.0355536994537582,
+        "max": 1.2193167478845433,
+        "status": "loss"
+      },
+      "process_envelope": {
+        "median": 11.53237103130493,
+        "min": 10.515207624644821,
+        "max": 14.033843295802814,
+        "status": "loss"
+      },
+      "candidate_ns": 232155918,
+      "control_ns": 255936374
+    },
+    {
+      "scenario": [
+        0,
+        4,
+        8192,
+        0
+      ],
+      "candidate": "generated",
+      "control": "planned",
+      "runtime": {
+        "median": 0.911117663764514,
+        "min": 0.7255024244182503,
+        "max": 1.0385859706962812,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 13.28092429945432,
+        "min": 11.244590978751873,
+        "max": 14.769065821655781,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.1126989118866872,
+        "min": 1.023909684026217,
+        "max": 1.2061345295866086,
+        "status": "loss"
+      },
+      "process_envelope": {
+        "median": 10.840975645706946,
+        "min": 9.36543451827464,
+        "max": 12.094428235855831,
+        "status": "loss"
+      },
+      "candidate_ns": 232155918,
+      "control_ns": 260588967
+    },
+    {
+      "scenario": [
+        0,
+        4,
+        8192,
+        0
+      ],
+      "candidate": "generated",
+      "control": "planned-sealed",
+      "runtime": {
+        "median": 1.0433460311893188,
+        "min": 1.0158908185576987,
+        "max": 1.2377286773526284,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 15.91763311298838,
+        "min": 14.634285257644951,
+        "max": 17.600946691891778,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.1267429280642258,
+        "min": 1.051138547466065,
+        "max": 1.223339049871388,
+        "status": "loss"
+      },
+      "process_envelope": {
+        "median": 12.484842209596524,
+        "min": 11.674198908524907,
+        "max": 14.263002292372828,
+        "status": "loss"
+      },
+      "candidate_ns": 232155918,
+      "control_ns": 217740696
+    },
+    {
+      "scenario": [
+        0,
+        4,
+        8192,
+        0
+      ],
+      "candidate": "generated-sealed",
+      "control": "trace",
+      "runtime": {
+        "median": 1.4446126580963252,
+        "min": 1.1584114135050636,
+        "max": 1.7288101646123406,
+        "status": "loss"
+      },
+      "installed": {
+        "median": 25.009947600639173,
+        "min": 22.11869446163206,
+        "max": 29.705369477461357,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.1465606947066995,
+        "min": 1.058577533487046,
+        "max": 1.2451400347683526,
+        "status": "loss"
+      },
+      "process_envelope": {
+        "median": 18.000426504506137,
+        "min": 15.785419873796778,
+        "max": 20.492482865391956,
+        "status": "loss"
+      },
+      "candidate_ns": 212950865,
+      "control_ns": 141362552
+    },
+    {
+      "scenario": [
+        0,
+        4,
+        8192,
+        0
+      ],
+      "candidate": "generated-sealed",
+      "control": "direct",
+      "runtime": {
+        "median": 1.2703891956160522,
+        "min": 0.9514728972030411,
+        "max": 1.498536503317797,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 21.23423385190304,
+        "min": 17.73307377765438,
+        "max": 25.748680461107696,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.1396211190499317,
+        "min": 1.0481749586461175,
+        "max": 1.2363986868386803,
+        "status": "loss"
+      },
+      "process_envelope": {
+        "median": 15.639454729168035,
+        "min": 12.84068575097024,
+        "max": 18.6484496905774,
+        "status": "loss"
+      },
+      "candidate_ns": 212950865,
+      "control_ns": 160749267
+    },
+    {
+      "scenario": [
+        0,
+        4,
+        8192,
+        0
+      ],
+      "candidate": "generated-sealed",
+      "control": "scan",
+      "runtime": {
+        "median": 0.951394816262212,
+        "min": 0.718441328194239,
+        "max": 1.105189162516018,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 15.301392383376802,
+        "min": 13.428190611619254,
+        "max": 18.989969568108155,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.1197859787879088,
+        "min": 1.0298004305319506,
+        "max": 1.2141689278783778,
+        "status": "loss"
+      },
+      "process_envelope": {
+        "median": 11.681653869147128,
+        "min": 10.575439723195112,
+        "max": 14.569009390306775,
+        "status": "loss"
+      },
+      "candidate_ns": 212950865,
+      "control_ns": 232960113
+    },
+    {
+      "scenario": [
+        0,
+        4,
+        8192,
+        0
+      ],
+      "candidate": "generated-sealed",
+      "control": "indexed",
+      "runtime": {
+        "median": 0.6262243783740367,
+        "min": 0.5979238045485675,
+        "max": 0.7243576136435173,
+        "status": "gain"
+      },
+      "installed": {
+        "median": 10.978023854637671,
+        "min": 9.671701894409896,
+        "max": 12.909095030138982,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0876532211021905,
+        "min": 1.0075123300285902,
+        "max": 1.1700160990374135,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 9.25976636531335,
+        "min": 8.26337926285211,
+        "max": 10.747549041432006,
+        "status": "loss"
+      },
+      "candidate_ns": 212950865,
+      "control_ns": 310929141
+    },
+    {
+      "scenario": [
+        0,
+        4,
+        8192,
+        0
+      ],
+      "candidate": "generated-sealed",
+      "control": "sealed",
+      "runtime": {
+        "median": 0.8162019393829845,
+        "min": 0.78733067760195,
+        "max": 0.9462012731715839,
+        "status": "gain"
+      },
+      "installed": {
+        "median": 13.891573149348439,
+        "min": 12.838358458267068,
+        "max": 16.998364105909623,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.1090161465571844,
+        "min": 1.0338230360934793,
+        "max": 1.2002412222712013,
+        "status": "loss"
+      },
+      "process_envelope": {
+        "median": 11.474768200001833,
+        "min": 10.525396090402664,
+        "max": 13.670645527202437,
+        "status": "loss"
+      },
+      "candidate_ns": 212950865,
+      "control_ns": 255936374
+    },
+    {
+      "scenario": [
+        0,
+        4,
+        8192,
+        0
+      ],
+      "candidate": "generated-sealed",
+      "control": "planned",
+      "runtime": {
+        "median": 0.7339326794698726,
+        "min": 0.6422688378821503,
+        "max": 0.854055118243501,
+        "status": "gain"
+      },
+      "installed": {
+        "median": 12.957346609382737,
+        "min": 11.253021233803496,
+        "max": 14.674845949456216,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.0973877400564174,
+        "min": 1.021132261378576,
+        "max": 1.1901968427490444,
+        "status": "uncertain"
+      },
+      "process_envelope": {
+        "median": 10.54156618713761,
+        "min": 9.36266203478441,
+        "max": 11.92594037675867,
+        "status": "loss"
+      },
+      "candidate_ns": 212950865,
+      "control_ns": 260588967
+    },
+    {
+      "scenario": [
+        0,
+        4,
+        8192,
+        0
+      ],
+      "candidate": "generated-sealed",
+      "control": "planned-sealed",
+      "runtime": {
+        "median": 0.9780021324079905,
+        "min": 0.7128256563716161,
+        "max": 1.0389414024493635,
+        "status": "uncertain"
+      },
+      "installed": {
+        "median": 15.929566824691564,
+        "min": 14.27516075135089,
+        "max": 17.380044095035856,
+        "status": "loss"
+      },
+      "packaged": {
+        "median": 1.120124471455002,
+        "min": 1.0292200795483382,
+        "max": 1.208356347721176,
+        "status": "loss"
+      },
+      "process_envelope": {
+        "median": 12.395100970732814,
+        "min": 11.349468697380575,
+        "max": 14.064303960076696,
+        "status": "loss"
+      },
+      "candidate_ns": 212950865,
+      "control_ns": 217740696
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+[package]
+name = "chr-relational"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+chr-persistent = { path = "../chr-persistent", default-features = false }
+chr-syntax = { path = "../../crates/chr-syntax" }
+
+[dev-dependencies]
+chr-observe = { path = "../chr-observe", default-features = false }
+chr-integrated = { path = "../chr-integrated", default-features = false }
+chr-compiled = { path = "../chr-compiled", default-features = false }
+
+[features]
+direct-readiness = []
+stable-candidates = []
+borrowed-cycles = []
+execution-profile = ["alloc-meter"]
+incidence-vector = []
+admission-profile = ["alloc-meter"]
+deduction-profile = ["alloc-meter", "fork-diagnostics"]
+fork-diagnostics = []
+deduction-work = []
+precise-invalidation = []
+compiled-work = ["chr-compiled/metrics"]
+alloc-meter = []
+local-work = []
+
+[[test]]
+name = "local_ownership"
+path = "tests/local_ownership.rs"
+harness = false
+required-features = ["alloc-meter"]
+
+[[test]]
+name = "local_lifecycle"
+path = "tests/local_lifecycle.rs"
+harness = false
+
+[[test]]
+name = "multihead_ownership"
+path = "tests/multihead_ownership.rs"
+harness = false
+required-features = ["alloc-meter"]
+
+[[test]]
+name = "multihead_lifecycle"
+path = "tests/multihead_lifecycle.rs"
+harness = false
+
+[[test]]
+name = "choice_ownership"
+path = "tests/choice_ownership.rs"
+harness = false
+
+[[test]]
+name = "choice_cost"
+path = "tests/choice_cost.rs"
+harness = false
+
+[[test]]
+name = "readiness_lifecycle"
+path = "tests/readiness_lifecycle.rs"
+harness = false

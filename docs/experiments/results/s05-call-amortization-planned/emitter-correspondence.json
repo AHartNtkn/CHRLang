@@ -1,0 +1,245 @@
+{
+  "stage": "post-run source-correspondence repair",
+  "build": {
+    "command": [
+      "rustc",
+      "--edition",
+      "2024",
+      "-C",
+      "opt-level=3",
+      "/home/ahart/Documents/CHRLang/docs/experiments/results/s05-call-amortization-planned/registered/research/chr-reuse/examples/call_program_emit.rs",
+      "-L",
+      "dependency=/home/ahart/Documents/CHRLang/target/s05-call-amortization/primary/release/deps",
+      "--extern",
+      "chr_compiled=/home/ahart/Documents/CHRLang/target/s05-call-amortization/primary/release/libchr_compiled.rlib",
+      "--extern",
+      "chr_syntax=/home/ahart/Documents/CHRLang/target/s05-call-amortization/primary/release/libchr_syntax.rlib",
+      "-o",
+      "/home/ahart/Documents/CHRLang/target/s05-call-emitter-correspondence/emitter"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "source_sha256": "60d16bf451f3178589783b82acb799d13c7deea803c4b5d8889135325c3d9203",
+  "tools": {
+    "retained": {
+      "path": "/home/ahart/Documents/CHRLang/target/s05-call-amortization/primary/release/examples/call_program_emit",
+      "sha256": "1be78ed59caf20c2177235ab483955882fffe439ae0dff642fc7089aad5c70d4"
+    },
+    "rebuilt": {
+      "path": "/home/ahart/Documents/CHRLang/target/s05-call-emitter-correspondence/emitter",
+      "sha256": "be4ae878fd95e66e562682ff24e92586c81953f1a1183d2f77eac4e3acf66176"
+    }
+  },
+  "checks": [
+    {
+      "command": [
+        "/home/ahart/Documents/CHRLang/target/s05-call-amortization/primary/release/examples/call_program_emit",
+        "generic",
+        "0",
+        "/home/ahart/Documents/CHRLang/target/s05-call-emitter-correspondence/retained-0-generic.rs"
+      ],
+      "returncode": 0,
+      "stdout": "{\"emission_ns\":13536,\"write_ns\":39182,\"buffer_drop_ns\":1905,\"source_bytes\":250}\n",
+      "stderr": "",
+      "source_sha256": "398443d4065492098a8dbe295624a46a096b6c3eb59a33f24e616c9855df69f0",
+      "expected": "docs/experiments/results/s05-call-amortization-planned/sources/primary-f0-generic-0.rs"
+    },
+    {
+      "command": [
+        "/home/ahart/Documents/CHRLang/target/s05-call-amortization/primary/release/examples/call_program_emit",
+        "generated",
+        "0",
+        "/home/ahart/Documents/CHRLang/target/s05-call-emitter-correspondence/retained-0-generated.rs"
+      ],
+      "returncode": 0,
+      "stdout": "{\"emission_ns\":131908,\"write_ns\":65017,\"buffer_drop_ns\":2328,\"source_bytes\":15507}\n",
+      "stderr": "",
+      "source_sha256": "3cdea088834c55d54b3d1c71d18bd755a031de9d8553ca95f470cb0ba71b53c4",
+      "expected": "docs/experiments/results/s05-call-amortization-planned/sources/primary-f0-generated-0.rs"
+    },
+    {
+      "command": [
+        "/home/ahart/Documents/CHRLang/target/s05-call-amortization/primary/release/examples/call_program_emit",
+        "generic",
+        "1",
+        "/home/ahart/Documents/CHRLang/target/s05-call-emitter-correspondence/retained-1-generic.rs"
+      ],
+      "returncode": 0,
+      "stdout": "{\"emission_ns\":12095,\"write_ns\":35617,\"buffer_drop_ns\":2422,\"source_bytes\":250}\n",
+      "stderr": "",
+      "source_sha256": "8579f462ec9f594fd9ab554bd5837532d993a4c62f31ee2012e2ced5ce063afe",
+      "expected": "docs/experiments/results/s05-call-amortization-planned/sources/primary-f1-generic-0.rs"
+    },
+    {
+      "command": [
+        "/home/ahart/Documents/CHRLang/target/s05-call-amortization/primary/release/examples/call_program_emit",
+        "generated",
+        "1",
+        "/home/ahart/Documents/CHRLang/target/s05-call-emitter-correspondence/retained-1-generated.rs"
+      ],
+      "returncode": 0,
+      "stdout": "{\"emission_ns\":139443,\"write_ns\":59497,\"buffer_drop_ns\":2511,\"source_bytes\":17699}\n",
+      "stderr": "",
+      "source_sha256": "c6f2ffae07a76d2965c1ade4fb964b81d80bea191af99f3947722d211a35b4d8",
+      "expected": "docs/experiments/results/s05-call-amortization-planned/sources/primary-f1-generated-0.rs"
+    },
+    {
+      "command": [
+        "/home/ahart/Documents/CHRLang/target/s05-call-amortization/primary/release/examples/call_program_emit",
+        "generic",
+        "2",
+        "/home/ahart/Documents/CHRLang/target/s05-call-emitter-correspondence/retained-2-generic.rs"
+      ],
+      "returncode": 0,
+      "stdout": "{\"emission_ns\":15026,\"write_ns\":39328,\"buffer_drop_ns\":2347,\"source_bytes\":250}\n",
+      "stderr": "",
+      "source_sha256": "1171753ccbc5523a4d2bbb4e06c8737bca99a4e2780ee0949fd0da5cb66281f3",
+      "expected": "docs/experiments/results/s05-call-amortization-planned/sources/primary-f2-generic-0.rs"
+    },
+    {
+      "command": [
+        "/home/ahart/Documents/CHRLang/target/s05-call-amortization/primary/release/examples/call_program_emit",
+        "generated",
+        "2",
+        "/home/ahart/Documents/CHRLang/target/s05-call-emitter-correspondence/retained-2-generated.rs"
+      ],
+      "returncode": 0,
+      "stdout": "{\"emission_ns\":125963,\"write_ns\":53249,\"buffer_drop_ns\":2470,\"source_bytes\":15642}\n",
+      "stderr": "",
+      "source_sha256": "d0fc74ca393aeca0be8f800ff1662cd276cd27e08d76cb184c92f0e8bb48a741",
+      "expected": "docs/experiments/results/s05-call-amortization-planned/sources/primary-f2-generated-0.rs"
+    },
+    {
+      "command": [
+        "/home/ahart/Documents/CHRLang/target/s05-call-amortization/primary/release/examples/call_program_emit",
+        "generic",
+        "3",
+        "/home/ahart/Documents/CHRLang/target/s05-call-emitter-correspondence/retained-3-generic.rs"
+      ],
+      "returncode": 0,
+      "stdout": "{\"emission_ns\":15345,\"write_ns\":37019,\"buffer_drop_ns\":2553,\"source_bytes\":250}\n",
+      "stderr": "",
+      "source_sha256": "d0199de34857cfdc55944929114c6518314f973dd92496cc0dd311b904025a4e",
+      "expected": "docs/experiments/results/s05-call-amortization-planned/sources/primary-f3-generic-0.rs"
+    },
+    {
+      "command": [
+        "/home/ahart/Documents/CHRLang/target/s05-call-amortization/primary/release/examples/call_program_emit",
+        "generated",
+        "3",
+        "/home/ahart/Documents/CHRLang/target/s05-call-emitter-correspondence/retained-3-generated.rs"
+      ],
+      "returncode": 0,
+      "stdout": "{\"emission_ns\":145813,\"write_ns\":51141,\"buffer_drop_ns\":2905,\"source_bytes\":19670}\n",
+      "stderr": "",
+      "source_sha256": "fdb7aea3e728a4ff43c36e2e7d61938c28a20cfb181ce106252ed474817e5ea1",
+      "expected": "docs/experiments/results/s05-call-amortization-planned/sources/primary-f3-generated-0.rs"
+    },
+    {
+      "command": [
+        "/home/ahart/Documents/CHRLang/target/s05-call-emitter-correspondence/emitter",
+        "generic",
+        "0",
+        "/home/ahart/Documents/CHRLang/target/s05-call-emitter-correspondence/rebuilt-0-generic.rs"
+      ],
+      "returncode": 0,
+      "stdout": "{\"emission_ns\":14565,\"write_ns\":56411,\"buffer_drop_ns\":2218,\"source_bytes\":250}\n",
+      "stderr": "",
+      "source_sha256": "398443d4065492098a8dbe295624a46a096b6c3eb59a33f24e616c9855df69f0",
+      "expected": "docs/experiments/results/s05-call-amortization-planned/sources/primary-f0-generic-0.rs"
+    },
+    {
+      "command": [
+        "/home/ahart/Documents/CHRLang/target/s05-call-emitter-correspondence/emitter",
+        "generated",
+        "0",
+        "/home/ahart/Documents/CHRLang/target/s05-call-emitter-correspondence/rebuilt-0-generated.rs"
+      ],
+      "returncode": 0,
+      "stdout": "{\"emission_ns\":89598,\"write_ns\":42000,\"buffer_drop_ns\":1742,\"source_bytes\":15507}\n",
+      "stderr": "",
+      "source_sha256": "3cdea088834c55d54b3d1c71d18bd755a031de9d8553ca95f470cb0ba71b53c4",
+      "expected": "docs/experiments/results/s05-call-amortization-planned/sources/primary-f0-generated-0.rs"
+    },
+    {
+      "command": [
+        "/home/ahart/Documents/CHRLang/target/s05-call-emitter-correspondence/emitter",
+        "generic",
+        "1",
+        "/home/ahart/Documents/CHRLang/target/s05-call-emitter-correspondence/rebuilt-1-generic.rs"
+      ],
+      "returncode": 0,
+      "stdout": "{\"emission_ns\":13399,\"write_ns\":49332,\"buffer_drop_ns\":2211,\"source_bytes\":250}\n",
+      "stderr": "",
+      "source_sha256": "8579f462ec9f594fd9ab554bd5837532d993a4c62f31ee2012e2ced5ce063afe",
+      "expected": "docs/experiments/results/s05-call-amortization-planned/sources/primary-f1-generic-0.rs"
+    },
+    {
+      "command": [
+        "/home/ahart/Documents/CHRLang/target/s05-call-emitter-correspondence/emitter",
+        "generated",
+        "1",
+        "/home/ahart/Documents/CHRLang/target/s05-call-emitter-correspondence/rebuilt-1-generated.rs"
+      ],
+      "returncode": 0,
+      "stdout": "{\"emission_ns\":129530,\"write_ns\":60530,\"buffer_drop_ns\":2248,\"source_bytes\":17699}\n",
+      "stderr": "",
+      "source_sha256": "c6f2ffae07a76d2965c1ade4fb964b81d80bea191af99f3947722d211a35b4d8",
+      "expected": "docs/experiments/results/s05-call-amortization-planned/sources/primary-f1-generated-0.rs"
+    },
+    {
+      "command": [
+        "/home/ahart/Documents/CHRLang/target/s05-call-emitter-correspondence/emitter",
+        "generic",
+        "2",
+        "/home/ahart/Documents/CHRLang/target/s05-call-emitter-correspondence/rebuilt-2-generic.rs"
+      ],
+      "returncode": 0,
+      "stdout": "{\"emission_ns\":14702,\"write_ns\":48981,\"buffer_drop_ns\":2132,\"source_bytes\":250}\n",
+      "stderr": "",
+      "source_sha256": "1171753ccbc5523a4d2bbb4e06c8737bca99a4e2780ee0949fd0da5cb66281f3",
+      "expected": "docs/experiments/results/s05-call-amortization-planned/sources/primary-f2-generic-0.rs"
+    },
+    {
+      "command": [
+        "/home/ahart/Documents/CHRLang/target/s05-call-emitter-correspondence/emitter",
+        "generated",
+        "2",
+        "/home/ahart/Documents/CHRLang/target/s05-call-emitter-correspondence/rebuilt-2-generated.rs"
+      ],
+      "returncode": 0,
+      "stdout": "{\"emission_ns\":104890,\"write_ns\":40700,\"buffer_drop_ns\":2189,\"source_bytes\":15642}\n",
+      "stderr": "",
+      "source_sha256": "d0fc74ca393aeca0be8f800ff1662cd276cd27e08d76cb184c92f0e8bb48a741",
+      "expected": "docs/experiments/results/s05-call-amortization-planned/sources/primary-f2-generated-0.rs"
+    },
+    {
+      "command": [
+        "/home/ahart/Documents/CHRLang/target/s05-call-emitter-correspondence/emitter",
+        "generic",
+        "3",
+        "/home/ahart/Documents/CHRLang/target/s05-call-emitter-correspondence/rebuilt-3-generic.rs"
+      ],
+      "returncode": 0,
+      "stdout": "{\"emission_ns\":15589,\"write_ns\":42808,\"buffer_drop_ns\":2491,\"source_bytes\":250}\n",
+      "stderr": "",
+      "source_sha256": "d0199de34857cfdc55944929114c6518314f973dd92496cc0dd311b904025a4e",
+      "expected": "docs/experiments/results/s05-call-amortization-planned/sources/primary-f3-generic-0.rs"
+    },
+    {
+      "command": [
+        "/home/ahart/Documents/CHRLang/target/s05-call-emitter-correspondence/emitter",
+        "generated",
+        "3",
+        "/home/ahart/Documents/CHRLang/target/s05-call-emitter-correspondence/rebuilt-3-generated.rs"
+      ],
+      "returncode": 0,
+      "stdout": "{\"emission_ns\":146928,\"write_ns\":58282,\"buffer_drop_ns\":2745,\"source_bytes\":19670}\n",
+      "stderr": "",
+      "source_sha256": "fdb7aea3e728a4ff43c36e2e7d61938c28a20cfb181ce106252ed474817e5ea1",
+      "expected": "docs/experiments/results/s05-call-amortization-planned/sources/primary-f3-generated-0.rs"
+    }
+  ]
+}

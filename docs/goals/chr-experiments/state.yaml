@@ -9,7 +9,7 @@ goal:
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
   execution_sequence: docs/experiments/next-cycle.md
-  current_research: "Long prepared-session qualification passes 1470 processes and 431424 query sessions. A validation-side oracle cache preserves application ownership exactly across 1431 prior receipts and makes 8192-query qualification practical. Finite repeated/cycling trace state plateaus; growing-distinct keys retain more state. T075 next measures user-program compilation and observed long-session amortization against stronger generic controls; package count two, goal active."
+  current_research: "Per-program compilation and stronger data-plan controls validate 723 processes and 112 comparisons. Both generated modes lose all installed-runtime comparisons after compilation and establish no runtime gain over data plans plus inference. Trace runtime gains survive both generated competitors in seven of eight scenarios. T075 next tests bounded retention and regeneration; package count three, goal active."
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -368,9 +368,12 @@ tasks:
     assignee: PM
     status: active
     objective: Investigate sound generalized call and continuation reuse after different histories, including renaming, relevance, resource and output identity obligations, against competent recomputation and sharing controls.
-    progress: "Long prepared-session qualification passes 1470 processes and 431424 query sessions. A validation-side oracle cache preserves application ownership exactly across 1431 prior receipts and makes 8192-query qualification practical. Finite repeated/cycling trace state plateaus; growing-distinct keys retain more state. T075 next measures user-program compilation and observed long-session amortization against stronger generic controls; package count two, goal active."
-    next_action: "Register replicated source-only user-program emission/compilation and artifact ownership using the existing rustc/shared-library workflow, with equivalent generic artifacts. Pair observed longer prepared sessions for trace, Direct, scan, indexed, inferred and generated controls. Select favorable/adverse families from the preceding fourteen exploratory inferred-generated cases; distinguish repeat, four-query cycle and growing inputs. Preserve the independently checked per-class oracle and validate every actual output/cancellation prefix. Charge preparation, runtime, consumer and artifact disposal separately; do not extrapolate a crossover from short medians. Inspect compiler cost, uncertainty and retained state before choosing bounded retention, broader observers or sparse projection. Package count two; full portfolio review by four."
+    progress: "Per-program compilation and stronger data-plan controls validate 723 processes and 112 comparisons. Both generated modes lose all installed-runtime comparisons after compilation and establish no runtime gain over data plans plus inference. Trace runtime gains survive both generated competitors in seven of eight scenarios. T075 next tests bounded retention and regeneration; package count three, goal active."
+    next_action: "Register bounded trace reclamation using the existing prepared table, preserving source service order, cancellation/restarts, fresh identities and held answers. Test finite working sets, growing distinct keys and revisits with explicit reclamation windows against retained traces, Direct and planned-plus-inferred execution. Measure reclaimed ownership and regeneration work before counter-free complete lifecycle timing. Reject unsafe invalidation of live jobs; repair the implementation rather than declaring fixture limits. Reassess sparse connected projection and broader caller observers after this bounded package or obstruction. Package count three; full 57-question review due after the next package."
     inputs:
+      - docs/experiments/results/S05-call-amortization.md
+      - docs/experiments/registrations/S05-call-amortization.md
+      - docs/experiments/registrations/S05-call-amortization-planned.md
       - docs/experiments/results/S05-call-long-entry.md
       - docs/experiments/registrations/S05-call-long-cached-oracle.md
       - docs/experiments/results/S05-call-generated-timing.md
@@ -2694,8 +2697,12 @@ checks:
   last_verification:
     result: passed
     task: T075
-    scope: Longer prepared sessions, exact validation-cache correspondence and complete ownership.
+    scope: Per-program compilation, stronger data-plan controls and complete amortization accounting.
     commands:
+      - "Emitter correspondence repair: retained and independently rebuilt emitters reproduce all 48 archived source inputs; producer checks executable identity before/after compilation"
+      - "call_amortization_analysis.py audit: 723 terminal processes, 112 comparisons, exact commands/schedules/phases, ownership and source hashes; 404 interrupted receipts preserved"
+      - "call_compiled source gates: 1280 queries and 3840 cancellation restarts in counter-free and compiled-metrics configurations"
+      - "Scoped ordinary and alloc-meter Clippy passes for runner, emitter and source gate; no artifact-disposal qualification changes"
       - "call_long_entry.py audit: 1470 processes, 431424 query sessions, exact ownership, source and oracle-class checks"
       - "call_long_analysis.py audit: all 1431 preserved terminal receipts match application ownership and output counts"
       - "200 renamed-query comparisons pass ordinary/meter example tests; scoped Clippy passes"
