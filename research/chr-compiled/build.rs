@@ -16,7 +16,6 @@ mod post_source;
 #[allow(dead_code)]
 mod search_fixtures;
 #[path = "../chr-direct-conditional/examples/support/static_posts.rs"]
-#[allow(dead_code)]
 mod static_posts;
 #[path = "experiments/structural_prefix_source.rs"]
 #[allow(dead_code)]

@@ -1,0 +1,15 @@
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+error[E0599]: no method named `into_parts` found for struct `static_posts::Prepared` in the current scope
+  --> research/chr-direct-conditional/tests/detached_initialization.rs:30:49
+   |
+30 |                 let (engine_rules, init) = init.into_parts();
+   |                                                 ^^^^^^^^^^ method not found in `static_posts::Prepared`
+   |
+  ::: research/chr-direct-conditional/tests/../examples/support/static_posts.rs:32:1
+   |
+32 | pub struct Prepared {
+   | ------------------- method `into_parts` not found for this struct
+
+For more information about this error, try `rustc --explain E0599`.
+error: could not compile `chr-direct-conditional` (test "detached_initialization") due to 1 previous error
+warning: build failed, waiting for other jobs to finish...

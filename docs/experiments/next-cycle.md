@@ -1,5 +1,7 @@
 # Experimental sequence for the unanswered architecture questions
 
+The [preparation ownership result](results/S08-preparation-ownership.md) supplies the current checkpoint. Preparation ownership transfer completes 576 allocation processes and 288 exact pairs. Retained preparation heap and total peak fall in all 144 comparisons; explicit/conditional traffic falls and demand traffic is unchanged. Complete-source gate passes 216 configurations. T074 remains active for changed-query preparation reuse, ordinary timing and RSS trajectories, with continuing production separate. Package one after portfolio review; goal active.
+
 Test the distinct mechanisms that remain unanswered, then compare the complete architectures they enable. Reuse the existing baselines. A lower priority changes when a question is investigated; it does not answer it.
 
 **Investigate in four rounds: missing architectural benefits; competing ways to search, reuse and compile; sustained and parallel execution; then complete architectures and contrary tests.** Each round must produce decisions from complete comparisons, not merely demonstrate that prototypes return correct answers.
@@ -226,7 +228,7 @@ No direction leaves the sequence merely because it is expensive to implement, lo
 
 For each next-package proposal, record the decision it could change, the strongest ready distinct alternative, actual prerequisites, expected implementation/measurement effort, and the next result boundary. Prefer completing a consequential comparison over expanding its matrix when the expansion cannot change the decision. Prefer a distinct mechanism over another refinement when the refinement has no credible path to changing the architecture comparison.
 
-**The [matched-initialization portfolio review](results/S10-static-control-review.md) resets the count to zero.** The source gate, lifecycle pilot, confirmation and matched control complete the preceding four-package interval. Reconsider selection at the first lifetime ownership/cost result; review the whole portfolio within four further packages.
+**The [preparation ownership result](results/S08-preparation-ownership.md) completes package one after the matched-initialization portfolio review.** Selection remains T074 for changed-query preparation reuse and sustained costs. Reconsider broader integration and coarser recognition at that result; review the whole portfolio within three further packages.
 
 **A claim that an experiment cannot affect downstream decisions needs a sensitivity argument.** Name the decision, the outcomes still compatible with current evidence, and why none would change efficiency, necessary complexity, source eligibility or a competitor's credibility. Assume neither the incumbent's superiority nor the proposed mechanism's failure. When those outcomes could change the decision, the trial remains required. When only a narrower claim is settled, advance without extending that conclusion to its broader design.
 

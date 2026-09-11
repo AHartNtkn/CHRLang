@@ -1,4 +1,5 @@
 //! Source-derived initialization of static, nullary, inert propagation facts.
+#![allow(dead_code)] // Shared by generation, transformation gates and lifecycle runners.
 use chr_syntax::{Constraint, Goal, Query, Rule};
 use std::collections::BTreeSet;
 fn calls(goal: &Goal, out: &mut BTreeSet<(String, usize)>) {
@@ -80,17 +81,36 @@ impl Prepared {
     pub fn rules(&self) -> &[Rule] {
         &self.rules
     }
-    pub fn initialize(&self, q: &Query) -> Query {
-        let mut result = q.clone();
-        for (name, posts) in &self.initializers {
-            for _ in q
-                .constraints
-                .iter()
-                .filter(|c| c.name == *name && c.args.is_empty())
-            {
-                result.constraints.extend(posts.iter().cloned());
-            }
-        }
-        result
+    pub fn into_parts(self) -> (Vec<Rule>, Initializer) {
+        (
+            self.rules,
+            Initializer {
+                initializers: self.initializers,
+            },
+        )
     }
+    pub fn initialize(&self, q: &Query) -> Query {
+        initialize(&self.initializers, q)
+    }
+}
+pub struct Initializer {
+    initializers: Vec<(String, Vec<Constraint>)>,
+}
+impl Initializer {
+    pub fn initialize(&self, q: &Query) -> Query {
+        initialize(&self.initializers, q)
+    }
+}
+fn initialize(initializers: &[(String, Vec<Constraint>)], q: &Query) -> Query {
+    let mut result = q.clone();
+    for (name, posts) in initializers {
+        for _ in q
+            .constraints
+            .iter()
+            .filter(|c| c.name == *name && c.args.is_empty())
+        {
+            result.constraints.extend(posts.iter().cloned());
+        }
+    }
+    result
 }

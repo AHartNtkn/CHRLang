@@ -1,0 +1,11 @@
+# Preparation ownership: allocation attribution
+
+Before comparative execution, test whether a query initializer needs to retain transformed source rules. Consume the transformation into engine rules and an independent posting plan. Preserve the existing runner as the control; this is an ownership experiment, not a new execution baseline.
+
+Hypothesis: transferring rules reduces preparation allocation for explicit/conditional paths and retained requested heap for every initialized path; demand still pays value lowering. Contraries include unchanged total peak because another phase dominates, and no effect with initialization off. No primary timing claim is made from allocation-meter runs.
+
+Use common/0/0, common/3/16, independent/3/16 and early/3/16 (family/choices/depth); history on/off; immediate/window/all consumers; cancellation on/off. Compare birth-miss, conditional and native-scan with initialization enabled. All queries use the existing counting pass, original arrival and four alternating source queries. Two repetitions of both old and detached runners give 576 processes (144 cells per implementation). Same source expectations and full-answer checks; cancelled prefixes must match independently computed answers and preparation must remain reusable. All task-owned requested heap must return to the root baseline.
+
+Counter-free allocation-meter build, ordinary old and new engines, same release target and toolchain. Random order seed 740812; 60-second wall/CPU and 1-GiB address-space per process; CPU0; 10-minute campaign. Preserve every failure and investigate before interpretation. Freeze source and binary hashes before running. Require exact allocation repeats within each cell; compare requested traffic, live heap after source disposal, and maximum phase peak. Record all signs without workload weights. The old/new template-address issue is avoided by testing the non-template demand policy; any discrepancy still requires investigation.
+
+This package repairs preparation ownership before sustained-session measurements. It does not answer RSS, preparation amortization, continuing production or runtime timing. Those are executable next comparisons, not architectural dispositions.
