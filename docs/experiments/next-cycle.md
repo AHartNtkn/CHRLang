@@ -1,5 +1,7 @@
 # Experimental sequence for the unanswered architecture questions
 
+Prepared-prefix ownership validates 1024 processes and512 exact allocation pairs. Reuse lowers requested bytes in all128 normal-completion comparisons, raises them in68of128 cancellation comparisons, and raises peak live bytes in all256 comparisons. Next qualify and attribute existing arena sharing against complete clone/suffix ownership; package count two, T082 and goal active. [Ownership result](results/S01-prepared-prefix-ownership.md).
+
 Prepared-prefix source gate passes 192 configurations across counter-free control and probe builds: 768 completed searches and 192 cancellations preserve independent full residuals, exact consuming tuples and retained answers. Changing right tables remain per-query input. T082 next measures requested ownership and cloning costs; package count one, goal active. [Source gate](results/S01-prepared-prefix-entry.md).
 
 The [probe lifecycle result](results/S01-probe-lifecycle.md) supplies the current checkpoint. Probe lifecycle pilot validates 1344 processes and192 exact allocation pairs. An18000-session confirmation and separate18000-session CPU-clock diagnosis establish no registered timing gain. Selective requested allocation falls; duplicate/broad costs and preparation ownership rise. Full portfolio review selects matched reuse of unchanged query structure through the existing prepared-query API under T082; review count reset, goal active.

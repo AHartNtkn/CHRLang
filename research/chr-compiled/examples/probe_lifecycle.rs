@@ -1,7 +1,7 @@
 //! Full native lifecycle, with independent ground-answer expectations.
 #[cfg(feature = "alloc-meter")]
 use chr_compiled::experiment::meter;
-use chr_compiled::{Access, Policy, PreparedRuleset};
+use chr_compiled::{Access, Policy, PreparedRuleset, SearchEvent};
 use chr_syntax::{Constraint, Query, Rule, atom, c, v};
 use std::time::Instant;
 #[cfg(feature = "lifecycle-cpu-clock")]
@@ -66,20 +66,25 @@ fn rules(family: &str) -> Vec<Rule> {
         body: c("receipt", [v(0), v(1), v(2)]).into(),
     }]
 }
-fn input(family: &str, n: usize, q: usize) -> Query {
+fn table_facts(family: &str, n: usize, q: usize, left: bool, right: bool) -> Vec<Constraint> {
     let endpoint = if q == 0 { 0 } else { n - 1 };
     let mut facts = vec![];
     let shared = family == "duplicate";
     let broad = family == "broad";
     let key = |prefix: &str, i: usize| atom(&format!("{prefix}{i}"));
-    facts.push(c("request", [key("b", endpoint)]));
-    for i in 0..n {
+    for i in 0..if left { n } else { 0 } {
         facts.push(c(
             "left",
             [key("a", i), key("x", if shared { 0 } else { i })],
         ));
     }
-    for i in 0..if shared { n - 1 } else { n } {
+    for i in 0..if !right {
+        0
+    } else if shared {
+        n - 1
+    } else {
+        n
+    } {
         facts.push(c(
             "right",
             [
@@ -88,6 +93,12 @@ fn input(family: &str, n: usize, q: usize) -> Query {
             ],
         ));
     }
+    facts
+}
+fn input(family: &str, n: usize, q: usize) -> Query {
+    let endpoint = if q == 0 { 0 } else { n - 1 };
+    let mut facts = vec![c("request", [atom(&format!("b{endpoint}"))])];
+    facts.extend(table_facts(family, n, q, true, true));
     if family != "neutral" {
         facts.push(c("token", []));
     }
@@ -155,10 +166,94 @@ fn session(args: &[String]) {
     let mut retained = Vec::with_capacity(2);
     #[cfg(feature = "alloc-meter")]
     let root = meter::end(meter::begin()).live_end;
+    let prefix_mode = args.get(8).map(String::as_str);
+    assert!(matches!(prefix_mode, None | Some("fresh") | Some("reuse")));
+    let changing = family == "duplicate" || family == "broad";
     let prepared = measure(&mut rows, "prepare", 0, || {
         PreparedRuleset::new(rules(family), None).unwrap()
     });
+    let template = measure(&mut rows, "prefix_prepare", 0, || {
+        if prefix_mode == Some("reuse") {
+            Some(
+                prepared
+                    .prepare_query(
+                        Query {
+                            constraints: table_facts(family, n, 0, true, !changing),
+                            outputs: vec![],
+                        },
+                        policy,
+                        access,
+                    )
+                    .unwrap(),
+            )
+        } else {
+            None
+        }
+    });
     for (q, want) in expectations.iter().enumerate() {
+        if let Some(mode) = prefix_mode {
+            let mut search = measure(&mut rows, "setup", q, || {
+                let endpoint = if q == 0 { 0 } else { n - 1 };
+                let mut facts =
+                    table_facts(family, n, q, mode == "fresh", mode == "fresh" || changing);
+                facts.push(c("request", [atom(&format!("b{endpoint}"))]));
+                if family != "neutral" {
+                    facts.push(c("token", []));
+                }
+                if let Some(template) = &template {
+                    template.start(facts).unwrap()
+                } else {
+                    prepared
+                        .start_search(
+                            Query {
+                                constraints: facts,
+                                outputs: vec![],
+                            },
+                            policy,
+                            access,
+                        )
+                        .unwrap()
+                }
+            });
+            let stop = cancel && q == 0;
+            let mut branch = measure(&mut rows, "execute", q, || {
+                for _ in 0..if stop { 1 } else { 2_000_000 } {
+                    match search.tick() {
+                        SearchEvent::Progress => (),
+                        SearchEvent::Complete(branch) => {
+                            assert!(!stop);
+                            return Some(branch);
+                        }
+                        _ => panic!("unexpected search result"),
+                    }
+                }
+                assert!(stop);
+                None
+            });
+            let answer = if let Some(branch) = &mut branch {
+                let mut answer =
+                    measure(&mut rows, "observe", q, || branch.engine.observe().unwrap());
+                assert!(answer.outputs.is_empty());
+                answer.residual.sort();
+                assert_eq!(&answer.residual, want);
+                Some(answer)
+            } else {
+                None
+            };
+            measure(&mut rows, "engine_drop", q, || {
+                drop(branch);
+                drop(search);
+            });
+            if keep {
+                if let Some(answer) = answer {
+                    retained.push(answer);
+                }
+                measure(&mut rows, "answer_drop", q, || ());
+            } else {
+                measure(&mut rows, "answer_drop", q, || drop(answer));
+            }
+            continue;
+        }
         let mut engine = measure(&mut rows, "setup", q, || {
             prepared.start(input(family, n, q), policy, access).unwrap()
         });
@@ -187,6 +282,7 @@ fn session(args: &[String]) {
             measure(&mut rows, "answer_drop", q, || drop(answer));
         }
     }
+    measure(&mut rows, "prefix_drop", 0, || drop(template));
     measure(&mut rows, "prepared_drop", 0, || drop(prepared));
     // Retained answers must remain readable after both producer and preparation disposal.
     if keep {

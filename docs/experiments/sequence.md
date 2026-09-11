@@ -1,5 +1,7 @@
 # Experimental sequence: resolve the remaining architecture questions
 
+Prepared-prefix ownership validates 1024 processes and512 exact allocation pairs. Reuse lowers requested bytes in all128 normal-completion comparisons, raises them in68of128 cancellation comparisons, and raises peak live bytes in all256 comparisons. Next qualify and attribute existing arena sharing against complete clone/suffix ownership; package count two, T082 and goal active. [Ownership result](results/S01-prepared-prefix-ownership.md).
+
 Prepared-prefix source gate passes 192 configurations across counter-free control and probe builds: 768 completed searches and 192 cancellations preserve independent full residuals, exact consuming tuples and retained answers. Changing right tables remain per-query input. T082 next measures requested ownership and cloning costs; package count one, goal active. [Source gate](results/S01-prepared-prefix-entry.md).
 
 Investigate the unanswered mechanisms directly, then compare the complete architectures they enable. Reuse the existing baselines. The research remains active until consequential questions have evidence-backed answers.
