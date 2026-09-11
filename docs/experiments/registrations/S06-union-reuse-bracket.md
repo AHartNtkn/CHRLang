@@ -1,0 +1,7 @@
+# Allocation-only refinement of the observed reuse boundary
+
+The main reuse extension is complete and frozen. Union already requests fewer bytes at 14 queries, so 14/15 does not bracket the first traffic reversal. The measured five-caller cycle predicts union versus deduplicated explicit totals of 1,221,112 versus 1,205,336 bytes at 12 queries, then 1,268,368 versus 1,289,512 at 13. Verify these two points; do not reinterpret the original registration as having selected them in advance.
+
+Run all six existing modes on width-eight overlap/full output, at 12/13 queries and immediate/window/all consumers. Two allocation repeats per cell, shuffled seed 76033: 72 processes. Only the runner's accepted query counts change; use a fresh allocation binary and source archive. Retain the complete-answer preflight, early stopping/reuse, phase continuity and ownership checks. The main extension already supplies adverse families and membership controls; this supplement only locates its favorable traffic boundary. No additional timing claim follows.
+
+Use the same recorded CPU, 60-second wall/CPU and 1-GiB process bounds, 300-second build bound and metrics-off allocation configuration. Archive exact sources and binary before runs. Require exact repeated allocation rows and compare measured totals with the predictions above. This is a refinement within the current reuse package, not another architecture verdict. Preserve every raw run and any discrepancy.

@@ -330,7 +330,7 @@ fn main() {
     let n = args[3].parse().unwrap();
     assert!([4, 8].contains(&n));
     let queries = args[4].parse::<usize>().unwrap();
-    assert!([1, 8].contains(&queries));
+    assert!([1, 8, 12, 13, 14, 15, 64].contains(&queries));
     let full = match args[5].as_str() {
         "member" => false,
         "full" => true,
