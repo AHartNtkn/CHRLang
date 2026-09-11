@@ -1,5 +1,7 @@
 # Why designs were set aside—and what the experiments actually establish
 
+Live compressed-call integration passes 28,608 service checkpoints across 256 sources and cancellation/restarts. Caller token competition, propagation history, binding-before-completion and suspended fresh input agree with Direct and independent complete bags. T075 next qualifies complete caller ownership and counter-free costs; package count two, goal active. [Live caller gate](S05-call-trace-caller.md).
+
 Call-entry trace reuse preserves 9,088 FIFO service events across 64 cases and cancellation/restarts. A 22-step linear call uses one trace node; completed replay executes nothing and releases its machine. Four new and 22 existing tests pass in both configurations. T075 next integrates the resumable protocol into complete callers with observed bindings and competing resources; package count one, goal active. [Call trace entry](S05-call-trace-entry.md).
 
 Repaired connected costs validate 1,152 allocation and 5,760 ordinary processes. Direct ground evaluation qualifies faster than original projection in 55/64 unequal-name cases, but in none against enumeration. Requested bytes fall while peak ownership is unchanged. Full 57-question review selects T075 scheduling-preserving whole-call recognition; T076 remains pending, review count reset, goal active. [Repaired costs](S06-connected-repair-costs.md) · [Portfolio review](S06-connected-repair-review.md).

@@ -494,6 +494,32 @@ impl Machine {
         }
         event
     }
+    /// Caller must validate the private single-head priority prefix once.
+    pub fn take_private_call(
+        &mut self,
+        cursor: &mut Cursor,
+        count: usize,
+    ) -> Option<(chr_syntax::Constraint, u64)> {
+        self.check_cursor(cursor);
+        cursor
+            .0
+            .take_private_call(&self.rules, count, &mut self.arena, &mut self.stats)
+    }
+    pub fn resume_private(
+        &mut self,
+        mut cursor: Cursor,
+        bindings: Vec<(Var, Term)>,
+        residual: Vec<chr_syntax::Constraint>,
+    ) -> Step {
+        self.check_cursor(&cursor);
+        if !cursor
+            .0
+            .resume_private(bindings, residual, &mut self.arena, &mut self.stats)
+        {
+            return Step::Failed;
+        }
+        self.step(cursor)
+    }
     /// Extract owned ground residuals that no head in this machine's fixed
     /// source can read. Caller retains these per derivation until observation.
     /// Does not change active occurrence IDs, pending work, bindings or history.

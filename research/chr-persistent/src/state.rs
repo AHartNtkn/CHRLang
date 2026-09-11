@@ -236,6 +236,87 @@ impl State {
         }
         Event::Complete
     }
+    pub(crate) fn take_private_call(
+        &mut self,
+        rules: &[Rule],
+        count: usize,
+        arena: &mut Arena,
+        stats: &mut Stats,
+    ) -> Option<(Constraint, u64)> {
+        if self.pending.0.is_some() {
+            return None;
+        }
+        let family = rules[..count]
+            .iter()
+            .map(|r| (&r.removed[0].name, r.removed[0].args.len()))
+            .collect::<std::collections::BTreeSet<_>>();
+        let candidates = self
+            .store
+            .entries(&mut stats.storage)
+            .into_iter()
+            .filter(|((p, _), _)| {
+                let (name, arity) = &arena.predicates()[*p];
+                family.contains(&(name, *arity))
+            })
+            .collect::<Vec<_>>();
+        if candidates.len() != 1 {
+            return None;
+        }
+        if !rules[..count].iter().enumerate().any(|(id, r)| {
+            self.find(id, r, &[&r.removed[0]], vec![], Scope::new(), arena, stats)
+                .is_some()
+        }) {
+            return None;
+        }
+        let (key, args) = &candidates[0];
+        let call = Constraint {
+            name: arena.predicates()[key.0].0.clone(),
+            args: args
+                .iter()
+                .map(|t| arena.export(*t, &self.bindings, stats))
+                .collect(),
+        };
+        self.store.remove(key, &mut stats.storage);
+        Some((call, self.next_var))
+    }
+    pub(crate) fn resume_private(
+        &mut self,
+        equations: Vec<(Var, Source)>,
+        residual: Vec<Constraint>,
+        arena: &mut Arena,
+        stats: &mut Stats,
+    ) -> bool {
+        fn import(t: &Source, next: &mut u64, arena: &mut Arena, stats: &mut Stats) -> Term {
+            match t {
+                Source::Var(Var(id)) => {
+                    *next = (*next).max(id.checked_add(1).expect("variable overflow"));
+                    Term::Var(*id)
+                }
+                Source::App(n, args) => {
+                    let args = args.iter().map(|t| import(t, next, arena, stats)).collect();
+                    arena.make(n, args, stats)
+                }
+            }
+        }
+        for (Var(id), t) in equations {
+            let value = import(&t, &mut self.next_var, arena, stats);
+            if !arena.unify(Term::Var(id), value, &mut self.bindings, stats) {
+                return false;
+            }
+        }
+        for c in residual {
+            let pred = arena.predicate(&c.name, c.args.len());
+            let args = c
+                .args
+                .iter()
+                .map(|t| import(t, &mut self.next_var, arena, stats))
+                .collect();
+            self.store
+                .insert((pred, self.next_occ), args, &mut stats.storage);
+            self.next_occ += 1;
+        }
+        true
+    }
     /// Move only source-unreadable ground observations out of active execution.
     pub(crate) fn detach_inert_ground(
         &mut self,

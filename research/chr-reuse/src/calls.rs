@@ -43,6 +43,9 @@ impl Fresh {
                 .map_or(0, |v| v.0.checked_add(1).expect("variable id exhausted")),
         }
     }
+    pub(crate) fn from_next(next: u64) -> Self {
+        Self { next }
+    }
     pub(crate) fn take(&mut self) -> Var {
         let v = Var(self.next);
         self.next = self.next.checked_add(1).expect("variable id exhausted");

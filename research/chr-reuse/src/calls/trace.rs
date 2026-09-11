@@ -1,5 +1,6 @@
 //! Resumable isolated calls. A caller must establish that the private call owns
 //! its computation; this API does not extract calls from arbitrary live states.
+pub mod caller;
 use super::{Fresh, canonical, checked_family, rename};
 use chr_persistent::continuations::{Cursor, Machine, PreparedMachine, Step};
 use chr_syntax::{Constraint, Query, Rule, Term, Var};
@@ -11,8 +12,7 @@ use std::{
 enum End {
     Split(usize, usize),
     Failed,
-    Answer(Vec<Term>),
-    Invalid,
+    Answer(Vec<Term>, Vec<Constraint>),
 }
 struct Node {
     progress: usize,
@@ -51,6 +51,7 @@ pub enum Event {
     Split(Job, Job),
     Failed,
     Answer(Vec<(Var, Term)>),
+    Suspended(Vec<(Var, Term)>, Vec<Constraint>),
 }
 impl Table {
     pub fn new(rules: Vec<Rule>) -> Result<Self, String> {
@@ -104,6 +105,13 @@ impl Table {
             originals,
             owner: self.owner.clone(),
         })
+    }
+    pub(crate) fn start_live(&mut self, call: &Constraint) -> Result<Job, String> {
+        let job = self.start(call)?;
+        match self.step(job, &mut Fresh::from_next(0))? {
+            Event::Continue(job) => Ok(job),
+            _ => Err("isolated initial insertion did not continue".into()),
+        }
     }
     pub fn stats(&self) -> &Stats {
         &self.stats
@@ -174,11 +182,7 @@ impl Table {
                 }
                 Step::Failed => End::Failed,
                 Step::Answer(a) => {
-                    if a.residual.is_empty() {
-                        End::Answer(a.outputs.into_iter().map(|(_, t)| t).collect())
-                    } else {
-                        End::Invalid
-                    }
+                    End::Answer(a.outputs.into_iter().map(|(_, t)| t).collect(), a.residual)
                 }
             };
             trace.nodes[job.node].end = Some(end.clone());
@@ -202,24 +206,42 @@ impl Table {
                 Ok(Event::Split(job, other))
             }
             End::Failed => Ok(Event::Failed),
-            End::Invalid => Err("isolated call suspended with residual work".into()),
-            End::Answer(result) => {
+            End::Answer(result, residual) => {
                 let mut mapping = job
                     .originals
                     .iter()
                     .enumerate()
                     .map(|(i, v)| (Var(i as u64), *v))
                     .collect::<BTreeMap<_, _>>();
-                Ok(Event::Answer(
-                    job.originals
-                        .into_iter()
-                        .zip(result.into_iter().map(|t| {
-                            rename(&t, &mut |v| {
-                                *mapping.entry(v).or_insert_with(|| fresh.take())
+                let bindings = job
+                    .originals
+                    .into_iter()
+                    .zip(result.into_iter().map(|t| {
+                        rename(&t, &mut |v| {
+                            *mapping.entry(v).or_insert_with(|| fresh.take())
+                        })
+                    }))
+                    .collect();
+                let residual = residual
+                    .into_iter()
+                    .map(|c| Constraint {
+                        name: c.name,
+                        args: c
+                            .args
+                            .into_iter()
+                            .map(|t| {
+                                rename(&t, &mut |v| {
+                                    *mapping.entry(v).or_insert_with(|| fresh.take())
+                                })
                             })
-                        }))
-                        .collect(),
-                ))
+                            .collect(),
+                    })
+                    .collect::<Vec<_>>();
+                if residual.is_empty() {
+                    Ok(Event::Answer(bindings))
+                } else {
+                    Ok(Event::Suspended(bindings, residual))
+                }
             }
         }
     }

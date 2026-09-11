@@ -205,7 +205,7 @@ fn foreign_jobs_and_unowned_families_are_rejected() {
 }
 
 #[test]
-fn replayed_existentials_are_fresh_across_callers_and_suspended_calls_stay_errors() {
+fn replayed_existentials_are_fresh_and_suspended_calls_preserve_residuals() {
     let rs = rules(0, false, false);
     let mut table = Table::new(rs).unwrap();
     let q = query(c("wait", [nat(0), v(100), v(101)]));
@@ -244,11 +244,12 @@ fn replayed_existentials_are_fresh_across_callers_and_suspended_calls_stay_error
         loop {
             match table.step(job, &mut fresh) {
                 Ok(Event::Continue(next)) => job = next,
-                Err(e) => {
-                    assert!(e.contains("residual"));
+                Ok(Event::Suspended(bs, residual)) => {
+                    assert!(bs.is_empty());
+                    assert_eq!(residual, vec![c("p", [atom("b")])]);
                     break;
                 }
-                _ => panic!("suspension must be an error"),
+                _ => panic!("suspension must preserve work"),
             }
         }
     }
