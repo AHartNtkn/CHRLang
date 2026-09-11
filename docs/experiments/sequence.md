@@ -1,5 +1,7 @@
 # Experimental sequence: resolve the remaining architecture questions
 
+Connected lifecycle pilot validates 768 exact allocation runs and 3,840 ordinary sessions. Projection loses 188 of 192 comparisons; four remain unresolved, with all runs retained. Preparation accounts for 70–95% of projection time, and unequal-name query execution sometimes improves. T076 next attributes preparation before selecting a repair; ordered transport remains required. Package count two, goal active. [Connected costs](results/S06-connected-cost-pilot.md).
+
 Connected counted projection repairs duplicate-choice and output-alias support. All 128 scalar/reference source configurations and 1,024 prepared observations agree. Star elimination visits 28 assignments; dense elimination visits 504 against 256 full assignments, with local relation work separately counted. T076 remains active for complete connected lifecycle costs and ordered transport; package count one, goal active. [Connected entry](results/S06-connected-counted-entry.md).
 
 Recognition timing validates 20,480 sessions after 2,048 exact entries. Strides 4 and 16 qualify faster than stride 1 in 239 and 240 of 256 cases, but not against Direct or nonmemoized separation. The single sealed-adverse case still favors Direct. Full 57-question review selects T076 connected finite projection and multiplicity; T075 remains pending, review count reset, goal active. [Timing](results/S05-recognition-stride-timing.md) · [Portfolio review](results/S05-recognition-stride-timing-review.md).

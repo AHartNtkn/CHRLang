@@ -9,7 +9,7 @@ goal:
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
   execution_sequence: docs/experiments/next-cycle.md
-  current_research: "Connected counted projection repairs duplicate-choice and output-alias support. All 128 scalar/reference source configurations and 1,024 prepared observations agree. Star elimination visits 28 assignments; dense elimination visits 504 against 256 full assignments, with local relation work separately counted. T076 remains active for complete connected lifecycle costs and ordered transport; package count one, goal active."
+  current_research: "Connected lifecycle pilot validates 768 exact allocation runs and 3,840 ordinary sessions. Projection loses 188 of 192 comparisons; four remain unresolved, with all runs retained. Preparation accounts for 70–95% of projection time, and unequal-name query execution sometimes improves. T076 next attributes preparation before selecting a repair; ordered transport remains required. Package count two, goal active."
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -295,8 +295,8 @@ tasks:
     type: pm
     assignee: PM
     status: active
-    progress: "Connected counted projection repairs duplicate-choice and output-alias support. All 128 scalar/reference source configurations and 1,024 prepared observations agree. Star elimination visits 28 assignments; dense elimination visits 504 against 256 full assignments, with local relation work separately counted. T076 remains active for complete connected lifecycle costs and ordered transport; package count one, goal active."
-    next_action: "Register and run complete connected lifecycle costs using existing projection/enumeration controls, including dense adverse cases, multiplicities, aliases and changing restrictions. Charge source, encoding, ordering, observation and disposal; separate ordinary timing and allocation builds. Follow the demonstrated ordered-expansion counterexample with source-choice provenance, prefix and cancellation/restart tests. Compare sparse factor traversal and whole-call recognition at the next gate. Package count one."
+    progress: "Connected lifecycle pilot validates 768 exact allocation runs and 3,840 ordinary sessions. Projection loses 188 of 192 comparisons; four remain unresolved, with all runs retained. Preparation accounts for 70–95% of projection time, and unequal-name query execution sometimes improves. T076 next attributes preparation before selecting a repair; ordered transport remains required. Package count two, goal active."
+    next_action: "Attribute connected preparation to domain dictionaries, relation generation, ordering and elimination using a separate instrumentation build and matched ordinary controls. Select sparse traversal, direct predicate lowering or equality normalization only from attribution. Keep dense adverse cases, multiplicities, aliases and changing restrictions. Ordered transport with provenance, prefix and cancellation remains required. Reassess whole-call recognition at the next gate; package count two."
     objective: Investigate compact finite structural spaces, intersection and finite path equality against explicit enumeration, with independently specified denotation, source multiplicity correspondence, favorable and adverse sources and complete lifecycle costs.
     inputs:
       - docs/experiments/results/S06-unique-confirmation.md
@@ -2684,8 +2684,10 @@ checks:
   last_verification:
     result: passed
     task: T076
-    scope: Connected counted term projection, aliases, independent source bags, changing restrictions and adverse work control.
+    scope: Connected complete lifecycle pilot, exact requested ownership and preparation bound.
     commands:
+      - "connected_cost.py audit: 4608 terminal processes, 768 exact allocation runs, 3840 ordinary sessions, ownership, phase sums and frozen inputs"
+      - "connected_cost_diagnosis.py: 192 attribution bounds reproduce; both connected_cost builds pass Clippy"
       - "joint_projection, projection, projection_lifecycle, diagram_source, symbolic_transport: 28 tests pass with default metrics and no default features"
       - "Scoped joint_projection/projection Clippy passes in both feature configurations"
       - "Connected work: star relation candidates 28, elimination visits 28; dense 112 and 504; both full assignment controls 256"
@@ -2754,6 +2756,8 @@ checks:
       - "audit_probe_clock.py: 18000 separately instrumented complete sessions"
       - Scoped ordinary, allocation and CPU-clock Clippy; source hashes, report links and 57-question map
     evidence:
+      - docs/experiments/results/S06-connected-cost-pilot.md
+      - docs/experiments/results/s06-connected-cost-pilot/analysis.json
       - docs/experiments/results/S06-connected-counted-entry.md
       - docs/experiments/registrations/S06-connected-counted-entry.md
       - docs/experiments/results/S08-answer-validity-stable-timing.md
