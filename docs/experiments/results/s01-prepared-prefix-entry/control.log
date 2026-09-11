@@ -1,0 +1,87 @@
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+warning: linker stderr: terminate called after throwing an instance of 'std::system_error'
+           what():  Resource temporarily unavailable
+         PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace and instructions to reproduce the bug.
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `chr-compiled` (build script) generated 1 warning
+
+thread 'coordinator' (165) panicked at /rustc-dev/8bab26f4f68e0e26f0bb7960be334d5b520ea452/compiler/rustc_codegen_ssa/src/back/write.rs:1871:53:
+failed to spawn work thread: Os { code: 11, kind: WouldBlock, message: "Resource temporarily unavailable" }
+stack backtrace:
+   0:     0x7d660d6901f9 - <unknown>
+   1:     0x7d660de20cc8 - <unknown>
+   2:     0x7d660f20d936 - <unknown>
+   3:     0x7d660d6663fe - <unknown>
+   4:     0x7d660d683b33 - <unknown>
+   5:     0x7d660c476c31 - <unknown>
+   6:     0x7d660d683e12 - <unknown>
+   7:     0x7d660d6664c2 - <unknown>
+   8:     0x7d660d65a9a9 - <unknown>
+   9:     0x7d660d667f2d - <unknown>
+  10:     0x7d660a1192dc - <unknown>
+  11:     0x7d6609b41ad2 - <unknown>
+  12:     0x7d660ef49d8d - <unknown>
+  13:     0x7d660ef4ca9b - <unknown>
+  14:     0x7d660ef4c61d - <unknown>
+  15:     0x7d660ef543eb - <unknown>
+  16:     0x7d660ef5556c - <unknown>
+  17:     0x7d6608494a83 - <unknown>
+  18:     0x7d66085268e0 - <unknown>
+  19:                0x0 - <unknown>
+
+error: the compiler unexpectedly panicked. This is a bug
+
+note: we would appreciate a bug report: https://github.com/rust-lang/rust/issues/new?labels=C-bug%2C+I-ICE%2C+T-compiler&template=ice.md
+
+note: rustc 1.97.1 (8bab26f4f 2026-07-14) running on x86_64-unknown-linux-gnu
+
+note: compiler flags: --crate-type lib -C embed-bitcode=no -C debuginfo=2 -C incremental=[REDACTED]
+
+note: some of the compiler flags provided by cargo are hidden
+
+query stack during panic:
+end of query stack
+memory allocation of 1867792 bytes failed
+stack backtrace:
+   0:     0x7d660d6901f9 - <unknown>
+   1:     0x7d660de20cc8 - <unknown>
+   2:     0x7d660f20d936 - <unknown>
+   3:     0x7d660d683870 - <unknown>
+   4:     0x7d660d666316 - <unknown>
+   5:     0x7d660d65a999 - <unknown>
+   6:     0x7d660d68390a - <unknown>
+   7:     0x7d660d668093 - <unknown>
+   8:     0x7d6609c0f3f4 - <unknown>
+   9:     0x7d660abe69bf - <unknown>
+  10:     0x7d660ec56c74 - <unknown>
+  11:     0x7d660ec55182 - <unknown>
+  12:     0x7d660e40c5a0 - <unknown>
+  13:     0x7d660de05d95 - <unknown>
+  14:     0x7d660e390a6f - <unknown>
+  15:     0x7d660e38fe6b - <unknown>
+  16:     0x7d660e854160 - <unknown>
+  17:     0x7d660e853605 - <unknown>
+  18:     0x7d660b3706bc - <unknown>
+  19:     0x7d660de03693 - <unknown>
+  20:     0x7d660ec77e2c - <unknown>
+  21:     0x7d660ec77293 - <unknown>
+  22:     0x7d660eccfbbb - <unknown>
+  23:     0x7d660f171b85 - <unknown>
+  24:     0x7d660df1d280 - <unknown>
+  25:     0x7d660f03a5fe - <unknown>
+  26:     0x7d660f036398 - <unknown>
+  27:     0x7d660f03468d - <unknown>
+  28:     0x7d660ef2c95c - <unknown>
+  29:     0x7d660ef26fcb - <unknown>
+  30:     0x7d660ef5407a - <unknown>
+  31:     0x7d660ef5476d - <unknown>
+  32:     0x7d660ef5556c - <unknown>
+  33:     0x7d6608494a83 - <unknown>
+  34:     0x7d66085268e0 - <unknown>
+  35:                0x0 - <unknown>
+error: could not compile `chr-compiled` (lib)
+
+Caused by:
+  process didn't exit successfully: `rustc --crate-name chr_compiled --edition=2024 research/chr-compiled/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("alloc-meter", "arena-cow", "carrier-contraction", "default", "experiment", "fork-diagnostics", "lifecycle-cpu-clock", "metrics", "selective-probe"))' -C metadata=16587035ce49a430 -C extra-filename=-a77cc4216021f43c --out-dir /home/ahart/Documents/CHRLang/target/debug/deps -C incremental=/home/ahart/Documents/CHRLang/target/debug/incremental -L dependency=/home/ahart/Documents/CHRLang/target/debug/deps --extern chr_observe=/home/ahart/Documents/CHRLang/target/debug/deps/libchr_observe-36b4e53bc925fd22.rmeta --extern chr_persistent=/home/ahart/Documents/CHRLang/target/debug/deps/libchr_persistent-e6e7ca6b478c23f7.rmeta --extern chr_syntax=/home/ahart/Documents/CHRLang/target/debug/deps/libchr_syntax-bf053018669ddc0f.rmeta` (signal: 6, SIGABRT: process abort signal)

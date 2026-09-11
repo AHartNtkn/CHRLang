@@ -1,0 +1,20 @@
+
+running 2 tests
+test prepared_prefix_preserves_ground_join_choices_and_owned_answers ... FAILED
+test prepared_topology_preserves_changed_givens_raw_answers_and_early_drop ... ok
+
+failures:
+
+---- prepared_prefix_preserves_ground_join_choices_and_owned_answers stdout ----
+
+thread 'prepared_prefix_preserves_ground_join_choices_and_owned_answers' (5) panicked at research/chr-compiled/tests/query_template.rs:203:29:
+assertion `left == right` failed: selective 8 Global Scan
+  left: [Constraint { name: "left", args: [App("a0", []), App("x0", [])] }, Constraint { name: "left", args: [App("a1", []), App("x1", [])] }, Constraint { name: "left", args: [App("a2", []), App("x2", [])] }, Constraint { name: "left", args: [App("a3", []), App("x3", [])] }, Constraint { name: "left", args: [App("a4", []), App("x4", [])] }, Constraint { name: "left", args: [App("a5", []), App("x5", [])] }, Constraint { name: "left", args: [App("a6", []), App("x6", [])] }, Constraint { name: "left", args: [App("a7", []), App("x7", [])] }, Constraint { name: "right", args: [App("x0", []), App("b0", [])] }, Constraint { name: "right", args: [App("x1", []), App("b1", [])] }, Constraint { name: "right", args: [App("x2", []), App("b2", [])] }, Constraint { name: "right", args: [App("x3", []), App("b3", [])] }, Constraint { name: "right", args: [App("x4", []), App("b4", [])] }, Constraint { name: "right", args: [App("x5", []), App("b5", [])] }, Constraint { name: "right", args: [App("x6", []), App("b6", [])] }, Constraint { name: "right", args: [App("x7", []), App("b7", [])] }, Constraint { name: "request", args: [App("b0", [])] }, Constraint { name: "receipt", args: [App("a0", []), App("x0", []), App("b0", [])] }]
+ right: [Constraint { name: "left", args: [App("a0", []), App("x0", [])] }, Constraint { name: "left", args: [App("a1", []), App("x1", [])] }, Constraint { name: "left", args: [App("a2", []), App("x2", [])] }, Constraint { name: "left", args: [App("a3", []), App("x3", [])] }, Constraint { name: "left", args: [App("a4", []), App("x4", [])] }, Constraint { name: "left", args: [App("a5", []), App("x5", [])] }, Constraint { name: "left", args: [App("a6", []), App("x6", [])] }, Constraint { name: "left", args: [App("a7", []), App("x7", [])] }, Constraint { name: "receipt", args: [App("a0", []), App("x0", []), App("b0", [])] }, Constraint { name: "request", args: [App("b0", [])] }, Constraint { name: "right", args: [App("x0", []), App("b0", [])] }, Constraint { name: "right", args: [App("x1", []), App("b1", [])] }, Constraint { name: "right", args: [App("x2", []), App("b2", [])] }, Constraint { name: "right", args: [App("x3", []), App("b3", [])] }, Constraint { name: "right", args: [App("x4", []), App("b4", [])] }, Constraint { name: "right", args: [App("x5", []), App("b5", [])] }, Constraint { name: "right", args: [App("x6", []), App("b6", [])] }, Constraint { name: "right", args: [App("x7", []), App("b7", [])] }]
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    prepared_prefix_preserves_ground_join_choices_and_owned_answers
+
+test result: FAILED. 1 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s

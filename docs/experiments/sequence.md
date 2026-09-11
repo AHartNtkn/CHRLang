@@ -1,5 +1,7 @@
 # Experimental sequence: resolve the remaining architecture questions
 
+Prepared-prefix source gate passes 192 configurations across counter-free control and probe builds: 768 completed searches and 192 cancellations preserve independent full residuals, exact consuming tuples and retained answers. Changing right tables remain per-query input. T082 next measures requested ownership and cloning costs; package count one, goal active. [Source gate](results/S01-prepared-prefix-entry.md).
+
 Investigate the unanswered mechanisms directly, then compare the complete architectures they enable. Reuse the existing baselines. The research remains active until consequential questions have evidence-backed answers.
 
 The [execution sequence](next-cycle.md) sets four rounds: missing architectural benefits; competing search, reuse and compilation mechanisms; sustained and parallel execution; complete architectures and contrary tests. It gives the immediate order, concrete contrasts and the result required from each round. This document defines the governing requirements and stage specifications.
