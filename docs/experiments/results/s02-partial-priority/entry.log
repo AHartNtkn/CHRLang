@@ -1,0 +1,32 @@
+   Compiling chr-relational v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-relational)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.70s
+     Running unittests src/lib.rs (target/debug/deps/chr_relational-01bc1605d4c8412b)
+
+running 1 test
+PRIORITY,depth=4,early=false,clash=false,tokens=1,eager=8,settled=8
+PRIORITY,depth=4,early=false,clash=false,tokens=2,eager=8,settled=8
+PRIORITY,depth=4,early=false,clash=true,tokens=1,eager=8,settled=7
+PRIORITY,depth=4,early=false,clash=true,tokens=2,eager=8,settled=7
+PRIORITY,depth=4,early=true,clash=false,tokens=1,eager=8,settled=8
+PRIORITY,depth=4,early=true,clash=false,tokens=2,eager=8,settled=8
+PRIORITY,depth=4,early=true,clash=true,tokens=1,eager=8,settled=7
+PRIORITY,depth=4,early=true,clash=true,tokens=2,eager=8,settled=7
+PRIORITY,depth=16,early=false,clash=false,tokens=1,eager=20,settled=20
+PRIORITY,depth=16,early=false,clash=false,tokens=2,eager=20,settled=20
+PRIORITY,depth=16,early=false,clash=true,tokens=1,eager=20,settled=19
+PRIORITY,depth=16,early=false,clash=true,tokens=2,eager=20,settled=19
+PRIORITY,depth=16,early=true,clash=false,tokens=1,eager=20,settled=20
+PRIORITY,depth=16,early=true,clash=false,tokens=2,eager=20,settled=20
+PRIORITY,depth=16,early=true,clash=true,tokens=1,eager=20,settled=19
+PRIORITY,depth=16,early=true,clash=true,tokens=2,eager=20,settled=19
+PRIORITY,depth=64,early=false,clash=false,tokens=1,eager=68,settled=68
+PRIORITY,depth=64,early=false,clash=false,tokens=2,eager=68,settled=68
+PRIORITY,depth=64,early=false,clash=true,tokens=1,eager=68,settled=67
+PRIORITY,depth=64,early=false,clash=true,tokens=2,eager=68,settled=67
+PRIORITY,depth=64,early=true,clash=false,tokens=1,eager=68,settled=68
+PRIORITY,depth=64,early=true,clash=false,tokens=2,eager=68,settled=68
+PRIORITY,depth=64,early=true,clash=true,tokens=1,eager=68,settled=67
+PRIORITY,depth=64,early=true,clash=true,tokens=2,eager=68,settled=67
+test execute::interleaving_tests::partial_equality_distinguishes_priority_from_permitted_serialization ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.17s

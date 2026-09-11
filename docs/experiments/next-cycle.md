@@ -1,6 +1,6 @@
 # Experimental sequence for the unanswered architecture questions
 
-The [traversal ownership result](results/S08-traversal-ownership.md) and [full portfolio review](results/S08-traversal-portfolio-review.md) supply the current checkpoint. Completed-traversal ownership validates336 processes and112 exact allocation pairs, with complete disposal. Continuing dependency traffic falls in16 comparisons, while template traffic rises in16 and flat-source traffic rises in all16. Peak requested heap rises throughout; direct traffic is lower in all48 graph comparisons. Full portfolio review selects T072 useful partial equality/matching/consumption; T074 retains memo storage and complete timing. Review count reset; goal active.
+The [partial-priority result](results/S02-partial-priority.md) supplies the current checkpoint. The partial-priority gate confirms24 configurations twice. All12 successful eager executions choose a different consumer from full settlement, while matching an independently allowed atomic consumer order; all12 late clashes publish nothing. Cancellation/reuse and duplicate tokens remain correct. Successful equality work is unchanged; failed speculation adds one deduction. Established useful-interleaving controls reproduce. T072 next qualifies priority-aware readiness against full settlement; package one since review, goal active.
 
 Test the distinct mechanisms that remain unanswered, then compare the complete architectures they enable. Reuse the existing baselines. A lower priority changes when a question is investigated; it does not answer it.
 
@@ -10,15 +10,15 @@ This sequence covers the [57 reviewed questions](question-to-experiment-map.md) 
 
 ## Start here: the next experiments
 
-**1. Establish useful partial equality and consuming execution — T072, specification2.** The [full portfolio review](results/S08-traversal-portfolio-review.md) selects a different architectural promise: whether stable early equality information enables matching/consumption that saves substantive source work. Read the existing serialization analysis, inspect current interfaces, then establish useful and useless interleaving with an independent serialized control. Include late contradiction, competing consumers and cancellation; repair obstructing fixtures/interfaces.
+**1. Qualify priority-aware readiness — T072, specification2.** The [partial-priority gate](results/S02-partial-priority.md) shows that stable guards alone do not preserve a fixed consumer priority. Compare a priority-aware integrated schedule with full equality settlement. Distinguish impossible from unresolved higher-priority contenders and test shared/disjoint resources, late contradictions and newly enabled requests.
 
-**2. Register work and costs after the semantic entry.** Demonstrate actual avoided or added work, not just callbacks. Keep state-inspecting guards separate from stable guards. Compare competent complete variants and their commitment/invalidation responsibilities before registering total lifecycle measurements.
+**2. Preserve the distinction between scheduling contracts.** The permissive successful-serialization argument remains applicable, but is not a proof of fixed-priority equivalence. No future language policy is adopted. Existing early-failure, contextual and integrated-body gates already supply evidence; extend the missing responsibility rather than repeating them.
 
-**3. Reconsider ready alternatives at the first gate.** T074 retains graph memo storage, complete timing/RSS, broader retention and regeneration. Conditional application attribution, partner plans, coarser reuse and broader solving/lowering remain required. Review all directions within four packages; the count resets at this selection.
+**3. Reconsider alternatives at this gate.** Determine whether readiness permits useful work before unrelated equality completes or only adds checking. Compare partner plans, broader integration and the ready graph memo/lifecycle costs then. This is package one since the [full portfolio review](results/S08-traversal-portfolio-review.md); review all directions within four packages.
 
 ## Why this order, and what can change it
 
-The traversal ownership gate finds both favorable and adverse allocation regimes and leaves elapsed costs open. A useful-information/commit witness can now distinguish a different organization and possible language contracts more broadly than another refinement of the same lifetime mechanism. Existing resumable equality and independent source controls make a bounded entry feasible. If the gate finds only moved queue work or a consequential correctness obstruction, repair the experiment and reconsider graph costs and partner plans.
+A successful consumer-order difference exposes an architectural obligation that affects both execution and language policy. A bounded readiness comparison can show whether preserving priority requires a broad barrier or a more selective responsibility. It is more discriminating than another early-failure replication. If the proposed readiness adds no useful opportunity, retain that result and compare the strongest ready alternatives before further elaboration.
 
 Scheduling a later trial does not supply evidence for that direction. All thirteen specifications and the 57-question audit remain controlling.
 
