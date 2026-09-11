@@ -1,5 +1,7 @@
 # R00: architectural alternatives and first experiment selection
 
+Connected preparation attribution validates 480 source-checked processes. Unequal-name relation construction owns 68–70% of preparation; six-variable clique elimination owns 65–66%. Direct ground Name/Different evaluation passes 28 tests in both configurations and reduces profiled relation cost. T076 next measures complete repaired costs against frozen projection and enumeration; package count three, full portfolio review after next package, goal active. [Preparation attribution](S06-connected-preparation.md).
+
 Connected lifecycle pilot validates 768 exact allocation runs and 3,840 ordinary sessions. Projection loses 188 of 192 comparisons; four remain unresolved, with all runs retained. Preparation accounts for 70–95% of projection time, and unequal-name query execution sometimes improves. T076 next attributes preparation before selecting a repair; ordered transport remains required. Package count two, goal active. [Connected costs](S06-connected-cost-pilot.md).
 
 Connected counted projection repairs duplicate-choice and output-alias support. All 128 scalar/reference source configurations and 1,024 prepared observations agree. Star elimination visits 28 assignments; dense elimination visits 504 against 256 full assignments, with local relation work separately counted. T076 remains active for complete connected lifecycle costs and ordered transport; package count one, goal active. [Connected entry](S06-connected-counted-entry.md).
