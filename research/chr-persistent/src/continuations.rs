@@ -494,6 +494,16 @@ impl Machine {
         }
         event
     }
+    pub fn has_pending_work(&self, cursor: &Cursor) -> bool {
+        self.check_cursor(cursor);
+        cursor.0.has_pending_work()
+    }
+    /// Detach the single pending body immediately after a successful rule-selection step.
+    /// The caller retains consumed heads, history, bindings and variable allocation.
+    pub fn take_body(&mut self, cursor: &mut Cursor) -> (chr_syntax::Goal, u64) {
+        self.check_cursor(cursor);
+        cursor.0.take_body(&mut self.arena, &mut self.stats)
+    }
     /// Caller must validate the private single-head priority prefix once.
     pub fn take_private_call(
         &mut self,

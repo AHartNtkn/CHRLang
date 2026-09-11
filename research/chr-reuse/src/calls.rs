@@ -1,6 +1,7 @@
 //! Experimental isolated-call table. The owner chooses a source-valid call
 //! boundary; this table does not project arbitrary continuation state.
 pub mod trace;
+pub mod body;
 use chr_persistent::continuations::{PreparedMachine, Step};
 use chr_syntax::{Constraint, Goal, Query, Rule, Term, Var};
 use std::collections::{BTreeMap, BTreeSet, VecDeque};

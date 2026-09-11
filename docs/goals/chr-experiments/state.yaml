@@ -9,7 +9,7 @@ goal:
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
   execution_sequence: docs/experiments/next-cycle.md
-  current_research: "Live caller observers preserve 504 sources and 31176 one-step checkpoints with trace reuse active, including multi-head consumption and caller-posted private work. T075 next investigates rule-body reuse with selection left in the caller to support interleaved observer priorities; package count one, goal active."
+  current_research: "Selected rule-body reuse preserves 864 interleaved-observer sources and 90792 one-step checkpoints; warm complete runs execute no additional body steps. Matching, consumption and history remain in the live caller. T075 next registers complete costs with matched controls and substantive body work; package count two, goal active."
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -389,9 +389,11 @@ tasks:
     assignee: PM
     status: active
     objective: Investigate sound generalized call and continuation reuse after different histories, including renaming, relevance, resource and output identity obligations, against competent recomputation and sharing controls.
-    progress: "Live caller observers preserve 504 sources and 31176 one-step checkpoints with trace reuse active, including multi-head consumption and caller-posted private work. T075 next investigates rule-body reuse with selection left in the caller to support interleaved observer priorities; package count one, goal active."
-    next_action: "Register and implement selected rule-body reuse with rule selection, consuming heads and propagation history remaining in the original live caller. Test arbitrary observer priorities between private rules, shared bindings, multi-head effects, raw order, cancellation and fresh outputs against Direct and independent scalar execution. Investigate the granularity and lookup costs before lifecycle timing. Selective trace retention and complete observed-source costs remain required; reconsider at the first consequential result or obstruction. Package count one since portfolio review."
+    progress: "Selected rule-body reuse preserves 864 interleaved-observer sources and 90792 one-step checkpoints; warm complete runs execute no additional body steps. Matching, consumption and history remain in the live caller. T075 next registers complete costs with matched controls and substantive body work; package count two, goal active."
+    next_action: "Inspect existing compiled and full-state reuse controls, then register and implement complete body-reuse lifecycle costs. Include short bodies and substantive repeated body work, cold/warm and changing queries, interleaved consuming observers, failure, cancellation, held answers and disposal. Charge body-key export/canonicalization, first-use trace preparation, entry steps, replay and binding/post transfer. Investigate consequential gains or losses against the strongest applicable simpler control; selective retention and broader source planning remain required. Package count two since portfolio review."
     inputs:
+      - docs/experiments/results/S05-body-reuse.md
+      - docs/experiments/registrations/S05-body-reuse.md
       - docs/experiments/results/S05-live-observers.md
       - docs/experiments/registrations/S05-live-observers.md
       - docs/experiments/results/S06-caller-reuse.md
@@ -2726,8 +2728,10 @@ checks:
   last_verification:
     result: passed
     task: T075
-    scope: Live phase-boundary observers, consuming joins, fresh aliases and private re-entry.
+    scope: Selected rule-body reuse with arbitrary observer priorities and live selection.
     commands:
+      - "864 body-reuse sources,90792 Direct checkpoints; warm executions add zero body steps; independent scalar raw bags, guard/head ownership and posted-name/fresh-alias cases pass"
+      - "Five new tests pass default/off;42 relevant counter-free and22 persistent tests pass; scoped Clippy passes"
       - "37 caller/trace/result-reuse/effectful tests pass default/off; final observer assertions and scoped Clippy pass"
       - "504 live-observer cases,31176 Direct checkpoints; actual observer firing, alias conflict, trace hits/replay and scalar raw answers checked"
       - "Default caller/source tests, 23 relevant counter-free tests and scoped allocator-build Clippy pass"

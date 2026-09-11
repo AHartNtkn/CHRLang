@@ -31,7 +31,7 @@ pub fn c(name: &str, args: impl Into<Vec<Term>>) -> Constraint {
     }
 }
 
-#[derive(Clone, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord)]
 pub enum Goal {
     Constraint(Constraint),
     Unify(Term, Term),

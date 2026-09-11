@@ -236,6 +236,43 @@ impl State {
         }
         Event::Complete
     }
+    pub(crate) fn has_pending_work(&self) -> bool {
+        self.pending.0.is_some()
+    }
+    pub(crate) fn take_body(&mut self, arena: &mut Arena, stats: &mut Stats) -> (Goal, u64) {
+        fn export(w: &Work, arena: &Arena, bindings: &Bindings, stats: &mut Stats) -> Goal {
+            match w {
+                Work::Insert(p, args) => Goal::Constraint(Constraint {
+                    name: arena.predicates()[*p].0.clone(),
+                    args: args
+                        .iter()
+                        .map(|t| arena.export(*t, bindings, stats))
+                        .collect(),
+                }),
+                Work::Equal(a, b) => Goal::Unify(
+                    arena.export(*a, bindings, stats),
+                    arena.export(*b, bindings, stats),
+                ),
+                Work::And(gs) => Goal::And(
+                    gs.iter()
+                        .map(|g| export(g, arena, bindings, stats))
+                        .collect(),
+                ),
+                Work::Or(a, b) => Goal::Or(
+                    Box::new(export(a, arena, bindings, stats)),
+                    Box::new(export(b, arena, bindings, stats)),
+                ),
+                Work::True => Goal::True,
+                Work::Fail => Goal::Fail,
+            }
+        }
+        let body = self.pending.pop().expect("selected rule body");
+        assert!(
+            self.pending.0.is_none(),
+            "body extraction requires a single selected body"
+        );
+        (export(&body, arena, &self.bindings, stats), self.next_var)
+    }
     pub(crate) fn take_private_call(
         &mut self,
         rules: &[Rule],

@@ -65,6 +65,47 @@ impl Table {
             stats: Stats::default(),
         })
     }
+    pub(crate) fn body(body: chr_syntax::Goal, holes: usize) -> Result<(Self, String), String> {
+        fn posted(g: &chr_syntax::Goal, name: &str) -> bool {
+            use chr_syntax::Goal;
+            match g {
+                Goal::Constraint(c) => c.name == name,
+                Goal::And(gs) => gs.iter().any(|g| posted(g, name)),
+                Goal::Or(a, b) => posted(a, name) || posted(b, name),
+                _ => false,
+            }
+        }
+        let mut name = "$body".to_string();
+        while posted(&body, &name) {
+            name.push('_');
+        }
+        let rule = Rule::simplify(
+            "body",
+            [Constraint {
+                name: name.clone(),
+                args: (0..holes).map(|i| Term::Var(Var(i as u64))).collect(),
+            }],
+            body,
+        );
+        Ok((
+            Self {
+                prepared: PreparedMachine::new(vec![rule])?,
+                family: BTreeSet::from([(name.clone(), holes)]),
+                keys: BTreeMap::new(),
+                traces: vec![],
+                stats: Stats::default(),
+                owner: Rc::new(()),
+            },
+            name,
+        ))
+    }
+    pub(crate) fn start_body(&mut self, call: &Constraint) -> Result<Job, String> {
+        let job = self.start_live(call)?;
+        match self.step(job, &mut Fresh::from_next(0))? {
+            Event::Continue(job) => Ok(job),
+            _ => Err("body entry application did not continue".into()),
+        }
+    }
     pub fn start(&mut self, call: &Constraint) -> Result<Job, String> {
         if !self.family.contains(&(call.name.clone(), call.args.len())) {
             return Err("call outside private family".into());

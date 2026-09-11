@@ -1,6 +1,6 @@
 # The comparisons still needed to choose the architecture
 
-Live caller observers preserve 504 sources and 31176 one-step checkpoints with trace reuse active, including multi-head consumption and caller-posted private work. T075 next investigates rule-body reuse with selection left in the caller to support interleaved observer priorities; package count one, goal active. [Live observers](results/S05-live-observers.md).
+Selected rule-body reuse preserves 864 interleaved-observer sources and 90792 one-step checkpoints; warm complete runs execute no additional body steps. Matching, consumption and history remain in the live caller. T075 next registers complete costs with matched controls and substantive body work; package count two, goal active. [Body reuse](results/S05-body-reuse.md).
 
 Generated runtime timing validates 10,080 processes and 1,152 comparisons. Four repeated-query cases qualify faster with traces than all six controls; generated matching qualifies against generic indexed execution in fifteen cases. Stronger-control diagnostics leave generated-plus-inferred gains uncertain and select longer prepared sessions plus compiler amortization including Direct, scan and inferred controls. T075 active; package count one, goal active. [Generated runtime](results/S05-call-generated-timing.md).
 
