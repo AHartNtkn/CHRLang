@@ -104,6 +104,9 @@ pub struct ReclaimedSupports {
 #[cfg(feature = "work-diagnostics")]
 #[derive(Debug, Default, Clone, Copy)]
 pub struct Work {
+    pub resource_posts: usize,
+    pub output_binders: usize,
+    pub resource_candidates: usize,
     pub force_entries: usize,
     pub validation_passes: usize,
     pub validation_entries: usize,
@@ -608,6 +611,10 @@ impl Run {
             }
             Plan::Fail => self.push(Node::Fail),
             Plan::BindOutput(var, body) => {
+                #[cfg(feature = "work-diagnostics")]
+                {
+                    self.work.output_binders += 1;
+                }
                 // Posts can precede the equation defining this call's output.
                 // Keep one local reference, then link it to the contextual result.
                 let slot = self.term(&Term::Var(*var), env);
@@ -634,6 +641,10 @@ impl Run {
                             self.producer(n.clone(), args, *v, env, ctx);
                         }
                         Action::Post(name, args) => {
+                            #[cfg(feature = "work-diagnostics")]
+                            {
+                                self.work.resource_posts += 1;
+                            }
                             let args = args.iter().map(|t| term(self, t, env)).collect();
                             self.resources.push(Resource {
                                 constraint: name.clone(),
@@ -738,6 +749,10 @@ impl Run {
         }
         let head = &heads[selected.len()].0;
         for id in 0..self.resources.len() {
+            #[cfg(feature = "work-diagnostics")]
+            {
+                self.work.resource_candidates += 1;
+            }
             if selected.contains(&id) || !self.live(id, ctx) {
                 continue;
             }
