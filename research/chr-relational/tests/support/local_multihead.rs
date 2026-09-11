@@ -109,7 +109,7 @@ pub struct Work {
 #[derive(Clone)]
 pub struct Execution<const METRICS: bool = true> {
     program: Arc<Program>,
-    graph: Run<false>,
+    graph: Run<METRICS>,
     live: BTreeMap<usize, Fact>,
     next_occ: usize,
     history: BTreeSet<(usize, Vec<usize>)>,
@@ -123,6 +123,12 @@ pub struct Execution<const METRICS: bool = true> {
     pub work: Work,
 }
 impl<const METRICS: bool> Execution<METRICS> {
+    pub fn matching_work(&self) -> (usize, usize) {
+        (
+            self.graph.dependency_work.pattern_nodes.get(),
+            self.graph.dependency_work.equality_nodes.get(),
+        )
+    }
     fn post(&mut self, c: &Constraint, env: &mut BTreeMap<Var, usize>) {
         let args = c
             .args
@@ -678,3 +684,45 @@ impl<const METRICS: bool> Execution<METRICS> {
 
 #[path = "local_search.rs"]
 pub mod search;
+
+#[cfg(test)]
+mod diagnostic_tests {
+    use super::*;
+    #[test]
+    fn nested_matching_diagnostics_follow_execution_mode() {
+        let rules = [Rule::simplify(
+            "match",
+            [chr_syntax::c("x", [chr_syntax::t("f", [chr_syntax::v(0)])])],
+            Goal::True,
+        )];
+        let q = Query {
+            constraints: vec![chr_syntax::c(
+                "x",
+                [chr_syntax::t("f", [chr_syntax::atom("a")])],
+            )],
+            outputs: vec![],
+        };
+        let p = Program::compile(&rules).unwrap();
+        let mut counted = p.start_mode::<true>(&q, false);
+        let mut plain = p.start_mode::<false>(&q, false);
+        for _ in 0..10 {
+            if counted.advance() {
+                break;
+            }
+        }
+        for _ in 0..10 {
+            if plain.advance() {
+                break;
+            }
+        }
+        assert_eq!(counted.firings, 1);
+        assert!(plain.answer().unwrap().residual.is_empty());
+        assert!(counted.graph.dependency_work.pattern_nodes.get() >= 2);
+        assert_eq!(plain.graph.dependency_work.pattern_nodes.get(), 0);
+        assert!(chr_observe::equivalent(
+            &counted.answer().unwrap(),
+            &plain.answer().unwrap(),
+            &mut Default::default()
+        ));
+    }
+}

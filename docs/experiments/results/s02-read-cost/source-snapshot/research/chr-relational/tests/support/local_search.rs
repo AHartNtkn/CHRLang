@@ -91,12 +91,7 @@ impl<const METRICS: bool> Search<METRICS> {
 }
 
 // Compare syntax and captured handles without allocating graph nodes or installing equations.
-pub(super) fn guard_equal<const METRICS: bool>(
-    graph: &Run<METRICS>,
-    a: &Term,
-    b: &Term,
-    env: &Env,
-) -> bool {
+pub(super) fn guard_equal(graph: &Run<false>, a: &Term, b: &Term, env: &Env) -> bool {
     #[derive(Clone, Copy)]
     enum View<'a> {
         Syntax(&'a Term),
@@ -127,10 +122,7 @@ pub(super) fn guard_equal<const METRICS: bool>(
             _ => view,
         }
     }
-    fn parts<'a, const METRICS: bool>(
-        view: View<'a>,
-        graph: &'a Run<METRICS>,
-    ) -> Option<(&'a str, Children<'a>)> {
+    fn parts<'a>(view: View<'a>, graph: &'a Run<false>) -> Option<(&'a str, Children<'a>)> {
         match view {
             View::Syntax(Term::App(name, args)) => Some((name, Children::Syntax(args))),
             View::Handle(h) => graph.nodes[graph.targets[h]]
@@ -140,12 +132,7 @@ pub(super) fn guard_equal<const METRICS: bool>(
             _ => None,
         }
     }
-    fn equal<const METRICS: bool>(
-        graph: &Run<METRICS>,
-        a: View<'_>,
-        b: View<'_>,
-        env: &Env,
-    ) -> bool {
+    fn equal(graph: &Run<false>, a: View<'_>, b: View<'_>, env: &Env) -> bool {
         let (a, b) = (resolve(a, env), resolve(b, env));
         match (a, b) {
             (View::Handle(x), View::Handle(y)) => graph.equal(x, y, &mut Dependencies::default()),

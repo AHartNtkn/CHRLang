@@ -1,6 +1,6 @@
 # The comparisons still needed to choose the architecture
 
-The [proper-intermediate lifecycle sizing](results/S01-intermediate-lifecycle.md) supplies the current checkpoint. Proper-intermediate lifecycle sizing completes 2688 processes over384 cells with exact allocation pairs, final ownership restoration and240 randomized five-repetition timing blocks. Proper intermediates lower peaks versus partial joins in40/48 scenarios and tie in8, but exceed local scanning in traffic and peak throughout. Large sampled partial-join improvements coexist with strong indexed/scanning controls; timing is exploratory. T081 next qualifies expensive reusable prefix work that survives competent indexing/specialization. This is package three since the full portfolio review; the next boundary requires that review.
+The [structural-prefix screen](results/S01-structural-prefix.md) and [full portfolio review](results/S01-structural-prefix-review.md) supply the current checkpoint. Structural-prefix qualification passes 48 sources in two repeats of both compiled feature builds, with 576 complete backend answers per repeat. At width eight/depth 32, proper intermediates visit 4,920 pattern nodes versus local scanning’s 23,928; broad invalidation costs 2,384 versus eight. Inferred specialization is ineligible; generated/activation controls and total costs remain open. The fourth-package portfolio review selects T076 useful symbolic union; goal active.
 
 The [relevant-key ownership comparison](results/S02-relevant-ownership.md) supplies the current checkpoint. Relevant-key ownership validates1,008 metered and448 ordinary processes with exact allocation repeats, cancellation/reuse and retained answers surviving producer disposal. Ordered relevant reuse lowers peaks versus exact-state caching in38of64 scenarios but requests more bytes than recomputation in all64. The changed depth16/four-query witness requests1,292,590bytes with72,959peak excess versus669,196/38,976 for recomputation. T072 next attributes key/replay execution costs before timing; package one after breadth review; goal active.
 
@@ -106,7 +106,7 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-The [current execution order](next-cycle.md#start-here-the-next-experiments) owns scheduling: enter demand capability after the recorded-read cost result, followed by direct integration, intermediate joins and compact solving. The specifications below retain their individual evidence requirements and do not establish a separate order.
+The [current execution order](next-cycle.md#start-here-the-next-experiments) owns scheduling: enter useful symbolic union after the structural-prefix screen, with join controls/costs and unfinished demand/integration comparisons retained. The specifications below retain their individual evidence requirements and do not establish a separate order.
 
 ### Depth, breadth and stopping within this sequence
 

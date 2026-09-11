@@ -1,0 +1,117 @@
+   Compiling chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax)
+   Compiling chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe)
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+   Compiling chr-integrated v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-integrated)
+   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)
+   Compiling chr-relational v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-relational)
+error[E0592]: duplicate definitions with name `matching_work`
+   --> research/chr-relational/tests/support/local_multihead.rs:126:5
+    |
+126 |     pub fn matching_work(&self) -> (usize, usize) {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ duplicate definitions for `matching_work`
+...
+290 |     pub fn matching_work(&self) -> (usize, usize) {
+    |     --------------------------------------------- other definition for `matching_work`
+
+error[E0592]: duplicate definitions with name `matching_work`
+   --> research/chr-relational/tests/support/local_multihead.rs:126:5
+    |
+126 |     pub fn matching_work(&self) -> (usize, usize) {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ duplicate definitions for `matching_work`
+...
+568 |     pub fn matching_work(&self) -> (usize, usize) {
+    |     --------------------------------------------- other definition for `matching_work`
+
+error[E0592]: duplicate definitions with name `matching_work`
+   --> research/chr-relational/tests/support/local_multihead.rs:126:5
+    |
+126 |     pub fn matching_work(&self) -> (usize, usize) {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ duplicate definitions for `matching_work`
+...
+631 |     pub fn matching_work(&self) -> (usize, usize) {
+    |     --------------------------------------------- other definition for `matching_work`
+
+error[E0592]: duplicate definitions with name `matching_work`
+   --> research/chr-relational/tests/support/local_multihead.rs:290:5
+    |
+290 |     pub fn matching_work(&self) -> (usize, usize) {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ duplicate definitions for `matching_work`
+...
+568 |     pub fn matching_work(&self) -> (usize, usize) {
+    |     --------------------------------------------- other definition for `matching_work`
+
+error[E0592]: duplicate definitions with name `matching_work`
+   --> research/chr-relational/tests/support/local_multihead.rs:290:5
+    |
+290 |     pub fn matching_work(&self) -> (usize, usize) {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ duplicate definitions for `matching_work`
+...
+631 |     pub fn matching_work(&self) -> (usize, usize) {
+    |     --------------------------------------------- other definition for `matching_work`
+
+error[E0592]: duplicate definitions with name `matching_work`
+   --> research/chr-relational/tests/support/local_multihead.rs:568:5
+    |
+568 |     pub fn matching_work(&self) -> (usize, usize) {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ duplicate definitions for `matching_work`
+...
+631 |     pub fn matching_work(&self) -> (usize, usize) {
+    |     --------------------------------------------- other definition for `matching_work`
+
+error[E0034]: multiple applicable items in scope
+   --> research/chr-relational/tests/intermediate_structure.rs:133:56
+    |
+133 |                         let (patterns, equalities) = e.matching_work();
+    |                                                        ^^^^^^^^^^^^^ multiple `matching_work` found
+    |
+note: candidate #1 is defined in an impl for the type `multihead::Execution<METRICS>`
+   --> research/chr-relational/tests/support/local_multihead.rs:126:5
+    |
+126 |     pub fn matching_work(&self) -> (usize, usize) {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+note: candidate #2 is defined in an impl for the type `multihead::Execution<METRICS>`
+   --> research/chr-relational/tests/support/local_multihead.rs:290:5
+    |
+290 |     pub fn matching_work(&self) -> (usize, usize) {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+note: candidate #3 is defined in an impl for the type `multihead::Execution<METRICS>`
+   --> research/chr-relational/tests/support/local_multihead.rs:568:5
+    |
+568 |     pub fn matching_work(&self) -> (usize, usize) {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+note: candidate #4 is defined in an impl for the type `multihead::Execution<METRICS>`
+   --> research/chr-relational/tests/support/local_multihead.rs:631:5
+    |
+631 |     pub fn matching_work(&self) -> (usize, usize) {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0034]: multiple applicable items in scope
+   --> research/chr-relational/tests/intermediate_structure.rs:145:42
+    |
+145 |                         assert_eq!(plain.matching_work(), (0, 0));
+    |                                          ^^^^^^^^^^^^^ multiple `matching_work` found
+    |
+note: candidate #1 is defined in an impl for the type `multihead::Execution<METRICS>`
+   --> research/chr-relational/tests/support/local_multihead.rs:126:5
+    |
+126 |     pub fn matching_work(&self) -> (usize, usize) {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+note: candidate #2 is defined in an impl for the type `multihead::Execution<METRICS>`
+   --> research/chr-relational/tests/support/local_multihead.rs:290:5
+    |
+290 |     pub fn matching_work(&self) -> (usize, usize) {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+note: candidate #3 is defined in an impl for the type `multihead::Execution<METRICS>`
+   --> research/chr-relational/tests/support/local_multihead.rs:568:5
+    |
+568 |     pub fn matching_work(&self) -> (usize, usize) {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+note: candidate #4 is defined in an impl for the type `multihead::Execution<METRICS>`
+   --> research/chr-relational/tests/support/local_multihead.rs:631:5
+    |
+631 |     pub fn matching_work(&self) -> (usize, usize) {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Some errors have detailed explanations: E0034, E0592.
+For more information about an error, try `rustc --explain E0034`.
+error: could not compile `chr-relational` (test "intermediate_structure") due to 8 previous errors
