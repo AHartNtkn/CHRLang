@@ -1,6 +1,6 @@
 # Experimental sequence for the unanswered architecture questions
 
-The [projection and shared-control result](results/S01-probe-projection.md) supplies the current checkpoint. Projection attribution and repairs validate 51 frozen processes. Width256 duplicate retrieval falls from 65535 to 511 indexed entries per step. Shared empty-head admission reduces exhaustion from 131595 to 521 steps for both control and probe. The strengthened selective witness remains favorable under Global (258 to 4 candidates) but Active saves none and adds lookups. T082 next measures ownership, cancellation and ordinary lifecycle costs; package three since review, goal active.
+The [probe lifecycle result](results/S01-probe-lifecycle.md) supplies the current checkpoint. Probe lifecycle pilot validates 1344 processes and192 exact allocation pairs. An18000-session confirmation and separate18000-session CPU-clock diagnosis establish no registered timing gain. Selective requested allocation falls; duplicate/broad costs and preparation ownership rise. Full portfolio review selects matched reuse of unchanged query structure through the existing prepared-query API under T082; review count reset, goal active.
 
 Test the distinct mechanisms that remain unanswered, then compare the complete architectures they enable. Reuse the existing baselines. A lower priority changes when a question is investigated; it does not answer it.
 
@@ -10,16 +10,16 @@ This sequence covers the [57 reviewed questions](question-to-experiment-map.md) 
 
 ## Start here: the next experiments
 
-**1. Qualify probe ownership and service cost — T082.** The [selective probe](results/S01-selective-probe.md) preserves source tuples and saves candidate work. The [projection and shared-control comparison](results/S01-probe-projection.md) repairs repeated bucket retrieval and exhausted-rule search. Measure prepared links, temporary frames/sets, cancellation and ordinary service costs against that stronger control; preserve the adverse duplicate case.
+**1. Qualify repeated query preparation — T082.** The [lifecycle result](results/S01-probe-lifecycle.md) gives exact allocation tradeoffs but no established total timing gain. Compare the existing prepared-query API with fresh execution of the same ordered common prefix and changing suffix. Prove complete answers and selected tuples first.
 
-**2. Charge complete lifecycle costs.** Preserve changing queries, complete outputs, cancellation, preparation and disposal. Register ordinary timing after ownership/progress qualification; keep work and allocation diagnostics separate.
+**2. Charge shared and changing ownership.** Reuse only unchanged structure; broad/duplicate right tables currently change with the query. Measure prefix preparation, per-query copying/suffix admission, cancellation, observation and producer/consumer disposal.
 
-**3. Compare alternatives at the gate.** The [portfolio review](results/S08-context-portfolio-review.md) selected planning. The probe now supplies a source-preserving mechanism to price, so ownership qualification has higher immediate value than another speculative predicate or memo change. Reassess integration, solving, reuse and other directions at that result or obstruction. Package three since review; full review within four.
+**3. Reassess at the gate.** The [full portfolio review](results/S01-probe-lifecycle-review.md) selects this large remaining responsibility over another precision-only series. Reconsider integrated admission, graph attribution, solving and other required mechanisms at the result or obstruction. Review count reset; full review within four packages.
 
 
 ## Why this order, and what can change it
 
-The bound-request witness shows that an available endpoint key can avoid hundreds of candidate visits; the neutral control shows why an arbitrary join fixture is insufficient. The ambiguous-match sentinel makes preserving source selection an explicit implementation requirement. This has greater immediate decision value than another isolated context-predicate repair, while retaining all broader architecture obligations.
+Candidate savings survive correctness tests but have not established a complete timing gain after repeated native and CPU-clock investigation. Query construction and initial occurrence work remain substantial, while an existing prepared-query interface offers a concrete competing way to pay them. Its source/ownership gate has greater immediate decision value than further tuning a small timing boundary.
 
 Scheduling a later trial does not supply evidence for that direction. All thirteen specifications and the 57-question audit remain controlling.
 

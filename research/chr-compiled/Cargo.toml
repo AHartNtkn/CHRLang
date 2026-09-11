@@ -5,6 +5,7 @@ edition.workspace = true
 build = "build.rs"
 
 [features]
+lifecycle-cpu-clock = []
 selective-probe = []
 default = ["metrics"]
 metrics = ["chr-persistent/kernel-metrics", "chr-observe/metrics"]
