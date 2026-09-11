@@ -1,0 +1,31 @@
+
+running 1 test
+test execute::interleaving_tests::matcher_settlement_preserves_the_priority_witness ... FAILED
+
+failures:
+
+---- execute::interleaving_tests::matcher_settlement_preserves_the_priority_witness stdout ----
+
+thread 'execute::interleaving_tests::matcher_settlement_preserves_the_priority_witness' (169) panicked at research/chr-relational/src/../../chr-direct-conditional/tests/runtime_support/mod.rs:273:32:
+missing full observation Answer { outputs: [("winner", App("older", [])), ("x", App("a", [])), ("y", App("b", []))], residual: [] }; remaining [Answer { outputs: [("winner", App("newer", [])), ("x", App("a", [])), ("y", App("b", []))], residual: [] }]
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    execute::interleaving_tests::matcher_settlement_preserves_the_priority_witness
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 11 filtered out; finished in 0.00s
+
+   Compiling chr-relational v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-relational)
+warning: unused variable: `guard_vars`
+   --> research/chr-relational/src/store.rs:217:17
+    |
+217 |             let guard_vars = guard_vars.into_iter().collect::<BTreeSet<_>>();
+    |                 ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_guard_vars`
+    |
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: `chr-relational` (lib test) generated 1 warning (run `cargo fix --lib -p chr-relational --tests` to apply 1 suggestion)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.22s
+     Running unittests src/lib.rs (target/debug/deps/chr_relational-01bc1605d4c8412b)
+error: test failed, to rerun pass `-p chr-relational --lib`

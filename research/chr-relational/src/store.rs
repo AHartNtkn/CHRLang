@@ -2,7 +2,7 @@
 //! Forking clones ownership. This is not shared contextual equality.
 use crate::{Evaluation, HeadPlan, Match, Occurrence, Relation, Value, View};
 use chr_syntax::{Term, Var};
-use std::collections::{BTreeSet, VecDeque};
+use std::collections::{BTreeMap, BTreeSet, VecDeque};
 #[derive(Default, Clone)]
 pub struct Store {
     pub(crate) view: View,
@@ -177,5 +177,117 @@ impl Store {
         } else {
             Some(values.iter().map(|v| self.term(*v)).collect())
         }
+    }
+}
+
+/// Source columns whose values affect matching or positive guards. Opaque,
+/// single-use head variables passed only to a body need no settled value.
+pub struct MatcherReads {
+    columns: BTreeMap<Relation, BTreeSet<usize>>,
+}
+impl MatcherReads {
+    pub fn new(rules: &[chr_syntax::Rule]) -> Self {
+        fn variables(t: &Term, out: &mut Vec<Var>) {
+            match t {
+                Term::Var(v) => out.push(*v),
+                Term::App(_, xs) => {
+                    for x in xs {
+                        variables(x, out);
+                    }
+                }
+            }
+        }
+        let mut columns: BTreeMap<_, BTreeSet<_>> = BTreeMap::new();
+        for rule in rules {
+            let mut head_vars = vec![];
+            for head in rule.kept.iter().chain(&rule.removed) {
+                for arg in &head.args {
+                    variables(arg, &mut head_vars);
+                }
+            }
+            let mut counts = BTreeMap::new();
+            for v in head_vars {
+                *counts.entry(v).or_insert(0usize) += 1;
+            }
+            let mut guard_vars = vec![];
+            for chr_syntax::Guard::Equal(a, b) in &rule.guards {
+                variables(a, &mut guard_vars);
+                variables(b, &mut guard_vars);
+            }
+            let guard_vars = guard_vars.into_iter().collect::<BTreeSet<_>>();
+            for head in rule.kept.iter().chain(&rule.removed) {
+                for (column, arg) in head.args.iter().enumerate() {
+                    let needed = match arg {
+                        Term::App(..) => true,
+                        Term::Var(v) => counts[v] > 1 || guard_vars.contains(v),
+                    };
+                    if needed {
+                        columns
+                            .entry(Relation::Source(head.name.clone(), head.args.len()))
+                            .or_default()
+                            .insert(column);
+                    }
+                }
+            }
+        }
+        Self { columns }
+    }
+}
+impl Store {
+    /// Service one equation in a component visible to a live source matcher.
+    /// Recompute after each step: merges can change incidence and queued work.
+    /// Remaining unrelated equations still require fair service and consistency
+    /// before publication; false is not an assertion of complete quiescence.
+    pub fn step_for_matching(&mut self, reads: &MatcherReads) -> bool {
+        if self.equations.is_empty() {
+            return false;
+        }
+        let mut todo = VecDeque::new();
+        for (key, index) in self.view.locations.values() {
+            if let Some(columns) = reads.columns.get(key) {
+                let row = &self.view.tables[key].rows[*index];
+                todo.extend(columns.iter().map(|column| self.root(row.values[*column])));
+            }
+        }
+        if todo.is_empty() {
+            return false;
+        }
+        let mut edges: BTreeMap<Value, Vec<Value>> = BTreeMap::new();
+        for (a, b) in &self.equations {
+            let (a, b) = (self.root(*a), self.root(*b));
+            edges.entry(a).or_default().push(b);
+            edges.entry(b).or_default().push(a);
+        }
+        let mut relevant = BTreeSet::new();
+        while let Some(value) = todo.pop_front() {
+            if !relevant.insert(value) {
+                continue;
+            }
+            if let Some(neighbors) = edges.get(&value) {
+                todo.extend(neighbors);
+            }
+            // Both child and parent incidence matter: changing a child can
+            // trigger congruence repair of an observed parent constructor.
+            if let Some(incidents) = self.view.incidence.get(&value) {
+                for (key, index) in incidents {
+                    if matches!(key, Relation::Constructor(..)) {
+                        todo.extend(
+                            self.view.tables[key].rows[*index]
+                                .values
+                                .iter()
+                                .map(|v| self.root(*v)),
+                        );
+                    }
+                }
+            }
+        }
+        let Some(index) = self.equations.iter().position(|(a, b)| {
+            relevant.contains(&self.root(*a)) || relevant.contains(&self.root(*b))
+        }) else {
+            return false;
+        };
+        let equation = self.equations.remove(index).unwrap();
+        self.equations.push_front(equation);
+        self.step()
     }
 }

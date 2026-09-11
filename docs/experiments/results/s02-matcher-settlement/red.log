@@ -1,0 +1,22 @@
+   Compiling chr-relational v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-relational)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.62s
+     Running unittests src/lib.rs (target/debug/deps/chr_relational-01bc1605d4c8412b)
+
+running 1 test
+test execute::interleaving_tests::matcher_settlement_preserves_the_priority_witness ... FAILED
+
+failures:
+
+---- execute::interleaving_tests::matcher_settlement_preserves_the_priority_witness stdout ----
+
+thread 'execute::interleaving_tests::matcher_settlement_preserves_the_priority_witness' (168) panicked at research/chr-relational/src/../../chr-direct-conditional/tests/runtime_support/mod.rs:273:32:
+missing full observation Answer { outputs: [("winner", App("older", [])), ("x", App("a", [])), ("y", App("b", []))], residual: [] }; remaining [Answer { outputs: [("winner", App("newer", [])), ("x", App("a", [])), ("y", App("b", []))], residual: [] }]
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    execute::interleaving_tests::matcher_settlement_preserves_the_priority_witness
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 7 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p chr-relational --lib`

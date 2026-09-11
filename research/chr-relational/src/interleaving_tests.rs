@@ -48,11 +48,18 @@ fn run(rules: &[Rule], query: &Query, barrier: bool) -> (Vec<Answer>, usize) {
         run_observed(Prepared::new(rules).unwrap().start(query), barrier);
     (answers, deductions)
 }
-fn run_observed(mut engine: Engine, barrier: bool) -> (Vec<Answer>, usize, Vec<usize>) {
+fn run_observed(engine: Engine, barrier: bool) -> (Vec<Answer>, usize, Vec<usize>) {
+    let (answers, deductions, pending, _) = run_observed_counted(engine, barrier);
+    (answers, deductions, pending)
+}
+fn run_observed_counted(
+    mut engine: Engine,
+    barrier: bool,
+) -> (Vec<Answer>, usize, Vec<usize>, usize) {
     let mut answers = vec![];
     let mut consumed_pending = vec![];
     let mut deductions = 0;
-    for _ in 0..100_000 {
+    for turn in 1..=100_000 {
         if let Some(state) = engine.frontier.front_mut() {
             if barrier {
                 while state.store.step() {
@@ -69,7 +76,7 @@ fn run_observed(mut engine: Engine, barrier: bool) -> (Vec<Answer>, usize, Vec<u
             .is_some_and(|state| state.store.view.locations.contains_key(&Occurrence(1)));
         match engine.advance() {
             Step::Answer(a) => answers.push(a),
-            Step::Exhausted => return (answers, deductions, consumed_pending),
+            Step::Exhausted => return (answers, deductions, consumed_pending, turn),
             Step::Progress => (),
         }
         if was_live
@@ -246,5 +253,335 @@ fn partial_equality_distinguishes_priority_from_permitted_serialization() {
                 }
             }
         }
+    }
+}
+
+struct ReadinessRun {
+    turns: usize,
+    answers: Vec<Answer>,
+    background: usize,
+    selected: usize,
+    pending_at_claim: Vec<usize>,
+}
+fn run_relevant(rules: &[Rule], query: &Query) -> ReadinessRun {
+    let reads = crate::store::MatcherReads::new(rules);
+    drive_relevant(Prepared::new(rules).unwrap().start(query), &reads)
+}
+fn drive_relevant(mut engine: Engine, reads: &crate::store::MatcherReads) -> ReadinessRun {
+    let mut result = ReadinessRun {
+        turns: 0,
+        answers: vec![],
+        background: 0,
+        selected: 0,
+        pending_at_claim: vec![],
+    };
+    for _ in 0..100_000 {
+        if let Some(state) = engine.frontier.front_mut() {
+            if state.pending.is_empty() {
+                while state.store.step_for_matching(reads) {
+                    result.selected += 1;
+                    state.candidates.fill(None);
+                }
+            }
+            result.background += usize::from(state.store.pending() > 0);
+        }
+        let was_live = engine
+            .frontier
+            .front()
+            .is_some_and(|s| s.store.view.locations.contains_key(&Occurrence(1)));
+        result.turns += 1;
+        match engine.advance() {
+            Step::Answer(a) => result.answers.push(a),
+            Step::Exhausted => return result,
+            Step::Progress => (),
+        }
+        if was_live
+            && let Some(s) = engine.frontier.front()
+            && !s.store.view.locations.contains_key(&Occurrence(1))
+        {
+            result.pending_at_claim.push(s.store.pending());
+        }
+    }
+    panic!("readiness service cutoff")
+}
+#[test]
+fn matcher_settlement_preserves_the_priority_witness() {
+    for depth in [4, 16, 64] {
+        for early in [false, true] {
+            for clash in [false, true] {
+                for tokens in [1, 2] {
+                    let (rules, query) = priority_source(depth, early, clash, tokens);
+                    let expected = oracle::run(&rules, &query, 100_000);
+                    let r = run_relevant(&rules, &query);
+                    oracle::same_raw(r.answers, expected);
+                    println!(
+                        "READY_PRIORITY,depth={depth},early={early},clash={clash},tokens={tokens},background={},selected={}",
+                        r.background, r.selected
+                    );
+                }
+            }
+        }
+    }
+}
+
+fn separated_source(
+    depth: usize,
+    possible: bool,
+    shared: bool,
+    outcome: &str,
+    tokens: usize,
+) -> (Vec<Rule>, Query) {
+    let tail_leaf = if outcome == "clash" {
+        atom("bad")
+    } else {
+        v(20)
+    };
+    let target = if shared {
+        if possible { "b" } else { "no" }
+    } else {
+        "tail-end"
+    };
+    let mut older = Rule::simplify(
+        "older",
+        [c("use", [v(0), v(1), v(2)]), c("token", [])],
+        if outcome == "fail" {
+            Goal::Fail
+        } else {
+            eq(v(2), atom("older"))
+        },
+    );
+    older.guards.extend([
+        chr_syntax::Guard::Equal(v(0), atom("a")),
+        chr_syntax::Guard::Equal(v(1), atom("b")),
+    ]);
+    let mut newer = Rule::simplify(
+        "newer",
+        [c("use", [v(0), v(1), v(2)]), c("token", [])],
+        if outcome == "fail" {
+            Goal::Fail
+        } else {
+            eq(v(2), atom("newer"))
+        },
+    );
+    newer.guards.push(chr_syntax::Guard::Equal(v(0), atom("a")));
+    let rules = vec![
+        Rule::simplify(
+            "bind",
+            [c("bind", [v(0), v(1), v(2), v(3)])],
+            chr_syntax::and([
+                eq(v(0), atom("a")),
+                eq(v(1), atom(if possible { "b" } else { "no" })),
+                eq(v(2), v(3)),
+            ]),
+        ),
+        older,
+        newer,
+    ];
+    let mut constraints = vec![
+        c(
+            "bind",
+            [
+                v(10),
+                v(11),
+                nest(depth, tail_leaf.clone()),
+                nest(depth, atom(target)),
+            ],
+        ),
+        c(
+            "use",
+            [v(10), if shared { tail_leaf } else { v(11) }, v(12)],
+        ),
+    ];
+    constraints.extend((0..tokens).map(|_| c("token", [])));
+    (
+        rules,
+        Query {
+            constraints,
+            outputs: vec![("winner".into(), Var(12)), ("tail".into(), Var(20))],
+        },
+    )
+}
+#[test]
+fn matcher_settlement_separates_output_work_from_competing_reads() {
+    for depth in [4, 16, 64] {
+        for possible in [false, true] {
+            for shared in [false, true] {
+                for outcome in ["success", "fail", "clash"] {
+                    for tokens in [1, 2] {
+                        let (rules, query) =
+                            separated_source(depth, possible, shared, outcome, tokens);
+                        let expected = oracle::run(&rules, &query, 100_000);
+                        let (_, full, _, full_turns) = run_observed_counted(
+                            Prepared::new(&rules).unwrap().start(&query),
+                            true,
+                        );
+                        let r = run_relevant(&rules, &query);
+                        oracle::same_raw(r.answers, expected);
+                        if !shared {
+                            assert!(
+                                r.pending_at_claim.iter().any(|n| *n > 0),
+                                "separate tail must remain pending at claim"
+                            );
+                            if outcome == "fail" {
+                                assert!(
+                                    r.background + r.selected < full,
+                                    "early source failure must save actual deductions"
+                                );
+                            }
+                        }
+                        if shared && outcome != "clash" {
+                            assert_eq!(r.pending_at_claim, vec![0]);
+                        }
+                        println!(
+                            "READY_SEPARATE,depth={depth},possible={possible},shared={shared},outcome={outcome},tokens={tokens},background={},selected={},full={full},pending={:?},turns={},full_turns={full_turns}",
+                            r.background, r.selected, r.pending_at_claim, r.turns
+                        );
+                    }
+                }
+            }
+        }
+    }
+}
+#[test]
+fn matcher_settlement_covers_new_posts_constructors_and_repeated_variables() {
+    for depth in [4, 16, 64] {
+        for kind in ["post", "constructor", "repeated"] {
+            let (mut rules, mut query) = priority_source(depth, false, false, 1);
+            match kind {
+                "post" => {
+                    let args = vec![
+                        query.constraints[0].args[0].clone(),
+                        query.constraints[0].args[1].clone(),
+                        v(10),
+                        v(11),
+                        v(12),
+                    ];
+                    rules[0] = Rule::simplify(
+                        "spawn",
+                        [c("spawn", [v(0), v(1), v(2), v(3), v(4)])],
+                        chr_syntax::and([
+                            eq(v(0), v(1)),
+                            c("use", [v(2), v(3), v(4)]).into(),
+                            c("token", []).into(),
+                        ]),
+                    );
+                    query.constraints = vec![c("spawn", args)];
+                }
+                "constructor" => {
+                    rules[1].removed[0] = c("use", [atom("a"), v(1), v(2)]);
+                    rules[1].guards.clear();
+                    rules[2].guards.clear();
+                }
+                "repeated" => {
+                    rules[1].removed[0] = c("use", [v(0), v(0), v(2)]);
+                    rules[1].guards.clear();
+                    rules[2].guards.clear();
+                    query.constraints[0].args = vec![nest(depth, v(11)), nest(depth, atom("a"))];
+                    query.constraints[1].args[0] = atom("a");
+                }
+                _ => unreachable!(),
+            }
+            let expected = oracle::run(&rules, &query, 100_000);
+            assert_eq!(expected[0].outputs[0].1, atom("older"));
+            let r = run_relevant(&rules, &query);
+            oracle::same_raw(r.answers, expected);
+            println!(
+                "READY_READ,depth={depth},kind={kind},background={},selected={}",
+                r.background, r.selected
+            );
+        }
+    }
+}
+
+#[test]
+fn matcher_settlement_handles_shared_and_disjoint_consumption() {
+    for depth in [4, 16, 64] {
+        for shared in [false, true] {
+            for clash in [false, true] {
+                let mut older = Rule::simplify(
+                    "older",
+                    [
+                        c("older_request", [v(0), v(1)]),
+                        c(if shared { "token" } else { "older_token" }, []),
+                    ],
+                    eq(v(1), atom("older")),
+                );
+                older.guards.push(chr_syntax::Guard::Equal(v(0), atom("b")));
+                let mut newer = Rule::simplify(
+                    "newer",
+                    [
+                        c("newer_request", [v(0), v(1)]),
+                        c(if shared { "token" } else { "newer_token" }, []),
+                    ],
+                    eq(v(1), atom("newer")),
+                );
+                newer.guards.push(chr_syntax::Guard::Equal(v(0), atom("a")));
+                let rules = vec![
+                    Rule::simplify("bind", [c("bind", [v(0), v(1)])], eq(v(0), v(1))),
+                    older,
+                    newer,
+                ];
+                let mut constraints = vec![
+                    c(
+                        "bind",
+                        [
+                            t(
+                                "pair",
+                                [v(10), nest(depth, if clash { atom("bad") } else { v(11) })],
+                            ),
+                            t("pair", [atom("a"), nest(depth, atom("b"))]),
+                        ],
+                    ),
+                    c("older_request", [v(11), v(12)]),
+                    c("newer_request", [v(10), v(13)]),
+                ];
+                if shared {
+                    constraints.push(c("token", []));
+                } else {
+                    constraints.extend([c("older_token", []), c("newer_token", [])]);
+                }
+                let query = Query {
+                    constraints,
+                    outputs: vec![("older".into(), Var(12)), ("newer".into(), Var(13))],
+                };
+                let expected = oracle::run(&rules, &query, 100_000);
+                oracle::same_raw(run_relevant(&rules, &query).answers, expected);
+                println!("READY_RESOURCE,depth={depth},shared={shared},clash={clash}");
+            }
+        }
+    }
+}
+#[test]
+fn matcher_settlement_cancellation_does_not_contaminate_prepared_reuse() {
+    for outcome in ["success", "fail", "clash"] {
+        let (rules, query) = separated_source(64, false, false, outcome, 2);
+        let prepared = Prepared::new(&rules).unwrap();
+        let reads = crate::store::MatcherReads::new(&rules);
+        let mut cancelled = prepared.start(&query);
+        for _ in 0..1000 {
+            if let Some(state) = cancelled.frontier.front_mut()
+                && state.pending.is_empty()
+            {
+                while state.store.step_for_matching(&reads) {
+                    state.candidates.fill(None);
+                }
+            }
+            assert!(matches!(cancelled.advance(), Step::Progress));
+            if cancelled
+                .frontier
+                .front()
+                .is_some_and(|s| !s.store.view.locations.contains_key(&Occurrence(1)))
+            {
+                break;
+            }
+        }
+        assert!(cancelled.frontier.front().is_some_and(
+            |s| s.store.pending() > 0 && !s.store.view.locations.contains_key(&Occurrence(1))
+        ));
+        drop(cancelled);
+        assert_eq!(std::sync::Arc::strong_count(&prepared), 1);
+        let again = drive_relevant(prepared.start(&query), &reads);
+        oracle::same_raw(again.answers, oracle::run(&rules, &query, 100_000));
+        println!("READY_CANCEL,outcome={outcome}");
     }
 }

@@ -1,6 +1,6 @@
 # Experimental sequence for the unanswered architecture questions
 
-The [partial-priority result](results/S02-partial-priority.md) supplies the current checkpoint. The partial-priority gate confirms24 configurations twice. All12 successful eager executions choose a different consumer from full settlement, while matching an independently allowed atomic consumer order; all12 late clashes publish nothing. Cancellation/reuse and duplicate tokens remain correct. Successful equality work is unchanged; failed speculation adds one deduction. Established useful-interleaving controls reproduce. T072 next qualifies priority-aware readiness against full settlement; package one since review, goal active.
+The [matcher-settlement result](results/S02-matcher-settlement.md) supplies the current checkpoint. Matcher-relevant settlement preserves fixed consumer priority in 120 source cases confirmed twice. Separate output equality remains pending at consumption; depth-64 early failure uses 4 deductions versus 67 with full settlement. Success uses 68 in both, but 72 versus 9 engine advances. Three read-omission mutations fail independent answer checks. T072 next repairs quiescent scheduling and measures readiness lifecycle costs; package two since review, goal active.
 
 Test the distinct mechanisms that remain unanswered, then compare the complete architectures they enable. Reuse the existing baselines. A lower priority changes when a question is investigated; it does not answer it.
 
@@ -10,15 +10,15 @@ This sequence covers the [57 reviewed questions](question-to-experiment-map.md) 
 
 ## Start here: the next experiments
 
-**1. Qualify priority-aware readiness — T072, specification2.** The [partial-priority gate](results/S02-partial-priority.md) shows that stable guards alone do not preserve a fixed consumer priority. Compare a priority-aware integrated schedule with full equality settlement. Distinguish impossible from unresolved higher-priority contenders and test shared/disjoint resources, late contradictions and newly enabled requests.
+**1. Repair and measure readiness costs — T072, specification 1.** The [matcher-settlement gate](results/S02-matcher-settlement.md) preserves fixed consumer priority while permitting early failure before unrelated output equality. Successful output exposes repeated source advances. Qualify draining unrelated equality once matching is settled and no source application can fire, then register complete lifecycle comparisons with full settlement. Include changed queries, successful output, early failure, late contradiction, new posts and cancellation.
 
-**2. Preserve the distinction between scheduling contracts.** The permissive successful-serialization argument remains applicable, but is not a proof of fixed-priority equivalence. No future language policy is adopted. Existing early-failure, contextual and integrated-body gates already supply evidence; extend the missing responsibility rather than repeating them.
+**2. Preserve the distinction between scheduling contracts.** Permissive successful serialization and fixed consuming priority remain separate options. Use the existing complete source controls and independent evaluator; neither option becomes a language rule merely through implementation.
 
-**3. Reconsider alternatives at this gate.** Determine whether readiness permits useful work before unrelated equality completes or only adds checking. Compare partner plans, broader integration and the ready graph memo/lifecycle costs then. This is package one since the [full portfolio review](results/S08-traversal-portfolio-review.md); review all directions within four packages.
+**3. Reconsider alternatives at the pilot result.** Partner ordering could reduce matching work more directly; graph memo storage and lifecycle costs are also ready. This is package two since the [full portfolio review](results/S08-traversal-portfolio-review.md). Review all directions within four packages.
 
 ## Why this order, and what can change it
 
-A successful consumer-order difference exposes an architectural obligation that affects both execution and language policy. A bounded readiness comparison can show whether preserving priority requires a broad barrier or a more selective responsibility. It is more discriminating than another early-failure replication. If the proposed readiness adds no useful opportunity, retain that result and compare the strongest ready alternatives before further elaboration.
+The selective controller has both a demonstrated early-failure benefit and observed repeated scheduling work. A bounded repair and lifecycle pilot can determine whether that opportunity pays for readiness maintenance. That immediate uncertainty gives it priority over the independent partner-plan and graph-cost trials. If the source gate fails, repair the cause or compare those alternatives before elaborating the mechanism further.
 
 Scheduling a later trial does not supply evidence for that direction. All thirteen specifications and the 57-question audit remain controlling.
 

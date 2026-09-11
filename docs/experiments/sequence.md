@@ -4,7 +4,7 @@ Investigate the unanswered mechanisms directly, then compare the complete archit
 
 The [execution sequence](next-cycle.md) sets four rounds: missing architectural benefits; competing search, reuse and compilation mechanisms; sustained and parallel execution; complete architectures and contrary tests. It gives the immediate order, concrete contrasts and the result required from each round. This document defines the governing requirements and stage specifications.
 
-The [partial-priority result](results/S02-partial-priority.md) supplies the current checkpoint. The partial-priority gate confirms24 configurations twice. All12 successful eager executions choose a different consumer from full settlement, while matching an independently allowed atomic consumer order; all12 late clashes publish nothing. Cancellation/reuse and duplicate tokens remain correct. Successful equality work is unchanged; failed speculation adds one deduction. Established useful-interleaving controls reproduce. T072 next qualifies priority-aware readiness against full settlement; package one since review, goal active.
+The [matcher-settlement result](results/S02-matcher-settlement.md) supplies the current checkpoint. Matcher-relevant settlement preserves fixed consumer priority in 120 source cases confirmed twice. Separate output equality remains pending at consumption; depth-64 early failure uses 4 deductions versus 67 with full settlement. Success uses 68 in both, but 72 versus 9 engine advances. Three read-omission mutations fail independent answer checks. T072 next repairs quiescent scheduling and measures readiness lifecycle costs; package two since review, goal active.
 
 The outcome is trustworthy evidence for choosing the CHR language's architecture: total efficiency, necessary complexity, expressiveness and explicit tradeoffs. No architecture is selected in advance. A conditional choice can be the result; a new production baseline and invented workload weights are not required.
 
@@ -274,7 +274,7 @@ All new results link raw inputs, commands, freezes, validation and unfavorable o
 
 The [revised experimental sequence](next-cycle.md#start-here-the-next-experiments) proceeds from the recorded-read result to demand capability, direct integration, intermediate joins and compact solving. Later entries cover distinct reuse, restoration, choice organizations, compilation, sustained execution and parallel ownership. Language studies accompany their beneficiaries; complete-architecture comparisons occur at each round boundary.
 
-T071 is the sole active experimental task. Recorded-read costs and the specialized-control supplement are reported; broader T072 integration and consequential confirmation remain required. Each unresolved design retains its individual obligation in the [57-question map](question-to-experiment-map.md).
+T072 is the sole active experimental task. Matcher-relevant settlement now has source/work evidence; quiescent scheduling repair and complete readiness costs are next. Broader integration and the independent portfolio directions remain required. Each unresolved design retains its individual obligation in the [57-question map](question-to-experiment-map.md).
 
 ## Earlier experimental checkpoints
 
