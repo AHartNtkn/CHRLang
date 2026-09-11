@@ -1,5 +1,6 @@
 //! Experimental isolated-call table. The owner chooses a source-valid call
 //! boundary; this table does not project arbitrary continuation state.
+pub mod trace;
 use chr_persistent::continuations::{PreparedMachine, Step};
 use chr_syntax::{Constraint, Goal, Query, Rule, Term, Var};
 use std::collections::{BTreeMap, BTreeSet, VecDeque};
@@ -17,7 +18,7 @@ fn variables(term: &Term, found: &mut BTreeSet<Var>) {
         }
     }
 }
-fn rename(term: &Term, map: &mut impl FnMut(Var) -> Var) -> Term {
+pub(crate) fn rename(term: &Term, map: &mut impl FnMut(Var) -> Var) -> Term {
     match term {
         Term::Var(v) => Term::Var(map(*v)),
         Term::App(name, xs) => Term::App(name.clone(), xs.iter().map(|t| rename(t, map)).collect()),
@@ -42,7 +43,7 @@ impl Fresh {
                 .map_or(0, |v| v.0.checked_add(1).expect("variable id exhausted")),
         }
     }
-    fn take(&mut self) -> Var {
+    pub(crate) fn take(&mut self) -> Var {
         let v = Var(self.next);
         self.next = self.next.checked_add(1).expect("variable id exhausted");
         v
@@ -62,30 +63,55 @@ pub struct Table {
     cache: BTreeMap<Constraint, Vec<Vec<Term>>>,
     stats: Stats,
 }
+pub(crate) fn canonical(call: &Constraint) -> (Constraint, Vec<Var>) {
+    let mut vars = BTreeMap::new();
+    let mut originals = vec![];
+    let key = Constraint {
+        name: call.name.clone(),
+        args: call
+            .args
+            .iter()
+            .map(|t| {
+                rename(t, &mut |v| {
+                    *vars.entry(v).or_insert_with(|| {
+                        let slot = Var(originals.len() as u64);
+                        originals.push(v);
+                        slot
+                    })
+                })
+            })
+            .collect(),
+    };
+    (key, originals)
+}
+pub(crate) fn checked_family(rules: &[Rule]) -> Result<BTreeSet<(String, usize)>, String> {
+    if rules.is_empty()
+        || rules
+            .iter()
+            .any(|r| !r.kept.is_empty() || r.removed.len() != 1)
+    {
+        return Err("isolated call rules must simplify one private head".into());
+    }
+    let family = rules
+        .iter()
+        .map(|r| (r.removed[0].name.clone(), r.removed[0].args.len()))
+        .collect::<BTreeSet<_>>();
+    fn private(goal: &Goal, family: &BTreeSet<(String, usize)>) -> bool {
+        match goal {
+            Goal::Constraint(c) => family.contains(&(c.name.clone(), c.args.len())),
+            Goal::And(xs) => xs.iter().all(|g| private(g, family)),
+            Goal::Or(a, b) => private(a, family) && private(b, family),
+            Goal::Unify(_, _) | Goal::True | Goal::Fail => true,
+        }
+    }
+    if rules.iter().any(|r| !private(&r.body, &family)) {
+        return Err("call body reaches outside its private family".into());
+    }
+    Ok(family)
+}
 impl Table {
     pub fn new(rules: Vec<Rule>, memo: bool) -> Result<Self, String> {
-        if rules.is_empty()
-            || rules
-                .iter()
-                .any(|r| !r.kept.is_empty() || r.removed.len() != 1)
-        {
-            return Err("isolated call rules must simplify one private head".into());
-        }
-        let family = rules
-            .iter()
-            .map(|r| (r.removed[0].name.clone(), r.removed[0].args.len()))
-            .collect::<BTreeSet<_>>();
-        fn private(goal: &Goal, family: &BTreeSet<(String, usize)>) -> bool {
-            match goal {
-                Goal::Constraint(c) => family.contains(&(c.name.clone(), c.args.len())),
-                Goal::And(xs) => xs.iter().all(|g| private(g, family)),
-                Goal::Or(a, b) => private(a, family) && private(b, family),
-                Goal::Unify(_, _) | Goal::True | Goal::Fail => true,
-            }
-        }
-        if rules.iter().any(|r| !private(&r.body, &family)) {
-            return Err("call body reaches outside its private family".into());
-        }
+        let family = checked_family(&rules)?;
         Ok(Self {
             prepared: PreparedMachine::new(rules.clone())?,
             rules,
@@ -158,24 +184,7 @@ impl Table {
         if !self.family.contains(&(call.name.clone(), call.args.len())) {
             return Err("call is outside prepared family".into());
         }
-        let mut vars = BTreeMap::new();
-        let mut originals = vec![];
-        let key = Constraint {
-            name: call.name.clone(),
-            args: call
-                .args
-                .iter()
-                .map(|t| {
-                    rename(t, &mut |v| {
-                        *vars.entry(v).or_insert_with(|| {
-                            let slot = Var(originals.len() as u64);
-                            originals.push(v);
-                            slot
-                        })
-                    })
-                })
-                .collect(),
-        };
+        let (key, originals) = canonical(call);
         let cached = if self.memo {
             self.cache.get(&key).cloned()
         } else {

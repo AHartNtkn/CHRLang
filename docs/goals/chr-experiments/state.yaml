@@ -9,7 +9,7 @@ goal:
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
   execution_sequence: docs/experiments/next-cycle.md
-  current_research: "Repaired connected costs validate 1,152 allocation and 5,760 ordinary processes. Direct ground evaluation qualifies faster than original projection in 55/64 unequal-name cases, but in none against enumeration. Requested bytes fall while peak ownership is unchanged. Full 57-question review selects T075 scheduling-preserving whole-call recognition; T076 remains pending, review count reset, goal active."
+  current_research: "Call-entry trace reuse preserves 9,088 FIFO service events across 64 cases and cancellation/restarts. A 22-step linear call uses one trace node; completed replay executes nothing and releases its machine. Four new and 22 existing tests pass in both configurations. T075 next integrates the resumable protocol into complete callers with observed bindings and competing resources; package count one, goal active."
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -368,8 +368,8 @@ tasks:
     assignee: PM
     status: active
     objective: Investigate sound generalized call and continuation reuse after different histories, including renaming, relevance, resource and output identity obligations, against competent recomputation and sharing controls.
-    progress: "Repaired connected costs validate 1,152 allocation and 5,760 ordinary processes. Direct ground evaluation qualifies faster than original projection in 55/64 unequal-name cases, but in none against enumeration. Requested bytes fall while peak ownership is unchanged. Full 57-question review selects T075 scheduling-preserving whole-call recognition; T076 remains pending, review count reset, goal active."
-    next_action: "Inspect existing finite-call, priority-boundary and resumable-transition interfaces. Register a bounded whole-call recognition/progress gate using one key per operation and explicit replay or resumable source observations. Include unequal branch lengths, fresh outputs, failure, competing callers and cancellation/restart. Do not batch source execution atomically or repeat periodic-stride tuning. Compare sparse elimination and other ready alternatives at the gate. Review count reset."
+    progress: "Call-entry trace reuse preserves 9,088 FIFO service events across 64 cases and cancellation/restarts. A 22-step linear call uses one trace node; completed replay executes nothing and releases its machine. Four new and 22 existing tests pass in both configurations. T075 next integrates the resumable protocol into complete callers with observed bindings and competing resources; package count one, goal active."
+    next_action: "Integrate the compressed call-trace protocol at an explicit live caller boundary. Register complete caller and prefix checks with unequal branch lengths, intermediate binding observation, competing consumables, aliases, failure and cancellation/restart. The isolated-call scheduler gate is not a mixed-caller substitution. Repair boundary/fixtures on discrepancies before complete cost comparisons; retain sparse elimination as strongest alternative. Package count one."
     inputs:
       - docs/experiments/results/S05-inert-lifecycle.md
       - docs/experiments/results/S05-inert-lifecycle-review.md
@@ -2683,9 +2683,11 @@ checks:
   dirty_fingerprint: unrelated_untracked_files_preserved
   last_verification:
     result: passed
-    task: T076
-    scope: Repaired connected complete costs and full portfolio review.
+    task: T075
+    scope: Compressed isolated call traces and source-event correspondence.
     commands:
+      - "call_trace: four tests, 9088 per-event comparisons; default and metrics-off pass"
+      - "call_reuse/effectful_boundary/finite_call_entry: 22 regression tests pass in both configurations; scoped Clippy passes"
       - "connected_repair_costs.py audit: 6912 terminal processes, exact ownership, complete phase sums, commands and frozen inputs"
       - "Full 57-question portfolio review; T075 active and T076 pending, review count reset"
       - "connected_preparation.py audit and audit --repair: 480 terminal processes, 240 exclusive sums and frozen source/binary hashes"
@@ -2760,6 +2762,8 @@ checks:
       - "audit_probe_clock.py: 18000 separately instrumented complete sessions"
       - Scoped ordinary, allocation and CPU-clock Clippy; source hashes, report links and 57-question map
     evidence:
+      - docs/experiments/results/S05-call-trace-entry.md
+      - docs/experiments/results/s05-call-trace-entry/metrics.log
       - docs/experiments/results/S06-connected-repair-costs.md
       - docs/experiments/results/S06-connected-repair-review.md
       - docs/experiments/results/s06-connected-repair-costs/analysis.json
