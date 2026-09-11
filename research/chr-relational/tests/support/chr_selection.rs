@@ -59,3 +59,43 @@ pub fn rules(renew_epoch: bool) -> Vec<Rule> {
     rules.push(commit);
     rules
 }
+
+/// Reserve one token before discovering this round's candidates. The opening
+/// witness guarantees an eligible request; reservation is committed only by
+/// commit-earliest. No source operation can interleave with this protocol here.
+pub fn reserved_rules() -> Vec<Rule> {
+    let mut result = rules(true);
+    let discovery = result
+        .iter()
+        .position(|r| r.name == "discover-eligible")
+        .unwrap();
+    let rule = &mut result[discovery];
+    rule.kept.retain(|head| head.name != "token");
+    rule.kept
+        .iter_mut()
+        .find(|head| head.name == "epoch")
+        .unwrap()
+        .name = "round".into();
+    let commit = result
+        .iter_mut()
+        .find(|r| r.name == "commit-earliest")
+        .unwrap();
+    commit.removed.retain(|head| head.name != "token");
+    commit
+        .removed
+        .iter_mut()
+        .find(|head| head.name == "epoch")
+        .unwrap()
+        .name = "round".into();
+    result.insert(
+        discovery,
+        Rule {
+            name: "open-round".into(),
+            kept: vec![c("request", [v(0), v(1), v(2)]), c("d_f", [v(1), v(3)])],
+            removed: vec![c("epoch", []), c("token", [])],
+            guards: vec![],
+            body: c("round", []).into(),
+        },
+    );
+    result
+}

@@ -1,6 +1,6 @@
 # The comparisons still needed to choose the architecture
 
-The [call-reuse lifecycle pilot](results/S05-inert-lifecycle.md) and [selection review](results/S05-inert-lifecycle-review.md) supply the current checkpoint. Call-reuse lifecycle sizing completes 20,118 measurements with 24 known allocation failures and 18 registered skips. All 2,874 allocation pairs repeat exactly. In 181 clock-qualified memo/Direct scenarios, median paired ratios range from 2.02× to 84.21×; even zero measured memo disposal leaves every median ratio above 1.66×. These are exploratory finite-session results, not a rejection of broader reuse. T072 token-independent integrated eligibility is next; T075 recognition, failures and sustained ownership remain required. Package one after the full key-allocation review; goal active.
+The [reserved-selection work and lifecycle study](results/S02-reserved-selection.md) and [selection review](results/S02-reserved-selection-review.md) supply the current checkpoint. Reserved-token selection passes 784 compiled source cases and 2,112 lifecycle processes, with 352 exact allocation pairs and 88 exact work pairs. Flat size-six discovery falls from 91 to 21 and complete Scan time from 44.06 to 13.90 ms; local execution takes 0.051 ms. Small competition has added work, and broader integration remains unanswered. All 256 original-control phase allocations reproduce. T071 demand discovery/copy repair is next. Package two after full review; goal active.
 
 The [relevant-key ownership comparison](results/S02-relevant-ownership.md) supplies the current checkpoint. Relevant-key ownership validates1,008 metered and448 ordinary processes with exact allocation repeats, cancellation/reuse and retained answers surviving producer disposal. Ordered relevant reuse lowers peaks versus exact-state caching in38of64 scenarios but requests more bytes than recomputation in all64. The changed depth16/four-query witness requests1,292,590bytes with72,959peak excess versus669,196/38,976 for recomputation. T072 next attributes key/replay execution costs before timing; package one after breadth review; goal active.
 
@@ -106,7 +106,7 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-The [current execution order](next-cycle.md#start-here-the-next-experiments) selects token-independent integrated eligibility after call-reuse lifecycle sizing. Reassess demand repair, broader recognition and actual composed paths at the next source/work result or obstruction. Compact signal/magnitude uncertainty, broader matching and every other distinct mechanism remain accountable. These specifications define evidence requirements, not a separate order.
+The [current execution order](next-cycle.md#start-here-the-next-experiments) selects demand candidate discovery/copy repair after reserved-selection work and lifecycle results. Reassess broader integrated representations, call recognition and actual composed paths at the next repair result or obstruction. Full portfolio review is due within two further packages. Every distinct mechanism remains accountable; these specifications do not establish a separate order.
 
 ### Depth, breadth and stopping within this sequence
 

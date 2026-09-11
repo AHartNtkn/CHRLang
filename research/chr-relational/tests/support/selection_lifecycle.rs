@@ -9,7 +9,13 @@ fn validate(answer: &Option<Answer>, expected: &[Answer]) {
         _ => panic!("answer cardinality"),
     }
 }
-fn measure<B: Backend, const CHR: bool>(family: &str, n: usize, retention: &str, cancel: bool) {
+fn measure<B: Backend, const CHR: bool>(
+    family: &str,
+    n: usize,
+    retention: &str,
+    cancel: bool,
+    reserved: bool,
+) {
     let expected =
         ["a", "b"].map(|v| scalar::run(&[src::rule()], &src::query(family, n, v), 2_000_000));
     let mut phases: Vec<(&str, usize, Phase)> = Vec::with_capacity(40);
@@ -21,7 +27,11 @@ fn measure<B: Backend, const CHR: bool>(family: &str, n: usize, retention: &str,
     let baseline = super::meter::begin();
     let (rules, p) = phase(|| {
         if CHR {
-            selection::rules(true)
+            if reserved {
+                selection::reserved_rules()
+            } else {
+                selection::rules(true)
+            }
         } else {
             vec![src::rule()]
         }
@@ -112,6 +122,22 @@ fn measure<B: Backend, const CHR: bool>(family: &str, n: usize, retention: &str,
     );
 }
 pub fn main(args: &[String]) {
+    if args == ["clock-check"] {
+        if cfg!(feature = "alloc-meter") || WORK {
+            panic!("ordinary clock build required");
+        }
+        let mut ns = Vec::with_capacity(10000);
+        for _ in 0..10000 {
+            let (_, p) = phase(|| ());
+            ns.push(p.ns);
+        }
+        ns.sort_unstable();
+        println!(
+            "{{\"samples\":10000,\"median_ns\":{},\"p99_ns\":{}}}",
+            ns[5000], ns[9900]
+        );
+        return;
+    }
     #[cfg(feature = "alloc-meter")]
     if args == ["meter-check"] {
         super::meter::self_check().unwrap();
@@ -137,14 +163,25 @@ pub fn main(args: &[String]) {
         _ => panic!("invalid stop"),
     };
     match args[0].as_str() {
-        "local-filtered" => measure::<Local<1>, false>(family, n, retention, cancel),
-        "local" => measure::<Local<0>, false>(family, n, retention, cancel),
-        "scan" => measure::<Compiled<false, false>, false>(family, n, retention, cancel),
-        "indexed" => measure::<Compiled<true, false>, false>(family, n, retention, cancel),
-        "sealed" => measure::<Compiled<false, true>, false>(family, n, retention, cancel),
-        "chr-scan" => measure::<Compiled<false, false>, true>(family, n, retention, cancel),
-        "chr-indexed" => measure::<Compiled<true, false>, true>(family, n, retention, cancel),
-        "chr-sealed" => measure::<Compiled<false, true>, true>(family, n, retention, cancel),
+        "local-filtered" => measure::<Local<1>, false>(family, n, retention, cancel, false),
+        "local" => measure::<Local<0>, false>(family, n, retention, cancel, false),
+        "scan" => measure::<Compiled<false, false>, false>(family, n, retention, cancel, false),
+        "indexed" => measure::<Compiled<true, false>, false>(family, n, retention, cancel, false),
+        "sealed" => measure::<Compiled<false, true>, false>(family, n, retention, cancel, false),
+        "chr-scan" => measure::<Compiled<false, false>, true>(family, n, retention, cancel, false),
+        "chr-indexed" => {
+            measure::<Compiled<true, false>, true>(family, n, retention, cancel, false)
+        }
+        "chr-sealed" => measure::<Compiled<false, true>, true>(family, n, retention, cancel, false),
+        "reserved-scan" => {
+            measure::<Compiled<false, false>, true>(family, n, retention, cancel, true)
+        }
+        "reserved-indexed" => {
+            measure::<Compiled<true, false>, true>(family, n, retention, cancel, true)
+        }
+        "reserved-sealed" => {
+            measure::<Compiled<false, true>, true>(family, n, retention, cancel, true)
+        }
         _ => panic!("invalid control"),
     }
 }

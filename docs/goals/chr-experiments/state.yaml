@@ -10,7 +10,7 @@ goal:
   question_map: docs/experiments/coverage.md
   execution_sequence: docs/experiments/next-cycle.md
   current_research: >-
-    Call-reuse lifecycle sizing completes 20,118 measurements with 24 known allocation failures and 18 registered skips. All 2,874 allocation pairs repeat exactly. In 181 clock-qualified memo/Direct scenarios, median paired ratios range from 2.02× to 84.21×; even zero measured memo disposal leaves every median ratio above 1.66×. These are exploratory finite-session results, not a rejection of broader reuse. T072 token-independent integrated eligibility is next; T075 recognition, failures and sustained ownership remain required. Package one after the full key-allocation review; goal active.
+    Reserved-token selection passes 784 compiled source cases and 2,112 lifecycle processes, with 352 exact allocation pairs and 88 exact work pairs. Flat size-six discovery falls from 91 to 21 and complete Scan time from 44.06 to 13.90 ms; local execution takes 0.051 ms. Small competition has added work, and broader integration remains unanswered. All 256 original-control phase allocations reproduce. T071 demand discovery/copy repair is next. Package two after full review; goal active.
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -65,7 +65,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T072
+active_task: T071
 tasks:
   - id: T081
     type: pm
@@ -368,7 +368,7 @@ tasks:
     progress: >-
       Call-reuse lifecycle sizing completes 20,118 measurements with 24 known allocation failures and 18 registered skips. All 2,874 allocation pairs repeat exactly. In 181 clock-qualified memo/Direct scenarios, median paired ratios range from 2.02× to 84.21×; even zero measured memo disposal leaves every median ratio above 1.66×. These are exploratory finite-session results, not a rejection of broader reuse. T072 token-independent integrated eligibility is next; T075 recognition, failures and sustained ownership remain required. Package one after the full key-allocation review; goal active.
     next_action: >-
-      Investigate sound cheaper or coarser recognition, variable-dependent relevance, failed operations versus failed futures, fresh-result transport, eviction and sustained ownership. The finite lifecycle pilot now has scoped timing/allocation evidence; a disposal-only remedy cannot reverse its qualified median comparisons. Reconsider CPU attribution or a changed recognition mechanism at the next integrated result or obstruction. Do not generalize current transition-level costs to all reuse.
+      Investigate sound cheaper or coarser recognition, variable-dependent relevance, failed operations versus failed futures, fresh-result transport, eviction and sustained ownership. The finite lifecycle pilot now has scoped timing/allocation evidence; a disposal-only remedy cannot reverse its qualified median comparisons. Reconsider CPU attribution or a changed recognition mechanism at the next demand repair result or obstruction. Do not generalize current transition-level costs to all reuse.
     inputs:
       - docs/experiments/results/S05-inert-lifecycle.md
       - docs/experiments/results/S05-inert-lifecycle-review.md
@@ -565,13 +565,15 @@ tasks:
   - id: T072
     type: pm
     assignee: PM
-    status: active
+    status: pending
     progress: >-
-      The call-reuse lifecycle selection review chooses token-independent integrated eligibility next. Prior independent traces establish 91 discoveries and 70 duplicate absorptions for six flat requests. The current protocol has qualified source, work and ownership controls; the changed eligibility organization is not implemented.
+      Reserved-token selection passes 784 compiled source cases and 2,112 lifecycle processes, with 352 exact allocation pairs and 88 exact work pairs. Flat size-six discovery falls from 91 to 21 and complete Scan time from 44.06 to 13.90 ms; local execution takes 0.051 ms. Small competition has added work, and broader integration remains unanswered. All 256 original-control phase allocations reproduce. T071 demand discovery/copy repair is next. Package two after full review; goal active.
     next_action: >-
-      Implement and independently qualify eligibility discovery that does not scale with identical token multiplicity. Preserve nonwinning requests, stable source precedence, equality-enabled readiness, consuming resources, failure and cancellation. Compare flat, sparse, equality-enabled and competing sources against the existing protocol and local/ordinary controls. Register exact comparisons before runs; after the first source/work result or obstruction reassess demand repair, broader recognition and actual composed paths, then complete consequential lifecycle costs. Package one after full review; full review within three further packages.
+      Retain persistent eligibility, cheaper precedence/ancestry, different source representations and useful partial equality as distinct investigations. Reserved selection removes token-multiplicity duplication and has complete bounded costs; even zero execution allocation leaves 4.70–8.73 times the best ordinary/local total traffic. This does not settle runtime, larger reuse or a different representation. Fresh requests, other source consumers, general bodies and sustained ownership remain required. Reconsider at the next demand repair result or obstruction.
     objective: Establish a contextual equality and local consuming-rewrite source comparison that demonstrates useful interleaving, distinct resource ownership and independent complete-answer correctness before cost registration.
     inputs:
+      - docs/experiments/results/S02-reserved-selection.md
+      - docs/experiments/results/S02-reserved-selection-review.md
       - docs/experiments/results/S05-inert-lifecycle.md
       - docs/experiments/results/S05-inert-lifecycle-review.md
       - docs/experiments/results/S02-selection-ownership.md
@@ -655,12 +657,14 @@ tasks:
   - id: T071
     type: pm
     assignee: PM
-    status: pending
+    status: active
     progress: >-
-      Demand post confirmation completes 55,296 primary runs and 864 warmups over all 72 scenarios and 12 modes. Miss-reuse demand establishes a practical advantage over every explicit control in 42 scenarios and a disadvantage in six; 223 individual contrasts retain unresolved practical magnitude. All endpoints match and no cell is clock-sensitive. Full portfolio review selects T076 compact-vs-unique runtime confirmation; demand repair and broader mechanisms remain required. Review count reset; goal active.
+      Demand post confirmation retains practical gains against every explicit control in 42 miss-reuse scenarios and losses in six. Candidate-copy attribution identifies a consequential large-miss cost but does not measure a remedy. The reserved-selection review now selects demand discovery/copy repair; broader writable heads, dynamic choices and sustained lifetime remain required. Package two after full review.
     next_action: >-
-      Carry confirmed passive-post time–memory tradeoffs into complete paths. Attribute or replace repeated candidate discovery/copying and measure the replacement against strong controls; allocation subtraction does not establish runtime savings. Writable head dependencies, dynamic choices and sustained lifetime remain separate required experiments. Current selection is T075 call-reuse costs; reconsider demand repair with integrated eligibility, broader reuse and actual composed paths at that result or obstruction.
+      Qualify a candidate path that borrows unchanged match information or delays copying until successful extension, or avoids repeated discovery under a sound dependency. Preserve partial bindings, late aliases, consuming occurrence identity, failure and cancellation. Include successful, unsuccessful and cheap/unique controls; register exact comparative work and full lifecycle measurements after semantic qualification. Compare against current demand and qualified generated/activation controls. Reassess broader integration, call recognition and actual composed paths at the first result or obstruction. Full portfolio review within two further packages.
     inputs:
+      - docs/experiments/results/S02-reserved-selection.md
+      - docs/experiments/results/S02-reserved-selection-review.md
       - docs/experiments/results/S03-post-confirmation.md
       - docs/experiments/results/S03-post-portfolio-review.md
       - docs/experiments/results/S03-post-controls.md
@@ -2661,18 +2665,19 @@ checks:
   dirty_fingerprint: unrelated_untracked_files_preserved
   last_verification:
     result: passed
-    task: T075
-    scope: Counter-free finite lifecycle pilot and independent receipt audit; known whole-key allocation failures retained.
+    task: T072
+    scope: Reserved-selection source/work and complete finite lifecycle comparison; broad architecture remains open.
     commands:
-      - Ordinary and metered lifecycle semantic/cancellation/ownership tests; strict Clippy
-      - Frozen release artifact feature closure; three 10000-interval clock calibrations
-      - Registered 20160 jobs; 20118 complete, 24 allocation failures and 18 explicit skips
-      - Full receipt audit; 2874 exact allocation pairs and 5748 successful build/cell summaries
-      - Paired exploratory comparisons and reproducible zero-disposal sensitivity bound
-      - Format, local links, 57 question rows and active goal/task validation
+      - Source RED/GREEN; 784 compiled comparisons; all 29 constructor tests
+      - Actual-reservation cancellation/reuse and a readiness-witness negative control
+      - Additional 18 compiled post-commit failures and 18 successful prepared reuses
+      - Registered 2112 lifecycle processes; 352 exact allocation pairs and 88 exact work pairs
+      - Independent scalar traces match compiled application counts; 256 original-control allocation phases reproduce
+      - Primary feature checks, clock calibration, paired exploratory analysis and allocation bound reconstruction
+      - Strict Clippy, formatting, local links, 57 questions and active goal/task validation
     evidence:
-      - docs/experiments/results/S05-inert-lifecycle.md
-      - docs/experiments/results/s05-inert-lifecycle/audit.json
-      - docs/experiments/results/s05-inert-lifecycle/comparisons.json
-      - docs/experiments/results/s05-inert-lifecycle/disposal-bound.json
-      - docs/experiments/results/S05-inert-lifecycle-review.md
+      - docs/experiments/results/S02-reserved-selection.md
+      - docs/experiments/results/s02-reserved-selection/audit.json
+      - docs/experiments/results/s02-reserved-selection/control-bridge.json
+      - docs/experiments/results/s02-reserved-selection/bounds.json
+      - docs/experiments/results/S02-reserved-selection-review.md

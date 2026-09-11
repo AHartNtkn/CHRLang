@@ -204,3 +204,129 @@ fn renewed_selection_services_newly_ready_older_request() {
     ));
     assert!(actual.residual.iter().any(|c| c.name == "token"));
 }
+
+#[test]
+fn reserved_token_round_preserves_complete_selection_and_readiness() {
+    let rules = selection::reserved_rules();
+    let mut count = 0;
+    for order in [
+        [0, 1, 2],
+        [0, 2, 1],
+        [1, 0, 2],
+        [1, 2, 0],
+        [2, 0, 1],
+        [2, 1, 0],
+    ] {
+        for reverse in [false, true] {
+            for repair in [false, true] {
+                for ready in [0, 1, 3, 7] {
+                    for tokens in 0..=3 {
+                        let (ordinary, encoded) =
+                            query(&order, reverse, repair, ready, tokens, false);
+                        let expected = oracle::run(&source(), &ordinary, 200_000);
+                        check_local(&ordinary, &expected);
+                        oracle::same_raw(
+                            oracle::run(&rules, &encoded, 200_000)
+                                .into_iter()
+                                .map(|a| decoded(a, 11))
+                                .collect(),
+                            expected.clone(),
+                        );
+                        for access in [chr_compiled::Access::Scan, chr_compiled::Access::Indexed] {
+                            oracle::same_raw(
+                                run(rules.clone(), encoded.clone(), access)
+                                    .into_iter()
+                                    .map(|a| decoded(a, 11))
+                                    .collect(),
+                                expected.clone(),
+                            );
+                            count += 1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    for order in [[1, 0, 2], [2, 1, 0]] {
+        for tokens in 0..=3 {
+            let (ordinary, encoded) = query(&order, true, true, 5, tokens, true);
+            let expected = oracle::run(&source(), &ordinary, 200_000);
+            check_local(&ordinary, &expected);
+            oracle::same_raw(
+                oracle::run(&rules, &encoded, 200_000)
+                    .into_iter()
+                    .map(|a| decoded(a, 11))
+                    .collect(),
+                expected.clone(),
+            );
+            for access in [chr_compiled::Access::Scan, chr_compiled::Access::Indexed] {
+                oracle::same_raw(
+                    run(rules.clone(), encoded.clone(), access)
+                        .into_iter()
+                        .map(|a| decoded(a, 11))
+                        .collect(),
+                    expected.clone(),
+                );
+                count += 1;
+            }
+        }
+    }
+    assert_eq!(count, 784);
+    println!("RESERVED_SELECTION,compiled={count}");
+}
+
+#[test]
+fn reservation_is_cancelled_before_commit_and_preparation_reuses_cleanly() {
+    let rules = selection::reserved_rules();
+    for (access, special) in [
+        (chr_compiled::Access::Scan, false),
+        (chr_compiled::Access::Indexed, false),
+        (chr_compiled::Access::Scan, true),
+    ] {
+        let mut prepared = chr_compiled::PreparedRuleset::new(rules.clone(), None).unwrap();
+        if special {
+            prepared = prepared.specialize_inferred();
+        }
+        let (_, encoded) = query(&[0, 1, 2], false, false, 7, 3, false);
+        let mut aborted = prepared
+            .start(encoded, chr_compiled::Policy::Global, access)
+            .unwrap();
+        let mut reserved = false;
+        for _ in 0..200_000 {
+            aborted.advance(1);
+            if aborted.view().store.iter().any(|(_, c)| c.name == "round") {
+                reserved = true;
+                break;
+            }
+            assert!(!aborted.status().exhausted);
+        }
+        assert!(reserved);
+        assert!(aborted.observe().is_none());
+        drop(aborted);
+        let (ordinary, encoded) = query(&[1, 0, 2], true, true, 5, 3, true);
+        let expected = oracle::run(&source(), &ordinary, 200_000);
+        let mut next = prepared
+            .start(encoded, chr_compiled::Policy::Global, access)
+            .unwrap();
+        assert!(next.advance(200_000).exhausted);
+        let answer = decoded(next.observe().unwrap(), 11);
+        drop(next);
+        drop(prepared);
+        oracle::same_raw(vec![answer], expected);
+    }
+    // Without a readiness witness, reserving the last token can strand an
+    // unfinished round even though the ordinary suspended store is complete.
+    let mut mutation = rules;
+    mutation
+        .iter_mut()
+        .find(|r| r.name == "open-round")
+        .unwrap()
+        .kept
+        .clear();
+    let (ordinary, encoded) = query(&[0, 1, 2], false, false, 0, 2, false);
+    assert_eq!(oracle::run(&source(), &ordinary, 200_000).len(), 1);
+    let result = oracle::run(&mutation, &encoded, 200_000);
+    assert_eq!(result.len(), 1);
+    assert!(result[0].residual.iter().any(|c| c.name == "round"));
+    assert!(!result[0].residual.iter().any(|c| c.name == "epoch"));
+}

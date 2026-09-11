@@ -1,0 +1,831 @@
+{
+  "note": "Unweighted exploratory comparisons; zero-execution allocation is arithmetic, not a replacement implementation or runtime bound.",
+  "allocation_lower": 36,
+  "allocation_higher": 12,
+  "peak_lower": 18,
+  "peak_higher": 30,
+  "paired_count": 48,
+  "signal_sensitive": 0,
+  "below_09": 26,
+  "above_11": 3,
+  "minimum_zero_execution_ratio": 4.701564577826665,
+  "maximum_zero_execution_ratio": 8.72797430983581,
+  "rows": [
+    {
+      "cell": [
+        "chain",
+        2,
+        "reserved-indexed",
+        "all",
+        "complete"
+      ],
+      "requested_bytes": 868313,
+      "original_bytes": 862733,
+      "peak_excess": 71012,
+      "original_peak": 70084,
+      "zero_execution_bytes": 154065,
+      "best_allocation_control": "local",
+      "best_control_bytes": 20839,
+      "optimistic_ratio": 7.3931090743317815
+    },
+    {
+      "cell": [
+        "chain",
+        2,
+        "reserved-indexed",
+        "immediate",
+        "complete"
+      ],
+      "requested_bytes": 868313,
+      "original_bytes": 862733,
+      "peak_excess": 70403,
+      "original_peak": 69475,
+      "zero_execution_bytes": 154065,
+      "best_allocation_control": "local",
+      "best_control_bytes": 20839,
+      "optimistic_ratio": 7.3931090743317815
+    },
+    {
+      "cell": [
+        "chain",
+        2,
+        "reserved-scan",
+        "all",
+        "complete"
+      ],
+      "requested_bytes": 885905,
+      "original_bytes": 866381,
+      "peak_excess": 62121,
+      "original_peak": 60969,
+      "zero_execution_bytes": 154065,
+      "best_allocation_control": "local",
+      "best_control_bytes": 20839,
+      "optimistic_ratio": 7.3931090743317815
+    },
+    {
+      "cell": [
+        "chain",
+        2,
+        "reserved-scan",
+        "immediate",
+        "complete"
+      ],
+      "requested_bytes": 885905,
+      "original_bytes": 866381,
+      "peak_excess": 61512,
+      "original_peak": 60360,
+      "zero_execution_bytes": 154065,
+      "best_allocation_control": "local",
+      "best_control_bytes": 20839,
+      "optimistic_ratio": 7.3931090743317815
+    },
+    {
+      "cell": [
+        "chain",
+        2,
+        "reserved-sealed",
+        "all",
+        "complete"
+      ],
+      "requested_bytes": 888327,
+      "original_bytes": 868257,
+      "peak_excess": 63361,
+      "original_peak": 62177,
+      "zero_execution_bytes": 163271,
+      "best_allocation_control": "local",
+      "best_control_bytes": 20839,
+      "optimistic_ratio": 7.834876913479533
+    },
+    {
+      "cell": [
+        "chain",
+        2,
+        "reserved-sealed",
+        "immediate",
+        "complete"
+      ],
+      "requested_bytes": 888327,
+      "original_bytes": 868257,
+      "peak_excess": 62752,
+      "original_peak": 61568,
+      "zero_execution_bytes": 163271,
+      "best_allocation_control": "local",
+      "best_control_bytes": 20839,
+      "optimistic_ratio": 7.834876913479533
+    },
+    {
+      "cell": [
+        "chain",
+        6,
+        "reserved-indexed",
+        "all",
+        "complete"
+      ],
+      "requested_bytes": 11953097,
+      "original_bytes": 15801277,
+      "peak_excess": 122030,
+      "original_peak": 122958,
+      "zero_execution_bytes": 286377,
+      "best_allocation_control": "local",
+      "best_control_bytes": 60911,
+      "optimistic_ratio": 4.701564577826665
+    },
+    {
+      "cell": [
+        "chain",
+        6,
+        "reserved-indexed",
+        "immediate",
+        "complete"
+      ],
+      "requested_bytes": 11953097,
+      "original_bytes": 15801277,
+      "peak_excess": 118439,
+      "original_peak": 119367,
+      "zero_execution_bytes": 286377,
+      "best_allocation_control": "local",
+      "best_control_bytes": 60911,
+      "optimistic_ratio": 4.701564577826665
+    },
+    {
+      "cell": [
+        "chain",
+        6,
+        "reserved-scan",
+        "all",
+        "complete"
+      ],
+      "requested_bytes": 32434729,
+      "original_bytes": 45592901,
+      "peak_excess": 97572,
+      "original_peak": 98500,
+      "zero_execution_bytes": 286377,
+      "best_allocation_control": "local",
+      "best_control_bytes": 60911,
+      "optimistic_ratio": 4.701564577826665
+    },
+    {
+      "cell": [
+        "chain",
+        6,
+        "reserved-scan",
+        "immediate",
+        "complete"
+      ],
+      "requested_bytes": 32434729,
+      "original_bytes": 45592901,
+      "peak_excess": 93981,
+      "original_peak": 94909,
+      "zero_execution_bytes": 286377,
+      "best_allocation_control": "local",
+      "best_control_bytes": 60911,
+      "optimistic_ratio": 4.701564577826665
+    },
+    {
+      "cell": [
+        "chain",
+        6,
+        "reserved-sealed",
+        "all",
+        "complete"
+      ],
+      "requested_bytes": 32410271,
+      "original_bytes": 45561753,
+      "peak_excess": 98780,
+      "original_peak": 99676,
+      "zero_execution_bytes": 295583,
+      "best_allocation_control": "local",
+      "best_control_bytes": 60911,
+      "optimistic_ratio": 4.852703124230435
+    },
+    {
+      "cell": [
+        "chain",
+        6,
+        "reserved-sealed",
+        "immediate",
+        "complete"
+      ],
+      "requested_bytes": 32410271,
+      "original_bytes": 45561753,
+      "peak_excess": 95189,
+      "original_peak": 96085,
+      "zero_execution_bytes": 295583,
+      "best_allocation_control": "local",
+      "best_control_bytes": 60911,
+      "optimistic_ratio": 4.852703124230435
+    },
+    {
+      "cell": [
+        "competition",
+        2,
+        "reserved-indexed",
+        "all",
+        "complete"
+      ],
+      "requested_bytes": 683117,
+      "original_bytes": 626257,
+      "peak_excess": 72560,
+      "original_peak": 71344,
+      "zero_execution_bytes": 161017,
+      "best_allocation_control": "local",
+      "best_control_bytes": 19627,
+      "optimistic_ratio": 8.20385183675549
+    },
+    {
+      "cell": [
+        "competition",
+        2,
+        "reserved-indexed",
+        "immediate",
+        "complete"
+      ],
+      "requested_bytes": 683117,
+      "original_bytes": 626257,
+      "peak_excess": 71075,
+      "original_peak": 69859,
+      "zero_execution_bytes": 161017,
+      "best_allocation_control": "local",
+      "best_control_bytes": 19627,
+      "optimistic_ratio": 8.20385183675549
+    },
+    {
+      "cell": [
+        "competition",
+        2,
+        "reserved-scan",
+        "all",
+        "complete"
+      ],
+      "requested_bytes": 650281,
+      "original_bytes": 586917,
+      "peak_excess": 62473,
+      "original_peak": 61297,
+      "zero_execution_bytes": 161017,
+      "best_allocation_control": "local",
+      "best_control_bytes": 19627,
+      "optimistic_ratio": 8.20385183675549
+    },
+    {
+      "cell": [
+        "competition",
+        2,
+        "reserved-scan",
+        "immediate",
+        "complete"
+      ],
+      "requested_bytes": 650281,
+      "original_bytes": 586917,
+      "peak_excess": 60988,
+      "original_peak": 59812,
+      "zero_execution_bytes": 161017,
+      "best_allocation_control": "local",
+      "best_control_bytes": 19627,
+      "optimistic_ratio": 8.20385183675549
+    },
+    {
+      "cell": [
+        "competition",
+        2,
+        "reserved-sealed",
+        "all",
+        "complete"
+      ],
+      "requested_bytes": 655455,
+      "original_bytes": 591801,
+      "peak_excess": 63721,
+      "original_peak": 62513,
+      "zero_execution_bytes": 170223,
+      "best_allocation_control": "local",
+      "best_control_bytes": 19627,
+      "optimistic_ratio": 8.67289957711316
+    },
+    {
+      "cell": [
+        "competition",
+        2,
+        "reserved-sealed",
+        "immediate",
+        "complete"
+      ],
+      "requested_bytes": 655455,
+      "original_bytes": 591801,
+      "peak_excess": 62236,
+      "original_peak": 61028,
+      "zero_execution_bytes": 170223,
+      "best_allocation_control": "local",
+      "best_control_bytes": 19627,
+      "optimistic_ratio": 8.67289957711316
+    },
+    {
+      "cell": [
+        "competition",
+        6,
+        "reserved-indexed",
+        "all",
+        "complete"
+      ],
+      "requested_bytes": 7067285,
+      "original_bytes": 11942529,
+      "peak_excess": 120099,
+      "original_peak": 123291,
+      "zero_execution_bytes": 292141,
+      "best_allocation_control": "sealed",
+      "best_control_bytes": 48846,
+      "optimistic_ratio": 5.980858207427425
+    },
+    {
+      "cell": [
+        "competition",
+        6,
+        "reserved-indexed",
+        "immediate",
+        "complete"
+      ],
+      "requested_bytes": 7067285,
+      "original_bytes": 11942529,
+      "peak_excess": 116796,
+      "original_peak": 119988,
+      "zero_execution_bytes": 292141,
+      "best_allocation_control": "sealed",
+      "best_control_bytes": 48846,
+      "optimistic_ratio": 5.980858207427425
+    },
+    {
+      "cell": [
+        "competition",
+        6,
+        "reserved-scan",
+        "all",
+        "complete"
+      ],
+      "requested_bytes": 9968093,
+      "original_bytes": 16371897,
+      "peak_excess": 91774,
+      "original_peak": 93310,
+      "zero_execution_bytes": 292141,
+      "best_allocation_control": "sealed",
+      "best_control_bytes": 48846,
+      "optimistic_ratio": 5.980858207427425
+    },
+    {
+      "cell": [
+        "competition",
+        6,
+        "reserved-scan",
+        "immediate",
+        "complete"
+      ],
+      "requested_bytes": 9968093,
+      "original_bytes": 16371897,
+      "peak_excess": 88471,
+      "original_peak": 90007,
+      "zero_execution_bytes": 292141,
+      "best_allocation_control": "sealed",
+      "best_control_bytes": 48846,
+      "optimistic_ratio": 5.980858207427425
+    },
+    {
+      "cell": [
+        "competition",
+        6,
+        "reserved-sealed",
+        "all",
+        "complete"
+      ],
+      "requested_bytes": 9961107,
+      "original_bytes": 16356429,
+      "peak_excess": 93006,
+      "original_peak": 94510,
+      "zero_execution_bytes": 301347,
+      "best_allocation_control": "sealed",
+      "best_control_bytes": 48846,
+      "optimistic_ratio": 6.169328092371945
+    },
+    {
+      "cell": [
+        "competition",
+        6,
+        "reserved-sealed",
+        "immediate",
+        "complete"
+      ],
+      "requested_bytes": 9961107,
+      "original_bytes": 16356429,
+      "peak_excess": 89703,
+      "original_peak": 91207,
+      "zero_execution_bytes": 301347,
+      "best_allocation_control": "sealed",
+      "best_control_bytes": 48846,
+      "optimistic_ratio": 6.169328092371945
+    },
+    {
+      "cell": [
+        "flat",
+        2,
+        "reserved-indexed",
+        "all",
+        "complete"
+      ],
+      "requested_bytes": 925357,
+      "original_bytes": 1015673,
+      "peak_excess": 71547,
+      "original_peak": 71059,
+      "zero_execution_bytes": 159305,
+      "best_allocation_control": "local",
+      "best_control_bytes": 19307,
+      "optimistic_ratio": 8.2511524317605
+    },
+    {
+      "cell": [
+        "flat",
+        2,
+        "reserved-indexed",
+        "immediate",
+        "complete"
+      ],
+      "requested_bytes": 925357,
+      "original_bytes": 1015673,
+      "peak_excess": 71085,
+      "original_peak": 70597,
+      "zero_execution_bytes": 159305,
+      "best_allocation_control": "local",
+      "best_control_bytes": 19307,
+      "optimistic_ratio": 8.2511524317605
+    },
+    {
+      "cell": [
+        "flat",
+        2,
+        "reserved-scan",
+        "all",
+        "complete"
+      ],
+      "requested_bytes": 920905,
+      "original_bytes": 1006469,
+      "peak_excess": 62120,
+      "original_peak": 61024,
+      "zero_execution_bytes": 159305,
+      "best_allocation_control": "local",
+      "best_control_bytes": 19307,
+      "optimistic_ratio": 8.2511524317605
+    },
+    {
+      "cell": [
+        "flat",
+        2,
+        "reserved-scan",
+        "immediate",
+        "complete"
+      ],
+      "requested_bytes": 920905,
+      "original_bytes": 1006469,
+      "peak_excess": 61658,
+      "original_peak": 60562,
+      "zero_execution_bytes": 159305,
+      "best_allocation_control": "local",
+      "best_control_bytes": 19307,
+      "optimistic_ratio": 8.2511524317605
+    },
+    {
+      "cell": [
+        "flat",
+        2,
+        "reserved-sealed",
+        "all",
+        "complete"
+      ],
+      "requested_bytes": 923327,
+      "original_bytes": 1007833,
+      "peak_excess": 63360,
+      "original_peak": 62232,
+      "zero_execution_bytes": 168511,
+      "best_allocation_control": "local",
+      "best_control_bytes": 19307,
+      "optimistic_ratio": 8.72797430983581
+    },
+    {
+      "cell": [
+        "flat",
+        2,
+        "reserved-sealed",
+        "immediate",
+        "complete"
+      ],
+      "requested_bytes": 923327,
+      "original_bytes": 1007833,
+      "peak_excess": 62898,
+      "original_peak": 61770,
+      "zero_execution_bytes": 168511,
+      "best_allocation_control": "local",
+      "best_control_bytes": 19307,
+      "optimistic_ratio": 8.72797430983581
+    },
+    {
+      "cell": [
+        "flat",
+        6,
+        "reserved-indexed",
+        "all",
+        "complete"
+      ],
+      "requested_bytes": 9559361,
+      "original_bytes": 31042925,
+      "peak_excess": 118212,
+      "original_peak": 133388,
+      "zero_execution_bytes": 288533,
+      "best_allocation_control": "sealed",
+      "best_control_bytes": 57446,
+      "optimistic_ratio": 5.022682171082407
+    },
+    {
+      "cell": [
+        "flat",
+        6,
+        "reserved-indexed",
+        "immediate",
+        "complete"
+      ],
+      "requested_bytes": 9559361,
+      "original_bytes": 31042925,
+      "peak_excess": 116826,
+      "original_peak": 132002,
+      "zero_execution_bytes": 288533,
+      "best_allocation_control": "sealed",
+      "best_control_bytes": 57446,
+      "optimistic_ratio": 5.022682171082407
+    },
+    {
+      "cell": [
+        "flat",
+        6,
+        "reserved-scan",
+        "all",
+        "complete"
+      ],
+      "requested_bytes": 14515989,
+      "original_bytes": 45681393,
+      "peak_excess": 92113,
+      "original_peak": 103081,
+      "zero_execution_bytes": 288533,
+      "best_allocation_control": "sealed",
+      "best_control_bytes": 57446,
+      "optimistic_ratio": 5.022682171082407
+    },
+    {
+      "cell": [
+        "flat",
+        6,
+        "reserved-scan",
+        "immediate",
+        "complete"
+      ],
+      "requested_bytes": 14515989,
+      "original_bytes": 45681393,
+      "peak_excess": 90727,
+      "original_peak": 101695,
+      "zero_execution_bytes": 288533,
+      "best_allocation_control": "sealed",
+      "best_control_bytes": 57446,
+      "optimistic_ratio": 5.022682171082407
+    },
+    {
+      "cell": [
+        "flat",
+        6,
+        "reserved-sealed",
+        "all",
+        "complete"
+      ],
+      "requested_bytes": 14499211,
+      "original_bytes": 45629765,
+      "peak_excess": 93321,
+      "original_peak": 104257,
+      "zero_execution_bytes": 297739,
+      "best_allocation_control": "sealed",
+      "best_control_bytes": 57446,
+      "optimistic_ratio": 5.182937019113602
+    },
+    {
+      "cell": [
+        "flat",
+        6,
+        "reserved-sealed",
+        "immediate",
+        "complete"
+      ],
+      "requested_bytes": 14499211,
+      "original_bytes": 45629765,
+      "peak_excess": 91935,
+      "original_peak": 102871,
+      "zero_execution_bytes": 297739,
+      "best_allocation_control": "sealed",
+      "best_control_bytes": 57446,
+      "optimistic_ratio": 5.182937019113602
+    },
+    {
+      "cell": [
+        "sparse",
+        2,
+        "reserved-indexed",
+        "all",
+        "complete"
+      ],
+      "requested_bytes": 487589,
+      "original_bytes": 527889,
+      "peak_excess": 68977,
+      "original_peak": 67809,
+      "zero_execution_bytes": 152081,
+      "best_allocation_control": "local",
+      "best_control_bytes": 19387,
+      "optimistic_ratio": 7.844483416722546
+    },
+    {
+      "cell": [
+        "sparse",
+        2,
+        "reserved-indexed",
+        "immediate",
+        "complete"
+      ],
+      "requested_bytes": 487589,
+      "original_bytes": 527889,
+      "peak_excess": 67627,
+      "original_peak": 66459,
+      "zero_execution_bytes": 152081,
+      "best_allocation_control": "local",
+      "best_control_bytes": 19387,
+      "optimistic_ratio": 7.844483416722546
+    },
+    {
+      "cell": [
+        "sparse",
+        2,
+        "reserved-scan",
+        "all",
+        "complete"
+      ],
+      "requested_bytes": 450721,
+      "original_bytes": 488125,
+      "peak_excess": 61320,
+      "original_peak": 60184,
+      "zero_execution_bytes": 152081,
+      "best_allocation_control": "local",
+      "best_control_bytes": 19387,
+      "optimistic_ratio": 7.844483416722546
+    },
+    {
+      "cell": [
+        "sparse",
+        2,
+        "reserved-scan",
+        "immediate",
+        "complete"
+      ],
+      "requested_bytes": 450721,
+      "original_bytes": 488125,
+      "peak_excess": 59970,
+      "original_peak": 58834,
+      "zero_execution_bytes": 152081,
+      "best_allocation_control": "local",
+      "best_control_bytes": 19387,
+      "optimistic_ratio": 7.844483416722546
+    },
+    {
+      "cell": [
+        "sparse",
+        2,
+        "reserved-sealed",
+        "all",
+        "complete"
+      ],
+      "requested_bytes": 456663,
+      "original_bytes": 493265,
+      "peak_excess": 62568,
+      "original_peak": 61400,
+      "zero_execution_bytes": 161287,
+      "best_allocation_control": "local",
+      "best_control_bytes": 19387,
+      "optimistic_ratio": 8.319337700520968
+    },
+    {
+      "cell": [
+        "sparse",
+        2,
+        "reserved-sealed",
+        "immediate",
+        "complete"
+      ],
+      "requested_bytes": 456663,
+      "original_bytes": 493265,
+      "peak_excess": 61218,
+      "original_peak": 60050,
+      "zero_execution_bytes": 161287,
+      "best_allocation_control": "local",
+      "best_control_bytes": 19387,
+      "optimistic_ratio": 8.319337700520968
+    },
+    {
+      "cell": [
+        "sparse",
+        6,
+        "reserved-indexed",
+        "all",
+        "complete"
+      ],
+      "requested_bytes": 978853,
+      "original_bytes": 1810257,
+      "peak_excess": 103601,
+      "original_peak": 103489,
+      "zero_execution_bytes": 269937,
+      "best_allocation_control": "local",
+      "best_control_bytes": 51307,
+      "optimistic_ratio": 5.261211920400725
+    },
+    {
+      "cell": [
+        "sparse",
+        6,
+        "reserved-indexed",
+        "immediate",
+        "complete"
+      ],
+      "requested_bytes": 978853,
+      "original_bytes": 1810257,
+      "peak_excess": 98351,
+      "original_peak": 98239,
+      "zero_execution_bytes": 269937,
+      "best_allocation_control": "local",
+      "best_control_bytes": 51307,
+      "optimistic_ratio": 5.261211920400725
+    },
+    {
+      "cell": [
+        "sparse",
+        6,
+        "reserved-scan",
+        "all",
+        "complete"
+      ],
+      "requested_bytes": 930369,
+      "original_bytes": 1662205,
+      "peak_excess": 83251,
+      "original_peak": 83139,
+      "zero_execution_bytes": 269937,
+      "best_allocation_control": "local",
+      "best_control_bytes": 51307,
+      "optimistic_ratio": 5.261211920400725
+    },
+    {
+      "cell": [
+        "sparse",
+        6,
+        "reserved-scan",
+        "immediate",
+        "complete"
+      ],
+      "requested_bytes": 930369,
+      "original_bytes": 1662205,
+      "peak_excess": 78001,
+      "original_peak": 77889,
+      "zero_execution_bytes": 269937,
+      "best_allocation_control": "local",
+      "best_control_bytes": 51307,
+      "optimistic_ratio": 5.261211920400725
+    },
+    {
+      "cell": [
+        "sparse",
+        6,
+        "reserved-sealed",
+        "all",
+        "complete"
+      ],
+      "requested_bytes": 936311,
+      "original_bytes": 1665297,
+      "peak_excess": 84499,
+      "original_peak": 84355,
+      "zero_execution_bytes": 279143,
+      "best_allocation_control": "local",
+      "best_control_bytes": 51307,
+      "optimistic_ratio": 5.440641627848052
+    },
+    {
+      "cell": [
+        "sparse",
+        6,
+        "reserved-sealed",
+        "immediate",
+        "complete"
+      ],
+      "requested_bytes": 936311,
+      "original_bytes": 1665297,
+      "peak_excess": 79249,
+      "original_peak": 79105,
+      "zero_execution_bytes": 279143,
+      "best_allocation_control": "local",
+      "best_control_bytes": 51307,
+      "optimistic_ratio": 5.440641627848052
+    }
+  ]
+}

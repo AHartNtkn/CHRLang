@@ -1,0 +1,9 @@
+   Compiling chr-relational v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-relational)
+error[E0425]: cannot find function `reserved_rules` in module `selection`
+   --> research/chr-relational/tests/support/chr_selection_cases.rs:210:28
+    |
+210 |     let rules = selection::reserved_rules();
+    |                            ^^^^^^^^^^^^^^ not found in `selection`
+
+For more information about this error, try `rustc --explain E0425`.
+error: could not compile `chr-relational` (test "chr_constructors") due to 1 previous error
