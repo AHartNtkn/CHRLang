@@ -1,0 +1,39 @@
+   Compiling chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax)
+    Checking chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe)
+   Compiling chr-integrated v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-integrated)
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+    Checking chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)
+    Checking chr-relational v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-relational)
+error: this assertion has a constant value
+   --> research/chr-relational/tests/support/selection_lifecycle.rs:126:5
+    |
+126 |     assert!(!(cfg!(feature = "alloc-meter") && WORK));
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: consider moving this into a const block: `const { assert!(..) }`
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.97.0/index.html#assertions_on_constants
+    = note: `-D clippy::assertions-on-constants` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::assertions_on_constants)]`
+
+error: this `if` statement can be collapsed
+  --> research/chr-relational/tests/support/selection_source.rs:60:9
+   |
+60 | /         if let Term::Var(v) = t {
+61 | |             if let Some(i) = vars.get(v) {
+62 | |                 return *i;
+63 | |             }
+64 | |         }
+   | |_________^
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.97.0/index.html#collapsible_if
+   = note: `-D clippy::collapsible-if` implied by `-D warnings`
+   = help: to override `-D warnings` add `#[allow(clippy::collapsible_if)]`
+help: collapse nested if block
+   |
+60 ~         if let Term::Var(v) = t
+61 ~             && let Some(i) = vars.get(v) {
+62 |                 return *i;
+63 ~             }
+   |
+
+error: could not compile `chr-relational` (test "local_lifecycle") due to 2 previous errors

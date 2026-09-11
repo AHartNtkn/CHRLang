@@ -70,6 +70,10 @@ impl Phase {
     }
 }
 trait Backend: Sized {
+    fn prepare_rules(rules: &[Rule]) -> Self {
+        assert_eq!(rules.len(), 1);
+        Self::prepare(&rules[0])
+    }
     type State;
     fn prepare(rule: &Rule) -> Self;
     fn setup(&self, q: &Query) -> Self::State;
@@ -111,7 +115,10 @@ struct Compiled<const INDEX: bool, const SPECIAL: bool>(chr_compiled::PreparedRu
 impl<const INDEX: bool, const SPECIAL: bool> Backend for Compiled<INDEX, SPECIAL> {
     type State = chr_compiled::Engine;
     fn prepare(rule: &Rule) -> Self {
-        let p = chr_compiled::PreparedRuleset::new(vec![rule.clone()], None).unwrap();
+        Self::prepare_rules(std::slice::from_ref(rule))
+    }
+    fn prepare_rules(rules: &[Rule]) -> Self {
+        let p = chr_compiled::PreparedRuleset::new(rules.to_vec(), None).unwrap();
         Self(if SPECIAL { p.specialize_inferred() } else { p })
     }
     fn setup(&self, q: &Query) -> Self::State {
@@ -317,6 +324,10 @@ fn measure<B: Backend>(family: &str, n: usize, reuse: usize, stop: &str) {
 }
 fn main() {
     let args = std::env::args().collect::<Vec<_>>();
+    if args.get(1).is_some_and(|x| x == "selection") {
+        selection_lifecycle::main(&args[2..]);
+        return;
+    }
     if args.len() == 1 {
         smoke();
         return;
@@ -378,3 +389,14 @@ fn smoke() {
     }
     println!("147 independent source comparisons pass");
 }
+
+#[path = "support/chr_forest.rs"]
+mod forest;
+#[path = "support/chr_constructors.rs"]
+mod kernel;
+#[path = "support/chr_selection.rs"]
+mod selection;
+#[path = "support/selection_lifecycle.rs"]
+mod selection_lifecycle;
+#[path = "support/selection_source.rs"]
+mod selection_source;
