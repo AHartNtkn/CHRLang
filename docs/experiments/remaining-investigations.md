@@ -1,6 +1,6 @@
 # The comparisons still needed to choose the architecture
 
-The [mixed-source gate](results/S10-post-continuation.md) supplies the current checkpoint. Mixed post/continuation paths pass 216 configurations and 5,184 complete executions in each of two builds, plus 4,320 cancellation probes per build. Inert query classification and source preparation now let demand execute the history-bearing sources. Counting runs in every cell: at three choices/depth16 it changes common explicit/conditional steps from 128/16 to 0/0, and independent steps from 140/140 to 12/12. T078 proceeds to complete lifecycle costs. Package one after full review; goal active.
+The [mixed-source lifecycle and confirmation](results/S10-post-continuation-cost.md) supply the current checkpoint. The mixed-source lifecycle pilot completes 26,880 processes with 2,688 exact allocation pairs; confirmation adds 5,070 processes. Counting has nine confirmed substantive gains and a zero-work demand overhead loss. Counted demand without templates is directionally faster than generated Global Scan on three selected sources, with unresolved 10% magnitude. T078 next supplies the same static-propagation initialization to explicit/conditional controls. Package three after full review; goal active.
 
 The [relevant-key ownership comparison](results/S02-relevant-ownership.md) supplies the current checkpoint. Relevant-key ownership validates1,008 metered and448 ordinary processes with exact allocation repeats, cancellation/reuse and retained answers surviving producer disposal. Ordered relevant reuse lowers peaks versus exact-state caching in38of64 scenarios but requests more bytes than recomputation in all64. The changed depth16/four-query witness requests1,292,590bytes with72,959peak excess versus669,196/38,976 for recomputation. T072 next attributes key/replay execution costs before timing; package one after breadth review; goal active.
 
@@ -106,7 +106,7 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-The [current execution order](next-cycle.md#start-here-the-next-experiments) selects T078 complete lifecycle costs after the mixed-source gate. All intended controls now execute; fixture and preparation restrictions are repair work, not dispositions. Reassess alternatives at the cost result or diagnosed obstruction; full portfolio review within three packages.
+The [current execution order](next-cycle.md#start-here-the-next-experiments) selects T078 matched static initialization for the explicit/conditional controls. The measured demand pipeline has directional gains, but source preparation can change their interpretation. Reassess alternatives and perform full portfolio review after this next package.
 
 ### Depth, breadth and stopping within this sequence
 

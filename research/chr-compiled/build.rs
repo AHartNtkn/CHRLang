@@ -1,6 +1,9 @@
 #[path = "experiments/access_source.rs"]
 #[allow(dead_code)]
 mod access_source;
+#[path = "../chr-direct-conditional/examples/support/post_continuation_source.rs"]
+#[allow(dead_code)]
+mod continuation_source;
 #[path = "src/fixtures.rs"]
 #[allow(dead_code)]
 mod fixtures;
@@ -19,6 +22,9 @@ mod structural_prefix_source;
 #[allow(dead_code)]
 mod subscription_source;
 fn main() {
+    println!(
+        "cargo:rerun-if-changed=../chr-direct-conditional/examples/support/post_continuation_source.rs"
+    );
     println!(
         "cargo:rerun-if-changed=../chr-direct-conditional/tests/runtime_support/post_source.rs"
     );
@@ -86,6 +92,19 @@ fn main() {
     text.push_str("_=>panic!(\"unknown post source\")}}\n");
     for (family, sources) in [
         ("post", post_programs),
+        (
+            "continuation",
+            continuation_source::FAMILIES
+                .iter()
+                .flat_map(|family| {
+                    [0, 1, 3].into_iter().flat_map(move |k| {
+                        [false, true]
+                            .into_iter()
+                            .map(move |history| continuation_source::rules(family, k, history))
+                    })
+                })
+                .collect(),
+        ),
         ("prefix", prefix_programs),
         ("search", search_programs),
         ("payload", vec![access_source::payload_rules()]),

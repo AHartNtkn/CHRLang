@@ -1,0 +1,12 @@
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+    Checking chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+error: function `explicit_steps` is never used
+   --> research/chr-direct-conditional/examples/support/post_continuation_source.rs:147:8
+    |
+147 | pub fn explicit_steps(family: &str, k: usize, d: usize) -> usize {
+    |        ^^^^^^^^^^^^^^
+    |
+    = note: `-D dead-code` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[expect(dead_code)]` or `#[allow(dead_code)]`
+
+error: could not compile `chr-direct-conditional` (example "post_continuation_cost") due to 1 previous error

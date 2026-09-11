@@ -1,6 +1,6 @@
 # Unanswered architecture questions and experimental ownership
 
-The [mixed-source gate](results/S10-post-continuation.md) supplies the current checkpoint. Mixed post/continuation paths pass 216 configurations and 5,184 complete executions in each of two builds, plus 4,320 cancellation probes per build. Inert query classification and source preparation now let demand execute the history-bearing sources. Counting runs in every cell: at three choices/depth16 it changes common explicit/conditional steps from 128/16 to 0/0, and independent steps from 140/140 to 12/12. T078 proceeds to complete lifecycle costs. Package one after full review; goal active.
+The [mixed-source lifecycle and confirmation](results/S10-post-continuation-cost.md) supply the current checkpoint. The mixed-source lifecycle pilot completes 26,880 processes with 2,688 exact allocation pairs; confirmation adds 5,070 processes. Counting has nine confirmed substantive gains and a zero-work demand overhead loss. Counted demand without templates is directionally faster than generated Global Scan on three selected sources, with unresolved 10% magnitude. T078 next supplies the same static-propagation initialization to explicit/conditional controls. Package three after full review; goal active.
 
 The [relevant-key ownership comparison](results/S02-relevant-ownership.md) supplies the current checkpoint. Relevant-key ownership validates1,008 metered and448 ordinary processes with exact allocation repeats, cancellation/reuse and retained answers surviving producer disposal. Ordered relevant reuse lowers peaks versus exact-state caching in38of64 scenarios but requests more bytes than recomputation in all64. The changed depth16/four-query witness requests1,292,590bytes with72,959peak excess versus669,196/38,976 for recomputation. T072 next attributes key/replay execution costs before timing; package one after breadth review; goal active.
 
@@ -179,6 +179,6 @@ No aggregate benchmark weights, universal winner, automatic hybrid routing or ad
 
 ## Current selection
 
-Follow the [execution sequence](next-cycle.md#start-here-the-next-experiments): T078 measures the qualified original/counted mixed-source paths with complete lifecycle accounting. T078 remains the sole active task; every broader unresolved mechanism retains its required comparison.
+Follow the [execution sequence](next-cycle.md#start-here-the-next-experiments): T078 qualifies and measures static initialization in the explicit/conditional controls after the mixed-source lifecycle and confirmation. T078 remains the sole active task; all broader unresolved mechanisms retain required comparisons.
 
 The [portfolio table](next-cycle.md#portfolio-order-and-dependencies) schedules every reviewed question, including distinct variants inside grouped entries. Language studies and complete-architecture comparisons accompany the component investigations. A completed bounded study supplies scoped evidence; all consequential unanswered variants remain required work.

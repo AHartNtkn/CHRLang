@@ -1,0 +1,17 @@
+   Compiling chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax)
+   Compiling chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe)
+   Compiling chr-direct-choice v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-choice)
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)
+   Compiling chr-relational v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-relational)
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+warning: function `explicit_steps` is never used
+   --> research/chr-direct-conditional/examples/support/post_continuation_source.rs:147:8
+    |
+147 | pub fn explicit_steps(family: &str, k: usize, d: usize) -> usize {
+    |        ^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `chr-direct-conditional` (example "post_continuation_cost") generated 1 warning
+    Finished `release` profile [optimized] target(s) in 13.62s

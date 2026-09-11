@@ -301,3 +301,34 @@ fn mixed_posts_preserve_complete_continuations_and_record_capability() {
     }
     assert_eq!(configs, 216);
 }
+
+#[test]
+fn generated_mixed_sources_match_source_preparation() {
+    for (fi, family) in source::FAMILIES.iter().enumerate() {
+        for (ki, k) in [0, 1, 3].into_iter().enumerate() {
+            for history in [false, true] {
+                let rules = source::rules(family, k, history);
+                let p = chr_compiled::PreparedRuleset::new(
+                    rules,
+                    Some(chr_compiled::access_continuation_bundled(
+                        fi * 6 + ki * 2 + usize::from(history),
+                    )),
+                )
+                .unwrap();
+                for policy in [chr_compiled::Policy::Global, chr_compiled::Policy::Active] {
+                    for access in [chr_compiled::Access::Scan, chr_compiled::Access::Indexed] {
+                        for seed in 0..2 {
+                            let q = source::query(family, k, 4, seed, seed == 1);
+                            runtime_support::same_raw(
+                                finish(Engine::Compiled(
+                                    p.start_search(q, policy, access).unwrap(),
+                                )),
+                                source::expected(family, k, seed, history),
+                            );
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
