@@ -1,9 +1,7 @@
-//! Private-prefix splicing into the original live caller cursor.
+//! Priority-phase splicing into the original live caller cursor.
+//! Caller rules may observe suspended private facts and re-enable private work.
 use super::{Event, Job, Table};
-use crate::{
-    calls::{Fresh, checked_family},
-    continuations::Batch,
-};
+use crate::{calls::Fresh, continuations::Batch};
 use chr_persistent::continuations::{Cursor, Machine, PreparedMachine, Step};
 use chr_syntax::{Query, Rule};
 use std::{collections::VecDeque, rc::Rc};
@@ -21,15 +19,9 @@ pub struct Run {
 impl Caller {
     pub fn new(rules: Vec<Rule>, count: usize) -> Result<Self, String> {
         let private = rules.get(..count).ok_or("invalid private prefix")?.to_vec();
-        let family = checked_family(&private)?;
-        if rules[count..].iter().any(|r| {
-            r.kept
-                .iter()
-                .chain(&r.removed)
-                .any(|c| family.contains(&(c.name.clone(), c.args.len())))
-        }) {
-            return Err("caller reads private family".into());
-        }
+        // Caller observers run only when the higher-priority private phase
+        // suspends. The trace then restores bindings and residual facts before
+        // the same live cursor selects the next rule.
         Ok(Self {
             program: PreparedMachine::new(rules)?,
             table: Table::new(private)?,

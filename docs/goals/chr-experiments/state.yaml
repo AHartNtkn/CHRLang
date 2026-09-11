@@ -9,7 +9,7 @@ goal:
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
   execution_sequence: docs/experiments/next-cycle.md
-  current_research: "Completed-caller reuse qualifies gains for projection and both enumeration paths, but projection has no joint gain over both controls. The known-one-answer bypass matches control ownership in all 48 pairs. Portfolio review selects T075 live caller observers; T076 remains pending, package count reset, goal active."
+  current_research: "Live caller observers preserve 504 sources and 31176 one-step checkpoints with trace reuse active, including multi-head consumption and caller-posted private work. T075 next investigates rule-body reuse with selection left in the caller to support interleaved observer priorities; package count one, goal active."
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -389,9 +389,11 @@ tasks:
     assignee: PM
     status: active
     objective: Investigate sound generalized call and continuation reuse after different histories, including renaming, relevance, resource and output identity obligations, against competent recomputation and sharing controls.
-    progress: "Completed-caller reuse qualifies gains for projection and both enumeration paths, but projection has no joint gain over both controls. The known-one-answer bypass matches control ownership in all 48 pairs. Portfolio review selects T075 live caller observers; T076 remains pending, package count reset, goal active."
-    next_action: "Implement live intermediate caller observers in the trace-reuse experiment, comparing Direct and independent scalar source execution. Exercise observed private facts, caller binding changes, competing consumption, histories, fresh outputs, cancellation and held results. Change the current private-call interface and fixtures as needed; rejection is not a language restriction or the experimental outcome. Use completed-caller reuse as context evidence, not a replacement for live interaction. Reconsider selective retention and other directions at the first consequential result or obstruction; review count reset."
+    progress: "Live caller observers preserve 504 sources and 31176 one-step checkpoints with trace reuse active, including multi-head consumption and caller-posted private work. T075 next investigates rule-body reuse with selection left in the caller to support interleaved observer priorities; package count one, goal active."
+    next_action: "Register and implement selected rule-body reuse with rule selection, consuming heads and propagation history remaining in the original live caller. Test arbitrary observer priorities between private rules, shared bindings, multi-head effects, raw order, cancellation and fresh outputs against Direct and independent scalar execution. Investigate the granularity and lookup costs before lifecycle timing. Selective trace retention and complete observed-source costs remain required; reconsider at the first consequential result or obstruction. Package count one since portfolio review."
     inputs:
+      - docs/experiments/results/S05-live-observers.md
+      - docs/experiments/registrations/S05-live-observers.md
       - docs/experiments/results/S06-caller-reuse.md
       - docs/experiments/results/S06-caller-reuse-review.md
       - docs/experiments/registrations/S06-caller-reuse.md
@@ -2723,9 +2725,11 @@ checks:
   dirty_fingerprint: unrelated_untracked_files_preserved
   last_verification:
     result: passed
-    task: T076
-    scope: Completed consuming-caller reuse, known-one-answer repair and portfolio review.
+    task: T075
+    scope: Live phase-boundary observers, consuming joins, fresh aliases and private re-entry.
     commands:
+      - "37 caller/trace/result-reuse/effectful tests pass default/off; final observer assertions and scoped Clippy pass"
+      - "504 live-observer cases,31176 Direct checkpoints; actual observer firing, alias conflict, trace hits/replay and scalar raw answers checked"
       - "Default caller/source tests, 23 relevant counter-free tests and scoped allocator-build Clippy pass"
       - "576 complete caller contexts plus bounded-failure/owner checks pass; full ordered outputs retain aliases, multiplicity and caller state"
       - "896 allocation +2240 ordinary initial runs;384 clock-qualified comparisons; no joint memo-projection gain over both enumeration strategies"

@@ -1,6 +1,6 @@
 # Why designs were set aside—and what the experiments actually establish
 
-Completed-caller reuse qualifies gains for projection and both enumeration paths, but projection has no joint gain over both controls. The known-one-answer bypass matches control ownership in all 48 pairs. Portfolio review selects T075 live caller observers; T076 remains pending, package count reset, goal active. [Caller reuse](S06-caller-reuse.md) · [Portfolio review](S06-caller-reuse-review.md).
+Live caller observers preserve 504 sources and 31176 one-step checkpoints with trace reuse active, including multi-head consumption and caller-posted private work. T075 next investigates rule-body reuse with selection left in the caller to support interleaved observer priorities; package count one, goal active. [Live observers](S05-live-observers.md).
 
 Generated runtime timing validates 10,080 processes and 1,152 comparisons. Four repeated-query cases qualify faster with traces than all six controls; generated matching qualifies against generic indexed execution in fifteen cases. Stronger-control diagnostics leave generated-plus-inferred gains uncertain and select longer prepared sessions plus compiler amortization including Direct, scan and inferred controls. T075 active; package count one, goal active. [Generated runtime](S05-call-generated-timing.md).
 
