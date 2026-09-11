@@ -1,0 +1,11 @@
+# Post-run diagnosis of cross-binary allocation discrepancies
+
+The original audit stops at an allocation comparison with the parent binary. The frozen campaign has no execution failures and every one of its2,400 allocation pairs matches exactly. Of1,344 existing-control comparisons,1,323 match the parent phase-for-phase;21 template cases differ. Preserve the original failed audit and all samples.
+
+The discrepancies affect40 execution/observation phases. Only allocation calls, requested bytes and deallocation calls differ; each changed call corresponds to192bytes, and allocation/deallocation deltas agree. Live endpoints and phase peaks are unchanged. No other mode has a discrepancy.
+
+The template ground-value cache is a BTreeMap keyed by Rc allocation addresses. A diagnostic copy of the frozen demand source meters each cache insertion, records its pointer order and replays that order into an independent tree. All36 cache groups replay their actual allocation exactly (11,520bytes total). Replaying insertion positions in sorted order instead requests11,904bytes; two groups differ by192bytes each. This demonstrates address-order-dependent allocation in the actual cache, rather than a semantic-output or owner-restoration failure. The diagnostic does not establish that every possible future discrepancy has this cause.
+
+Correct the cross-binary audit model while preserving its evidence: require exact within-binary allocation pairs and all original semantic/ownership checks. Report the1,323 exact parent comparisons and all21 differences separately. For these observed differences require template execution only, unchanged live/peak readings and allocation/deallocation deltas in the independently reproduced192-byte unit. Any other difference still fails. Do not label the21 comparisons exact, exclude them from timing, or alter registered71 timing contrasts, intervals, criteria or signal limits. Primary initialized/uninitialized comparisons share the same new binary.
+
+The separate diagnosed auditor records every difference. The original auditor and its failed result remain frozen. This amendment is a post-run diagnostic correction, not a prospective claim of perfect cross-binary reproducibility.

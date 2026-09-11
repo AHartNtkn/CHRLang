@@ -1,0 +1,20 @@
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+error[E0425]: cannot find function `access_initialized_continuation_bundled` in crate `chr_compiled`
+    --> research/chr-direct-conditional/tests/initialized_continuation.rs:21:96
+     |
+  21 | ...ew(init.rules().to_vec(),Some(chr_compiled::access_initialized_continuation_bundled(fi*6+ki*2+usize::from(history)))).unwrap();
+     |                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/ahart/Documents/CHRLang/target/debug/build/chr-compiled-b0eb5eadd7b376bc/out/generated.rs:9663:1
+     |
+9663 | pub fn access_continuation_bundled(id:usize)->Compiled {match id {
+     | ------------------------------------------------------ similarly named function `access_continuation_bundled` defined here
+     |
+help: a function with a similar name exists
+     |
+  21 -         let native=chr_compiled::PreparedRuleset::new(init.rules().to_vec(),Some(chr_compiled::access_initialized_continuation_bundled(fi*6+ki*2+usize::from(history)))).unwrap();
+  21 +         let native=chr_compiled::PreparedRuleset::new(init.rules().to_vec(),Some(chr_compiled::access_continuation_bundled(fi*6+ki*2+usize::from(history)))).unwrap();
+     |
+
+For more information about this error, try `rustc --explain E0425`.
+error: could not compile `chr-direct-conditional` (test "initialized_continuation") due to 1 previous error

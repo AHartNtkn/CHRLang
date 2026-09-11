@@ -8,17 +8,17 @@ This sequence covers the [57 reviewed questions](question-to-experiment-map.md) 
 
 ## Start here: the next experiments
 
-**1. Match the static-initialization control — T078, specification 12.** The [complete-cost result](results/S10-post-continuation-cost.md) confirms counting benefits and makes demand competitive, but demand receives static-propagation initialization that the explicit and conditional paths do not yet use. Implement that source preparation for those paths, including actual generated transformed source; independently qualify it, then measure all of its costs. One interpreted propagation application per query could matter to the smaller directional differences. Repair the comparison rather than stopping at an interface boundary.
+**1. Investigate sustained ownership and preparation reuse — T074, specification9.** The [full portfolio review](results/S10-static-control-review.md) selects longer-lived sessions in the qualified complete paths. Inspect and repair unnecessary retained source owners, then compare repeated preparation with reuse across increasing numbers of changed queries. Include immediate/window/all consumers, cancellation and complete disposal; separate prepared, active-query, consumer and allocator-resident memory. Register time, requested allocations and RSS before runs.
 
-**2. Reconsider sustained ownership, discovery, integration and recognition at the matched-control result.** The [candidate-borrow study](results/S03-candidate-borrow.md) confirms a copy repair, but leaves visits and normalization unchanged. Broader integrated representation and cheaper/coarser call recognition remain distinct required investigations. Compare their decision consequence and implementation prerequisites with advancing the mixed paths to costs at the matched-control result or diagnosed obstruction.
+**2. Extend continuing production as a separate lifetime contrast.** Repeated finite queries do not answer reclamation and progress while active graph state survives between answers. Carry strong explicit and demand/conditional controls into that comparison, repairing fixture/interface obstructions while preserving independent complete observations.
 
-**3. Carry surviving retention mechanisms into sustained ownership.** Finite restoration and retained-answer validity do not establish stable long-running memory or progress. Start lifetime qualification earlier if the mixed gate exposes growth or cancellation problems.
+**3. Reconsider broader mechanisms at the first ownership/cost result.** Integrated representation, coarser call recognition, demand discovery, restoration and compact/matching capabilities retain distinct required experiments. Compare their decision consequence with continuing lifetime work at that boundary; do not spend the next package solely on more unchanged near-10% timing samples.
 
 ## Why this order, and what can change it
 
-**Actual composition can change the value of the surviving mechanisms.** Earlier fusion increased discovery costs, shared post-choice work did not guarantee lower allocation, and source-derived resource solving repaid added allocation on larger sources. Testing those interactions has broader immediate consequence than another isolated layout repair. Reuse existing baselines; do not infer whole-path costs by adding component measurements.
+**Lifetime can change the value of the surviving complete paths.** Earlier fusion increased discovery costs, shared post-choice work did not guarantee lower allocation, and source-derived resource solving repaid added allocation on larger sources. Testing those interactions has broader immediate consequence than another isolated layout repair. Reuse existing baselines; do not infer whole-path costs by adding component measurements.
 
-The [full review](results/S03-candidate-borrow-review.md) compares composition with demand discovery/normalization, broader integration, coarser recognition, sustained ownership and more compact/prefix precision. Each alternative retains its own unanswered contrasts and revisit boundary. A source gate is a prerequisite to costs, not a substitute for them.
+The [full review](results/S10-static-control-review.md) compares longer-lived ownership with broader integration, coarser recognition, demand repair and compact/matching precision. The current time, traffic and peak tradeoffs keep several complete competitors alive. A lifetime source gate is a prerequisite to costs, not a substitute for them.
 
 **Effort affects order, not evidence standards.** Scheduling a later trial is not experimental rejection or completion. All thirteen specifications and the 57-question audit remain controlling.
 
@@ -28,8 +28,8 @@ The table schedules entry into each investigation. The specifications below defi
 
 | Order | Investigation and specification | Review questions | Required architectural evidence |
 |---|---|---|---|
-| Current result | Mixed-source lifecycle and confirmation — §12 | 9, 16, 23, 34, 40, 54–55 | Counting repays complete costs on substantive sources; counted demand is competitive; zero-work overhead is real |
-| Selected next | Matched static initialization — §12 | 9, 16, 23, 34, 40, 54–55 | Give explicit/conditional paths the same compiler opportunity and charge the changed complete paths |
+| Current result | Matched static initialization — §12 | 9, 16, 23, 34, 40, 54–55 | Matched compiler opportunity preserves conditional tradeoffs; traffic often falls while peak rises |
+| Selected next | Sustained ownership and preparation reuse — §9 | 7, 19, 23–25, 40–47 | Repair unnecessary owners and measure amortization, changing queries, consumers and resident memory |
 | A1 follow-through | Compact solving — §3 | 26–29, 34, 53 | Resolve consequential signal/magnitude uncertainty; retain connected projection and richer structural operations |
 | A2 | Demand capability and costs — §2 | 12, 16, 18–19, 23 | Carry confirmed passive-post tradeoffs; investigate causal discovery/copy repair and distinct capabilities |
 | A3 | Intermediate joins and subscriptions — §6 | 1–5, 8, 10–11 | Carry bounded confirmed tradeoffs; resolve broader plans, retention and consequential uncertainty |
@@ -226,7 +226,7 @@ No direction leaves the sequence merely because it is expensive to implement, lo
 
 For each next-package proposal, record the decision it could change, the strongest ready distinct alternative, actual prerequisites, expected implementation/measurement effort, and the next result boundary. Prefer completing a consequential comparison over expanding its matrix when the expansion cannot change the decision. Prefer a distinct mechanism over another refinement when the refinement has no credible path to changing the architecture comparison.
 
-**Three packages follow the [full portfolio review](results/S03-candidate-borrow-review.md).** The source gate, lifecycle pilot and targeted confirmation now have results. Matched static initialization is next; review the full portfolio after that package. Correctness and attribution count alongside measurement.
+**The [matched-initialization portfolio review](results/S10-static-control-review.md) resets the count to zero.** The source gate, lifecycle pilot, confirmation and matched control complete the preceding four-package interval. Reconsider selection at the first lifetime ownership/cost result; review the whole portfolio within four further packages.
 
 **A claim that an experiment cannot affect downstream decisions needs a sensitivity argument.** Name the decision, the outcomes still compatible with current evidence, and why none would change efficiency, necessary complexity, source eligibility or a competitor's credibility. Assume neither the incumbent's superiority nor the proposed mechanism's failure. When those outcomes could change the decision, the trial remains required. When only a narrower claim is settled, advance without extending that conclusion to its broader design.
 

@@ -15,6 +15,9 @@ mod post_source;
 #[path = "src/search_fixtures.rs"]
 #[allow(dead_code)]
 mod search_fixtures;
+#[path = "../chr-direct-conditional/examples/support/static_posts.rs"]
+#[allow(dead_code)]
+mod static_posts;
 #[path = "experiments/structural_prefix_source.rs"]
 #[allow(dead_code)]
 mod structural_prefix_source;
@@ -22,6 +25,7 @@ mod structural_prefix_source;
 #[allow(dead_code)]
 mod subscription_source;
 fn main() {
+    println!("cargo:rerun-if-changed=../chr-direct-conditional/examples/support/static_posts.rs");
     println!(
         "cargo:rerun-if-changed=../chr-direct-conditional/examples/support/post_continuation_source.rs"
     );
@@ -101,6 +105,24 @@ fn main() {
                         [false, true]
                             .into_iter()
                             .map(move |history| continuation_source::rules(family, k, history))
+                    })
+                })
+                .collect(),
+        ),
+        (
+            "initialized_continuation",
+            continuation_source::FAMILIES
+                .iter()
+                .flat_map(|family| {
+                    [0, 1, 3].into_iter().flat_map(move |k| {
+                        [false, true].into_iter().map(move |history| {
+                            static_posts::Prepared::infer(&continuation_source::rules(
+                                family, k, history,
+                            ))
+                            .unwrap()
+                            .rules()
+                            .to_vec()
+                        })
                     })
                 })
                 .collect(),

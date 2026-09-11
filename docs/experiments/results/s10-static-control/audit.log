@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/home/ahart/Documents/CHRLang/research/chr-direct-conditional/experiments/audit_static_continuation_cost.py", line 58, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/home/ahart/Documents/CHRLang/research/chr-direct-conditional/experiments/audit_static_continuation_cost.py", line 41, in main
+    assert rows[0]==parent[key[:-1]],('parent allocation bridge',key);bridges+=1
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('parent allocation bridge', ('independent', 3, 0, False, False, 'all', 'birth-miss-template', True))

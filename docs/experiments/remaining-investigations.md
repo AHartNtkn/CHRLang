@@ -1,6 +1,6 @@
 # The comparisons still needed to choose the architecture
 
-The [mixed-source lifecycle and confirmation](results/S10-post-continuation-cost.md) supply the current checkpoint. The mixed-source lifecycle pilot completes 26,880 processes with 2,688 exact allocation pairs; confirmation adds 5,070 processes. Counting has nine confirmed substantive gains and a zero-work demand overhead loss. Counted demand without templates is directionally faster than generated Global Scan on three selected sources, with unresolved 10% magnitude. T078 next supplies the same static-propagation initialization to explicit/conditional controls. Package three after full review; goal active.
+The [matched-initialization result](results/S10-static-control.md) and [full portfolio review](results/S10-static-control-review.md) supply the current checkpoint. Matched static initialization completes 16,100 lifecycle processes and 2,400 exact within-binary allocation pairs. Of 1,344 parent comparisons, 1,323 are exact and 21 template differences are recorded after an address-ordered tree diagnosis. Initialization has no confirmed 10% timing gain; it often lowers traffic while raising peak. Demand remains competitive against matched generated controls, with case-specific directional uncertainty. Full portfolio review selects T074 sustained ownership/preparation reuse and resets the count; goal active.
 
 The [relevant-key ownership comparison](results/S02-relevant-ownership.md) supplies the current checkpoint. Relevant-key ownership validates1,008 metered and448 ordinary processes with exact allocation repeats, cancellation/reuse and retained answers surviving producer disposal. Ordered relevant reuse lowers peaks versus exact-state caching in38of64 scenarios but requests more bytes than recomputation in all64. The changed depth16/four-query witness requests1,292,590bytes with72,959peak excess versus669,196/38,976 for recomputation. T072 next attributes key/replay execution costs before timing; package one after breadth review; goal active.
 
@@ -106,7 +106,7 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-The [current execution order](next-cycle.md#start-here-the-next-experiments) selects T078 matched static initialization for the explicit/conditional controls. The measured demand pipeline has directional gains, but source preparation can change their interpretation. Reassess alternatives and perform full portfolio review after this next package.
+The [current execution order](next-cycle.md#start-here-the-next-experiments) selects T074 sustained ownership and preparation reuse in qualified complete paths. Repair unnecessary retained source owners, then measure changed-query lifetimes and consumer/RSS behavior. Reassess alternatives at the first ownership/cost result; full portfolio review resets the count.
 
 ### Depth, breadth and stopping within this sequence
 
