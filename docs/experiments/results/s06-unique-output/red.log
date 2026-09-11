@@ -1,0 +1,23 @@
+   Compiling chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax)
+   Compiling chr-structural v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-structural)
+   Compiling chr-reference v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-reference)
+   Compiling chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe)
+   Compiling chr-programs v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-programs)
+    Finished `release` profile [optimized] target(s) in 3.74s
+     Running unittests examples/union_lifecycle.rs (target/s06-unique-output-red/release/examples/union_lifecycle-3c47f3c347f5fa6f)
+
+running 1 test
+
+thread 'tests::direct_disjunction_emits_exact_unique_ordered_assignments' (154) panicked at research/chr-structural/examples/union_lifecycle.rs:158:14:
+mode
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test tests::direct_disjunction_emits_exact_unique_ordered_assignments ... FAILED
+
+failures:
+
+failures:
+    tests::direct_disjunction_emits_exact_unique_ordered_assignments
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p chr-structural --example union_lifecycle`

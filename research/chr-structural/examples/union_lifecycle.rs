@@ -63,6 +63,7 @@ fn partial_caller(r: &Request, a: &[usize]) -> bool {
 enum Output {
     Member(bool),
     Rows(Rows),
+    Ordered(Vec<Vec<usize>>),
 }
 fn oracle(m: &Model, r: &Request) -> Output {
     let mut rows = Rows::new();
@@ -95,6 +96,7 @@ enum Prepared {
     Reduced(Reduced),
     Names(Vec<Formula>, Vec<String>),
     Explicit(Vec<Branch>),
+    Unique(Vec<Branch>),
 }
 fn prepare(mode: &str, m: &Model) -> Prepared {
     match mode {
@@ -140,7 +142,7 @@ fn prepare(mode: &str, m: &Model) -> Prepared {
             vec!["a0".into(), "a1".into(), "a2".into()],
         ),
         "explicit" => Prepared::Explicit(m.branches.clone()),
-        "dedup" => {
+        "dedup" | "unique" => {
             let mut bs = m.branches.clone();
             for b in &mut bs {
                 for (i, j) in b.iter_mut() {
@@ -153,7 +155,11 @@ fn prepare(mode: &str, m: &Model) -> Prepared {
             }
             bs.sort();
             bs.dedup();
-            Prepared::Explicit(bs)
+            if mode == "unique" {
+                Prepared::Unique(bs)
+            } else {
+                Prepared::Explicit(bs)
+            }
         }
         _ => panic!("mode"),
     }
@@ -172,7 +178,9 @@ fn contains(p: &Prepared, a: &[usize]) -> bool {
         Prepared::Separate(ds) => ds.iter().any(|d| d.contains(a).unwrap()),
         Prepared::Reduced(d) => d.contains(a).unwrap(),
         Prepared::Names(fs, alphabet) => names_accept(fs, alphabet, a),
-        Prepared::Explicit(bs) => bs.iter().any(|b| b.iter().all(|&(i, j)| a[i] != a[j])),
+        Prepared::Explicit(bs) | Prepared::Unique(bs) => {
+            bs.iter().any(|b| b.iter().all(|&(i, j)| a[i] != a[j]))
+        }
     }
 }
 fn generate(
@@ -214,6 +222,18 @@ fn visit(p: &Prepared, n: usize, r: &Request, mut emit: impl FnMut(&[usize]) -> 
             }
             true
         }
+        Prepared::Unique(bs) => generate(
+            n,
+            r,
+            &|a| {
+                bs.iter().any(|b| {
+                    b.iter()
+                        .all(|&(i, j)| i >= a.len() || j >= a.len() || a[i] != a[j])
+                })
+            },
+            &mut Vec::with_capacity(n),
+            &mut emit,
+        ),
         Prepared::Explicit(bs) => {
             for b in bs {
                 if !generate(
@@ -272,6 +292,35 @@ fn evaluate(p: &Prepared, n: usize, r: &Request) -> Output {
         Output::Rows(rows)
     }
 }
+fn ordered_rows(p: &Prepared, n: usize, r: &Request) -> Vec<Vec<usize>> {
+    let mut rows = Vec::new();
+    assert!(visit(p, n, r, |a| {
+        rows.push(a.to_vec());
+        true
+    }));
+    if !matches!(
+        p,
+        Prepared::Union(_) | Prepared::Unique(_) | Prepared::Names(..)
+    ) {
+        rows.sort_unstable();
+        rows.dedup();
+    }
+    rows.shrink_to_fit();
+    rows
+}
+fn evaluate_with_collector(p: &Prepared, n: usize, r: &Request, ordered: bool) -> Output {
+    if ordered && r.member.is_none() {
+        Output::Ordered(ordered_rows(p, n, r))
+    } else {
+        evaluate(p, n, r)
+    }
+}
+fn expected_with_collector(output: Output, ordered: bool) -> Output {
+    match output {
+        Output::Rows(rows) if ordered => Output::Ordered(rows.into_iter().collect()),
+        other => other,
+    }
+}
 struct Phase {
     label: &'static str,
     ns: Option<u128>,
@@ -321,11 +370,13 @@ fn main() {
     }
     #[cfg(feature = "alloc-meter")]
     meter::self_check().unwrap();
-    assert_eq!(
-        args.len(),
-        7,
-        "mode family width queries member/full immediate/window/all"
+    assert!(
+        [7, 8].contains(&args.len()),
+        "mode family width queries member/full retention [set/ordered]"
     );
+    let collector = args.get(7).map_or("set", String::as_str);
+    assert!(["set", "ordered"].contains(&collector));
+    let ordered = collector == "ordered";
     let (mode, family) = (&args[1], &args[2]);
     let n = args[3].parse().unwrap();
     assert!([4, 8].contains(&n));
@@ -341,7 +392,7 @@ fn main() {
     let expected = {
         let m = model(family, n);
         (0..queries)
-            .map(|q| oracle(&m, &request(n, q, full)))
+            .map(|q| expected_with_collector(oracle(&m, &request(n, q, full)), ordered))
             .collect::<Vec<_>>()
     };
     #[cfg(feature = "alloc-meter")]
@@ -358,13 +409,23 @@ fn main() {
                     prefix = Some(a.to_vec());
                     false
                 });
-                let Output::Rows(rows) = want else { panic!() };
-                assert_eq!(complete, rows.is_empty());
-                if let Some(a) = prefix {
-                    assert!(rows.contains(&a));
-                }
+                let (empty, contains) = match want {
+                    Output::Rows(rows) => (
+                        rows.is_empty(),
+                        prefix.as_ref().is_none_or(|a| rows.contains(a)),
+                    ),
+                    Output::Ordered(rows) => (
+                        rows.is_empty(),
+                        prefix
+                            .as_ref()
+                            .is_none_or(|a| rows.binary_search(a).is_ok()),
+                    ),
+                    _ => panic!(),
+                };
+                assert_eq!(complete, empty);
+                assert!(contains);
             }
-            assert_eq!(&evaluate(&p, n, &r), want);
+            assert_eq!(&evaluate_with_collector(&p, n, &r, ordered), want);
         }
     }
     #[cfg(feature = "alloc-meter")]
@@ -386,7 +447,9 @@ fn main() {
     for (q, want) in expected.iter().enumerate() {
         let (r, row) = measure("request", || request(n, q, full));
         phases.push(row);
-        let (output, row) = measure("execute-observe", || evaluate(&p, n, &r));
+        let (output, row) = measure("execute-observe", || {
+            evaluate_with_collector(&p, n, &r, ordered)
+        });
         phases.push(row);
         assert_eq!(&output, want);
         let (_, row) = measure("request-drop", || drop(r));
@@ -417,7 +480,7 @@ fn main() {
     );
     phases.push(row);
     println!(
-        "{{\"mode\":\"{mode}\",\"family\":\"{family}\",\"width\":{n},\"queries\":{queries},\"full\":{full},\"retention\":\"{retention}\",\"meter\":{}}}",
+        "{{\"mode\":\"{mode}\",\"family\":\"{family}\",\"width\":{n},\"queries\":{queries},\"full\":{full},\"retention\":\"{retention}\",\"collector\":\"{collector}\",\"meter\":{}}}",
         cfg!(feature = "alloc-meter")
     );
     for row in phases {
@@ -430,5 +493,82 @@ fn main() {
             row.label,
             row.ns.map_or("null".into(), |x| x.to_string())
         );
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn direct_disjunction_emits_exact_unique_ordered_assignments() {
+        let mut cases = 0;
+        for n in [4, 8] {
+            for family in ["overlap", "disjoint", "redundant", "single"] {
+                let m = model(family, n);
+                let p = prepare("unique", &m);
+                for caller in 0..5 {
+                    let r = Request {
+                        caller,
+                        member: None,
+                    };
+                    let Output::Rows(expected) = oracle(&m, &r) else {
+                        panic!()
+                    };
+                    let mut got = vec![];
+                    assert!(visit(&p, n, &r, |a| {
+                        got.push(a.to_vec());
+                        true
+                    }));
+                    assert!(
+                        got.windows(2).all(|w| w[0] < w[1]),
+                        "strict order proves uniqueness"
+                    );
+                    assert_eq!(got, expected.iter().cloned().collect::<Vec<_>>());
+                    let mut first = None;
+                    let complete = visit(&p, n, &r, |a| {
+                        first = Some(a.to_vec());
+                        false
+                    });
+                    assert_eq!(complete, expected.is_empty());
+                    assert_eq!(first, expected.first().cloned());
+                    assert_eq!(evaluate(&p, n, &r), Output::Rows(expected));
+                    cases += 1;
+                }
+            }
+        }
+        assert_eq!(cases, 40);
+    }
+}
+
+#[cfg(test)]
+mod output_tests {
+    use super::*;
+    #[test]
+    fn ordered_collectors_match_exact_sets_after_producer_disposal() {
+        for n in [4, 8] {
+            for family in ["overlap", "disjoint", "redundant", "single"] {
+                let m = model(family, n);
+                for mode in ["union", "unique", "dedup", "reduced"] {
+                    let p = prepare(mode, &m);
+                    let mut held = vec![];
+                    for caller in 0..5 {
+                        let r = Request {
+                            caller,
+                            member: None,
+                        };
+                        let Output::Rows(expected) = oracle(&m, &r) else {
+                            panic!()
+                        };
+                        let got = ordered_rows(&p, n, &r);
+                        assert!(got.windows(2).all(|w| w[0] < w[1]));
+                        held.push((got, expected.into_iter().collect::<Vec<_>>()));
+                    }
+                    drop(p);
+                    for (got, expected) in held {
+                        assert_eq!(got, expected);
+                    }
+                }
+            }
+        }
     }
 }

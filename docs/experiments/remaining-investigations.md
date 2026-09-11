@@ -1,6 +1,6 @@
 # The comparisons still needed to choose the architecture
 
-The [union reuse comparison](results/S06-union-reuse.md) and [full portfolio review](results/S06-union-reuse-review.md) supply the current checkpoint. Union reuse completes 1,584 main processes and a 72-process allocation bracket, with exact repeats and complete ownership restoration. Overlap traffic crosses between 12 and 13 full-output queries; at 64 queries union requests 3.80 MB versus deduplicated explicit 5.64 MB and has lower sampled runtime, but higher peaks. Most retained-all peak difference survives preparation disposal in output containers. Full portfolio review counts the separate bracket as the fourth boundary and selects duplicate-free explicit disjunction traversal/output ownership before confirmation; goal active.
+The [single-traversal/output comparison](results/S06-unique-output.md) supplies the current checkpoint. Duplicate-free explicit/output comparison completes 1,408 processes with exact allocation repeats and owned-heap restoration. Union and single explicit traversal have identical execution traffic and retained output in all 96 matched scenarios; union adds preparation traffic/peak. Repeated overlap retains a sampled union runtime advantage. Ordered rows reduce retained memory but can increase allocation traffic. T081 generated/activation controls are next; compact confirmation and broader scope remain required. Package one after full portfolio review; goal active.
 
 The [relevant-key ownership comparison](results/S02-relevant-ownership.md) supplies the current checkpoint. Relevant-key ownership validates1,008 metered and448 ordinary processes with exact allocation repeats, cancellation/reuse and retained answers surviving producer disposal. Ordered relevant reuse lowers peaks versus exact-state caching in38of64 scenarios but requests more bytes than recomputation in all64. The changed depth16/four-query witness requests1,292,590bytes with72,959peak excess versus669,196/38,976 for recomputation. T072 next attributes key/replay execution costs before timing; package one after breadth review; goal active.
 
@@ -106,7 +106,7 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-The [current execution order](next-cycle.md#start-here-the-next-experiments) owns scheduling: test duplicate-free explicit disjunction traversal and output ownership, with join controls/costs and unfinished demand/integration comparisons retained. The specifications below retain their individual evidence requirements and do not establish a separate order.
+The [current execution order](next-cycle.md#start-here-the-next-experiments) owns scheduling: qualify structural-prefix generated/activation controls, retaining compact confirmation and unfinished demand/integration comparisons. The specifications below retain their individual evidence requirements and do not establish a separate order.
 
 ### Depth, breadth and stopping within this sequence
 

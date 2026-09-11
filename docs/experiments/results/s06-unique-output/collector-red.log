@@ -1,0 +1,9 @@
+   Compiling chr-structural v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-structural)
+error[E0425]: cannot find function `ordered_rows` in this scope
+   --> research/chr-structural/examples/union_lifecycle.rs:510:29
+    |
+510 | ...   let got=ordered_rows(&p,n,&r);assert!(got.windows(2).all(|w|w[0]<w[1]));held.push((got,expected.into_iter().collect::<Vec<_>>...
+    |               ^^^^^^^^^^^^ not found in this scope
+
+For more information about this error, try `rustc --explain E0425`.
+error: could not compile `chr-structural` (example "union_lifecycle" test) due to 1 previous error
