@@ -90,13 +90,13 @@ fn measured<T>(
 fn main() {
     let args = std::env::args().collect::<Vec<_>>();
     assert!(
-        [7, 8, 9].contains(&args.len()),
-        "mode family fail resource depth reverse [complete-sessions]"
+        [7, 8, 9, 10].contains(&args.len()),
+        "mode family fail resource depth reverse [complete-sessions] [report-capacity] [cancel-first-query]"
     );
     let sessions = args.get(7).map_or(1, |v| v.parse::<usize>().unwrap());
     assert!(sessions > 0 && sessions <= 100);
     let family = match args[2].as_str() {
-        "repeated" => "repeated",
+        "repeated" | "chain" => "repeated",
         "distinct" => "distinct",
         _ => panic!("family"),
     };
@@ -107,12 +107,33 @@ fn main() {
         work: 2,
         payload: 1,
     };
-    let depth = args[5].parse().unwrap();
+    let depth: usize = args[5].parse().unwrap();
     let reverse = args[6].parse().unwrap();
-    let rules = schema.rules();
+    let chain = args[2] == "chain";
+    let cancel = args.get(9).is_some_and(|v| v.parse::<bool>().unwrap());
+    let mut rules = schema.rules();
+    if chain {
+        rules.retain(|r| r.name != "emit-or-continue" && r.name != "last");
+        if schema.fail_tail {
+            rules
+                .iter_mut()
+                .find(|r| r.name == "wait-done")
+                .unwrap()
+                .body = chr_syntax::Goal::Fail;
+        }
+    }
     let queries = (0..2)
         .map(|seed| {
-            let mut q = schema.query(depth, reverse);
+            let mut q = schema.query(depth + seed, reverse);
+            if chain {
+                let head = q
+                    .constraints
+                    .iter_mut()
+                    .find(|c| c.name == "stream")
+                    .unwrap();
+                head.name = "wait".into();
+                head.args.remove(2);
+            }
             q.constraints
                 .push(c("query_marker", [atom(&format!("q{seed}"))]));
             q
@@ -132,12 +153,12 @@ fn main() {
             runtime::Prepared::new(&args[1], schema, rules.clone())
         });
         let mut held = Vec::new();
-        for query in &queries {
+        for (query_index, query) in queries.iter().enumerate() {
             let mut engine = measured(&mut phases, "setup", || prepared.start(query.clone()));
             measured(&mut phases, "execute", || {
                 let mut answers = Vec::new();
                 let mut exhausted = false;
-                for _ in 0..2_000_000 {
+                for tick in 0..2_000_000 {
                     match engine.tick() {
                         runtime::Event::Progress => (),
                         runtime::Event::Answer(a) => answers.push(a),
@@ -146,16 +167,30 @@ fn main() {
                             break;
                         }
                     }
+                    if cancel && query_index == 0 && tick == 0 {
+                        break;
+                    }
                 }
-                assert!(exhausted, "source service cutoff");
+                assert!(
+                    exhausted || (cancel && query_index == 0),
+                    "source service cutoff"
+                );
                 held.push(answers);
             });
             measured(&mut phases, "producer_drop", || drop(engine));
         }
         measured(&mut phases, "prepared_drop", || drop(prepared));
-        for (answers, wanted) in held.iter().zip(&expected) {
-            oracle::same_raw(answers.clone(), wanted.clone());
+        for (index, (answers, wanted)) in held.iter().zip(&expected).enumerate() {
+            if cancel && index == 0 {
+                assert!(
+                    answers.is_empty(),
+                    "one source tick must precede any answer"
+                );
+            } else {
+                oracle::same_raw(answers.clone(), wanted.clone());
+            }
         }
+        let answer_count = held.iter().map(Vec::len).sum::<usize>();
         measured(&mut phases, "consumer_drop", || drop(held));
         #[cfg(feature = "alloc-meter")]
         {
@@ -174,7 +209,7 @@ fn main() {
         println!(
             "{{\"validated\":true,\"profiled\":{},\"answers\":{},\"phases\":[{rows}],\"profile\":[{diagnostics}]}}",
             cfg!(feature = "validity-profile"),
-            expected.iter().map(Vec::len).sum::<usize>()
+            answer_count
         );
     }
 }

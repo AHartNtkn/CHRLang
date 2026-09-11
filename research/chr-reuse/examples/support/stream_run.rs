@@ -44,6 +44,22 @@ impl Prepared {
                 )
                 .unwrap(),
             ),
+            #[cfg(feature = "carrier-contraction")]
+            "carriers" => Self::Compiled(
+                chr_compiled::PreparedRuleset::new(rules, None)
+                    .unwrap()
+                    .specialize_inferred()
+                    .contract_carriers_inferred()
+                    .unwrap(),
+            ),
+            "templates-zero" => Self::Graph(
+                chr_direct_choice::demand::Prepared::with_reuse(
+                    rules,
+                    chr_direct_choice::demand::Reuse::MatchDependencies,
+                )
+                .unwrap()
+                .with_template_follow_limit(0),
+            ),
             "scan" | "sealed" => {
                 let p = chr_compiled::PreparedRuleset::new(rules, None).unwrap();
                 Self::Compiled(if mode == "sealed" {
