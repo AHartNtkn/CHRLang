@@ -4,60 +4,11 @@ mod local;
 #[allow(dead_code)]
 #[path = "../../chr-direct-conditional/tests/runtime_support/mod.rs"]
 mod scalar;
-use chr_syntax::{Answer, Goal, Query, Rule, Var, atom, c, eq, t, v};
-fn wrap(depth: usize, value: chr_syntax::Term) -> chr_syntax::Term {
-    (0..depth).fold(value, |x, _| t("f", [x]))
-}
-fn source(family: &str, n: usize, depth: usize, seed: usize) -> (Vec<Rule>, Query) {
-    let mut rules = vec![];
-    if family == "kill" {
-        rules.push(Rule {
-            name: "kill".into(),
-            kept: vec![c("kill", [])],
-            removed: vec![c("left", [v(0)])],
-            guards: vec![],
-            body: Goal::True,
-        });
-    }
-    rules.push(Rule {
-        name: "join".into(),
-        kept: vec![
-            c("left", [wrap(depth, v(0))]),
-            c("middle", [wrap(depth, v(1))]),
-        ],
-        removed: vec![c("right", [v(0), v(1), v(2)])],
-        guards: vec![],
-        body: eq(v(2), atom("hit")),
-    });
-    let key = |i: usize| atom(&format!("k{seed}_{i}"));
-    let base = 1000 + seed as u64 * 100;
-    let mut facts = vec![];
-    for i in 0..n {
-        facts.push(c("left", [wrap(depth, key(i))]));
-        if family != "miss" || depth > 0 {
-            let middle = if family == "miss" {
-                wrap(depth - 1, t("g", [key(i)]))
-            } else {
-                wrap(depth, key(i))
-            };
-            facts.push(c("middle", [middle]));
-        }
-        let target = if family == "keyed" { i } else { n - 1 };
-        facts.push(c("right", [key(target), key(target), v(base + i as u64)]));
-    }
-    if family == "kill" {
-        facts.push(c("kill", []));
-    }
-    (
-        rules,
-        Query {
-            constraints: facts,
-            outputs: (0..n)
-                .map(|i| (format!("out{i}"), Var(base + i as u64)))
-                .collect(),
-        },
-    )
-}
+use chr_syntax::{Answer, Query, atom};
+#[allow(dead_code)]
+#[path = "../../chr-compiled/experiments/structural_prefix_source.rs"]
+mod prefix_source;
+use prefix_source::source;
 fn same(got: Option<Answer>, expected: &[Answer]) -> Answer {
     scalar::same_raw(got.clone().into_iter().collect(), expected.to_vec());
     got.unwrap()

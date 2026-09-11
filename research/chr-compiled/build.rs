@@ -9,10 +9,14 @@ mod generate;
 #[path = "src/search_fixtures.rs"]
 #[allow(dead_code)]
 mod search_fixtures;
+#[path = "experiments/structural_prefix_source.rs"]
+#[allow(dead_code)]
+mod structural_prefix_source;
 #[path = "experiments/subscription_source.rs"]
 #[allow(dead_code)]
 mod subscription_source;
 fn main() {
+    println!("cargo:rerun-if-changed=experiments/structural_prefix_source.rs");
     println!("cargo:rerun-if-changed=src/generate.rs");
     println!("cargo:rerun-if-changed=src/fixtures.rs");
     println!("cargo:rerun-if-changed=src/search_fixtures.rs");
@@ -51,7 +55,18 @@ fn main() {
         text.push_str(&format!("{id}=>access_native::a{id}_code(),\n"));
     }
     text.push_str("_=>panic!(\"unknown access source\")}}\n");
+    let prefix_programs = structural_prefix_source::programs();
+    text.push_str("#[allow(unused_variables,unused_mut)] mod prefix_native {use super::{Core,Cursor,Candidate,Selection,Application,Work,Compiled};\n");
+    for (id, rules) in prefix_programs.iter().enumerate() {
+        text.push_str(&generate::emit(&format!("p{id}"), rules).expect("valid structural source"));
+    }
+    text.push_str("}\npub fn prefix_bundled(id:usize)->Compiled {match id {\n");
+    for id in 0..prefix_programs.len() {
+        text.push_str(&format!("{id}=>prefix_native::p{id}_code(),\n"));
+    }
+    text.push_str("_=>panic!(\"unknown structural source\")}}\n");
     for (family, sources) in [
+        ("prefix", prefix_programs),
         ("search", search_programs),
         ("payload", vec![access_source::payload_rules()]),
         (

@@ -1,0 +1,31 @@
+   Compiling chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax)
+   Compiling chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe)
+   Compiling chr-programs v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-programs)
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+   Compiling chr-cases v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-cases)
+   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)
+error[E0425]: cannot find function `prefix_bundled` in crate `chr_compiled`
+  --> research/chr-compiled/tests/structural_prefix.rs:20:76
+   |
+20 |                     PreparedRuleset::new(rules.clone(), Some(chr_compiled::prefix_bundled(id))).unwrap(),
+   |                                                                            ^^^^^^^^^^^^^^ not found in `chr_compiled`
+
+error[E0425]: cannot find function `access_prefix_bundled` in crate `chr_compiled`
+    --> research/chr-compiled/tests/structural_prefix.rs:21:76
+     |
+  21 |                     PreparedRuleset::new(rules.clone(), Some(chr_compiled::access_prefix_bundled(id))).unwrap(),
+     |                                                                            ^^^^^^^^^^^^^^^^^^^^^
+     |
+    ::: /home/ahart/Documents/CHRLang/target/s01-generated-prefix/release/build/chr-compiled-e0bd9f6f22571402/out/generated.rs:3700:1
+     |
+3700 | pub fn access_payload_bundled(id:usize)->Compiled {match id {
+     | ------------------------------------------------- similarly named function `access_payload_bundled` defined here
+     |
+help: a function with a similar name exists
+     |
+  21 -                     PreparedRuleset::new(rules.clone(), Some(chr_compiled::access_prefix_bundled(id))).unwrap(),
+  21 +                     PreparedRuleset::new(rules.clone(), Some(chr_compiled::access_payload_bundled(id))).unwrap(),
+     |
+
+For more information about this error, try `rustc --explain E0425`.
+error: could not compile `chr-compiled` (test "structural_prefix") due to 2 previous errors

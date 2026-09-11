@@ -1,0 +1,15 @@
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+error[E0502]: cannot borrow `e` as mutable because it is also borrowed as immutable
+  --> research/chr-compiled/tests/structural_prefix.rs:73:43
+   |
+61 | ...                   let w = e.stats();
+   |                               - immutable borrow occurs here
+...
+73 | ...                   let got = e.observe().into_iter().collect::<Vec<_>>();
+   |                                 ^^^^^^^^^^^ mutable borrow occurs here
+...
+76 | ...                       assert_eq!(w.generic_ast_visits, 0);
+   |                           ----------------------------------- immutable borrow later used here
+
+For more information about this error, try `rustc --explain E0502`.
+error: could not compile `chr-compiled` (test "structural_prefix") due to 1 previous error
