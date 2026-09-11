@@ -1,0 +1,15 @@
+{
+  "source_restored_sha256": "5062fe936cc1baacafebb3e336a58f9dde550ea280473b35607ce6fefa1f6019",
+  "rejected": [
+    {
+      "mutation": "self.finite_done.clear();",
+      "test": "completed_cache_does_not_hide_a_later_constructor_cycle",
+      "exit_code": 101
+    },
+    {
+      "mutation": "self.completed_force.clear();",
+      "test": "completed_cache_does_not_cross_choice_contexts",
+      "exit_code": 101
+    }
+  ]
+}

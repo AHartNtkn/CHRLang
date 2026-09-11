@@ -1,0 +1,22 @@
+
+running 1 test
+test demand::completed_traversal_tests::completed_cache_does_not_hide_a_later_constructor_cycle ... FAILED
+
+failures:
+
+---- demand::completed_traversal_tests::completed_cache_does_not_hide_a_later_constructor_cycle stdout ----
+
+thread 'demand::completed_traversal_tests::completed_cache_does_not_hide_a_later_constructor_cycle' (143) panicked at research/chr-direct-choice/src/demand.rs:2141:9:
+assertion failed: matches!(run.tick(), Event::Progress)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    demand::completed_traversal_tests::completed_cache_does_not_hide_a_later_constructor_cycle
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 13 filtered out; finished in 0.00s
+
+   Compiling chr-direct-choice v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-choice)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.31s
+     Running unittests src/lib.rs (target/debug/deps/chr_direct_choice-2c7e87fde7c476fb)
+error: test failed, to rerun pass `-p chr-direct-choice --lib`

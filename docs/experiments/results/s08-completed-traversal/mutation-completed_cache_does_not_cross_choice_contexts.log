@@ -1,0 +1,24 @@
+
+running 1 test
+test demand::completed_traversal_tests::completed_cache_does_not_cross_choice_contexts ... FAILED
+
+failures:
+
+---- demand::completed_traversal_tests::completed_cache_does_not_cross_choice_contexts stdout ----
+
+thread 'demand::completed_traversal_tests::completed_cache_does_not_cross_choice_contexts' (282) panicked at research/chr-direct-choice/src/demand.rs:2162:13:
+assertion `left == right` failed
+  left: [("x", App("a", []))]
+ right: [("x", App("b", []))]
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    demand::completed_traversal_tests::completed_cache_does_not_cross_choice_contexts
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 13 filtered out; finished in 0.00s
+
+   Compiling chr-direct-choice v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-choice)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.30s
+     Running unittests src/lib.rs (target/debug/deps/chr_direct_choice-2c7e87fde7c476fb)
+error: test failed, to rerun pass `-p chr-direct-choice --lib`

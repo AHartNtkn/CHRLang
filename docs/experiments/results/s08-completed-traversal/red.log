@@ -1,0 +1,22 @@
+   Compiling chr-direct-choice v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-choice)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.92s
+     Running unittests src/lib.rs (target/debug/deps/chr_direct_choice-2c7e87fde7c476fb)
+
+running 1 test
+test demand::completed_traversal_tests::shared_completed_chain_is_walked_once_per_answer ... FAILED
+
+failures:
+
+---- demand::completed_traversal_tests::shared_completed_chain_is_walked_once_per_answer stdout ----
+
+thread 'demand::completed_traversal_tests::shared_completed_chain_is_walked_once_per_answer' (530) panicked at research/chr-direct-choice/src/demand.rs:2031:9:
+2211 repeated force entries
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    demand::completed_traversal_tests::shared_completed_chain_is_walked_once_per_answer
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 11 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p chr-direct-choice --lib`

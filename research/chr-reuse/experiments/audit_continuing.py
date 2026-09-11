@@ -88,12 +88,17 @@ def main():
         if i < 16 and i % 2: assert graph[i-1]['raw']['stdout'] == r['raw']['stdout']
     gf = read(BASE/'graph-freeze.json')
     assert sha(Path(gf['binary']['path'])) == gf['binary']['sha256']
-    assert sha(ROOT/'research/chr-reuse/examples/continuing_graph_attribution.rs') == gf['source_sha256']
-    # Backend inputs are independently retained in the coverage archive.
+    # Historical evidence is checked against its frozen inputs, not the evolving backend.
+    import subprocess
+    probe = subprocess.check_output(
+        ['git', 'show', '1996cddf4:research/chr-reuse/examples/continuing_graph_attribution.rs'], cwd=ROOT)
+    assert hashlib.sha256(probe).hexdigest() == gf['source_sha256']
     with zipfile.ZipFile(BASE/'coverage-sources.zip') as z:
+        # This recorded checkpoint retains the backend used by the graph probe.
         for name in z.namelist():
             if name.startswith('research/chr-direct-choice/'):
-                assert z.read(name) == (ROOT/name).read_bytes()
+                assert z.read(name) == subprocess.check_output(
+                    ['git', 'show', '1996cddf4:' + name], cwd=ROOT)
     frozen = read(COST/'freeze.json'); runs = rows(COST/'runs.jsonl.gz')
     assert [x['job'] for x in runs] == frozen['jobs']
     for name, value in frozen['parent_sha256'].items(): assert sha(BASE/name) == value

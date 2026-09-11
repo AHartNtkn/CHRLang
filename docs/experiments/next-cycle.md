@@ -1,6 +1,6 @@
 # Experimental sequence for the unanswered architecture questions
 
-The [coverage ablation](results/S08-coverage-ablation.md) supplies the current checkpoint. Continuing coverage costs have a size-dependent crossover. The 120-process equality/matching ablation and 12 repeated diagnostics preserve independent observations and exact allocation repeats; eight parent controls reproduce after accounting for executable-path storage. Matching prechecks add work but do not explain the resource32 regression. Pure128 and resource128 retain favorable coverage pilot medians. T074 next qualifies sharing of repeated completed graph traversal; conditional application attribution and nonempty/partial cost sources remain required. Two packages since full review; goal active.
+The [completed-traversal result](results/S08-completed-traversal.md) supplies the current checkpoint. Tick-local completed traversal passes40 registered graph processes with exact repeated128 rows and exact parent controls. At512, dependency force work falls97.5–98.7% and finite-validation visits97.8–98.4%; service calls and graph counts remain unchanged. Templates also benefit and retain lower work with both repaired. Independent source/cycle/resource tests pass. T074 next qualifies full lifecycle ownership and adverse finite sources before timing; three packages since full review, goal active.
 
 Test the distinct mechanisms that remain unanswered, then compare the complete architectures they enable. Reuse the existing baselines. A lower priority changes when a question is investigated; it does not answer it.
 
@@ -10,15 +10,15 @@ This sequence covers the [57 reviewed questions](question-to-experiment-map.md) 
 
 ## Start here: the next experiments
 
-**1. Qualify sharing of completed graph traversal — T074, specification9.** Quiet diagnostics identify repeated force and finite-validation traversal of common completed chains. Compare sound graph/context-local reuse with dependency and template execution. Preserve unobserved-result validation, late cycles, resource mutation, recursion and complete observations. Measure complete lifecycle costs after correctness and work qualification.
+**1. Qualify complete lifecycle costs of shared traversal — T074, specification9.** The [work comparison](results/S08-completed-traversal.md) substantially narrows the dependency/template gap while preserving service and graph counts. Qualify ordinary and metered off/on lifecycles in both engines, including cancellation, retained outputs and reclamation. Add finite/adverse sources with little repeated completed work and credible direct controls before timing. Charge memo allocation, peak ownership and disposal.
 
 **2. Retain the conditional crossover as an actionable comparison.** The [coverage ablation](results/S08-coverage-ablation.md) shows that matching prechecks explain only part of the increased resource application work. Distinguish candidate handling, restarts and support operations; qualify nonempty/partial cost sources before any broader coverage policy. Current evidence supports neither an unconditional coverage default nor rejection of integrated equality.
 
-**3. Reconsider the strongest independent alternatives at the graph gate.** Partner ordering/indexing, broader integrated equality/matching/consumption and coarser recognition remain required. The [full portfolio review](results/S08-continuing-selection-review.md) explains their architectural consequence. Two packages have completed since that review; review all directions within four packages.
+**3. Review the full portfolio at the next package boundary.** Partner ordering/indexing, broader integrated equality/matching/consumption and coarser recognition remain required. The [full portfolio review](results/S08-continuing-selection-review.md) explains their architectural consequence. Three packages have completed since that review.
 
 ## Why this order, and what can change it
 
-The coverage ablation prevents an unjustified default choice but does not identify a replacement application plan. Completed-graph repetition has a diagnosed implementation target that can change the interpretation of templates' continuing benefit. This is more discriminating immediately than more conditional timing samples. A correctness obstruction or adverse repair cost triggers reconsideration against partner plans and broader integration.
+Sharing completed traversal produces a large work reduction through a small, explicit validity boundary. Its collections and per-probe path storage could still impose adverse total costs. A lifecycle/ownership gate can therefore change the decision more directly than further work-count refinement. Templates also benefit, so compare both repaired competitors and competent direct execution. Reconsider broader alternatives at the next boundary or a consequential obstruction.
 
 Scheduling a later trial does not supply evidence for that direction. All thirteen specifications and the 57-question audit remain controlling.
 

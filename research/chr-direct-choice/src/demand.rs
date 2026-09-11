@@ -122,6 +122,12 @@ pub struct Work {
     pub miss_inserts: usize,
 }
 pub struct Run {
+    #[cfg(feature = "completed-traversal")]
+    finite_done: BTreeSet<Id>,
+    #[cfg(feature = "completed-traversal")]
+    traversal_active: bool,
+    #[cfg(feature = "completed-traversal")]
+    completed_force: BTreeMap<Id, Id>,
     miss_reuse: bool,
     misses: BTreeMap<Id, Id>,
     recursive_probes: Vec<bool>,
@@ -457,6 +463,12 @@ impl Prepared {
     }
     pub fn start(&self, query: Query) -> Result<Run, String> {
         let mut run = Run {
+            #[cfg(feature = "completed-traversal")]
+            finite_done: BTreeSet::new(),
+            #[cfg(feature = "completed-traversal")]
+            traversal_active: false,
+            #[cfg(feature = "completed-traversal")]
+            completed_force: BTreeMap::new(),
             miss_reuse: self.miss_reuse,
             misses: BTreeMap::new(),
             recursive_probes: vec![],
@@ -824,8 +836,22 @@ impl Run {
     fn force(&mut self, mut id: Id, ctx: &Context) -> Result<Id, Signal> {
         let forcing_depth = self.forcing.len();
         let probe_depth = self.recursive_probes.len();
+        #[cfg(feature = "completed-traversal")]
+        let mut completed_path = Vec::new();
         let result = (|| {
             loop {
+                // Only outermost probes share acyclic paths ending in exposed values.
+                // Recursive and unfinished-call results never enter this table.
+                #[cfg(feature = "completed-traversal")]
+                if self.traversal_active
+                    && forcing_depth == 0
+                    && let Some(value) = self.completed_force.get(&id).copied()
+                {
+                    for prior in &completed_path {
+                        self.completed_force.insert(*prior, value);
+                    }
+                    return Ok(value);
+                }
                 if let Node::Call(_, _, output, _) = self.nodes[id].node {
                     if self.forcing.contains(&id) {
                         if self.miss_reuse {
@@ -894,8 +920,25 @@ impl Run {
                     }
                 }
                 match self.force_body(id, ctx)? {
-                    Forced::Value(value) => return Ok(value),
-                    Forced::Follow(next) => id = next,
+                    Forced::Value(value) => {
+                        #[cfg(feature = "completed-traversal")]
+                        if self.traversal_active
+                            && forcing_depth == 0
+                            && matches!(self.nodes[id].node, Node::Unknown(_) | Node::App(..))
+                        {
+                            for prior in &completed_path {
+                                self.completed_force.insert(*prior, value);
+                            }
+                        }
+                        return Ok(value);
+                    }
+                    Forced::Follow(next) => {
+                        #[cfg(feature = "completed-traversal")]
+                        if self.traversal_active && forcing_depth == 0 {
+                            completed_path.push(id);
+                        }
+                        id = next;
+                    }
                 }
             }
         })();
@@ -1311,15 +1354,27 @@ impl Run {
         }
         #[cfg(feature = "work-diagnostics")]
         let mut entries = 0;
+        #[cfg(feature = "completed-traversal")]
+        let mut done = if self.traversal_active {
+            std::mem::take(&mut self.finite_done)
+        } else {
+            BTreeSet::new()
+        };
+        #[cfg(not(feature = "completed-traversal"))]
+        let mut done = BTreeSet::new();
         let result = visit(
             self,
             root,
             ctx,
             &mut Vec::new(),
-            &mut BTreeSet::new(),
+            &mut done,
             #[cfg(feature = "work-diagnostics")]
             &mut entries,
         );
+        #[cfg(feature = "completed-traversal")]
+        {
+            self.finite_done = done;
+        }
         #[cfg(feature = "work-diagnostics")]
         {
             self.work.validation_passes += 1;
@@ -1480,10 +1535,21 @@ impl Run {
         counts
     }
     pub fn tick(&mut self) -> Event {
+        // The selected context is fixed for this tick. A graph rewrite, resource
+        // claim or post propagates Progress/Split and ends it before reuse.
+        #[cfg(feature = "completed-traversal")]
+        {
+            self.finite_done.clear();
+            self.completed_force.clear();
+        }
         self.misses.clear();
         let Some((ctx, mut cursor, mut round_end)) = self.tasks.pop_front() else {
             return Event::Exhausted;
         };
+        #[cfg(feature = "completed-traversal")]
+        {
+            self.traversal_active = true;
+        }
         // Service an active obligation independently of the observation demand.
         // Child obligations are eligible only after their enclosing choice is selected.
         let mut serviced = Ok(0);
@@ -1511,7 +1577,7 @@ impl Run {
             }
             Ok(_) => self.answer(&ctx),
         };
-        match result {
+        let event = match result {
             Ok(a) => Event::Answer(a),
             Err(Signal::Progress) => {
                 self.tasks.push_back((ctx, cursor, round_end));
@@ -1526,7 +1592,12 @@ impl Run {
                 Event::Progress
             }
             Err(Signal::Fail) => Event::Progress,
+        };
+        #[cfg(feature = "completed-traversal")]
+        {
+            self.traversal_active = false;
         }
+        event
     }
 }
 
@@ -2003,5 +2074,96 @@ mod pull_tab_tests {
             assert_eq!(out, output);
             assert_eq!(run.obligations[origin], (Context::from([(0, side)]), child));
         }
+    }
+}
+
+#[cfg(all(test, feature = "completed-traversal", feature = "work-diagnostics"))]
+mod completed_traversal_tests {
+    use super::*;
+    #[test]
+    fn shared_completed_chain_is_walked_once_per_answer() {
+        let mut run = Prepared::new(vec![])
+            .unwrap()
+            .start(Query {
+                constraints: vec![],
+                outputs: vec![],
+            })
+            .unwrap();
+        let ctx = Context::new();
+        let terminal = run.push(Node::App("a".into(), vec![]));
+        let mut tail = terminal;
+        for _ in 0..64 {
+            let out = run.push(Node::Unknown(1000));
+            let id = run.call("done".into(), vec![], out, &ctx);
+            run.nodes[id].results.push((ctx.clone(), tail));
+            tail = id;
+        }
+        run.outputs.push(("result".into(), tail));
+        let Event::Answer(answer) = run.tick() else {
+            panic!("complete chain must answer")
+        };
+        assert_eq!(
+            answer.outputs,
+            vec![("result".into(), Term::App("a".into(), vec![]))]
+        );
+        assert!(answer.residual.is_empty());
+        let work = run.work();
+        assert!(
+            work.force_entries <= 200,
+            "{} repeated force entries",
+            work.force_entries
+        );
+        assert!(
+            work.validation_entries <= 200,
+            "{} repeated validation entries",
+            work.validation_entries
+        );
+    }
+    #[test]
+    fn completed_cache_does_not_hide_a_later_constructor_cycle() {
+        let mut run = Prepared::new(vec![])
+            .unwrap()
+            .start(Query {
+                constraints: vec![],
+                outputs: vec![],
+            })
+            .unwrap();
+        let ctx = Context::new();
+        let terminal = run.push(Node::App("a".into(), vec![]));
+        let out = run.push(Node::Unknown(1));
+        let call = run.call("done".into(), vec![], out, &ctx);
+        run.nodes[call].results.push((ctx.clone(), terminal));
+        assert!(matches!(run.tick(), Event::Answer(_)));
+        // A completed, unobserved equation becomes cyclic before the next tick.
+        let cycle = run.push(Node::App("f".into(), vec![call]));
+        run.nodes[call].results.push((ctx.clone(), cycle));
+        run.tasks.push_back((ctx, 0, 1));
+        assert!(matches!(run.tick(), Event::Progress));
+        assert!(matches!(run.tick(), Event::Exhausted));
+    }
+    #[test]
+    fn completed_cache_does_not_cross_choice_contexts() {
+        let mut run = Prepared::new(vec![])
+            .unwrap()
+            .start(Query {
+                constraints: vec![],
+                outputs: vec![],
+            })
+            .unwrap();
+        let a = run.push(Node::App("a".into(), vec![]));
+        let b = run.push(Node::App("b".into(), vec![]));
+        let choice = run.push(Node::Choice(0, a, b));
+        run.outputs.push(("x".into(), choice));
+        assert!(matches!(run.tick(), Event::Progress));
+        for name in ["a", "b"] {
+            let Event::Answer(answer) = run.tick() else {
+                panic!("choice answer")
+            };
+            assert_eq!(
+                answer.outputs,
+                vec![("x".into(), Term::App(name.into(), vec![]))]
+            );
+        }
+        assert!(matches!(run.tick(), Event::Exhausted));
     }
 }
