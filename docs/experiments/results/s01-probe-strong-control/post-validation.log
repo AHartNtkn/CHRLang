@@ -1,0 +1,35 @@
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 5.21s
+     Running tests/access.rs (target/debug/deps/access-20de14df4ad48fa9)
+
+running 10 tests
+test execution_observation_and_teardown_are_separate_lifetimes ... ok
+test ground_intermediate_output_is_not_a_completed_observation ... ok
+test metric_availability_does_not_change_execution_or_retention ... ok
+test prepared_rules_and_queries_have_independent_lifetimes ... ok
+test different_queries_share_only_static_preparation ... ok
+test no_head_residuals_keep_aliases_without_matcher_maintenance ... ok
+test later_anchor_preserves_unknown_structure_repeated_slots_and_resources ... ok
+test active_known_keys_bound_partner_discovery_on_flat_chains ... ok
+test flat_keys_collisions_and_low_yield_repairs_have_independent_checks ... ok
+test indexed_and_scanned_access_preserve_full_observations_and_traces ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running tests/probe_projection.rs (target/debug/deps/probe_projection-1d155c0758c221a9)
+
+running 2 tests
+test empty_head_checks_allow_source_reactivation_and_distinct_nullary_heads ... ok
+test repeated_projection_preserves_occurrences_and_records_each_step ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running tests/selective_probe.rs (target/debug/deps/selective_probe-fec8a06521e43fd5)
+
+running 4 tests
+test selective_probe_avoids_unkeyed_prefix_and_keeps_source_result ... ok
+test broad_probe_retains_duplicates_and_exposes_extra_work ... ok
+test aliases_constructors_duplicates_and_binding_updates_keep_traces ... ok
+test all_small_ground_relations_keep_first_legal_tuple ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.12s

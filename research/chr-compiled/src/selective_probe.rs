@@ -62,6 +62,7 @@ impl Core {
             }
             let later_ids = self.pool_for_key(rule, later, Some(key));
             let mut candidates = BTreeSet::new();
+            let mut projected = BTreeSet::new();
             for id in later_ids {
                 if COLLECT_METRICS {
                     self.stats.probe_visits += 1;
@@ -78,7 +79,10 @@ impl Core {
                 {
                     // An unknown projected key may admit the whole current pool.
                     // This overapproximation is necessary for nonbinding matches.
-                    candidates.extend(self.pool(rule, head, &bound));
+                    let key = self.best_key(rule, head, &bound);
+                    if projected.insert(key) {
+                        candidates.extend(self.pool_for_key(rule, head, key));
+                    }
                 }
             }
             if COLLECT_METRICS {

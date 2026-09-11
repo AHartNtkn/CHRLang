@@ -80,6 +80,7 @@ pub struct Stats {
     /// Resumable control-prefix inspections, including the stopping tail.
     #[cfg(feature = "carrier-contraction")]
     pub carrier_checks: u64,
+    pub empty_head_checks: u64,
     pub probe_starts: u64,
     pub probe_visits: u64,
     pub probe_candidates: u64,
@@ -490,6 +491,7 @@ impl Core {
         }
         best.map(|(key, _)| key)
     }
+    #[cfg(not(feature = "selective-probe"))]
     fn pool(&mut self, rule: usize, head: usize, frame: &Frame) -> Vec<u64> {
         let key = self.best_key(rule, head, frame);
         self.pool_for_key(rule, head, key)
@@ -912,6 +914,15 @@ impl Core {
         let Some(&(rule, at)) = search.calls.get(search.call) else {
             return Selection::Done;
         };
+        if search.cursor.is_none() && search.native.is_none() && search.direct.is_none() {
+            for head in &self.rules[rule].heads {
+                if COLLECT_METRICS { self.stats.empty_head_checks += 1; }
+                if self.pools.get(&head.pred).is_none_or(BTreeSet::is_empty) {
+                    search.call += 1;
+                    return Selection::Yield;
+                }
+            }
+        }
         if self
             .regions
             .as_ref()

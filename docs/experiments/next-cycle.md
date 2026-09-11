@@ -1,6 +1,6 @@
 # Experimental sequence for the unanswered architecture questions
 
-The [selective-probe result](results/S01-selective-probe.md) supplies the current checkpoint. Prepared selective probing preserves complete answers and original occurrence tuples in two frozen 18-process qualifications. Candidate visits fall in 120 of 384 indexed configurations; the larger Global witness falls from 515 to 7, with two later probes. Broad-pool and duplicate-key-search costs are repaired and rechecked. T082 next qualifies prepared/temporary ownership and per-step service cost before lifecycle timing; package two since review, goal active.
+The [projection and shared-control result](results/S01-probe-projection.md) supplies the current checkpoint. Projection attribution and repairs validate 51 frozen processes. Width256 duplicate retrieval falls from 65535 to 511 indexed entries per step. Shared empty-head admission reduces exhaustion from 131595 to 521 steps for both control and probe. The strengthened selective witness remains favorable under Global (258 to 4 candidates) but Active saves none and adds lookups. T082 next measures ownership, cancellation and ordinary lifecycle costs; package three since review, goal active.
 
 Test the distinct mechanisms that remain unanswered, then compare the complete architectures they enable. Reuse the existing baselines. A lower priority changes when a question is investigated; it does not answer it.
 
@@ -10,11 +10,11 @@ This sequence covers the [57 reviewed questions](question-to-experiment-map.md) 
 
 ## Start here: the next experiments
 
-**1. Qualify probe ownership and service cost — T082.** The [selective probe](results/S01-selective-probe.md) preserves source tuples and saves candidate work. Measure prepared links, temporary frames and ID sets, broad/duplicate projections and maximum per-step work; repair service behavior when needed.
+**1. Qualify probe ownership and service cost — T082.** The [selective probe](results/S01-selective-probe.md) preserves source tuples and saves candidate work. The [projection and shared-control comparison](results/S01-probe-projection.md) repairs repeated bucket retrieval and exhausted-rule search. Measure prepared links, temporary frames/sets, cancellation and ordinary service costs against that stronger control; preserve the adverse duplicate case.
 
 **2. Charge complete lifecycle costs.** Preserve changing queries, complete outputs, cancellation, preparation and disposal. Register ordinary timing after ownership/progress qualification; keep work and allocation diagnostics separate.
 
-**3. Compare alternatives at the gate.** The [portfolio review](results/S08-context-portfolio-review.md) selected planning. The probe now supplies a source-preserving mechanism to price, so ownership qualification has higher immediate value than another speculative predicate or memo change. Reassess integration, solving, reuse and other directions at that result or obstruction. Package two since review; full review within four.
+**3. Compare alternatives at the gate.** The [portfolio review](results/S08-context-portfolio-review.md) selected planning. The probe now supplies a source-preserving mechanism to price, so ownership qualification has higher immediate value than another speculative predicate or memo change. Reassess integration, solving, reuse and other directions at that result or obstruction. Package three since review; full review within four.
 
 
 ## Why this order, and what can change it

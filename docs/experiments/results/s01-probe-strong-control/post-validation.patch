@@ -1,0 +1,10 @@
+--- research/chr-compiled/src/lib.rs
++++ research/chr-compiled/src/lib.rs
+@@ -491,6 +491,7 @@
+         }
+         best.map(|(key, _)| key)
+     }
++    #[cfg(not(feature = "selective-probe"))]
+     fn pool(&mut self, rule: usize, head: usize, frame: &Frame) -> Vec<u64> {
+         let key = self.best_key(rule, head, frame);
+         self.pool_for_key(rule, head, key)

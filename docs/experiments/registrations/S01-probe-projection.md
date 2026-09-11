@@ -1,0 +1,7 @@
+# Probe projection: duplicate work and service attribution
+
+A smaller later bucket can still project repeatedly onto a broad current bucket. Qualify that adverse case before lifecycle timing. Sources keep request(B), left(A,X), right(X,B) and consume one token. At widths 16/64/256 compare one selective later row with n-1 duplicate later rows, both projecting to a shared X across n distinct left rows. Reuse preparation across two changing B queries. Independently expect every original fact plus the first receipt A0, with only the token consumed.
+
+For Global/Indexed, record every engine step's deltas in probe visits, index bucket entries, pool entries and candidate visits. These are operation counts, not latency. All answers and exact source occurrence traces must remain correct. Preserve complete per-step receipts. First freeze the current implementation, two identical diagnostic runs and one counters-off run, each CPU 0, 1 GiB, 60 seconds and two-million-step bound. There are 12 complete sessions per executable.
+
+If repeated projections retrieve the same current bucket, deduplicate by the actual selected index key within one probe, including the unkeyed pool identity. Unioning an identical bucket twice cannot change its candidate set. Charge key selection and deduplication itself; do not infer bounded service or lifecycle superiority from less bucket traffic. Confirm under a separate freeze with the same source and semantic gates, and compare complete ownership/service obligations next. This belongs to T082's third package after the portfolio review.

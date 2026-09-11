@@ -1,0 +1,81 @@
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 6.12s
+     Running tests/access.rs (target/debug/deps/access-ed3602702e80be9c)
+
+running 10 tests
+test execution_observation_and_teardown_are_separate_lifetimes ... ok
+test ground_intermediate_output_is_not_a_completed_observation ... ok
+test metric_availability_does_not_change_execution_or_retention ... ok
+test prepared_rules_and_queries_have_independent_lifetimes ... ok
+test different_queries_share_only_static_preparation ... ok
+test no_head_residuals_keep_aliases_without_matcher_maintenance ... ok
+test later_anchor_preserves_unknown_structure_repeated_slots_and_resources ... ok
+test active_known_keys_bound_partner_discovery_on_flat_chains ... ok
+test flat_keys_collisions_and_low_yield_repairs_have_independent_checks ... ok
+test indexed_and_scanned_access_preserve_full_observations_and_traces ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+     Running tests/generated_access.rs (target/debug/deps/generated_access-adb18cdf7cfc4c0b)
+
+running 4 tests
+test source_derived_updates_do_not_index_head_local_output_arguments ... ok
+test independent_native_queries_outlive_preparation_and_abandoned_work ... ok
+test projected_updates_preserve_late_keys_and_opaque_payload_bindings ... ok
+test native_continuations_preserve_finite_source_effects_without_frame_snapshots ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.13s
+
+     Running tests/join_screen.rs (target/debug/deps/join_screen-0c09458ee310d2ed)
+
+running 4 tests
+test oracle_rejects_alias_and_receipt_mutations ... ok
+test consumed_partner_is_replaced_with_fresh_occurrence ... ok
+test late_binding_wakes_waiting_request ... ok
+test full_receipts_aliases_cleanup_and_source_replay ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/nullary_partner_regions.rs (target/debug/deps/nullary_partner_regions-220054134612b982)
+
+running 4 tests
+test unsupported_partners_and_other_head_uses_are_rejected_explicitly ... ok
+test inferred_pair_consumes_both_occurrences_and_executes_direct_selection ... ok
+test absence_late_supply_and_mixed_rule_order_do_not_skip_source_work ... ok
+test source_shapes_guards_aliases_and_duplicate_resources_preserve_full_traces ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+
+     Running tests/partner_order.rs (target/debug/deps/partner_order-05551bdf3d48d139)
+
+running 2 tests
+test competing_matches_expose_order_contract ... ok
+test opposite_keys_preserve_complete_unique_answers ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.41s
+
+     Running tests/partner_order_bound.rs (target/debug/deps/partner_order_bound-3aebb4468e05e910)
+
+running 2 tests
+test competing_matches_expose_order_contract ... ok
+test opposite_keys_preserve_complete_unique_answers ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.04s
+
+     Running tests/probe_projection.rs (target/debug/deps/probe_projection-d0444be64a1d9c34)
+
+running 2 tests
+test empty_head_checks_allow_source_reactivation_and_distinct_nullary_heads ... ok
+test repeated_projection_preserves_occurrences_and_records_each_step ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running tests/selective_probe.rs (target/debug/deps/selective_probe-1fe1b25f96d107e2)
+
+running 4 tests
+test selective_probe_avoids_unkeyed_prefix_and_keeps_source_result ... ok
+test broad_probe_retains_duplicates_and_exposes_extra_work ... ok
+test aliases_constructors_duplicates_and_binding_updates_keep_traces ... ok
+test all_small_ground_relations_keep_first_legal_tuple ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.11s
