@@ -1,0 +1,7 @@
+# Attribute remaining cached graph production cost
+
+The lifecycle pilot attributes almost all continuing dependency time to production. A one-process, unpinned exploratory perf scout collected 61 samples and identified finite-result validation, force and tick as candidates. It is too small for quantitative conclusions. Its exact output/log is retained.
+
+Collect user-cycle profiles at 999 Hz with DWARF stacks, pinned to CPU 0, on the frozen cache-enabled ordinary continuing binary. Pure and resource sources, immediate release, 128 answers, two queries, capacity 4, no reclamation. Profile 20 complete dependency processes and 100 complete template processes per source (four profiles). Every child still validates its answers and disposal; profiler observations are diagnostic, not primary timing. Preserve perf data, commands, binary hash, stderr sample/loss counts and self/inclusive symbol reports. Bound each profile at 60 seconds and each child at the existing service bound.
+
+Inspect where samples land before choosing dense-ID memo storage or path scratch. The implementation uses a linear active-path search in finite-result validation and ordered collections for cached completed traversals; distinguish those responsibilities. A profile can select a paired intervention, not prove its benefit. A future change must preserve the difference between constructor cycles and unfinished producer cycles, invalidation across changing contexts, source consumption and cancellation.

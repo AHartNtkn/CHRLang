@@ -1,0 +1,45 @@
+{
+  "child_processes": 240,
+  "profiles": [
+    {
+      "mode": "dependencies",
+      "resource": "false",
+      "samples": 1061,
+      "self_cycle_percent": {
+        "finite_visit": 31.09,
+        "force": 28.39,
+        "tick": 30.1
+      }
+    },
+    {
+      "mode": "dependencies",
+      "resource": "true",
+      "samples": 2232,
+      "self_cycle_percent": {
+        "finite_visit": 27.47,
+        "force": 32.41,
+        "tick": 21.45
+      }
+    },
+    {
+      "mode": "templates",
+      "resource": "false",
+      "samples": 695,
+      "self_cycle_percent": {
+        "finite_visit": 22.07,
+        "force": 12.15,
+        "tick": 10.84
+      }
+    },
+    {
+      "mode": "templates",
+      "resource": "true",
+      "samples": 4819,
+      "self_cycle_percent": {
+        "finite_visit": 20.65,
+        "force": 27.87,
+        "tick": 15.02
+      }
+    }
+  ]
+}

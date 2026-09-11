@@ -1,6 +1,6 @@
 # Why designs were set aside—and what the experiments actually establish
 
-The [readiness lifecycle result](S02-readiness-lifecycle.md) and [full portfolio review](S02-readiness-portfolio-review.md) supply the current checkpoint. Readiness lifecycle sizing validates 1,120 processes and 160 exact allocation pairs; a targeted follow-up validates 4,400 complete sessions. Early failure improves relational cost, but generic compiled execution is faster on the decisive deep sources. Even zero readiness execution leaves the deep reused-query admission cost above compiled total time. Full portfolio review selects T074 graph memo/lifecycle costs; T072 remains required, review count reset, goal active.
+The [traversal lifecycle result](S08-traversal-lifecycle.md) supplies the current checkpoint. Traversal lifecycle sizing validates 1,008 processes with 112 exact historical allocation pairs and sampled residency. Continuing dependency reuse has a large time benefit, but direct remains faster in every continuing graph comparison. The 11,000-lifecycle flat follow-up does not establish a stable small-case timing advantage. Profiles identify context-support checking as a substantial remaining production cost. T074 next qualifies ordered context inclusion against per-key lookup, preserving sparse/adverse controls; package one since review, goal active.
 
 The [relevant-key ownership comparison](S02-relevant-ownership.md) supplies the current checkpoint. Relevant-key ownership validates1,008 metered and448 ordinary processes with exact allocation repeats, cancellation/reuse and retained answers surviving producer disposal. Ordered relevant reuse lowers peaks versus exact-state caching in38of64 scenarios but requests more bytes than recomputation in all64. The changed depth16/four-query witness requests1,292,590bytes with72,959peak excess versus669,196/38,976 for recomputation. T072 next attributes key/replay execution costs before timing; package one after breadth review; goal active.
 
@@ -207,6 +207,8 @@ The subsequent [CHR-expressed constructor/consumption gate](S02-chr-constructors
 **Decision and limit.** The wrapper was not a valid suspension boundary for that runtime. A generated data-controller implementation remained feasible but was not completed and costed as a general CHR engine. This does not establish that every graph backend needs whole-state serialization. [Continuation boundary](E06-hvm-boundary.md)
 
 ### 16. Direct choice graphs, derivation nets, pull-tabbing and richer local graph calculi — Not directly tested as complete alternatives
+
+**Current bounded lifecycle evidence.** [Traversal reuse](S08-traversal-lifecycle.md) has a large continuing dependency benefit but does not beat the existing direct control in any continuing comparison. Template timing is inconclusive or adverse; repeated flat sessions establish no stable small-case advantage. This compares specific graph organizations and a direct competitor, not every proposed calculus.
 
 **Identity follow-up.** The [61 source-obligation configurations](S03-native-identity-obligations.md) distinguish occurrence history from current values and final equality from legal effect order. These are reference checks, not a native implementation. The breadth review selects integrated matching timing next while keeping native identity and local ownership required.
 
@@ -431,6 +433,8 @@ The subsequent [call-level transport gate](S05-call-transport-gate.md) directly 
 **Decision and limit.** Irrelevant history traversal was unnecessary, and the remaining implementation was poor for these low-sharing streams. The cutoff is not a complete 128-answer timing. This does not establish that Conditional execution intrinsically needs unbounded history or that broader reclamation cannot work. [Restricted publication](R06-restricted-publication.md), [stream lifetime](R06-streaming-lifetime.md)
 
 ### 46. Broad reclamation, compressed histories and alternative output lifetimes — Not directly resolved
+
+**Current lifetime evidence.** The [traversal lifecycle comparison](S08-traversal-lifecycle.md) validates 1,008 processes, exactly reproduces 112 allocation pairs, and measures RSS milestones. All requested engine/consumer ownership is released; allocator-held RSS can remain. Immediate/all consumers, reclamation and cancellation/exhaustion are compared, while broader retention windows and histories remain required.
 
 The [order lifecycle pilot](S08-order-lifecycle.md) reduces the alias-stream peak from2.83MB to0.20MB by changing support order, with a contrary arrival-order regime. All owners restore. A576-byte cross-engine output difference is exactly explained by spare residual-vector capacity. This is representation and lifecycle evidence, not an intra-query reclamation proof; broader roots and retention remain open.
 

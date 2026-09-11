@@ -1,0 +1,404 @@
+ Percent |	Source code & Disassembly of True-time-continuing for cpu_core/cycles/u (327 samples, percent: local period)
+----------------------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3     Disassembly of section .text:
+         :
+         : 5     00000000000ce060 <<chr_direct_choice::demand::Run>::finite_result::visit>:
+    0.60 :   ce060:  push   %rbp
+    0.00 :   ce061:  push   %r15
+    0.00 :   ce063:  push   %r14
+    0.00 :   ce065:  push   %r13
+    0.31 :   ce067:  push   %r12
+    0.29 :   ce069:  push   %rbx
+    0.00 :   ce06a:  sub    $0x38,%rsp
+    0.00 :   ce06e:  mov    %r8,%rbx
+    0.00 :   ce071:  mov    %rcx,%r14
+    0.00 :   ce074:  mov    %rdi,%r12
+    0.00 :   ce077:  mov    0x8(%rcx),%rax
+    0.00 :   ce07b:  mov    0x10(%rcx),%r13
+    0.00 :   ce07f:  test   %r13,%r13
+    0.00 :   ce082:  je     ce09f <<chr_direct_choice::demand::Run>::finite_result::visit+0x3f>
+    0.32 :   ce084:  lea    0x0(,%r13,8),%rcx
+    0.00 :   ce08c:  xor    %r10d,%r10d
+    0.31 :   ce08f:  nop
+    3.98 :   ce090:  cmp    %rsi,(%rax,%r10,1)
+    0.00 :   ce094:  je     ce110 <<chr_direct_choice::demand::Run>::finite_result::visit+0xb0>
+    3.70 :   ce096:  add    $0x8,%r10
+    0.00 :   ce09a:  cmp    %r10,%rcx
+    0.00 :   ce09d:  jne    ce090 <<chr_direct_choice::demand::Run>::finite_result::visit+0x30>
+    0.92 :   ce09f:  mov    (%rbx),%rcx
+    1.52 :   ce0a2:  test   %rcx,%rcx
+    0.00 :   ce0a5:  je     ce15f <<chr_direct_choice::demand::Run>::finite_result::visit+0xff>
+    0.00 :   ce0ab:  mov    0x8(%rbx),%r11
+    0.00 :   ce0af:  movzwl 0x62(%rcx),%r8d
+    0.61 :   ce0b4:  mov    %r8d,%r9d
+    0.00 :   ce0b7:  shl    $0x3,%r9d
+    0.31 :   ce0bb:  mov    $0xffffffffffffffff,%rdi
+    0.00 :   ce0c2:  data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+    1.21 :   ce0d0:  test   %r9,%r9
+    0.00 :   ce0d3:  je     ce100 <<chr_direct_choice::demand::Run>::finite_result::visit+0xa0>
+    0.32 :   ce0d5:  cmp    0x10(%rcx,%rdi,8),%rsi
+    0.00 :   ce0da:  seta   %r10b
+    0.00 :   ce0de:  sbb    $0x0,%r10b
+    0.00 :   ce0e2:  inc    %rdi
+    0.00 :   ce0e5:  add    $0xfffffffffffffff8,%r9
+    0.31 :   ce0e9:  cmp    $0x1,%r10b
+    0.00 :   ce0ed:  je     ce0d0 <<chr_direct_choice::demand::Run>::finite_result::visit+0x70>
+    0.60 :   ce0ef:  movzbl %r10b,%r8d
+    0.00 :   ce0f3:  test   %r8d,%r8d
+    0.00 :   ce0f6:  je     ce60c <<chr_direct_choice::demand::Run>::finite_result::visit+0x5ac>
+    0.00 :   ce0fc:  jmp    ce103 <<chr_direct_choice::demand::Run>::finite_result::visit+0xa3>
+    0.00 :   ce0fe:  xchg   %ax,%ax
+    0.00 :   ce100:  mov    %r8,%rdi
+    0.00 :   ce103:  sub    $0x1,%r11
+    0.00 :   ce107:  jb     ce15f <<chr_direct_choice::demand::Run>::finite_result::visit+0xff>
+    0.00 :   ce109:  mov    0x68(%rcx,%rdi,8),%rcx
+    0.00 :   ce10e:  jmp    ce0af <<chr_direct_choice::demand::Run>::finite_result::visit+0x4f>
+    0.00 :   ce110:  movabs $0x8000000000000003,%r8
+    0.00 :   ce11a:  mov    0x20(%r12),%r9
+    0.00 :   ce11f:  mov    0x28(%r12),%rsi
+    0.00 :   ce124:  add    $0xfffffffffffffffe,%r8
+    0.00 :   ce128:  nopl   0x0(%rax,%rax,1)
+    0.00 :   ce130:  cmp    %r10,%rcx
+    0.00 :   ce133:  je     ce60c <<chr_direct_choice::demand::Run>::finite_result::visit+0x5ac>
+    0.00 :   ce139:  mov    (%rax,%r10,1),%rdi
+    0.00 :   ce13d:  cmp    %rsi,%rdi
+    0.00 :   ce140:  jae    ce631 <<chr_direct_choice::demand::Run>::finite_result::visit+0x5d1>
+    0.00 :   ce146:  imul   $0x58,%rdi,%rdi
+    0.00 :   ce14a:  add    $0x8,%r10
+    0.00 :   ce14e:  cmp    %r8,0x18(%r9,%rdi,1)
+    0.00 :   ce153:  jne    ce130 <<chr_direct_choice::demand::Run>::finite_result::visit+0xd0>
+    0.00 :   ce155:  mov    $0x2,%eax
+    0.00 :   ce15a:  jmp    ce613 <<chr_direct_choice::demand::Run>::finite_result::visit+0x5b3>
+    0.00 :   ce15f:  cmp    (%r14),%r13
+    0.29 :   ce162:  mov    %rdx,0x8(%rsp)
+    0.00 :   ce167:  jne    ce181 <<chr_direct_choice::demand::Run>::finite_result::visit+0x121>
+    0.00 :   ce169:  mov    %r14,%rdi
+    0.00 :   ce16c:  mov    %rsi,%r15
+    0.00 :   ce16f:  call   *0xc69b3(%rip)        # 194b28 <_DYNAMIC+0x780>
+    0.00 :   ce175:  mov    0x8(%rsp),%rdx
+    0.00 :   ce17a:  mov    %r15,%rsi
+    0.00 :   ce17d:  mov    0x8(%r14),%rax
+    0.31 :   ce181:  mov    %rsi,(%rax,%r13,8)
+    0.00 :   ce185:  inc    %r13
+    0.00 :   ce188:  mov    %r13,0x10(%r14)
+    0.29 :   ce18c:  mov    0x28(%r12),%rax
+    0.00 :   ce191:  cmp    %rax,%rsi
+    0.00 :   ce194:  jae    ce64b <<chr_direct_choice::demand::Run>::finite_result::visit+0x5eb>
+    0.00 :   ce19a:  mov    0x20(%r12),%rax
+    0.00 :   ce19f:  mov    %rsi,0x20(%rsp)
+    0.00 :   ce1a4:  imul   $0x58,%rsi,%rcx
+    0.00 :   ce1a8:  mov    0x18(%rax,%rcx,1),%rdi
+    0.28 :   ce1ad:  movabs $0x8000000000000003,%rsi
+    0.00 :   ce1b7:  add    $0xfffffffffffffffd,%rsi
+    0.00 :   ce1bb:  xor    %rdi,%rsi
+    0.00 :   ce1be:  test   %rdi,%rdi
+    0.00 :   ce1c1:  mov    $0x3,%edi
+    0.00 :   ce1c6:  cmovs  %rsi,%rdi
+    0.00 :   ce1ca:  add    %rax,%rcx
+    0.00 :   ce1cd:  lea    -0x8f3d8(%rip),%rax        # 3edfc <anon.7cb303dd45907125444e010a95e5e7ca.7.llvm.15659632524616583497+0x27a>
+    0.00 :   ce1d4:  movslq (%rax,%rdi,4),%rsi
+    0.62 :   ce1d8:  add    %rax,%rsi
+    0.63 :   ce1db:  jmp    *%rsi
+    0.00 :   ce1dd:  mov    0x48(%rcx),%r13
+    0.00 :   ce1e1:  test   %r13,%r13
+    0.00 :   ce1e4:  je     ce5ef <<chr_direct_choice::demand::Run>::finite_result::visit+0x58f>
+    0.00 :   ce1ea:  mov    0x40(%rcx),%rbp
+    0.00 :   ce1ee:  shl    $0x3,%r13
+    0.00 :   ce1f2:  xor    %r15d,%r15d
+    0.00 :   ce1f5:  data16 cs nopw 0x0(%rax,%rax,1)
+    0.00 :   ce200:  mov    0x0(%rbp,%r15,1),%rsi
+    0.00 :   ce205:  mov    %r12,%rdi
+    0.00 :   ce208:  mov    %r14,%rcx
+    0.00 :   ce20b:  mov    %rbx,%r8
+    0.00 :   ce20e:  call   ce060 <<chr_direct_choice::demand::Run>::finite_result::visit>
+    0.00 :   ce213:  cmp    $0xffffffffffffffff,%rax
+    0.00 :   ce217:  jne    ce613 <<chr_direct_choice::demand::Run>::finite_result::visit+0x5b3>
+    0.00 :   ce21d:  add    $0x8,%r15
+    0.00 :   ce221:  cmp    %r15,%r13
+    0.00 :   ce224:  mov    0x8(%rsp),%rdx
+    0.00 :   ce229:  jne    ce200 <<chr_direct_choice::demand::Run>::finite_result::visit+0x1a0>
+    0.00 :   ce22b:  jmp    ce5ef <<chr_direct_choice::demand::Run>::finite_result::visit+0x58f>
+    0.00 :   ce230:  mov    0x20(%rcx),%rsi
+    0.00 :   ce234:  jmp    ce5db <<chr_direct_choice::demand::Run>::finite_result::visit+0x57b>
+    0.31 :   ce239:  mov    (%rdx),%rax
+    0.00 :   ce23c:  test   %rax,%rax
+    0.00 :   ce23f:  je     ce5ef <<chr_direct_choice::demand::Run>::finite_result::visit+0x58f>
+    0.00 :   ce245:  mov    0x8(%rdx),%r11
+    0.00 :   ce249:  mov    0x20(%rcx),%rsi
+    0.00 :   ce24d:  movzwl 0x62(%rax),%r8d
+    0.31 :   ce252:  mov    %r8d,%r9d
+    0.00 :   ce255:  shl    $0x3,%r9d
+    0.30 :   ce259:  mov    $0xffffffffffffffff,%rdi
+    0.62 :   ce260:  test   %r9,%r9
+    0.00 :   ce263:  je     ce28d <<chr_direct_choice::demand::Run>::finite_result::visit+0x22d>
+    0.62 :   ce265:  cmp    0x10(%rax,%rdi,8),%rsi
+    0.00 :   ce26a:  seta   %r10b
+    0.30 :   ce26e:  sbb    $0x0,%r10b
+    0.00 :   ce272:  inc    %rdi
+    0.00 :   ce275:  add    $0xfffffffffffffff8,%r9
+    0.00 :   ce279:  cmp    $0x1,%r10b
+    0.00 :   ce27d:  je     ce260 <<chr_direct_choice::demand::Run>::finite_result::visit+0x200>
+    0.93 :   ce27f:  movzbl %r10b,%r8d
+    0.00 :   ce283:  test   %r8d,%r8d
+    0.00 :   ce286:  jne    ce290 <<chr_direct_choice::demand::Run>::finite_result::visit+0x230>
+    0.31 :   ce288:  jmp    ce5c6 <<chr_direct_choice::demand::Run>::finite_result::visit+0x566>
+    0.00 :   ce28d:  mov    %r8,%rdi
+    0.00 :   ce290:  sub    $0x1,%r11
+    0.00 :   ce294:  jb     ce5ef <<chr_direct_choice::demand::Run>::finite_result::visit+0x58f>
+    0.00 :   ce29a:  mov    0x70(%rax,%rdi,8),%rax
+    0.00 :   ce29f:  jmp    ce24d <<chr_direct_choice::demand::Run>::finite_result::visit+0x1ed>
+    0.31 :   ce2a1:  mov    0x10(%rcx),%rax
+    0.00 :   ce2a5:  test   %rax,%rax
+    0.00 :   ce2a8:  je     ce5ef <<chr_direct_choice::demand::Run>::finite_result::visit+0x58f>
+    0.00 :   ce2ae:  mov    0x8(%rcx),%rcx
+    0.00 :   ce2b2:  shl    $0x5,%rax
+    0.00 :   ce2b6:  mov    %rcx,0x10(%rsp)
+    0.00 :   ce2bb:  add    %rcx,%rax
+    0.00 :   ce2be:  mov    (%rdx),%rcx
+    0.00 :   ce2c1:  mov    %rcx,0x30(%rsp)
+    0.00 :   ce2c6:  test   %rcx,%rcx
+    0.00 :   ce2c9:  je     ce2f4 <<chr_direct_choice::demand::Run>::finite_result::visit+0x294>
+    0.00 :   ce2cb:  mov    0x8(%rdx),%rcx
+    0.00 :   ce2cf:  mov    %rcx,0x28(%rsp)
+    0.00 :   ce2d4:  jmp    ce3ae <<chr_direct_choice::demand::Run>::finite_result::visit+0x34e>
+    0.00 :   ce2d9:  cmpw   $0x0,0x62(%rcx)
+    0.00 :   ce2de:  je     ce340 <<chr_direct_choice::demand::Run>::finite_result::visit+0x2e0>
+    0.00 :   ce2e0:  add    $0xffffffffffffffe0,%rax
+    0.00 :   ce2e4:  cmp    %rax,0x10(%rsp)
+    0.00 :   ce2e9:  mov    0x8(%rsp),%rdx
+    0.00 :   ce2ee:  je     ce5ef <<chr_direct_choice::demand::Run>::finite_result::visit+0x58f>
+    0.00 :   ce2f4:  mov    -0x20(%rax),%rcx
+    0.00 :   ce2f8:  test   %rcx,%rcx
+    0.00 :   ce2fb:  je     ce5d7 <<chr_direct_choice::demand::Run>::finite_result::visit+0x577>
+    0.00 :   ce301:  cmpq   $0x0,-0x10(%rax)
+    0.00 :   ce306:  je     ce5d7 <<chr_direct_choice::demand::Run>::finite_result::visit+0x577>
+    0.00 :   ce30c:  mov    -0x18(%rax),%rdx
+    0.00 :   ce310:  test   %rdx,%rdx
+    0.00 :   ce313:  je     ce2d9 <<chr_direct_choice::demand::Run>::finite_result::visit+0x279>
+    0.00 :   ce315:  mov    %rdx,%rsi
+    0.00 :   ce318:  and    $0x7,%rsi
+    0.00 :   ce31c:  je     ce35b <<chr_direct_choice::demand::Run>::finite_result::visit+0x2fb>
+    0.00 :   ce31e:  xor    %edi,%edi
+    0.00 :   ce320:  mov    0x70(%rcx),%rcx
+    0.00 :   ce324:  inc    %rdi
+    0.00 :   ce327:  cmp    %rdi,%rsi
+    0.00 :   ce32a:  jne    ce320 <<chr_direct_choice::demand::Run>::finite_result::visit+0x2c0>
+    0.00 :   ce32c:  mov    %rdx,%rsi
+    0.00 :   ce32f:  sub    %rdi,%rsi
+    0.00 :   ce332:  cmp    $0x8,%rdx
+    0.00 :   ce336:  jae    ce370 <<chr_direct_choice::demand::Run>::finite_result::visit+0x310>
+    0.00 :   ce338:  jmp    ce2d9 <<chr_direct_choice::demand::Run>::finite_result::visit+0x279>
+    0.00 :   ce33a:  nopw   0x0(%rax,%rax,1)
+    0.00 :   ce340:  mov    (%rcx),%rdx
+    0.00 :   ce343:  test   %rdx,%rdx
+    0.00 :   ce346:  je     ce622 <<chr_direct_choice::demand::Run>::finite_result::visit+0x5c2>
+    0.00 :   ce34c:  movzwl 0x60(%rcx),%esi
+    0.00 :   ce350:  mov    %rdx,%rcx
+    0.00 :   ce353:  cmp    0x62(%rdx),%si
+    0.00 :   ce357:  jae    ce340 <<chr_direct_choice::demand::Run>::finite_result::visit+0x2e0>
+    0.00 :   ce359:  jmp    ce2e0 <<chr_direct_choice::demand::Run>::finite_result::visit+0x280>
+    0.00 :   ce35b:  mov    %rdx,%rsi
+    0.00 :   ce35e:  cmp    $0x8,%rdx
+    0.00 :   ce362:  jb     ce2d9 <<chr_direct_choice::demand::Run>::finite_result::visit+0x279>
+    0.00 :   ce368:  nopl   0x0(%rax,%rax,1)
+    0.00 :   ce370:  mov    0x70(%rcx),%rcx
+    0.00 :   ce374:  mov    0x70(%rcx),%rcx
+    0.00 :   ce378:  mov    0x70(%rcx),%rcx
+    0.00 :   ce37c:  mov    0x70(%rcx),%rcx
+    0.00 :   ce380:  mov    0x70(%rcx),%rcx
+    0.00 :   ce384:  mov    0x70(%rcx),%rcx
+    0.00 :   ce388:  mov    0x70(%rcx),%rcx
+    0.00 :   ce38c:  mov    0x70(%rcx),%rcx
+    0.00 :   ce390:  add    $0xfffffffffffffff8,%rsi
+    0.00 :   ce394:  jne    ce370 <<chr_direct_choice::demand::Run>::finite_result::visit+0x310>
+    0.00 :   ce396:  jmp    ce2d9 <<chr_direct_choice::demand::Run>::finite_result::visit+0x279>
+    0.00 :   ce39b:  mov    0x18(%rsp),%rdx
+    0.00 :   ce3a0:  mov    %rdx,%rax
+    0.00 :   ce3a3:  cmp    %rdx,0x10(%rsp)
+    0.00 :   ce3a8:  je     ce5ef <<chr_direct_choice::demand::Run>::finite_result::visit+0x58f>
+    0.00 :   ce3ae:  mov    -0x20(%rax),%r11
+    0.92 :   ce3b2:  test   %r11,%r11
+    0.00 :   ce3b5:  setne  %bpl
+    0.00 :   ce3b9:  je     ce3c8 <<chr_direct_choice::demand::Run>::finite_result::visit+0x368>
+    0.00 :   ce3bb:  mov    -0x18(%rax),%rcx
+    0.27 :   ce3bf:  mov    -0x10(%rax),%rdi
+    0.00 :   ce3c3:  xor    %r9d,%r9d
+    0.00 :   ce3c6:  jmp    ce3cd <<chr_direct_choice::demand::Run>::finite_result::visit+0x36d>
+    0.00 :   ce3c8:  xor    %edi,%edi
+    0.00 :   ce3ca:  xor    %r11d,%r11d
+    0.00 :   ce3cd:  lea    -0x20(%rax),%rdx
+    0.00 :   ce3d1:  mov    %rdx,0x18(%rsp)
+    0.00 :   ce3d6:  jmp    ce3f0 <<chr_direct_choice::demand::Run>::finite_result::visit+0x390>
+    0.00 :   ce3d8:  nopl   0x0(%rax,%rax,1)
+    3.86 :   ce3e0:  mov    $0x1,%bpl
+    0.29 :   ce3e3:  mov    $0x0,%r11d
+    0.00 :   ce3e9:  cmp    %r8b,0x64(%r10,%r13,1)
+    0.00 :   ce3ee:  jne    ce39b <<chr_direct_choice::demand::Run>::finite_result::visit+0x33b>
+    0.00 :   ce3f0:  sub    $0x1,%rdi
+    0.00 :   ce3f4:  jb     ce5d2 <<chr_direct_choice::demand::Run>::finite_result::visit+0x572>
+    0.00 :   ce3fa:  test   $0x1,%bpl
+    0.00 :   ce3fe:  je     ce63e <<chr_direct_choice::demand::Run>::finite_result::visit+0x5de>
+    0.00 :   ce404:  test   %r9,%r9
+    0.00 :   ce407:  je     ce422 <<chr_direct_choice::demand::Run>::finite_result::visit+0x3c2>
+    0.30 :   ce409:  movzwl 0x62(%r9),%edx
+    1.26 :   ce40e:  cmp    %rdx,%rcx
+    0.00 :   ce411:  jae    ce4b0 <<chr_direct_choice::demand::Run>::finite_result::visit+0x450>
+    0.94 :   ce417:  mov    %r9,%rbp
+    0.00 :   ce41a:  mov    %rcx,%r10
+    0.00 :   ce41d:  jmp    ce4ce <<chr_direct_choice::demand::Run>::finite_result::visit+0x46e>
+    0.00 :   ce422:  test   %rcx,%rcx
+    0.00 :   ce425:  je     ce45a <<chr_direct_choice::demand::Run>::finite_result::visit+0x3fa>
+    0.00 :   ce427:  mov    %rcx,%rdx
+    0.00 :   ce42a:  mov    %r11,%r9
+    0.00 :   ce42d:  and    $0x7,%rdx
+    0.00 :   ce431:  je     ce45f <<chr_direct_choice::demand::Run>::finite_result::visit+0x3ff>
+    0.00 :   ce433:  xor    %esi,%esi
+    0.00 :   ce435:  data16 cs nopw 0x0(%rax,%rax,1)
+    0.00 :   ce440:  mov    0x70(%r9),%r9
+    0.32 :   ce444:  inc    %rsi
+    0.00 :   ce447:  cmp    %rsi,%rdx
+    0.00 :   ce44a:  jne    ce440 <<chr_direct_choice::demand::Run>::finite_result::visit+0x3e0>
+    0.00 :   ce44c:  mov    %rcx,%r8
+    0.00 :   ce44f:  sub    %rsi,%r8
+    0.00 :   ce452:  cmp    $0x8,%rcx
+    0.00 :   ce456:  jae    ce470 <<chr_direct_choice::demand::Run>::finite_result::visit+0x410>
+    0.00 :   ce458:  jmp    ce496 <<chr_direct_choice::demand::Run>::finite_result::visit+0x436>
+    0.00 :   ce45a:  mov    %r11,%r9
+    0.00 :   ce45d:  jmp    ce496 <<chr_direct_choice::demand::Run>::finite_result::visit+0x436>
+    0.00 :   ce45f:  mov    %rcx,%r8
+    0.00 :   ce462:  cmp    $0x8,%rcx
+    0.00 :   ce466:  jb     ce496 <<chr_direct_choice::demand::Run>::finite_result::visit+0x436>
+    0.00 :   ce468:  nopl   0x0(%rax,%rax,1)
+    0.00 :   ce470:  mov    0x70(%r9),%rcx
+    0.00 :   ce474:  mov    0x70(%rcx),%rcx
+    0.00 :   ce478:  mov    0x70(%rcx),%rcx
+    0.00 :   ce47c:  mov    0x70(%rcx),%rcx
+    0.00 :   ce480:  mov    0x70(%rcx),%rcx
+    0.00 :   ce484:  mov    0x70(%rcx),%rcx
+    0.00 :   ce488:  mov    0x70(%rcx),%rcx
+    0.00 :   ce48c:  mov    0x70(%rcx),%r9
+    0.00 :   ce490:  add    $0xfffffffffffffff8,%r8
+    0.00 :   ce494:  jne    ce470 <<chr_direct_choice::demand::Run>::finite_result::visit+0x410>
+    0.00 :   ce496:  xor    %ecx,%ecx
+    0.00 :   ce498:  xor    %r11d,%r11d
+    0.00 :   ce49b:  movzwl 0x62(%r9),%edx
+    0.92 :   ce4a0:  cmp    %rdx,%rcx
+    0.00 :   ce4a3:  jb     ce417 <<chr_direct_choice::demand::Run>::finite_result::visit+0x3b7>
+    0.00 :   ce4a9:  nopl   0x0(%rax)
+    0.59 :   ce4b0:  mov    (%r9),%rbp
+    0.63 :   ce4b3:  test   %rbp,%rbp
+    0.00 :   ce4b6:  je     ce622 <<chr_direct_choice::demand::Run>::finite_result::visit+0x5c2>
+    0.00 :   ce4bc:  inc    %r11
+    0.00 :   ce4bf:  movzwl 0x60(%r9),%r10d
+    0.00 :   ce4c4:  mov    %rbp,%r9
+    0.00 :   ce4c7:  cmp    0x62(%rbp),%r10w
+    0.00 :   ce4cc:  jae    ce4b0 <<chr_direct_choice::demand::Run>::finite_result::visit+0x450>
+    0.30 :   ce4ce:  test   %r11,%r11
+    0.00 :   ce4d1:  je     ce53d <<chr_direct_choice::demand::Run>::finite_result::visit+0x4dd>
+    0.00 :   ce4d3:  lea    0x78(,%r10,8),%rcx
+    0.00 :   ce4db:  add    %rbp,%rcx
+    0.00 :   ce4de:  mov    %r11,%rdx
+    0.00 :   ce4e1:  and    $0x7,%rdx
+    0.00 :   ce4e5:  je     ce5b4 <<chr_direct_choice::demand::Run>::finite_result::visit+0x554>
+    0.00 :   ce4eb:  xor    %esi,%esi
+    0.00 :   ce4ed:  nopl   (%rax)
+    0.00 :   ce4f0:  mov    (%rcx),%r9
+    0.00 :   ce4f3:  lea    0x70(%r9),%rcx
+    0.30 :   ce4f7:  inc    %rsi
+    0.31 :   ce4fa:  cmp    %rsi,%rdx
+    0.00 :   ce4fd:  jne    ce4f0 <<chr_direct_choice::demand::Run>::finite_result::visit+0x490>
+    0.00 :   ce4ff:  mov    %r11,%r8
+    0.00 :   ce502:  sub    %rsi,%r8
+    0.00 :   ce505:  cmp    $0x8,%r11
+    0.00 :   ce509:  jb     ce539 <<chr_direct_choice::demand::Run>::finite_result::visit+0x4d9>
+    0.00 :   ce50b:  nopl   0x0(%rax,%rax,1)
+    0.00 :   ce510:  mov    (%rcx),%rcx
+    0.00 :   ce513:  mov    0x70(%rcx),%rcx
+    0.00 :   ce517:  mov    0x70(%rcx),%rcx
+    0.00 :   ce51b:  mov    0x70(%rcx),%rcx
+    0.00 :   ce51f:  mov    0x70(%rcx),%rcx
+    0.00 :   ce523:  mov    0x70(%rcx),%rcx
+    0.00 :   ce527:  mov    0x70(%rcx),%rcx
+    0.00 :   ce52b:  mov    0x70(%rcx),%r9
+    0.00 :   ce52f:  lea    0x70(%r9),%rcx
+    0.00 :   ce533:  add    $0xfffffffffffffff8,%r8
+    0.00 :   ce537:  jne    ce510 <<chr_direct_choice::demand::Run>::finite_result::visit+0x4b0>
+    0.30 :   ce539:  xor    %ecx,%ecx
+    0.00 :   ce53b:  jmp    ce544 <<chr_direct_choice::demand::Run>::finite_result::visit+0x4e4>
+    0.63 :   ce53d:  lea    0x1(%r10),%rcx
+    0.31 :   ce541:  mov    %rbp,%r9
+    0.64 :   ce544:  movzbl 0x64(%rbp,%r10,1),%r8d
+    0.31 :   ce54a:  mov    0x8(%rbp,%r10,8),%r11
+    1.53 :   ce54f:  mov    0x28(%rsp),%rbp
+    0.59 :   ce554:  mov    0x30(%rsp),%r10
+    0.31 :   ce559:  movzwl 0x62(%r10),%edx
+    1.54 :   ce55e:  mov    %edx,%esi
+    0.30 :   ce560:  shl    $0x3,%esi
+    1.88 :   ce563:  mov    $0xffffffffffffffff,%r13
+    1.86 :   ce56a:  nopw   0x0(%rax,%rax,1)
+   14.79 :   ce570:  test   %rsi,%rsi
+    0.00 :   ce573:  je     ce5a0 <<chr_direct_choice::demand::Run>::finite_result::visit+0x540>
+    3.09 :   ce575:  cmp    0x10(%r10,%r13,8),%r11
+    1.53 :   ce57a:  seta   %r15b
+   17.79 :   ce57e:  sbb    $0x0,%r15b
+    9.90 :   ce582:  inc    %r13
+    0.32 :   ce585:  add    $0xfffffffffffffff8,%rsi
+    0.32 :   ce589:  cmp    $0x1,%r15b
+    0.00 :   ce58d:  je     ce570 <<chr_direct_choice::demand::Run>::finite_result::visit+0x510>
+    4.51 :   ce58f:  movzbl %r15b,%edx
+    0.00 :   ce593:  test   %edx,%edx
+    0.00 :   ce595:  je     ce3e0 <<chr_direct_choice::demand::Run>::finite_result::visit+0x380>
+    2.11 :   ce59b:  jmp    ce5a3 <<chr_direct_choice::demand::Run>::finite_result::visit+0x543>
+    0.00 :   ce59d:  nopl   (%rax)
+    0.00 :   ce5a0:  mov    %rdx,%r13
+    0.00 :   ce5a3:  sub    $0x1,%rbp
+    0.00 :   ce5a7:  jb     ce39b <<chr_direct_choice::demand::Run>::finite_result::visit+0x33b>
+    0.00 :   ce5ad:  mov    0x70(%r10,%r13,8),%r10
+    0.00 :   ce5b2:  jmp    ce559 <<chr_direct_choice::demand::Run>::finite_result::visit+0x4f9>
+    0.00 :   ce5b4:  mov    %r11,%r8
+    0.00 :   ce5b7:  cmp    $0x8,%r11
+    0.00 :   ce5bb:  jb     ce539 <<chr_direct_choice::demand::Run>::finite_result::visit+0x4d9>
+    0.00 :   ce5c1:  jmp    ce510 <<chr_direct_choice::demand::Run>::finite_result::visit+0x4b0>
+    0.00 :   ce5c6:  movzbl 0x64(%rax,%rdi,1),%eax
+    0.00 :   ce5cb:  mov    0x28(%rcx,%rax,8),%rsi
+    0.00 :   ce5d0:  jmp    ce5db <<chr_direct_choice::demand::Run>::finite_result::visit+0x57b>
+    0.00 :   ce5d2:  mov    0x8(%rsp),%rdx
+    0.93 :   ce5d7:  mov    -0x8(%rax),%rsi
+    0.00 :   ce5db:  mov    %r12,%rdi
+    0.00 :   ce5de:  mov    %r14,%rcx
+    0.00 :   ce5e1:  mov    %rbx,%r8
+    0.00 :   ce5e4:  call   ce060 <<chr_direct_choice::demand::Run>::finite_result::visit>
+    0.00 :   ce5e9:  cmp    $0xffffffffffffffff,%rax
+    0.00 :   ce5ed:  jne    ce613 <<chr_direct_choice::demand::Run>::finite_result::visit+0x5b3>
+    0.10 :   ce5ef:  mov    0x10(%r14),%rax
+    0.58 :   ce5f3:  test   %rax,%rax
+    0.00 :   ce5f6:  je     ce5ff <<chr_direct_choice::demand::Run>::finite_result::visit+0x59f>
+    0.28 :   ce5f8:  dec    %rax
+    0.00 :   ce5fb:  mov    %rax,0x10(%r14)
+    0.32 :   ce5ff:  mov    %rbx,%rdi
+    0.00 :   ce602:  mov    0x20(%rsp),%rsi
+    0.00 :   ce607:  call   dc4b0 <<alloc::collections::btree::map::BTreeMap<usize, alloc::collections::btree::set_val::SetValZST>>::insert>
+    0.00 :   ce60c:  mov    $0xffffffffffffffff,%rax
+    0.00 :   ce613:  add    $0x38,%rsp
+    0.00 :   ce617:  pop    %rbx
+    0.00 :   ce618:  pop    %r12
+    0.00 :   ce61a:  pop    %r13
+    0.00 :   ce61c:  pop    %r14
+    0.00 :   ce61e:  pop    %r15
+    0.29 :   ce620:  pop    %rbp
+    0.00 :   ce621:  ret
+    0.00 :   ce622:  lea    0xc2ac7(%rip),%rdi        # 1910f0 <anon.01f14b8263614c4ef02b112cef167248.7.llvm.15381620640532348289>
+    0.00 :   ce629:  call   *0xc6099(%rip)        # 1946c8 <_DYNAMIC+0x320>
+    0.00 :   ce62f:  ud2
+    0.00 :   ce631:  lea    0xc2410(%rip),%rdx        # 190a48 <anon.eeb7d328da89eecd56540b60edb8946a.2.llvm.18113316204812502392+0xf0>
+    0.00 :   ce638:  call   *0xc612a(%rip)        # 194768 <_DYNAMIC+0x3c0>
+    0.00 :   ce63e:  lea    0xc2adb(%rip),%rdi        # 191120 <anon.01f14b8263614c4ef02b112cef167248.9.llvm.15381620640532348289>
+    0.00 :   ce645:  call   *0xc607d(%rip)        # 1946c8 <_DYNAMIC+0x320>
+    0.00 :   ce64b:  lea    0xc285e(%rip),%rdx        # 190eb0 <anon.8902f8c0f69021c6cf55f9614e9d2d14.27.llvm.14986945352880940039+0x3d8>
+    0.00 :   ce652:  mov    %rsi,%rdi
+    0.00 :   ce655:  mov    %rax,%rsi
+    0.00 :   ce658:  call   *0xc610a(%rip)        # 194768 <_DYNAMIC+0x3c0>
+    0.00 :   ce65e:  ud2

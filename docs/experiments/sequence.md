@@ -4,7 +4,7 @@ Investigate the unanswered mechanisms directly, then compare the complete archit
 
 The [execution sequence](next-cycle.md) sets four rounds: missing architectural benefits; competing search, reuse and compilation mechanisms; sustained and parallel execution; complete architectures and contrary tests. It gives the immediate order, concrete contrasts and the result required from each round. This document defines the governing requirements and stage specifications.
 
-The [readiness lifecycle result](results/S02-readiness-lifecycle.md) and [full portfolio review](results/S02-readiness-portfolio-review.md) supply the current checkpoint. Readiness lifecycle sizing validates 1,120 processes and 160 exact allocation pairs; a targeted follow-up validates 4,400 complete sessions. Early failure improves relational cost, but generic compiled execution is faster on the decisive deep sources. Even zero readiness execution leaves the deep reused-query admission cost above compiled total time. Full portfolio review selects T074 graph memo/lifecycle costs; T072 remains required, review count reset, goal active.
+The [traversal lifecycle result](results/S08-traversal-lifecycle.md) supplies the current checkpoint. Traversal lifecycle sizing validates 1,008 processes with 112 exact historical allocation pairs and sampled residency. Continuing dependency reuse has a large time benefit, but direct remains faster in every continuing graph comparison. The 11,000-lifecycle flat follow-up does not establish a stable small-case timing advantage. Profiles identify context-support checking as a substantial remaining production cost. T074 next qualifies ordered context inclusion against per-key lookup, preserving sparse/adverse controls; package one since review, goal active.
 
 The outcome is trustworthy evidence for choosing the CHR language's architecture: total efficiency, necessary complexity, expressiveness and explicit tradeoffs. No architecture is selected in advance. A conditional choice can be the result; a new production baseline and invented workload weights are not required.
 
@@ -274,7 +274,7 @@ All new results link raw inputs, commands, freezes, validation and unfavorable o
 
 The [revised experimental sequence](next-cycle.md#start-here-the-next-experiments) proceeds from the recorded-read result to demand capability, direct integration, intermediate joins and compact solving. Later entries cover distinct reuse, restoration, choice organizations, compilation, sustained execution and parallel ownership. Language studies accompany their beneficiaries; complete-architecture comparisons occur at each round boundary.
 
-T074 is the sole active experimental task. The readiness lifecycle comparison and full portfolio review select graph memo/lifecycle attribution next. T072 and the other unresolved directions remain required. Each unresolved design retains its individual obligation in the [57-question map](question-to-experiment-map.md).
+T074 is the sole active experimental task. The traversal lifecycle comparison and profiles select context-support comparison next. T072 and the other unresolved directions remain required. Each unresolved design retains its individual obligation in the [57-question map](question-to-experiment-map.md).
 
 ## Earlier experimental checkpoints
 

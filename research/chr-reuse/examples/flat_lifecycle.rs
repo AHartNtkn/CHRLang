@@ -37,6 +37,24 @@ mod gate {
         )
     }
 
+    fn rss() -> usize {
+        use std::io::Read;
+        let mut bytes = [0; 4096];
+        let n = std::fs::File::open("/proc/self/smaps_rollup")
+            .unwrap()
+            .read(&mut bytes)
+            .unwrap();
+        std::str::from_utf8(&bytes[..n])
+            .unwrap()
+            .lines()
+            .find_map(|s| s.strip_prefix("Rss:"))
+            .unwrap()
+            .split_whitespace()
+            .next()
+            .unwrap()
+            .parse()
+            .unwrap()
+    }
     fn rules(resource: bool, n: usize) -> Vec<Rule> {
         let body = (1..n).fold(eq(v(0), t("pair", [v(1), v(1)])), |tail, _| {
             or(eq(v(0), t("pair", [v(1), v(1)])), tail)
@@ -74,7 +92,11 @@ mod gate {
     #[allow(clippy::assertions_on_constants)]
     pub fn run() {
         let args = std::env::args().collect::<Vec<_>>();
-        assert_eq!(args.len(), 5, "mode resource alternatives keep");
+        assert!(
+            [5, 6, 7].contains(&args.len()),
+            "mode resource alternatives keep [rss] [complete-sessions]"
+        );
+        let resident = args.get(5).is_some_and(|s| s.parse::<bool>().unwrap());
         assert!(
             !chr_direct_choice::demand::COLLECT_WORK_DIAGNOSTICS
                 && !chr_reuse::continuations::COLLECT_METRICS
@@ -103,6 +125,10 @@ mod gate {
         records.resize_with(8 * n + 32, || ("", 0, 0, measured(|| ()).1));
         std::hint::black_box(&records);
         records.clear();
+        let mut snapshots = Vec::with_capacity(12);
+        if resident {
+            snapshots.push(("root", 0, rss()));
+        }
         #[cfg(feature = "alloc-meter")]
         let root = meter::begin();
         let (owner, m) = measured(|| {
@@ -119,10 +145,16 @@ mod gate {
             )
         });
         records.push(("prepare", 0, 0, m));
+        if resident {
+            snapshots.push(("prepared", 0, rss()));
+        }
         let mut held = Vec::new();
         for (seed, answer) in wanted.iter().enumerate() {
             let (mut running, m) = measured(|| owner.start(query(resource, seed)));
             records.push(("setup", seed, 0, m));
+            if resident {
+                snapshots.push(("setup", seed, rss()));
+            }
             let mut delivered = 0;
             let mut calls = 0;
             loop {
@@ -160,11 +192,20 @@ mod gate {
                 }
             }
             assert_eq!(delivered, n);
+            if resident {
+                snapshots.push(("exhausted", seed, rss()));
+            }
             let (_, m) = measured(|| drop(running));
             records.push(("producer_drop", seed, delivered, m));
+            if resident {
+                snapshots.push(("producer_drop", seed, rss()));
+            }
         }
         let (_, m) = measured(|| drop(owner));
         records.push(("prepared_drop", 0, 0, m));
+        if resident {
+            snapshots.push(("prepared_drop", 0, rss()));
+        }
         for (seed, a) in &held {
             oracle::same_raw(vec![a.clone()], vec![wanted[*seed].clone()]);
         }
@@ -175,13 +216,29 @@ mod gate {
             let end = meter::end(root);
             assert_eq!(end.live_start, end.live_end, "owned heap remains");
         }
+        if resident {
+            snapshots.push(("disposed", 0, rss()));
+        }
+        let points = snapshots
+            .iter()
+            .map(|(stage, query, size)| {
+                format!("{{\"stage\":\"{stage}\",\"query\":{query},\"rss_kib\":{size}}}")
+            })
+            .collect::<Vec<_>>()
+            .join(",");
         let rows=records.iter().map(|(phase,query,answer,m)|format!("{{\"phase\":\"{phase}\",\"query\":{query},\"answer\":{answer},\"reading\":{}}}",m.json())).collect::<Vec<_>>().join(",");
         println!(
-            "{{\"meter\":{},\"validated\":true,\"records\":[{rows}]}}",
+            "{{\"meter\":{},\"validated\":true,\"records\":[{rows}],\"snapshots\":[{points}]}}",
             cfg!(feature = "alloc-meter")
         );
     }
 }
 fn main() {
-    gate::run();
+    let sessions = std::env::args()
+        .nth(6)
+        .map_or(1, |n| n.parse::<usize>().unwrap());
+    assert!(sessions > 0);
+    for _ in 0..sessions {
+        gate::run();
+    }
 }
