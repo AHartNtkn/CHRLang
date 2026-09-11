@@ -6,6 +6,9 @@ mod access_source;
 mod fixtures;
 #[path = "src/generate.rs"]
 mod generate;
+#[path = "../chr-direct-conditional/tests/runtime_support/post_source.rs"]
+#[allow(dead_code)]
+mod post_source;
 #[path = "src/search_fixtures.rs"]
 #[allow(dead_code)]
 mod search_fixtures;
@@ -16,6 +19,9 @@ mod structural_prefix_source;
 #[allow(dead_code)]
 mod subscription_source;
 fn main() {
+    println!(
+        "cargo:rerun-if-changed=../chr-direct-conditional/tests/runtime_support/post_source.rs"
+    );
     println!("cargo:rerun-if-changed=experiments/structural_prefix_source.rs");
     println!("cargo:rerun-if-changed=src/generate.rs");
     println!("cargo:rerun-if-changed=src/fixtures.rs");
@@ -65,7 +71,21 @@ fn main() {
         text.push_str(&format!("{id}=>prefix_native::p{id}_code(),\n"));
     }
     text.push_str("_=>panic!(\"unknown structural source\")}}\n");
+    let post_programs = post_source::FAMILIES
+        .iter()
+        .map(|family| post_source::rules(family))
+        .collect::<Vec<_>>();
+    text.push_str("#[allow(unused_variables,unused_mut)] mod post_native {use super::{Core,Cursor,Candidate,Selection,Application,Work,Compiled};\n");
+    for (id, rules) in post_programs.iter().enumerate() {
+        text.push_str(&generate::emit(&format!("p{id}"), rules).expect("valid post source"));
+    }
+    text.push_str("}\npub fn post_bundled(id:usize)->Compiled {match id {\n");
+    for id in 0..post_programs.len() {
+        text.push_str(&format!("{id}=>post_native::p{id}_code(),\n"));
+    }
+    text.push_str("_=>panic!(\"unknown post source\")}}\n");
     for (family, sources) in [
+        ("post", post_programs),
         ("prefix", prefix_programs),
         ("search", search_programs),
         ("payload", vec![access_source::payload_rules()]),

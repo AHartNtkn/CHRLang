@@ -49,28 +49,58 @@ impl Reading {
 }
 enum Prepared {
     Demand(Box<Demand>),
-    Compiled(Box<chr_compiled::PreparedRuleset>, chr_compiled::Access),
+    Compiled(
+        Box<chr_compiled::PreparedRuleset>,
+        chr_compiled::Access,
+        chr_compiled::Policy,
+    ),
 }
 enum Running {
     Demand(Box<Run>),
     Compiled(Box<chr_compiled::SearchEngine>),
 }
 impl Prepared {
-    fn new(mode: &str, rules: Vec<Rule>) -> Self {
-        if ["scan", "indexed", "sealed"].contains(&mode) {
+    fn new(mode: &str, rules: Vec<Rule>, kind: &str) -> Self {
+        if [
+            "scan",
+            "indexed",
+            "sealed",
+            "active-scan",
+            "active-indexed",
+            "native-scan",
+            "native-indexed",
+            "active-native-scan",
+            "active-native-indexed",
+        ]
+        .contains(&mode)
+        {
             Self::Compiled(
                 Box::new({
-                    let p = chr_compiled::PreparedRuleset::new(rules, None).unwrap();
+                    let code = if mode.contains("native") {
+                        let id = post_source::FAMILIES
+                            .iter()
+                            .position(|f| *f == kind)
+                            .expect("native post source");
+                        Some(chr_compiled::access_post_bundled(id))
+                    } else {
+                        None
+                    };
+                    let p = chr_compiled::PreparedRuleset::new(rules, code).unwrap();
                     if mode == "sealed" {
                         p.specialize_inferred()
                     } else {
                         p
                     }
                 }),
-                if mode == "scan" {
+                if mode.ends_with("scan") {
                     chr_compiled::Access::Scan
                 } else {
                     chr_compiled::Access::Indexed
+                },
+                if mode.starts_with("active-") {
+                    chr_compiled::Policy::Active
+                } else {
+                    chr_compiled::Policy::Global
                 },
             )
         } else {
@@ -94,10 +124,9 @@ impl Prepared {
     fn start(&self, q: Query) -> Running {
         match self {
             Self::Demand(p) => Running::Demand(Box::new(p.start(q).unwrap())),
-            Self::Compiled(p, access) => Running::Compiled(Box::new(
-                p.start_search(q, chr_compiled::Policy::Global, *access)
-                    .unwrap(),
-            )),
+            Self::Compiled(p, access, policy) => {
+                Running::Compiled(Box::new(p.start_search(q, *policy, *access).unwrap()))
+            }
         }
     }
 }
@@ -249,7 +278,7 @@ fn main() {
     let root = meter::begin();
     let (rules, m) = measure(|| source_rules(kind));
     records.push(("source", 0, m));
-    let (prepared, m) = measure(|| Prepared::new(mode, rules));
+    let (prepared, m) = measure(|| Prepared::new(mode, rules, kind));
     records.push(("prepare", 0, m));
     for i in 0..4 {
         let (q, m) =
@@ -330,8 +359,14 @@ mod tests {
                     "scan",
                     "indexed",
                     "sealed",
+                    "active-scan",
+                    "active-indexed",
+                    "native-scan",
+                    "native-indexed",
+                    "active-native-scan",
+                    "active-native-indexed",
                 ] {
-                    let p = Prepared::new(mode, rules.clone());
+                    let p = Prepared::new(mode, rules.clone(), kind);
                     let mut held = vec![];
                     for (value, reverse) in [("a", false), ("b", true)] {
                         let q = post_source::query(size, kind, reverse, value);
