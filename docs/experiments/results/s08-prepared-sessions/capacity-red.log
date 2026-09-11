@@ -1,0 +1,24 @@
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.39s
+     Running unittests examples/answer_capacity.rs (target/debug/examples/answer_capacity-cce107c711ca4e8f)
+
+running 1 test
+test common_export_fits_the_exact_owned_answer_budget ... FAILED
+
+failures:
+
+---- common_export_fits_the_exact_owned_answer_budget stdout ----
+
+thread 'common_export_fits_the_exact_owned_answer_budget' (108) panicked at research/chr-direct-conditional/examples/answer_capacity.rs:277:5:
+assertion `left == right` failed
+  left: 3648
+ right: 0
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    common_export_fits_the_exact_owned_answer_budget
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p chr-direct-conditional --example answer_capacity`

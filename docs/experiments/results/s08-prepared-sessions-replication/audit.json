@@ -1,0 +1,669 @@
+{
+  "processes": 1560,
+  "primary": 1536,
+  "warmup": 24,
+  "error_bound": 0.012347565281342596,
+  "signal_floor_ns": 537900,
+  "results": [
+    {
+      "contrast": "reuse/rebuild",
+      "numerator": [
+        "common",
+        "immediate",
+        true,
+        [
+          "birth-miss",
+          true
+        ]
+      ],
+      "denominator": [
+        "common",
+        "immediate",
+        false,
+        [
+          "birth-miss",
+          true
+        ]
+      ],
+      "median_ratio": 0.6756009765064983,
+      "interval": [
+        0.6416356421644365,
+        0.6996134750724249
+      ],
+      "two_rank_sensitivity": [
+        0.6336109671897333,
+        0.7243443977454246
+      ],
+      "status": "gain",
+      "numerator_median_ns": 9962518.5,
+      "denominator_median_ns": 14894786.0
+    },
+    {
+      "contrast": "reuse/rebuild",
+      "numerator": [
+        "common",
+        "immediate",
+        true,
+        [
+          "native-scan",
+          false
+        ]
+      ],
+      "denominator": [
+        "common",
+        "immediate",
+        false,
+        [
+          "native-scan",
+          false
+        ]
+      ],
+      "median_ratio": 0.7892245127020922,
+      "interval": [
+        0.7179390619497845,
+        0.8245349373005306
+      ],
+      "two_rank_sensitivity": [
+        0.7057036270076444,
+        0.8414287217394069
+      ],
+      "status": "gain",
+      "numerator_median_ns": 12203763.0,
+      "denominator_median_ns": 15512499.0
+    },
+    {
+      "contrast": "reuse/rebuild",
+      "numerator": [
+        "common",
+        "immediate",
+        true,
+        [
+          "native-scan",
+          true
+        ]
+      ],
+      "denominator": [
+        "common",
+        "immediate",
+        false,
+        [
+          "native-scan",
+          true
+        ]
+      ],
+      "median_ratio": 0.704975367388602,
+      "interval": [
+        0.6796001176875537,
+        0.7472478258878562
+      ],
+      "two_rank_sensitivity": [
+        0.6748423220012725,
+        0.7501932942570718
+      ],
+      "status": "gain",
+      "numerator_median_ns": 10979098.0,
+      "denominator_median_ns": 15299231.5
+    },
+    {
+      "contrast": "demand/native",
+      "numerator": [
+        "common",
+        "immediate",
+        true,
+        [
+          "birth-miss",
+          true
+        ]
+      ],
+      "denominator": [
+        "common",
+        "immediate",
+        true,
+        [
+          "native-scan",
+          false
+        ]
+      ],
+      "median_ratio": 0.8183053856435059,
+      "interval": [
+        0.7836783350964639,
+        0.8756960232598934
+      ],
+      "two_rank_sensitivity": [
+        0.7708150567347652,
+        0.8807941661730656
+      ],
+      "status": "gain",
+      "numerator_median_ns": 9962518.5,
+      "denominator_median_ns": 12203763.0
+    },
+    {
+      "contrast": "demand/native",
+      "numerator": [
+        "common",
+        "immediate",
+        true,
+        [
+          "birth-miss",
+          true
+        ]
+      ],
+      "denominator": [
+        "common",
+        "immediate",
+        true,
+        [
+          "native-scan",
+          true
+        ]
+      ],
+      "median_ratio": 0.9015860844540814,
+      "interval": [
+        0.8698707283490545,
+        0.9699501273842691
+      ],
+      "two_rank_sensitivity": [
+        0.8678215906207939,
+        0.9722323945170442
+      ],
+      "status": "uncertain magnitude",
+      "numerator_median_ns": 9962518.5,
+      "denominator_median_ns": 10979098.0
+    },
+    {
+      "contrast": "reuse/rebuild",
+      "numerator": [
+        "common",
+        "all",
+        true,
+        [
+          "birth-miss",
+          true
+        ]
+      ],
+      "denominator": [
+        "common",
+        "all",
+        false,
+        [
+          "birth-miss",
+          true
+        ]
+      ],
+      "median_ratio": 0.7058731692653005,
+      "interval": [
+        0.6881476357309281,
+        0.7432970430443163
+      ],
+      "two_rank_sensitivity": [
+        0.680685202836552,
+        0.7477839699390485
+      ],
+      "status": "gain",
+      "numerator_median_ns": 9995354.5,
+      "denominator_median_ns": 14040417.0
+    },
+    {
+      "contrast": "reuse/rebuild",
+      "numerator": [
+        "common",
+        "all",
+        true,
+        [
+          "native-scan",
+          false
+        ]
+      ],
+      "denominator": [
+        "common",
+        "all",
+        false,
+        [
+          "native-scan",
+          false
+        ]
+      ],
+      "median_ratio": 0.7845906610809953,
+      "interval": [
+        0.7642808932059603,
+        0.8120046583127591
+      ],
+      "two_rank_sensitivity": [
+        0.7593443562482456,
+        0.8171572097354816
+      ],
+      "status": "gain",
+      "numerator_median_ns": 12366746.5,
+      "denominator_median_ns": 15792860.5
+    },
+    {
+      "contrast": "reuse/rebuild",
+      "numerator": [
+        "common",
+        "all",
+        true,
+        [
+          "native-scan",
+          true
+        ]
+      ],
+      "denominator": [
+        "common",
+        "all",
+        false,
+        [
+          "native-scan",
+          true
+        ]
+      ],
+      "median_ratio": 0.7318215712784744,
+      "interval": [
+        0.6874014096484974,
+        0.7604721571534244
+      ],
+      "two_rank_sensitivity": [
+        0.6828900035095928,
+        0.7688995586891035
+      ],
+      "status": "gain",
+      "numerator_median_ns": 11263499.0,
+      "denominator_median_ns": 15857981.0
+    },
+    {
+      "contrast": "demand/native",
+      "numerator": [
+        "common",
+        "all",
+        true,
+        [
+          "birth-miss",
+          true
+        ]
+      ],
+      "denominator": [
+        "common",
+        "all",
+        true,
+        [
+          "native-scan",
+          false
+        ]
+      ],
+      "median_ratio": 0.7854394938795624,
+      "interval": [
+        0.7619340378874647,
+        0.8407131318341086
+      ],
+      "two_rank_sensitivity": [
+        0.7561401336255966,
+        0.8459242666610781
+      ],
+      "status": "gain",
+      "numerator_median_ns": 9995354.5,
+      "denominator_median_ns": 12366746.5
+    },
+    {
+      "contrast": "demand/native",
+      "numerator": [
+        "common",
+        "all",
+        true,
+        [
+          "birth-miss",
+          true
+        ]
+      ],
+      "denominator": [
+        "common",
+        "all",
+        true,
+        [
+          "native-scan",
+          true
+        ]
+      ],
+      "median_ratio": 0.876334480303612,
+      "interval": [
+        0.8413933196219491,
+        0.9126515410404676
+      ],
+      "two_rank_sensitivity": [
+        0.8363563106922817,
+        0.9198080790314012
+      ],
+      "status": "uncertain magnitude",
+      "numerator_median_ns": 9995354.5,
+      "denominator_median_ns": 11263499.0
+    },
+    {
+      "contrast": "reuse/rebuild",
+      "numerator": [
+        "independent",
+        "immediate",
+        true,
+        [
+          "birth-miss",
+          true
+        ]
+      ],
+      "denominator": [
+        "independent",
+        "immediate",
+        false,
+        [
+          "birth-miss",
+          true
+        ]
+      ],
+      "median_ratio": 0.6507651910276719,
+      "interval": [
+        0.6031995393211069,
+        0.6671991761412517
+      ],
+      "two_rank_sensitivity": [
+        0.5971441444602765,
+        0.683638733479969
+      ],
+      "status": "gain",
+      "numerator_median_ns": 14699689.5,
+      "denominator_median_ns": 22626053.5
+    },
+    {
+      "contrast": "reuse/rebuild",
+      "numerator": [
+        "independent",
+        "immediate",
+        true,
+        [
+          "native-scan",
+          false
+        ]
+      ],
+      "denominator": [
+        "independent",
+        "immediate",
+        false,
+        [
+          "native-scan",
+          false
+        ]
+      ],
+      "median_ratio": 0.7461922993609482,
+      "interval": [
+        0.7022724480972435,
+        0.7784477382127987
+      ],
+      "two_rank_sensitivity": [
+        0.7015166926877119,
+        0.7961224175891621
+      ],
+      "status": "gain",
+      "numerator_median_ns": 17580620.5,
+      "denominator_median_ns": 23619150.0
+    },
+    {
+      "contrast": "reuse/rebuild",
+      "numerator": [
+        "independent",
+        "immediate",
+        true,
+        [
+          "native-scan",
+          true
+        ]
+      ],
+      "denominator": [
+        "independent",
+        "immediate",
+        false,
+        [
+          "native-scan",
+          true
+        ]
+      ],
+      "median_ratio": 0.664176432205661,
+      "interval": [
+        0.633405997819523,
+        0.6968243313219927
+      ],
+      "two_rank_sensitivity": [
+        0.6322324443772251,
+        0.7022446749670551
+      ],
+      "status": "gain",
+      "numerator_median_ns": 16394055.5,
+      "denominator_median_ns": 24680434.0
+    },
+    {
+      "contrast": "demand/native",
+      "numerator": [
+        "independent",
+        "immediate",
+        true,
+        [
+          "birth-miss",
+          true
+        ]
+      ],
+      "denominator": [
+        "independent",
+        "immediate",
+        true,
+        [
+          "native-scan",
+          false
+        ]
+      ],
+      "median_ratio": 0.8347864420384045,
+      "interval": [
+        0.7977741050427789,
+        0.8938956064255511
+      ],
+      "two_rank_sensitivity": [
+        0.7968519818542067,
+        0.8949964983370331
+      ],
+      "status": "gain",
+      "numerator_median_ns": 14699689.5,
+      "denominator_median_ns": 17580620.5
+    },
+    {
+      "contrast": "demand/native",
+      "numerator": [
+        "independent",
+        "immediate",
+        true,
+        [
+          "birth-miss",
+          true
+        ]
+      ],
+      "denominator": [
+        "independent",
+        "immediate",
+        true,
+        [
+          "native-scan",
+          true
+        ]
+      ],
+      "median_ratio": 0.8980056071827971,
+      "interval": [
+        0.8770638859276456,
+        0.9466181176071733
+      ],
+      "two_rank_sensitivity": [
+        0.8720406223572281,
+        0.9603084762531398
+      ],
+      "status": "uncertain magnitude",
+      "numerator_median_ns": 14699689.5,
+      "denominator_median_ns": 16394055.5
+    },
+    {
+      "contrast": "reuse/rebuild",
+      "numerator": [
+        "independent",
+        "all",
+        true,
+        [
+          "birth-miss",
+          true
+        ]
+      ],
+      "denominator": [
+        "independent",
+        "all",
+        false,
+        [
+          "birth-miss",
+          true
+        ]
+      ],
+      "median_ratio": 0.6695187503176379,
+      "interval": [
+        0.645438704216786,
+        0.6948737936636911
+      ],
+      "two_rank_sensitivity": [
+        0.6387137225287713,
+        0.6988711392135069
+      ],
+      "status": "gain",
+      "numerator_median_ns": 14709374.5,
+      "denominator_median_ns": 21810885.5
+    },
+    {
+      "contrast": "reuse/rebuild",
+      "numerator": [
+        "independent",
+        "all",
+        true,
+        [
+          "native-scan",
+          false
+        ]
+      ],
+      "denominator": [
+        "independent",
+        "all",
+        false,
+        [
+          "native-scan",
+          false
+        ]
+      ],
+      "median_ratio": 0.7464421530559707,
+      "interval": [
+        0.6938100003636386,
+        0.7744461981340158
+      ],
+      "two_rank_sensitivity": [
+        0.6833615528062712,
+        0.7860240734056543
+      ],
+      "status": "gain",
+      "numerator_median_ns": 18243895.0,
+      "denominator_median_ns": 24448957.0
+    },
+    {
+      "contrast": "reuse/rebuild",
+      "numerator": [
+        "independent",
+        "all",
+        true,
+        [
+          "native-scan",
+          true
+        ]
+      ],
+      "denominator": [
+        "independent",
+        "all",
+        false,
+        [
+          "native-scan",
+          true
+        ]
+      ],
+      "median_ratio": 0.6858259353246563,
+      "interval": [
+        0.670319273867097,
+        0.7209858495728403
+      ],
+      "two_rank_sensitivity": [
+        0.6671764813818997,
+        0.727796592346217
+      ],
+      "status": "gain",
+      "numerator_median_ns": 17467205.5,
+      "denominator_median_ns": 24883119.0
+    },
+    {
+      "contrast": "demand/native",
+      "numerator": [
+        "independent",
+        "all",
+        true,
+        [
+          "birth-miss",
+          true
+        ]
+      ],
+      "denominator": [
+        "independent",
+        "all",
+        true,
+        [
+          "native-scan",
+          false
+        ]
+      ],
+      "median_ratio": 0.7985561252098434,
+      "interval": [
+        0.7674788060006975,
+        0.8252468851862634
+      ],
+      "two_rank_sensitivity": [
+        0.7550363119965504,
+        0.8345969749219281
+      ],
+      "status": "gain",
+      "numerator_median_ns": 14709374.5,
+      "denominator_median_ns": 18243895.0
+    },
+    {
+      "contrast": "demand/native",
+      "numerator": [
+        "independent",
+        "all",
+        true,
+        [
+          "birth-miss",
+          true
+        ]
+      ],
+      "denominator": [
+        "independent",
+        "all",
+        true,
+        [
+          "native-scan",
+          true
+        ]
+      ],
+      "median_ratio": 0.8397195838768765,
+      "interval": [
+        0.8076003290393076,
+        0.8645306033606578
+      ],
+      "two_rank_sensitivity": [
+        0.7927628074768224,
+        0.8720815585750183
+      ],
+      "status": "gain",
+      "numerator_median_ns": 14709374.5,
+      "denominator_median_ns": 17467205.5
+    }
+  ]
+}

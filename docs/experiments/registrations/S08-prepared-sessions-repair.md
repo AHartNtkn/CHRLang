@@ -1,0 +1,7 @@
+# Repeat the prepared-session pilot after exact-arity export repair
+
+Use the complete [registered pilot](S08-prepared-sessions.md) unchanged:3,024 processes,252 cells, same modes, source queries, consumers, repetitions, limits, seed and analysis. Rebuild ordinary and metered binaries in separate repair targets; preserve prior binaries, archives and receipts. This registration precedes the comparative repair runs.
+
+The pilot's retained-all demand answers have456 spare bytes per answer on the common source. The independent capacity probe identifies this excess in known-arity output and resource vectors. Reserve their known lengths directly, including the residual-call output slot. No semantic, graph representation or consumer policy change. Predict lower demand consumer ownership and allocation traffic, with unchanged complete answers; controls should have identical requested allocations. Test this prediction rather than using the original export overhead to select an architecture.
+
+This remains five-sample pilot timing. No confirmed timing gain is inferred. Validate every original source before measurement, all measured answers and cancellation reuse, exact allocation repeats, complete disposal and RSS trajectories. Investigate any non-demand allocation difference or unexpected ownership growth. After the repaired pilot, choose a small registered timing confirmation where uncertainty could affect the complete-path decision. Native compilation and continuing-production costs remain distinct experiments.

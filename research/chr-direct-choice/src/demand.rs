@@ -1337,7 +1337,7 @@ impl Run {
                 self.force(id, ctx)?;
             }
         }
-        let mut outputs = vec![];
+        let mut outputs = Vec::with_capacity(self.outputs.len());
         for (name, id) in self.outputs.clone() {
             outputs.push((name, self.normal(id, ctx)?));
         }
@@ -1358,11 +1358,12 @@ impl Run {
             let Node::Call(name, args, output, _) = self.nodes[id].node.clone() else {
                 unreachable!("obligations are source calls")
             };
-            let mut args = args
-                .into_iter()
-                .map(|id| self.normal(id, ctx))
-                .collect::<Result<Vec<_>, _>>()?;
-            args.push(self.normal(output, ctx)?);
+            let mut terms = Vec::with_capacity(args.len() + 1);
+            for id in args {
+                terms.push(self.normal(id, ctx)?);
+            }
+            terms.push(self.normal(output, ctx)?);
+            let args = terms;
             residual.push(Constraint { name, args });
         }
         for id in 0..self.resources.len() {
@@ -1371,10 +1372,10 @@ impl Run {
             }
             let name = self.resources[id].constraint.clone();
             let ids = self.resources[id].args.clone();
-            let args = ids
-                .into_iter()
-                .map(|id| self.normal(id, ctx))
-                .collect::<Result<Vec<_>, _>>()?;
+            let mut args = Vec::with_capacity(ids.len());
+            for id in ids {
+                args.push(self.normal(id, ctx)?);
+            }
             residual.push(Constraint { name, args });
         }
         Ok(Answer { outputs, residual })
