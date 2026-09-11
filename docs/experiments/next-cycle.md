@@ -1,5 +1,7 @@
 # Experimental sequence for the unanswered architecture questions
 
+Complete incidence sources pass72 entry processes and300 ordinary timing processes. Vector/set timing is mostly unresolved; compiled wins all12 screens against each vector schedule. Even zero setup leaves broad full relational execution2.48–3.28x compiled. T072 next attributes execution/repair/readiness costs, then full portfolio review; package count three, goal active. [Source lifecycle result](results/S02-incidence-source-timing.md).
+
 Sorted incidence vectors pass broad merge/source gates and512 ownership processes. All96 relational comparisons lower requested and peak bytes; every non-incidence admission profile is unchanged. T072 next measures complete ordinary-allocator time with low-degree and high-degree source repair controls before selection; package count two, goal active. [Vector result](results/S02-incidence-vector-entry.md).
 
 Integrated admission attribution validates512 processes with exact diagnostic/control allocation agreement and full scalar answers. Incidence owns42–56% of relational setup requested bytes; constructor lookup owns2–4%. T072 next qualifies sorted-vector incidence buckets with broad-merge adverse controls before complete costs; package count one, goal active. [Attribution](results/S02-admission-attribution.md).

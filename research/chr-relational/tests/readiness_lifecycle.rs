@@ -112,19 +112,48 @@ struct QuerySample {
     advances: usize,
 }
 fn run<B: Backend>(depth: usize, shared: bool, outcome: &str, count: usize) {
-    let cancel = outcome == "cancel";
+    let cancel = outcome == "cancel" || outcome == "broad-cancel";
+    let broad = outcome.starts_with("broad-");
     let source_outcome = if cancel { "success" } else { outcome };
-    let (rules, _) = source::separated_source(depth, false, shared, source_outcome, 1);
+    let make_source = |n, tokens| {
+        if broad {
+            source::broad_source(n, shared, outcome == "broad-reverse", tokens)
+        } else {
+            source::separated_source(n, false, shared, source_outcome, tokens)
+        }
+    };
+    let (rules, _) = make_source(depth, 1);
     let queries: Vec<_> = (0..count)
-        .map(|i| {
-            source::separated_source(depth + i % 2, false, shared, source_outcome, 1 + i % 2).1
-        })
+        .map(|i| make_source(depth + i % 2, 1 + i % 2).1)
         .collect();
     // Scalar validation inputs/answers and result slots are resident before timing.
     let expected: Vec<_> = queries
         .iter()
         .map(|q| scalar::run(&rules, q, 100_000))
         .collect();
+    if broad {
+        for (i, answers) in expected.iter().enumerate() {
+            let mut residual = vec![];
+            for k in 0..depth + i % 2 {
+                for _ in 0..1 + i % 2 {
+                    residual.push(chr_syntax::c(
+                        "receipt",
+                        [chr_syntax::t(
+                            &format!("f{}", k % 4),
+                            [chr_syntax::atom("a"), chr_syntax::atom("a")],
+                        )],
+                    ));
+                }
+            }
+            scalar::same_raw(
+                answers.clone(),
+                vec![Answer {
+                    outputs: vec![],
+                    residual,
+                }],
+            );
+        }
+    }
     let mut samples = Vec::with_capacity(count);
     #[cfg(feature = "alloc-meter")]
     let baseline = meter::end(meter::begin()).live_end;
@@ -224,7 +253,18 @@ fn main() {
     let depth = args[2].parse().unwrap();
     let shared = args[3].parse().unwrap();
     let outcome = &args[4];
-    assert!(["success", "fail", "clash", "cancel"].contains(&outcome.as_str()));
+    assert!(
+        [
+            "success",
+            "fail",
+            "clash",
+            "cancel",
+            "broad-forward",
+            "broad-reverse",
+            "broad-cancel"
+        ]
+        .contains(&outcome.as_str())
+    );
     let count = args[5].parse().unwrap();
     assert!(count > 0);
     let sessions = args.get(6).map_or(1, |n| n.parse::<usize>().unwrap());

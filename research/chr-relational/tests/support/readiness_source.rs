@@ -83,3 +83,51 @@ pub fn separated_source(
         },
     )
 }
+
+/// Many distinct occurrences converge on one value; constructor facts may coalesce.
+pub fn broad_source(
+    width: usize,
+    reverse_insert: bool,
+    reverse_merge: bool,
+    tokens: usize,
+) -> (Vec<Rule>, Query) {
+    let rules = vec![
+        Rule::simplify("bind", [c("bind", [v(0)])], eq(v(0), atom("a"))),
+        Rule::simplify(
+            "consume",
+            [c("edge", [v(0), v(0), v(1)])],
+            c("receipt", [v(1)]).into(),
+        ),
+    ];
+    let mut constraints = vec![];
+    let mut order = (0..width).collect::<Vec<_>>();
+    if reverse_insert {
+        order.reverse();
+    }
+    for i in order {
+        for _ in 0..tokens {
+            constraints.push(c(
+                "edge",
+                [
+                    v(i as u64),
+                    v(i as u64),
+                    t(&format!("f{}", i % 4), [v(i as u64), v(i as u64)]),
+                ],
+            ));
+        }
+    }
+    let mut order = (0..width).collect::<Vec<_>>();
+    if reverse_merge {
+        order.reverse();
+    }
+    for i in order {
+        constraints.push(c("bind", [v(i as u64)]));
+    }
+    (
+        rules,
+        Query {
+            constraints,
+            outputs: vec![],
+        },
+    )
+}
