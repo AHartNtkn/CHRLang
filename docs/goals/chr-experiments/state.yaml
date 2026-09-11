@@ -9,7 +9,7 @@ goal:
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
   execution_sequence: docs/experiments/next-cycle.md
-  current_research: "Timing qualification exposed address-ordered template memo allocation. Stable derivation-local expression IDs now pass32 tests and768 source runs with384 exact observer-layout ownership pairs. No timing verdict is accepted from the failed campaign. Full57-question review keeps T074 active for fresh gated timing of repaired variants; review count reset, goal active."
+  current_research: "Repaired timing passes384 ownership entries and16,000 sessions. Answer caching qualifies in2/64 dependency cases and0/64 template cases; cached templates beat Direct in five small pure cases without establishing a cache cause. Full57-question review selects T073 matched source simplification across existing explicit/graph paths; T074 remains pending, review count reset, goal active."
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -64,7 +64,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T074
+active_task: T073
 tasks:
   - id: T081
     type: pm
@@ -442,9 +442,9 @@ tasks:
   - id: T074
     type: pm
     assignee: PM
-    status: active
-    progress: "Timing qualification exposed address-ordered template memo allocation. Stable derivation-local expression IDs now pass32 tests and768 source runs with384 exact observer-layout ownership pairs. No timing verdict is accepted from the failed campaign. Full57-question review keeps T074 active for fresh gated timing of repaired variants; review count reset, goal active."
-    next_action: Register fresh ordinary answer-validity timing using stable expression IDs. Revalidate metered entries against repaired ownership receipts and enforce that gate before warmups or comparative runs. Preserve cache-off/on graph/direct, lookup/seeking, failed-tail, resource, changed-query and zero-support controls. Investigate contrary results and reassess the portfolio afterward. Review count reset.
+    status: pending
+    progress: "Repaired timing passes384 ownership entries and16,000 sessions. Answer caching qualifies in2/64 dependency cases and0/64 template cases; cached templates beat Direct in five small pure cases without establishing a cache cause. Full57-question review selects T073 matched source simplification across existing explicit/graph paths; T074 remains pending, review count reset, goal active."
+    next_action: "Retain the qualified within-answer cache as conditional evidence. Broader context/result validity, template ownership, sustained histories and cancellation remain required. Reassess after T073 separates source simplification from graph ownership; no universal cache policy is selected."
     objective: Investigate sustained answer delivery, consumer ownership and engine retention across credible graph, compiled and reuse controls, including immediate release, bounded retention, changing queries, cancellation and reclamation costs under independently checked source semantics.
     inputs:
       - docs/experiments/results/S10-static-control.md
@@ -500,9 +500,9 @@ tasks:
   - id: T073
     type: pm
     assignee: PM
-    status: pending
-    progress: "Resource-phase cost pilot validates 1920 processes: all 16 larger/reused scenarios gain against four whole-source controls; eight small scenarios remain unresolved against specialized scanning. Allocation-adverse output-heavy cases still gain in runtime with lower peaks. Package three after matched-reuse breadth review. T077 adaptive separation is next; goal active."
-    next_action: "Carry the composed capacity phase into broader source, sustained-lifetime and complete architecture comparisons. Preserve small-query timing uncertainty; revisit it when a concrete routing policy or threshold could change the decision. General resource eligibility, compiler accounting and richer lowering remain required. Reassess at the T077 adaptive source/progress gate or obstruction."
+    status: active
+    progress: "Repaired timing passes384 ownership entries and16,000 sessions. Answer caching qualifies in2/64 dependency cases and0/64 template cases; cached templates beat Direct in five small pure cases without establishing a cache cause. Full57-question review selects T073 matched source simplification across existing explicit/graph paths; T074 remains pending, review count reset, goal active."
+    next_action: "Inspect template derivation and existing explicit/static-contraction interfaces; register a matched source-simplification gate without introducing a new general baseline. Preserve resources, choices, aliases, output and progress across known/unknown inputs, repeated/distinct calls, failed tails and competing consumers. Qualify independent raw correspondence before complete preparation/execution/ownership costs. Compare coarser recognition and solving at the gate. Review count reset."
     objective: Derive a source-driven lowering transformation beyond exact schemas, with explicit dependency/resource conditions, independent complete-answer checks and consequential language-property boundaries before cost measurement.
     inputs:
       - docs/experiments/results/S06-capacity-phase-costs.md
@@ -2688,8 +2688,10 @@ checks:
   last_verification:
     result: passed
     task: T074
-    scope: Stable template expression identity and exact observer-layout ownership challenge; failed timing campaign retained without verdict.
+    scope: Repaired ordinary answer-validity timing and early full portfolio review.
     commands:
+      - "answer_validity_timing.py --stable-ids --audit: 384 exact entry checks before timing, 3200 processes,16000 sessions,640 contrasts"
+      - "Retained contrary-block inspection; repaired ownership confirms128 graph requested increases and64 peak increases"
       - "template_expression_ids.py --audit: 768 sources, 384 exact observer-layout pairs, full answers and ownership restoration"
       - "32 graph/context tests and scoped Clippy with stable IDs and answer validity"
       - "answer-validity timing rejected by40/384 historical ownership mismatches; no timing verdict accepted"
@@ -2727,6 +2729,8 @@ checks:
       - "audit_probe_clock.py: 18000 separately instrumented complete sessions"
       - Scoped ordinary, allocation and CPU-clock Clippy; source hashes, report links and 57-question map
     evidence:
+      - docs/experiments/results/S08-answer-validity-stable-timing.md
+      - docs/experiments/results/S08-answer-validity-timing-review.md
       - docs/experiments/results/S08-template-expression-ids.md
       - docs/experiments/results/S08-expression-ids-review.md
       - docs/experiments/results/s08-answer-validity-timing/outcome.json

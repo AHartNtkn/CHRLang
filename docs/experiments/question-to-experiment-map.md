@@ -1,5 +1,7 @@
 # What experiment answers each reviewed design question?
 
+Repaired timing passes384 ownership entries and16,000 sessions. Answer caching qualifies in2/64 dependency cases and0/64 template cases; cached templates beat Direct in five small pure cases without establishing a cache cause. Full57-question review selects T073 matched source simplification across existing explicit/graph paths; T074 remains pending, review count reset, goal active. [Timing result](results/S08-answer-validity-stable-timing.md) · [Portfolio review](results/S08-answer-validity-timing-review.md).
+
 Timing qualification exposed address-ordered template memo allocation. Stable derivation-local expression IDs now pass32 tests and768 source runs with384 exact observer-layout ownership pairs. No timing verdict is accepted from the failed campaign. Full57-question review keeps T074 active for fresh gated timing of repaired variants; review count reset, goal active. [Identity repair](results/S08-template-expression-ids.md) · [Portfolio review](results/S08-expression-ids-review.md).
 
 Within-answer validity reuse passes source/retry/cycle gates and768 ownership processes. All128 graph configurations avoid second-pass checks; all request16–10,938 extra bytes and64 peak higher. Other caller work and direct controls are unchanged. T074 next measures ordinary complete lifecycle time with adverse controls, then full portfolio review; package count three, goal active. [Answer-validity result](results/S08-answer-validity.md).

@@ -3,7 +3,8 @@ import gzip,hashlib,itertools,json,os,random,resource,shutil,statistics,subproce
 from pathlib import Path
 sys.dont_write_bytecode=True
 from validity_callers import normalized
-ROOT=Path(__file__).resolve().parents[3];OUT=ROOT/'docs/experiments/results/s08-answer-validity-timing';CPU=min(os.sched_getaffinity(0));VARIANTS=[('dependencies',False),('dependencies',True),('templates',False),('templates',True),('direct',False)]
+STABLE='--stable-ids' in sys.argv
+ROOT=Path(__file__).resolve().parents[3];OUT=ROOT/('docs/experiments/results/s08-answer-validity-stable-timing' if STABLE else 'docs/experiments/results/s08-answer-validity-timing');CPU=min(os.sched_getaffinity(0));VARIANTS=[('dependencies',False),('dependencies',True),('templates',False),('templates',True),('direct',False)]
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def limits():
  os.sched_setaffinity(0,{CPU});resource.setrlimit(resource.RLIMIT_AS,(1<<30,1<<30));resource.setrlimit(resource.RLIMIT_CPU,(60,60))
@@ -12,10 +13,14 @@ def invoke(b,case,sessions):
  rows=[json.loads(x) for x in r.stdout.splitlines()];assert len(rows)==sessions and all(d['validated'] and not d['profiled'] for d in rows);return rows
 def audit_entries():
  old={}
- for cache,folder in [(False,'s08-validity-callers'),(True,'s08-answer-validity')]:
-  for r in map(json.loads,gzip.open(ROOT/f'docs/experiments/results/{folder}/runs.jsonl.gz','rt')):
-   j=r['job']
-   if not j['profile']:old[cache,j['context'],tuple(j['case'])]=(normalized(r['result']),r['result']['answers'])
+ if STABLE:
+  for r in map(json.loads,gzip.open(ROOT/'docs/experiments/results/s08-template-expression-ids/runs.jsonl.gz','rt')):
+   j=r['job'];old[j['cache'],j['context'],tuple(j['case'])]=(normalized(r['result']),r['result']['answers'])
+ else:
+  for cache,folder in [(False,'s08-validity-callers'),(True,'s08-answer-validity')]:
+   for r in map(json.loads,gzip.open(ROOT/f'docs/experiments/results/{folder}/runs.jsonl.gz','rt')):
+    j=r['job']
+    if not j['profile']:old[cache,j['context'],tuple(j['case'])]=(normalized(r['result']),r['result']['answers'])
  entries=[json.loads(x) for x in gzip.open(OUT/'entries.jsonl.gz','rt')];assert len(entries)==384
  for r in entries:assert (normalized(r['result']),r['result']['answers'])==old[r['cache'],r['context'],tuple(r['case'])]
 def audit():
@@ -43,13 +48,14 @@ def run():
  for context,cache,meter in itertools.product(['lookup','seeking'],[False,True],[False,True]):
   features='chr-direct-choice/completed-traversal'+(',chr-direct-choice/seek-context' if context=='seeking' else '')+(',chr-direct-choice/answer-validity' if cache else '')+(',alloc-meter' if meter else '')
   cmd=['cargo','build','-p','chr-reuse','--release','--no-default-features','--features',features,'--example','validity_sources'];r=subprocess.run(cmd,capture_output=True,text=True);name=f'{context}-{cache}-{meter}';(OUT/f'build-{name}.log').write_text(r.stderr);assert r.returncode==0
-  b=ROOT/f'target/answer-validity-time-{name}';shutil.copy2(ROOT/'target/release/examples/validity_sources',b);builds[name]=dict(binary=str(b),sha256=sha(b),command=cmd);print('built',name,flush=True)
+  b=ROOT/f'target/answer-validity-{"stable-" if STABLE else ""}time-{name}';shutil.copy2(ROOT/'target/release/examples/validity_sources',b);builds[name]=dict(binary=str(b),sha256=sha(b),command=cmd);print('built',name,flush=True)
  sources=list(itertools.product(['repeated','distinct'],[False,True],[False,True],[8,32],[False,True]));groups=[(c,*s) for c,s in itertools.product(['lookup','seeking'],sources)];jobs=[];rng=random.Random(7412)
  for block in range(10):
   order=list(enumerate(groups));rng.shuffle(order)
   for i,g in order:
    for v in [(i+block+j)%5 for j in range(5)]:jobs.append(dict(group=g,variant=v,block=block))
  paths=subprocess.check_output(['git','ls-files','research/chr-reuse','research/chr-direct-choice','research/chr-direct-conditional','research/chr-compiled','research/chr-persistent','research/chr-observe','crates/chr-syntax','Cargo.toml','Cargo.lock'],text=True).splitlines()+[str(Path(__file__).relative_to(ROOT)),'docs/experiments/registrations/S08-answer-validity-timing.md']
+ if STABLE: paths += ['docs/experiments/registrations/S08-answer-validity-stable-timing.md']
  with zipfile.ZipFile(OUT/'sources.zip','w',zipfile.ZIP_DEFLATED) as z:
   for p in sorted(set(paths)):z.write(ROOT/p,p)
  (OUT/'freeze.json').write_text(json.dumps(dict(builds=builds,jobs=jobs,cpu=CPU,source_hash=sha(OUT/'sources.zip'),rustc=subprocess.check_output(['rustc','-Vv'],text=True)),indent=2)+'\n')
