@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/home/ahart/Documents/CHRLang/target/s06-connected-repair-meter/release/examples/connected_cost",
+    "enumerate",
+    "star",
+    "6",
+    "0",
+    "1",
+    "1",
+    "0",
+    "1"
+  ],
+  "returncode": 0,
+  "stdout": "{\"total_ns\":20305,\"clock_floor\":2800,\"metered\":true}\n{\"phase\":\"consumer_create\",\"ns\":115,\"memory\":{\"live_start\":6639,\"live_end\":6663,\"peak_live\":6663,\"allocation_calls\":1,\"requested_bytes\":24,\"deallocation_calls\":0}}\n{\"phase\":\"source\",\"ns\":3117,\"memory\":{\"live_start\":6663,\"live_end\":8745,\"peak_live\":9084,\"allocation_calls\":32,\"requested_bytes\":2837,\"deallocation_calls\":5}}\n{\"phase\":\"prepare\",\"ns\":6968,\"memory\":{\"live_start\":8745,\"live_end\":10927,\"peak_live\":11935,\"allocation_calls\":80,\"requested_bytes\":4470,\"deallocation_calls\":40}}\n{\"phase\":\"source_dispose\",\"ns\":843,\"memory\":{\"live_start\":10927,\"live_end\":8845,\"peak_live\":10927,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":26}}\n{\"phase\":\"input\",\"ns\":47,\"memory\":{\"live_start\":8845,\"live_end\":8845,\"peak_live\":8845,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":0}}\n{\"phase\":\"setup\",\"ns\":372,\"memory\":{\"live_start\":8845,\"live_end\":9011,\"peak_live\":9011,\"allocation_calls\":3,\"requested_bytes\":166,\"deallocation_calls\":0}}\n{\"phase\":\"consumer_buffer\",\"ns\":86,\"memory\":{\"live_start\":9011,\"live_end\":9443,\"peak_live\":9443,\"allocation_calls\":1,\"requested_bytes\":432,\"deallocation_calls\":0}}\n{\"phase\":\"first\",\"ns\":1679,\"memory\":{\"live_start\":9443,\"live_end\":9592,\"peak_live\":9593,\"allocation_calls\":6,\"requested_bytes\":151,\"deallocation_calls\":1}}\n{\"phase\":\"remaining\",\"ns\":44,\"memory\":{\"live_start\":9592,\"live_end\":9592,\"peak_live\":9592,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":0}}\n{\"phase\":\"engine_dispose\",\"ns\":299,\"memory\":{\"live_start\":9592,\"live_end\":9424,\"peak_live\":9592,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":4}}\n{\"phase\":\"input_dispose\",\"ns\":252,\"memory\":{\"live_start\":9424,\"live_end\":9424,\"peak_live\":9424,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":0}}\n{\"phase\":\"consume\",\"ns\":5562,\"memory\":{\"live_start\":9424,\"live_end\":8845,\"peak_live\":9424,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":5}}\n{\"phase\":\"prepared_dispose\",\"ns\":850,\"memory\":{\"live_start\":8845,\"live_end\":6663,\"peak_live\":8845,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":39}}\n{\"phase\":\"consumer_dispose\",\"ns\":71,\"memory\":{\"live_start\":6663,\"live_end\":6639,\"peak_live\":6663,\"allocation_calls\":0,\"requested_bytes\":0,\"deallocation_calls\":1}}\n",
+  "stderr": "",
+  "wall_seconds": 0.0022237490629777312
+}

@@ -1,5 +1,7 @@
 # Why designs were set aside—and what the experiments actually establish
 
+Repaired connected costs validate 1,152 allocation and 5,760 ordinary processes. Direct ground evaluation qualifies faster than original projection in 55/64 unequal-name cases, but in none against enumeration. Requested bytes fall while peak ownership is unchanged. Full 57-question review selects T075 scheduling-preserving whole-call recognition; T076 remains pending, review count reset, goal active. [Repaired costs](S06-connected-repair-costs.md) · [Portfolio review](S06-connected-repair-review.md).
+
 Connected preparation attribution validates 480 source-checked processes. Unequal-name relation construction owns 68–70% of preparation; six-variable clique elimination owns 65–66%. Direct ground Name/Different evaluation passes 28 tests in both configurations and reduces profiled relation cost. T076 next measures complete repaired costs against frozen projection and enumeration; package count three, full portfolio review after next package, goal active. [Preparation attribution](S06-connected-preparation.md).
 
 Connected lifecycle pilot validates 768 exact allocation runs and 3,840 ordinary sessions. Projection loses 188 of 192 comparisons; four remain unresolved, with all runs retained. Preparation accounts for 70–95% of projection time, and unequal-name query execution sometimes improves. T076 next attributes preparation before selecting a repair; ordered transport remains required. Package count two, goal active. [Connected costs](S06-connected-cost-pilot.md).
