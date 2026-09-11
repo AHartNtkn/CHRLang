@@ -1,6 +1,6 @@
 # What experiment answers each reviewed design question?
 
-Lazy weighted output completes 5,376 allocation/timing processes and reduces requested allocation versus eager projection in all 192 scenarios. All sixteen unequal-name cases at 256 queries beat enumeration, including cancellation. Portfolio review selects consuming-caller delivery under T076; review count reset, goal active. [Lazy output](results/S06-lazy-weighted.md) · [Portfolio decision](results/S06-lazy-weighted-review.md).
+Projected-caller experiments find 120 early-binding answer differences and 24 sorted-delivery differences across 216 cases. Retaining source choices and binding steps matches 4,560 reference checkpoints and all raw bags. T076 next investigates contracting connected hidden work while preserving caller observations; package count one, goal active. [Caller experiment](results/S06-projected-caller.md).
 
 Generated runtime timing validates 10,080 processes and 1,152 comparisons. Four repeated-query cases qualify faster with traces than all six controls; generated matching qualifies against generic indexed execution in fifteen cases. Stronger-control diagnostics leave generated-plus-inferred gains uncertain and select longer prepared sessions plus compiler amortization including Direct, scan and inferred controls. T075 active; package count one, goal active. [Generated runtime](results/S05-call-generated-timing.md).
 

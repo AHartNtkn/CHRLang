@@ -9,7 +9,7 @@ goal:
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
   execution_sequence: docs/experiments/next-cycle.md
-  current_research: "Lazy weighted output completes 5,376 allocation/timing processes and reduces requested allocation versus eager projection in all 192 scenarios. All sixteen unequal-name cases at 256 queries beat enumeration, including cancellation. Portfolio review selects consuming-caller delivery under T076; review count reset, goal active."
+  current_research: "Projected-caller experiments find 120 early-binding answer differences and 24 sorted-delivery differences across 216 cases. Retaining source choices and binding steps matches 4,560 reference checkpoints and all raw bags. T076 next investigates contracting connected hidden work while preserving caller observations; package count one, goal active."
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -295,10 +295,12 @@ tasks:
     type: pm
     assignee: PM
     status: active
-    progress: "Lazy weighted output completes 5,376 allocation/timing processes and reduces requested allocation versus eager projection in all 192 scenarios. All sixteen unequal-name cases at 256 queries beat enumeration, including cancellation. Portfolio review selects consuming-caller delivery under T076; review count reset, goal active."
-    next_action: "Register delivery of projected weighted results into an ordinary consuming caller, reusing source/reference and scarce-resource fixtures. Compare full raw multiplicity, source order, cancellation, held answers and competing consumption; distinguish logical weighted observation from operational source behavior. Modify fixtures and transport to investigate each consequential difference instead of treating current interfaces as language restrictions. Compare against competent enumeration before complete lifecycle timing. Reconsider broader call observers, selective retention and preparation changes at the result or obstruction; review count reset."
+    progress: "Projected-caller experiments find 120 early-binding answer differences and 24 sorted-delivery differences across 216 cases. Retaining source choices and binding steps matches 4,560 reference checkpoints and all raw bags. T076 next investigates contracting connected hidden work while preserving caller observations; package count one, goal active."
+    next_action: "Register connected hidden-variable searches inside the consuming caller. Compare retaining all source choice steps with contracting hidden work while preserving observed binding, ordered delivery, cancellation and resource consumption. Implement the needed scheduling mechanism, validate against source controls and then measure complete costs against competent enumeration. Reconsider broader call observers and selective retention at the result or obstruction; package count one since the portfolio review."
     objective: Investigate compact finite structural spaces, intersection and finite path equality against explicit enumeration, with independently specified denotation, source multiplicity correspondence, favorable and adverse sources and complete lifecycle costs.
     inputs:
+      - docs/experiments/results/S06-projected-caller.md
+      - docs/experiments/registrations/S06-projected-caller.md
       - docs/experiments/results/S06-lazy-weighted.md
       - docs/experiments/results/S06-lazy-weighted-review.md
       - docs/experiments/registrations/S06-lazy-weighted.md
@@ -2712,8 +2714,10 @@ checks:
   last_verification:
     result: passed
     task: T076
-    scope: Lazy weighted output, upfront errors and complete lifecycle costs.
+    scope: Projected-caller consumption, raw multiplicity, ordered delivery and retained source scheduling.
     commands:
+      - "projected_caller default/off: 216 cases, 120 early-binding bag differences, 24 sorted-order differences, 4560 repaired checkpoints; cancellation/restarts and held answers pass"
+      - "20 caller/projection/connected-source tests pass in default and counter-free configurations; counter-free projected_caller Clippy passes"
       - "sparse_cost.py lazy:1536 allocation and3840 ordinary runs;576 clock-qualified comparisons, repeated ownership and full release"
       - "Projection and connected tests pass default/off; lazy tuple order, aliases, restrictions, cancellation and held results agree with independent answers"
       - "Upfront later-overflow, valid restrictions, zero annihilation and query bound/error parity tests pass"
