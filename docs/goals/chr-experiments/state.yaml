@@ -9,7 +9,7 @@ goal:
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
   execution_sequence: docs/experiments/next-cycle.md
-  current_research: "Projected-caller experiments find 120 early-binding answer differences and 24 sorted-delivery differences across 216 cases. Retaining source choices and binding steps matches 4,560 reference checkpoints and all raw bags. T076 next investigates contracting connected hidden work while preserving caller observations; package count one, goal active."
+  current_research: "Ordered hidden contraction preserves 192 complete raw caller sequences while admitting 9600 of 26112 Cartesian assignments. Unequal branch lengths require work-first ordering; the repaired merge passes. T076 next measures complete caller costs against matched enumeration and source execution; package count two, goal active."
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -295,10 +295,12 @@ tasks:
     type: pm
     assignee: PM
     status: active
-    progress: "Projected-caller experiments find 120 early-binding answer differences and 24 sorted-delivery differences across 216 cases. Retaining source choices and binding steps matches 4,560 reference checkpoints and all raw bags. T076 next investigates contracting connected hidden work while preserving caller observations; package count one, goal active."
-    next_action: "Register connected hidden-variable searches inside the consuming caller. Compare retaining all source choice steps with contracting hidden work while preserving observed binding, ordered delivery, cancellation and resource consumption. Implement the needed scheduling mechanism, validate against source controls and then measure complete costs against competent enumeration. Reconsider broader call observers and selective retention at the result or obstruction; package count one since the portfolio review."
+    progress: "Ordered hidden contraction preserves 192 complete raw caller sequences while admitting 9600 of 26112 Cartesian assignments. Unequal branch lengths require work-first ordering; the repaired merge passes. T076 next measures complete caller costs against matched enumeration and source execution; package count two, goal active."
+    next_action: "Register complete ordered-caller lifecycle costs against enumeration with the same work-first ordering and caller execution, plus source execution. Include sparse and dense relations, small cases, cancellation and held answers. Charge projection, allowed lists, frontier, visited positions and all disposal. Use separate counter-free ordinary timing and allocation diagnostics. Investigate consequential ownership or timing results; reconsider broader call observers and selective retention at the result or obstruction. Package count two since portfolio review."
     objective: Investigate compact finite structural spaces, intersection and finite path equality against explicit enumeration, with independently specified denotation, source multiplicity correspondence, favorable and adverse sources and complete lifecycle costs.
     inputs:
+      - docs/experiments/results/S06-ordered-hidden.md
+      - docs/experiments/registrations/S06-ordered-hidden.md
       - docs/experiments/results/S06-projected-caller.md
       - docs/experiments/registrations/S06-projected-caller.md
       - docs/experiments/results/S06-lazy-weighted.md
@@ -2714,8 +2716,10 @@ checks:
   last_verification:
     result: passed
     task: T076
-    scope: Projected-caller consumption, raw multiplicity, ordered delivery and retained source scheduling.
+    scope: Ordered connected hidden contraction and unequal-length source challenge.
     commands:
+      - "ordered_hidden default/off passes; 21 relevant counter-free tests and scoped Clippy pass"
+      - "ordered_hidden: 192 raw ordered caller sequences; 9600 admitted of 26112 source assignments; all answer-boundary cancellations/restarts and producer disposal checked"
       - "projected_caller default/off: 216 cases, 120 early-binding bag differences, 24 sorted-order differences, 4560 repaired checkpoints; cancellation/restarts and held answers pass"
       - "20 caller/projection/connected-source tests pass in default and counter-free configurations; counter-free projected_caller Clippy passes"
       - "sparse_cost.py lazy:1536 allocation and3840 ordinary runs;576 clock-qualified comparisons, repeated ownership and full release"
