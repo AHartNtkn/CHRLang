@@ -446,3 +446,26 @@ fn failed_partner_extensions_do_not_leak_into_later_candidates() {
         }],
     );
 }
+
+#[test]
+fn inert_query_facts_preserve_occurrences_and_output_aliases() {
+    check(
+        vec![],
+        Query {
+            constraints: vec![
+                c("inert", [v(100), v(100)]),
+                c("inert", [v(100), v(100)]),
+                c("tag", [atom("q0")]),
+            ],
+            outputs: vec![("out".into(), Var(100))],
+        },
+        vec![Answer {
+            outputs: vec![("out".into(), v(700))],
+            residual: vec![
+                c("inert", [v(700), v(700)]),
+                c("inert", [v(700), v(700)]),
+                c("tag", [atom("q0")]),
+            ],
+        }],
+    );
+}

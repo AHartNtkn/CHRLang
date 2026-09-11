@@ -1,0 +1,76 @@
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+warning: unused variable: `demand_rules`
+  --> research/chr-direct-conditional/tests/post_continuation.rs:53:25
+   |
+53 |                     let demand_rules = value_choices::lower(initialized.rules());
+   |                         ^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_demand_rules`
+   |
+   = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: `chr-direct-conditional` (test "post_continuation") generated 1 warning (run `cargo fix --test "post_continuation" -p chr-direct-conditional` to apply 1 suggestion)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.37s
+     Running tests/post_continuation.rs (target/debug/deps/post_continuation-7138f2083311ec9b)
+
+running 1 test
+CASE,common,0,0,false,false,0
+WORK,common,0,0,false,false,0,explicit=0,conditional=0
+CASE,common,0,0,false,false,1
+WORK,common,0,0,false,false,1,explicit=0,conditional=0
+CASE,common,0,0,false,true,0
+WORK,common,0,0,false,true,0,explicit=0,conditional=0
+CASE,common,0,0,false,true,1
+WORK,common,0,0,false,true,1,explicit=0,conditional=0
+CASE,common,0,0,true,false,0
+WORK,common,0,0,true,false,0,explicit=0,conditional=0
+CASE,common,0,0,true,false,1
+WORK,common,0,0,true,false,1,explicit=0,conditional=0
+CASE,common,0,0,true,true,0
+WORK,common,0,0,true,true,0,explicit=0,conditional=0
+CASE,common,0,0,true,true,1
+WORK,common,0,0,true,true,1,explicit=0,conditional=0
+CASE,common,0,4,false,false,0
+WORK,common,0,4,false,false,0,explicit=4,conditional=4
+CASE,common,0,4,false,false,1
+WORK,common,0,4,false,false,1,explicit=4,conditional=4
+CASE,common,0,4,false,true,0
+WORK,common,0,4,false,true,0,explicit=4,conditional=4
+CASE,common,0,4,false,true,1
+WORK,common,0,4,false,true,1,explicit=4,conditional=4
+CASE,common,0,4,true,false,0
+WORK,common,0,4,true,false,0,explicit=4,conditional=4
+CASE,common,0,4,true,false,1
+WORK,common,0,4,true,false,1,explicit=4,conditional=4
+CASE,common,0,4,true,true,0
+WORK,common,0,4,true,true,0,explicit=4,conditional=4
+CASE,common,0,4,true,true,1
+WORK,common,0,4,true,true,1,explicit=4,conditional=4
+CASE,common,0,16,false,false,0
+WORK,common,0,16,false,false,0,explicit=16,conditional=16
+CASE,common,0,16,false,false,1
+WORK,common,0,16,false,false,1,explicit=16,conditional=16
+CASE,common,0,16,false,true,0
+WORK,common,0,16,false,true,0,explicit=16,conditional=16
+CASE,common,0,16,false,true,1
+WORK,common,0,16,false,true,1,explicit=16,conditional=16
+CASE,common,0,16,true,false,0
+WORK,common,0,16,true,false,0,explicit=16,conditional=16
+CASE,common,0,16,true,false,1
+WORK,common,0,16,true,false,1,explicit=16,conditional=16
+CASE,common,0,16,true,true,0
+WORK,common,0,16,true,true,0,explicit=16,conditional=16
+CASE,common,0,16,true,true,1
+WORK,common,0,16,true,true,1,explicit=16,conditional=16
+
+thread 'mixed_posts_preserve_complete_continuations_and_record_capability' (116) panicked at research/chr-direct-conditional/tests/post_continuation.rs:60:30:
+called `Result::unwrap()` on an `Err` value: "body prefix must contain fresh-output calls"
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test mixed_posts_preserve_complete_continuations_and_record_capability ... FAILED
+
+failures:
+
+failures:
+    mixed_posts_preserve_complete_continuations_and_record_capability
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.09s
+
+error: test failed, to rerun pass `-p chr-direct-conditional --test post_continuation`

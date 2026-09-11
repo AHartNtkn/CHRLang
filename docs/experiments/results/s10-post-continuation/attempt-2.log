@@ -1,0 +1,22 @@
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.27s
+     Running tests/post_continuation.rs (target/debug/deps/post_continuation-7138f2083311ec9b)
+
+running 1 test
+ADMISSION,common,0,0,false,demand=true,resource_count=no certified private traversal and entry
+CASE,common,0,0,false,false,0
+WORK,common,0,0,false,false,0,explicit=0,conditional=0
+
+thread 'mixed_posts_preserve_complete_continuations_and_record_capability' (116) panicked at research/chr-direct-conditional/tests/post_continuation.rs:182:74:
+called `Result::unwrap()` on an `Err` value: "query requires variable call outputs"
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test mixed_posts_preserve_complete_continuations_and_record_capability ... FAILED
+
+failures:
+
+failures:
+    mixed_posts_preserve_complete_continuations_and_record_capability
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p chr-direct-conditional --test post_continuation`

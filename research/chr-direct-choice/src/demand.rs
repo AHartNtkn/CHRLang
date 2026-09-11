@@ -53,7 +53,7 @@ pub struct Prepared {
     reuse: Reuse,
     pull_tabs: bool,
     clauses: Rc<Vec<Clause>>,
-    resource_signatures: BTreeSet<(String, usize)>,
+    call_signatures: BTreeSet<(String, usize)>,
 }
 #[derive(Clone)]
 enum Node {
@@ -433,7 +433,10 @@ impl Prepared {
             reuse,
             pull_tabs: false,
             clauses: Rc::new(clauses),
-            resource_signatures,
+            call_signatures: signatures
+                .into_iter()
+                .map(|(name, inputs)| (name, inputs + 1))
+                .collect(),
         })
     }
     /// Reuse residual source derivations; instantiate fresh identities per application.
@@ -478,8 +481,8 @@ impl Prepared {
         let mut writers = BTreeSet::new();
         let mut edges = BTreeMap::new();
         for c in &query.constraints {
-            if self
-                .resource_signatures
+            if !self
+                .call_signatures
                 .contains(&(c.name.clone(), c.args.len()))
             {
                 continue;
@@ -489,13 +492,6 @@ impl Prepared {
             };
             if !writers.insert(*out) {
                 return Err("query output has multiple writers".into());
-            }
-            if !self
-                .clauses
-                .iter()
-                .any(|cl| cl.name == c.name && cl.inputs.len() + 1 == c.args.len())
-            {
-                return Err("query contains an unchecked predicate".into());
             }
             let mut deps = vec![];
             for t in &c.args[..c.args.len() - 1] {
@@ -509,8 +505,8 @@ impl Prepared {
             }
         }
         for c in query.constraints {
-            if self
-                .resource_signatures
+            if !self
+                .call_signatures
                 .contains(&(c.name.clone(), c.args.len()))
             {
                 let args = c.args.iter().map(|t| run.term(t, &mut env)).collect();

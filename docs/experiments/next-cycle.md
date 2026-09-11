@@ -8,9 +8,9 @@ This sequence covers the [57 reviewed questions](question-to-experiment-map.md) 
 
 ## Start here: the next experiments
 
-**1. Test mixed-source complete paths — T078, specification 12.** The [full portfolio review](results/S03-candidate-borrow-review.md) selects sources combining nonground posts with substantial consuming continuations. Qualify the repaired demand policies, direct conditional execution and existing generated/activation controls against independent complete observations. Include source-derived elimination where its actual certificate applies. Exercise common work, independent work, early failure, history, fresh aliases and changing queries. Establish actual capabilities and work before registering complete lifecycle costs.
+**1. Measure mixed-source complete paths — T078, specification 12.** The [mixed-source gate](results/S10-post-continuation.md) qualifies original and counted execution through strong explicit controls, conditional execution and all three demand policies. Source initialization and value-choice preparation make the history-bearing sources executable by demand. Register and run complete lifecycle costs next, charging these passes, source certification, query rewriting, execution/observation and disposal. Include actual generated controls through their generated preparation. Counting must execute, not merely receive an eligibility label.
 
-**2. Reconsider discovery, integration and recognition at that gate.** The [candidate-borrow study](results/S03-candidate-borrow.md) confirms a copy repair, but leaves visits and normalization unchanged. Broader integrated representation and cheaper/coarser call recognition remain distinct required investigations. Compare their decision consequence and implementation prerequisites with advancing the mixed paths to costs at the first result or obstruction.
+**2. Reconsider discovery, integration and recognition at the cost result.** The [candidate-borrow study](results/S03-candidate-borrow.md) confirms a copy repair, but leaves visits and normalization unchanged. Broader integrated representation and cheaper/coarser call recognition remain distinct required investigations. Compare their decision consequence and implementation prerequisites with advancing the mixed paths to costs at the first cost result or diagnosed obstruction.
 
 **3. Carry surviving retention mechanisms into sustained ownership.** Finite restoration and retained-answer validity do not establish stable long-running memory or progress. Start lifetime qualification earlier if the mixed gate exposes growth or cancellation problems.
 
@@ -28,8 +28,8 @@ The table schedules entry into each investigation. The specifications below defi
 
 | Order | Investigation and specification | Review questions | Required architectural evidence |
 |---|---|---|---|
-| Current result | Demand candidate borrowing — §2 | 12, 16, 18–19, 23 | Confirmed large-miss repair; visits, normalization and broader capabilities remain unanswered |
-| Selected next | Mixed-source composition — §12 | 9, 16, 23, 25, 34, 40, 46, 50, 54–55 | Qualify actual interactions and strong existing controls, then measure complete costs |
+| Current result | Mixed-source execution and counting — §12 | 9, 16, 23, 34, 40, 54–55 | All complete paths qualify; counting eliminates the common work that conditional execution shares |
+| Selected next | Mixed-source complete costs — §12 | 9, 16, 23, 25, 34, 40, 46, 50, 54–55 | Measure the actual original/counted paths with every preparation and lifetime responsibility charged |
 | A1 follow-through | Compact solving — §3 | 26–29, 34, 53 | Resolve consequential signal/magnitude uncertainty; retain connected projection and richer structural operations |
 | A2 | Demand capability and costs — §2 | 12, 16, 18–19, 23 | Carry confirmed passive-post tradeoffs; investigate causal discovery/copy repair and distinct capabilities |
 | A3 | Intermediate joins and subscriptions — §6 | 1–5, 8, 10–11 | Carry bounded confirmed tradeoffs; resolve broader plans, retention and consequential uncertainty |
@@ -226,7 +226,7 @@ No direction leaves the sequence merely because it is expensive to implement, lo
 
 For each next-package proposal, record the decision it could change, the strongest ready distinct alternative, actual prerequisites, expected implementation/measurement effort, and the next result boundary. Prefer completing a consequential comparison over expanding its matrix when the expansion cannot change the decision. Prefer a distinct mechanism over another refinement when the refinement has no credible path to changing the architecture comparison.
 
-**The [candidate-borrow portfolio review](results/S03-candidate-borrow-review.md) resets the review count to zero.** Call-reuse lifecycle, reserved selection, candidate borrowing and its targeted confirmation complete the preceding four-package interval. Reconsider selection at the mixed-source gate or obstruction; review the full portfolio within four further packages. Correctness and attribution count alongside measurement.
+**One package follows the [full portfolio review](results/S03-candidate-borrow-review.md).** The mixed-source gate repairs fixture/preparation obstructions and qualifies all intended execution paths. Complete costs are next; review the full portfolio within three further packages. Correctness and attribution count alongside measurement.
 
 **A claim that an experiment cannot affect downstream decisions needs a sensitivity argument.** Name the decision, the outcomes still compatible with current evidence, and why none would change efficiency, necessary complexity, source eligibility or a competitor's credibility. Assume neither the incumbent's superiority nor the proposed mechanism's failure. When those outcomes could change the decision, the trial remains required. When only a narrower claim is settled, advance without extending that conclusion to its broader design.
 

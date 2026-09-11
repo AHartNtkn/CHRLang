@@ -1,0 +1,22 @@
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.23s
+     Running tests/nonground_posts.rs (target/debug/deps/nonground_posts-db80bc669f103174)
+
+running 1 test
+test inert_query_facts_preserve_occurrences_and_output_aliases ... FAILED
+
+failures:
+
+---- inert_query_facts_preserve_occurrences_and_output_aliases stdout ----
+
+thread 'inert_query_facts_preserve_occurrences_and_output_aliases' (104) panicked at research/chr-direct-conditional/tests/nonground_posts.rs:59:58:
+called `Result::unwrap()` on an `Err` value: "query contains an unchecked predicate"
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    inert_query_facts_preserve_occurrences_and_output_aliases
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p chr-direct-conditional --test nonground_posts`

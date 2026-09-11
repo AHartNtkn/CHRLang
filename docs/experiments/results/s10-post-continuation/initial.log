@@ -1,0 +1,22 @@
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+error[E0308]: mismatched types
+  --> research/chr-direct-conditional/tests/../examples/support/post_continuation_source.rs:82:13
+   |
+82 |             format!("choose{i}"),
+   |             ^^^^^^^^^^^^^^^^^^^^ expected `&str`, found `String`
+
+error[E0599]: no method named `clone` found for struct `chr_direct_choice::demand::Prepared` in the current scope
+  --> research/chr-direct-conditional/tests/post_continuation.rs:66:35
+   |
+66 | ...                   p.clone(),
+   |                         ^^^^^ method not found in `chr_direct_choice::demand::Prepared`
+
+error[E0599]: no method named `clone` found for struct `chr_direct_choice::demand::Prepared` in the current scope
+  --> research/chr-direct-conditional/tests/post_continuation.rs:67:35
+   |
+67 | ...                   p.clone().with_miss_reuse(),
+   |                         ^^^^^ method not found in `chr_direct_choice::demand::Prepared`
+
+Some errors have detailed explanations: E0308, E0599.
+For more information about an error, try `rustc --explain E0308`.
+error: could not compile `chr-direct-conditional` (test "post_continuation") due to 3 previous errors

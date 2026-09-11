@@ -1,0 +1,120 @@
+   Compiling chr-direct-conditional v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-conditional)
+error[E0433]: cannot find module or crate `source` in this scope
+  --> research/chr-direct-conditional/tests/post_continuation.rs:34:19
+   |
+34 |     for family in source::FAMILIES {
+   |                   ^^^^^^ use of unresolved module or unlinked crate `source`
+   |
+   = help: if you wanted to use a crate named `source`, use `cargo add source` to add it to your `Cargo.toml`
+
+error[E0433]: cannot find module or crate `source` in this scope
+  --> research/chr-direct-conditional/tests/post_continuation.rs:38:33
+   |
+38 |                     let rules = source::rules(family, k, history);
+   |                                 ^^^^^^ use of unresolved module or unlinked crate `source`
+   |
+   = help: if you wanted to use a crate named `source`, use `cargo add source` to add it to your `Cargo.toml`
+
+error[E0433]: cannot find module or crate `source` in this scope
+  --> research/chr-direct-conditional/tests/post_continuation.rs:72:37
+   |
+72 | ...                   let q = source::query(family, k, d, seed, reverse);
+   |                               ^^^^^^ use of unresolved module or unlinked crate `source`
+   |
+   = help: if you wanted to use a crate named `source`, use `cargo add source` to add it to your `Cargo.toml`
+
+error[E0433]: cannot find module or crate `source` in this scope
+  --> research/chr-direct-conditional/tests/post_continuation.rs:73:44
+   |
+73 | ...                   let expected = source::expected(family, k, seed, history);
+   |                                      ^^^^^^ use of unresolved module or unlinked crate `source`
+   |
+   = help: if you wanted to use a crate named `source`, use `cargo add source` to add it to your `Cargo.toml`
+
+error[E0433]: cannot find module or crate `runtime_support` in this scope
+  --> research/chr-direct-conditional/tests/post_continuation.rs:74:42
+   |
+74 | ...                   let traced = runtime_support::run_traced(&rules, &q, BOUND);
+   |                                    ^^^^^^^^^^^^^^^ use of unresolved module or unlinked crate `runtime_support`
+   |
+help: to make use of source file research/chr-direct-conditional/tests/runtime_support/mod.rs, use `mod runtime_support` in this file to declare the module
+   |
+ 1 + mod runtime_support;
+   |
+
+error[E0433]: cannot find module or crate `source` in this scope
+  --> research/chr-direct-conditional/tests/post_continuation.rs:79:47
+   |
+79 | ...                   assert_eq!(steps, source::explicit_steps(family, k, d));
+   |                                         ^^^^^^ use of unresolved module or unlinked crate `source`
+   |
+   = help: if you wanted to use a crate named `source`, use `cargo add source` to add it to your `Cargo.toml`
+
+error[E0433]: cannot find module or crate `runtime_support` in this scope
+  --> research/chr-direct-conditional/tests/post_continuation.rs:80:29
+   |
+80 | ...                   runtime_support::same_raw(
+   |                       ^^^^^^^^^^^^^^^ use of unresolved module or unlinked crate `runtime_support`
+   |
+help: to make use of source file research/chr-direct-conditional/tests/runtime_support/mod.rs, use `mod runtime_support` in this file to declare the module
+   |
+ 1 + mod runtime_support;
+   |
+
+error[E0433]: cannot find module or crate `runtime_support` in this scope
+   --> research/chr-direct-conditional/tests/post_continuation.rs:111:37
+    |
+111 | ...                   runtime_support::same_raw(answers.clone(), expected.clone());
+    |                       ^^^^^^^^^^^^^^^ use of unresolved module or unlinked crate `runtime_support`
+    |
+help: to make use of source file research/chr-direct-conditional/tests/runtime_support/mod.rs, use `mod runtime_support` in this file to declare the module
+    |
+  1 + mod runtime_support;
+    |
+
+error[E0433]: cannot find module or crate `runtime_support` in this scope
+   --> research/chr-direct-conditional/tests/post_continuation.rs:151:29
+    |
+151 | ...                   runtime_support::same_raw(answers.clone(), expected.clone());
+    |                       ^^^^^^^^^^^^^^^ use of unresolved module or unlinked crate `runtime_support`
+    |
+help: to make use of source file research/chr-direct-conditional/tests/runtime_support/mod.rs, use `mod runtime_support` in this file to declare the module
+    |
+  1 + mod runtime_support;
+    |
+
+error[E0433]: cannot find module or crate `runtime_support` in this scope
+   --> research/chr-direct-conditional/tests/post_continuation.rs:186:33
+    |
+186 | ...                   runtime_support::same_raw(answers.clone(), expected.clone());
+    |                       ^^^^^^^^^^^^^^^ use of unresolved module or unlinked crate `runtime_support`
+    |
+help: to make use of source file research/chr-direct-conditional/tests/runtime_support/mod.rs, use `mod runtime_support` in this file to declare the module
+    |
+  1 + mod runtime_support;
+    |
+
+error[E0433]: cannot find module or crate `runtime_support` in this scope
+   --> research/chr-direct-conditional/tests/post_continuation.rs:191:33
+    |
+191 | ...                   runtime_support::same_raw(
+    |                       ^^^^^^^^^^^^^^^ use of unresolved module or unlinked crate `runtime_support`
+    |
+help: to make use of source file research/chr-direct-conditional/tests/runtime_support/mod.rs, use `mod runtime_support` in this file to declare the module
+    |
+  1 + mod runtime_support;
+    |
+
+error[E0433]: cannot find module or crate `runtime_support` in this scope
+   --> research/chr-direct-conditional/tests/post_continuation.rs:212:25
+    |
+212 |                         runtime_support::same_raw(actual, expected);
+    |                         ^^^^^^^^^^^^^^^ use of unresolved module or unlinked crate `runtime_support`
+    |
+help: to make use of source file research/chr-direct-conditional/tests/runtime_support/mod.rs, use `mod runtime_support` in this file to declare the module
+    |
+  1 + mod runtime_support;
+    |
+
+For more information about this error, try `rustc --explain E0433`.
+error: could not compile `chr-direct-conditional` (test "post_continuation") due to 12 previous errors
