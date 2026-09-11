@@ -1,0 +1,50 @@
+warning: linker stderr: terminate called after throwing an instance of 'std::system_error'
+           what():  Resource temporarily unavailable
+         PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace and instructions to reproduce the bug.
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `chr-compiled` (build script) generated 1 warning
+   Compiling chr-relational v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-relational)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.41s
+     Running unittests src/lib.rs (target/debug/deps/chr_relational-41e386e5bbe5c9e4)
+
+running 15 tests
+test contextual::ownership_tests::cached_maps_do_not_keep_their_arena_alive ... ok
+test contextual_execute::shared_deduction_tests::source_execution_reuses_post_fork_equality_states ... ok
+test contextual::cursor_order_tests::cursor_retains_all_partial_constructor_environments_in_order ... ok
+test execute::interleaving_tests::merged_constructor_facts_are_unique_but_source_occurrences_are_not ... ok
+test contextual_execute::deduction_cost_source_tests::measured_sources_exercise_reuse_and_adverse_keys ... ok
+test execute::interleaving_tests::matcher_settlement_cancellation_does_not_contaminate_prepared_reuse ... ok
+test execute::interleaving_tests::bounded_drain_cancellation_reuse_and_branch_service ... ok
+test execute::interleaving_tests::public_settlement_controls_match_qualified_controllers ... ok
+test execute::interleaving_tests::useful_early_failure_and_settlement_dependent_control ... ok
+test execute::interleaving_tests::partial_equality_distinguishes_priority_from_permitted_serialization ... ok
+test execute::interleaving_tests::matcher_settlement_covers_new_posts_constructors_and_repeated_variables ... ok
+test execute::interleaving_tests::matcher_settlement_handles_shared_and_disjoint_consumption ... ok
+test execute::interleaving_tests::matcher_settlement_preserves_the_priority_witness ... ok
+test execute::interleaving_tests::bounded_drain_preserves_priority_and_avoids_repeated_idle_advances ... ok
+test execute::interleaving_tests::matcher_settlement_separates_output_work_from_competing_reads ... ok
+
+test result: ok. 15 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.59s
+
+     Running tests/source.rs (target/debug/deps/source-c5e56f8da971f4ec)
+
+running 3 tests
+test finite_sibling_publishes_beside_ongoing_rule_work ... ok
+test candidate_reuse_preserves_priority_arrivals_guards_and_consumption ... ok
+test complete_sources_match_independent_owned_semantics ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+     Running tests/store.rs (target/debug/deps/store-d32300d60e78d969)
+
+running 6 tests
+test equality_enables_indexed_join_before_unrelated_work_finishes ... ok
+test parent_congruence_and_incident_key_repair_enable_repeated_variables ... ok
+test stale_atomic_claims_and_distinct_equal_valued_resources ... ok
+test finite_tree_failure_and_forked_consumption_are_isolated ... ok
+test ordered_equation_pairs_match_owned_substitution_and_repaired_joins ... ok
+test broad_incidence_preserves_repeated_columns_congruence_and_consumption ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.54s

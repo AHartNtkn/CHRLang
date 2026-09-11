@@ -280,3 +280,84 @@ fn ordered_equation_pairs_match_owned_substitution_and_repaired_joins() {
     }
     assert_eq!(checked, 1296);
 }
+
+#[test]
+fn broad_incidence_preserves_repeated_columns_congruence_and_consumption() {
+    for n in [1, 8, 64, 256] {
+        for reverse_insert in [false, true] {
+            for reverse_merge in [false, true] {
+                let mut s = Store::default();
+                let xs = (0..n).map(|_| s.unknown()).collect::<Vec<_>>();
+                let mut terms = vec![];
+                let mut ids = vec![];
+                let mut order = (0..n).collect::<Vec<_>>();
+                if reverse_insert {
+                    order.reverse();
+                }
+                for i in order {
+                    let term = s.constructor(&format!("f{}", i % 4), &[xs[i], xs[i]]);
+                    terms.push((i, term));
+                    for _ in 0..2 {
+                        ids.push(s.post("edge", &[xs[i], xs[i], term]));
+                    }
+                }
+                let mut fork = s.clone();
+                let a = s.constructor("a", &[]);
+                let b = fork.constructor("b", &[]);
+                let mut order = (0..n).collect::<Vec<_>>();
+                if reverse_merge {
+                    order.reverse();
+                }
+                for i in order {
+                    s.equate(xs[i], a);
+                    fork.equate(xs[i], b);
+                }
+                for store in [&mut s, &mut fork] {
+                    for step in 0..100_000 {
+                        if !store.step() {
+                            assert_eq!(store.pending(), 0);
+                            break;
+                        }
+                        assert!(step < 99_999, "broad merge bound");
+                    }
+                    assert!(!store.failed());
+                }
+                let values = terms.iter().map(|(_, term)| *term).collect::<Vec<_>>();
+                for (store, name) in [(&s, "a"), (&fork, "b")] {
+                    let expected = terms
+                        .iter()
+                        .map(|(i, _)| t(&format!("f{}", i % 4), [atom(name), atom(name)]))
+                        .collect::<Vec<_>>();
+                    assert_eq!(store.export(&values), Some(expected));
+                }
+                let plan = HeadPlan::compile(&[], &[c("edge", [v(0), v(0), v(1)])]);
+                let matches = s.matches(&plan).matches;
+                assert_eq!(
+                    matches
+                        .iter()
+                        .map(|m| m.removed.clone())
+                        .collect::<Vec<_>>(),
+                    ids.iter().map(|id| vec![*id]).collect::<Vec<_>>()
+                );
+                for (i, claim) in matches.iter().enumerate() {
+                    if i % 3 == 0 {
+                        assert!(s.consume(claim));
+                    }
+                }
+                assert_eq!(
+                    s.matches(&plan)
+                        .matches
+                        .iter()
+                        .map(|m| m.removed.clone())
+                        .collect::<Vec<_>>(),
+                    ids.iter()
+                        .enumerate()
+                        .filter(|(i, _)| i % 3 != 0)
+                        .map(|(_, id)| vec![*id])
+                        .collect::<Vec<_>>()
+                );
+                assert_eq!(fork.matches(&plan).matches.len(), 2 * n);
+            }
+        }
+    }
+}

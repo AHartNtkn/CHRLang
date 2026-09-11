@@ -33,7 +33,11 @@ pub struct View {
     tables: BTreeMap<Relation, Table>,
     occurrences: BTreeSet<Occurrence>,
     locations: BTreeMap<Occurrence, (Relation, usize)>,
+    #[cfg(not(feature = "incidence-vector"))]
     incidence: BTreeMap<Value, BTreeSet<(Relation, usize)>>,
+    // ponytail: sorted buckets move O(degree) entries; retain tree control for broad repair.
+    #[cfg(feature = "incidence-vector")]
+    incidence: BTreeMap<Value, Vec<(Relation, usize)>>,
 }
 impl View {
     pub fn constructor(&mut self, name: &str, parent: Value, children: &[Value]) {
@@ -99,10 +103,14 @@ impl View {
             }
             #[cfg(feature = "admission-profile")]
             let _scope = deduction_profile::Scope::new(deduction_profile::Phase::Incidence);
-            self.incidence
-                .entry(*value)
-                .or_default()
-                .insert((key.clone(), index));
+            let rows = self.incidence.entry(*value).or_default();
+            let reference = (key.clone(), index);
+            #[cfg(not(feature = "incidence-vector"))]
+            rows.insert(reference);
+            #[cfg(feature = "incidence-vector")]
+            if let Err(position) = rows.binary_search(&reference) {
+                rows.insert(position, reference);
+            }
         }
     }
     fn detach(&mut self, key: &Relation, index: usize) {
@@ -114,7 +122,12 @@ impl View {
                 column.remove(value);
             }
             if let Some(rows) = self.incidence.get_mut(value) {
+                #[cfg(not(feature = "incidence-vector"))]
                 rows.remove(&(key.clone(), index));
+                #[cfg(feature = "incidence-vector")]
+                if let Ok(position) = rows.binary_search(&(key.clone(), index)) {
+                    rows.remove(position);
+                }
                 if rows.is_empty() {
                     self.incidence.remove(value);
                 }

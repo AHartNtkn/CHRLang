@@ -1,0 +1,42 @@
+{
+  "builds": {
+    "meter": {
+      "binary": "/home/ahart/Documents/CHRLang/target/admission-attribution-True-meter",
+      "sha256": "5356af9a62604996d8ad0f112120a0d2df5df47a297ec9b249d27418c7c780f7",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-relational",
+        "--release",
+        "--no-default-features",
+        "--features",
+        "alloc-meter,incidence-vector",
+        "--test",
+        "readiness_lifecycle",
+        "--no-run",
+        "--message-format=json"
+      ]
+    },
+    "profile": {
+      "binary": "/home/ahart/Documents/CHRLang/target/admission-attribution-True-profile",
+      "sha256": "b1bcde5bddcdb2c018bf7fdf0374e29f5bb4420bba6e12f7470c612ca0c4eae0",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-relational",
+        "--release",
+        "--no-default-features",
+        "--features",
+        "admission-profile,incidence-vector",
+        "--test",
+        "readiness_lifecycle",
+        "--no-run",
+        "--message-format=json"
+      ]
+    }
+  },
+  "sources_sha256": "596e9980c14d278479226bb4c5b36a89599d882421d6131a0c2915fefe17cb2d",
+  "rustc": "rustc 1.97.1 (8bab26f4f 2026-07-14)\nbinary: rustc\ncommit-hash: 8bab26f4f68e0e26f0bb7960be334d5b520ea452\ncommit-date: 2026-07-14\nhost: x86_64-unknown-linux-gnu\nrelease: 1.97.1\nLLVM version: 22.1.6\n"
+}
