@@ -223,7 +223,7 @@ fn main() {
     let family = args[2].parse().unwrap();
     let depth = args[3].parse().unwrap();
     let reuse = args[4].parse().unwrap();
-    assert!(family < 6 && matches!(depth, 0 | 4 | 32 | 128) && matches!(reuse, 1 | 4));
+    assert!(family < 8 && matches!(depth, 0 | 4 | 32 | 128) && matches!(reuse, 1 | 4));
     let keep = match args[5].as_str() {
         "0" => 0,
         "1" => 1,
@@ -296,11 +296,20 @@ fn execute(mode: &str, cfg: Config) {
                 |e| e.advance(1),
             );
         }
-        "separate" | "memo" => {
-            let memo = mode == "memo";
+        "separate" | "memo" | "memo4" | "memo16" => {
+            let memo = mode != "separate";
+            let stride = match mode {
+                "memo4" => 4,
+                "memo16" => 16,
+                _ => 1,
+            };
             run(
                 &cfg,
-                |r| Separated::new(r, memo).unwrap(),
+                |r| {
+                    Separated::new(r, memo)
+                        .unwrap()
+                        .with_recognition_stride(stride)
+                },
                 |p, q| p.start(q).unwrap(),
                 |e| e.advance(1),
             );

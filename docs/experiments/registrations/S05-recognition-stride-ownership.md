@@ -1,0 +1,13 @@
+# Recognition-stride requested ownership pilot
+
+Register before comparative runs. Test whether reduced key construction at strides 4/16 repays missed reuse and retained states. Use the existing inert_ownership lifecycle runner. Add memo4/memo16 through the existing separated executor; controls memo(stride1), separate, direct, scan, indexed and sealed. All eight modes run the same source and independent complete-answer gate.
+
+Sources 0–5 retain prior meanings: inert caller tags, readable caller/history, variable-dependent tag binding, arity near miss, duplicate growing inert observations, failed branch. Source6 is one branch with no reusable work. Source7 adds token-consuming completion and a propagating flag. Factors: eight sources × depths4/32 × prepared uses1/4 × output keep0/all × cancellation0/1 × distinct caller tags false/true =256 scenarios. Two fresh-process allocation repetitions in each of eight modes =4,096 processes. Shuffle jobs with seed7507. This is a bounded size pilot, not evidence about the depth128 allocation cutoffs of other designs.
+
+One release alloc-meter build, default features disabled. No engine/kernel/work counters or stage-allocation profiling. Freeze sources, registration, driver, toolchain, executable hash and jobs before runs. One allowed CPU; 1GiB address space; 60 CPU/wall seconds per process; existing 200,000 scalar/source gate and two-million service-step bounds.
+
+The runner independently validates full answers before measurement and each delivered answer outside service intervals. It charges source construction, preparation, each alpha-renamed query input/setup, service/observation, consumer retention, engine/input disposal, prepared disposal and final consumer disposal. Cancellation occurs after the first delivered answer. Prepared reuse changes variable identities; data-dependent near misses occur within the source families. Query-local memo tables do not survive between queries. All retained answers remain valid after producer/prepared disposal.
+
+Require exact normalized phase heap receipts across repetitions, expected counts/retention, ownership continuity, zero unreleased bytes, and equal consumer-owned bytes across modes. Report total requested bytes and peak live bytes by individual scenario without weights; meter measures requested heap, not RSS. Do not interpret metered time. If a bound or check fails, retain the failure and investigate before accepting the matrix.
+
+Follow consequential increases with source/state attribution. Then decide whether ordinary timing or a changed recognition boundary has more value than direct solving; no architecture selection from allocation alone.

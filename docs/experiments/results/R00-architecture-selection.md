@@ -1,5 +1,7 @@
 # R00: architectural alternatives and first experiment selection
 
+Repaired recognition ownership validates 4,096 processes and 2,048 exact pairs with equal consumer bytes. Strides4/16 reduce allocation versus stride1 in all256 scenarios but exceed Direct and sealed controls throughout. Stride16 exceeds stride4 requested bytes in72 cases through missed reuse; final residual capacity is repaired. T075 next runs counter-free lifecycle timing; package count two, goal active. [Recognition ownership](S05-recognition-stride-ownership.md).
+
 Recognition strides 4/16 preserve 9,520 per-step source comparisons and 864 cancellation/restarts. Repeated-work key requests fall 60 to17/5, but reuse hits fall52 to49/41 and retained states rise59 to62/70. T075 next measures complete ownership/lifecycle against Direct and compiled controls; package count one, goal active. [Recognition entry](S05-recognition-stride-entry.md).
 
 Scheduled timing validates 57,600 sessions after 1,152 exact ownership entries. Scheduled templates qualify faster than zero-follow in 69/96 cases, but in none against dependency, Direct or carriers; Direct wins 91 and carriers 90. Even free scheduled disposal leaves every median above Direct. Full 57-question review selects T075 coarser recognition; T073 remains pending, review count reset, goal active. [Timing](S06-scheduled-timing.md) · [Portfolio review](S06-scheduled-timing-review.md).

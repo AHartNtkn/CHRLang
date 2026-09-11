@@ -315,6 +315,13 @@ fn coarser_recognition_reduces_key_work_without_inventing_reuse() {
                 .unwrap();
             let result = run.advance(200_000);
             assert!(result.exhausted);
+            assert!(
+                result
+                    .answers
+                    .iter()
+                    .all(|a| a.residual.capacity() == a.residual.len()),
+                "delivered residual retains unused growth capacity"
+            );
             oracle::same_raw(result.answers, expected.clone());
             counts.push((
                 run.stats().key_requests,

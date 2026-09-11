@@ -9,7 +9,7 @@ goal:
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
   execution_sequence: docs/experiments/next-cycle.md
-  current_research: "Recognition strides 4/16 preserve 9,520 per-step source comparisons and 864 cancellation/restarts. Repeated-work key requests fall 60 to17/5, but reuse hits fall52 to49/41 and retained states rise59 to62/70. T075 next measures complete ownership/lifecycle against Direct and compiled controls; package count one, goal active."
+  current_research: "Repaired recognition ownership validates 4,096 processes and 2,048 exact pairs with equal consumer bytes. Strides4/16 reduce allocation versus stride1 in all256 scenarios but exceed Direct and sealed controls throughout. Stride16 exceeds stride4 requested bytes in72 cases through missed reuse; final residual capacity is repaired. T075 next runs counter-free lifecycle timing; package count two, goal active."
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -370,8 +370,8 @@ tasks:
     assignee: PM
     status: active
     objective: Investigate sound generalized call and continuation reuse after different histories, including renaming, relevance, resource and output identity obligations, against competent recomputation and sharing controls.
-    progress: "Recognition strides 4/16 preserve 9,520 per-step source comparisons and 864 cancellation/restarts. Repeated-work key requests fall 60 to17/5, but reuse hits fall52 to49/41 and retained states rise59 to62/70. T075 next measures complete ownership/lifecycle against Direct and compiled controls; package count one, goal active."
-    next_action: "Register requested ownership and complete lifecycle costs for recognition strides1/4/16 against nonmemoized separation, Direct and existing compiled controls. Include repeated/no-reuse sources, failed branches, active resources/history, inert observation size, changing queries and cancellation. Account for missed reuse and retained intermediate states; separate work/allocation diagnostics from counter-free timing. Reassess call-boundary recognition and direct solving at the cost result; package count one."
+    progress: "Repaired recognition ownership validates 4,096 processes and 2,048 exact pairs with equal consumer bytes. Strides4/16 reduce allocation versus stride1 in all256 scenarios but exceed Direct and sealed controls throughout. Stride16 exceeds stride4 requested bytes in72 cases through missed reuse; final residual capacity is repaired. T075 next runs counter-free lifecycle timing; package count two, goal active."
+    next_action: "Register bounded paired counter-free lifecycle timing for repaired strides1/4/16, nonmemoized separation, Direct and compiled controls. Require exact entries against fresh ownership receipts before timing; retain source construction, preparation, input/setup, service/observation, retained outputs, cancellation and all disposal. Include short adverse missed-reuse and no-reuse sources. Reassess call-boundary recognition and direct solving after timing; package count two."
     inputs:
       - docs/experiments/results/S05-inert-lifecycle.md
       - docs/experiments/results/S05-inert-lifecycle-review.md
@@ -2686,8 +2686,12 @@ checks:
   last_verification:
     result: passed
     task: T075
-    scope: Recognition stride source/work gate and per-step service preservation.
+    scope: Repaired recognition-stride lifecycle ownership and adverse reuse diagnosis.
     commands:
+      - "recognition_ownership.py --exact-output --audit:4096 processes,2048 exact repetitions,256 consumer-equivalent scenarios,zero unreleased bytes"
+      - "Initial4096 runs retained as failed qualification:448 consumer-capacity differences; reserve_exact repair passes source regression"
+      - "Six inert_residuals tests pass metrics on/off; scoped metered runner/library/source Clippy passes"
+      - "Short source witness:stride4 keys7 executed22 states22; stride16 keys3 executed34 states34,complete/cancel answers valid"
       - "inert_residuals: six tests pass with metrics on/off; 72 sources,9520 per-step comparisons,864 cancellation/restarts"
       - "Recognition work: repeated keys60/17/5, hits52/49/41, states59/62/70 at strides1/4/16; no-reuse keys56/14/4"
       - "Scoped residual executor/source Clippy passes"

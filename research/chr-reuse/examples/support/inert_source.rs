@@ -15,6 +15,9 @@ pub fn source(kind: usize, depth: usize, distinct: bool, offset: u64) -> (Vec<Ru
                 parts.push(c("bind", [v(1), atom(tag)]).into());
             }
         }
+        if kind == 7 {
+            parts.extend([c("token", []).into(), c("flag", []).into()]);
+        }
         and(parts)
     };
     let mut step = vec![c("work", [v(1), v(0), v(2)]).into()];
@@ -28,10 +31,14 @@ pub fn source(kind: usize, depth: usize, distinct: bool, offset: u64) -> (Vec<Ru
         Rule::simplify(
             "start",
             [c("start", [v(0)])],
-            or(
-                body("a", kind == 5),
-                body(if distinct { "b" } else { "a" }, false),
-            ),
+            if kind == 6 {
+                body("a", false)
+            } else {
+                or(
+                    body("a", kind == 5),
+                    body(if distinct { "b" } else { "a" }, false),
+                )
+            },
         ),
         Rule::simplify("step", [c("work", [t("s", [v(1)]), v(0), v(2)])], and(step)),
         Rule::simplify(
@@ -66,6 +73,14 @@ pub fn source(kind: usize, depth: usize, distinct: bool, offset: u64) -> (Vec<Ru
             "read-other-arity",
             [c("caller", [v(0), v(1)])],
             Goal::Fail,
+        ));
+    }
+    if kind == 7 {
+        rules[2].removed.push(c("token", []));
+        rules.push(Rule::propagate(
+            "record",
+            [c("flag", [])],
+            c("recorded", []).into(),
         ));
     }
     (

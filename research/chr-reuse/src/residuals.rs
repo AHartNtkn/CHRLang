@@ -199,6 +199,7 @@ impl Search {
                         }
                     }
                     Edge::Answer(mut answer) => {
+                        answer.residual.reserve_exact(job.residual.len());
                         answer.residual.extend(job.residual);
                         answers.push(answer);
                         if COLLECT_METRICS {
