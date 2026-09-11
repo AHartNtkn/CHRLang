@@ -27,7 +27,9 @@ impl<const MODE: usize> Backend for Local<MODE> {
         Self(local::multihead::Program::compile(r).unwrap())
     }
     fn setup(&self, q: &Query) -> Self::State {
-        if MODE == 2 {
+        if MODE == 3 {
+            self.0.start_intermediate(q)
+        } else if MODE == 2 {
             self.0.start_partial(q)
         } else {
             self.0.start_mode(q, MODE == 1)
@@ -116,7 +118,7 @@ impl Phase {
         format!("{{\"ns\":{}}}", self.ns)
     }
 }
-fn run<B: Backend>(mode: &str, family: &str, width: usize, reuse: usize) {
+fn run<B: Backend>(mode: &str, family: &str, width: usize, reuse: usize, retain: bool) {
     let rules = source::rules(family);
     let expected = (0..reuse)
         .map(|i| scalar::run(&rules, &source::query(family, width, i), 200_000))
@@ -129,7 +131,8 @@ fn run<B: Backend>(mode: &str, family: &str, width: usize, reuse: usize) {
     }
     drop(warm);
     drop(rules);
-    let mut phases = Vec::with_capacity(4 + reuse * 7 + 10);
+    let mut phases = Vec::with_capacity(5 + reuse * 7 + 10);
+    let mut held = Vec::with_capacity(if retain { reuse } else { 0 });
     let (rules, source_build) = measure(|| source::rules(family));
     phases.push(("source-build", source_build));
     let (p, prep) = measure(|| B::prepare(&rules));
@@ -146,15 +149,32 @@ fn run<B: Backend>(mode: &str, family: &str, width: usize, reuse: usize) {
         same(&answer, expected);
         let (_, m) = measure(|| drop(s));
         phases.push(("engine-drop", m));
-        let (_, m) = measure(|| drop(answer));
-        phases.push(("answer-drop", m));
+        let (_, m) = measure(|| {
+            if retain {
+                held.push(answer);
+            } else {
+                drop(answer);
+            }
+        });
+        phases.push((
+            if retain {
+                "answer-retain"
+            } else {
+                "answer-drop"
+            },
+            m,
+        ));
         let (_, m) = measure(|| drop(q));
         phases.push(("input-drop", m));
         #[cfg(feature = "alloc-meter")]
-        assert_eq!(m.heap.live_end, prep.heap.live_end);
+        if !retain {
+            assert_eq!(m.heap.live_end, prep.heap.live_end);
+        }
     }
     for advance in [false, true] {
         let (q, m) = measure(|| source::query(family, width, 0));
+        #[cfg(feature = "alloc-meter")]
+        let cancel_baseline = m.heap.live_start;
         phases.push(("cancel-input", m));
         let (mut s, m) = measure(|| p.setup(&q));
         phases.push(("cancel-setup", m));
@@ -169,16 +189,28 @@ fn run<B: Backend>(mode: &str, family: &str, width: usize, reuse: usize) {
         let (_, m) = measure(|| drop(q));
         phases.push(("cancel-input-drop", m));
         #[cfg(feature = "alloc-meter")]
-        assert_eq!(m.heap.live_end, prep.heap.live_end);
+        assert_eq!(m.heap.live_end, cancel_baseline);
     }
     let (_, m) = measure(|| drop(p));
     phases.push(("prepared-drop", m));
     #[cfg(feature = "alloc-meter")]
-    assert_eq!(m.heap.live_end, prep.heap.live_start);
+    if !retain {
+        assert_eq!(m.heap.live_end, prep.heap.live_start);
+    }
     let (_, m) = measure(|| drop(rules));
     phases.push(("source-drop", m));
-    #[cfg(feature = "alloc-meter")]
-    assert_eq!(m.heap.live_end, source_build.heap.live_start);
+    if retain {
+        for (answer, expected) in held.iter().zip(&expected) {
+            same(answer, expected);
+        }
+        let (_, m) = measure(|| held.clear());
+        phases.push(("retained-drop", m));
+        #[cfg(feature = "alloc-meter")]
+        assert_eq!(m.heap.live_end, source_build.heap.live_start);
+    } else {
+        #[cfg(feature = "alloc-meter")]
+        assert_eq!(m.heap.live_end, source_build.heap.live_start);
+    }
     #[cfg(feature = "alloc-meter")]
     assert!(
         phases
@@ -191,7 +223,7 @@ fn run<B: Backend>(mode: &str, family: &str, width: usize, reuse: usize) {
         .collect::<Vec<_>>()
         .join(",");
     println!(
-        "{{\"mode\":\"{mode}\",\"family\":\"{family}\",\"width\":{width},\"reuse\":{reuse},\"state_bytes\":{},\"phases\":[{records}]}}",
+        "{{\"mode\":\"{mode}\",\"family\":\"{family}\",\"width\":{width},\"reuse\":{reuse},\"retain\":{retain},\"state_bytes\":{},\"phases\":[{records}]}}",
         std::mem::size_of::<B::State>()
     );
 }
@@ -200,9 +232,24 @@ fn smoke<B: Backend>(family: &str) {
     let q = source::query(family, 4, 0);
     let expected = scalar::run(&rules, &q, 200_000);
     let p = B::prepare(&rules);
-    let mut s = p.setup(&q);
-    finish::<B>(&mut s);
-    same(&B::observe(&mut s), &expected);
+    let mut held = vec![];
+    for advance in [false, true] {
+        let mut state = p.setup(&q);
+        if advance {
+            std::hint::black_box(B::advance(&mut state));
+        }
+        drop(state);
+        let mut state = p.setup(&q);
+        finish::<B>(&mut state);
+        let answer = B::observe(&mut state);
+        drop(state);
+        same(&answer, &expected);
+        held.push(answer);
+    }
+    drop((p, q, rules));
+    for answer in &held {
+        same(answer, &expected);
+    }
 }
 fn main() {
     let args = std::env::args().skip(1).collect::<Vec<_>>();
@@ -220,16 +267,28 @@ fn main() {
         return;
     }
     if args.is_empty() {
-        for family in ["sparse", "broad", "nested", "cold", "dense", "three"] {
+        for family in [
+            "sparse",
+            "broad",
+            "nested",
+            "cold",
+            "dense",
+            "three",
+            "proper",
+            "proper-kill",
+            "proper-late",
+            "proper-keyed",
+        ] {
             smoke::<Local<0>>(family);
             smoke::<Local<1>>(family);
             smoke::<Local<2>>(family);
+            smoke::<Local<3>>(family);
             smoke::<Compiled<false, false>>(family);
             smoke::<Compiled<true, false>>(family);
             smoke::<Compiled<false, true>>(family);
             smoke::<Compiled<true, true>>(family);
         }
-        println!("42 independent source smoke comparisons passed");
+        println!("80 independent source/retained/cancellation smoke configurations passed");
         return;
     }
     assert!(
@@ -246,20 +305,40 @@ fn main() {
     );
     #[cfg(feature = "alloc-meter")]
     meter::self_check().unwrap();
-    assert_eq!(args.len(), 4);
+    assert!([4, 5].contains(&args.len()));
+    let retain = match args.get(4).map(String::as_str).unwrap_or("immediate") {
+        "immediate" => false,
+        "all" => true,
+        _ => panic!("invalid consumer"),
+    };
     let (mode, family) = (&args[0], &args[1]);
     let width = args[2].parse().unwrap();
     let reuse = args[3].parse().unwrap();
-    assert!(["sparse", "broad", "nested", "cold", "dense", "three"].contains(&family.as_str()));
-    assert!([4, 16, 64].contains(&width) && [1, 4].contains(&reuse));
+    assert!(
+        [
+            "sparse",
+            "broad",
+            "nested",
+            "cold",
+            "dense",
+            "three",
+            "proper",
+            "proper-kill",
+            "proper-late",
+            "proper-keyed"
+        ]
+        .contains(&family.as_str())
+    );
+    assert!([4, 8, 16, 64].contains(&width) && [1, 4].contains(&reuse));
     match mode.as_str() {
-        "local-scan" => run::<Local<0>>(mode, family, width, reuse),
-        "tuples" => run::<Local<1>>(mode, family, width, reuse),
-        "partial" => run::<Local<2>>(mode, family, width, reuse),
-        "scan" => run::<Compiled<false, false>>(mode, family, width, reuse),
-        "indexed" => run::<Compiled<true, false>>(mode, family, width, reuse),
-        "special-scan" => run::<Compiled<false, true>>(mode, family, width, reuse),
-        "special-indexed" => run::<Compiled<true, true>>(mode, family, width, reuse),
+        "local-scan" => run::<Local<0>>(mode, family, width, reuse, retain),
+        "tuples" => run::<Local<1>>(mode, family, width, reuse, retain),
+        "intermediate" => run::<Local<3>>(mode, family, width, reuse, retain),
+        "partial" => run::<Local<2>>(mode, family, width, reuse, retain),
+        "scan" => run::<Compiled<false, false>>(mode, family, width, reuse, retain),
+        "indexed" => run::<Compiled<true, false>>(mode, family, width, reuse, retain),
+        "special-scan" => run::<Compiled<false, true>>(mode, family, width, reuse, retain),
+        "special-indexed" => run::<Compiled<true, true>>(mode, family, width, reuse, retain),
         _ => panic!("unknown mode"),
     }
 }

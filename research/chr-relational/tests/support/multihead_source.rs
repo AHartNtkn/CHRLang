@@ -4,6 +4,34 @@ fn nat(n: usize) -> chr_syntax::Term {
 }
 pub fn rules(family: &str) -> Vec<Rule> {
     match family {
+        "proper" | "proper-kill" | "proper-late" | "proper-keyed" => {
+            let join = Rule {
+                name: "join".into(),
+                kept: vec![c("left", [v(0)]), c("middle", [v(1)])],
+                removed: vec![c("right", [v(0), v(1), v(2)])],
+                guards: vec![],
+                body: eq(v(2), atom("hit")),
+            };
+            let mut rules = vec![];
+            if family == "proper-kill" {
+                rules.push(Rule {
+                    name: "invalidate".into(),
+                    kept: vec![c("kill", [])],
+                    removed: vec![c("left", [v(0)])],
+                    guards: vec![],
+                    body: Goal::True,
+                });
+            }
+            rules.push(join);
+            if family == "proper-late" {
+                rules.push(Rule::simplify(
+                    "bind",
+                    [c("bind", [v(0), v(1)])],
+                    eq(v(0), v(1)),
+                ));
+            }
+            rules
+        }
         "cold" => vec![Rule::simplify(
             "cold",
             [c("request", [t("f", [v(0)])]), c("partner", [v(0)])],
@@ -62,6 +90,38 @@ pub fn query(family: &str, n: usize, seed: usize) -> Query {
     let base = 100 + seed as u64 * 10000;
     let mut xs = vec![];
     match family {
+        "proper" | "proper-kill" | "proper-late" | "proper-keyed" => {
+            let key = |i: usize| atom(&format!("k{}_{}", seed % 2, i));
+            for i in 0..n {
+                xs.push(c("left", [key(i)]));
+                xs.push(c("middle", [key(i)]));
+                let target = if family == "proper-keyed" { i } else { n - 1 };
+                xs.push(c(
+                    "right",
+                    [
+                        if family == "proper-late" {
+                            v(base + 1000)
+                        } else {
+                            key(target)
+                        },
+                        key(target),
+                        v(base + i as u64),
+                    ],
+                ));
+            }
+            if family == "proper-kill" {
+                xs.push(c("kill", []));
+            }
+            if family == "proper-late" {
+                xs.push(c("bind", [v(base + 1000), key(n - 1)]));
+            }
+            return Query {
+                constraints: xs,
+                outputs: (0..n)
+                    .map(|i| (format!("v{i}"), Var(base + i as u64)))
+                    .collect(),
+            };
+        }
         "cold" => {
             for i in 0..n {
                 xs.push(c("request", [v(base + i as u64)]));
