@@ -1386,10 +1386,15 @@ impl Run {
     }
 
     fn answer(&mut self, ctx: &Context) -> Result<Answer, Signal> {
+        #[cfg(feature = "answer-validity")]
+        let mut validity = Vec::with_capacity(self.obligations.len());
         for index in 0..self.obligations.len() {
             let (support, id) = &self.obligations[index];
             let id = *id;
-            if checked!(AnswerObligation, support, ctx) {
+            let active = checked!(AnswerObligation, support, ctx);
+            #[cfg(feature = "answer-validity")]
+            validity.push(active);
+            if active {
                 self.finite_result(id, ctx)?;
                 self.force(id, ctx)?;
             }
@@ -1402,7 +1407,16 @@ impl Run {
         for index in 0..self.obligations.len() {
             let (support, id) = &self.obligations[index];
             let id = *id;
-            if !checked!(AnswerResidual, support, ctx) {
+            // Supports and ctx are immutable within this answer attempt. Only
+            // newly appended obligations need a fresh residual-pass check.
+            #[cfg(feature = "answer-validity")]
+            let active = validity
+                .get(index)
+                .copied()
+                .unwrap_or_else(|| checked!(AnswerResidual, support, ctx));
+            #[cfg(not(feature = "answer-validity"))]
+            let active = checked!(AnswerResidual, support, ctx);
+            if !active {
                 continue;
             }
             if self.nodes[id]
@@ -2167,5 +2181,59 @@ mod completed_traversal_tests {
             );
         }
         assert!(matches!(run.tick(), Event::Exhausted));
+    }
+}
+
+#[cfg(all(test, feature = "validity-profile"))]
+mod answer_validity_tests {
+    use super::*;
+    use chr_syntax::{atom, c, eq, v};
+    #[test]
+    fn answer_validity_is_local_to_context_and_retries_expanded_calls() {
+        let mut run = Prepared::new(vec![])
+            .unwrap()
+            .start(Query {
+                constraints: vec![],
+                outputs: vec![],
+            })
+            .unwrap();
+        let out = run.push(Node::Unknown(0));
+        run.call("left".into(), vec![], out, &Context::from([(0, false)]));
+        run.call("right".into(), vec![], out, &Context::from([(0, true)]));
+        for side in [false, true, false] {
+            validity_profile::reset();
+            let answer = run.answer(&Context::from([(0, side)])).ok().unwrap();
+            assert_eq!(answer.residual.len(), 1);
+            assert_eq!(answer.residual[0].name, if side { "right" } else { "left" });
+            #[cfg(feature = "answer-validity")]
+            assert_eq!(
+                validity_profile::snapshot()[validity_profile::Site::AnswerResidual as usize].calls,
+                0
+            );
+        }
+        let rules = vec![
+            Rule::simplify("outer", [c("outer", [v(0)])], c("child", [v(0)]).into()),
+            Rule::simplify("child", [c("child", [v(0)])], eq(v(0), atom("a"))),
+        ];
+        let mut run = Prepared::new(rules)
+            .unwrap()
+            .start(Query {
+                constraints: vec![c("outer", [v(10)])],
+                outputs: vec![("x".into(), Var(10))],
+            })
+            .unwrap();
+        let original = run.obligations.len();
+        assert!(matches!(run.answer(&Context::new()), Err(Signal::Progress)));
+        assert!(run.obligations.len() > original);
+        assert!(matches!(run.answer(&Context::new()), Err(Signal::Progress)));
+        validity_profile::reset();
+        let answer = run.answer(&Context::new()).ok().unwrap();
+        assert_eq!(answer.outputs, vec![("x".into(), atom("a"))]);
+        assert!(answer.residual.is_empty());
+        #[cfg(feature = "answer-validity")]
+        assert_eq!(
+            validity_profile::snapshot()[validity_profile::Site::AnswerResidual as usize].calls,
+            0
+        );
     }
 }

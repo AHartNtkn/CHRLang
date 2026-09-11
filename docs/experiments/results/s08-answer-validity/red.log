@@ -1,0 +1,24 @@
+   Compiling chr-direct-choice v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-direct-choice)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.36s
+     Running unittests src/lib.rs (target/debug/deps/chr_direct_choice-2d698c121389e27a)
+
+running 1 test
+test demand::answer_validity_tests::answer_validity_is_local_to_context_and_retries_expanded_calls ... FAILED
+
+failures:
+
+---- demand::answer_validity_tests::answer_validity_is_local_to_context_and_retries_expanded_calls stdout ----
+
+thread 'demand::answer_validity_tests::answer_validity_is_local_to_context_and_retries_expanded_calls' (157) panicked at research/chr-direct-choice/src/demand.rs:2190:13:
+assertion `left == right` failed
+  left: 2
+ right: 0
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    demand::answer_validity_tests::answer_validity_is_local_to_context_and_retries_expanded_calls
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 18 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p chr-direct-choice --lib`

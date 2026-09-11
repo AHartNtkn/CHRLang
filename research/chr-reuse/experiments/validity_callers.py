@@ -1,7 +1,8 @@
 """Exact caller-work and complete requested-ownership attribution."""
 import gzip,hashlib,itertools,json,os,random,resource,shutil,subprocess,sys,zipfile
 from pathlib import Path
-ROOT=Path(__file__).resolve().parents[3];OUT=ROOT/'docs/experiments/results/s08-validity-callers';CPU=min(os.sched_getaffinity(0))
+REUSE='--answer-validity' in sys.argv
+ROOT=Path(__file__).resolve().parents[3];OUT=ROOT/('docs/experiments/results/s08-answer-validity' if REUSE else 'docs/experiments/results/s08-validity-callers');CPU=min(os.sched_getaffinity(0))
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def limits():
  os.sched_setaffinity(0,{CPU});resource.setrlimit(resource.RLIMIT_AS,(1<<30,1<<30));resource.setrlimit(resource.RLIMIT_CPU,(60,60))
@@ -29,17 +30,27 @@ def audit():
   if case[0]=='direct':assert all(r['calls']==0 for r in work)
   summary.append(dict(context=context,case=case,answers=answers,requested=sum(p['requested_bytes'] for p in h),peak=max(p['peak_live'] for p in h),profile=work))
  assert any(r['accepted']<r['calls'] for s in summary for r in s['profile'])
+ if REUSE:
+  old=json.loads((ROOT/'docs/experiments/results/s08-validity-callers/analysis.json').read_text())['rows'];old={(r['context'],tuple(r['case'])):r for r in old};contrasts=[]
+  for r in summary:
+   prior=old[r['context'],tuple(r['case'])];assert prior['answers']==r['answers']
+   for a,b in zip(prior['profile'],r['profile']):
+    if a['site']!='answer_residual':assert a==b,(r['case'],a,b)
+   if r['case'][0]=='direct':assert {k:v for k,v in prior.items() if k!='case'}=={k:v for k,v in r.items() if k!='case'}
+   contrasts.append(dict(context=r['context'],case=r['case'],control_requested=prior['requested'],candidate_requested=r['requested'],control_peak=prior['peak'],candidate_peak=r['peak'],control_residual=next(p for p in prior['profile'] if p['site']=='answer_residual'),candidate_residual=next(p for p in r['profile'] if p['site']=='answer_residual')))
+  (OUT/'comparison.json').write_text(json.dumps(contrasts,indent=2)+'\n')
  (OUT/'analysis.json').write_text(json.dumps(dict(processes=768,exact_repetitions=384,diagnostic_control_pairs=192,rows=summary),indent=2)+'\n');print('Audited 768 processes, 384 exact repetitions and 192 diagnostic/control ownership pairs')
 def run():
  OUT.mkdir(parents=True,exist_ok=True);assert not (OUT/'freeze.json').exists();builds={}
  for context,profile in itertools.product(['lookup','seeking'],[False,True]):
-  features='alloc-meter,chr-direct-choice/completed-traversal'+(',chr-direct-choice/seek-context' if context=='seeking' else '')+(',validity-profile' if profile else '')
+  features='alloc-meter,chr-direct-choice/completed-traversal'+(',chr-direct-choice/seek-context' if context=='seeking' else '')+(',validity-profile' if profile else '')+(',chr-direct-choice/answer-validity' if REUSE else '')
   cmd=['cargo','build','-p','chr-reuse','--release','--no-default-features','--features',features,'--example','validity_sources']
   r=subprocess.run(cmd,cwd=ROOT,capture_output=True,text=True);(OUT/f'build-{context}-{profile}.log').write_text(r.stderr);assert r.returncode==0
-  b=ROOT/f'target/validity-callers-{context}-{profile}';shutil.copy2(ROOT/'target/release/examples/validity_sources',b);builds[f'{context}-{profile}']=dict(binary=str(b),sha256=sha(b),command=cmd);print('built',context,profile,flush=True)
+  b=ROOT/f'target/{"answer-validity" if REUSE else "validity-callers"}-{context}-{profile}';shutil.copy2(ROOT/'target/release/examples/validity_sources',b);builds[f'{context}-{profile}']=dict(binary=str(b),sha256=sha(b),command=cmd);print('built',context,profile,flush=True)
  cases=list(itertools.product(['dependencies','templates','direct'],['repeated','distinct'],[False,True],[False,True],[8,32],[False,True]));assert len(cases)==96
  jobs=[dict(context=c,profile=p,case=case,rep=r) for c,p,case,r in itertools.product(['lookup','seeking'],[False,True],cases,range(2))];random.Random(7411).shuffle(jobs)
  paths=subprocess.check_output(['git','ls-files','research/chr-reuse','research/chr-direct-choice','research/chr-direct-conditional','research/chr-compiled','research/chr-persistent','research/chr-observe','crates/chr-syntax','Cargo.toml','Cargo.lock'],text=True).splitlines()+[str(Path(__file__).relative_to(ROOT)),'research/chr-reuse/examples/validity_sources.rs','research/chr-direct-choice/src/demand/validity_profile.rs','docs/experiments/registrations/S08-validity-callers.md']
+ if REUSE: paths += ['docs/experiments/registrations/S08-answer-validity.md']
  with zipfile.ZipFile(OUT/'sources.zip','w',zipfile.ZIP_DEFLATED) as z:
   for p in sorted(set(paths)):z.write(ROOT/p,p)
  (OUT/'freeze.json').write_text(json.dumps(dict(builds=builds,jobs=jobs,source_hash=sha(OUT/'sources.zip'),cpu=CPU,rustc=subprocess.check_output(['rustc','-Vv'],text=True)),indent=2)+'\n')

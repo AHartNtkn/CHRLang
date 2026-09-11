@@ -1,5 +1,7 @@
 # Experimental sequence for the unanswered architecture questions
 
+Within-answer validity reuse passes source/retry/cycle gates and768 ownership processes. All128 graph configurations avoid second-pass checks; all request16–10,938 extra bytes and64 peak higher. Other caller work and direct controls are unchanged. T074 next measures ordinary complete lifecycle time with adverse controls, then full portfolio review; package count three, goal active. [Answer-validity result](results/S08-answer-validity.md).
+
 Caller validity attribution validates 768 processes, 384 exact repetitions and 192 diagnostic/control ownership pairs. Inclusion allocates zero bytes; duplicate output filtering accounts for 15–21% of dependency support visits, with zero-work template controls. T074 next qualifies validity reuse within one answer, including newly appended obligations and failure; package count two, goal active. [Caller attribution](results/S08-validity-callers.md).
 
 Fresh graph attribution validates 144 lifecycle processes, 48 allocation pairs and 1,200 profiled lifecycles. Seeking context inclusion owns 58–63% of sampled cycles in dependency/consuming-template cases but 4.4% in pure templates; lookup/seeking ownership is identical in 24 pairs. T074 next qualifies caller-specific validity-work attribution with adverse sources; package count one, goal active. [Fresh graph profile](results/S08-fresh-graph-profile.md).

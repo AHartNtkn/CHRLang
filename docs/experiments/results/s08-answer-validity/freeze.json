@@ -1,0 +1,10057 @@
+{
+  "builds": {
+    "lookup-False": {
+      "binary": "/home/ahart/Documents/CHRLang/target/answer-validity-lookup-False",
+      "sha256": "3d9177f47b8e90f2fbf68e68af5f850f34724e6afd3f595325253d84cdcda715",
+      "command": [
+        "cargo",
+        "build",
+        "-p",
+        "chr-reuse",
+        "--release",
+        "--no-default-features",
+        "--features",
+        "alloc-meter,chr-direct-choice/completed-traversal,chr-direct-choice/answer-validity",
+        "--example",
+        "validity_sources"
+      ]
+    },
+    "lookup-True": {
+      "binary": "/home/ahart/Documents/CHRLang/target/answer-validity-lookup-True",
+      "sha256": "92d1770d9f29005ce01556e1f315f7ba0946e41d2751b168cdf34eeee7e7b7a1",
+      "command": [
+        "cargo",
+        "build",
+        "-p",
+        "chr-reuse",
+        "--release",
+        "--no-default-features",
+        "--features",
+        "alloc-meter,chr-direct-choice/completed-traversal,validity-profile,chr-direct-choice/answer-validity",
+        "--example",
+        "validity_sources"
+      ]
+    },
+    "seeking-False": {
+      "binary": "/home/ahart/Documents/CHRLang/target/answer-validity-seeking-False",
+      "sha256": "50f2c3c3aa52801f531ef4d88fea49e5d24f40a97179b356a8be494f57b9e776",
+      "command": [
+        "cargo",
+        "build",
+        "-p",
+        "chr-reuse",
+        "--release",
+        "--no-default-features",
+        "--features",
+        "alloc-meter,chr-direct-choice/completed-traversal,chr-direct-choice/seek-context,chr-direct-choice/answer-validity",
+        "--example",
+        "validity_sources"
+      ]
+    },
+    "seeking-True": {
+      "binary": "/home/ahart/Documents/CHRLang/target/answer-validity-seeking-True",
+      "sha256": "68ee5dc76880169f4e75d57ac6115340dbd7f8064903591ee1fe999273765516",
+      "command": [
+        "cargo",
+        "build",
+        "-p",
+        "chr-reuse",
+        "--release",
+        "--no-default-features",
+        "--features",
+        "alloc-meter,chr-direct-choice/completed-traversal,chr-direct-choice/seek-context,validity-profile,chr-direct-choice/answer-validity",
+        "--example",
+        "validity_sources"
+      ]
+    }
+  },
+  "jobs": [
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        false,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        false,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "repeated",
+        false,
+        true,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "templates",
+        "distinct",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "distinct",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        false,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": false,
+      "case": [
+        "direct",
+        "distinct",
+        false,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "templates",
+        "repeated",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": true,
+      "case": [
+        "direct",
+        "distinct",
+        true,
+        false,
+        32,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        false,
+        8,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "direct",
+        "repeated",
+        false,
+        true,
+        32,
+        false
+      ],
+      "rep": 1
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "distinct",
+        false,
+        false,
+        8,
+        true
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        false,
+        32,
+        false
+      ],
+      "rep": 0
+    },
+    {
+      "context": "seeking",
+      "profile": true,
+      "case": [
+        "direct",
+        "repeated",
+        true,
+        true,
+        8,
+        true
+      ],
+      "rep": 1
+    },
+    {
+      "context": "lookup",
+      "profile": false,
+      "case": [
+        "dependencies",
+        "repeated",
+        true,
+        true,
+        8,
+        false
+      ],
+      "rep": 1
+    }
+  ],
+  "source_hash": "931b003188d1a1cd44190b7ffef999257ec303fde981b3432003325da870cfae",
+  "cpu": 0,
+  "rustc": "rustc 1.97.1 (8bab26f4f 2026-07-14)\nbinary: rustc\ncommit-hash: 8bab26f4f68e0e26f0bb7960be334d5b520ea452\ncommit-date: 2026-07-14\nhost: x86_64-unknown-linux-gnu\nrelease: 1.97.1\nLLVM version: 22.1.6\n"
+}
