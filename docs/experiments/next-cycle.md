@@ -8,9 +8,9 @@ This sequence covers the [57 reviewed questions](question-to-experiment-map.md) 
 
 ## Start here: the next experiments
 
-**1. Complete demand primary lifecycle costs — T071, specification 2.** The [full portfolio review](results/S01-prefix-portfolio-review.md) selects this unfinished comparison. Verify the existing nonground-post runner's counter-free feature closure, phase boundaries and clock behavior, then prospectively register primary costs against competent explicit controls. Reuse qualified sources, independent answers and applicable allocation evidence. Preserve successful/miss reuse, adverse cheap work, arrival order, changing queries and consumers. Repair only actual measurement defects or consequential missing controls.
+**1. Strengthen the post execution controls — T071, specification 2.** The [primary timing pilot](results/S03-post-timing.md) supplies favorable and adverse demand regimes; allocation losses do not establish speed. Actual generated access and Active policy have not run these sources. Inferred specialization cannot cover the non-nullary partner of `take`. Use the existing general emitters and shared post source to qualify full independent answers, changing queries, both arrival orders, misses, duplicates, cancellation and retained ownership. Keep any policy-dependent answer differences separate.
 
-At its first bounded cost result or concrete obstruction compare completing demand evidence with compact confirmation, integration and call-reuse costs. Copy avoidance and a distinct discovery algorithm remain separate possibilities; allocation subtraction does not establish their runtime effects. Writable resource heads, dynamic choices and sustained ownership remain required.
+Carry passing controls into the existing lifecycle runner and prospectively register costs in the bounded follow-through. Do not repeat only timing precision around a potentially weaker competitor. At its result or obstruction compare demand confirmation/miss repair with compact confirmation, integration and call-reuse costs. Writable heads, dynamic choices, distinct discovery algorithms and sustained consumers remain required.
 
 **2. Retain compact solving's consequential follow-through — T076, specification 3.** The [single-traversal/output comparison](results/S06-unique-output.md) removes union's allocation advantage over a stronger explicit control, while repeated overlap retains a sampled runtime advantage. Confirmation is the strongest ready distinct alternative to demand timing. Preserve larger/different relations, connected projection, richer structural operations and complete-path integration.
 
@@ -27,7 +27,7 @@ The table schedules entry into each investigation. The specifications below defi
 | Order | Investigation and specification | Review questions | Required architectural evidence |
 |---|---|---|---|
 | Current result | Recorded-read costs and specialization — §1 | 9–11, 26, 35, 38, 52 | Bounded report available; favorable timing and broader integration remain open |
-| A1 | Demand capability and costs — §2 | 12, 16, 18–19, 23 | Primary lifecycle costs now selected; writable heads and dynamic choices remain distinct |
+| A1 | Demand capability and costs — §2 | 12, 16, 18–19, 23 | Primary sizing now available; qualify native/access controls and retain broader capability costs |
 | A2 | Compact solving — §3 | 26–29, 34, 53 | Useful union/projection beyond current reductions and richer structural operations |
 | A3 | Intermediate joins and subscriptions — §6 | 1–5, 8, 10–11 | Carry bounded confirmed tradeoffs; resolve broader plans, retention and consequential uncertainty |
 | A4 | Direct integrated organizations — §1 | 9–11, 16, 52 | Flat relations, CHR merging and local rewrites exercised in consuming source execution |
@@ -223,7 +223,7 @@ No direction leaves the sequence merely because it is expensive to implement, lo
 
 For each next-package proposal, record the decision it could change, the strongest ready distinct alternative, actual prerequisites, expected implementation/measurement effort, and the next result boundary. Prefer completing a consequential comparison over expanding its matrix when the expansion cannot change the decision. Prefer a distinct mechanism over another refinement when the refinement has no credible path to changing the architecture comparison.
 
-**The [full prefix portfolio review](results/S01-prefix-portfolio-review.md) resets the package count.** Four packages now have results: explicit/output costs, generated/activation qualification, deep-prefix sizing and confirmation. Demand primary costs are next; compact confirmation, matching uncertainty and unfinished integration/reuse comparisons remain required. Review selection at the next result or obstruction and the whole portfolio after at most four packages.
+**One package follows the [full prefix portfolio review](results/S01-prefix-portfolio-review.md).** Demand primary sizing now supplies time–memory evidence. Actual generated/Active post controls and their costs are next; compact confirmation, matching uncertainty and unfinished integration/reuse comparisons remain required. Review selection at the next result or obstruction and the whole portfolio after at most three more packages.
 
 **A claim that an experiment cannot affect downstream decisions needs a sensitivity argument.** Name the decision, the outcomes still compatible with current evidence, and why none would change efficiency, necessary complexity, source eligibility or a competitor's credibility. Assume neither the incumbent's superiority nor the proposed mechanism's failure. When those outcomes could change the decision, the trial remains required. When only a narrower claim is settled, advance without extending that conclusion to its broader design.
 

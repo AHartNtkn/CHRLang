@@ -1,0 +1,47 @@
+{
+  "parent_binary": {
+    "path": "/home/ahart/Documents/CHRLang/target/s03-post-ownership-ordinary/release/examples/dependency_ownership",
+    "sha256": "38f1bc687be5375efdd6d9c3ec22022bb2a7f75fba81f89834b033f4176d31a9"
+  },
+  "feature_artifacts": [
+    {
+      "package": "path+file:///home/ahart/Documents/CHRLang/research/chr-observe#0.1.0",
+      "features": []
+    },
+    {
+      "package": "path+file:///home/ahart/Documents/CHRLang/research/chr-compiled#0.1.0",
+      "features": []
+    },
+    {
+      "package": "path+file:///home/ahart/Documents/CHRLang/research/chr-persistent#0.1.0",
+      "features": []
+    },
+    {
+      "package": "path+file:///home/ahart/Documents/CHRLang/research/chr-direct-choice#0.1.0",
+      "features": []
+    },
+    {
+      "package": "path+file:///home/ahart/Documents/CHRLang/research/chr-direct-conditional#0.1.0",
+      "features": [
+        "experiment"
+      ]
+    },
+    {
+      "package": "path+file:///home/ahart/Documents/CHRLang/research/chr-compiled#0.1.0",
+      "features": []
+    },
+    {
+      "package": "path+file:///home/ahart/Documents/CHRLang/research/chr-direct-conditional#0.1.0",
+      "features": [
+        "experiment"
+      ]
+    }
+  ],
+  "unchanged_runtime_sources": {
+    "research/chr-compiled/src/lib.rs": true,
+    "research/chr-direct-choice/src/demand/templates.rs": true,
+    "research/chr-direct-conditional/tests/runtime_support/post_source.rs": true
+  },
+  "current_runner_and_demand_differences": "Opt-in candidate-profile hooks only; reviewed with source diff",
+  "primary_observation": "combined execution and owned observation; first clock off"
+}

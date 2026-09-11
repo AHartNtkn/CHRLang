@@ -1,6 +1,6 @@
 # The comparisons still needed to choose the architecture
 
-The [timing confirmation](results/S01-prefix-confirmation.md) and [full portfolio review](results/S01-prefix-portfolio-review.md) supply the current checkpoint. Deep-prefix timing confirmation completes12,288 processes with64 repetitions over64 scenarios. Four practical gains over local scan occur on deep sparse width8 sources; keyed gains against generated execution leave the incremental local-scan benefit near10%. No scenario establishes10% over both controls; heap costs remain adverse to local scan. Full portfolio review selects T071 demand lifecycle timing; T081 and broader mechanisms remain required. Review count reset; goal active.
+The [demand timing pilot](results/S03-post-timing.md) supplies the current checkpoint. Nonground-post primary sizing completes2,160 measured runs,432 warmups and36 cancellation/reuse gates with exact parent endpoints. Demand has sampled time gains despite allocation losses; large misses remain about6x specialized execution in the displayed case. Actual generated/Active post controls are still untested. T071 next qualifies those controls and their lifecycle before confirmation; miss repair and broader capabilities remain required. Package one after full portfolio review; goal active.
 
 The [relevant-key ownership comparison](results/S02-relevant-ownership.md) supplies the current checkpoint. Relevant-key ownership validates1,008 metered and448 ordinary processes with exact allocation repeats, cancellation/reuse and retained answers surviving producer disposal. Ordered relevant reuse lowers peaks versus exact-state caching in38of64 scenarios but requests more bytes than recomputation in all64. The changed depth16/four-query witness requests1,292,590bytes with72,959peak excess versus669,196/38,976 for recomputation. T072 next attributes key/replay execution costs before timing; package one after breadth review; goal active.
 
@@ -106,7 +106,7 @@ For a particular design, use the [57-question experiment map](question-to-experi
 
 ## Execution order
 
-The [current execution order](next-cycle.md#start-here-the-next-experiments) owns scheduling: complete demand lifecycle timing, retaining compact confirmation, matching uncertainty and unfinished integration/reuse comparisons. The specifications below retain their individual evidence requirements and do not establish a separate order.
+The [current execution order](next-cycle.md#start-here-the-next-experiments) owns scheduling: qualify actual generated/Active post controls and their lifecycle, retaining compact confirmation, matching uncertainty and unfinished integration/reuse comparisons. The specifications below retain their individual evidence requirements and do not establish a separate order.
 
 ### Depth, breadth and stopping within this sequence
 
