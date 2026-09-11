@@ -1,0 +1,23 @@
+   Compiling chr-syntax v0.1.0 (/home/ahart/Documents/CHRLang/crates/chr-syntax)
+   Compiling chr-observe v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-observe)
+   Compiling chr-integrated v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-integrated)
+   Compiling chr-compiled v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-compiled)
+   Compiling chr-persistent v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-persistent)
+   Compiling chr-relational v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-relational)
+warning: unused import: `super::*`
+   --> research/chr-relational/tests/support/local_multihead.rs:690:9
+    |
+690 |     use super::*;
+    |         ^^^^^^^^
+    |
+help: if this is a test module, consider adding a `#[cfg(test)]` to the containing module
+   --> research/chr-relational/tests/support/local_multihead.rs:689:1
+    |
+689 | mod diagnostic_tests {
+    | ^^^^^^^^^^^^^^^^^^^^
+    = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `chr-relational` (test "multihead_lifecycle") generated 1 warning (run `cargo fix --test "multihead_lifecycle" -p chr-relational` to apply 1 suggestion)
+    Finished `release` profile [optimized] target(s) in 10.92s
+     Running tests/multihead_lifecycle.rs (target/s01-prefix-lifecycle-qualification/release/deps/multihead_lifecycle-d25e78699f82cb74)
+90 independent prefix/retained/cancellation smoke configurations passed

@@ -15,7 +15,7 @@ use chr_syntax::{Answer, Query, Rule};
 use std::sync::Arc;
 trait Backend {
     type State;
-    fn prepare(r: &[Rule]) -> Self;
+    fn prepare(r: &[Rule], family: &str) -> Self;
     fn setup(&self, q: &Query) -> Self::State;
     fn advance(s: &mut Self::State) -> bool;
     fn observe(s: &mut Self::State) -> Option<Answer>;
@@ -23,7 +23,8 @@ trait Backend {
 struct Local<const MODE: usize>(Arc<local::multihead::Program>);
 impl<const MODE: usize> Backend for Local<MODE> {
     type State = local::multihead::Execution<false>;
-    fn prepare(r: &[Rule]) -> Self {
+    fn prepare(r: &[Rule], family: &str) -> Self {
+        let _ = family;
         Self(local::multihead::Program::compile(r).unwrap())
     }
     fn setup(&self, q: &Query) -> Self::State {
@@ -42,18 +43,37 @@ impl<const MODE: usize> Backend for Local<MODE> {
         s.answer()
     }
 }
-struct Compiled<const INDEX: bool, const SPECIAL: bool>(chr_compiled::PreparedRuleset);
-impl<const INDEX: bool, const SPECIAL: bool> Backend for Compiled<INDEX, SPECIAL> {
+struct Compiled<
+    const INDEX: bool,
+    const SPECIAL: bool,
+    const ACTIVE: bool = false,
+    const NATIVE: bool = false,
+>(chr_compiled::PreparedRuleset);
+impl<const INDEX: bool, const SPECIAL: bool, const ACTIVE: bool, const NATIVE: bool> Backend
+    for Compiled<INDEX, SPECIAL, ACTIVE, NATIVE>
+{
     type State = chr_compiled::Engine;
-    fn prepare(r: &[Rule]) -> Self {
-        let p = chr_compiled::PreparedRuleset::new(r.to_vec(), None).unwrap();
+    fn prepare(r: &[Rule], family: &str) -> Self {
+        let p = chr_compiled::PreparedRuleset::new(
+            r.to_vec(),
+            if NATIVE {
+                Some(source::native_code(family))
+            } else {
+                None
+            },
+        )
+        .unwrap();
         Self(if SPECIAL { p.specialize_inferred() } else { p })
     }
     fn setup(&self, q: &Query) -> Self::State {
         self.0
             .start(
                 q.clone(),
-                chr_compiled::Policy::Global,
+                if ACTIVE {
+                    chr_compiled::Policy::Active
+                } else {
+                    chr_compiled::Policy::Global
+                },
                 if INDEX {
                     chr_compiled::Access::Indexed
                 } else {
@@ -96,9 +116,13 @@ struct Phase {
 fn measure<T>(f: impl FnOnce() -> T) -> (T, Phase) {
     #[cfg(feature = "alloc-meter")]
     let start = meter::begin();
+    #[cfg(not(feature = "alloc-meter"))]
     let clock = std::time::Instant::now();
     let value = std::hint::black_box(f());
+    #[cfg(not(feature = "alloc-meter"))]
     let ns = clock.elapsed().as_nanos();
+    #[cfg(feature = "alloc-meter")]
+    let ns = 0;
     #[cfg(feature = "alloc-meter")]
     let heap = meter::end(start);
     (
@@ -123,7 +147,7 @@ fn run<B: Backend>(mode: &str, family: &str, width: usize, reuse: usize, retain:
     let expected = (0..reuse)
         .map(|i| scalar::run(&rules, &source::query(family, width, i), 200_000))
         .collect::<Vec<_>>();
-    let warm = B::prepare(&rules);
+    let warm = B::prepare(&rules, family);
     for (i, expected) in expected.iter().enumerate() {
         let mut s = warm.setup(&source::query(family, width, i));
         finish::<B>(&mut s);
@@ -135,7 +159,7 @@ fn run<B: Backend>(mode: &str, family: &str, width: usize, reuse: usize, retain:
     let mut held = Vec::with_capacity(if retain { reuse } else { 0 });
     let (rules, source_build) = measure(|| source::rules(family));
     phases.push(("source-build", source_build));
-    let (p, prep) = measure(|| B::prepare(&rules));
+    let (p, prep) = measure(|| B::prepare(&rules, family));
     phases.push(("prepare", prep));
     for (i, expected) in expected.iter().enumerate() {
         let (q, m) = measure(|| source::query(family, width, i));
@@ -231,7 +255,7 @@ fn smoke<B: Backend>(family: &str) {
     let rules = source::rules(family);
     let q = source::query(family, 4, 0);
     let expected = scalar::run(&rules, &q, 200_000);
-    let p = B::prepare(&rules);
+    let p = B::prepare(&rules, family);
     let mut held = vec![];
     for advance in [false, true] {
         let mut state = p.setup(&q);
@@ -264,6 +288,28 @@ fn main() {
             "{{\"samples\":10000,\"min_ns\":{},\"median_ns\":{},\"p99_ns\":{}}}",
             samples[0], samples[5000], samples[9900]
         );
+        return;
+    }
+    if args.as_slice() == ["prefix-check"] {
+        let mut count = 0;
+        for family in ["sparse", "keyed", "kill", "miss"] {
+            for depth in [0, 8, 32] {
+                let name = format!("prefix-{family}-{depth}");
+                smoke::<Local<0>>(&name);
+                smoke::<Local<2>>(&name);
+                smoke::<Local<3>>(&name);
+                smoke::<Compiled<false, false>>(&name);
+                smoke::<Compiled<true, false>>(&name);
+                smoke::<Compiled<true, false, false, true>>(&name);
+                count += 6;
+                if family != "kill" {
+                    smoke::<Compiled<true, false, true>>(&name);
+                    smoke::<Compiled<true, false, true, true>>(&name);
+                    count += 2;
+                }
+            }
+        }
+        println!("{count} independent prefix/retained/cancellation smoke configurations passed");
         return;
     }
     if args.is_empty() {
@@ -328,13 +374,27 @@ fn main() {
             "proper-keyed"
         ]
         .contains(&family.as_str())
+            || source::prefix_spec(family).is_some()
     );
     assert!([4, 8, 16, 64].contains(&width) && [1, 4].contains(&reuse));
+    if mode.starts_with("active-") {
+        assert!(
+            !matches!(source::prefix_spec(family), Some(("kill", _))),
+            "Active kill has a different answer contract"
+        );
+    }
     match mode.as_str() {
         "local-scan" => run::<Local<0>>(mode, family, width, reuse, retain),
         "tuples" => run::<Local<1>>(mode, family, width, reuse, retain),
         "intermediate" => run::<Local<3>>(mode, family, width, reuse, retain),
         "partial" => run::<Local<2>>(mode, family, width, reuse, retain),
+        "active-indexed" => run::<Compiled<true, false, true>>(mode, family, width, reuse, retain),
+        "native-indexed" => {
+            run::<Compiled<true, false, false, true>>(mode, family, width, reuse, retain)
+        }
+        "active-native-indexed" => {
+            run::<Compiled<true, false, true, true>>(mode, family, width, reuse, retain)
+        }
         "scan" => run::<Compiled<false, false>>(mode, family, width, reuse, retain),
         "indexed" => run::<Compiled<true, false>>(mode, family, width, reuse, retain),
         "special-scan" => run::<Compiled<false, true>>(mode, family, width, reuse, retain),

@@ -687,9 +687,9 @@ pub mod search;
 
 #[cfg(test)]
 mod diagnostic_tests {
-    use super::*;
     #[test]
     fn nested_matching_diagnostics_follow_execution_mode() {
+        use super::*;
         let rules = [Rule::simplify(
             "match",
             [chr_syntax::c("x", [chr_syntax::t("f", [chr_syntax::v(0)])])],

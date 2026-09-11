@@ -3,7 +3,7 @@ use chr_syntax::{Goal, Query, Rule, Var, atom, c, eq, t, v};
 fn wrap(depth: usize, value: chr_syntax::Term) -> chr_syntax::Term {
     (0..depth).fold(value, |x, _| t("f", [x]))
 }
-pub fn source(family: &str, n: usize, depth: usize, seed: usize) -> (Vec<Rule>, Query) {
+pub fn rules(family: &str, depth: usize) -> Vec<Rule> {
     let mut rules = vec![];
     if family == "kill" {
         rules.push(Rule {
@@ -24,6 +24,9 @@ pub fn source(family: &str, n: usize, depth: usize, seed: usize) -> (Vec<Rule>, 
         guards: vec![],
         body: eq(v(2), atom("hit")),
     });
+    rules
+}
+pub fn query(family: &str, n: usize, depth: usize, seed: usize) -> Query {
     let key = |i: usize| atom(&format!("k{seed}_{i}"));
     let base = 1000 + seed as u64 * 100;
     let mut facts = vec![];
@@ -43,15 +46,15 @@ pub fn source(family: &str, n: usize, depth: usize, seed: usize) -> (Vec<Rule>, 
     if family == "kill" {
         facts.push(c("kill", []));
     }
-    (
-        rules,
-        Query {
-            constraints: facts,
-            outputs: (0..n)
-                .map(|i| (format!("out{i}"), Var(base + i as u64)))
-                .collect(),
-        },
-    )
+    Query {
+        constraints: facts,
+        outputs: (0..n)
+            .map(|i| (format!("out{i}"), Var(base + i as u64)))
+            .collect(),
+    }
+}
+pub fn source(family: &str, n: usize, depth: usize, seed: usize) -> (Vec<Rule>, Query) {
+    (rules(family, depth), query(family, n, depth, seed))
 }
 
 pub fn programs() -> Vec<Vec<Rule>> {
@@ -60,7 +63,7 @@ pub fn programs() -> Vec<Vec<Rule>> {
         .flat_map(|kill| {
             [0, 8, 32]
                 .into_iter()
-                .map(move |depth| source(if kill { "kill" } else { "sparse" }, 4, depth, 0).0)
+                .map(move |depth| rules(if kill { "kill" } else { "sparse" }, depth))
         })
         .collect()
 }

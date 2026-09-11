@@ -1,8 +1,25 @@
+#[allow(dead_code)]
+#[path = "../../../chr-compiled/experiments/structural_prefix_source.rs"]
+mod prefix;
+pub fn prefix_spec(family: &str) -> Option<(&str, usize)> {
+    let rest = family.strip_prefix("prefix-")?;
+    let (name, depth) = rest.rsplit_once('-').expect("prefix family-depth");
+    let depth = depth.parse().expect("integer depth");
+    assert!(["sparse", "keyed", "kill", "miss"].contains(&name) && [0, 8, 32].contains(&depth));
+    Some((name, depth))
+}
+pub fn native_code(family: &str) -> chr_compiled::Compiled {
+    let (name, depth) = prefix_spec(family).expect("native prefix source");
+    chr_compiled::access_prefix_bundled(prefix::program_id(name, depth))
+}
 use chr_syntax::{Goal, Query, Rule, Var, and, atom, c, eq, t, v};
 fn nat(n: usize) -> chr_syntax::Term {
     (0..n).fold(atom("z"), |x, _| t("s", [x]))
 }
 pub fn rules(family: &str) -> Vec<Rule> {
+    if let Some((name, depth)) = prefix_spec(family) {
+        return prefix::rules(name, depth);
+    }
     match family {
         "proper" | "proper-kill" | "proper-late" | "proper-keyed" => {
             let join = Rule {
@@ -87,6 +104,9 @@ pub fn rules(family: &str) -> Vec<Rule> {
     }
 }
 pub fn query(family: &str, n: usize, seed: usize) -> Query {
+    if let Some((name, depth)) = prefix_spec(family) {
+        return prefix::query(name, n, depth, seed);
+    }
     let base = 100 + seed as u64 * 10000;
     let mut xs = vec![];
     match family {
