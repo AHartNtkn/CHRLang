@@ -9,7 +9,7 @@ goal:
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
   execution_sequence: docs/experiments/next-cycle.md
-  current_research: "Generated call artifacts and the source-validation repair pass six 768-case gates and 1,728 lifecycle processes. Streaming exact source comparison saves 4,088 preparation bytes in all 288 generated scenarios, with unchanged peak ownership; both generated modes now request fewer bytes than corresponding generic controls throughout. Full 57-question review selects generated runtime and compiler amortization under T075; review count reset, goal active."
+  current_research: "Generated runtime timing validates 10,080 processes and 1,152 comparisons. Four repeated-query cases qualify faster with traces than all six controls; generated matching qualifies against generic indexed execution in fifteen cases. Stronger-control diagnostics leave generated-plus-inferred gains uncertain and select longer prepared sessions plus compiler amortization including Direct, scan and inferred controls. T075 active; package count one, goal active."
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -368,9 +368,11 @@ tasks:
     assignee: PM
     status: active
     objective: Investigate sound generalized call and continuation reuse after different histories, including renaming, relevance, resource and output identity obligations, against competent recomputation and sharing controls.
-    progress: "Generated call artifacts and the source-validation repair pass six 768-case gates and 1,728 lifecycle processes. Streaming exact source comparison saves 4,088 preparation bytes in all 288 generated scenarios, with unchanged peak ownership; both generated modes now request fewer bytes than corresponding generic controls throughout. Full 57-question review selects generated runtime and compiler amortization under T075; review count reset, goal active."
-    next_action: "Register paired counter-free generated runtime against frozen trace, Direct, scan, indexed and inferred controls. Reuse the existing artifact workflow to separately measure user-program emission, compilation, binary ownership and changed-query amortization against equivalent generic artifacts; qualifying dependency builds are not compiler-cost evidence. Extend prepared-query reuse and its lifecycle accounting where needed to expose the crossover. Preserve complete order/cancellation and allocation gates, investigate consequential failures or uncertainty, then reassess bounded retention, broader observers and sparse projection. Review count reset; full portfolio remains active."
+    progress: "Generated runtime timing validates 10,080 processes and 1,152 comparisons. Four repeated-query cases qualify faster with traces than all six controls; generated matching qualifies against generic indexed execution in fifteen cases. Stronger-control diagnostics leave generated-plus-inferred gains uncertain and select longer prepared sessions plus compiler amortization including Direct, scan and inferred controls. T075 active; package count one, goal active."
+    next_action: "Register and implement longer prepared-query sessions with complete dynamic query/phase ownership, then qualify source agreement and requested allocation. Select favorable and adverse sources using the generated runtime diagnosis, including the fourteen exploratory inferred-generated scenarios. Use equivalent generic artifacts and existing emission/compilation tooling to measure user-program costs separately from shared dependency construction; include Direct, scan and inferred runtime controls, not only indexed. Test amortization with observed long sessions rather than extrapolated medians. Investigate uncertainty without excluding prior blocks. Compare bounded retention, broader observers and sparse projection at the resulting gate; package count one."
     inputs:
+      - docs/experiments/results/S05-call-generated-timing.md
+      - docs/experiments/registrations/S05-call-generated-timing.md
       - docs/experiments/results/S05-call-generated-entry.md
       - docs/experiments/results/S05-call-generated-review.md
       - docs/experiments/registrations/S05-generated-source-check.md
@@ -2690,8 +2692,11 @@ checks:
   last_verification:
     result: passed
     task: T075
-    scope: Generated source/ownership gates, allocation-free exact source validation and full portfolio review.
+    scope: Counter-free generated runtime timing, stronger-control screen and phase/uncertainty diagnosis.
     commands:
+      - "call_generated_timing.py audit: 10080 terminal processes, 1152 comparisons, output agreement and frozen inputs"
+      - "call_generated_timing_diagnosis.py audit: prior-eight overlap, four six-control gains, service attribution and exploratory control/block diagnostics"
+      - "Matched and repaired-generated ownership audits passed before timing; all 57 question entries preserved"
       - "call_generated_entry.py audit and audit --repair: six compiled source gates and 1728 lifecycle processes"
       - "call_generated_analysis.py audit: 288 exact phase attributions, all savings confined to preparation"
       - "Metered source identity test fails at 248 requested bytes before repair and passes at zero after; mismatch rejection preserved"
