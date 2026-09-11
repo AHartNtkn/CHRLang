@@ -18,6 +18,7 @@ enum Edge {
     Answer(Answer),
 }
 struct Node {
+    until_key: usize,
     cursor: Option<Cursor>,
     edge: Option<Edge>,
 }
@@ -28,10 +29,12 @@ struct Job {
 pub struct Prepared {
     machine: PreparedMachine,
     memo: bool,
+    recognition_stride: usize,
 }
 pub struct Search {
     machine: Machine,
     memo: bool,
+    recognition_stride: usize,
     keys: BTreeMap<StateKey, usize>,
     nodes: Vec<Node>,
     free: Vec<usize>,
@@ -45,13 +48,21 @@ impl Prepared {
         Ok(Self {
             machine: PreparedMachine::new(rules)?,
             memo,
+            recognition_stride: 1,
         })
+    }
+    /// Recognize every nth source state without changing service granularity.
+    pub fn with_recognition_stride(mut self, stride: usize) -> Self {
+        assert!(stride > 0, "recognition stride must be positive");
+        self.recognition_stride = stride;
+        self
     }
     pub fn start(&self, q: Query) -> Result<Search, String> {
         let (machine, cursor) = self.machine.start(q)?;
         let mut run = Search {
             machine,
             memo: self.memo,
+            recognition_stride: self.recognition_stride,
             keys: BTreeMap::new(),
             nodes: vec![],
             free: vec![],
@@ -60,7 +71,7 @@ impl Prepared {
             #[cfg(feature = "stage-alloc")]
             profile: Default::default(),
         };
-        let target = run.intern(cursor);
+        let target = run.intern(cursor, 0);
         run.frontier.push_back(Job {
             id: target.id,
             residual: target.added,
@@ -72,9 +83,9 @@ impl Prepared {
     }
 }
 impl Search {
-    fn intern(&mut self, mut cursor: Cursor) -> Target {
+    fn intern(&mut self, mut cursor: Cursor, until_key: usize) -> Target {
         let added = measure!(self, 1, self.machine.detach_inert_ground(&mut cursor));
-        let key = if self.memo {
+        let key = if self.memo && until_key == 0 {
             if COLLECT_METRICS {
                 self.stats.key_requests += 1;
             }
@@ -89,6 +100,7 @@ impl Search {
         let id = self.free.pop().unwrap_or_else(|| {
             let id = self.nodes.len();
             self.nodes.push(Node {
+                until_key: 0,
                 cursor: None,
                 edge: None,
             });
@@ -98,6 +110,7 @@ impl Search {
             self.keys.insert(key, id);
         }
         self.nodes[id] = Node {
+            until_key,
             cursor: Some(cursor),
             edge: None,
         };
@@ -132,12 +145,20 @@ impl Search {
                     self.stats.executed += 1;
                 }
                 let cursor = self.nodes[job.id].cursor.take().expect("unexpanded state");
+                let until_key = match self.nodes[job.id].until_key {
+                    0 => self.recognition_stride - 1,
+                    n => n - 1,
+                };
                 let edge = match measure!(self, 2, self.machine.step(cursor)) {
-                    Step::Continue(c) => Edge::Continue(self.intern(c)),
-                    Step::Split(a, b) => Edge::Split(self.intern(a), self.intern(b)),
+                    Step::Continue(c) => Edge::Continue(self.intern(c, until_key)),
+                    Step::Split(a, b) => {
+                        Edge::Split(self.intern(a, until_key), self.intern(b, until_key))
+                    }
                     Step::Failed => Edge::Failed,
                     Step::Answer(a) => Edge::Answer(a),
                 };
+                // Unkeyed intermediates are still targets of replayable edges.
+                // Retain their transitions; recognition spacing is not eviction.
                 if self.memo {
                     self.nodes[job.id].edge = Some(measure!(self, 3, edge.clone()));
                 }

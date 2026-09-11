@@ -1,5 +1,7 @@
 # Unanswered architecture questions and experimental ownership
 
+Recognition strides 4/16 preserve 9,520 per-step source comparisons and 864 cancellation/restarts. Repeated-work key requests fall 60 to17/5, but reuse hits fall52 to49/41 and retained states rise59 to62/70. T075 next measures complete ownership/lifecycle against Direct and compiled controls; package count one, goal active. [Recognition entry](results/S05-recognition-stride-entry.md).
+
 Scheduled timing validates 57,600 sessions after 1,152 exact ownership entries. Scheduled templates qualify faster than zero-follow in 69/96 cases, but in none against dependency, Direct or carriers; Direct wins 91 and carriers 90. Even free scheduled disposal leaves every median above Direct. Full 57-question review selects T075 coarser recognition; T073 remains pending, review count reset, goal active. [Timing](results/S06-scheduled-timing.md) · [Portfolio review](results/S06-scheduled-timing-review.md).
 
 Scheduled ownership validates 2,304 processes and 1,152 exact layout pairs. Scheduled templates allocate less than zero-follow in all 96 cases, but more than dependency, Direct and carrier controls in every case. A source witness retains one scheduled template versus 34 suffix templates. Full 57-question review retains T073 for ordinary lifecycle timing before further optimization; review count reset, goal active. [Ownership](results/S06-scheduled-ownership.md) · [Portfolio review](results/S06-scheduled-ownership-review.md).

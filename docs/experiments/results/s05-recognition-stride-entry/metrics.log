@@ -1,0 +1,177 @@
+warning: linker stderr: terminate called after throwing an instance of 'std::system_error'
+           what():  Resource temporarily unavailable
+         PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace and instructions to reproduce the bug.
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `chr-compiled` (build script) generated 1 warning
+   Compiling chr-reuse v0.1.0 (/home/ahart/Documents/CHRLang/research/chr-reuse)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.25s
+     Running tests/inert_residuals.rs (target/debug/deps/inert_residuals-edbc6339bf5ead12)
+
+running 6 tests
+
+thread 'extraction_rejects_another_machines_cursor' (129) panicked at research/chr-persistent/src/continuations.rs:501:9:
+cursor belongs to a different machine
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+thread 'zero_recognition_stride_is_rejected' (131) panicked at research/chr-reuse/src/residuals.rs:56:9:
+recognition stride must be positive
+test extraction_rejects_another_machines_cursor - should panic ... ok
+test zero_recognition_stride_is_rejected - should panic ... ok
+test different_callers_reuse_active_work_and_keep_their_own_tags ... ok
+whole=Stats { logical_steps: 15, executed: 9, hits: 6, key_requests: 10, states: 9, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 15, executed: 9, hits: 6, key_requests: 10, states: 9, completed: 2, failed: 0, max_frontier: 2 }
+case kind=0 depth=0 offset=0 distinct=false whole_hits=6 separated_hits=6 steps=15
+whole=Stats { logical_steps: 15, executed: 15, hits: 0, key_requests: 15, states: 15, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 15, executed: 11, hits: 4, key_requests: 12, states: 11, completed: 2, failed: 0, max_frontier: 2 }
+single_branch=false stride1/4/16 (keys,hits,steps,states): [(60, 52, 111, 59), (17, 49, 111, 62), (5, 41, 111, 70)]
+whole=Stats { logical_steps: 31, executed: 31, hits: 0, key_requests: 31, states: 31, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 31, executed: 19, hits: 12, key_requests: 20, states: 19, completed: 2, failed: 0, max_frontier: 2 }
+case kind=0 depth=0 offset=0 distinct=true whole_hits=0 separated_hits=4 steps=15
+whole=Stats { logical_steps: 15, executed: 9, hits: 6, key_requests: 10, states: 9, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 15, executed: 9, hits: 6, key_requests: 10, states: 9, completed: 2, failed: 0, max_frontier: 2 }
+case kind=0 depth=0 offset=100 distinct=false whole_hits=6 separated_hits=6 steps=15
+single_branch=true stride1/4/16 (keys,hits,steps,states): [(56, 0, 56, 56), (14, 0, 56, 56), (4, 0, 56, 56)]
+whole=Stats { logical_steps: 15, executed: 15, hits: 0, key_requests: 15, states: 15, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 15, executed: 11, hits: 4, key_requests: 12, states: 11, completed: 2, failed: 0, max_frontier: 2 }
+test coarser_recognition_reduces_key_work_without_inventing_reuse ... ok
+case kind=0 depth=0 offset=100 distinct=true whole_hits=0 separated_hits=4 steps=15
+whole=Stats { logical_steps: 21, executed: 12, hits: 9, key_requests: 13, states: 12, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 21, executed: 12, hits: 9, key_requests: 13, states: 12, completed: 2, failed: 0, max_frontier: 2 }
+case kind=0 depth=1 offset=0 distinct=false whole_hits=9 separated_hits=9 steps=21
+whole=Stats { logical_steps: 21, executed: 21, hits: 0, key_requests: 21, states: 21, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 21, executed: 14, hits: 7, key_requests: 15, states: 14, completed: 2, failed: 0, max_frontier: 2 }
+case kind=0 depth=1 offset=0 distinct=true whole_hits=0 separated_hits=7 steps=21
+whole=Stats { logical_steps: 21, executed: 12, hits: 9, key_requests: 13, states: 12, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 21, executed: 12, hits: 9, key_requests: 13, states: 12, completed: 2, failed: 0, max_frontier: 2 }
+case kind=0 depth=1 offset=100 distinct=false whole_hits=9 separated_hits=9 steps=21
+whole=Stats { logical_steps: 31, executed: 31, hits: 0, key_requests: 31, states: 31, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 31, executed: 19, hits: 12, key_requests: 20, states: 19, completed: 2, failed: 0, max_frontier: 2 }
+whole=Stats { logical_steps: 21, executed: 21, hits: 0, key_requests: 21, states: 21, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 21, executed: 14, hits: 7, key_requests: 15, states: 14, completed: 2, failed: 0, max_frontier: 2 }
+case kind=0 depth=1 offset=100 distinct=true whole_hits=0 separated_hits=7 steps=21
+whole=Stats { logical_steps: 39, executed: 21, hits: 18, key_requests: 22, states: 21, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 39, executed: 21, hits: 18, key_requests: 22, states: 21, completed: 2, failed: 0, max_frontier: 2 }
+case kind=0 depth=4 offset=0 distinct=false whole_hits=18 separated_hits=18 steps=39
+test active_consumption_and_history_remain_in_resumable_state ... ok
+whole=Stats { logical_steps: 39, executed: 39, hits: 0, key_requests: 39, states: 39, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 39, executed: 23, hits: 16, key_requests: 24, states: 23, completed: 2, failed: 0, max_frontier: 2 }
+case kind=0 depth=4 offset=0 distinct=true whole_hits=0 separated_hits=16 steps=39
+whole=Stats { logical_steps: 39, executed: 21, hits: 18, key_requests: 22, states: 21, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 39, executed: 21, hits: 18, key_requests: 22, states: 21, completed: 2, failed: 0, max_frontier: 2 }
+case kind=0 depth=4 offset=100 distinct=false whole_hits=18 separated_hits=18 steps=39
+whole=Stats { logical_steps: 39, executed: 39, hits: 0, key_requests: 39, states: 39, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 39, executed: 23, hits: 16, key_requests: 24, states: 23, completed: 2, failed: 0, max_frontier: 2 }
+case kind=0 depth=4 offset=100 distinct=true whole_hits=0 separated_hits=16 steps=39
+whole=Stats { logical_steps: 19, executed: 11, hits: 8, key_requests: 12, states: 11, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 19, executed: 11, hits: 8, key_requests: 12, states: 11, completed: 2, failed: 0, max_frontier: 2 }
+case kind=1 depth=0 offset=0 distinct=false whole_hits=8 separated_hits=8 steps=19
+whole=Stats { logical_steps: 19, executed: 19, hits: 0, key_requests: 19, states: 19, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 19, executed: 19, hits: 0, key_requests: 19, states: 19, completed: 2, failed: 0, max_frontier: 2 }
+case kind=1 depth=0 offset=0 distinct=true whole_hits=0 separated_hits=0 steps=19
+whole=Stats { logical_steps: 19, executed: 11, hits: 8, key_requests: 12, states: 11, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 19, executed: 11, hits: 8, key_requests: 12, states: 11, completed: 2, failed: 0, max_frontier: 2 }
+case kind=1 depth=0 offset=100 distinct=false whole_hits=8 separated_hits=8 steps=19
+whole=Stats { logical_steps: 19, executed: 19, hits: 0, key_requests: 19, states: 19, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 19, executed: 19, hits: 0, key_requests: 19, states: 19, completed: 2, failed: 0, max_frontier: 2 }
+case kind=1 depth=0 offset=100 distinct=true whole_hits=0 separated_hits=0 steps=19
+whole=Stats { logical_steps: 25, executed: 14, hits: 11, key_requests: 15, states: 14, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 25, executed: 14, hits: 11, key_requests: 15, states: 14, completed: 2, failed: 0, max_frontier: 2 }
+case kind=1 depth=1 offset=0 distinct=false whole_hits=11 separated_hits=11 steps=25
+whole=Stats { logical_steps: 25, executed: 25, hits: 0, key_requests: 25, states: 25, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 25, executed: 25, hits: 0, key_requests: 25, states: 25, completed: 2, failed: 0, max_frontier: 2 }
+case kind=1 depth=1 offset=0 distinct=true whole_hits=0 separated_hits=0 steps=25
+whole=Stats { logical_steps: 25, executed: 14, hits: 11, key_requests: 15, states: 14, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 25, executed: 14, hits: 11, key_requests: 15, states: 14, completed: 2, failed: 0, max_frontier: 2 }
+case kind=1 depth=1 offset=100 distinct=false whole_hits=11 separated_hits=11 steps=25
+whole=Stats { logical_steps: 25, executed: 25, hits: 0, key_requests: 25, states: 25, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 25, executed: 25, hits: 0, key_requests: 25, states: 25, completed: 2, failed: 0, max_frontier: 2 }
+case kind=1 depth=1 offset=100 distinct=true whole_hits=0 separated_hits=0 steps=25
+whole=Stats { logical_steps: 43, executed: 23, hits: 20, key_requests: 24, states: 23, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 43, executed: 23, hits: 20, key_requests: 24, states: 23, completed: 2, failed: 0, max_frontier: 2 }
+case kind=1 depth=4 offset=0 distinct=false whole_hits=20 separated_hits=20 steps=43
+whole=Stats { logical_steps: 43, executed: 43, hits: 0, key_requests: 43, states: 43, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 43, executed: 43, hits: 0, key_requests: 43, states: 43, completed: 2, failed: 0, max_frontier: 2 }
+case kind=1 depth=4 offset=0 distinct=true whole_hits=0 separated_hits=0 steps=43
+whole=Stats { logical_steps: 43, executed: 23, hits: 20, key_requests: 24, states: 23, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 43, executed: 23, hits: 20, key_requests: 24, states: 23, completed: 2, failed: 0, max_frontier: 2 }
+case kind=1 depth=4 offset=100 distinct=false whole_hits=20 separated_hits=20 steps=43
+whole=Stats { logical_steps: 43, executed: 43, hits: 0, key_requests: 43, states: 43, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 43, executed: 43, hits: 0, key_requests: 43, states: 43, completed: 2, failed: 0, max_frontier: 2 }
+case kind=1 depth=4 offset=100 distinct=true whole_hits=0 separated_hits=0 steps=43
+whole=Stats { logical_steps: 21, executed: 12, hits: 9, key_requests: 13, states: 12, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 21, executed: 12, hits: 9, key_requests: 13, states: 12, completed: 2, failed: 0, max_frontier: 2 }
+case kind=2 depth=0 offset=0 distinct=false whole_hits=9 separated_hits=9 steps=21
+whole=Stats { logical_steps: 21, executed: 21, hits: 0, key_requests: 21, states: 21, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 21, executed: 21, hits: 0, key_requests: 21, states: 21, completed: 2, failed: 0, max_frontier: 2 }
+case kind=2 depth=0 offset=0 distinct=true whole_hits=0 separated_hits=0 steps=21
+whole=Stats { logical_steps: 21, executed: 12, hits: 9, key_requests: 13, states: 12, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 21, executed: 12, hits: 9, key_requests: 13, states: 12, completed: 2, failed: 0, max_frontier: 2 }
+case kind=2 depth=0 offset=100 distinct=false whole_hits=9 separated_hits=9 steps=21
+whole=Stats { logical_steps: 21, executed: 21, hits: 0, key_requests: 21, states: 21, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 21, executed: 21, hits: 0, key_requests: 21, states: 21, completed: 2, failed: 0, max_frontier: 2 }
+case kind=2 depth=0 offset=100 distinct=true whole_hits=0 separated_hits=0 steps=21
+whole=Stats { logical_steps: 27, executed: 15, hits: 12, key_requests: 16, states: 15, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 27, executed: 15, hits: 12, key_requests: 16, states: 15, completed: 2, failed: 0, max_frontier: 2 }
+case kind=2 depth=1 offset=0 distinct=false whole_hits=12 separated_hits=12 steps=27
+whole=Stats { logical_steps: 27, executed: 27, hits: 0, key_requests: 27, states: 27, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 27, executed: 27, hits: 0, key_requests: 27, states: 27, completed: 2, failed: 0, max_frontier: 2 }
+case kind=2 depth=1 offset=0 distinct=true whole_hits=0 separated_hits=0 steps=27
+whole=Stats { logical_steps: 27, executed: 15, hits: 12, key_requests: 16, states: 15, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 27, executed: 15, hits: 12, key_requests: 16, states: 15, completed: 2, failed: 0, max_frontier: 2 }
+case kind=2 depth=1 offset=100 distinct=false whole_hits=12 separated_hits=12 steps=27
+whole=Stats { logical_steps: 27, executed: 27, hits: 0, key_requests: 27, states: 27, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 27, executed: 27, hits: 0, key_requests: 27, states: 27, completed: 2, failed: 0, max_frontier: 2 }
+case kind=2 depth=1 offset=100 distinct=true whole_hits=0 separated_hits=0 steps=27
+whole=Stats { logical_steps: 45, executed: 24, hits: 21, key_requests: 25, states: 24, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 45, executed: 24, hits: 21, key_requests: 25, states: 24, completed: 2, failed: 0, max_frontier: 2 }
+case kind=2 depth=4 offset=0 distinct=false whole_hits=21 separated_hits=21 steps=45
+whole=Stats { logical_steps: 45, executed: 45, hits: 0, key_requests: 45, states: 45, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 45, executed: 45, hits: 0, key_requests: 45, states: 45, completed: 2, failed: 0, max_frontier: 2 }
+case kind=2 depth=4 offset=0 distinct=true whole_hits=0 separated_hits=0 steps=45
+whole=Stats { logical_steps: 45, executed: 24, hits: 21, key_requests: 25, states: 24, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 45, executed: 24, hits: 21, key_requests: 25, states: 24, completed: 2, failed: 0, max_frontier: 2 }
+case kind=2 depth=4 offset=100 distinct=false whole_hits=21 separated_hits=21 steps=45
+whole=Stats { logical_steps: 45, executed: 45, hits: 0, key_requests: 45, states: 45, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 45, executed: 45, hits: 0, key_requests: 45, states: 45, completed: 2, failed: 0, max_frontier: 2 }
+case kind=2 depth=4 offset=100 distinct=true whole_hits=0 separated_hits=0 steps=45
+whole=Stats { logical_steps: 15, executed: 9, hits: 6, key_requests: 10, states: 9, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 15, executed: 9, hits: 6, key_requests: 10, states: 9, completed: 2, failed: 0, max_frontier: 2 }
+case kind=3 depth=0 offset=0 distinct=false whole_hits=6 separated_hits=6 steps=15
+whole=Stats { logical_steps: 15, executed: 15, hits: 0, key_requests: 15, states: 15, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 15, executed: 11, hits: 4, key_requests: 12, states: 11, completed: 2, failed: 0, max_frontier: 2 }
+case kind=3 depth=0 offset=0 distinct=true whole_hits=0 separated_hits=4 steps=15
+whole=Stats { logical_steps: 15, executed: 9, hits: 6, key_requests: 10, states: 9, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 15, executed: 9, hits: 6, key_requests: 10, states: 9, completed: 2, failed: 0, max_frontier: 2 }
+case kind=3 depth=0 offset=100 distinct=false whole_hits=6 separated_hits=6 steps=15
+whole=Stats { logical_steps: 15, executed: 15, hits: 0, key_requests: 15, states: 15, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 15, executed: 11, hits: 4, key_requests: 12, states: 11, completed: 2, failed: 0, max_frontier: 2 }
+case kind=3 depth=0 offset=100 distinct=true whole_hits=0 separated_hits=4 steps=15
+whole=Stats { logical_steps: 21, executed: 12, hits: 9, key_requests: 13, states: 12, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 21, executed: 12, hits: 9, key_requests: 13, states: 12, completed: 2, failed: 0, max_frontier: 2 }
+case kind=3 depth=1 offset=0 distinct=false whole_hits=9 separated_hits=9 steps=21
+whole=Stats { logical_steps: 21, executed: 21, hits: 0, key_requests: 21, states: 21, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 21, executed: 14, hits: 7, key_requests: 15, states: 14, completed: 2, failed: 0, max_frontier: 2 }
+case kind=3 depth=1 offset=0 distinct=true whole_hits=0 separated_hits=7 steps=21
+whole=Stats { logical_steps: 21, executed: 12, hits: 9, key_requests: 13, states: 12, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 21, executed: 12, hits: 9, key_requests: 13, states: 12, completed: 2, failed: 0, max_frontier: 2 }
+case kind=3 depth=1 offset=100 distinct=false whole_hits=9 separated_hits=9 steps=21
+whole=Stats { logical_steps: 21, executed: 21, hits: 0, key_requests: 21, states: 21, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 21, executed: 14, hits: 7, key_requests: 15, states: 14, completed: 2, failed: 0, max_frontier: 2 }
+case kind=3 depth=1 offset=100 distinct=true whole_hits=0 separated_hits=7 steps=21
+whole=Stats { logical_steps: 39, executed: 21, hits: 18, key_requests: 22, states: 21, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 39, executed: 21, hits: 18, key_requests: 22, states: 21, completed: 2, failed: 0, max_frontier: 2 }
+case kind=3 depth=4 offset=0 distinct=false whole_hits=18 separated_hits=18 steps=39
+whole=Stats { logical_steps: 39, executed: 39, hits: 0, key_requests: 39, states: 39, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 39, executed: 23, hits: 16, key_requests: 24, states: 23, completed: 2, failed: 0, max_frontier: 2 }
+case kind=3 depth=4 offset=0 distinct=true whole_hits=0 separated_hits=16 steps=39
+whole=Stats { logical_steps: 39, executed: 21, hits: 18, key_requests: 22, states: 21, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 39, executed: 21, hits: 18, key_requests: 22, states: 21, completed: 2, failed: 0, max_frontier: 2 }
+case kind=3 depth=4 offset=100 distinct=false whole_hits=18 separated_hits=18 steps=39
+whole=Stats { logical_steps: 39, executed: 39, hits: 0, key_requests: 39, states: 39, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 39, executed: 23, hits: 16, key_requests: 24, states: 23, completed: 2, failed: 0, max_frontier: 2 }
+case kind=3 depth=4 offset=100 distinct=true whole_hits=0 separated_hits=16 steps=39
+whole=Stats { logical_steps: 15, executed: 9, hits: 6, key_requests: 10, states: 9, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 15, executed: 9, hits: 6, key_requests: 10, states: 9, completed: 2, failed: 0, max_frontier: 2 }
+case kind=4 depth=0 offset=0 distinct=false whole_hits=6 separated_hits=6 steps=15
+whole=Stats { logical_steps: 15, executed: 15, hits: 0, key_requests: 15, states: 15, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 15, executed: 11, hits: 4, key_requests: 12, states: 11, completed: 2, failed: 0, max_frontier: 2 }
+case kind=4 depth=0 offset=0 distinct=true whole_hits=0 separated_hits=4 steps=15
+whole=Stats { logical_steps: 15, executed: 9, hits: 6, key_requests: 10, states: 9, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 15, executed: 9, hits: 6, key_requests: 10, states: 9, completed: 2, failed: 0, max_frontier: 2 }
+case kind=4 depth=0 offset=100 distinct=false whole_hits=6 separated_hits=6 steps=15
+whole=Stats { logical_steps: 15, executed: 15, hits: 0, key_requests: 15, states: 15, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 15, executed: 11, hits: 4, key_requests: 12, states: 11, completed: 2, failed: 0, max_frontier: 2 }
+case kind=4 depth=0 offset=100 distinct=true whole_hits=0 separated_hits=4 steps=15
+whole=Stats { logical_steps: 25, executed: 14, hits: 11, key_requests: 15, states: 14, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 25, executed: 14, hits: 11, key_requests: 15, states: 14, completed: 2, failed: 0, max_frontier: 2 }
+case kind=4 depth=1 offset=0 distinct=false whole_hits=11 separated_hits=11 steps=25
+whole=Stats { logical_steps: 25, executed: 25, hits: 0, key_requests: 25, states: 25, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 25, executed: 16, hits: 9, key_requests: 17, states: 16, completed: 2, failed: 0, max_frontier: 2 }
+case kind=4 depth=1 offset=0 distinct=true whole_hits=0 separated_hits=9 steps=25
+whole=Stats { logical_steps: 25, executed: 14, hits: 11, key_requests: 15, states: 14, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 25, executed: 14, hits: 11, key_requests: 15, states: 14, completed: 2, failed: 0, max_frontier: 2 }
+case kind=4 depth=1 offset=100 distinct=false whole_hits=11 separated_hits=11 steps=25
+whole=Stats { logical_steps: 25, executed: 25, hits: 0, key_requests: 25, states: 25, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 25, executed: 16, hits: 9, key_requests: 17, states: 16, completed: 2, failed: 0, max_frontier: 2 }
+case kind=4 depth=1 offset=100 distinct=true whole_hits=0 separated_hits=9 steps=25
+whole=Stats { logical_steps: 55, executed: 29, hits: 26, key_requests: 30, states: 29, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 55, executed: 29, hits: 26, key_requests: 30, states: 29, completed: 2, failed: 0, max_frontier: 2 }
+case kind=4 depth=4 offset=0 distinct=false whole_hits=26 separated_hits=26 steps=55
+whole=Stats { logical_steps: 55, executed: 55, hits: 0, key_requests: 55, states: 55, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 55, executed: 31, hits: 24, key_requests: 32, states: 31, completed: 2, failed: 0, max_frontier: 2 }
+case kind=4 depth=4 offset=0 distinct=true whole_hits=0 separated_hits=24 steps=55
+whole=Stats { logical_steps: 55, executed: 29, hits: 26, key_requests: 30, states: 29, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 55, executed: 29, hits: 26, key_requests: 30, states: 29, completed: 2, failed: 0, max_frontier: 2 }
+case kind=4 depth=4 offset=100 distinct=false whole_hits=26 separated_hits=26 steps=55
+whole=Stats { logical_steps: 55, executed: 55, hits: 0, key_requests: 55, states: 55, completed: 2, failed: 0, max_frontier: 2 } separated=Stats { logical_steps: 55, executed: 31, hits: 24, key_requests: 32, states: 31, completed: 2, failed: 0, max_frontier: 2 }
+case kind=4 depth=4 offset=100 distinct=true whole_hits=0 separated_hits=24 steps=55
+whole=Stats { logical_steps: 12, executed: 12, hits: 0, key_requests: 12, states: 12, completed: 1, failed: 1, max_frontier: 2 } separated=Stats { logical_steps: 12, executed: 12, hits: 0, key_requests: 12, states: 12, completed: 1, failed: 1, max_frontier: 2 }
+case kind=5 depth=0 offset=0 distinct=false whole_hits=0 separated_hits=0 steps=12
+whole=Stats { logical_steps: 12, executed: 12, hits: 0, key_requests: 12, states: 12, completed: 1, failed: 1, max_frontier: 2 } separated=Stats { logical_steps: 12, executed: 12, hits: 0, key_requests: 12, states: 12, completed: 1, failed: 1, max_frontier: 2 }
+case kind=5 depth=0 offset=0 distinct=true whole_hits=0 separated_hits=0 steps=12
+whole=Stats { logical_steps: 12, executed: 12, hits: 0, key_requests: 12, states: 12, completed: 1, failed: 1, max_frontier: 2 } separated=Stats { logical_steps: 12, executed: 12, hits: 0, key_requests: 12, states: 12, completed: 1, failed: 1, max_frontier: 2 }
+case kind=5 depth=0 offset=100 distinct=false whole_hits=0 separated_hits=0 steps=12
+whole=Stats { logical_steps: 12, executed: 12, hits: 0, key_requests: 12, states: 12, completed: 1, failed: 1, max_frontier: 2 } separated=Stats { logical_steps: 12, executed: 12, hits: 0, key_requests: 12, states: 12, completed: 1, failed: 1, max_frontier: 2 }
+case kind=5 depth=0 offset=100 distinct=true whole_hits=0 separated_hits=0 steps=12
+whole=Stats { logical_steps: 15, executed: 15, hits: 0, key_requests: 15, states: 15, completed: 1, failed: 1, max_frontier: 2 } separated=Stats { logical_steps: 15, executed: 15, hits: 0, key_requests: 15, states: 15, completed: 1, failed: 1, max_frontier: 2 }
+case kind=5 depth=1 offset=0 distinct=false whole_hits=0 separated_hits=0 steps=15
+whole=Stats { logical_steps: 15, executed: 15, hits: 0, key_requests: 15, states: 15, completed: 1, failed: 1, max_frontier: 2 } separated=Stats { logical_steps: 15, executed: 15, hits: 0, key_requests: 15, states: 15, completed: 1, failed: 1, max_frontier: 2 }
+case kind=5 depth=1 offset=0 distinct=true whole_hits=0 separated_hits=0 steps=15
+whole=Stats { logical_steps: 15, executed: 15, hits: 0, key_requests: 15, states: 15, completed: 1, failed: 1, max_frontier: 2 } separated=Stats { logical_steps: 15, executed: 15, hits: 0, key_requests: 15, states: 15, completed: 1, failed: 1, max_frontier: 2 }
+case kind=5 depth=1 offset=100 distinct=false whole_hits=0 separated_hits=0 steps=15
+whole=Stats { logical_steps: 15, executed: 15, hits: 0, key_requests: 15, states: 15, completed: 1, failed: 1, max_frontier: 2 } separated=Stats { logical_steps: 15, executed: 15, hits: 0, key_requests: 15, states: 15, completed: 1, failed: 1, max_frontier: 2 }
+case kind=5 depth=1 offset=100 distinct=true whole_hits=0 separated_hits=0 steps=15
+whole=Stats { logical_steps: 24, executed: 24, hits: 0, key_requests: 24, states: 24, completed: 1, failed: 1, max_frontier: 2 } separated=Stats { logical_steps: 24, executed: 24, hits: 0, key_requests: 24, states: 24, completed: 1, failed: 1, max_frontier: 2 }
+case kind=5 depth=4 offset=0 distinct=false whole_hits=0 separated_hits=0 steps=24
+whole=Stats { logical_steps: 24, executed: 24, hits: 0, key_requests: 24, states: 24, completed: 1, failed: 1, max_frontier: 2 } separated=Stats { logical_steps: 24, executed: 24, hits: 0, key_requests: 24, states: 24, completed: 1, failed: 1, max_frontier: 2 }
+case kind=5 depth=4 offset=0 distinct=true whole_hits=0 separated_hits=0 steps=24
+whole=Stats { logical_steps: 24, executed: 24, hits: 0, key_requests: 24, states: 24, completed: 1, failed: 1, max_frontier: 2 } separated=Stats { logical_steps: 24, executed: 24, hits: 0, key_requests: 24, states: 24, completed: 1, failed: 1, max_frontier: 2 }
+case kind=5 depth=4 offset=100 distinct=false whole_hits=0 separated_hits=0 steps=24
+whole=Stats { logical_steps: 24, executed: 24, hits: 0, key_requests: 24, states: 24, completed: 1, failed: 1, max_frontier: 2 } separated=Stats { logical_steps: 24, executed: 24, hits: 0, key_requests: 24, states: 24, completed: 1, failed: 1, max_frontier: 2 }
+case kind=5 depth=4 offset=100 distinct=true whole_hits=0 separated_hits=0 steps=24
+matrix cases=72 per-step comparisons=9520 whole_hits=380 separated_hits=562 cancellation/restart=864
+test matrix_preserves_every_delivery_and_challenges_inertness ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.15s
+

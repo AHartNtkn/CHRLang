@@ -9,7 +9,7 @@ goal:
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
   execution_sequence: docs/experiments/next-cycle.md
-  current_research: "Scheduled timing validates 57,600 sessions after 1,152 exact ownership entries. Scheduled templates qualify faster than zero-follow in 69/96 cases, but in none against dependency, Direct or carriers; Direct wins 91 and carriers 90. Even free scheduled disposal leaves every median above Direct. Full 57-question review selects T075 coarser recognition; T073 remains pending, review count reset, goal active."
+  current_research: "Recognition strides 4/16 preserve 9,520 per-step source comparisons and 864 cancellation/restarts. Repeated-work key requests fall 60 to17/5, but reuse hits fall52 to49/41 and retained states rise59 to62/70. T075 next measures complete ownership/lifecycle against Direct and compiled controls; package count one, goal active."
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -370,8 +370,8 @@ tasks:
     assignee: PM
     status: active
     objective: Investigate sound generalized call and continuation reuse after different histories, including renaming, relevance, resource and output identity obligations, against competent recomputation and sharing controls.
-    progress: "Scheduled timing validates 57,600 sessions after 1,152 exact ownership entries. Scheduled templates qualify faster than zero-follow in 69/96 cases, but in none against dependency, Direct or carriers; Direct wins 91 and carriers 90. Even free scheduled disposal leaves every median above Direct. Full 57-question review selects T075 coarser recognition; T073 remains pending, review count reset, goal active."
-    next_action: "Inspect existing separated-continuation transition keys and isolated-call admission; register and implement a coarser recognition boundary in an existing executor while preserving source service. Qualify actual key-work reduction, fresh outputs/aliases, changed inputs, failed operations, resource/history near misses, cancellation and no-reuse controls before full costs. Compare direct solving at the gate. Review count reset."
+    progress: "Recognition strides 4/16 preserve 9,520 per-step source comparisons and 864 cancellation/restarts. Repeated-work key requests fall 60 to17/5, but reuse hits fall52 to49/41 and retained states rise59 to62/70. T075 next measures complete ownership/lifecycle against Direct and compiled controls; package count one, goal active."
+    next_action: "Register requested ownership and complete lifecycle costs for recognition strides1/4/16 against nonmemoized separation, Direct and existing compiled controls. Include repeated/no-reuse sources, failed branches, active resources/history, inert observation size, changing queries and cancellation. Account for missed reuse and retained intermediate states; separate work/allocation diagnostics from counter-free timing. Reassess call-boundary recognition and direct solving at the cost result; package count one."
     inputs:
       - docs/experiments/results/S05-inert-lifecycle.md
       - docs/experiments/results/S05-inert-lifecycle-review.md
@@ -2685,9 +2685,12 @@ checks:
   dirty_fingerprint: unrelated_untracked_files_preserved
   last_verification:
     result: passed
-    task: T073
-    scope: Scheduled ordinary lifecycle timing, retained contrary blocks and early full portfolio review.
+    task: T075
+    scope: Recognition stride source/work gate and per-step service preservation.
     commands:
+      - "inert_residuals: six tests pass with metrics on/off; 72 sources,9520 per-step comparisons,864 cancellation/restarts"
+      - "Recognition work: repeated keys60/17/5, hits52/49/41, states59/62/70 at strides1/4/16; no-reuse keys56/14/4"
+      - "Scoped residual executor/source Clippy passes"
       - "scheduled_timing.py --audit: 1152 exact entries before timing,11520 processes,57600 sessions,6336 contrasts"
       - "scheduled_timing_diagnosis.py: all five unresolved Direct contrary blocks retained; zero-disposal median ratios1.402 to8.119"
       - "scheduled_ownership.py --audit: 2304 processes,1152 exact layout pairs,288 cross-build explicit controls; full answers and heap restoration"

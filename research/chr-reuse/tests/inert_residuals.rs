@@ -129,6 +129,16 @@ fn check(source: &[Rule], q: &Query) -> (u64, u64, usize) {
     let whole = Whole::new(source.to_vec(), Mode::AlphaLive).unwrap();
     let direct_sep = Prepared::new(source.to_vec(), false).unwrap();
     let shared_sep = Prepared::new(source.to_vec(), true).unwrap();
+    let coarse4 = Prepared::new(source.to_vec(), true)
+        .unwrap()
+        .with_recognition_stride(4);
+    let coarse16 = Prepared::new(source.to_vec(), true)
+        .unwrap()
+        .with_recognition_stride(16);
+    let mut coarse_runs = [
+        coarse4.start(q.clone()).unwrap(),
+        coarse16.start(q.clone()).unwrap(),
+    ];
     let (mut a, mut b, mut c, mut d) = (
         direct.start(q.clone()).unwrap(),
         whole.start(q.clone()).unwrap(),
@@ -143,6 +153,11 @@ fn check(source: &[Rule], q: &Query) -> (u64, u64, usize) {
         let bb = b.advance(1);
         let cc = c.advance(1);
         let dd = d.advance(1);
+        for run in &mut coarse_runs {
+            let batch = run.advance(1);
+            assert!(ordered(&aa.answers, &batch.answers));
+            assert_eq!(aa.exhausted, batch.exhausted);
+        }
         assert!(ordered(&aa.answers, &bb.answers));
         assert!(ordered(&aa.answers, &cc.answers));
         assert!(ordered(&aa.answers, &dd.answers));
@@ -171,7 +186,7 @@ fn check(source: &[Rule], q: &Query) -> (u64, u64, usize) {
     drop(b);
     drop(c);
     drop(d);
-    for prepared in [&direct_sep, &shared_sep] {
+    for prepared in [&direct_sep, &shared_sep, &coarse4, &coarse16] {
         for cutoff in [0, 1, 5] {
             let mut cancelled = prepared.start(q.clone()).unwrap();
             let batch = cancelled.advance(cutoff);
@@ -210,7 +225,7 @@ fn matrix_preserves_every_delivery_and_challenges_inertness() {
                         "case kind={kind} depth={depth} offset={offset} distinct={distinct} whole_hits={w} separated_hits={s} steps={steps}"
                     );
                     cases += 1;
-                    comparisons += steps * 3;
+                    comparisons += steps * 5;
                     whole += w;
                     separated += s;
                 }
@@ -220,7 +235,7 @@ fn matrix_preserves_every_delivery_and_challenges_inertness() {
     assert_eq!(cases, 72);
     println!(
         "matrix cases={cases} per-step comparisons={comparisons} whole_hits={whole} separated_hits={separated} cancellation/restart={}",
-        cases * 6
+        cases * 12
     );
 }
 #[test]
@@ -278,4 +293,52 @@ fn extraction_rejects_another_machines_cursor() {
     let (mut a, _) = p.start(q.clone()).unwrap();
     let (_, mut cursor) = p.start(q).unwrap();
     a.detach_inert_ground(&mut cursor);
+}
+
+#[test]
+fn coarser_recognition_reduces_key_work_without_inventing_reuse() {
+    for single_branch in [false, true] {
+        let (mut rules, q) = source(0, 16, true, 100);
+        if single_branch {
+            let chr_syntax::Goal::Or(left, _) = &rules[0].body else {
+                unreachable!()
+            };
+            rules[0].body = *left.clone();
+        }
+        let expected = oracle::run(&rules, &q, 200_000);
+        let mut counts = vec![];
+        for stride in [1, 4, 16] {
+            let mut run = chr_reuse::residuals::Prepared::new(rules.clone(), true)
+                .unwrap()
+                .with_recognition_stride(stride)
+                .start(q.clone())
+                .unwrap();
+            let result = run.advance(200_000);
+            assert!(result.exhausted);
+            oracle::same_raw(result.answers, expected.clone());
+            counts.push((
+                run.stats().key_requests,
+                run.stats().hits,
+                run.stats().logical_steps,
+                run.stats().states,
+            ));
+        }
+        if chr_reuse::continuations::COLLECT_METRICS {
+            assert!(counts[1].0 < counts[0].0 && counts[2].0 < counts[1].0);
+            assert!(counts.iter().all(|v| v.2 == counts[0].2));
+            if single_branch {
+                assert!(counts.iter().all(|v| v.1 == 0));
+            } else {
+                assert!(counts.iter().all(|v| v.1 > 0));
+            }
+        }
+        println!("single_branch={single_branch} stride1/4/16 (keys,hits,steps,states): {counts:?}");
+    }
+}
+#[test]
+#[should_panic(expected = "recognition stride must be positive")]
+fn zero_recognition_stride_is_rejected() {
+    chr_reuse::residuals::Prepared::new(vec![], true)
+        .unwrap()
+        .with_recognition_stride(0);
 }

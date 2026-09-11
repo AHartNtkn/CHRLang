@@ -1,0 +1,9 @@
+# Coarser state recognition without coarser source service
+
+Register before implementation. Existing separated-continuation memoization constructs a complete canonical key at every interned source transition. Test positive recognition strides 4 and 16 against stride 1 and existing Direct/whole/separated controls. A stride selects every nth source state along a derivation; it never executes extra source work per service turn. Root recognition is retained, and both split children inherit the same next recognition distance.
+
+Retain the existing complete key, active resources, history, alias/output identity and detached ground observations. Unkeyed intermediate nodes remain owned because a cached edge may replay them; do not recycle nodes referenced by retained edges. Reused keyed nodes always occur at recognition distance zero. No broad relevance projection or whole-call scheduling premise is inferred.
+
+Hypotheses: fewer key constructions on a finite repeated-work witness, some execution reuse retained, and exact per-step answer delivery/exhaustion against Direct. Test the existing 72-source inertness matrix and resource/history controls with strides 4/16 added. Cancellation/restart must remain exact. Add a single-branch no-reuse case and explicit zero-stride rejection. Run metrics-on work diagnostics separately from metrics-off semantic tests. Existing 200,000-step bounds apply; no timing or allocation claims from this gate.
+
+This is a bounded first coarser-recognition mechanism, not the resolution of call reuse, failed futures, variable relevance or eviction. If it passes, register complete recognition/retention/transport/lifecycle costs before selection. Compare direct solving and call-boundary recognition at that gate. A source mismatch or failure to reduce actual key work requires investigation, not a smaller fixture set.
