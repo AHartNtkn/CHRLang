@@ -1906,3 +1906,8 @@ fn request_priority_is_distinct_from_repaired_occurrence_order() {
     assert_eq!(comparisons, 144);
     println!("REQUEST_PRIORITY_TOTAL,comparisons={comparisons},disagreements={disagreements:?}");
 }
+
+#[path = "support/chr_selection.rs"]
+mod selection;
+#[path = "support/chr_selection_cases.rs"]
+mod selection_cases;
