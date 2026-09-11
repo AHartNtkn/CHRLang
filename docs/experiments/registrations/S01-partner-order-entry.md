@@ -1,0 +1,9 @@
+# Partner order: source and diagnostic work gate
+
+Two kept-head orders join left(A,X), right(X,B) while consuming one request bound to either A or B. Unique X and endpoint keys give exactly one matching pair, or none on a missing request. Reuse each ruleset across two different endpoint queries. Vary n=8/32/128, left/right supplied key, match/miss, forward/reverse fact insertion, Global/Active policy and Scan/Indexed access. Both orders: 384 completed sessions per build. Validate every residual fact and receipt against independently constructed ground expectations. No engine source or reference implementation supplies expected matching results.
+
+A separate ambiguous source has left rows in X0,X1 order and right rows in X1,X0 order, with the same request endpoint. Under Global, the two kept-head orders must select different receipts. This is a control showing that arbitrary enumeration changes are not automatically semantics-preserving. It does not impose a language policy.
+
+Run two metrics-enabled confirmations and one metrics-off confirmation, fixed CPU 0, 1 GiB, 60 CPU/wall seconds per process; each session has a two-million engine-step bound. No timing ranking follows. Freeze source, build flags, binary hashes and registration before confirmations. Compare exact repeated candidate, pool, index and structural work, keeping units separate. Complete output validation occurs before emitting each work row. A cutoff or mismatch is a defect to investigate, not a completed cost.
+
+This gate asks whether opposite key availability changes the useful order and whether active-occurrence binding already removes that difference. Preparation, disposal, compilation and mutation costs remain for a later registered lifecycle comparison. Source permutations are controls, not an implemented general planner. A subsequent intervention must preserve original head IDs and committed tuple selection or qualify an explicit eligibility premise.

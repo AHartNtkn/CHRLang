@@ -9,7 +9,7 @@ goal:
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
   execution_sequence: docs/experiments/next-cycle.md
-  current_research: "Context selection checks 531,441 independent assignments per gate and 27,324 native timing rows. The density selector and its initialization repair both fail adverse-case qualification; held-out dense success costs 0.298x lookup while immediate conflict costs 2.379x. No selector is adopted. T074 next performs the cross-family review before further predicate work; package three since review, goal active."
+  current_research: "Full portfolio review selects T082 partner planning. Two source gates validate 2304 complete sessions, 768 exact repeated diagnostic rows and 24 order-sensitive sentinels. The bound-request source lowers candidate visits in all 192 matched order pairs; the larger indexed Global witness is 7 versus 515. Arbitrary reordering changes competing consumption. Next qualify a prepared selective probe preserving original tuple selection; package one since review, goal active."
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -64,7 +64,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T074
+active_task: T082
 tasks:
   - id: T081
     type: pm
@@ -442,9 +442,9 @@ tasks:
   - id: T074
     type: pm
     assignee: PM
-    status: active
-    progress: "Context selection checks 531,441 independent assignments per gate and 27,324 native timing rows. The density selector and its initialization repair both fail adverse-case qualification; held-out dense success costs 0.298x lookup while immediate conflict costs 2.379x. No selector is adopted. T074 next performs the cross-family review before further predicate work; package three since review, goal active."
-    next_action: "Perform the full cross-family review now. Compare failure-sensitive context probing against fresh memo-cost attribution, partner planning and all other required directions using current receipts. Select the next intervention by architectural decision value relative to prerequisites; neither density selector passed its operation gate. Preserve broader lifecycle and language obligations; package count three, review before fourth implementation package."
+    status: pending
+    progress: "Full portfolio review selects T082 partner planning. Two source gates validate 2304 complete sessions, 768 exact repeated diagnostic rows and 24 order-sensitive sentinels. The bound-request source lowers candidate visits in all 192 matched order pairs; the larger indexed Global witness is 7 versus 515. Arbitrary reordering changes competing consumption. Next qualify a prepared selective probe preserving original tuple selection; package one since review, goal active."
+    next_action: "Reconsider failure-sensitive context probing and fresh memo-cost attribution at the T082 prepared-plan gate. The full context portfolio review selected broader partner planning; T074 remains required and pending, not complete."
     objective: Investigate sustained answer delivery, consumer ownership and engine retention across credible graph, compiled and reuse controls, including immediate release, bounded retention, changing queries, cancellation and reclamation costs under independently checked source semantics.
     inputs:
       - docs/experiments/results/S10-static-control.md
@@ -2665,6 +2665,23 @@ tasks:
         - docs/experiments/results/R07-closure-audit.md
         - docs/experiments/results/r07-closure/
       validation: 329workspace tests with1ignored, strict workspace Clippy, formatting,74local artifactlinks and independent fullobjective readback.
+
+  - id: T082
+    type: pm
+    assignee: PM
+    status: active
+    objective: Investigate partner ordering and key-aware discovery plans with preserved source head identity and consuming selection, independent complete answers, adverse controls and complete lifecycle accounting.
+    progress: Full portfolio review selects T082 partner planning. Two source gates validate 2304 complete sessions, 768 exact repeated diagnostic rows and 24 order-sensitive sentinels. The bound-request source lowers candidate visits in all 192 matched order pairs; the larger indexed Global witness is 7 versus 515. Arbitrary reordering changes competing consumption. Next qualify a prepared selective probe preserving original tuple selection; package one since review, goal active.
+    next_action: Qualify a prepared selective-probe plan preserving source head identities and original committed tuple order. Retain unique and ambiguous matches, both key directions, neutral and adverse sources, Scan/Indexed and Global/Active. Reassess memo attribution and other directions at this gate; lifecycle costs follow qualification.
+    allowed_files:
+      - research/
+      - docs/experiments/
+      - docs/goals/chr-experiments/
+    verify:
+      - Independent complete residual multiset and consuming result
+      - Global and Active, Scan and Indexed controls
+      - Changing queries, available keys, misses and insertion order
+      - Preserve source selection or explicitly identify a changed contract
 
 checks:
   dirty_fingerprint: unrelated_untracked_files_preserved

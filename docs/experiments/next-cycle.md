@@ -1,6 +1,6 @@
 # Experimental sequence for the unanswered architecture questions
 
-The [context selection result](results/S08-context-selection.md) supplies the current checkpoint. Context selection checks 531,441 independent assignments per gate and 27,324 native timing rows. The density selector and its initialization repair both fail adverse-case qualification; held-out dense success costs 0.298x lookup while immediate conflict costs 2.379x. No selector is adopted. T074 next performs the cross-family review before further predicate work; package three since review, goal active.
+The [partner-order result](results/S01-partner-order-entry.md) supplies the current checkpoint. Full portfolio review selects T082 partner planning. Two source gates validate 2304 complete sessions, 768 exact repeated diagnostic rows and 24 order-sensitive sentinels. The bound-request source lowers candidate visits in all 192 matched order pairs; the larger indexed Global witness is 7 versus 515. Arbitrary reordering changes competing consumption. Next qualify a prepared selective probe preserving original tuple selection; package one since review, goal active.
 
 Test the distinct mechanisms that remain unanswered, then compare the complete architectures they enable. Reuse the existing baselines. A lower priority changes when a question is investigated; it does not answer it.
 
@@ -10,15 +10,16 @@ This sequence covers the [57 reviewed questions](question-to-experiment-map.md) 
 
 ## Start here: the next experiments
 
-**1. Review the portfolio before further implementation — T074.** The [selection and repair](results/S08-context-selection.md) fail adverse-case qualification on original and new cases. Compare failure-sensitive probing with fresh memo attribution, partner planning and all other required directions. Select an intervention for the architectural decision it could change, with explicit prerequisite cost.
+**1. Qualify a selection-preserving discovery plan — T082.** The [partner-order gate](results/S01-partner-order-entry.md) establishes opposite useful orders and a consuming-selection counterexample. Implement selective probing while preserving original head IDs and tuple priority; carry the neutral source and adverse selectivity cases.
 
-**2. Carry the complete lifecycle and service obligations.** Preserve source answers, correlation, constructor versus unfinished-call cycles, consuming claims, cancellation and preparation reuse. Keep immediate/all consumers, reclamation and flat sources in subsequent cost comparisons. The small flat timing advantage is unestablished; use closely interleaved comparisons if it becomes a selection criterion.
+**2. Charge complete costs after qualification.** Preserve changing queries, complete outputs, preparation, disposal and diagnostics. Source-order work counts are not a runtime or compiler comparison.
 
-**3. Compare alternatives at the source/work gate or obstruction.** The candidate addresses a sampled responsibility without adding a new retained owner. Memo storage, partner planning, broader integration, solving and mixed architectures remain required alternatives. This is package three since the [full portfolio review](results/S02-readiness-portfolio-review.md); review all directions again within four packages.
+**3. Compare alternatives at the gate.** The [full portfolio review](results/S08-context-portfolio-review.md) selects planning over further context tuning. Reassess memo attribution, integration, reuse, solving and other required directions at the prepared-plan gate or obstruction. Package one since review; full review within four.
+
 
 ## Why this order, and what can change it
 
-The graph lifecycle comparison now distinguishes a large continuing dependency benefit from the still cheaper direct execution, and adds exact ownership and sampled residency. Profiling supplies a specific low-prerequisite algorithm question: repeated ordered-map searches versus ordered inclusion. This has more immediate decision value than changing memo storage speculatively. Sparse supports can reverse the cost argument, so qualify that contrast before registering a paired intervention.
+The bound-request witness shows that an available endpoint key can avoid hundreds of candidate visits; the neutral control shows why an arbitrary join fixture is insufficient. The ambiguous-match sentinel makes preserving source selection an explicit implementation requirement. This has greater immediate decision value than another isolated context-predicate repair, while retaining all broader architecture obligations.
 
 Scheduling a later trial does not supply evidence for that direction. All thirteen specifications and the 57-question audit remain controlling.
 

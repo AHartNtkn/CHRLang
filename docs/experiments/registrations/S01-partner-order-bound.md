@@ -1,0 +1,5 @@
+# Bound-request partner-order gate
+
+The initial unique-link source largely neutralizes order because active table occurrences supply their own join key. Preserve it as a control. Add a source with the request as the first kept head, followed by the two alternative table orders, consuming a separate nullary token. This makes the endpoint binding available before partner selection even when the anchor is the token. The request remains in the complete answer; success consumes the token and emits one receipt, while a miss retains it.
+
+Use exactly the preceding 384-session matrix and four ambiguous-match sentinels, independent ground residual expectations, two metrics-on repeats and one metrics-off confirmation. Preserve the same limits, counter units and no-timing interpretation. Freeze this source and registration independently before confirmation. Compare which order benefits from left/right endpoint availability; retain Scan and both activation policies. The modified source is an investigative witness, not a claimed compiler transformation of the initial source.
