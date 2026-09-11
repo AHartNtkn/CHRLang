@@ -4,6 +4,7 @@ version.workspace = true
 edition.workspace = true
 
 [features]
+scheduled-template-entry = ["chr-direct-choice/scheduled-templates"]
 equality-binding-coverage = []
 matching-binding-coverage = ["equality-binding-coverage"]
 candidate-profile = ["alloc-meter", "chr-direct-choice/candidate-profile"]

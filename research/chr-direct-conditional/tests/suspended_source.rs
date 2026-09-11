@@ -1361,11 +1361,69 @@ fn derivation_contraction_exposes_a_resource_scheduling_difference() {
             Prepared::new(rules).unwrap().with_derivation_templates(),
             query,
         ),
-        vec![long_wins.clone()],
+        vec![if cfg!(feature = "scheduled-template-entry") {
+            short_wins.clone()
+        } else {
+            long_wins.clone()
+        }],
     );
     assert!(!chr_observe::equivalent(
         &short_wins,
         &long_wins,
         &mut Default::default()
     ));
+}
+
+#[cfg(feature = "scheduled-template-entry")]
+#[test]
+fn scheduled_templates_preserve_competing_resource_arrival_and_restart() {
+    let rules = vec![
+        Rule::simplify(
+            "base",
+            [c("build", [atom("z"), v(0)])],
+            c("take", [v(0)]).into(),
+        ),
+        Rule::simplify(
+            "step",
+            [c("build", [t("s", [v(0)]), v(1)])],
+            c("build", [v(0), v(1)]).into(),
+        ),
+        Rule::simplify(
+            "take",
+            [c("take", [v(0)]), c("token", [])],
+            eq(v(0), atom("done")),
+        ),
+    ];
+    for (a, b) in [(8, 0), (0, 8), (8, 8), (64, 1)] {
+        for tokens in 0..=2 {
+            for reverse in [false, true] {
+                let unary = |n| (0..n).fold(atom("z"), |x, _| t("s", [x]));
+                let mut constraints = vec![
+                    c("build", [unary(a), v(100)]),
+                    c("build", [unary(b), v(101)]),
+                ];
+                constraints.extend((0..tokens).map(|_| c("token", [])));
+                if reverse {
+                    constraints.reverse();
+                }
+                let query = Query {
+                    constraints,
+                    outputs: vec![("x".into(), Var(100)), ("y".into(), Var(101))],
+                };
+                let expected = runtime_support::run(&rules, &query, 200_000);
+                for limit in [0, 64] {
+                    let prepared = Prepared::new(rules.clone())
+                        .unwrap()
+                        .with_template_follow_limit(limit);
+                    let mut partial = prepared.start(query.clone()).unwrap();
+                    assert!(matches!(partial.tick(), Event::Progress));
+                    drop(partial);
+                    runtime_support::same_raw(
+                        demand_prepared(prepared, query.clone()),
+                        expected.clone(),
+                    );
+                }
+            }
+        }
+    }
 }

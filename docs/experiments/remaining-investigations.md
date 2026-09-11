@@ -1,5 +1,7 @@
 # The comparisons still needed to choose the architecture
 
+Scheduled prederived calls preserve scalar resource order across 24 competition/restart arrangements and 72 stream queries. A depth-eight chain retains nine progress steps while runtime matcher entries fall from 25 to 3; ordinary call records and scheduled bodies remain owned. T073 next registers complete lifecycle costs with explicit carrier and zero-follow controls; package count three, full portfolio review after next package, goal active. [Scheduled entry](results/S06-scheduled-template-entry.md).
+
 Template call-following ablation passes 72 queries across six executors (432 searches) and 31 source tests. Zero-follow templates preserve the scarce-token scalar winner; 64-call contraction changes it even without choices. T073 next tests source service points during contraction, then matched choice following; package count two, goal active. [Ablation result](results/S06-template-follow-entry.md).
 
 Matched carrier entry validates 72 queries and 360 executor searches against independent complete answers; 14 carrier boundary tests pass. Existing inferred contraction handles wait chains, while templates additionally follow choices. T073 next isolates choice following and scarce-resource scheduling before matched lifecycle costs; package count one, goal active. [Entry result](results/S06-matched-carrier-entry.md).

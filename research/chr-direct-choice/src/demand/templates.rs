@@ -102,6 +102,8 @@ fn term(t: &Term, env: &mut Bindings, budget: &mut Budget) -> Option<Expr> {
 fn instantiate(plan: &Plan, env: &mut Bindings, budget: &mut Budget) -> Option<Plan<Expr>> {
     budget.node()?;
     Some(match plan {
+        #[cfg(feature = "scheduled-templates")]
+        Plan::ScheduledCall(..) => unreachable!("instantiate only source plans"),
         Plan::Value(t) => Plan::Value(term(t, env, budget)?),
         Plan::Call(n, xs) => Plan::Call(
             n.clone(),
@@ -175,7 +177,16 @@ fn follow(
                             break;
                         };
                         *fuel -= 1;
-                        return follow(body, clauses, fuel, budget);
+                        let followed = follow(body, clauses, fuel, budget);
+                        #[cfg(feature = "scheduled-templates")]
+                        return Plan::ScheduledCall(
+                            n,
+                            args,
+                            Rc::new(followed),
+                            clause.reusable_static_match,
+                        );
+                        #[cfg(not(feature = "scheduled-templates"))]
+                        return followed;
                     }
                     Some(None) => {}
                     None => break,
@@ -217,6 +228,23 @@ pub(super) fn derive(
 }
 
 #[cfg(test)]
+#[allow(unused_mut)]
+pub(super) fn scheduled_tail(mut body: &Plan<Expr>, expected: usize) -> &Plan<Expr> {
+    #[cfg(feature = "scheduled-templates")]
+    {
+        let mut count = 0;
+        while let Plan::ScheduledCall(_, _, next, _) = body {
+            count += 1;
+            body = next;
+        }
+        assert_eq!(count, expected);
+    }
+    #[cfg(not(feature = "scheduled-templates"))]
+    let _ = expected;
+    body
+}
+
+#[cfg(test)]
 mod identity_tests {
     use super::*;
     #[test]
@@ -247,8 +275,10 @@ mod identity_tests {
         for limit in [0, 1, 64] {
             let result = derive(&clauses[0], &[], &clauses, limit).unwrap();
             assert_eq!(result.followed_calls, limit.min(2));
-            match result.body {
-                Plan::Call(name, _) => assert_eq!(name, if limit == 0 { "middle" } else { "end" }),
+            match scheduled_tail(&result.body, limit.min(2)) {
+                Plan::Call(name, _) => {
+                    assert_eq!(name.as_str(), if limit == 0 { "middle" } else { "end" })
+                }
                 Plan::Value(_) => assert_eq!(limit, 64),
                 _ => panic!("unexpected residual plan"),
             }

@@ -21,6 +21,8 @@ type Env = BTreeMap<Var, Id>;
 enum Plan<T = Term> {
     Value(T),
     Call(String, Vec<T>),
+    #[cfg(feature = "scheduled-templates")]
+    ScheduledCall(String, Vec<T>, Rc<Plan<templates::Expr>>, bool),
     Choice(Box<Plan<T>>, Box<Plan<T>>),
     Producers(Vec<Action<T>>, Box<Plan<T>>),
     BindOutput(Var, Box<Plan<T>>),
@@ -137,6 +139,8 @@ pub struct Run {
     recursive_probes: Vec<bool>,
     template_follow_limit: Option<usize>,
     templates: BTreeMap<(String, Vec<Term>), Rc<templates::Template>>,
+    #[cfg(feature = "scheduled-templates")]
+    scheduled: BTreeMap<Id, (Rc<Plan<templates::Expr>>, bool)>,
     reuse: Reuse,
     #[cfg(feature = "work-diagnostics")]
     work: Work,
@@ -400,6 +404,8 @@ impl Prepared {
         }
         fn pure_plan(p: &Plan, allowed: &BTreeSet<(String, usize)>) -> bool {
             match p {
+                #[cfg(feature = "scheduled-templates")]
+                Plan::ScheduledCall(..) => unreachable!("source plans have no scheduled calls"),
                 Plan::Value(_) | Plan::Fail => true,
                 Plan::BindOutput(_, p) => pure_plan(p, allowed),
                 Plan::Call(n, args) => allowed.contains(&(n.clone(), args.len())),
@@ -484,6 +490,8 @@ impl Prepared {
             recursive_probes: vec![],
             template_follow_limit: self.template_follow_limit,
             templates: BTreeMap::new(),
+            #[cfg(feature = "scheduled-templates")]
+            scheduled: BTreeMap::new(),
             reuse: self.reuse,
             #[cfg(feature = "work-diagnostics")]
             work: Work::default(),
@@ -625,6 +633,13 @@ impl Run {
         term: &mut impl FnMut(&mut Self, &T, &mut Env) -> Id,
     ) -> Id {
         match p {
+            #[cfg(feature = "scheduled-templates")]
+            Plan::ScheduledCall(name, args, body, pure) => {
+                let args = args.iter().map(|t| term(self, t, env)).collect();
+                let call = self.call(name.clone(), args, output, ctx);
+                self.scheduled.insert(call, (body.clone(), *pure));
+                call
+            }
             Plan::Value(t) => term(self, t, env),
             Plan::Call(n, args) => {
                 let args = args.iter().map(|t| term(self, t, env)).collect();
@@ -980,6 +995,25 @@ impl Run {
                     .find(|(support, _)| checked!(Result, support, ctx))
                 {
                     return Ok(Forced::Follow(*next));
+                }
+                #[cfg(feature = "scheduled-templates")]
+                if let Some((body, pure)) = self.scheduled.get(&id).cloned() {
+                    // Ground, non-overlapping source matching was done during derivation.
+                    // Retain the ordinary result validity and one source service point.
+                    let support = if pure && self.reuse != Reuse::CurrentContext {
+                        self.obligations[origin].0.clone()
+                    } else {
+                        ctx.clone()
+                    };
+                    let value = self.expand_template(
+                        &body,
+                        &mut Env::new(),
+                        &support,
+                        output,
+                        &mut BTreeMap::new(),
+                    );
+                    self.nodes[id].results.push((support, value));
+                    return Err(Signal::Progress);
                 }
                 let clauses = self.clauses.clone();
                 for clause in clauses
@@ -1706,7 +1740,7 @@ mod pull_tab_tests {
     }
 
     #[test]
-    fn fresh_derivation_eliminates_recursive_call_expansion() {
+    fn fresh_derivation_preserves_answers_and_accounts_for_retained_calls() {
         use chr_syntax::{or, t};
         let rules = vec![
             Rule::simplify(
@@ -1744,7 +1778,70 @@ mod pull_tab_tests {
         assert_eq!(run.retained_derivation_templates(), (1, 8));
         #[cfg(feature = "work-diagnostics")]
         assert_eq!(run.work().template_hits, 1);
-        assert_eq!(run.retained_application_results().get("build"), Some(&2));
+        assert_eq!(
+            run.retained_application_results().get("build"),
+            Some(&if cfg!(feature = "scheduled-templates") {
+                18
+            } else {
+                2
+            })
+        );
+    }
+
+    #[cfg(feature = "scheduled-templates")]
+    #[test]
+    fn scheduled_derivation_preserves_service_steps_and_avoids_matching() {
+        use chr_syntax::t;
+        let rules = vec![
+            Rule::simplify(
+                "base",
+                [c("walk", [atom("z"), v(0)])],
+                eq(v(0), atom("done")),
+            ),
+            Rule::simplify(
+                "step",
+                [c("walk", [t("s", [v(0)]), v(1)])],
+                c("walk", [v(0), v(1)]).into(),
+            ),
+        ];
+        let query = Query {
+            constraints: vec![c(
+                "walk",
+                [(0..8).fold(atom("z"), |a, _| t("s", [a])), v(100)],
+            )],
+            outputs: vec![("out".into(), Var(100))],
+        };
+        let mut results = vec![];
+        for limit in [0, 64] {
+            let mut run = Prepared::new(rules.clone())
+                .unwrap()
+                .with_template_follow_limit(limit)
+                .start(query.clone())
+                .unwrap();
+            let mut progress = 0;
+            let mut answers = vec![];
+            let mut done = false;
+            for _ in 0..1000 {
+                match run.tick() {
+                    Event::Progress => progress += 1,
+                    Event::Answer(a) => answers.push(a),
+                    Event::Exhausted => {
+                        done = true;
+                        break;
+                    }
+                }
+            }
+            assert!(done);
+            assert_eq!(answers.len(), 1);
+            assert_eq!(answers[0].outputs, vec![("out".into(), atom("done"))]);
+            assert!(answers[0].residual.is_empty());
+            results.push((progress, run.work().match_entries));
+        }
+        assert_eq!(results[0].0, 9);
+        assert_eq!(results[0].0, results[1].0);
+        #[cfg(feature = "work-diagnostics")]
+        assert!(results[1].1 < results[0].1);
+        eprintln!("zero-follow and scheduled (progress, matcher entries): {results:?}");
     }
 
     #[test]
@@ -1770,7 +1867,10 @@ mod pull_tab_tests {
         assert!(matches!(run.tick(), Event::Progress));
         let template = run.templates.values().next().unwrap();
         assert_eq!(template.followed_calls, 12);
-        assert!(matches!(&template.body, Plan::Value(_)));
+        assert!(matches!(
+            templates::scheduled_tail(&template.body, 12),
+            Plan::Value(_)
+        ));
         assert!(
             run.nodes.len() < 100,
             "ground duplication must retain graph sharing"
@@ -1840,7 +1940,9 @@ mod pull_tab_tests {
         assert!(matches!(run.tick(), Event::Progress));
         let template = run.templates.values().next().unwrap();
         assert_eq!(template.followed_calls, 64);
-        assert!(matches!(&template.body, Plan::Call(n, _) if n == "walk"));
+        assert!(
+            matches!(templates::scheduled_tail(&template.body, 64), Plan::Call(n, _) if n == "walk")
+        );
         let mut answer = None;
         for _ in 0..1000 {
             match run.tick() {
