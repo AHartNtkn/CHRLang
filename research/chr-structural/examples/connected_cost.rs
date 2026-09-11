@@ -231,14 +231,15 @@ fn main() {
     let duplicate = flag(4);
     let alias = flag(5);
     let queries = args[6].parse::<usize>().unwrap();
-    assert!(matches!(queries, 1 | 4));
+    assert!((1..=4096).contains(&queries));
     let keep = flag(7);
     let cancel = flag(8);
     let mut visible = vec![Var((n - 2) as u64), Var((n - 1) as u64)];
     if alias {
         visible.push(visible[0]);
     }
-    let restriction = |q| {
+    let restriction = |q: usize| {
+        let q = q % 4;
         if q == 1 || q == 2 {
             vec![(visible[0], atom(if q == 1 { "a" } else { "b" }))]
         } else {
@@ -247,7 +248,7 @@ fn main() {
     };
     let r = source(family, n, duplicate);
     let p = lower(&r);
-    let expected = (0..queries)
+    let expected = (0..queries.min(4))
         .map(|q| {
             runtime::oracle(
                 &p,
@@ -280,7 +281,7 @@ fn main() {
     clocks.sort_unstable();
     let floor = 100 * clocks[990];
     drop(clocks);
-    let mut rows = Vec::with_capacity(64);
+    let mut rows = Vec::with_capacity(6 + 8 * queries);
     #[cfg(feature = "alloc-meter")]
     let owner = meter::begin();
     let mut held = measure(&mut rows, "consumer_create", || Vec::with_capacity(queries));
@@ -292,7 +293,8 @@ fn main() {
         _ => [0; 4],
     };
     measure(&mut rows, "source_dispose", || drop(r));
-    for (q, want) in expected.iter().enumerate() {
+    for q in 0..queries {
+        let want = &expected[q % 4];
         let input = measure(&mut rows, "input", || restriction(q));
         let mut output = measure(&mut rows, "setup", || prepared.start(&input, alias));
         let mut consumed = measure(&mut rows, "consumer_buffer", || Vec::with_capacity(9));
@@ -329,10 +331,10 @@ fn main() {
         for (q, actual) in held.iter().enumerate() {
             assert_eq!(
                 actual,
-                &expected[q][..if cancel {
-                    expected[q].len().min(1)
+                &expected[q % 4][..if cancel {
+                    expected[q % 4].len().min(1)
                 } else {
-                    expected[q].len()
+                    expected[q % 4].len()
                 }]
             );
         }

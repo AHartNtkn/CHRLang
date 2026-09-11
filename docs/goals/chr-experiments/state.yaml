@@ -9,7 +9,7 @@ goal:
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
   execution_sequence: docs/experiments/next-cycle.md
-  current_research: "Sparse projection gains in 36/64 clique comparisons against Cartesian traversal but loses all 64 against enumeration. Its dense gains fail against existing separable solving. Complete costs cover 7,168 allocation/timing processes plus 24 preparation diagnostics. Unequal-name query work motivates longer prepared sessions under T076; package count two, goal active."
+  current_research: "Longer prepared sessions complete 4,032 allocation/timing processes. Sparse projection beats enumeration in all eight full-output unequal-name cases at 256 queries, with more allocation and higher peaks. Equality controls and cancellation remain adverse. T076 next tests lazy weighted output; package count three, goal active."
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -295,10 +295,12 @@ tasks:
     type: pm
     assignee: PM
     status: active
-    progress: "Sparse projection gains in 36/64 clique comparisons against Cartesian traversal but loses all 64 against enumeration. Its dense gains fail against existing separable solving. Complete costs cover 7,168 allocation/timing processes plus 24 preparation diagnostics. Unequal-name query work motivates longer prepared sessions under T076; package count two, goal active."
-    next_action: "Register longer changing-query sessions to test observed amortization for unequal-name relations against enumeration and Cartesian controls. Extend the fixture query count and cycle restrictions explicitly; include equality star/clique adverse cases, duplicate choices, aliases, retention and cancellation. Preserve preparation and full disposal, and validate actual weighted answers. No extrapolated crossover from four-query phase medians. Consider cheaper relation preparation, broader caller observers and selective retention after the result or obstruction. Package count two; full portfolio review by four."
+    progress: "Longer prepared sessions complete 4,032 allocation/timing processes. Sparse projection beats enumeration in all eight full-output unequal-name cases at 256 queries, with more allocation and higher peaks. Equality controls and cancellation remain adverse. T076 next tests lazy weighted output; package count three, goal active."
+    next_action: "Register lazy weighted output over existing projection factors and dictionaries. Current query setup materializes all tuples before first observation and remains adverse under cancellation even with 256-query reuse. Preserve complete tuple order, weights, aliases, caller restrictions, held results and intentional overflow/bound error behavior. Compare lazy/eager output and enumeration with complete runtime and ownership before claiming improvement. Reassess broader caller observers, selective retention and preparation simplification after this package; full portfolio review due, count three."
     objective: Investigate compact finite structural spaces, intersection and finite path equality against explicit enumeration, with independently specified denotation, source multiplicity correspondence, favorable and adverse sources and complete lifecycle costs.
     inputs:
+      - docs/experiments/results/S06-projection-reuse.md
+      - docs/experiments/registrations/S06-projection-reuse.md
       - docs/experiments/results/S06-sparse-cost.md
       - docs/experiments/registrations/S06-sparse-cost.md
       - docs/experiments/results/S06-sparse-elimination.md
@@ -2707,8 +2709,11 @@ checks:
   last_verification:
     result: passed
     task: T076
-    scope: Complete sparse projection costs, separable challenge and preparation attribution.
+    scope: Longer prepared-query lifecycle and observed amortization.
     commands:
+      - "sparse_cost.py long:1152 allocation and2880 ordinary processes,342720 matrix queries,384 comparisons"
+      - "Independent per-pattern expected answers check every actual query; repeated allocation, consumer equivalence and final release pass"
+      - "Runner fixture test and scoped counter-free Clippy pass; preparation and all output/disposal phases charged"
       - "sparse_cost.py:1536 allocation and3840 ordinary processes; complete weighted answers, repeated ownership, consumer equivalence and512 comparisons"
       - "sparse_cost.py dense:512 allocation and1280 ordinary processes; existing separable control defeats all64 sparse comparisons"
       - "sparse_cost.py profile:24 preparation-clock runs separate dictionary, relation, ordering and elimination costs"

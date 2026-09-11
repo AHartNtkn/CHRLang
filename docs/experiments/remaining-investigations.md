@@ -1,6 +1,6 @@
 # The comparisons still needed to choose the architecture
 
-Sparse projection gains in 36/64 clique comparisons against Cartesian traversal but loses all 64 against enumeration. Its dense gains fail against existing separable solving. Complete costs cover 7,168 allocation/timing processes plus 24 preparation diagnostics. Unequal-name query work motivates longer prepared sessions under T076; package count two, goal active. [Sparse lifecycle costs](results/S06-sparse-cost.md).
+Longer prepared sessions complete 4,032 allocation/timing processes. Sparse projection beats enumeration in all eight full-output unequal-name cases at 256 queries, with more allocation and higher peaks. Equality controls and cancellation remain adverse. T076 next tests lazy weighted output; package count three, goal active. [Prepared-query amortization](results/S06-projection-reuse.md).
 
 Generated runtime timing validates 10,080 processes and 1,152 comparisons. Four repeated-query cases qualify faster with traces than all six controls; generated matching qualifies against generic indexed execution in fifteen cases. Stronger-control diagnostics leave generated-plus-inferred gains uncertain and select longer prepared sessions plus compiler amortization including Direct, scan and inferred controls. T075 active; package count one, goal active. [Generated runtime](results/S05-call-generated-timing.md).
 
