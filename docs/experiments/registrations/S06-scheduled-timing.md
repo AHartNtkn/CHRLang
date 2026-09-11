@@ -1,0 +1,15 @@
+# Scheduled-template ordinary lifecycle timing
+
+Register before comparative runs. Hypothesis: saved runtime matching may or may not repay scheduled template derivation and ownership; compare complete session costs against zero-follow, dependency and explicit controls. No memory result predicts the timing verdict.
+
+Use exactly the 96 source cases and two-query lifecycle in S06-scheduled-ownership: chain/repeated/distinct × failure × consumption × depth 8/32 × insertion order × first-query cancellation. Queries change depth n to n+1. Six modes (dependencies, templates-zero, templates, direct, sealed, carriers) in both scheduled feature-off and feature-on builds give 12 adjacent variants per source group. No engine, kernel, work, validity or allocation counters in ordinary release builds; completed traversal and seeking contexts enabled, answer cache disabled. Ordinary system allocator.
+
+Before any warmup or timing, run all 1,152 metered entries and require exact normalized phase heaps and answer counts against the qualified ownership campaign. Verify its binary hashes. Freeze ordinary binaries, source archive, registration and job order. Failures prevent timing and require repair, not entry exclusion.
+
+One excluded warmup process per variant/source cell. Ten paired timing blocks; each process runs five fresh complete sessions and returns their nine phase times. Shuffle 96 groups with seed 7307 in every block, rotate the 12 adjacent variants by group index plus block. Total 11,520 measured processes, 57,600 sessions; 1,152 warmup processes. No sample exclusion. Each process uses one allowed CPU, 1 GiB address-space cap, 60 CPU/wall seconds, and two million source ticks per complete query.
+
+Endpoint: process mean of five sums of all nine phases (preparation, setup/execution/producer disposal for each query, prepared disposal, consumer disposal). Query-time derivation is execution. Complete scalar answer validation is outside measured phases; source construction and process startup are outside the endpoint. Compilation is not isolated, so no claim includes whole compilation superiority. Retained answers and cancellation are charged as in the ownership registration.
+
+Analyze all 66 pairwise contrasts per source, 6,336 total. Candidate/reference ratios per paired block: qualified gain requires median <=0.90 and all ten ratios <1; qualified loss requires median >=1.10 and all ten >1; otherwise unresolved, not equivalent. No workload weights. Headline comparisons are scheduled templates versus same-build zero-follow/dependencies and feature-off templates, Direct, sealed and carriers. Inspect consequential adverse or inconsistent blocks without substituting a new endpoint.
+
+Use results to choose the next architectural investigation against coarser recognition and direct solving. The existing resource-scheduling counterexample still excludes ordinary contraction as a general semantics-preserving substitute. This timing campaign qualifies only its source cases and does not complete T073 or the research goal.

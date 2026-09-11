@@ -9,7 +9,7 @@ goal:
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
   execution_sequence: docs/experiments/next-cycle.md
-  current_research: "Scheduled ownership validates 2,304 processes and 1,152 exact layout pairs. Scheduled templates allocate less than zero-follow in all 96 cases, but more than dependency, Direct and carrier controls in every case. A source witness retains one scheduled template versus 34 suffix templates. Full 57-question review retains T073 for ordinary lifecycle timing before further optimization; review count reset, goal active."
+  current_research: "Scheduled timing validates 57,600 sessions after 1,152 exact ownership entries. Scheduled templates qualify faster than zero-follow in 69/96 cases, but in none against dependency, Direct or carriers; Direct wins 91 and carriers 90. Even free scheduled disposal leaves every median above Direct. Full 57-question review selects T075 coarser recognition; T073 remains pending, review count reset, goal active."
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -64,7 +64,7 @@ visual_board:
     status: not_requested
     url: null
     command: null
-active_task: T073
+active_task: T075
 tasks:
   - id: T081
     type: pm
@@ -368,12 +368,10 @@ tasks:
   - id: T075
     type: pm
     assignee: PM
-    status: pending
+    status: active
     objective: Investigate sound generalized call and continuation reuse after different histories, including renaming, relevance, resource and output identity obligations, against competent recomputation and sharing controls.
-    progress: >-
-      Call-reuse lifecycle sizing completes 20,118 measurements with 24 known allocation failures and 18 registered skips. All 2,874 allocation pairs repeat exactly. In 181 clock-qualified memo/Direct scenarios, median paired ratios range from 2.02× to 84.21×; even zero measured memo disposal leaves every median ratio above 1.66×. These are exploratory finite-session results, not a rejection of broader reuse. T072 token-independent integrated eligibility is next; T075 recognition, failures and sustained ownership remain required. Package one after the full key-allocation review; goal active.
-    next_action: >-
-      Investigate sound cheaper or coarser recognition, variable-dependent relevance, failed operations versus failed futures, fresh-result transport, eviction and sustained ownership. The finite lifecycle pilot now has scoped timing/allocation evidence; a disposal-only remedy cannot reverse its qualified median comparisons. Reconsider CPU attribution or a changed recognition mechanism at the next demand repair result or obstruction. Do not generalize current transition-level costs to all reuse.
+    progress: "Scheduled timing validates 57,600 sessions after 1,152 exact ownership entries. Scheduled templates qualify faster than zero-follow in 69/96 cases, but in none against dependency, Direct or carriers; Direct wins 91 and carriers 90. Even free scheduled disposal leaves every median above Direct. Full 57-question review selects T075 coarser recognition; T073 remains pending, review count reset, goal active."
+    next_action: "Inspect existing separated-continuation transition keys and isolated-call admission; register and implement a coarser recognition boundary in an existing executor while preserving source service. Qualify actual key-work reduction, fresh outputs/aliases, changed inputs, failed operations, resource/history near misses, cancellation and no-reuse controls before full costs. Compare direct solving at the gate. Review count reset."
     inputs:
       - docs/experiments/results/S05-inert-lifecycle.md
       - docs/experiments/results/S05-inert-lifecycle-review.md
@@ -500,9 +498,9 @@ tasks:
   - id: T073
     type: pm
     assignee: PM
-    status: active
-    progress: "Scheduled ownership validates 2,304 processes and 1,152 exact layout pairs. Scheduled templates allocate less than zero-follow in all 96 cases, but more than dependency, Direct and carrier controls in every case. A source witness retains one scheduled template versus 34 suffix templates. Full 57-question review retains T073 for ordinary lifecycle timing before further optimization; review count reset, goal active."
-    next_action: "Register bounded paired ordinary lifecycle timing for scheduled, zero-follow and dependency modes against Direct and existing explicit carriers, including deterministic/choice sources, changing depths and first-query cancellation. All counters disabled; exact ownership entries before timing; freeze binaries and sources. Measure the existing candidate before further layout tuning, then reassess coarser recognition and direct solving. Full portfolio review complete; review count reset."
+    status: pending
+    progress: "Scheduled timing validates 57,600 sessions after 1,152 exact ownership entries. Scheduled templates qualify faster than zero-follow in 69/96 cases, but in none against dependency, Direct or carriers; Direct wins 91 and carriers 90. Even free scheduled disposal leaves every median above Direct. Full 57-question review selects T075 coarser recognition; T073 remains pending, review count reset, goal active."
+    next_action: "Retain source/service correspondence and scoped adverse scheduled-plan timing. Broader recursive/contextual source inference, alternative representations and isolated compiler costs remain required. Reassess with direct solving after the T075 recognition gate; no general rejection of lowering."
     objective: Derive a source-driven lowering transformation beyond exact schemas, with explicit dependency/resource conditions, independent complete-answer checks and consequential language-property boundaries before cost measurement.
     inputs:
       - docs/experiments/results/S06-capacity-phase-costs.md
@@ -2688,8 +2686,10 @@ checks:
   last_verification:
     result: passed
     task: T073
-    scope: Scheduled template lifecycle requested ownership and full portfolio review.
+    scope: Scheduled ordinary lifecycle timing, retained contrary blocks and early full portfolio review.
     commands:
+      - "scheduled_timing.py --audit: 1152 exact entries before timing,11520 processes,57600 sessions,6336 contrasts"
+      - "scheduled_timing_diagnosis.py: all five unresolved Direct contrary blocks retained; zero-disposal median ratios1.402 to8.119"
       - "scheduled_ownership.py --audit: 2304 processes,1152 exact layout pairs,288 cross-build explicit controls; full answers and heap restoration"
       - "scheduled_retention: identical source answers, zero-follow34 templates versus scheduled1 template with33 followed calls"
       - "Scoped metered lifecycle runner Clippy passes"
