@@ -1,6 +1,6 @@
 # R00: architectural alternatives and first experiment selection
 
-Sparse elimination matches independent finite answers and connected source multiplicities. A six-coordinate equality star uses 164 row probes versus 5,456 Cartesian assignments; a dense four-coordinate control uses 1,676 probes for 336 tuples. T076 next compares complete costs using the same greedy order and enumeration controls; package count one, goal active. [Sparse elimination](S06-sparse-elimination.md).
+Sparse projection gains in 36/64 clique comparisons against Cartesian traversal but loses all 64 against enumeration. Its dense gains fail against existing separable solving. Complete costs cover 7,168 allocation/timing processes plus 24 preparation diagnostics. Unequal-name query work motivates longer prepared sessions under T076; package count two, goal active. [Sparse lifecycle costs](S06-sparse-cost.md).
 
 Generated runtime timing validates 10,080 processes and 1,152 comparisons. Four repeated-query cases qualify faster with traces than all six controls; generated matching qualifies against generic indexed execution in fifteen cases. Stronger-control diagnostics leave generated-plus-inferred gains uncertain and select longer prepared sessions plus compiler amortization including Direct, scan and inferred controls. T075 active; package count one, goal active. [Generated runtime](S05-call-generated-timing.md).
 

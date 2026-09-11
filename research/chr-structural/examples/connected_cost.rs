@@ -9,7 +9,7 @@ use chr_structural::{
     joint_region::{Observation, Predicate, Region},
     projection::{Problem, Relation},
 };
-use chr_syntax::{Term, Var, atom, v};
+use chr_syntax::{Term, Var, atom, t, v};
 use std::time::Instant;
 type Record = (Vec<Term>, u128);
 struct Row {
@@ -44,7 +44,10 @@ fn source(family: &str, n: usize, duplicate: bool) -> Region {
             (a + 1..n)
                 .filter(move |_| family == "clique" || a == 0)
                 .map(move |b| {
-                    if family == "different" {
+                    if family == "dense" {
+                        let pair = t("pair", [v(a as u64), v(b as u64)]);
+                        Predicate::Equal(pair.clone(), pair)
+                    } else if family == "different" {
                         Predicate::Different(v(a as u64), v(b as u64))
                     } else {
                         Predicate::Equal(v(a as u64), v(b as u64))
@@ -82,6 +85,22 @@ fn lower(r: &Region) -> Problem {
             .predicates
             .iter()
             .map(|p| {
+                if let Predicate::Equal(Term::App(_, xs), rhs) = p
+                    && matches!(p, Predicate::Equal(lhs, _) if lhs == rhs)
+                {
+                    return Relation {
+                        scope: xs
+                            .iter()
+                            .map(|x| match x {
+                                Term::Var(v) => v.0 as usize,
+                                _ => panic!("dense coordinate"),
+                            })
+                            .collect(),
+                        rows: (0..3)
+                            .flat_map(|x| (0..3).map(move |y| vec![x, y]))
+                            .collect(),
+                    };
+                }
                 let (Predicate::Equal(Term::Var(a), Term::Var(b))
                 | Predicate::Different(Term::Var(a), Term::Var(b))) = p
                 else {
@@ -135,6 +154,25 @@ impl Iterator for Output<'_> {
 impl Prepared {
     fn new(mode: &str, r: &Region, visible: &[Var]) -> Self {
         match mode {
+            "separable" => {
+                assert!(
+                    r.predicates
+                        .iter()
+                        .all(|p| matches!(p, Predicate::Equal(a,b) if a==b))
+                );
+                let simplified = Region {
+                    domains: r.domains.clone(),
+                    predicates: vec![],
+                };
+                Self::Enumeration(runtime::Prepared::new(
+                    "separable",
+                    &lower(&simplified),
+                    &visible[..2]
+                        .iter()
+                        .map(|x| x.0 as usize)
+                        .collect::<Vec<_>>(),
+                ))
+            }
             "sparse" => Self::Projection(
                 r.prepare_sparse(visible, &[], &[], Observation::Counted, 100_000)
                     .unwrap(),
@@ -182,7 +220,7 @@ fn main() {
     let args = std::env::args().collect::<Vec<_>>();
     assert_eq!(args.len(), 9);
     let (mode, family) = (&*args[1], &*args[2]);
-    assert!(matches!(family, "star" | "clique" | "different"));
+    assert!(matches!(family, "star" | "clique" | "different" | "dense"));
     let n = args[3].parse::<usize>().unwrap();
     assert!(matches!(n, 4 | 6));
     let flag = |i: usize| match &*args[i] {
@@ -240,7 +278,7 @@ fn main() {
         })
         .collect::<Vec<_>>();
     clocks.sort_unstable();
-    let floor = 100 * clocks[500];
+    let floor = 100 * clocks[990];
     drop(clocks);
     let mut rows = Vec::with_capacity(64);
     #[cfg(feature = "alloc-meter")]
@@ -323,5 +361,33 @@ fn main() {
         );
         #[cfg(not(feature = "alloc-meter"))]
         println!("{{\"phase\":\"{}\",\"ns\":{}}}", row.phase, row.ns);
+    }
+}
+
+#[test]
+fn dense_fixture_weights_match_independent_choice_products() {
+    for n in [4, 6] {
+        for duplicate in [false, true] {
+            let region = source("dense", n, duplicate);
+            let visible = vec![Var((n - 2) as u64), Var((n - 1) as u64)];
+            let domain = if duplicate { 4_u128 } else { 3 };
+            let mut expected = Vec::new();
+            for a in ["a", "b", "c"] {
+                for b in ["a", "b", "c"] {
+                    let weight = domain.pow((n - 2) as u32)
+                        * if duplicate && a == "a" { 2 } else { 1 }
+                        * if duplicate && b == "a" { 2 } else { 1 };
+                    expected.push((vec![atom(a), atom(b)], weight));
+                }
+            }
+            for mode in ["projection", "sparse", "enumerate", "separable"] {
+                assert_eq!(
+                    Prepared::new(mode, &region, &visible)
+                        .start(&[], false)
+                        .collect::<Vec<_>>(),
+                    expected
+                );
+            }
+        }
     }
 }
