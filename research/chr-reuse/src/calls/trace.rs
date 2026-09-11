@@ -113,6 +113,10 @@ impl Table {
             _ => Err("isolated initial insertion did not continue".into()),
         }
     }
+    pub(super) fn clear(&mut self) {
+        self.keys.clear();
+        self.traces = Vec::new();
+    }
     pub fn stats(&self) -> &Stats {
         &self.stats
     }

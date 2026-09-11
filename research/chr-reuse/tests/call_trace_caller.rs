@@ -155,3 +155,47 @@ fn changed_query_retention_tracks_completed_and_unfinished_traces() {
         }
     }
 }
+
+#[test]
+fn reclamation_preserves_service_restarts_and_regenerates_calls() {
+    let mut events = 0;
+    for family in 0..4 {
+        for window in [0, 1, 4, 16] {
+            let (rs, count) = fixture::program(false, family);
+            let mut caller = Caller::new(rs.clone(), count).unwrap();
+            for q in 0..32 {
+                let depth = 8 + 2 * (q % 16);
+                let input = fixture::input(depth, depth + 1, (1000 * q + 7) as u64);
+                check(&mut caller, &rs, &input, 5);
+                events += check(&mut caller, &rs, &input, 100_000);
+                if window != 0 && (q + 1) % window == 0 {
+                    caller.clear_traces().unwrap();
+                    assert_eq!(caller.retained_nodes(), 0);
+                    assert_eq!(caller.unfinished_calls(), 0);
+                }
+            }
+            if cfg!(feature = "metrics") {
+                eprintln!("family={family} window={window} work={:?}", caller.stats());
+            }
+        }
+    }
+    let (rs, count, q) = fixture::source(8, 9, false, 0, 10);
+    let mut caller = Caller::new(rs.clone(), count).unwrap();
+    let mut live = caller.start(q.clone()).unwrap();
+    caller.advance(&mut live, 5).unwrap();
+    assert!(caller.clear_traces().is_err());
+    drop(live);
+    caller.clear_traces().unwrap();
+    check(&mut caller, &rs, &q, 100_000);
+    let executed = caller.stats().executed;
+    check(&mut caller, &rs, &q, 100_000);
+    if cfg!(feature = "metrics") {
+        assert_eq!(caller.stats().executed, executed);
+    }
+    caller.clear_traces().unwrap();
+    check(&mut caller, &rs, &q, 100_000);
+    if cfg!(feature = "metrics") {
+        assert!(caller.stats().executed > executed);
+    }
+    eprintln!("reclamation_queries=512 service_events={events}");
+}

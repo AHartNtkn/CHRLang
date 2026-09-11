@@ -1,6 +1,6 @@
 # Unanswered architecture questions and experimental ownership
 
-Per-program compilation and stronger data-plan controls validate 723 processes and 112 comparisons. Both generated modes lose all installed-runtime comparisons after compilation and establish no runtime gain over data plans plus inference. Trace runtime gains survive both generated competitors in seven of eight scenarios. T075 next tests bounded retention and regeneration; package count three, goal active. [Compilation and stronger controls](results/S05-call-amortization.md).
+Trace reclamation preserves 60544 service checkpoints and completes 576 allocation plus 1440 ordinary runs. Frequent clearing lowers some peaks but loses reuse; sixteen-query clearing preserves seven joint runtime gains without lowering their peaks. Portfolio review selects T076 sparse connected projection; T075 remains unfinished, review count reset, goal active. [Reclamation](results/S05-call-reclamation.md) · [Portfolio decision](results/S05-call-reclamation-review.md).
 
 Generated runtime timing validates 10,080 processes and 1,152 comparisons. Four repeated-query cases qualify faster with traces than all six controls; generated matching qualifies against generic indexed execution in fifteen cases. Stronger-control diagnostics leave generated-plus-inferred gains uncertain and select longer prepared sessions plus compiler amortization including Direct, scan and inferred controls. T075 active; package count one, goal active. [Generated runtime](results/S05-call-generated-timing.md).
 

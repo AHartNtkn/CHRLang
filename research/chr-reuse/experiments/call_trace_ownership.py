@@ -14,7 +14,7 @@ def parse(r):
     data=[json.loads(x)for x in r['stdout'].splitlines()];h,rows=data[0],data[1:]
     assert [x['phase']for x in rows[:3]]==['source','prepare','source_dispose']
     assert [x['phase']for x in rows[-2:]]==['prepared_dispose','consumer_dispose']
-    assert all(x['phase'] in ['source','prepare','source_dispose','input','setup','service_observe','consume','engine_dispose','input_dispose','prepared_dispose','consumer_dispose']for x in rows)
+    assert all(x['phase'] in ['source','prepare','source_dispose','input','setup','service_observe','consume','engine_dispose','input_dispose','maintenance','prepared_dispose','consumer_dispose']for x in rows)
     if rows[0]['memory'] is None:return h,None
     rs=[x['memory']for x in rows];base=rs[0]['live_start']
     assert rs[-1]['live_end']==base and h['unreleased_bytes']==0

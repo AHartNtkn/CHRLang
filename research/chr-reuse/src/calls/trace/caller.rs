@@ -45,6 +45,14 @@ impl Caller {
             owner: self.owner.clone(),
         })
     }
+    /// Reclaim completed and abandoned traces after all query handles are dropped.
+    pub fn clear_traces(&mut self) -> Result<(), String> {
+        if Rc::strong_count(&self.owner) != 1 {
+            return Err("cannot clear traces while a query is live".into());
+        }
+        self.table.clear();
+        Ok(())
+    }
     pub fn unfinished_calls(&self) -> usize {
         self.table.unfinished_calls()
     }

@@ -45,6 +45,7 @@ fn query_depth(cfg: &Config, q: usize) -> usize {
             0 => 0,
             1 => 2 * q,
             2 => 2 * (q % 4),
+            3 => 2 * (q % 16),
             _ => unreachable!("validated query policy"),
         }
 }
@@ -90,6 +91,7 @@ fn run<P, E>(
     prepare: impl Fn(Vec<Rule>) -> P,
     start: impl Fn(&mut P, Query) -> E,
     advance: impl Fn(&mut P, &mut E) -> Batch,
+    maintain: impl Fn(&mut P, usize),
 ) {
     let mut warm = prepare(fixture::program(false, cfg.family).0);
     for (&n, expected) in &cfg.expected {
@@ -107,7 +109,7 @@ fn run<P, E>(
     drop(warm);
     let capacity = 5
         + (0..cfg.reuse)
-            .map(|q| 2 * cfg.expected(q).len() + 5)
+            .map(|q| 2 * cfg.expected(q).len() + 6)
             .sum::<usize>();
     let mut rows = Vec::with_capacity(capacity);
     let mut consumer: Vec<(usize, usize, Answer)> = vec![];
@@ -158,6 +160,7 @@ fn run<P, E>(
         assert_eq!(*count, if cfg.cancel { 1 } else { cfg.expected(q).len() });
         measure(&mut rows, "engine_dispose", q, || drop(e));
         measure(&mut rows, "input_dispose", q, || drop(query));
+        measure(&mut rows, "maintenance", q, || maintain(&mut p, q + 1));
     }
     measure(&mut rows, "prepared_dispose", cfg.reuse, || drop(p));
     #[cfg(feature = "alloc-meter")]
@@ -222,7 +225,7 @@ pub fn entry(code: Option<chr_compiled::Compiled>) {
     let reuse = a[4].parse().unwrap();
     assert!(family < 4 && (1..=2048).contains(&depth) && (1..=32768).contains(&reuse));
     let query_policy = a[7].parse().unwrap();
-    assert!(query_policy <= 2);
+    assert!(query_policy <= 3);
     let keep = match &*a[5] {
         "0" => 0,
         "all" => usize::MAX,
@@ -264,17 +267,29 @@ pub fn entry(code: Option<chr_compiled::Compiled>) {
     }
     drop((direct, rules));
     match &*a[1] {
-        "trace" => run(
+        "trace" | "trace1" | "trace4" | "trace16" => run(
             &cfg,
             |rs| Caller::new(rs, count).unwrap(),
             |p, q| p.start(q).unwrap(),
             |p, e| p.advance(e, 1).unwrap(),
+            |p, q| {
+                let window = match &*a[1] {
+                    "trace1" => 1,
+                    "trace4" => 4,
+                    "trace16" => 16,
+                    _ => 0,
+                };
+                if window != 0 && q % window == 0 {
+                    p.clear_traces().unwrap();
+                }
+            },
         ),
         "direct" => run(
             &cfg,
             |rs| Whole::new(rs, Mode::Direct).unwrap(),
             |p, q| p.start(q).unwrap(),
             |_, e| e.advance(1),
+            |_, _| {},
         ),
         "scan" | "indexed" | "sealed" | "planned" | "planned-sealed" | "generated"
         | "generated-sealed" => {
@@ -316,6 +331,7 @@ pub fn entry(code: Option<chr_compiled::Compiled>) {
                         exhausted: false,
                     },
                 },
+                |_, _| {},
             );
         }
         "memo" | "memo16" => {
@@ -329,6 +345,7 @@ pub fn entry(code: Option<chr_compiled::Compiled>) {
                 },
                 |p, q| p.start(q).unwrap(),
                 |_, e| e.advance(1),
+                |_, _| {},
             );
         }
         _ => panic!("mode"),
@@ -339,7 +356,7 @@ pub fn entry(code: Option<chr_compiled::Compiled>) {
 fn cached_fixture_expectations_match_actual_renamed_queries() {
     for family in 0..4 {
         let rules = fixture::program(false, family).0;
-        for query_policy in 0..=2 {
+        for query_policy in 0..=3 {
             let mut cfg = Config {
                 family,
                 depth: 32,
@@ -363,7 +380,7 @@ fn cached_fixture_expectations_match_actual_renamed_queries() {
                 cfg.expected.len(),
                 match query_policy {
                     0 => 1,
-                    1 => 16,
+                    1 | 3 => 16,
                     2 => 4,
                     _ => unreachable!(),
                 }
