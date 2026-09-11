@@ -182,6 +182,20 @@ impl View {
             })
             .collect()
     }
+    #[cfg(feature = "borrowed-cycles")]
+    fn constructor_children(&self, value: Value) -> impl Iterator<Item = &[Value]> {
+        self.incidence
+            .get(&value)
+            .into_iter()
+            .flatten()
+            .filter_map(move |(key, index)| {
+                if !matches!(key, Relation::Constructor(..)) {
+                    return None;
+                }
+                let row = &self.tables[key].rows[*index];
+                (row.values[0] == value).then_some(&row.values[1..])
+            })
+    }
     fn peers(&self, name: &str, children: &[Value]) -> Vec<Value> {
         let key = Relation::Constructor(name.into(), children.len());
         let Some(table) = self.tables.get(&key) else {

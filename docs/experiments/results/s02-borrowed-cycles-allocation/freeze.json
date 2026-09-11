@@ -1,0 +1,78 @@
+{
+  "builds": {
+    "(False, 'meter')": {
+      "binary": "/home/ahart/Documents/CHRLang/target/execution-attribution-True-False-meter",
+      "sha256": "c393df3dd8d808ffdbc16f4f027446f78440e70435a39ce6f3e5b80579e9ee80",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-relational",
+        "--release",
+        "--no-default-features",
+        "--features",
+        "alloc-meter,borrowed-cycles",
+        "--test",
+        "readiness_lifecycle",
+        "--no-run",
+        "--message-format=json"
+      ]
+    },
+    "(False, 'profile')": {
+      "binary": "/home/ahart/Documents/CHRLang/target/execution-attribution-True-False-profile",
+      "sha256": "b4f5d11d96cc8db7cbfda7f71d43ed93e87053c916a01ccb65fcd9faa9c8aee0",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-relational",
+        "--release",
+        "--no-default-features",
+        "--features",
+        "execution-profile,borrowed-cycles",
+        "--test",
+        "readiness_lifecycle",
+        "--no-run",
+        "--message-format=json"
+      ]
+    },
+    "(True, 'meter')": {
+      "binary": "/home/ahart/Documents/CHRLang/target/execution-attribution-True-True-meter",
+      "sha256": "5cfdf04d9c2c2f701da7a0e14e9ee441df018253459533c4ac56f5e28f92c820",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-relational",
+        "--release",
+        "--no-default-features",
+        "--features",
+        "alloc-meter,incidence-vector,borrowed-cycles",
+        "--test",
+        "readiness_lifecycle",
+        "--no-run",
+        "--message-format=json"
+      ]
+    },
+    "(True, 'profile')": {
+      "binary": "/home/ahart/Documents/CHRLang/target/execution-attribution-True-True-profile",
+      "sha256": "6884f95fdd8fea8c17e1033342194a54a9f80204764e0c9d5868b66afd121bf0",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-relational",
+        "--release",
+        "--no-default-features",
+        "--features",
+        "execution-profile,incidence-vector,borrowed-cycles",
+        "--test",
+        "readiness_lifecycle",
+        "--no-run",
+        "--message-format=json"
+      ]
+    }
+  },
+  "source_hash": "d21b32211b6529876ed53daa894c7d6fa410fe19b77e8fd6bd980a5b84a1fd21",
+  "rustc": "rustc 1.97.1 (8bab26f4f 2026-07-14)\nbinary: rustc\ncommit-hash: 8bab26f4f68e0e26f0bb7960be334d5b520ea452\ncommit-date: 2026-07-14\nhost: x86_64-unknown-linux-gnu\nrelease: 1.97.1\nLLVM version: 22.1.6\n"
+}

@@ -13,6 +13,7 @@ chr-integrated = { path = "../chr-integrated", default-features = false }
 chr-compiled = { path = "../chr-compiled", default-features = false }
 
 [features]
+borrowed-cycles = []
 execution-profile = ["alloc-meter"]
 incidence-vector = []
 admission-profile = ["alloc-meter"]

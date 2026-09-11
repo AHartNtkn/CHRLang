@@ -9,7 +9,7 @@ goal:
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
   execution_sequence: docs/experiments/next-cycle.md
-  current_research: "Execution attribution validates144 processes with exact allocation/control agreement. Deep equality is dominated by cycle-traversal allocation; broad full settlement by discovery; bounded broad settlement adds readiness work. Full57-question review selects borrowed constructor traversal during cycle checks under T072; review count reset, goal active."
+  current_research: "Borrowed cycle traversal validates144 allocation processes,72 source entries and300 ordinary timing processes. Deep cycle allocation drops1.73MB with unchanged scope counts and non-cycle allocation; compiled remains faster in all borrowed/vector pilot comparisons. T072 next qualifies equality-stable candidate caching with adverse source controls; package count one, goal active."
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -573,8 +573,8 @@ tasks:
     type: pm
     assignee: PM
     status: active
-    progress: "Execution attribution validates144 processes with exact allocation/control agreement. Deep equality is dominated by cycle-traversal allocation; broad full settlement by discovery; bounded broad settlement adds readiness work. Full57-question review selects borrowed constructor traversal during cycle checks under T072; review count reset, goal active."
-    next_action: Register and qualify borrowed constructor children in cycle traversal against owned descriptors, preserving traversal order, visited-set behavior, finite failures and full source answers. Measure complete costs with deep/broad and compiled controls; reassess discovery/readiness repair, graph attribution and solving at the result. Review count reset.
+    progress: "Borrowed cycle traversal validates144 allocation processes,72 source entries and300 ordinary timing processes. Deep cycle allocation drops1.73MB with unchanged scope counts and non-cycle allocation; compiled remains faster in all borrowed/vector pilot comparisons. T072 next qualifies equality-stable candidate caching with adverse source controls; package count one, goal active."
+    next_action: Register and qualify inferred equality-stable candidate caching, first testing flat distinct-variable unguarded heads against guarded, repeated-variable, constructor, consumption, insertion and history adversaries. Validate cached bindings after root changes and preserve complete source answers. Then measure discovery and complete costs; reconsider readiness, graph attribution and solving. Package count one.
     objective: Establish a contextual equality and local consuming-rewrite source comparison that demonstrates useful interleaving, distinct resource ownership and independent complete-answer correctness before cost registration.
     inputs:
       - docs/experiments/results/S02-reserved-selection.md
@@ -2688,8 +2688,11 @@ checks:
   last_verification:
     result: passed
     task: T072
-    scope: Exclusive execution attribution, profile/control allocation equality, regressions and full portfolio review.
+    scope: Borrowed cycle traversal source preservation, exact allocation attribution and ordinary compiled-control pilot.
     commands:
+      - "execution_attribution.py --borrowed --audit: 144 processes, unchanged non-cycle allocations and scope counts"
+      - "incidence_source_timing.py --borrowed --audit: 72 source entries and 300 timing processes"
+      - "Source/store/library tests for borrowed traversal with both incidence representations; Clippy"
       - "execution_attribution.py --audit: 144 processes, 36 configurations, 72 exact profile/control pairs and exclusive sums"
       - "Source/store/library regression with execution profiling and vectors; execution/admission/deduction Clippy"
       - "incidence_source_timing.py --audit: 72 entry processes, 300 timing processes, 120 contrasts and frozen evidence"
@@ -2708,6 +2711,7 @@ checks:
       - "audit_probe_clock.py: 18000 separately instrumented complete sessions"
       - Scoped ordinary, allocation and CPU-clock Clippy; source hashes, report links and 57-question map
     evidence:
+      - docs/experiments/results/S02-borrowed-cycles.md
       - docs/experiments/results/S02-execution-attribution.md
       - docs/experiments/results/S02-execution-portfolio-review.md
       - docs/experiments/results/S02-incidence-source-timing.md

@@ -361,3 +361,31 @@ fn broad_incidence_preserves_repeated_columns_congruence_and_consumption() {
         }
     }
 }
+
+#[test]
+fn deep_indirect_cycles_and_shared_dags_preserve_forked_answers() {
+    for depth in [1, 8, 64] {
+        let mut base = Store::default();
+        let x = base.unknown();
+        let mut term = x;
+        let mut expected = atom("a");
+        for _ in 0..depth {
+            term = base.constructor("f", &[term]);
+            expected = t("f", [expected]);
+        }
+        let dag = base.constructor("g", &[term, term]);
+        let mut bad = base.clone();
+        bad.equate(x, dag);
+        settle(&mut bad);
+        assert!(bad.failed());
+        let a = base.constructor("a", &[]);
+        base.equate(x, a);
+        settle(&mut base);
+        assert!(!base.failed());
+        assert_eq!(
+            base.export(&[dag]),
+            Some(vec![t("g", [expected.clone(), expected])])
+        );
+        assert!(bad.export(&[dag]).is_none());
+    }
+}

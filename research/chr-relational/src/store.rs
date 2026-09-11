@@ -82,6 +82,14 @@ impl Store {
             if !seen.insert(value) {
                 continue;
             }
+            #[cfg(feature = "borrowed-cycles")]
+            for children in self.view.constructor_children(value) {
+                if children.contains(&target) {
+                    return true;
+                }
+                todo.extend(children.iter().copied());
+            }
+            #[cfg(not(feature = "borrowed-cycles"))]
             for (_, children) in self.view.descriptors(value) {
                 if children.contains(&target) {
                     return true;
