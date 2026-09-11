@@ -1,0 +1,73 @@
+{
+  "processes": 88,
+  "complete_sessions": 4400,
+  "exact_meter_sessions": 800,
+  "shared_cancel_identical_ownership_and_zero_advances": true,
+  "ratios": [
+    {
+      "shared": "false",
+      "outcome": "cancel",
+      "mode": "selective",
+      "median": 1.7105173086738523,
+      "minimum": 1.1608534329998221,
+      "maximum": 2.0298900382736553,
+      "disposition": "higher"
+    },
+    {
+      "shared": "false",
+      "outcome": "fail",
+      "mode": "selective",
+      "median": 1.8521723045619551,
+      "minimum": 1.4765981478427315,
+      "maximum": 2.3569220867899947,
+      "disposition": "higher"
+    },
+    {
+      "shared": "true",
+      "outcome": "cancel",
+      "mode": "batch256",
+      "median": 1.7206956590224431,
+      "minimum": 0.9879434946324579,
+      "maximum": 2.240536828120426,
+      "disposition": "unresolved"
+    },
+    {
+      "shared": "true",
+      "outcome": "cancel",
+      "mode": "batch8",
+      "median": 1.6895749594255158,
+      "minimum": 1.5740480255530422,
+      "maximum": 2.8429349687895056,
+      "disposition": "higher"
+    },
+    {
+      "shared": "true",
+      "outcome": "cancel",
+      "mode": "selective",
+      "median": 1.6931950191129026,
+      "minimum": 1.01123458481318,
+      "maximum": 1.8211346128777015,
+      "disposition": "higher"
+    }
+  ],
+  "zero_execution_sensitivity": [
+    {
+      "mode": "selective",
+      "minimum": 1.4134755019573177,
+      "median": 1.4487511578204506,
+      "maximum": 1.643159253058047
+    },
+    {
+      "mode": "batch8",
+      "minimum": 1.3492419046867214,
+      "median": 1.4871906175022098,
+      "maximum": 1.573406819011111
+    },
+    {
+      "mode": "batch256",
+      "minimum": 1.50046814038999,
+      "median": 1.6313175020599076,
+      "maximum": 1.8642028187794593
+    }
+  ]
+}

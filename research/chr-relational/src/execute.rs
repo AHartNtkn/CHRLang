@@ -205,6 +205,20 @@ pub struct Engine {
     frontier: VecDeque<State>,
 }
 impl Engine {
+    /// Settle matcher-visible equality without batching quiescent output work.
+    pub fn advance_selective(&mut self) -> Step {
+        self.advance_scheduled::<false>(true, usize::MAX).0
+    }
+    /// Existing full-settlement experimental control: finish equality before
+    /// every source advance, including pending body effects.
+    pub fn advance_settled(&mut self) -> Step {
+        if let Some(state) = self.frontier.front_mut() {
+            while state.store.step() {
+                state.candidates.fill(None);
+            }
+        }
+        self.advance()
+    }
     /// Preserve fixed rule/tuple priority while allowing unrelated equality to
     /// overlap source effects. The nonzero deduction budget bounds each call;
     /// pending states rotate through the frontier when the budget is exhausted.
@@ -212,12 +226,16 @@ impl Engine {
     /// a different program from the one being executed.
     pub fn advance_ready(&mut self, budget: usize) -> Step {
         assert!(budget > 0, "deduction budget must be nonzero");
-        self.advance_scheduled(true, budget).0
+        self.advance_scheduled::<true>(true, budget).0
     }
     pub fn advance(&mut self) -> Step {
-        self.advance_scheduled(false, 1).0
+        self.advance_scheduled::<false>(false, 1).0
     }
-    fn advance_scheduled(&mut self, ready: bool, budget: usize) -> (Step, usize) {
+    fn advance_scheduled<const DRAIN: bool>(
+        &mut self,
+        ready: bool,
+        budget: usize,
+    ) -> (Step, usize) {
         let reads = ready.then(|| {
             self.prepared
                 .reads
@@ -278,7 +296,7 @@ impl Engine {
         } else if !state.application(&self.prepared) {
             // Matcher-visible equality is settled. With no source effect or
             // enabled application, remaining equality cannot enable a rule.
-            if reads.is_some() {
+            if DRAIN && reads.is_some() {
                 while used < budget && state.store.step() {
                     used += 1;
                 }

@@ -1,16 +1,13 @@
 //! Structural control: count actual serviced equations outside production code.
 use super::*;
 use chr_syntax::{atom, c, eq, t, v};
+#[path = "../tests/support/readiness_source.rs"]
+mod readiness_source;
+use readiness_source::{nest, separated_source};
 #[allow(dead_code)]
 #[path = "../../chr-direct-conditional/tests/runtime_support/mod.rs"]
 mod oracle;
 
-fn nest(depth: usize, mut leaf: Term) -> Term {
-    for _ in 0..depth {
-        leaf = t("f", [leaf]);
-    }
-    leaf
-}
 fn source(depth: usize, deep: bool, fail: bool) -> (Vec<Rule>, Query) {
     let pattern = if deep {
         nest(depth, atom("a"))
@@ -329,83 +326,6 @@ fn matcher_settlement_preserves_the_priority_witness() {
     }
 }
 
-fn separated_source(
-    depth: usize,
-    possible: bool,
-    shared: bool,
-    outcome: &str,
-    tokens: usize,
-) -> (Vec<Rule>, Query) {
-    let tail_leaf = if outcome == "clash" {
-        atom("bad")
-    } else {
-        v(20)
-    };
-    let target = if shared {
-        if possible { "b" } else { "no" }
-    } else {
-        "tail-end"
-    };
-    let mut older = Rule::simplify(
-        "older",
-        [c("use", [v(0), v(1), v(2)]), c("token", [])],
-        if outcome == "fail" {
-            Goal::Fail
-        } else {
-            eq(v(2), atom("older"))
-        },
-    );
-    older.guards.extend([
-        chr_syntax::Guard::Equal(v(0), atom("a")),
-        chr_syntax::Guard::Equal(v(1), atom("b")),
-    ]);
-    let mut newer = Rule::simplify(
-        "newer",
-        [c("use", [v(0), v(1), v(2)]), c("token", [])],
-        if outcome == "fail" {
-            Goal::Fail
-        } else {
-            eq(v(2), atom("newer"))
-        },
-    );
-    newer.guards.push(chr_syntax::Guard::Equal(v(0), atom("a")));
-    let rules = vec![
-        Rule::simplify(
-            "bind",
-            [c("bind", [v(0), v(1), v(2), v(3)])],
-            chr_syntax::and([
-                eq(v(0), atom("a")),
-                eq(v(1), atom(if possible { "b" } else { "no" })),
-                eq(v(2), v(3)),
-            ]),
-        ),
-        older,
-        newer,
-    ];
-    let mut constraints = vec![
-        c(
-            "bind",
-            [
-                v(10),
-                v(11),
-                nest(depth, tail_leaf.clone()),
-                nest(depth, atom(target)),
-            ],
-        ),
-        c(
-            "use",
-            [v(10), if shared { tail_leaf } else { v(11) }, v(12)],
-        ),
-    ];
-    constraints.extend((0..tokens).map(|_| c("token", [])));
-    (
-        rules,
-        Query {
-            constraints,
-            outputs: vec![("winner".into(), Var(12)), ("tail".into(), Var(20))],
-        },
-    )
-}
 #[test]
 fn matcher_settlement_separates_output_work_from_competing_reads() {
     for depth in [4, 16, 64] {
@@ -596,7 +516,7 @@ fn run_batched(rules: &[Rule], query: &Query, budget: usize) -> (Vec<Answer>, us
     let mut answers = vec![];
     let mut total_work = 0;
     for turn in 1..=100_000 {
-        let (step, work) = engine.advance_scheduled(true, budget);
+        let (step, work) = engine.advance_scheduled::<true>(true, budget);
         total_work += work;
         assert!(work <= budget, "deduction budget exceeded");
         match step {
@@ -705,5 +625,43 @@ fn bounded_drain_cancellation_reuse_and_branch_service() {
         assert_eq!(answers[0].outputs[0].1, atom("short"));
         oracle::same_raw(answers, oracle::run(&rules, &query, 100_000));
         println!("DRAIN_BRANCH,budget={budget},turns={turns},work={work}");
+    }
+}
+
+#[test]
+fn public_settlement_controls_match_qualified_controllers() {
+    for depth in [4, 64] {
+        for shared in [false, true] {
+            for outcome in ["success", "fail", "clash"] {
+                let (rules, query) = separated_source(depth, true, shared, outcome, 2);
+                for selective in [false, true] {
+                    let prepared = if selective {
+                        Prepared::new_ready(&rules)
+                    } else {
+                        Prepared::new(&rules)
+                    }
+                    .unwrap();
+                    let mut engine = prepared.start(&query);
+                    let mut answers = vec![];
+                    let mut done = false;
+                    for _ in 0..100_000 {
+                        match if selective {
+                            engine.advance_selective()
+                        } else {
+                            engine.advance_settled()
+                        } {
+                            Step::Answer(a) => answers.push(a),
+                            Step::Exhausted => {
+                                done = true;
+                                break;
+                            }
+                            Step::Progress => (),
+                        }
+                    }
+                    assert!(done);
+                    oracle::same_raw(answers, oracle::run(&rules, &query, 100_000));
+                }
+            }
+        }
     }
 }

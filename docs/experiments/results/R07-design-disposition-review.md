@@ -1,6 +1,6 @@
 # Why designs were set aside—and what the experiments actually establish
 
-The [bounded-drain result](S02-quiescent-drain.md) supplies the current checkpoint. Bounded quiescent draining preserves 351 source executions at three budgets in each of two confirmations. At depth 64, separate successful output falls from 72 advances to 16 with budget 8 or 9 with budget 256; early failure remains 4 deductions versus 67 with full settlement. Per-call deduction limits, short-branch service and cancellation/reuse pass; both scheduling mutations fail. T072 next measures complete readiness lifecycle costs, followed by full portfolio review; package three, goal active.
+The [readiness lifecycle result](S02-readiness-lifecycle.md) and [full portfolio review](S02-readiness-portfolio-review.md) supply the current checkpoint. Readiness lifecycle sizing validates 1,120 processes and 160 exact allocation pairs; a targeted follow-up validates 4,400 complete sessions. Early failure improves relational cost, but generic compiled execution is faster on the decisive deep sources. Even zero readiness execution leaves the deep reused-query admission cost above compiled total time. Full portfolio review selects T074 graph memo/lifecycle costs; T072 remains required, review count reset, goal active.
 
 The [relevant-key ownership comparison](S02-relevant-ownership.md) supplies the current checkpoint. Relevant-key ownership validates1,008 metered and448 ordinary processes with exact allocation repeats, cancellation/reuse and retained answers surviving producer disposal. Ordered relevant reuse lowers peaks versus exact-state caching in38of64 scenarios but requests more bytes than recomputation in all64. The changed depth16/four-query witness requests1,292,590bytes with72,959peak excess versus669,196/38,976 for recomputation. T072 next attributes key/replay execution costs before timing; package one after breadth review; goal active.
 
@@ -151,6 +151,8 @@ Each numbered entry gives the result, the reason I stopped or limited adoption, 
 ## Representation and integration
 
 ### 9. Integrate equality, constructors, matching and consuming execution — Measured limit of the R02 implementation
+
+**Current lifecycle evidence.** [Selective settlement and bounded draining](S02-readiness-lifecycle.md) preserve tested fixed consumer priority and save complete-query cost on early failure versus full relational settlement. The generic compiled control is faster on the decisive deep cases; an optimistic zero-execution calculation still leaves higher relational admission cost. This constrains readiness-only refinement, not different integrated admission/constructor representations.
 
 The [source-derived nested-pattern gate](S02-local-pattern-gate.md) adds independently checked nonbinding matching and late-alias dependencies. Its broad control exposes avoidable conservative rechecking. The [breadth review](S02-local-rewrite-breadth-review.md) schedules call-level reuse next while retaining broader integrated execution and costs as required work.
 
@@ -471,6 +473,8 @@ The [order lifecycle pilot](S08-order-lifecycle.md) reduces the alias-stream pea
 **Decision and limit.** I did not adopt mandatory restrictions. Their coverage costs are demonstrated, but no experiment determines whether the resulting language would be preferable for the user's purposes. Optional/inferred facilities are feasible; their coexistence is not automatically the simplest final architecture. [Initial property inventory](E02-initial-inventory.md), [E04](E04.md), [single-head specialization](R05-single-head-lifecycle.md)
 
 ### 52. Treat nonbinding purity as sufficient for partial-equality interleaving — Incorrect generalization beyond the current guard fragment
+
+**Current experimental evidence.** [Priority, selective settlement and lifecycle experiments](S02-readiness-lifecycle.md) now distinguish permissive successful serialization from fixed consuming priority. Settling matcher-visible equality preserves the tested fixed priority while allowing unrelated output work to remain pending; early failure can save total relational cost. Neither scheduling contract is adopted, and positive equality evidence does not establish a policy for state-inspecting guards.
 
 **Result.** The analysis gives a read-only `var` guard that can fire between partial deductions but cannot fire before or after the complete equation. Positive equality entailment has a stability property that such a guard lacks. Current implemented guards use equality entailment; the adverse guard is hypothetical language extension analysis.
 

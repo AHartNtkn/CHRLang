@@ -1,6 +1,6 @@
 # Experimental sequence for the unanswered architecture questions
 
-The [bounded-drain result](results/S02-quiescent-drain.md) supplies the current checkpoint. Bounded quiescent draining preserves 351 source executions at three budgets in each of two confirmations. At depth 64, separate successful output falls from 72 advances to 16 with budget 8 or 9 with budget 256; early failure remains 4 deductions versus 67 with full settlement. Per-call deduction limits, short-branch service and cancellation/reuse pass; both scheduling mutations fail. T072 next measures complete readiness lifecycle costs, followed by full portfolio review; package three, goal active.
+The [readiness lifecycle result](results/S02-readiness-lifecycle.md) and [full portfolio review](results/S02-readiness-portfolio-review.md) supply the current checkpoint. Readiness lifecycle sizing validates 1,120 processes and 160 exact allocation pairs; a targeted follow-up validates 4,400 complete sessions. Early failure improves relational cost, but generic compiled execution is faster on the decisive deep sources. Even zero readiness execution leaves the deep reused-query admission cost above compiled total time. Full portfolio review selects T074 graph memo/lifecycle costs; T072 remains required, review count reset, goal active.
 
 Test the distinct mechanisms that remain unanswered, then compare the complete architectures they enable. Reuse the existing baselines. A lower priority changes when a question is investigated; it does not answer it.
 
@@ -10,15 +10,15 @@ This sequence covers the [57 reviewed questions](question-to-experiment-map.md) 
 
 ## Start here: the next experiments
 
-**1. Measure complete readiness costs — T072, specification 1.** The [bounded-drain result](results/S02-quiescent-drain.md) repairs repeated successful-source advances while preserving early failure. Register full lifecycle sizing for existing full settlement, selective settlement and bounded draining. Charge read preparation, changing-query setup, execution, observation, cancellation and disposal; separate ordinary timing from allocation/work diagnostics. Include shared dependencies, late contradiction and successful output.
+**1. Attribute graph memo/lifecycle costs — T074, specification 9.** The [full portfolio review](results/S02-readiness-portfolio-review.md) selects this investigation after the readiness lifecycle comparison. Use the qualified dependency/template traversal on/off variants, continuing and flat sources, pure and consuming variants, and direct controls. Register ordinary timing/residency separately from requested allocation diagnostics. Measure changing queries, consumers, reclamation, cancellation/exhaustion and disposal before choosing a memo-storage intervention.
 
-**2. Preserve the distinction between scheduling contracts.** Permissive successful serialization and fixed consuming priority remain separate options. Use the existing complete source controls and independent evaluator. Measure the existing preparation-owned read metadata and reuse.
+**2. Preserve the integrated findings and unresolved alternatives.** Early failure can repay selective settlement within the relational engine, but the deep admission-cost bound rules out closing the compiled gap through readiness alone. T072 remains required for distinct admission/constructor organizations, output-only matcher omission and broader guards. Neither scheduling contract becomes a language rule.
 
-**3. Perform the full portfolio review at the pilot result.** Partner ordering and graph memo/lifecycle costs are ready alternatives. This is package three since the [full portfolio review](results/S08-traversal-portfolio-review.md); the next result or obstruction must reconsider every direction.
+**3. Compare alternatives at the cost result or obstruction.** Partner ordering is the strongest ready discovery alternative; coarser reuse, solving/lowering and mixed architectures remain required. The full review resets the package count. Review all directions again within four packages.
 
 ## Why this order, and what can change it
 
-The selective controller preserves the qualified source observations and the bounded drain repairs its observed repeated-advance defect. Its remaining decisive uncertainty is whether readiness maintenance costs more than it saves across complete query lifecycles. A bounded pilot addresses that question more directly than another semantic extension. Compare its result with the independent partner-plan and graph-cost opportunities in the full review before further elaboration.
+The readiness cycle now has independent source checks, measured complete-query costs, adverse cases and investigated timing uncertainty. The graph lifetime runners can answer a missing total-cost question in continuing multi-answer regimes with modest prerequisites. Establish which costs matter before refining memo storage. At that result, compare further graph work against partner planning and the remaining portfolio rather than automatically deepening the current prototype.
 
 Scheduling a later trial does not supply evidence for that direction. All thirteen specifications and the 57-question audit remain controlling.
 
