@@ -1,5 +1,7 @@
 # The comparisons still needed to choose the architecture
 
+Fresh graph attribution validates 144 lifecycle processes, 48 allocation pairs and 1,200 profiled lifecycles. Seeking context inclusion owns 58–63% of sampled cycles in dependency/consuming-template cases but 4.4% in pure templates; lookup/seeking ownership is identical in 24 pairs. T074 next qualifies caller-specific validity-work attribution with adverse sources; package count one, goal active. [Fresh graph profile](results/S08-fresh-graph-profile.md).
+
 Direct readiness passes source/selection gates, 144 allocation processes and 12,000 ordinary timing sessions. Width128 readiness time falls 39–40%; compiled remains about five times faster there. Full 57-question review selects fresh graph memo/scratch attribution under T074; T072 remains pending, review count reset, goal active. [Readiness result](results/S02-direct-readiness.md) · [Portfolio review](results/S02-direct-readiness-review.md).
 
 Paired ordinary timing validates 1,200 processes and 12,000 complete sessions. Candidate caching qualifies in four width-128 comparisons; compiled still qualifies against inferred full in 10/12 cases and inferred readiness in 12/12. Width-64 variation was inspected without changing the registered gate. T072 next qualifies direct first-equation readiness; package count three, full portfolio review next package, goal active. [Paired timing result](results/S02-stable-candidate-timing.md).

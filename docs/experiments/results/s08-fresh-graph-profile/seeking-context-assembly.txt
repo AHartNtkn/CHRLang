@@ -1,0 +1,401 @@
+ Percent |	Source code & Disassembly of fresh-graph-seeking-plain-continuing for cpu_core/cycles/u (1853 samples, percent: local period)
+---------------------------------------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3     Disassembly of section .text:
+         :
+         : 5     00000000000e39c0 <chr_direct_choice::demand::context::seeking::<usize, bool>>:
+    0.11 :   e39c0:  push   %rbp
+    0.00 :   e39c1:  push   %r15
+    0.05 :   e39c3:  push   %r14
+    0.00 :   e39c5:  push   %r13
+    0.00 :   e39c7:  push   %r12
+    0.00 :   e39c9:  push   %rbx
+    0.06 :   e39ca:  sub    $0x68,%rsp
+    0.00 :   e39ce:  mov    (%rsi),%rbp
+    0.05 :   e39d1:  test   %rbp,%rbp
+    0.00 :   e39d4:  mov    %rbp,0x10(%rsp)
+    0.11 :   e39d9:  je     e3a43 <chr_direct_choice::demand::context::seeking::<usize, bool>+0x83>
+    0.00 :   e39db:  mov    0x8(%rsi),%r8
+    0.00 :   e39df:  movzwl 0x62(%rbp),%ecx
+    0.00 :   e39e3:  test   %cx,%cx
+    0.00 :   e39e6:  jne    e3a05 <chr_direct_choice::demand::context::seeking::<usize, bool>+0x45>
+    0.00 :   e39e8:  xor    %edx,%edx
+    0.00 :   e39ea:  nopw   0x0(%rax,%rax,1)
+    0.00 :   e39f0:  test   %r8,%r8
+    0.00 :   e39f3:  je     e3a4e <chr_direct_choice::demand::context::seeking::<usize, bool>+0x8e>
+    0.00 :   e39f5:  mov    0x70(%rbp),%rbp
+    0.00 :   e39f9:  dec    %r8
+    0.00 :   e39fc:  movzwl 0x62(%rbp),%ecx
+    0.00 :   e3a00:  test   %cx,%cx
+    0.00 :   e3a03:  je     e39f0 <chr_direct_choice::demand::context::seeking::<usize, bool>+0x30>
+    0.05 :   e3a05:  movzwl %cx,%ecx
+    0.00 :   e3a08:  test   %r8,%r8
+    0.00 :   e3a0b:  je     e3a49 <chr_direct_choice::demand::context::seeking::<usize, bool>+0x89>
+    0.16 :   e3a0d:  mov    %r8,%r9
+    0.00 :   e3a10:  and    $0x3,%r9
+    0.00 :   e3a14:  je     e3a52 <chr_direct_choice::demand::context::seeking::<usize, bool>+0x92>
+    0.00 :   e3a16:  xor    %r10d,%r10d
+    0.00 :   e3a19:  mov    %rbp,%rdx
+    0.00 :   e3a1c:  nopl   0x0(%rax)
+    0.00 :   e3a20:  mov    0x70(%rdx),%rdx
+    0.00 :   e3a24:  mov    0x70(%rbp,%rcx,8),%rbp
+    0.27 :   e3a29:  movzwl 0x62(%rbp),%ecx
+    0.54 :   e3a2d:  inc    %r10
+    0.00 :   e3a30:  cmp    %r10,%r9
+    0.00 :   e3a33:  jne    e3a20 <chr_direct_choice::demand::context::seeking::<usize, bool>+0x60>
+    0.00 :   e3a35:  mov    %r8,%r9
+    0.06 :   e3a38:  sub    %r10,%r9
+    0.00 :   e3a3b:  cmp    $0x4,%r8
+    0.00 :   e3a3f:  jae    e3a60 <chr_direct_choice::demand::context::seeking::<usize, bool>+0xa0>
+    0.00 :   e3a41:  jmp    e3a9a <chr_direct_choice::demand::context::seeking::<usize, bool>+0xda>
+    0.00 :   e3a43:  xor    %ebp,%ebp
+    0.00 :   e3a45:  xor    %edx,%edx
+    0.00 :   e3a47:  jmp    e3a9a <chr_direct_choice::demand::context::seeking::<usize, bool>+0xda>
+    0.00 :   e3a49:  mov    %rbp,%rdx
+    0.00 :   e3a4c:  jmp    e3a9a <chr_direct_choice::demand::context::seeking::<usize, bool>+0xda>
+    0.00 :   e3a4e:  xor    %ebp,%ebp
+    0.00 :   e3a50:  jmp    e3a9a <chr_direct_choice::demand::context::seeking::<usize, bool>+0xda>
+    0.00 :   e3a52:  mov    %r8,%r9
+    0.00 :   e3a55:  mov    %rbp,%rdx
+    0.00 :   e3a58:  cmp    $0x4,%r8
+    0.00 :   e3a5c:  jb     e3a9a <chr_direct_choice::demand::context::seeking::<usize, bool>+0xda>
+    0.00 :   e3a5e:  xchg   %ax,%ax
+    0.00 :   e3a60:  mov    0x70(%rdx),%rdx
+    0.00 :   e3a64:  mov    0x70(%rbp,%rcx,8),%rax
+    0.00 :   e3a69:  movzwl 0x62(%rax),%ecx
+    0.00 :   e3a6d:  mov    0x70(%rdx),%rdx
+    0.00 :   e3a71:  mov    0x70(%rax,%rcx,8),%rax
+    0.00 :   e3a76:  movzwl 0x62(%rax),%ecx
+    0.00 :   e3a7a:  mov    0x70(%rdx),%rdx
+    0.00 :   e3a7e:  mov    0x70(%rax,%rcx,8),%rax
+    0.00 :   e3a83:  movzwl 0x62(%rax),%ecx
+    0.00 :   e3a87:  mov    0x70(%rdx),%rdx
+    0.00 :   e3a8b:  mov    0x70(%rax,%rcx,8),%rbp
+    0.00 :   e3a90:  movzwl 0x62(%rbp),%ecx
+    0.00 :   e3a94:  add    $0xfffffffffffffffc,%r9
+    0.00 :   e3a98:  jne    e3a60 <chr_direct_choice::demand::context::seeking::<usize, bool>+0xa0>
+    0.00 :   e3a9a:  mov    (%rdi),%r8
+    0.20 :   e3a9d:  mov    0x10(%rdi),%r13
+    0.00 :   e3aa1:  test   %r8,%r8
+    0.00 :   e3aa4:  setne  %r9b
+    0.00 :   e3aa8:  test   %r13,%r13
+    0.00 :   e3aab:  setne  %r10b
+    0.05 :   e3aaf:  and    %r9b,%r10b
+    0.11 :   e3ab2:  mov    $0x1,%al
+    0.00 :   e3ab4:  cmp    $0x1,%r10b
+    0.00 :   e3ab8:  jne    e3f2c <chr_direct_choice::demand::context::seeking::<usize, bool>+0x56c>
+    0.16 :   e3abe:  mov    0x8(%rdi),%rdi
+    0.23 :   e3ac2:  mov    0x8(%rsi),%rax
+    0.00 :   e3ac6:  mov    %rax,0x8(%rsp)
+    0.00 :   e3acb:  mov    %rdi,%rax
+    0.00 :   e3ace:  xor    %r15d,%r15d
+    0.00 :   e3ad1:  xor    %esi,%esi
+    0.00 :   e3ad3:  jmp    e3afd <chr_direct_choice::demand::context::seeking::<usize, bool>+0x13d>
+    0.00 :   e3ad5:  data16 cs nopw 0x0(%rax,%rax,1)
+    7.44 :   e3ae0:  movzbl (%rdi),%edi
+    0.06 :   e3ae3:  cmp    0x64(%r14,%r12,1),%dil
+    0.00 :   e3ae8:  jne    e3f2a <chr_direct_choice::demand::context::seeking::<usize, bool>+0x56a>
+    0.16 :   e3aee:  mov    $0x0,%r8d
+    0.03 :   e3af4:  dec    %r13
+    0.00 :   e3af7:  je     e3f3b <chr_direct_choice::demand::context::seeking::<usize, bool>+0x57b>
+    0.06 :   e3afd:  test   %r15,%r15
+    0.71 :   e3b00:  je     e3b20 <chr_direct_choice::demand::context::seeking::<usize, bool>+0x160>
+    1.10 :   e3b02:  movzwl 0x62(%r15),%edi
+    3.27 :   e3b07:  cmp    %rdi,%rax
+    0.00 :   e3b0a:  jae    e3bb0 <chr_direct_choice::demand::context::seeking::<usize, bool>+0x1f0>
+    5.98 :   e3b10:  mov    %r15,%r14
+    0.32 :   e3b13:  mov    %rax,%r12
+    0.05 :   e3b16:  jmp    e3bce <chr_direct_choice::demand::context::seeking::<usize, bool>+0x20e>
+    0.00 :   e3b1b:  nopl   0x0(%rax,%rax,1)
+    0.21 :   e3b20:  test   %rax,%rax
+    0.00 :   e3b23:  je     e3b5a <chr_direct_choice::demand::context::seeking::<usize, bool>+0x19a>
+    0.00 :   e3b25:  mov    %rax,%rdi
+    0.00 :   e3b28:  mov    %r8,%r15
+    0.06 :   e3b2b:  and    $0x7,%rdi
+    0.00 :   e3b2f:  je     e3b5f <chr_direct_choice::demand::context::seeking::<usize, bool>+0x19f>
+    0.00 :   e3b31:  xor    %r8d,%r8d
+    0.00 :   e3b34:  data16 data16 cs nopw 0x0(%rax,%rax,1)
+    0.00 :   e3b40:  mov    0x70(%r15),%r15
+    1.28 :   e3b44:  inc    %r8
+    0.00 :   e3b47:  cmp    %r8,%rdi
+    0.00 :   e3b4a:  jne    e3b40 <chr_direct_choice::demand::context::seeking::<usize, bool>+0x180>
+    0.00 :   e3b4c:  mov    %rax,%rdi
+    0.00 :   e3b4f:  sub    %r8,%rdi
+    0.06 :   e3b52:  cmp    $0x8,%rax
+    0.00 :   e3b56:  jae    e3b70 <chr_direct_choice::demand::context::seeking::<usize, bool>+0x1b0>
+    0.00 :   e3b58:  jmp    e3b96 <chr_direct_choice::demand::context::seeking::<usize, bool>+0x1d6>
+    0.00 :   e3b5a:  mov    %r8,%r15
+    0.00 :   e3b5d:  jmp    e3b96 <chr_direct_choice::demand::context::seeking::<usize, bool>+0x1d6>
+    0.00 :   e3b5f:  mov    %rax,%rdi
+    0.00 :   e3b62:  cmp    $0x8,%rax
+    0.00 :   e3b66:  jb     e3b96 <chr_direct_choice::demand::context::seeking::<usize, bool>+0x1d6>
+    0.00 :   e3b68:  nopl   0x0(%rax,%rax,1)
+    0.00 :   e3b70:  mov    0x70(%r15),%r8
+    0.00 :   e3b74:  mov    0x70(%r8),%r8
+    0.00 :   e3b78:  mov    0x70(%r8),%r8
+    0.00 :   e3b7c:  mov    0x70(%r8),%r8
+    0.00 :   e3b80:  mov    0x70(%r8),%r8
+    0.00 :   e3b84:  mov    0x70(%r8),%r8
+    0.00 :   e3b88:  mov    0x70(%r8),%r8
+    0.00 :   e3b8c:  mov    0x70(%r8),%r15
+    0.00 :   e3b90:  add    $0xfffffffffffffff8,%rdi
+    0.00 :   e3b94:  jne    e3b70 <chr_direct_choice::demand::context::seeking::<usize, bool>+0x1b0>
+    0.05 :   e3b96:  xor    %r8d,%r8d
+    0.00 :   e3b99:  xor    %eax,%eax
+    0.00 :   e3b9b:  movzwl 0x62(%r15),%edi
+    2.03 :   e3ba0:  cmp    %rdi,%rax
+    0.00 :   e3ba3:  jb     e3b10 <chr_direct_choice::demand::context::seeking::<usize, bool>+0x150>
+    0.00 :   e3ba9:  nopl   0x0(%rax)
+    1.49 :   e3bb0:  mov    (%r15),%r14
+    1.01 :   e3bb3:  test   %r14,%r14
+    0.00 :   e3bb6:  je     e3f3f <chr_direct_choice::demand::context::seeking::<usize, bool>+0x57f>
+    0.11 :   e3bbc:  inc    %r8
+    0.05 :   e3bbf:  movzwl 0x60(%r15),%r12d
+    0.00 :   e3bc4:  mov    %r14,%r15
+    0.00 :   e3bc7:  cmp    0x62(%r14),%r12w
+    0.00 :   e3bcc:  jae    e3bb0 <chr_direct_choice::demand::context::seeking::<usize, bool>+0x1f0>
+    1.53 :   e3bce:  test   %r8,%r8
+    0.00 :   e3bd1:  je     e3c50 <chr_direct_choice::demand::context::seeking::<usize, bool>+0x290>
+    0.06 :   e3bd7:  lea    (%r14,%r12,8),%rdi
+    0.00 :   e3bdb:  add    $0x78,%rdi
+    0.00 :   e3bdf:  mov    %r8,%r9
+    0.00 :   e3be2:  and    $0x7,%r9
+    0.00 :   e3be6:  je     e3e10 <chr_direct_choice::demand::context::seeking::<usize, bool>+0x450>
+    0.06 :   e3bec:  xor    %r10d,%r10d
+    0.00 :   e3bef:  nop
+    0.06 :   e3bf0:  mov    (%rdi),%r15
+    1.22 :   e3bf3:  lea    0x70(%r15),%rdi
+    0.11 :   e3bf7:  inc    %r10
+    0.11 :   e3bfa:  cmp    %r10,%r9
+    0.00 :   e3bfd:  jne    e3bf0 <chr_direct_choice::demand::context::seeking::<usize, bool>+0x230>
+    0.04 :   e3bff:  mov    %r8,%r9
+    0.10 :   e3c02:  sub    %r10,%r9
+    0.17 :   e3c05:  cmp    $0x8,%r8
+    0.00 :   e3c09:  jb     e3c39 <chr_direct_choice::demand::context::seeking::<usize, bool>+0x279>
+    0.00 :   e3c0b:  nopl   0x0(%rax,%rax,1)
+    0.00 :   e3c10:  mov    (%rdi),%rdi
+    0.00 :   e3c13:  mov    0x70(%rdi),%rdi
+    0.00 :   e3c17:  mov    0x70(%rdi),%rdi
+    0.00 :   e3c1b:  mov    0x70(%rdi),%rdi
+    0.00 :   e3c1f:  mov    0x70(%rdi),%rdi
+    0.00 :   e3c23:  mov    0x70(%rdi),%rdi
+    0.00 :   e3c27:  mov    0x70(%rdi),%rdi
+    0.00 :   e3c2b:  mov    0x70(%rdi),%r15
+    0.00 :   e3c2f:  lea    0x70(%r15),%rdi
+    0.00 :   e3c33:  add    $0xfffffffffffffff8,%r9
+    0.00 :   e3c37:  jne    e3c10 <chr_direct_choice::demand::context::seeking::<usize, bool>+0x250>
+    0.00 :   e3c39:  xor    %eax,%eax
+    0.00 :   e3c3b:  test   %rdx,%rdx
+    0.00 :   e3c3e:  jne    e3c61 <chr_direct_choice::demand::context::seeking::<usize, bool>+0x2a1>
+    0.00 :   e3c40:  jmp    e3f25 <chr_direct_choice::demand::context::seeking::<usize, bool>+0x565>
+    0.00 :   e3c45:  data16 cs nopw 0x0(%rax,%rax,1)
+    0.66 :   e3c50:  lea    0x1(%r12),%rax
+    0.38 :   e3c55:  mov    %r14,%r15
+    0.67 :   e3c58:  test   %rdx,%rdx
+    0.00 :   e3c5b:  je     e3f25 <chr_direct_choice::demand::context::seeking::<usize, bool>+0x565>
+    2.52 :   e3c61:  cmp    %rbp,%rdx
+    0.00 :   e3c64:  jne    e3c6f <chr_direct_choice::demand::context::seeking::<usize, bool>+0x2af>
+    0.36 :   e3c66:  cmp    %rcx,%rsi
+    0.00 :   e3c69:  je     e3f2a <chr_direct_choice::demand::context::seeking::<usize, bool>+0x56a>
+    5.89 :   e3c6f:  movzwl 0x62(%rdx),%edi
+    0.48 :   e3c73:  cmp    %rdi,%rsi
+    0.00 :   e3c76:  jae    e3c90 <chr_direct_choice::demand::context::seeking::<usize, bool>+0x2d0>
+    0.75 :   e3c78:  lea    (%rdx,%rsi,8),%r8
+    0.33 :   e3c7c:  add    $0x8,%r8
+    0.54 :   e3c80:  lea    (%rdx,%rsi,1),%rdi
+    0.21 :   e3c84:  add    $0x64,%rdi
+    0.36 :   e3c88:  jmp    e3cdf <chr_direct_choice::demand::context::seeking::<usize, bool>+0x31f>
+    0.00 :   e3c8a:  nopw   0x0(%rax,%rax,1)
+    0.28 :   e3c90:  mov    $0x1,%dil
+    0.04 :   e3c93:  xor    %r9d,%r9d
+    0.00 :   e3c96:  cs nopw 0x0(%rax,%rax,1)
+    0.59 :   e3ca0:  mov    (%rdx),%rbx
+    0.60 :   e3ca3:  test   %rbx,%rbx
+    0.00 :   e3ca6:  je     e3f4e <chr_direct_choice::demand::context::seeking::<usize, bool>+0x58e>
+    1.08 :   e3cac:  mov    %edi,%r11d
+    0.05 :   e3caf:  inc    %r9
+    0.00 :   e3cb2:  movzwl 0x60(%rdx),%esi
+    0.27 :   e3cb6:  lea    0x1(%r11),%edi
+    0.00 :   e3cba:  mov    %rbx,%rdx
+    0.00 :   e3cbd:  cmp    0x62(%rbx),%si
+    0.00 :   e3cc1:  jae    e3ca0 <chr_direct_choice::demand::context::seeking::<usize, bool>+0x2e0>
+    3.67 :   e3cc3:  lea    (%rbx,%rsi,8),%r8
+    0.00 :   e3cc7:  add    $0x8,%r8
+    0.05 :   e3ccb:  lea    (%rbx,%rsi,1),%rdi
+    0.11 :   e3ccf:  add    $0x64,%rdi
+    0.06 :   e3cd3:  mov    %r9,%r10
+    0.06 :   e3cd6:  sub    $0x1,%r10
+    0.00 :   e3cda:  jae    e3cf0 <chr_direct_choice::demand::context::seeking::<usize, bool>+0x330>
+    0.00 :   e3cdc:  mov    %rbx,%rdx
+    1.77 :   e3cdf:  inc    %rsi
+    5.23 :   e3ce2:  jmp    e3d5b <chr_direct_choice::demand::context::seeking::<usize, bool>+0x39b>
+    0.00 :   e3ce4:  data16 data16 cs nopw 0x0(%rax,%rax,1)
+    0.10 :   e3cf0:  lea    (%rbx,%rsi,8),%rsi
+    0.16 :   e3cf4:  add    $0x78,%rsi
+    1.07 :   e3cf8:  test   $0x7,%r9b
+    0.00 :   e3cfc:  je     e3f16 <chr_direct_choice::demand::context::seeking::<usize, bool>+0x556>
+    0.06 :   e3d02:  movzbl %r11b,%r11d
+    0.11 :   e3d06:  and    $0x7,%r11d
+    0.00 :   e3d0a:  xor    %ebx,%ebx
+    0.00 :   e3d0c:  nopl   0x0(%rax)
+    0.00 :   e3d10:  mov    (%rsi),%rdx
+    2.48 :   e3d13:  lea    0x70(%rdx),%rsi
+    0.22 :   e3d17:  inc    %rbx
+    0.06 :   e3d1a:  cmp    %rbx,%r11
+    0.00 :   e3d1d:  jne    e3d10 <chr_direct_choice::demand::context::seeking::<usize, bool>+0x350>
+    0.05 :   e3d1f:  sub    %rbx,%r9
+    0.11 :   e3d22:  cmp    $0x7,%r10
+    0.00 :   e3d26:  jb     e3d59 <chr_direct_choice::demand::context::seeking::<usize, bool>+0x399>
+    0.00 :   e3d28:  nopl   0x0(%rax,%rax,1)
+    0.00 :   e3d30:  mov    (%rsi),%rdx
+    0.00 :   e3d33:  mov    0x70(%rdx),%rdx
+    0.00 :   e3d37:  mov    0x70(%rdx),%rdx
+    0.00 :   e3d3b:  mov    0x70(%rdx),%rdx
+    0.00 :   e3d3f:  mov    0x70(%rdx),%rdx
+    0.00 :   e3d43:  mov    0x70(%rdx),%rdx
+    0.00 :   e3d47:  mov    0x70(%rdx),%rdx
+    0.00 :   e3d4b:  mov    0x70(%rdx),%rdx
+    0.00 :   e3d4f:  lea    0x70(%rdx),%rsi
+    0.00 :   e3d53:  add    $0xfffffffffffffff8,%r9
+    0.00 :   e3d57:  jne    e3d30 <chr_direct_choice::demand::context::seeking::<usize, bool>+0x370>
+    0.00 :   e3d59:  xor    %esi,%esi
+    0.16 :   e3d5b:  lea    (%r14,%r12,8),%r9
+    0.49 :   e3d5f:  add    $0x8,%r9
+    1.42 :   e3d63:  mov    (%r8),%r8
+    1.21 :   e3d66:  cmp    (%r9),%r8
+   12.49 :   e3d69:  seta   %r8b
+   10.97 :   e3d6d:  sbb    $0x0,%r8b
+    7.85 :   e3d71:  je     e3ae0 <chr_direct_choice::demand::context::seeking::<usize, bool>+0x120>
+    0.00 :   e3d77:  mov    %rax,%rbx
+    0.00 :   e3d7a:  movzbl %r8b,%eax
+    0.00 :   e3d7e:  cmp    $0xff,%eax
+    0.00 :   e3d83:  jne    e3f2a <chr_direct_choice::demand::context::seeking::<usize, bool>+0x56a>
+    0.00 :   e3d89:  mov    0x10(%rsp),%rsi
+    0.00 :   e3d8e:  test   %rsi,%rsi
+    0.00 :   e3d91:  je     e3f2a <chr_direct_choice::demand::context::seeking::<usize, bool>+0x56a>
+    0.00 :   e3d97:  movq   $0x0,0x48(%rsp)
+    0.00 :   e3da0:  mov    %r9,0x50(%rsp)
+    0.00 :   e3da5:  movq   $0x2,0x58(%rsp)
+    0.00 :   e3dae:  lea    0x18(%rsp),%rdi
+    0.00 :   e3db3:  mov    0x8(%rsp),%rdx
+    0.00 :   e3db8:  lea    0x48(%rsp),%rcx
+    0.00 :   e3dbd:  call   d6de0 <<alloc::collections::btree::node::NodeRef<alloc::collections::btree::node::marker::Immut, usize, bool, alloc::collections::btree::node::marker::LeafOrInternal>>::find_leaf_edges_spanning_range::<usize, (core::ops::range::Bound<&usize>, core::ops::range::Bound<&usize>)>>
+    0.00 :   e3dc2:  mov    0x18(%rsp),%rdx
+    0.00 :   e3dc7:  mov    0x30(%rsp),%rbp
+    0.00 :   e3dcc:  test   %rdx,%rdx
+    0.00 :   e3dcf:  je     e3f25 <chr_direct_choice::demand::context::seeking::<usize, bool>+0x565>
+    0.00 :   e3dd5:  mov    0x28(%rsp),%rdi
+    0.00 :   e3dda:  mov    0x40(%rsp),%rcx
+    0.00 :   e3ddf:  mov    %rdx,%rsi
+    0.00 :   e3de2:  xor    %rbp,%rsi
+    0.00 :   e3de5:  mov    %rdi,%r8
+    0.00 :   e3de8:  xor    %rcx,%r8
+    0.00 :   e3deb:  or     %rsi,%r8
+    0.00 :   e3dee:  je     e3f2a <chr_direct_choice::demand::context::seeking::<usize, bool>+0x56a>
+    0.00 :   e3df4:  mov    0x20(%rsp),%rsi
+    0.00 :   e3df9:  movzwl 0x62(%rdx),%r8d
+    0.00 :   e3dfe:  cmp    %r8,%rdi
+    0.00 :   e3e01:  jae    e3e30 <chr_direct_choice::demand::context::seeking::<usize, bool>+0x470>
+    0.00 :   e3e03:  mov    %rdx,%r8
+    0.00 :   e3e06:  mov    %rbx,%rax
+    0.00 :   e3e09:  jmp    e3e5d <chr_direct_choice::demand::context::seeking::<usize, bool>+0x49d>
+    0.00 :   e3e0b:  nopl   0x0(%rax,%rax,1)
+    0.00 :   e3e10:  mov    %r8,%r9
+    0.00 :   e3e13:  cmp    $0x8,%r8
+    0.00 :   e3e17:  jae    e3c10 <chr_direct_choice::demand::context::seeking::<usize, bool>+0x250>
+    0.00 :   e3e1d:  jmp    e3c39 <chr_direct_choice::demand::context::seeking::<usize, bool>+0x279>
+    0.00 :   e3e22:  data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+    0.00 :   e3e30:  mov    %rbx,%rax
+    0.00 :   e3e33:  data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+    0.00 :   e3e40:  mov    (%rdx),%r8
+    0.00 :   e3e43:  test   %r8,%r8
+    0.00 :   e3e46:  je     e3f5d <chr_direct_choice::demand::context::seeking::<usize, bool>+0x59d>
+    0.00 :   e3e4c:  inc    %rsi
+    0.00 :   e3e4f:  movzwl 0x60(%rdx),%edi
+    0.00 :   e3e53:  mov    %r8,%rdx
+    0.00 :   e3e56:  cmp    0x62(%r8),%di
+    0.00 :   e3e5b:  jae    e3e40 <chr_direct_choice::demand::context::seeking::<usize, bool>+0x480>
+    0.00 :   e3e5d:  test   %rsi,%rsi
+    0.00 :   e3e60:  je     e3edf <chr_direct_choice::demand::context::seeking::<usize, bool>+0x51f>
+    0.00 :   e3e66:  lea    (%r8,%rdi,8),%r9
+    0.00 :   e3e6a:  add    $0x78,%r9
+    0.00 :   e3e6e:  mov    %rsi,%r10
+    0.00 :   e3e71:  and    $0x7,%r10
+    0.00 :   e3e75:  je     e3f0b <chr_direct_choice::demand::context::seeking::<usize, bool>+0x54b>
+    0.00 :   e3e7b:  xor    %r11d,%r11d
+    0.00 :   e3e7e:  xchg   %ax,%ax
+    0.00 :   e3e80:  mov    (%r9),%rdx
+    0.00 :   e3e83:  lea    0x70(%rdx),%r9
+    0.00 :   e3e87:  inc    %r11
+    0.00 :   e3e8a:  cmp    %r11,%r10
+    0.00 :   e3e8d:  jne    e3e80 <chr_direct_choice::demand::context::seeking::<usize, bool>+0x4c0>
+    0.00 :   e3e8f:  mov    %rsi,%r10
+    0.00 :   e3e92:  sub    %r11,%r10
+    0.00 :   e3e95:  cmp    $0x8,%rsi
+    0.00 :   e3e99:  jb     e3ec9 <chr_direct_choice::demand::context::seeking::<usize, bool>+0x509>
+    0.00 :   e3e9b:  nopl   0x0(%rax,%rax,1)
+    0.00 :   e3ea0:  mov    (%r9),%rdx
+    0.00 :   e3ea3:  mov    0x70(%rdx),%rdx
+    0.00 :   e3ea7:  mov    0x70(%rdx),%rdx
+    0.00 :   e3eab:  mov    0x70(%rdx),%rdx
+    0.00 :   e3eaf:  mov    0x70(%rdx),%rdx
+    0.00 :   e3eb3:  mov    0x70(%rdx),%rdx
+    0.00 :   e3eb7:  mov    0x70(%rdx),%rdx
+    0.00 :   e3ebb:  mov    0x70(%rdx),%rdx
+    0.00 :   e3ebf:  lea    0x70(%rdx),%r9
+    0.00 :   e3ec3:  add    $0xfffffffffffffff8,%r10
+    0.00 :   e3ec7:  jne    e3ea0 <chr_direct_choice::demand::context::seeking::<usize, bool>+0x4e0>
+    0.00 :   e3ec9:  xor    %esi,%esi
+    0.00 :   e3ecb:  mov    0x8(%r8,%rdi,8),%r9
+    0.00 :   e3ed0:  lea    (%r14,%r12,8),%r10
+    0.00 :   e3ed4:  add    $0x8,%r10
+    0.00 :   e3ed8:  cmp    (%r10),%r9
+    0.00 :   e3edb:  je     e3ef8 <chr_direct_choice::demand::context::seeking::<usize, bool>+0x538>
+    0.00 :   e3edd:  jmp    e3f2a <chr_direct_choice::demand::context::seeking::<usize, bool>+0x56a>
+    0.00 :   e3edf:  lea    0x1(%rdi),%rsi
+    0.00 :   e3ee3:  mov    %r8,%rdx
+    0.00 :   e3ee6:  mov    0x8(%r8,%rdi,8),%r9
+    0.00 :   e3eeb:  lea    (%r14,%r12,8),%r10
+    0.00 :   e3eef:  add    $0x8,%r10
+    0.00 :   e3ef3:  cmp    (%r10),%r9
+    0.00 :   e3ef6:  jne    e3f2a <chr_direct_choice::demand::context::seeking::<usize, bool>+0x56a>
+    0.00 :   e3ef8:  movzbl 0x64(%r8,%rdi,1),%edi
+    0.00 :   e3efe:  cmp    0x64(%r14,%r12,1),%dil
+    0.00 :   e3f03:  je     e3aee <chr_direct_choice::demand::context::seeking::<usize, bool>+0x12e>
+    0.00 :   e3f09:  jmp    e3f2a <chr_direct_choice::demand::context::seeking::<usize, bool>+0x56a>
+    0.00 :   e3f0b:  mov    %rsi,%r10
+    0.00 :   e3f0e:  cmp    $0x8,%rsi
+    0.00 :   e3f12:  jb     e3ec9 <chr_direct_choice::demand::context::seeking::<usize, bool>+0x509>
+    0.00 :   e3f14:  jmp    e3ea0 <chr_direct_choice::demand::context::seeking::<usize, bool>+0x4e0>
+    0.00 :   e3f16:  cmp    $0x7,%r10
+    0.00 :   e3f1a:  jae    e3d30 <chr_direct_choice::demand::context::seeking::<usize, bool>+0x370>
+    0.00 :   e3f20:  jmp    e3d59 <chr_direct_choice::demand::context::seeking::<usize, bool>+0x399>
+    0.00 :   e3f25:  test   %rbp,%rbp
+    0.00 :   e3f28:  jne    e3f6c <chr_direct_choice::demand::context::seeking::<usize, bool>+0x5ac>
+    0.00 :   e3f2a:  xor    %eax,%eax
+    0.10 :   e3f2c:  add    $0x68,%rsp
+    0.00 :   e3f30:  pop    %rbx
+    0.98 :   e3f31:  pop    %r12
+    0.05 :   e3f33:  pop    %r13
+    0.00 :   e3f35:  pop    %r14
+    0.00 :   e3f37:  pop    %r15
+    0.05 :   e3f39:  pop    %rbp
+    0.05 :   e3f3a:  ret
+    0.54 :   e3f3b:  mov    $0x1,%al
+    1.01 :   e3f3d:  jmp    e3f2c <chr_direct_choice::demand::context::seeking::<usize, bool>+0x56c>
+    0.00 :   e3f3f:  lea    0xaafd2(%rip),%rdi        # 18ef18 <anon.86cf00a5a8e5c1510fe0ab9946192c39.7.llvm.15866106546757652929>
+    0.00 :   e3f46:  call   *0xae5ec(%rip)        # 192538 <_DYNAMIC+0x320>
+    0.00 :   e3f4c:  jmp    e3f6a <chr_direct_choice::demand::context::seeking::<usize, bool>+0x5aa>
+    0.00 :   e3f4e:  lea    0xab06b(%rip),%rdi        # 18efc0 <anon.1db7839754479fdaf17abcca19ec8469.2.llvm.14313117421580406180>
+    0.00 :   e3f55:  call   *0xae5dd(%rip)        # 192538 <_DYNAMIC+0x320>
+    0.00 :   e3f5b:  jmp    e3f6a <chr_direct_choice::demand::context::seeking::<usize, bool>+0x5aa>
+    0.00 :   e3f5d:  lea    0xab05c(%rip),%rdi        # 18efc0 <anon.1db7839754479fdaf17abcca19ec8469.2.llvm.14313117421580406180>
+    0.00 :   e3f64:  call   *0xae5ce(%rip)        # 192538 <_DYNAMIC+0x320>
+    0.00 :   e3f6a:  ud2
+    0.00 :   e3f6c:  lea    0xab035(%rip),%rdi        # 18efa8 <anon.1db7839754479fdaf17abcca19ec8469.1.llvm.14313117421580406180>
+    0.00 :   e3f73:  call   *0xae5bf(%rip)        # 192538 <_DYNAMIC+0x320>
+    0.00 :   e3f79:  ud2
+    0.00 :   e3f7b:  ud2
+    0.00 :   e3f7d:  ud2
