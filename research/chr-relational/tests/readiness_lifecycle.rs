@@ -1,4 +1,7 @@
-//! One isolated, fully disposed lifecycle sample; validation is outside phases.
+#[cfg(feature = "admission-profile")]
+#[path = "../examples/support/deduction_profile.rs"]
+mod profile;
+// One isolated, fully disposed lifecycle sample; validation is outside phases.
 #[cfg(feature = "alloc-meter")]
 #[allow(dead_code, unexpected_cfgs)]
 #[path = "../../chr-compiled/experiments/meter.rs"]
@@ -125,6 +128,8 @@ fn run<B: Backend>(depth: usize, shared: bool, outcome: &str, count: usize) {
     let mut samples = Vec::with_capacity(count);
     #[cfg(feature = "alloc-meter")]
     let baseline = meter::end(meter::begin()).live_end;
+    #[cfg(feature = "admission-profile")]
+    profile::enable_admission();
     let (prepared, preparation) = phase(|| B::prepare(&rules));
     for q in &queries {
         let (mut engine, setup) = phase(|| B::start(&prepared, q));
@@ -168,6 +173,8 @@ fn run<B: Backend>(depth: usize, shared: bool, outcome: &str, count: usize) {
         baseline,
         "session owners must be fully released"
     );
+    #[cfg(feature = "admission-profile")]
+    println!("{{\"admission_profile\":{}}}", profile::json());
     let rows = samples
         .iter()
         .map(|s| {

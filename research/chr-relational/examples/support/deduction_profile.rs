@@ -38,16 +38,20 @@ struct Frame {
 }
 #[derive(Default)]
 struct Profile {
+    admission_only: bool,
     stack: [Frame; 8],
     depth: usize,
-    exclusive: [Counts; 8],
-    scopes: [usize; 8],
+    exclusive: [Counts; 16],
+    scopes: [usize; 16],
 }
 thread_local! { static PROFILE: RefCell<Profile> = RefCell::new(Profile::default()); }
 fn event(phase: Phase, enter: bool) {
     let current = Counts::now();
     PROFILE.with(|p| {
         let mut p = p.borrow_mut();
+        if p.admission_only && p.depth == 0 && !matches!(phase, Phase::Admission) {
+            return;
+        }
         if enter {
             let depth = p.depth;
             assert!(depth < 8);
@@ -79,8 +83,15 @@ pub fn enable() {
 pub fn json() -> String {
     PROFILE.with(|p| {
         let p=p.borrow();assert_eq!(p.depth,0);
-        let names=["equality_other","key","lookup","relevant_replay","exact_replay","capture","relevant_record","exact_record"];
+        let names=["equality_other","key","lookup","relevant_replay","exact_replay","capture","relevant_record","exact_record","admission_other","constructor_other","constructor_lookup","value_create","post_other","row_insert","columns","incidence"];
+        let names = &names[..if cfg!(feature = "admission-profile") {16} else {8}];
         let rows=names.iter().enumerate().map(|(i,name)| {let c=p.exclusive[i];format!("{{\"phase\":\"{name}\",\"scopes\":{},\"allocation_calls\":{},\"requested_bytes\":{},\"deallocation_calls\":{}}}",p.scopes[i],c.calls,c.bytes,c.frees)}).collect::<Vec<_>>();
         format!("[{}]",rows.join(","))
     })
+}
+
+#[cfg(feature = "admission-profile")]
+pub fn enable_admission() {
+    enable();
+    PROFILE.with(|p| p.borrow_mut().admission_only = true);
 }

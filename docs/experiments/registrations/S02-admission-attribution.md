@@ -1,0 +1,11 @@
+# Integrated query-admission allocation attribution
+
+Registered before comparative execution. T072; first package since the portfolio review.
+
+**Question:** which admission responsibility deserves a representation intervention? The earlier deep early-failure witness has admission cost above compiled total time. Do not assume a particular map or lookup dominates.
+
+Use the existing readiness lifecycle runner and independent scalar complete-answer oracle. Attribute only `execute::Prepared::start`, including recursive value construction, constructor-peer lookup, fresh value arrays, occurrence posting, relation insertion, column indexes and incidence records. Nested diagnostic scopes report exclusive requested bytes/calls/frees and scope counts. Their totals must equal measured setup allocation; completed execution and observation must not enter those attribution totals.
+
+Cross full/selective/batch256/compiled × depth4/64 × separate/shared equality × success/fail/clash/cancel ×1/16 changing queries:128cells. Run each cell in allocation-meter and admission-profile builds, two serial repetitions each:512 isolated processes. Compiled is the independent execution control and has zero relational admission scopes. Require every phase's heap diagnostics to match exactly across repetitions and across diagnostic/control builds; answer validation, final owner restoration and advance counts must agree. Uninstrumented compilation precedes60second wall/CPU and1GiB address-space limits. Existing100,000 source-advance bound remains. Freeze source/binary hashes before runs. No comparative timing inference from these metered builds.
+
+The profiler uses fixed arrays and cumulative meter checkpoints; no event may allocate. Verify exact attribution sums and a zero-execution cancellation control before interpreting responsibility shares. Distinguish constructor lookup from maintenance, and requested bytes from RSS or CPU dominance. If one responsibility dominates requested bytes, select the smallest credible intervention that tests whether it is avoidable; do not infer a complete speed win. Keep shared dependencies, early failure, constructor clash, aliases, changed query multiplicity and retained output validation. Investigate any mismatch before proceeding.

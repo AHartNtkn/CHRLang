@@ -49,6 +49,9 @@ impl Prepared {
         }))
     }
     pub fn start(self: &Arc<Self>, query: &Query) -> Engine {
+        #[cfg(feature = "admission-profile")]
+        let _scope =
+            crate::deduction_profile::Scope::new(crate::deduction_profile::Phase::Admission);
         let mut state = State {
             candidates: vec![None; self.rules.len()],
             ..State::default()

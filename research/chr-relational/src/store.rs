@@ -15,6 +15,9 @@ pub struct Store {
 }
 impl Store {
     pub fn unknown(&mut self) -> Value {
+        #[cfg(feature = "admission-profile")]
+        let _scope =
+            crate::deduction_profile::Scope::new(crate::deduction_profile::Phase::ValueCreate);
         let value = Value(self.parents.len());
         self.parents.push(value);
         self.ranks.push(0);
@@ -27,8 +30,18 @@ impl Store {
         value
     }
     pub fn constructor(&mut self, name: &str, children: &[Value]) -> Value {
+        #[cfg(feature = "admission-profile")]
+        let _scope =
+            crate::deduction_profile::Scope::new(crate::deduction_profile::Phase::Constructor);
         let children = children.iter().map(|v| self.root(*v)).collect::<Vec<_>>();
-        if let Some(value) = self.view.peers(name, &children).first() {
+        let peers = {
+            #[cfg(feature = "admission-profile")]
+            let _scope = crate::deduction_profile::Scope::new(
+                crate::deduction_profile::Phase::ConstructorLookup,
+            );
+            self.view.peers(name, &children)
+        };
+        if let Some(value) = peers.first() {
             return self.root(*value);
         }
         let value = self.unknown();
@@ -36,6 +49,8 @@ impl Store {
         value
     }
     pub fn post(&mut self, name: &str, args: &[Value]) -> Occurrence {
+        #[cfg(feature = "admission-profile")]
+        let _scope = crate::deduction_profile::Scope::new(crate::deduction_profile::Phase::Post);
         let args = args.iter().map(|v| self.root(*v)).collect::<Vec<_>>();
         let id = Occurrence(self.next_occurrence);
         self.next_occurrence = self

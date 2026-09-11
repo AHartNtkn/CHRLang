@@ -2,7 +2,7 @@
 //! A View belongs to one consistent, canonical equality interpretation.
 pub mod contextual;
 pub mod contextual_execute;
-#[cfg(feature = "deduction-profile")]
+#[cfg(any(feature = "deduction-profile", feature = "admission-profile"))]
 pub mod deduction_profile;
 pub mod execute;
 pub mod store;
@@ -72,6 +72,8 @@ impl View {
         })
     }
     fn insert(&mut self, key: Relation, fact: Fact) {
+        #[cfg(feature = "admission-profile")]
+        let _scope = deduction_profile::Scope::new(deduction_profile::Phase::RowInsert);
         if self.duplicate_constructor(&key, &fact.values) {
             return;
         }
@@ -90,7 +92,13 @@ impl View {
     fn attach(&mut self, key: &Relation, index: usize) {
         let table = self.tables.get_mut(key).unwrap();
         for (column, value) in table.columns.iter_mut().zip(&table.rows[index].values) {
-            column.entry(*value).or_default().push(index);
+            {
+                #[cfg(feature = "admission-profile")]
+                let _scope = deduction_profile::Scope::new(deduction_profile::Phase::Columns);
+                column.entry(*value).or_default().push(index);
+            }
+            #[cfg(feature = "admission-profile")]
+            let _scope = deduction_profile::Scope::new(deduction_profile::Phase::Incidence);
             self.incidence
                 .entry(*value)
                 .or_default()

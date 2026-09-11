@@ -1,5 +1,7 @@
 # R00: architectural alternatives and first experiment selection
 
+Integrated admission attribution validates512 processes with exact diagnostic/control allocation agreement and full scalar answers. Incidence owns42–56% of relational setup requested bytes; constructor lookup owns2–4%. T072 next qualifies sorted-vector incidence buckets with broad-merge adverse controls before complete costs; package count one, goal active. [Attribution](S02-admission-attribution.md).
+
 Prepared-query timing validates96000 complete sessions. Reuse has scoped qualified time gains with higher peak ownership; sharing-only timing remains unresolved after a batch diagnostic. Full57-question portfolio review selects T072 integrated constructor/query admission attribution. T082 remains pending, review count reset, goal active. [Timing](S01-prepared-prefix-timing.md) · [Portfolio review](S01-prepared-prefix-review.md).
 
 Arena sharing validates1024 allocation processes with512 exact pairs. It lowers requested and peak bytes in all128 stable-table reuse comparisons, raises both in all128 changing-table reuse comparisons, and leaves prepared peaks above fresh in all256 comparisons. Next measure complete ordinary-allocator lifecycle time, then full portfolio review; package count three, T082 and goal active. [Arena result](S01-prepared-prefix-arena.md).

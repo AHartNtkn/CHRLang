@@ -11,6 +11,14 @@ pub enum Phase {
     Capture,
     RelevantRecord,
     ExactRecord,
+    Admission,
+    Constructor,
+    ConstructorLookup,
+    ValueCreate,
+    Post,
+    RowInsert,
+    Columns,
+    Incidence,
 }
 type Callback = fn(Phase, bool);
 thread_local! { static CALLBACK: Cell<Option<Callback>> = const { Cell::new(None) }; }
