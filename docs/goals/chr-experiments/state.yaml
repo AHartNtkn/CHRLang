@@ -9,7 +9,7 @@ goal:
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
   execution_sequence: docs/experiments/next-cycle.md
-  current_research: "Live compressed-call integration passes 28,608 service checkpoints across 256 sources and cancellation/restarts. Caller token competition, propagation history, binding-before-completion and suspended fresh input agree with Direct and independent complete bags. T075 next qualifies complete caller ownership and counter-free costs; package count two, goal active."
+  current_research: "Call-trace ownership validates 1,728 processes. Trace requests fewer bytes than Direct in 92/144 cases and all repeated-query cases, but peaks higher throughout. It lowers requested bytes versus both transition-reuse controls; twelve stride-sixteen peak regressions expose cross-query retention of unfinished calls or completed keys. T075 next runs ordinary lifecycle timing and full portfolio review; package count three, goal active."
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -368,8 +368,8 @@ tasks:
     assignee: PM
     status: active
     objective: Investigate sound generalized call and continuation reuse after different histories, including renaming, relevance, resource and output identity obligations, against competent recomputation and sharing controls.
-    progress: "Live compressed-call integration passes 28,608 service checkpoints across 256 sources and cancellation/restarts. Caller token competition, propagation history, binding-before-completion and suspended fresh input agree with Direct and independent complete bags. T075 next qualifies complete caller ownership and counter-free costs; package count two, goal active."
-    next_action: "Register complete compressed-call caller ownership against Direct and existing transition reuse, using repeated/unique calls, changed queries, failure, retained answers and cancellation. Include admission/export/import, caller cursors, unfinished traces and prepared disposal. Then counter-free lifecycle timing. Higher-priority observers remain a separate boundary protocol, not a language exclusion. Sparse elimination is the strongest pending alternative; package count two."
+    progress: "Call-trace ownership validates 1,728 processes. Trace requests fewer bytes than Direct in 92/144 cases and all repeated-query cases, but peaks higher throughout. It lowers requested bytes versus both transition-reuse controls; twelve stride-sixteen peak regressions expose cross-query retention of unfinished calls or completed keys. T075 next runs ordinary lifecycle timing and full portfolio review; package count three, goal active."
+    next_action: "Register counter-free complete call-trace lifecycle timing using qualified frozen binaries and all 144 scenarios against Direct, memo and memo16. Preserve exact ownership evidence and contrary observations. Investigate consequential timing and perform full 57-question review afterward. Bounded retention/recomputation, broader observer interleaving and sparse projection remain alternatives; package count three."
     inputs:
       - docs/experiments/results/S05-inert-lifecycle.md
       - docs/experiments/results/S05-inert-lifecycle-review.md
@@ -2684,8 +2684,10 @@ checks:
   last_verification:
     result: passed
     task: T075
-    scope: Live private-prefix caller splicing, suspended input and source-prefix correspondence.
+    scope: Complete call-trace ownership and cross-query retention diagnosis.
     commands:
+      - "call_trace_ownership.py audit: 1728 processes, 1152 exact allocation runs, consumer equivalence, restoration and frozen inputs"
+      - "Five changed-input caller/retention tests pass metrics on/off; scoped runner/test Clippy passes"
       - "call_trace_caller: four tests pass in both builds; 256 sources, 768 complete runs, 28608 service checkpoints"
       - "call_trace/call_reuse/effectful_boundary: 23 regression tests pass both builds; scoped Clippy passes"
       - "call_trace: four tests, 9088 per-event comparisons; default and metrics-off pass"
@@ -2764,6 +2766,8 @@ checks:
       - "audit_probe_clock.py: 18000 separately instrumented complete sessions"
       - Scoped ordinary, allocation and CPU-clock Clippy; source hashes, report links and 57-question map
     evidence:
+      - docs/experiments/results/S05-call-trace-ownership.md
+      - docs/experiments/results/s05-call-trace-ownership/analysis.json
       - docs/experiments/results/S05-call-trace-caller.md
       - docs/experiments/results/s05-call-trace-caller/metrics.log
       - docs/experiments/results/S05-call-trace-entry.md

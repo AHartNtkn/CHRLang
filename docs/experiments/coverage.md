@@ -1,5 +1,7 @@
 # Unanswered architecture questions and experimental ownership
 
+Call-trace ownership validates 1,728 processes. Trace requests fewer bytes than Direct in 92/144 cases and all repeated-query cases, but peaks higher throughout. It lowers requested bytes versus both transition-reuse controls; twelve stride-sixteen peak regressions expose cross-query retention of unfinished calls or completed keys. T075 next runs ordinary lifecycle timing and full portfolio review; package count three, goal active. [Call ownership](results/S05-call-trace-ownership.md).
+
 Live compressed-call integration passes 28,608 service checkpoints across 256 sources and cancellation/restarts. Caller token competition, propagation history, binding-before-completion and suspended fresh input agree with Direct and independent complete bags. T075 next qualifies complete caller ownership and counter-free costs; package count two, goal active. [Live caller gate](results/S05-call-trace-caller.md).
 
 Call-entry trace reuse preserves 9,088 FIFO service events across 64 cases and cancellation/restarts. A 22-step linear call uses one trace node; completed replay executes nothing and releases its machine. Four new and 22 existing tests pass in both configurations. T075 next integrates the resumable protocol into complete callers with observed bindings and competing resources; package count one, goal active. [Call trace entry](results/S05-call-trace-entry.md).

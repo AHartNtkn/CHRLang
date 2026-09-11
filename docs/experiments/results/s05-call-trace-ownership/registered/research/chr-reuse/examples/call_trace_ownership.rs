@@ -1,0 +1,266 @@
+#[cfg(feature = "alloc-meter")]
+use chr_compiled::experiment::meter;
+use chr_reuse::calls::trace::caller::Caller;
+use chr_reuse::continuations::{Batch, Mode, Prepared as Whole};
+use chr_reuse::residuals::Prepared as Separated;
+use chr_syntax::{Answer, Query, Rule};
+#[allow(dead_code)]
+#[path = "support/call_trace_source.rs"]
+mod fixture;
+#[allow(dead_code)]
+#[path = "../../chr-direct-conditional/tests/runtime_support/mod.rs"]
+mod oracle;
+struct Row {
+    phase: &'static str,
+    query: usize,
+    #[cfg(feature = "alloc-meter")]
+    memory: meter::Reading,
+    ns: Option<u128>,
+}
+fn measure<T>(rows: &mut Vec<Row>, phase: &'static str, query: usize, f: impl FnOnce() -> T) -> T {
+    #[cfg(feature = "alloc-meter")]
+    let s = meter::begin();
+    #[cfg(not(feature = "alloc-meter"))]
+    let s = std::time::Instant::now();
+    let result = std::hint::black_box(f());
+    #[cfg(feature = "alloc-meter")]
+    let memory = meter::end(s);
+    #[cfg(feature = "alloc-meter")]
+    let ns = None;
+    #[cfg(not(feature = "alloc-meter"))]
+    let ns = Some(s.elapsed().as_nanos());
+    assert!(rows.len() < rows.capacity());
+    rows.push(Row {
+        phase,
+        query,
+        #[cfg(feature = "alloc-meter")]
+        memory,
+        ns,
+    });
+    result
+}
+fn input(cfg: &Config, q: usize) -> Query {
+    let n = cfg.depth + if cfg.distinct { 2 * q } else { 0 };
+    fixture::input(n, n + 1, (1000 * q + 7) as u64)
+}
+fn next<P, E>(
+    p: &mut P,
+    e: &mut E,
+    advance: &impl Fn(&mut P, &mut E) -> Batch,
+    steps: &mut usize,
+) -> Option<Answer> {
+    while *steps < 100_000 {
+        *steps += 1;
+        let mut b = advance(p, e);
+        assert!(b.answers.len() <= 1);
+        if let Some(a) = b.answers.pop() {
+            return Some(a);
+        }
+        if b.exhausted {
+            return None;
+        }
+    }
+    panic!("service bound");
+}
+struct Config {
+    family: usize,
+    depth: usize,
+    reuse: usize,
+    keep: usize,
+    cancel: bool,
+    expected: Vec<Vec<Answer>>,
+    distinct: bool,
+}
+fn run<P, E>(
+    cfg: &Config,
+    prepare: impl Fn(Vec<Rule>) -> P,
+    start: impl Fn(&mut P, Query) -> E,
+    advance: impl Fn(&mut P, &mut E) -> Batch,
+) {
+    let mut warm = prepare(fixture::program(false, cfg.family).0);
+    for q in 0..cfg.reuse {
+        let mut e = start(&mut warm, input(cfg, q));
+        let mut steps = 0;
+        let mut actual = vec![];
+        while let Some(a) = next(&mut warm, &mut e, &advance, &mut steps) {
+            actual.push(a);
+        }
+        assert_eq!(actual.len(), cfg.expected[q].len());
+        for (a, b) in actual.iter().zip(&cfg.expected[q]) {
+            assert!(chr_observe::equivalent(a, b, &mut Default::default()));
+        }
+    }
+    drop(warm);
+    let mut rows = Vec::with_capacity(256);
+    let mut consumer: Vec<(usize, usize, Answer)> = vec![];
+    let mut counts = [0usize; 4];
+    #[cfg(feature = "alloc-meter")]
+    let owner = meter::begin();
+    let rules = measure(&mut rows, "source", 0, || {
+        fixture::program(false, cfg.family).0
+    });
+    let mut p = measure(&mut rows, "prepare", 0, || prepare(rules.clone()));
+    measure(&mut rows, "source_dispose", 0, || drop(rules));
+    for (q, count) in counts.iter_mut().enumerate().take(cfg.reuse) {
+        let query = measure(&mut rows, "input", q, || input(cfg, q));
+        let mut e = measure(&mut rows, "setup", q, || start(&mut p, query.clone()));
+        let mut steps = 0;
+        loop {
+            let a = measure(&mut rows, "service_observe", q, || {
+                next(&mut p, &mut e, &advance, &mut steps)
+            });
+            let Some(a) = a else { break };
+            #[cfg(feature = "alloc-meter")]
+            let check = meter::begin();
+            assert!(chr_observe::equivalent(
+                &a,
+                &cfg.expected[q][*count],
+                &mut Default::default()
+            ));
+            #[cfg(feature = "alloc-meter")]
+            let checked = meter::end(check);
+            #[cfg(feature = "alloc-meter")]
+            assert_eq!(checked.live_start, checked.live_end);
+            let index = *count;
+            *count += 1;
+            measure(&mut rows, "consume", q, || {
+                if cfg.keep == 0 {
+                    drop(a);
+                } else {
+                    if consumer.len() == cfg.keep {
+                        consumer.remove(0);
+                    }
+                    consumer.push((q, index, a));
+                }
+            });
+            if cfg.cancel {
+                break;
+            }
+        }
+        assert_eq!(*count, if cfg.cancel { 1 } else { cfg.expected[q].len() });
+        measure(&mut rows, "engine_dispose", q, || drop(e));
+        measure(&mut rows, "input_dispose", q, || drop(query));
+    }
+    measure(&mut rows, "prepared_dispose", cfg.reuse, || drop(p));
+    #[cfg(feature = "alloc-meter")]
+    let consumer_bytes = Some({
+        let held = meter::end(owner);
+        held.live_end - held.live_start
+    });
+    #[cfg(not(feature = "alloc-meter"))]
+    let consumer_bytes: Option<usize> = None;
+    for (q, i, a) in &consumer {
+        assert!(chr_observe::equivalent(
+            a,
+            &cfg.expected[*q][*i],
+            &mut Default::default()
+        ));
+    }
+    let retained = consumer.len();
+    measure(&mut rows, "consumer_dispose", cfg.reuse, || drop(consumer));
+    #[cfg(feature = "alloc-meter")]
+    let requested_bytes = Some({
+        let released = meter::end(owner);
+        assert_eq!(released.live_end, released.live_start, "unreleased owner");
+        rows.iter().map(|r| r.memory.requested_bytes).sum::<usize>()
+    });
+    #[cfg(not(feature = "alloc-meter"))]
+    let requested_bytes: Option<usize> = None;
+    let json = |v: Option<usize>| v.map_or_else(|| "null".into(), |v| v.to_string());
+    println!(
+        "{{\"counts\":{:?},\"retained\":{retained},\"consumer_bytes\":{},\"requested_bytes\":{},\"unreleased_bytes\":{}}}",
+        &counts[..cfg.reuse],
+        json(consumer_bytes),
+        json(requested_bytes),
+        json(cfg!(feature = "alloc-meter").then_some(0))
+    );
+    for r in rows {
+        #[cfg(feature = "alloc-meter")]
+        let memory = r.memory.json();
+        #[cfg(not(feature = "alloc-meter"))]
+        let memory = "null";
+        let ns = r.ns.map_or_else(|| "null".into(), |v| v.to_string());
+        println!(
+            "{{\"phase\":\"{}\",\"query\":{},\"memory\":{memory},\"ns\":{ns}}}",
+            r.phase, r.query
+        );
+    }
+}
+
+fn main() {
+    if chr_reuse::continuations::COLLECT_METRICS {
+        panic!("counter-free runner required");
+    }
+    #[cfg(feature = "alloc-meter")]
+    meter::self_check().unwrap();
+    let a = std::env::args().collect::<Vec<_>>();
+    assert_eq!(a.len(), 8);
+    let family = a[2].parse().unwrap();
+    let depth = a[3].parse().unwrap();
+    let reuse = a[4].parse().unwrap();
+    assert!(family < 4 && matches!(depth, 4 | 32 | 128) && matches!(reuse, 1 | 4));
+    let keep = match &*a[5] {
+        "0" => 0,
+        "all" => usize::MAX,
+        _ => panic!("keep"),
+    };
+    let flag = |i: usize| match &*a[i] {
+        "0" => false,
+        "1" => true,
+        _ => panic!("flag"),
+    };
+    let mut cfg = Config {
+        family,
+        depth,
+        reuse,
+        keep,
+        cancel: flag(6),
+        distinct: flag(7),
+        expected: vec![],
+    };
+    let (rules, count) = fixture::program(false, family);
+    let direct = Whole::new(rules.clone(), Mode::Direct).unwrap();
+    for q in 0..reuse {
+        let query = input(&cfg, q);
+        let mut search = direct.start(query.clone()).unwrap();
+        let mut answers = vec![];
+        for _ in 0..100_000 {
+            let b = search.advance(1);
+            answers.extend(b.answers);
+            if b.exhausted {
+                break;
+            }
+        }
+        oracle::same_raw(answers.clone(), oracle::run(&rules, &query, 100_000));
+        cfg.expected.push(answers);
+    }
+    drop((direct, rules));
+    match &*a[1] {
+        "trace" => run(
+            &cfg,
+            |rs| Caller::new(rs, count).unwrap(),
+            |p, q| p.start(q).unwrap(),
+            |p, e| p.advance(e, 1).unwrap(),
+        ),
+        "direct" => run(
+            &cfg,
+            |rs| Whole::new(rs, Mode::Direct).unwrap(),
+            |p, q| p.start(q).unwrap(),
+            |_, e| e.advance(1),
+        ),
+        "memo" | "memo16" => {
+            let stride = if a[1] == "memo" { 1 } else { 16 };
+            run(
+                &cfg,
+                |rs| {
+                    Separated::new(rs, true)
+                        .unwrap()
+                        .with_recognition_stride(stride)
+                },
+                |p, q| p.start(q).unwrap(),
+                |_, e| e.advance(1),
+            );
+        }
+        _ => panic!("mode"),
+    }
+}

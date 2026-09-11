@@ -45,6 +45,12 @@ impl Caller {
             owner: self.owner.clone(),
         })
     }
+    pub fn unfinished_calls(&self) -> usize {
+        self.table.unfinished_calls()
+    }
+    pub fn retained_nodes(&self) -> usize {
+        self.table.retained_nodes()
+    }
     pub fn stats(&self) -> &super::Stats {
         self.table.stats()
     }
