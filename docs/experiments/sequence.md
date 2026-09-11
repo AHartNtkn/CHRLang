@@ -4,7 +4,7 @@ Investigate the unanswered mechanisms directly, then compare the complete archit
 
 The [execution sequence](next-cycle.md) sets four rounds: missing architectural benefits; competing search, reuse and compilation mechanisms; sustained and parallel execution; complete architectures and contrary tests. It gives the immediate order, concrete contrasts and the result required from each round. This document defines the governing requirements and stage specifications.
 
-The [matcher-settlement result](results/S02-matcher-settlement.md) supplies the current checkpoint. Matcher-relevant settlement preserves fixed consumer priority in 120 source cases confirmed twice. Separate output equality remains pending at consumption; depth-64 early failure uses 4 deductions versus 67 with full settlement. Success uses 68 in both, but 72 versus 9 engine advances. Three read-omission mutations fail independent answer checks. T072 next repairs quiescent scheduling and measures readiness lifecycle costs; package two since review, goal active.
+The [bounded-drain result](results/S02-quiescent-drain.md) supplies the current checkpoint. Bounded quiescent draining preserves 351 source executions at three budgets in each of two confirmations. At depth 64, separate successful output falls from 72 advances to 16 with budget 8 or 9 with budget 256; early failure remains 4 deductions versus 67 with full settlement. Per-call deduction limits, short-branch service and cancellation/reuse pass; both scheduling mutations fail. T072 next measures complete readiness lifecycle costs, followed by full portfolio review; package three, goal active.
 
 The outcome is trustworthy evidence for choosing the CHR language's architecture: total efficiency, necessary complexity, expressiveness and explicit tradeoffs. No architecture is selected in advance. A conditional choice can be the result; a new production baseline and invented workload weights are not required.
 
@@ -274,7 +274,7 @@ All new results link raw inputs, commands, freezes, validation and unfavorable o
 
 The [revised experimental sequence](next-cycle.md#start-here-the-next-experiments) proceeds from the recorded-read result to demand capability, direct integration, intermediate joins and compact solving. Later entries cover distinct reuse, restoration, choice organizations, compilation, sustained execution and parallel ownership. Language studies accompany their beneficiaries; complete-architecture comparisons occur at each round boundary.
 
-T072 is the sole active experimental task. Matcher-relevant settlement now has source/work evidence; quiescent scheduling repair and complete readiness costs are next. Broader integration and the independent portfolio directions remain required. Each unresolved design retains its individual obligation in the [57-question map](question-to-experiment-map.md).
+T072 is the sole active experimental task. Matcher-relevant settlement and bounded quiescent draining now have source/work evidence; complete readiness lifecycle costs and the full portfolio review are next. Broader integration and the independent portfolio directions remain required. Each unresolved design retains its individual obligation in the [57-question map](question-to-experiment-map.md).
 
 ## Earlier experimental checkpoints
 

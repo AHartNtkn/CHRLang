@@ -5,6 +5,7 @@ use std::collections::{BTreeMap, BTreeSet, VecDeque};
 use std::sync::Arc;
 
 pub struct Prepared {
+    reads: Option<crate::store::MatcherReads>,
     rules: Vec<Rule>,
     plans: Vec<HeadPlan>,
     arrivals: BTreeMap<(String, usize), Vec<usize>>,
@@ -14,6 +15,12 @@ impl Prepared {
         &self.rules
     }
     pub fn new(rules: &[Rule]) -> Result<Arc<Self>, String> {
+        Self::prepare(rules, false)
+    }
+    pub fn new_ready(rules: &[Rule]) -> Result<Arc<Self>, String> {
+        Self::prepare(rules, true)
+    }
+    fn prepare(rules: &[Rule], ready: bool) -> Result<Arc<Self>, String> {
         if rules
             .iter()
             .any(|r| r.kept.is_empty() && r.removed.is_empty())
@@ -32,6 +39,7 @@ impl Prepared {
             }
         }
         Ok(Arc::new(Self {
+            reads: ready.then(|| crate::store::MatcherReads::new(rules)),
             arrivals,
             rules: rules.to_vec(),
             plans: rules
@@ -197,17 +205,52 @@ pub struct Engine {
     frontier: VecDeque<State>,
 }
 impl Engine {
+    /// Preserve fixed rule/tuple priority while allowing unrelated equality to
+    /// overlap source effects. The nonzero deduction budget bounds each call;
+    /// pending states rotate through the frontier when the budget is exhausted.
+    /// Read metadata is owned by `Prepared::new_ready`, so it cannot describe
+    /// a different program from the one being executed.
+    pub fn advance_ready(&mut self, budget: usize) -> Step {
+        assert!(budget > 0, "deduction budget must be nonzero");
+        self.advance_scheduled(true, budget).0
+    }
     pub fn advance(&mut self) -> Step {
+        self.advance_scheduled(false, 1).0
+    }
+    fn advance_scheduled(&mut self, ready: bool, budget: usize) -> (Step, usize) {
+        let reads = ready.then(|| {
+            self.prepared
+                .reads
+                .as_ref()
+                .expect("use Prepared::new_ready for readiness scheduling")
+        });
+        let mut used = 0;
         let Some(mut state) = self.frontier.pop_front() else {
-            return Step::Exhausted;
+            return (Step::Exhausted, used);
         };
+        if state.pending.is_empty()
+            && let Some(reads) = reads
+        {
+            while used < budget && state.store.step_for_matching(reads) {
+                used += 1;
+                state.candidates.fill(None);
+            }
+            if state.store.failed() {
+                return (Step::Progress, used);
+            }
+            if used == budget {
+                self.frontier.push_back(state);
+                return (Step::Progress, used);
+            }
+        }
         if state.store.step() {
+            used += 1;
             // Equality changes both canonical keys and positive guard entailment.
             // Conservatively invalidate even when this queued deduction is redundant.
             state.candidates.fill(None);
         }
         if state.store.failed() {
-            return Step::Progress;
+            return (Step::Progress, used);
         }
         if let Some(effect) = state.pending.pop() {
             match effect {
@@ -227,16 +270,32 @@ impl Engine {
                     state.pending.push(*a);
                     self.frontier.push_back(state);
                     self.frontier.push_back(other);
-                    return Step::Progress;
+                    return (Step::Progress, used);
                 }
                 Effect::True => (),
-                Effect::Fail => return Step::Progress,
+                Effect::Fail => return (Step::Progress, used),
             }
-        } else if !state.application(&self.prepared) && state.store.pending() == 0 {
-            return Step::Answer(state.answer());
+        } else if !state.application(&self.prepared) {
+            // Matcher-visible equality is settled. With no source effect or
+            // enabled application, remaining equality cannot enable a rule.
+            if reads.is_some() {
+                while used < budget && state.store.step() {
+                    used += 1;
+                }
+            }
+            if state.store.failed() {
+                return (Step::Progress, used);
+            }
+            if state.store.pending() == 0 {
+                return (Step::Answer(state.answer()), used);
+            }
+            // A subsequent ready call may reconsider matching after a bounded yield.
+            if reads.is_some() {
+                state.candidates.fill(None);
+            }
         }
         self.frontier.push_back(state);
-        Step::Progress
+        (Step::Progress, used)
     }
 }
 

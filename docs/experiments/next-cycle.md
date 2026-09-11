@@ -1,6 +1,6 @@
 # Experimental sequence for the unanswered architecture questions
 
-The [matcher-settlement result](results/S02-matcher-settlement.md) supplies the current checkpoint. Matcher-relevant settlement preserves fixed consumer priority in 120 source cases confirmed twice. Separate output equality remains pending at consumption; depth-64 early failure uses 4 deductions versus 67 with full settlement. Success uses 68 in both, but 72 versus 9 engine advances. Three read-omission mutations fail independent answer checks. T072 next repairs quiescent scheduling and measures readiness lifecycle costs; package two since review, goal active.
+The [bounded-drain result](results/S02-quiescent-drain.md) supplies the current checkpoint. Bounded quiescent draining preserves 351 source executions at three budgets in each of two confirmations. At depth 64, separate successful output falls from 72 advances to 16 with budget 8 or 9 with budget 256; early failure remains 4 deductions versus 67 with full settlement. Per-call deduction limits, short-branch service and cancellation/reuse pass; both scheduling mutations fail. T072 next measures complete readiness lifecycle costs, followed by full portfolio review; package three, goal active.
 
 Test the distinct mechanisms that remain unanswered, then compare the complete architectures they enable. Reuse the existing baselines. A lower priority changes when a question is investigated; it does not answer it.
 
@@ -10,15 +10,15 @@ This sequence covers the [57 reviewed questions](question-to-experiment-map.md) 
 
 ## Start here: the next experiments
 
-**1. Repair and measure readiness costs — T072, specification 1.** The [matcher-settlement gate](results/S02-matcher-settlement.md) preserves fixed consumer priority while permitting early failure before unrelated output equality. Successful output exposes repeated source advances. Qualify draining unrelated equality once matching is settled and no source application can fire, then register complete lifecycle comparisons with full settlement. Include changed queries, successful output, early failure, late contradiction, new posts and cancellation.
+**1. Measure complete readiness costs — T072, specification 1.** The [bounded-drain result](results/S02-quiescent-drain.md) repairs repeated successful-source advances while preserving early failure. Register full lifecycle sizing for existing full settlement, selective settlement and bounded draining. Charge read preparation, changing-query setup, execution, observation, cancellation and disposal; separate ordinary timing from allocation/work diagnostics. Include shared dependencies, late contradiction and successful output.
 
-**2. Preserve the distinction between scheduling contracts.** Permissive successful serialization and fixed consuming priority remain separate options. Use the existing complete source controls and independent evaluator; neither option becomes a language rule merely through implementation.
+**2. Preserve the distinction between scheduling contracts.** Permissive successful serialization and fixed consuming priority remain separate options. Use the existing complete source controls and independent evaluator. Measure the existing preparation-owned read metadata and reuse.
 
-**3. Reconsider alternatives at the pilot result.** Partner ordering could reduce matching work more directly; graph memo storage and lifecycle costs are also ready. This is package two since the [full portfolio review](results/S08-traversal-portfolio-review.md). Review all directions within four packages.
+**3. Perform the full portfolio review at the pilot result.** Partner ordering and graph memo/lifecycle costs are ready alternatives. This is package three since the [full portfolio review](results/S08-traversal-portfolio-review.md); the next result or obstruction must reconsider every direction.
 
 ## Why this order, and what can change it
 
-The selective controller has both a demonstrated early-failure benefit and observed repeated scheduling work. A bounded repair and lifecycle pilot can determine whether that opportunity pays for readiness maintenance. That immediate uncertainty gives it priority over the independent partner-plan and graph-cost trials. If the source gate fails, repair the cause or compare those alternatives before elaborating the mechanism further.
+The selective controller preserves the qualified source observations and the bounded drain repairs its observed repeated-advance defect. Its remaining decisive uncertainty is whether readiness maintenance costs more than it saves across complete query lifecycles. A bounded pilot addresses that question more directly than another semantic extension. Compare its result with the independent partner-plan and graph-cost opportunities in the full review before further elaboration.
 
 Scheduling a later trial does not supply evidence for that direction. All thirteen specifications and the 57-question audit remain controlling.
 

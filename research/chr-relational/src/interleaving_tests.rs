@@ -264,6 +264,11 @@ struct ReadinessRun {
     pending_at_claim: Vec<usize>,
 }
 fn run_relevant(rules: &[Rule], query: &Query) -> ReadinessRun {
+    for budget in [1, 8, 256] {
+        let (answers, turns, work) = run_batched(rules, query, budget);
+        oracle::same_raw(answers, oracle::run(rules, query, 100_000));
+        println!("DRAIN_SOURCE,budget={budget},turns={turns},work={work}");
+    }
     let reads = crate::store::MatcherReads::new(rules);
     drive_relevant(Prepared::new(rules).unwrap().start(query), &reads)
 }
@@ -583,5 +588,122 @@ fn matcher_settlement_cancellation_does_not_contaminate_prepared_reuse() {
         let again = drive_relevant(prepared.start(&query), &reads);
         oracle::same_raw(again.answers, oracle::run(&rules, &query, 100_000));
         println!("READY_CANCEL,outcome={outcome}");
+    }
+}
+
+fn run_batched(rules: &[Rule], query: &Query, budget: usize) -> (Vec<Answer>, usize, usize) {
+    let mut engine = Prepared::new_ready(rules).unwrap().start(query);
+    let mut answers = vec![];
+    let mut total_work = 0;
+    for turn in 1..=100_000 {
+        let (step, work) = engine.advance_scheduled(true, budget);
+        total_work += work;
+        assert!(work <= budget, "deduction budget exceeded");
+        match step {
+            Step::Answer(a) => answers.push(a),
+            Step::Exhausted => return (answers, turn, total_work),
+            Step::Progress => (),
+        }
+    }
+    panic!("bounded drain service cutoff")
+}
+
+#[test]
+fn bounded_drain_preserves_priority_and_avoids_repeated_idle_advances() {
+    for depth in [4, 16, 64] {
+        for possible in [false, true] {
+            for shared in [false, true] {
+                for outcome in ["success", "fail", "clash"] {
+                    for tokens in [1, 2] {
+                        let (rules, query) =
+                            separated_source(depth, possible, shared, outcome, tokens);
+                        let expected = oracle::run(&rules, &query, 100_000);
+                        for budget in [1, 8, 256] {
+                            let (answers, turns, work) = run_batched(&rules, &query, budget);
+                            oracle::same_raw(answers, expected.clone());
+                            if !shared && outcome == "fail" {
+                                assert_eq!(work, 4, "do not drain across pending source failure");
+                            }
+                            if depth == 64 && !shared && outcome == "success" && budget == 256 {
+                                assert!(
+                                    turns < 72,
+                                    "quiescent output must avoid repeated source advances"
+                                );
+                            }
+                            println!(
+                                "DRAIN,depth={depth},possible={possible},shared={shared},outcome={outcome},tokens={tokens},budget={budget},turns={turns},work={work}"
+                            );
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#[test]
+fn bounded_drain_cancellation_reuse_and_branch_service() {
+    for outcome in ["success", "fail", "clash"] {
+        let (rules, query) = separated_source(64, false, false, outcome, 2);
+        let prepared = Prepared::new_ready(&rules).unwrap();
+        for budget in [1, 8, 256] {
+            let mut engine = prepared.start(&query);
+            for _ in 0..1000 {
+                assert!(matches!(engine.advance_ready(budget), Step::Progress));
+                if engine
+                    .frontier
+                    .front()
+                    .is_some_and(|s| !s.store.view.locations.contains_key(&Occurrence(1)))
+                {
+                    break;
+                }
+            }
+            assert!(
+                engine
+                    .frontier
+                    .front()
+                    .is_some_and(|s| s.store.pending() > 0
+                        && !s.store.view.locations.contains_key(&Occurrence(1)))
+            );
+            drop(engine);
+            assert_eq!(Arc::strong_count(&prepared), 1);
+            let mut reused = prepared.start(&query);
+            let mut answers = vec![];
+            let mut complete = false;
+            for _ in 0..100_000 {
+                match reused.advance_ready(budget) {
+                    Step::Answer(a) => answers.push(a),
+                    Step::Exhausted => {
+                        complete = true;
+                        break;
+                    }
+                    Step::Progress => (),
+                }
+            }
+            assert!(complete);
+            oracle::same_raw(answers, oracle::run(&rules, &query, 100_000));
+            println!("DRAIN_CANCEL,outcome={outcome},budget={budget}");
+        }
+    }
+    let rules = vec![Rule::simplify(
+        "start",
+        [c("start", [v(0)])],
+        Goal::Or(
+            Box::new(chr_syntax::and([
+                eq(nest(64, v(1)), nest(64, atom("end"))),
+                eq(v(0), atom("long")),
+            ])),
+            Box::new(eq(v(0), atom("short"))),
+        ),
+    )];
+    let query = Query {
+        constraints: vec![c("start", [v(10)])],
+        outputs: vec![("branch".into(), Var(10))],
+    };
+    for budget in [1, 8, 256] {
+        let (answers, turns, work) = run_batched(&rules, &query, budget);
+        assert_eq!(answers[0].outputs[0].1, atom("short"));
+        oracle::same_raw(answers, oracle::run(&rules, &query, 100_000));
+        println!("DRAIN_BRANCH,budget={budget},turns={turns},work={work}");
     }
 }

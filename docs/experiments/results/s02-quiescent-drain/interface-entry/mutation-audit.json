@@ -1,0 +1,35 @@
+{
+  "source_restored_sha256": "402486d012a887c599ce771ef301f25289adb95a0650817fc4d63f5f5188009e",
+  "rejected": [
+    {
+      "mutation": "unbounded",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-relational",
+        "--lib",
+        "bounded_drain_preserves_priority_and_avoids_repeated_idle_advances",
+        "--",
+        "--nocapture"
+      ],
+      "exit_code": 101,
+      "assertion": "deduction budget exceeded"
+    },
+    {
+      "mutation": "pending-effects",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "chr-relational",
+        "--lib",
+        "bounded_drain_preserves_priority_and_avoids_repeated_idle_advances",
+        "--",
+        "--nocapture"
+      ],
+      "exit_code": 101,
+      "assertion": "do not drain across pending source failure"
+    }
+  ]
+}
