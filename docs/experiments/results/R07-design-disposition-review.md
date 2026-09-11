@@ -1,5 +1,7 @@
 # Why designs were set aside—and what the experiments actually establish
 
+Matched carrier entry validates 72 queries and 360 executor searches against independent complete answers; 14 carrier boundary tests pass. Existing inferred contraction handles wait chains, while templates additionally follow choices. T073 next isolates choice following and scarce-resource scheduling before matched lifecycle costs; package count one, goal active. [Entry result](S06-matched-carrier-entry.md).
+
 Repaired timing passes384 ownership entries and16,000 sessions. Answer caching qualifies in2/64 dependency cases and0/64 template cases; cached templates beat Direct in five small pure cases without establishing a cache cause. Full57-question review selects T073 matched source simplification across existing explicit/graph paths; T074 remains pending, review count reset, goal active. [Timing result](S08-answer-validity-stable-timing.md) · [Portfolio review](S08-answer-validity-timing-review.md).
 
 Timing qualification exposed address-ordered template memo allocation. Stable derivation-local expression IDs now pass32 tests and768 source runs with384 exact observer-layout ownership pairs. No timing verdict is accepted from the failed campaign. Full57-question review keeps T074 active for fresh gated timing of repaired variants; review count reset, goal active. [Identity repair](S08-template-expression-ids.md) · [Portfolio review](S08-expression-ids-review.md).
