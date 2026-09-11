@@ -77,6 +77,27 @@ impl Region {
         observation: Observation,
         limit: usize,
     ) -> Result<Prepared, String> {
+        self.prepare_using(visible, host, rules, observation, limit, false)
+    }
+    pub fn prepare_sparse(
+        &self,
+        visible: &[Var],
+        host: &[Constraint],
+        rules: &[Rule],
+        observation: Observation,
+        limit: usize,
+    ) -> Result<Prepared, String> {
+        self.prepare_using(visible, host, rules, observation, limit, true)
+    }
+    fn prepare_using(
+        &self,
+        visible: &[Var],
+        host: &[Constraint],
+        rules: &[Rule],
+        observation: Observation,
+        limit: usize,
+        sparse: bool,
+    ) -> Result<Prepared, String> {
         #[cfg(feature = "phase-clock")]
         let mut clock = std::time::Instant::now();
         #[cfg(feature = "phase-clock")]
@@ -248,7 +269,11 @@ impl Region {
             Observation::LogicalSet => Semantics::Set,
             Observation::RawAnswers => unreachable!(),
         };
-        let projection = problem.project(&output, &shared, &order, semantics, limit)?;
+        let projection = if sparse {
+            problem.project_sparse(&output, &shared, &order, semantics, limit)?
+        } else {
+            problem.project(&output, &shared, &order, semantics, limit)?
+        };
         #[cfg(feature = "phase-clock")]
         {
             preparation_ns[3] = clock.elapsed().as_nanos();

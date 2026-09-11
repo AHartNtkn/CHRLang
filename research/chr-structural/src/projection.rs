@@ -27,7 +27,10 @@ pub struct Projection {
     visible: Vec<usize>,
     factors: Vec<Factor>,
     semantics: Semantics,
+    /// Cartesian assignments, or complete compatible joins for sparse traversal.
     pub elimination_visits: usize,
+    /// Candidate relation rows inspected by sparse traversal.
+    pub join_probes: usize,
     pub peak_entries: usize,
 }
 fn add(a: u128, b: u128, s: Semantics) -> Result<u128, String> {
@@ -79,6 +82,44 @@ fn weight(factors: &[Factor], values: &[u8], semantics: Semantics) -> Result<u12
         };
     }
     product.ok_or_else(|| "count overflow".into())
+}
+fn compatible_rows(
+    factors: &[&Factor],
+    domains: &[Vec<u8>],
+    values: &mut [u8],
+    bound: &mut [bool],
+    remaining: &mut usize,
+    emit: &mut impl FnMut(&[u8]) -> Result<(), String>,
+) -> Result<(), String> {
+    let Some((factor, rest)) = factors.split_first() else {
+        return emit(values);
+    };
+    let fresh = factor
+        .scope
+        .iter()
+        .copied()
+        .filter(|&i| !bound[i])
+        .collect::<Vec<_>>();
+    for row in factor.table.keys() {
+        *remaining = remaining.checked_sub(1).ok_or("join probe bound")?;
+        if factor
+            .scope
+            .iter()
+            .zip(row)
+            .any(|(&i, &v)| (bound[i] && values[i] != v) || domains[i].binary_search(&v).is_err())
+        {
+            continue;
+        }
+        for (&i, &v) in factor.scope.iter().zip(row) {
+            values[i] = v;
+            bound[i] = true;
+        }
+        compatible_rows(rest, domains, values, bound, remaining, emit)?;
+        for &i in &fresh {
+            bound[i] = false;
+        }
+    }
+    Ok(())
 }
 impl Problem {
     /// Greedy scope/domain estimate. This does not inspect relation answers or
@@ -153,6 +194,30 @@ impl Problem {
         semantics: Semantics,
         limit: usize,
     ) -> Result<Projection, String> {
+        self.project_using(visible, caller_shared, order, semantics, limit, false)
+    }
+
+    /// Join existing rows; `limit` bounds row probes per elimination bucket.
+    pub fn project_sparse(
+        &self,
+        visible: &[usize],
+        caller_shared: &[usize],
+        order: &[usize],
+        semantics: Semantics,
+        limit: usize,
+    ) -> Result<Projection, String> {
+        self.project_using(visible, caller_shared, order, semantics, limit, true)
+    }
+
+    fn project_using(
+        &self,
+        visible: &[usize],
+        caller_shared: &[usize],
+        order: &[usize],
+        semantics: Semantics,
+        limit: usize,
+        sparse: bool,
+    ) -> Result<Projection, String> {
         let n = self.domains.len();
         let valid = |xs: &[usize]| {
             xs.iter().all(|&i| i < n)
@@ -203,6 +268,7 @@ impl Problem {
             });
         }
         let mut visits = 0;
+        let mut join_probes = 0;
         let mut peak = if cfg!(feature = "metrics") {
             factors.iter().map(|f| f.table.len()).max().unwrap_or(0)
         } else {
@@ -225,7 +291,9 @@ impl Problem {
                 .filter(|&i| i != variable)
                 .collect::<Vec<_>>();
             let mut table = Table::new();
-            let work = assignments(&union, &domains, limit, |values| {
+            let mut joined = 0;
+            let mut emit = |values: &[u8]| {
+                joined += 1;
                 let w = weight(&bucket, values, semantics)?;
                 if w > 0 {
                     let key = scope.iter().map(|&i| values[i]).collect::<Vec<_>>();
@@ -233,7 +301,26 @@ impl Problem {
                     table.insert(key, add(old, w, semantics)?);
                 }
                 Ok(())
-            })?;
+            };
+            let work = if sparse {
+                let mut ordered = bucket.iter().collect::<Vec<_>>();
+                ordered.sort_by_key(|f| f.table.len());
+                let mut remaining = limit;
+                compatible_rows(
+                    &ordered,
+                    &domains,
+                    &mut vec![0; n],
+                    &mut vec![false; n],
+                    &mut remaining,
+                    &mut emit,
+                )?;
+                if cfg!(feature = "metrics") {
+                    join_probes += limit - remaining;
+                }
+                joined
+            } else {
+                assignments(&union, &domains, limit, emit)?
+            };
             if cfg!(feature = "metrics") {
                 visits += work;
                 peak = peak.max(table.len());
@@ -246,6 +333,7 @@ impl Problem {
             factors,
             semantics,
             elimination_visits: visits,
+            join_probes,
             peak_entries: peak,
         })
     }

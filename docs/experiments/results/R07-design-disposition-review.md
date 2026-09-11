@@ -1,6 +1,6 @@
 # Why designs were set aside—and what the experiments actually establish
 
-Trace reclamation preserves 60544 service checkpoints and completes 576 allocation plus 1440 ordinary runs. Frequent clearing lowers some peaks but loses reuse; sixteen-query clearing preserves seven joint runtime gains without lowering their peaks. Portfolio review selects T076 sparse connected projection; T075 remains unfinished, review count reset, goal active. [Reclamation](S05-call-reclamation.md) · [Portfolio decision](S05-call-reclamation-review.md).
+Sparse elimination matches independent finite answers and connected source multiplicities. A six-coordinate equality star uses 164 row probes versus 5,456 Cartesian assignments; a dense four-coordinate control uses 1,676 probes for 336 tuples. T076 next compares complete costs using the same greedy order and enumeration controls; package count one, goal active. [Sparse elimination](S06-sparse-elimination.md).
 
 Generated runtime timing validates 10,080 processes and 1,152 comparisons. Four repeated-query cases qualify faster with traces than all six controls; generated matching qualifies against generic indexed execution in fifteen cases. Stronger-control diagnostics leave generated-plus-inferred gains uncertain and select longer prepared sessions plus compiler amortization including Direct, scan and inferred controls. T075 active; package count one, goal active. [Generated runtime](S05-call-generated-timing.md).
 

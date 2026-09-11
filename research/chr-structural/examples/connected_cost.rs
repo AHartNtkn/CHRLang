@@ -135,6 +135,10 @@ impl Iterator for Output<'_> {
 impl Prepared {
     fn new(mode: &str, r: &Region, visible: &[Var]) -> Self {
         match mode {
+            "sparse" => Self::Projection(
+                r.prepare_sparse(visible, &[], &[], Observation::Counted, 100_000)
+                    .unwrap(),
+            ),
             "projection" => Self::Projection(
                 r.prepare(visible, &[], &[], Observation::Counted, 100_000)
                     .unwrap(),

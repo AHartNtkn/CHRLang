@@ -39,22 +39,27 @@ fn check(p: &Problem, visible: &[usize]) {
         .collect::<Vec<_>>();
     for semantics in [Semantics::Set, Semantics::Counted] {
         for order in [hidden.clone(), hidden.iter().rev().copied().collect()] {
-            let projected = p.project(visible, &[], &order, semantics, 100_000).unwrap();
-            assert_eq!(
-                projected.answers(&[], 100_000).unwrap(),
-                expected(&rows, visible, semantics)
-            );
-            for &v in visible {
-                for value in 0..3 {
-                    let want = rows
-                        .iter()
-                        .filter(|r| r[v] == value)
-                        .cloned()
-                        .collect::<Vec<_>>();
-                    assert_eq!(
-                        projected.answers(&[(v, value)], 100_000).unwrap(),
-                        expected(&want, visible, semantics)
-                    );
+            for projected in [
+                p.project(visible, &[], &order, semantics, 100_000).unwrap(),
+                p.project_sparse(visible, &[], &order, semantics, 100_000)
+                    .unwrap(),
+            ] {
+                assert_eq!(
+                    projected.answers(&[], 100_000).unwrap(),
+                    expected(&rows, visible, semantics)
+                );
+                for &v in visible {
+                    for value in 0..3 {
+                        let want = rows
+                            .iter()
+                            .filter(|r| r[v] == value)
+                            .cloned()
+                            .collect::<Vec<_>>();
+                        assert_eq!(
+                            projected.answers(&[(v, value)], 100_000).unwrap(),
+                            expected(&want, visible, semantics)
+                        );
+                    }
                 }
             }
         }
@@ -477,4 +482,87 @@ fn connected_greedy_work_includes_dense_adverse_control() {
             assert_eq!(projected.elimination_visits, if dense { 504 } else { 28 });
         }
     }
+}
+
+#[test]
+fn sparse_elimination_avoids_impossible_cartesian_assignments() {
+    for width in [3, 6, 12] {
+        let p = Problem {
+            domains: vec![vec![0, 1, 2, 3]; width],
+            filters: (1..width)
+                .map(|i| Relation {
+                    scope: vec![i, 0],
+                    rows: (0..4).map(|v| vec![v, v]).collect(),
+                })
+                .collect(),
+        };
+        let order = (0..width - 1).collect::<Vec<_>>();
+        let sparse = p
+            .project_sparse(&[width - 1], &[], &order, Semantics::Counted, 100_000)
+            .unwrap();
+        assert_eq!(
+            sparse.answers(&[], 100_000).unwrap(),
+            BTreeMap::from([(vec![0], 1), (vec![1], 1), (vec![2], 1), (vec![3], 1)])
+        );
+        let dense = p.project(&[width - 1], &[], &order, Semantics::Counted, 100_000);
+        if width == 12 {
+            assert!(dense.is_err());
+        } else {
+            assert_eq!(
+                dense.as_ref().unwrap().answers(&[], 100_000).unwrap(),
+                sparse.answers(&[], 100_000).unwrap()
+            );
+        }
+        eprintln!(
+            "width={width} sparse_probes={} joined={} cartesian={:?}",
+            sparse.join_probes,
+            sparse.elimination_visits,
+            dense.map(|x| x.elimination_visits)
+        );
+    }
+}
+
+#[test]
+fn sparse_join_handles_dense_rows_and_outside_domain_values() {
+    for width in [3, 4] {
+        let p = Problem {
+            domains: vec![vec![0, 1, 2, 3]; width],
+            filters: (1..width)
+                .map(|i| Relation {
+                    scope: vec![i, 0],
+                    rows: (0..4)
+                        .flat_map(|a| (0..4).map(move |b| vec![a, b]))
+                        .collect(),
+                })
+                .collect(),
+        };
+        check(&p, &[width - 1]);
+        let order = (0..width - 1).collect::<Vec<_>>();
+        let sparse = p
+            .project_sparse(&[width - 1], &[], &order, Semantics::Counted, 100_000)
+            .unwrap();
+        let cartesian = p
+            .project(&[width - 1], &[], &order, Semantics::Counted, 100_000)
+            .unwrap();
+        eprintln!(
+            "dense_width={width} probes={} joined={} cartesian={}",
+            sparse.join_probes, sparse.elimination_visits, cartesian.elimination_visits
+        );
+    }
+    let mut p = Problem {
+        domains: vec![vec![0, 0, 1], vec![1, 2], vec![0, 1]],
+        filters: vec![
+            Relation {
+                scope: vec![1, 0],
+                rows: vec![vec![1, 0], vec![1, 0], vec![9, 9]],
+            },
+            Relation {
+                scope: vec![0, 2],
+                rows: vec![vec![0, 1]],
+            },
+        ],
+    };
+    check(&p, &[2, 1]);
+    p.filters[1].rows.clear();
+    check(&p, &[2, 1]);
 }

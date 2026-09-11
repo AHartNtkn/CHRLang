@@ -9,7 +9,7 @@ goal:
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
   execution_sequence: docs/experiments/next-cycle.md
-  current_research: "Trace reclamation preserves 60544 service checkpoints and completes 576 allocation plus 1440 ordinary runs. Frequent clearing lowers some peaks but loses reuse; sixteen-query clearing preserves seven joint runtime gains without lowering their peaks. Portfolio review selects T076 sparse connected projection; T075 remains unfinished, review count reset, goal active."
+  current_research: "Sparse elimination matches independent finite answers and connected source multiplicities. A six-coordinate equality star uses 164 row probes versus 5,456 Cartesian assignments; a dense four-coordinate control uses 1,676 probes for 336 tuples. T076 next compares complete costs using the same greedy order and enumeration controls; package count one, goal active."
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -295,10 +295,12 @@ tasks:
     type: pm
     assignee: PM
     status: active
-    progress: "Trace reclamation preserves 60544 service checkpoints and completes 576 allocation plus 1440 ordinary runs. Frequent clearing lowers some peaks but loses reuse; sixteen-query clearing preserves seven joint runtime gains without lowering their peaks. Portfolio review selects T076 sparse connected projection; T075 remains unfinished, review count reset, goal active."
-    next_action: "Inspect the existing counted connected projection and identify Cartesian relation traversal that sparse joins could avoid. Register sparse and dense controls before implementation/runs; preserve independent complete denotation, duplicate multiplicity and ordered source answers. Reuse current solver and enumeration controls, then measure relation construction, preparation, query/output and disposal. Reassess broader caller observers and selective retention at the result or obstruction; review count reset."
+    progress: "Sparse elimination matches independent finite answers and connected source multiplicities. A six-coordinate equality star uses 164 row probes versus 5,456 Cartesian assignments; a dense four-coordinate control uses 1,676 probes for 336 tuples. T076 next compares complete costs using the same greedy order and enumeration controls; package count one, goal active."
+    next_action: "Register complete connected lifecycle costs for sparse, Cartesian and enumeration controls using identical greedy elimination order. Add an always-true two-coordinate relation as a dense adverse fixture, alongside equality stars/cliques and unequal-name relations. Measure relation construction, preparation, changing queries, weighted output consumption and disposal with separate allocation and ordinary timing. Preserve independent counted answers and distinguish tuple order from operational source derivation order. Diagnose repeated row scans or preparation if consequential before adding indexes; reconsider broader caller observers and selective retention at the result. Package count one."
     objective: Investigate compact finite structural spaces, intersection and finite path equality against explicit enumeration, with independently specified denotation, source multiplicity correspondence, favorable and adverse sources and complete lifecycle costs.
     inputs:
+      - docs/experiments/results/S06-sparse-elimination.md
+      - docs/experiments/registrations/S06-sparse-elimination.md
       - docs/experiments/results/S05-call-reclamation.md
       - docs/experiments/results/S05-call-reclamation-review.md
       - docs/experiments/registrations/S05-call-reclamation.md
@@ -2702,9 +2704,12 @@ checks:
   dirty_fingerprint: unrelated_untracked_files_preserved
   last_verification:
     result: passed
-    task: T075
-    scope: Query-window reclamation, regeneration, complete ownership and counter-free runtime.
+    task: T076
+    scope: Sparse row elimination and connected counted-answer correctness.
     commands:
+      - "Projection and joint_projection tests pass default/off; both traversals checked against2048 independent problem/visibility combinations and2048 connected observations across128 sources"
+      - "Sparse/dense work witnesses: equality star width6 probes164 versus5456 assignments; dense width4 probes1676 with336 tuples; width12 sparse completes within380 probes"
+      - "Scoped library, connected runner and projection/source tests pass Clippy"
       - "Reclamation semantic test: 512 complete queries, 512 cancellation prefixes and 60544 complete service checkpoints agree with Direct and independent answers"
       - "call_reclamation.py: 576 allocation runs, exact repeated requested/peak/consumer bytes and final release; retained outputs remain correct"
       - "call_reclamation.py time: 1440 ordinary runs and 528 comparisons, complete lifecycle including maintenance; clock floor2300ns"

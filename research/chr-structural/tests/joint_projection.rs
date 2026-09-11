@@ -385,27 +385,34 @@ fn connected_counted_sources_match_scalar_and_reference() {
                         .collect::<BTreeSet<_>>();
                     assert_eq!(set, expected.keys().cloned().collect());
                     for mode in [O::LogicalSet, O::Counted] {
-                        let prepared = r.prepare(&visible, &[], &[], mode, 100_000).unwrap();
-                        for restricted in [None, Some(atom("a")), Some(atom("b")), None] {
-                            let restrictions = visible
-                                .first()
-                                .zip(restricted)
-                                .map(|(x, t)| vec![(*x, t)])
-                                .unwrap_or_default();
-                            let wanted = expected
-                                .iter()
-                                .filter(|(row, _)| {
-                                    restrictions.is_empty() || row[0] == restrictions[0].1
-                                })
-                                .map(|(row, n)| {
-                                    (row.clone(), if matches!(mode, O::Counted) { *n } else { 1 })
-                                })
-                                .collect::<BTreeMap<_, _>>();
-                            assert_eq!(
-                                prepared.weighted_answers(&restrictions, 100_000).unwrap(),
-                                wanted
-                            );
-                            observations += 1;
+                        for prepared in [
+                            r.prepare(&visible, &[], &[], mode, 100_000).unwrap(),
+                            r.prepare_sparse(&visible, &[], &[], mode, 100_000).unwrap(),
+                        ] {
+                            for restricted in [None, Some(atom("a")), Some(atom("b")), None] {
+                                let restrictions = visible
+                                    .first()
+                                    .zip(restricted)
+                                    .map(|(x, t)| vec![(*x, t)])
+                                    .unwrap_or_default();
+                                let wanted = expected
+                                    .iter()
+                                    .filter(|(row, _)| {
+                                        restrictions.is_empty() || row[0] == restrictions[0].1
+                                    })
+                                    .map(|(row, n)| {
+                                        (
+                                            row.clone(),
+                                            if matches!(mode, O::Counted) { *n } else { 1 },
+                                        )
+                                    })
+                                    .collect::<BTreeMap<_, _>>();
+                                assert_eq!(
+                                    prepared.weighted_answers(&restrictions, 100_000).unwrap(),
+                                    wanted
+                                );
+                                observations += 1;
+                            }
                         }
                     }
                     configurations += 1;
@@ -414,5 +421,5 @@ fn connected_counted_sources_match_scalar_and_reference() {
         }
     }
     assert_eq!(configurations, 128);
-    assert_eq!(observations, 1024);
+    assert_eq!(observations, 2048);
 }
