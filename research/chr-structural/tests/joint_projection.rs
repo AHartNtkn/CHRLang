@@ -34,12 +34,15 @@ fn accepted(p: &P, b: &BTreeMap<Var, Term>) -> bool {
     }
 }
 fn enumeration(r: &Region, visible: &[Var]) -> BTreeSet<Vec<Term>> {
+    enumeration_weights(r, visible).into_keys().collect()
+}
+fn enumeration_weights(r: &Region, visible: &[Var]) -> BTreeMap<Vec<Term>, u128> {
     fn walk(
         r: &Region,
         vars: &[Var],
         b: &mut BTreeMap<Var, Term>,
         visible: &[Var],
-        out: &mut BTreeSet<Vec<Term>>,
+        out: &mut BTreeMap<Vec<Term>, u128>,
     ) {
         if let Some((x, rest)) = vars.split_first() {
             for t in &r.domains[x] {
@@ -47,10 +50,11 @@ fn enumeration(r: &Region, visible: &[Var]) -> BTreeSet<Vec<Term>> {
                 walk(r, rest, b, visible, out)
             }
         } else if r.predicates.iter().all(|p| accepted(p, b)) {
-            out.insert(visible.iter().map(|x| b[x].clone()).collect());
+            *out.entry(visible.iter().map(|x| b[x].clone()).collect())
+                .or_default() += 1;
         }
     }
-    let mut out = BTreeSet::new();
+    let mut out = BTreeMap::new();
     walk(
         r,
         &r.domains.keys().copied().collect::<Vec<_>>(),
@@ -226,4 +230,189 @@ fn observation_groundness_and_resource_bounds_are_checked() {
             .prepare(&[Var(0)], &[], &[], O::LogicalSet, 100_000)
             .is_err()
     );
+}
+
+#[test]
+fn counted_aliases_preserve_domain_choice_weights() {
+    let region = Region {
+        domains: BTreeMap::from([(Var(0), vec![atom("a"), atom("a"), atom("b")])]),
+        predicates: vec![],
+    };
+    let prepared = region
+        .prepare(&[Var(0), Var(0)], &[], &[], O::Counted, 100)
+        .unwrap();
+    assert_eq!(
+        prepared.weighted_answers(&[], 100).unwrap(),
+        BTreeMap::from([
+            (vec![atom("a"), atom("a")], 2),
+            (vec![atom("b"), atom("b")], 1),
+        ])
+    );
+}
+
+#[path = "../../chr-direct-conditional/tests/runtime_support/mod.rs"]
+#[allow(dead_code)]
+mod scalar;
+
+// Truth-table lowering is a source control, independent of the production
+// predicate compiler. Each satisfying assignment has exactly one filter branch.
+fn source(r: &Region, visible: &[Var]) -> (Vec<Rule>, chr_syntax::Query) {
+    use chr_syntax::{Goal, eq, or};
+    fn choices(mut gs: Vec<Goal>) -> Goal {
+        let mut result = gs.pop().unwrap_or(Goal::Fail);
+        while let Some(g) = gs.pop() {
+            result = or(g, result);
+        }
+        result
+    }
+    let mut rules = vec![];
+    let mut constraints = vec![];
+    for (x, domain) in &r.domains {
+        let name = format!("choose{}", x.0);
+        rules.push(Rule::simplify(
+            &name,
+            [c(&name, [v(0)])],
+            choices(domain.iter().map(|t| eq(v(0), t.clone())).collect()),
+        ));
+        constraints.push(c(&name, [Term::Var(*x)]));
+    }
+    let all = r.domains.keys().copied().collect::<Vec<_>>();
+    for (i, predicate) in r.predicates.iter().enumerate() {
+        let table = enumeration(
+            &Region {
+                domains: r.domains.clone(),
+                predicates: vec![predicate.clone()],
+            },
+            &all,
+        );
+        let name = format!("filter{i}");
+        rules.push(Rule::simplify(
+            &name,
+            [c(
+                &name,
+                all.iter().map(|x| Term::Var(*x)).collect::<Vec<_>>(),
+            )],
+            choices(
+                table
+                    .into_iter()
+                    .map(|row| {
+                        Goal::And(
+                            all.iter()
+                                .zip(row)
+                                .map(|(x, t)| eq(Term::Var(*x), t))
+                                .collect(),
+                        )
+                    })
+                    .collect(),
+            ),
+        ));
+        constraints.push(c(
+            &name,
+            all.iter().map(|x| Term::Var(*x)).collect::<Vec<_>>(),
+        ));
+    }
+    (
+        rules,
+        chr_syntax::Query {
+            constraints,
+            outputs: visible
+                .iter()
+                .enumerate()
+                .map(|(i, x)| (format!("out{i}"), *x))
+                .collect(),
+        },
+    )
+}
+
+#[test]
+fn connected_counted_sources_match_scalar_and_reference() {
+    let mut configurations = 0;
+    let mut observations = 0;
+    for duplicate in [false, true] {
+        let mut choices = vec![atom("a"), atom("b"), t("lam", [atom("a"), atom("a")])];
+        if duplicate {
+            choices.push(atom("a"));
+        }
+        for pattern in 0..4 {
+            let mut predicates = vec![P::Different(v(2), v(0)), P::Different(v(2), v(1))];
+            match pattern {
+                0 => (),
+                1 => predicates.push(P::Equal(v(0), v(1))),
+                2 => predicates.push(predicates[0].clone()),
+                3 => predicates.push(P::Equal(v(2), v(0))),
+                _ => unreachable!(),
+            }
+            let r = Region {
+                domains: (0..3).map(|i| (Var(i), choices.clone())).collect(),
+                predicates,
+            };
+            for mask in 0..8 {
+                for alias in [false, true] {
+                    let mut visible = (0..3)
+                        .rev()
+                        .filter(|i| mask & (1 << i) != 0)
+                        .map(Var)
+                        .collect::<Vec<_>>();
+                    if alias && !visible.is_empty() {
+                        visible.push(visible[0]);
+                    }
+                    let expected = enumeration_weights(&r, &visible);
+                    let (rules, query) = source(&r, &visible);
+                    let raw = scalar::run(&rules, &query, 1_000_000);
+                    let mut bag = BTreeMap::new();
+                    for answer in raw {
+                        assert!(answer.residual.is_empty());
+                        *bag.entry(
+                            answer
+                                .outputs
+                                .into_iter()
+                                .map(|(_, t)| t)
+                                .collect::<Vec<_>>(),
+                        )
+                        .or_insert(0u128) += 1;
+                    }
+                    assert_eq!(bag, expected);
+                    let mut reference = chr_reference::Search::new(rules, query).unwrap();
+                    let batch = reference.advance(1_000_000);
+                    assert!(batch.exhausted);
+                    let set = batch
+                        .answers
+                        .into_iter()
+                        .map(|a| {
+                            assert!(a.residual.is_empty());
+                            a.outputs.into_iter().map(|(_, t)| t).collect::<Vec<_>>()
+                        })
+                        .collect::<BTreeSet<_>>();
+                    assert_eq!(set, expected.keys().cloned().collect());
+                    for mode in [O::LogicalSet, O::Counted] {
+                        let prepared = r.prepare(&visible, &[], &[], mode, 100_000).unwrap();
+                        for restricted in [None, Some(atom("a")), Some(atom("b")), None] {
+                            let restrictions = visible
+                                .first()
+                                .zip(restricted)
+                                .map(|(x, t)| vec![(*x, t)])
+                                .unwrap_or_default();
+                            let wanted = expected
+                                .iter()
+                                .filter(|(row, _)| {
+                                    restrictions.is_empty() || row[0] == restrictions[0].1
+                                })
+                                .map(|(row, n)| {
+                                    (row.clone(), if matches!(mode, O::Counted) { *n } else { 1 })
+                                })
+                                .collect::<BTreeMap<_, _>>();
+                            assert_eq!(
+                                prepared.weighted_answers(&restrictions, 100_000).unwrap(),
+                                wanted
+                            );
+                            observations += 1;
+                        }
+                    }
+                    configurations += 1;
+                }
+            }
+        }
+    }
+    assert_eq!(configurations, 128);
+    assert_eq!(observations, 1024);
 }

@@ -439,3 +439,42 @@ fn empty_domains_precede_cartesian_size_overflow() {
         );
     }
 }
+
+#[test]
+fn connected_greedy_work_includes_dense_adverse_control() {
+    for dense in [false, true] {
+        let edges = (0..8)
+            .flat_map(|a| {
+                (a + 1..8)
+                    .filter(move |_| dense || a == 0)
+                    .map(move |b| (a, b))
+            })
+            .collect::<Vec<_>>();
+        let p = Problem {
+            domains: vec![vec![0, 1]; 8],
+            filters: edges
+                .iter()
+                .map(|(a, b)| Relation {
+                    scope: vec![*a, *b],
+                    rows: vec![vec![0, 0], vec![1, 1]],
+                })
+                .collect(),
+        };
+        let order = p.elimination_order(&[6, 7]).unwrap();
+        let projected = p
+            .project(&[6, 7], &[], &order, Semantics::Counted, 100_000)
+            .unwrap();
+        assert_eq!(
+            projected.answers(&[], 100).unwrap(),
+            expected(&full(&p), &[6, 7], Semantics::Counted)
+        );
+        if cfg!(feature = "metrics") {
+            let relation_candidates = 4 * edges.len();
+            eprintln!(
+                "dense={dense} order={order:?} relation_candidates={relation_candidates} elimination_visits={} peak_entries={} full_assignments=256",
+                projected.elimination_visits, projected.peak_entries
+            );
+            assert_eq!(projected.elimination_visits, if dense { 504 } else { 28 });
+        }
+    }
+}

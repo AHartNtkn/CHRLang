@@ -9,7 +9,7 @@ goal:
   governing_sequence: docs/experiments/sequence.md
   question_map: docs/experiments/coverage.md
   execution_sequence: docs/experiments/next-cycle.md
-  current_research: "Recognition timing validates 20,480 sessions after 2,048 exact entries. Strides 4 and 16 qualify faster than stride 1 in 239 and 240 of 256 cases, but not against Direct or nonmemoized separation. The single sealed-adverse case still favors Direct. Full 57-question review selects T076 connected finite projection and multiplicity; T075 remains pending, review count reset, goal active."
+  current_research: "Connected counted projection repairs duplicate-choice and output-alias support. All 128 scalar/reference source configurations and 1,024 prepared observations agree. Star elimination visits 28 assignments; dense elimination visits 504 against 256 full assignments, with local relation work separately counted. T076 remains active for complete connected lifecycle costs and ordered transport; package count one, goal active."
   oracle:
     signal: Discriminating evidence supports architecture and language decisions across efficiency, necessary complexity and explicit tradeoffs.
     cadence: After each experimental package and at cross-family review.
@@ -295,8 +295,8 @@ tasks:
     type: pm
     assignee: PM
     status: active
-    progress: "Recognition timing validates 20,480 sessions after 2,048 exact entries. Strides 4 and 16 qualify faster than stride 1 in 239 and 240 of 256 cases, but not against Direct or nonmemoized separation. The single sealed-adverse case still favors Direct. Full 57-question review selects T076 connected finite projection and multiplicity; T075 remains pending, review count reset, goal active."
-    next_action: "Inspect finite projection and joint-region interfaces; register a connected source gate with shared hidden coordinates, repeated relations, contradiction, output aliases and multiplicity. Compare counted/raw occurrences with logical-set projection explicitly; repair fixtures and interfaces rather than assume a language restriction. Use independent scalar enumeration and explicit controls; establish actual eliminated work before full lifecycle costs. Reassess call-boundary recognition and broader solving at the gate. Review count reset."
+    progress: "Connected counted projection repairs duplicate-choice and output-alias support. All 128 scalar/reference source configurations and 1,024 prepared observations agree. Star elimination visits 28 assignments; dense elimination visits 504 against 256 full assignments, with local relation work separately counted. T076 remains active for complete connected lifecycle costs and ordered transport; package count one, goal active."
+    next_action: "Register and run complete connected lifecycle costs using existing projection/enumeration controls, including dense adverse cases, multiplicities, aliases and changing restrictions. Charge source, encoding, ordering, observation and disposal; separate ordinary timing and allocation builds. Follow the demonstrated ordered-expansion counterexample with source-choice provenance, prefix and cancellation/restart tests. Compare sparse factor traversal and whole-call recognition at the next gate. Package count one."
     objective: Investigate compact finite structural spaces, intersection and finite path equality against explicit enumeration, with independently specified denotation, source multiplicity correspondence, favorable and adverse sources and complete lifecycle costs.
     inputs:
       - docs/experiments/results/S06-unique-confirmation.md
@@ -2683,9 +2683,12 @@ checks:
   dirty_fingerprint: unrelated_untracked_files_preserved
   last_verification:
     result: passed
-    task: T075
-    scope: Recognition-stride ordinary lifecycle timing, favorable-case diagnosis and full portfolio review.
+    task: T076
+    scope: Connected counted term projection, aliases, independent source bags, changing restrictions and adverse work control.
     commands:
+      - "joint_projection, projection, projection_lifecycle, diagram_source, symbolic_transport: 28 tests pass with default metrics and no default features"
+      - "Scoped joint_projection/projection Clippy passes in both feature configurations"
+      - "Connected work: star relation candidates 28, elimination visits 28; dense 112 and 504; both full assignment controls 256"
       - "recognition_timing.py --audit:2048 exact entries before timing,20480 sessions,7168 clock-qualified contrasts"
       - "recognition_timing_diagnosis.py:sealed-adverse case still favors Direct; free-disposal medians remain above Direct for both strides"
       - "recognition_ownership.py --exact-output --audit:4096 processes,2048 exact repetitions,256 consumer-equivalent scenarios,zero unreleased bytes"
@@ -2751,6 +2754,8 @@ checks:
       - "audit_probe_clock.py: 18000 separately instrumented complete sessions"
       - Scoped ordinary, allocation and CPU-clock Clippy; source hashes, report links and 57-question map
     evidence:
+      - docs/experiments/results/S06-connected-counted-entry.md
+      - docs/experiments/registrations/S06-connected-counted-entry.md
       - docs/experiments/results/S08-answer-validity-stable-timing.md
       - docs/experiments/results/S08-answer-validity-timing-review.md
       - docs/experiments/results/S08-template-expression-ids.md

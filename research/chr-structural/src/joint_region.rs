@@ -1,4 +1,4 @@
-//! Finite ground logical regions; raw CHR observations are outside this contract.
+//! Finite ground regions with set or counted tuple observations.
 use crate::{
     joint,
     normal_forms::Requirement,
@@ -16,6 +16,8 @@ pub enum Predicate {
 #[derive(Clone, Copy)]
 pub enum Observation {
     LogicalSet,
+    /// Domain-choice multiplicities, without source scheduling order.
+    Counted,
     RawAnswers,
 }
 pub struct Region {
@@ -27,6 +29,7 @@ pub struct Prepared {
     variables: Vec<Var>,
     domains: Vec<Vec<Term>>,
     visible: Vec<usize>,
+    output_slots: Vec<usize>,
 }
 fn variables(t: &Term, out: &mut BTreeSet<Var>) {
     match t {
@@ -99,6 +102,19 @@ impl Region {
                     .ok_or("unknown visible variable".to_string())
             })
             .collect::<Result<Vec<_>, _>>()?;
+        let mut projected = Vec::new();
+        let output_slots = output
+            .iter()
+            .map(|i| {
+                if let Some(j) = projected.iter().position(|x| x == i) {
+                    j
+                } else {
+                    projected.push(*i);
+                    projected.len() - 1
+                }
+            })
+            .collect();
+        let output = projected;
         let mut shared = BTreeSet::new();
         for c in host {
             for t in &c.args {
@@ -137,7 +153,13 @@ impl Region {
         let mut problem = Problem {
             domains: domains
                 .iter()
-                .map(|xs| (0..xs.len()).map(|i| i as u8).collect())
+                .zip(self.domains.values())
+                .map(|(dictionary, choices)| {
+                    choices
+                        .iter()
+                        .map(|t| dictionary.binary_search(t).unwrap() as u8)
+                        .collect()
+                })
                 .collect(),
             filters: vec![],
         };
@@ -200,12 +222,18 @@ impl Region {
             problem.filters.push(Relation { scope, rows });
         }
         let order = problem.elimination_order(&output)?;
-        let projection = problem.project(&output, &shared, &order, Semantics::Set, limit)?;
+        let semantics = match observation {
+            Observation::Counted => Semantics::Counted,
+            Observation::LogicalSet => Semantics::Set,
+            Observation::RawAnswers => unreachable!(),
+        };
+        let projection = problem.project(&output, &shared, &order, semantics, limit)?;
         Ok(Prepared {
             projection,
             variables: self.domains.keys().copied().collect(),
             domains,
             visible: output,
+            output_slots,
         })
     }
 }
@@ -215,6 +243,16 @@ impl Prepared {
         restrictions: &[(Var, Term)],
         limit: usize,
     ) -> Result<BTreeSet<Vec<Term>>, String> {
+        Ok(self
+            .weighted_answers(restrictions, limit)?
+            .into_keys()
+            .collect())
+    }
+    pub fn weighted_answers(
+        &self,
+        restrictions: &[(Var, Term)],
+        limit: usize,
+    ) -> Result<BTreeMap<Vec<Term>, u128>, String> {
         let mut coordinates = Vec::with_capacity(restrictions.len());
         for (x, t) in restrictions {
             let i = self
@@ -230,19 +268,22 @@ impl Prepared {
         let mut mapped = vec![];
         for (i, t) in coordinates {
             let Some(value) = self.domains[i].iter().position(|v| v == t) else {
-                return Ok(BTreeSet::new());
+                return Ok(BTreeMap::new());
             };
             mapped.push((i, value as u8));
         }
         Ok(self
             .projection
             .answers(&mapped, limit)?
-            .into_keys()
-            .map(|row| {
-                row.into_iter()
-                    .zip(&self.visible)
-                    .map(|(v, i)| self.domains[*i][v as usize].clone())
-                    .collect()
+            .into_iter()
+            .map(|(row, weight)| {
+                (
+                    self.output_slots
+                        .iter()
+                        .map(|j| self.domains[self.visible[*j]][row[*j] as usize].clone())
+                        .collect(),
+                    weight,
+                )
             })
             .collect())
     }
