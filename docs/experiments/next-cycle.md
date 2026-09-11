@@ -1,6 +1,6 @@
 # Experimental sequence for the unanswered architecture questions
 
-Ordered hidden contraction preserves 192 complete raw caller sequences while admitting 9600 of 26112 Cartesian assignments. Unequal branch lengths require work-first ordering; the repaired merge passes. T076 next measures complete caller costs against matched enumeration and source execution; package count two, goal active. [Ordered hidden search](results/S06-ordered-hidden.md).
+Ordered caller costs validate 1568 final processes. Projection wins 36/64 against Direct source execution and 3/64 against enumeration; dense lazy enumeration leaves zero projection gains. T076 next investigates repeated consuming-continuation reuse on both paths; package count three, portfolio review after next package, goal active. [Ordered caller costs](results/S06-ordered-cost.md).
 
 Generated runtime timing validates 10,080 processes and 1,152 comparisons. Four repeated-query cases qualify faster with traces than all six controls; generated matching qualifies against generic indexed execution in fifteen cases. Stronger-control diagnostics leave generated-plus-inferred gains uncertain and select longer prepared sessions plus compiler amortization including Direct, scan and inferred controls. T075 active; package count one, goal active. [Generated runtime](results/S05-call-generated-timing.md).
 

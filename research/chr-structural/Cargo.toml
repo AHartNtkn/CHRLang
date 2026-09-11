@@ -12,7 +12,8 @@ session-clock = []
 chr-syntax = { path = "../../crates/chr-syntax" }
 [dev-dependencies]
 chr-reference = { path = "../../crates/chr-reference" }
-chr-observe = { path = "../chr-observe" }
+chr-observe = { path = "../chr-observe", default-features = false }
+chr-reuse = { path = "../chr-reuse", default-features = false }
 chr-programs = { path = "../../crates/chr-programs" }
 
 [[test]]
